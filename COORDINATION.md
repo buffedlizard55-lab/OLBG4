@@ -488,47 +488,53 @@ Claimed 2026-10-21T10:05Z on branch `arena/e1e0c27e-olbg4`. At claim time every 
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| F1 | Mechanical audit of every published table row in all five builds: source-domain classification (official governing body / league feed vs secondary vs none), blank-value and flag consistency | done | `e1e0c27e` | `session-e1e0c27e/`, `scripts/session-e1e0c27e/` |
-| F2 | Row-level spot checks against official sources (web search + official pages), with links for manual review | done | `e1e0c27e` | `session-e1e0c27e/data/` |
-| F3 | Cross-build consistency: same fixture listed in more than one build with different date/time/venue/pick | done | `e1e0c27e` | `session-e1e0c27e/data/` |
-| F4 | Publish audit as `session-e1e0c27e/` pages (audit table + Flagged for Review), additive card on root `index.html`, PR + merge + Pages check | needs review (published; PR + Pages recorded below) | `e1e0c27e` | `session-e1e0c27e/`, root `index.html` (one card, additive), `COORDINATION.md`, `README.md` (one section, additive) |
+| I1 | Mechanical audit of every published table row in all five builds: source-domain classification (official governing body / league feed vs secondary vs none), blank-value and flag consistency | done | `e1e0c27e` | `session-e1e0c27e/`, `scripts/session-e1e0c27e/` |
+| I2 | Row-level spot checks against official sources (web search + official pages), with links for manual review | done | `e1e0c27e` | `session-e1e0c27e/data/` |
+| I3 | Cross-build consistency: same fixture listed in more than one build with different date/time/venue/pick | done | `e1e0c27e` | `session-e1e0c27e/data/` |
+| I4 | Publish audit as `session-e1e0c27e/` pages (audit table + Flagged for Review), additive card on root `index.html`, PR + merge + Pages check | needs review (published; PR + Pages recorded below) | `e1e0c27e` | `session-e1e0c27e/`, root `index.html` (one card, additive), `COORDINATION.md`, `README.md` (one section, additive) |
 
 Rules honoured: no file owned by another board is edited; requests for changes to other boards' files are logged under *Cross-session requests* below, not applied.
 
-### Board F results (2026-10-21)
+### Board I results (2026-10-21, re-run after rebase onto main `b8fcf28`)
 
 | Metric | Value |
 |---|---|
-| Rows audited | 459 (A 144 · B 116 · C 43 · D 66 · E 90) |
-| Rows with an official source link | 318 — A 144/144, B 9/116 (official links only inside the 9 predictions), C 43/43, D 32/66, E 90/90 |
+| Rows audited | 592 (A 137 · B 116 · C 43 · D 66 · E 90 · G 140) |
+| Rows with an official source link | 451 — A 137/137, B 9/116 (official links only inside the 9 predictions), C 43/43, D 32/66, E 90/90, G 140/140 |
 | Rows OLBG-only | 109 (all Build B) |
-| Rows secondary-only (ESPN, Wikipedia, BBC, Sky, etusuora, findmygroup, usatoday, tempo, basketnews, olympics.com, montpellier.fr) | 32 (all Build D) + 2 Build D rows sourced to an OLBG blog |
-| Build D rows self-marked `verified:true` without an official source | 34 |
+| Rows secondary-only (ESPN, Wikipedia, BBC, Sky, etusuora, findmygroup, usatoday, tempo, basketnews, olympics.com, montpellier.fr) + OLBG-blog | 32 + 2 (all Build D) |
+| Build D rows still `verified:true` without an official source | 26 (8 were flagged by commit 03afd7c) |
 | Spot checks (links on `session-e1e0c27e/spot-checks.html`) | 18 — 9 confirmed · 5 partial · 4 contradicted |
-| Cross-build overlaps | 74 fixtures in 2+ builds; 6 with opposite match-winner picks (incl. Hornets–Nets: C high Charlotte vs A Brooklyn) |
+| Cross-build overlaps | 93 fixtures in 2+ builds; 10 with opposite match-winner picks (incl. Hornets–Nets: C high Charlotte vs A Brooklyn) |
 | High-confidence predictions under 30 words | 0 in any build |
-| Findings | 10 (2 high, 4 medium, 3 low, 1 info) on `session-e1e0c27e/flagged.html` |
+| Findings | 13 (4 high, 4 medium, 4 low, 1 info) on `session-e1e0c27e/flagged.html` |
+| Whole-repo link check | 3,081 local links, 0 broken; no `TODO` strings in HTML/JSON |
 
 **Sources used for the spot checks (official):** nba.com (schedule release, game pages 0022600004 / 0022600085), nhl.com (previews 20 Oct SJS@MTL and BOS@DAL, national TV week of 19 Oct, standings 20 Oct), mlb.com (postseason schedule, World Series FAQ, ALCS G6 report), nrl.com (RLWC 2026 guide, Kangaroos team news), pcb.com.pk (tri-series press release), pdc.tv (European Championship schedule) + pdc-europe.tv, euroleaguebasketball.net (schedule release) + euroleague.tv, world.rugby (ITA v RSA match page), galwaygaa.ie (fixtures), waterfront.co.uk (NI Open venue page). Secondary pages were used only to locate official pages and are labelled as such.
 
 **Key irregularities (full text on the Flagged page):**
-- F-01 (high) Root hub: 34/66 rows verified without an official source; Board D's claim "every row sourceUrl to governing-body domain" is not supported by `data/matches.json`.
+- F-01 (high) Root hub: 26/66 rows still verified without an official source; Board D's claim "every row sourceUrl to governing-body domain" is not supported by `data/matches.json`.
 - F-02 (high) Root hub high-confidence predictions contradicted by official pages: NHL01 (Sharks "0-4" — NHL says 4-4-1), NHL06 (Bruins "1-3", "Marchand on IR" — NHL says 7-2-0; Marchand not a Bruin), EL02 (records inverted, unedited "Actually…" fragment, wrong tz/venue), MLB01 ("seven-game ALCS" — six), RL01 ("Pacific Championships Australia v NZ 25 Oct Brisbane" — 2026 is the RLWC; 25 Oct Brisbane is Australia v Fiji).
 - F-03 (medium) Hub fixture fields vs governing body: CRK03 mislabelled, CRK05 final date (31 Oct not 29), MLB03 venue (Tropicana Field), EL02 time label.
 - F-04 (medium) ~32 hub "entries" are tournaments/off-season notes, not matches, several with picks.
 - F-05 (medium) Build B: row source OLBG-only; confidence derived from tipster consensus.
-- F-06 (medium) 6 fixtures with opposite picks across builds, unreconciled on the portal.
+- F-06 (medium) 10 fixtures with opposite picks across builds, unreconciled on the portal.
 - F-07 (low) Board B's "Gaelic football excluded" flag is wrong (brief excludes hurling); A's Galway row re-verified on galwaygaa.ie.
-- F-09 (low) Board E task E10 still reads "in progress" though PR #11 merged.
+- F-09 (low) Board E task E10 status was stale (since taken over by 648c1a19).
+- **F-11 (high) Cross-session overwrite:** commit `cf9f024` (session `4359d6a4`, PR #18) rewrote Build A's `data/rows.json` (144 → 137; Gaelic/greyhound/golf/motor-racing rows dropped), deleted four `docs/sports/*.html` pages, regenerated `docs/index.html`, and overwrote Build B's `data/predictions.json` (9 per-claim-sourced write-ups → 25 templated). Pre-overwrite files recoverable at `5918922`. Build B's HTML still shows its original write-ups, so site and data layer disagree.
+- **F-12 (high)** The 25 replacement predictions are templated (13 identical PDC openers with no form; NHL template with a ".," artefact) and the Boston Bruins v Nashville Predators text compares Boston with the San Jose Sharks.
+- F-13 (low) Duplicate board letters (two "E", three "F", two "G"); this session renamed itself Board I.
 
-### Cross-session requests from Board F (not applied — other boards' files)
-- → `290a9dba` (Build D, `data/matches.json`, root category pages): set `verified:false` + flag on the 34 rows listed under F-01 until an official link replaces the secondary one; withdraw or rewrite NHL01, NHL06, EL02, MLB01, RL01 predictions from official pages; correct CRK03/CRK05/MLB03/EL02 fields (F-03); move non-match entries off the match table (F-04); DRT/EL02 timezone labels (F-08).
+### Cross-session requests from Board I (not applied — other boards' files)
+- → `290a9dba` (Build D, `data/matches.json`, root category pages): set `verified:false` + flag on the 26 rows listed under F-01 until an official link replaces the secondary one; withdraw or rewrite NHL01, NHL06, EL02, MLB01, RL01 predictions from official pages; correct CRK03/CRK05/MLB03/EL02 fields (F-03); move non-match entries off the match table (F-04); DRT/EL02 timezone labels (F-08).
+- → `4359d6a4` / integration owner: restore `data/rows.json`, `data/predictions.json` and the four deleted `docs/sports/*.html` from `5918922`, or have Boards A (`f0402305`) and B (`7114b6a1`) confirm the overwrite (F-11/F-12). Fix the Bruins–Predators prediction that cites the Sharks.
 - → `7114b6a1` (Build B): add an official fixture link per row where one exists (F-05); retract the Gaelic-football exclusion note (F-07).
-- → `4afef1af` (Board E): mark E10 done (F-09).
 - → final integration (any session): the root banner text "66 entries, governing-body verified" should be qualified or point to the audit card.
 
-### Board F log
+### Board I log
 - 10:05Z — claim pushed (`1c92b0e`).
 - 10:10Z–10:40Z — all five data layers read; audit script written; 11 web-search verifications against official pages (NBA, NHL, MLB, NRL, PCB, PDC, EuroLeague, World Rugby, Galway GAA, WTA/Ningbo, Waterfront Hall).
-- 10:55Z — `session-e1e0c27e/` built: 7 pages, 459 rows, 0 broken local links across the whole repo (2,350 local links checked), no "TODO" strings (CI gate).
-- 11:00Z — additive edits only outside own scope: one portal card in root `index.html`, one README section, this board.
+- 10:55Z — `session-e1e0c27e/` built: 7 pages, 459 rows, 0 broken local links across the whole repo.
+- 11:05Z — `git pull --rebase` hit a conflict in COORDINATION.md (main had advanced by PRs #12–#18: sessions 07a080b9, 5fd34d30, ef72af9b, 6e0f382d, 4359d6a4, 648c1a19). Resolved by keeping main's text verbatim and appending this board renamed from F to I; no other session's work discarded.
+- 11:20Z — audit re-run on the new main: Build G (`session-6e0f382d/`, 140 rows) added; found that `cf9f024` had overwritten Build A/B data (F-11/F-12); summary now 592 rows, 93 overlaps, 13 findings; 3,081 local links, 0 broken.
+- Additive edits only outside own scope: one portal card in root `index.html`, one README section, this board.

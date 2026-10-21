@@ -18,6 +18,7 @@ BUILDS = {
     'C': ('Build C', 'session-74f9613e/', '../session-74f9613e/'),
     'D': ('Build D (root hub)', '/', '../'),
     'E': ('Build E', 'session-4afef1af/', '../session-4afef1af/'),
+    'G': ('Build G', 'session-6e0f382d/', '../session-6e0f382d/'),
 }
 e = lambda s: html.escape(str(s if s is not None else ''))
 
@@ -59,9 +60,9 @@ def page(title, active, body, desc=''):
     nav = ''.join(f'<a href="{h}" class="{"active" if h == active else ""}{" flag" if h == "flagged.html" else ""}">{t}</a>' for h, t in NAV)
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)} · OLBG4 audit</title><meta name="description" content="{e(desc or title)}"><style>{CSS}</style></head><body>
-<header><div class="wrap head"><a class="brand" href="index.html">OLBG4 · Board F audit</a><nav>{nav}<a href="../">← Portal</a></nav></div></header>
+<header><div class="wrap head"><a class="brand" href="index.html">OLBG4 · Board I audit</a><nav>{nav}<a href="../">← Portal</a></nav></div></header>
 <main><div class="wrap">{body}</div></main>
-<footer><div class="wrap">Independent cross-build audit by session <span class="mono">arena/e1e0c27e-olbg4</span> · generated {e(summary['generated_utc'])} · data in <a href="data/audit_rows.json">audit_rows.json</a>, <a href="data/summary.json">summary.json</a>, <a href="data/crossbuild.json">crossbuild.json</a>, <a href="data/spot_checks.json">spot_checks.json</a>, <a href="data/findings.json">findings.json</a> · script <span class="mono">scripts/session-e1e0c27e/</span>. This page audits the other builds; it originates no lines of its own.</div></footer>
+<footer><div class="wrap">Independent cross-build audit (Board I) by session <span class="mono">arena/e1e0c27e-olbg4</span> · generated {e(summary['generated_utc'])} · data in <a href="data/audit_rows.json">audit_rows.json</a>, <a href="data/summary.json">summary.json</a>, <a href="data/crossbuild.json">crossbuild.json</a>, <a href="data/spot_checks.json">spot_checks.json</a>, <a href="data/findings.json">findings.json</a> · script <span class="mono">scripts/session-e1e0c27e/</span>. This page audits the other builds; it originates no lines of its own.</div></footer>
 <script>{JS}</script></body></html>"""
 
 def verdict_badge(v):
@@ -97,10 +98,10 @@ n_off = tv.get('official source present', 0); n_olbg = tv.get('OLBG only — no 
 n_checks = len(checks['checks']); res = Counter(c['result'] for c in checks['checks'])
 sev = Counter(f['severity'] for f in findings['findings'])
 body = f"""
-<h1>Independent audit of the five published builds</h1>
-<p class="lead">Every table row published by builds A–E was read from its data file, its source link classified (official governing body / league feed, OLBG aggregator, or secondary media), and a sample of rows re-checked against official pages with links for manual review. Nothing was inferred: where a build's value could not be confirmed it is listed here as <em>unverified</em>, not corrected.</p>
+<h1>Independent audit of the published builds (A–E and G)</h1>
+<p class="lead">Every table row published by builds A, B, C, D, E and G was read from its data file, its source link classified (official governing body / league feed, OLBG aggregator, or secondary media), and a sample of rows re-checked against official pages with links for manual review. Nothing was inferred: where a build's value could not be confirmed it is listed here as <em>unverified</em>, not corrected.</p>
 <div class="grid">
-<div class="card kpi"><div class="big">{summary['total_rows']}</div><small>rows audited across 5 builds</small></div>
+<div class="card kpi"><div class="big">{summary['total_rows']}</div><small>rows audited across 6 builds</small></div>
 <div class="card kpi"><div class="big" style="color:var(--ok)">{n_off}</div><small>rows with an official source link</small></div>
 <div class="card kpi"><div class="big" style="color:var(--warn)">{n_olbg}</div><small>rows sourced to OLBG only</small></div>
 <div class="card kpi"><div class="big" style="color:var(--bad)">{n_sec}</div><small>rows with secondary source only</small></div>
@@ -108,7 +109,8 @@ body = f"""
 <div class="card kpi"><div class="big">{summary['cross_build']['fixtures_in_2_or_more_builds']}</div><small>fixtures in 2+ builds ({summary['cross_build']['pick_conflicts']} with opposite picks)</small></div>
 <div class="card kpi"><div class="big" style="color:var(--bad)">{len(findings['findings'])}</div><small>findings ({sev.get('high',0)} high · {sev.get('medium',0)} medium · {sev.get('low',0)} low)</small></div>
 </div>
-<div class="notice bad"><b>Headline finding.</b> The root hub (Build D) — the first thing a visitor sees — marks 34 of its 66 rows <em>verified</em> although their only source is ESPN, Wikipedia, BBC, Sky, a betting blog or OLBG, and five of its fifteen high-confidence predictions contain form or fixture claims that the league's own pages contradict (Sharks "0-4" v NHL 4-4-1; Bruins "1-3" v NHL 7-2-0; "seven-game ALCS" v six; Efes/Beşiktaş records inverted; a "Pacific Championships" fixture in a World Cup year). Details with links: <a href="flagged.html">Flagged for Review</a> and <a href="spot-checks.html">Spot checks</a>. Builds A, C and E link an official page on every row; Build B links OLBG on every row and official pages only inside its nine written predictions.</div>
+<div class="notice bad"><b>Headline finding.</b> The root hub (Build D) — the first thing a visitor sees — marks 34 of its 66 rows <em>verified</em> although their only source is ESPN, Wikipedia, BBC, Sky, a betting blog or OLBG, and five of its fifteen high-confidence predictions contain form or fixture claims that the league's own pages contradict (Sharks "0-4" v NHL 4-4-1; Bruins "1-3" v NHL 7-2-0; "seven-game ALCS" v six; Efes/Beşiktaş records inverted; a "Pacific Championships" fixture in a World Cup year). Details with links: <a href="flagged.html">Flagged for Review</a> and <a href="spot-checks.html">Spot checks</a>. Builds A, C, E and G link an official page on every row; Build B links OLBG on every row and official pages only inside its nine written predictions. <b>Second finding (post-rebase):</b> a later session overwrote Build A's data (144 → 137 rows, Gaelic/golf/greyhound/motor-racing pages deleted) and Build B's predictions file with templated texts — one of which compares Boston with the wrong opponent — see <a href="flagged.html#F-11">F-11</a> and <a href="flagged.html#F-12">F-12</a>.</div>
+{''.join(f'<div class="notice info small">{e(n)}</div>' for n in summary.get('notes', []))}
 <h2>Per-build summary</h2>
 <div class="table-wrap"><table><thead><tr><th>Build</th><th>Rows</th><th>Official source on row</th><th>OLBG only</th><th>Secondary only</th><th>High-conf. rows</th><th>High predictions &lt;30 words</th><th>Self-marked verified without official source</th><th>Confidence mix</th></tr></thead><tbody>"""
 for b, (name, path, rel) in BUILDS.items():

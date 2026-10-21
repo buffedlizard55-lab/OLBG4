@@ -1,10 +1,10 @@
 {
- "generated_utc": "2026-10-21T06:43:45Z",
+ "generated_utc": "2026-10-21T06:51:14Z",
  "builds": {
   "A": {
-   "rows": 144,
+   "rows": 137,
    "verdicts": {
-    "official source present": 144
+    "official source present": 137
    },
    "domains": [
     [
@@ -40,10 +40,6 @@
      4
     ],
     [
-     "gbgb.org.uk",
-     3
-    ],
-    [
      "mlb.com",
      2
     ],
@@ -62,33 +58,16 @@
     [
      "wst.tv",
      2
-    ],
-    [
-     "galwaygaa.ie",
-     1
-    ],
-    [
-     "gaacork.ie",
-     1
-    ],
-    [
-     "europeantour.com",
-     1
-    ],
-    [
-     "formula1.com",
-     1
     ]
    ],
-   "high_confidence_rows": 12,
+   "high_confidence_rows": 25,
    "high_predictions_under_30_words": [],
    "high_rows_without_prediction_text_in_data": [],
    "rows_self_marked_verified_without_official_source": [],
    "confidence_mix": {
-    "low": 83,
-    "medium": 35,
-    "high": 12,
-    "blank": 14
+    "low": 104,
+    "high": 25,
+    "medium": 8
    }
   },
   "B": {
@@ -327,19 +306,12 @@
     "NBA05",
     "NBA07",
     "EL01",
-    "EL02",
     "EL03",
     "ATP05",
     "CRK03",
-    "CRK04",
     "CRK05",
-    "RUG01",
-    "RUG02",
     "RUG03",
     "RUG04",
-    "RUG05",
-    "RUG06",
-    "NHL01",
     "NHL02",
     "NHL03",
     "NHL04",
@@ -355,16 +327,13 @@
     "DRT04",
     "GLF05",
     "BDM01",
-    "BDM02",
     "BDM03",
     "TTT02"
    ],
    "confidence_mix": {
     "medium": 19,
     "high": 15,
-    "low": 25,
-    "n/a — played": 2,
-    "n/a": 5
+    "low": 32
    }
   },
   "E": {
@@ -404,16 +373,180 @@
     "medium": 19,
     "low": 4
    }
+  },
+  "G": {
+   "rows": 140,
+   "verdicts": {
+    "official source present": 140
+   },
+   "domains": [
+    [
+     "pdc.tv",
+     16
+    ],
+    [
+     "protennislive.com",
+     15
+    ],
+    [
+     "ehfcl.eurohandball.com",
+     12
+    ],
+    [
+     "euroleaguebasketball.net",
+     10
+    ],
+    [
+     "prod2.lnr.fr",
+     8
+    ],
+    [
+     "nba.com",
+     6
+    ],
+    [
+     "wst.tv",
+     6
+    ],
+    [
+     "gbgb.org.uk",
+     5
+    ],
+    [
+     "wtafiles.wtatennis.com",
+     5
+    ],
+    [
+     "plusliga.pl",
+     5
+    ],
+    [
+     "cricket.co.za",
+     4
+    ],
+    [
+     "ice.hockey",
+     4
+    ],
+    [
+     "stats.unitedrugby.com",
+     4
+    ],
+    [
+     "volleyball-bundesliga.de",
+     4
+    ],
+    [
+     "championsleague.basketball",
+     3
+    ],
+    [
+     "icc-cricket.com",
+     3
+    ],
+    [
+     "handbollsligan.se",
+     3
+    ],
+    [
+     "top14.lnr.fr",
+     3
+    ],
+    [
+     "legavolleyfemminile.it",
+     3
+    ],
+    [
+     "gaacork.ie",
+     2
+    ],
+    [
+     "tophaandbold.dk",
+     2
+    ],
+    [
+     "eurohandball.com",
+     2
+    ],
+    [
+     "api-web.nhle.com",
+     2
+    ],
+    [
+     "statsapi.mlb.com",
+     1
+    ],
+    [
+     "kbl.or.kr",
+     1
+    ],
+    [
+     "ecb.co.uk",
+     1
+    ],
+    [
+     "cricketireland.ie",
+     1
+    ],
+    [
+     "galwaygaa.ie",
+     1
+    ],
+    [
+     "munster.gaa.ie",
+     1
+    ],
+    [
+     "nottingham-greyhounds.co.uk",
+     1
+    ],
+    [
+     "handball.no",
+     1
+    ],
+    [
+     "shl.se",
+     1
+    ],
+    [
+     "formula1.com",
+     1
+    ],
+    [
+     "mestaruusliiga.fi",
+     1
+    ],
+    [
+     "volleybal.nl",
+     1
+    ],
+    [
+     "tauron1liga.pl",
+     1
+    ]
+   ],
+   "high_confidence_rows": 31,
+   "high_predictions_under_30_words": [],
+   "high_rows_without_prediction_text_in_data": [],
+   "rows_self_marked_verified_without_official_source": [],
+   "confidence_mix": {
+    "medium": 58,
+    "low": 51,
+    "high": 31
+   }
   }
  },
- "total_rows": 459,
+ "total_rows": 592,
+ "notes": [
+  "data/predictions.json on main no longer matches Build B schema; Build B predictions read from git 5918922"
+ ],
  "total_verdicts": {
-  "official source present": 318,
+  "official source present": 451,
   "OLBG only — no official fixture source": 109,
   "secondary source only — no official source": 32
  },
  "cross_build": {
-  "fixtures_in_2_or_more_builds": 74,
-  "pick_conflicts": 6
+  "fixtures_in_2_or_more_builds": 93,
+  "pick_conflicts": 10
  }
 }

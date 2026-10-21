@@ -82,20 +82,21 @@ pipeline and commits the refreshed snapshot.
 - Review page: 20 module claims checked against official endpoints, 5 row-level spot checks
   re-opened live, 9 irregularities found and handled.
 
-## Build F — `session-e1e0c27e/` (independent audit of builds A–E)
+## Build I — `session-e1e0c27e/` (independent cross-build audit)
 
 Audits, does not originate. `scripts/session-e1e0c27e/audit.py` reads every build's committed
-data (459 rows), classifies each row's source link as official / OLBG / secondary, matches the
-same fixture across builds, and `build_site.py` renders seven pages (Overview, All rows, By build,
-Spot checks, Cross-build, Method, Flagged for Review).
+data (592 rows across A, B, C, D, E, G), classifies each row's source link as official / OLBG /
+secondary, matches the same fixture across builds, and `build_site.py` renders seven pages
+(Overview, All rows, By build, Spot checks, Cross-build, Method, Flagged for Review).
 
-- 318 rows carry an official link; 109 are OLBG-only (Build B); 32 are secondary-only (Build D).
+- 451 rows carry an official link; 109 are OLBG-only (Build B); 32 are secondary-only (Build D).
 - 18 row-level re-checks against official pages, with links: 9 confirmed, 5 partial, 4 contradicted.
-- 74 fixtures appear in 2+ builds; 6 have opposite match-winner picks.
-- 10 findings — the main ones concern the root hub (Build D): 34 rows self-marked verified with
-  only ESPN/Wikipedia/BBC/Sky/blog sources, and high-confidence predictions whose form claims are
-  contradicted by NHL.com, MLB.com and NRL.com. Nothing in another build was edited; requests are
-  logged in `COORDINATION.md`.
+- 93 fixtures appear in 2+ builds; 10 have opposite match-winner picks.
+- 13 findings. The main ones: root hub rows self-marked verified with only ESPN/Wikipedia/BBC/Sky/blog
+  sources and high-confidence predictions contradicted by NHL.com, MLB.com and NRL.com (F-01/F-02);
+  and a later session's commit `cf9f024` overwriting Build A's `data/rows.json`/`docs/` and Build B's
+  `data/predictions.json` with templated texts (F-11/F-12). Nothing in another build was edited by
+  this session; requests are logged in `COORDINATION.md`.
 
 ## Scope & exclusions (per brief)
 

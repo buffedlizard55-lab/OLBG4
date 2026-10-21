@@ -1,15 +1,165 @@
 {
- "meta": {"owner": "arena/e1e0c27e-olbg4 (Board F)", "status": "needs review — published, does not block", "note": "Every item names the build, the rows, what was checked, and the link to check it against. No other board's files were edited; requested changes are logged in COORDINATION.md."},
+ "meta": {
+  "owner": "arena/e1e0c27e-olbg4 (Board I)",
+  "status": "needs review — published, does not block",
+  "note": "Every item names the build, the rows, what was checked, and the link to check it against. No other board's files were edited; requested changes are logged in COORDINATION.md."
+ },
  "findings": [
-  {"id": "F-01", "severity": "high", "build": "D (root hub)", "rows": "34 of 66 rows: NBA05, NBA07, EL01, EL02, EL03, ATP05, CRK03, CRK04, CRK05, RUG01-RUG06, NHL01-NHL06, SNK01-SNK04, DRT01-DRT04, GLF05, BDM01-BDM03, TTT02 (+ DRT02/DRT04 sourced to an OLBG blog)", "title": "Hub rows marked 'verified' whose only source is a non-official site", "detail": "The brief requires every table row to link an official site and to leave unconfirmed values blank and flagged. The hub's data (data/matches.json) carries verified:true on 34 rows whose sourceUrl is espn.com (8), wikipedia.org (7), bbc.com (5), skysports.com (2), etusuora.com (2), olbg.com (2), olympics.com, basketnews.com, findmygroup.uk, usatoday.com, tempo.co or montpellier.fr. Board D's own board entry states 'every row sourceUrl to governing-body domain', which the data does not support.", "links": ["https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/matches.json", "https://buffedlizard55-lab.github.io/OLBG4/"]},
-  {"id": "F-02", "severity": "high", "build": "D (root hub)", "rows": "NHL01, NHL06, EL02, MLB01, RL01 (and narrative claims in NBA02, EL01, CRK01, CRK04, CRK06, RUG01, RUG02, RUG05, RUG06, BDM02)", "title": "High-confidence predictions contain form/injury claims contradicted by, or absent from, official sources", "detail": "NHL01 says the Sharks were 0-4 on their road trip — the NHL preview lists them 4-4-1. NHL06 says Boston were 1-3 on a Texas swing and missing Marchand — the NHL preview lists Boston 7-2-0 and Marchand is not a Bruin. EL02 inverts the EuroLeague records (press lists Efes 2-4, Beşiktaş 3-3), labels 20:30 local as CET, names a venue that disagrees with the broadcaster listing and contains an unedited self-correction ('blowout of Efes? Actually…'). MLB01 cites a 'seven-game ALCS' — it was six games. RL01 describes a 'Pacific Championships Australia v NZ Oct 25 Brisbane' that does not exist in 2026 (RLWC; 25 Oct Brisbane is Australia v Fiji). The remaining rows carry statistics (home records, averages, streaks) that appear on none of the linked sources. Recommend: withdraw or rewrite these predictions from official pages, or move the rows to the hub's Flagged page.", "links": ["https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-preview-october-20-2026", "https://www.nhl.com/news/boston-bruins-dallas-stars-game-preview-october-20-2026", "https://www.mlb.com/news/yandy-diaz-homers-backs-up-prediction-in-rays-alcs-game-6-win", "https://www.nrl.com/news/2026/09/18/eyntk-world-cup-2026/", "https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/"]},
-  {"id": "F-03", "severity": "medium", "build": "D (root hub)", "rows": "CRK03, CRK05, MLB03, EL02", "title": "Fixture fields that disagree with the governing body", "detail": "CRK03 labels Pakistan v England as 'Tri-Series Match 1' (PCB: Match 2, 20 Oct, Rawalpindi — Match 1 was Pakistan v Sri Lanka on 18 Oct). CRK05 dates the final 29 Oct (PCB: 31 Oct; 29 Oct is Sri Lanka v England). MLB03 venue reads 'George M. Steinbrenner Field / …' (MLB: Rays host at Tropicana Field). EL02 time '20:30 CET' is 20:30 Istanbul time = 17:30 CET.", "links": ["https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html", "https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more", "https://euroleague.tv/schedule"]},
-  {"id": "F-04", "severity": "medium", "build": "D (root hub)", "rows": "ATP01-ATP05, WTA01, SNK01-04, DRT01-04, GLF01-05, BDM01-03, TTT01-03, VBL01-02, HDB01-02, ESP01-02, AFL01, RL01, EL03, CRK06 (≈ 32 rows)", "title": "Hub 'entries' that are not matches", "detail": "The brief asks for a list of matches. About half of the hub's 66 entries are tournaments, round summaries, completed events used 'for form', off-season notes ('AFL Off-Season — No scheduled matches') or qualification news ('eight clubs confirmed'). Several still carry a pick and confidence (e.g. ATP01 'Medium' with a Kalshi prediction-market percentage; BDM02 'High' outright). These should either be expanded to individual matches with official fixture links or be moved off the match table.", "links": ["https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/matches.json"]},
-  {"id": "F-05", "severity": "medium", "build": "B (session-7114b6a1/)", "rows": "107 of 116 rows", "title": "Row-level source is OLBG only; confidence derives from tipster consensus", "detail": "Each Build B row links the OLBG event page as its sole source; only the 9 high-confidence rows add official fact links inside their predictions. The 'own line' is a shrunken transform of the OLBG tip percentage (p = (n·p_c + 1)/(n+2)), so B's probabilities and confidence bands are a function of OLBG tipster votes rather than independently verified form. Build B discloses this in its methodology; it is recorded here because the brief asks for an official link on every row and for lines originated by us.", "links": ["https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/", "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/model_config.json"]},
-  {"id": "F-06", "severity": "medium", "build": "A, C, E", "rows": "Nets v Hornets 21 Oct (A-004 / nba-2026-10-21-bkn-cha), Bucks v Wizards 21 Oct, Panthers v Penguins 22 Oct, Kraken v Mammoth 22 Oct, Ducks v Flyers 24 Oct, Predators v Penguins 24 Oct", "title": "Same fixture, opposite match-winner picks in different builds", "detail": "74 fixtures appear in two or more builds; in 6 the builds pick different winners. Most notable: Build C rates Charlotte Hornets a HIGH-confidence pick while Build A picks Brooklyn (low). Because each build uses a different model and a different input snapshot, this is expected, but a reader of the portal sees contradictory picks for the same game with no reconciliation. See the Cross-build page for all 74 overlaps.", "links": ["https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/crossbuild.html"]},
-  {"id": "F-07", "severity": "low", "build": "B", "rows": "Board B irregularity #8", "title": "Gaelic football wrongly described as excluded", "detail": "Board B flags Build A's two Gaelic football rows as a scope breach. The brief excludes hurling, not Gaelic football; Board E already recorded the same correction. Build A's Galway final row was re-checked against galwaygaa.ie (24 Oct 19:00, Pearse Stadium) and is correct.", "links": ["https://www.galwaygaa.ie/fixtures/?user=6929"]},
-  {"id": "F-08", "severity": "low", "build": "D", "rows": "DRT01-DRT04, EL02", "title": "Timezone labels", "detail": "Dortmund sessions on 22-24 Oct are CEST (PDC: 1900 CEST); the hub prints CET. EL02 prints Istanbul local time as CET. Not wrong by more than the label, but the brief asks for exactness.", "links": ["https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"]},
-  {"id": "F-09", "severity": "low", "build": "repo", "rows": "COORDINATION.md Board E, task E10", "title": "Stale task status", "detail": "E10 is listed 'in progress' although PR #11 merged at 06:23Z and the portal card/README section are on main. No action needed beyond marking it done; logged so the board is accurate.", "links": ["https://github.com/buffedlizard55-lab/OLBG4/pull/11"]},
-  {"id": "F-10", "severity": "info", "build": "all", "rows": "—", "title": "What this audit did not do", "detail": "The sandbox can reach only github/npm/pypi hosts; verification used the agent's web-search/page-fetch tools, and the 18 row checks on the Spot checks page are a sample, not a complete re-verification of all 459 rows. Domain classification is mechanical (list in scripts/session-e1e0c27e/audit.py). Nothing in another board's folder was edited.", "links": ["https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-e1e0c27e/audit.py"]}
+  {
+   "id": "F-01",
+   "severity": "high",
+   "build": "D (root hub)",
+   "rows": "26 of 66 rows still verified:true with a non-official source after commit 03afd7c: NBA05, NBA07, EL01, EL03, ATP05, CRK03, CRK05, RUG03, RUG04, NHL02-NHL06, SNK01-SNK04, DRT01-DRT04, GLF05, BDM01, BDM03, TTT02 (8 further rows — EL02, CRK04, RUG01, RUG02, RUG05, RUG06, NHL01, BDM02 — were set to unverified+flagged by a later session)",
+   "title": "Hub rows marked 'verified' whose only source is a non-official site",
+   "detail": "The brief requires every table row to link an official site and to leave unconfirmed values blank and flagged. The hub's data (data/matches.json) has 34 rows whose sourceUrl is espn.com (8), wikipedia.org (7), bbc.com (5), skysports.com (2), etusuora.com (2), olbg.com (2), olympics.com, basketnews.com, findmygroup.uk, usatoday.com, tempo.co or montpellier.fr. A later session (commit 03afd7c) flagged 8 of them; 26 are still published as verified. Board D's own board entry states 'every row sourceUrl to governing-body domain', which the data does not support.",
+   "links": [
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/matches.json",
+    "https://buffedlizard55-lab.github.io/OLBG4/"
+   ]
+  },
+  {
+   "id": "F-02",
+   "severity": "high",
+   "build": "D (root hub)",
+   "rows": "NHL01, NHL06, EL02, MLB01, RL01 (and narrative claims in NBA02, EL01, CRK01, CRK04, CRK06, RUG01, RUG02, RUG05, RUG06, BDM02)",
+   "title": "High-confidence predictions contain form/injury claims contradicted by, or absent from, official sources",
+   "detail": "NHL01 says the Sharks were 0-4 on their road trip — the NHL preview lists them 4-4-1. NHL06 says Boston were 1-3 on a Texas swing and missing Marchand — the NHL preview lists Boston 7-2-0 and Marchand is not a Bruin. EL02 inverts the EuroLeague records (press lists Efes 2-4, Beşiktaş 3-3), labels 20:30 local as CET, names a venue that disagrees with the broadcaster listing and contains an unedited self-correction ('blowout of Efes? Actually…'). MLB01 cites a 'seven-game ALCS' — it was six games. RL01 describes a 'Pacific Championships Australia v NZ Oct 25 Brisbane' that does not exist in 2026 (RLWC; 25 Oct Brisbane is Australia v Fiji). The remaining rows carry statistics (home records, averages, streaks) that appear on none of the linked sources. Recommend: withdraw or rewrite these predictions from official pages, or move the rows to the hub's Flagged page.",
+   "links": [
+    "https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-preview-october-20-2026",
+    "https://www.nhl.com/news/boston-bruins-dallas-stars-game-preview-october-20-2026",
+    "https://www.mlb.com/news/yandy-diaz-homers-backs-up-prediction-in-rays-alcs-game-6-win",
+    "https://www.nrl.com/news/2026/09/18/eyntk-world-cup-2026/",
+    "https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/"
+   ]
+  },
+  {
+   "id": "F-03",
+   "severity": "medium",
+   "build": "D (root hub)",
+   "rows": "CRK03, CRK05, MLB03, EL02",
+   "title": "Fixture fields that disagree with the governing body",
+   "detail": "CRK03 labels Pakistan v England as 'Tri-Series Match 1' (PCB: Match 2, 20 Oct, Rawalpindi — Match 1 was Pakistan v Sri Lanka on 18 Oct). CRK05 dates the final 29 Oct (PCB: 31 Oct; 29 Oct is Sri Lanka v England). MLB03 venue reads 'George M. Steinbrenner Field / …' (MLB: Rays host at Tropicana Field). EL02 time '20:30 CET' is 20:30 Istanbul time = 17:30 CET.",
+   "links": [
+    "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+    "https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more",
+    "https://euroleague.tv/schedule"
+   ]
+  },
+  {
+   "id": "F-04",
+   "severity": "medium",
+   "build": "D (root hub)",
+   "rows": "ATP01-ATP05, WTA01, SNK01-04, DRT01-04, GLF01-05, BDM01-03, TTT01-03, VBL01-02, HDB01-02, ESP01-02, AFL01, RL01, EL03, CRK06 (≈ 32 rows)",
+   "title": "Hub 'entries' that are not matches",
+   "detail": "The brief asks for a list of matches. About half of the hub's 66 entries are tournaments, round summaries, completed events used 'for form', off-season notes ('AFL Off-Season — No scheduled matches') or qualification news ('eight clubs confirmed'). Several still carry a pick and confidence (e.g. ATP01 'Medium' with a Kalshi prediction-market percentage; BDM02 'High' outright). These should either be expanded to individual matches with official fixture links or be moved off the match table.",
+   "links": [
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/matches.json"
+   ]
+  },
+  {
+   "id": "F-05",
+   "severity": "medium",
+   "build": "B (session-7114b6a1/)",
+   "rows": "107 of 116 rows",
+   "title": "Row-level source is OLBG only; confidence derives from tipster consensus",
+   "detail": "Each Build B row links the OLBG event page as its sole source; only the 9 high-confidence rows add official fact links inside their predictions. The 'own line' is a shrunken transform of the OLBG tip percentage (p = (n·p_c + 1)/(n+2)), so B's probabilities and confidence bands are a function of OLBG tipster votes rather than independently verified form. Build B discloses this in its methodology; it is recorded here because the brief asks for an official link on every row and for lines originated by us.",
+   "links": [
+    "https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/",
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/model_config.json"
+   ]
+  },
+  {
+   "id": "F-06",
+   "severity": "medium",
+   "build": "A, C, E",
+   "rows": "10 fixtures incl. Nets v Hornets 21 Oct (C high Charlotte / A Brooklyn), Bucks v Wizards 21 Oct (A Washington / C+G Milwaukee), Panthers v Penguins 22 Oct, Kraken v Mammoth 22 Oct, Panthers v Senators 24 Oct, Ducks v Flyers 24 Oct, Predators v Penguins 24 Oct, Dinamo București v SAH Aarhus, Kolstad v Magdeburg, New Zealand v India 1st T20I",
+   "title": "Same fixture, opposite match-winner picks in different builds",
+   "detail": "93 fixtures appear in two or more of builds A, C, D, E, G; in 10 the builds name different match winners. Most notable: Build C rates Charlotte Hornets a HIGH-confidence pick while Build A picks Brooklyn (low). Because each build uses a different model and input snapshot this is expected, but a reader of the portal sees contradictory picks for the same game with no reconciliation. See the Cross-build page for all overlaps.",
+   "links": [
+    "https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/crossbuild.html"
+   ]
+  },
+  {
+   "id": "F-07",
+   "severity": "low",
+   "build": "B",
+   "rows": "Board B irregularity #8",
+   "title": "Gaelic football wrongly described as excluded",
+   "detail": "Board B flags Build A's two Gaelic football rows as a scope breach. The brief excludes hurling, not Gaelic football; Board E already recorded the same correction. Build A's Galway final row was re-checked against galwaygaa.ie (24 Oct 19:00, Pearse Stadium) and is correct.",
+   "links": [
+    "https://www.galwaygaa.ie/fixtures/?user=6929"
+   ]
+  },
+  {
+   "id": "F-08",
+   "severity": "low",
+   "build": "D",
+   "rows": "DRT01-DRT04, EL02",
+   "title": "Timezone labels",
+   "detail": "Dortmund sessions on 22-24 Oct are CEST (PDC: 1900 CEST); the hub prints CET. EL02 prints Istanbul local time as CET. Not wrong by more than the label, but the brief asks for exactness.",
+   "links": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ]
+  },
+  {
+   "id": "F-09",
+   "severity": "low",
+   "build": "repo",
+   "rows": "COORDINATION.md Board E, task E10",
+   "title": "Stale task status",
+   "detail": "E10 is listed 'in progress' although PR #11 merged at 06:23Z and the portal card/README section are on main. No action needed beyond marking it done; logged so the board is accurate.",
+   "links": [
+    "https://github.com/buffedlizard55-lab/OLBG4/pull/11"
+   ]
+  },
+  {
+   "id": "F-11",
+   "severity": "high",
+   "build": "A and B (files overwritten by session arena/4359d6a4-olbg4, commit cf9f024, merged via PR #18)",
+   "rows": "data/rows.json (144 → 137 rows), data/predictions.json (Build B's 9 sourced write-ups replaced by 25 templated ones), docs/index.html, docs/flagged.html, docs/methodology.html, docs/sports/*.html; deleted docs/sports/gaelic-football.html, golf.html, greyhound-racing.html, motor-racing.html",
+   "title": "Cross-session overwrite of another board's files, with data loss",
+   "detail": "COORDINATION.md says each session edits only its claimed scope and logs requests for other boards' files. Commit cf9f024 (labelled 'Board E: arena/4359d6a4-olbg4') rewrote Build A's data file — dropping the two Gaelic football rows (in scope; Galway final re-verified on galwaygaa.ie), three greyhound rows, the golf row and the motor-racing row — replaced Build A's 12 hand-written predictions with 25 templated ones, deleted four of Build A's sport pages, and overwrote data/predictions.json, which was Build B's file (schema olbg4.predictions/1 with per-claim source URLs). Build B's own HTML pages still show its original write-ups, so the site and the data layer now disagree. The pre-overwrite files are recoverable from git (5918922:data/rows.json, 5918922:data/predictions.json, 5918922:docs/…). Recommend the integration owner restore them or Board A/B confirm the change.",
+   "links": [
+    "https://github.com/buffedlizard55-lab/OLBG4/commit/cf9f024",
+    "https://github.com/buffedlizard55-lab/OLBG4/pull/18",
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/5918922fd83fa8e52e9e239362653b48ab2fcb3d/data/rows.json",
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/5918922fd83fa8e52e9e239362653b48ab2fcb3d/data/predictions.json"
+   ]
+  },
+  {
+   "id": "F-12",
+   "severity": "high",
+   "build": "A (as rewritten by cf9f024) — data/rows.json + docs/index.html",
+   "rows": "25 'High' rows: 13 PDC Round-1 rows, NHL rows incl. Boston Bruins v Nashville Predators",
+   "title": "Templated, repetitive predictions; one names the wrong opponent",
+   "detail": "The brief asks for unique, non-robotic predictions that name the team/player, current form and recent match history. In the rewritten data/rows.json, 13 of 25 high-confidence predictions open with the identical sentence 'PDC tour seeding points accumulated over the season provide a reliable indicator…' and contain no form or result at all; the NHL ones share a single template ('X entered this match with a points percentage of … compared to Y's …., reflecting a significant regular-season strength differential'), including a '.,' punctuation artefact. The Boston Bruins v Nashville Predators row's prediction compares Boston with the San Jose Sharks — the opponent from a different fixture. The docs/index.html high-confidence table was regenerated from this file, so the published Build A landing page now shows these texts. The original 12 write-ups (66+ words, individually written) are in git at 5918922.",
+   "links": [
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/rows.json",
+    "https://buffedlizard55-lab.github.io/OLBG4/docs/",
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/5918922fd83fa8e52e9e239362653b48ab2fcb3d/data/rows.json"
+   ]
+  },
+  {
+   "id": "F-13",
+   "severity": "low",
+   "build": "repo (COORDINATION.md)",
+   "rows": "Board letters",
+   "title": "Duplicate board letters",
+   "detail": "Three sessions have each called themselves 'Board E' or 'Board F' (4afef1af and 4359d6a4 both 'E'; 07a080b9, 5fd34d30 and this session all claimed 'F'), and two 'Board G'. This session renamed itself Board I on rebase so that every board has a unique letter; the others are left as written.",
+   "links": [
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md"
+   ]
+  },
+  {
+   "id": "F-10",
+   "severity": "info",
+   "build": "all",
+   "rows": "—",
+   "title": "What this audit did not do",
+   "detail": "The sandbox can reach only github/npm/pypi hosts; verification used the agent's web-search/page-fetch tools, and the 18 row checks on the Spot checks page are a sample, not a complete re-verification of all 592 rows (Build G, session-6e0f382d/, was classified mechanically only; all 140 of its rows link league or federation domains). Domain classification is mechanical (list in scripts/session-e1e0c27e/audit.py). Nothing in another board's folder was edited; the audit was re-run after rebasing onto main b8fcf28.",
+   "links": [
+    "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-e1e0c27e/audit.py"
+   ]
+  }
  ]
 }

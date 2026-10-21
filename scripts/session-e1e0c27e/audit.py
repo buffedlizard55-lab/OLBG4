@@ -35,6 +35,12 @@ OFFICIAL = {
     'bwfbadminton.com', 'ittf.com', 'worldtabletennis.com', 'fftt.com',
     'afl.com.au', 'lolesports.com', 'valorantesports.com', 'gbgb.org.uk',
     'galwaygaa.ie', 'gaacork.ie', 'formula1.com', 'euroleaguebasketball.net',
+    # national leagues / federations / official live-score domains used by Build G
+    'protennislive.com', 'wtafiles.wtatennis.com', 'lnr.fr', 'plusliga.pl', 'tauron1liga.pl',
+    'cricket.co.za', 'ice.hockey', 'volleyball-bundesliga.de', 'championsleague.basketball',
+    'handbollsligan.se', 'legavolleyfemminile.it', 'tophaandbold.dk', 'kbl.or.kr', 'ecb.co.uk',
+    'cricketireland.ie', 'munster.gaa.ie', 'gaa.ie', 'nottingham-greyhounds.co.uk', 'handball.no',
+    'shl.se', 'mestaruusliiga.fi', 'volleybal.nl',
 }
 SECONDARY_NOTE = {
     'espn.com': 'media', 'bbc.com': 'media', 'bbc.co.uk': 'media',
@@ -114,7 +120,16 @@ for i, r in enumerate(A, 1):
 
 # ---------- Build B ----------
 B = json.load(open(os.path.join(ROOT, 'data', 'board.json')))['rows']
-Bpred = {p['match_id']: p for p in json.load(open(os.path.join(ROOT, 'data', 'predictions.json')))['predictions']}
+_bp = json.load(open(os.path.join(ROOT, 'data', 'predictions.json')))
+_bpl = _bp['predictions'] if isinstance(_bp, dict) else _bp
+B_PRED_NOTE = ''
+if not (_bpl and isinstance(_bpl[0], dict) and 'match_id' in _bpl[0]):
+    # data/predictions.json no longer holds Build B's schema (overwritten by a later session, commit cf9f024);
+    # Build B's published site still embeds its original 9 write-ups, so read the last Build-B version from git.
+    import subprocess
+    _bpl = json.loads(subprocess.run(['git', 'show', '5918922:data/predictions.json'], capture_output=True, text=True, cwd=ROOT).stdout)['predictions']
+    B_PRED_NOTE = 'data/predictions.json on main no longer matches Build B schema; Build B predictions read from git 5918922'
+Bpred = {p['match_id']: p for p in _bpl}
 for r in B:
     p = Bpred.get(r['id'], {})
     fact_urls = [f.get('source') or f.get('url') for f in p.get('facts', []) if isinstance(f, dict)]
@@ -171,9 +186,20 @@ for f in E:
         p.get('text') or p.get('body') or p.get('prediction', ''), 'session-4afef1af/',
         [norm_team(f['home']['name']), norm_team(f['away']['name'])])
 
+# ---------- Build G (session-6e0f382d/, data/matches/*.json) ----------
+import glob
+for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'matches', '*.json'))):
+    g = json.load(open(f))
+    for i, r in enumerate(g.get('matches') or [], 1):
+        slug = os.path.basename(f)[:-5]
+        add('G', f"G-{slug}-{i:02d}", r.get('sport', ''), r.get('competition', ''), f"{r.get('home','')} v {r.get('away','')}",
+            (r.get('date') or '')[:10], [r.get('source_url')], r.get('status', ''), bool(r.get('flags')),
+            r.get('pick', ''), r.get('confidence', ''), r.get('prediction') or '', 'session-6e0f382d/',
+            [norm_team(r.get('home')), norm_team(r.get('away'))])
+
 # ---------- summary ----------
 summary = {'generated_utc': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'builds': {}}
-for b in 'ABCDE':
+for b in 'ABCDEG':
     br = [r for r in rows if r['build'] == b]
     vc = Counter(r['verdict'] for r in br)
     dom = Counter(domain(u) for r in br for u in r['sources'])
@@ -189,6 +215,7 @@ for b in 'ABCDE':
         'confidence_mix': dict(Counter(r['confidence'] or 'blank' for r in br)),
     }
 summary['total_rows'] = len(rows)
+summary['notes'] = [n for n in [B_PRED_NOTE] if n]
 summary['total_verdicts'] = dict(Counter(r['verdict'] for r in rows))
 
 # ---------- cross-build fixture matching (team-sport fixtures) ----------
