@@ -1,0 +1,208 @@
+{
+ "schema": "olbg4.integrated.findings/1",
+ "policy": "Irregularities and unverified items do not block publication. Each one is shown here with the source links needed to review it. Nothing in this list has been silently corrected or inferred.",
+ "items": [
+  {
+   "id": "F-01",
+   "severity": "high",
+   "status": "open",
+   "title": "Earlier builds mark rows verified without an official source",
+   "detail": "An independent audit committed in this repo (session-e1e0c27e) found 26 of the 66 rows on the previous root hub marked verified:true while the only link was to ESPN, Wikipedia, BBC, Sky or an OLBG blog. This integration does not reuse those rows: the table you are reading contains only rows whose values were read on a governing-body domain.",
+   "links": [
+    {
+     "label": "Audit finding F-01",
+     "url": "https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/flagged.html"
+    },
+    {
+     "label": "Audited data file",
+     "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/matches.json"
+    }
+   ]
+  },
+  {
+   "id": "F-02",
+   "severity": "high",
+   "status": "open",
+   "title": "Build A and Build B data were overwritten by a later session",
+   "detail": "Commit cf9f024 (session 4359d6a4) rewrote data/rows.json from 144 to 137 rows, deleted four docs/sports pages and replaced Build B's per-claim sourced predictions with 25 templated texts, one of which compares Boston with the San Jose Sharks. The pre-overwrite files are recoverable at commit 5918922. Nothing was deleted by this integration, but the overwritten files are still wrong on main.",
+   "links": [
+    {
+     "label": "Audit finding F-11/F-12",
+     "url": "https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/flagged.html"
+    },
+    {
+     "label": "Commit cf9f024",
+     "url": "https://github.com/buffedlizard55-lab/OLBG4/commit/cf9f024"
+    },
+    {
+     "label": "Pre-overwrite state",
+     "url": "https://github.com/buffedlizard55-lab/OLBG4/tree/5918922"
+    }
+   ]
+  },
+  {
+   "id": "F-03",
+   "severity": "medium",
+   "status": "open",
+   "title": "Ten fixtures carry opposite match-winner picks across builds",
+   "detail": "The audit matched 93 fixtures that appear in two or more builds and found 10 with opposite winners (for example Hornets v Nets: Build C graded Charlotte High, Build A picked Brooklyn). Those picks are still published on the archive dashboards linked from this site, and they contradict each other.",
+   "links": [
+    {
+     "label": "Cross-build page",
+     "url": "https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/cross-build.html"
+    }
+   ]
+  },
+  {
+   "id": "F-04",
+   "severity": "medium",
+   "status": "flagged on every row",
+   "title": "Published clock times are not all in UTC",
+   "detail": "NHL times are exact UTC from the league feed. NBA tip-offs are ET as published. The Premiership and WST pages render session times into the reader's own timezone and do not state it, so those times are printed exactly as they appeared and were not converted; treat them as approximate until you check the official page in your own timezone.",
+   "links": [
+    {
+     "label": "Premiership round 4",
+     "url": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4"
+    },
+    {
+     "label": "WST match list",
+     "url": "https://www.wst.tv/matches/"
+    }
+   ]
+  },
+  {
+   "id": "F-05",
+   "severity": "low",
+   "status": "flagged",
+   "title": "MLB publishes a local game date and a UTC start that differ",
+   "detail": "World Series game 1 is dated 23 Oct locally but starts 2026-10-24T00:00:00Z. The table shows the local date (the one MLB prints) and the UTC instant separately so a reader in Asia or Europe is not misled.",
+   "links": [
+    {
+     "label": "MLB schedule API query",
+     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-31"
+    }
+   ]
+  },
+  {
+   "id": "F-06",
+   "severity": "medium",
+   "status": "open",
+   "title": "Every snooker selection is withheld",
+   "detail": "WST's match list publishes the pairing, match number and session time but no ranking, form or head-to-head. Our model therefore has no verified input that distinguishes the two players, so it publishes a 1.92/1.92 two-way price and no pick instead of inventing a favourite.",
+   "links": [
+    {
+     "label": "WST matches",
+     "url": "https://www.wst.tv/matches/"
+    }
+   ]
+  },
+  {
+   "id": "F-07",
+   "severity": "medium",
+   "status": "open",
+   "title": "NBA opening week leaves 36 fixtures with almost no form",
+   "detail": "Most clubs had played zero or one game at retrieval time, so the shrunk win percentage is barely different from 50% and no NBA row can be graded High. That is the honest output, not a modelling failure: the dashboards that show High-confidence NBA picks are using inputs that were not verified.",
+   "links": [
+    {
+     "label": "NBA games 23 Oct",
+     "url": "https://www.nba.com/games?date=2026-10-23"
+    }
+   ]
+  },
+  {
+   "id": "F-08",
+   "severity": "medium",
+   "status": "declared assumption",
+   "title": "Match totals are declared constants",
+   "detail": "No team scoring, pace or run-prevention figure was verified for these fixtures. Rather than infer one, every total is a declared constant (NHL 6.0 goals, NBA 226.5 points, MLB 8.5 runs, Premiership 44.5 points, EHF 57.5 goals) with both sides priced at 1.92, which claims no edge. Snooker totals are withheld.",
+   "links": [
+    {
+     "label": "Model constants",
+     "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/integrated/entries.json"
+    }
+   ]
+  },
+  {
+   "id": "F-09",
+   "severity": "low",
+   "status": "open",
+   "title": "Three NBA games in the window are missing from the table",
+   "detail": "nba.com/games?date=2026-10-22 returned 'Sorry, something went wrong' on two attempts (2 games), and the 23 Oct page truncated after 10 of its 12 games. Those games are not guessed at; they are listed as a gap in the coverage table.",
+   "links": [
+    {
+     "label": "22 Oct page that failed",
+     "url": "https://www.nba.com/games?date=2026-10-22"
+    }
+   ]
+  },
+  {
+   "id": "F-10",
+   "severity": "high",
+   "status": "open",
+   "title": "Thirteen in-scope sports have no published rows this cycle",
+   "detail": "Tennis, darts, cricket, rugby league, volleyball, badminton, table tennis, esports, golf, motor racing, greyhounds, Aussie rules and Gaelic football. For tennis, darts and cricket an official page was opened and failed (see coverage table); for the rest no official page was opened at all. No row was copied from another build or from OLBG to fill the gap.",
+   "links": [
+    {
+     "label": "Coverage table",
+     "url": "https://buffedlizard55-lab.github.io/OLBG4/coverage.html"
+    }
+   ]
+  },
+  {
+   "id": "F-11",
+   "severity": "medium",
+   "status": "decision logged",
+   "title": "Gaelic football is treated as in scope",
+   "detail": "The brief excludes soccer/football, boxing, UFC/MMA, American football, hurling, horse racing, cycling and specials. Hurling is named separately from football, so 'football' is read as soccer and Gaelic football is in scope. It has no verified row this cycle.",
+   "links": [
+    {
+     "label": "GAA fixtures",
+     "url": "https://www.gaa.ie/"
+    }
+   ]
+  },
+  {
+   "id": "F-12",
+   "severity": "low",
+   "status": "environment",
+   "title": "OLBG.com is unreachable from the build sandbox",
+   "detail": "Every outbound request from the sandbox fails with SSL_ERROR_SYSCALL and only GitHub/PyPI/npm are allowed, so OLBG.COM itself could not be re-read in this session. OLBG is therefore used only as the taxonomy reference the brief supplies; no OLBG price, tip or figure appears in the published table.",
+   "links": [
+    {
+     "label": "Prior session log",
+     "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md"
+    }
+   ]
+  },
+  {
+   "id": "F-13",
+   "severity": "low",
+   "status": "flagged",
+   "title": "EHF publishes a session time with no timezone",
+   "detail": "The Champions League match list prints 18:45 and 20:45 without naming a zone. The times are printed verbatim and flagged; they were not shifted to CET or UTC.",
+   "links": [
+    {
+     "label": "EHF match list",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/"
+    }
+   ]
+  },
+  {
+   "id": "F-14",
+   "severity": "low",
+   "status": "open",
+   "title": "Earlier builds publish fixtures that contradict the governing body",
+   "detail": "The audit re-opened 18 rows against official pages and found 4 contradicted: a 'seven-game' ALCS that was six, a Pacific Championships fixture that does not exist in 2026 (the RLWC is being played), a Bruins record of 1-3 where NHL.com showed 7-2-0, and an Elite League pairing with records inverted. Those pages are still live in the archive; this site does not repeat them.",
+   "links": [
+    {
+     "label": "Spot-check page",
+     "url": "https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/spot-checks.html"
+    },
+    {
+     "label": "NHL standings",
+     "url": "https://api-web.nhle.com/v1/standings/now"
+    }
+   ]
+  }
+ ]
+}
