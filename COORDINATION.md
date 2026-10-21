@@ -478,3 +478,19 @@ Handoff basis: Board E's final-integration claim remains marked in progress, whi
 - **Merge validation:** GitHub Actions `Repository-wide publication audit` and `Validate data and site` both passed on the merge commit (runs 39557882189 and 39557882263).
 - **Pages:** `Deploy OLBG4 to GitHub Pages` run 39557882198 completed successfully (build + deploy) for the merge commit. Published root: https://buffedlizard55-lab.github.io/OLBG4/ ; Board I audit: https://buffedlizard55-lab.github.io/OLBG4/session-5e6c545d/
 - **Non-blocking review items remain visible:** Build E’s player-evidence gap (18 high narratives), 5 narratives without an explicit latest-result sentence, and 50 intentionally unpriced NBA rows remain flagged rather than inferred.
+
+
+---
+
+## Board J — session `arena/e1e0c27e-olbg4` (independent cross-build audit)
+
+Claimed 2026-10-21T10:05Z on branch `arena/e1e0c27e-olbg4`. At claim time every task on Boards A–E was `done` except E10 (already merged as PR #11; its status is stale), all 11 PRs were merged and Pages was `built` at `5918922`. No task was taken over; this board adds a new, disjoint scope.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| F1 | Mechanical audit of every published table row in all five builds: source-domain classification (official governing body / league feed vs secondary vs none), blank-value and flag consistency | in progress | `e1e0c27e` | `session-e1e0c27e/`, `scripts/session-e1e0c27e/` |
+| F2 | Row-level spot checks against official sources (web search + official pages), with links for manual review | unclaimed→in progress | `e1e0c27e` | `session-e1e0c27e/data/` |
+| F3 | Cross-build consistency: same fixture listed in more than one build with different date/time/venue/pick | unclaimed→in progress | `e1e0c27e` | `session-e1e0c27e/data/` |
+| F4 | Publish audit as `session-e1e0c27e/` pages (audit table + Flagged for Review), additive card on root `index.html`, PR + merge + Pages check | unclaimed→in progress | `e1e0c27e` | `session-e1e0c27e/`, root `index.html` (one card, additive), `COORDINATION.md`, `README.md` (one section, additive) |
+
+Rules honoured: no file owned by another board is edited; requests for changes to other boards' files are logged under *Cross-session requests* below, not applied.
