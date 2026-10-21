@@ -313,7 +313,6 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
   (win-count clauses, indefinite articles, no duplicated selection sentence).
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
-
 ---
 
 ## Board F — session `arena/07a080b9-olbg4` (independent audit + final integration)
@@ -333,6 +332,7 @@ Claimed: 2026-10-21 · Branch: `arena/07a080b9-olbg4` · Scope (non-overlapping)
 - Irregularities: only 2 WARN — Build A Gaelic rows (Maigh Cuilinn v Salthill-Knocknacarra; Nemo Rangers v St Finbarr's). Already flagged by Build B; left in place, non-blocking, listed on audit page. Gaelic is not in the brief's exclusion list verbatim (hurling/football are) — user review requested on scope interpretation.
 - Live Pages re-checked 2026-10-21: hub + flagged.html render, 66 entries, 8 flagged, official source links present.
 - Existing gates re-run: `pipeline.selftest` all pass; `scripts/verify.py` (B) 116/116 sourced, 0 duplicates.
+
 ## Board F — session `arena/5fd34d30-olbg4` (final audit + integration)
 
 Branch: `arena/5fd34d30-olbg4` | Date: 2026-10-21
@@ -342,10 +342,12 @@ Branch: `arena/5fd34d30-olbg4` | Date: 2026-10-21
 | Audit hub data: confidence labels, official-source rule, prediction word-count/uniqueness, links | done | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html`, `COORDINATION.md` |
 | Fix N/A confidence rows; flag non-official high-pick sources as unverified (blank verified, keep link) | done | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html` |
 | Integration: PR to main, merge, GitHub Pages verify | unclaimed | arena/5fd34d30-olbg4 | repo root |
+
 ### Board F completion (2026-10-21)
 - Audit: 66 hub rows; fixed 7 `N/A` confidence rows → `Low` (EL03, ATP05, GLF01, BDM01, TTT01, VBL02, AFL01 — completed/off-season, no-bet).
 - Flagged 8 rows with secondary (non-official) sources as unverified: EL02, CRK04, RUG01, RUG02, RUG05, RUG06, NHL01, BDM02. Total flagged 16, verified 53. Published on `flagged.html` (dynamic from `data/matches.json`).
 - 15 high predictions unique, min 68 words, all sourced. 0 broken internal links. Site builds static (no build step); Pages deploys from `main`.
+
 ## Board G — session `arena/ef72af9b-olbg4`
 
 This session uses its fixed Arena branch (rather than creating a session branch).
@@ -393,25 +395,57 @@ This session branched from the initial commit before Boards A–E merged, so PR 
 
 ---
 
-## Board H — session `arena/5e6c545d-olbg4` (independent publish audit)
+## Board H — session `arena/648c1a19-olbg4` (integration finish; takes over Board E task E10)
+
+Session: arena/648c1a19-olbg4 | Branch: arena/648c1a19-olbg4 | Date: 2026-10-21
+
+| # | Task | Status | Owner | File scope |
+|---|------|--------|-------|-----------|
+| H1 | Take over Board E task E10 (integration: PR to main, merge, Pages deploy verification, record PR link + result here) — stale-claim handoff: Board E E10 has been "in progress" since the 2026-10-21T06:29Z snapshot with no further commits | in progress | arena/648c1a19-olbg4 | COORDINATION.md |
+| H2 | Pre-merge verification: pipeline selftest, internal link audit across all builds, JSON validity of all data files | done | arena/648c1a19-olbg4 | pipeline/, session-4afef1af/, *.json, *.html |
+| H3 | Confirm Build E portal card in root index.html and Build E section in README are present and additive (no Board A–D files touched) | done | arena/648c1a19-olbg4 | index.html, README.md |
+| H4 | Open PR arena/648c1a19-olbg4 → main, merge without waiting for approval, confirm GitHub Pages deploys, record PR link + merge result + Pages status here; mark E10 done | in progress | arena/648c1a19-olbg4 | COORDINATION.md |
+
+### Coordination with the audit boards (07a080b9 Board F, 5fd34d30 Board F, ef72af9b Board G)
+
+The audit boards re-ran structural checks over all committed data: 87 HTML files / 1,576 links / 0 broken, 459 source rows re-marked unverified with blank verified values, prediction word-count/uniqueness and exclusions audited; findings published at `audit/` and `session-07a080b9/`. This session's checks complement them: 24/24 pipeline selftest, 86 HTML files / 1,586 local hrefs / 0 broken links (difference vs the audit count is the audit/` namespace files included by the audit board), 28/28 JSON files valid. Neither session re-verified external sports facts from this sandbox (egress limited to github.com, registry.npmjs.org, pypi.org). Unverified values remain blank + flagged; nothing inferred.
+
+### Verification performed by session arena/648c1a19-olbg4 (2026-10-21)
+- `python -m pipeline.selftest` — 24/24 pass (offline gate: model, markets, picks, predictions, lint, site generation, internal links)
+- Internal link audit — 86 HTML files across root/docs/session-*/sports/, 1,586 local hrefs resolved, 0 broken (13 `data:image/svg+xml` favicon URIs excluded — data URIs, not links)
+- JSON validity — 28/28 data files parse cleanly (data/, data/session-74f9613e/, session-4afef1af/data/)
+- Live re-verification vs governing-body domains (NBA/NHL/MLB/ATP/WST/PDC/…) not re-run from this sandbox: sandbox egress is limited to github.com, registry.npmjs.org, pypi.org; official endpoints (cdn.nba.com, api-web.nhle.com, statsapi.mlb.com) are unreachable here. Prior sessions' live spot checks stand (logged in Boards B–E). Unverified values remain blank + flagged; nothing inferred.
+- Flagged irregularities are published per build on the Flagged for Review pages (root `flagged.html` Build D: 8 flagged; `docs/flagged.html` Build A: 15; `session-7114b6a1/flagged.html` Build B: 50; `session-74f9613e/flagged.html` Build C: 11; `session-4afef1af/flagged.html` Build E: 4 findings). Flagged items do not block merge.
+- Exclusions enforced site-wide: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials are not listed as priced matches.
+
+### E10 integration log
+- PR: #14 (https://github.com/buffedlizard55-lab/OLBG4/pull/14)
+- Merge result: [pending]
+- GitHub Pages deploy: [pending — confirm after merge at https://buffedlizard55-lab.github.io/OLBG4/]
+
+Handoff note: no files owned by sessions A–D were modified; Board E's `pipeline/` and `session-4afef1af/` scope is unchanged. This session only appends to `COORDINATION.md`.
+
+---
+
+## Board I — session `arena/5e6c545d-olbg4` (independent publish audit)
 
 Handoff basis: Board E's final-integration claim remains marked in progress, while its owner branch is absent from the cloned remote and its published files are already present. Its published files are retained untouched. This session is limited to a new, non-overlapping audit namespace and the required coordination entry; it will not alter Board E's pipeline, historical fixture records, originated lines, or shared navigation without logging a separate request.
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| H1 | Independently audit the published refreshable desk: run offline validation, inspect every rendered fixture/source/market/prediction relationship, check local links, and publish a reviewable verification report with any irregularities. | done | `arena/5e6c545d-olbg4` | `session-5e6c545d/`, `COORDINATION.md` |
+| I1 | Independently audit the published refreshable desk: run offline validation, inspect every rendered fixture/source/market/prediction relationship, check local links, and publish a reviewable verification report with any irregularities. | done | `arena/5e6c545d-olbg4` | `session-5e6c545d/`, `COORDINATION.md` |
 
 **Claim time:** 2026-10-21 UTC. **Scope rule:** findings will quote the existing row identifiers and official source URLs only; no data values will be inferred or filled when the source is unavailable.
 
-| H2 | **Handoff from unavailable Board E scope:** correct the cross-sport withheld-rationale label and the generated prediction grammar defect discovered by F1, then regenerate only the affected published snapshot artefacts. | done | `arena/5e6c545d-olbg4` | `pipeline/run.py`, `pipeline/predictions.py`, `session-4afef1af/data/analysis.json`, `session-4afef1af/data/predictions.json`, `session-4afef1af/assets/data.json`, affected `session-4afef1af/*.html`, `COORDINATION.md` |
+| I2 | **Handoff from unavailable Board E scope:** correct the cross-sport withheld-rationale label and the generated prediction grammar defect discovered by F1, then regenerate only the affected published snapshot artefacts. | done | `arena/5e6c545d-olbg4` | `pipeline/run.py`, `pipeline/predictions.py`, `session-4afef1af/data/analysis.json`, `session-4afef1af/data/predictions.json`, `session-4afef1af/assets/data.json`, affected `session-4afef1af/*.html`, `COORDINATION.md` |
 
 **F2 handoff note:** Board E's owner branch is absent from the current checkout; the handoff is logged because no active owner branch could be found. The changes are limited to defects mechanically proven against the already-published snapshot: the NBA withheld rationale was stamped “MLB” because a loop-local `meta` leaked from the prior sport, and the prediction template emitted “Recent form has [team] have…”. No match, source URL, price, probability, or sporting fact will be invented or changed.
 
 
-### Board H completion record (2026-10-21 UTC)
+### Board I completion record (2026-10-21 UTC)
 
-- **H1 done — published report:** `session-5e6c545d/index.html` and `session-5e6c545d/audit.json` provide a line-by-line, static audit of Build E. The report is deliberately source-preserving: all 90 fixture rows and all 18 written high-confidence selections retain their official URLs for manual review.
-- **H2 done — mechanically proven corrections:** repaired the loop-leak that labeled 50 NBA withheld rows as “MLB” (`pipeline/run.py` now resolves the current fixture sport); repaired the generated “Recent form has [team] have…” sentence template; updated the one affected prediction word count from 57 to 58 and the matching rendered pages/data bundle. No fixture, source URL, probability, price, market or sporting fact was changed.
+- **I1 done — published report:** `session-5e6c545d/index.html` and `session-5e6c545d/audit.json` provide a line-by-line, static audit of Build E. The report is deliberately source-preserving: all 90 fixture rows and all 18 written high-confidence selections retain their official URLs for manual review.
+- **I2 done — mechanically proven corrections:** repaired the loop-leak that labeled 50 NBA withheld rows as “MLB” (`pipeline/run.py` now resolves the current fixture sport); repaired the generated “Recent form has [team] have…” sentence template; updated the one affected prediction word count from 57 to 58 and the matching rendered pages/data bundle. No fixture, source URL, probability, price, market or sporting fact was changed.
 - **Static verification run:** `python3 -m pipeline.selftest` — 24/24 pass; `python3 session-5e6c545d/audit.py` — 90/90 fixture/analysis joins pass, 120/120 market families pass probability/price checks, 18/18 high predictions pass structural checks and are unique, 261 local links across 13 Build E HTML pages have 0 broken; JSON parses for corrected records and bundle.
 - **Source evidence:** the audited snapshot records 122 official-feed HTTP 200 responses from NBA/NHL/MLB endpoints and two documented `stats.nba.com` historical-results timeouts. This session did **not** make a new external request; the audit checks the snapshot’s official-domain allowlist and preserves each link rather than claiming a fresh read.
 - **Published review items:** (F-01) 18/18 written high-confidence predictions lack a player field/player-level official fact, so no player was inferred; (F-02) 5 narratives do not state a specific latest-result sentence even though their source-linked form facts remain available; (F-03) 50 NBA lines stay blank because the 20-game threshold was not met; (F-04) the 13 high-winner metric is distinct from the 18 high written selections; (F-05) correction record. These are visible at `session-5e6c545d/index.html` and do not block publication.
@@ -421,14 +455,19 @@ Handoff basis: Board E's final-integration claim remains marked in progress, whi
 - `arena/5e6c545d-olbg4` merged `origin/main` after PR #19 reported a non-clean merge. The sole conflict was this shared task board.
 - Resolution: retained the upstream Board F/G records verbatim and retained this session's independent audit as **Board H** (renamed only to avoid the existing duplicate Board F headings). No source rows, site builds, lines, or findings from either side were discarded.
 
-| H3 | Final integration repair: restore Board B's historical prediction input into its own namespace and point its legacy verifier there, so the Board B verification gate remains reproducible after the newer Board G schema replaced shared `data/predictions.json`. | done | `arena/5e6c545d-olbg4` | `data/session-7114b6a1/predictions.json`, `scripts/verify.py`, `COORDINATION.md` |
+| I3 | Final integration repair: restore Board B's historical prediction input into its own namespace and point its legacy verifier there, so the Board B verification gate remains reproducible after the newer Board G schema replaced shared `data/predictions.json`. | done | `arena/5e6c545d-olbg4` | `data/session-7114b6a1/predictions.json`, `scripts/verify.py`, `COORDINATION.md` |
 
 **H3 claim note:** the failure was reproduced during final integration as `KeyError: 'unverified'` in `scripts/verify.py`. The recovery source will be the exact committed Board B prediction record at the common base (`5918922:data/predictions.json`), not inferred content.
 
 
-### Board H H3 completion / integration log (2026-10-21 UTC)
+### Board I I3 completion / integration log (2026-10-21 UTC)
 
 - Recovered the exact Board B prediction input from committed base `5918922:data/predictions.json` into `data/session-7114b6a1/predictions.json`; no prediction text or source was re-authored. `scripts/verify.py` now reads that build-owned file instead of the newer Board G `data/predictions.json` schema.
 - `python3 scripts/verify.py --links` now passes: 116/116 rows sourced, 9 high predictions, shortest 103 words, 0 duplicate bodies, 275 local links, 0 broken. Its reproducible `data/verification.json` was refreshed accordingly.
 - Regenerated the existing repository-wide structural audit from current merged inputs: 452 source rows (66 hub, 137 A archive, 116 B consensus, 43 C model, 90 E feed), 2,220 local targets, 0 broken. The published audit artifact now matches the merged data rather than retaining a stale 144-row A count.
 - Merge-conflict log: PR #19 was initially non-mergeable because `main` advanced from the snapshot base. `origin/main` was merged into the session branch; only `COORDINATION.md` conflicted and both upstream records and Board H were retained. A subsequent `git pull --rebase origin arena/5e6c545d-olbg4` attempted to replay the historical upstream chain because of the grafted lineage and hit a README add/add conflict; it was aborted without discarding work. The explicit merge commit `037ba13` remains the preserved integration path.
+
+### Merge-conflict record (2026-10-21 UTC)
+
+- A second `origin/main` merge was required after main advanced with PR #14. Again, the only conflict was this shared task board.
+- Resolution: retained the upstream `arena/648c1a19-olbg4` integration record verbatim and retained this session's audit/correction/verifier records as **Board I** (renamed only to avoid the already-used Board H heading). No data, source links, site files, or findings were discarded.
