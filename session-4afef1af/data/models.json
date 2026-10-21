@@ -1,0 +1,731 @@
+{
+  "basketball": {
+    "league": "NBA",
+    "current_season": "2026-27",
+    "current": {
+      "games": 3,
+      "seasons": [
+        "2026-27"
+      ],
+      "home_advantage": -3.337,
+      "league_total": 219.997,
+      "sigma_margin": 10.885,
+      "sigma_total": 14.848,
+      "n_eff": 3.0,
+      "notes": [],
+      "ratings": [
+        {
+          "team_id": "1610612765",
+          "team": "Detroit Pistons",
+          "rating": 1.42,
+          "offence": 1.75,
+          "defence": -0.0,
+          "games": 1
+        },
+        {
+          "team_id": "1610612760",
+          "team": "Oklahoma City Thunder",
+          "rating": 1.08,
+          "offence": -0.0,
+          "defence": 0.0,
+          "games": 1
+        },
+        {
+          "team_id": "1610612755",
+          "team": "Philadelphia 76ers",
+          "rating": 0.33,
+          "offence": -0.0,
+          "defence": -1.75,
+          "games": 1
+        },
+        {
+          "team_id": "1610612752",
+          "team": "New York Knicks",
+          "rating": -0.33,
+          "offence": -1.75,
+          "defence": -0.0,
+          "games": 1
+        },
+        {
+          "team_id": "1610612759",
+          "team": "San Antonio Spurs",
+          "rating": -1.08,
+          "offence": 0.0,
+          "defence": -0.0,
+          "games": 1
+        },
+        {
+          "team_id": "1610612738",
+          "team": "Boston Celtics",
+          "rating": -1.42,
+          "offence": -0.0,
+          "defence": 1.75,
+          "games": 1
+        }
+      ]
+    },
+    "opening": {
+      "games": 0,
+      "seasons": [
+        "2026-27"
+      ],
+      "kind": "opening",
+      "home_advantage": 0.0,
+      "league_total": 0.0,
+      "notes": [
+        "no usable prior season: opening line is league-average (ratings 0, league mean scoring, home advantage 0)"
+      ]
+    },
+    "sensitivity": {
+      "games": 0,
+      "window": "refitted without the last 14 days"
+    },
+    "backtest": {
+      "available": false,
+      "reason": "insufficient sample (train=0, holdout=3)",
+      "train_games": 0,
+      "holdout_games": 3,
+      "holdout_days": 30
+    }
+  },
+  "ice_hockey": {
+    "league": "NHL",
+    "current_season": "20262027",
+    "current": {
+      "games": 1463,
+      "seasons": [
+        "20252026",
+        "20262027"
+      ],
+      "home_advantage": 0.168,
+      "league_total": 6.251,
+      "sigma_margin": 2.506,
+      "sigma_total": 2.22,
+      "n_eff": 1463.0,
+      "notes": [],
+      "ratings": [
+        {
+          "team_id": "21",
+          "team": "Colorado Avalanche",
+          "rating": 0.9,
+          "offence": 0.57,
+          "defence": -0.12,
+          "games": 92
+        },
+        {
+          "team_id": "12",
+          "team": "Carolina Hurricanes",
+          "rating": 0.77,
+          "offence": 0.34,
+          "defence": 0.19,
+          "games": 93
+        },
+        {
+          "team_id": "25",
+          "team": "Dallas Stars",
+          "rating": 0.73,
+          "offence": -0.54,
+          "defence": -0.89,
+          "games": 91
+        },
+        {
+          "team_id": "6",
+          "team": "Boston Bruins",
+          "rating": 0.7,
+          "offence": -0.36,
+          "defence": 0.22,
+          "games": 92
+        },
+        {
+          "team_id": "14",
+          "team": "Tampa Bay Lightning",
+          "rating": 0.69,
+          "offence": -0.32,
+          "defence": 0.44,
+          "games": 91
+        },
+        {
+          "team_id": "22",
+          "team": "Edmonton Oilers",
+          "rating": 0.5,
+          "offence": 0.38,
+          "defence": 0.7,
+          "games": 91
+        },
+        {
+          "team_id": "30",
+          "team": "Minnesota Wild",
+          "rating": 0.49,
+          "offence": -0.34,
+          "defence": 0.02,
+          "games": 92
+        },
+        {
+          "team_id": "68",
+          "team": "Utah Mammoth",
+          "rating": 0.43,
+          "offence": 0.5,
+          "defence": -0.07,
+          "games": 92
+        },
+        {
+          "team_id": "54",
+          "team": "Vegas Golden Knights",
+          "rating": 0.41,
+          "offence": 0.29,
+          "defence": -0.19,
+          "games": 93
+        },
+        {
+          "team_id": "9",
+          "team": "Ottawa Senators",
+          "rating": 0.35,
+          "offence": -0.46,
+          "defence": -0.05,
+          "games": 91
+        },
+        {
+          "team_id": "3",
+          "team": "New York Rangers",
+          "rating": 0.26,
+          "offence": -0.23,
+          "defence": -0.73,
+          "games": 93
+        },
+        {
+          "team_id": "7",
+          "team": "Buffalo Sabres",
+          "rating": 0.24,
+          "offence": 0.13,
+          "defence": 0.5,
+          "games": 91
+        },
+        {
+          "team_id": "15",
+          "team": "Washington Capitals",
+          "rating": 0.22,
+          "offence": 0.12,
+          "defence": -0.04,
+          "games": 91
+        },
+        {
+          "team_id": "8",
+          "team": "Montréal Canadiens",
+          "rating": 0.14,
+          "offence": 0.08,
+          "defence": 0.65,
+          "games": 91
+        },
+        {
+          "team_id": "5",
+          "team": "Pittsburgh Penguins",
+          "rating": 0.09,
+          "offence": 0.79,
+          "defence": 0.79,
+          "games": 92
+        },
+        {
+          "team_id": "2",
+          "team": "New York Islanders",
+          "rating": 0.03,
+          "offence": -0.47,
+          "defence": -0.78,
+          "games": 91
+        },
+        {
+          "team_id": "19",
+          "team": "St. Louis Blues",
+          "rating": -0.0,
+          "offence": -0.35,
+          "defence": 0.16,
+          "games": 91
+        },
+        {
+          "team_id": "13",
+          "team": "Florida Panthers",
+          "rating": -0.04,
+          "offence": 0.14,
+          "defence": 0.02,
+          "games": 91
+        },
+        {
+          "team_id": "18",
+          "team": "Nashville Predators",
+          "rating": -0.11,
+          "offence": -0.21,
+          "defence": 0.13,
+          "games": 90
+        },
+        {
+          "team_id": "1",
+          "team": "New Jersey Devils",
+          "rating": -0.18,
+          "offence": 0.05,
+          "defence": -0.12,
+          "games": 91
+        },
+        {
+          "team_id": "55",
+          "team": "Seattle Kraken",
+          "rating": -0.24,
+          "offence": 0.28,
+          "defence": 0.26,
+          "games": 92
+        },
+        {
+          "team_id": "29",
+          "team": "Columbus Blue Jackets",
+          "rating": -0.27,
+          "offence": -0.01,
+          "defence": -0.39,
+          "games": 90
+        },
+        {
+          "team_id": "10",
+          "team": "Toronto Maple Leafs",
+          "rating": -0.27,
+          "offence": 0.14,
+          "defence": 0.72,
+          "games": 93
+        },
+        {
+          "team_id": "52",
+          "team": "Winnipeg Jets",
+          "rating": -0.32,
+          "offence": -0.2,
+          "defence": -0.64,
+          "games": 91
+        },
+        {
+          "team_id": "24",
+          "team": "Anaheim Ducks",
+          "rating": -0.34,
+          "offence": 0.41,
+          "defence": 0.2,
+          "games": 91
+        },
+        {
+          "team_id": "4",
+          "team": "Philadelphia Flyers",
+          "rating": -0.34,
+          "offence": -0.95,
+          "defence": -0.33,
+          "games": 93
+        },
+        {
+          "team_id": "17",
+          "team": "Detroit Red Wings",
+          "rating": -0.39,
+          "offence": 0.16,
+          "defence": -0.72,
+          "games": 91
+        },
+        {
+          "team_id": "26",
+          "team": "Los Angeles Kings",
+          "rating": -0.51,
+          "offence": -0.73,
+          "defence": -0.02,
+          "games": 89
+        },
+        {
+          "team_id": "28",
+          "team": "San Jose Sharks",
+          "rating": -0.59,
+          "offence": 0.38,
+          "defence": 0.0,
+          "games": 92
+        },
+        {
+          "team_id": "16",
+          "team": "Chicago Blackhawks",
+          "rating": -0.99,
+          "offence": -0.02,
+          "defence": -0.27,
+          "games": 91
+        },
+        {
+          "team_id": "20",
+          "team": "Calgary Flames",
+          "rating": -1.08,
+          "offence": -0.26,
+          "defence": -0.18,
+          "games": 90
+        },
+        {
+          "team_id": "23",
+          "team": "Vancouver Canucks",
+          "rating": -1.28,
+          "offence": 0.7,
+          "defence": 0.54,
+          "games": 93
+        }
+      ]
+    },
+    "opening": {
+      "games": 1312,
+      "seasons": [
+        "20252026"
+      ],
+      "kind": "opening",
+      "home_advantage": 0.13,
+      "league_total": 6.254,
+      "notes": [
+        "opening line from previous season(s): 20252026"
+      ]
+    },
+    "sensitivity": {
+      "games": 1364,
+      "window": "refitted without the last 14 days"
+    },
+    "backtest": {
+      "available": true,
+      "train_games": 1312,
+      "holdout_games": 151,
+      "holdout_days": 30,
+      "accuracy": 0.6291,
+      "brier": 0.2343,
+      "log_loss": 0.6607,
+      "calibration": {
+        "50-55%": {
+          "n": 63,
+          "predicted": 0.5207,
+          "observed": 0.619
+        },
+        "55-60%": {
+          "n": 50,
+          "predicted": 0.5704,
+          "observed": 0.6
+        },
+        "60-65%": {
+          "n": 20,
+          "predicted": 0.6286,
+          "observed": 0.55
+        },
+        "65-70%": {
+          "n": 12,
+          "predicted": 0.6688,
+          "observed": 0.9167
+        },
+        "70%+": {
+          "n": 6,
+          "predicted": 0.745,
+          "observed": 0.6667
+        }
+      },
+      "note": "holdout scored with probabilities from the fitted model; accuracy is measured against the actual winner"
+    }
+  },
+  "baseball": {
+    "league": "MLB",
+    "current_season": "2026",
+    "current": {
+      "games": 4946,
+      "seasons": [
+        "2025",
+        "2026"
+      ],
+      "home_advantage": 0.063,
+      "league_total": 8.93,
+      "sigma_margin": 4.462,
+      "sigma_total": 4.389,
+      "n_eff": 4946.0,
+      "notes": [],
+      "ratings": [
+        {
+          "team_id": "158",
+          "team": "Milwaukee Brewers",
+          "rating": 1.35,
+          "offence": -0.12,
+          "defence": -0.18,
+          "games": 341
+        },
+        {
+          "team_id": "119",
+          "team": "Los Angeles Dodgers",
+          "rating": 1.0,
+          "offence": -0.25,
+          "defence": -0.75,
+          "games": 349
+        },
+        {
+          "team_id": "112",
+          "team": "Chicago Cubs",
+          "rating": 0.9,
+          "offence": 0.69,
+          "defence": 0.35,
+          "games": 334
+        },
+        {
+          "team_id": "147",
+          "team": "New York Yankees",
+          "rating": 0.85,
+          "offence": -0.15,
+          "defence": -0.75,
+          "games": 335
+        },
+        {
+          "team_id": "139",
+          "team": "Tampa Bay Rays",
+          "rating": 0.61,
+          "offence": -0.48,
+          "defence": -0.53,
+          "games": 333
+        },
+        {
+          "team_id": "135",
+          "team": "San Diego Padres",
+          "rating": 0.54,
+          "offence": -0.89,
+          "defence": 0.13,
+          "games": 333
+        },
+        {
+          "team_id": "144",
+          "team": "Atlanta Braves",
+          "rating": 0.49,
+          "offence": -0.29,
+          "defence": -0.93,
+          "games": 333
+        },
+        {
+          "team_id": "111",
+          "team": "Boston Red Sox",
+          "rating": 0.39,
+          "offence": -0.53,
+          "defence": -1.01,
+          "games": 330
+        },
+        {
+          "team_id": "116",
+          "team": "Detroit Tigers",
+          "rating": 0.35,
+          "offence": -0.55,
+          "defence": -0.04,
+          "games": 332
+        },
+        {
+          "team_id": "143",
+          "team": "Philadelphia Phillies",
+          "rating": 0.28,
+          "offence": 0.34,
+          "defence": -0.75,
+          "games": 331
+        },
+        {
+          "team_id": "145",
+          "team": "Chicago White Sox",
+          "rating": 0.23,
+          "offence": 0.26,
+          "defence": 0.36,
+          "games": 331
+        },
+        {
+          "team_id": "134",
+          "team": "Pittsburgh Pirates",
+          "rating": 0.19,
+          "offence": 0.35,
+          "defence": -0.51,
+          "games": 324
+        },
+        {
+          "team_id": "109",
+          "team": "Arizona Diamondbacks",
+          "rating": 0.11,
+          "offence": 0.03,
+          "defence": 0.46,
+          "games": 325
+        },
+        {
+          "team_id": "114",
+          "team": "Cleveland Guardians",
+          "rating": 0.09,
+          "offence": -0.77,
+          "defence": -0.65,
+          "games": 339
+        },
+        {
+          "team_id": "121",
+          "team": "New York Mets",
+          "rating": 0.08,
+          "offence": -0.19,
+          "defence": 0.4,
+          "games": 324
+        },
+        {
+          "team_id": "146",
+          "team": "Miami Marlins",
+          "rating": 0.04,
+          "offence": -0.24,
+          "defence": 0.02,
+          "games": 324
+        },
+        {
+          "team_id": "110",
+          "team": "Baltimore Orioles",
+          "rating": -0.05,
+          "offence": -0.43,
+          "defence": 0.59,
+          "games": 323
+        },
+        {
+          "team_id": "141",
+          "team": "Toronto Blue Jays",
+          "rating": -0.07,
+          "offence": -0.53,
+          "defence": -0.4,
+          "games": 342
+        },
+        {
+          "team_id": "120",
+          "team": "Washington Nationals",
+          "rating": -0.09,
+          "offence": 1.48,
+          "defence": 0.35,
+          "games": 324
+        },
+        {
+          "team_id": "138",
+          "team": "St. Louis Cardinals",
+          "rating": -0.18,
+          "offence": -0.47,
+          "defence": 0.54,
+          "games": 324
+        },
+        {
+          "team_id": "117",
+          "team": "Houston Astros",
+          "rating": -0.3,
+          "offence": -0.32,
+          "defence": 0.48,
+          "games": 326
+        },
+        {
+          "team_id": "140",
+          "team": "Texas Rangers",
+          "rating": -0.39,
+          "offence": -0.77,
+          "defence": 0.19,
+          "games": 324
+        },
+        {
+          "team_id": "137",
+          "team": "San Francisco Giants",
+          "rating": -0.39,
+          "offence": -0.52,
+          "defence": 0.22,
+          "games": 325
+        },
+        {
+          "team_id": "142",
+          "team": "Minnesota Twins",
+          "rating": -0.44,
+          "offence": 0.47,
+          "defence": 0.54,
+          "games": 325
+        },
+        {
+          "team_id": "136",
+          "team": "Seattle Mariners",
+          "rating": -0.54,
+          "offence": -0.8,
+          "defence": 0.49,
+          "games": 336
+        },
+        {
+          "team_id": "118",
+          "team": "Kansas City Royals",
+          "rating": -0.65,
+          "offence": 0.99,
+          "defence": -0.34,
+          "games": 324
+        },
+        {
+          "team_id": "113",
+          "team": "Cincinnati Reds",
+          "rating": -0.76,
+          "offence": -0.21,
+          "defence": 0.79,
+          "games": 329
+        },
+        {
+          "team_id": "108",
+          "team": "Los Angeles Angels",
+          "rating": -0.79,
+          "offence": -0.92,
+          "defence": 0.26,
+          "games": 324
+        },
+        {
+          "team_id": "115",
+          "team": "Colorado Rockies",
+          "rating": -1.26,
+          "offence": 2.31,
+          "defence": 0.69,
+          "games": 324
+        },
+        {
+          "team_id": "133",
+          "team": "Athletics",
+          "rating": -1.58,
+          "offence": 2.5,
+          "defence": 0.0,
+          "games": 324
+        }
+      ]
+    },
+    "opening": {
+      "games": 2481,
+      "seasons": [
+        "2025"
+      ],
+      "kind": "opening",
+      "home_advantage": 0.091,
+      "league_total": 8.873,
+      "notes": [
+        "opening line from previous season(s): 2025"
+      ]
+    },
+    "sensitivity": {
+      "games": 4930,
+      "window": "refitted without the last 14 days"
+    },
+    "backtest": {
+      "available": true,
+      "train_games": 4821,
+      "holdout_games": 125,
+      "holdout_days": 30,
+      "accuracy": 0.576,
+      "brier": 0.2416,
+      "log_loss": 0.6761,
+      "calibration": {
+        "50-55%": {
+          "n": 64,
+          "predicted": 0.5252,
+          "observed": 0.5469
+        },
+        "55-60%": {
+          "n": 43,
+          "predicted": 0.5658,
+          "observed": 0.5581
+        },
+        "60-65%": {
+          "n": 18,
+          "predicted": 0.6273,
+          "observed": 0.7222
+        },
+        "65-70%": {
+          "n": 0,
+          "predicted": null,
+          "observed": null
+        },
+        "70%+": {
+          "n": 0,
+          "predicted": null,
+          "observed": null
+        }
+      },
+      "note": "holdout scored with probabilities from the fitted model; accuracy is measured against the actual winner"
+    }
+  }
+}

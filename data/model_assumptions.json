@@ -1,0 +1,96 @@
+{
+ "schema": "olbg4.assumptions/1",
+ "flags": [
+  {
+   "type": "model_assumption",
+   "sport": "Tennis",
+   "what": "Tennis: total_basis",
+   "detail": "MODEL ASSUMPTION: 22.5 total games for a best-of-three match; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Tennis",
+   "what": "Tennis: margin_basis",
+   "detail": "MODEL ASSUMPTION: 6-game average winning margin; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Basketball",
+   "what": "Basketball: total_basis",
+   "detail": "MODEL ASSUMPTION: 225.5 points; OLBG publishes no league average total on the captured page",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Basketball",
+   "what": "Basketball: margin_basis",
+   "detail": "MODEL ASSUMPTION: 9-point average winning margin; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Cricket",
+   "what": "Cricket: total_basis",
+   "detail": "MODEL ASSUMPTION: 320.5 combined runs (T20/ODI mixed card); not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Cricket",
+   "what": "Cricket: margin_basis",
+   "detail": "MODEL ASSUMPTION: 20-run average winning margin; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Snooker",
+   "what": "Snooker: total_basis",
+   "detail": "MODEL ASSUMPTION: 9.5 frames for a best-of-11; OLBG publishes the 6-5 scoreline frequency (23.9%) but not an average total",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Darts",
+   "what": "Darts: total_basis",
+   "detail": "MODEL ASSUMPTION: 9.5 legs for a best-of-11; OLBG's own highlighted total-legs line on this card is 9.50 - https://www.olbg.com/betting-tips/Darts/15",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Darts",
+   "what": "Darts: margin_basis",
+   "detail": "MODEL ASSUMPTION: 2.5-leg average winning margin on a best-of-11",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Handball",
+   "what": "Handball: base_rates_basis",
+   "detail": "OLBG published EHF Champions League men split: favourites 68.2%, underdogs 22.0%, ties 9.8%. Home/away shares are NOT published by OLBG; the 0.50/0.402 split here is a MODEL ASSUMPTION that preserves the published 9.8% tie rate within a 100% book - https://www.olbg.com/betting-tips/Handball/20",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Volleyball",
+   "what": "Volleyball: total_basis",
+   "detail": "MODEL ASSUMPTION: 175.5 total points across a best-of-five; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Volleyball",
+   "what": "Volleyball: margin_basis",
+   "detail": "MODEL ASSUMPTION: 12-point average margin across sets",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Baseball",
+   "what": "Baseball: base_rates_basis",
+   "detail": "OLBG published MLB home win 59% / road 57% (i.e. home teams win slightly more games than they lose at home); the 0.545 prior is a MODEL ASSUMPTION inside that published range - https://www.olbg.com/betting-tips/Baseball/12",
+   "source": "data/model_config.json"
+  }
+ ]
+}

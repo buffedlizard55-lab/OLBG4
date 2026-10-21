@@ -1,0 +1,57 @@
+name: Deploy OLBG4 to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Verify site data is valid JSON (all three builds)
+        run: |
+          echo "=== Build C (gov-body verified) ==="
+          python3 -m json.tool data/matches.json > /dev/null && echo "✓ data/matches.json"
+          python3 -m json.tool data/sources.json > /dev/null && echo "✓ data/sources.json"
+          if [ -f data/rows.json ]; then python3 -m json.tool data/rows.json > /dev/null && echo "✓ Build A data/rows.json"; fi
+          if [ -f data/board.json ]; then python3 -m json.tool data/board.json > /dev/null && echo "✓ Build B data/board.json"; fi
+          if [ -f data/match_inventory.json ]; then python3 -m json.tool data/match_inventory.json > /dev/null && echo "✓ B inventory"; fi
+          if [ -f data/verification.json ]; then python3 -m json.tool data/verification.json > /dev/null && echo "✓ B verification"; fi
+          echo "Checking key HTML files exist..."
+          ls -la index.html methodology.html sources.html flagged.html
+          ls -la tennis.html basketball.html baseball.html cricket.html rugby.html ice-hockey.html snooker.html darts.html golf.html badminton.html table-tennis.html volleyball.html handball.html esports.html aussie-rules.html
+          if [ -f docs/index.html ]; then echo "✓ docs/index.html (Build A)"; ls docs/sports/*.html | head; fi
+          if [ -f session-7114b6a1/index.html ]; then echo "✓ session-7114b6a1/index.html (Build B)"; fi
+      - name: Check no TODO placeholders
+        run: |
+          ! grep -R "TODO" --include="*.html" --include="*.json" . || (echo "TODO found" && exit 1)
+          echo "No TODO placeholders"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

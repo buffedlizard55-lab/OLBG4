@@ -1,0 +1,3880 @@
+{
+  "meta": {
+    "generated_by": "scripts/model.py",
+    "generated_at_utc": "2026-10-21T09:00:00Z",
+    "margins": {
+      "two_way_overround": 1.04,
+      "three_way_overround": 1.05
+    },
+    "confidence_bands": {
+      "high": 0.65,
+      "medium": 0.57
+    },
+    "disclaimer": "Model output for research and comparison only. Not betting advice."
+  },
+  "matches": [
+    {
+      "id": "nhl-2026-10-22-bos-nsh",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 7:00 PM EDT",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Boston Bruins",
+        "code": "BOS"
+      },
+      "away": {
+        "name": "Nashville Predators",
+        "code": "NSH"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Boston Bruins",
+          "gp": 10,
+          "w": 7,
+          "l": 2,
+          "ot": 1,
+          "pts": 15,
+          "gf": 36,
+          "ga": 22,
+          "home_record": "3-1-0",
+          "away_record": "4-1-1",
+          "l10": "7-2-1",
+          "streak": "OT1"
+        },
+        "away": {
+          "name": "Nashville Predators",
+          "gp": 8,
+          "w": 3,
+          "l": 2,
+          "ot": 3,
+          "pts": 9,
+          "gf": 23,
+          "ga": 24,
+          "home_record": "2-2-1",
+          "away_record": "1-0-2",
+          "l10": "3-2-3",
+          "streak": "W1"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Boston Bruins",
+          "prob": 0.6205,
+          "odds": 1.55
+        },
+        {
+          "market": "moneyline",
+          "selection": "Nashville Predators",
+          "prob": 0.3795,
+          "odds": 2.53
+        },
+        {
+          "market": "handicap",
+          "selection": "Boston Bruins -1.5",
+          "prob": 0.2874,
+          "odds": 3.35,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Nashville Predators +1.5",
+          "prob": 0.7126,
+          "odds": 1.35,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.0",
+          "prob": 0.4948,
+          "odds": 1.94,
+          "line": 6.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.0",
+          "prob": 0.5052,
+          "odds": 1.9,
+          "line": 6.0
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 3.18,
+        "expected_goals_away": 2.8,
+        "expected_total": 5.97,
+        "home_win_prob": 0.6205
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Boston Bruins",
+        "prob": 0.6205,
+        "odds": 1.55
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-tor-nyr",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 7:00 PM EDT",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Toronto Maple Leafs",
+        "code": "TOR"
+      },
+      "away": {
+        "name": "New York Rangers",
+        "code": "NYR"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Toronto Maple Leafs",
+          "gp": 11,
+          "w": 5,
+          "l": 4,
+          "ot": 2,
+          "pts": 12,
+          "gf": 38,
+          "ga": 35,
+          "home_record": "3-3-1",
+          "away_record": "2-1-1",
+          "l10": "5-3-2",
+          "streak": "W2"
+        },
+        "away": {
+          "name": "New York Rangers",
+          "gp": 11,
+          "w": 7,
+          "l": 3,
+          "ot": 1,
+          "pts": 15,
+          "gf": 33,
+          "ga": 24,
+          "home_record": "6-0-0",
+          "away_record": "1-3-1",
+          "l10": "7-2-1",
+          "streak": "W1"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Toronto Maple Leafs",
+          "prob": 0.4776,
+          "odds": 2.01
+        },
+        {
+          "market": "moneyline",
+          "selection": "New York Rangers",
+          "prob": 0.5224,
+          "odds": 1.84
+        },
+        {
+          "market": "handicap",
+          "selection": "Toronto Maple Leafs -1.5",
+          "prob": 0.2057,
+          "odds": 4.67,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "New York Rangers +1.5",
+          "prob": 0.7943,
+          "odds": 1.21,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.0",
+          "prob": 0.5,
+          "odds": 1.92,
+          "line": 6.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.0",
+          "prob": 0.5,
+          "odds": 1.92,
+          "line": 6.0
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 2.93,
+        "expected_goals_away": 3.07,
+        "expected_total": 6.0,
+        "home_win_prob": 0.4776
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "New York Rangers",
+        "prob": 0.5224,
+        "odds": 1.84
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-ott-sjs",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 7:00 PM EDT",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Ottawa Senators",
+        "code": "OTT"
+      },
+      "away": {
+        "name": "San Jose Sharks",
+        "code": "SJS"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Ottawa Senators",
+          "gp": 9,
+          "w": 6,
+          "l": 3,
+          "ot": 0,
+          "pts": 12,
+          "gf": 24,
+          "ga": 23,
+          "home_record": "3-1-0",
+          "away_record": "3-2-0",
+          "l10": "6-3-0",
+          "streak": "L1"
+        },
+        "away": {
+          "name": "San Jose Sharks",
+          "gp": 10,
+          "w": 5,
+          "l": 4,
+          "ot": 1,
+          "pts": 11,
+          "gf": 27,
+          "ga": 35,
+          "home_record": "2-2-0",
+          "away_record": "3-2-1",
+          "l10": "5-4-1",
+          "streak": "W1"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Ottawa Senators",
+          "prob": 0.5827,
+          "odds": 1.65
+        },
+        {
+          "market": "moneyline",
+          "selection": "San Jose Sharks",
+          "prob": 0.4173,
+          "odds": 2.3
+        },
+        {
+          "market": "handicap",
+          "selection": "Ottawa Senators -1.5",
+          "prob": 0.2621,
+          "odds": 3.67,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "San Jose Sharks +1.5",
+          "prob": 0.7379,
+          "odds": 1.3,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.0",
+          "prob": 0.4826,
+          "odds": 1.99,
+          "line": 6.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.0",
+          "prob": 0.5174,
+          "odds": 1.86,
+          "line": 6.0
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 3.07,
+        "expected_goals_away": 2.85,
+        "expected_total": 5.92,
+        "home_win_prob": 0.5827
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Ottawa Senators",
+        "prob": 0.5827,
+        "odds": 1.65
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-njd-ana",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 7:00 PM EDT",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "New Jersey Devils",
+        "code": "NJD"
+      },
+      "away": {
+        "name": "Anaheim Ducks",
+        "code": "ANA"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "New Jersey Devils",
+          "gp": 9,
+          "w": 5,
+          "l": 4,
+          "ot": 0,
+          "pts": 10,
+          "gf": 29,
+          "ga": 30,
+          "home_record": "4-2-0",
+          "away_record": "1-2-0",
+          "l10": "5-4-0",
+          "streak": "W1"
+        },
+        "away": {
+          "name": "Anaheim Ducks",
+          "gp": 9,
+          "w": 4,
+          "l": 5,
+          "ot": 0,
+          "pts": 8,
+          "gf": 26,
+          "ga": 29,
+          "home_record": "1-3-0",
+          "away_record": "3-2-0",
+          "l10": "4-5-0",
+          "streak": "L4"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "New Jersey Devils",
+          "prob": 0.5752,
+          "odds": 1.67
+        },
+        {
+          "market": "moneyline",
+          "selection": "Anaheim Ducks",
+          "prob": 0.4248,
+          "odds": 2.26
+        },
+        {
+          "market": "handicap",
+          "selection": "New Jersey Devils -1.5",
+          "prob": 0.2346,
+          "odds": 4.1,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Anaheim Ducks +1.5",
+          "prob": 0.7654,
+          "odds": 1.26,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.0",
+          "prob": 0.5441,
+          "odds": 1.77,
+          "line": 6.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.0",
+          "prob": 0.4559,
+          "odds": 2.11,
+          "line": 6.0
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 3.13,
+        "expected_goals_away": 3.08,
+        "expected_total": 6.21,
+        "home_win_prob": 0.5752
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "New Jersey Devils",
+        "prob": 0.5752,
+        "odds": 1.67
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-pit-fla",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 7:00 PM EDT",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Pittsburgh Penguins",
+        "code": "PIT"
+      },
+      "away": {
+        "name": "Florida Panthers",
+        "code": "FLA"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Pittsburgh Penguins",
+          "gp": 10,
+          "w": 3,
+          "l": 6,
+          "ot": 1,
+          "pts": 7,
+          "gf": 33,
+          "ga": 38,
+          "home_record": "2-1-0",
+          "away_record": "1-5-1",
+          "l10": "3-6-1",
+          "streak": "L4"
+        },
+        "away": {
+          "name": "Florida Panthers",
+          "gp": 9,
+          "w": 5,
+          "l": 2,
+          "ot": 2,
+          "pts": 12,
+          "gf": 30,
+          "ga": 25,
+          "home_record": "2-1-0",
+          "away_record": "3-1-2",
+          "l10": "5-2-2",
+          "streak": "W3"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Pittsburgh Penguins",
+          "prob": 0.4132,
+          "odds": 2.33
+        },
+        {
+          "market": "moneyline",
+          "selection": "Florida Panthers",
+          "prob": 0.5868,
+          "odds": 1.64
+        },
+        {
+          "market": "handicap",
+          "selection": "Pittsburgh Penguins -1.5",
+          "prob": 0.1899,
+          "odds": 5.06,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Florida Panthers +1.5",
+          "prob": 0.8101,
+          "odds": 1.19,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.5",
+          "prob": 0.4691,
+          "odds": 2.05,
+          "line": 6.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.5",
+          "prob": 0.5309,
+          "odds": 1.81,
+          "line": 6.5
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 3.05,
+        "expected_goals_away": 3.3,
+        "expected_total": 6.35,
+        "home_win_prob": 0.4132
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Florida Panthers",
+        "prob": 0.5868,
+        "odds": 1.64
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-nyi-lak",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 7:30 PM EDT",
+      "start_utc": "2026-10-22T23:30:00Z",
+      "venue": "",
+      "home": {
+        "name": "New York Islanders",
+        "code": "NYI"
+      },
+      "away": {
+        "name": "Los Angeles Kings",
+        "code": "LAK"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "New York Islanders",
+          "gp": 9,
+          "w": 5,
+          "l": 3,
+          "ot": 1,
+          "pts": 11,
+          "gf": 27,
+          "ga": 20,
+          "home_record": "4-1-0",
+          "away_record": "1-2-1",
+          "l10": "5-3-1",
+          "streak": "W2"
+        },
+        "away": {
+          "name": "Los Angeles Kings",
+          "gp": 7,
+          "w": 1,
+          "l": 4,
+          "ot": 2,
+          "pts": 4,
+          "gf": 17,
+          "ga": 27,
+          "home_record": "0-3-0",
+          "away_record": "1-1-2",
+          "l10": "1-4-2",
+          "streak": "W1"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "New York Islanders",
+          "prob": 0.6574,
+          "odds": 1.46
+        },
+        {
+          "market": "moneyline",
+          "selection": "Los Angeles Kings",
+          "prob": 0.3426,
+          "odds": 2.81
+        },
+        {
+          "market": "handicap",
+          "selection": "New York Islanders -1.5",
+          "prob": 0.3047,
+          "odds": 3.16,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Los Angeles Kings +1.5",
+          "prob": 0.6953,
+          "odds": 1.38,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.0",
+          "prob": 0.4854,
+          "odds": 1.98,
+          "line": 6.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.0",
+          "prob": 0.5146,
+          "odds": 1.87,
+          "line": 6.0
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 3.2,
+        "expected_goals_away": 2.73,
+        "expected_total": 5.93,
+        "home_win_prob": 0.6574
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "New York Islanders",
+        "prob": 0.6574,
+        "odds": 1.46
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-stl-vgk",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 8:00 PM EDT",
+      "start_utc": "2026-10-23T00:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "St. Louis Blues",
+        "code": "STL"
+      },
+      "away": {
+        "name": "Vegas Golden Knights",
+        "code": "VGK"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "St. Louis Blues",
+          "gp": 9,
+          "w": 4,
+          "l": 4,
+          "ot": 1,
+          "pts": 9,
+          "gf": 29,
+          "ga": 29,
+          "home_record": "2-0-1",
+          "away_record": "2-4-0",
+          "l10": "4-4-1",
+          "streak": "W1"
+        },
+        "away": {
+          "name": "Vegas Golden Knights",
+          "gp": 10,
+          "w": 8,
+          "l": 2,
+          "ot": 0,
+          "pts": 16,
+          "gf": 42,
+          "ga": 24,
+          "home_record": "5-1-0",
+          "away_record": "3-1-0",
+          "l10": "8-2-0",
+          "streak": "W3"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "St. Louis Blues",
+          "prob": 0.4086,
+          "odds": 2.35
+        },
+        {
+          "market": "moneyline",
+          "selection": "Vegas Golden Knights",
+          "prob": 0.5914,
+          "odds": 1.63
+        },
+        {
+          "market": "handicap",
+          "selection": "St. Louis Blues -1.5",
+          "prob": 0.1648,
+          "odds": 5.84,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Vegas Golden Knights +1.5",
+          "prob": 0.8352,
+          "odds": 1.15,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.5",
+          "prob": 0.4595,
+          "odds": 2.09,
+          "line": 6.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.5",
+          "prob": 0.5405,
+          "odds": 1.78,
+          "line": 6.5
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 2.93,
+        "expected_goals_away": 3.38,
+        "expected_total": 6.31,
+        "home_win_prob": 0.4086
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Vegas Golden Knights",
+        "prob": 0.5914,
+        "odds": 1.63
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-dal-wpg",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 8:00 PM EDT",
+      "start_utc": "2026-10-23T00:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Dallas Stars",
+        "code": "DAL"
+      },
+      "away": {
+        "name": "Winnipeg Jets",
+        "code": "WPG"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Dallas Stars",
+          "gp": 9,
+          "w": 5,
+          "l": 3,
+          "ot": 1,
+          "pts": 11,
+          "gf": 23,
+          "ga": 15,
+          "home_record": "2-2-0",
+          "away_record": "3-1-1",
+          "l10": "5-3-1",
+          "streak": "W3"
+        },
+        "away": {
+          "name": "Winnipeg Jets",
+          "gp": 9,
+          "w": 4,
+          "l": 3,
+          "ot": 2,
+          "pts": 10,
+          "gf": 24,
+          "ga": 26,
+          "home_record": "2-2-1",
+          "away_record": "2-1-1",
+          "l10": "4-3-2",
+          "streak": "L2"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Dallas Stars",
+          "prob": 0.5647,
+          "odds": 1.7
+        },
+        {
+          "market": "moneyline",
+          "selection": "Winnipeg Jets",
+          "prob": 0.4353,
+          "odds": 2.21
+        },
+        {
+          "market": "handicap",
+          "selection": "Dallas Stars -1.5",
+          "prob": 0.2681,
+          "odds": 3.59,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Winnipeg Jets +1.5",
+          "prob": 0.7319,
+          "odds": 1.31,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 5.5",
+          "prob": 0.5055,
+          "odds": 1.9,
+          "line": 5.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 5.5",
+          "prob": 0.4945,
+          "odds": 1.94,
+          "line": 5.5
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 2.89,
+        "expected_goals_away": 2.63,
+        "expected_total": 5.53,
+        "home_win_prob": 0.5647
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Dallas Stars",
+        "prob": 0.5647,
+        "odds": 1.7
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-cgy-min",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 9:00 PM EDT",
+      "start_utc": "2026-10-23T01:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Calgary Flames",
+        "code": "CGY"
+      },
+      "away": {
+        "name": "Minnesota Wild",
+        "code": "MIN"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Calgary Flames",
+          "gp": 8,
+          "w": 2,
+          "l": 6,
+          "ot": 0,
+          "pts": 4,
+          "gf": 17,
+          "ga": 37,
+          "home_record": "1-3-0",
+          "away_record": "1-3-0",
+          "l10": "2-6-0",
+          "streak": "W1"
+        },
+        "away": {
+          "name": "Minnesota Wild",
+          "gp": 10,
+          "w": 6,
+          "l": 2,
+          "ot": 2,
+          "pts": 14,
+          "gf": 31,
+          "ga": 25,
+          "home_record": "4-0-0",
+          "away_record": "2-2-2",
+          "l10": "6-2-2",
+          "streak": "OT1"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Calgary Flames",
+          "prob": 0.3525,
+          "odds": 2.73
+        },
+        {
+          "market": "moneyline",
+          "selection": "Minnesota Wild",
+          "prob": 0.6475,
+          "odds": 1.49
+        },
+        {
+          "market": "handicap",
+          "selection": "Calgary Flames -1.5",
+          "prob": 0.1351,
+          "odds": 7.12,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Minnesota Wild +1.5",
+          "prob": 0.8649,
+          "odds": 1.11,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.0",
+          "prob": 0.5251,
+          "odds": 1.83,
+          "line": 6.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.0",
+          "prob": 0.4749,
+          "odds": 2.02,
+          "line": 6.0
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 2.71,
+        "expected_goals_away": 3.41,
+        "expected_total": 6.12,
+        "home_win_prob": 0.3525
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Minnesota Wild",
+        "prob": 0.6475,
+        "odds": 1.49
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-edm-car",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 9:00 PM EDT",
+      "start_utc": "2026-10-23T01:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Edmonton Oilers",
+        "code": "EDM"
+      },
+      "away": {
+        "name": "Carolina Hurricanes",
+        "code": "CAR"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Edmonton Oilers",
+          "gp": 9,
+          "w": 7,
+          "l": 1,
+          "ot": 1,
+          "pts": 15,
+          "gf": 41,
+          "ga": 27,
+          "home_record": "2-1-1",
+          "away_record": "5-0-0",
+          "l10": "7-1-1",
+          "streak": "W2"
+        },
+        "away": {
+          "name": "Carolina Hurricanes",
+          "gp": 11,
+          "w": 8,
+          "l": 2,
+          "ot": 1,
+          "pts": 17,
+          "gf": 42,
+          "ga": 27,
+          "home_record": "2-1-1",
+          "away_record": "6-1-0",
+          "l10": "8-2-0",
+          "streak": "W1"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Edmonton Oilers",
+          "prob": 0.5468,
+          "odds": 1.76
+        },
+        {
+          "market": "moneyline",
+          "selection": "Carolina Hurricanes",
+          "prob": 0.4532,
+          "odds": 2.12
+        },
+        {
+          "market": "handicap",
+          "selection": "Edmonton Oilers -1.5",
+          "prob": 0.2283,
+          "odds": 4.21,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Carolina Hurricanes +1.5",
+          "prob": 0.7717,
+          "odds": 1.25,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.5",
+          "prob": 0.4979,
+          "odds": 1.93,
+          "line": 6.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.5",
+          "prob": 0.5021,
+          "odds": 1.92,
+          "line": 6.5
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 3.25,
+        "expected_goals_away": 3.24,
+        "expected_total": 6.49,
+        "home_win_prob": 0.5468
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Edmonton Oilers",
+        "prob": 0.5468,
+        "odds": 1.76
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-sea-uta",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 10:00 PM EDT",
+      "start_utc": "2026-10-23T02:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Seattle Kraken",
+        "code": "SEA"
+      },
+      "away": {
+        "name": "Utah Mammoth",
+        "code": "UTA"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Seattle Kraken",
+          "gp": 10,
+          "w": 6,
+          "l": 3,
+          "ot": 1,
+          "pts": 13,
+          "gf": 39,
+          "ga": 34,
+          "home_record": "2-1-0",
+          "away_record": "4-2-1",
+          "l10": "6-3-1",
+          "streak": "W1"
+        },
+        "away": {
+          "name": "Utah Mammoth",
+          "gp": 10,
+          "w": 7,
+          "l": 3,
+          "ot": 0,
+          "pts": 14,
+          "gf": 38,
+          "ga": 31,
+          "home_record": "3-1-0",
+          "away_record": "4-2-0",
+          "l10": "7-3-0",
+          "streak": "W1"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Seattle Kraken",
+          "prob": 0.5149,
+          "odds": 1.87
+        },
+        {
+          "market": "moneyline",
+          "selection": "Utah Mammoth",
+          "prob": 0.4851,
+          "odds": 1.98
+        },
+        {
+          "market": "handicap",
+          "selection": "Seattle Kraken -1.5",
+          "prob": 0.2192,
+          "odds": 4.39,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Utah Mammoth +1.5",
+          "prob": 0.7808,
+          "odds": 1.23,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.5",
+          "prob": 0.521,
+          "odds": 1.85,
+          "line": 6.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.5",
+          "prob": 0.479,
+          "odds": 2.01,
+          "line": 6.5
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 3.28,
+        "expected_goals_away": 3.33,
+        "expected_total": 6.6,
+        "home_win_prob": 0.5149
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Seattle Kraken",
+        "prob": 0.5149,
+        "odds": 1.87
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nhl-2026-10-22-van-det",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice-hockey",
+      "league": "NHL",
+      "competition": "NHL regular season",
+      "start_local": "Thu 22 Oct 2026, 10:00 PM EDT",
+      "start_utc": "2026-10-23T02:00:00Z",
+      "venue": "",
+      "home": {
+        "name": "Vancouver Canucks",
+        "code": "VAN"
+      },
+      "away": {
+        "name": "Detroit Red Wings",
+        "code": "DET"
+      },
+      "fixture_sources": [
+        "S11"
+      ],
+      "input_sources": [
+        "S10"
+      ],
+      "inputs_verified": true,
+      "model": "nhl_amount",
+      "inputs": {
+        "home": {
+          "name": "Vancouver Canucks",
+          "gp": 11,
+          "w": 2,
+          "l": 8,
+          "ot": 1,
+          "pts": 5,
+          "gf": 33,
+          "ga": 51,
+          "home_record": "1-3-0",
+          "away_record": "1-5-1",
+          "l10": "1-8-1",
+          "streak": "L2"
+        },
+        "away": {
+          "name": "Detroit Red Wings",
+          "gp": 9,
+          "w": 3,
+          "l": 3,
+          "ot": 3,
+          "pts": 9,
+          "gf": 23,
+          "ga": 28,
+          "home_record": "3-3-1",
+          "away_record": "0-0-2",
+          "l10": "3-3-3",
+          "streak": "OT1"
+        }
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Vancouver Canucks",
+          "prob": 0.4203,
+          "odds": 2.29
+        },
+        {
+          "market": "moneyline",
+          "selection": "Detroit Red Wings",
+          "prob": 0.5797,
+          "odds": 1.66
+        },
+        {
+          "market": "handicap",
+          "selection": "Vancouver Canucks -1.5",
+          "prob": 0.1845,
+          "odds": 5.21,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Detroit Red Wings +1.5",
+          "prob": 0.8155,
+          "odds": 1.18,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 6.5",
+          "prob": 0.479,
+          "odds": 2.01,
+          "line": 6.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 6.5",
+          "prob": 0.521,
+          "odds": 1.85,
+          "line": 6.5
+        }
+      ],
+      "model_view": {
+        "expected_goals_home": 3.05,
+        "expected_goals_away": 3.35,
+        "expected_total": 6.4,
+        "home_win_prob": 0.4203
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Detroit Red Wings",
+        "prob": 0.5797,
+        "odds": 1.66
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-orl-atl",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 7:00 PM ET",
+      "start_utc": "2026-10-21T23:00:00Z",
+      "venue": "Kia Center, Orlando, FL",
+      "home": {
+        "name": "Orlando Magic",
+        "code": "ORL"
+      },
+      "away": {
+        "name": "Atlanta Hawks",
+        "code": "ATL"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            45,
+            37
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            46,
+            36
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Orlando Magic",
+          "prob": 0.5506,
+          "odds": 1.75
+        },
+        {
+          "market": "moneyline",
+          "selection": "Atlanta Hawks",
+          "prob": 0.4494,
+          "odds": 2.14
+        },
+        {
+          "market": "handicap",
+          "selection": "Orlando Magic -1.5",
+          "prob": 0.4987,
+          "odds": 1.93,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Atlanta Hawks +1.5",
+          "prob": 0.5013,
+          "odds": 1.92,
+          "line": 1.5
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.5506,
+        "model_spread_home": -1.5,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Orlando Magic",
+        "prob": 0.5506,
+        "odds": 1.75
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-was-mil",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 7:00 PM ET",
+      "start_utc": "2026-10-21T23:00:00Z",
+      "venue": "Capital One Arena, Washington, DC",
+      "home": {
+        "name": "Washington Wizards",
+        "code": "WAS"
+      },
+      "away": {
+        "name": "Milwaukee Bucks",
+        "code": "MIL"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            17,
+            65
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            32,
+            50
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Washington Wizards",
+          "prob": 0.4086,
+          "odds": 2.35
+        },
+        {
+          "market": "moneyline",
+          "selection": "Milwaukee Bucks",
+          "prob": 0.5914,
+          "odds": 1.63
+        },
+        {
+          "market": "handicap",
+          "selection": "Washington Wizards +2.5",
+          "prob": 0.4945,
+          "odds": 1.94,
+          "line": 2.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Milwaukee Bucks -2.5",
+          "prob": 0.5055,
+          "odds": 1.9,
+          "line": -2.5
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.4086,
+        "model_spread_home": 2.7,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Milwaukee Bucks",
+        "prob": 0.5914,
+        "odds": 1.63
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-mia-min",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 7:30 PM ET",
+      "start_utc": "2026-10-21T23:30:00Z",
+      "venue": "Kaseya Center, Miami, FL",
+      "home": {
+        "name": "Miami Heat",
+        "code": "MIA"
+      },
+      "away": {
+        "name": "Minnesota Timberwolves",
+        "code": "MIN"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            43,
+            39
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            49,
+            33
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Miami Heat",
+          "prob": 0.5046,
+          "odds": 1.91
+        },
+        {
+          "market": "moneyline",
+          "selection": "Minnesota Timberwolves",
+          "prob": 0.4954,
+          "odds": 1.94
+        },
+        {
+          "market": "handicap",
+          "selection": "Miami Heat -0.0",
+          "prob": 0.5046,
+          "odds": 1.91,
+          "line": -0.0
+        },
+        {
+          "market": "handicap",
+          "selection": "Minnesota Timberwolves +0.0",
+          "prob": 0.4954,
+          "odds": 1.94,
+          "line": 0.0
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.5046,
+        "model_spread_home": -0.1,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Miami Heat",
+        "prob": 0.5046,
+        "odds": 1.91
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-bkn-cha",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 7:30 PM ET",
+      "start_utc": "2026-10-21T23:30:00Z",
+      "venue": "Barclays Center, Brooklyn, NY",
+      "home": {
+        "name": "Brooklyn Nets",
+        "code": "BKN"
+      },
+      "away": {
+        "name": "Charlotte Hornets",
+        "code": "CHA"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            20,
+            62
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            44,
+            38
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Brooklyn Nets",
+          "prob": 0.3363,
+          "odds": 2.86
+        },
+        {
+          "market": "moneyline",
+          "selection": "Charlotte Hornets",
+          "prob": 0.6637,
+          "odds": 1.45
+        },
+        {
+          "market": "handicap",
+          "selection": "Brooklyn Nets +5.0",
+          "prob": 0.5049,
+          "odds": 1.9,
+          "line": 5.0
+        },
+        {
+          "market": "handicap",
+          "selection": "Charlotte Hornets -5.0",
+          "prob": 0.4951,
+          "odds": 1.94,
+          "line": -5.0
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.3363,
+        "model_spread_home": 4.9,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Charlotte Hornets",
+        "prob": 0.6637,
+        "odds": 1.45
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-tor-chi",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 7:30 PM ET",
+      "start_utc": "2026-10-21T23:30:00Z",
+      "venue": "Scotiabank Arena, Toronto, ON",
+      "home": {
+        "name": "Toronto Raptors",
+        "code": "TOR"
+      },
+      "away": {
+        "name": "Chicago Bulls",
+        "code": "CHI"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            46,
+            36
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            31,
+            51
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Toronto Raptors",
+          "prob": 0.6886,
+          "odds": 1.4
+        },
+        {
+          "market": "moneyline",
+          "selection": "Chicago Bulls",
+          "prob": 0.3114,
+          "odds": 3.09
+        },
+        {
+          "market": "handicap",
+          "selection": "Toronto Raptors -5.5",
+          "prob": 0.5054,
+          "odds": 1.9,
+          "line": -5.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Chicago Bulls +5.5",
+          "prob": 0.4946,
+          "odds": 1.94,
+          "line": 5.5
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.6886,
+        "model_spread_home": -5.7,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Toronto Raptors",
+        "prob": 0.6886,
+        "odds": 1.4
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-mem-uta",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 8:00 PM ET",
+      "start_utc": "2026-10-22T00:00:00Z",
+      "venue": "FedExForum, Memphis, TN",
+      "home": {
+        "name": "Memphis Grizzlies",
+        "code": "MEM"
+      },
+      "away": {
+        "name": "Utah Jazz",
+        "code": "UTA"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": false,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": null,
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": null,
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "2025-26 record for one or both clubs was truncated in the official standings capture; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "nba-2026-10-21-nop-ind",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 8:00 PM ET",
+      "start_utc": "2026-10-22T00:00:00Z",
+      "venue": "Smoothie King Center, New Orleans, LA",
+      "home": {
+        "name": "New Orleans Pelicans",
+        "code": "NOP"
+      },
+      "away": {
+        "name": "Indiana Pacers",
+        "code": "IND"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            26,
+            56
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            19,
+            63
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "New Orleans Pelicans",
+          "prob": 0.6295,
+          "odds": 1.53
+        },
+        {
+          "market": "moneyline",
+          "selection": "Indiana Pacers",
+          "prob": 0.3705,
+          "odds": 2.59
+        },
+        {
+          "market": "handicap",
+          "selection": "New Orleans Pelicans -4.0",
+          "prob": 0.4931,
+          "odds": 1.95,
+          "line": -4.0
+        },
+        {
+          "market": "handicap",
+          "selection": "Indiana Pacers +4.0",
+          "prob": 0.5069,
+          "odds": 1.9,
+          "line": 4.0
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.6295,
+        "model_spread_home": -3.8,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "New Orleans Pelicans",
+        "prob": 0.6295,
+        "odds": 1.53
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-hou-dal",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 8:30 PM ET",
+      "start_utc": "2026-10-22T00:30:00Z",
+      "venue": "Toyota Center, Houston, TX",
+      "home": {
+        "name": "Houston Rockets",
+        "code": "HOU"
+      },
+      "away": {
+        "name": "Dallas Mavericks",
+        "code": "DAL"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            52,
+            30
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            26,
+            56
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Houston Rockets",
+          "prob": 0.7705,
+          "odds": 1.25
+        },
+        {
+          "market": "moneyline",
+          "selection": "Dallas Mavericks",
+          "prob": 0.2295,
+          "odds": 4.19
+        },
+        {
+          "market": "handicap",
+          "selection": "Houston Rockets -8.5",
+          "prob": 0.5006,
+          "odds": 1.92,
+          "line": -8.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Dallas Mavericks +8.5",
+          "prob": 0.4994,
+          "odds": 1.93,
+          "line": 8.5
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.7705,
+        "model_spread_home": -8.5,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Houston Rockets",
+        "prob": 0.7705,
+        "odds": 1.25
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-lal-gsw",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 10:00 PM ET",
+      "start_utc": "2026-10-22T02:00:00Z",
+      "venue": "Crypto.com Arena, Los Angeles, CA",
+      "home": {
+        "name": "Los Angeles Lakers",
+        "code": "LAL"
+      },
+      "away": {
+        "name": "Golden State Warriors",
+        "code": "GSW"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            53,
+            29
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            37,
+            45
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Los Angeles Lakers",
+          "prob": 0.697,
+          "odds": 1.38
+        },
+        {
+          "market": "moneyline",
+          "selection": "Golden State Warriors",
+          "prob": 0.303,
+          "odds": 3.17
+        },
+        {
+          "market": "handicap",
+          "selection": "Los Angeles Lakers -6.0",
+          "prob": 0.4976,
+          "odds": 1.93,
+          "line": -6.0
+        },
+        {
+          "market": "handicap",
+          "selection": "Golden State Warriors +6.0",
+          "prob": 0.5024,
+          "odds": 1.91,
+          "line": 6.0
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.697,
+        "model_spread_home": -5.9,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Los Angeles Lakers",
+        "prob": 0.697,
+        "odds": 1.38
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-por-phx",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 10:00 PM ET",
+      "start_utc": "2026-10-22T02:00:00Z",
+      "venue": "Moda Center, Portland, OR",
+      "home": {
+        "name": "Portland Trail Blazers",
+        "code": "POR"
+      },
+      "away": {
+        "name": "Phoenix Suns",
+        "code": "PHX"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": true,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            42,
+            40
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": [
+            45,
+            37
+          ],
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "Totals not originated: no official team-level pace/efficiency table was captured.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Portland Trail Blazers",
+          "prob": 0.5325,
+          "odds": 1.81
+        },
+        {
+          "market": "moneyline",
+          "selection": "Phoenix Suns",
+          "prob": 0.4675,
+          "odds": 2.06
+        },
+        {
+          "market": "handicap",
+          "selection": "Portland Trail Blazers -1.0",
+          "prob": 0.4978,
+          "odds": 1.93,
+          "line": -1.0
+        },
+        {
+          "market": "handicap",
+          "selection": "Phoenix Suns +1.0",
+          "prob": 0.5022,
+          "odds": 1.91,
+          "line": 1.0
+        }
+      ],
+      "model_view": {
+        "home_win_prob": 0.5325,
+        "model_spread_home": -0.9,
+        "note": "Totals not originated (no official pace/efficiency inputs captured)."
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Portland Trail Blazers",
+        "prob": 0.5325,
+        "odds": 1.81
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "nba-2026-10-21-lac-sac",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "league": "NBA",
+      "competition": "NBA regular season",
+      "start_local": "Wed 21 Oct 2026, 10:30 PM ET",
+      "start_utc": "2026-10-22T02:30:00Z",
+      "venue": "Intuit Dome, Inglewood, CA",
+      "home": {
+        "name": "LA Clippers",
+        "code": "LAC"
+      },
+      "away": {
+        "name": "Sacramento Kings",
+        "code": "SAC"
+      },
+      "fixture_sources": [
+        "S14"
+      ],
+      "input_sources": [
+        "S12",
+        "S13"
+      ],
+      "inputs_verified": false,
+      "model": "nba",
+      "inputs": {
+        "home": {
+          "prior": [
+            42,
+            40
+          ],
+          "current": [
+            0,
+            0
+          ]
+        },
+        "away": {
+          "prior": null,
+          "current": [
+            0,
+            0
+          ]
+        }
+      },
+      "notes": "2025-26 record for one or both clubs was truncated in the official standings capture; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "mlb-2026-10-23-mil-tb",
+      "sport": "Baseball",
+      "sport_slug": "baseball",
+      "league": "MLB",
+      "competition": "World Series, Game 1",
+      "start_local": "Fri 23 Oct 2026 (first-pitch time not confirmed from an official source)",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Milwaukee Brewers",
+        "code": "MIL"
+      },
+      "away": {
+        "name": "Tampa Bay Rays",
+        "code": "TB"
+      },
+      "fixture_sources": [
+        "S15",
+        "S16"
+      ],
+      "input_sources": [
+        "S15"
+      ],
+      "inputs_verified": true,
+      "model": "mlb",
+      "inputs": {
+        "home": {
+          "w": 103,
+          "l": 59,
+          "rs": 832,
+          "ra": 618,
+          "home_record": "55-26",
+          "away_record": "48-33"
+        },
+        "away": {
+          "w": 98,
+          "l": 64,
+          "rs": 736,
+          "ra": 650,
+          "home_record": "55-26",
+          "away_record": "43-38"
+        }
+      },
+      "notes": "Game 1 of the World Series at Milwaukee, per MLB standings 'next game' rows (Oct 23, TB at MIL).",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Milwaukee Brewers",
+          "prob": 0.5678,
+          "odds": 1.69
+        },
+        {
+          "market": "moneyline",
+          "selection": "Tampa Bay Rays",
+          "prob": 0.4322,
+          "odds": 2.22
+        },
+        {
+          "market": "handicap",
+          "selection": "Milwaukee Brewers -1.5",
+          "prob": 0.4184,
+          "odds": 2.3,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Tampa Bay Rays +1.5",
+          "prob": 0.5816,
+          "odds": 1.65,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 9.0",
+          "prob": 0.4766,
+          "odds": 2.02,
+          "line": 9.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 9.0",
+          "prob": 0.5234,
+          "odds": 1.84,
+          "line": 9.0
+        }
+      ],
+      "model_view": {
+        "expected_runs_home": 4.69,
+        "expected_runs_away": 4.06,
+        "expected_total": 8.75,
+        "home_win_prob": 0.5678
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Milwaukee Brewers",
+        "prob": 0.5678,
+        "odds": 1.69
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "urc-2026-cardiff-rugby-hollywoodbets-sharks",
+      "sport": "Rugby Union",
+      "sport_slug": "rugby-union",
+      "league": "United Rugby Championship",
+      "competition": "URC Round 4",
+      "start_local": "Fri 23 Oct 2026, 14:45 local",
+      "start_utc": "",
+      "venue": "Cardiff Arms Park",
+      "home": {
+        "name": "Cardiff Rugby",
+        "code": ""
+      },
+      "away": {
+        "name": "Hollywoodbets Sharks",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S19"
+      ],
+      "input_sources": [
+        "S20"
+      ],
+      "inputs_verified": true,
+      "model": "urc",
+      "inputs": {
+        "home": {
+          "pts": 9,
+          "pl": 3,
+          "w": 2,
+          "d": 0,
+          "l": 1,
+          "bp": 1,
+          "pf": 66,
+          "pa": 71
+        },
+        "away": {
+          "pts": 10,
+          "pl": 3,
+          "w": 2,
+          "d": 0,
+          "l": 1,
+          "bp": 2,
+          "pf": 89,
+          "pa": 83
+        }
+      },
+      "notes": "Kick-off time is the local time published by URC; no UTC conversion applied.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Cardiff Rugby",
+          "prob": 0.5094,
+          "odds": 1.87
+        },
+        {
+          "market": "moneyline",
+          "selection": "Draw",
+          "prob": 0.055,
+          "odds": 17.32
+        },
+        {
+          "market": "moneyline",
+          "selection": "Hollywoodbets Sharks",
+          "prob": 0.4356,
+          "odds": 2.19
+        },
+        {
+          "market": "handicap",
+          "selection": "Cardiff Rugby -1.5",
+          "prob": 0.493,
+          "odds": 1.95,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Hollywoodbets Sharks +1.5",
+          "prob": 0.507,
+          "odds": 1.9,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 49.0",
+          "prob": 0.4945,
+          "odds": 1.94,
+          "line": 49.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 49.0",
+          "prob": 0.5055,
+          "odds": 1.9,
+          "line": 49.0
+        }
+      ],
+      "model_view": {
+        "expected_total_points": 48.83,
+        "home_win_prob": 0.5094,
+        "draw_prob": 0.055
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Cardiff Rugby",
+        "prob": 0.5094,
+        "odds": 1.87
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "urc-2026-connacht-zebre-parma",
+      "sport": "Rugby Union",
+      "sport_slug": "rugby-union",
+      "league": "United Rugby Championship",
+      "competition": "URC Round 4",
+      "start_local": "Fri 23 Oct 2026, 14:45 local",
+      "start_utc": "",
+      "venue": "Dexcom Stadium",
+      "home": {
+        "name": "Connacht",
+        "code": ""
+      },
+      "away": {
+        "name": "Zebre Parma",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S19"
+      ],
+      "input_sources": [
+        "S20"
+      ],
+      "inputs_verified": true,
+      "model": "urc",
+      "inputs": {
+        "home": {
+          "pts": 5,
+          "pl": 3,
+          "w": 1,
+          "d": 0,
+          "l": 2,
+          "bp": 1,
+          "pf": 56,
+          "pa": 84
+        },
+        "away": {
+          "pts": 1,
+          "pl": 3,
+          "w": 0,
+          "d": 0,
+          "l": 3,
+          "bp": 1,
+          "pf": 52,
+          "pa": 116
+        }
+      },
+      "notes": "Kick-off time is the local time published by URC; no UTC conversion applied.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Connacht",
+          "prob": 0.6483,
+          "odds": 1.47
+        },
+        {
+          "market": "moneyline",
+          "selection": "Draw",
+          "prob": 0.055,
+          "odds": 17.32
+        },
+        {
+          "market": "moneyline",
+          "selection": "Zebre Parma",
+          "prob": 0.2967,
+          "odds": 3.21
+        },
+        {
+          "market": "handicap",
+          "selection": "Connacht -6.5",
+          "prob": 0.4938,
+          "odds": 1.95,
+          "line": -6.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Zebre Parma +6.5",
+          "prob": 0.5062,
+          "odds": 1.9,
+          "line": 6.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 49.0",
+          "prob": 0.4926,
+          "odds": 1.95,
+          "line": 49.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 49.0",
+          "prob": 0.5074,
+          "odds": 1.9,
+          "line": 49.0
+        }
+      ],
+      "model_view": {
+        "expected_total_points": 48.78,
+        "home_win_prob": 0.6483,
+        "draw_prob": 0.055
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Connacht",
+        "prob": 0.6483,
+        "odds": 1.47
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "urc-2026-edinburgh-10bet-lions",
+      "sport": "Rugby Union",
+      "sport_slug": "rugby-union",
+      "league": "United Rugby Championship",
+      "competition": "URC Round 4",
+      "start_local": "Fri 23 Oct 2026, 14:45 local",
+      "start_utc": "",
+      "venue": "Hive Stadium",
+      "home": {
+        "name": "Edinburgh",
+        "code": ""
+      },
+      "away": {
+        "name": "10bet Lions",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S19"
+      ],
+      "input_sources": [
+        "S20"
+      ],
+      "inputs_verified": true,
+      "model": "urc",
+      "inputs": {
+        "home": {
+          "pts": 14,
+          "pl": 3,
+          "w": 3,
+          "d": 0,
+          "l": 0,
+          "bp": 2,
+          "pf": 80,
+          "pa": 54
+        },
+        "away": {
+          "pts": 9,
+          "pl": 3,
+          "w": 2,
+          "d": 0,
+          "l": 1,
+          "bp": 1,
+          "pf": 77,
+          "pa": 102
+        }
+      },
+      "notes": "Kick-off time is the local time published by URC; no UTC conversion applied.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Edinburgh",
+          "prob": 0.6624,
+          "odds": 1.44
+        },
+        {
+          "market": "moneyline",
+          "selection": "Draw",
+          "prob": 0.055,
+          "odds": 17.32
+        },
+        {
+          "market": "moneyline",
+          "selection": "10bet Lions",
+          "prob": 0.2826,
+          "odds": 3.37
+        },
+        {
+          "market": "handicap",
+          "selection": "Edinburgh -7.0",
+          "prob": 0.4955,
+          "odds": 1.94,
+          "line": -7.0
+        },
+        {
+          "market": "handicap",
+          "selection": "10bet Lions +7.0",
+          "prob": 0.5045,
+          "odds": 1.91,
+          "line": 7.0
+        },
+        {
+          "market": "total",
+          "selection": "Over 49.0",
+          "prob": 0.5018,
+          "odds": 1.92,
+          "line": 49.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 49.0",
+          "prob": 0.4982,
+          "odds": 1.93,
+          "line": 49.0
+        }
+      ],
+      "model_view": {
+        "expected_total_points": 49.06,
+        "home_win_prob": 0.6624,
+        "draw_prob": 0.055
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Edinburgh",
+        "prob": 0.6624,
+        "odds": 1.44
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "urc-2026-vodacom-bulls-ulster",
+      "sport": "Rugby Union",
+      "sport_slug": "rugby-union",
+      "league": "United Rugby Championship",
+      "competition": "URC Round 4",
+      "start_local": "Sat 24 Oct 2026, 07:45 local",
+      "start_utc": "",
+      "venue": "Loftus Versfeld",
+      "home": {
+        "name": "Vodacom Bulls",
+        "code": ""
+      },
+      "away": {
+        "name": "Ulster",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S19"
+      ],
+      "input_sources": [
+        "S20"
+      ],
+      "inputs_verified": true,
+      "model": "urc",
+      "inputs": {
+        "home": {
+          "pts": 11,
+          "pl": 3,
+          "w": 2,
+          "d": 0,
+          "l": 1,
+          "bp": 3,
+          "pf": 126,
+          "pa": 54
+        },
+        "away": {
+          "pts": 8,
+          "pl": 3,
+          "w": 0,
+          "d": 2,
+          "l": 1,
+          "bp": 4,
+          "pf": 88,
+          "pa": 93
+        }
+      },
+      "notes": "Kick-off time is the local time published by URC; no UTC conversion applied.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Vodacom Bulls",
+          "prob": 0.687,
+          "odds": 1.39
+        },
+        {
+          "market": "moneyline",
+          "selection": "Draw",
+          "prob": 0.055,
+          "odds": 17.32
+        },
+        {
+          "market": "moneyline",
+          "selection": "Ulster",
+          "prob": 0.258,
+          "odds": 3.69
+        },
+        {
+          "market": "handicap",
+          "selection": "Vodacom Bulls -8.0",
+          "prob": 0.4954,
+          "odds": 1.94,
+          "line": -8.0
+        },
+        {
+          "market": "handicap",
+          "selection": "Ulster +8.0",
+          "prob": 0.5046,
+          "odds": 1.91,
+          "line": 8.0
+        },
+        {
+          "market": "total",
+          "selection": "Over 51.5",
+          "prob": 0.5074,
+          "odds": 1.9,
+          "line": 51.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 51.5",
+          "prob": 0.4926,
+          "odds": 1.95,
+          "line": 51.5
+        }
+      ],
+      "model_view": {
+        "expected_total_points": 51.72,
+        "home_win_prob": 0.687,
+        "draw_prob": 0.055
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Vodacom Bulls",
+        "prob": 0.687,
+        "odds": 1.39
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "urc-2026-dhl-stormers-scarlets",
+      "sport": "Rugby Union",
+      "sport_slug": "rugby-union",
+      "league": "United Rugby Championship",
+      "competition": "URC Round 4",
+      "start_local": "Sat 24 Oct 2026, 10:00 local",
+      "start_utc": "",
+      "venue": "DHL Stadium",
+      "home": {
+        "name": "DHL Stormers",
+        "code": ""
+      },
+      "away": {
+        "name": "Scarlets",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S19"
+      ],
+      "input_sources": [
+        "S20"
+      ],
+      "inputs_verified": true,
+      "model": "urc",
+      "inputs": {
+        "home": {
+          "pts": 11,
+          "pl": 3,
+          "w": 2,
+          "d": 0,
+          "l": 1,
+          "bp": 3,
+          "pf": 81,
+          "pa": 54
+        },
+        "away": {
+          "pts": 7,
+          "pl": 3,
+          "w": 1,
+          "d": 0,
+          "l": 2,
+          "bp": 3,
+          "pf": 68,
+          "pa": 85
+        }
+      },
+      "notes": "Kick-off time is the local time published by URC; no UTC conversion applied.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "DHL Stormers",
+          "prob": 0.6558,
+          "odds": 1.45
+        },
+        {
+          "market": "moneyline",
+          "selection": "Draw",
+          "prob": 0.055,
+          "odds": 17.32
+        },
+        {
+          "market": "moneyline",
+          "selection": "Scarlets",
+          "prob": 0.2892,
+          "odds": 3.29
+        },
+        {
+          "market": "handicap",
+          "selection": "DHL Stormers -6.5",
+          "prob": 0.5029,
+          "odds": 1.91,
+          "line": -6.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Scarlets +6.5",
+          "prob": 0.4971,
+          "odds": 1.93,
+          "line": 6.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 47.5",
+          "prob": 0.5055,
+          "odds": 1.9,
+          "line": 47.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 47.5",
+          "prob": 0.4945,
+          "odds": 1.94,
+          "line": 47.5
+        }
+      ],
+      "model_view": {
+        "expected_total_points": 47.67,
+        "home_win_prob": 0.6558,
+        "draw_prob": 0.055
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "DHL Stormers",
+        "prob": 0.6558,
+        "odds": 1.45
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "urc-2026-benetton-glasgow-warriors",
+      "sport": "Rugby Union",
+      "sport_slug": "rugby-union",
+      "league": "United Rugby Championship",
+      "competition": "URC Round 4",
+      "start_local": "Sat 24 Oct 2026, 10:00 local",
+      "start_utc": "",
+      "venue": "Stadio Monigo",
+      "home": {
+        "name": "Benetton",
+        "code": ""
+      },
+      "away": {
+        "name": "Glasgow Warriors",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S19"
+      ],
+      "input_sources": [
+        "S20"
+      ],
+      "inputs_verified": true,
+      "model": "urc",
+      "inputs": {
+        "home": {
+          "pts": 5,
+          "pl": 3,
+          "w": 0,
+          "d": 1,
+          "l": 2,
+          "bp": 3,
+          "pf": 64,
+          "pa": 68
+        },
+        "away": {
+          "pts": 13,
+          "pl": 3,
+          "w": 2,
+          "d": 1,
+          "l": 0,
+          "bp": 3,
+          "pf": 95,
+          "pa": 72
+        }
+      },
+      "notes": "Kick-off time is the local time published by URC; no UTC conversion applied.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Benetton",
+          "prob": 0.3052,
+          "odds": 3.12
+        },
+        {
+          "market": "moneyline",
+          "selection": "Draw",
+          "prob": 0.055,
+          "odds": 17.32
+        },
+        {
+          "market": "moneyline",
+          "selection": "Glasgow Warriors",
+          "prob": 0.6398,
+          "odds": 1.49
+        },
+        {
+          "market": "handicap",
+          "selection": "Benetton +6.0",
+          "prob": 0.5009,
+          "odds": 1.92,
+          "line": 6.0
+        },
+        {
+          "market": "handicap",
+          "selection": "Glasgow Warriors -6.0",
+          "prob": 0.4991,
+          "odds": 1.93,
+          "line": -6.0
+        },
+        {
+          "market": "total",
+          "selection": "Over 48.5",
+          "prob": 0.4926,
+          "odds": 1.95,
+          "line": 48.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 48.5",
+          "prob": 0.5074,
+          "odds": 1.9,
+          "line": 48.5
+        }
+      ],
+      "model_view": {
+        "expected_total_points": 48.28,
+        "home_win_prob": 0.3052,
+        "draw_prob": 0.055
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Glasgow Warriors",
+        "prob": 0.6398,
+        "odds": 1.49
+      },
+      "confidence": "medium",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "urc-2026-leinster-munster",
+      "sport": "Rugby Union",
+      "sport_slug": "rugby-union",
+      "league": "United Rugby Championship",
+      "competition": "URC Round 4",
+      "start_local": "Sat 24 Oct 2026, 13:00 local",
+      "start_utc": "",
+      "venue": "Aviva Stadium",
+      "home": {
+        "name": "Leinster",
+        "code": ""
+      },
+      "away": {
+        "name": "Munster",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S19"
+      ],
+      "input_sources": [
+        "S20"
+      ],
+      "inputs_verified": true,
+      "model": "urc",
+      "inputs": {
+        "home": {
+          "pts": 8,
+          "pl": 3,
+          "w": 1,
+          "d": 0,
+          "l": 2,
+          "bp": 4,
+          "pf": 75,
+          "pa": 58
+        },
+        "away": {
+          "pts": 9,
+          "pl": 3,
+          "w": 1,
+          "d": 1,
+          "l": 1,
+          "bp": 3,
+          "pf": 72,
+          "pa": 74
+        }
+      },
+      "notes": "Kick-off time is the local time published by URC; no UTC conversion applied.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Leinster",
+          "prob": 0.4905,
+          "odds": 1.94
+        },
+        {
+          "market": "moneyline",
+          "selection": "Draw",
+          "prob": 0.055,
+          "odds": 17.32
+        },
+        {
+          "market": "moneyline",
+          "selection": "Munster",
+          "prob": 0.4545,
+          "odds": 2.1
+        },
+        {
+          "market": "handicap",
+          "selection": "Leinster -0.5",
+          "prob": 0.5037,
+          "odds": 1.91,
+          "line": -0.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Munster +0.5",
+          "prob": 0.4963,
+          "odds": 1.94,
+          "line": 0.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 47.0",
+          "prob": 0.5055,
+          "odds": 1.9,
+          "line": 47.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 47.0",
+          "prob": 0.4945,
+          "odds": 1.94,
+          "line": 47.0
+        }
+      ],
+      "model_view": {
+        "expected_total_points": 47.17,
+        "home_win_prob": 0.4905,
+        "draw_prob": 0.055
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Leinster",
+        "prob": 0.4905,
+        "odds": 1.94
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "urc-2026-ospreys-dragons-rfc",
+      "sport": "Rugby Union",
+      "sport_slug": "rugby-union",
+      "league": "United Rugby Championship",
+      "competition": "URC Round 4",
+      "start_local": "Sat 24 Oct 2026, 14:00 local",
+      "start_utc": "",
+      "venue": "St Helen's",
+      "home": {
+        "name": "Ospreys",
+        "code": ""
+      },
+      "away": {
+        "name": "Dragons RFC",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S19"
+      ],
+      "input_sources": [
+        "S20"
+      ],
+      "inputs_verified": true,
+      "model": "urc",
+      "inputs": {
+        "home": {
+          "pts": 6,
+          "pl": 3,
+          "w": 1,
+          "d": 0,
+          "l": 2,
+          "bp": 2,
+          "pf": 81,
+          "pa": 107
+        },
+        "away": {
+          "pts": 9,
+          "pl": 3,
+          "w": 1,
+          "d": 1,
+          "l": 1,
+          "bp": 3,
+          "pf": 88,
+          "pa": 83
+        }
+      },
+      "notes": "Kick-off time is the local time published by URC; no UTC conversion applied.",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Ospreys",
+          "prob": 0.4432,
+          "odds": 2.15
+        },
+        {
+          "market": "moneyline",
+          "selection": "Draw",
+          "prob": 0.055,
+          "odds": 17.32
+        },
+        {
+          "market": "moneyline",
+          "selection": "Dragons RFC",
+          "prob": 0.5018,
+          "odds": 1.9
+        },
+        {
+          "market": "handicap",
+          "selection": "Ospreys +1.0",
+          "prob": 0.4997,
+          "odds": 1.92,
+          "line": 1.0
+        },
+        {
+          "market": "handicap",
+          "selection": "Dragons RFC -1.0",
+          "prob": 0.5003,
+          "odds": 1.92,
+          "line": -1.0
+        },
+        {
+          "market": "total",
+          "selection": "Over 51.5",
+          "prob": 0.5037,
+          "odds": 1.91,
+          "line": 51.5
+        },
+        {
+          "market": "total",
+          "selection": "Under 51.5",
+          "prob": 0.4963,
+          "odds": 1.94,
+          "line": 51.5
+        }
+      ],
+      "model_view": {
+        "expected_total_points": 51.61,
+        "home_win_prob": 0.4432,
+        "draw_prob": 0.055
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Dragons RFC",
+        "prob": 0.5018,
+        "odds": 1.9
+      },
+      "confidence": "low",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "snooker-2026-10-21-pang-junxu-liam-davies",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 05:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Pang Junxu",
+        "code": ""
+      },
+      "away": {
+        "name": "Liam Davies",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": 29,
+          "money": 272750
+        },
+        "away": {
+          "rank": null,
+          "money": null
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "snooker-2026-10-21-ka-wai-cheung-stuart-bingham",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 05:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Ka Wai Cheung",
+        "code": ""
+      },
+      "away": {
+        "name": "Stuart Bingham",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": null,
+          "money": null
+        },
+        "away": {
+          "rank": 19,
+          "money": 350550
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "snooker-2026-10-21-daniel-wells-ryan-day",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 08:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Daniel Wells",
+        "code": ""
+      },
+      "away": {
+        "name": "Ryan Day",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": null,
+          "money": null
+        },
+        "away": {
+          "rank": null,
+          "money": null
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "snooker-2026-10-21-john-higgins-jak-jones",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 08:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "John Higgins",
+        "code": ""
+      },
+      "away": {
+        "name": "Jak Jones",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": true,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": 6,
+          "money": 905000
+        },
+        "away": {
+          "rank": 24,
+          "money": 319300
+        },
+        "best_of": 7
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "John Higgins",
+          "prob": 0.7389,
+          "odds": 1.3
+        },
+        {
+          "market": "moneyline",
+          "selection": "Jak Jones",
+          "prob": 0.2611,
+          "odds": 3.68
+        },
+        {
+          "market": "handicap",
+          "selection": "John Higgins -1.5 frames",
+          "prob": 0.5756,
+          "odds": 1.67,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Jak Jones +1.5 frames",
+          "prob": 0.4244,
+          "odds": 2.27,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 4.0 frames",
+          "prob": 0.5957,
+          "odds": 1.61,
+          "line": 4.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 4.0 frames",
+          "prob": 0.4043,
+          "odds": 2.38,
+          "line": 4.0
+        }
+      ],
+      "model_view": {
+        "per_frame_win_prob_home": 0.6151,
+        "match_win_prob_home": 0.7389,
+        "expected_frames": 4.09
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "John Higgins",
+        "prob": 0.7389,
+        "odds": 1.3
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "snooker-2026-10-21-sam-craigie-xu-si",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 09:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Sam Craigie",
+        "code": ""
+      },
+      "away": {
+        "name": "Xu Si",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": null,
+          "money": null
+        },
+        "away": {
+          "rank": null,
+          "money": null
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "snooker-2026-10-21-zhang-anda-mark-williams",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 09:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Zhang Anda",
+        "code": ""
+      },
+      "away": {
+        "name": "Mark Williams",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": true,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": 21,
+          "money": 332600
+        },
+        "away": {
+          "rank": 8,
+          "money": 747400
+        },
+        "best_of": 7
+      },
+      "notes": "",
+      "priced": true,
+      "selections": [
+        {
+          "market": "moneyline",
+          "selection": "Zhang Anda",
+          "prob": 0.3092,
+          "odds": 3.11
+        },
+        {
+          "market": "moneyline",
+          "selection": "Mark Williams",
+          "prob": 0.6908,
+          "odds": 1.39
+        },
+        {
+          "market": "handicap",
+          "selection": "Zhang Anda -1.5 frames",
+          "prob": 0.1932,
+          "odds": 4.98,
+          "line": -1.5
+        },
+        {
+          "market": "handicap",
+          "selection": "Mark Williams +1.5 frames",
+          "prob": 0.8068,
+          "odds": 1.19,
+          "line": 1.5
+        },
+        {
+          "market": "total",
+          "selection": "Over 2.0 frames",
+          "prob": 0.3092,
+          "odds": 3.11,
+          "line": 2.0
+        },
+        {
+          "market": "total",
+          "selection": "Under 2.0 frames",
+          "prob": 0.6908,
+          "odds": 1.39,
+          "line": 2.0
+        }
+      ],
+      "model_view": {
+        "per_frame_win_prob_home": 0.4099,
+        "match_win_prob_home": 0.3092,
+        "expected_frames": 1.85
+      },
+      "pick": {
+        "market": "moneyline",
+        "selection": "Mark Williams",
+        "prob": 0.6908,
+        "odds": 1.39
+      },
+      "confidence": "high",
+      "market_status": "originated from verified inputs"
+    },
+    {
+      "id": "snooker-2026-10-21-michael-holt-jordan-brown",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 14:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Michael Holt",
+        "code": ""
+      },
+      "away": {
+        "name": "Jordan Brown",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": null,
+          "money": null
+        },
+        "away": {
+          "rank": null,
+          "money": null
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "snooker-2026-10-21-noppon-saengkham-scott-donaldson",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 14:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Noppon Saengkham",
+        "code": ""
+      },
+      "away": {
+        "name": "Scott Donaldson",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": 31,
+          "money": 242500
+        },
+        "away": {
+          "rank": null,
+          "money": null
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "snooker-2026-10-21-gao-yang-david-gilbert",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 14:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Gao Yang",
+        "code": ""
+      },
+      "away": {
+        "name": "David Gilbert",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": null,
+          "money": null
+        },
+        "away": {
+          "rank": 34,
+          "money": 221200
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "snooker-2026-10-21-elliot-slessor-jamie-jones",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 15:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Elliot Slessor",
+        "code": ""
+      },
+      "away": {
+        "name": "Jamie Jones",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": 23,
+          "money": 329200
+        },
+        "away": {
+          "rank": null,
+          "money": null
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    },
+    {
+      "id": "snooker-2026-10-21-luca-brecel-martin-o-donnell",
+      "sport": "Snooker",
+      "sport_slug": "snooker",
+      "league": "World Snooker Tour",
+      "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+      "start_local": "Wed 21 Oct 2026, 15:00 UK time",
+      "start_utc": "",
+      "venue": "",
+      "home": {
+        "name": "Luca Brecel",
+        "code": ""
+      },
+      "away": {
+        "name": "Martin O'Donnell",
+        "code": ""
+      },
+      "fixture_sources": [
+        "S18"
+      ],
+      "input_sources": [
+        "S17"
+      ],
+      "inputs_verified": false,
+      "model": "snooker",
+      "inputs": {
+        "home": {
+          "rank": null,
+          "money": null
+        },
+        "away": {
+          "rank": null,
+          "money": null
+        },
+        "best_of": 7
+      },
+      "notes": "One or both players fall outside the official top-36 prize-money extract captured; no line originated.",
+      "priced": false,
+      "market_status": "not originated - verified inputs incomplete",
+      "selections": [],
+      "pick": null,
+      "confidence": "unrated"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-tools/build_site.py — Generate the static GitHub Pages dashboard in docs/
+tools/build_site.py — Generate this session's static GitHub Pages dashboard in session-6e0f382d/
 from data/matches/*.json (originated by tools/model.py).
 
 Every table row carries a link to its official source. The builder fails
@@ -13,7 +13,7 @@ from html import escape as E
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 MD = os.path.join(ROOT, 'data', 'matches')
 VD = os.path.join(ROOT, 'data', 'verified')
-DOCS = os.path.join(ROOT, 'docs')
+DOCS = os.path.join(ROOT, 'session-6e0f382d')  # this build's folder (multi-build portal on main; docs/ is Build A)
 SPORTS_DIR = os.path.join(DOCS, 'sports')
 ASSETS = os.path.join(DOCS, 'assets')
 for p in (SPORTS_DIR, ASSETS):
