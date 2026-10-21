@@ -87,8 +87,8 @@ CONFIDENCE = {
 }
 
 USER_AGENT = (
-    "OLBG4-research-pipeline/1.0 (+https://github.com/buffedlizard55-lab/OLBG4; "
-    "contact: repository owner) python-requests"
+    "Mozilla/5.0 (compatible; OLBG4-research-pipeline/1.0; "
+    "+https://github.com/buffedlizard55-lab/OLBG4)"
 )
 
 # ---------------------------------------------------------------------------

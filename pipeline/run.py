@@ -348,6 +348,14 @@ def main(argv: list[str] | None = None) -> int:
     # ------------------------------------------------------------------
     # 4. verification
     # ------------------------------------------------------------------
+    deduped: dict[tuple[str, str], dict] = {}
+    for p in prediction_rows:
+        key = (p["fixture_id"], p.get("market", ""))
+        if key not in deduped or verify.CONF_RANK.get(p.get("confidence"), 0) > \
+                verify.CONF_RANK.get(deduped[key].get("confidence"), 0):
+            deduped[key] = p
+    prediction_rows = list(deduped.values())
+
     kept_fixtures = verify.check_fixtures(all_fixtures, findings)
     kept_ids = {fx["id"] for fx in kept_fixtures}
     analysis_rows = [r for r in analysis_rows if r["fixture"]["id"] in kept_ids]
@@ -422,9 +430,16 @@ def main(argv: list[str] | None = None) -> int:
           f"predictions={len(prediction_rows)} findings={len(findings.items)}")
     print(f"hard_failures={verification['hard_failures']} "
           f"counts={json.dumps(snapshot['counts'])}")
+    for sport, entry in snapshot["providers"].items():
+        print(f"  provider {sport}: fixtures={entry.get('fixtures_returned', 0)} "
+              f"results={entry.get('results_returned', 0)} "
+              f"fixture_error={entry.get('fixtures_error')} training_error={entry.get('training_error')}")
+    shown = 0
     for f in findings.items:
-        if f["severity"] in ("error", "warning"):
+        if f["severity"] in ("error", "warning") and shown < 25:
             print(f"  [{f['severity']}] {f['category']}: {f['detail']}")
+            shown += 1
+    print(f"  ({len(findings.items)} findings total; {verification.get('rows_excluded', 0)} rows excluded)")
 
     # ------------------------------------------------------------------
     # 6. site

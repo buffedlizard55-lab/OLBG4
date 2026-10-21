@@ -32,8 +32,8 @@ def _schedule(start: datetime, end: datetime, hydrate: str = "probablePitcher") 
         gameType=GAME_TYPES,
         hydrate=hydrate,
         fields=(
-            "dates,date,games,gamePk,gameDate,gameType,season,status,detailedState,"
-            "teams,home,away,team,id,name,score,probablePitcher,fullName,venue,"
+            "dates,date,games,gamePk,gameDate,gameType,season,status,abstractGameState,"
+            "detailedState,teams,home,away,team,id,name,score,probablePitcher,fullName,venue,"
             "doubleHeader,gameNumber,seriesStatus,description,seriesGameNumber,gamesInSeries"
         ),
     )
@@ -142,8 +142,8 @@ def fetch_training(start: datetime, end: datetime) -> tuple[list[dict], dict]:
         payload = _schedule(cursor, chunk_end, hydrate="probablePitcher")
         for block in payload.get("dates", []):
             for g in block.get("games", []):
-                state = (g.get("status") or {}).get("abstractGameState")
-                if state != "Final":
+                status = g.get("status") or {}
+                if status.get("abstractGameState") != "Final" and status.get("detailedState") != "Final":
                     continue
                 try:
                     home, away = g["teams"]["home"], g["teams"]["away"]

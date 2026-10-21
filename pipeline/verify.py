@@ -26,6 +26,9 @@ from .predictions import lint
 from .records import validate_game
 
 
+CONF_RANK = {"high": 3, "medium": 2, "low": 1}
+
+
 class Findings:
     def __init__(self) -> None:
         self.items: list[dict] = []

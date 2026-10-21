@@ -25,6 +25,45 @@ from ..records import iso, make_game, make_result, parse_iso
 SPORT = "basketball"
 LEAGUE = "NBA"
 SCHEDULE_URL = "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"
+# One official source, documented. If it becomes unavailable the run reports
+# provider_unavailable rather than inventing a schedule from an unofficial feed.
+SCHEDULE_CANDIDATES = [
+    "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+]
+BROWSER_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Referer": "https://www.nba.com/",
+    "Origin": "https://www.nba.com",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+_SCHEDULE_CACHE: dict = {}
+
+
+def load_schedule() -> dict:
+    """Fetch the official season schedule, trying each known official host once."""
+    if "payload" in _SCHEDULE_CACHE:
+        return _SCHEDULE_CACHE["payload"]
+    errors = []
+    for url in SCHEDULE_CANDIDATES:
+        try:
+            payload = http.fetch_json(url, headers=BROWSER_HEADERS, cache_seconds=900)
+        except Exception as exc:  # noqa: BLE001
+            errors.append(f"{url}: {type(exc).__name__}: {exc}")
+            continue
+        if _looks_like_schedule(payload):
+            _SCHEDULE_CACHE["payload"] = payload
+            _SCHEDULE_CACHE["url"] = url
+            return payload
+        errors.append(f"{url}: response was not a schedule")
+    raise RuntimeError("no official NBA schedule source available — " + " | ".join(errors))
+
+
+def _looks_like_schedule(payload: dict) -> bool:
+    return bool((payload.get("leagueSchedule") or {}).get("gameDates"))
 STATS_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -93,7 +132,7 @@ def _season_games(payload: dict) -> list[dict]:
 
 
 def fetch_fixtures(start: datetime, end: datetime, now: datetime) -> tuple[list[dict], list[str]]:
-    payload = http.fetch_json(SCHEDULE_URL, cache_seconds=900)
+    payload = load_schedule()
     completed = _season_games(payload)
     records: dict[str, dict] = {}
     for r in completed:
@@ -156,7 +195,7 @@ def fetch_fixtures(start: datetime, end: datetime, now: datetime) -> tuple[list[
                 source_urls=[f"https://www.nba.com/games?date={day}", game_url],
             )
         )
-    return fixtures, [SCHEDULE_URL]
+    return fixtures, [_SCHEDULE_CACHE.get("url", SCHEDULE_URL)]
 
 
 def _league_gamelog(season: str) -> list[dict]:
@@ -230,7 +269,7 @@ def fetch_training(start: datetime, end: datetime) -> tuple[list[dict], dict]:
 
     # Current season, straight from the official schedule file.
     try:
-        payload = http.fetch_json(SCHEDULE_URL, cache_seconds=900)
+        payload = load_schedule()
         results.extend(_season_games(payload))
     except Exception as exc:  # noqa: BLE001
         notes.append(f"schedule file unavailable: {exc}")

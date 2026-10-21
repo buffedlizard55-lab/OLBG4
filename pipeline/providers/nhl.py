@@ -61,12 +61,19 @@ def _standings() -> dict[str, dict]:
 def fetch_fixtures(start: datetime, end: datetime, now: datetime) -> tuple[list[dict], list[str]]:
     standings = _standings()
     fixtures: list[dict] = []
+    seen: set[str] = set()
     day = start.date()
     end_day = (end - timedelta(seconds=1)).date()
     while day <= end_day:
         payload = http.fetch_json(f"{BASE}/schedule/{day.isoformat()}", cache_seconds=900)
         for block in payload.get("gameWeek", []):
+            # /schedule/<date> returns a whole week, so keep only the requested day.
+            if block.get("date") and block["date"] != day.isoformat():
+                continue
             for g in block.get("games", []):
+                if str(g.get("id")) in seen:
+                    continue
+                seen.add(str(g.get("id")))
                 if g.get("gameType") != REGULAR_SEASON:
                     continue
                 start_dt = parse_iso(g["startTimeUTC"])
