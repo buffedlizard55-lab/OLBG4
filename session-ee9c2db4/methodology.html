@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Methodology — OLBG4 Complete Desk (Board M · ee9c2db4)</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-block">
+        <span class="brand-badge">BOARD M · 2026-10-21</span>
+        <a class="brand-title" href="index.html">OLBG4 Complete Multi-Market Origination &amp; Repo Audit</a>
+      </div>
+      <nav class="topnav" aria-label="Primary Navigation">
+        <a href="index.html">Overview</a><a href="markets.html">Markets (696)</a><a href="predictions.html">High Picks (38)</a><a href="olbg-analysis.html">OLBG Reverse-Eng</a><a href="repo-review.html">Repo Review (616)</a><a href="methodology.html" class="active">Methodology</a><a href="sources.html">Official Sources</a><a href="flagged.html" class="flag-pill">Flagged (39)</a><a href="../index.html">All-Builds Hub &rarr;</a>
+      </nav>
+    </div>
+  </header>
+  <nav class="sportbar" aria-label="17 In-Scope Sports">
+    <div class="sportbar-inner">
+      <span class="sportbar-label">17 In-Scope Sports:</span>
+      <a href="sports/tennis.html">Tennis (24)</a><a href="sports/basketball.html">Basketball (71)</a><a href="sports/golf.html">Golf (10)</a><a href="sports/cricket.html">Cricket (14)</a><a href="sports/snooker.html">Snooker (9)</a><a href="sports/rugby-union.html">Rugby Union (16)</a><a href="sports/rugby-league.html">Rugby League (3)</a><a href="sports/baseball.html">Baseball (3)</a><a href="sports/ice-hockey.html">Ice Hockey (45)</a><a href="sports/motor-racing.html">Motor Racing (3)</a><a href="sports/darts.html">Darts (18)</a><a href="sports/handball.html">Handball (20)</a><a href="sports/volleyball.html">Volleyball (21)</a><a href="sports/aussie-rules.html">Aussie Rules (0)</a><a href="sports/esports.html">eSports (0)</a><a href="sports/gaelic-football.html">Gaelic Football (5)</a><a href="sports/greyhounds.html">Greyhounds (6)</a>
+    </div>
+  </nav>
+  <main class="container">
+    
+    <section class="hero">
+      <div class="eyebrow">Quantitative Architecture &amp; Data Governance</div>
+      <h1>First-Principles Line Origination Models, Accounting Checks &amp; Confidence Rules</h1>
+      <p>
+        All <strong>696 market books</strong> across <strong>268 events</strong> are originated without bookmaker odds,
+        crowd consensus percentages, or guessed inputs. Every model enforces runtime probability conservation (`&Sigma;p == 1.0000`)
+        and closed-league accounting invariants.
+      </p>
+    </section>
+    <div class="callout">
+      <strong>Confidence Governance Rubric:</strong>
+      <code>high</code> requires converged multi-match current-season official ratings (`p &ge; 0.72` with zero unverified/prior-season/injury-layoff caveats);
+      <code>medium</code> covers moderate probability edges (`0.58 &le; p &lt; 0.72`) OR strong edges subject to prior-season shrinkage (NBA Week 1), `GP=1` sample caps (`PlusLiga`), or injury-layoff ranking distortion (`Goffin #657`);
+      <code>low</code> covers tight toss-ups (`p &lt; 0.58`), high-variance multi-runner golf outrights, and MLB World Series games prior to official Game 1 starter confirmation;
+      <code>unverified</code> leaves line &amp; pick fields strictly blank (`""`) whenever official federation data is unavailable (GBGB racecards HTTP 404, unpublished CSA Pro20 table, Polish II Liga Women).
+    </div>
+    <section class="panel">
+      <h2>Per-Sport Origination Equations &amp; Official Input Audit</h2>
+      <div class="table-wrap">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>Sport Family</th>
+              <th>Mathematical Model</th>
+              <th>Originated Markets</th>
+              <th>Runtime Verification &amp; Governance Invariants</th>
+              <th>Official Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Basketball (NBA / EuroLeague / EuroCup / BCL / KBL)</strong></td><td>Shrunk Net-Rating / Possessions Gaussian</td><td>Moneyline, Point Spread (.5), Total Points (.5)</td><td>NBA 30/30 exact `sum(W) == sum(L) == 1,230` (`nba.com`) + Oct 20 openers; EuroLeague/EuroCup/BCL official standings.</td><td><a href='https://www.nba.com/news/offseason-power-rankings-west-2026' target='_blank' rel='noopener noreferrer'>Official Source &nearr;</a></td></tr><tr><td><strong>Ice Hockey (NHL / ICEHL / Liiga / SHL)</strong></td><td>Bivariate Shrunk Attack/Defence Poisson + OT Split</td><td>Moneyline (incl. OT/SO), Puck Line -1.5/+1.5, Total Goals 5.5/6.5, Regulation 1X2</td><td>NHL 32/32 exact `sum(GF) == sum(GA) == 936` across `300` team-games (`3.1200` G/team/game, `nhl.com`).</td><td><a href='https://www.nhl.com/standings/2026-10-20/wildcard' target='_blank' rel='noopener noreferrer'>Official Source &nearr;</a></td></tr><tr><td><strong>Baseball (2026 World Series — Rays @ Brewers)</strong></td><td>Pythagorean Log5 + Shrunk Run-Environment Poisson</td><td>Moneyline, Run Line (-1.5/+1.5), Total Runs, First-5-Innings ML</td><td>Official `mlb.com` regular-season RS/RA (`TB 98-64, 736/650`; `MIL 103-59, 832/618`); capped `low` pending Game 1 SP confirmation.</td><td><a href='https://www.mlb.com/postseason' target='_blank' rel='noopener noreferrer'>Official Source &nearr;</a></td></tr><tr><td><strong>Tennis (ATP 250 Almaty / Brussels / Lyon &amp; WTA 500 Ningbo)</strong></td><td>Log-Points Logistic Hold/Break Markov Chain</td><td>Win Match, Set Betting (2-0 / 2-1 / 0-2 / 1-2), Game Handicap &amp; Total Games</td><td>Official 19 Oct 2026 PIF ATP &amp; WTA rankings; injury-layoff wild card `David Goffin (#657, 53 pts)` capped at `medium`.</td><td><a href='https://www.atptour.com/en/rankings/singles' target='_blank' rel='noopener noreferrer'>Official Source &nearr;</a></td></tr><tr><td><strong>Snooker &amp; Darts (WST NI Open R2 / PDC European Championship)</strong></td><td>Single-Frame / Single-Leg Logistic Exact Combinatorial Race</td><td>Win Match, Frame/Leg Handicap (.5), Total Frames/Legs, Top Correct Scores</td><td>Official `wst.tv` / `snooker.org` prize-money list &amp; R1 breaks; official `pdc.tv` European Tour &amp; Order of Merit.</td><td><a href='https://www.wst.tv/rankings/' target='_blank' rel='noopener noreferrer'>Official Source &nearr;</a></td></tr><tr><td><strong>Rugby Union &amp; Rugby League (Top 14 / Pro D2 / URC / RLWC)</strong></td><td>Home-Adjusted Compound Margin Normal Distribution (+ Draw Mass)</td><td>3-Way / 2-Way Match Winner, Half-Point Handicap, Total Points</td><td>Official `top14.lnr.fr`, `prod2.lnr.fr`, `unitedrugby.com`, and `nrl.com` RLWC 2026 standings.</td><td><a href='https://prod2.lnr.fr/classement' target='_blank' rel='noopener noreferrer'>Official Source &nearr;</a></td></tr><tr><td><strong>Handball &amp; Volleyball (EHF / LNH / Bundesliga / PlusLiga / Lega)</strong></td><td>Goal-Rate Poisson (Handball) &amp; Exact Best-of-5 Set Binomial Chain (Volleyball)</td><td>Match Winner / 3-Way, Goal or Set Handicap (-1.5), Total Goals / Sets</td><td>Official `lnh.fr` (reversing OLBG `#12072` home/away error), `volleyball-bundesliga.de` (`GP=5`), `plusliga.pl` (`GP=1` capped `medium`).</td><td><a href='https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/hauptrunde/tabelle_hauptrunde.xhtml' target='_blank' rel='noopener noreferrer'>Official Source &nearr;</a></td></tr><tr><td><strong>Golf, Motor Sport, GAA, AFLW, eSports &amp; Greyhounds</strong></td><td>OWGR Strokes-Gained Softmax (Golf) &amp; Explicit Verification Governance</td><td>Tournament Outright Win / Fair Field Shares; Unconfirmable Inputs Left Blank</td><td>Official `owgr.com`, `formula1.com`, county GAA boards, `afl.com.au`, `lolesports.com`, `gbgb.org.uk` (6 greyhound cards &amp; 4 CSA Pro20 left `&#x27;&#x27;`).</td><td><a href='https://www.owgr.com/current-world-ranking' target='_blank' rel='noopener noreferrer'>Official Source &nearr;</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+  </main>
+  <footer class="footer">
+    <div>
+      <strong>Board M (`arena/ee9c2db4-olbg4`)</strong> · Snapshot date: <strong>2026-10-21 UTC</strong> ·
+      Excluded sports strictly enforced: <em>soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling, specials</em> (0 rows).
+    </div>
+    <div>
+      Raw JSON Artifacts:
+      <a href="data/matches.json">matches.json</a> ·
+      <a href="data/markets.json">markets.json</a> ·
+      <a href="data/predictions.json">predictions.json</a> ·
+      <a href="data/olbg_taxonomy.json">olbg_taxonomy.json</a> ·
+      <a href="data/repo_review.json">repo_review.json</a> ·
+      <a href="data/sources.json">sources.json</a> ·
+      <a href="data/flagged.json">flagged.json</a>
+    </div>
+  </footer>
+  <script src="assets/dashboard.js"></script>
+</body>
+</html>
