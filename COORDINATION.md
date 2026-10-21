@@ -783,7 +783,7 @@ Claimed 2026-10-21T07:15Z on branch `arena/8070bc18-olbg4`. At claim time `git b
 ### Environment constraint (re-confirmed 2026-10-21T07:12Z)
 `curl https://www.nba.com/schedule`, `nhl.com/schedule`, `mlb.com/schedule`, `atptour.com`, `pdc.tv`, `olbg.com` all fail with `SSL_ERROR_SYSCALL` (egress allowlist). Official pages are therefore read with the agent's web-fetch tool, and every row stores the exact URL read. No value is copied from another board's data file — each is re-read from the official page in this session.
 
-### Board L results (2026-10-21)
+### Board N results (2026-10-21)
 
 | Metric | Value |
 |---|---|
@@ -806,6 +806,6 @@ Claimed 2026-10-21T07:15Z on branch `arena/8070bc18-olbg4`. At claim time `git b
 - Predictions: uniqueness, ≥30 words, names the selection, names the market, and every numeric claim traced to the listed official page (standings line and/or 20 Oct result).
 - Blank cells: NHL venue, MLB ballpark, EHF hall, WST start time, NBA/EHF/PDC handicap and total — each blank carries its reason and, where systemic, a row on the flagged page.
 
-**Flagged for Review (published at `/docs/desk/flagged.html`, with links):** eight in-scope sports publish no match rows (no official match-level page captured); several parallel fixture datasets across the repo remain unreconciled — mechanical audit: Build A 137 rows (120 official-domain sources), Build B 116 rows (116 OLBG-sourced), Build D 66 rows (16 official, 2 OLBG), and 2 same-fixture pick conflicts (Florida–Ottawa; Milwaukee–Tampa Bay); WST start times blank because the list page renders clock times in the reader's locale; NHL/MLB/EHF venue blanks; NBA one-game sample caps confidence; PDC rankings page behind a cookie wall so darts lines are prior-only; EHF timezone unstated; 11 declared model constants are assumptions, not fitted values; player names reproduce NHL.com's initial+surname form.
+**Flagged for Review (published at `/docs/desk/flagged.html`, with links, and listed again below):** eight in-scope sports publish no match rows (no official match-level page captured); several parallel fixture datasets across the repo remain unreconciled — mechanical audit: Build A 137 rows (120 official-domain sources), Build B 116 rows (116 OLBG-sourced), Build D 66 rows (16 official, 2 OLBG), and 2 same-fixture pick conflicts (Florida–Ottawa; Milwaukee–Tampa Bay); WST start times blank because the list page renders clock times in the reader's locale; NHL/MLB/EHF venue blanks; NBA one-game sample caps confidence; PDC rankings page behind a cookie wall so darts lines are prior-only; EHF timezone unstated; 11 declared model constants are assumptions, not fitted values; player names reproduce NHL.com's initial+surname form.
 
 **Cross-session requests (not applied — other boards' files):** recommend retiring or reconciling `data/rows.json`, `data/board.json`, `data/matches.json` (two conflicting picks above) and qualifying the hub banner's "governing-body verified" claim, since the mechanical audit finds only 16 of 66 hub rows cite an official-domain source. Logged here rather than edited.
