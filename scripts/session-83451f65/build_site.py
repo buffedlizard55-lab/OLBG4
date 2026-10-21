@@ -163,8 +163,9 @@ SPORT_NOTE = {
                  "string on the club fixture page. Clock times are printed as the source rendered them."),
  "Handball": ("EHF Champions League. No form or ranking field is published on the match list, so strength is absent: "
               "the venue prior alone sets the price and every pick is Low."),
- "Snooker": ("WST Northern Ireland Open. WST publishes no form, ranking or head-to-head on the match list, so no "
-             "selection can be justified: prices are 1.92/1.92 and every pick is withheld."),
+ "Snooker": ("WST Northern Ireland Open. The match list publishes the round, match number, pairing and session time "
+             "but no venue, ranking, form or head-to-head, so venue and pick are left blank rather than filled in; "
+             "prices are 1.96/1.96 because no strength input can be justified."),
 }
 
 
@@ -345,7 +346,7 @@ def build_analysis():
             "distribution looks the way it does.", "Findings")}
 <section class="kpis tight">
   {kpi(f"{home_fav}", "home picks", "venue prior only where form is missing")}
-  {kpi(f"{away_fav}", "away picks", "all four High picks are away or short-priced home sides")}
+  {kpi(f"{away_fav}", "away picks", "three of the four High picks are road sides")}
   {kpi(f"{COUNTS['handicaps']}", "handicaps originated", "line from our own expected margin")}
   {kpi(f"{len(ENTRIES) - sum(1 for r in ENTRIES if r['pick'])}", "picks withheld", "no verified input separates the sides")}
 </section>

@@ -208,9 +208,9 @@ sno = [
  ("44","15:00","Luca Brecel","Martin O'Donnell","0c49ba0c-2d21-481e-a2ac-fbece616f591"),
 ]
 for mn, t, p1, p2, mid in sno:
-    add(id=f"sno-20261021-m{mn}", sport="Snooker", comp="BetVictor Northern Ireland Open 2026 (Belfast)",
+    add(id=f"sno-20261021-m{mn}", sport="Snooker", comp="BetVictor Northern Ireland Open 2026",
         date="2026-10-21", time=t, tnote="Session time rendered to this browser's timezone by wst.tv; printed verbatim, NOT converted",
-        venue="Waterfront Hall, Belfast", home=p1, away=p2, src="wst-nio",
+        venue="", home=p1, away=p2, src="wst-nio",
         ev=f"WST match centre for match {mn}",
         url_override=f"https://www.wst.tv/match-centre/{mid}", neutral=True)
 
