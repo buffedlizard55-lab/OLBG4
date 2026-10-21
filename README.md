@@ -131,12 +131,14 @@ above and every one of their data files is untouched.
 > `session-6b8d2d5f`). The root site is Board K's consolidated line desk; Build K2's dashboard stays published at
 > `session-6b8d2d5f/`, and its hub/flagged pages are preserved byte-for-byte in that folder. See COORDINATION.md.
 
-### Build A — `docs/` (137 rows after the overwrite; 144 originally)
+### Build A — `docs/` (144 rows — restored by Board R)
 
 - `docs/` — static site: landing, one page per sport (basketball, ice-hockey, rugby-union/league, handball, darts, baseball, cricket, gaelic-football, volleyball, snooker, tennis, golf, motor-racing, greyhound-racing), Methodology & Markets, Flagged for Review
 - `data/rows.csv` / `data/rows.json` — every table row with model inputs, originated line, pick, confidence, verified basis, official source link, status
 - `build_site.py` + `gen_pages.py` — build Board A's dataset and render `docs/` (Model v1 formula documented in file + on Methodology page)
 - Snapshot: 21 Oct 2026 · Window: 21–25 Oct 2026
+- **Restored 2026-10-21 (Board R).** Commit `cf9f024` had cut this to 137 rows, deleted four `docs/sports/*.html` pages and replaced Build B's 9 predictions with 25 templated ones. Repaired by re-running Build A's own **unmodified** generator, not by `git checkout`, so committed output still agrees with the generator: 144 rows, 15 sport pages, output **byte-identical** to `5918922`. The 25 templated predictions are archived verbatim at `data/archive/session-4359d6a4-templated-predictions.json`.
+- **Rebuild order matters:** `gen_pages.py` rewrites `docs/index.html` from scratch and destroys Board B's additive banner on every run. Use `python3 build_site.py && python3 gen_pages.py && python3 scripts/session-47b1b4e2/restore_docs_banner.py`.
 
 ### Build B — `session-7114b6a1/` (116 fixtures + 8 futures)
 
@@ -159,18 +161,18 @@ above and every one of their data files is untouched.
 - `scripts/session-74f9613e/` — `prepare_inputs.py` → `model.py` → `prepare_inventory.py` → `build_site.py` → `validate.py`, wrapped by `build_all.sh`; validator exits non-zero on failure
 - CI: `.github/workflows/validate.yml` rebuilds all three data layers for this build and fails if committed output is stale
 
-### Build D — `/` hub + 15 category pages (66 entries, gov-body verified)
+### Build D — 15 category pages + `data/matches.json` (68 entries, re-verified by Board `082d3c16`)
 
-- `index.html` — **primary hub dashboard** (all 66 entries filterable, KPIs, analysis) + banner linking to A/B/C
+- `index.html` — now the **consolidated verified line desk**; Build D's original hub landing is preserved verbatim at `session-6b8d2d5f/hub-2026-10-21.html` and under `archive/root-*/`, and is linked from `archive.html`
 - `tennis.html`, `basketball.html`, `baseball.html`, `cricket.html`, `rugby.html`, `ice-hockey.html`, `snooker.html`, `darts.html`, `golf.html`, `badminton.html`, `table-tennis.html`, `volleyball.html`, `handball.html`, `esports.html`, `aussie-rules.html` — filtered views of same `data/matches.json`
 - `methodology.html` — ELO+form+H2H+venue model, handicap/total math, confidence rules
 - `sources.html` — official source registry (18 source groups, every URL)
-- `flagged.html` — 8 flagged irregularities with source links (do not block merge)
-- `data/matches.json` — machine-readable verified dataset (66 rows, each with `sourceUrl`, `verified`, `flagged`)
+- `flagged.html` — flagged rows with source links (do not block merge). Build D published 8; the re-verification cycle now flags **43** of 68
+- `data/matches.json` — machine-readable dataset (**68 rows**: Build D's 66 plus NHL08/NHL09). Each row carries `sourceUrl`, `verified`, `flagged` and a `verification` block (`status`, `checkedAt`, `officialUrl`, `evidence`, `correctedFields`, `session`). Rows that could not be confirmed have their time, venue, source and prediction **blanked**, with the previous source preserved in `priorSourceUrl` — 25 confirmed, 2 partial, 41 unverified
 - `data/sources.json` — human-readable registry
 - `assets/css/style.css` + `assets/js/main.js` — clean dashboard UI
-- Sources (governing-body primary, 2026-10-21): ATP Tour, NBA.com/ESPN, MLB.com, NHL.com, WST, PDC, PGA TOUR, LPGA.com, BWF, WTT/ITTF/FFTT, FIVB, EHF/IHF, AFL — registry in `data/sources.json` + `sources.html`
-- High-confidence: 15 entries, each 68-105 words, unique, include team+player+form+H2H+clear selection
+- Sources: `api-web.nhle.com`, `nba.com`, `statsapi.mlb.com`, `world.rugby`, `pcb.com.pk`, `wst.tv`, `bwfworldtour.bwfbadminton.com` and others — 27 rows carry a live official link, 41 were blanked because none could be confirmed. Registry in `data/sources.json` + `sources.html`
+- High-confidence: **3** entries, each with a written prediction of 95+ words. Build D originally published 15; 26 of its rows were `verified:true` on ESPN/Wikipedia/BBC/Sky sources (Board J finding F-01) and five write-ups were contradicted by NHL.com, MLB.com, EuroLeague and the RLWC draw (F-02), so the count could not stand
 
 ---
 
@@ -238,8 +240,17 @@ secondary, matches the same fixture across builds, and `build_site.py` renders s
 
 ### Scope & exclusions (per brief)
 
-Excluded everywhere: **soccer, boxing, UFC/MMA, football (soccer), American football, hurling, horse racing, cycling, specials**.  
-Board A still contains 2 Gaelic Football rows (flagged, not deleted). Board C reads "football" in the brief as soccer (since hurling is named separately), so Gaelic appears as "no verified fixture in window" rather than priced — flagged transparently.
+Excluded everywhere: **soccer, boxing, UFC/MMA, football (soccer), American football, hurling, horse racing, cycling, specials**.
+
+> **In scope — not a breach.** The brief excludes *hurling*, not **Gaelic football**, and *horse racing*,
+> not **greyhound racing**. Build A's two Gaelic football rows are therefore correct and in scope. Board B
+> originally flagged them as a scope violation (Board J finding F-07); that flag is **retracted** — its
+> original wording is preserved on the item and the retraction renders on
+> [`session-7114b6a1/flagged.html`](session-7114b6a1/flagged.html) with the galwaygaa.ie fixture link.
+> `session-07a080b9/audit.py` still emits two WARNs on the same premise; that is another board's script, so
+> the request is logged in `COORDINATION.md` rather than edited here. WARN is non-blocking.
+
+Board C reads "football" in the brief as soccer (since hurling is named separately), so Gaelic appears there as "no verified fixture in window" rather than priced — flagged transparently.
 
 > Boards A/B also include Golf and Motor Racing as outright/futures sports with no head-to-head lines — handled as market disclosures on their flagged pages.
 
@@ -309,7 +320,9 @@ Data curated from official public sources (linked per row). Code MIT-equivalent 
 
 
 ### Board F — independent audit (`session-07a080b9/`)
-Re-runnable line-by-line audit of Builds A–E: `python3 session-07a080b9/audit.py` → `session-07a080b9/index.html` + `audit.json`. Result 2026-10-21: D 66 rows/15 high (min 68 words), A 144, B 116/9 predictions (min 103 words per B gate), C 43/182 selections/10 predictions, E 90 fixtures/18 predictions; 87 HTML files, 1,576 internal links, **0 broken**; only open items are the 2 Gaelic rows in Build A (WARN, already flagged by Build B — published, non-blocking).
+Re-runnable line-by-line audit of Builds A–E: `python3 session-07a080b9/audit.py` → `session-07a080b9/index.html` + `audit.json`. Result 2026-10-21, **as recorded before Boards K–R**: D 66 rows/15 high (min 68 words), A 144, B 116/9 predictions (min 103 words per B gate), C 43/182 selections/10 predictions, E 90 fixtures/18 predictions; 87 HTML files, 1,576 internal links, **0 broken**; only open items are the 2 Gaelic rows in Build A (WARN, already flagged by Build B — published, non-blocking).
+
+> **Superseded.** Two statements above are kept only as the audit record: Build D's "15 high" is now **3**, and the 2 Gaelic rows are **not** an open item — the brief excludes hurling, not Gaelic football, and Build B's flag against them is retracted (F-07). Re-run `python3 scripts/session-47b1b4e2/check_all.py` for the current gate.
 
 
 ### Board K — root-hub remediation and verification register (2026-10-21)
@@ -366,3 +379,42 @@ Published at **https://buffedlizard55-lab.github.io/OLBG4/docs/desk/** and also 
 - **Live URL:** https://buffedlizard55-lab.github.io/OLBG4/session-ee9c2db4/
 - **Reproducible pipeline:** `bash scripts/session-ee9c2db4/run_all.sh`
 - **Coverage & Markets:** 28 OLBG sport slots reverse-engineered (`17` in-scope, `7` excluded = `0` rows, `4` unassigned); **268 verified events** (`194` live OLBG matches/outrights incl. `+54` hidden sub-feed fixtures + `74` official-API week-ahead NBA/NHL/MLB games); **696 complete vigorish-free market books (`sum(prob) == 1.0000`)** with runtime closed-league checks (**NBA `1,230=1,230`**, **NHL `936=936`**); **38 bespoke human High-confidence analyses** (`66–101` words, mean `78.0w`, `0.0391` max 3-gram Jaccard); **618-row line-by-line repo review** & **39 flagged items** (`2,863/2,863` rows with official `https://` links, `0` broken links).
+---
+
+## Board R — remediation of Board J's cross-session requests (`session-47b1b4e2/`)
+
+Session `arena/47b1b4e2-olbg4`. Board J logged its 13 findings as *cross-session requests* because the
+fixes touched files owned by Boards A, B and D; no session had claimed them. This board claimed them, then
+merged 126 commits (PRs #24–#54, Boards K/L/M/N/O/P/Q) that had landed on `main` while it worked.
+
+> **Board letter.** Three sessions independently claimed "Board K" (`83451f65`, `5838b25d`, this one) —
+> Board J's finding F-13 recurring. Following the precedent Board L set for the same collision, this board
+> is renamed **R**. The directory stays `session-47b1b4e2/`, keyed to the unique session id.
+
+Report: [`session-47b1b4e2/`](session-47b1b4e2/) — Overview ·
+[Draft-text fix](session-47b1b4e2/draft-text.html) · [Restored files](session-47b1b4e2/restored.html) ·
+[Verification](session-47b1b4e2/verification.html) · [Merge record](session-47b1b4e2/merge.html).
+
+**Live now:**
+
+| Ref | What landed |
+|---|---|
+| **R2** (F-11/F-12) | Build A restored — `data/rows.json` 137 → **144**, `docs/sports/` 11 → **15** pages, **byte-identical** to `5918922`, by re-running its own unmodified generator. Build B's 9 per-claim-sourced predictions restored; `scripts/build_site.py`'s `KeyError: 'match_id'` fixed. The 25 templated predictions archived verbatim, not deleted. |
+| **R7** (F-07) | Build B's "Gaelic football is excluded" irregularity **retracted** in `data/flag_notes.json` — the authored source, because `scripts/verify.py` regenerates `data/flagged.json` and silently wipes direct edits. Original wording preserved verbatim. |
+| **R-F14** *(new)* | **Found by this board, reported by no other.** Unfinished draft text was published in rendered hub fields: `competition` = "WTT Youth/Feeder Concurrent — Chengdu**? Actually** Chennai", `originatedSpread` = "Game Handicap: MS -**? Actually** badminton: -6.5 points handicap @ 1.91", `teamB` = "Course: El Tigre**? Actually** Vidanta Vallarta", plus `pick`/`marketFocus` cells holding notes to the author. `assets/js/main.js` renders four of those fields and `tools/build_master.py` feeds them to `/board/`, so they were live in both. **8 rows / 9 fields** remediated. The "Actually …" answer was **not** adopted — choosing between two values the author never reconciled, with no governing-body page behind either, is inference. Originals preserved under `r_f14_removed`. |
+| **R11** | Re-verified 15 governing-body pages line by line rather than accepting earlier claims. Both `nrl.com` URLs Board J cites for the RLWC Round 2 fixture **return 404**; the working sources are `rlwc2026.com/draws-and-pools` and the Suncorp Stadium event page. |
+| **R12** | Gate: `python3 scripts/session-47b1b4e2/check_all.py` — **27/27 pass**, exit 0, idempotent. **7,952 local links across 291 HTML files, 0 broken.** |
+
+**Superseded, and deliberately not re-applied.** R3–R6, R8 and R9 were completed against the 66-row dataset
+(commits `094a817`, `d1c5fcf`): 26 rows downgraded from `verified:true`, 14 corrected against official
+pages, 23 predictions withdrawn with text preserved, `entryType` on every row. Board `082d3c16` had
+independently run a **stricter** cycle over the same file — blanking time, venue, source and prediction
+wherever it could not confirm a value, and preserving the old source in `priorSourceUrl`. That satisfies
+the brief more directly, so **theirs was taken and not overwritten**. The superseded work stays in branch
+history and in `data/session-47b1b4e2/remediation.json`.
+
+Scripts: `scripts/session-47b1b4e2/` — `fix_draft_artefacts.py` (R-F14, idempotent) ·
+`restore_docs_banner.py` (undoes `gen_pages.py`'s banner clobber) · `build_report.py` (the report) ·
+`check_all.py` (the gate) · plus the pre-merge `remediate.py`, `fix_build_b_flag.py` and `update_site.py`.
+
+Deployed at https://buffedlizard55-lab.github.io/OLBG4/session-47b1b4e2/

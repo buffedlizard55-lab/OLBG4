@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restored files — OLBG4 Board R</title>
+<style>
+:root{--ink:#111827;--mut:#6b7280;--line:#e5e7eb;--bg:#f8fafc;--blue:#2563eb;--amber:#b45309;--green:#15803d}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+header .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+b.brand{font-size:17px}b.brand span{color:var(--blue)}
+nav{display:flex;flex-wrap:wrap;gap:4px}
+nav a{padding:6px 11px;border-radius:8px;text-decoration:none;color:var(--mut);font-size:14px;font-weight:600}
+nav a:hover{background:#eef2ff;color:var(--blue)}
+nav a.on{background:var(--blue);color:#fff}
+main{max-width:1200px;margin:0 auto;padding:22px 18px 60px}
+h1{font-size:26px;margin:6px 0 4px}h2{font-size:19px;margin:30px 0 8px}
+.lede{color:var(--mut);margin:0 0 18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.06em;color:var(--blue);font-weight:800;font-size:11.5px;margin:0 0 6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:18px 0}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.kpi .v{font-size:27px;font-weight:800;margin-top:3px}
+.kpi .s{font-size:12.5px;color:var(--mut);margin-top:3px}
+.tw{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{background:#f1f5f9;text-align:left;padding:9px 11px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:#475569;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.small{font-size:12.5px;color:var(--mut)}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.03em}
+.hi{background:#fee2e2;color:#991b1b}.me{background:#fef3c7;color:#92400e}.lo{background:#e0e7ff;color:#3730a3}
+.ok{background:#dcfce7;color:#166534}
+.note{background:#eff6ff;border:1px solid #cddffd;border-left:4px solid var(--blue);border-radius:10px;padding:12px 15px;margin:14px 0}
+.warn{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid var(--amber);border-radius:10px;padding:12px 15px;margin:14px 0}
+.good{background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid var(--green);border-radius:10px;padding:12px 15px;margin:14px 0}
+code{background:#f1f5f9;padding:1px 5px;border-radius:5px;font-size:12.5px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px 16px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.65}
+a{color:var(--blue)}
+.strike{text-decoration:line-through;color:var(--mut)}
+ul{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><div class="wrap">
+<b class="brand">OLBG4 <span>· Board R</span></b>
+<nav><a href="index.html">Overview</a><a href="draft-text.html">Draft-text fix</a><a href="restored.html" class="on">Restored files</a><a href="verification.html">Verification</a><a href="merge.html">Merge record</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Restored files — Board J findings F-11 and F-12</h1>
+<p class="lede">Commit <code>cf9f024</code>, from another session, overwrote parts of Build A and Build B
+with generated filler. Board J proved it; this board repaired it. All of this survived the merge and is
+live on <code>main</code>.</p>
+
+<h2>What <code>cf9f024</code> did</h2>
+<div class="tw"><table><thead><tr><th>File</th><th>Before</th><th>After <code>cf9f024</code></th><th>Now</th></tr></thead><tbody>
+<tr><td><code>data/rows.json</code></td><td>144 rows, 15 sports, 12 hand-written predictions</td><td>137 rows; 7 lost</td><td><strong>144 restored</strong></td></tr>
+<tr><td><code>docs/sports/*.html</code></td><td>15 sport pages</td><td>11 — gaelic-football, golf, greyhound-racing and motor-racing deleted</td><td><strong>15 restored</strong></td></tr>
+<tr><td><code>data/predictions.json</code></td><td>Build B's 9 per-claim-sourced predictions</td><td>25 templated entries, no <code>match_id</code>; 13 shared one identical PDC opener; an NHL template carried a <code>.,</code> artefact; a Bruins v Predators entry discussed the San Jose Sharks</td><td><strong>9 restored</strong>; the 25 archived verbatim</td></tr>
+</tbody></table></div>
+
+<h2>How it was restored — and why not <code>git checkout</code></h2>
+<div class="note">The obvious fix, <code>git checkout 5918922 -- data/rows.json</code>, was
+<strong>not</strong> used. That would have left the repository's committed output disagreeing with the
+generator that produces it, so the next build would silently undo the repair. Instead Build A's own
+<em>unmodified</em> generator was re-run and its output compared to the pre-overwrite commit:
+<pre>python3 build_site.py     # rows 144 high 12 flagged 15
+python3 gen_pages.py      # pages built 15</pre>
+<code>data/rows.json</code> came back <strong>byte-identical</strong> to <code>5918922:data/rows.json</code>,
+and 17 of the 18 <code>docs/</code> files byte-identical too. The generator stays authoritative.</div>
+
+<h2>The one file that was not byte-identical, and why</h2>
+<p><code>docs/index.html</code> differed by exactly one <code>difflib</code> <code>delete</code> op: a
+681-character banner Board B had added after <code>&lt;body&gt;</code>. <code>grep</code> on the working
+file gave a false negative, so the diff was located with <code>SequenceMatcher</code> instead. The banner
+was re-inserted at <code>new.index('&lt;header&gt;')</code> — not <code>&lt;main&gt;</code>, which is where
+a first attempt put it — restoring byte-identity.</p>
+<div class="warn"><strong>This is a live trap for any board that rebuilds Build A.</strong>
+<code>gen_pages.py</code> rewrites <code>docs/index.html</code> from scratch and destroys that banner on
+<em>every</em> run; it was observed doing so twice during this board's work.
+<code>scripts/session-47b1b4e2/restore_docs_banner.py</code> re-inserts it, verbatim, with a Board R
+correction nested inside retracting its "Gaelic football is on the exclusion list" sentence. The correct
+order is:
+<pre>python3 build_site.py &amp;&amp; python3 gen_pages.py &amp;&amp; python3 scripts/session-47b1b4e2/restore_docs_banner.py</pre></div>
+
+<h2>Two other generated-file traps found while repairing this</h2>
+<div class="tw"><table><thead><tr><th>Trap</th><th>Consequence</th><th>Correct target</th></tr></thead><tbody>
+<tr><td><code>data/flagged.json</code> is generated — <code>scripts/verify.py</code> line 42 rewrites it from <code>data/flag_notes.json</code> + <code>data/model_assumptions.json</code></td><td>Editing <code>flagged.json</code> directly is silently wiped on the next verifier run. This board's first attempt at the F-07 retraction was lost exactly this way.</td><td>Patch <code>data/flag_notes.json</code>. Note <code>scripts/build_site.py</code> renders only <code>what</code>/<code>detail</code>/<code>source</code>, so retraction text must be folded into <code>detail</code>.</td></tr>
+<tr><td><code>scripts/build_site.py</code> read <code>data/predictions.json</code> and required <code>match_id</code></td><td><code>KeyError: 'match_id'</code> — Build B's site could not be rebuilt at all after the restoration.</td><td>Repointed at <code>data/session-7114b6a1/predictions.json</code> with a root fallback. 18 pages, exit 0.</td></tr>
+</tbody></table></div>
+
+<h2>The withdrawn templated predictions were archived, not deleted</h2>
+<p>All 25 entries that <code>cf9f024</code> introduced are preserved verbatim, with a
+<code>reason</code> and <code>status: "WITHDRAWN"</code> on each, at
+<code>data/archive/session-4359d6a4-templated-predictions.json</code>. Another session's output is
+evidence about that session; deleting it would have destroyed the record Board J's finding rests on.</p>
+
+</main>
+<footer class="wrap">Board R · session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · remediation and
+integration. Sources: official governing-body pages, linked inline. Nothing on this site is betting
+advice; unconfirmed values are left blank and flagged rather than inferred.</footer>
+</body></html>

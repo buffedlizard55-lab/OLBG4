@@ -1,0 +1,147 @@
+{
+ "schema": "olbg4.boardr-draft-artefacts/1",
+ "finding": "R-F14",
+ "run_utc": "2026-10-21T09:40Z",
+ "dataset": "data/matches.json",
+ "rows_in_dataset": 68,
+ "rows_affected": 8,
+ "fields_blanked": 5,
+ "fields_restated": 4,
+ "changed_this_run": 0,
+ "changes": [
+  {
+   "id": "ATP04",
+   "sport": "Tennis",
+   "fields": [
+    [
+     "pick",
+     "restated"
+    ]
+   ],
+   "originals": {
+    "pick": "No pick yet — monitor entry lists (Alcaraz/Sinner expected in Basel/Vienna)"
+   },
+   "reasons": {
+    "pick": "phrased as a working note ('monitor ...', 'wait until ...'). Restated plainly; the substance is unchanged - no selection was originated."
+   }
+  },
+  {
+   "id": "SNK03",
+   "sport": "Snooker",
+   "fields": [
+    [
+     "pick",
+     "restated"
+    ]
+   ],
+   "originals": {
+    "pick": "No outright pick until QF results — monitor century rate"
+   },
+   "reasons": {
+    "pick": "phrased as a working note ('monitor ...', 'wait until ...'). Restated plainly; the substance is unchanged - no selection was originated."
+   }
+  },
+  {
+   "id": "GLF03",
+   "sport": "Golf",
+   "fields": [
+    [
+     "teamB",
+     "blanked"
+    ],
+    [
+     "pick",
+     "restated"
+    ]
+   ],
+   "originals": {
+    "teamB": "Course: El Tigre? Actually Vidanta Vallarta — par 71, wide fairways",
+    "pick": "No favourite — wait until Bermuda results shift FedEx standings"
+   },
+   "reasons": {
+    "teamB": "unresolved self-correction ('X? Actually Y') published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values.",
+    "pick": "phrased as a working note ('monitor ...', 'wait until ...'). Restated plainly; the substance is unchanged - no selection was originated."
+   }
+  },
+  {
+   "id": "GLF04",
+   "sport": "Golf",
+   "fields": [
+    [
+     "pick",
+     "blanked"
+    ]
+   ],
+   "originals": {
+    "pick": "Sei Young Kim (defending) to contend — but low confidence outright; back Over -18.5 winning score? Actually course plays under, lean Under -18.5 if wind"
+   },
+   "reasons": {
+    "pick": "unresolved self-correction ('X? Actually Y') published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values."
+   }
+  },
+  {
+   "id": "BDM01",
+   "sport": "Badminton",
+   "fields": [
+    [
+     "originatedSpread",
+     "blanked"
+    ]
+   ],
+   "originals": {
+    "originatedSpread": "Game Handicap: MS -? Actually badminton: -6.5 points handicap @ 1.91"
+   },
+   "reasons": {
+    "originatedSpread": "unresolved self-correction ('X? Actually Y') published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values."
+   }
+  },
+  {
+   "id": "TTT02",
+   "sport": "Table Tennis",
+   "fields": [
+    [
+     "originatedSpread",
+     "blanked"
+    ]
+   ],
+   "originals": {
+    "originatedSpread": "Game Handicap -1.5 @ 1.91 (Best of 5 last-16? Actually Champions is Bo5 R32-16, Bo7 QF onward; check WTT rules)"
+   },
+   "reasons": {
+    "originatedSpread": "unresolved self-correction ('X? Actually Y') published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values."
+   }
+  },
+  {
+   "id": "TTT03",
+   "sport": "Table Tennis",
+   "fields": [
+    [
+     "competition",
+     "blanked"
+    ]
+   ],
+   "originals": {
+    "competition": "WTT Youth/Feeder Concurrent — Chengdu? Actually Chennai"
+   },
+   "reasons": {
+    "competition": "unresolved self-correction ('X? Actually Y') published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values."
+   }
+  },
+  {
+   "id": "VBL01",
+   "sport": "Volleyball",
+   "fields": [
+    [
+     "marketFocus",
+     "restated"
+    ]
+   ],
+   "originals": {
+    "marketFocus": "No match markets until draw — monitor pools"
+   },
+   "reasons": {
+    "marketFocus": "phrased as a working note ('monitor ...', 'wait until ...'). Restated plainly; the substance is unchanged - no selection was originated."
+   }
+  }
+ ]
+}

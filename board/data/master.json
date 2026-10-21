@@ -20,8 +20,8 @@
   "B": "B — read directly off OLBG's live sport pages (published separately: no official source)"
  },
  "counts": {
-  "rows_total": 312,
-  "rows_in_scope": 308,
+  "rows_total": 317,
+  "rows_in_scope": 312,
   "sports_in_scope": [
    "Aussie Rules",
    "Badminton",
@@ -31,6 +31,7 @@
    "Darts",
    "Esports",
    "Golf",
+   "Greyhound Racing",
    "Greyhounds",
    "Handball",
    "Ice Hockey",
@@ -52,6 +53,7 @@
    "Esports",
    "Gaelic Football",
    "Golf",
+   "Greyhound Racing",
    "Greyhounds",
    "Handball",
    "Ice Hockey",
@@ -63,18 +65,18 @@
    "Tennis",
    "Volleyball"
   ],
-  "rows_verified_official": 248,
+  "rows_verified_official": 249,
   "rows_verified_in_scope": 244,
-  "rows_with_pick": 277,
-  "rows_with_prediction": 77,
+  "rows_with_pick": 276,
+  "rows_with_prediction": 67,
   "rows_with_written_prediction": 63,
-  "rows_with_templated_prediction": 14,
-  "high_with_written_prediction": 62,
+  "rows_with_templated_prediction": 4,
+  "high_with_written_prediction": 60,
   "confidence": {
-   "Low": 160,
-   "Medium": 69,
-   "High": 62,
-   "none": 17
+   "Low": 152,
+   "none": 26,
+   "Medium": 71,
+   "High": 63
   },
   "by_sport": {
    "Aussie Rules": {
@@ -94,7 +96,7 @@
     "high": 0,
     "predicted": 0,
     "market_win": 3,
-    "market_handicap": 3,
+    "market_handicap": 2,
     "market_total": 3
    },
    "Baseball": {
@@ -132,7 +134,7 @@
     "verified": 16,
     "picks": 20,
     "high": 5,
-    "predicted": 13,
+    "predicted": 6,
     "market_win": 20,
     "market_handicap": 20,
     "market_total": 20
@@ -148,14 +150,24 @@
     "market_total": 2
    },
    "Golf": {
-    "rows": 5,
+    "rows": 6,
     "verified": 0,
-    "picks": 5,
+    "picks": 4,
     "high": 0,
     "predicted": 0,
     "market_win": 5,
     "market_handicap": 5,
     "market_total": 5
+   },
+   "Greyhound Racing": {
+    "rows": 2,
+    "verified": 0,
+    "picks": 0,
+    "high": 0,
+    "predicted": 0,
+    "market_win": 0,
+    "market_handicap": 0,
+    "market_total": 0
    },
    "Greyhounds": {
     "rows": 6,
@@ -181,14 +193,14 @@
     "rows": 47,
     "verified": 45,
     "picks": 47,
-    "high": 21,
-    "predicted": 24,
+    "high": 22,
+    "predicted": 22,
     "market_win": 42,
     "market_handicap": 42,
     "market_total": 47
    },
    "Motor Racing": {
-    "rows": 1,
+    "rows": 2,
     "verified": 0,
     "picks": 1,
     "high": 0,
@@ -201,8 +213,8 @@
     "rows": 10,
     "verified": 8,
     "picks": 10,
-    "high": 2,
-    "predicted": 4,
+    "high": 3,
+    "predicted": 3,
     "market_win": 10,
     "market_handicap": 1,
     "market_total": 1
@@ -211,7 +223,7 @@
     "rows": 30,
     "verified": 30,
     "picks": 30,
-    "high": 10,
+    "high": 9,
     "predicted": 10,
     "market_win": 19,
     "market_handicap": 25,
@@ -234,7 +246,7 @@
     "high": 0,
     "predicted": 0,
     "market_win": 3,
-    "market_handicap": 3,
+    "market_handicap": 2,
     "market_total": 3
    },
    "Tennis": {
@@ -260,21 +272,22 @@
   },
   "by_build": {
    "D": 58,
-   "A": 60,
-   "G": 130,
-   "C": 16,
-   "E": 48
+   "A": 61,
+   "G": 131,
+   "C": 17,
+   "E": 50
   },
-  "cross_build_fixtures": 120,
+  "cross_build_fixtures": 122,
   "cross_build_conflicts": 15,
-  "rows_flagged": 272,
+  "rows_flagged": 278,
   "outrights": 24,
   "outrights_in_scope": 23,
-  "upcoming": 284,
-  "out_of_scope": 4,
+  "upcoming": 289,
+  "out_of_scope": 5,
   "source_tiers": {
    "none": 39,
-   "official": 273
+   "official": 277,
+   "unclassified": 1
   },
   "rows_live_confirmed": 34,
   "rows_live_contradicted": 1,
@@ -815,7 +828,7 @@
     },
     "basis": "build D originated moneyline"
    },
-   "handicap": "Game Handicap: MS -? Actually badminton: -6.5 points handicap @ 1.91",
+   "handicap": "",
    "total": "Total points O/U 78.5 per match @ 1.91",
    "pick": "N/A — Completed — Form reference for French Open picks (Lanier/An repeat lean)",
    "pick_market": "",
@@ -831,7 +844,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "Not re-checked on BWF during the 2026-10-21 verification cycle: draw, court and session time could not be confirmed, so they are blank and no prediction is published."
+     "text": "Not re-checked on BWF during the 2026-10-21 verification cycle: draw, court and session time could not be confirmed, so they are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in originatedSpread (blanked). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
     },
     {
      "kind": "no-source",
@@ -962,7 +975,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "Not re-checked on FIVB/Volleyball World during the 2026-10-21 verification cycle: this entry is a qualification or squad note rather than a scheduled fixture, so no date, time or venue is published."
+     "text": "Not re-checked on FIVB/Volleyball World during the 2026-10-21 verification cycle: this entry is a qualification or squad note rather than a scheduled fixture, so no date, time or venue is published. | Board R finding R-F14: unfinished draft text was published in marketFocus (restated). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
     },
     {
      "kind": "no-source",
@@ -1200,7 +1213,7 @@
    "total": "",
    "pick": "",
    "pick_market": "",
-   "confidence": "Low",
+   "confidence": "",
    "prediction": "",
    "source_url": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
    "source_name": "ATP Tour official — 2026 ATP Tour calendar (Brussels & Lyon, 19-25 Oct)",
@@ -1212,7 +1225,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "model_prob_unverified"
+     "text": "No verified head-to-head pairing available at snapshot — matches, lines and picks left blank."
     },
     {
      "kind": "build-marked-unverified",
@@ -1234,7 +1247,7 @@
     {
      "build": "A",
      "pick": "",
-     "confidence": "Low",
+     "confidence": "",
      "date": "2026-10-19",
      "date_raw": "2026-10-19 to 2026-10-25",
      "source_url": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
@@ -4350,7 +4363,7 @@
    "total": "Over 66.5 @ 1.98",
    "pick": "Paris Saint-Germain",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Low",
+   "confidence": "High",
    "prediction": "Back Paris Saint-Germain to win this EHF Champions League match away to HC Zagreb. The official EHF group standings show Paris Saint-Germain unbeaten after four matches with three wins and a draw for seven points, scoring 154 goals, while Zagreb have won only once, losing three times for two points. That verified current form, plus Paris Saint-Germain's superior goal output in Group C, makes the away win our high-confidence selection for this match.",
    "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "source_name": "EHF Champions League official site — standings & calendar (Oct 2026)",
@@ -4596,12 +4609,12 @@
    "live_contradicted": false
   },
   {
-   "build": "A",
+   "build": "G",
    "build_verified": true,
    "sport": "Handball",
-   "competition": "EHF Champions League Men — Group Phase",
+   "competition": "EHF Champions League Men, Group A",
    "date": "2026-10-21",
-   "date_raw": "2026-10-21",
+   "date_raw": "2026-10-21 18:45 CET",
    "time": "",
    "venue": "",
    "home": "One Veszprem HC",
@@ -4618,19 +4631,19 @@
    "total": "Over 68.5 @ 2.01",
    "pick": "One Veszprem HC",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "The best fixture of Wednesday's handball card. Veszprem have won all four Group A matches, lead the section on eight points and own its meanest defence at 146:111. Fuchse Berlin have scored three more goals but conceded 133 and lost once in four, so they arrive second on six points. Expect an open first half and a controlled finish in front of a full house: back One Veszprem HC to win.",
-   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
-   "source_name": "EHF Champions League official site — standings & calendar (Oct 2026)",
-   "notes": "Model v1 rating = official EHF Group standings points rate (points / (2 x games played)) after four rounds: Group A — Veszprem 4-0, Fuchse Berlin 3-1, FC Porto 1-3, Partizan 0-4; Group C — Paris Saint-Germain 3 wins 1 draw, Aalborg 3 wins 1 draw, Zagreb 1-3, Celje 0-4 (ehfcl.eurohandball.com standings).",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+   "source_name": "EHF Champions League official site",
+   "notes": "Official standings GF/GA: One Veszprem HC 146:111 in 4g, Fuchse Berlin 149:133 in 4g; league avg 31.9 goals/team; shrunk Poisson (k=2), home x1.05; 3-way incl. draw.",
    "flags": [
-    {
-     "kind": "market-note",
-     "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
-    },
     {
      "kind": "source-note",
      "text": "Only 4 group games played - small sample."
+    },
+    {
+     "kind": "market-note",
+     "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
     }
    ],
    "home_raw": "One Veszprem HC",
@@ -4638,18 +4651,17 @@
    "prediction_style": "written",
    "cross_build": [
     {
-     "build": "G",
+     "build": "A",
      "pick": "One Veszprem HC",
      "confidence": "Medium",
      "date": "2026-10-21",
-     "date_raw": "2026-10-21 18:45 CET",
-     "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+     "date_raw": "2026-10-21",
+     "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
      "side": "home"
     }
    ],
    "fields_from": {
-    "handicap": "G",
-    "total": "G"
+    "win": "A"
    },
    "archive_rows": 1,
    "prediction_source": "authored 2026-10-21",
@@ -4725,7 +4737,7 @@
     {
      "build": "A",
      "pick": "FC Porto",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-21",
      "date_raw": "2026-10-21",
      "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
@@ -4861,7 +4873,7 @@
     {
      "build": "A",
      "pick": "Buffalo Sabres",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-21",
      "date_raw": "2026-10-21",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -5161,7 +5173,7 @@
    "total": "",
    "pick": "",
    "pick_market": "",
-   "confidence": "Low",
+   "confidence": "",
    "prediction": "",
    "source_url": "https://www.wst.tv/northernirelandopen/",
    "source_name": "World Snooker Tour official — BetVictor Northern Ireland Open, Belfast, 18-25 Oct 2026",
@@ -5173,7 +5185,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "model_prob_unverified"
+     "text": "Opponent undecided at snapshot (winner of Match 20). OLBG pairing (v Stuart Bingham) not confirmed by WST — irregularity flagged."
     },
     {
      "kind": "build-marked-unverified",
@@ -5792,7 +5804,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "model_prob_unverified"
+     "text": "Pairing verified via WST listings; rankings/form unverified in session — line and pick left blank."
     }
    ],
    "home_raw": "Pang Junxu",
@@ -5811,7 +5823,7 @@
     {
      "build": "A",
      "pick": "",
-     "confidence": "Low",
+     "confidence": "",
      "date": "2026-10-21",
      "date_raw": "2026-10-21",
      "source_url": "https://www.wst.tv/northernirelandopen/",
@@ -8581,10 +8593,6 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap and match total markets do not apply in standard form to limited-overs cricket — investigated and recorded as not originated"
-    },
-    {
-     "kind": "build-flag",
-     "text": "model_prob_unverified"
     }
    ],
    "home_raw": "New Zealand",
@@ -8644,7 +8652,7 @@
    "pick": "Danny Noppert",
    "pick_market": "Match winner (moneyline)",
    "confidence": "Low",
-   "prediction": "PDC tour seeding points accumulated over the season provide a reliable indicator of current player form and match temperament. This PDC European Championship — Round 1 Round 1 pairing selects Danny Noppert to win based on official ranking methodology and season-long consistency.",
+   "prediction": "",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
    "notes": "Official PDC Order of Merit (2-yr prize money): Danny Noppert world #7 GBP 608,500 (EC seed 5); Stephen Bunting world #14 GBP 566,250 (EC seed 28). Leg prob via logistic on log-money (k=0.30).",
@@ -8652,20 +8660,16 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build G generated this write-up from boilerplate: the same opening sentence appears on 7 rows; it is 96% identical to another write-up from the same build. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Danny Noppert",
    "away_raw": "Stephen Bunting",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [
     {
      "build": "A",
      "pick": "Danny Noppert",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -8673,11 +8677,9 @@
     }
    ],
    "fields_from": {
-    "prediction": "A",
     "time": "A"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.961,
    "pick_side": "home",
    "id": "M0138",
    "source_tier": "official",
@@ -8718,7 +8720,7 @@
    "pick": "Gerwyn Price",
    "pick_market": "Match winner (moneyline)",
    "confidence": "Medium",
-   "prediction": "PDC tour seeding points accumulated over the season provide a reliable indicator of current player form and match temperament. This PDC European Championship — Round 1 Round 1 pairing selects Gerwyn Price to win based on official ranking methodology and season-long consistency.",
+   "prediction": "",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
    "notes": "Official PDC Order of Merit (2-yr prize money): Gerwyn Price world #4 GBP 782,000 (EC seed 13); Rob Cross world #22 GBP 398,500 (EC seed 20). Leg prob via logistic on log-money (k=0.30).",
@@ -8726,20 +8728,16 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build G generated this write-up from boilerplate: the same opening sentence appears on 7 rows; it is 96% identical to another write-up from the same build. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Gerwyn Price",
    "away_raw": "Rob Cross",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [
     {
      "build": "A",
      "pick": "Gerwyn Price",
-     "confidence": "High",
+     "confidence": "Low",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -8747,11 +8745,9 @@
     }
    ],
    "fields_from": {
-    "prediction": "A",
     "time": "A"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.962,
    "pick_side": "home",
    "id": "M0139",
    "source_tier": "official",
@@ -8968,7 +8964,7 @@
    },
    "archive_rows": 1,
    "confidence_note": "pdc.tv returned only a cookie-consent wall to this crawler on both the draw article and the rankings page, so no official page could be read today to support a fact-based high-confidence write-up. The pick stands; the confidence was lowered rather than padded with unverified claims.",
-   "prediction_similarity": 0.036,
+   "prediction_similarity": 0.024,
    "pick_side": "home",
    "id": "M0142",
    "source_tier": "official",
@@ -9009,7 +9005,7 @@
    "pick": "Luke Woodhouse",
    "pick_market": "Match winner (moneyline)",
    "confidence": "Low",
-   "prediction": "PDC tour seeding points accumulated over the season provide a reliable indicator of current player form and match temperament. This PDC European Championship — Round 1 Round 1 pairing selects Luke Woodhouse to win based on official ranking methodology and season-long consistency.",
+   "prediction": "",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
    "notes": "Official PDC Order of Merit (2-yr prize money): Luke Woodhouse world #18 GBP 506,000 (EC seed 9); Dirk van Duijvenbode world #20 GBP 430,500 (EC seed 24). Leg prob via logistic on log-money (k=0.30).",
@@ -9017,20 +9013,16 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build G generated this write-up from boilerplate: the same opening sentence appears on 7 rows; it is 96% identical to another write-up from the same build. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Luke Woodhouse",
    "away_raw": "Dirk van Duijvenbode",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [
     {
      "build": "A",
      "pick": "Luke Woodhouse",
-     "confidence": "High",
+     "confidence": "Low",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -9038,11 +9030,9 @@
     }
    ],
    "fields_from": {
-    "prediction": "A",
     "time": "A"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.962,
    "pick_side": "home",
    "id": "M0143",
    "source_tier": "official",
@@ -9083,7 +9073,7 @@
    "pick": "Cameron Menzies",
    "pick_market": "Match winner (moneyline)",
    "confidence": "Low",
-   "prediction": "PDC tour seeding points accumulated over the season provide a reliable indicator of current player form and match temperament. This PDC European Championship — Round 1 Round 1 pairing selects Niels Zonneveld to win based on official ranking methodology and season-long consistency.",
+   "prediction": "",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
    "notes": "Official PDC Order of Merit (2-yr prize money): Niels Zonneveld world #29 GBP 281,750 (EC seed 4); Cameron Menzies world #26 GBP 375,000 (EC seed 29). Leg prob via logistic on log-money (k=0.30).",
@@ -9095,20 +9085,16 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build G generated this write-up from boilerplate: the same opening sentence appears on 7 rows; it is 96% identical to another write-up from the same build. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Niels Zonneveld",
    "away_raw": "Cameron Menzies",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [
     {
      "build": "A",
      "pick": "Niels Zonneveld",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -9116,11 +9102,9 @@
     }
    ],
    "fields_from": {
-    "prediction": "A",
     "time": "A"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.957,
    "pick_side": "away",
    "cross_build_conflict": true,
    "id": "M0144",
@@ -9179,7 +9163,7 @@
     {
      "build": "A",
      "pick": "Ross Smith",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -9357,8 +9341,8 @@
    },
    "handicap": "Top-10: Fav 2.40, Field 4.00 @ 1.91",
    "total": "Winning Score O/U -18.5 @ 1.91 / 1.91",
-   "pick": "Sei Young Kim (defending) to contend — but low confidence outright; back Over -18.5 winning score? Actually course plays under, lean Under -18.5 if wind",
-   "pick_market": "Match total (over/under)",
+   "pick": "",
+   "pick_market": "",
    "confidence": "Low",
    "prediction": "",
    "source_url": "",
@@ -9371,11 +9355,15 @@
     },
     {
      "kind": "build-flag",
-     "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published."
+     "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published. | Board R finding R-F14: unfinished draft text was published in pick (blanked). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
     },
     {
      "kind": "no-source",
      "text": "No source URL recorded by the originating build."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
     },
     {
      "kind": "not-a-fixture",
@@ -9388,7 +9376,7 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "pick_side": "over",
+   "pick_side": "",
    "id": "M0148",
    "source_tier": "none",
    "source_domain": "",
@@ -9397,6 +9385,70 @@
    "status": "upcoming",
    "sport_slug": "golf",
    "row_type": "market-note",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "A",
+   "build_verified": false,
+   "sport": "Golf",
+   "competition": "Genesis Championship (DP World Tour / KPGA), Woo Jeong Hills CC, Cheonan",
+   "date": "2026-10-22",
+   "date_raw": "2026-10-22 to 2026-10-25",
+   "time": "",
+   "venue": "Woo Jeong Hills CC, Cheonan, South Korea",
+   "home": "Tournament field",
+   "away": "",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
+   "source_name": "DP World Tour official — Genesis Championship 2026 (22-25 Oct, Woo Jeong Hills CC)",
+   "notes": "Event, dates, venue, prize fund (US$4m) and defending champion Junghwan Lee verified on the DP World Tour's official event pages, which also confirm it is the final regular-season event before the Play-Offs. Golf stroke play has no fixed head-to-head match in this window, so no match winner line is originated; an outright pick is not offered because player-by-player current form was not verified from an official source in this session.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Tournament winner (outright) investigated; no head-to-head match market applies to stroke-play golf — recorded as investigated, not originated"
+    },
+    {
+     "kind": "build-flag",
+     "text": "No head-to-head match exists in stroke-play format; outright pick left blank — player form unverified in session."
+    },
+    {
+     "kind": "secondary-source",
+     "text": "Source is domain not in the registry — flagged for manual review — not a governing-body page. Flagged for review."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    },
+    {
+     "kind": "blank-teams",
+     "text": "The originating build did not record both teams. Left blank rather than guessed, and kept out of the fixture table."
+    }
+   ],
+   "home_raw": "Tournament field (126 players)",
+   "away_raw": "",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0149",
+   "source_tier": "unclassified",
+   "source_domain": "www.europeantour.com",
+   "source_note": "domain not in the registry — flagged for manual review",
+   "verified": false,
+   "status": "upcoming",
+   "sport_slug": "golf",
+   "row_type": "incomplete",
    "in_scope": true,
    "scope_note": "",
    "live_checks": [],
@@ -9459,7 +9511,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0149",
+   "id": "M0150",
    "source_tier": "official",
    "source_domain": "ehfcl.eurohandball.com",
    "source_note": "EHF Champions League",
@@ -9533,7 +9585,7 @@
    "archive_rows": 1,
    "pick_side": "away",
    "cross_build_conflict": true,
-   "id": "M0150",
+   "id": "M0151",
    "source_tier": "official",
    "source_domain": "ehfcl.eurohandball.com",
    "source_note": "EHF Champions League",
@@ -9606,7 +9658,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0151",
+   "id": "M0152",
    "source_tier": "official",
    "source_domain": "ehfcl.eurohandball.com",
    "source_note": "EHF Champions League",
@@ -9676,7 +9728,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0152",
+   "id": "M0153",
    "source_tier": "official",
    "source_domain": "ehfcl.eurohandball.com",
    "source_note": "EHF Champions League",
@@ -9746,7 +9798,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0153",
+   "id": "M0154",
    "source_tier": "official",
    "source_domain": "ehfcl.eurohandball.com",
    "source_note": "EHF Champions League",
@@ -9812,7 +9864,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0154",
+   "id": "M0155",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -9864,15 +9916,6 @@
    "prediction_style": "written",
    "cross_build": [
     {
-     "build": "A",
-     "pick": "Boston Bruins",
-     "confidence": "High",
-     "date": "2026-10-22",
-     "date_raw": "2026-10-22",
-     "source_url": "https://www.nhl.com/schedule/2026-10-21",
-     "side": "home"
-    },
-    {
      "build": "D",
      "pick": "Boston Bruins to win (moneyline, our 1.72)",
      "confidence": "High",
@@ -9889,13 +9932,22 @@
      "date_raw": "2026-10-22T23:00:00Z",
      "source_url": "https://www.nhl.com/standings/2026-10-20/wildcard",
      "side": "home"
+    },
+    {
+     "build": "A",
+     "pick": "Boston Bruins",
+     "confidence": "Medium",
+     "date": "2026-10-22",
+     "date_raw": "2026-10-22",
+     "source_url": "https://www.nhl.com/schedule/2026-10-21",
+     "side": "home"
     }
    ],
    "fields_from": {},
    "archive_rows": 3,
    "prediction_similarity": 0.307,
    "pick_side": "home",
-   "id": "M0155",
+   "id": "M0156",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -9912,99 +9964,12 @@
    "live_verified": true
   },
   {
-   "build": "A",
+   "build": "E",
    "build_verified": true,
    "sport": "Ice Hockey",
    "competition": "NHL",
    "date": "2026-10-22",
-   "date_raw": "2026-10-22",
-   "time": "FUT",
-   "venue": "Rogers Place",
-   "home": "Edmonton Oilers",
-   "away": "Carolina Hurricanes",
-   "neutral": null,
-   "win": {
-    "odds": {
-     "Edmonton Oilers": 1.68,
-     "Carolina Hurricanes": 2.24
-    },
-    "basis": "build A Model v1 line (its own price)"
-   },
-   "handicap": "Edmonton Oilers +0.5 @ 1.686; Carolina Hurricanes -0.5 @ 2.212",
-   "total": "Over 6.5 @ 1.84; Under 6.5 @ 1.994",
-   "pick": "Edmonton Oilers",
-   "pick_market": "Match winner (moneyline)",
-   "confidence": "Medium",
-   "prediction": "Edmonton Oilers entered this match with a points percentage of 0.833 compared to Toronto Maple Leafs's 0.545., reflecting a significant regular-season strength differential. The Edmonton Oilers have shown superior form in recent games. Based on the official NHL standings snapshot from 20 October 2026, Edmonton Oilers are positioned favorably for this matchup.",
-   "source_url": "https://www.nhl.com/schedule/2026-10-21",
-   "source_name": "NHL.com official schedule (week of 21-27 Oct 2026); standings: NHL.com standings 20 Oct 2026",
-   "notes": "Model v1 rating = official NHL standings points percentage at 20 Oct 2026 (NHL.com): Edmonton Oilers 0.833, Carolina Hurricanes 0.773. Recent form used is that standings snapshot only (games played, wins/losses and points percentage as published by the NHL); no unverified player news is used.",
-   "flags": [
-    {
-     "kind": "market-note",
-     "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames; it is 58% identical to another write-up from the same build. It is not counted as a written prediction."
-    },
-    {
-     "kind": "date-discrepancy",
-     "text": "Builds disagree on the date: 2026-10-22, 2026-10-23 (spread 1 day(s)). Primary date kept — check the official source."
-    }
-   ],
-   "home_raw": "Edmonton Oilers",
-   "away_raw": "Carolina Hurricanes",
-   "prediction_style": "templated",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "Edmonton Oilers +0.5",
-     "confidence": "Medium",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23T01:00:00Z",
-     "source_url": "https://www.nhl.com/gamecenter/car-vs-edm/2026/10/22/2026020163",
-     "side": "home"
-    },
-    {
-     "build": "C",
-     "pick": "Edmonton Oilers",
-     "confidence": "Low",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23T01:00:00Z",
-     "source_url": "https://www.nhl.com/standings/2026-10-20/wildcard",
-     "side": "home"
-    }
-   ],
-   "fields_from": {
-    "handicap": "E",
-    "total": "E",
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 2,
-   "prediction_similarity": 0.576,
-   "pick_side": "home",
-   "id": "M0156",
-   "source_tier": "official",
-   "source_domain": "www.nhl.com",
-   "source_note": "NHL",
-   "verified": true,
-   "status": "upcoming",
-   "sport_slug": "ice-hockey",
-   "row_type": "fixture",
-   "in_scope": true,
-   "scope_note": "",
-   "live_checks": [],
-   "live_contradicted": false
-  },
-  {
-   "build": "A",
-   "build_verified": true,
-   "sport": "Ice Hockey",
-   "competition": "NHL",
-   "date": "2026-10-22",
-   "date_raw": "2026-10-22",
+   "date_raw": "2026-10-22T23:00:00Z",
    "time": "FUT",
    "venue": "Prudential Center",
    "home": "New Jersey Devils",
@@ -10012,43 +9977,30 @@
    "neutral": null,
    "win": {
     "odds": {
-     "New Jersey Devils": 1.58,
-     "Anaheim Ducks": 2.45
+     "New Jersey Devils": 1.714,
+     "Anaheim Ducks": 2.167
     },
-    "basis": "build A Model v1 line (its own price)"
+    "basis": "build E originated price (its own margin applied)"
    },
    "handicap": "New Jersey Devils -0.5 @ 1.931; Anaheim Ducks +0.5 @ 1.897",
    "total": "Over 6.5 @ 2.013; Under 6.5 @ 1.824",
    "pick": "New Jersey Devils",
-   "pick_market": "Match winner (moneyline)",
+   "pick_market": "moneyline",
    "confidence": "Medium",
-   "prediction": "New Jersey Devils entered this match with a points percentage of 0.556 compared to Los Angeles Kings's 0.286., reflecting a significant regular-season strength differential. The New Jersey Devils have shown superior form in recent games. Based on the official NHL standings snapshot from 20 October 2026, New Jersey Devils are positioned favorably for this matchup.",
-   "source_url": "https://www.nhl.com/schedule/2026-10-21",
-   "source_name": "NHL.com official schedule (week of 21-27 Oct 2026); standings: NHL.com standings 20 Oct 2026",
-   "notes": "Model v1 rating = official NHL standings points percentage at 20 Oct 2026 (NHL.com): New Jersey Devils 0.556, Anaheim Ducks 0.444. Recent form used is that standings snapshot only (games played, wins/losses and points percentage as published by the NHL); no unverified player news is used.",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/ana-vs-njd/2026/10/22/2026020157",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin +0.3 goals and a 55.8% win probability for New Jersey Devils, priced at -140. Sample: 91 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames; it is 64% identical to another write-up from the same build. It is not counted as a written prediction."
     }
    ],
    "home_raw": "New Jersey Devils",
    "away_raw": "Anaheim Ducks",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [
-    {
-     "build": "E",
-     "pick": "New Jersey Devils",
-     "confidence": "Medium",
-     "date": "2026-10-22",
-     "date_raw": "2026-10-22T23:00:00Z",
-     "source_url": "https://www.nhl.com/gamecenter/ana-vs-njd/2026/10/22/2026020157",
-     "side": "home"
-    },
     {
      "build": "C",
      "pick": "New Jersey Devils",
@@ -10057,16 +10009,19 @@
      "date_raw": "2026-10-22T23:00:00Z",
      "source_url": "https://www.nhl.com/standings/2026-10-20/wildcard",
      "side": "home"
+    },
+    {
+     "build": "A",
+     "pick": "New Jersey Devils",
+     "confidence": "Medium",
+     "date": "2026-10-22",
+     "date_raw": "2026-10-22",
+     "source_url": "https://www.nhl.com/schedule/2026-10-21",
+     "side": "home"
     }
    ],
-   "fields_from": {
-    "handicap": "E",
-    "total": "E",
-    "venue": "E",
-    "time": "E"
-   },
+   "fields_from": {},
    "archive_rows": 2,
-   "prediction_similarity": 0.639,
    "pick_side": "home",
    "id": "M0157",
    "source_tier": "official",
@@ -10134,7 +10089,7 @@
     {
      "build": "A",
      "pick": "New York Islanders",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -10285,7 +10240,7 @@
     {
      "build": "A",
      "pick": "Florida Panthers",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -10558,7 +10513,7 @@
     {
      "build": "A",
      "pick": "Milwaukee Brewers",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more",
@@ -11606,7 +11561,7 @@
     {
      "build": "A",
      "pick": "Jonny Clayton",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -11655,7 +11610,7 @@
    "pick": "Josh Rock",
    "pick_market": "Match winner (moneyline)",
    "confidence": "Low",
-   "prediction": "PDC tour seeding points accumulated over the season provide a reliable indicator of current player form and match temperament. This PDC European Championship — Round 1 Round 1 pairing selects Josh Rock to win based on official ranking methodology and season-long consistency.",
+   "prediction": "",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
    "notes": "Official PDC Order of Merit (2-yr prize money): Josh Rock world #8 GBP 606,500 (EC seed 10); Chris Dobey world #17 GBP 534,750 (EC seed 23). Leg prob via logistic on log-money (k=0.30).",
@@ -11663,20 +11618,16 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build G generated this write-up from boilerplate: the same opening sentence appears on 7 rows; it is 96% identical to another write-up from the same build. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Josh Rock",
    "away_raw": "Chris Dobey",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [
     {
      "build": "A",
      "pick": "Josh Rock",
-     "confidence": "High",
+     "confidence": "Low",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -11684,11 +11635,9 @@
     }
    ],
    "fields_from": {
-    "prediction": "A",
     "time": "A"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.962,
    "pick_side": "home",
    "id": "M0179",
    "source_tier": "official",
@@ -11743,7 +11692,7 @@
     {
      "build": "A",
      "pick": "Kevin Doets",
-     "confidence": "Medium",
+     "confidence": "Low",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -11792,7 +11741,7 @@
    "pick": "Krzysztof Ratajski",
    "pick_market": "Match winner (moneyline)",
    "confidence": "Medium",
-   "prediction": "PDC tour seeding points accumulated over the season provide a reliable indicator of current player form and match temperament. This PDC European Championship — Round 1 Round 1 pairing selects Krzysztof Ratajski to win based on official ranking methodology and season-long consistency.",
+   "prediction": "",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
    "notes": "Official PDC Order of Merit (2-yr prize money): Krzysztof Ratajski world #19 GBP 440,000 (EC seed 3); Dave Chisnall world #30 GBP 281,750 (EC seed 30). Leg prob via logistic on log-money (k=0.30).",
@@ -11800,20 +11749,16 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build G generated this write-up from boilerplate: the same opening sentence appears on 7 rows; it is 96% identical to another write-up from the same build. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Krzysztof Ratajski",
    "away_raw": "Dave Chisnall",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [
     {
      "build": "A",
      "pick": "Krzysztof Ratajski",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -11821,11 +11766,9 @@
     }
    ],
    "fields_from": {
-    "prediction": "A",
     "time": "A"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.962,
    "pick_side": "home",
    "id": "M0181",
    "source_tier": "official",
@@ -11946,7 +11889,7 @@
     {
      "build": "A",
      "pick": "Nathan Aspinall",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -12061,7 +12004,7 @@
    "pick": "Wessel Nijman",
    "pick_market": "Match winner (moneyline)",
    "confidence": "Medium",
-   "prediction": "PDC tour seeding points accumulated over the season provide a reliable indicator of current player form and match temperament. This PDC European Championship — Round 1 Round 1 pairing selects Wessel Nijman to win based on official ranking methodology and season-long consistency.",
+   "prediction": "",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
    "notes": "Official PDC Order of Merit (2-yr prize money): Wessel Nijman world #12 GBP 569,500 (EC seed 2); Martin Schindler world #24 GBP 386,250 (EC seed 31). Leg prob via logistic on log-money (k=0.30).",
@@ -12073,20 +12016,16 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build G generated this write-up from boilerplate: the same opening sentence appears on 7 rows; it is 96% identical to another write-up from the same build. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Wessel Nijman",
    "away_raw": "Martin Schindler",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [
     {
      "build": "A",
      "pick": "Wessel Nijman",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -12094,11 +12033,9 @@
     }
    ],
    "fields_from": {
-    "prediction": "A",
     "time": "A"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.961,
    "pick_side": "home",
    "id": "M0185",
    "source_tier": "official",
@@ -12108,6 +12045,70 @@
    "status": "upcoming",
    "sport_slug": "darts",
    "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "A",
+   "build_verified": false,
+   "sport": "Greyhound Racing",
+   "competition": "Premier Greyhound Racing Champion Stakes — Romford (575m Flat)",
+   "date": "2026-10-23",
+   "date_raw": "2026-10-23",
+   "time": "",
+   "venue": "",
+   "home": "Declared runners not verified",
+   "away": "",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+   "source_name": "GBGB official — 2026 Category One Schedule (Romford 23 Oct; Dunstall Park 24 Oct)",
+   "notes": "Event name, date, track and distance taken from the Greyhound Board of Great Britain's official 2026 Category One schedule. Individual race fields (declared greyhounds, traps and form) were not verified from GBGB in this session, so no runner, line or pick is listed rather than invented.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Race winner investigated — not originated (declared fields not verified)"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Declared runners/traps/form unverified in session — all selection fields left blank."
+    },
+    {
+     "kind": "build-marked-unverified",
+     "text": "The originating build marked this row as not fully verified even though the cited domain is official."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    },
+    {
+     "kind": "blank-teams",
+     "text": "The originating build did not record both teams. Left blank rather than guessed, and kept out of the fixture table."
+    }
+   ],
+   "home_raw": "Declared runners not verified",
+   "away_raw": "",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0186",
+   "source_tier": "official",
+   "source_domain": "www.gbgb.org.uk",
+   "source_note": "Greyhound Board of Great Britain (regulator)",
+   "verified": false,
+   "status": "upcoming",
+   "sport_slug": "greyhound-racing",
+   "row_type": "incomplete",
    "in_scope": true,
    "scope_note": "",
    "live_checks": [],
@@ -12152,7 +12153,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0186",
+   "id": "M0187",
    "source_tier": "official",
    "source_domain": "www.eurohandball.com",
    "source_note": "European Handball Federation",
@@ -12219,7 +12220,7 @@
     {
      "build": "A",
      "pick": "Minnesota Wild",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -12230,7 +12231,7 @@
    "archive_rows": 2,
    "prediction_similarity": 0.181,
    "pick_side": "away",
-   "id": "M0187",
+   "id": "M0188",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12308,7 +12309,84 @@
    "archive_rows": 2,
    "prediction_similarity": 0.398,
    "pick_side": "home",
-   "id": "M0188",
+   "id": "M0189",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-23",
+   "date_raw": "2026-10-23T01:00:00Z",
+   "time": "FUT",
+   "venue": "Rogers Place",
+   "home": "Edmonton Oilers",
+   "away": "Carolina Hurricanes",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Edmonton Oilers": 1.877,
+     "Carolina Hurricanes": 1.952
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Edmonton Oilers +0.5 @ 1.686; Carolina Hurricanes -0.5 @ 2.212",
+   "total": "Over 6.5 @ 1.84; Under 6.5 @ 1.994",
+   "pick": "Edmonton Oilers +0.5",
+   "pick_market": "handicap",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/car-vs-edm/2026/10/22/2026020163",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Our current line is +0.5, 0.33 goals further from the opener, and Edmonton Oilers +0.5 covers 56.7% of the time at -146.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "date-discrepancy",
+     "text": "Builds disagree on the date: 2026-10-22, 2026-10-23 (spread 1 day(s)). Primary date kept — check the official source."
+    }
+   ],
+   "home_raw": "Edmonton Oilers",
+   "away_raw": "Carolina Hurricanes",
+   "prediction_style": "",
+   "cross_build": [
+    {
+     "build": "C",
+     "pick": "Edmonton Oilers",
+     "confidence": "Low",
+     "date": "2026-10-23",
+     "date_raw": "2026-10-23T01:00:00Z",
+     "source_url": "https://www.nhl.com/standings/2026-10-20/wildcard",
+     "side": "home"
+    },
+    {
+     "build": "A",
+     "pick": "Edmonton Oilers",
+     "confidence": "Low",
+     "date": "2026-10-22",
+     "date_raw": "2026-10-22",
+     "source_url": "https://www.nhl.com/schedule/2026-10-21",
+     "side": "home"
+    }
+   ],
+   "fields_from": {},
+   "archive_rows": 2,
+   "pick_side": "home",
+   "id": "M0190",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12385,7 +12463,7 @@
    "fields_from": {},
    "archive_rows": 2,
    "pick_side": "over",
-   "id": "M0189",
+   "id": "M0191",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12452,7 +12530,7 @@
     {
      "build": "A",
      "pick": "Vegas Golden Knights",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -12462,7 +12540,7 @@
    "fields_from": {},
    "archive_rows": 2,
    "pick_side": "away",
-   "id": "M0190",
+   "id": "M0192",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12529,7 +12607,7 @@
     {
      "build": "A",
      "pick": "Detroit Red Wings",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -12539,7 +12617,7 @@
    "fields_from": {},
    "archive_rows": 2,
    "pick_side": "away",
-   "id": "M0191",
+   "id": "M0193",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12593,7 +12671,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0192",
+   "id": "M0194",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -12660,7 +12738,7 @@
    ],
    "prediction_similarity": 0.0,
    "pick_side": "home",
-   "id": "M0193",
+   "id": "M0195",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -12711,7 +12789,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0194",
+   "id": "M0196",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -12755,7 +12833,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.098,
    "pick_side": "home",
-   "id": "M0195",
+   "id": "M0197",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -12825,7 +12903,7 @@
    "archive_rows": 1,
    "pick_side": "home",
    "cross_build_conflict": true,
-   "id": "M0196",
+   "id": "M0198",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -12914,7 +12992,7 @@
    },
    "archive_rows": 2,
    "pick_side": "home",
-   "id": "M0197",
+   "id": "M0199",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -12987,7 +13065,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.108,
    "pick_side": "home",
-   "id": "M0198",
+   "id": "M0200",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -13044,7 +13122,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0199",
+   "id": "M0201",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -13087,7 +13165,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0200",
+   "id": "M0202",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13131,7 +13209,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.107,
    "pick_side": "away",
-   "id": "M0201",
+   "id": "M0203",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13185,7 +13263,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0202",
+   "id": "M0204",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -13229,7 +13307,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.105,
    "pick_side": "home",
-   "id": "M0203",
+   "id": "M0205",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13273,7 +13351,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.092,
    "pick_side": "home",
-   "id": "M0204",
+   "id": "M0206",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13316,7 +13394,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0205",
+   "id": "M0207",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13381,7 +13459,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0206",
+   "id": "M0208",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -13434,7 +13512,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0207",
+   "id": "M0209",
    "source_tier": "official",
    "source_domain": "www.plusliga.pl",
    "source_note": "PlusLiga (Poland)",
@@ -13488,7 +13566,7 @@
     {
      "build": "A",
      "pick": "Milwaukee Brewers",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more",
@@ -13507,7 +13585,7 @@
    "fields_from": {},
    "archive_rows": 2,
    "pick_side": "home",
-   "id": "M0208",
+   "id": "M0210",
    "source_tier": "official",
    "source_domain": "www.mlb.com",
    "source_note": "MLB",
@@ -13564,7 +13642,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0209",
+   "id": "M0211",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13635,7 +13713,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0210",
+   "id": "M0212",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13710,7 +13788,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0211",
+   "id": "M0213",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13781,7 +13859,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0212",
+   "id": "M0214",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13856,7 +13934,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0213",
+   "id": "M0215",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13931,7 +14009,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0214",
+   "id": "M0216",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -14002,7 +14080,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0215",
+   "id": "M0217",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -14077,7 +14155,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0216",
+   "id": "M0218",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -14107,7 +14185,7 @@
    "total": "",
    "pick": "",
    "pick_market": "",
-   "confidence": "Low",
+   "confidence": "",
    "prediction": "",
    "source_url": "https://www.icc-cricket.com/fixtures-results/",
    "source_name": "ICC official fixtures & results (listing to be re-checked at review)",
@@ -14119,7 +14197,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "model_prob_unverified"
+     "text": "Rankings/form/squads unverified from an official source in this session — line and any missing pick left blank. See Flagged page."
     },
     {
      "kind": "build-marked-unverified",
@@ -14137,7 +14215,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0217",
+   "id": "M0219",
    "source_tier": "official",
    "source_domain": "www.icc-cricket.com",
    "source_note": "ICC",
@@ -14176,10 +14254,6 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap and match total markets do not apply in standard form to limited-overs cricket — investigated and recorded as not originated"
-    },
-    {
-     "kind": "build-flag",
-     "text": "model_prob_unverified"
     }
    ],
    "home_raw": "New Zealand",
@@ -14189,7 +14263,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0218",
+   "id": "M0220",
    "source_tier": "official",
    "source_domain": "www.nzc.nz",
    "source_note": "New Zealand Cricket",
@@ -14257,7 +14331,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0219",
+   "id": "M0221",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -14267,6 +14341,60 @@
    "row_type": "market-note",
    "in_scope": true,
    "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "A",
+   "build_verified": true,
+   "sport": "Gaelic Football",
+   "competition": "Galway Senior Football Championship Final",
+   "date": "2026-10-24",
+   "date_raw": "2026-10-24",
+   "time": "19:00",
+   "venue": "Pearse Stadium, Salthill",
+   "home": "Maigh Cuilinn",
+   "away": "Salthill-Knocknacarra",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Maigh Cuilinn (Moycullen)": 1.61,
+     "Salthill-Knocknacarra": 2.39
+    },
+    "basis": "build A Model v1 line (its own price)"
+   },
+   "handicap": "",
+   "total": "",
+   "pick": "Maigh Cuilinn (Moycullen)",
+   "pick_market": "Match winner (moneyline)",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.galwaygaa.ie/fixtures/?user=6929",
+   "source_name": "Galway GAA official fixtures (Co. Final, 24 Oct 2026, 19:00, Pearse Stadium)",
+   "notes": "Fixture, date, time, venue and referee (Shane Curley) verified on Galway GAA's official fixtures page. Semi-final history used for the rating: Maigh Cuilinn beat Annaghdown 4-26 to 0-8 in the semi-final (30-point margin), while Salthill-Knocknacarra beat Corofin 0-15 to 2-7 (2-point margin). The clubs also met in last year's final, which Maigh Cuilinn won. Note: OLBG listed this final at 14:00 — that time does not match the official 19:00; see Flagged page.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+    }
+   ],
+   "home_raw": "Maigh Cuilinn (Moycullen)",
+   "away_raw": "Salthill-Knocknacarra",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "home",
+   "id": "M0222",
+   "source_tier": "official",
+   "source_domain": "www.galwaygaa.ie",
+   "source_note": "Galway GAA",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "gaelic-football",
+   "row_type": "fixture",
+   "in_scope": false,
+   "scope_note": "Gaelic football: 'football' is on the brief's exclusion list, so this row is hidden from the default view and published on Flagged for Review instead of being deleted.",
    "live_checks": [],
    "live_contradicted": false
   },
@@ -14300,7 +14428,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0220",
+   "id": "M0223",
    "source_tier": "official",
    "source_domain": "www.galwaygaa.ie",
    "source_note": "Galway GAA",
@@ -14310,6 +14438,80 @@
    "row_type": "fixture",
    "in_scope": false,
    "scope_note": "Gaelic football: 'football' is on the brief's exclusion list, so this row is hidden from the default view and published on Flagged for Review instead of being deleted.",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "A",
+   "build_verified": false,
+   "sport": "Greyhound Racing",
+   "competition": "Arena Racing Company Scurry Gold Cup — Dunstall Park (270m Flat)",
+   "date": "2026-10-24",
+   "date_raw": "2026-10-24",
+   "time": "",
+   "venue": "",
+   "home": "Declared runners not verified",
+   "away": "",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+   "source_name": "GBGB official — 2026 Category One Schedule (Romford 23 Oct; Dunstall Park 24 Oct)",
+   "notes": "Event name, date, track and distance taken from the Greyhound Board of Great Britain's official 2026 Category One schedule. Individual race fields (declared greyhounds, traps and form) were not verified from GBGB in this session, so no runner, line or pick is listed rather than invented.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Race winner investigated — not originated (declared fields not verified)"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Declared runners/traps/form unverified in session — all selection fields left blank."
+    },
+    {
+     "kind": "build-marked-unverified",
+     "text": "The originating build marked this row as not fully verified even though the cited domain is official."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    },
+    {
+     "kind": "blank-teams",
+     "text": "The originating build did not record both teams. Left blank rather than guessed, and kept out of the fixture table."
+    }
+   ],
+   "home_raw": "Declared runners not verified",
+   "away_raw": "",
+   "prediction_style": "",
+   "cross_build": [
+    {
+     "build": "A",
+     "pick": "",
+     "confidence": "",
+     "date": "2026-10-24",
+     "date_raw": "2026-10-24",
+     "source_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+     "side": ""
+    }
+   ],
+   "fields_from": {},
+   "archive_rows": 1,
+   "pick_side": "",
+   "id": "M0224",
+   "source_tier": "official",
+   "source_domain": "www.gbgb.org.uk",
+   "source_note": "Greyhound Board of Great Britain (regulator)",
+   "verified": false,
+   "status": "upcoming",
+   "sport_slug": "greyhound-racing",
+   "row_type": "incomplete",
+   "in_scope": true,
+   "scope_note": "",
    "live_checks": [],
    "live_contradicted": false
   },
@@ -14348,7 +14550,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0221",
+   "id": "M0225",
    "source_tier": "official",
    "source_domain": "tophaandbold.dk",
    "source_note": "Tophåndbold (Denmark)",
@@ -14402,7 +14604,7 @@
     {
      "build": "A",
      "pick": "Boston Bruins",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -14413,7 +14615,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.334,
    "pick_side": "home",
-   "id": "M0222",
+   "id": "M0226",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14471,7 +14673,7 @@
     {
      "build": "A",
      "pick": "Montreal Canadiens",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -14482,7 +14684,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.35,
    "pick_side": "away",
-   "id": "M0223",
+   "id": "M0227",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14540,7 +14742,7 @@
     {
      "build": "A",
      "pick": "Tampa Bay Lightning",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -14550,7 +14752,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "over",
-   "id": "M0224",
+   "id": "M0228",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14604,7 +14806,7 @@
     {
      "build": "A",
      "pick": "Vegas Golden Knights",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -14614,7 +14816,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0225",
+   "id": "M0229",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14679,7 +14881,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.365,
    "pick_side": "home",
-   "id": "M0226",
+   "id": "M0230",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14733,7 +14935,7 @@
     {
      "build": "A",
      "pick": "New Jersey Devils",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -14744,7 +14946,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.213,
    "pick_side": "over",
-   "id": "M0227",
+   "id": "M0231",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14809,7 +15011,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.096,
    "pick_side": "under",
-   "id": "M0228",
+   "id": "M0232",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14874,7 +15076,7 @@
    "archive_rows": 1,
    "pick_side": "home",
    "cross_build_conflict": true,
-   "id": "M0229",
+   "id": "M0233",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14928,7 +15130,7 @@
     {
      "build": "A",
      "pick": "Nashville Predators",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -14939,7 +15141,7 @@
    "archive_rows": 1,
    "pick_side": "home",
    "cross_build_conflict": true,
-   "id": "M0230",
+   "id": "M0234",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14993,7 +15195,7 @@
     {
      "build": "A",
      "pick": "Carolina Hurricanes",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -15003,7 +15205,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0231",
+   "id": "M0235",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -15067,7 +15269,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0232",
+   "id": "M0236",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -15103,8 +15305,8 @@
    "total": "",
    "pick": "England",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Low",
-   "prediction": "England have shown promising form in the World Cup campaign, with their recent performances indicating strong momentum. Results from the opening round of the tournament show England well-prepared and tactically organized for this fixture. World Cup squad selection and recent NRL form contributions make England the pick for this match.",
+   "confidence": "Medium",
+   "prediction": "",
    "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-womens-round-2/",
    "source_name": "NRL official — World Cup women's Round 2 team lists & schedule; Round 1 wrap (NRL, 19 Oct 2026)",
    "notes": "Model v1 rating from verified Round 1 results reported by the NRL: Australia 40-0 Samoa, England 70-6 Wales, New Zealand 18-12 Fiji. France and Papua New Guinea women's Round 1 margins were not verified in this session, so their rating is held at 0.50 and confidence is capped at Low/Medium. Fixture confirmed on the NRL's official women's Round 2 team-list article (20 Oct 2026).",
@@ -15112,21 +15314,16 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "templated-prediction",
-     "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Australia",
    "away_raw": "England",
-   "prediction_style": "templated",
+   "prediction_style": "",
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.052,
    "pick_side": "away",
-   "id": "M0233",
+   "id": "M0237",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -15193,7 +15390,7 @@
    ],
    "prediction_similarity": 0.0,
    "pick_side": "home",
-   "id": "M0234",
+   "id": "M0238",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -15250,7 +15447,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0235",
+   "id": "M0239",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -15286,7 +15483,7 @@
    "total": "",
    "pick": "Samoa",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Low",
+   "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
    "source_name": "NRL official — World Cup men's Round 2 team lists & schedule; Round 1 results: NRL Round 1 team lists (13 Oct 2026)",
@@ -15304,7 +15501,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0236",
+   "id": "M0240",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -15347,7 +15544,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0237",
+   "id": "M0241",
    "source_tier": "official",
    "source_domain": "top14.lnr.fr",
    "source_note": "LNR (Top 14)",
@@ -15416,7 +15613,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0238",
+   "id": "M0242",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15470,7 +15667,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0239",
+   "id": "M0243",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -15553,7 +15750,7 @@
    "archive_rows": 2,
    "prediction_similarity": 0.078,
    "pick_side": "home",
-   "id": "M0240",
+   "id": "M0244",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15607,7 +15804,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0241",
+   "id": "M0245",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -15697,7 +15894,7 @@
    },
    "archive_rows": 2,
    "pick_side": "home",
-   "id": "M0242",
+   "id": "M0246",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15711,62 +15908,59 @@
    "live_contradicted": false
   },
   {
-   "build": "A",
+   "build": "C",
    "build_verified": true,
    "sport": "Rugby Union",
-   "competition": "United Rugby Championship",
+   "competition": "URC Round 4",
    "date": "2026-10-24",
-   "date_raw": "2026-10-24",
+   "date_raw": "Sat 24 Oct 2026, 14:00 local",
    "time": "Sat 24 Oct 2026, 14:00 local",
-   "venue": "Swansea.com Stadium",
+   "venue": "St Helen's",
    "home": "Ospreys",
-   "away": "Dragons",
+   "away": "Dragons RFC",
    "neutral": null,
    "win": {
     "odds": {
-     "Ospreys": 1.43,
-     "Dragons": 2.91
+     "Ospreys": 2.15,
+     "Draw": 17.32,
+     "Dragons RFC": 1.9
     },
-    "basis": "build A Model v1 line (its own price)"
+    "basis": "build C originated price (its own margin applied)"
    },
    "handicap": "Ospreys +1.0 @ 1.92; Dragons RFC -1.0 @ 1.92",
    "total": "Over 51.5 @ 1.91; Under 51.5 @ 1.94",
-   "pick": "Ospreys",
+   "pick": "Dragons RFC",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Low",
    "prediction": "Ospreys won the first Welsh derby of the season 38:31 at Rodney Parade on 9 October, and that remains their only victory of the campaign, with six points and an 81:107 points difference leaving them 13th. Dragons sit eighth on nine points from one win, one draw and one defeat, but they have not beaten Ospreys this season. Take Ospreys to complete the double at St Helen's on Saturday afternoon.",
-   "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
-   "source_name": "URC official match centre (Round 4 fixtures; Round 3 results)",
-   "notes": "Model v1 rating derived only from verified Round 3 results on the official URC match centre: Glasgow 36-19 Connacht, Dragons 31-38 Ospreys, Bulls 57-15 Lions, Stormers 39-22 Sharks, Zebre 12-29 Edinburgh, Scarlets 27-26 Benetton, Ulster 26-26 Munster, Leinster 29-5 Cardiff (ratings: win 0.60, narrow win 0.55, draw 0.50, loss 0.40, heavy loss/win by 20+ adjusted to 0.35/0.65).",
+   "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+   "source_name": "URC League Table 2026/27",
+   "notes": "",
    "flags": [
-    {
-     "kind": "market-note",
-     "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
-    },
     {
      "kind": "source-note",
      "text": "Kick-off time is the local time published by URC; no UTC conversion applied."
+    },
+    {
+     "kind": "market-note",
+     "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
     }
    ],
    "home_raw": "Ospreys",
-   "away_raw": "Dragons",
+   "away_raw": "Dragons RFC",
    "prediction_style": "written",
    "cross_build": [
     {
-     "build": "C",
-     "pick": "Dragons RFC",
-     "confidence": "Low",
+     "build": "A",
+     "pick": "Ospreys",
+     "confidence": "Medium",
      "date": "2026-10-24",
-     "date_raw": "Sat 24 Oct 2026, 14:00 local",
-     "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
-     "side": "away"
+     "date_raw": "2026-10-24",
+     "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+     "side": "home"
     }
    ],
-   "fields_from": {
-    "handicap": "C",
-    "total": "C",
-    "time": "C"
-   },
+   "fields_from": {},
    "archive_rows": 1,
    "prediction_source": "authored 2026-10-21",
    "authored_facts": [
@@ -15779,9 +15973,9 @@
     "https://stats.unitedrugby.com/match-centre/table/2026-27"
    ],
    "prediction_similarity": 0.0,
-   "pick_side": "home",
+   "pick_side": "away",
    "cross_build_conflict": true,
-   "id": "M0243",
+   "id": "M0247",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15828,7 +16022,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.09,
    "pick_side": "home",
-   "id": "M0244",
+   "id": "M0248",
    "source_tier": "official",
    "source_domain": "top14.lnr.fr",
    "source_note": "LNR (Top 14)",
@@ -15895,7 +16089,7 @@
     {
      "build": "A",
      "pick": "Bulls",
-     "confidence": "Medium",
+     "confidence": "High",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
@@ -15915,7 +16109,7 @@
    "archive_rows": 2,
    "prediction_similarity": 0.067,
    "pick_side": "home",
-   "id": "M0245",
+   "id": "M0249",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15948,7 +16142,7 @@
    },
    "handicap": "Frame HC -1.5 to -2.5 @ 1.91",
    "total": "O/U 9.5 frames @ 1.91",
-   "pick": "No outright pick until QF results — monitor century rate",
+   "pick": "No selection originated",
    "pick_market": "",
    "confidence": "Low",
    "prediction": "",
@@ -15962,7 +16156,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "Not re-checked on World Snooker Tour during the 2026-10-21 verification cycle: the session date, table and time could not be confirmed, so they are blank and no prediction is published."
+     "text": "Not re-checked on World Snooker Tour during the 2026-10-21 verification cycle: the session date, table and time could not be confirmed, so they are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in pick (restated). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
     },
     {
      "kind": "no-source",
@@ -15980,7 +16174,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0246",
+   "id": "M0250",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -16033,7 +16227,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0247",
+   "id": "M0251",
    "source_tier": "official",
    "source_domain": "www.plusliga.pl",
    "source_note": "PlusLiga (Poland)",
@@ -16087,7 +16281,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0248",
+   "id": "M0252",
    "source_tier": "official",
    "source_domain": "www.mlb.com",
    "source_note": "MLB",
@@ -16142,7 +16336,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0249",
+   "id": "M0253",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16213,7 +16407,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0250",
+   "id": "M0254",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16284,7 +16478,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0251",
+   "id": "M0255",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16355,7 +16549,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0252",
+   "id": "M0256",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16426,7 +16620,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0253",
+   "id": "M0257",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16497,7 +16691,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0254",
+   "id": "M0258",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16572,7 +16766,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0255",
+   "id": "M0259",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16643,7 +16837,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0256",
+   "id": "M0260",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16673,7 +16867,7 @@
    "total": "",
    "pick": "",
    "pick_market": "",
-   "confidence": "Low",
+   "confidence": "",
    "prediction": "",
    "source_url": "https://www.icc-cricket.com/fixtures-results/",
    "source_name": "ICC official fixtures & results (listing to be re-checked at review)",
@@ -16685,7 +16879,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "model_prob_unverified"
+     "text": "Rankings/form/squads unverified from an official source in this session — line and any missing pick left blank. See Flagged page."
     },
     {
      "kind": "build-marked-unverified",
@@ -16703,7 +16897,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0257",
+   "id": "M0261",
    "source_tier": "official",
    "source_domain": "www.icc-cricket.com",
    "source_note": "ICC",
@@ -16768,7 +16962,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0258",
+   "id": "M0262",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -16816,7 +17010,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0259",
+   "id": "M0263",
    "source_tier": "official",
    "source_domain": "munster.gaa.ie",
    "source_note": "Munster GAA",
@@ -16836,12 +17030,18 @@
    "competition": "McCarthy Insurance Group Cork Premier Senior Football Championship Final",
    "date": "2026-10-25",
    "date_raw": "2026-10-25 16:00",
-   "time": "",
+   "time": "16:00",
    "venue": "SuperValu Páirc Uí Chaoimh, Cork (neutral)",
    "home": "St Finbarr's",
    "away": "Nemo Rangers",
    "neutral": null,
-   "win": {},
+   "win": {
+    "odds": {
+     "Nemo Rangers": 1.92,
+     "St Finbarr's": 1.92
+    },
+    "basis": "build A Model v1 line (its own price)"
+   },
    "handicap": "St Finbarr's -0.5 @ 2.0",
    "total": "",
    "pick": "St Finbarr's",
@@ -16851,15 +17051,37 @@
    "source_url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
    "source_name": "Official county board / Munster GAA / Galway GAA",
    "notes": "Verified knockout margins + champion adjustment -> expected margin 0.5 pts; Normal margin model (SD 8). +0.5 to St Finbarr's (champion edge; knockout margins near-identical)",
-   "flags": [],
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "No verified separating form factor — pick left blank by design. OLBG start-time discrepancy also flagged."
+    }
+   ],
    "home_raw": "St Finbarr's",
    "away_raw": "Nemo Rangers",
    "prediction_style": "",
-   "cross_build": [],
-   "fields_from": {},
-   "archive_rows": 0,
+   "cross_build": [
+    {
+     "build": "A",
+     "pick": "",
+     "confidence": "",
+     "date": "2026-10-25",
+     "date_raw": "2026-10-25",
+     "source_url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+     "side": ""
+    }
+   ],
+   "fields_from": {
+    "win": "A",
+    "time": "A"
+   },
+   "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0260",
+   "id": "M0264",
    "source_tier": "official",
    "source_domain": "gaacork.ie",
    "source_note": "Cork GAA",
@@ -16917,7 +17139,7 @@
     {
      "build": "A",
      "pick": "Detroit Red Wings",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -16927,7 +17149,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0261",
+   "id": "M0265",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -16963,7 +17185,7 @@
    "total": "Over 6.5 @ 2.165; Under 6.5 @ 1.715",
    "pick": "Florida Panthers",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Low",
+   "confidence": "High",
    "prediction": "Take the Florida Panthers to win on the road against the Chicago Blackhawks. Florida's recent match history supports a strong selection: the official NHL standings dated 20 October show the Panthers at 5-2-2 (.667 points percentage) riding a three-game winning streak, with a +5 goal differential. Chicago, by contrast, are 3-6-0 (.333) with a -15 goal differential, the weakest profile in this fixture, so the Panthers are a high-confidence away win pick.",
    "source_url": "https://www.nhl.com/schedule/2026-10-21",
    "source_name": "NHL.com official schedule (week of 21-27 Oct 2026); standings: NHL.com standings 20 Oct 2026",
@@ -16999,9 +17221,9 @@
     "time": "E"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.13,
+   "prediction_similarity": 0.086,
    "pick_side": "away",
-   "id": "M0262",
+   "id": "M0266",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17066,7 +17288,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.42,
    "pick_side": "home",
-   "id": "M0263",
+   "id": "M0267",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17134,7 +17356,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0264",
+   "id": "M0268",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17202,7 +17424,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "over",
-   "id": "M0265",
+   "id": "M0269",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17267,7 +17489,7 @@
    "archive_rows": 1,
    "pick_side": "away",
    "cross_build_conflict": true,
-   "id": "M0266",
+   "id": "M0270",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17275,6 +17497,70 @@
    "status": "upcoming",
    "sport_slug": "ice-hockey",
    "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "A",
+   "build_verified": false,
+   "sport": "Motor Racing",
+   "competition": "Formula 1 United States Grand Prix, Circuit of The Americas, Austin",
+   "date": "2026-10-25",
+   "date_raw": "2026-10-25",
+   "time": "15:00 local",
+   "venue": "Circuit of The Americas, Austin",
+   "home": "Grand Prix race",
+   "away": "",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.formula1.com/en/racing/2026/united-states",
+   "source_name": "Formula1.com official — United States Grand Prix 2026 (23-25 Oct, Austin)",
+   "notes": "Race date, venue and 56-lap distance verified on Formula1.com's official United States Grand Prix timetable (practice 23 Oct, qualifying 24 Oct, race 25 Oct). At the 21 Oct snapshot qualifying had not been run and driver championship standings were not verified from Formula1.com in this session, so no race-winner pick or line is originated rather than guessed.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Race winner investigated — not originated (qualifying had not taken place at snapshot)"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Qualifying not yet run and standings unverified in session — pick and line left blank."
+    },
+    {
+     "kind": "build-marked-unverified",
+     "text": "The originating build marked this row as not fully verified even though the cited domain is official."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    },
+    {
+     "kind": "blank-teams",
+     "text": "The originating build did not record both teams. Left blank rather than guessed, and kept out of the fixture table."
+    }
+   ],
+   "home_raw": "Grand Prix race (56 laps)",
+   "away_raw": "",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0271",
+   "source_tier": "official",
+   "source_domain": "www.formula1.com",
+   "source_note": "Formula 1",
+   "verified": false,
+   "status": "upcoming",
+   "sport_slug": "motor-racing",
+   "row_type": "incomplete",
    "in_scope": true,
    "scope_note": "",
    "live_checks": [],
@@ -17319,7 +17605,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0267",
+   "id": "M0272",
    "source_tier": "official",
    "source_domain": "www.formula1.com",
    "source_note": "Formula 1",
@@ -17366,6 +17652,10 @@
      "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
     },
     {
+     "kind": "build-flag",
+     "text": "Model conflict flagged: the Round 1 margin rating alone favours Fiji (won 40-12 v Cook Islands) over Australia (won 24-22 v New Zealand), while the NRL's verified world-ranking statement (Australia and New Zealand are the top two world-ranked teams) favours Australia. Pick follows the ranking input; confidence Low. See Flagged page."
+    },
+    {
      "kind": "build-marked-unverified",
      "text": "The originating build marked this row as not fully verified even though the cited domain is official."
     }
@@ -17377,7 +17667,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0268",
+   "id": "M0273",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -17413,7 +17703,7 @@
    "total": "",
    "pick": "New Zealand",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Medium",
+   "confidence": "High",
    "prediction": "Take New Zealand to win this Rugby League World Cup match against the Cook Islands in Christchurch. New Zealand's recent match history is a narrow 24-22 defeat to Australia in Sydney, a match the official NRL team-list report shows they led late before a Jack Bostock hat-trick settled it, and the NRL confirms Australia and New Zealand are the top two world-ranked teams. The Cook Islands lost 40-12 to Fiji in Round 1, so the Kiwis at home are a high-confidence win selection.",
    "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
    "source_name": "NRL official — World Cup men's Round 2 team lists & schedule; Round 1 results: NRL Round 1 team lists (13 Oct 2026)",
@@ -17434,9 +17724,9 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.074,
+   "prediction_similarity": 0.069,
    "pick_side": "home",
-   "id": "M0269",
+   "id": "M0274",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -17490,7 +17780,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0270",
+   "id": "M0275",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -17544,7 +17834,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0271",
+   "id": "M0276",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -17587,7 +17877,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0272",
+   "id": "M0277",
    "source_tier": "official",
    "source_domain": "top14.lnr.fr",
    "source_note": "LNR (Top 14)",
@@ -17653,7 +17943,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "over",
-   "id": "M0273",
+   "id": "M0278",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -17706,7 +17996,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0274",
+   "id": "M0279",
    "source_tier": "official",
    "source_domain": "www.plusliga.pl",
    "source_note": "PlusLiga (Poland)",
@@ -17760,7 +18050,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0275",
+   "id": "M0280",
    "source_tier": "official",
    "source_domain": "en.volleyballworld.com",
    "source_note": "Volleyball World",
@@ -17814,7 +18104,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0276",
+   "id": "M0281",
    "source_tier": "official",
    "source_domain": "en.volleyballworld.com",
    "source_note": "Volleyball World",
@@ -17863,7 +18153,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0277",
+   "id": "M0282",
    "source_tier": "official",
    "source_domain": "statsapi.mlb.com",
    "source_note": "MLB",
@@ -17918,7 +18208,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0278",
+   "id": "M0283",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -17970,7 +18260,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0279",
+   "id": "M0284",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18022,7 +18312,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0280",
+   "id": "M0285",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18074,7 +18364,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0281",
+   "id": "M0286",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18142,7 +18432,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0282",
+   "id": "M0287",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -18192,7 +18482,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.258,
    "pick_side": "home",
-   "id": "M0283",
+   "id": "M0288",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -18250,7 +18540,7 @@
     {
      "build": "A",
      "pick": "Minnesota Wild",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-25",
      "date_raw": "2026-10-25",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -18261,7 +18551,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.367,
    "pick_side": "away",
-   "id": "M0284",
+   "id": "M0289",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -18291,7 +18581,7 @@
    "total": "",
    "pick": "",
    "pick_market": "",
-   "confidence": "Low",
+   "confidence": "",
    "prediction": "",
    "source_url": "https://www.atptour.com/en/tournaments/basel/868/overview",
    "source_name": "ATP Tour official — Swiss Indoors Basel tournament overview",
@@ -18303,7 +18593,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "model_prob_unverified"
+     "text": "No verified head-to-head pairing available at snapshot — matches, lines and picks left blank."
     },
     {
      "kind": "build-marked-unverified",
@@ -18325,7 +18615,7 @@
     {
      "build": "A",
      "pick": "",
-     "confidence": "Low",
+     "confidence": "",
      "date": "2026-10-26",
      "date_raw": "2026-10-26 to 2026-11-01",
      "source_url": "https://www.atptour.com/en/tournaments/vienna/337/overview",
@@ -18335,7 +18625,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "",
-   "id": "M0285",
+   "id": "M0290",
    "source_tier": "official",
    "source_domain": "www.atptour.com",
    "source_note": "ATP Tour",
@@ -18368,7 +18658,7 @@
    },
    "handicap": "Match handicap -2.5 to -5.5 typical @ 1.91",
    "total": "O/U 22.5-23.5 @ 1.91",
-   "pick": "No pick yet — monitor entry lists (Alcaraz/Sinner expected in Basel/Vienna)",
+   "pick": "No selection originated",
    "pick_market": "",
    "confidence": "Low",
    "prediction": "",
@@ -18382,7 +18672,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "Tournament-level entry, not a single match, and the ATP/WTA page for this event could not be read back during this cycle: no date, court, time or opponent could be confirmed, so those fields are blank and no prediction is published."
+     "text": "Tournament-level entry, not a single match, and the ATP/WTA page for this event could not be read back during this cycle: no date, court, time or opponent could be confirmed, so those fields are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in pick (restated). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
     },
     {
      "kind": "no-source",
@@ -18400,7 +18690,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0286",
+   "id": "M0291",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -18465,7 +18755,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0287",
+   "id": "M0292",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -18524,7 +18814,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "under",
-   "id": "M0288",
+   "id": "M0293",
    "source_tier": "official",
    "source_domain": "www.mlb.com",
    "source_note": "MLB",
@@ -18579,7 +18869,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0289",
+   "id": "M0294",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18631,7 +18921,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0290",
+   "id": "M0295",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18683,7 +18973,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0291",
+   "id": "M0296",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18735,7 +19025,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0292",
+   "id": "M0297",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18787,7 +19077,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0293",
+   "id": "M0298",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18839,7 +19129,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0294",
+   "id": "M0299",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18901,7 +19191,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0295",
+   "id": "M0300",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -18951,7 +19241,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.311,
    "pick_side": "away",
-   "id": "M0296",
+   "id": "M0301",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19001,7 +19291,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.35,
    "pick_side": "home",
-   "id": "M0297",
+   "id": "M0302",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19050,7 +19340,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0298",
+   "id": "M0303",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19082,7 +19372,7 @@
     },
     "basis": "build D originated moneyline"
    },
-   "handicap": "Game Handicap -1.5 @ 1.91 (Best of 5 last-16? Actually Champions is Bo5 R32-16, Bo7 QF onward; check WTT rules)",
+   "handicap": "",
    "total": "O/U 4.5 games @ 1.91 (Bo5 = first to 3; Bo7 = first to 4)",
    "pick": "Félix Lebrun to reach semifinal+ (home edge) — but medium confidence (Chinese depth)",
    "pick_market": "",
@@ -19098,7 +19388,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "Not re-checked on ITTF/World Table Tennis during the 2026-10-21 verification cycle: draw, session time and venue could not be confirmed, so they are blank and no prediction is published."
+     "text": "Not re-checked on ITTF/World Table Tennis during the 2026-10-21 verification cycle: draw, session time and venue could not be confirmed, so they are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in originatedSpread (blanked). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
     },
     {
      "kind": "no-source",
@@ -19116,7 +19406,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0299",
+   "id": "M0304",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -19181,7 +19471,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "draw",
-   "id": "M0300",
+   "id": "M0305",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -19198,7 +19488,7 @@
    "build": "D",
    "build_verified": false,
    "sport": "Table Tennis",
-   "competition": "WTT Youth/Feeder Concurrent — Chengdu? Actually Chennai",
+   "competition": "",
    "date": "2026-10-28",
    "date_raw": "2026-10-28 to 2026-11-01",
    "time": "",
@@ -19228,7 +19518,7 @@
     },
     {
      "kind": "build-flag",
-     "text": "Not re-checked on ITTF/World Table Tennis during the 2026-10-21 verification cycle: draw, session time and venue could not be confirmed, so they are blank and no prediction is published."
+     "text": "Not re-checked on ITTF/World Table Tennis during the 2026-10-21 verification cycle: draw, session time and venue could not be confirmed, so they are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in competition (blanked). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
     },
     {
      "kind": "no-source",
@@ -19246,7 +19536,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0301",
+   "id": "M0306",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -19269,7 +19559,7 @@
    "time": "",
    "venue": "",
    "home": "Fall bubble players",
-   "away": "par 71, wide fairways",
+   "away": "",
    "neutral": null,
    "win": {
     "odds": {
@@ -19279,7 +19569,7 @@
    },
    "handicap": "Top-10 @ 3.50-5.00; Winning Score O/U -17.5 @ 1.91",
    "total": "Winning Score O/U -17.5 @ 1.91",
-   "pick": "No favourite — wait until Bermuda results shift FedEx standings",
+   "pick": "No selection originated",
    "pick_market": "",
    "confidence": "Low",
    "prediction": "",
@@ -19293,32 +19583,32 @@
     },
     {
      "kind": "build-flag",
-     "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published."
+     "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published. | Board R finding R-F14: unfinished draft text was published in teamB (blanked), pick (restated). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
     },
     {
      "kind": "no-source",
      "text": "No source URL recorded by the originating build."
     },
     {
-     "kind": "not-a-fixture",
-     "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+     "kind": "blank-teams",
+     "text": "The originating build did not record both teams. Left blank rather than guessed, and kept out of the fixture table."
     }
    ],
    "home_raw": "Field — Fall bubble players",
-   "away_raw": "Course: El Tigre? Actually Vidanta Vallarta — par 71, wide fairways",
+   "away_raw": "",
    "prediction_style": "",
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0302",
+   "id": "M0307",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
    "verified": false,
    "status": "upcoming",
    "sport_slug": "golf",
-   "row_type": "market-note",
+   "row_type": "incomplete",
    "in_scope": true,
    "scope_note": "",
    "live_checks": [],
@@ -19376,7 +19666,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0303",
+   "id": "M0308",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -19431,7 +19721,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0304",
+   "id": "M0309",
    "source_tier": "official",
    "source_domain": "www.pcb.com.pk",
    "source_note": "Pakistan Cricket Board",
@@ -19474,7 +19764,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0305",
+   "id": "M0310",
    "source_tier": "official",
    "source_domain": "gaacork.ie",
    "source_note": "Cork GAA",
@@ -19523,7 +19813,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0306",
+   "id": "M0311",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -19572,7 +19862,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0307",
+   "id": "M0312",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -19626,7 +19916,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0308",
+   "id": "M0313",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -19675,7 +19965,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0309",
+   "id": "M0314",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -19724,7 +20014,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0310",
+   "id": "M0315",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -19773,7 +20063,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0311",
+   "id": "M0316",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -19838,7 +20128,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0312",
+   "id": "M0317",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",

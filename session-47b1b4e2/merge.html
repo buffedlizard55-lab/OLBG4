@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merge record — OLBG4 Board R</title>
+<style>
+:root{--ink:#111827;--mut:#6b7280;--line:#e5e7eb;--bg:#f8fafc;--blue:#2563eb;--amber:#b45309;--green:#15803d}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+header .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+b.brand{font-size:17px}b.brand span{color:var(--blue)}
+nav{display:flex;flex-wrap:wrap;gap:4px}
+nav a{padding:6px 11px;border-radius:8px;text-decoration:none;color:var(--mut);font-size:14px;font-weight:600}
+nav a:hover{background:#eef2ff;color:var(--blue)}
+nav a.on{background:var(--blue);color:#fff}
+main{max-width:1200px;margin:0 auto;padding:22px 18px 60px}
+h1{font-size:26px;margin:6px 0 4px}h2{font-size:19px;margin:30px 0 8px}
+.lede{color:var(--mut);margin:0 0 18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.06em;color:var(--blue);font-weight:800;font-size:11.5px;margin:0 0 6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:18px 0}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.kpi .v{font-size:27px;font-weight:800;margin-top:3px}
+.kpi .s{font-size:12.5px;color:var(--mut);margin-top:3px}
+.tw{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{background:#f1f5f9;text-align:left;padding:9px 11px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:#475569;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.small{font-size:12.5px;color:var(--mut)}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.03em}
+.hi{background:#fee2e2;color:#991b1b}.me{background:#fef3c7;color:#92400e}.lo{background:#e0e7ff;color:#3730a3}
+.ok{background:#dcfce7;color:#166534}
+.note{background:#eff6ff;border:1px solid #cddffd;border-left:4px solid var(--blue);border-radius:10px;padding:12px 15px;margin:14px 0}
+.warn{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid var(--amber);border-radius:10px;padding:12px 15px;margin:14px 0}
+.good{background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid var(--green);border-radius:10px;padding:12px 15px;margin:14px 0}
+code{background:#f1f5f9;padding:1px 5px;border-radius:5px;font-size:12.5px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px 16px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.65}
+a{color:var(--blue)}
+.strike{text-decoration:line-through;color:var(--mut)}
+ul{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><div class="wrap">
+<b class="brand">OLBG4 <span>· Board R</span></b>
+<nav><a href="index.html">Overview</a><a href="draft-text.html">Draft-text fix</a><a href="restored.html">Restored files</a><a href="verification.html">Verification</a><a href="merge.html" class="on">Merge record</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Merge record — 126 commits, 25 conflicted files</h1>
+<p class="lede">This branch was cut from <code>main</code> at <code>43adf35</code>. By the time it was ready
+to integrate, <code>main</code> had moved to <code>162c8e1</code>: 126 commits and pull requests #24–#54,
+from Boards K (<code>83451f65</code>), K (<code>5838b25d</code>), L, M, N, O, P and Q. The brief requires
+conflicts to be resolved <em>without discarding others' work</em>, so every resolution is recorded here.</p>
+
+<h2>What had changed on main</h2>
+<div class="tw"><table><thead><tr><th>Change</th><th>Consequence for this board</th></tr></thead><tbody>
+<tr><td>The root landing page was <strong>replaced</strong> by a consolidated line desk, and the previous hub archived to <code>session-6b8d2d5f/hub-2026-10-21.html</code> + <code>archive/root-*/</code></td><td>This board's edits to <code>index.html</code> and <code>flagged.html</code> targeted a page that no longer exists. Theirs taken.</td></tr>
+<tr><td><code>data/matches.json</code> re-verified row by row: 66 → <strong>68</strong> rows (NHL08, NHL09 added), all 66 original rows touched, new <code>verification</code>, <code>facts</code>, <code>priorSourceUrl</code> and <code>result</code> keys</td><td>This board's own remediation of the same file was superseded by a stricter pass. Theirs taken; see below.</td></tr>
+<tr><td>A new master board: <code>tools/build_master.py</code> → <code>data/master.json</code> (317 rows) → <code>board/</code> (28 pages), with a CI gate that <strong>refuses to deploy if the committed dashboard is stale</strong></td><td>Any change to <code>data/matches.json</code> must be followed by regenerating and committing <code>board/</code> + <code>data/master*.json</code>. Done.</td></tr>
+<tr><td>Three sessions independently claimed the letter <strong>Board K</strong></td><td>This is Board J's finding F-13 recurring. This board's record is renamed <strong>R</strong>, the next free letter, following Board L's precedent. The directory stays <code>session-47b1b4e2/</code> because it is keyed to the unique session id.</td></tr>
+</tbody></table></div>
+
+<h2>Resolution, file by file</h2>
+<div class="tw"><table><thead><tr><th>Files</th><th>Resolution</th><th>Why</th></tr></thead><tbody>
+<tr><td><code>data/matches.json</code></td><td><span class="pill ok">THEIRS</span></td><td>The owning board re-read every fixture from an official API or governing-body page and <strong>blanked</strong> whatever it could not confirm (41 rows), preserving the old source in <code>priorSourceUrl</code>. That is stricter than this board's approach of keeping a secondary link and labelling it <code>sourceClass:"secondary"</code>, and it satisfies the brief more directly. Overwriting it would have discarded 68 rows of another board's verification.</td></tr>
+<tr><td><code>index.html</code>, <code>flagged.html</code>, 15 category pages</td><td><span class="pill ok">THEIRS</span></td><td>Their pages describe their dataset accurately ("UNVERIFIED means no official page could confirm it, so the time and venue are blank"). This board's wording corrections described a dataset that no longer exists, so keeping them would have published false statements.</td></tr>
+<tr><td><code>assets/js/main.js</code></td><td><span class="pill ok">THEIRS</span></td><td>Their renderer reads their <code>verification</code> blocks. This board's renderer read <code>k_withdrawn</code>/<code>entryType</code> keys that are not in the merged data, so it would have rendered nothing.</td></tr>
+<tr><td><code>docs/index.html</code></td><td><span class="pill ok">THEIRS</span></td><td>Build A's landing, rebuilt by its own generator on main. <code>restore_docs_banner.py</code> remains available if that banner is lost again.</td></tr>
+<tr><td><code>audit/index.html</code>, <code>audit/report.json</code></td><td><span class="pill ok">THEIRS</span></td><td>Generated output; regenerated by its own tool.</td></tr>
+<tr><td><code>.github/workflows/pages.yml</code></td><td><span class="pill lo">UNION</span></td><td>Kept all four of their new steps (rebuild master board, verify it, fail if stale) <em>and</em> added an <code>ls -la</code> assertion for this board's five report pages, so the report cannot silently fail to deploy.</td></tr>
+<tr><td><code>README.md</code></td><td><span class="pill lo">UNION</span></td><td>Theirs as the base — it describes the live <code>/board/</code> site — plus a Board R section and the F-07 scope clarification.</td></tr>
+<tr><td><code>COORDINATION.md</code></td><td><span class="pill lo">UNION</span></td><td>Append-only by rule. Their record kept verbatim; this board's appended below, renamed R, with the K-collision noted.</td></tr>
+<tr><td><code>data/matches.json</code> — R-F14 fields only</td><td><span class="pill me">RE-APPLIED ON TOP</span></td><td>The one thing this board changed in their dataset: 8 rows publishing draft text. Additive keys only (<code>r_f14_removed</code>, <code>flagReason</code>, <code>flagged</code>). No <code>verification</code>, <code>verified</code>, <code>confidence</code> or <code>priorSourceUrl</code> value was touched.</td></tr>
+</tbody></table></div>
+
+<h2>Regenerated after the merge</h2>
+<pre>python3 scripts/session-47b1b4e2/fix_draft_artefacts.py    # 8 rows, idempotent
+python3 tools/build_master.py                              # 317 rows, 15 conflicts, 61 source domains
+BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py   # 28 pages
+BOARD_DIR=board python3 tools/verify_master.py             # OK - all master-board checks passed
+python3 scripts/session-47b1b4e2/build_report.py
+python3 scripts/session-47b1b4e2/check_all.py</pre>
+<p class="small">The staleness gate compares committed <code>board/</code>, <code>data/master.json</code> and
+<code>data/master_conflicts.json</code> against freshly built output, so all three are committed with this
+merge.</p>
+
+<h2>Nothing discarded</h2>
+<div class="good">Every commit from Boards K, L, M, N, O, P and Q is retained. This board's superseded hub
+remediation is retained in branch history at <code>094a817</code> and <code>d1c5fcf</code>, and its
+machine-readable record stays at <code>data/session-47b1b4e2/remediation.json</code> — it documents what
+was independently found and confirmed against official pages, which remains useful evidence even though the
+row-level edits are no longer live. The Build A restoration, the Build B renderer fix, the F-07 retraction
+and the templated-prediction archive all survived the merge unchanged and are live.</div>
+
+</main>
+<footer class="wrap">Board R · session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · remediation and
+integration. Sources: official governing-body pages, linked inline. Nothing on this site is betting
+advice; unconfirmed values are left blank and flagged rather than inferred.</footer>
+</body></html>

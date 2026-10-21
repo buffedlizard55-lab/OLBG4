@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — OLBG4 Board R</title>
+<style>
+:root{--ink:#111827;--mut:#6b7280;--line:#e5e7eb;--bg:#f8fafc;--blue:#2563eb;--amber:#b45309;--green:#15803d}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+header .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+b.brand{font-size:17px}b.brand span{color:var(--blue)}
+nav{display:flex;flex-wrap:wrap;gap:4px}
+nav a{padding:6px 11px;border-radius:8px;text-decoration:none;color:var(--mut);font-size:14px;font-weight:600}
+nav a:hover{background:#eef2ff;color:var(--blue)}
+nav a.on{background:var(--blue);color:#fff}
+main{max-width:1200px;margin:0 auto;padding:22px 18px 60px}
+h1{font-size:26px;margin:6px 0 4px}h2{font-size:19px;margin:30px 0 8px}
+.lede{color:var(--mut);margin:0 0 18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.06em;color:var(--blue);font-weight:800;font-size:11.5px;margin:0 0 6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:18px 0}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.kpi .v{font-size:27px;font-weight:800;margin-top:3px}
+.kpi .s{font-size:12.5px;color:var(--mut);margin-top:3px}
+.tw{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{background:#f1f5f9;text-align:left;padding:9px 11px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:#475569;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.small{font-size:12.5px;color:var(--mut)}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.03em}
+.hi{background:#fee2e2;color:#991b1b}.me{background:#fef3c7;color:#92400e}.lo{background:#e0e7ff;color:#3730a3}
+.ok{background:#dcfce7;color:#166534}
+.note{background:#eff6ff;border:1px solid #cddffd;border-left:4px solid var(--blue);border-radius:10px;padding:12px 15px;margin:14px 0}
+.warn{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid var(--amber);border-radius:10px;padding:12px 15px;margin:14px 0}
+.good{background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid var(--green);border-radius:10px;padding:12px 15px;margin:14px 0}
+code{background:#f1f5f9;padding:1px 5px;border-radius:5px;font-size:12.5px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px 16px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.65}
+a{color:var(--blue)}
+.strike{text-decoration:line-through;color:var(--mut)}
+ul{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><div class="wrap">
+<b class="brand">OLBG4 <span>· Board R</span></b>
+<nav><a href="index.html" class="on">Overview</a><a href="draft-text.html">Draft-text fix</a><a href="restored.html">Restored files</a><a href="verification.html">Verification</a><a href="merge.html">Merge record</a></nav>
+</div></header>
+<main class="wrap">
+
+<p class="eyebrow">Session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · remediation + integration</p>
+<h1>Board R — what this session changed, and what it did not</h1>
+<p class="lede">This board opened to remediate Board J's findings. While it worked, <strong>Boards K, L, M, N,
+O, P and Q merged 126 commits and 54 pull requests to <code>main</code></strong>, including a full
+re-verification of the hub dataset and a rebuilt root landing page. This board merged all of it, kept
+it, and reports the repository <em>as it now stands</em>. Where this session's earlier work was
+superseded by a stricter pass, that is stated plainly rather than presented as still live.</p>
+
+<div class="kpis">
+ <div class="kpi"><div class="l">Commits merged from main</div><div class="v">126</div><div class="s">PRs #24–#54, Boards K/L/M/N/O/P/Q — all retained, nothing discarded</div></div>
+ <div class="kpi"><div class="l">Conflicted files resolved</div><div class="v">25</div><div class="s">theirs taken for files other boards own; <a href="merge.html">resolution log</a></div></div>
+ <div class="kpi"><div class="l">New defect found &amp; fixed</div><div class="v">8</div><div class="s">rows publishing unfinished draft text — finding R-F14, reported by no other board</div></div>
+ <div class="kpi"><div class="l">Build A rows restored</div><div class="v">144</div><div class="s">from 137; 4 deleted sport pages back; byte-identical to the generator's own output</div></div>
+ <div class="kpi"><div class="l">Hub rows confirmed on an official source</div><div class="v">25 <span class="small">/ 68</span></div><div class="s">41 blanked and flagged by the owning board's stricter cycle</div></div>
+ <div class="kpi"><div class="l">Final gate</div><div class="v">28/28 checks pass</div><div class="s">7950 links across 291 HTML files</div></div>
+</div>
+
+<div class="warn"><strong>Superseded, and deliberately not re-applied.</strong> Before the merge this board
+had remediated the hub's 66 rows itself: 26 downgraded from <code>verified:true</code>, 14 corrected
+against official pages, 23 predictions withdrawn with text preserved, and an <code>entryType</code> and
+<code>sourceClass</code> added to every row. Board <code>082d3c16</code> had independently run a
+<strong>stricter</strong> cycle over the same file — it re-read each fixture from an official API or
+governing-body page, and where it could not confirm a value it <em>blanked</em> the time, venue, source
+and prediction and moved the old source to <code>priorSourceUrl</code>. That is more conservative than
+this board's labelling approach, it satisfies the brief more directly, and it is the version now on
+<code>main</code>. <strong>This board took theirs and did not overwrite it.</strong> Its own
+<code>k_withdrawn</code> / <code>k_verification</code> / <code>entryType</code> keys are therefore not in
+the live dataset. The evidence this session gathered is still offered to the owning board on the
+<a href="verification.html">Verification</a> page.</div>
+
+<h2>What this board contributed that is live now</h2>
+<div class="tw"><table><thead><tr><th>Item</th><th>Status</th><th>Detail</th></tr></thead><tbody>
+<tr><td><strong>R-F14</strong> — unfinished draft text in rendered fields</td><td><span class="pill ok">LIVE</span></td>
+<td><strong>Found by this board; reported by no other.</strong> 8 hub rows published unresolved
+self-corrections ("Chengdu<strong>? Actually</strong> Chennai") and working notes ("monitor entry lists")
+in <code>competition</code>, <code>pick</code>, <code>originatedSpread</code>, <code>marketFocus</code> and
+<code>teamB</code> — fields both the hub pages and the consolidated <code>/board/</code> render. Ten
+boards audited or re-verified this dataset without reporting it. <a href="draft-text.html">Field-level detail →</a></td></tr>
+<tr><td><strong>Build A restoration</strong> (Board J F-11/F-12)</td><td><span class="pill ok">LIVE</span></td>
+<td><code>data/rows.json</code> 137 → <strong>144</strong> rows and the four deleted
+<code>docs/sports/*.html</code> pages restored, by re-running Build A's own unmodified generator so the
+output is byte-identical to <code>5918922</code>. The 25 templated predictions that had overwritten
+Build B's file are archived verbatim. <a href="restored.html">Details →</a></td></tr>
+<tr><td><strong>Build B renderer repaired</strong></td><td><span class="pill ok">LIVE</span></td>
+<td><code>scripts/build_site.py</code> raised <code>KeyError: 'match_id'</code> on the restored dataset.
+Repointed at the build-owned <code>data/session-7114b6a1/predictions.json</code> with a root fallback —
+18 pages, exit 0.</td></tr>
+<tr><td><strong>F-07 retraction</strong> — "Gaelic football is excluded"</td><td><span class="pill ok">LIVE</span></td>
+<td>The brief excludes <em>hurling</em>, not Gaelic football. Retracted in <code>data/flag_notes.json</code>
+(the authored source — <code>scripts/verify.py</code> regenerates <code>data/flagged.json</code>, so editing
+the generated file is silently wiped). Build B's original wording is preserved verbatim and renders with
+the galwaygaa.ie link.</td></tr>
+<tr><td><strong>Reproducible gate</strong> <code>check_all.py</code></td><td><span class="pill ok">LIVE</span></td>
+<td>Repository-wide checks over JSON validity, source links, prediction rules, exclusions, local links and
+placeholder tokens. Exits non-zero on any hard failure. 28/28 checks pass.</td></tr>
+<tr><td><strong><code>restore_docs_banner.py</code></strong></td><td><span class="pill ok">LIVE</span></td>
+<td><code>gen_pages.py</code> destroys Board B's additive <code>docs/index.html</code> banner on every run
+(observed twice). This re-inserts it so Build A's build order is reproducible.</td></tr>
+<tr><td><strong>Official-source evidence</strong> for rows the owning board left blank</td><td><span class="pill me">OFFERED</span></td>
+<td>15 governing-body pages re-opened line by line, including fixtures the owning board marked
+<code>unverified</code> (PDC European Championship session times, EuroLeague Round 7, the RLWC Round 2
+fixture). Published as evidence and logged as a request in <code>COORDINATION.md</code> —
+<strong>not</strong> written into another board's rows, because it deliberately blanked them.
+<a href="verification.html">Verification →</a></td></tr>
+<tr><td>Hub remediation (26 downgrades, 14 corrections, 23 withdrawals, <code>entryType</code>)</td><td><span class="pill lo">SUPERSEDED</span></td>
+<td>Retained in this branch's history at commits <code>094a817</code> and <code>d1c5fcf</code>, and
+described in <code>data/session-47b1b4e2/remediation.json</code>. Not live: the owning board's stricter
+cycle is. No conflict — both reaches the same conclusion on F-01, theirs goes further.</td></tr>
+</tbody></table></div>
+
+<h2>One conflict this board found but did not resolve</h2>
+<div class="warn"><strong>Two published gates disagree about blanking a source link, and it is not this
+board's call to make.</strong> The brief says both <em>"every table row must have a source link to an
+official site"</em> and <em>"if a value can't be confirmed from an official source, leave it blank and flag
+it unverified"</em>. Board <code>082d3c16</code> resolved that tension toward blanking: 41 hub rows
+now have an empty <code>sourceUrl</code>, with the previous value preserved in <code>priorSourceUrl</code>
+and the row flagged. <code>session-07a080b9/audit.py</code> (Board F) treats a missing
+<code>sourceUrl</code> as a hard <strong>FAIL</strong> and reports all 41.
+<br><br>
+Both readings are defensible, so this board <strong>recorded the conflict rather than "fixing" it in either
+direction</strong> — overturning the owning board's blanking would discard its verification work, and
+editing Board F's audit script would rewrite another board's findings. It is surfaced as a non-blocking
+NOTE in <code>check_all.py</code> and logged in <code>COORDINATION.md</code> for the two boards to settle.
+It does not block deployment: <code>pages.yml</code> runs <code>tools/verify_master.py</code>, which passes,
+not Board F's audit.</div>
+
+<h2>Where to look next</h2>
+<div class="tw"><table><thead><tr><th>Page</th><th>What it contains</th></tr></thead><tbody>
+<tr><td><a href="draft-text.html">Draft-text fix</a></td><td>Finding R-F14: every affected row, the exact string that was published, what replaced it, and why the "Actually …" answer was not adopted.</td></tr>
+<tr><td><a href="restored.html">Restored files</a></td><td>What commit <code>cf9f024</code> overwrote, how Build A and Build B were restored, and the byte-identity check.</td></tr>
+<tr><td><a href="verification.html">Verification</a></td><td>The 15 official pages re-opened, what each confirmed, what this board did <em>not</em> re-verify, and the final gate results.</td></tr>
+<tr><td><a href="merge.html">Merge record</a></td><td>All 25 conflicted files, which side was taken and why, and the regeneration steps run afterwards.</td></tr>
+<tr><td><a href="../board/">Consolidated master board</a></td><td>The live integration desk built from all six builds (317 rows), which this board's R-F14 fix now feeds.</td></tr>
+<tr><td><a href="../session-e1e0c27e/flagged.html">Board J findings</a></td><td>The 13 findings this board opened to remediate, with its 18 spot checks and cross-build conflict table.</td></tr>
+</tbody></table></div>
+
+</main>
+<footer class="wrap">Board R · session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · remediation and
+integration. Sources: official governing-body pages, linked inline. Nothing on this site is betting
+advice; unconfirmed values are left blank and flagged rather than inferred.</footer>
+</body></html>
