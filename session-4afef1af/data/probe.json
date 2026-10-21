@@ -1,5 +1,5 @@
 {
-  "probed_utc": "2026-10-21T05:50:25+00:00",
+  "probed_utc": "2026-10-21T05:53:50+00:00",
   "results": [
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
@@ -130,6 +130,32 @@
       "content_type": "application/json;charset=UTF-8",
       "bytes_sampled": 262,
       "starts_with": "{\"copyright\":\"Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page ack"
+    }
+  ],
+  "schedule_archives": [
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+      "status": 200,
+      "bytes": 7389135,
+      "season_year": "2026-27",
+      "game_dates": 174,
+      "games": 1274,
+      "completed": 70,
+      "regular_season_games": 1206,
+      "first_game_utc": "2026-10-03T23:00:00Z",
+      "last_game_utc": "2027-04-12T00:30:00Z"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+      "status": 200,
+      "bytes": 7398239,
+      "season_year": "2026-27",
+      "game_dates": 174,
+      "games": 1274,
+      "completed": 70,
+      "regular_season_games": 1206,
+      "first_game_utc": "2026-10-03T23:00:00Z",
+      "last_game_utc": "2027-04-12T00:30:00Z"
     }
   ],
   "note": "Diagnostic only. A 403/000 here means the runner could not reach that official endpoint; the pipeline then reports the provider as unavailable instead of substituting an unofficial source."

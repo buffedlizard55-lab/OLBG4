@@ -3,7 +3,7 @@
     "id": "flag-001",
     "severity": "warning",
     "category": "rating_sample_limited",
-    "detail": "NBA: no prior-season sample was reachable, so ratings use only 3 completed NBA games. Winner picks are capped at low confidence until the sample reaches 20 games per team.",
+    "detail": "NBA: no prior-season sample was reachable, so ratings use only 3 completed games (1 per team). Winner picks stay low confidence until the sample reaches 20 games per team.",
     "field": "ratings",
     "value": null,
     "action": "published",
@@ -17,22 +17,6 @@
   },
   {
     "id": "flag-002",
-    "severity": "warning",
-    "category": "rating_sample_limited",
-    "detail": "MLB: no prior-season sample was reachable, so ratings use only 2465 completed MLB games. Winner picks are capped at low confidence until the sample reaches 20 games per team.",
-    "field": "ratings",
-    "value": null,
-    "action": "published",
-    "source_urls": [
-      "https://mlb.com"
-    ],
-    "sport": null,
-    "fixture_id": null,
-    "match": null,
-    "start_utc": null
-  },
-  {
-    "id": "flag-003",
     "severity": "info",
     "category": "missing_probable_pitcher",
     "detail": "probable pitchers not yet announced; left blank rather than guessed",
@@ -49,7 +33,7 @@
     "start_utc": "2026-10-24T00:00:00Z"
   },
   {
-    "id": "flag-004",
+    "id": "flag-003",
     "severity": "info",
     "category": "missing_probable_pitcher",
     "detail": "probable pitchers not yet announced; left blank rather than guessed",
@@ -66,7 +50,7 @@
     "start_utc": "2026-10-25T00:00:00Z"
   },
   {
-    "id": "flag-005",
+    "id": "flag-004",
     "severity": "info",
     "category": "missing_probable_pitcher",
     "detail": "probable pitchers not yet announced; left blank rather than guessed",
