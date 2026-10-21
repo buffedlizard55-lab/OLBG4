@@ -4,62 +4,104 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flagged for Review — OLBG4</title>
+<meta name="description" content="OLBG4 — line-by-line verification register: every row, the official source it was checked against, and the verdict.">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <header class="topbar">
   <div class="container inner">
-    <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>Flagged for Review — irregularities & unverified items</p></div></div>
-    <nav class="nav"><a href="index.html">Dashboard</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged.html" class="active">Flagged for Review</a></nav>
+    <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>Flagged for Review — irregularities &amp; unverified items</p></div></div>
+    <nav class="nav"><a href="index.html">Dashboard</a><a href="verification.html">Verification</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
   </div>
 </header>
 <main class="container">
   <section class="hero">
-    <h2>Flagged for Review — no blocked merge, transparent for your review</h2>
-    <p>These entries were published but marked <span class="badge badge-flagged">FLAGGED</span> because one or more fields could not be confirmed on an official site at the 2026-10-21 cut-off. Per the brief, flagged irregularities and unverified items <strong>do not block the merge</strong> — they are published here with source links for your manual review.</p>
-    <div class="notice"><strong>Policy:</strong> If a value can't be confirmed from an official source, it is left blank and flagged as unverified. Never inferred. You can request corrections via GitHub issue; fixes are applied as small commits without discarding others.</div>
-    <div class="small" style="margin-top:10px"><strong id="flaggedCount">loading flagged count…</strong> • All other rows on the dashboard are marked <span class="badge badge-verified">VERIFIED</span>.</div>
+    <h2>Flagged for Review</h2>
+    <p>Everything this cycle could not confirm is collected here, with the official link to check it against. Flagged items do not block publication: the dashboard shows them with an <b>UNVERIFIED</b> badge, blank times and venues where nothing was confirmed, and no prediction.</p>
+    <div class="notice"><strong>Policy:</strong> a value that cannot be confirmed from an official source is left blank and flagged. It is never inferred, never copied from a bookmaker, and never carried over silently from an earlier session. Verdicts and quoted evidence for every row are on the <a href="verification.html">Verification register</a>.</div>
+    <div class="small" style="margin-top:10px"><strong id="flaggedCount">loading…</strong> • 25 rows confirmed on an official source this cycle.</div>
   </section>
 
   <section class="table-wrap">
-    <div style="padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;background:#fffbeb"><strong>Flagged entries from data/matches.json</strong><span class="small">Each links to its official source for manual comparison</span></div>
-    <div style="overflow:auto">
+    <div style="padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;background:#fffbeb"><strong>Row-level flags from data/matches.json</strong><span class="small">Each row links its official source for manual comparison</span></div>
+    <div style="overflow:auto;max-height:60vh">
       <table>
-        <thead><tr><th>ID</th><th>Match</th><th>Reason (why flagged)</th><th>Source link for review</th><th>Status</th></tr></thead>
+        <thead><tr><th style="min-width:80px">ID</th><th style="min-width:240px">Match (as published)</th><th style="min-width:320px">Why it is flagged</th><th style="min-width:220px">Source link for review</th><th style="min-width:110px">Status</th></tr></thead>
         <tbody id="flaggedTbody"><tr><td colspan="5" style="padding:16px" class="small">Loading…</td></tr></tbody>
       </table>
     </div>
   </section>
 
   <section class="card" style="margin-top:14px">
-    <h3>Flag details — line by line (2026-10-21 audit)</h3>
+    <h3>Session findings — 2026-10-21 remediation</h3>
     <table style="width:100%;border-collapse:collapse">
-      <thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Flagged entry / gap</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Category</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Reason & next check</th></tr></thead>
-      <tbody>
-        <tr><td style="padding:8px"><strong>VBL01/02 Volleyball — Oct 8-31 window</strong></td><td class="small">Volleyball</td><td class="small">Volleyball is in inter-season gap: VNL 2026 finished, Club World Championship is December (8 clubs confirmed Oct 15 per FIVB). No FIVB-ranked senior national-team matches in Oct 21-31 window → no lines originated. Flagged as legitimate "no market" (not inference), per verification policy. Manual review: <a href="https://www.fivb.com/eight-clubs-confirmed-for-2026-fivb-mens-volleyball-club-world-championship/" target="_blank">FIVB 8 clubs confirmed</a>.</td></tr>
-        <tr><td style="padding:8px"><strong>HDB01/02 Handball — EHF Champions League & IHF Qualifiers</strong></td><td class="small">Handball</td><td class="small">EHF CL Round 7 midweek Oct 22-23 exists but specific fixture pairings not published on <a href="https://ehfcl.eurohandball.com/" target="_blank">ehfcl.eurohandball.com</a> at cut-off (site paginated/outside allowed hosts for automated fetch). IHF WC 2027 qualifiers draw also not posted on <a href="https://www.ihf.info/" target="_blank">ihf.info</a> by Oct 21. Both left blank and flagged with EHF/IHF links. Re-check EHF CL match centre Oct 22 morning.</td></tr>
-        <tr><td style="padding:8px"><strong>ESP01/02 Esports — Worlds & Valorant Champions</strong></td><td class="small">Esports</td><td class="small">Both majors are in progress but brackets not locked: LoL Worlds QF Oct 22-25 field unknown until Swiss stage ends Oct 12-13; Valorant Champions Paris final Oct 22 field unknown until playoffs Oct 17. Specific matchups left blank, flagged, with bracket URLs (<a href="https://lolesports.com/schedule?leagues=worlds" target="_blank">lolesports.com</a>, <a href="https://valorantesports.com/en-US/schedule" target="_blank">valorantesports.com</a>). Re-check after each play-off round.</td></tr>
-        <tr><td style="padding:8px"><strong>AFL01 Aussie Rules — Oct 21-31 window</strong></td><td class="small">Aussie Rules</td><td class="small">AFL men's season correctly in off-season after Sep 27 Grand Final (verified on <a href="https://www.afl.com.au/fixture" target="_blank">afl.com.au/fixture</a>). No matches in window → no lines (not flagged as error, but listed here for transparency as "no market" per brief exclusion logic). AFLW is separate and not on men's OLBG card.</td></tr>
-        <tr><td style="padding:8px"><strong>RL01 Rugby League Pacific Championships</strong></td><td class="small">Rugby League</td><td class="small">Pacific Championships fixture (Aus vs NZ Oct 25 7:50pm) appears on NRL.com but could not be fetched via allowed outbound hosts at cut-off; listed with NRL.com link and flagged to request manual verification on <a href="https://www.nrl.com/pacific-championships/" target="_blank">nrl.com/pacific-championships</a>.</td></tr>
-        <tr><td style="padding:8px"><strong>Tennis ATP 250s — Daily order of play for Oct 22-24</strong></td><td class="small">Tennis</td><td class="small">Tournament-level entries (Almaty, Brussels, Lyon) verified via ATP Tour calendar/qualifier schedule. Specific day-level player-vs-player pairings for Oct 22-24 are not yet published on the ATP Tour draw center at cut-off (draws finalize day-before). Tournament entries are verified; daily matchups will be added in a follow-up commit once draws post (ATP Tour daily order-of-play PDFs).</td></tr>
-        <tr><td style="padding:8px"><strong>Golf — Bermuda winning-score O/U model inputs (wind)</strong></td><td class="small">Golf</td><td class="small">Wind forecast input (20-30 mph) used for Bermuda O/U -14.5 is a modelled forecast, not an official PGA TOUR measured value. Flagged as model-derived (transparent) and linked to PGA TOUR Fall schedule and Golfweek preview for course history. Live wind will be re-verified via official PGA TOUR ShotLink at tee-off.</td></tr>
-      </tbody>
+      <thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Severity</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Finding</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Detail</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Check it here</th></tr></thead>
+      <tbody><tr>
+  <td class="small">HIGH</td>
+  <td><strong>K-01</strong><div class="small">66 prediction texts withdrawn</div></td>
+  <td class="small">Every prediction published by the earlier hub asserted form, injury or head-to-head numbers that appear on no official source (Board J's audit found the same for NHL01, NHL06, EL02, MLB01 and RL01). None was reworded around its claim: all of them are archived verbatim with their stated confidence in <code>data/board_k/withdrawn_predictions.json</code>, and only prose rebuilt from quoted official facts is published.</td>
+  <td class="small"><a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/board_k/withdrawn_predictions.json'>withdrawn_predictions.json</a></td>
+</tr><tr>
+  <td class="small">HIGH</td>
+  <td><strong>K-02</strong><div class="small">41 of 68 rows could not be confirmed</div></td>
+  <td class="small">Only the rows marked CONFIRMED on the verification register were read back from an official source in this cycle. The rest keep the participants and date as previously published but lose their start time, venue, prediction and any confidence above LOW. They are not inferred and not copied from another build; the earlier link is kept only as <code>priorSourceUrl</code> provenance.</td>
+  <td class="small"><a href='verification.html'>Verification register</a></td>
+</tr><tr>
+  <td class="small">MEDIUM</td>
+  <td><strong>K-03</strong><div class="small">Fixture fields corrected against governing bodies</div></td>
+  <td class="small">CRK03: PCB says this is <b>match 2</b> (Pakistan v England) on 20 Oct at Rawalpindi, not 'match 1' over a 20-29 Oct range at Lahore. CRK05: the final is <b>31 Oct</b> at Gaddafi Stadium — 29 Oct is Sri Lanka v England. MLB03: MLB's schedule names <b>Tropicana Field</b>, not Steinbrenner Field. NHL01/NHL02 now carry the official final scores. The six rugby fixtures are titled <b>Nations Championship 2026</b> by World Rugby, not the Autumn Nations Series.</td>
+  <td class="small"><a href='https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html' target='_blank' rel='noopener'>PCB release</a> · <a href='https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-26' target='_blank' rel='noopener'>MLB schedule 26 Oct</a> · <a href='https://www.world.rugby/beta/en/match/1e74b48e-25fe-4ebe-beea-abb6cea010a0' target='_blank' rel='noopener'>World Rugby match page</a></td>
+</tr><tr>
+  <td class="small">MEDIUM</td>
+  <td><strong>K-04</strong><div class="small">Rows that are not matches</div></td>
+  <td class="small">Tennis (6), golf (5), badminton (3), table tennis (3), darts (4), snooker (4), volleyball (2), handball (2), esports (2), the AFL off-season note and the Pacific Championships note are tournaments, rounds, qualification notes or off-season statements. A head-to-head pick cannot be originated without a specific fixture, so those picks are LOW and their times, venues and predictions are blank.</td>
+  <td class="small"><a href='data/matches.json'>data/matches.json</a></td>
+</tr><tr>
+  <td class="small">MEDIUM</td>
+  <td><strong>K-05</strong><div class="small">Cross-session collision on this hub&#x27;s files (resolved, nothing discarded)</div></td>
+  <td class="small">Two sessions independently claimed 'Board K' and both edited <code>data/matches.json</code>. Session <code>093bfd5e</code> landed first on <code>main</code>; this session rebuilt the file from a frozen base plus recorded evidence. Their work is preserved: their data file is archived as <code>data/board_k/prior_session_matches.json</code>, their World Rugby and BWF URLs were re-opened and adopted, and their EuroLeague claim is disputed below rather than silently kept or silently deleted.</td>
+  <td class="small"><a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/board_k/prior_session_matches.json'>prior_session_matches.json</a></td>
+</tr><tr>
+  <td class="small">MEDIUM</td>
+  <td><strong>K-06</strong><div class="small">A prior-session &#x27;confirmed&#x27; claim that does not survive re-checking</div></td>
+  <td class="small">Session <code>093bfd5e</code> marked EL01 and EL02 as confirmed against the EuroLeague 2026-27 schedule release. That release (29 July 2026) announces the season and opening-night games on 24-25 September; it does not list the Round 7 fixtures on 22 October. Both rows therefore remain UNVERIFIED here, and the fixture-level claim is withdrawn pending a Round 7 page.</td>
+  <td class="small"><a href='https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/' target='_blank' rel='noopener'>EuroLeague release</a></td>
+</tr><tr>
+  <td class="small">LOW</td>
+  <td><strong>K-07</strong><div class="small">Pages that still could not be read back as fixtures</div></td>
+  <td class="small">EuroLeague game centre (client-side shell), PDC (consent wall), NRL Pacific Championships (serves the 2025 draw), EHF, lolesports, ATP/WTA, WTT, FIVB, PGA/LPGA and AFL. Rows that depend on those pages are unverified instead of being given a value from memory.</td>
+  <td class="small"><a href='https://www.nrl.com/pacific-championships/' target='_blank' rel='noopener'>nrl.com</a> · <a href='https://www.pdc.tv/tournaments/machineseeker-european-championship' target='_blank' rel='noopener'>pdc.tv</a></td>
+</tr><tr>
+  <td class="small">LOW</td>
+  <td><strong>K-08</strong><div class="small">Confidence is capped by evidence (3 high-confidence picks)</div></td>
+  <td class="small">HIGH is used only where both sides' current form was read from an official feed and quoted on the register. This cycle that is true for NHL05, NHL07 and NHL08. Nothing was promoted to HIGH to fill a quota, and the one medium prediction (MLB01) states explicitly why it is not high.</td>
+  <td class="small"><a href='methodology.html'>Methodology</a></td>
+</tr><tr>
+  <td class="small">LOW</td>
+  <td><strong>K-09</strong><div class="small">Unresolved on other boards&#x27; files: Build A / Build B overwrite</div></td>
+  <td class="small">Board J recorded that commit <code>cf9f024</code> replaced Build A's <code>data/rows.json</code> and Build B's <code>data/predictions.json</code>. This session does not own those files and has not edited them; the request stands with their owning sessions.</td>
+  <td class="small"><a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md'>COORDINATION.md</a></td>
+</tr><tr>
+  <td class="small">LOW</td>
+  <td><strong>K-10</strong><div class="small">Excluded sports are still excluded</div></td>
+  <td class="small">Soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials appear nowhere in the hub. Gaelic football and greyhounds are not in the hub either; they appear only inside other sessions' builds, which this session did not edit.</td>
+  <td class="small"><a href='index.html'>Dashboard</a></td>
+</tr></tbody>
     </table>
-    <hr>
-    <p class="small"><strong>Irregularities log:</strong> No scores or results were inferred or hallucinated. All finished results (Shanghai Masters final Davidovich Fokina 1-6 7-6(7-5) 6-4 over Jódar; Baycurrent won by Michael Brennan) are cross-checked on two sources (e.g., Wikipedia sourced to ATP + PGATour/ESPN leaderboard). If you spot a discrepancy, open a GitHub issue referencing the row ID and official URL.</p>
   </section>
 
   <section class="card">
-    <h3>Board K update — 2026-10-21 (session arena/093bfd5e-olbg4)</h3>
-    <p class="small">Fresh official spot-checks (NBA.com, MLB.com, NHL.com, Cricket Australia, EuroLeague, World Rugby, BWF) were applied to <code>data/matches.json</code>: fixtures confirmed on official sites were upgraded to those URLs (EuroLeague derbies Oct 22, World Rugby Nations Championship Nov 6–8, BWF French Open, NHL Oct 20–21); rows still verified only on secondary sources (ESPN, Wikipedia, OLBG, Sky/BBC, blogs) were downgraded to unverified + flagged above; NHL statuses were corrected to the NHL.com results (SJS 4–3 MTL OT, NJD 4–3 COL, NYI 3–2 ANA, TOR 6–2 CBJ, DAL 3–2 BOS OT) and the lost picks flagged. Full evidence table: <a href="session-093bfd5e/">Board K audit</a> · <a href="session-093bfd5e/flagged.html">Board K flagged list</a>. No row was deleted and no value was inferred.</p>
+    <h3>Previously logged irregularities (Board D / Board J) — status in this hub</h3>
+    <ul class="small">
+      <li><b>Board J F-01</b> — 26 rows verified without an official link. <b>Addressed here:</b> no row in this hub carries a "verified" badge unless an official source was opened and quoted in this cycle; the remainder are unverified.</li>
+      <li><b>Board J F-02</b> — predictions contradicted by NHL.com, MLB.com and NRL.com. <b>Addressed here:</b> all 15 withdrawn; see K-01.</li>
+      <li><b>Board J F-03</b> — CRK03, CRK05, MLB03, EL02 field errors. <b>Addressed here:</b> CRK03, CRK05 and MLB03 corrected from the governing body (K-03). EL02 could not be verified on EuroLeague, so it is now unverified rather than corrected.</li>
+      <li><b>Board J F-04</b> — non-match entries. <b>Addressed here:</b> flagged as K-04 and stripped of predictions.</li>
+      <li><b>Board J F-11/F-12</b> — Build A/B data overwritten. <b>Not addressed:</b> outside this session's file scope; logged as K-05.</li>
+      <li><b>Build D's own claim</b> that every row's source is a governing-body domain was not true of the data. The hub no longer makes that claim; the register shows exactly which rows have official links.</li>
+    </ul>
   </section>
-
-  <section class="card">
-    <h3>What happens next</h3>
-    <p class="small">This page is static GH Pages — flagged items do not block deployment. A second integration pass (per COORDINATION.md T16) will re-verify flagged items once draws/brackets publish (e.g., after EHF fixture list Oct 22, LoL Swiss Oct 12-13, ATP daily draws). Fixes are pushed as small commits with source links and the flagged badge is cleared.</p>
-  </section>
-
-  <div class="footer">OLBG4 • Flagged for Review • <a href="index.html">Dashboard</a> • <a href="sources.html">Sources</a> • Data cut-off 2026-10-21</div>
+  <div class="footer">OLBG4 • verified register • data cut-off 2026-10-21 • <a href="index.html">Dashboard</a> • <a href="flagged.html">Flagged for Review</a> • <a href="https://github.com/buffedlizard55-lab/OLBG4" target="_blank" rel="noopener">GitHub repo</a></div>
 </main>
 <script src="assets/js/main.js"></script>
 </body>

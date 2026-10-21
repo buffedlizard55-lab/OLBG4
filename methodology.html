@@ -10,7 +10,7 @@
 <header class="topbar">
   <div class="container inner">
     <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>Methodology — How lines are originated</p></div></div>
-    <nav class="nav"><a href="index.html">Dashboard</a><a href="methodology.html" class="active">Methodology</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a></nav>
+    <nav class="nav"><a href="index.html">Dashboard</a><a href="verification.html">Verification</a><a href="methodology.html" class="active">Methodology</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
   </div>
 </header>
 <main class="container">
@@ -18,6 +18,7 @@
   <section class="hero">
     <h2>Methodology — originating our own betting lines (no bookmaker copy)</h2>
     <p>We do not scrape or copy any bookmaker. For each match we estimate our <strong>own</strong> fair probabilities and derive moneyline, handicap/spread, and total lines from those probabilities plus sport-specific models. The same method is used for win-match, handicap, and totals across every market we list.</p>
+    <div class="notice"><strong>Revision, 2026-10-21 (Board K).</strong> The model below is unchanged, but publication rules are stricter. A row is only labelled <b>CONFIRMED ON OFFICIAL SOURCE</b> after this session read the fixture back from a league or governing-body feed and quoted what came back on the <a href="verification.html">Verification register</a>. Where the feed could not be read, the time and venue are blank, the pick is published only as our own model output at <b>LOW</b> confidence, and no prose prediction is attached. Confidence is now capped by evidence rather than by the model's own edge: <b>HIGH</b> requires quoted, verified current form for <em>both</em> sides. That rule leaves three high-confidence picks this cycle, and nothing was promoted to fill a quota.</div>
   </section>
 
   <div class="grid2">
@@ -65,9 +66,9 @@
       <h3>4. Confidence levels</h3>
       <p>Each pick is labelled <span class="badge badge-high">HIGH</span>, <span class="badge badge-medium">MEDIUM</span> or <span class="badge badge-low">LOW</span>:</p>
       <ul>
-        <li><strong>High:</strong> Model win prob ≥58% AND corroborated by (a) top-quartile form (last 10 wins ≥7) AND (b) head-to-head edge (≥2-1 last 3) AND (c) no flagged injury/selection. Requires a 30+ word human prediction with team, player, current form, recent history, clear selection.</li>
-        <li><strong>Medium:</strong> Model prob 53–57% OR one corroborating factor missing/conflicted form. Prediction is shorter (1–2 sentences).</li>
-        <li><strong>Low:</strong> Model prob &lt;53% or key factor missing (e.g., draw not published, travel variables, off-season). Often a coin-flip / no favourite lean; flagged where appropriate.</li>
+        <li><strong>High (evidence gate):</strong> the fixture is confirmed on an official source <em>and</em> current form for both sides was read from that same official feed and quoted on the register, with at least two quoted facts per row. Requires a unique 30+ word prediction naming the team/player, the verified form figures, the recent results and the exact selection. Published this cycle: NHL05, NHL07, NHL08.</li>
+        <li><strong>Medium:</strong> fixture confirmed, at least one quoted form fact, but the other side's form could not be verified or the model edge is small. One prediction is published at this level (MLB01) because the verified facts are sufficient to state a selection but not to claim high confidence.</li>
+        <li><strong>Low:</strong> the fixture could not be confirmed on an official source in this cycle, or the row is a tournament/off-season note. The line survives only as our own model output; time, venue and prediction are blank and the row is flagged.</li>
       </ul>
       <p class="small">High-confidence predictions are written to be unique, non-robotic, and must name the team/player, current form (e.g., "won 4 of last 5 at home, 28.6% PP"), recent head-to-head ("beat X 2-1 last year including 32-19 in Dublin"), and the betting selection ("back X moneyline 1.52 and -5.5 handicap").</p>
     </div>
@@ -75,11 +76,11 @@
 
   <section class="card" style="margin-top:14px">
     <h3>5. Verification — no hallucinations</h3>
-    <p>Every table row must have a source link to an official site (e.g., <code>nba.com</code>, <code>mlb.com</code>, <code>nhl.com</code>, <code>atptour.com</code>, <code>pdc.tv</code>, <code>pgatour.com</code>). Values are only filled if confirmable there:</p>
+    <p>Every confirmed row links the exact official endpoint that was opened (e.g., <code>api-web.nhle.com</code>, <code>statsapi.mlb.com</code>, <code>nba.com</code>, <code>pcb.com.pk</code>, <code>wst.tv</code>) and the returned values are quoted on the <a href="verification.html">register</a>. Values are filled only if they came back from such a source:</p>
     <ul>
       <li>Date/time/venue/participants → confirmed on official schedule page.</li>
-      <li>Current form → derived from official results/standings pages (or verified via secondary official summary like BBC Sport citing the official body).</li>
-      <li>Head-to-head → from official stats (e.g., NBA head-to-head, ATP H2H, FIVB rankings).</li>
+      <li>Current form → read from the official standings/game-centre feed (records, goals for and against, power play, penalty kill, faceoffs, last-ten results). Secondary summaries are no longer accepted as the basis for a number.</li>
+      <li>Head-to-head → only when the official feed states it. Nothing is estimated.</li>
       <li>If a field cannot be confirmed (e.g., EHF CL fixture list not published, Esports bracket not locked), it is <strong>left blank</strong> and the row is marked <span class="badge badge-flagged">FLAGGED</span> with a reason. Never inferred.</li>
     </ul>
     <div class="notice" style="margin-top:10px">

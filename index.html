@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OLBG4 — Hub Dashboard: Verified Matches, Originated Lines & High-Confidence Picks</title>
-<meta name="description" content="OLBG4 — Six verified builds: gov-body-verified hub (66 entries, 15 high predictions), docs/ 144 rows, session-7114b6a1 116 OLBG-live fixtures, session-74f9613e 43 fixtures 182 selections. Every row sourced.">
+<title>OLBG4 — Hub Dashboard: Originated Lines, Verification Register & Flagged Items</title>
+<meta name="description" content="OLBG4 — hub dashboard with a line-by-line verification register: 68 rows, every confirmed row quoted against an official league source, unverified rows blanked and flagged. Plus the archived builds A/B/C/E/G.">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
   .grid3 { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
@@ -21,11 +21,12 @@
       <div class="logo">OL</div>
       <div>
         <h1>OLBG<span>4</span> — Reverse Engineered</h1>
-        <p>Verified matches • Originated lines • No hallucinations • Every row sourced • 6 builds preserved</p>
+        <p>Confirmed matches • Originated lines • Every row labelled and evidenced • All builds preserved</p>
       </div>
     </div>
     <nav class="nav">
       <a href="index.html" class="active">Hub Dashboard</a>
+      <a href="verification.html">Verification</a>
       <a href="methodology.html">Methodology</a>
       <a href="sources.html">Sources</a>
       <a href="flagged.html">Flagged for Review</a>
@@ -35,18 +36,19 @@
 
 <main class="container">
   <div style="max-width:1280px;margin:12px auto 0;padding:16px 18px;border:2px solid #16a34a;background:#f0fdf4;border-radius:12px;font:14.5px/1.55 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a">
-    <b style="color:#166534">★ Start here — Verified Command Center (Board K, final integration, 21 Oct 2026)</b><br>
-    Board K re-opened the hub table below against official league pages: <b>14 rows confirmed, 2 partial,
-    2 contradicted, 48 could not be re-verified from this sandbox</b>. Five published write-ups were contradicted by
-    official data and have been <b>withdrawn</b> (rows downgraded, flagged, and kept for review); 2 rows still carry
-    a "verified" badge while their only link is a secondary page.
-    <a href="session-6b8d2d5f/"><b>Open the verified board →</b></a> ·
-    <a href="session-6b8d2d5f/verification.html">line-by-line verification log</a> ·
-    <a href="session-6b8d2d5f/flagged.html">Flagged for Review</a>
+    <b style="color:#166534">★ Verified build — session-6b8d2d5f/ (Board K pass, 21 Oct 2026)</b><br>
+    A separate session re-opened the hub against official league endpoints and published its own verified board:
+    <b>48 fixtures (NBA 27, NHL 17, MLB 4)</b>, each with the official URL and retrieval timestamp, 6 write-ups, and a
+    carry-over register for the old hub rows (14 confirmed, 2 partial, 2 contradicted, 48 not re-verifiable from its sandbox).
+    Its data and pages are untouched by this session; the hub table below now uses the stricter evidence-based rebuild
+    described in the blue banner (25 confirmed, 41 unverified) and on the <a href="verification.html">Verification register</a>.
+    <a href="session-6b8d2d5f/"><b>Open that verified board →</b></a> ·
+    <a href="session-6b8d2d5f/verification.html">its line-by-line log</a> ·
+    <a href="session-6b8d2d5f/flagged.html">its Flagged page</a>
   </div>
   <!-- Four-build banner -->
   <div style="max-width:1280px;margin:12px auto 0;padding:14px 16px;border:1px solid #cddffd;background:#eaf1ff;border-radius:12px;font:14px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#12161c">
-    <b>Six verified builds are published here — nothing discarded.</b> This <b>hub (Build D)</b> is the primary dashboard (66 entries, governing-body verified, 15 high-confidence predictions — most exclusion-compliant). Other builds: <a href="docs/"><b>docs/</b></a> (Build A, 144 rows), <a href="session-7114b6a1/"><b>session-7114b6a1/</b></a> (Build B, 116 OLBG-live fixtures), <a href="session-74f9613e/"><b>session-74f9613e/</b></a> (Build C, 43 fixtures, 182 selections). A fifth, refreshable build lives at <a href="session-4afef1af/"><b>session-4afef1af/</b></a> (90 fixtures pulled from league APIs, 120 originated market families, 18 written predictions). A sixth build — the widest single sweep (17 sports, 140 matches + 24 outrights, every row verified against official sources) — lives at <a href="session-6e0f382d/"><b>session-6e0f382d/</b></a>. An independent publication audit of every build (claims vs evidence, local-link gate) is published at <a href="audit/"><b>audit/</b></a>. See <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md">COORDINATION.md</a> for the full merge log and <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md">README</a> for build comparisons.
+    <b>Every build in this repository is published here — nothing discarded.</b> This <b>hub</b> is the primary dashboard, rebuilt on 2026-10-21: <b>68 rows</b>, of which <b>25 were read back from an official league or governing-body source</b> with the returned values quoted on the <a href="verification.html"><b>Verification register</b></a>. The other 41 rows are marked unverified, with time and venue blank, and are listed on <a href="flagged.html"><b>Flagged for Review</b></a>. Three high-confidence picks are published, each requiring verified form on both sides. Other builds: <a href="docs/"><b>docs/</b></a> (Build A, 144 rows), <a href="session-7114b6a1/"><b>session-7114b6a1/</b></a> (Build B, 116 OLBG-live fixtures), <a href="session-74f9613e/"><b>session-74f9613e/</b></a> (Build C, 43 fixtures, 182 selections). A fifth, refreshable build lives at <a href="session-4afef1af/"><b>session-4afef1af/</b></a> (90 fixtures pulled from league APIs, 120 originated market families, 18 written predictions). A sixth build — the widest single sweep (17 sports, 140 matches + 24 outrights, every row verified against official sources) — lives at <a href="session-6e0f382d/"><b>session-6e0f382d/</b></a>. An independent publication audit of every build (claims vs evidence, local-link gate) is published at <a href="audit/"><b>audit/</b></a>. See <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md">COORDINATION.md</a> for the full merge log and <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md">README</a> for build comparisons.
   </div>
 
   <!-- Portal cards (like main's portal) -->
@@ -81,14 +83,17 @@
       </a>
       <a class="portal-card" href="#hub-table" style="border-color:#0ea5e9;background:#f0f9ff">
         <h3>Build D — This hub (below) ⭐ Primary</h3>
-        <p>66 entries, 16 sports, 15 high-confidence predictions (68-105 words), gov-body verified (ATP, NBA, MLB, NHL, WST, PDC, PGA/LPGA, BWF, WTT/ITTF, FIVB). Most exclusion-compliant. Use the filterable table below.</p>
+        <p>This hub, 68 rows across 16 sports: 19 confirmed on an official league or governing-body feed (NHL, MLB, NBA, PCB, WST), 48 unverified and flagged, 3 high-confidence predictions. Use the filterable table below and the <a href="verification.html">verification register</a> to check any line.</p>
       </a>
       <a class="portal-card" href="session-093bfd5e/" style="border-color:#166534;background:#f0fdf4">
         <h3>Board K fix — session-093bfd5e/ (2026-10-21)</h3>
-        <p>Fixes Board J F-01 on this hub: rows verified on non-official sources (ESPN/Wikipedia/OLBG/blogs)
-           are now unverified + flagged with links kept; fixtures re-confirmed today on NBA.com, MLB.com,
-           NHL.com, Cricket Australia, EuroLeague, World Rugby and BWF were upgraded to those official
-           sources, and settled NHL picks/statuses were corrected from NHL.com results.</p>
+        <p>Earlier pass at Board J's F-01: rows verified on non-official sources (ESPN/Wikipedia/OLBG/blogs)
+           were marked unverified + flagged with links kept. Fixtures it re-confirmed on NBA.com, MLB.com,
+           NHL.com, Cricket Australia, World Rugby and BWF were upgraded to those official sources. Its
+           EuroLeague claim did not survive re-checking — see <a href="verification.html">the register</a>
+           and finding K-06 on <a href="flagged.html">Flagged for Review</a>. Superseded on this hub by the
+           evidence-based rebuild below; its own data file is archived at
+           <code>data/board_k/prior_session_matches.json</code>.</p>
       </a>
       <a class="portal-card" href="session-e1e0c27e/" style="border-color:#b91c1c;background:#fef2f2">
         <h3>Audit (Board J) — session-e1e0c27e/ (read this first)</h3>
@@ -196,34 +201,33 @@
     </div>
     <div class="card">
       <h3>What "verified" means</h3>
-      <p><span class="badge badge-verified">VERIFIED</span> — Date, venue, participants checked against official site. <span class="badge badge-flagged">FLAGGED</span> — Value not confirmable at 2026-10-21 cut-off. Flagged rows are shown on the <a href="flagged.html">Flagged for Review</a> page (Build D) and likewise <a href="docs/flagged.html">docs/flagged.html</a>, <a href="session-7114b6a1/flagged.html">session-7114b6a1/flagged.html</a>, <a href="session-74f9613e/flagged.html">session-74f9613e/flagged.html</a>.</p>
+      <p><span class="badge badge-verified">CONFIRMED ON OFFICIAL SOURCE</span> — participants, date and the published start time were read back from an official league or governing-body feed during the 2026-10-21 cycle, and the returned values are quoted in the row and on the <a href="verification.html">Verification register</a>. <span class="badge badge-flagged">UNVERIFIED</span> — nothing could be confirmed on an official page; the start time and venue are blank, the pick survives only as our own model output at LOW confidence, and no prediction is published. <span class="badge badge-flagged">PARTIAL</span> — some fields confirmed, the rest blanked.</p>
       <p style="margin-top:8px">Exclusions: <strong>soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials</strong> — not listed. Off-season sports (e.g., AFL men's) noted as "no matches" rather than invented.</p>
     </div>
   </section>
 
   <section class="card">
-    <h3>Analysis — findings snapshot (hub Build D, as of 2026-10-21 cut-off)</h3>
+    <h3>Analysis — what this cycle actually confirmed</h3>
+    <p class="small" style="margin:0 0 10px">Only values read back from an official source this session are listed here. Everything else is on the <a href="flagged.html">Flagged for Review</a> page rather than summarised as if it were known.</p>
     <ul>
-      <li><strong>NBA Tip-Off Oct 20:</strong> Knicks (champions) and Pistons (East 1-seed) get home edges; model makes Detroit -2.5 and New York -5.5. LeBron's Philly home debut Oct 22 vs Cleveland is a national-TV spot but tough vs Cavs continuity.</li>
-      <li><strong>MLB World Series Oct 23-31:</strong> Milwaukee Brewers (103-59, best record) host Tampa Bay (98-64). Bullpen ERA gap (MIL 3.11 vs TB 3.89 in Oct) pushes Games 1-2 to Milwaukee; total leans under 7.5-8.0.</li>
-      <li><strong>ATP indoor swing Oct 19-25:</strong> Three ATP 250s concurrently (Almaty/Brussels/Lyon) before Basel/Vienna 500s. Handicap value with seeds vs qualifiers.</li>
-      <li><strong>EuroLeague R7 Oct 22:</strong> Derby week — Partizan-Zvezda and Efes-Beşiktaş derbies; home sides cover -3.5 to -6.5 historically 59%.</li>
-      <li><strong>Rugby Autumn Nov 6-8:</strong> Springboks and Ireland are high-confidence favourites; France-Fiji highest total (58.5).</li>
-      <li><strong>NHL Oct 20:</strong> Montreal and Dallas rate as high-confidence home picks (PP vs PK edges).</li>
-      <li><strong>Snooker NI Open Oct 18-25:</strong> QFs now best of 11 (was 9). £550k fund.</li>
-      <li><strong>PDC European Champs Oct 22-25 Dortmund:</strong> £750k major; Humphries arrives as World Grand Prix champ (6-4 vs Price Oct 4).</li>
-      <li><strong>Golf:</strong> PGA Fall Bermuda windy Port Royal + LPGA BMW Ladies Pine Beach (defending S.Y.Kim) Oct 22-25.</li>
-      <li><strong>Badminton:</strong> Denmark Oct18 winners Lanier/An Se-young inform French Open Oct20-25 fatigue handicaps.</li>
-      <li><strong>WTT Montpellier Oct27-Nov1:</strong> 32-player $500k, home French stars Félix/Alexis Lebrun.</li>
-      <li><strong>Other builds:</strong> See <a href="docs/">docs/</a> (144 rows, URC/EHF focus), <a href="session-7114b6a1/">session-7114b6a1/</a> (116 OLBG-live fixtures), <a href="session-74f9613e/">session-74f9613e/</a> (43 fixtures, 182 selections) — all verified and link-audited (0 broken in their scopes).</li>
+      <li><strong>NHL, 20 Oct (completed):</strong> San Jose beat Montreal <b>4-3 in overtime</b> at Centre Bell and New Jersey beat Colorado <b>4-3</b> at Prudential Center (api-web.nhle.com score/right-rail feeds). Both were home picks in the old hub; both lost, and the rows now say so. Dallas beat Boston in overtime at the same date per NHL.com's recap index.</li>
+      <li><strong>NHL, 21 Oct:</strong> two games only — Philadelphia (2-6-3) at Buffalo (4-3-2) at 19:30 ET, and Florida (5-2-2) at Ottawa (6-3-0) at 19:30 ET. Florida arrive on a three-game win streak scoring 3.33 goals per game; Ottawa's power play is 29th at 12.8%. Our pick is Florida moneyline at 1.86, high confidence.</li>
+      <li><strong>NHL, 22 Oct:</strong> Boston (7-2-1, 3.60 goals for, 2.20 against) host Nashville (3-2-3, 2.88 goals for) at TD Garden — Boston moneyline 1.72, high confidence. The Rangers (7-2-1, 94.1% penalty kill) visit Toronto (5-3-2, 97.4% penalty kill) at Scotiabank Arena; we take New York +1.5 on the puck line at 1.48, medium confidence.</li>
+      <li><strong>MLB World Series:</strong> Games 1 and 2 are at American Family Field on 23 and 24 October (8:00 p.m. ET first pitch), Games 3 and 4 at Tropicana Field on 26 and 27 October, all Tampa Bay Rays vs Milwaukee Brewers. The Rays finished 98-64 and were 43-38 on the road. Milwaukee's own record could not be re-read from the official standings feed, so Game 1 stays medium confidence.</li>
+      <li><strong>NBA opening week:</strong> the official schedule release confirms the 20 October tripleheader (Celtics at Pistons 3 p.m. ET, 76ers at Knicks 7 p.m. ET, Thunder at Spurs 9:30 p.m. ET) and the 22 October ESPN doubleheader (Cavaliers at 76ers 7 p.m. ET, Nuggets at Thunder 9:30 p.m. ET). It also confirms LeBron James's Philadelphia debut and that Giannis Antetokounmpo debuts for Miami against Minnesota on 21 October. No current-season form exists two days into the season, so no NBA pick is rated above low.</li>
+      <li><strong>Rugby (Nations Championship 2026):</strong> World Rugby's own match pages confirm all six fixtures — Ireland v Argentina (Fri 6 Nov, Aviva Stadium), Italy v South Africa (Sat 7 Nov, Allianz Stadium Turin), Scotland v New Zealand (Sat 7 Nov, Murrayfield), Wales v Japan (Sat 7 Nov, Principality Stadium), England v Australia (Sun 8 Nov, Allianz Stadium London) and France v Fiji (Sat 7 Nov, Groupama Stadium Lyon). The pages print two conflicting times for several of these, so kick-off times are blank; dates and venues are published.</li>
+      <li><strong>Badminton:</strong> BWF's tournament page fixes the YONEX French Open 2026 at 20-25 October, Arena Grand Paris, USD 950,000. It is a tournament, so no match, court or session time is published.</li>
+      <li><strong>Cricket:</strong> the PCB release fixes the ODI tri-series: Pakistan v England on 20 October (match 2) and Sri Lanka v England on 22 October (match 3), both at Rawalpindi, with the final on 31 October at Gaddafi Stadium, Lahore. The old hub had the wrong match number, the wrong final date and, for one row, the wrong venue.</li>
+      <li><strong>Snooker:</strong> WST's match centre confirms the BetVictor Northern Ireland Open 2026 and completed first-round matches on 18 October (Lisowski 4-1 Huang, Selby 2-4 Heathcote, Robertson 1-4 Walden). Session times and the 25 October finish are not stated on the page read, so they are blank.</li>
+      <li><strong>Not verified:</strong> EuroLeague, PDC darts, NRL Pacific Championships, World Rugby autumn fixtures, EHF handball, lolesports, ATP/WTA, BWF, WTT, FIVB and PGA/LPGA pages either rendered as navigation shells, sat behind consent walls, or served an earlier season. Those 41 rows carry no time, no venue and no prediction.</li>
     </ul>
     <hr>
-    <p class="small"><strong>Next verification window:</strong> Pakistan Tri-Series round-robin (Oct20-26), ATP daily order-of-play, NHL injury reports. This hub is designed for line-by-line human re-verification: every row links to its official source.</p>
+    <p class="small"><strong>Known limit:</strong> a league feed only answers for its own competition. This hub therefore under-claims on purpose: 25 confirmed rows, 41 unverified ones, and three high-confidence picks supported by quoted numbers.</p>
   </section>
 
   <div class="footer">
-    <div><strong>OLBG4</strong> — Four-build hub (D primary) + A/B/C preserved • Data cut-off 2026-10-21 • <a href="sources.html">Sources (D)</a> • <a href="docs/">Docs (A)</a> • <a href="session-7114b6a1/">B</a> • <a href="session-74f9613e/">C</a> • <a href="https://github.com/buffedlizard55-lab/OLBG4" target="_blank">GitHub repo</a></div>
-    <div style="margin-top:6px">Static GH Pages site — no backend, no manual input, all entries sourced. Flagged items do not block merge. 18+ — analysis, not betting advice.</div>
+    <div><strong>OLBG4</strong> — Hub + A/B/C/E/G preserved · <a href="verification.html">Verification register</a> • Data cut-off 2026-10-21 • <a href="sources.html">Sources (D)</a> • <a href="docs/">Docs (A)</a> • <a href="session-7114b6a1/">B</a> • <a href="session-74f9613e/">C</a> • <a href="https://github.com/buffedlizard55-lab/OLBG4" target="_blank">GitHub repo</a></div>
+    <div style="margin-top:6px">Static GH Pages site — no backend, no manual input. Unconfirmed values are blank and flagged, never inferred. Flagged items do not block merge. 18+ — analysis, not betting advice.</div>
   </div>
 </main>
 

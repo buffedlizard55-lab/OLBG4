@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification register — OLBG4</title>
+<meta name="description" content="OLBG4 — line-by-line verification register: every row, the official source it was checked against, and the verdict.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container inner">
+    <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>Verification register — line by line</p></div></div>
+    <nav class="nav"><a href="index.html">Dashboard</a><a href="verification.html">Verification</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <h2>Verification register — every hub row, the official source, and the verdict</h2>
+    <p>This page is generated from <code>data/board_k/verification.json</code> by <code>scripts/board_k/build_hub.py</code>. It lists the check performed for each of the 68 rows on the dashboard: which official endpoint or page was opened, the exact values it returned, what was corrected, and whether the row is <b>CONFIRMED</b>, <b>PARTIAL</b> or <b>UNVERIFIED</b>.</p>
+    <div class="notice"><strong>What the labels mean.</strong> CONFIRMED — participants, date and the published start time were read back from an official league or governing-body source during the 2026-10-21 cycle, and the returned values are quoted in the row. PARTIAL — part of the row was confirmed and the rest was blanked. UNVERIFIED — nothing could be confirmed; time and venue are blank, the pick survives only as our own model output at LOW confidence, and the prediction text is withdrawn rather than reworded.</div>
+  </section>
+
+  <section class="kpis">
+    <div class="kpi"><div class="label">Rows in register</div><div class="value">68</div><div class="sub">25 confirmed · 2 partial · 41 unverified</div></div>
+    <div class="kpi"><div class="label">Quoted official checks</div><div class="value">37</div><div class="sub">verbatim values read back from the source in this cycle</div></div>
+    <div class="kpi"><div class="label">High-confidence picks</div><div class="value">3</div><div class="sub">both sides' form verified · each ≥30 words</div></div>
+    <div class="kpi"><div class="label">Predictions withdrawn</div><div class="value">66</div><div class="sub">claims absent from every official page we could open</div></div>
+  </section>
+
+  <section class="table-wrap">
+    <div style="padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;background:#f8fafc">
+      <strong style="font-size:13px">Line-by-line register</strong><span class="small">Verdict • quoted evidence • official link • correction</span>
+    </div>
+    <div style="overflow:auto;max-height:75vh">
+      <table>
+        <thead><tr><th style="min-width:110px">Row</th><th>Sport</th><th style="min-width:230px">Match (as published)</th><th style="min-width:120px">Verdict</th><th style="min-width:320px">What the official source returned</th><th style="min-width:190px">Official source opened</th><th style="min-width:180px">Correction / pick</th></tr></thead>
+        <tbody><tr>
+  <td><strong>MLB01</strong><div class="small">2026-10-23</div></td>
+  <td><span class="tag">Baseball</span></td>
+  <td>Tampa Bay Rays @ Milwaukee Brewers<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“gamePk 849805 · date 2026-10-23 · away Tampa Bay Rays · home Milwaukee Brewers · venue American Family Field · gameDate 2026-10-24T00:00:00Z (= 8:00 p.m. ET, 23 Oct)”</div></td>
+  <td class="small"><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;date=2026-10-23" target="_blank" rel="noopener">MLB.com schedule API (gamePk 849805)</a></td>
+  <td class="small">Corrected: time, venue<div>Milwaukee Brewers to win Game 1 (moneyline, our 1.78)<br>Medium · prediction</div></td>
+</tr><tr>
+  <td><strong>MLB02</strong><div class="small">2026-10-24</div></td>
+  <td><span class="tag">Baseball</span></td>
+  <td>Tampa Bay Rays @ Milwaukee Brewers<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“gamePk 849802 · date 2026-10-24 · away Tampa Bay Rays · home Milwaukee Brewers · venue American Family Field · gameDate 2026-10-25T00:00:00Z (= 8:00 p.m. ET, 24 Oct)”</div></td>
+  <td class="small"><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;date=2026-10-24" target="_blank" rel="noopener">MLB.com schedule API (gamePk 849802)</a></td>
+  <td class="small">Corrected: time, venue<div>Milwaukee Brewers to win Game 2<br>Low</div></td>
+</tr><tr>
+  <td><strong>MLB03</strong><div class="small">2026-10-26</div></td>
+  <td><span class="tag">Baseball</span></td>
+  <td>Milwaukee Brewers @ Tampa Bay Rays<div class="small">The pre-remediation row read &#x27;George M. Steinbrenner Field / Tropicana Field replacement&#x27;. MLB&#x27;s official schedule names Tropicana Field. Corrected.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“gamePk 849804 · date 2026-10-26 · away Milwaukee Brewers · home Tampa Bay Rays · venue Tropicana Field · gameDate 2026-10-27T00:00:00Z (= 8:00 p.m. ET, 26 Oct)”</div></td>
+  <td class="small"><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;date=2026-10-26" target="_blank" rel="noopener">MLB.com schedule API (gamePk 849804)</a></td>
+  <td class="small">Corrected: time, venue<div>Tampa Bay Rays to win Game 3<br>Low</div></td>
+</tr><tr>
+  <td><strong>MLB04</strong><div class="small">2026-10-27</div></td>
+  <td><span class="tag">Baseball</span></td>
+  <td>Milwaukee Brewers @ Tampa Bay Rays<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“gamePk 849803 · date 2026-10-27 · away Milwaukee Brewers · home Tampa Bay Rays · venue Tropicana Field · gameDate 2026-10-28T00:00:00Z (= 8:00 p.m. ET, 27 Oct)”</div></td>
+  <td class="small"><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;date=2026-10-27" target="_blank" rel="noopener">MLB.com schedule API (gamePk 849803)</a></td>
+  <td class="small">Corrected: time, venue<div>Milwaukee Brewers to win Game 4<br>Low</div></td>
+</tr><tr>
+  <td><strong>NBA01</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Boston Celtics @ Detroit Pistons<div class="small">The release names the pairing and the 3 p.m. ET tip but not the arena, so the venue is left blank rather than carried over.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“&quot;American Express NBA Tip-Off 2026 will begin on Tuesday, Oct. 20 with an NBC/Peacock tripleheader as the Boston Celtics visit the Detroit Pistons (3 p.m. ET)…&quot;”</div></td>
+  <td class="small"><a href="https://www.nba.com/news/2026-27-nba-regular-season-schedule" target="_blank" rel="noopener">NBA.com — 2026-27 schedule release (Aug 13, 2026)</a></td>
+  <td class="small">Corrected: time, venue<div>Detroit Pistons to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>NBA02</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Philadelphia 76ers @ New York Knicks<div class="small">Pairing, host and tip time confirmed. Arena not named in the release, so blank.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“&quot;…the defending NBA champion New York Knicks host the Philadelphia 76ers (7 p.m. ET)…&quot;”</div></td>
+  <td class="small"><a href="https://www.nba.com/news/2026-27-nba-regular-season-schedule" target="_blank" rel="noopener">NBA.com — 2026-27 schedule release (Aug 13, 2026)</a></td>
+  <td class="small">Corrected: time, venue<div>New York Knicks to win (Ring ceremony lift)<br>Low</div></td>
+</tr><tr>
+  <td><strong>NBA03</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Oklahoma City Thunder @ San Antonio Spurs<div class="small">Venue named by the official release; confirms Oklahoma City as the road team.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“&quot;…the San Antonio Spurs meet the Oklahoma City Thunder at Frost Bank Center (9:30 p.m. ET).&quot;”</div></td>
+  <td class="small"><a href="https://www.nba.com/news/2026-27-nba-regular-season-schedule" target="_blank" rel="noopener">NBA.com — 2026-27 schedule release (Aug 13, 2026)</a></td>
+  <td class="small">Corrected: time, venue<div>Oklahoma City Thunder to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>NBA04</strong><div class="small">2026-10-22</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Cleveland Cavaliers @ Philadelphia 76ers<div class="small">Pairing and tip confirmed. Arena not named, blank.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“&quot;On Oct. 22, NBA all-time scoring leader LeBron James will make his Philadelphia home debut when the 76ers face seven-time NBA All-Star Donovan Mitchell and the Cleveland Cavaliers (7 p.m. ET).&quot;”</div></td>
+  <td class="small"><a href="https://www.nba.com/news/2026-27-nba-regular-season-schedule" target="_blank" rel="noopener">NBA.com — 2026-27 schedule release (Aug 13, 2026)</a></td>
+  <td class="small">Corrected: time, venue<div>Philadelphia 76ers to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>NBA05</strong><div class="small">2026-10-22</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Denver Nuggets @ Oklahoma City Thunder<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“&quot;Two-time reigning Kia NBA MVP Shai Gilgeous-Alexander will then lead the Thunder against three-time Kia NBA MVP Nikola Jokić and the Denver Nuggets at Paycom Center (9:30 p.m. ET).&quot;”</div></td>
+  <td class="small"><a href="https://www.nba.com/news/2026-27-nba-regular-season-schedule" target="_blank" rel="noopener">NBA.com — 2026-27 schedule release (Aug 13, 2026)</a></td>
+  <td class="small">Corrected: time, venue<div>Oklahoma City Thunder to win<br>Medium</div></td>
+</tr><tr>
+  <td><strong>CRK03</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Cricket</span></td>
+  <td>Pakistan vs England — ODI tri-series match 2<div class="small">The pre-remediation row read &#x27;England vs Pakistan — Tri-Series Match 1&#x27; with a date range of 20-29 Oct and a Gaddafi Stadium/Lahore venue. PCB: this is match 2 (match 1 was Pakistan v Sri Lanka on 18 Oct), played at Rawalpindi. Corrected; start time not stated by the source, so blank.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“&quot;The hosts will face England in the second match at the same venue on Tuesday, 20 October…&quot;”</div><div class="small">“Schedule: &quot;20 October – Pakistan v England, Rawalpindi Cricket Stadium, Rawalpindi&quot;”</div></td>
+  <td class="small"><a href="https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html" target="_blank" rel="noopener">Pakistan Cricket Board press release, 19 Aug 2026</a></td>
+  <td class="small">Corrected: competition, date, match, time, venue<div>Pakistan to win (home)<br>Low</div></td>
+</tr><tr>
+  <td><strong>CRK04</strong><div class="small">2026-10-22</div></td>
+  <td><span class="tag">Cricket</span></td>
+  <td>Sri Lanka vs England<div class="small">Source upgraded from skysports.com to the governing body; venue confirmed, start time not stated so blank.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“&quot;…while Sri Lanka and England will meet in the third match at the Rawalpindi Cricket Stadium on Thursday, 22 October.&quot;”</div></td>
+  <td class="small"><a href="https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html" target="_blank" rel="noopener">Pakistan Cricket Board press release, 19 Aug 2026</a></td>
+  <td class="small">Corrected: competition, time, venue<div>England to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>CRK05</strong><div class="small">2026-10-31</div></td>
+  <td><span class="tag">Cricket</span></td>
+  <td>ODI tri-series final — TBD (top two on the table)<div class="small">The pre-remediation row dated the final 29 Oct. PCB: 29 Oct is Sri Lanka v England; the final is 31 Oct at Gaddafi Stadium. The row&#x27;s own text says the finalists are TBD, so the previously published &#x27;lean Pakistan&#x27; pick was withdrawn.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“&quot;…while the top two sides will meet in the final at the same venue on Saturday, 31 October.&quot;”</div><div class="small">“Schedule: &quot;31 October – Tri-series final, Gaddafi Stadium, Lahore&quot;”</div></td>
+  <td class="small"><a href="https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html" target="_blank" rel="noopener">Pakistan Cricket Board press release, 19 Aug 2026</a></td>
+  <td class="small">Corrected: confidence, date, match, pick, status, time, venue<div><br>Low</div></td>
+</tr><tr>
+  <td><strong>NHL01</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>San Jose Sharks @ Montreal Canadiens<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“venue Centre Bell · startTimeUTC 2026-10-20T23:00:00Z · away San Jose Sharks score 4 · home Montreal Canadiens score 3 · lastPeriodType OT”</div></td>
+  <td class="small"><a href="https://api-web.nhle.com/v1/score/2026-10-20" target="_blank" rel="noopener">NHL.com score feed, 20 Oct 2026 (game 2026020141)</a></td>
+  <td class="small">Corrected: result, status, time, venue<div>Montreal Canadiens to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>NHL02</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>Colorado Avalanche @ New Jersey Devils<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“venue Prudential Center · startTimeUTC 2026-10-20T23:00:00Z · COL score 3 · NJD score 4 · lastPeriodType REG”</div></td>
+  <td class="small"><a href="https://api-web.nhle.com/v1/gamecenter/2026020142/right-rail" target="_blank" rel="noopener">NHL.com game center, 20 Oct 2026 (game 2026020142)</a></td>
+  <td class="small">Corrected: result, status, time, venue<div>Colorado Avalanche to win (coin-flip, slight road lean)<br>Low</div></td>
+</tr><tr>
+  <td><strong>NHL05</strong><div class="small">2026-10-21</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>Philadelphia Flyers @ Buffalo Sabres<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“startTimeUTC 2026-10-21T23:30:00Z · venue KeyBank Center · records PHI 2-6-3, BUF 4-3-2”</div><div class="small">“PHI: GF/G 1.55 (rank 32), GA/G 3.18, PP 12.9% (27), PK 84.6% (8), last ten 2-5-3, streak W2”</div><div class="small">“BUF: GF/G 3.00, GA/G 3.67, PP 9.1% (31), PK 64.5% (30), last ten 4-3-2”</div></td>
+  <td class="small"><a href="https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail" target="_blank" rel="noopener">NHL.com game center right-rail, 21 Oct 2026 (game 2026020152)</a></td>
+  <td class="small">Corrected: time, venue<div>Buffalo Sabres to win (moneyline, our 1.90)<br>High · prediction</div></td>
+</tr><tr>
+  <td><strong>NHL06</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>Boston Bruins @ Dallas Stars<div class="small">The fixture date and outcome are confirmed by NHL.com. Venue and start time were not read back from the feed in this cycle, so both are blank.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“NHL.com news index, 20 Oct 2026: &quot;Rantanen caps hat trick with OT goal, lifts Stars past Bruins&quot; (Boston Bruins Dallas Stars game recap October 20, 2026)”</div></td>
+  <td class="small"><a href="https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026" target="_blank" rel="noopener">NHL.com game recap, 20 Oct 2026</a></td>
+  <td class="small">Corrected: result, status, time, venue<div>Dallas Stars to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>NHL07</strong><div class="small">2026-10-21</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>Florida Panthers @ Ottawa Senators<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“startTimeUTC 2026-10-21T23:30:00Z · venue Canadian Tire Centre · records FLA 5-2-2, OTT 6-3-0”</div><div class="small">“FLA: GF/G 3.33 (10), GA/G 2.78 (11), PP 20.9% (17), PK 80.6% (13), last ten 5-2-2, streak W3”</div><div class="small">“OTT: GF/G 2.44 (25), GA/G 2.56 (7), PP 12.8% (29), PK 79.4% (16), last ten 6-3-0”</div></td>
+  <td class="small"><a href="https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail" target="_blank" rel="noopener">NHL.com game center right-rail, 21 Oct 2026 (game 2026020153)</a></td>
+  <td class="small">Corrected: time, venue<div>Florida Panthers to win (moneyline, our 1.86)<br>High · prediction</div></td>
+</tr><tr>
+  <td><strong>NHL08</strong><div class="small">2026-10-22</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>Nashville Predators @ Boston Bruins<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“startTimeUTC 2026-10-22T23:00:00Z · venue TD Garden · NSH last ten 3-2-3, BOS last ten 7-2-1”</div><div class="small">“BOS: GF/G 3.60 (7), GA/G 2.20 (4), PP 21.4% (15), PK 80.0% (14), faceoffs 52.7% (6)”</div><div class="small">“NSH: GF/G 2.88 (22), GA/G 2.75 (10), PP 29.6% (3), PK 85.2% (7), faceoffs 49.0% (20)”</div></td>
+  <td class="small"><a href="https://api-web.nhle.com/v1/gamecenter/2026020154/right-rail" target="_blank" rel="noopener">NHL.com game center right-rail, 22 Oct 2026 (game 2026020154)</a></td>
+  <td class="small">Corrected: —<div>Boston Bruins to win (moneyline, our 1.72)<br>High · prediction</div></td>
+</tr><tr>
+  <td><strong>NHL09</strong><div class="small">2026-10-22</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>New York Rangers @ Toronto Maple Leafs<div class="small"></div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“startTimeUTC 2026-10-22T23:00:00Z · venue Scotiabank Arena · NYR last ten 7-2-1, TOR last ten 5-3-2”</div><div class="small">“NYR: GF/G 3.00 (17), GA/G 2.18 (3), PK 94.1% (2), faceoffs 53.9% (3)”</div><div class="small">“TOR: GF/G 3.45 (8), GA/G 3.09 (16), PP 27.5% (5), PK 97.4% (1)”</div></td>
+  <td class="small"><a href="https://api-web.nhle.com/v1/gamecenter/2026020155/right-rail" target="_blank" rel="noopener">NHL.com game center right-rail, 22 Oct 2026 (game 2026020155)</a></td>
+  <td class="small">Corrected: —<div>New York Rangers +1.5 puck line (our 1.48)<br>Medium</div></td>
+</tr><tr>
+  <td><strong>RUG01</strong><div class="small">2026-11-06</div></td>
+  <td><span class="tag">Rugby Union</span></td>
+  <td>Ireland vs Argentina<div class="small">Fixture, date and venue confirmed on World Rugby&#x27;s own match page. The page prints two times, &#x27;local&#x27; and &#x27;your time&#x27;, and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“Page title: &quot;Ireland v Argentina - Nations Championship 2026&quot; · date shown: Friday 06 November 2026 · venue: Aviva Stadium, Dublin, Ireland · kick-off field shows &#x27;21:10 Local Time&#x27; and &#x27;15:10 Your Time (America/New_York)&#x27; where the two differ, and identical values where they do not”</div></td>
+  <td class="small"><a href="https://www.world.rugby/beta/en/match/1e74b48e-25fe-4ebe-beea-abb6cea010a0" target="_blank" rel="noopener">World Rugby official match page — Ireland v Argentina - Nations Championship 2026</a></td>
+  <td class="small">Corrected: competition, date, status, time, venue<div>Ireland to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>RUG02</strong><div class="small">2026-11-07</div></td>
+  <td><span class="tag">Rugby Union</span></td>
+  <td>Italy vs South Africa<div class="small">Fixture, date and venue confirmed on World Rugby&#x27;s own match page. The page prints two times, &#x27;local&#x27; and &#x27;your time&#x27;, and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“Page title: &quot;Italy v South Africa - Nations Championship 2026&quot; · date shown: Saturday 07 November 2026 · venue: Allianz Stadium, Turin, Italy · kick-off field shows &#x27;21:10 Local Time&#x27; and &#x27;15:10 Your Time (America/New_York)&#x27; where the two differ, and identical values where they do not”</div></td>
+  <td class="small"><a href="https://www.world.rugby/beta/en/match/54780758-13bb-414b-94d6-2095f217459c" target="_blank" rel="noopener">World Rugby official match page — Italy v South Africa - Nations Championship 2026</a></td>
+  <td class="small">Corrected: competition, date, status, time, venue<div>South Africa to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>RUG03</strong><div class="small">2026-11-07</div></td>
+  <td><span class="tag">Rugby Union</span></td>
+  <td>Scotland vs New Zealand<div class="small">Fixture, date and venue confirmed on World Rugby&#x27;s own match page. The page prints two times, &#x27;local&#x27; and &#x27;your time&#x27;, and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“Page title: &quot;Scotland v New Zealand - Nations Championship 2026&quot; · date shown: Saturday 07 November 2026 · venue: Murrayfield, Edinburgh, Scotland · kick-off field shows &#x27;21:10 Local Time&#x27; and &#x27;15:10 Your Time (America/New_York)&#x27; where the two differ, and identical values where they do not”</div></td>
+  <td class="small"><a href="https://www.world.rugby/beta/en/match/db7d80ff-3fa4-4b76-8b84-f615725dd62b" target="_blank" rel="noopener">World Rugby official match page — Scotland v New Zealand - Nations Championship 2026</a></td>
+  <td class="small">Corrected: competition, date, status, time, venue<div>New Zealand to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>RUG04</strong><div class="small">2026-11-07</div></td>
+  <td><span class="tag">Rugby Union</span></td>
+  <td>Wales vs Japan<div class="small">Fixture, date and venue confirmed on World Rugby&#x27;s own match page. The page prints two times, &#x27;local&#x27; and &#x27;your time&#x27;, and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“Page title: &quot;Wales v Japan - Nations Championship 2026&quot; · date shown: Saturday 07 November 2026 · venue: Principality Stadium, Cardiff, Wales · kick-off field shows &#x27;21:10 Local Time&#x27; and &#x27;15:10 Your Time (America/New_York)&#x27; where the two differ, and identical values where they do not”</div></td>
+  <td class="small"><a href="https://www.world.rugby/beta/en/match/20078fb5-fab3-4d28-ad54-d550b01b472d" target="_blank" rel="noopener">World Rugby official match page — Wales v Japan - Nations Championship 2026</a></td>
+  <td class="small">Corrected: competition, date, status, time, venue<div>Wales to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>RUG05</strong><div class="small">2026-11-08</div></td>
+  <td><span class="tag">Rugby Union</span></td>
+  <td>England vs Australia<div class="small">Fixture, date and venue confirmed on World Rugby&#x27;s own match page. The page prints two times, &#x27;local&#x27; and &#x27;your time&#x27;, and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“Page title: &quot;England v Australia - Nations Championship 2026&quot; · date shown: Sunday 08 November 2026 · venue: Allianz Stadium, London, England · kick-off field shows &#x27;21:10 Local Time&#x27; and &#x27;15:10 Your Time (America/New_York)&#x27; where the two differ, and identical values where they do not”</div></td>
+  <td class="small"><a href="https://www.world.rugby/beta/en/match/d21f7bed-f2f9-45bd-be33-3a0fc9beec42" target="_blank" rel="noopener">World Rugby official match page — England v Australia - Nations Championship 2026</a></td>
+  <td class="small">Corrected: competition, date, status, time, venue<div>England to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>RUG06</strong><div class="small">2026-11-07</div></td>
+  <td><span class="tag">Rugby Union</span></td>
+  <td>France vs Fiji<div class="small">Fixture, date and venue confirmed on World Rugby&#x27;s own match page. The page prints two times, &#x27;local&#x27; and &#x27;your time&#x27;, and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.</div></td>
+  <td><span class="badge badge-verified">CONFIRMED</span><div class="small">date: confirmed</div></td>
+  <td class="small"><div class="small">“Page title: &quot;France v Fiji - Nations Championship 2026&quot; · date shown: Saturday 07 November 2026 · venue: Groupama Stadium, Lyon, France · kick-off field shows &#x27;21:10 Local Time&#x27; and &#x27;15:10 Your Time (America/New_York)&#x27; where the two differ, and identical values where they do not”</div></td>
+  <td class="small"><a href="https://www.world.rugby/beta/en/match/267608f1-90cc-4c93-ac68-b0f0fa3bbf9e" target="_blank" rel="noopener">World Rugby official match page — France v Fiji - Nations Championship 2026</a></td>
+  <td class="small">Corrected: competition, date, status, time, venue<div>France to win (Over 58.5 points also value)<br>Low</div></td>
+</tr><tr>
+  <td><strong>BDM02</strong><div class="small">2026-10-20 to 2026-10-25</div></td>
+  <td><span class="tag">Badminton</span></td>
+  <td>French Open — First Round through Finals Oct 20-25 (5 categories: MS, WS, MD, WD, XD)<div class="small">Tournament dates and venue confirmed on BWF&#x27;s own page. It is a tournament, not a single fixture: the draw was not read back, so no match, court, session time or pick is published. The previous outright pick was withdrawn.</div></td>
+  <td><span class="badge badge-flagged">PARTIAL</span><div class="small">date: unverified</div></td>
+  <td class="small"><div class="small">“&quot;YONEX French Open 2026&quot; · &quot;20 - 25 October&quot; · &quot;Arena Grand Paris, 1 Av. Traversiere&quot; · &quot;Prize Money USD 950,000&quot;”</div></td>
+  <td class="small"><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview" target="_blank" rel="noopener">BWF World Tour — YONEX French Open 2026 tournament page</a></td>
+  <td class="small">Corrected: competition, confidence, date, pick, time, venue<div><br>Low</div></td>
+</tr><tr>
+  <td><strong>SNK01</strong><div class="small">2026-10-18 to 2026-10-25</div></td>
+  <td><span class="tag">Snooker</span></td>
+  <td>Northern Ireland Open 2026 — Round 1 (18 October confirmed)<div class="small">WST confirms the BetVictor Northern Ireland Open 2026 and completed first-round matches on Sunday 18 October. The row&#x27;s claims about a 64-player first round running to 25 October, the venue and the daily 10:00/19:00 session times are not stated on the page read, so venue, times and the outright pick are withdrawn.</div></td>
+  <td><span class="badge badge-flagged">PARTIAL</span><div class="small">date: unverified</div></td>
+  <td class="small"><div class="small">“WST match centre lists &quot;BetVictor Northern Ireland Open 2026&quot; with completed Round 1 matches on Sunday 18 Oct (e.g. Jack Lisowski 4-1 Huang Jiahao; Mark Selby 2-4 Louis Heathcote)”</div></td>
+  <td class="small"><a href="https://www.wst.tv/matches/" target="_blank" rel="noopener">World Snooker Tour — match centre</a></td>
+  <td class="small">Corrected: confidence, match, pick, status, time, venue<div><br>Low</div></td>
+</tr><tr>
+  <td><strong>AFL01</strong><div class="small">2026-09-27</div></td>
+  <td><span class="tag">Aussie Rules</span></td>
+  <td>AFL Off-Season — No scheduled matches Oct 21-31 (Draft Combine Oct 6-9, Trade Period Oct 6-15, Draft Nov 20)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No pick — No matches (AFLW separate season, not part of OLBG Aussie Rules men&#x27;s card)<br>Low</div></td>
+</tr><tr>
+  <td><strong>BDM01</strong><div class="small">2026-10-13 to 2026-10-18</div></td>
+  <td><span class="tag">Badminton</span></td>
+  <td>Denmark Open — Finals Oct 18 (Winners: Alex Lanier Men&#x27;s Singles, An Se-young Women&#x27;s Singles, Alfian/Fikri MD, Tan/Muralitharan WD, Jiang/Wei XD per Wikipedia)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>N/A — Completed — Form reference for French Open picks (Lanier/An repeat lean)<br>Low</div></td>
+</tr><tr>
+  <td><strong>BDM03</strong><div class="small">2026-10-27 to 2026-11-01</div></td>
+  <td><span class="tag">Badminton</span></td>
+  <td>HYLO Open — Next week lookahead (after French Open)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No pick — await French Open injury/withdrawal list (target fresh players)<br>Low</div></td>
+</tr><tr>
+  <td><strong>EL01</strong><div class="small">2026-10-22</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Partizan Mozzart Bet Belgrade vs Crvena Zvezda Meridianbet Belgrade<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Partizan Belgrade to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>EL02</strong><div class="small">2026-10-22</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Anadolu Efes Istanbul vs Beşiktaş Istanbul<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Anadolu Efes to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>EL03</strong><div class="small">2026-10-01</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Crvena Zvezda 77-72 Anadolu Efes<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>N/A — Result used for form<br>Low</div></td>
+</tr><tr>
+  <td><strong>NBA06</strong><div class="small">2026-10-23</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>New York Knicks @ Boston Celtics<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Boston Celtics to win (narrow)<br>Low</div></td>
+</tr><tr>
+  <td><strong>NBA07</strong><div class="small">2026-10-23</div></td>
+  <td><span class="tag">Basketball</span></td>
+  <td>Houston Rockets @ San Antonio Spurs<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>San Antonio Spurs to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>CRK01</strong><div class="small">2026-10-18 to 2026-10-23</div></td>
+  <td><span class="tag">Cricket</span></td>
+  <td>South Africa vs Australia — 2nd Test (3-match series, AUS lead 1-0)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Australia to win 2nd Test<br>Low</div></td>
+</tr><tr>
+  <td><strong>CRK02</strong><div class="small">2026-10-27 to 2026-11-01</div></td>
+  <td><span class="tag">Cricket</span></td>
+  <td>South Africa vs Australia — 3rd Test<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Australia to win series 2-0 or 3-0 (Game-by-game AUS win)<br>Low</div></td>
+</tr><tr>
+  <td><strong>CRK06</strong><div class="small">2026-10-09 to 2026-10-14</div></td>
+  <td><span class="tag">Cricket</span></td>
+  <td>Australia Women vs Bangladesh Women — 1st ODI Oct 9, 2nd Oct 11, 3rd Oct 14<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Australia Women to win 3-0 series (all matches)<br>Low</div></td>
+</tr><tr>
+  <td><strong>DRT01</strong><div class="small">2026-10-22 to 2026-10-25</div></td>
+  <td><span class="tag">Darts</span></td>
+  <td>European Championship — First Round Day 1 (8 matches) Oct 22<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Seeded players to win First Round Day 1 (handicap -2.5 value)<br>Low</div></td>
+</tr><tr>
+  <td><strong>DRT02</strong><div class="small">2026-10-23</div></td>
+  <td><span class="tag">Darts</span></td>
+  <td>First Round Day 2 (8 matches)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Upset watch: Unseeded European Tour qualifiers +2.5 legs value<br>Low</div></td>
+</tr><tr>
+  <td><strong>DRT03</strong><div class="small">2026-10-24</div></td>
+  <td><span class="tag">Darts</span></td>
+  <td>Second Round — 8 matches (Bo19)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Higher-ranked players to win (Bo19 distance favours class)<br>Low</div></td>
+</tr><tr>
+  <td><strong>DRT04</strong><div class="small">2026-10-25</div></td>
+  <td><span class="tag">Darts</span></td>
+  <td>Quarter-Finals (4) Bo19 → Semi-Finals (2) Bo21 → Final Bo21<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Final — Favourite to win outright (1.70-2.20 range) — handicap -2.5 in SF/Final<br>Low</div></td>
+</tr><tr>
+  <td><strong>ESP01</strong><div class="small">2026-10-14 to 2026-11-08</div></td>
+  <td><span class="tag">Esports</span></td>
+  <td>Worlds 2026 Quarterfinals — 8 teams (TBD after Swiss Oct 12) — Best of 5<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Favourites to win QF (seed advantage) — low confidence until Swiss completes Oct 12<br>Low</div></td>
+</tr><tr>
+  <td><strong>ESP02</strong><div class="small">2026-10-08 to 2026-10-22</div></td>
+  <td><span class="tag">Esports</span></td>
+  <td>VCT Champions Paris — Upper Bracket / Grand Final Oct 22 — Bo5<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No outright until playoff bracket Oct 17 — lean higher-seeded Masters winners<br>Low</div></td>
+</tr><tr>
+  <td><strong>GLF01</strong><div class="small">2026-10-08 to 2026-10-11</div></td>
+  <td><span class="tag">Golf</span></td>
+  <td>Baycurrent Classic — Stroke Play 72 holes — Defending: Xander Schauffele<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>N/A — Completed tournament used as form for Fall standings (Michael Brennan won)<br>Low</div></td>
+</tr><tr>
+  <td><strong>GLF02</strong><div class="small">2026-10-22 to 2026-10-25</div></td>
+  <td><span class="tag">Golf</span></td>
+  <td>Bermuda Championship — Stroke Play — 120 players — Fall points race<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No outright favourite — target wind specialists and Bermuda-experienced players (Under on winning score)<br>Low</div></td>
+</tr><tr>
+  <td><strong>GLF03</strong><div class="small">2026-10-29 to 2026-11-01</div></td>
+  <td><span class="tag">Golf</span></td>
+  <td>Mexico Open — FedEx Fall — New Mexico swing (World Wide Technology next week Nov 5-8 Los Cabos)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No favourite — wait until Bermuda results shift FedEx standings<br>Low</div></td>
+</tr><tr>
+  <td><strong>GLF04</strong><div class="small">2026-10-22 to 2026-10-25</div></td>
+  <td><span class="tag">Golf</span></td>
+  <td>BMW Ladies Championship — 84 players — Defending: Sei Young Kim (KOR)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Sei Young Kim (defending) to contend — but low confidence outright; back Over -18.5 winning score? Actually course plays under, lean Under -18.5 if wind<br>Low</div></td>
+</tr><tr>
+  <td><strong>GLF05</strong><div class="small">2026-10-29 to 2026-11-01</div></td>
+  <td><span class="tag">Golf</span></td>
+  <td>Maybank Championship — $3M — West Course<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No pick — await BMW results for form (track Asian swing fatigue)<br>Low</div></td>
+</tr><tr>
+  <td><strong>HDB01</strong><div class="small">2026-10-22 to 2026-10-23</div></td>
+  <td><span class="tag">Handball</span></td>
+  <td>EHF Champions League — Round 7 (8 matches midweek) — Exact fixtures TBD on EHF platform<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No single pick — await EHF confirmed fixture list Oct 22-23 (watch for live handicap value)<br>Low</div></td>
+</tr><tr>
+  <td><strong>HDB02</strong><div class="small">2026-10-28 to 2026-11-02</div></td>
+  <td><span class="tag">Handball</span></td>
+  <td>IHF World Championship qualifiers — European phase (teams TBD after EHF Euro 2026)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No pick until qualifier draw (IHF confirmed)<br>Low</div></td>
+</tr><tr>
+  <td><strong>NHL03</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>Anaheim Ducks @ New York Islanders<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>NY Islanders to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>NHL04</strong><div class="small">2026-10-20</div></td>
+  <td><span class="tag">Ice Hockey</span></td>
+  <td>Toronto Maple Leafs @ Columbus Blue Jackets<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Columbus Blue Jackets to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>RL01</strong><div class="small">2026-10-18 to 2026-11-08</div></td>
+  <td><span class="tag">Rugby League</span></td>
+  <td>Pacific Championships — Mens Cup: Australia vs NZ Oct 25 (Brisbane 7:50pm), PNG vs NZ Nov 1, Final Nov 8 Sydney<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Australia to win<br>Low</div></td>
+</tr><tr>
+  <td><strong>SNK02</strong><div class="small">2026-10-23</div></td>
+  <td><span class="tag">Snooker</span></td>
+  <td>Quarter-Finals — 8 players (Best of 11 frames) — NEW FORMAT: Best of 11 (was Best of 9)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Higher seeds to cover -2.5 frame handicap (form-dependent)<br>Low</div></td>
+</tr><tr>
+  <td><strong>SNK03</strong><div class="small">2026-10-24</div></td>
+  <td><span class="tag">Snooker</span></td>
+  <td>Semi-Finals — Best of 11 frames<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No outright pick until QF results — monitor century rate<br>Low</div></td>
+</tr><tr>
+  <td><strong>SNK04</strong><div class="small">2026-10-25</div></td>
+  <td><span class="tag">Snooker</span></td>
+  <td>Final — Best of 17 (Alex Higgins Trophy)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Final — Live market: Favourite to win outright (pre-match 1.65-2.10 range) and Over 15.5 frames value<br>Low</div></td>
+</tr><tr>
+  <td><strong>TTT01</strong><div class="small">2026-10-11 to 2026-10-18</div></td>
+  <td><span class="tag">Table Tennis</span></td>
+  <td>European Individual Championships — 5 events (MS/WS/MD/WD/XD)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>N/A — Completed (form for Montpellier: European medalists fatigue check)<br>Low</div></td>
+</tr><tr>
+  <td><strong>TTT02</strong><div class="small">2026-10-27 to 2026-11-01</div></td>
+  <td><span class="tag">Table Tennis</span></td>
+  <td>WTT Champions Montpellier — 32 best men &amp; women — Singles only — 6 days — R32 Day 1-2, R16, QF, SF, Final<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Félix Lebrun to reach semifinal+ (home edge) — but medium confidence (Chinese depth)<br>Low</div></td>
+</tr><tr>
+  <td><strong>TTT03</strong><div class="small">2026-10-28 to 2026-11-01</div></td>
+  <td><span class="tag">Table Tennis</span></td>
+  <td>WTT Feeder Chennai — Development tier (separate from Montpellier Champions)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No pick — development event, not on OLBG main card<br>Low</div></td>
+</tr><tr>
+  <td><strong>ATP01</strong><div class="small">2026-10-19 to 2026-10-25</div></td>
+  <td><span class="tag">Tennis</span></td>
+  <td>Almaty Open — Tournament (Medvedev top seed, 27% outright per Kalshi)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Daniil Medvedev to win Almaty Open (outright)<br>Low</div></td>
+</tr><tr>
+  <td><strong>ATP02</strong><div class="small">2026-10-19 to 2026-10-25</div></td>
+  <td><span class="tag">Tennis</span></td>
+  <td>European Open — Tournament (Damir Dzumhur ~6% per Kalshi)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>Field — No outright pick; match-by-match handicap value sought<br>Low</div></td>
+</tr><tr>
+  <td><strong>ATP03</strong><div class="small">2026-10-19 to 2026-10-25</div></td>
+  <td><span class="tag">Tennis</span></td>
+  <td>Lyon ATP 250 — Tournament<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>French players (home) to outperform seed — handicap leans<br>Low</div></td>
+</tr><tr>
+  <td><strong>ATP04</strong><div class="small">2026-10-26 to 2026-11-01</div></td>
+  <td><span class="tag">Tennis</span></td>
+  <td>Swiss Indoors Basel + Erste Bank Open Vienna — ATP 500 double-header<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No pick yet — monitor entry lists (Alcaraz/Sinner expected in Basel/Vienna)<br>Low</div></td>
+</tr><tr>
+  <td><strong>ATP05</strong><div class="small">2026-10-07 to 2026-10-18</div></td>
+  <td><span class="tag">Tennis</span></td>
+  <td>Alejandro Davidovich Fokina d. Rafael Jódar 1-6, 7-6(7-5), 6-4 (Singles Final)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>N/A — Completed<br>Low</div></td>
+</tr><tr>
+  <td><strong>WTA01</strong><div class="small">2026-11-08 to 2026-11-15</div></td>
+  <td><span class="tag">Tennis</span></td>
+  <td>WTA Finals — Year-end Championship (8 qualifiers TBD next week)<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No pick — await qualifier confirmation<br>Low</div></td>
+</tr><tr>
+  <td><strong>VBL01</strong><div class="small">2026-10-15</div></td>
+  <td><span class="tag">Volleyball</span></td>
+  <td>Clubs qualified: Per FIVB Oct 15, eight clubs confirmed for Club World Championship<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>No pick — no matches Oct 21-31 window (season gap)<br>Low</div></td>
+</tr><tr>
+  <td><strong>VBL02</strong><div class="small">2026-09-30 to 2026-10-12</div></td>
+  <td><span class="tag">Volleyball</span></td>
+  <td>U17 Girls&#x27; Worlds — Defending champions China vs Philippines opener reference<div class="small"></div></td>
+  <td><span class="badge badge-flagged">UNVERIFIED</span><div class="small">date: unverified</div></td>
+  <td class="small"><span class="small">No official page returned these values in this cycle.</span></td>
+  <td class="small"><span class="small">none located</span></td>
+  <td class="small">Corrected: —<div>N/A — Youth tournament not on senior card<br>Low</div></td>
+</tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid2" style="margin:16px 0">
+    <div class="card">
+      <h3>Sources opened in this cycle</h3>
+      <ul class="small"><li><a href="https://api-web.nhle.com/v1/score/2026-10-20" target="_blank" rel="noopener">NHL.com / api-web.nhle.com schedule + score + game-center feeds</a></li><li><a href="https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail" target="_blank" rel="noopener">NHL.com game-center right-rail (club form, special teams)</a></li><li><a href="https://api-web.nhle.com/v1/standings/2026-10-21" target="_blank" rel="noopener">NHL.com 2026-27 standings</a></li><li><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-10-28" target="_blank" rel="noopener">MLB.com / statsapi.mlb.com postseason schedule</a></li><li><a href="https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&amp;season=2026&amp;standingsTypes=regularSeason" target="_blank" rel="noopener">MLB.com / statsapi.mlb.com 2026 regular-season standings</a></li><li><a href="https://www.nba.com/news/2026-27-nba-regular-season-schedule" target="_blank" rel="noopener">NBA.com 2026-27 schedule release (13 Aug 2026)</a></li><li><a href="https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html" target="_blank" rel="noopener">Pakistan Cricket Board press release, 19 Aug 2026 (ODI tri-series schedule)</a></li><li><a href="https://www.wst.tv/matches/" target="_blank" rel="noopener">World Snooker Tour match centre (BetVictor Northern Ireland Open 2026)</a></li></ul>
+      <p class="small">Every URL above is a league or governing-body property (nhl.com / api-web.nhle.com, mlb.com / statsapi.mlb.com, nba.com, pcb.com.pk, wst.tv). No bookmaker price and no OLBG tip is used as evidence.</p>
+    </div>
+    <div class="card">
+      <h3>How to reproduce one line</h3>
+      <ol class="small">
+        <li>Pick a row, open the official link in the same line.</li>
+        <li>Compare the quoted values with the match you see on the page.</li>
+        <li>If they disagree, the row is wrong and the quote is on this page — open an issue with the row id.</li>
+        <li>If a field is blank, it was not confirmable; it was not inferred or copied from another build.</li>
+      </ol>
+      <p class="small">Limits: league feeds answer for their own sport only. Where a page is JavaScript-rendered or behind a consent wall (EuroLeague, PDC, NRL, World Rugby, lolesports, EHF), no value was taken from memory — the row is marked unverified.</p>
+    </div>
+  </section>
+  <div class="footer">OLBG4 • verified register • data cut-off 2026-10-21 • <a href="index.html">Dashboard</a> • <a href="flagged.html">Flagged for Review</a> • <a href="https://github.com/buffedlizard55-lab/OLBG4" target="_blank" rel="noopener">GitHub repo</a></div>
+</main>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
