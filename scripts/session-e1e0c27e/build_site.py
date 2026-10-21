@@ -60,9 +60,9 @@ def page(title, active, body, desc=''):
     nav = ''.join(f'<a href="{h}" class="{"active" if h == active else ""}{" flag" if h == "flagged.html" else ""}">{t}</a>' for h, t in NAV)
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)} · OLBG4 audit</title><meta name="description" content="{e(desc or title)}"><style>{CSS}</style></head><body>
-<header><div class="wrap head"><a class="brand" href="index.html">OLBG4 · Board I audit</a><nav>{nav}<a href="../">← Portal</a></nav></div></header>
+<header><div class="wrap head"><a class="brand" href="index.html">OLBG4 · Board J audit</a><nav>{nav}<a href="../">← Portal</a></nav></div></header>
 <main><div class="wrap">{body}</div></main>
-<footer><div class="wrap">Independent cross-build audit (Board I) by session <span class="mono">arena/e1e0c27e-olbg4</span> · generated {e(summary['generated_utc'])} · data in <a href="data/audit_rows.json">audit_rows.json</a>, <a href="data/summary.json">summary.json</a>, <a href="data/crossbuild.json">crossbuild.json</a>, <a href="data/spot_checks.json">spot_checks.json</a>, <a href="data/findings.json">findings.json</a> · script <span class="mono">scripts/session-e1e0c27e/</span>. This page audits the other builds; it originates no lines of its own.</div></footer>
+<footer><div class="wrap">Independent cross-build audit (Board J) by session <span class="mono">arena/e1e0c27e-olbg4</span> · generated {e(summary['generated_utc'])} · data in <a href="data/audit_rows.json">audit_rows.json</a>, <a href="data/summary.json">summary.json</a>, <a href="data/crossbuild.json">crossbuild.json</a>, <a href="data/spot_checks.json">spot_checks.json</a>, <a href="data/findings.json">findings.json</a> · script <span class="mono">scripts/session-e1e0c27e/</span>. This page audits the other builds; it originates no lines of its own.</div></footer>
 <script>{JS}</script></body></html>"""
 
 def verdict_badge(v):

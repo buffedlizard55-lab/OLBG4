@@ -82,7 +82,7 @@ pipeline and commits the refreshed snapshot.
 - Review page: 20 module claims checked against official endpoints, 5 row-level spot checks
   re-opened live, 9 irregularities found and handled.
 
-## Build I — `session-e1e0c27e/` (independent cross-build audit)
+## Build J — `session-e1e0c27e/` (independent cross-build audit)
 
 Audits, does not originate. `scripts/session-e1e0c27e/audit.py` reads every build's committed
 data (592 rows across A, B, C, D, E, G), classifies each row's source link as official / OLBG /
