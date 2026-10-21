@@ -220,6 +220,8 @@ and its own namespace `session-4afef1af/`. It does not edit `data/*.json`, `scri
 | D6 | Dashboard (landing, matches, picks, three sport pages, markets, analysis, sources, methodology, OLBG, flagged) | done | `4afef1af` | `session-4afef1af/` |
 | D7 | Automation: scheduled ingest → verify → build → commit | done | `4afef1af` | `.github/workflows/olbg.yml` |
 | D8 | Integration: portal card, PR, merge, Pages verification | in progress | `4afef1af` | root `index.html` (one additive card), `README.md`, `COORDINATION.md` |
+| D9 | Line-by-line review log: 20 module claims, 5 row-level spot checks, 9 irregularities | done | `4afef1af` | `pipeline/review.py`, `session-4afef1af/review.html` |
+| D10 | Market-withholding floor when the rating sample is too small | done | `4afef1af` | `pipeline/config.py`, `pipeline/run.py`, `session-4afef1af/*` |
 
 ### Why this build exists next to A/B/C
 
@@ -267,3 +269,34 @@ prediction lint. Rows failing the official-source or schema checks are **exclude
   workflow now tees the log and commits `.ci/last-run.log` on failure.
 - 05:33Z — `4afef1af` — discovered boards A/B/C already on `main`; moved every artefact into
   `session-4afef1af/` so the shared portal and all other builds are untouched.
+
+- 05:44Z — `4afef1af` — ingest run `39551047350` green: 40 fixtures (37 NHL / 3 MLB), 18 predictions,
+  4 findings, 0 rows excluded. NBA still 403.
+- 05:52Z — `4afef1af` — probe shows the NBA CDN answers 200 to the full browser profile including
+  `Sec-Fetch-*`; headers moved into `config.BROWSER_HEADERS` and shared by provider and probe.
+- 06:19Z — `4afef1af` — run green with NBA ingesting again: 90 fixtures (NBA 50 / NHL 37 / MLB 3).
+  NBA has only 3 completed regular-season games, so markets are withheld for its 50 fixtures.
+- 06:25Z — `4afef1af` — MLB prior season now ingested (4,946 results), so its opening lines are real
+  rather than league-average. NHL 1,463 results.
+- 06:33Z — `4afef1af` — review page added (20 claims, 5 spot checks against live official endpoints,
+  9 irregularities). Gaelic football corrected to in-scope.
+
+### Build D — verified snapshot (2026-10-21T06:19Z)
+
+| Metric | Value |
+|---|---|
+| Fixtures | 90 — NBA 50, NHL 37, MLB 3 |
+| Priced fixtures | 40 (NHL 37, MLB 3); 50 NBA withheld |
+| Markets per priced fixture | 3 families, 14 selections (moneyline 2; handicap main + 2 alternates; total main + 2 alternates) |
+| Picks | 78 (40 match-winner + 38 market picks); 18 high / 37 medium / 23 low across all picks |
+| Written predictions | 18, 38–60 words, 0 withdrawn, max pairwise similarity 0.483 |
+| Verification | 90 fixtures, 120 market families, 18 predictions checked; 0 excluded, 0 hard failures |
+| Findings | 5 — 2 warnings (NBA sample, markets withheld), 3 info (probable pitchers not announced) |
+| Backtest | NHL 1,312 train / 151 holdout, accuracy 0.6291, Brier 0.2343 · MLB 4,821 / 125, 0.576, 0.2416 |
+| Spot checks | 3 MLB and 2 NHL rows re-opened against the live official endpoints; all exact |
+
+### Cross-session request
+
+- `4afef1af` → integration: add one card to the root portal for `session-4afef1af/`. If no integration
+  session picks this up, D adds a single additive card itself (same pattern as board B's additive
+  banner) and logs it here. No other board's file is modified.
