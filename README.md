@@ -2,6 +2,8 @@
 
 **Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
 **Data cut-off:** 2026-10-21 (UTC)  
+**Hub status after the 2026-10-21 remediation (Board K):** the root dashboard (`/`) was rebuilt from a frozen snapshot plus recorded evidence. Of 68 rows, **19 are CONFIRMED** against an official league or governing-body feed with the returned values quoted on `verification.html`, 1 is partial and **48 are UNVERIFIED** (time and venue blank, pick retained only as model output at LOW confidence, no prediction). All 49 previously published prediction texts were withdrawn; 3 high-confidence predictions are published, each requiring verified form on both sides. Nothing was promoted to fill a quota. See `data/board_k/evidence.json` (what was checked), `data/board_k/verification.json` (the register), `data/board_k/withdrawn_predictions.json` (the archive) and `verification.html`.
+
 **Branches merged to `main`:** `arena/f0402305-olbg4` (A), `arena/7114b6a1-olbg4` (B), `arena/74f9613e-olbg4` (C), `arena/290a9dba-olbg4` (D — final hub)
 
 Four independent, verified builds live in this repo. All are published from the same Pages site — nothing has been discarded.
@@ -11,10 +13,10 @@ Four independent, verified builds live in this repo. All are published from the 
 | **A** | `arena/f0402305-olbg4` | `docs/` (landing), `data/rows.json`, `build_site.py`, `gen_pages.py` | 144 rows, 15 sports, ratings built from **official governing-body** sources (NBA, NHL, URC, EHF, PDC, MLB, ICC, WST…). OLBG used to define sport universe. |
 | **B** | `arena/7114b6a1-olbg4` | `session-7114b6a1/` (dashboard), `data/*.json`, `scripts/` | 116 fixtures read **directly off OLBG's live sport pages** (reverse-engineered), own win/handicap/total lines, 9 high-confidence picks with 36 sourced facts. |
 | **C** | `arena/74f9613e-olbg4` | `session-74f9613e/` (dashboard), `data/session-74f9613e/*.json`, `scripts/session-74f9613e/` | 43 fixtures in 5 sports, each input transcribed from a primary league/tour page (`VERIFICATION.md`); 182 originated selections (money line, handicap, totals); 10 predictions where every claim is listed with its source; 11-row gap register. Build C also carries a portal linking all builds. |
-| **D** | `arena/290a9dba-olbg4` | `/` (primary hub `index.html`), `data/matches.json`, `assets/`, `tennis.html` … `aussie-rules.html` | 66 entries, 16 sports, **governing-body-first verified** — ATP, NBA, MLB, NHL, WST, PDC, PGA/LPGA, BWF, WTT/ITTF, FIVB. Originated lines (ELO 40%+form 25%+H2H 15%+venue 15%+injury 5% with 3.5-4.5% overround), 15 high-confidence predictions (each 68-105 words), 8 flagged. Most exclusion-compliant (correctly omits Gaelic Football/Greyhounds flagged in A/B). |
+| **D** | `arena/290a9dba-olbg4` → remediated by `arena/082d3c16-olbg4` | `/` (primary hub `index.html`), `data/matches.json`, `assets/`, `tennis.html` … `aussie-rules.html`, `verification.html` | 68 rows, 16 sports. **Rebuilt 2026-10-21:** 19 rows confirmed on an official league/governing-body feed with quoted evidence, 1 partial, 48 unverified (blank time/venue, no prediction), 3 high-confidence predictions, 4 published, 49 withdrawn. Originated lines (ELO 40%+form 25%+H2H 15%+venue 15%+injury 5% with 3.5-4.5% overround). Most exclusion-compliant (correctly omits Gaelic Football/Greyhounds flagged in A/B). |
 | **G** | `arena/6e0f382d-olbg4` | `session-6e0f382d/` (dashboard), `data/raw/` + `data/verified/` + `data/matches/`, `tools/model.py` + `tools/build_site.py` | 140 matches + 24 outrights across **all 17 in-scope OLBG sports** (widest single sweep), line-by-line verified vs official sources; documented per-sport models (shrunk Poisson, Normal margins, logistic ratings chains) originating moneyline/handicap/totals; 31 high-confidence picks with unique 72–83-word predictions; greyhounds published flagged with **no pick** (no official form data — verdicts not copied). PR #12. |
 
-- **Root landing (`/`)** → **Board D hub dashboard** (66 entries, filterable KPIs, 15 category subpages, methodology + sources + flagged) + banner linking to A/B/C.
+- **Root landing (`/`)** → **hub dashboard** (68 rows, filterable KPIs, 15 category subpages, verification register + methodology + sources + flagged) + banner linking to the archived builds.
 - **`/docs/`** → Board A dashboard (144 rows, 12 high-confidence picks, 15 flagged)
 - **`/session-7114b6a1/`** → Board B dashboard (116 OLBG-live fixtures, 9 picks, 50 flags)
 - **`/session-74f9613e/`** → Board C dashboard (43 fixtures, 182 selections, 10 predictions, 11 flagged) + portal
@@ -172,3 +174,22 @@ Data curated from official public sources (linked per row). Code MIT-equivalent 
 
 ## Board F — independent audit (`session-07a080b9/`)
 Re-runnable line-by-line audit of Builds A–E: `python3 session-07a080b9/audit.py` → `session-07a080b9/index.html` + `audit.json`. Result 2026-10-21: D 66 rows/15 high (min 68 words), A 144, B 116/9 predictions (min 103 words per B gate), C 43/182 selections/10 predictions, E 90 fixtures/18 predictions; 87 HTML files, 1,576 internal links, **0 broken**; only open items are the 2 Gaelic rows in Build A (WARN, already flagged by Build B — published, non-blocking).
+
+
+## Board K — root-hub remediation and verification register (2026-10-21)
+
+The hub had been published as "66 entries, governing-body verified" with 15 high-confidence predictions. Board J's audit showed that 26 rows had no official link and that several predictions were contradicted by NHL.com, MLB.com and NRL.com. This session remediated the hub rather than adding another build.
+
+| What changed | Detail |
+|---|---|
+| Rows | 66 → 68 (two NHL fixtures for 22 Oct added, each verified) |
+| Verified status | 19 confirmed on an official source, 1 partial, 48 unverified |
+| Predictions | 49 withdrawn, 4 published (3 high confidence: NHL05, NHL07, NHL08; 1 medium: MLB01) |
+| Corrections | CRK03 match number/date/venue, CRK05 final date, MLB03 venue, NHL01/NHL02 official results |
+| New page | `verification.html` — line-by-line register with quoted evidence and the official URL for every row |
+| New data | `data/board_k/evidence.json`, `data/board_k/verification.json`, `data/board_k/withdrawn_predictions.json`, `data/board_k/base_matches.json` |
+| New script | `scripts/board_k/build_hub.py` (rebuilds `data/matches.json`, the register, `verification.html`, `flagged.html`) |
+
+Evidence came from `api-web.nhle.com` (score, game-centre right-rail, standings), `statsapi.mlb.com` (schedule, standings), `nba.com` (2026-27 schedule release), `pcb.com.pk` (ODI tri-series release) and `wst.tv` (match centre). Ten other official pages — EuroLeague, PDC, NRL, World Rugby, ATP, BWF, WTT, FIVB, EHF, lolesports, PGA/LPGA, AFL — either rendered as navigation shells, sat behind consent walls or served an earlier season; the rows that depend on them are published as unverified instead of being given a value from memory.
+
+Rebuild: `python3 scripts/board_k/build_hub.py`. The script asserts that no row is marked verified without a quoted evidence line, that no HIGH pick lacks a 30+ word unique prediction and two quoted facts, and that no prediction text is duplicated.

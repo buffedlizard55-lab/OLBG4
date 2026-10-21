@@ -14,9 +14,11 @@ function badgeConfidence(c){
   const cls = c==="High" ? "badge-high" : c==="Medium" ? "badge-medium" : "badge-low";
   return `<span class="badge ${cls}">${c.toUpperCase()}</span>`;
 }
-function badgeVerify(v, flagged){
-  if(flagged) return `<span class="badge badge-flagged">FLAGGED / UNVERIFIED</span>`;
-  return v ? `<span class="badge badge-verified">VERIFIED</span>` : `<span class="badge badge-flagged">UNVERIFIED</span>`;
+function badgeVerify(v, flagged, m){
+  const status = (m && m.verification && m.verification.status) || (v && !flagged ? "confirmed" : "unverified");
+  if(status === "confirmed") return `<span class="badge badge-verified">CONFIRMED ON OFFICIAL SOURCE</span>`;
+  if(status === "partial") return `<span class="badge badge-flagged">PARTIAL — SEE REGISTER</span>`;
+  return `<span class="badge badge-flagged">UNVERIFIED — NOT CONFIRMED</span>`;
 }
 
 function matchRow(m){
@@ -25,12 +27,17 @@ function matchRow(m){
   const oddsTot = escapeHtml(m.originatedTotal || "—");
   const flagged = m.flagged ? `<div class="small" style="margin-top:6px;color:#92400e">⚠️ Flag: ${escapeHtml(m.flagReason || "See Flagged page")}</div>` : "";
   const pred = m.prediction ? `<div class="detail"><strong>Pick:</strong> ${escapeHtml(m.pick)} — ${escapeHtml(m.prediction)}<div class="small" style="margin-top:6px">Form: ${escapeHtml(m.formNotes || "")}</div></div>` : "";
-  const source = `<a href="${m.sourceUrl}" target="_blank" rel="noopener">${escapeHtml(m.sourceName || "Official source")}</a><div class="small">${escapeHtml(m.sourceUrl)}</div>`;
+  const vv = m.verification || {};
+  const source = (m.sourceUrl ? `<a href="${m.sourceUrl}" target="_blank" rel="noopener">${escapeHtml(m.sourceName || "Official source")}</a><div class="small">${escapeHtml(m.sourceUrl)}</div>` : `<div class="small">No official source opened for this row.</div>`)
+    + (vv.checkedAt ? `<div class="small">Checked ${escapeHtml(vv.checkedAt)} by ${escapeHtml(vv.session || "OLBG4")}</div>` : "")
+    + (vv.evidence && vv.evidence.length ? `<div class="small">Source returned: ${escapeHtml(vv.evidence[0])}</div>` : "")
+    + `<div class="small"><a href="verification.html">Register entry →</a></div>`;
+  const facts = (m.facts && m.facts.length) ? `<div class="small" style="margin-top:6px"><strong>Verified facts:</strong> ${m.facts.map(f=>escapeHtml(f.value)).join(" · ")}</div>` : "";
   return `<tr>
     <td>
       <div style="font-weight:700">${escapeHtml(m.date)}</div>
       <div class="small">${escapeHtml(m.time || "")}</div>
-      <div class="small" style="margin-top:4px">${badgeVerify(m.verified, m.flagged)}</div>
+      <div class="small" style="margin-top:4px">${badgeVerify(m.verified, m.flagged, m)}</div>
     </td>
     <td><span class="tag">${escapeHtml(m.sport)}</span><div class="small" style="margin-top:6px">${escapeHtml(m.competition)}</div></td>
     <td>
@@ -51,6 +58,7 @@ function matchRow(m){
     </td>
     <td>
       ${pred}
+      ${facts}
       <div class="small" style="margin-top:6px">${source}</div>
     </td>
   </tr>`;
@@ -90,10 +98,10 @@ function renderStats(data){
   const sports = new Set(data.map(m=>m.sport)).size;
   el.innerHTML = `
     <div class="kpi"><div class="label">Total entries</div><div class="value">${total}</div><div class="sub">matches / outrights in window Oct 8 – Nov 8</div></div>
-    <div class="kpi"><div class="label">Verified rows</div><div class="value">${verified} <span class="small">/ ${total}</span></div><div class="sub">${Math.round(verified/total*100)}% with official source link — remainder flagged</div></div>
-    <div class="kpi"><div class="label">High confidence</div><div class="value">${high}</div><div class="sub">with ≥30-word verified prediction</div></div>
+    <div class="kpi"><div class="label">Confirmed this cycle</div><div class="value">${verified} <span class="small">/ ${total}</span></div><div class="sub">${Math.round(verified/total*100)}% read back from an official league or governing-body source on 2026-10-21</div></div>
+    <div class="kpi"><div class="label">High confidence</div><div class="value">${high}</div><div class="sub">both sides' form verified · each ≥30 words · <a href="verification.html">register</a></div></div>
     <div class="kpi"><div class="label">Sports covered</div><div class="value">${sports}</div><div class="sub">excl. soccer, boxing, UFC/MMA, football, horse racing, cycling, hurling, specials</div></div>
-    <div class="kpi"><div class="label">Markets originated</div><div class="value">4–5 per match</div><div class="sub">Moneyline, handicap/spread, totals + matchup specials</div></div>
+    <div class="kpi"><div class="label">Unverified rows</div><div class="value">${flagged}</div><div class="sub">time/venue blank, no prediction · <a href="flagged.html">flagged for review</a></div></div>
   `;
 }
 
@@ -186,7 +194,7 @@ async function boot(){
           <td>${escapeHtml(m.id)}<div class="small">${escapeHtml(m.sport)}</div></td>
           <td><strong>${escapeHtml(m.match)}</strong><div class="small">${escapeHtml(m.date)} • ${escapeHtml(m.venue||"")}</div></td>
           <td class="small">${escapeHtml(m.flagReason||"Flagged — see source column")}</td>
-          <td class="small">${escapeHtml(m.sourceName||"")}<br><a href="${m.sourceUrl}" target="_blank">${escapeHtml(m.sourceUrl)}</a></td>
+          <td class="small">${escapeHtml((m.verification&&m.verification.officialSource)||m.sourceName||"")}<br>${m.sourceUrl?`<a href="${m.sourceUrl}" target="_blank" rel="noopener">${escapeHtml(m.sourceUrl)}</a>`:"<em>none located</em>"}<div><a href="verification.html">register entry</a></div></td>
           <td class="small">${escapeHtml(m.status||"")}</td>
         </tr>`).join("");
       }

@@ -3,7 +3,7 @@
   "baseline_date": "2026-10-21",
   "factual_verification": "not performed; all rows unverified",
   "build_counts": {
-    "D hub": 66,
+    "D hub": 68,
     "A archive": 137,
     "B consensus": 116,
     "C model": 43,
@@ -93,15 +93,14 @@
       "match": "Denver Nuggets @ Oklahoma City Thunder",
       "sport": "Basketball",
       "date": "2026-10-22",
-      "official_source_candidates": [],
-      "other_sources": [
-        "https://www.espn.com/nba/schedule"
+      "official_source_candidates": [
+        "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
       ],
+      "other_sources": [],
       "verified_values": {},
       "status": "unverified",
       "findings": [
-        "Facts not independently reverified in this audit; historical verified labels are not adopted.",
-        "No recognized official-source URL on this row; official source left blank."
+        "Facts not independently reverified in this audit; historical verified labels are not adopted."
       ]
     },
     {
@@ -208,7 +207,8 @@
       "sport": "Baseball",
       "date": "2026-10-23",
       "official_source_candidates": [
-        "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23",
+        "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
       ],
       "other_sources": [],
       "verified_values": {},
@@ -226,7 +226,7 @@
       "sport": "Baseball",
       "date": "2026-10-24",
       "official_source_candidates": [
-        "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-24"
       ],
       "other_sources": [],
       "verified_values": {},
@@ -244,7 +244,7 @@
       "sport": "Baseball",
       "date": "2026-10-26",
       "official_source_candidates": [
-        "https://www.mlb.com/postseason"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-26"
       ],
       "other_sources": [],
       "verified_values": {},
@@ -262,7 +262,7 @@
       "sport": "Baseball",
       "date": "2026-10-27",
       "official_source_candidates": [
-        "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule"
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-27"
       ],
       "other_sources": [],
       "verified_values": {},
@@ -428,12 +428,12 @@
       "file": "data/matches.json",
       "row": 23,
       "id": "CRK03",
-      "match": "England vs Pakistan — Tri-Series Match 1",
+      "match": "Pakistan vs England — ODI tri-series match 2",
       "sport": "Cricket",
-      "date": "2026-10-20 to 2026-10-29",
+      "date": "2026-10-20",
       "official_source_candidates": [],
       "other_sources": [
-        "https://www.cricinfo.com/ci/engine/series/index.html?season=2026%2F27%3Bview%3Dseason"
+        "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html"
       ],
       "verified_values": {},
       "status": "unverified",
@@ -453,7 +453,7 @@
       "date": "2026-10-22",
       "official_source_candidates": [],
       "other_sources": [
-        "https://www.skysports.com/cricket/news/13484769/england-men-cricket-fixtures-and-results-2026-t20-world-cup-plus-games-vs-india-pakistan-new-zealand-and-more"
+        "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html"
       ],
       "verified_values": {},
       "status": "unverified",
@@ -467,12 +467,12 @@
       "file": "data/matches.json",
       "row": 25,
       "id": "CRK05",
-      "match": "Tri-Series Final — TBD (Top 2 table)",
+      "match": "ODI tri-series final — TBD (top two on the table)",
       "sport": "Cricket",
-      "date": "2026-10-29",
+      "date": "2026-10-31",
       "official_source_candidates": [],
       "other_sources": [
-        "https://www.cricinfo.com/ci/engine/series/index.html?season=2026%2F27%3Bview%3Dseason"
+        "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html"
       ],
       "verified_values": {},
       "status": "unverified",
@@ -623,15 +623,14 @@
       "match": "San Jose Sharks @ Montreal Canadiens",
       "sport": "Ice Hockey",
       "date": "2026-10-20",
-      "official_source_candidates": [],
-      "other_sources": [
-        "https://www.espn.com/nhl/schedule"
+      "official_source_candidates": [
+        "https://api-web.nhle.com/v1/score/2026-10-20"
       ],
+      "other_sources": [],
       "verified_values": {},
       "status": "unverified",
       "findings": [
         "Facts not independently reverified in this audit; historical verified labels are not adopted.",
-        "No recognized official-source URL on this row; official source left blank.",
         "Dated before audit day; do not present as an upcoming match without refreshing status."
       ]
     },
@@ -643,15 +642,14 @@
       "match": "Colorado Avalanche @ New Jersey Devils",
       "sport": "Ice Hockey",
       "date": "2026-10-20",
-      "official_source_candidates": [],
-      "other_sources": [
-        "https://www.espn.com/nhl/schedule"
+      "official_source_candidates": [
+        "https://api-web.nhle.com/v1/gamecenter/2026020142/right-rail"
       ],
+      "other_sources": [],
       "verified_values": {},
       "status": "unverified",
       "findings": [
         "Facts not independently reverified in this audit; historical verified labels are not adopted.",
-        "No recognized official-source URL on this row; official source left blank.",
         "Dated before audit day; do not present as an upcoming match without refreshing status."
       ]
     },
@@ -703,15 +701,14 @@
       "match": "Philadelphia Flyers @ Buffalo Sabres",
       "sport": "Ice Hockey",
       "date": "2026-10-21",
-      "official_source_candidates": [],
-      "other_sources": [
-        "https://www.espn.com/nhl/schedule"
+      "official_source_candidates": [
+        "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail"
       ],
+      "other_sources": [],
       "verified_values": {},
       "status": "unverified",
       "findings": [
-        "Facts not independently reverified in this audit; historical verified labels are not adopted.",
-        "No recognized official-source URL on this row; official source left blank."
+        "Facts not independently reverified in this audit; historical verified labels are not adopted."
       ]
     },
     {
@@ -722,15 +719,14 @@
       "match": "Boston Bruins @ Dallas Stars",
       "sport": "Ice Hockey",
       "date": "2026-10-20",
-      "official_source_candidates": [],
-      "other_sources": [
-        "https://www.espn.com/nhl/schedule"
+      "official_source_candidates": [
+        "https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026"
       ],
+      "other_sources": [],
       "verified_values": {},
       "status": "unverified",
       "findings": [
         "Facts not independently reverified in this audit; historical verified labels are not adopted.",
-        "No recognized official-source URL on this row; official source left blank.",
         "Dated before audit day; do not present as an upcoming match without refreshing status."
       ]
     },
@@ -743,7 +739,7 @@
       "sport": "Ice Hockey",
       "date": "2026-10-21",
       "official_source_candidates": [
-        "https://www.nhl.com/news/nhl-releases-2026-27-regular-season-schedule"
+        "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail"
       ],
       "other_sources": [],
       "verified_values": {},
@@ -757,10 +753,12 @@
       "file": "data/matches.json",
       "row": 40,
       "id": "SNK01",
-      "match": "Northern Ireland Open — First Round (64 players) Oct 18-20",
+      "match": "Northern Ireland Open 2026 — Round 1 (18 October confirmed)",
       "sport": "Snooker",
       "date": "2026-10-18 to 2026-10-25",
-      "official_source_candidates": [],
+      "official_source_candidates": [
+        "https://www.wst.tv/matches/"
+      ],
       "other_sources": [
         "https://en.wikipedia.org/wiki/2026_Northern_Ireland_Open"
       ],
@@ -768,7 +766,6 @@
       "status": "unverified",
       "findings": [
         "Facts not independently reverified in this audit; historical verified labels are not adopted.",
-        "No recognized official-source URL on this row; official source left blank.",
         "Dated before audit day; do not present as an upcoming match without refreshing status."
       ]
     },
@@ -1272,6 +1269,42 @@
       "findings": [
         "Facts not independently reverified in this audit; historical verified labels are not adopted.",
         "Dated before audit day; do not present as an upcoming match without refreshing status."
+      ]
+    },
+    {
+      "build": "D hub",
+      "file": "data/matches.json",
+      "row": 67,
+      "id": "NHL08",
+      "match": "Nashville Predators @ Boston Bruins",
+      "sport": "Ice Hockey",
+      "date": "2026-10-22",
+      "official_source_candidates": [
+        "https://api-web.nhle.com/v1/gamecenter/2026020154/right-rail"
+      ],
+      "other_sources": [],
+      "verified_values": {},
+      "status": "unverified",
+      "findings": [
+        "Facts not independently reverified in this audit; historical verified labels are not adopted."
+      ]
+    },
+    {
+      "build": "D hub",
+      "file": "data/matches.json",
+      "row": 68,
+      "id": "NHL09",
+      "match": "New York Rangers @ Toronto Maple Leafs",
+      "sport": "Ice Hockey",
+      "date": "2026-10-22",
+      "official_source_candidates": [
+        "https://api-web.nhle.com/v1/gamecenter/2026020155/right-rail"
+      ],
+      "other_sources": [],
+      "verified_values": {},
+      "status": "unverified",
+      "findings": [
+        "Facts not independently reverified in this audit; historical verified labels are not adopted."
       ]
     },
     {
