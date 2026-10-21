@@ -23,17 +23,17 @@
 
 <div class="panel">
 <h2>Dataset totals</h2>
-<table><tbody><tr><td>Rows in master file</td><td class='num'>312</td></tr><tr><td>Rows in scope</td><td class='num'>308</td></tr><tr><td>Rows confirmed on an official source</td><td class='num'>249</td></tr><tr><td>Rows re-checked live this session</td><td class='num'>30</td></tr><tr><td>Rows contradicted by a live check</td><td class='num'>1</td></tr><tr><td>Fixtures merged from 2+ builds</td><td class='num'>120</td></tr><tr><td>Fixtures with opposing picks across builds</td><td class='num'>15</td></tr><tr><td>Rows carrying at least one flag</td><td class='num'>277</td></tr><tr><td>Outright markets</td><td class='num'>23</td></tr><tr><td>Out-of-scope rows retained</td><td class='num'>4</td></tr></tbody></table>
+<table><tbody><tr><td>Rows in master file</td><td class='num'>312</td></tr><tr><td>Rows in scope</td><td class='num'>308</td></tr><tr><td>Rows confirmed on an official source</td><td class='num'>244</td></tr><tr><td>Rows re-checked live this session</td><td class='num'>34</td></tr><tr><td>Rows contradicted by a live check</td><td class='num'>1</td></tr><tr><td>Fixtures merged from 2+ builds</td><td class='num'>120</td></tr><tr><td>Fixtures with opposing picks across builds</td><td class='num'>15</td></tr><tr><td>Rows carrying at least one flag</td><td class='num'>272</td></tr><tr><td>Outright markets</td><td class='num'>23</td></tr><tr><td>Out-of-scope rows retained</td><td class='num'>4</td></tr></tbody></table>
 </div>
 
 <div class="panel">
 <h2>Where the rows come from</h2>
-<table><thead><tr><th>Build</th><th>Primary rows</th><th>Description</th></tr></thead><tbody><tr><td>G</td><td class='num'>128</td><td>G — widest single sweep (17 sport files, 140 matches + 24 outrights)</td></tr><tr><td>D</td><td class='num'>65</td><td>D — hub board (66 entries across 16 sports)</td></tr><tr><td>A</td><td class='num'>57</td><td>A — governing-body ratings desk (137 rows, Model v1)</td></tr><tr><td>E</td><td class='num'>46</td><td>E — refreshable NBA/NHL/MLB pipeline (90 fixtures, three market families each)</td></tr><tr><td>C</td><td class='num'>16</td><td>C — 5-sport verified-input desk (43 fixtures, 182 selections)</td></tr></tbody></table>
+<table><thead><tr><th>Build</th><th>Primary rows</th><th>Description</th></tr></thead><tbody><tr><td>G</td><td class='num'>130</td><td>G — widest single sweep: 17 sport files with documented per-sport models</td></tr><tr><td>A</td><td class='num'>60</td><td>A — governing-body ratings desk (Model v1)</td></tr><tr><td>D</td><td class='num'>58</td><td>D — hub board as it now stands in the repo (later sessions rebuilt it and downgraded rows they could not re-confirm; those flags are taken as given)</td></tr><tr><td>E</td><td class='num'>48</td><td>E — refreshable NBA/NHL/MLB pipeline built from league endpoints</td></tr><tr><td>C</td><td class='num'>16</td><td>C — verified-input desk: every input transcribed from a league page with a source id</td></tr></tbody></table>
 <p class="small">"Primary rows" counts rows whose price, pick and confidence came from that build after deduplication.
 Rows that were merged in from another build are still listed in each row's <code>cross_build</code> field.</p>
 </div>
 
-<h2>Live re-checks (8 confirmed, 2 unreadable, 1 contradicted)</h2>
+<h2>Live re-checks (13 confirmed, 2 unreadable, 1 contradicted)</h2>
 <div class="pick-card">
   <div class="top"><h3>LC-01 · Ice Hockey</h3>
     <span class="badge ok">confirmed</span></div>
@@ -104,6 +104,41 @@ Rows that were merged in from another build are still listed in each row's <code
   <p class="text"><strong>Checked:</strong> Cheung Ka Wai v Stuart Bingham on 21 October 2026</p>
   <p class="text"><strong>Evidence:</strong> Fetch returned the site shell only (&#x27;Home of World Snooker - World Snooker Tour&#x27;) with no match list, so the fixture could not be confirmed from WST in this session.</p>
   <p class='text' style='color:#b42318'><strong>Irregularity:</strong> Build A flagged that this pairing was not visible on WST&#x27;s match centre. That remains unresolved: the row stays published, marked unverified, on Flagged for Review.</p>
+</div><div class="pick-card">
+  <div class="top"><h3>LC-11 · Handball</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener nofollow">source</a><span class="small"> ehfcl.eurohandball.com</span></div>
+  <p class="text"><strong>Checked:</strong> Aalborg Handbold v RK Celje Pivovarna Lasko is scheduled for 21 October 2026, 20:45 CET; Aalborg have 4 played, 3 wins, 1 draw, 136:115, 7 points in Group C; Celje have 4 played, 0 wins, 4 defeats, 120:154, 0 points in Group C</p>
+  <p class="text"><strong>Evidence:</strong> EHF Champions League Men 2026/27 standings page, Group C table: &#x27;Aalborg Håndbold 4 3 1 0 136:115 21 7&#x27; and &#x27;RK Celje Pivovarna Laško 4 0 0 4 120:154 -34 0&#x27;. The competition front page lists the fixture under Oct21 at 20:45 with the match link /matches/details/202711020101029/AalborgHåndbold-RKCeljePivovarnaLaško/.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-12 · Handball</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener nofollow">source</a><span class="small"> ehfcl.eurohandball.com</span></div>
+  <p class="text"><strong>Checked:</strong> One Veszprem HC v Fuchse Berlin is scheduled for 21 October 2026, 18:45 CET; Veszprem lead Group A: 4 played, 4 wins, 146:111, 8 points; Fuchse Berlin are second in Group A: 4 played, 3 wins, 1 defeat, 149:133, 6 points</p>
+  <p class="text"><strong>Evidence:</strong> Group A table on the EHF standings page: &#x27;One Veszprém HC 4 4 0 0 146:111 35 8&#x27;, &#x27;Füchse Berlin 4 3 0 1 149:133 16 6&#x27;. Fixture listed on the competition front page under Oct21 at 18:45.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-13 · Rugby League</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nrl.com</span></div>
+  <p class="text"><strong>Checked:</strong> Tonga v Lebanon is Round 2 of the 2026 Men&#x27;s Rugby League World Cup on Friday 23 October 2026, 8:05pm AEDT, at CommBank Stadium, Sydney; Tonga beat England 30-12 in Round 1 at HBF Park, Perth; Papua New Guinea beat Lebanon 42-18 in Round 1 in Port Moresby</p>
+  <p class="text"><strong>Evidence:</strong> NRL.com Round 2 team lists: &#x27;Tonga v Lebanon, Friday 8.05pm AEDT at CommBank Stadium, Sydney&#x27;. NRL.com Round 1 draw: England 12 - Tonga 30 at HBF Park, Perth (17 Oct); Papua New Guinea 42 - Lebanon 18 at Santos National Football Stadium (17 Oct).</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-14 · Rugby League</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nrl.com</span></div>
+  <p class="text"><strong>Checked:</strong> England v France is Round 2 on Saturday 24 October 2026, 5:35pm AEDT, at HBF Park, Perth; England lost their opener 12-30 to Tonga; Samoa beat France 78-4 in Round 1 at CommBank Stadium</p>
+  <p class="text"><strong>Evidence:</strong> NRL.com Round 2 team lists: &#x27;England v France, Saturday 5.35pm AEDT at HBF Park, Perth&#x27;, with the note that coach Brian McDermott keeps the same 19-man squad and Luke Thompson starts at prop for the injured Morgan Knowles. NRL.com Round 1 draw: Samoa 78 - France 4 (16 Oct); England 12 - Tonga 30 (17 Oct).</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-15 · Rugby Union</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://stats.unitedrugby.com/match-centre/2026-27/4" target="_blank" rel="noopener nofollow">source</a><span class="small"> stats.unitedrugby.com</span></div>
+  <p class="text"><strong>Checked:</strong> Ospreys v Dragons RFC is United Rugby Championship Round 4 on Saturday 24 October 2026, 14:00 local, at St Helen&#x27;s; Round 3 on 9 October: Dragons 31-38 Ospreys at Rodney Parade; After three rounds Dragons are 8th on 9 points (1W 1D 1L) and Ospreys 13th on 6 points (1W 2L)</p>
+  <p class="text"><strong>Evidence:</strong> URC Match Centre Round 4 lists &#x27;SAT, 24 OCT • 14:00 Ospreys v Dragons RFC ... St Helen&#x27;s&#x27;. The same page&#x27;s Round 3 results show &#x27;Dragons 31 - Ospreys 38&#x27; at Rodney Parade on 9 October. The URC table page gives Dragons 9 pts (PL 3, W 1, D 1, L 1, 88:83) and Ospreys 6 pts (PL 3, W 1, D 0, L 2, 81:107).</p>
+  
 </div>
 
 <h2>Machine checks</h2>

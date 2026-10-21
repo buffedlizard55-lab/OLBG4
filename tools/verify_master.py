@@ -51,7 +51,9 @@ def main() -> int:
 
     in_scope = [r for r in rows if r["in_scope"]]
     for r in in_scope:
-        check(bool(r["source_url"]), f"{r['id']} ({r['sport']}) has no source URL")
+        # A row may legitimately have no link, but then it must say so on the Flagged page.
+        check(bool(r["source_url"]) or any(f["kind"] == "no-source" for f in r["flags"]),
+              f"{r['id']} ({r['sport']}) has no source URL and is not flagged as such")
         if r["source_url"]:
             check(r["source_domain"] in registered,
                   f"{r['id']} cites {r['source_domain']}, which is missing from the source registry")

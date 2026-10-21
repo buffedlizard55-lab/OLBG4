@@ -60,12 +60,13 @@ SLUGS = {
 
 BACKBONE = ["G", "E", "C", "A", "D", "B"]
 BUILD_LABEL = {
-    "G": "G — widest single sweep (17 sport files, 140 matches + 24 outrights)",
-    "E": "E — refreshable NBA/NHL/MLB pipeline (90 fixtures, three market families each)",
-    "C": "C — 5-sport verified-input desk (43 fixtures, 182 selections)",
-    "A": "A — governing-body ratings desk (137 rows, Model v1)",
-    "D": "D — hub board (66 entries across 16 sports)",
-    "B": "B — read directly off OLBG's live sport pages (116 fixtures)",
+    "G": "G — widest single sweep: 17 sport files with documented per-sport models",
+    "E": "E — refreshable NBA/NHL/MLB pipeline built from league endpoints",
+    "C": "C — verified-input desk: every input transcribed from a league page with a source id",
+    "A": "A — governing-body ratings desk (Model v1)",
+    "D": "D — hub board as it now stands in the repo (later sessions rebuilt it and downgraded "
+         "rows they could not re-confirm; those flags are taken as given)",
+    "B": "B — read directly off OLBG's live sport pages (published separately: no official source)",
 }
 
 # ------------------------------------------------------------ source registry
@@ -106,6 +107,8 @@ OFFICIAL_DOMAINS = {
     "www.montpellier.fr": "Ville de Montpellier (host city, official event page)",
     "www.olympics.com": "International Olympic Committee",
     "gaacork.ie": "Cork GAA", "www.galwaygaa.ie": "Galway GAA", "munster.gaa.ie": "Munster GAA",
+    "www.world.rugby": "World Rugby", "www.pcb.com.pk": "Pakistan Cricket Board",
+    "bwfworldtour.bwfbadminton.com": "BWF World Tour (Badminton World Federation)",
 }
 SECONDARY_DOMAINS = {
     "www.espn.com": "ESPN — news/aggregator",
@@ -397,14 +400,22 @@ def load_D(records):
     for x in json.load(open(os.path.join(ROOT, "data/matches.json"))):
         r = base_record()
         ml = x.get("originatedMoneyline") or {}
-        r.update(build="D", build_verified=bool(x.get("verified")),
+        ver = x.get("verification") if isinstance(x.get("verification"), dict) else {}
+        src = x.get("sourceUrl") or ver.get("officialUrl") or ""
+        r.update(build="D",
+                 build_verified=(ver.get("status") == "confirmed") if ver else bool(x.get("verified")),
                  sport=x.get("sport") or "", competition=x.get("competition") or "",
                  date=first_date(x.get("date")), date_raw=x.get("date") or "",
                  time=x.get("time") or "", venue=x.get("venue") or "",
                  home=x.get("teamA") or "", away=x.get("teamB") or "",
                  pick=x.get("pick") or "", confidence=norm_conf(x.get("confidence")),
-                 prediction=x.get("prediction") or "", source_url=x.get("sourceUrl") or "",
-                 source_name=x.get("sourceName") or "", notes=x.get("formNotes") or "")
+                 prediction=x.get("prediction") or "", source_url=src,
+                 source_name=x.get("sourceName") or ver.get("officialSource") or "",
+                 notes=x.get("formNotes") or "")
+        if ver.get("status") and ver.get("status") != "confirmed":
+            r["flags"].append({"kind": "downgraded-by-later-session",
+                               "text": f"Build D's file, as rebuilt by a later session, records this row as "
+                                       f"'{ver.get('status')}' with the evidence in data/matches.json."})
         if ml:
             odds = {k: v for k, v in {x.get("teamA"): ml.get("a"), x.get("teamB"): ml.get("b")}.items()
                     if k and v}
@@ -547,6 +558,49 @@ def main() -> None:
             primary["archive_rows"] = len(group) - 1
             master.append(primary)
 
+    # ---- write-ups authored by this session (data/authored_predictions.json)
+    # Build A ships frame-generated prose for a handful of high-confidence rows. Rather than publish
+    # that as if it were written analysis, those rows either get a write-up authored here from facts
+    # re-read on the official pages (recorded with the text), or lose their High tag. Nothing is
+    # filled in from memory: every claim in the text is listed in `authored_facts` with its URL.
+    authored_applied, authored_missing = [], []
+    apath = os.path.join(ROOT, "data", "authored_predictions.json")
+    if os.path.exists(apath):
+        with open(apath) as fh:
+            ap = json.load(fh)
+        for entry in ap.get("entries", []):
+            m = entry["match"]
+            hits = [r for r in master
+                    if r["sport"] == m["sport"]
+                    and m["home_contains"].lower() in r["home"].lower()
+                    and m["away_contains"].lower() in r["away"].lower()]
+            if len(hits) != 1:
+                authored_missing.append(f'{m["sport"]}: {m["home_contains"]} v {m["away_contains"]} matched '
+                                        f'{len(hits)} rows')
+                continue
+            row = hits[0]
+            row["prediction"] = entry["prediction"]
+            row["prediction_source"] = f'authored {ap.get("authored_at", "")}'.strip()
+            row["authored_facts"] = entry.get("facts", [])
+            row["authored_sources"] = entry.get("sources", [])
+            row["pick"] = row["pick"] or entry.get("pick", "")
+            authored_applied.append(row["id"] if "id" in row else f'{row["sport"]} {row["home"]} v {row["away"]}')
+        for entry in ap.get("confidence_overrides", []):
+            m = entry["match"]
+            hits = [r for r in master
+                    if r["sport"] == m["sport"]
+                    and m["home_contains"].lower() in r["home"].lower()
+                    and m["away_contains"].lower() in r["away"].lower()]
+            if len(hits) != 1:
+                authored_missing.append(f'override {m["sport"]}: matched {len(hits)} rows')
+                continue
+            row = hits[0]
+            row["flags"].append({"kind": "confidence-lowered",
+                                 "text": f'Confidence lowered from {row["confidence"] or "unset"} to '
+                                         f'{entry["confidence"]}: {entry["reason"]}'})
+            row["confidence"] = entry["confidence"]
+            row["confidence_note"] = entry["reason"]
+
     # ---- final write-up classification (done after merging so copied texts are covered too)
     import difflib
 
@@ -574,6 +628,11 @@ def main() -> None:
         max_sim = max((difflib.SequenceMatcher(None, r["prediction"], o["prediction"]).ratio()
                        for o in peers), default=0.0)
         reasons = []
+        if r.get("prediction_source", "").startswith("authored"):
+            # Written here against the official pages recorded in authored_sources; never a template.
+            r["prediction_style"] = "written"
+            r["prediction_similarity"] = 0.0
+            continue
         if r["build"] == "A":
             # Every one of build A's 32 write-ups follows one of a handful of fixed sentence frames
             # ("Take X to win this ...", "Back X to win ...", "X entered this match with a points

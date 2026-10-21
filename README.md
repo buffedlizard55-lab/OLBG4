@@ -9,9 +9,9 @@ The root of the site is a single dashboard built from every earlier build in thi
 | Page | What it shows |
 |---|---|
 | `/` | 308 in-scope rows across 18 sports, filterable by sport, confidence, market and verification, each row with its source link |
-| `/picks.html` | 69 high-confidence picks with written predictions (≥30 words, no duplicates, source under each one) |
+| `/picks.html` | 62 high-confidence picks, every one with a written prediction (≥30 words, 38–92 words, source under each) |
 | `/markets.html` | Match winner / handicap / total coverage per sport, plus 23 outright markets |
-| `/flagged.html` | Everything unconfirmed: 1 contradicted row, 59 unverified rows, 15 cross-build model conflicts, 30 date discrepancies, 19 templated write-ups, 4 out-of-scope rows |
+| `/flagged.html` | Everything unconfirmed: 1 contradicted row, 64 unverified rows, 15 cross-build model conflicts, 30 date discrepancies, 14 templated write-ups, 4 out-of-scope rows |
 | `/sources.html` | Every domain in use (76), classified official / secondary / OLBG, with the live re-check log |
 | `/audit.html` | Verification log: dataset totals, where each row came from, the evidence for every live check |
 | `/methodology.html` | How the list was assembled, how each build priced its lines, how confidence was graded, limitations |
@@ -43,9 +43,12 @@ marked unverified, and listed on the Flagged page. One row contradicts an offici
 
 - 312 rows total, 308 in scope, 18 sports (soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials excluded).
 - 267 genuine fixtures; 31 market notes and 10 incomplete rows are kept, flagged and hidden from the fixture view.
-- 280 rows carry an originated pick; 253 are official-sourced and build-verified; 30 were re-checked live today.
-- 121 non-templated written predictions (38–105 words, max pairwise similarity 0.40); 69 of them on high-confidence fixtures.
+- 277 rows carry an originated pick; 244 are official-sourced *and* build-verified; 34 were re-opened and re-checked on 2026-10-21.
+- 63 non-templated written predictions; all 62 high-confidence fixtures carry one, and 5 of those were written by this session from
+  facts re-read on the official pages (the evidence is printed under the card).
+- A further 14 rows carry templated text from build A (one sentence frame repeated verbatim) — kept at Low/Medium confidence and listed on Flagged.
 - 15 fixtures have opposite picks in different builds — both sides published.
+- 39 rows have no source at all (build D never recorded one); they stay visible, marked unverified, and are the first block on Flagged.
 
 ---
 

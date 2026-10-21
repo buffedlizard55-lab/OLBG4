@@ -928,16 +928,17 @@ Scope is non-overlapping and additive: new files only, plus the four shared file
 |---|---|---|---|
 | H1 | Audit every build's committed data; record provenance | done | this board |
 | H2 | Deduplicated master dataset with per-row provenance + conflict register | done | `data/master.json` (312 rows), `data/master_conflicts.json` (15), `data/source_registry.json`, `data/master_olbg.json`, `tools/build_master.py` |
-| H3 | Live re-verification against official sources | done | `data/live_checks.json` (10 checks: 8 confirmed, 1 contradicted, 2 pages unreadable) |
+| H3 | Live re-verification against official sources | done | `data/live_checks.json` (15 checks: 13 confirmed, 1 contradicted, 2 pages unreadable) |
 | H4 | New dashboard: landing + 18 sport pages + 7 topic pages | done | `index.html`, `sports/*.html`, `picks.html`, `markets.html`, `flagged.html`, `sources.html`, `audit.html`, `methodology.html`, `archive.html`, `olbg.html`, `assets/master/*` |
 | H5 | Machine gate wired into CI | done | `tools/verify_master.py`, `.github/workflows/pages.yml` |
-| H6 | PR to main, merge, confirm Pages deploy | done | see publish record below |
+| H6 | PR to main, merge, confirm Pages deploy | in progress | publish record appended below once merged |
 
-**What the merge produced.** 312 rows from the six earlier builds (G 128, D 65, A 57, E 46, C 16 primaries), 18 sports in
-scope, 267 genuine fixtures (31 market notes and 10 incomplete rows kept and flagged, hidden from the fixture view),
-280 rows with an originated pick, 253 rows sourced to an official domain and build-verified (249 of them in scope), 121
-non-templated written predictions of which 69 belong to high-confidence fixtures, 30 rows re-confirmed live today, 1 row
-contradicted by an official schedule.
+**What the merge produced.** 312 rows from the five earlier builds with a committed dataset (G 130, A 60, D 58, E 48, C 16
+primaries), 18 sports in scope, 267 genuine fixtures (31 market notes and 10 incomplete rows kept and flagged, hidden from
+the fixture view), 277 rows with an originated pick, 244 rows sourced to an official domain and build-verified, 63
+non-templated written predictions of which all 62 high-confidence fixtures are covered, 34 rows re-confirmed live today,
+1 row contradicted by an official schedule. Build B's 116 OLBG-only fixtures are published separately in
+`data/master_olbg.json` / `olbg.html` because none of them has an official source.
 
 **Verification performed.** `python3 tools/build_master.py && python3 tools/build_master_site.py && python3 tools/verify_master.py`
 — 9 assertion families: unique ids · every in-scope row has a source URL that is in the registry · no excluded sport in scope ·
@@ -953,9 +954,16 @@ passed`. Rebuilds are byte-identical (checked by running the builders twice and 
 4. `data/rows.json` holds 137 rows / 11 sports while build A's published site text claims 144 rows / 15 sports; the repo's own audit attributes this to a later overwrite. The data file is what the board reads.
 5. 15 fixtures have opposite picks in different builds (model disagreement, not a factual error) — both published with sources.
 6. 30 rows are dated differently by different builds: mostly UTC-vs-local (Pelicans–Pacers is 21 Oct locally, 22 Oct in UTC). Both values kept.
-7. 59 in-scope rows are unverified: 29 secondary (Wikipedia/ESPN/BBC/Sky), 2 OLBG-only, 28 official-domain-but-build-unmarked.
+7. 64 in-scope rows are unverified: 39 have no source at all (build D recorded none), 25 cite an official domain but their
+   originating build marked them unverified.
 8. Gaelic football (4 rows) retained but out of scope; greyhounds/golf/motor racing have no head-to-head markets.
-9. pdc.tv's 18 Oct draw page and wst.tv's match centre were not machine-readable today; recorded as `not-readable` rather than passed.
+9. pdc.tv's articles and rankings pages served a cookie-consent wall rather than content today, and wst.tv's match centre is an
+   empty single-page app; both are recorded as `not-readable` rather than passed. Because of the PDC wall, one darts row
+   (Humphries v Searle) had its confidence lowered from High to Medium instead of being given an unverifiable write-up.
+10. Build A's prediction text is frame-generated — one sentence skeleton repeats verbatim across ten rows ("Take X to win
+    this ... our ratings make them Y% favourites"). Detected after the merge and marked `templated` (14 rows at Low/Medium).
+    Five of A's high-confidence rows were rewritten from official pages read today (`data/authored_predictions.json` lists
+    every fact and its URL), so all 62 high-confidence fixtures now carry a genuine write-up.
 
 **No other session's file was edited.** Added paths only: `tools/build_master*.py`, `tools/verify_master.py`, `data/master*.json`,
 `data/source_registry.json`, `data/live_checks.json`, `sports/`, `assets/master/`, and the seven new root pages. Shared files

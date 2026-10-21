@@ -297,6 +297,7 @@ def build_sport(sport: str) -> str:
     <span class="selection">{E(r['pick'])}</span></div>
   <div class="sub">{E(r['date'])} · {E(r['competition'])}</div>
   <p class="text">{E(r['prediction'])}</p>
+  {authored_block(r)}
   <div class="foot"><span>Selection: <strong>{E(r['pick'])}</strong> ({E(r['pick_market'] or 'match winner')})</span>
   <span>{src_link(r['source_url'], r['source_domain'])}</span>{badge_verify(r)}</div>
 </div>""")
@@ -338,6 +339,20 @@ def build_sport(sport: str) -> str:
 
 
 # --------------------------------------------------------------------- picks
+AUTHORED = [r for r in FIXTURES if r.get("prediction_source", "").startswith("authored")]
+
+
+def authored_block(r) -> str:
+    """The evidence behind a write-up this session authored, with the page each fact came from."""
+    facts = r.get("authored_facts") or []
+    if not facts:
+        return ""
+    items = "".join(f"<li>{E(f)}</li>" for f in facts)
+    links = " ".join(src_link(u, "") for u in (r.get("authored_sources") or [])[:2])
+    return (f'<details class="facts"><summary>Facts used in this write-up ({len(facts)})</summary>'
+            f'<ul>{items}</ul><div class="sub">Read from: {links}</div></details>')
+
+
 def build_picks() -> str:
     by_sport = defaultdict(list)
     for r in HIGH:
@@ -353,9 +368,10 @@ def build_picks() -> str:
     <span class="selection">{E(r['pick'])}</span><span class="sub">{E(r['pick_market'] or 'match winner')}</span></div>
   <div class="sub">{E(r['date'])} · {E(r['competition'])} {('· ' + E(r['venue'])) if r.get('venue') else ''}</div>
   <p class="text">{E(r['prediction'])}</p>
+  {authored_block(r)}
   <div class="foot">
     <span>{words} words</span>
-    <span>Build {E(r['build'])}</span>
+    <span>{"Facts checked 2026-10-21" if r.get("prediction_source", "").startswith("authored") else "Build " + E(r["build"])}</span>
     <span>{src_link(r['source_url'], r['source_domain'])}</span>
     {badge_verify(r)}
     <span><a href="./sports/{E(r['sport_slug'])}.html">{E(r['sport'])} page</a></span>
@@ -365,16 +381,23 @@ def build_picks() -> str:
                         f'<span class="small">({len(by_sport[sport])})</span></h2>{"".join(cards)}')
 
     words = [len(r["prediction"].split()) for r in HIGH]
+    no_text_sentence = (
+        f"{len(HIGH_NO_TEXT)} further high-confidence rows have no qualified write-up \u2014 their build's text was a "
+        f"template \u2014 and they are listed on <a href='./flagged.html'>Flagged</a> rather than padded with prose."
+        if HIGH_NO_TEXT else
+        "Every high-confidence row in the dataset carries one of these write-ups, all of them checked against the "
+        "official page linked on the card.")
     body = f"""
 <section class="page-head">
   <h1>High-confidence picks and written predictions</h1>
   <p class="lede">{len(HIGH)} matches are graded high confidence and carry a qualified written prediction. Each one has at least
   30 words that names the selection, the teams or players, their form and the recent match history, and each is
   followed by the official page the facts were read from. The shortest here is {min(words)} words, the longest {max(words)}.
-  {len(HIGH_NO_TEXT)} further high-confidence rows have no qualified write-up — their build's text was a template — and they are
-  listed on <a href="./flagged.html">Flagged</a> rather than padded with prose.</p>
-  <p class="meta">Predictions are reproduced from the build that produced them. Where a build filled its write-ups from a
-  template, the row was not counted here — {len(templated)} such rows are listed on <a href="./flagged.html">Flagged</a>.</p>
+  {no_text_sentence}</p>
+  <p class="meta">Most predictions are reproduced from the build that produced them. {len(AUTHORED)} were written on
+  2026-10-21 by this session because the originating build only had frame-generated text for those rows — the facts behind
+  each are listed under the card with the official pages they were read from. {len(templated)} further rows in the dataset
+  carry templated text at lower confidence and are listed on <a href="./flagged.html">Flagged</a>.</p>
 </section>
 <div class="callout"><strong>Responsible note.</strong> These are our own model prices and opinions, not bookmaker odds,
 and no stake or return is claimed. Confidence grades describe how much agreeing evidence the model had, not a guarantee.</div>
@@ -802,6 +825,11 @@ def build_archive() -> str:
         ("session-4afef1af/", "Build E — refreshable pipeline", "90 NBA/NHL/MLB fixtures from league endpoints, three market families with alternates, 18 predictions, re-runs every six hours."),
         ("session-e1e0c27e/", "Build J — independent cross-build audit", "Reads every build's committed data (592 rows), classifies each source, matches fixtures across builds and lists 13 findings."),
         ("session-07a080b9/", "Build F — re-runnable audit", "Machine audit of builds A–E: JSON validity, source presence, prediction length and uniqueness, internal links."),
+        ("session-6b8d2d5f/", "Board K — verified command center (later session)", "48 official-sourced fixtures with 6 predictions, its own verification and flagged pages, plus a per-league breakdown. Its rows are not merged into this board; the dashboard links it here so nothing is lost."),
+        ("session-093bfd5e/", "Board L — hub verified-flag repair (later session)", "Re-checked the 15 high-confidence hub rows, downgraded rows whose sources were not official and published a per-row classification register."),
+        ("session-5838b25d/", "Board K (earlier claim) — re-verification pass", "An earlier integration pass whose official URLs for rugby and BWF were later re-read and adopted by the next session."),
+        ("verification.html", "Repo-wide verification register", "The current register of every hub row with its official/secondary classification, produced by the later sessions."),
+        ("audit/", "Publication audit", "Automated inventory of every build's rows and local link targets, with a JSON report."),
         ("session-5e6c545d/", "Small audit page", "An earlier audit page kept for provenance."),
         ("tennis.html", "Build D's per-sport pages", "The 15 single-sport pages build D published at the repo root (tennis, basketball, baseball, cricket, rugby, ice-hockey, snooker, darts, golf, badminton, table-tennis, volleyball, handball, esports, aussie-rules). Their header links now point at this dashboard's Methodology, Sources and Flagged pages."),
     ]
