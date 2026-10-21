@@ -2,24 +2,8 @@
   {
     "id": "flag-001",
     "severity": "warning",
-    "category": "rating_sample_limited",
-    "detail": "NBA: no prior-season sample was reachable, so ratings use only 3 completed games (1 per team). Winner picks stay low confidence until the sample reaches 20 games per team.",
-    "field": "ratings",
-    "value": null,
-    "action": "published",
-    "source_urls": [
-      "https://nba.com"
-    ],
-    "sport": null,
-    "fixture_id": null,
-    "match": null,
-    "start_utc": null
-  },
-  {
-    "id": "flag-002",
-    "severity": "warning",
     "category": "market_withheld",
-    "detail": "NBA: markets and picks are withheld for 50 fixtures because the smallest per-team sample is under 20 completed games. The fixtures, records and official source links are still published.",
+    "detail": "NBA: markets and picks are withheld for 50 fixtures because the smallest per-team sample is under 20 completed games, so no line can be originated. The prior-season stats endpoint (stats.nba.com) timed out from the build runner and the schedule CDN carries only the current season, which is why the sample is this small. The fixtures, records and official source links are still published.",
     "field": "markets",
     "value": null,
     "action": "published",
@@ -32,7 +16,7 @@
     "start_utc": null
   },
   {
-    "id": "flag-003",
+    "id": "flag-002",
     "severity": "info",
     "category": "missing_probable_pitcher",
     "detail": "probable pitchers not yet announced; left blank rather than guessed",
@@ -49,7 +33,7 @@
     "start_utc": "2026-10-24T00:00:00Z"
   },
   {
-    "id": "flag-004",
+    "id": "flag-003",
     "severity": "info",
     "category": "missing_probable_pitcher",
     "detail": "probable pitchers not yet announced; left blank rather than guessed",
@@ -66,7 +50,7 @@
     "start_utc": "2026-10-25T00:00:00Z"
   },
   {
-    "id": "flag-005",
+    "id": "flag-004",
     "severity": "info",
     "category": "missing_probable_pitcher",
     "detail": "probable pitchers not yet announced; left blank rather than guessed",
