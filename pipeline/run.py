@@ -240,13 +240,14 @@ def main(argv: list[str] | None = None) -> int:
         opening = model.opening_fit(results, sport, now, current_season)
         opening.team_names = current_fit.team_names
 
-        if opening.games == 0 and current_fit.games > 0:
+        thinnest = min(current_fit.games_per_team.values()) if current_fit.games_per_team else 0
+        if opening.games == 0 and 0 < thinnest < config.CONFIDENCE["medium"]["min_games"]:
             findings.add(
                 severity="warning", category="rating_sample_limited", field="ratings",
                 detail=(
                     f"{meta['league']}: no prior-season sample was reachable, so ratings use only "
-                    f"{current_fit.games} completed {meta['league']} games. Winner picks are capped "
-                    f"at low confidence until the sample reaches 20 games per team."
+                    f"{current_fit.games} completed games ({thinnest} per team). Winner picks stay "
+                    f"low confidence until the sample reaches 20 games per team."
                 ),
                 source_urls=[f"https://{meta['official_domains'][0]}"],
             )

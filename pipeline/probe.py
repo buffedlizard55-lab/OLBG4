@@ -52,6 +52,41 @@ def probe_one(url: str, headers: dict) -> dict:
         return {"status": None, "error": f"{type(exc).__name__}: {exc}"}
 
 
+SCHEDULE_ARCHIVES = [
+    "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+    "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+]
+
+
+def inspect_schedule(url: str) -> dict:
+    """Report which season an NBA schedule archive actually covers."""
+    try:
+        req = urllib.request.Request(url, headers=BROWSER)
+        with urllib.request.urlopen(req, timeout=40) as resp:
+            raw = resp.read()
+        data = json.loads(raw)
+        sched = data.get("leagueSchedule") or {}
+        dates = sched.get("gameDates") or []
+        games = [g for day in dates for g in day.get("games", [])]
+        stamps = [g.get("gameDateTimeUTC") for g in games if g.get("gameDateTimeUTC")]
+        return {
+            "url": url,
+            "status": 200,
+            "bytes": len(raw),
+            "season_year": sched.get("seasonYear"),
+            "game_dates": len(dates),
+            "games": len(games),
+            "completed": sum(1 for g in games if g.get("gameStatus") == 3),
+            "regular_season_games": sum(
+                1 for g in games if str(g.get("gameId", "")).startswith("002")
+            ),
+            "first_game_utc": min(stamps) if stamps else None,
+            "last_game_utc": max(stamps) if stamps else None,
+        }
+    except Exception as exc:  # noqa: BLE001
+        return {"url": url, "status": None, "error": f"{type(exc).__name__}: {exc}"}
+
+
 def main() -> int:
     results = []
     for url, sport in TARGETS:
@@ -59,9 +94,13 @@ def main() -> int:
             outcome = probe_one(url, headers)
             results.append({"url": url, "sport": sport, "profile": profile_name, **outcome})
             print(f"{outcome.get('status')}  {profile_name:7s} {url}")
+    archives = [inspect_schedule(url) for url in SCHEDULE_ARCHIVES]
+    for a in archives:
+        print(f"archive {a.get('status')} {a.get('season_year')} {a.get('games')} games {a['url']}")
     payload = {
         "probed_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "results": results,
+        "schedule_archives": archives,
         "note": "Diagnostic only. A 403/000 here means the runner could not reach that "
                 "official endpoint; the pipeline then reports the provider as unavailable "
                 "instead of substituting an unofficial source.",
