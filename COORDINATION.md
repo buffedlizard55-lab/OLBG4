@@ -138,3 +138,49 @@ Resolution (no work discarded):
   * https://buffedlizard55-lab.github.io/OLBG4/docs/ → build A dashboard (144 rows)
   * https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/index.html → build B dashboard (116 rows, 9 high-confidence picks, 50 flags)
 * Pre-merge gate: 37 HTML files, 509 local links, **0 broken**; `scripts/verify.py --links` 13/13 checks pass.
+
+---
+
+## Board C — session `arena/74f9613e-olbg4`
+
+Claimed 2026-10-21T09:05Z. Scope: `data/session-74f9613e/`, `session-74f9613e/`,
+`scripts/session-74f9613e/`, `VERIFICATION.md`, `METHODOLOGY.md`, `.github/workflows/validate.yml`,
+and additive edits to `README.md`, `COORDINATION.md` and the root `index.html` portal.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| C1 | Reverse-engineer the OLBG sport universe and capture every in-scope fixture in the 21–25 Oct 2026 window | done | 74f9613e | `data/session-74f9613e/olbg_inventory.json`, `coverage.json` |
+| C2 | Re-verify every fixture and every model input against the competition's official page | done | 74f9613e | `VERIFICATION.md`, `prepare_inputs.py` |
+| C3 | Originate money-line, handicap and totals prices; pick a winner and a confidence band per match | done | 74f9613e | `model.py`, `data/session-74f9613e/matches.json` |
+| C4 | Write a unique ≥30-word prediction for every high-confidence pick, with the exact facts and sources listed under it | done | 74f9613e | `data/session-74f9613e/predictions.json` |
+| C5 | Build the dashboard: landing, per-sport pages, markets, predictions, coverage, findings, flagged, methodology, sources | done | 74f9613e | `session-74f9613e/` |
+| C6 | Integrate, PR, merge, confirm the Pages deploy and record it | done | 74f9613e | repo root, `COORDINATION.md` |
+
+### Results (build C)
+- **43 fixtures / 5 sports**: NHL 12 (22 Oct), NBA 11 (21 Oct), snooker 11 (Northern Ireland Open), Rugby Union 8 (URC Round 4), MLB 1 (World Series Game 1, 23 Oct).
+- **32 priced / 11 unpriced, 182 selections.** Confidence split across the priced matches: 10 high / 11 medium / 11 low. Two-way markets take a 1.04 overround, three-way 1.05.
+- **10 predictions**, 59 words at the shortest, no duplicated bodies; each is followed by the bullet list of verified facts and the source page for each.
+- **Coverage register**: 22 OLBG sport hubs — 4 priced, 1 partially priced, 1 fixture-only, 1 with no match market, 3 with unverified inventory, 7 not covered in this window, 5 excluded by the brief. Darts, tennis, cricket and Gaelic football are inventoried with their OLBG fixture list but carry no originated line, because the session could not verify the inputs they would need.
+- **Verification**: `python3 scripts/session-74f9613e/validate.py` → `OK - all validation checks passed` (matches 43, priced 32, unpriced 11, selections 182, predictions 10, inventory rows 53, coverage rows 22, pages 18).
+
+### Irregularities logged by build C
+The full list of gaps is in `VERIFICATION.md` and is rendered on `session-74f9613e/flagged.html`.
+Headlines: OLBG's snooker pairings do not all appear in the WST draw captured here, so only the
+pairings that the official page corroborates are priced; the NBA Western Conference table was
+truncated for three clubs, so two fixtures carry no line; the MLB capture gives the World Series
+clubs and date but no first-pitch time or venue, so both fields are blank; the NHL schedule page
+has no venue column; and the PDC, ATP and ICC pages served to this session carried no
+machine-readable draw or ranking table, so those sports stay inventory-only rather than guessed.
+
+### Merge resolution
+Rebased onto `main` after boards A and B had landed. Build C's artefacts were moved under
+`session-74f9613e/`, `data/session-74f9613e/` and `scripts/session-74f9613e/` so no path of
+board A's or board B's is overwritten; `docs/index.html`, `data/rows.json`, `data/*.json`,
+`build_site.py`, `gen_pages.py`, `scripts/verify.py` and `session-7114b6a1/` are untouched.
+`README.md` gained a build C row and section; the root `index.html` was changed from a bare
+redirect to a portal that links all three dashboards, so `/docs/` still works and is still one
+click from the front page.
+
+### Log
+- 2026-10-21T09:05Z — `74f9613e` — C1…C5 complete locally; validator green.
+- 2026-10-21T09:20Z — `74f9613e` — rebased onto `main` (`d8a2b70`); build C namespaced, no board A/B file modified.
