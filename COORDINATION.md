@@ -284,9 +284,28 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
 
-## Board F — session `arena/6e0f382d-olbg4` (full 17-sport sweep, documented per-sport models)
+## Board F — session `arena/ef72af9b-olbg4`
 
-Sixth independent build, integrated additively — no other build's files modified except one portal card + build-count text in `index.html` and additive rows in `README.md`.
+This session uses its fixed Arena branch (rather than creating a session branch).
+
+| Task | Status | Owner | File scope |
+|---|---|---|---|
+| Repository-wide publication audit and local-link gate; disclose unsupported verification claims | in progress | arena/ef72af9b-olbg4 | `scripts/audit_publication.py`, `audit/`, `.github/workflows/audit.yml`, `COORDINATION.md` |
+
+Other builds and the active E integration claim are not modified. Official sports websites cannot be reached through sandbox shell egress; prior verification claims are not accepted as fresh verification. Findings will distinguish structural validation from official factual verification.
+
+### Board F findings and verification
+
+- Inventory: 459 source rows (D 66, A 144, B 116, C 43, E 90). These are overlapping snapshots, **not 459 unique matches**. Every row is conservatively marked unverified in the new audit, with blank `verified_values`; historical `verified` flags are not carried forward as fresh checks.
+- Official source reopened: https://www.nba.com/news/2026-27-nba-regular-season-schedule — opening-night Boston at Detroit, Philadelphia at New York, Oklahoma City at San Antonio and their October 20 schedule supported. This does not substantiate every extra numeric form claim in `data/matches.json`.
+- Irregularities published at `audit/index.html`: source-link presence vs factual verification; OLBG consensus-derived prices in B; assumed scoring constants; incomplete coverage; past-dated upcoming labels; Gaelic scope ambiguity (no confirmation from the present user located); older snapshots; limited automated sports coverage.
+- Checks: pipeline offline self-test 24/24; Board C rebuild and validation pass with no generated diff; audit unit tests 4/4; all-repository local target scan 1,624 targets, zero missing. These are structural checks, **not** verification of external sports facts, external URL status or fragment anchors.
+- Parallel scope request: PR #12 is open from another session and touches shared publication files. Do not edit its scope. Its integration owner should add a prominent link to `audit/` and remove blanket “verified” claims until claim-level checks exist. This session publishes the audit independently rather than overwrite that session's landing/navigation work.
+- Initial claim push: the new remote branch did not yet exist, so `git pull --rebase origin arena/ef72af9b-olbg4` failed. Rebased against `origin/main`, then pushed only the fixed session branch successfully; no merge conflict or discarded work.
+
+## Board G — session `arena/6e0f382d-olbg4` (full 17-sport sweep, documented per-sport models)
+
+Seventh board / sixth dashboard build (Board F above is the ef72af9b publication audit; this board relabelled G to avoid the duplicate letter both sessions picked independently), integrated additively — no other build's files modified except one portal card + build-count text in `index.html` and additive rows in `README.md`.
 
 - **Scope:** all 17 in-scope OLBG sports (excluded: Football, Horse Racing, Specials, American Football, Boxing/UFC/MMA, Cycling, Hurling). Gaelic Football treated as in scope (only Hurling excluded), consistent with Board E's correction. Coverage = OLBG server-rendered feed on 2026-10-21 (150 matches/events + 14 outrights in `data/raw/`).
 - **Verification:** line-by-line vs official sources → `data/verified/` (ATP/WTA, EuroLeague/EuroCup/NBA/BCL/KBL, EHF + national handball, LNR/URC, PLS/VBL/Lega, PDC, WST, ICC/CSA, NHL API/ICEHL/SHL, MLB Stats API, Formula1.com, OWGR, GAA county boards, GBGB, AFL, Riot). Every published row links its official source.
