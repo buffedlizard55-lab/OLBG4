@@ -431,9 +431,11 @@ open(os.path.join(HERE, "methodology.html"), "w").write(page("Methodology", "met
 # flagged
 FLAGS = [
  ("K-01", "high", "Root hub marks rows verified without an official source",
-  f"{n_secondary_verified} of the 66 hub rows carry `verified: true` while their only link is a secondary page "
+  f"{n_secondary_verified} of the 66 hub rows still carry `verified: true` while their only link is a secondary page "
   "(ESPN, Wikipedia, BBC, Sky Sports, ESPNcricinfo, etusuora, findmygroup, tempo.co, USA Today, basketnews, "
-  "montpellier.fr) or OLBG itself. The hub's claim that every row links to a governing body is not supported by its own data.",
+  "montpellier.fr) or OLBG itself. The hub's claim that every row links to a governing body is not supported by its "
+  "own data. Board L (`093bfd5e`) has since downgraded the rows it could not confirm; this count is recomputed from "
+  "data/matches.json at build time and shows what is left.",
   "../data/matches.json"),
  ("K-02", "high", "Hub prediction NBA02 cites a roster that the official game page does not support",
   "The hub's write-up says Philadelphia 'integrate LeBron James and Jaylen Brown'. NBA.com's page for 2026-10-20 "
