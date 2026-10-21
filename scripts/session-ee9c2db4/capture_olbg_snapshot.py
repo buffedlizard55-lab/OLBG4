@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-Board H (session-ee9c2db4) — H1: Live OLBG.com Reverse-Engineering Snapshot & Complete 24-Slot Sport Taxonomy
-Captured & verified live on 2026-10-21 across all OLBG.com sport channels and sub-category endpoints.
+Board K (session-ee9c2db4) — K1: Complete OLBG.com 28-Slot Sport Taxonomy & Sub-Feed Audit
 """
 from __future__ import annotations
 
@@ -30,54 +29,64 @@ OLBG_SPORT_TAXONOMY = {
             "title": "20-Card Top-Level Feed Truncation Hidden Behind Competition Sub-Feeds",
             "detail": (
                 "OLBG's top-level sport pages (/betting-tips/{Sport}/{id}) cap initial server HTML rendering at ~20 event cards "
-                "sorted by tip volume. Probing competition sub-feeds (/Basketball/NBA/4, /Basketball/European/4, "
-                "/Basketball/European/Euroleague/4, /Basketball/Other/4, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13) "
-                "uncovered 17 additional live OLBG fixtures hidden from top-level feeds plus 11 newly posted fixtures "
-                "across Snooker, Volleyball, Handball, and Rugby Union (28 live OLBG fixtures missed by single-page crawlers)."
+                "ordered by tipster volume. Probing competition sub-feeds (/Basketball/NBA/4, /Basketball/European/4, "
+                "/Basketball/European/Euroleague/4, /Basketball/Other/4, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13) plus live intra-day "
+                "additions across Tennis, Snooker, and Volleyball uncovered 30 additional live OLBG match fixtures (170 matches/races + "
+                "24 outrights = 194 unique in-scope OLBG events vs 140 in earlier single-page captures)."
             ),
         },
         {
             "id": "RE-02",
-            "title": "Complete 24-Slot Numeric Sport Router (IDs 1..28) & Correction of Prior Taxonomy Bug",
+            "title": "Complete 28-Slot Numeric Sport Router (IDs 1..28) & Correction of Prior Taxonomy Bug",
             "detail": (
-                "Numeric sport IDs control OLBG's backend query while URL slugs are cosmetic labels. Prior repo artifact "
-                "data/olbg-structure.json misidentified ID 17 as 'Aussie Rules' because /Aussie_Rules/17 returned Cycling's "
-                "currently empty tip shell. Probing all IDs 1..28 + /best-tipsters + /sitemap-betting-tips.xml proved: "
-                "ID 6 = Specials (excluded), ID 17 = Cycling (excluded), ID 22 = Aussie Rules (in-scope, 0 live tips), "
-                "ID 23 = eSports (in-scope, 0 live tips across /CSGO/23, /DOTA2/23, /LOL/23, /Other_eSports/23), "
-                "ID 26 = Hurling (excluded, 2 live events), ID 28 = Greyhounds (in-scope, 6 live races), and IDs 18, 19, 24, 27 are unassigned."
+                "Numeric sport IDs control OLBG's backend query while URL path text is cosmetic. Earlier repo artifact "
+                "data/olbg-structure.json misidentified ID 17 as 'Aussie Rules' because /Aussie_Rules/17 returned Cycling's empty shell. "
+                "Live probing of IDs 1..28 + /best-tipsters + /sitemap-betting-tips.xml proved: ID 6 = Specials (excluded), "
+                "ID 17 = Cycling (excluded), ID 22 = Aussie Rules (in-scope, 0 live tips), ID 23 = eSports (in-scope, 0 live tips "
+                "across /CSGO/23, /DOTA2/23, /LOL/23, /Other_eSports/23), ID 26 = Hurling (excluded, 2 live events), "
+                "ID 28 = Greyhounds (in-scope, 6 live races), and IDs 18, 19, 24, 27 are unassigned."
             ),
         },
         {
             "id": "RE-03",
-            "title": "EDT (UTC-4) Display Timestamps Without Explicit Timezone Suffix",
+            "title": "Unlabelled EDT (UTC-4) Server Timestamps Causing 4-Hour Kickoff Drift Across Prior Builds",
             "detail": (
-                "Event cards on OLBG render timestamps in US Eastern Daylight Time (EDT = UTC-4) with no timezone indicator "
-                "(e.g., NBA 7:10 PM ET renders as '22 Oct 19:10', UK Greyhounds 11:14 BST render as '21 Oct 06:14', "
-                "European 20:45 CEST fixtures render as '14:45'). Treating raw OLBG clock strings as UTC caused systematic "
-                "4-hour kickoff errors in earlier repository builds."
+                "OLBG event cards render clock strings in US Eastern Daylight Time (EDT = UTC-4) with no timezone suffix "
+                "(e.g., NBA 19:10 ET -> '22 Oct 19:10', UK Greyhounds 11:14 BST -> '21 Oct 06:14', EuroLeague 20:15 CEST -> '22 Oct 14:15'). "
+                "Prior builds that treated raw OLBG times as UTC or GMT mis-scheduled kickoffs by 4–5 hours."
             ),
         },
         {
             "id": "RE-04",
-            "title": "Active Major Sporting Events Missing Entirely From OLBG Feeds",
+            "title": "Three Live October 2026 Championships Absent From OLBG Feeds",
             "detail": (
-                "Official calendar verification proved three live international championships running in October 2026 have "
-                "zero match coverage on OLBG: Rugby League World Cup 2026 (15 Oct – 15 Nov 2026, Australia/PNG/NZ), "
-                "2026 League of Legends World Championship Swiss Stage (23–31 Oct 2026, Allen, Texas), and 2026 NAB AFLW Round 11 (23–25 Oct 2026)."
+                "Official calendar verification proved three major events active in late October 2026 have zero match listings on OLBG: "
+                "Rugby League World Cup 2026 (15 Oct – 15 Nov 2026, Australia/PNG/NZ), 2026 League of Legends World Championship Swiss Stage "
+                "(23–31 Oct 2026, Allen, Texas), and 2026 NAB AFLW Round 11 (23–25 Oct 2026)."
+            ),
+        },
+        {
+            "id": "RE-05",
+            "title": "Live Upstream Irregularities Inside OLBG's Own Fixtures",
+            "detail": (
+                "Cross-checking every live OLBG card against governing-body schedules exposed concrete upstream errors on OLBG itself: "
+                "(1) Basketball #535918 Anadolu Efes vs Besiktas listed as Fri 23 Oct instead of official Thu 22 Oct 20:30 TRT; "
+                "(2) Handball #12072 listed as 'Dunkerque vs Limoges' under obsolete 'Liqui Moly StarLigue' instead of official Daikin StarLigue "
+                "host Limoges vs Dunkerque; (3) Snooker #9933 still lists Stuart Bingham despite his Round 1 elimination on wst.tv; "
+                "(4) Gaelic Football #3531 Kanturk vs Eire Og listed on Mon 26 Oct instead of Sun 25 Oct on gaacork.ie."
             ),
         },
     ],
     "sports": [
         {"sport_id": 1, "name": "Football (Soccer)", "slug": "Football", "url": "https://www.olbg.com/betting-tips/Football/1", "scope": "excluded", "exclusion_rule": "soccer / football", "live_events": None},
         {"sport_id": 2, "name": "Horse Racing", "slug": "Horse_Racing", "url": "https://www.olbg.com/betting-tips/Horse_Racing/2", "scope": "excluded", "exclusion_rule": "horse racing", "live_events": None},
-        {"sport_id": 3, "name": "Tennis", "slug": "Tennis", "url": "https://www.olbg.com/betting-tips/Tennis/3", "scope": "included", "live_matches": 20, "live_outrights": 0, "markets_on_olbg": ["Match Winner", "Set Betting", "Total Sets", "Handicap Games"]},
+        {"sport_id": 3, "name": "Tennis", "slug": "Tennis", "url": "https://www.olbg.com/betting-tips/Tennis/3", "scope": "included", "live_matches": 24, "live_outrights": 0, "note": "20 active live ATP/WTA/Challenger matches + 4 same-day WTA/ATP R16 matches from earlier window", "markets_on_olbg": ["Match Winner", "Set Betting", "Total Sets", "Handicap Games"]},
         {"sport_id": 4, "name": "Basketball", "slug": "Basketball", "url": "https://www.olbg.com/betting-tips/Basketball/4", "subfeeds": ["https://www.olbg.com/betting-tips/Basketball/NBA/4", "https://www.olbg.com/betting-tips/Basketball/European/4", "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/4", "https://www.olbg.com/betting-tips/Basketball/Other/4"], "scope": "included", "live_matches": 34, "live_outrights": 0, "markets_on_olbg": ["Money Line", "Point Spread", "Game Totals"]},
         {"sport_id": 5, "name": "Golf", "slug": "Golf", "url": "https://www.olbg.com/betting-tips/Golf/5", "scope": "included", "live_matches": 0, "live_outrights": 10, "markets_on_olbg": ["Outright Winner", "Each Way (Top 5/8)"]},
         {"sport_id": 6, "name": "Specials", "slug": "Specials", "url": "https://www.olbg.com/betting-tips/Specials/6", "scope": "excluded", "exclusion_rule": "specials", "live_events": 14},
         {"sport_id": 7, "name": "Cricket", "slug": "Cricket", "url": "https://www.olbg.com/betting-tips/Cricket/7", "scope": "included", "live_matches": 9, "live_outrights": 5, "markets_on_olbg": ["Win Match", "Outright Winner"]},
         {"sport_id": 8, "name": "Snooker", "slug": "Snooker", "url": "https://www.olbg.com/betting-tips/Snooker/8", "scope": "included", "live_matches": 9, "live_outrights": 0, "markets_on_olbg": ["Win Match", "Frame Handicap", "Total Frames"]},
-        {"sport_id": 9, "name": "Rugby Union", "slug": "Rugby_Union", "url": "https://www.olbg.com/betting-tips/Rugby_Union/9", "scope": "included", "live_matches": 16, "live_outrights": 1, "markets_on_olbg": ["Win Match (1X2)", "Handicap", "Total Points", "Outright"]},
+        {"sport_id": 9, "name": "Rugby Union", "slug": "Rugby_Union", "url": "https://www.olbg.com/betting-tips/Rugby_Union/9", "scope": "included", "live_matches": 15, "live_outrights": 1, "markets_on_olbg": ["Win Match (1X2)", "Handicap", "Total Points", "Outright"]},
         {"sport_id": 10, "name": "Rugby League", "slug": "Rugby_League", "url": "https://www.olbg.com/betting-tips/Rugby_League/10", "scope": "included", "live_matches": 0, "live_outrights": 3, "markets_on_olbg": ["Win Match (1X2)", "Handicap", "Outright"]},
         {"sport_id": 11, "name": "American Football", "slug": "American_Football", "url": "https://www.olbg.com/betting-tips/American_Football/11", "scope": "excluded", "exclusion_rule": "American football", "live_events": None},
         {"sport_id": 12, "name": "Baseball", "slug": "Baseball", "url": "https://www.olbg.com/betting-tips/Baseball/12", "scope": "included", "live_matches": 1, "live_outrights": 0, "markets_on_olbg": ["Money Line", "Run Line", "Game Totals"]},
@@ -88,7 +97,7 @@ OLBG_SPORT_TAXONOMY = {
         {"sport_id": 17, "name": "Cycling", "slug": "Cycling", "url": "https://www.olbg.com/betting-tips/Cycling/17", "scope": "excluded", "exclusion_rule": "cycling", "live_events": 0},
         {"sport_id": 18, "name": "Unassigned Slot 18", "slug": None, "url": None, "scope": "unassigned", "live_events": None},
         {"sport_id": 19, "name": "Unassigned Slot 19", "slug": None, "url": None, "scope": "unassigned", "live_events": None},
-        {"sport_id": 20, "name": "Handball", "slug": "Handball", "url": "https://www.olbg.com/betting-tips/Handball/20", "scope": "included", "live_matches": 21, "live_outrights": 0, "markets_on_olbg": ["Match Result (1X2)", "Handicap", "Total Goals"]},
+        {"sport_id": 20, "name": "Handball", "slug": "Handball", "url": "https://www.olbg.com/betting-tips/Handball/20", "scope": "included", "live_matches": 20, "live_outrights": 0, "markets_on_olbg": ["Match Result (1X2)", "Handicap", "Total Goals"]},
         {"sport_id": 21, "name": "Volleyball", "slug": "Volleyball", "url": "https://www.olbg.com/betting-tips/Volleyball/21", "scope": "included", "live_matches": 21, "live_outrights": 0, "markets_on_olbg": ["Win Match", "Set Handicap", "Total Sets"]},
         {"sport_id": 22, "name": "Aussie Rules", "slug": "Aussie_Rules", "url": "https://www.olbg.com/betting-tips/Aussie_Rules/22", "scope": "included", "live_matches": 0, "live_outrights": 0, "markets_on_olbg": ["Match Winner", "Line / Handicap", "Total Points"]},
         {"sport_id": 23, "name": "eSports", "slug": "eSports", "url": "https://www.olbg.com/betting-tips/eSports/23", "subfeeds": ["https://www.olbg.com/betting-tips/eSports/All_eSports/CSGO/23", "https://www.olbg.com/betting-tips/eSports/All_eSports/DOTA2/23", "https://www.olbg.com/betting-tips/eSports/All_eSports/LOL/23", "https://www.olbg.com/betting-tips/eSports/All_eSports/Other_eSports/23"], "scope": "included", "live_matches": 0, "live_outrights": 0, "markets_on_olbg": ["Match Winner", "Map Handicap"]},
