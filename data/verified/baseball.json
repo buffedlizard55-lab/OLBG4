@@ -1,0 +1,15 @@
+{
+  "sport": "Baseball",
+  "verified_on": "2026-10-21",
+  "sources": "Official MLB Stats API (statsapi.mlb.com): schedule endpoint confirms the fixture; standings endpoint (all 30 teams) gives 2026 regular-season W-L, runs scored and runs allowed. League average computed from the full table: 21,769 runs over 4,858 team-games = 4.481 runs/team/game.",
+  "model": "Money Line: team strength = average of actual win% and Pythagorean expected win% (from RS/RA); log5 head-to-head, then a home-field log-odds shift of +0.16 (about a 54% home win rate between equals). Run Line (-1.5) and Game Totals: independent Poissons with lambda_team = (own RS/game x opponent RA/game / league average), home scoring factor x1.03 (away /1.03). Probable starting pitchers had NOT been announced on the official schedule at verification time, so this is a team-level model - flagged.",
+  "league_avg_runs_per_team_game": 4.481,
+  "teams": {
+    "Tampa Bay Rays": {"record": "98-64 (.605)", "pythagorean": "90-72 (.556)", "runs_scored": 736, "runs_allowed": 650, "splits": "Away 43-38; one-run games 25-14 (outperformed run differential by 8 wins)", "note": "AL East champions, AL's best record."},
+    "Milwaukee Brewers": {"record": "103-59 (.636)", "pythagorean": "103-59 (.636)", "runs_scored": 832, "runs_allowed": 618, "splits": "Home 55-26; last-ten 8-2 entering the postseason", "note": "Best record in MLB in 2026; second-most runs scored (832, behind the Cubs' 850) and second-fewest allowed (618, behind the Dodgers' 600)."}
+  },
+  "matches": [
+    {"event_id": 160789, "competition": "MLB World Series - Game 1", "date": "2026-10-23 (20:00 ET)", "venue": "American Family Field, Milwaukee", "away": "Tampa Bay Rays", "home": "Milwaukee Brewers", "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23", "strength_inputs": {"tb_blended_winpct": 0.580, "mil_blended_winpct": 0.636}, "model_pick": "Milwaukee Brewers", "confidence_tier_guide": "medium (model ~60%)", "form_context": "Milwaukee own MLB's best record (103-59) with a +214 run differential and a 55-26 home record; their Pythagorean record matches their actual record exactly, so no luck adjustment applies. Tampa Bay won 98 games but their underlying run differential (+86) profiles closer to a 90-win team - they went 25-14 in one-run games.", "flag": "Probable starting pitchers not yet announced on the official MLB schedule; team-level model only."}
+  ],
+  "outrights": []
+}
