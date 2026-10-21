@@ -261,3 +261,10 @@ The hub had been published as "66 entries, governing-body verified" with 15 high
 Evidence came from `api-web.nhle.com` (score, game-centre right-rail, standings), `statsapi.mlb.com` (schedule, standings), `nba.com` (2026-27 schedule release), `pcb.com.pk` (ODI tri-series release), `wst.tv` (match centre), `world.rugby` (six per-match pages) and `bwfworldtour.bwfbadminton.com` (French Open 2026). Ten other official pages — EuroLeague, PDC, NRL, World Rugby, ATP, BWF, WTT, FIVB, EHF, lolesports, PGA/LPGA, AFL — either rendered as navigation shells, sat behind consent walls or served an earlier season; the rows that depend on them are published as unverified instead of being given a value from memory.
 
 Rebuild: `python3 scripts/board_k/build_hub.py`. The script asserts that no row is marked verified without a quoted evidence line, that no HIGH pick lacks a 30+ word unique prediction and two quoted facts, and that no prediction text is duplicated.
+
+## Board M — Unified 17-Sport Multi-Market Desk & Repo Audit (`session-e62da3b5/`)
+Re-runnable generator and verification suite: `python3 scripts/session-e62da3b5/build_and_verify.py` → `data/session-e62da3b5/*.json` + `session-e62da3b5/` (24 HTML pages: Dashboard, All Markets, High-Confidence Predictions, Methodology & OLBG Reverse-Engineering, Official Sources Registry, Line-by-Line Repo Audit, Flagged for Review, and 17 sport subpages).
+- **172 match fixtures + 24 outrights = 196 entries across all 17 in-scope OLBG sports** (144 priced with Win/Handicap/Total lines; 28 unverified left blank and flagged).
+- **45 High-confidence predictions** (59–83 words each, 100% unique, naming both competitors, form, history, and selection) + 62 Medium + 65 Low picks.
+- Fixes 9 malformed `--0.5` double-minus handicaps and 2 Snooker attribution bugs (`9931` Elliot Slessor vs Jamie Jones; `9930` Sam Craigie vs Xu Si) found during our line-by-line review of Build G.
+

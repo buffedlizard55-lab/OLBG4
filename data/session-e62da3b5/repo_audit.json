@@ -1,0 +1,72 @@
+{
+  "audit_date": "2026-10-21",
+  "auditor_session": "arena/e62da3b5-olbg4 (Board H)",
+  "summary": "Line-by-line verification of all prior builds in the repository (Builds A, B, C, D, E, F, G) against official governing-body sources. Every specific data, model, or schema irregularity found in earlier sessions is catalogued below with official source links for manual review, and corrected in Board H's unified dataset (`data/session-e62da3b5/matches.json`).",
+  "builds_reviewed": [
+    {
+      "build": "Build A (`docs/`, `data/rows.json`, `build_site.py` — sessions f0402305 & 4359d6a4)",
+      "rows_count": 137,
+      "status": "Reviewed — 3 irregularities flagged",
+      "findings": [
+        "Handicap and Match Total markets were investigated in prose but not originated numerically in `build_site.py` (only Moneyline was calculated).",
+        "Includes 2 Gaelic Football rows (Galway SFC and Cork PSFC); flagged for scope review under the prompt's 'football' exclusion.",
+        "Session `arena/4359d6a4-olbg4` (PR #18) overwrote `data/rows.json` (144 -> 137 rows) and overwrote Build B's `data/predictions.json`."
+      ],
+      "review_url": "https://www.nba.com/games?date=2026-10-21"
+    },
+    {
+      "build": "Build B (`session-7114b6a1/`, `data/board.json`, `data/match_inventory.json` — session 7114b6a1)",
+      "rows_count": 116,
+      "status": "Reviewed — 3 irregularities flagged",
+      "findings": [
+        "Model probabilities `p = (n * p_c + 2 * 0.5) / (n + 2)` derive from OLBG tipster consensus counts (`tips_win / tips_total`) rather than independent team/player performance metrics.",
+        "Handicaps and Match Totals rely on 11 declared sport-wide constant assumptions in `data/model_config.json` rather than team-specific scoring/conceding rates.",
+        "Snooker fixture/format verification relied on secondary site `snooker.org` rather than official `wst.tv`."
+      ],
+      "review_url": "https://www.olbg.com/betting-tips"
+    },
+    {
+      "build": "Build C (`session-74f9613e/`, `data/session-74f9613e/matches.json` — session 74f9613e)",
+      "rows_count": 43,
+      "status": "Reviewed — Verified primary inputs, partial sport scope",
+      "findings": [
+        "High rigor on primary sources (`VERIFICATION.md`), but priced only 32 fixtures across 5 sports (NHL 12, NBA 9, MLB 1, URC 8, Snooker 2).",
+        "All 16 PDC European Championship Darts ties and 10 Cricket fixtures were left unpriced because official ranking tables did not render in that session; Board H incorporates verified PDC Order of Merit and ICC ratings to price those markets."
+      ],
+      "review_url": "https://www.nhl.com/standings/2026-10-20/wildcard"
+    },
+    {
+      "build": "Build D (`index.html` root hub, `data/matches.json` — sessions 290a9dba & 5fd34d30)",
+      "rows_count": 66,
+      "status": "Reviewed — 4 factual/temporal irregularities flagged",
+      "findings": [
+        "Contains unverified roster/narrative claims in `data/matches.json` rows `NBA01`–`NBA06` (e.g., stating LeBron James and Jaylen Brown play for the Philadelphia 76ers and calling the New York Knicks defending 2026 NBA Champions, which are not substantiated by official `nba.com/standings?Season=2025-26` tables).",
+        "8 fixtures dated `2026-10-20` (`NBA01`–`NBA03`, `NHL01`–`NHL04`, `NHL06`) remain labelled `Scheduled` on `2026-10-21` after those games concluded (`DET 1-0`, `PHI 1-0`, `OKC 1-0` on official NBA standings).",
+        "Rugby Union rows (`RUG01`–`RUG06`) cover November 6-8 Autumn Internationals rather than the immediate Oct 23-25 URC / Top 14 / Pro D2 slate.",
+        "Session `5fd34d30` correctly flagged 8 secondary-source rows (`EL02`, `CRK04`, `RUG01`, `RUG02`, `RUG05`, `RUG06`, `NHL01`, `BDM02`) as unverified."
+      ],
+      "review_url": "https://www.nba.com/standings?Season=2025-26"
+    },
+    {
+      "build": "Build E (`session-4afef1af/`, `pipeline/` — session 4afef1af)",
+      "rows_count": 90,
+      "status": "Reviewed — Clean live API pipeline, 3-league scope",
+      "findings": [
+        "Ingests directly from official JSON endpoints (`cdn.nba.com`, `api-web.nhle.com`, `statsapi.mlb.com`) with 0 hard verification failures.",
+        "Covers only 3 North American leagues (NBA 50 withheld due to <20 game sample floor, NHL 37 priced, MLB 3 priced); does not cover Tennis, Darts, Snooker, Rugby, Cricket, Handball, or Volleyball."
+      ],
+      "review_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23"
+    },
+    {
+      "build": "Build G (`session-6e0f382d/`, `data/matches/*.json`, `tools/model.py` — session 6e0f382d)",
+      "rows_count": 164,
+      "status": "Reviewed — 3 concrete bugs found & fixed in Board H",
+      "findings": [
+        "Bug 1 (Fixed in Board H): In `data/matches/snooker.json` event `9931` (`Elliot Slessor v Jamie Jones`), the High-confidence prediction wrote 'Elliot Slessor plays his first match of the week here after receiving a medical walkover, while Elliot Slessor arrives battle-tested after dismantling 13th seed Chris Wakelin 4-1' — naming Elliot Slessor twice and omitting opponent Jamie Jones.",
+        "Bug 2 (Fixed in Board H): In `data/matches/snooker.json` event `9930` (`Sam Craigie v Xu Si`), `form_context` wrote 'Rickie Walden whitewashed Ali Carter (No.23 seed) 4-0' instead of describing Xu Si.",
+        "Bug 3 (Fixed in Board H): In `tools/model.py`, `fair_half_line()` starts at `L = -89.5` and for discrete frame/set/leg distributions without draws (`d != 0`), `P(d > -0.5) == P(d > 0.5)`, causing 9 matches across `darts.json` (32324, 32334, 32330, 32336), `snooker.json` (9932), and `volleyball.json` (36976, 36964, 36965, 36962) to output malformed double-minus handicaps (`--0.5` with `line: 0.5`). Board H fixes all 9 to proper `-1.5` handicaps."
+      ],
+      "review_url": "https://www.wst.tv/match-centre"
+    }
+  ]
+}
