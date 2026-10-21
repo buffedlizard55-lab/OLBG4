@@ -13,7 +13,7 @@
 <div class="grid" aria-label="Audit summary">
 <div class="card"><div class="metric">24</div><div class="label"><span class="status pass">PASS</span> pipeline self-tests</div></div>
 <div class="card"><div class="metric">452</div><div class="label"><span class="status pass">PASS</span> publication rows inventoried</div></div>
-<div class="card"><div class="metric">3,085</div><div class="label"><span class="status pass">PASS</span> local targets checked · 0 broken / stale</div></div>
+<div class="card"><div class="metric">3,098</div><div class="label"><span class="status pass">PASS</span> local targets checked · 0 broken / stale</div></div>
 <div class="card"><div class="metric">1</div><div class="label"><span class="status review">REVIEW</span> historical audit script cannot replay in this checkout</div></div>
 </div>
 <section><h2>Checks performed</h2>
@@ -21,7 +21,7 @@
 <tr><td data-label="Check">Model and site self-tests</td><td data-label="Result"><span class="status pass">PASS</span> 24 checks</td><td data-label="Evidence"><a href="../pipeline/selftest.py">pipeline/selftest.py</a></td></tr>
 <tr><td data-label="Check">Build C source, model, and page validation</td><td data-label="Result"><span class="status pass">PASS</span> 43 fixtures · 182 market selections · 10 high-pick narratives</td><td data-label="Evidence"><a href="../scripts/session-74f9613e/build_all.sh">build_all.sh</a> and <a href="../scripts/session-74f9613e/validate.py">validate.py</a></td></tr>
 <tr><td data-label="Check">Build B row/source and local-link verifier</td><td data-label="Result"><span class="status pass">PASS</span> 116/116 rows sourced · 275 local links · 0 broken</td><td data-label="Evidence"><a href="../scripts/verify.py">scripts/verify.py</a> · <a href="../data/verification.json">verification.json</a></td></tr>
-<tr><td data-label="Check">Repository publication inventory</td><td data-label="Result"><span class="status pass">PASS</span> 452 rows · 3,085 targets · 0 broken or stale</td><td data-label="Evidence"><a href="../scripts/audit_publication.py">audit_publication.py</a> · <a href="../audit/report.json">report.json</a></td></tr>
+<tr><td data-label="Check">Repository publication inventory</td><td data-label="Result"><span class="status pass">PASS</span> 452 rows · 3,098 targets · 0 broken or stale</td><td data-label="Evidence"><a href="../scripts/audit_publication.py">audit_publication.py</a> · <a href="../audit/report.json">report.json</a></td></tr>
 <tr><td data-label="Check">Audit boundary tests</td><td data-label="Result"><span class="status pass">PASS</span> 4 unit tests</td><td data-label="Evidence"><a href="../audit/test_audit.py">test_audit.py</a></td></tr>
 <tr><td data-label="Check">Cross-build row-level audit replay</td><td data-label="Result"><span class="status review">REVIEW</span> Could not complete</td><td data-label="Evidence"><a href="../scripts/session-e1e0c27e/audit.py">session-e1e0c27e/audit.py</a> lines 126–131 require a historical object.</td></tr>
 </tbody></table>
