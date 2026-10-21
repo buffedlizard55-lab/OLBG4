@@ -283,3 +283,15 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
   (win-count clauses, indefinite articles, no duplicated selection sentence).
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
+
+---
+
+## Board F — session `arena/5fd34d30-olbg4` (final audit + integration)
+
+Branch: `arena/5fd34d30-olbg4` | Date: 2026-10-21
+
+| Task | Status | Owner | File scope |
+|------|--------|-------|-----------|
+| Audit hub data: confidence labels, official-source rule, prediction word-count/uniqueness, links | in progress | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html`, `COORDINATION.md` |
+| Fix N/A confidence rows; flag non-official high-pick sources as unverified (blank verified, keep link) | in progress | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html` |
+| Integration: PR to main, merge, GitHub Pages verify | unclaimed | arena/5fd34d30-olbg4 | repo root |
