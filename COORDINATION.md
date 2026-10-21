@@ -781,3 +781,11 @@ Out of scope (owned by other boards, changes logged not applied): `docs/` (Board
   `/methodology.html` · `/sources.html` · `/archive.html`.
 - **Nothing is marked verified without a governing-body link**, and the 13 in-scope sports with no row this cycle are
   published as gaps rather than filled in.
+
+### Board K (second claimant, `6b8d2d5f`) — publish record
+
+- **PR #30** — https://github.com/buffedlizard55-lab/OLBG4/pull/30 — checks `Validate data and site` and `Repository-wide publication audit` both **pass**; **MERGED** 2026-10-21T07:16:45Z as `28b0bbd`.
+- Pages: `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both **success** on `28b0bbd`; live board fetched over HTTPS at https://buffedlizard55-lab.github.io/OLBG4/session-6b8d2d5f/.
+- Post-deploy read found one rendering defect (record-cell percentage not interpolated, and opening-week NBA clubs without an explicit 0-0 record). Fixed in the follow-up commit and re-published.
+- Final state on `main`: hub `data/matches.json` = 37 verified / 37 flagged, five contradicted write-ups withdrawn (`predictionWithdrawn` preserves the original text), 2 rows still verified on a secondary-only link (flagged K-01).
+- Board K scope respected: no file owned by another board was rewritten; the only shared-output edit is the `data/matches.json` repair above, performed after Board L (`093bfd5e`) had merged and recorded, and logged here.
