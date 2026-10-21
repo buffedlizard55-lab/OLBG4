@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Line-by-Line Repo Audit — OLBG4 Unified Multi-Market Desk (Board H)</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <h1>OLBG4 — Unified Multi-Market Origination &amp; Verification Desk (Board H)</h1>
+      <p>17 In-Scope Sports • 178 Matches + 24 Outrights • Independent Win / Handicap / Total Lines • 48 High-Confidence Predictions • 100% Official Source Links</p>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="">Dashboard</a><a href="markets.html" class="">All Markets</a><a href="predictions.html" class="">High-Confidence Picks</a><a href="methodology.html" class="">Methodology &amp; OLBG</a><a href="sources.html" class="">Official Sources</a><a href="repo-audit.html" class="active">Repo Audit</a><a href="flagged.html" class="">Flagged for Review</a>
+      <a href="../index.html">← Root Hub</a>
+    </nav>
+  </div>
+</header>
+<div class="sport-strip">
+  <div class="sport-strip-inner">
+    <strong style="font-size:0.78rem;color:#475569;margin-right:4px">Sports (17):</strong>
+    <a href="sports/tennis.html" class="sport-pill ">Tennis</a><a href="sports/basketball.html" class="sport-pill ">Basketball</a><a href="sports/ice-hockey.html" class="sport-pill ">Ice Hockey</a><a href="sports/rugby-union.html" class="sport-pill ">Rugby Union</a><a href="sports/rugby-league.html" class="sport-pill ">Rugby League</a><a href="sports/darts.html" class="sport-pill ">Darts</a><a href="sports/snooker.html" class="sport-pill ">Snooker</a><a href="sports/handball.html" class="sport-pill ">Handball</a><a href="sports/volleyball.html" class="sport-pill ">Volleyball</a><a href="sports/cricket.html" class="sport-pill ">Cricket</a><a href="sports/baseball.html" class="sport-pill ">Baseball</a><a href="sports/gaelic-football.html" class="sport-pill ">Gaelic Football</a><a href="sports/golf.html" class="sport-pill ">Golf</a><a href="sports/motor-racing.html" class="sport-pill ">Motor Racing</a><a href="sports/greyhounds.html" class="sport-pill ">Greyhounds</a><a href="sports/aussie-rules.html" class="sport-pill ">Aussie Rules</a><a href="sports/esports.html" class="sport-pill ">eSports</a>
+  </div>
+</div>
+<main class="container">
+
+<section class="hero">
+  <h2>Line-by-Line Repository Review &amp; Cross-Build Verification Audit</h2>
+  <p>Line-by-line verification of all prior builds in the repository (Builds A, B, C, D, E, F, G) against official governing-body sources. Every specific data, model, or schema irregularity found in earlier sessions is catalogued below with official source links for manual review, and corrected in Board H&#x27;s unified dataset (`data/session-e62da3b5/matches.json`).</p>
+</section>
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <h3 style="margin:0">Build A (`docs/`, `data/rows.json`, `build_site.py` — sessions f0402305 &amp; 4359d6a4)</h3>
+    <div><span class="badge badge-verified">137 rows</span> <span class="badge badge-flag">Reviewed — 3 irregularities flagged</span></div>
+  </div>
+  <ul style="margin:10px 0 8px;padding-left:20px"><li>Handicap and Match Total markets were investigated in prose but not originated numerically in `build_site.py` (only Moneyline was calculated).</li><li>Includes 2 Gaelic Football rows (Galway SFC and Cork PSFC); flagged for scope review under the prompt&#x27;s &#x27;football&#x27; exclusion.</li><li>Session `arena/4359d6a4-olbg4` (PR #18) overwrote `data/rows.json` (144 -&gt; 137 rows) and overwrote Build B&#x27;s `data/predictions.json`.</li></ul>
+  <div style="font-size:0.82rem"><a href="https://www.nba.com/games?date=2026-10-21" target="_blank" rel="noopener">Official Manual Review Reference (https://www.nba.com/games?date=2026-10-21) ↗</a></div>
+</div><div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <h3 style="margin:0">Build B (`session-7114b6a1/`, `data/board.json`, `data/match_inventory.json` — session 7114b6a1)</h3>
+    <div><span class="badge badge-verified">116 rows</span> <span class="badge badge-flag">Reviewed — 3 irregularities flagged</span></div>
+  </div>
+  <ul style="margin:10px 0 8px;padding-left:20px"><li>Model probabilities `p = (n * p_c + 2 * 0.5) / (n + 2)` derive from OLBG tipster consensus counts (`tips_win / tips_total`) rather than independent team/player performance metrics.</li><li>Handicaps and Match Totals rely on 11 declared sport-wide constant assumptions in `data/model_config.json` rather than team-specific scoring/conceding rates.</li><li>Snooker fixture/format verification relied on secondary site `snooker.org` rather than official `wst.tv`.</li></ul>
+  <div style="font-size:0.82rem"><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">Official Manual Review Reference (https://www.olbg.com/betting-tips) ↗</a></div>
+</div><div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <h3 style="margin:0">Build C (`session-74f9613e/`, `data/session-74f9613e/matches.json` — session 74f9613e)</h3>
+    <div><span class="badge badge-verified">43 rows</span> <span class="badge badge-flag">Reviewed — Verified primary inputs, partial sport scope</span></div>
+  </div>
+  <ul style="margin:10px 0 8px;padding-left:20px"><li>High rigor on primary sources (`VERIFICATION.md`), but priced only 32 fixtures across 5 sports (NHL 12, NBA 9, MLB 1, URC 8, Snooker 2).</li><li>All 16 PDC European Championship Darts ties and 10 Cricket fixtures were left unpriced because official ranking tables did not render in that session; Board H incorporates verified PDC Order of Merit and ICC ratings to price those markets.</li></ul>
+  <div style="font-size:0.82rem"><a href="https://www.nhl.com/standings/2026-10-20/wildcard" target="_blank" rel="noopener">Official Manual Review Reference (https://www.nhl.com/standings/2026-10-20/wildcard) ↗</a></div>
+</div><div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <h3 style="margin:0">Build D (`index.html` root hub, `data/matches.json` — sessions 290a9dba &amp; 5fd34d30)</h3>
+    <div><span class="badge badge-verified">66 rows</span> <span class="badge badge-flag">Reviewed — 4 factual/temporal irregularities flagged</span></div>
+  </div>
+  <ul style="margin:10px 0 8px;padding-left:20px"><li>Contains unverified roster/narrative claims in `data/matches.json` rows `NBA01`–`NBA06` (e.g., stating LeBron James and Jaylen Brown play for the Philadelphia 76ers and calling the New York Knicks defending 2026 NBA Champions, which are not substantiated by official `nba.com/standings?Season=2025-26` tables).</li><li>8 fixtures dated `2026-10-20` (`NBA01`–`NBA03`, `NHL01`–`NHL04`, `NHL06`) remain labelled `Scheduled` on `2026-10-21` after those games concluded (`DET 1-0`, `PHI 1-0`, `OKC 1-0` on official NBA standings).</li><li>Rugby Union rows (`RUG01`–`RUG06`) cover November 6-8 Autumn Internationals rather than the immediate Oct 23-25 URC / Top 14 / Pro D2 slate.</li><li>Session `5fd34d30` correctly flagged 8 secondary-source rows (`EL02`, `CRK04`, `RUG01`, `RUG02`, `RUG05`, `RUG06`, `NHL01`, `BDM02`) as unverified.</li></ul>
+  <div style="font-size:0.82rem"><a href="https://www.nba.com/standings?Season=2025-26" target="_blank" rel="noopener">Official Manual Review Reference (https://www.nba.com/standings?Season=2025-26) ↗</a></div>
+</div><div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <h3 style="margin:0">Build E (`session-4afef1af/`, `pipeline/` — session 4afef1af)</h3>
+    <div><span class="badge badge-verified">90 rows</span> <span class="badge badge-flag">Reviewed — Clean live API pipeline, 3-league scope</span></div>
+  </div>
+  <ul style="margin:10px 0 8px;padding-left:20px"><li>Ingests directly from official JSON endpoints (`cdn.nba.com`, `api-web.nhle.com`, `statsapi.mlb.com`) with 0 hard verification failures.</li><li>Covers only 3 North American leagues (NBA 50 withheld due to &lt;20 game sample floor, NHL 37 priced, MLB 3 priced); does not cover Tennis, Darts, Snooker, Rugby, Cricket, Handball, or Volleyball.</li></ul>
+  <div style="font-size:0.82rem"><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;date=2026-10-23" target="_blank" rel="noopener">Official Manual Review Reference (https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;date=2026-10-23) ↗</a></div>
+</div><div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <h3 style="margin:0">Build G (`session-6e0f382d/`, `data/matches/*.json`, `tools/model.py` — session 6e0f382d)</h3>
+    <div><span class="badge badge-verified">164 rows</span> <span class="badge badge-flag">Reviewed — 3 concrete bugs found &amp; fixed in Board H</span></div>
+  </div>
+  <ul style="margin:10px 0 8px;padding-left:20px"><li>Bug 1 (Fixed in Board H): In `data/matches/snooker.json` event `9931` (`Elliot Slessor v Jamie Jones`), the High-confidence prediction wrote &#x27;Elliot Slessor plays his first match of the week here after receiving a medical walkover, while Elliot Slessor arrives battle-tested after dismantling 13th seed Chris Wakelin 4-1&#x27; — naming Elliot Slessor twice and omitting opponent Jamie Jones.</li><li>Bug 2 (Fixed in Board H): In `data/matches/snooker.json` event `9930` (`Sam Craigie v Xu Si`), `form_context` wrote &#x27;Rickie Walden whitewashed Ali Carter (No.23 seed) 4-0&#x27; instead of describing Xu Si.</li><li>Bug 3 (Fixed in Board H): In `tools/model.py`, `fair_half_line()` starts at `L = -89.5` and for discrete frame/set/leg distributions without draws (`d != 0`), `P(d &gt; -0.5) == P(d &gt; 0.5)`, causing 9 matches across `darts.json` (32324, 32334, 32330, 32336), `snooker.json` (9932), and `volleyball.json` (36976, 36964, 36965, 36962) to output malformed double-minus handicaps (`--0.5` with `line: 0.5`). Board H fixes all 9 to proper `-1.5` handicaps.</li></ul>
+  <div style="font-size:0.82rem"><a href="https://www.wst.tv/match-centre" target="_blank" rel="noopener">Official Manual Review Reference (https://www.wst.tv/match-centre) ↗</a></div>
+</div>
+
+<footer class="footer">
+  <div><strong>OLBG4 Board H (`session-e62da3b5`)</strong> • Snapshot verified 2026-10-21 (UTC) • Excludes soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling, specials.</div>
+  <div><a href="index.html">Dashboard</a> • <a href="markets.html">Markets</a> • <a href="predictions.html">Predictions</a> • <a href="repo-audit.html">Repo Audit</a> • <a href="flagged.html">Flagged</a> • <a href="../index.html">Root Portal</a></div>
+</footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

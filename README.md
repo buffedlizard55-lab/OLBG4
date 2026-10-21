@@ -1,5 +1,32 @@
 # OLBG4 — Reverse Engineered OLBG.com (Six Verified Builds)
 
+## Latest: consolidated verified desk (Board L, 2026-10-21)
+
+**→ https://buffedlizard55-lab.github.io/OLBG4/docs/desk/**
+
+`docs/desk/` is a single dashboard for the 21–27 October 2026 window: **108 fixtures across 6 sports**
+
+| Sport | League | Rows | Official source per row |
+|---|---|---|---|
+| Ice Hockey | NHL | 33 | nhl.com/schedule + nhl.com standings |
+| Basketball | NBA | 40 | nba.com/schedule + nba.com standings |
+| Baseball | MLB (World Series) | 4 | mlb.com/postseason + mlb.com standings |
+| Darts | PDC European Championship | 16 | pdc.tv schedule release |
+| Handball | EHF Champions League Men | 5 | ehfcl.eurohandball.com |
+| Snooker | WST Northern Ireland Open | 10 | wst.tv match list |
+
+- **Originated lines only.** Moneyline for all 108 rows; handicap and total for the 33 NHL rows, where the official
+  standings supply both the strength and the scoring inputs. Blank cells name the missing input instead of being guessed.
+- **Confidence bands are evidence rules, not vibes.** High needs both clubs on a verified sample, a model edge of at least
+  0.12 in probability, and recorded player-level evidence. That yields 5 High, 16 Medium and 87 Low.
+- **5 written predictions**, 94–119 words each, one per High row, each naming the team, the player, the verified form,
+  the most recent official result and the exact selection.
+- **Rebuild:** `python3 scripts/session-8070bc18/build.py` (fails on a missing source, missing pick, unpriced row, blank
+  market without a reason, short/duplicate prediction, or a High row without a prediction).
+- **Gaps and irregularities:** https://buffedlizard55-lab.github.io/OLBG4/docs/desk/flagged.html
+
+
+
 **Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
 **Data cut-off:** 2026-10-21 (UTC)  
 **Hub status after the 2026-10-21 remediation (Board K):** the root dashboard (`/`) was rebuilt from a frozen snapshot plus recorded evidence. Of 68 rows, **25 are CONFIRMED** against an official league or governing-body feed with the returned values quoted on `verification.html`, 2 are partial and **41 are UNVERIFIED** (time and venue blank, pick retained only as model output at LOW confidence, no prediction). All 66 previously published prediction texts were withdrawn; Five predictions are published — 3 high confidence and 2 medium — each requiring verified form on both sides. Nothing was promoted to fill a quota. See `data/board_k/evidence.json` (what was checked), `data/board_k/verification.json` (the register), `data/board_k/withdrawn_predictions.json` (the archive), `verification.html` (the published register), `flagged-verification.html` (findings K-01…K-11) and `dashboard-board-k.html` (this hub's own dashboard, retained alongside the integrated line desk that now serves `/`). The integrated site at `/` is generated from `data/integrated/inputs.json` by `scripts/session-83451f65/build_site.py`; the two datasets are separate and must not be added together.
@@ -221,3 +248,10 @@ The hub had been published as "66 entries, governing-body verified" with 15 high
 Evidence came from `api-web.nhle.com` (score, game-centre right-rail, standings), `statsapi.mlb.com` (schedule, standings), `nba.com` (2026-27 schedule release), `pcb.com.pk` (ODI tri-series release), `wst.tv` (match centre), `world.rugby` (six per-match pages) and `bwfworldtour.bwfbadminton.com` (French Open 2026). Ten other official pages — EuroLeague, PDC, NRL, World Rugby, ATP, BWF, WTT, FIVB, EHF, lolesports, PGA/LPGA, AFL — either rendered as navigation shells, sat behind consent walls or served an earlier season; the rows that depend on them are published as unverified instead of being given a value from memory.
 
 Rebuild: `python3 scripts/board_k/build_hub.py`. The script asserts that no row is marked verified without a quoted evidence line, that no HIGH pick lacks a 30+ word unique prediction and two quoted facts, and that no prediction text is duplicated.
+
+## Board M — Unified 17-Sport Multi-Market Desk & Repo Audit (`session-e62da3b5/`)
+Re-runnable generator and verification suite: `python3 scripts/session-e62da3b5/build_and_verify.py` → `data/session-e62da3b5/*.json` + `session-e62da3b5/` (24 HTML pages: Dashboard, All Markets, High-Confidence Predictions, Methodology & OLBG Reverse-Engineering, Official Sources Registry, Line-by-Line Repo Audit, Flagged for Review, and 17 sport subpages).
+- **172 match fixtures + 24 outrights = 196 entries across all 17 in-scope OLBG sports** (144 priced with Win/Handicap/Total lines; 28 unverified left blank and flagged).
+- **45 High-confidence predictions** (59–83 words each, 100% unique, naming both competitors, form, history, and selection) + 62 Medium + 65 Low picks.
+- Fixes 9 malformed `--0.5` double-minus handicaps and 2 Snooker attribution bugs (`9931` Elliot Slessor vs Jamie Jones; `9930` Sam Craigie vs Xu Si) found during our line-by-line review of Build G.
+

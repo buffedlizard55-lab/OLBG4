@@ -537,12 +537,12 @@ pages — and are labelled as such on <a href="archive.html">Archive</a>.</p>
 
 def build_archive():
     builds = [
-        ("docs/", "Build A · 137 rows", "Dashboard in docs/, data/rows.json. Governing-body sources for most rows, but 2 Gaelic football rows remain and its predictions were replaced by a later commit (F-02/F-12)."),
+        ("docs/", "Build A · 137 rows", "Dashboard in docs/, data/rows.json. Governing-body sources for most rows; a later commit dropped its Gaelic rows and replaced its predictions, which is logged as F-02/F-12."),
         ("session-7114b6a1/", "Build B · 116 fixtures", "Rows sourced from OLBG event pages, not governing bodies; tipster-consensus confidence."),
         ("session-74f9613e/", "Build C · 43 fixtures", "Five sports, 182 selections, 10 predictions with per-claim sources."),
         ("session-6e0f382d/", "Build G · 140 matches", "17 sports, 31 predictions; greyhounds published without picks."),
         ("session-4afef1af/", "Build E · 90 fixtures", "Automated pipeline over NBA/NHL/MLB feeds; refreshes every six hours."),
-        ("session-5e6c545d/", "Build I · audit", "Second audit pass with corrections."),
+        ("session-5e6c545d/", "Build I · publish audit", "Independent publish audit with line-desk corrections."),
         ("session-e1e0c27e/", "Build J · independent audit", "592 rows audited, 18 spot checks, 13 findings that this site cites."),
         ("session-6b8d2d5f/", "Build K2 · verified command center", "48 official-sourced fixtures (NBA 27, NHL 17, MLB 4), 6 predictions, 11 findings. Its hub and flagged pages are preserved as hub-2026-10-21.html and hub-flagged-2026-10-21.html below."),
         ("session-093bfd5e/", "Board L · hub repair", "Re-checked all 66 hub rows, upgraded 16 sources to official domains and downgraded 19 rows to unverified+flagged."),
