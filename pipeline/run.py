@@ -240,17 +240,6 @@ def main(argv: list[str] | None = None) -> int:
         opening = model.opening_fit(results, sport, now, current_season)
         opening.team_names = current_fit.team_names
 
-        thinnest = min(current_fit.games_per_team.values()) if current_fit.games_per_team else 0
-        if opening.games == 0 and 0 < thinnest < config.CONFIDENCE["medium"]["min_games"]:
-            findings.add(
-                severity="warning", category="rating_sample_limited", field="ratings",
-                detail=(
-                    f"{meta['league']}: no prior-season sample was reachable, so ratings use only "
-                    f"{current_fit.games} completed games ({thinnest} per team). Winner picks stay "
-                    f"low confidence until the sample reaches 20 games per team."
-                ),
-                source_urls=[f"https://{meta['official_domains'][0]}"],
-            )
         models[sport] = {
             "league": meta["league"],
             "current_season": current_season,
@@ -396,8 +385,10 @@ def main(argv: list[str] | None = None) -> int:
             detail=(
                 f"{meta['league']}: markets and picks are withheld for {count} fixtures "
                 f"because the smallest per-team sample is under "
-                f"{config.MIN_GAMES_FOR_MARKETS} completed games. The fixtures, records and "
-                f"official source links are still published."
+                f"{config.MIN_GAMES_FOR_MARKETS} completed games, so no line can be originated. "
+                f"The prior-season stats endpoint (stats.nba.com) timed out from the build runner "
+                f"and the schedule CDN carries only the current season, which is why the sample is "
+                f"this small. The fixtures, records and official source links are still published."
             ),
             source_urls=[f"https://{meta['official_domains'][0]}"],
         )

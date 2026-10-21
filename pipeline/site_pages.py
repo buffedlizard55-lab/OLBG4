@@ -286,6 +286,28 @@ def render_index(ctx: dict) -> str:
         "</div></div></div>"
     )
 
+    body.append('<div class="section"><h2>Coverage by league</h2>'
+                '<p class="lead">A fixture is listed only if an official feed published it. A line '
+                'is originated only if the rating sample clears the floor.</p>')
+    cover = []
+    for sport, league, slug, label in SPORTS:
+        srows = [r for r in rows if r["fixture"]["sport"] == sport]
+        priced_n = sum(1 for r in srows if r["analysis"].get("headline_pick"))
+        withheld_n = len(srows) - priced_n
+        note = ("all fixtures priced" if withheld_n == 0 else
+                f"{withheld_n} withheld — sample below floor")
+        cover.append(
+            f'<tr><td>{sport_badge(sport)} {esc(league)}</td>'
+            f'<td class="num">{len(srows)}</td>'
+            f'<td class="num">{priced_n}</td>'
+            f'<td class="num">{withheld_n}</td>'
+            f'<td class="small muted">{esc(note)}</td>'
+            f'<td><a href="sport-{slug}.html">Open desk →</a></td></tr>'
+        )
+    body.append(table([("League", ""), ("Fixtures", "num"), ("Priced", "num"),
+                       ("Withheld", "num"), ("Status", ""), ("", "nosort")], cover))
+    body.append("</div>")
+
     body.append('<div class="section"><h2>Sports covered</h2><div class="grid">')
     for sport, league, slug, label in SPORTS:
         srows = [r for r in rows if r["fixture"]["sport"] == sport]
