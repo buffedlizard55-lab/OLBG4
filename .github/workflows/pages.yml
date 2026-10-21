@@ -36,6 +36,8 @@ jobs:
           ls -la tennis.html basketball.html baseball.html cricket.html rugby.html ice-hockey.html snooker.html darts.html golf.html badminton.html table-tennis.html volleyball.html handball.html esports.html aussie-rules.html
           if [ -f docs/index.html ]; then echo "✓ docs/index.html (Build A)"; ls docs/sports/*.html | head; fi
           if [ -f session-7114b6a1/index.html ]; then echo "✓ session-7114b6a1/index.html (Build B)"; fi
+          echo "=== Board K remediation report ==="
+          ls -la session-47b1b4e2/index.html session-47b1b4e2/changes.html session-47b1b4e2/withdrawn.html session-47b1b4e2/restored.html session-47b1b4e2/verification.html
       - name: Check no TODO placeholders
         run: |
           ! grep -R "TODO" --include="*.html" --include="*.json" . || (echo "TODO found" && exit 1)

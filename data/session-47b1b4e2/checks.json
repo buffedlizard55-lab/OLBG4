@@ -1,0 +1,191 @@
+{
+ "schema": "olbg4.boardk-checks/1",
+ "run_utc": "2026-10-21T08:20Z",
+ "passed": 26,
+ "total": 26,
+ "hard_fail": false,
+ "checks": [
+  {
+   "check": "Every committed JSON file parses",
+   "ok": true,
+   "result": "94 files",
+   "detail": "data/, docs/, session-*/, tools/, pipeline/, audit/",
+   "level": "hard"
+  },
+  {
+   "check": "Hub dataset loads with the expected row count",
+   "ok": true,
+   "result": "66 rows",
+   "detail": "Build D published 66 entries; remediation must not add or drop rows.",
+   "level": "hard"
+  },
+  {
+   "check": "Every hub row carries a source link",
+   "ok": true,
+   "result": "66/66",
+   "detail": "F-01 requires a link on every row, official or not.",
+   "level": "hard"
+  },
+  {
+   "check": "Every hub row is classified official / secondary / olbg",
+   "ok": true,
+   "result": "66/66",
+   "detail": "Added by Board K (F-01).",
+   "level": "hard"
+  },
+  {
+   "check": "No row is verified:true on a non-governing-body source",
+   "ok": true,
+   "result": "0 offenders",
+   "detail": "This was Board J finding F-01 (26 rows).",
+   "level": "hard"
+  },
+  {
+   "check": "Every hub row declares an entryType",
+   "ok": true,
+   "result": "66/66",
+   "detail": "Board J finding F-04: not every entry is a match.",
+   "level": "hard"
+  },
+  {
+   "check": "Every High-confidence row has a prediction of at least 30 words",
+   "ok": true,
+   "result": "2 High rows, shortest 77 words",
+   "detail": "Brief requires >=30 words naming team/player/form/selection.",
+   "level": "hard"
+  },
+  {
+   "check": "No duplicated high-confidence prediction bodies",
+   "ok": true,
+   "result": "0 duplicates",
+   "detail": "Brief requires unique, non-repetitive write-ups.",
+   "level": "hard"
+  },
+  {
+   "check": "No published hub field contains draft or template artefacts",
+   "ok": true,
+   "result": "0 offenders",
+   "detail": "Board J F-02/F-12 found these in predictions; Board K finding K-F14 found them in rendered data fields too (teamB, pick, competition, originatedSpread).",
+   "level": "hard"
+  },
+  {
+   "check": "No hub prediction opener is repeated across more than two rows",
+   "ok": true,
+   "result": "0 repeated openers",
+   "detail": "Board J finding F-12: 13 of 25 templated rows shared one opener.",
+   "level": "hard"
+  },
+  {
+   "check": "Every withdrawn prediction keeps its full original text",
+   "ok": true,
+   "result": "23 withdrawn, 23 preserved",
+   "detail": "",
+   "level": "hard"
+  },
+  {
+   "check": "Every withdrawal records a reason",
+   "ok": true,
+   "result": "23/23",
+   "detail": "Nothing may be withdrawn silently.",
+   "level": "hard"
+  },
+  {
+   "check": "Every corrected row links the official page it was checked against",
+   "ok": true,
+   "result": "14 corrected, 14 linked",
+   "detail": "",
+   "level": "hard"
+  },
+  {
+   "check": "Build A dataset holds its original 144 rows",
+   "ok": true,
+   "result": "144 rows",
+   "detail": "cf9f024 reduced this to 137 (Board J finding F-11).",
+   "level": "hard"
+  },
+  {
+   "check": "Build A's four deleted sport pages exist again",
+   "ok": true,
+   "result": "15 sport pages",
+   "detail": "",
+   "level": "hard"
+  },
+  {
+   "check": "Build A's high-confidence predictions are not templated",
+   "ok": true,
+   "result": "12 High rows, shortest 66 words",
+   "detail": "Board J finding F-12.",
+   "level": "hard"
+  },
+  {
+   "check": "Build A's Gaelic Football rows are back in scope",
+   "ok": true,
+   "result": "15 sports",
+   "detail": "The brief excludes hurling, not Gaelic football (F-07).",
+   "level": "hard"
+  },
+  {
+   "check": "Build B's 9 per-claim-sourced predictions are intact",
+   "ok": true,
+   "result": "9 predictions",
+   "detail": "cf9f024 replaced them with 25 templated entries (F-11).",
+   "level": "hard"
+  },
+  {
+   "check": "Every Build B prediction fact still carries a source URL",
+   "ok": true,
+   "result": "36 facts",
+   "detail": "23 official / 13 secondary as published.",
+   "level": "hard"
+  },
+  {
+   "check": "Build B's Gaelic-football exclusion claim is retracted",
+   "ok": true,
+   "result": "1/1 retracted",
+   "detail": "Board J finding F-07. Original wording must be preserved inside the item.",
+   "level": "hard"
+  },
+  {
+   "check": "The retraction preserves Build B's original wording",
+   "ok": true,
+   "result": "1 items",
+   "detail": "Nothing from another board is deleted.",
+   "level": "hard"
+  },
+  {
+   "check": "The withdrawn templated predictions are archived, not deleted",
+   "ok": true,
+   "result": "present",
+   "detail": "data/archive/session-4359d6a4-templated-predictions.json",
+   "level": "hard"
+  },
+  {
+   "check": "The archive holds all 25 templated predictions",
+   "ok": true,
+   "result": "25 entries",
+   "detail": "Preserved verbatim from cf9f024.",
+   "level": "hard"
+  },
+  {
+   "check": "No excluded sport is published as a priced match",
+   "ok": true,
+   "result": "0 offenders",
+   "detail": "Excluded: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials.",
+   "level": "hard"
+  },
+  {
+   "check": "No broken local links anywhere in the repository",
+   "ok": true,
+   "result": "3189 links across 122 HTML files",
+   "detail": "Includes every build's dashboard and the Board K report.",
+   "level": "hard"
+  },
+  {
+   "check": "No to-do placeholders in any HTML or JSON file",
+   "ok": true,
+   "result": "0 files",
+   "detail": "pages.yml greps every HTML and JSON file for this token and fails the build if it appears, so this check must not emit the token itself.",
+   "level": "hard"
+  }
+ ]
+}
