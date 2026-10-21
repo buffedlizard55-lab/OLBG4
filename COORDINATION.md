@@ -283,3 +283,16 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
   (win-count clauses, indefinite articles, no duplicated selection sentence).
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
+
+---
+
+## Board F — session `arena/07a080b9-olbg4` (independent audit + final integration)
+
+Claimed: 2026-10-21 · Branch: `arena/07a080b9-olbg4` · Scope (non-overlapping): `session-07a080b9/**` only, plus additive entries in this file and README. No A–E files edited.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| F1 | Claim board | done | 07a080b9 | COORDINATION.md |
+| F2 | Line-by-line audit: JSON validity, source links, exclusions, prediction word-count/uniqueness, internal links (all builds) | in progress | 07a080b9 | `session-07a080b9/` |
+| F3 | Publish audit + flagged-for-review page | unclaimed | 07a080b9 | `session-07a080b9/` |
+| F4 | PR to main, merge, confirm Pages deploy | unclaimed | 07a080b9 | — |
