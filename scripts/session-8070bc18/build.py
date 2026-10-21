@@ -288,6 +288,15 @@ def assign(rows):
     return rows
 
 
+SPORT_INPUT_LABEL = {
+    "Ice Hockey": "NHL points % from the 21 Oct standings, all 32 clubs",
+    "Basketball": "2026-27 W-L shrunk with a 6-game prior (mostly 0-0)",
+    "Baseball": "2026 final regular-season records, combined with log5",
+    "Darts": "No verified ranking feed captured - 50/50 prior",
+    "Handball": "No verified strength feed captured - 50/50 prior + home edge",
+    "Snooker": "Round-one frame margins this event where both were published",
+}
+
 SPORT_INPUT = {
     "Ice Hockey": "NHL points % from the 21 Oct standings (all 32 clubs)",
     "Basketball": "2026-27 W-L with a 6-game shrinkage prior",
@@ -754,7 +763,7 @@ def write_site(rows, preds, sources, stats, checks, conflicts, counts):
             f'<td class="num">{sum(1 for x in rs if x["confidence"]=="High")}</td>'
             f'<td class="num">{sum(1 for x in rs if x["confidence"]=="Medium")}</td>'
             f'<td class="num">{sum(1 for x in rs if x["confidence"]=="Low")}</td>'
-            f'<td class="small">{esc(SPORT_INPUT.get(r["sport"], rs[0]["rating_basis"]))}</td></tr>')
+            f'<td class="small">{esc(SPORT_INPUT_LABEL.get(r["sport"], rs[0]["rating_basis"]))}</td></tr>')
     body = f"""<h1 class="page">Overview</h1>
 <p class="lede">A single verified desk: {len(rows)} fixtures in the 21–27 October 2026 window across {len(by_sport)} sports,
 each traced to the official league or governing-body page it was read from. Lines are ours, produced by the documented
