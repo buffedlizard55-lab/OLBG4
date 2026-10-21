@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Findings</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="topnav"><a class="brand" href="index.html">OLBG Reverse-Engineered — Modelled Lines Dashboard</a><span class="navlinks"><a href="index.html">Home</a><a href="methodology.html">Methodology</a><a class="active" href="findings.html">Findings</a><a href="flagged.html">Flagged for Review</a></span></nav>
+<div class="sportnav"><a href="sports/aussie-rules.html">Aussie Rules</a> · <a href="sports/baseball.html">Baseball</a> · <a href="sports/basketball.html">Basketball</a> · <a href="sports/cricket.html">Cricket</a> · <a href="sports/darts.html">Darts</a> · <a href="sports/gaelic-football.html">Gaelic Football</a> · <a href="sports/golf.html">Golf</a> · <a href="sports/greyhounds.html">Greyhounds</a> · <a href="sports/handball.html">Handball</a> · <a href="sports/ice-hockey.html">Ice Hockey</a> · <a href="sports/motor-racing.html">Motor Racing</a> · <a href="sports/rugby-league.html">Rugby League</a> · <a href="sports/rugby-union.html">Rugby Union</a> · <a href="sports/snooker.html">Snooker</a> · <a href="sports/tennis.html">Tennis</a> · <a href="sports/volleyball.html">Volleyball</a> · <a href="sports/esports.html">eSports</a></div>
+<main>
+<h1>Analysis &amp; Findings</h1>
+<h2>How OLBG coverage actually works</h2>
+<ul>
+<li><b>Tipster-driven, not fixture-driven.</b> OLBG lists events its tipsters have tipped. Sports with thin tipster
+communities show "No tips found" even mid-season, so the public feed materially under-covers the real sporting calendar.</li>
+<li><b>Server-rendered window.</b> Only the first page of events is server-rendered; more sit behind a JavaScript
+"Load More Tips" button. Any third-party scrape of OLBG inherits this truncation.</li>
+<li><b>Timezone-shifted start times.</b> Across several sports, OLBG's displayed times did not match official schedules
+(consistently shifted), and at least one fixture date was flatly wrong (Waterford SFC final: OLBG 1 Nov, official 25 Oct).
+We publish official dates/venues everywhere.</li>
+<li><b>Stale labels.</b> OLBG uses outdated or loose competition names (e.g. "Austria EHL" for the ICE Hockey League;
+"KCC Egis" for Busan KCC). Official names are used on this site with the OLBG label noted.</li>
+</ul>
+<h2>Coverage gaps found by cross-checking official calendars</h2>
+<ul>
+<li><b>Rugby league:</b> OLBG lists zero matches while the 2026 Rugby League World Cup is actively running
+(15 Oct – 15 Nov 2026; Australia beat New Zealand 24–22 in the opener). Only 2027 outrights are offered. This is the
+single largest gap found. Per scope we originate no non-OLBG matches; the outrights are covered on the
+<a href="sports/rugby-league.html">Rugby League page</a>.</li>
+<li><b>Aussie rules:</b> the men's AFL season genuinely ended 10 Oct, but AFLW 2026 is mid-season (Round 11 on
+23–25 Oct) and entirely absent from OLBG.</li>
+<li><b>eSports:</b> League of Legends Worlds 2026 is running in the US (Swiss Stage from 23 Oct) with no OLBG coverage at all.</li>
+</ul>
+<h2>Sport-specific findings</h2>
+<ul>
+<li><b>Snooker (Northern Ireland Open):</b> round 1 produced an exceptional upset wave — Trump, O'Sullivan, Murphy,
+Selby, Robertson, Zhao and others all lost in best-of-7 matches. Our seeding-based model still produces high-confidence
+favourites in round 2; the variance warning is flagged on every tie.</li>
+<li><b>Darts:</b> European Championship seedings (Euro Tour order) diverge sharply from world rankings — world No.1
+Luke Littler is only the 11th seed, and Niels Zonneveld (world 29) is seeded 4th after winning the Dutch Darts
+Championship on 18 Oct. Our model deliberately uses 2-year world-ranking money; the form-lag is flagged.</li>
+<li><b>Tennis:</b> ranking-points models produce eye-catching prices where reputation and points diverge — e.g. former
+world No.7 David Goffin (now #657, retiring season) is modelled as a heavy underdog against lucky loser Rémy Bertola.
+The caveat is written into that prediction rather than the number being quietly adjusted.</li>
+<li><b>Greyhound racing:</b> no official racecard with form lines/calculated times could be extracted from the GBGB
+(the official card routes returned 404s), and the only available "verdicts" were tipster opinions we refuse to copy.
+All six races are therefore published with no pick, with a documented model ready (softmax over best recent calculated
+time, τ=0.12s) should official racecard PDFs be supplied.</li>
+<li><b>Basketball:</b> official sources vary in completeness — EuroLeague/EuroCup publish full PF/PA, while the BCL and
+KBL public standings expose W-L only, so totals there are blank rather than estimated. Two "home" teams (Hapoel Tel
+Aviv in Sofia, one EuroCup side in Belgrade) are not actually playing at home; home advantage was reduced/removed accordingly.</li>
+<li><b>Baseball:</b> OLBG's single listed game is World Series Game 1 (Tampa Bay @ Milwaukee). Probable pitchers were
+not announced at verification time, so the line is team-strength only and flagged as such.</li>
+<li><b>Golf:</b> three of ten OLBG-listed tournaments returned "NO TOURNAMENT DATA" from the OWGR system; picks there
+rest on verified merit-order information and are flagged accordingly.</li>
+<li><b>Motor racing:</b> OLBG's "Without Antonelli" market only makes sense against the official table: Kimi Antonelli
+leads the Drivers' Championship by 102 points with seven wins — yet OLBG's most-tipped USA GP winner was Verstappen,
+the in-form driver (wins in Bahrain and Singapore). Our pick follows the season-long data with the form caveat stated.</li>
+</ul>
+<h2>Where the model and the crowd disagree (illustrative)</h2>
+<p>Because our lines are originated independently, divergences from tipster sentiment are expected — e.g. the model
+makes Panathinaikos a 23.5-point favourite over Baskonia (96%) purely from six rounds of official PF/PA, and rates
+Provence Rugby 92% at home to Béziers. These are statements about the verified inputs, not about market prices.</p>
+</main>
+<footer>
+<p>All lines on this site are <strong>original lines originated by this project</strong> from official,
+publicly available data (see <a href="methodology.html">Methodology</a>). They are modelled
+probabilities, <strong>not</strong> bookmaker prices and <strong>not</strong> betting advice. Fixtures and inputs verified 21 October 2026.
+Event coverage reflects the OLBG.com tipster feed as server-rendered on that date.</p>
+</footer>
+</body>
+</html>

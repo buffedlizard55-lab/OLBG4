@@ -1,4 +1,4 @@
-# OLBG4 — Reverse Engineered OLBG.com (Five Verified Builds)
+# OLBG4 — Reverse Engineered OLBG.com (Six Verified Builds)
 
 **Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
 **Data cut-off:** 2026-10-21 (UTC)  
@@ -12,6 +12,7 @@ Four independent, verified builds live in this repo. All are published from the 
 | **B** | `arena/7114b6a1-olbg4` | `session-7114b6a1/` (dashboard), `data/*.json`, `scripts/` | 116 fixtures read **directly off OLBG's live sport pages** (reverse-engineered), own win/handicap/total lines, 9 high-confidence picks with 36 sourced facts. |
 | **C** | `arena/74f9613e-olbg4` | `session-74f9613e/` (dashboard), `data/session-74f9613e/*.json`, `scripts/session-74f9613e/` | 43 fixtures in 5 sports, each input transcribed from a primary league/tour page (`VERIFICATION.md`); 182 originated selections (money line, handicap, totals); 10 predictions where every claim is listed with its source; 11-row gap register. Build C also carries a portal linking all builds. |
 | **D** | `arena/290a9dba-olbg4` | `/` (primary hub `index.html`), `data/matches.json`, `assets/`, `tennis.html` … `aussie-rules.html` | 66 entries, 16 sports, **governing-body-first verified** — ATP, NBA, MLB, NHL, WST, PDC, PGA/LPGA, BWF, WTT/ITTF, FIVB. Originated lines (ELO 40%+form 25%+H2H 15%+venue 15%+injury 5% with 3.5-4.5% overround), 15 high-confidence predictions (each 68-105 words), 8 flagged. Most exclusion-compliant (correctly omits Gaelic Football/Greyhounds flagged in A/B). |
+| **G** | `arena/6e0f382d-olbg4` | `session-6e0f382d/` (dashboard), `data/raw/` + `data/verified/` + `data/matches/`, `tools/model.py` + `tools/build_site.py` | 140 matches + 24 outrights across **all 17 in-scope OLBG sports** (widest single sweep), line-by-line verified vs official sources; documented per-sport models (shrunk Poisson, Normal margins, logistic ratings chains) originating moneyline/handicap/totals; 31 high-confidence picks with unique 72–83-word predictions; greyhounds published flagged with **no pick** (no official form data — verdicts not copied). PR #12. |
 
 - **Root landing (`/`)** → **Board D hub dashboard** (66 entries, filterable KPIs, 15 category subpages, methodology + sources + flagged) + banner linking to A/B/C.
 - **`/docs/`** → Board A dashboard (144 rows, 12 high-confidence picks, 15 flagged)
@@ -120,6 +121,19 @@ After merge, verify at:
 - https://buffedlizard55-lab.github.io/OLBG4/docs/ → Board A dashboard (144 rows)
 - https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/index.html → Board B dashboard (116 fixtures, 9 picks)
 - https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/ → Board C dashboard (43 fixtures, 182 selections)
+- https://buffedlizard55-lab.github.io/OLBG4/session-6e0f382d/ → Build F dashboard (140 matches + 24 outrights, 17 sports, 31 high-confidence predictions)
+
+---
+
+## Build G — `session-6e0f382d/` (140 matches + 24 outrights, 17 sports)
+
+- `data/olbg-structure.json` — OLBG structure map (24 sections, URL patterns, markets, scope decisions)
+- `data/raw/*.json` — OLBG server-rendered feed as collected 2026-10-21 (150 matches/events + 14 outrights)
+- `data/verified/*.json` — line-by-line verified inputs from official sources (17 sports)
+- `tools/model.py` → `data/matches/*.json` — mechanical line origination (documented formulas per sport; fair half-point lines; confidence tiers with small-sample/secondary-source caps)
+- `tools/predictions.json` — 31 unique high-confidence predictions (72–83 words, verified facts only)
+- `tools/build_site.py` → `session-6e0f382d/` — landing + 17 sport pages + methodology + findings + flagged; builder fails on missing source/prediction and link-checks internal targets
+- Scope note: Gaelic Football is **in scope** (only Hurling excluded), matching Board E's later correction; greyhound races published flagged with no originated pick
 
 ---
 
@@ -139,3 +153,6 @@ See `COORDINATION.md` — shared task board per brief:
 
 Data curated from official public sources (linked per row). Code MIT-equivalent for site. **18+ — analysis, not betting advice.** Flagged irregularities do not block merge; they are published for your post-deploy review.
 
+
+## Board F — independent audit (`session-07a080b9/`)
+Re-runnable line-by-line audit of Builds A–E: `python3 session-07a080b9/audit.py` → `session-07a080b9/index.html` + `audit.json`. Result 2026-10-21: D 66 rows/15 high (min 68 words), A 144, B 116/9 predictions (min 103 words per B gate), C 43/182 selections/10 predictions, E 90 fixtures/18 predictions; 87 HTML files, 1,576 internal links, **0 broken**; only open items are the 2 Gaelic rows in Build A (WARN, already flagged by Build B — published, non-blocking).

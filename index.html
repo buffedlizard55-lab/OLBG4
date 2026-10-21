@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OLBG4 — Hub Dashboard: Verified Matches, Originated Lines & High-Confidence Picks</title>
-<meta name="description" content="OLBG4 — Four verified builds: gov-body-verified hub (66 entries, 15 high predictions), docs/ 144 rows, session-7114b6a1 116 OLBG-live fixtures, session-74f9613e 43 fixtures 182 selections. Every row sourced.">
+<meta name="description" content="OLBG4 — Six verified builds: gov-body-verified hub (66 entries, 15 high predictions), docs/ 144 rows, session-7114b6a1 116 OLBG-live fixtures, session-74f9613e 43 fixtures 182 selections. Every row sourced.">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
   .grid3 { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
@@ -21,7 +21,7 @@
       <div class="logo">OL</div>
       <div>
         <h1>OLBG<span>4</span> — Reverse Engineered</h1>
-        <p>Verified matches • Originated lines • No hallucinations • Every row sourced • 4 builds preserved</p>
+        <p>Verified matches • Originated lines • No hallucinations • Every row sourced • 6 builds preserved</p>
       </div>
     </div>
     <nav class="nav">
@@ -36,7 +36,7 @@
 <main class="container">
   <!-- Four-build banner -->
   <div style="max-width:1280px;margin:12px auto 0;padding:14px 16px;border:1px solid #cddffd;background:#eaf1ff;border-radius:12px;font:14px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#12161c">
-    <b>Five verified builds are published here — nothing discarded.</b> This <b>hub (Build D)</b> is the primary dashboard (66 entries, governing-body verified, 15 high-confidence predictions — most exclusion-compliant). Other builds: <a href="docs/"><b>docs/</b></a> (Build A, 144 rows), <a href="session-7114b6a1/"><b>session-7114b6a1/</b></a> (Build B, 116 OLBG-live fixtures), <a href="session-74f9613e/"><b>session-74f9613e/</b></a> (Build C, 43 fixtures, 182 selections). A fifth, refreshable build lives at <a href="session-4afef1af/"><b>session-4afef1af/</b></a> (90 fixtures pulled from league APIs, 120 originated market families, 18 written predictions). See <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md">COORDINATION.md</a> for the full merge log and <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md">README</a> for build comparisons.
+    <b>Six verified builds are published here — nothing discarded.</b> This <b>hub (Build D)</b> is the primary dashboard (66 entries, governing-body verified, 15 high-confidence predictions — most exclusion-compliant). Other builds: <a href="docs/"><b>docs/</b></a> (Build A, 144 rows), <a href="session-7114b6a1/"><b>session-7114b6a1/</b></a> (Build B, 116 OLBG-live fixtures), <a href="session-74f9613e/"><b>session-74f9613e/</b></a> (Build C, 43 fixtures, 182 selections). A fifth, refreshable build lives at <a href="session-4afef1af/"><b>session-4afef1af/</b></a> (90 fixtures pulled from league APIs, 120 originated market families, 18 written predictions). A sixth build — the widest single sweep (17 sports, 140 matches + 24 outrights, every row verified against official sources) — lives at <a href="session-6e0f382d/"><b>session-6e0f382d/</b></a>. An independent publication audit of every build (claims vs evidence, local-link gate) is published at <a href="audit/"><b>audit/</b></a>. See <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md">COORDINATION.md</a> for the full merge log and <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md">README</a> for build comparisons.
   </div>
 
   <!-- Portal cards (like main's portal) -->
@@ -61,6 +61,13 @@
         <p>90 fixtures pulled live from league-owned feeds (NBA, NHL, MLB), 40 priced with 120
            market families, 78 graded picks, 18 written predictions, a line-by-line review log and
            markets withheld — never guessed — where the sample is too thin.</p>
+      </a>
+            <a class="portal-card" href="session-6e0f382d/">
+        <h3>Build G — session-6e0f382d/</h3>
+        <p>140 matches + 24 outrights across all 17 in-scope OLBG sports, line-by-line verified vs official
+           sources; documented per-sport models (Poisson/Normal/logistic) originating moneyline, handicap and
+           totals; 31 high-confidence picks with unique 72–83-word predictions; greyhounds flagged with no pick
+           rather than copied verdicts. PR #12.</p>
       </a>
       <a class="portal-card" href="#hub-table" style="border-color:#0ea5e9;background:#f0f9ff">
         <h3>Build D — This hub (below) ⭐ Primary</h3>

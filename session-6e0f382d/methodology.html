@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="topnav"><a class="brand" href="index.html">OLBG Reverse-Engineered — Modelled Lines Dashboard</a><span class="navlinks"><a href="index.html">Home</a><a class="active" href="methodology.html">Methodology</a><a href="findings.html">Findings</a><a href="flagged.html">Flagged for Review</a></span></nav>
+<div class="sportnav"><a href="sports/aussie-rules.html">Aussie Rules</a> · <a href="sports/baseball.html">Baseball</a> · <a href="sports/basketball.html">Basketball</a> · <a href="sports/cricket.html">Cricket</a> · <a href="sports/darts.html">Darts</a> · <a href="sports/gaelic-football.html">Gaelic Football</a> · <a href="sports/golf.html">Golf</a> · <a href="sports/greyhounds.html">Greyhounds</a> · <a href="sports/handball.html">Handball</a> · <a href="sports/ice-hockey.html">Ice Hockey</a> · <a href="sports/motor-racing.html">Motor Racing</a> · <a href="sports/rugby-league.html">Rugby League</a> · <a href="sports/rugby-union.html">Rugby Union</a> · <a href="sports/snooker.html">Snooker</a> · <a href="sports/tennis.html">Tennis</a> · <a href="sports/volleyball.html">Volleyball</a> · <a href="sports/esports.html">eSports</a></div>
+<main>
+<h1>Methodology</h1>
+<h2>1. Reverse-engineering OLBG</h2>
+<p>OLBG.com organises tips by sport under <code>/betting-tips/{Sport}/{id}</code> (24 sport sections). We mapped the full
+structure (sport IDs, event pages, market labels, "most tipped" summaries) into <code>data/olbg-structure.json</code>.
+The public event lists are server-rendered tipster feeds: OLBG only surfaces events its tipsters have tipped, and deeper
+events hide behind a JavaScript "Load More Tips" control. <b>Coverage therefore equals the server-rendered feed visible on
+21 October 2026</b>; the gap this creates is analysed in <a href="findings.html">Findings</a>. Seven sections were excluded
+by the brief: Football (1), Horse Racing (2), Specials (6), American Football (11), Boxing incl. UFC/MMA (16),
+Cycling (17) and Hurling (26), leaving <b>17 in-scope sports</b>.</p>
+<h2>2. Verification (line-by-line, official sources only)</h2>
+<p>Every fixture, date, venue, participant and rating input was checked against the sport's official source — e.g. ATP/WTA
+official draws and the 19 Oct 2026 rankings; EuroLeague/EuroCup/NBA official standings; EHF and national handball tables;
+LNR and United Rugby Championship tables; PDC Order of Merit; ICC team ratings; NHL official API; MLB Stats API;
+Formula1.com results; OWGR event fields; county-board GAA fixtures. Each row on this site links to its official source.
+Anything that could not be confirmed was left blank and flagged (see <a href="flagged.html">Flagged for Review</a>).
+OLBG's own kick-off times were repeatedly found to be timezone-shifted, so official dates/venues are published instead.</p>
+<h2>3. Originated lines — the models</h2>
+<p>No bookmaker or tipster price was copied. Each sport uses a documented mechanical model
+(<code>tools/model.py</code>) applied only to verified inputs:</p>
+<table><thead><tr><th>Sport</th><th>Verified inputs</th><th>Model</th><th>Markets originated</th></tr></thead><tbody>
+<tr><td>Tennis</td><td>Official ATP/WTA ranking points (19 Oct 2026)</td><td>Match prob = logistic on log points ratio (k=1.15); inverted to set prob, then game prob (tiebreak modelled), giving games distribution</td><td>Win Match, Set Betting, 1st Set Winner, Total Games</td></tr>
+<tr><td>Basketball</td><td>Official PF/PA (EuroLeague/EuroCup); NBA 2025-26 W-L; KBL W-L</td><td>Shrunk attack/defence Poisson (k=3/2), home ×1.04, OT split; NBA/KBL: shrunk win% → Normal margin</td><td>Money Line, Point Spread, Game Totals (NBA/KBL totals blank — no verified scoring inputs)</td></tr>
+<tr><td>Handball</td><td>Official GF/GA tables (EHF CL, Danish; Swedish/Norwegian partial)</td><td>Shrunk Poisson, home ×1.05, draw from Skellam P(0)</td><td>Money Line (3-way), Handicap, Totals</td></tr>
+<tr><td>Rugby Union</td><td>Official PF/PA (Top 14, Pro D2, URC)</td><td>Shrunk attack/defence expected scores (k=2, home ×1.10); probabilities from Normal margin (SD 15) / total (SD 13) because 3/5/7-point scoring makes Poisson under-dispersed</td><td>To Win (3-way), Handicap, Totals</td></tr>
+<tr><td>Volleyball</td><td>Official set records; Italy rally points</td><td>Shrunk set-win rates → log5 set prob (home logit +0.12) → race-to-3 distribution</td><td>Win Match, Set Handicap, Total Sets, Total Points (Italy)</td></tr>
+<tr><td>Darts</td><td>Official PDC Order of Merit (2-yr money)</td><td>Leg prob = logistic on log-money gap (k=0.30); best of 11 legs</td><td>Win Match, Leg Handicap, Total Legs</td></tr>
+<tr><td>Snooker</td><td>Official tournament seedings (= world rankings)</td><td>Frame prob = logistic on log-rank gap (k=0.40); first to 4</td><td>Win Match, Frame Handicap, Total Frames, correct-score probabilities</td></tr>
+<tr><td>Cricket</td><td>ICC team ratings (Oct 2026)</td><td>Logistic on rating diff (+6 ODI / +8 T20I home adj., none at neutral venues)</td><td>Win Match only (no verified basis for runs totals)</td></tr>
+<tr><td>Ice Hockey</td><td>Official GF/GA (NHL, ICEHL; SHL cross-checked secondary)</td><td>Shrunk Poisson (k=5), home ×1.045, OT by λ-share; totals include OT decider</td><td>Money Line (incl. OT), Puck Line −1.5, Game Totals</td></tr>
+<tr><td>Baseball</td><td>MLB Stats API: W-L, RS/RA (all 30 teams)</td><td>Money Line: log5 on blended actual/Pythagorean win% + home shift; Run Line/Totals: Poisson run model vs league avg 4.481</td><td>Money Line, Run Line −1.5, Game Totals</td></tr>
+<tr><td>Gaelic Football</td><td>Verified knockout margins from official county boards</td><td>Expected margin (halved, capped; +1 reigning champion) → Normal(m, SD 8); draw = mass on 0</td><td>Match Winner (3-way), Handicap (no totals)</td></tr>
+<tr><td>Golf (outrights)</td><td>OWGR SG World Rating + Performance Points</td><td>SGWR shrunk by PP sample → softmax (σ=0.6) over extracted contenders (3 events); other events: verified merit-order/OWGR-leading pick, no probability</td><td>Win Tournament</td></tr>
+<tr><td>Motor Racing / Rugby League outrights</td><td>Official standings / 2026 champions</td><td>Leader / reigning-champion basis, no precise probability (large fields)</td><td>Win Race / Win Tournament</td></tr>
+<tr><td>Greyhounds</td><td>GBGB tracks confirmed; no official form lines extractable</td><td>None — no picks or lines originated; copying tipster verdicts rejected</td><td>— (Flagged for Review)</td></tr>
+</tbody></table>
+<p>Handicap and totals lines shown are <b>fair (50/50) half-point lines</b> computed from each model's score distribution;
+"fair odds" are 1 ÷ probability with no overround. Expected scores are model means, not predictions of exact results.</p>
+<h2>4. Confidence tiers</h2>
+<ul>
+<li><b>High</b>: model probability ≥ 70% <i>and</i> inputs are current-season official data with an adequate sample
+(≥5 team games, or complete official ranking lists).</li>
+<li><b>Medium</b>: probability 57–69.9%, or capped for prior-season (NBA), secondary-source (SHL, Swedish/Norwegian handball)
+or small-sample inputs (EuroCup, URC, early-season volleyball, EHF group stage, Gaelic finals).</li>
+<li><b>Low</b>: probability &lt; 57%, qualitative picks without numeric inputs, and all tournament outrights.</li>
+</ul>
+<h2>5. Known limitations</h2>
+<ul>
+<li>Models use standings-level inputs only — no injuries, line-ups, weather or scheduling fatigue (noted where material, e.g. MLB probables unannounced).</li>
+<li>Poisson/independence assumptions understate tail risk; ranking-points models lag abrupt form changes (flagged per match where verified evidence shows this, e.g. darts' Zonneveld, snooker's round-1 upset wave).</li>
+<li>Early-season samples are shrunk toward league averages but remain noisy — hence the confidence caps.</li>
+</ul>
+</main>
+<footer>
+<p>All lines on this site are <strong>original lines originated by this project</strong> from official,
+publicly available data (see <a href="methodology.html">Methodology</a>). They are modelled
+probabilities, <strong>not</strong> bookmaker prices and <strong>not</strong> betting advice. Fixtures and inputs verified 21 October 2026.
+Event coverage reflects the OLBG.com tipster feed as server-rendered on that date.</p>
+</footer>
+</body>
+</html>
