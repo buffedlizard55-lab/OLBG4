@@ -1,5 +1,5 @@
 {
-  "probed_utc": "2026-10-21T05:45:36+00:00",
+  "probed_utc": "2026-10-21T05:50:25+00:00",
   "results": [
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
@@ -46,6 +46,38 @@
       "profile": "naive",
       "status": null,
       "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/",
+      "sport": "nba",
+      "profile": "browser",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "bytes_sampled": 0,
+      "starts_with": ""
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/",
+      "sport": "nba",
+      "profile": "naive",
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+      "sport": "nba",
+      "profile": "browser",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_sampled": 400,
+      "starts_with": "{\r\n  \"meta\": {\r\n    \"version\": 1,\r\n    \"request\": \"http://nba.cloud/league/00/2026-27/sche"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+      "sport": "nba",
+      "profile": "naive",
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
     },
     {
       "url": "https://www.nba.com/games?date=2026-10-21",
