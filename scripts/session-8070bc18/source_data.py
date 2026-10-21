@@ -242,7 +242,7 @@ NHL_FIXTURES = [
     ("2026-10-24", "10:00 PM EDT", "MIN", "SEA", ""),
     ("2026-10-25", "3:00 PM EDT", "FLA", "CHI", ""),
     ("2026-10-25", "6:00 PM EDT", "NYI", "DAL", ""),
-    ("2026-10-25", "7:00 PM EDT", "MTL", "WPG", "Neutral-site game (NHL.com lists no venue)"),
+    ("2026-10-25", "7:00 PM EDT", "MTL", "WPG", "NHL.com schedule page does not list the arena; left blank rather than inferred (game page not captured)."),
     ("2026-10-25", "8:00 PM EDT", "COL", "NSH", ""),
     ("2026-10-25", "10:00 PM EDT", "MIN", "VAN", ""),
 ]

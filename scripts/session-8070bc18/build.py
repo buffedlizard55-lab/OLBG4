@@ -36,9 +36,9 @@ MODEL = dict(
     mlb_weight=1.0,              # log5 on final regular-season win%
     other_weight=0.60,           # weight for event-form gaps (snooker)
     home_edge=0.03,              # probability added to the home side
-    nhl_puck_sigma=1.7,          # goal margin sd for the -1.5 puck line
-    nhl_total_sigma=1.9,         # total goals sd
-    nhl_margin_scale=2.2,        # goals of projected margin per unit of (p - 0.5)
+    nhl_puck_sigma=2.4,          # goal margin sd for the -1.5 puck line
+    nhl_total_sigma=2.0,         # total goals sd
+    nhl_home_goals=0.03,         # home side scores 3% more than its rate, away 3% less
     high_edge=0.12,              # |p - 0.5| needed for a High band
     medium_edge=0.07,
 )
@@ -51,7 +51,7 @@ def norm_cdf(x: float) -> float:
 def price(p: float) -> float:
     """Decimal price for probability p with the declared margin."""
     p = min(max(p, 0.01), 0.99)
-    return round(1.0 / (p * MODEL["margin"]), 2)
+    return round(min(1.0 / (p * MODEL["margin"]), 20.0), 2)
 
 
 def clamp(x: float, lo: float, hi: float) -> float:
@@ -67,11 +67,24 @@ def nhl_rows():
     for date, time_label, away, home, note in S.NHL_FIXTURES:
         h, a = S.NHL[home], S.NHL[away]
         p = clamp(0.5 + MODEL["nhl_weight"] * (h["pct"] - a["pct"]) + MODEL["home_edge"], 0.05, 0.95)
-        margin = MODEL["nhl_margin_scale"] * (p - 0.5)
-        p_puck = 1 - norm_cdf((1.5 - margin) / MODEL["nhl_puck_sigma"])
-        avg_total = NHL_AVG["goals_per_game"]
-        line = round(avg_total * 2) / 2
-        p_over = 1 - norm_cdf((line - avg_total) / MODEL["nhl_total_sigma"])
+        # Puck line and total come from the two clubs' own scoring rates, not from the
+        # moneyline probability: expected goals for each side = league goals per team per
+        # game x that club's offence x the opponent's defence x a 3% home factor.
+        lg = NHL_AVG["goals_per_game"] / 2.0
+        xgf_h = lg * ((h["gf"] / h["gp"]) / lg) * ((a["ga"] / a["gp"]) / lg) * (1 + MODEL["nhl_home_goals"])
+        xgf_a = lg * ((a["gf"] / a["gp"]) / lg) * ((h["ga"] / h["gp"]) / lg) * (1 - MODEL["nhl_home_goals"])
+        margin = xgf_h - xgf_a
+        # the handicap is quoted on the favourite, and the line moves with the projection
+        fav_home = margin >= 0
+        absm = abs(margin)
+        puck = 1.5
+        while puck < 4.5 and (1 - norm_cdf((puck - absm) / MODEL["nhl_puck_sigma"])) > 0.88:
+            puck += 1.0
+        p_fav = 1 - norm_cdf((puck - absm) / MODEL["nhl_puck_sigma"])
+        p_home_cover = p_fav if fav_home else 1 - p_fav
+        exp_total = xgf_h + xgf_a
+        line = min(max(round(exp_total * 2) / 2, 4.5), 8.5)
+        p_over = 1 - norm_cdf((line - exp_total) / MODEL["nhl_total_sigma"])
         fact = S.NHL_PLAYER_FACTS.get(home) or S.NHL_PLAYER_FACTS.get(away)
         rows.append(dict(
             sport="Ice Hockey", league="NHL", round="Regular season 2026-27",
@@ -85,17 +98,22 @@ def nhl_rows():
             rating_basis=f"NHL points % (GP {h['gp']} v {a['gp']}, 21 Oct standings)",
             evidence=2, p_home=p,
             handicap=dict(
-                line="home -1.5 / away +1.5",
-                home_price=price(p_puck), away_price=price(1 - p_puck),
-                home_prob=round(p_puck, 4),
-                note=f"Projected goal margin {margin:+.2f}; normal model sd {MODEL['nhl_puck_sigma']}.",
+                line=(f"home -{puck:g} / away +{puck:g}" if fav_home
+                      else f"home +{puck:g} / away -{puck:g}"),
+                home_price=price(p_home_cover), away_price=price(1 - p_home_cover),
+                home_prob=round(p_home_cover, 4),
+                note=(f"Expected goal margin {margin:+.2f}; quoted on the favourite at {puck:g} with normal sd "
+                      f"{MODEL['nhl_puck_sigma']}."),
             ),
             total=dict(
                 line=f"{line:g}",
                 over_price=price(p_over), under_price=price(1 - p_over),
                 over_prob=round(p_over, 4),
-                note=f"League average {avg_total:.2f} goals/game from NHL.com standings GF/GP; model sd {MODEL['nhl_total_sigma']}.",
+                note=(f"Expected goals {xgf_h:.2f} v {xgf_a:.2f} from each club's GF/GP and GA/GP "
+                      f"(league {lg:.2f} per team); model sd {MODEL['nhl_total_sigma']}."),
             ),
+            xgf_home=round(xgf_h, 3), xgf_away=round(xgf_a, 3),
+            expected_margin=round(margin, 3), expected_total=round(exp_total, 3),
             player_fact=fact,
             player_fact_team=home if S.NHL_PLAYER_FACTS.get(home) else (away if S.NHL_PLAYER_FACTS.get(away) else ""),
             flags=[],
@@ -649,9 +667,11 @@ def badge(conf):
 def market_cells(r):
     hc = r.get("handicap")
     tt = r.get("total")
-    hcell = (f'{esc(hc["line"])}<br><span class="num">{hc["home_price"]} / {hc["away_price"]}</span>'
+    hcell = (f'<span title="{esc(hc["note"])}">{esc(hc["line"])}</span>'
+             f'<br><span class="num">{hc["home_price"]} / {hc["away_price"]}</span>'
              if hc else '<span class="chip" title="' + esc(r.get("handicap_note", "")) + '">blank — no input</span>')
-    tcell = (f'O/U {esc(tt["line"])}<br><span class="num">{tt["over_price"]} / {tt["under_price"]}</span>'
+    tcell = (f'<span title="{esc(tt["note"])}">O/U {esc(tt["line"])}</span>'
+             f'<br><span class="num">{tt["over_price"]} / {tt["under_price"]}</span>'
              if tt else '<span class="chip" title="' + esc(r.get("total_note", "")) + '">blank — no input</span>')
     return hcell, tcell
 
@@ -659,7 +679,7 @@ def market_cells(r):
 def fixture_table(rows, sources):
     src = {s["id"]: s for s in sources}
     head = ("<tr><th>Date</th><th>Time</th><th>Competition / round</th><th>Match</th><th>Venue</th>"
-            "<th>Our line (home / away)</th><th>Handicap</th><th>Total</th><th>Pick</th>"
+            "<th>Moneyline (home / away)</th><th>Handicap</th><th>Total</th><th>Pick</th>"
             "<th>Conf.</th><th>Evidence</th><th>Source</th></tr>")
     body = []
     for r in rows:
@@ -695,7 +715,7 @@ def stat_cards(rows, preds):
     c = Counter(r["confidence"] for r in rows)
     sports = sorted({r["sport"] for r in rows})
     return f"""<div class="cards">
-<div class="card"><div class="k">Fixtures</div><div class="v">{len(rows)}</div><div class="s">{len(sports)} sports, 21–27 Oct 2026</div></div>
+<div class="card"><div class="k">Fixtures</div><div class="v">{len(rows)}</div><div class="s">{"1 sport" if len(sports) == 1 else str(len(sports)) + " sports"}, 21–27 Oct 2026</div></div>
 <div class="card"><div class="k">High confidence</div><div class="v">{c['High']}</div><div class="s">each with a written prediction</div></div>
 <div class="card"><div class="k">Medium</div><div class="v">{c['Medium']}</div><div class="s">verified inputs, thinner edge</div></div>
 <div class="card"><div class="k">Low</div><div class="v">{c['Low']}</div><div class="s">prior-only or no edge</div></div>
@@ -864,16 +884,17 @@ official fixture page was captured this pass, so no Gaelic rows are published.</
              'repository. Each item carries the source link or file path needed to check it. None of these block '
              'publication.</p>',
              '<div class="panel"><h2>Open items</h2><div class="tablewrap"><table><thead><tr>'
-             '<th>ID</th><th>Severity</th><th>Area</th><th>Item</th><th>Detail and how to check</th><th>Source / file</th>'
-             '</tr></thead><tbody>']
+             '<th>ID</th><th>Severity</th><th>Area</th><th>Item</th><th>Detail</th><th>Evidence checked</th>'
+             '<th>Source / file</th></tr></thead><tbody>']
     for i, f in enumerate(FLAGGED, start=1):
-        sev = f["severity"]
+        sev = f["sev"]
         cls = {"high": "warn", "medium": "warn", "low": ""}.get(sev, "")
         link = (f'<a href="{esc(f["url"])}" target="_blank" rel="noopener">{esc(f["url"])}</a>'
                 if f.get("url") else f'<code>{esc(f.get("path",""))}</code>')
         fbody.append(
             f'<tr><td class="num">F-{i:02d}</td><td><span class="chip {cls}">{esc(sev)}</span></td>'
             f'<td>{esc(f["area"])}</td><td>{esc(f["item"])}</td><td class="small">{esc(f["detail"])}</td>'
+            f'<td class="small">{esc(f.get("evidence", ""))}</td>'
             f'<td class="src">{link}</td></tr>')
     fbody.append("</tbody></table></div></div>")
     ds_rows = "".join(
@@ -923,10 +944,14 @@ adds the declared home edge) and are marked prior-only.</div>
 <div>Moneyline</div><div><code>p_home = 0.5 + {MODEL['nhl_weight']} × (rating_home − rating_away) + {MODEL['home_edge']}</code>,
 clamped to [0.05, 0.95]; prices are <code>1 / (p × {MODEL['margin']})</code> — a {int((1-MODEL['margin'])*100)}% theoretical margin.</div>
 <div>Baseball</div><div>Ratings are final-season win percentages combined with log5, plus a 0.02 home edge.</div>
-<div>Puck line</div><div>Projected goal margin <code>{MODEL['nhl_margin_scale']} × (p − 0.5)</code>; P(win by 2+) from a normal
-distribution with sd {MODEL['nhl_puck_sigma']}, priced at ±1.5.</div>
-<div>Total</div><div>Line is the league average rounded to the nearest half goal ({NHL_AVG['goals_per_game']:.2f} →
-{round(NHL_AVG['goals_per_game']*2)/2:g}); over/under from a normal distribution with sd {MODEL['nhl_total_sigma']}.</div>
+<div>Puck line</div><div>Expected goals for each club are built from its own GF/GP and the opponent's GA/GP,
+scaled to the league rate and shifted by ±{int(MODEL['nhl_home_goals']*100)}% for home ice; the margin is the difference.
+P(win by 2+) comes from a normal distribution with sd {MODEL['nhl_puck_sigma']}, priced at ±1.5. So a high-scoring club
+gets a bigger projected margin than a low-scoring one with the same points percentage.</div>
+<div>Total</div><div>The expected total is the sum of the two expected-goals figures above (league
+{NHL_AVG['goals_per_game']:.2f} goals per game), rounded to the nearest half goal and held between 4.5 and 8.5;
+over/under comes from a normal distribution with sd {MODEL['nhl_total_sigma']}. Two defensive clubs therefore get a
+lower line than two offensive ones.</div>
 <div>Other markets</div><div>No handicap or total is originated where the necessary input (a scoring average, a leg model, a
 run environment) was not on an official page. The cell says “blank” and names the missing input.</div>
 </div></div>
@@ -1015,52 +1040,83 @@ def check_links():
 # ---------------------------------------------------------------------------
 
 FLAGGED = [
-    dict(severity="high", area="Coverage",
-         item="Eight in-scope sports publish no match rows yet",
-         detail="Tennis, cricket, rugby union, rugby league, volleyball, badminton, table tennis and esports have no match-level "
-                "official page captured in this session. Rather than copy aggregator fixtures, they are listed as gaps on the "
-                "coverage page. Each needs a league/board fixture page read in a later pass.",
-         url="https://bwfbadminton.com/calendar/"),
-    dict(severity="high", area="Repository",
-         item="Several parallel fixture datasets coexist and disagree",
-         detail="The mechanical audit at the bottom of this page counts the rows in each earlier build and lists the same "
-                "fixtures that carry different picks. Reconciling or retiring those tables is an owner decision; this desk does "
-                "not delete another session's files.", path="data/rows.json, data/board.json, data/matches.json"),
-    dict(severity="medium", area="Snooker",
-         item="Start times for the ten Northern Ireland Open ties are blank",
-         detail="The WST match list renders clock times in the reader's locale and does not publish a venue-local start time in "
-                "the page text. Dates are verified; times are not, so they are blank rather than converted.",
+    dict(sev="high", area="Coverage",
+         item="Nine in-scope sports publish no match rows",
+         detail="Tennis, cricket, rugby union, rugby league, volleyball, badminton, table tennis, esports and "
+                "greyhound racing are in the sport list but have no row here. Each needs a governing-body fixture "
+                "page with a per-match URL; no aggregator fixture is substituted.",
+         evidence="atptour.com, icc-cricket.com, world.rugby, volleyballworld.com, bwfbadminton.com and "
+                  "worldtabletennis.com either failed to load from this environment (TLS/egress) or listed no "
+                  "fixture inside 21-27 Oct 2026 with a match-level source link. Rechecked 21 Oct 08:05Z.",
+         url="https://www.atptour.com/en/scores/current"),
+    dict(sev="high", area="Repository",
+         item="Parallel fixture tables coexist and disagree",
+         detail="Earlier sessions committed whole boards of their own. The mechanical audit below counts them and "
+                "names the fixtures that carry different winners in different builds. Reconciling or retiring those "
+                "tables is an owner decision, so nothing of theirs is deleted here.",
+         evidence="Counts and conflicts are recomputed at build time from data/rows.json, data/board.json and "
+                  "data/matches.json; a conflict is only reported when both club names match and the picks differ.",
+         path="data/rows.json, data/board.json, data/matches.json"),
+    dict(sev="high", area="Publication",
+         item="Two generators wrote the root pages, so the Pages deploy gate was red",
+         detail="Root, sports/ and the topic pages are generated by scripts/session-83451f65, but pages.yml "
+                "regenerated them with tools/build_master*.py and failed its staleness check on every push, so its "
+                "deploy step never ran and the live site kept serving an older artefact. Board P resolved it by "
+                "pointing the master tools at their own board/ directory; recorded here because it explains why "
+                "published pages can lag the repository.",
+         evidence="A clean checkout of main plus the three session-83451f65 scripts leaves no diff; the master tools "
+                  "changed 12 tracked files and reordered data/master.json between runs. Rechecked after Board P's "
+                  "PR #47.",
+         path=".github/workflows/pages.yml"),
+    dict(sev="medium", area="Snooker",
+         item="Northern Ireland Open start times are blank",
+         detail="The WST match list prints clock times in the reader's locale and does not state a venue-local "
+                "start, so dates are reproduced and times are left blank rather than converted.",
+         evidence="wst.tv/matches shows 05:00, 08:00 and 10:00 tags on the same session block, which cannot be a "
+                  "single local clock; no timezone is printed on the page.",
          url="https://www.wst.tv/matches"),
-    dict(severity="medium", area="Venues",
+    dict(sev="medium", area="Venues",
          item="NHL arenas, MLB ballparks and EHF halls are blank",
-         detail="The NHL.com schedule, MLB.com postseason and EHF match-list pages used for the rows do not print the venue. "
-                "Venues are left blank; filling them would need each game page opened individually.",
+         detail="The schedule pages used for these rows do not print the venue, and opening every game page was "
+                "outside this pass. Venues stay blank rather than being inferred from the home club.",
+         evidence="Checked on nhl.com/schedule (date, matchup, result only), mlb.com/postseason (date, time, "
+                  "broadcaster) and ehfcl.eurohandball.com match list (time and pairing only).",
          url="https://www.nhl.com/schedule"),
-    dict(severity="medium", area="NBA",
-         item="One game per club: no NBA row can reach High confidence",
-         detail="At capture only six clubs had played a 2026-27 game. The model shrinks toward .500, so every NBA pick is Low or "
-                "Medium and no NBA prediction is published. This is a data-volume limit, not a judgement about the games.",
+    dict(sev="medium", area="NBA",
+         item="The NBA sample is one game per club, so no NBA row can reach High",
+         detail="On 21 Oct only four clubs had a 2026-27 result. The model shrinks each club toward .500, so every "
+                "NBA line is Low or Medium and no NBA prediction is published.",
+         evidence="nba.com/standings shows 26 clubs at 0-0 with a single game played; the shrinkage weight is "
+                  "declared on the methodology page.",
          url="https://www.nba.com/standings"),
-    dict(severity="medium", area="Darts",
+    dict(sev="medium", area="Darts",
          item="Darts lines are prior-only",
-         detail="The PDC schedule is fully verified (16 ties, venue, session windows), but the PDC rankings page is behind a "
-                "cookie wall in this environment, so no ranking or form input was captured and every darts line is 50/50. "
-                "Per-match throw times are not published by the PDC; only the session window is shown.",
+         detail="The 16 ties, venue and session windows are verified, but the PDC rankings page is behind a consent "
+                "wall here, so no ranking or form input was captured and every darts line is 50/50. The PDC does not "
+                "publish per-match throw times, only the session window.",
+         evidence="pdc.tv/rankings returned only the CookieYes dialog on 21 Oct; the dated PDC news article gave the "
+                  "draw, the venue and the session times.",
          url="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"),
-    dict(severity="medium", area="Handball",
+    dict(sev="medium", area="Handball",
          item="Handball lines are prior-only and the timezone is unstated",
-         detail="The EHF match list prints 18:45 and 20:45 but does not state the timezone, so the time is reproduced verbatim "
-                "with that warning. No EHF strength table was captured, so the line is a 50/50 prior plus the declared home edge.",
+         detail="The EHF match list prints 18:45 and 20:45 without a timezone, so times are reproduced verbatim with "
+                "that warning. No EHF strength table was captured, so the line is a 50/50 prior plus the declared "
+                "home edge.",
+         evidence="ehfcl.eurohandball.com/men/2026-27/matches/ prints the times and pairings with per-match links "
+                  "but no zone label and no standings for these clubs.",
          url="https://ehfcl.eurohandball.com/men/2026-27/matches/"),
-    dict(severity="low", area="Model",
-         item="Eleven constants are declared assumptions, not fitted values",
-         detail="Weights, home edge, puck-line and total dispersions, the shrinkage prior and the confidence thresholds are "
-                "stated on the methodology page. None is calibrated against closing prices, because no market prices are read.",
+    dict(sev="low", area="Model",
+         item="The constants are declared assumptions, not fitted values",
+         detail="Weights, home edge, puck-line and total dispersions, the shrinkage prior and the confidence "
+                "thresholds are listed on the methodology page. None is calibrated against closing prices, because "
+                "no market price is read anywhere in this build.",
+         evidence="Every constant appears in scripts/session-8070bc18/build.py under MODEL and NHL_TOTAL.",
          path="scripts/session-8070bc18/build.py"),
-    dict(severity="low", area="Prediction evidence",
+    dict(sev="low", area="Prediction evidence",
          item="Player names appear as initial plus surname",
-         detail="The NHL.com schedule page publishes the winning goalie and game-winning scorer as initial plus surname "
-                "(for example M. Celebrini). Predictions reproduce that form rather than expanding first names.",
+         detail="NHL.com publishes the winning goalie and the game-winning scorer in that form, so the predictions "
+                "reproduce it instead of expanding first names.",
+         evidence="For example 'M. Celebrini' and 'A. Nedeljkovic' on the 20 Oct result lines.",
          url="https://www.nhl.com/schedule"),
 ]
 
