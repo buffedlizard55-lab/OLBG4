@@ -33,10 +33,14 @@ adds the declared home edge) and are marked prior-only.</div>
 <div>Moneyline</div><div><code>p_home = 0.5 + 0.55 × (rating_home − rating_away) + 0.03</code>,
 clamped to [0.05, 0.95]; prices are <code>1 / (p × 0.96)</code> — a 4% theoretical margin.</div>
 <div>Baseball</div><div>Ratings are final-season win percentages combined with log5, plus a 0.02 home edge.</div>
-<div>Puck line</div><div>Projected goal margin <code>2.2 × (p − 0.5)</code>; P(win by 2+) from a normal
-distribution with sd 1.7, priced at ±1.5.</div>
-<div>Total</div><div>Line is the league average rounded to the nearest half goal (6.25 →
-6.5); over/under from a normal distribution with sd 1.9.</div>
+<div>Puck line</div><div>Expected goals for each club are built from its own GF/GP and the opponent's GA/GP,
+scaled to the league rate and shifted by ±3% for home ice; the margin is the difference.
+P(win by 2+) comes from a normal distribution with sd 2.4, priced at ±1.5. So a high-scoring club
+gets a bigger projected margin than a low-scoring one with the same points percentage.</div>
+<div>Total</div><div>The expected total is the sum of the two expected-goals figures above (league
+6.25 goals per game), rounded to the nearest half goal and held between 4.5 and 8.5;
+over/under comes from a normal distribution with sd 2.0. Two defensive clubs therefore get a
+lower line than two offensive ones.</div>
 <div>Other markets</div><div>No handicap or total is originated where the necessary input (a scoring average, a leg model, a
 run environment) was not on an official page. The cell says “blank” and names the missing input.</div>
 </div></div>

@@ -11,9 +11,9 @@
       "mlb_weight": 1.0,
       "other_weight": 0.6,
       "home_edge": 0.03,
-      "nhl_puck_sigma": 1.7,
-      "nhl_total_sigma": 1.9,
-      "nhl_margin_scale": 2.2,
+      "nhl_puck_sigma": 2.4,
+      "nhl_total_sigma": 2.0,
+      "nhl_home_goals": 0.03,
       "high_edge": 0.12,
       "medium_edge": 0.07
     },
@@ -123,18 +123,22 @@
       "p_home": 0.6609,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 4.16,
-        "away_price": 1.39,
-        "home_prob": 0.2501,
-        "note": "Projected goal margin +0.35; normal model sd 1.7."
+        "home_price": 2.14,
+        "away_price": 2.03,
+        "home_prob": 0.4873,
+        "note": "Expected goal margin +1.42; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "5",
+        "over_price": 2.05,
+        "under_price": 2.12,
+        "over_prob": 0.5094,
+        "note": "Expected goals 3.24 v 1.81 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.235,
+      "xgf_away": 1.812,
+      "expected_margin": 1.423,
+      "expected_total": 5.047,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -173,19 +177,23 @@
       "evidence": 2,
       "p_home": 0.53,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 5.22,
-        "away_price": 1.3,
-        "home_prob": 0.1995,
-        "note": "Projected goal margin +0.07; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.48,
+        "away_price": 3.54,
+        "home_prob": 0.7056,
+        "note": "Expected goal margin -0.20; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "5",
+        "over_price": 2.02,
+        "under_price": 2.16,
+        "over_prob": 0.5168,
+        "note": "Expected goals 2.44 v 2.64 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.441,
+      "xgf_away": 2.643,
+      "expected_margin": -0.203,
+      "expected_total": 5.084,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -225,18 +233,22 @@
       "p_home": 0.6329,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 4.36,
-        "away_price": 1.37,
-        "home_prob": 0.2387,
-        "note": "Projected goal margin +0.29; normal model sd 1.7."
+        "home_price": 2.02,
+        "away_price": 2.15,
+        "home_prob": 0.5159,
+        "note": "Expected goal margin +1.60; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "5.5",
+        "over_price": 2.07,
+        "under_price": 2.1,
+        "over_prob": 0.5043,
+        "note": "Expected goals 3.56 v 1.96 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.559,
+      "xgf_away": 1.963,
+      "expected_margin": 1.596,
+      "expected_total": 5.521,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -275,19 +287,23 @@
       "evidence": 2,
       "p_home": 0.4546,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 6.01,
-        "away_price": 1.26,
-        "home_prob": 0.1733,
-        "note": "Projected goal margin -0.10; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.57,
+        "away_price": 3.11,
+        "home_prob": 0.6648,
+        "note": "Expected goal margin -0.48; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "5.5",
+        "over_price": 2.13,
+        "under_price": 2.04,
+        "over_prob": 0.4892,
+        "note": "Expected goals 2.48 v 2.96 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.484,
+      "xgf_away": 2.962,
+      "expected_margin": -0.479,
+      "expected_total": 5.446,
       "player_fact": "Toronto won 6-2 at Columbus on 20 October; A. Matthews scored the game-winning goal and A. Stolarz was the winning goalie.",
       "player_fact_team": "TOR",
       "flags": [],
@@ -327,18 +343,22 @@
       "p_home": 0.5944,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 4.66,
-        "away_price": 1.34,
-        "home_prob": 0.2236,
-        "note": "Projected goal margin +0.21; normal model sd 1.7."
+        "home_price": 2.56,
+        "away_price": 1.76,
+        "home_prob": 0.4068,
+        "note": "Expected goal margin +0.93; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "5",
+        "over_price": 1.92,
+        "under_price": 2.28,
+        "over_prob": 0.5431,
+        "note": "Expected goals 3.08 v 2.14 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.075,
+      "xgf_away": 2.141,
+      "expected_margin": 0.934,
+      "expected_total": 5.217,
       "player_fact": "San Jose beat Montréal 4-3 in overtime on 20 October; M. Celebrini scored the game-winning goal and A. Nedeljkovic was the winning goalie.",
       "player_fact_team": "SJS",
       "flags": [],
@@ -378,18 +398,22 @@
       "p_home": 0.5916,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 4.68,
-        "away_price": 1.34,
-        "home_prob": 0.2225,
-        "note": "Projected goal margin +0.20; normal model sd 1.7."
+        "home_price": 3.17,
+        "away_price": 1.55,
+        "home_prob": 0.3283,
+        "note": "Expected goal margin +0.43; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 2.16,
+        "under_price": 2.01,
+        "over_prob": 0.482,
+        "note": "Expected goals 3.42 v 2.99 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.421,
+      "xgf_away": 2.988,
+      "expected_margin": 0.433,
+      "expected_total": 6.409,
       "player_fact": "New Jersey beat Colorado 4-3 on 20 October; J. Boqvist scored the game-winning goal and J. Allen was the winning goalie.",
       "player_fact_team": "NJD",
       "flags": [],
@@ -428,19 +452,23 @@
       "evidence": 2,
       "p_home": 0.3556,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 7.31,
-        "away_price": 1.21,
-        "home_prob": 0.1425,
-        "note": "Projected goal margin -0.32; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.74,
+        "away_price": 2.59,
+        "home_prob": 0.5971,
+        "note": "Expected goal margin -0.91; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 2.12,
+        "under_price": 2.04,
+        "over_prob": 0.4903,
+        "note": "Expected goals 3.02 v 3.93 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.021,
+      "xgf_away": 3.931,
+      "expected_margin": -0.91,
+      "expected_total": 6.951,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -480,18 +508,22 @@
       "p_home": 0.7087,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 3.86,
-        "away_price": 1.43,
-        "home_prob": 0.2702,
-        "note": "Projected goal margin +0.46; normal model sd 1.7."
+        "home_price": 1.72,
+        "away_price": 2.64,
+        "home_prob": 0.6048,
+        "note": "Expected goal margin +2.14; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "5.5",
+        "over_price": 2.09,
+        "under_price": 2.07,
+        "over_prob": 0.4975,
+        "note": "Expected goals 3.81 v 1.67 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.813,
+      "xgf_away": 1.675,
+      "expected_margin": 2.138,
+      "expected_total": 5.488,
       "player_fact": "The Islanders beat Anaheim 3-2 on 20 October; S. Holmstrom scored the game-winning goal and I. Sorokin was the winning goalie.",
       "player_fact_team": "NYI",
       "flags": [],
@@ -532,19 +564,23 @@
       "evidence": 2,
       "p_home": 0.4052,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 6.62,
-        "away_price": 1.24,
-        "home_prob": 0.1574,
-        "note": "Projected goal margin -0.21; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.84,
+        "away_price": 2.4,
+        "home_prob": 0.5655,
+        "note": "Expected goal margin -1.10; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 2.17,
+        "under_price": 2.0,
+        "over_prob": 0.4791,
+        "note": "Expected goals 2.90 v 4.00 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.896,
+      "xgf_away": 4.0,
+      "expected_margin": -1.104,
+      "expected_total": 6.895,
       "player_fact": "St. Louis beat Winnipeg 2-1 on 20 October; P. Broberg scored the game-winning goal and J. Hofer was the winning goalie.",
       "player_fact_team": "STL",
       "flags": [],
@@ -584,18 +620,22 @@
       "p_home": 0.5603,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 4.95,
-        "away_price": 1.32,
-        "home_prob": 0.2106,
-        "note": "Projected goal margin +0.13; normal model sd 1.7."
+        "home_price": 2.44,
+        "away_price": 1.82,
+        "home_prob": 0.4262,
+        "note": "Expected goal margin +1.05; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "4.5",
+        "over_price": 2.85,
+        "under_price": 1.64,
+        "over_prob": 0.3654,
+        "note": "Expected goals 2.43 v 1.38 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.433,
+      "xgf_away": 1.379,
+      "expected_margin": 1.054,
+      "expected_total": 3.812,
       "player_fact": "Dallas beat Boston 3-2 in overtime on 20 October; M. Rantanen scored the game-winning goal and J. Oettinger was the winning goalie.",
       "player_fact_team": "DAL",
       "flags": [],
@@ -634,19 +674,23 @@
       "evidence": 2,
       "p_home": 0.2825,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 8.52,
-        "away_price": 1.19,
-        "home_prob": 0.1222,
-        "note": "Projected goal margin -0.48; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 3.37,
+        "away_price": 1.51,
+        "home_prob": 0.3087,
+        "note": "Expected goal margin -2.70; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "6",
+        "over_price": 1.93,
+        "under_price": 2.26,
+        "over_prob": 0.5398,
+        "note": "Expected goals 1.75 v 4.45 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 1.751,
+      "xgf_away": 4.449,
+      "expected_margin": -2.699,
+      "expected_total": 6.2,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -686,18 +730,22 @@
       "p_home": 0.563,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 4.92,
-        "away_price": 1.32,
-        "home_prob": 0.2116,
-        "note": "Projected goal margin +0.14; normal model sd 1.7."
+        "home_price": 3.67,
+        "away_price": 1.45,
+        "home_prob": 0.2841,
+        "note": "Expected goal margin +0.13; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 1.9,
+        "under_price": 2.3,
+        "over_prob": 0.5476,
+        "note": "Expected goals 3.68 v 3.55 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.685,
+      "xgf_away": 3.555,
+      "expected_margin": 0.13,
+      "expected_total": 7.239,
       "player_fact": "Edmonton beat Minnesota 4-3 in overtime on 20 October; E. Bouchard scored the game-winning goal and D. Levi was the winning goalie.",
       "player_fact_team": "EDM",
       "flags": [],
@@ -736,19 +784,23 @@
       "evidence": 2,
       "p_home": 0.5025,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 5.49,
-        "away_price": 1.29,
-        "home_prob": 0.1897,
-        "note": "Projected goal margin +0.01; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.43,
+        "away_price": 3.87,
+        "home_prob": 0.7305,
+        "note": "Expected goal margin -0.03; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "8",
+        "over_price": 2.09,
+        "under_price": 2.08,
+        "over_prob": 0.4986,
+        "note": "Expected goals 3.98 v 4.01 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.984,
+      "xgf_away": 4.009,
+      "expected_margin": -0.025,
+      "expected_total": 7.993,
       "player_fact": "Seattle beat Detroit 4-3 in a shootout on 20 October; P. Grubauer was the winning goalie.",
       "player_fact_team": "SEA",
       "flags": [],
@@ -787,19 +839,23 @@
       "evidence": 2,
       "p_home": 0.3799,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 6.96,
-        "away_price": 1.23,
-        "home_prob": 0.1497,
-        "note": "Projected goal margin -0.26; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.61,
+        "away_price": 2.94,
+        "home_prob": 0.646,
+        "note": "Expected goal margin -0.60; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 2.31,
+        "under_price": 1.9,
+        "over_prob": 0.4507,
+        "note": "Expected goals 3.08 v 3.68 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.075,
+      "xgf_away": 3.677,
+      "expected_margin": -0.601,
+      "expected_total": 6.752,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -838,19 +894,23 @@
       "evidence": 2,
       "p_home": 0.4073,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 6.59,
-        "away_price": 1.24,
-        "home_prob": 0.1581,
-        "note": "Projected goal margin -0.20; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.91,
+        "away_price": 2.29,
+        "home_prob": 0.5443,
+        "note": "Expected goal margin -1.23; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 2.05,
+        "under_price": 2.12,
+        "over_prob": 0.5084,
+        "note": "Expected goals 2.90 v 4.14 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.905,
+      "xgf_away": 4.138,
+      "expected_margin": -1.233,
+      "expected_total": 7.042,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -890,18 +950,22 @@
       "p_home": 0.4046,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 6.62,
-        "away_price": 1.24,
-        "home_prob": 0.1573,
-        "note": "Projected goal margin -0.21; normal model sd 1.7."
+        "home_price": 3.65,
+        "away_price": 1.46,
+        "home_prob": 0.2853,
+        "note": "Expected goal margin +0.14; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 2.3,
+        "under_price": 1.91,
+        "over_prob": 0.4534,
+        "note": "Expected goals 3.45 v 3.31 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.453,
+      "xgf_away": 3.314,
+      "expected_margin": 0.139,
+      "expected_total": 6.766,
       "player_fact": "Tampa Bay won 6-2 at Vegas on 20 October; A. Cirelli scored the game-winning goal and A. Vasilevskiy was the winning goalie.",
       "player_fact_team": "TBL",
       "flags": [],
@@ -940,19 +1004,23 @@
       "evidence": 2,
       "p_home": 0.4607,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 5.94,
-        "away_price": 1.26,
-        "home_prob": 0.1754,
-        "note": "Projected goal margin -0.09; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.95,
+        "away_price": 2.24,
+        "home_prob": 0.5344,
+        "note": "Expected goal margin -1.29; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "4.5",
+        "over_price": 2.02,
+        "under_price": 2.15,
+        "over_prob": 0.5149,
+        "note": "Expected goals 1.64 v 2.93 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 1.641,
+      "xgf_away": 2.934,
+      "expected_margin": -1.293,
+      "expected_total": 4.575,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -992,18 +1060,22 @@
       "p_home": 0.6785,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 4.05,
-        "away_price": 1.4,
-        "home_prob": 0.2574,
-        "note": "Projected goal margin +0.39; normal model sd 1.7."
+        "home_price": 2.03,
+        "away_price": 2.14,
+        "home_prob": 0.5138,
+        "note": "Expected goal margin +1.58; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 2.0,
+        "under_price": 2.18,
+        "over_prob": 0.5214,
+        "note": "Expected goals 4.10 v 2.51 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 4.095,
+      "xgf_away": 2.512,
+      "expected_margin": 1.583,
+      "expected_total": 6.607,
       "player_fact": "New Jersey beat Colorado 4-3 on 20 October; J. Boqvist scored the game-winning goal and J. Allen was the winning goalie.",
       "player_fact_team": "NJD",
       "flags": [],
@@ -1045,18 +1117,22 @@
       "p_home": 0.64,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 4.31,
-        "away_price": 1.37,
-        "home_prob": 0.2416,
-        "note": "Projected goal margin +0.31; normal model sd 1.7."
+        "home_price": 1.65,
+        "away_price": 2.83,
+        "home_prob": 0.6319,
+        "note": "Expected goal margin +2.31; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "6",
+        "over_price": 2.09,
+        "under_price": 2.08,
+        "over_prob": 0.499,
+        "note": "Expected goals 4.15 v 1.84 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 4.152,
+      "xgf_away": 1.843,
+      "expected_margin": 2.309,
+      "expected_total": 5.995,
       "player_fact": "San Jose beat Montréal 4-3 in overtime on 20 October; M. Celebrini scored the game-winning goal and A. Nedeljkovic was the winning goalie.",
       "player_fact_team": "SJS",
       "flags": [],
@@ -1097,19 +1173,23 @@
       "evidence": 2,
       "p_home": 0.5218,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 5.3,
-        "away_price": 1.3,
-        "home_prob": 0.1965,
-        "note": "Projected goal margin +0.05; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.56,
+        "away_price": 3.13,
+        "home_prob": 0.6673,
+        "note": "Expected goal margin -0.46; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "4.5",
+        "over_price": 2.27,
+        "under_price": 1.93,
+        "over_prob": 0.4594,
+        "note": "Expected goals 1.92 v 2.38 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 1.917,
+      "xgf_away": 2.379,
+      "expected_margin": -0.462,
+      "expected_total": 4.296,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -1148,19 +1228,23 @@
       "evidence": 2,
       "p_home": 0.4129,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 6.52,
-        "away_price": 1.24,
-        "home_prob": 0.1598,
-        "note": "Projected goal margin -0.19; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.45,
+        "away_price": 3.67,
+        "home_prob": 0.7162,
+        "note": "Expected goal margin -0.13; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 1.96,
+        "under_price": 2.22,
+        "over_prob": 0.5304,
+        "note": "Expected goals 3.26 v 3.39 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.262,
+      "xgf_away": 3.39,
+      "expected_margin": -0.128,
+      "expected_total": 6.652,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -1200,18 +1284,22 @@
       "p_home": 0.53,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 5.22,
-        "away_price": 1.3,
-        "home_prob": 0.1995,
-        "note": "Projected goal margin +0.07; normal model sd 1.7."
+        "home_price": 2.36,
+        "away_price": 1.87,
+        "home_prob": 0.442,
+        "note": "Expected goal margin +1.15; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 1.97,
+        "under_price": 2.22,
+        "over_prob": 0.5297,
+        "note": "Expected goals 4.15 v 3.00 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 4.149,
+      "xgf_away": 3.0,
+      "expected_margin": 1.15,
+      "expected_total": 7.149,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -1250,19 +1338,23 @@
       "evidence": 2,
       "p_home": 0.3364,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 7.61,
-        "away_price": 1.21,
-        "home_prob": 0.137,
-        "note": "Projected goal margin -0.36; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 2.76,
+        "away_price": 1.67,
+        "home_prob": 0.3769,
+        "note": "Expected goal margin -2.25; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 1.9,
+        "under_price": 2.31,
+        "over_prob": 0.549,
+        "note": "Expected goals 2.25 v 4.50 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.247,
+      "xgf_away": 4.5,
+      "expected_margin": -2.253,
+      "expected_total": 6.746,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -1301,19 +1393,23 @@
       "evidence": 2,
       "p_home": 0.3799,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 6.96,
-        "away_price": 1.23,
-        "home_prob": 0.1497,
-        "note": "Projected goal margin -0.26; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.9,
+        "away_price": 2.3,
+        "home_prob": 0.5478,
+        "note": "Expected goal margin -1.21; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 2.15,
+        "under_price": 2.02,
+        "over_prob": 0.4848,
+        "note": "Expected goals 2.61 v 3.82 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.606,
+      "xgf_away": 3.818,
+      "expected_margin": -1.212,
+      "expected_total": 6.424,
       "player_fact": "St. Louis beat Winnipeg 2-1 on 20 October; P. Broberg scored the game-winning goal and J. Hofer was the winning goalie.",
       "player_fact_team": "STL",
       "flags": [],
@@ -1355,18 +1451,22 @@
       "p_home": 0.6884,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 3.98,
-        "away_price": 1.41,
-        "home_prob": 0.2616,
-        "note": "Projected goal margin +0.41; normal model sd 1.7."
+        "home_price": 2.04,
+        "away_price": 2.13,
+        "home_prob": 0.51,
+        "note": "Expected goal margin +1.56; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "8",
+        "over_price": 2.09,
+        "under_price": 2.08,
+        "over_prob": 0.4985,
+        "note": "Expected goals 4.78 v 3.22 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 4.776,
+      "xgf_away": 3.216,
+      "expected_margin": 1.56,
+      "expected_total": 7.992,
       "player_fact": "Edmonton beat Minnesota 4-3 in overtime on 20 October; E. Bouchard scored the game-winning goal and D. Levi was the winning goalie.",
       "player_fact_team": "EDM",
       "flags": [],
@@ -1407,19 +1507,23 @@
       "evidence": 2,
       "p_home": 0.4871,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 5.65,
-        "away_price": 1.28,
-        "home_prob": 0.1843,
-        "note": "Projected goal margin -0.03; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.45,
+        "away_price": 3.7,
+        "home_prob": 0.7183,
+        "note": "Expected goal margin -0.11; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 2.07,
+        "under_price": 2.09,
+        "over_prob": 0.5027,
+        "note": "Expected goals 3.20 v 3.31 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.2,
+      "xgf_away": 3.314,
+      "expected_margin": -0.114,
+      "expected_total": 6.513,
       "player_fact": "Tampa Bay won 6-2 at Vegas on 20 October; A. Cirelli scored the game-winning goal and A. Vasilevskiy was the winning goalie.",
       "player_fact_team": "TBL",
       "flags": [],
@@ -1458,19 +1562,23 @@
       "evidence": 2,
       "p_home": 0.3925,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 6.79,
-        "away_price": 1.23,
-        "home_prob": 0.1535,
-        "note": "Projected goal margin -0.24; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 2.08,
+        "away_price": 2.09,
+        "home_prob": 0.5018,
+        "note": "Expected goal margin -1.49; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "6",
+        "over_price": 2.22,
+        "under_price": 1.96,
+        "over_prob": 0.4694,
+        "note": "Expected goals 2.18 v 3.67 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.178,
+      "xgf_away": 3.668,
+      "expected_margin": -1.489,
+      "expected_total": 5.846,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -1509,19 +1617,23 @@
       "evidence": 2,
       "p_home": 0.5025,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 5.49,
-        "away_price": 1.29,
-        "home_prob": 0.1897,
-        "note": "Projected goal margin +0.01; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.43,
+        "away_price": 3.8,
+        "home_prob": 0.726,
+        "note": "Expected goal margin -0.06; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 2.1,
+        "under_price": 2.07,
+        "over_prob": 0.4967,
+        "note": "Expected goals 3.21 v 3.27 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.213,
+      "xgf_away": 3.271,
+      "expected_margin": -0.058,
+      "expected_total": 6.483,
       "player_fact": "Seattle beat Detroit 4-3 in a shootout on 20 October; P. Grubauer was the winning goalie.",
       "player_fact_team": "SEA",
       "flags": [],
@@ -1560,19 +1672,23 @@
       "evidence": 2,
       "p_home": 0.3463,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 7.45,
-        "away_price": 1.21,
-        "home_prob": 0.1398,
-        "note": "Projected goal margin -0.34; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 2.5,
+        "away_price": 1.79,
+        "home_prob": 0.4172,
+        "note": "Expected goal margin -2.00; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 2.29,
+        "under_price": 1.91,
+        "over_prob": 0.4549,
+        "note": "Expected goals 2.14 v 4.14 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.136,
+      "xgf_away": 4.138,
+      "expected_margin": -2.002,
+      "expected_total": 6.273,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -1612,18 +1728,22 @@
       "p_home": 0.53,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 5.22,
-        "away_price": 1.3,
-        "home_prob": 0.1995,
-        "note": "Projected goal margin +0.07; normal model sd 1.7."
+        "home_price": 3.34,
+        "away_price": 1.51,
+        "home_prob": 0.3114,
+        "note": "Expected goal margin +0.32; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "4.5",
+        "over_price": 3.53,
+        "under_price": 1.48,
+        "over_prob": 0.2951,
+        "note": "Expected goals 1.87 v 1.55 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 1.871,
+      "xgf_away": 1.552,
+      "expected_margin": 0.32,
+      "expected_total": 3.423,
       "player_fact": "Dallas beat Boston 3-2 in overtime on 20 October; M. Rantanen scored the game-winning goal and J. Oettinger was the winning goalie.",
       "player_fact_team": "DAL",
       "flags": [],
@@ -1653,7 +1773,7 @@
       "home": "Winnipeg Jets",
       "away": "Montréal Canadiens",
       "venue": "",
-      "venue_note": "Neutral-site game (NHL.com lists no venue)",
+      "venue_note": "NHL.com schedule page does not list the arena; left blank rather than inferred (game page not captured).",
       "source_id": "nhl_schedule",
       "match_url": "https://www.nhl.com/schedule",
       "rating_home": 0.556,
@@ -1663,18 +1783,22 @@
       "p_home": 0.53,
       "handicap": {
         "line": "home -1.5 / away +1.5",
-        "home_price": 5.22,
-        "away_price": 1.3,
-        "home_prob": 0.1995,
-        "note": "Projected goal margin +0.07; normal model sd 1.7."
+        "home_price": 3.33,
+        "away_price": 1.52,
+        "home_prob": 0.3131,
+        "note": "Expected goal margin +0.33; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
         "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "over_price": 2.26,
+        "under_price": 1.94,
+        "over_prob": 0.4617,
+        "note": "Expected goals 3.32 v 2.99 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 3.32,
+      "xgf_away": 2.988,
+      "expected_margin": 0.331,
+      "expected_total": 6.308,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -1713,19 +1837,23 @@
       "evidence": 2,
       "p_home": 0.5372,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 5.16,
-        "away_price": 1.31,
-        "home_prob": 0.2021,
-        "note": "Projected goal margin +0.08; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 1.73,
+        "away_price": 2.62,
+        "home_prob": 0.6019,
+        "note": "Expected goal margin -0.88; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 2.31,
+        "under_price": 1.9,
+        "over_prob": 0.451,
+        "note": "Expected goals 2.94 v 3.82 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.937,
+      "xgf_away": 3.817,
+      "expected_margin": -0.88,
+      "expected_total": 6.754,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -1764,19 +1892,23 @@
       "evidence": 2,
       "p_home": 0.2699,
       "handicap": {
-        "line": "home -1.5 / away +1.5",
-        "home_price": 8.76,
-        "away_price": 1.18,
-        "home_prob": 0.119,
-        "note": "Projected goal margin -0.51; normal model sd 1.7."
+        "line": "home +1.5 / away -1.5",
+        "home_price": 2.48,
+        "away_price": 1.79,
+        "home_prob": 0.4193,
+        "note": "Expected goal margin -1.99; quoted on the favourite at 1.5 with normal sd 2.4."
       },
       "total": {
-        "line": "6.5",
-        "over_price": 2.33,
-        "under_price": 1.89,
-        "over_prob": 0.448,
-        "note": "League average 6.25 goals/game from NHL.com standings GF/GP; model sd 1.9."
+        "line": "7",
+        "over_price": 2.14,
+        "under_price": 2.03,
+        "over_prob": 0.4863,
+        "note": "Expected goals 2.47 v 4.46 from each club's GF/GP and GA/GP (league 3.13 per team); model sd 2.0."
       },
+      "xgf_home": 2.471,
+      "xgf_away": 4.46,
+      "expected_margin": -1.989,
+      "expected_total": 6.931,
       "player_fact": null,
       "player_fact_team": "",
       "flags": [],
@@ -5306,66 +5438,83 @@
   ],
   "flagged": [
     {
-      "severity": "high",
+      "sev": "high",
       "area": "Coverage",
-      "item": "Eight in-scope sports publish no match rows yet",
-      "detail": "Tennis, cricket, rugby union, rugby league, volleyball, badminton, table tennis and esports have no match-level official page captured in this session. Rather than copy aggregator fixtures, they are listed as gaps on the coverage page. Each needs a league/board fixture page read in a later pass.",
-      "url": "https://bwfbadminton.com/calendar/"
+      "item": "Nine in-scope sports publish no match rows",
+      "detail": "Tennis, cricket, rugby union, rugby league, volleyball, badminton, table tennis, esports and greyhound racing are in the sport list but have no row here. Each needs a governing-body fixture page with a per-match URL; no aggregator fixture is substituted.",
+      "evidence": "atptour.com, icc-cricket.com, world.rugby, volleyballworld.com, bwfbadminton.com and worldtabletennis.com either failed to load from this environment (TLS/egress) or listed no fixture inside 21-27 Oct 2026 with a match-level source link. Rechecked 21 Oct 08:05Z.",
+      "url": "https://www.atptour.com/en/scores/current"
     },
     {
-      "severity": "high",
+      "sev": "high",
       "area": "Repository",
-      "item": "Several parallel fixture datasets coexist and disagree",
-      "detail": "The mechanical audit at the bottom of this page counts the rows in each earlier build and lists the same fixtures that carry different picks. Reconciling or retiring those tables is an owner decision; this desk does not delete another session's files.",
+      "item": "Parallel fixture tables coexist and disagree",
+      "detail": "Earlier sessions committed whole boards of their own. The mechanical audit below counts them and names the fixtures that carry different winners in different builds. Reconciling or retiring those tables is an owner decision, so nothing of theirs is deleted here.",
+      "evidence": "Counts and conflicts are recomputed at build time from data/rows.json, data/board.json and data/matches.json; a conflict is only reported when both club names match and the picks differ.",
       "path": "data/rows.json, data/board.json, data/matches.json"
     },
     {
-      "severity": "medium",
+      "sev": "high",
+      "area": "Publication",
+      "item": "Two generators produced the root pages, so the Pages deploy gate was red",
+      "detail": "Root, sports/ and the topic pages are generated by scripts/session-83451f65; pages.yml regenerated them with tools/build_master*.py, failed the staleness check on every push, and therefore never reached its deploy step, so the live site kept serving the previous artefact. Fixed by pointing the workflow at the owner generator; recorded because it explains why published text lagged the repository.",
+      "evidence": "A clean checkout of main plus the three session-83451f65 scripts leaves no diff; the master tools change 12 files and reorder data/master.json between runs.",
+      "path": ".github/workflows/pages.yml"
+    },
+    {
+      "sev": "medium",
       "area": "Snooker",
-      "item": "Start times for the ten Northern Ireland Open ties are blank",
-      "detail": "The WST match list renders clock times in the reader's locale and does not publish a venue-local start time in the page text. Dates are verified; times are not, so they are blank rather than converted.",
+      "item": "Northern Ireland Open start times are blank",
+      "detail": "The WST match list prints clock times in the reader's locale and does not state a venue-local start, so dates are reproduced and times are left blank rather than converted.",
+      "evidence": "wst.tv/matches shows 05:00, 08:00 and 10:00 tags on the same session block, which cannot be a single local clock; no timezone is printed on the page.",
       "url": "https://www.wst.tv/matches"
     },
     {
-      "severity": "medium",
+      "sev": "medium",
       "area": "Venues",
       "item": "NHL arenas, MLB ballparks and EHF halls are blank",
-      "detail": "The NHL.com schedule, MLB.com postseason and EHF match-list pages used for the rows do not print the venue. Venues are left blank; filling them would need each game page opened individually.",
+      "detail": "The schedule pages used for these rows do not print the venue, and opening every game page was outside this pass. Venues stay blank rather than being inferred from the home club.",
+      "evidence": "Checked on nhl.com/schedule (date, matchup, result only), mlb.com/postseason (date, time, broadcaster) and ehfcl.eurohandball.com match list (time and pairing only).",
       "url": "https://www.nhl.com/schedule"
     },
     {
-      "severity": "medium",
+      "sev": "medium",
       "area": "NBA",
-      "item": "One game per club: no NBA row can reach High confidence",
-      "detail": "At capture only six clubs had played a 2026-27 game. The model shrinks toward .500, so every NBA pick is Low or Medium and no NBA prediction is published. This is a data-volume limit, not a judgement about the games.",
+      "item": "The NBA sample is one game per club, so no NBA row can reach High",
+      "detail": "On 21 Oct only four clubs had a 2026-27 result. The model shrinks each club toward .500, so every NBA line is Low or Medium and no NBA prediction is published.",
+      "evidence": "nba.com/standings shows 26 clubs at 0-0 with a single game played; the shrinkage weight is declared on the methodology page.",
       "url": "https://www.nba.com/standings"
     },
     {
-      "severity": "medium",
+      "sev": "medium",
       "area": "Darts",
       "item": "Darts lines are prior-only",
-      "detail": "The PDC schedule is fully verified (16 ties, venue, session windows), but the PDC rankings page is behind a cookie wall in this environment, so no ranking or form input was captured and every darts line is 50/50. Per-match throw times are not published by the PDC; only the session window is shown.",
+      "detail": "The 16 ties, venue and session windows are verified, but the PDC rankings page is behind a consent wall here, so no ranking or form input was captured and every darts line is 50/50. The PDC does not publish per-match throw times, only the session window.",
+      "evidence": "pdc.tv/rankings returned only the CookieYes dialog on 21 Oct; the dated PDC news article gave the draw, the venue and the session times.",
       "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
     },
     {
-      "severity": "medium",
+      "sev": "medium",
       "area": "Handball",
       "item": "Handball lines are prior-only and the timezone is unstated",
-      "detail": "The EHF match list prints 18:45 and 20:45 but does not state the timezone, so the time is reproduced verbatim with that warning. No EHF strength table was captured, so the line is a 50/50 prior plus the declared home edge.",
+      "detail": "The EHF match list prints 18:45 and 20:45 without a timezone, so times are reproduced verbatim with that warning. No EHF strength table was captured, so the line is a 50/50 prior plus the declared home edge.",
+      "evidence": "ehfcl.eurohandball.com/men/2026-27/matches/ prints the times and pairings with per-match links but no zone label and no standings for these clubs.",
       "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/"
     },
     {
-      "severity": "low",
+      "sev": "low",
       "area": "Model",
-      "item": "Eleven constants are declared assumptions, not fitted values",
-      "detail": "Weights, home edge, puck-line and total dispersions, the shrinkage prior and the confidence thresholds are stated on the methodology page. None is calibrated against closing prices, because no market prices are read.",
+      "item": "The constants are declared assumptions, not fitted values",
+      "detail": "Weights, home edge, puck-line and total dispersions, the shrinkage prior and the confidence thresholds are listed on the methodology page. None is calibrated against closing prices, because no market price is read anywhere in this build.",
+      "evidence": "Every constant appears in scripts/session-8070bc18/build.py under MODEL and NHL_TOTAL.",
       "path": "scripts/session-8070bc18/build.py"
     },
     {
-      "severity": "low",
+      "sev": "low",
       "area": "Prediction evidence",
       "item": "Player names appear as initial plus surname",
-      "detail": "The NHL.com schedule page publishes the winning goalie and game-winning scorer as initial plus surname (for example M. Celebrini). Predictions reproduce that form rather than expanding first names.",
+      "detail": "NHL.com publishes the winning goalie and the game-winning scorer in that form, so the predictions reproduce it instead of expanding first names.",
+      "evidence": "For example 'M. Celebrini' and 'A. Nedeljkovic' on the 20 Oct result lines.",
       "url": "https://www.nhl.com/schedule"
     }
   ],
