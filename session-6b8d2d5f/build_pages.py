@@ -212,9 +212,15 @@ def match_table(rs, tid="tbl"):
             ar, hr = i.get("awayRecord"), i.get("homeRecord")
             rec = ""
             if ar:
-                rec += f'<div>{e(r["away"].split()[-1])}: <b>{ar[0]}-{ar[1]}' + (f'-{ar[2]}' if len(ar) > 2 else '') + '</b> <span class="mut">({i["awayPct"]:.3f})</span></div>'
+                apct = "{:.3f}".format(i["awayPct"])
+                rec += ('<div>' + e(r["away"].split()[-1]) + ': <b>' + str(ar[0]) + "-" + str(ar[1])
+                        + (("-" + str(ar[2])) if len(ar) > 2 else "") + '</b> <span class="mut">('
+                        + apct + ')</span></div>')
             if hr:
-                rec += f'<div>{e(r["home"].split()[-1])}: <b>{hr[0]}-{hr[1]}' + (f'-{hr[2]}' if len(hr) > 2 else '') + '</b> <span class="mut">({i["homePct"]:.3f})</span></div>'
+                hpct = "{:.3f}".format(i["homePct"])
+                rec += ('<div>' + e(r["home"].split()[-1]) + ': <b>' + str(hr[0]) + "-" + str(hr[1])
+                        + (("-" + str(hr[2])) if len(hr) > 2 else "") + '</b> <span class="mut">('
+                        + hpct + ')</span></div>')
             pick = f'<span class="pick">{e(m["pick"])}</span><div class="mut">p = {m["pickProb"]:.3f}</div>'
             status = f'<div><b>{e(r["date"])}</b></div><div class="mut">{e(r["time"])} · {e(r["venue"])}</div>'
             res = ""
