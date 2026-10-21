@@ -47,6 +47,6 @@
 
 ## Integration record
 - Integration branch: `arena/6e0f382d-olbg4`
-- PR: (recorded below on creation)
+- PR: [#12](https://github.com/buffedlizard55-lab/OLBG4/pull/12) — `arena/6e0f382d-olbg4` → `main`, merged without waiting for approval per brief (flagged items non-blocking; site build + link check green before merge).
 - GitHub Pages: existing source `main` + `/` (API to change it returned 403 for this integration). Root `index.html` redirects to the dashboard in `docs/`; canonical URL https://buffedlizard55-lab.github.io/OLBG4/ (dashboard at /OLBG4/docs/). A repo admin may optionally switch the Pages source to `/docs` in Settings → Pages; the site works either way (if switched, remove the root redirect).
 - Final state: 140 matches + 24 outrights across 17 sports; 31 high / 58 medium / 51 low confidence; 16 qualitative + 6 flagged rows; every row carries an official source link; site builds with zero broken internal links.
