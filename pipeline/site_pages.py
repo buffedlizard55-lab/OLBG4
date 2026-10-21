@@ -12,6 +12,7 @@ from .site_common import (
     filters,
     fmt_date,
     fmt_dt,
+    fmt_time,
     layout,
     market_rows,
     pct,
@@ -35,14 +36,15 @@ def source_label(url: str) -> str:
 
 
 def source_links(urls, limit: int = 2) -> str:
-    out = []
-    seen = set()
+    out, seen_urls, seen_labels = [], set(), set()
     for url in urls or []:
-        if not url or url in seen:
+        label = source_label(url)
+        if not url or url in seen_urls or label in seen_labels:
             continue
-        seen.add(url)
+        seen_urls.add(url)
+        seen_labels.add(label)
         out.append(
-            f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer">{esc(source_label(url))}</a>'
+            f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer">{esc(label)}</a>'
         )
         if len(out) >= limit:
             break
@@ -150,10 +152,10 @@ def _fixture_table(ctx: dict, rows: list[dict], *, filterable: bool = True,
             f'<tr data-sport="{esc(fx["sport"])}" data-confidence="{esc(pick["confidence"])}" '
             f'data-text="{esc(fx["away"]["name"] + " " + fx["home"]["name"] + " " + pick["selection"] + " " + (fx.get("venue") or ""))}">'
             f'<td class="nowrap"><div>{fmt_date(fx["start_utc"])}</div>'
-            f'<div class="time">{fmt_dt(fx["start_utc"])[8:]}</div></td>'
+            f'<div class="time">{fmt_time(fx["start_utc"])}</div></td>'
             f'<td>{sport_badge(fx["sport"])}</td>'
             f"<td>{_match_cell(fx)}</td>"
-            f'<td class="nowrap">{_record_cell(fx)}</td>'
+            f'<td class="nowrap" title="Away record – home record as published by the league">{_record_cell(fx)}</td>'
             f"<td>{_pick_cell(pick)}</td>"
             f'<td class="nowrap"><span class="small muted">{esc(pick["market_label"])}</span></td>'
             f'<td class="num">{pct(pick["prob"])}</td>'
@@ -163,7 +165,7 @@ def _fixture_table(ctx: dict, rows: list[dict], *, filterable: bool = True,
             f"{_detail_html(row, preds)}</details></td></tr>"
         )
     headers = [
-        ("When", "nosort"), ("Sport", "nosort"), ("Match", ""), ("Records A–H", "nosort"),
+        ("When", "nosort"), ("Sport", "nosort"), ("Match", ""), ("Record A–H", "nosort"),
         ("Our pick", ""), ("Market", ""), ("Prob", "num"), ("Conf.", ""), ("Sources", "nosort"),
         ("Markets", "nosort"),
     ]
@@ -297,7 +299,8 @@ def render_picks(ctx: dict) -> str:
         fx = row["fixture"]
         picks = [row["analysis"]["winner_pick"]] + row["analysis"]["market_picks"]
         for pick in picks:
-            rows.append(
+            sort_key = (fx["start_utc"], fx["sport"], pick["market"], pick["selection"])
+            rows.append((sort_key, 
                 f'<tr data-sport="{esc(fx["sport"])}" data-confidence="{esc(pick["confidence"])}" '
                 f'data-market="{esc(pick["market"])}" '
                 f'data-text="{esc(fx["away"]["name"] + " " + fx["home"]["name"] + " " + pick["selection"])}">'
@@ -312,8 +315,9 @@ def render_picks(ctx: dict) -> str:
                 f'<td class="num">{esc(pick.get("sample_games_min", ""))}</td>'
                 f'<td>{conf_badge(pick["confidence"])}</td>'
                 f'<td class="src">{source_links(fx.get("official_source_urls") or fx.get("source_urls"), 1)}</td></tr>'
-            )
-    rows.sort(key=lambda r: r)
+            ))
+    rows.sort(key=lambda item: item[0])
+    rows = [html for _, html in rows]
     headers = [("When", "nosort"), ("Sport", "nosort"), ("Match", ""), ("Selection", ""),
                ("Price", "num"), ("Prob", "num"), ("Sample", "num"), ("Conf.", ""), ("Source", "nosort")]
     published = [p for p in ctx["payload"]["predictions"] if not p.get("withdrawn") and p.get("text")]

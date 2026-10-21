@@ -225,6 +225,9 @@ def summary(findings: Findings, fixtures: list[dict], analysis: list[dict],
             predictions: list[dict]) -> dict:
     counts = Counter(f["category"] for f in findings.items)
     by_severity = Counter(f["severity"] for f in findings.items)
+    # An excluded row has already been kept out of the published JSON, so it is not a
+    # build failure: it is a finding. Only an error that survives into a published row
+    # (or a catastrophic coverage failure) blocks the build.
     excluded = [f for f in findings.items if f.get("action") == "excluded"]
     unresolved = [
         f for f in findings.items
@@ -239,6 +242,7 @@ def summary(findings: Findings, fixtures: list[dict], analysis: list[dict],
         "findings_by_severity": dict(by_severity),
         "findings_by_category": dict(counts),
         "rows_excluded": len(excluded),
+        "excluded_categories": dict(Counter(f["category"] for f in excluded)),
         "excluded_ratio": round(len(excluded) / max(1, len(fixtures) + len(excluded)), 4),
         "hard_failures": len(unresolved),
     }

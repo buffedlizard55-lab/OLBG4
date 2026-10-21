@@ -300,6 +300,7 @@ def main(argv: list[str] | None = None) -> int:
     analysis_rows: list[dict] = []
     prediction_rows: list[dict] = []
     prediction_variant = 0
+    withheld_sports: dict[str, int] = {}
     for fx in all_fixtures:
         sport = fx["sport"]
         pack = models.get(sport) or {}
@@ -311,6 +312,43 @@ def main(argv: list[str] | None = None) -> int:
         h2h = predictions.head_to_head(
             all_results, fx["home"]["id"], fx["away"]["id"], _dt(fx["start_utc"])
         )
+        form_block = {
+            "home": _form_summary(form.get(str(fx["home"]["id"]))),
+            "away": _form_summary(form.get(str(fx["away"]["id"]))),
+        }
+        h2h_block = [
+            {"date_utc": m["date_utc"], "home_id": str(m["home_id"]),
+             "away_id": str(m["away_id"]), "home_score": m["home_score"],
+             "away_score": m["away_score"], "source": m.get("source_url")}
+            for m in h2h
+        ]
+        sample_home = int(current_fit.games_per_team.get(str(fx["home"]["id"]), 0))
+        sample_away = int(current_fit.games_per_team.get(str(fx["away"]["id"]), 0))
+        sample_min = min(sample_home, sample_away)
+        if sample_min < config.MIN_GAMES_FOR_MARKETS:
+            withheld_sports[sport] = withheld_sports.get(sport, 0) + 1
+            analysis_rows.append({
+                "fixture": fx,
+                "form": form_block,
+                "h2h": h2h_block,
+                "analysis": {
+                    "market_status": "withheld",
+                    "market_note": (
+                        f"Markets withheld: the smallest per-team sample is {sample_min} "
+                        f"completed games (home {sample_home}, away {sample_away}); "
+                        f"{config.MIN_GAMES_FOR_MARKETS} are required to originate a price."
+                    ),
+                    "sample_min": sample_min,
+                    "markets": {}, "winner_pick": None, "market_picks": [],
+                    "headline_pick": None, "expected": None, "se": None, "edge": None,
+                    "predictions": [],
+                    "rationale": (
+                        f"{meta['league']} ratings rest on {current_fit.games} completed games, "
+                        f"so no line is originated for this fixture."
+                    ),
+                },
+            })
+            continue
         try:
             result = markets_mod.build_markets(
                 fx, current_fit, opening_fit, form, pack.get("_sensitivity_fit")
@@ -321,16 +359,8 @@ def main(argv: list[str] | None = None) -> int:
             continue
         row = {
             "fixture": fx,
-            "form": {
-                "home": _form_summary(form.get(str(fx["home"]["id"]))),
-                "away": _form_summary(form.get(str(fx["away"]["id"]))),
-            },
-            "h2h": [
-                {"date_utc": m["date_utc"], "home_id": str(m["home_id"]),
-                 "away_id": str(m["away_id"]), "home_score": m["home_score"],
-                 "away_score": m["away_score"], "source": m.get("source_url")}
-                for m in h2h
-            ],
+            "form": form_block,
+            "h2h": h2h_block,
             "analysis": result,
         }
         analysis_rows.append(row)
@@ -358,6 +388,19 @@ def main(argv: list[str] | None = None) -> int:
             pred["source_urls"] = fx.get("official_source_urls") or fx.get("source_urls")
             prediction_rows.append(pred)
             pick["prediction_id"] = fx["id"] + ":" + pick["market"]
+
+    for sport, count in sorted(withheld_sports.items()):
+        meta = config.SPORTS[sport]
+        findings.add(
+            severity="warning", category="market_withheld", field="markets",
+            detail=(
+                f"{meta['league']}: markets and picks are withheld for {count} fixtures "
+                f"because the smallest per-team sample is under "
+                f"{config.MIN_GAMES_FOR_MARKETS} completed games. The fixtures, records and "
+                f"official source links are still published."
+            ),
+            source_urls=[f"https://{meta['official_domains'][0]}"],
+        )
 
     # ------------------------------------------------------------------
     # 4. verification
@@ -412,12 +455,14 @@ def main(argv: list[str] | None = None) -> int:
         "analysis_rows": len(analysis_rows),
         "predictions": len(prediction_rows),
         "high_picks": sum(1 for r in analysis_rows
-                          if r["analysis"]["winner_pick"]["confidence"] == "high"),
+                          if _pick_conf(r["analysis"]) == "high"),
         "medium_picks": sum(1 for r in analysis_rows
-                            if r["analysis"]["winner_pick"]["confidence"] == "medium"),
+                            if _pick_conf(r["analysis"]) == "medium"),
         "low_picks": sum(1 for r in analysis_rows
-                         if r["analysis"]["winner_pick"]["confidence"] == "low"),
+                         if _pick_conf(r["analysis"]) == "low"),
         "market_picks": sum(len(r["analysis"]["market_picks"]) for r in analysis_rows),
+        "markets_withheld": sum(1 for r in analysis_rows
+                                if r["analysis"].get("market_status") == "withheld"),
         "findings": len(findings.items),
     }
     snapshot["verification"] = verification
@@ -473,7 +518,7 @@ def main(argv: list[str] | None = None) -> int:
         print("site built")
 
     if args.strict:
-        if verification["hard_failures"] > 0:
+        if verification["hard_failures"] > 0:  # errors still attached to published rows
             print("STRICT: published rows failed verification", file=sys.stderr)
             return 1
         if not kept_fixtures:
@@ -526,6 +571,11 @@ def _current_season(results: list[dict], fixtures: list[dict]) -> str | None:
         return max(set(seasons), key=seasons.count)
     seasons = [str(r.get("season")) for r in results if r.get("season")]
     return max(seasons) if seasons else None
+
+
+def _pick_conf(analysis: dict) -> str | None:
+    pick = analysis.get("winner_pick")
+    return pick.get("confidence") if pick else None
 
 
 def _form_summary(form: dict | None) -> dict | None:

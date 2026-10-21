@@ -79,6 +79,10 @@ RIDGE_LAMBDA = 6.0          # shrinkage on team ratings, in squared scoring unit
 THEORETICAL_HOLD = 0.045    # 4.5% overround across both sides of a market
 MIN_GAMES_FOR_HIGH = 40     # per-team games in the training sample
 MIN_GAMES_FOR_MEDIUM = 20
+# Below this per-team sample we list the fixture but withhold markets and picks. A
+# three-game sample cannot support an originated price, and publishing one would be a
+# guess dressed up as analysis.
+MIN_GAMES_FOR_MARKETS = 20
 
 # Confidence rule (must stay in sync with pipeline/predictions.py and the docs)
 CONFIDENCE = {

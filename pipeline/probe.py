@@ -55,6 +55,11 @@ def probe_one(url: str, headers: dict) -> dict:
 SCHEDULE_ARCHIVES = [
     "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
     "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+    "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_2.json",
+    "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_3.json",
+    "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_4.json",
+    "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_2025.json",
+    "https://cdn.nba.com/static/json/staticData/schedule_2025.json",
 ]
 
 

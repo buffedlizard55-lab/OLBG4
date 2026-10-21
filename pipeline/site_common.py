@@ -40,6 +40,15 @@ def fmt_dt(iso_value: str | None) -> str:
     return dt.strftime("%a %d %b, %H:%M UTC")
 
 
+def fmt_time(iso_value: str | None) -> str:
+    if not iso_value:
+        return ""
+    try:
+        return parse_iso(iso_value).strftime("%H:%M UTC")
+    except Exception:  # noqa: BLE001
+        return ""
+
+
 def fmt_date(iso_value: str | None) -> str:
     if not iso_value:
         return ""
