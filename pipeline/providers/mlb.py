@@ -43,13 +43,14 @@ def _schedule(start: datetime, end: datetime, hydrate: str = "probablePitcher") 
 def _team_records(season: int) -> dict[int, str]:
     """Official regular-season W-L by team id, from the standings endpoint."""
     try:
+        # No `fields` filter here: the standings payload is small, and a rejected filter
+        # would silently cost every MLB row its official record.
         payload = http.fetch_json(
             http.with_query(
                 f"{BASE}/standings",
                 leagueId="103,104",
                 season=season,
                 standingsTypes="regularSeason",
-                fields="records,teamRecords,team,id,name,leagueRecord,wins,losses,winningPercentage",
             ),
             cache_seconds=3600,
         )
