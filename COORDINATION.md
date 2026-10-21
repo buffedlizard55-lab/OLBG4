@@ -293,6 +293,13 @@ Claimed: 2026-10-21 · Branch: `arena/07a080b9-olbg4` · Scope (non-overlapping)
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
 | F1 | Claim board | done | 07a080b9 | COORDINATION.md |
-| F2 | Line-by-line audit: JSON validity, source links, exclusions, prediction word-count/uniqueness, internal links (all builds) | in progress | 07a080b9 | `session-07a080b9/` |
-| F3 | Publish audit + flagged-for-review page | unclaimed | 07a080b9 | `session-07a080b9/` |
-| F4 | PR to main, merge, confirm Pages deploy | unclaimed | 07a080b9 | — |
+| F2 | Line-by-line audit: JSON validity, source links, exclusions, prediction word-count/uniqueness, internal links (all builds) | done | 07a080b9 | `session-07a080b9/` |
+| F3 | Publish audit + flagged-for-review page | done | 07a080b9 | `session-07a080b9/` |
+| F4 | PR to main, merge, confirm Pages deploy | in progress | 07a080b9 | — |
+
+### Board F results (2026-10-21)
+- Audit: `session-07a080b9/audit.py` checks committed data only, nothing inferred. Stats: D 66 rows, 15 High, min 68 words, 0 duplicates, 0 excluded sports, all sourceUrl present; A 144 rows all sourced; B 116 rows, 9 predictions; C 43 fixtures/10 predictions; E 90 fixtures/18 predictions, all with `source_urls`.
+- Links: 87 HTML files, 1,576 internal links, **0 broken** (initial 13 'broken' were `data:` favicon URIs — checker fixed, not site files).
+- Irregularities: only 2 WARN — Build A Gaelic rows (Maigh Cuilinn v Salthill-Knocknacarra; Nemo Rangers v St Finbarr's). Already flagged by Build B; left in place, non-blocking, listed on audit page. Gaelic is not in the brief's exclusion list verbatim (hurling/football are) — user review requested on scope interpretation.
+- Live Pages re-checked 2026-10-21: hub + flagged.html render, 66 entries, 8 flagged, official source links present.
+- Existing gates re-run: `pipeline.selftest` all pass; `scripts/verify.py` (B) 116/116 sourced, 0 duplicates.
