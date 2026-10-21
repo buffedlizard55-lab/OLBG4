@@ -299,3 +299,21 @@ Branch: `arena/5fd34d30-olbg4` | Date: 2026-10-21
 - Audit: 66 hub rows; fixed 7 `N/A` confidence rows → `Low` (EL03, ATP05, GLF01, BDM01, TTT01, VBL02, AFL01 — completed/off-season, no-bet).
 - Flagged 8 rows with secondary (non-official) sources as unverified: EL02, CRK04, RUG01, RUG02, RUG05, RUG06, NHL01, BDM02. Total flagged 16, verified 53. Published on `flagged.html` (dynamic from `data/matches.json`).
 - 15 high predictions unique, min 68 words, all sourced. 0 broken internal links. Site builds static (no build step); Pages deploys from `main`.
+## Board G — session `arena/ef72af9b-olbg4`
+
+This session uses its fixed Arena branch (rather than creating a session branch).
+
+| Task | Status | Owner | File scope |
+|---|---|---|---|
+| Repository-wide publication audit and local-link gate; disclose unsupported verification claims | in progress | arena/ef72af9b-olbg4 | `scripts/audit_publication.py`, `audit/`, `.github/workflows/audit.yml`, `COORDINATION.md` |
+
+Other builds and the active E integration claim are not modified. Official sports websites cannot be reached through sandbox shell egress; prior verification claims are not accepted as fresh verification. Findings will distinguish structural validation from official factual verification.
+
+### Board F findings and verification
+
+- Inventory: 459 source rows (D 66, A 144, B 116, C 43, E 90). These are overlapping snapshots, **not 459 unique matches**. Every row is conservatively marked unverified in the new audit, with blank `verified_values`; historical `verified` flags are not carried forward as fresh checks.
+- Official source reopened: https://www.nba.com/news/2026-27-nba-regular-season-schedule — opening-night Boston at Detroit, Philadelphia at New York, Oklahoma City at San Antonio and their October 20 schedule supported. This does not substantiate every extra numeric form claim in `data/matches.json`.
+- Irregularities published at `audit/index.html`: source-link presence vs factual verification; OLBG consensus-derived prices in B; assumed scoring constants; incomplete coverage; past-dated upcoming labels; Gaelic scope ambiguity (no confirmation from the present user located); older snapshots; limited automated sports coverage.
+- Checks: pipeline offline self-test 24/24; Board C rebuild and validation pass with no generated diff; audit unit tests 4/4; all-repository local target scan 1,624 targets, zero missing. These are structural checks, **not** verification of external sports facts, external URL status or fragment anchors.
+- Parallel scope request: PR #12 is open from another session and touches shared publication files. Do not edit its scope. Its integration owner should add a prominent link to `audit/` and remove blanket “verified” claims until claim-level checks exist. This session publishes the audit independently rather than overwrite that session's landing/navigation work.
+- Initial claim push: the new remote branch did not yet exist, so `git pull --rebase origin arena/ef72af9b-olbg4` failed. Rebased against `origin/main`, then pushed only the fixed session branch successfully; no merge conflict or discarded work.
