@@ -20,19 +20,7 @@ from . import config
 
 OUT = Path(__file__).resolve().parent.parent / "session-4afef1af" / "data" / "probe.json"
 
-BROWSER = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-    ),
-    "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer": "https://www.nba.com/",
-    "Origin": "https://www.nba.com",
-    "Sec-Fetch-Site": "same-site",
-    "Sec-Fetch-Mode": "cors",
-    "Sec-Fetch-Dest": "empty",
-}
+BROWSER = config.BROWSER_HEADERS
 NAIVE = {"User-Agent": config.USER_AGENT}
 
 TARGETS = [

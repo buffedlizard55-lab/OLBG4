@@ -86,6 +86,23 @@ CONFIDENCE = {
     "medium": {"min_prob": 0.55, "min_z": 1.0, "min_games": MIN_GAMES_FOR_MEDIUM},
 }
 
+# League CDNs (notably cdn.nba.com) return 403 for a non-browser request. This profile
+# was verified reachable from the build runner by pipeline/probe.py; the same headers are
+# used by the probe and by the providers so the two can never drift apart.
+BROWSER_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://www.nba.com/",
+    "Origin": "https://www.nba.com",
+    "Sec-Fetch-Site": "same-site",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+}
+
 USER_AGENT = (
     "Mozilla/5.0 (compatible; OLBG4-research-pipeline/1.0; "
     "+https://github.com/buffedlizard55-lab/OLBG4)"
