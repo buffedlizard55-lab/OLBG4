@@ -541,3 +541,17 @@ Rules honoured: no file owned by another board is edited; requests for changes t
 - 11:35Z — second rebase conflict (main at `afc16ce`, another session had taken "Board I"); resolved the same way, renamed to Board J. Remote branch force-updated with `--force-with-lease` (own branch only, rewritten by the rebases).
 - **PR #22** — https://github.com/buffedlizard55-lab/OLBG4/pull/22 — checks `Validate data and site` + `Repository-wide publication audit` both pass; **MERGED** 2026-10-21T06:54:56Z as `1bb0964`.
 - **Pages deploy:** `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both `success` on `1bb0964`; Pages API `builds/latest` = `built`, commit `1bb0964`, error none. Live: https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/ (Flagged page fetched over HTTPS and confirmed to render all 13 findings).
+
+## Board K — session `arena/093bfd5e-olbg4` (final-integration fix: hub verified flags + fresh official spot-checks)
+
+Claimed: 2026-10-21 · Branch: `arena/093bfd5e-olbg4` (fixed Arena branch for this session; no other branch created) · Owner: `093bfd5e`
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| K1 | Claim board, push immediately | in progress | 093bfd5e | `COORDINATION.md` |
+| K2 | Fresh line-by-line re-check of all 15 High-confidence hub rows against official sources (fetch official pages today); correct `verified`/`flagged` only where evidence supports it — unconfirmed values not inferred | unclaimed→claimed | 093bfd5e | `data/matches.json`, `session-093bfd5e/**` |
+| K3 | Fix Board J F-01: rows marked verified on non-official domains (ESPN/Wikipedia/OLBG/blogs etc.) → set `verified:false, flagged:true` with reason, keep source link for manual review; do not delete rows | claimed | 093bfd5e | `data/matches.json`, `flagged.html` (additive section only) |
+| K4 | Publish Board K audit dashboard (per-row official/secondary classification, spot-check outcomes, irregularities) | claimed | 093bfd5e | `session-093bfd5e/**`, additive portal card in `index.html` |
+| K5 | Full-repo internal-link check + JSON validity; PR to main, merge without waiting, confirm Pages deploy, record PR here | claimed | 093bfd5e | — |
+
+Rules: every corrected row keeps an official-source link where one exists; if a fixture cannot be confirmed on an official site today it stays published, `verified:false`, flagged on Flagged for Review (non-blocking). No other board's files edited.
