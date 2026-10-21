@@ -1,0 +1,104 @@
+{
+  "probed_utc": "2026-10-21T05:42:58+00:00",
+  "results": [
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+      "sport": "nba",
+      "profile": "browser",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_sampled": 400,
+      "starts_with": "{\r\n  \"meta\": {\r\n    \"version\": 1,\r\n    \"request\": \"http://nba.cloud/league/00/2026-27/sche"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+      "sport": "nba",
+      "profile": "naive",
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
+      "sport": "nba",
+      "profile": "browser",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_sampled": 400,
+      "starts_with": "{\r\n  \"meta\": {\r\n    \"version\": 1,\r\n    \"request\": \"https://nba-prod-us-east-1-mediaops-sta"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
+      "sport": "nba",
+      "profile": "naive",
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
+    },
+    {
+      "url": "https://stats.nba.com/stats/scheduleleaguev2?LeagueID=00&Season=2026-27",
+      "sport": "nba",
+      "profile": "browser",
+      "status": null,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "url": "https://stats.nba.com/stats/scheduleleaguev2?LeagueID=00&Season=2026-27",
+      "sport": "nba",
+      "profile": "naive",
+      "status": null,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "url": "https://www.nba.com/games?date=2026-10-21",
+      "sport": "nba",
+      "profile": "browser",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 400,
+      "starts_with": "<!DOCTYPE html><html lang=\"en\" data-version=\"5.2.9\" data-client=\"NBA\" data-theme=\"light\"><"
+    },
+    {
+      "url": "https://www.nba.com/games?date=2026-10-21",
+      "sport": "nba",
+      "profile": "naive",
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-21",
+      "sport": "nhl",
+      "profile": "browser",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes_sampled": 400,
+      "starts_with": "{\"nextStartDate\":\"2026-10-28\",\"previousStartDate\":\"2026-10-14\",\"gameWeek\":[{\"date\":\"2026-1"
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-21",
+      "sport": "nhl",
+      "profile": "naive",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes_sampled": 400,
+      "starts_with": "{\"nextStartDate\":\"2026-10-28\",\"previousStartDate\":\"2026-10-14\",\"gameWeek\":[{\"date\":\"2026-1"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-21",
+      "sport": "mlb",
+      "profile": "browser",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes_sampled": 262,
+      "starts_with": "{\"copyright\":\"Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page ack"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-21",
+      "sport": "mlb",
+      "profile": "naive",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes_sampled": 262,
+      "starts_with": "{\"copyright\":\"Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page ack"
+    }
+  ],
+  "note": "Diagnostic only. A 403/000 here means the runner could not reach that official endpoint; the pipeline then reports the provider as unavailable instead of substituting an unofficial source."
+}
