@@ -41,6 +41,9 @@ UNVERIFIED_BY_SPORT = {
     "Rugby League": "Not re-checked on NRL.com during the 2026-10-21 verification cycle. The NRL Pacific Championships page currently serves the 2025 season draw, so the claimed 2026 fixture could not be confirmed and is not published as a match.",
 }
 
+TOURNAMENT_SPORTS = {"Tennis", "Golf", "Badminton", "Table Tennis", "Darts", "Snooker",
+                     "Volleyball", "Esports", "Aussie Rules", "Rugby League"}
+
 FIELD_ORDER = [
     "id", "sport", "category", "competition", "date", "time", "venue", "match",
     "teamA", "teamB", "status", "originatedMoneyline", "originatedSpread",
@@ -81,13 +84,6 @@ def build():
                 r["venue"] = ""
             r["prediction"] = ""
             r["confidence"] = "Low"
-            if row.get("prediction"):
-                withdrawn.append({
-                    "id": r["id"], "sport": r["sport"], "match": r["match"],
-                    "text": row["prediction"],
-                    "stated_confidence": row.get("confidence"),
-                    "reason": ev["withdrawn"]["reason_unverifiable"],
-                })
 
         for key, value in corrections.items():
             r[key] = value
@@ -135,6 +131,16 @@ def build():
             "session": ev["session"],
         }
         r["facts"] = (evidence or {}).get("facts", [])
+
+        # Any original prose that is not republished verbatim is archived with its reason.
+        if row.get("prediction") and row["prediction"] != r.get("prediction"):
+            withdrawn.append({
+                "id": r["id"], "sport": r["sport"], "match": r["match"],
+                "text": row["prediction"],
+                "stated_confidence": row.get("confidence"),
+                "reason": ev["withdrawn"]["reason_not_a_match"] if r["sport"] in TOURNAMENT_SPORTS
+                else ev["withdrawn"]["reason_unverifiable"],
+            })
 
         # Published prose is regenerated, never inherited: only quoted official facts survive.
         facts = r["facts"]
@@ -344,32 +350,61 @@ def write_verification_page(summary):
         page("Verification register — OLBG4", "Verification register — line by line", body))
 
 
-FINDINGS = [
-    ("high", "K-01", "15 high-confidence predictions withdrawn",
-     "Every previously published high-confidence write-up asserted form, injury or head-to-head numbers that appear on no official source (Board J F-02 found the same thing for NHL01, NHL06, EL02, MLB01 and RL01). They were not reworded around the claim: the texts are archived with their stated confidence in <code>data/board_k/withdrawn_predictions.json</code> and removed from the rows.",
-     "<a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/board_k/withdrawn_predictions.json'>withdrawn_predictions.json</a>"),
-    ("high", "K-02", "Unverified rows: time and venue blanked, confidence capped at LOW",
-     "Of the 68 published rows, only those listed as CONFIRMED on the verification register could be read back from an official source in this cycle. The rest keep the participants and date as originally published but lose their start time, venue, prediction and any confidence above LOW, because those values could not be confirmed. They are not inferred and not copied from another build.",
-     "<a href='verification.html'>Verification register</a>"),
-    ("medium", "K-03", "Fixture fields corrected against governing bodies",
-     "CRK03: PCB says this is <b>match 2</b> (Pakistan v England) on 20 Oct at Rawalpindi, not 'match 1' over a 20-29 Oct range at Lahore. CRK05: the final is <b>31 Oct</b> at Gaddafi Stadium, Lahore — 29 Oct is Sri Lanka v England. MLB03: MLB's schedule names <b>Tropicana Field</b>, not Steinbrenner Field. NHL01/NHL02 now carry the official final scores.",
-     "<a href='https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html' target='_blank' rel='noopener'>PCB release</a> · <a href='https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-26' target='_blank' rel='noopener'>MLB schedule 26 Oct</a>"),
-    ("medium", "K-04", "Rows that are not matches",
-     "Tennis (6), golf (5), badminton (3), table tennis (3), darts (4), snooker (4), volleyball (2), handball (2), esports (2), the AFL off-season note and the Pacific Championships note are tournaments, rounds, qualification notes or off-season statements. A head-to-head pick cannot be originated for them without a specific fixture, so their picks are marked LOW and their times, venues and predictions are blank.",
-     "<a href='data/matches.json'>data/matches.json</a>"),
-    ("medium", "K-05", "Build A / Build B data overwrite still unresolved (not this session's files)",
-     "Board J recorded that commit <code>cf9f024</code> replaced Build A's <code>data/rows.json</code> and Build B's <code>data/predictions.json</code>, deleting Gaelic/greyhound/golf/motor-racing rows and swapping nine sourced write-ups for templated text. This session does not own those files and has not edited them; the request stands with the owning sessions and the pre-overwrite files remain recoverable at commit <code>5918922</code>.",
-     "<a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md'>COORDINATION.md</a>"),
-    ("low", "K-06", "Pages that could not be read back as fixtures",
-     "EuroLeague (game centre is JavaScript-rendered), PDC (consent wall, no fixture table returned), NRL Pacific Championships (page currently serves the 2025 draw), World Rugby (navigation shell only), EHF and lolesports. Rows that depend on those pages are marked unverified instead of being given a value from memory.",
-     "<a href='https://www.nrl.com/pacific-championships/' target='_blank' rel='noopener'>nrl.com</a> · <a href='https://www.pdc.tv/tournaments/machineseeker-european-championship' target='_blank' rel='noopener'>pdc.tv</a>"),
-    ("low", "K-07", "Confidence now depends on evidence, not on the model's own edge",
-     "HIGH is used only where both sides' current form was read from an official feed and quoted on the register. That rule leaves three high-confidence picks in this cycle (NHL05, NHL07, NHL08). Nothing was promoted to HIGH to fill a quota.",
-     "<a href='methodology.html'>Methodology</a>"),
-    ("low", "K-08", "Excluded sports are still excluded",
-     "Soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials appear nowhere in the hub. Gaelic football and greyhounds are not in the hub either; they appear only inside other sessions' builds, which this session did not edit.",
-     "<a href='index.html'>Dashboard</a>"),
-]
+def findings(c):
+    return [
+        ("high", "K-01", f"{c['withdrawnPredictions']} prediction texts withdrawn",
+         "Every prediction published by the earlier hub asserted form, injury or head-to-head numbers that appear on no official source "
+         "(Board J's audit found the same for NHL01, NHL06, EL02, MLB01 and RL01). None was reworded around its claim: all of them are archived "
+         "verbatim with their stated confidence in <code>data/board_k/withdrawn_predictions.json</code>, and only prose rebuilt from quoted official "
+         "facts is published.",
+         "<a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/board_k/withdrawn_predictions.json'>withdrawn_predictions.json</a>"),
+        ("high", "K-02", f"{c['unverified']} of {c['rows']} rows could not be confirmed",
+         "Only the rows marked CONFIRMED on the verification register were read back from an official source in this cycle. The rest keep the "
+         "participants and date as previously published but lose their start time, venue, prediction and any confidence above LOW. They are not "
+         "inferred and not copied from another build; the earlier link is kept only as <code>priorSourceUrl</code> provenance.",
+         "<a href='verification.html'>Verification register</a>"),
+        ("medium", "K-03", "Fixture fields corrected against governing bodies",
+         "CRK03: PCB says this is <b>match 2</b> (Pakistan v England) on 20 Oct at Rawalpindi, not 'match 1' over a 20-29 Oct range at Lahore. "
+         "CRK05: the final is <b>31 Oct</b> at Gaddafi Stadium — 29 Oct is Sri Lanka v England. MLB03: MLB's schedule names <b>Tropicana Field</b>, "
+         "not Steinbrenner Field. NHL01/NHL02 now carry the official final scores. The six rugby fixtures are titled <b>Nations Championship 2026</b> "
+         "by World Rugby, not the Autumn Nations Series.",
+         "<a href='https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html' target='_blank' rel='noopener'>PCB release</a> · "
+         "<a href='https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-26' target='_blank' rel='noopener'>MLB schedule 26 Oct</a> · "
+         "<a href='https://www.world.rugby/beta/en/match/1e74b48e-25fe-4ebe-beea-abb6cea010a0' target='_blank' rel='noopener'>World Rugby match page</a>"),
+        ("medium", "K-04", "Rows that are not matches",
+         "Tennis (6), golf (5), badminton (3), table tennis (3), darts (4), snooker (4), volleyball (2), handball (2), esports (2), the AFL "
+         "off-season note and the Pacific Championships note are tournaments, rounds, qualification notes or off-season statements. A head-to-head "
+         "pick cannot be originated without a specific fixture, so those picks are LOW and their times, venues and predictions are blank.",
+         "<a href='data/matches.json'>data/matches.json</a>"),
+        ("medium", "K-05", "Cross-session collision on this hub's files (resolved, nothing discarded)",
+         "Two sessions independently claimed 'Board K' and both edited <code>data/matches.json</code>. Session <code>093bfd5e</code> landed first on "
+         "<code>main</code>; this session rebuilt the file from a frozen base plus recorded evidence. Their work is preserved: their data file is archived "
+         "as <code>data/board_k/prior_session_matches.json</code>, their World Rugby and BWF URLs were re-opened and adopted, and their EuroLeague claim is "
+         "disputed below rather than silently kept or silently deleted.",
+         "<a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/board_k/prior_session_matches.json'>prior_session_matches.json</a>"),
+        ("medium", "K-06", "A prior-session 'confirmed' claim that does not survive re-checking",
+         "Session <code>093bfd5e</code> marked EL01 and EL02 as confirmed against the EuroLeague 2026-27 schedule release. That release (29 July 2026) "
+         "announces the season and opening-night games on 24-25 September; it does not list the Round 7 fixtures on 22 October. Both rows therefore remain "
+         "UNVERIFIED here, and the fixture-level claim is withdrawn pending a Round 7 page.",
+         "<a href='https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/' target='_blank' rel='noopener'>EuroLeague release</a>"),
+        ("low", "K-07", "Pages that still could not be read back as fixtures",
+         "EuroLeague game centre (client-side shell), PDC (consent wall), NRL Pacific Championships (serves the 2025 draw), EHF, lolesports, ATP/WTA, "
+         "WTT, FIVB, PGA/LPGA and AFL. Rows that depend on those pages are unverified instead of being given a value from memory.",
+         "<a href='https://www.nrl.com/pacific-championships/' target='_blank' rel='noopener'>nrl.com</a> · "
+         "<a href='https://www.pdc.tv/tournaments/machineseeker-european-championship' target='_blank' rel='noopener'>pdc.tv</a>"),
+        ("low", "K-08", f"Confidence is capped by evidence ({c['highConfidence']} high-confidence picks)",
+         "HIGH is used only where both sides' current form was read from an official feed and quoted on the register. This cycle that is true for "
+         "NHL05, NHL07 and NHL08. Nothing was promoted to HIGH to fill a quota, and the one medium prediction (MLB01) states explicitly why it is not high.",
+         "<a href='methodology.html'>Methodology</a>"),
+        ("low", "K-09", "Unresolved on other boards' files: Build A / Build B overwrite",
+         "Board J recorded that commit <code>cf9f024</code> replaced Build A's <code>data/rows.json</code> and Build B's <code>data/predictions.json</code>. "
+         "This session does not own those files and has not edited them; the request stands with their owning sessions.",
+         "<a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md'>COORDINATION.md</a>"),
+        ("low", "K-10", "Excluded sports are still excluded",
+         "Soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials appear nowhere in the hub. Gaelic football and "
+         "greyhounds are not in the hub either; they appear only inside other sessions' builds, which this session did not edit.",
+         "<a href='index.html'>Dashboard</a>"),
+    ]
 
 
 def write_flagged_page(summary, rows):
@@ -379,7 +414,7 @@ def write_flagged_page(summary, rows):
   <td><strong>{e(kid)}</strong><div class="small">{e(title)}</div></td>
   <td class="small">{text}</td>
   <td class="small">{links}</td>
-</tr>''' for sev, kid, title, text, links in FINDINGS)
+</tr>''' for sev, kid, title, text, links in findings(c))
 
     body = f'''  <section class="hero">
     <h2>Flagged for Review</h2>

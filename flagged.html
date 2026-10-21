@@ -19,7 +19,7 @@
     <h2>Flagged for Review</h2>
     <p>Everything this cycle could not confirm is collected here, with the official link to check it against. Flagged items do not block publication: the dashboard shows them with an <b>UNVERIFIED</b> badge, blank times and venues where nothing was confirmed, and no prediction.</p>
     <div class="notice"><strong>Policy:</strong> a value that cannot be confirmed from an official source is left blank and flagged. It is never inferred, never copied from a bookmaker, and never carried over silently from an earlier session. Verdicts and quoted evidence for every row are on the <a href="verification.html">Verification register</a>.</div>
-    <div class="small" style="margin-top:10px"><strong id="flaggedCount">loading…</strong> • 19 rows confirmed on an official source this cycle.</div>
+    <div class="small" style="margin-top:10px"><strong id="flaggedCount">loading…</strong> • 25 rows confirmed on an official source this cycle.</div>
   </section>
 
   <section class="table-wrap">
@@ -38,42 +38,52 @@
       <thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Severity</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Finding</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Detail</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Check it here</th></tr></thead>
       <tbody><tr>
   <td class="small">HIGH</td>
-  <td><strong>K-01</strong><div class="small">15 high-confidence predictions withdrawn</div></td>
-  <td class="small">Every previously published high-confidence write-up asserted form, injury or head-to-head numbers that appear on no official source (Board J F-02 found the same thing for NHL01, NHL06, EL02, MLB01 and RL01). They were not reworded around the claim: the texts are archived with their stated confidence in <code>data/board_k/withdrawn_predictions.json</code> and removed from the rows.</td>
+  <td><strong>K-01</strong><div class="small">66 prediction texts withdrawn</div></td>
+  <td class="small">Every prediction published by the earlier hub asserted form, injury or head-to-head numbers that appear on no official source (Board J's audit found the same for NHL01, NHL06, EL02, MLB01 and RL01). None was reworded around its claim: all of them are archived verbatim with their stated confidence in <code>data/board_k/withdrawn_predictions.json</code>, and only prose rebuilt from quoted official facts is published.</td>
   <td class="small"><a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/board_k/withdrawn_predictions.json'>withdrawn_predictions.json</a></td>
 </tr><tr>
   <td class="small">HIGH</td>
-  <td><strong>K-02</strong><div class="small">Unverified rows: time and venue blanked, confidence capped at LOW</div></td>
-  <td class="small">Of the 68 published rows, only those listed as CONFIRMED on the verification register could be read back from an official source in this cycle. The rest keep the participants and date as originally published but lose their start time, venue, prediction and any confidence above LOW, because those values could not be confirmed. They are not inferred and not copied from another build.</td>
+  <td><strong>K-02</strong><div class="small">41 of 68 rows could not be confirmed</div></td>
+  <td class="small">Only the rows marked CONFIRMED on the verification register were read back from an official source in this cycle. The rest keep the participants and date as previously published but lose their start time, venue, prediction and any confidence above LOW. They are not inferred and not copied from another build; the earlier link is kept only as <code>priorSourceUrl</code> provenance.</td>
   <td class="small"><a href='verification.html'>Verification register</a></td>
 </tr><tr>
   <td class="small">MEDIUM</td>
   <td><strong>K-03</strong><div class="small">Fixture fields corrected against governing bodies</div></td>
-  <td class="small">CRK03: PCB says this is <b>match 2</b> (Pakistan v England) on 20 Oct at Rawalpindi, not 'match 1' over a 20-29 Oct range at Lahore. CRK05: the final is <b>31 Oct</b> at Gaddafi Stadium, Lahore — 29 Oct is Sri Lanka v England. MLB03: MLB's schedule names <b>Tropicana Field</b>, not Steinbrenner Field. NHL01/NHL02 now carry the official final scores.</td>
-  <td class="small"><a href='https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html' target='_blank' rel='noopener'>PCB release</a> · <a href='https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-26' target='_blank' rel='noopener'>MLB schedule 26 Oct</a></td>
+  <td class="small">CRK03: PCB says this is <b>match 2</b> (Pakistan v England) on 20 Oct at Rawalpindi, not 'match 1' over a 20-29 Oct range at Lahore. CRK05: the final is <b>31 Oct</b> at Gaddafi Stadium — 29 Oct is Sri Lanka v England. MLB03: MLB's schedule names <b>Tropicana Field</b>, not Steinbrenner Field. NHL01/NHL02 now carry the official final scores. The six rugby fixtures are titled <b>Nations Championship 2026</b> by World Rugby, not the Autumn Nations Series.</td>
+  <td class="small"><a href='https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html' target='_blank' rel='noopener'>PCB release</a> · <a href='https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-26' target='_blank' rel='noopener'>MLB schedule 26 Oct</a> · <a href='https://www.world.rugby/beta/en/match/1e74b48e-25fe-4ebe-beea-abb6cea010a0' target='_blank' rel='noopener'>World Rugby match page</a></td>
 </tr><tr>
   <td class="small">MEDIUM</td>
   <td><strong>K-04</strong><div class="small">Rows that are not matches</div></td>
-  <td class="small">Tennis (6), golf (5), badminton (3), table tennis (3), darts (4), snooker (4), volleyball (2), handball (2), esports (2), the AFL off-season note and the Pacific Championships note are tournaments, rounds, qualification notes or off-season statements. A head-to-head pick cannot be originated for them without a specific fixture, so their picks are marked LOW and their times, venues and predictions are blank.</td>
+  <td class="small">Tennis (6), golf (5), badminton (3), table tennis (3), darts (4), snooker (4), volleyball (2), handball (2), esports (2), the AFL off-season note and the Pacific Championships note are tournaments, rounds, qualification notes or off-season statements. A head-to-head pick cannot be originated without a specific fixture, so those picks are LOW and their times, venues and predictions are blank.</td>
   <td class="small"><a href='data/matches.json'>data/matches.json</a></td>
 </tr><tr>
   <td class="small">MEDIUM</td>
-  <td><strong>K-05</strong><div class="small">Build A / Build B data overwrite still unresolved (not this session&#x27;s files)</div></td>
-  <td class="small">Board J recorded that commit <code>cf9f024</code> replaced Build A's <code>data/rows.json</code> and Build B's <code>data/predictions.json</code>, deleting Gaelic/greyhound/golf/motor-racing rows and swapping nine sourced write-ups for templated text. This session does not own those files and has not edited them; the request stands with the owning sessions and the pre-overwrite files remain recoverable at commit <code>5918922</code>.</td>
-  <td class="small"><a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md'>COORDINATION.md</a></td>
+  <td><strong>K-05</strong><div class="small">Cross-session collision on this hub&#x27;s files (resolved, nothing discarded)</div></td>
+  <td class="small">Two sessions independently claimed 'Board K' and both edited <code>data/matches.json</code>. Session <code>093bfd5e</code> landed first on <code>main</code>; this session rebuilt the file from a frozen base plus recorded evidence. Their work is preserved: their data file is archived as <code>data/board_k/prior_session_matches.json</code>, their World Rugby and BWF URLs were re-opened and adopted, and their EuroLeague claim is disputed below rather than silently kept or silently deleted.</td>
+  <td class="small"><a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/board_k/prior_session_matches.json'>prior_session_matches.json</a></td>
+</tr><tr>
+  <td class="small">MEDIUM</td>
+  <td><strong>K-06</strong><div class="small">A prior-session &#x27;confirmed&#x27; claim that does not survive re-checking</div></td>
+  <td class="small">Session <code>093bfd5e</code> marked EL01 and EL02 as confirmed against the EuroLeague 2026-27 schedule release. That release (29 July 2026) announces the season and opening-night games on 24-25 September; it does not list the Round 7 fixtures on 22 October. Both rows therefore remain UNVERIFIED here, and the fixture-level claim is withdrawn pending a Round 7 page.</td>
+  <td class="small"><a href='https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/' target='_blank' rel='noopener'>EuroLeague release</a></td>
 </tr><tr>
   <td class="small">LOW</td>
-  <td><strong>K-06</strong><div class="small">Pages that could not be read back as fixtures</div></td>
-  <td class="small">EuroLeague (game centre is JavaScript-rendered), PDC (consent wall, no fixture table returned), NRL Pacific Championships (page currently serves the 2025 draw), World Rugby (navigation shell only), EHF and lolesports. Rows that depend on those pages are marked unverified instead of being given a value from memory.</td>
+  <td><strong>K-07</strong><div class="small">Pages that still could not be read back as fixtures</div></td>
+  <td class="small">EuroLeague game centre (client-side shell), PDC (consent wall), NRL Pacific Championships (serves the 2025 draw), EHF, lolesports, ATP/WTA, WTT, FIVB, PGA/LPGA and AFL. Rows that depend on those pages are unverified instead of being given a value from memory.</td>
   <td class="small"><a href='https://www.nrl.com/pacific-championships/' target='_blank' rel='noopener'>nrl.com</a> · <a href='https://www.pdc.tv/tournaments/machineseeker-european-championship' target='_blank' rel='noopener'>pdc.tv</a></td>
 </tr><tr>
   <td class="small">LOW</td>
-  <td><strong>K-07</strong><div class="small">Confidence now depends on evidence, not on the model&#x27;s own edge</div></td>
-  <td class="small">HIGH is used only where both sides' current form was read from an official feed and quoted on the register. That rule leaves three high-confidence picks in this cycle (NHL05, NHL07, NHL08). Nothing was promoted to HIGH to fill a quota.</td>
+  <td><strong>K-08</strong><div class="small">Confidence is capped by evidence (3 high-confidence picks)</div></td>
+  <td class="small">HIGH is used only where both sides' current form was read from an official feed and quoted on the register. This cycle that is true for NHL05, NHL07 and NHL08. Nothing was promoted to HIGH to fill a quota, and the one medium prediction (MLB01) states explicitly why it is not high.</td>
   <td class="small"><a href='methodology.html'>Methodology</a></td>
 </tr><tr>
   <td class="small">LOW</td>
-  <td><strong>K-08</strong><div class="small">Excluded sports are still excluded</div></td>
+  <td><strong>K-09</strong><div class="small">Unresolved on other boards&#x27; files: Build A / Build B overwrite</div></td>
+  <td class="small">Board J recorded that commit <code>cf9f024</code> replaced Build A's <code>data/rows.json</code> and Build B's <code>data/predictions.json</code>. This session does not own those files and has not edited them; the request stands with their owning sessions.</td>
+  <td class="small"><a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md'>COORDINATION.md</a></td>
+</tr><tr>
+  <td class="small">LOW</td>
+  <td><strong>K-10</strong><div class="small">Excluded sports are still excluded</div></td>
   <td class="small">Soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials appear nowhere in the hub. Gaelic football and greyhounds are not in the hub either; they appear only inside other sessions' builds, which this session did not edit.</td>
   <td class="small"><a href='index.html'>Dashboard</a></td>
 </tr></tbody>
