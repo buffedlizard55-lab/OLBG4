@@ -1,14 +1,12 @@
 {
-  "probed_utc": "2026-10-21T06:50:46+00:00",
+  "probed_utc": "2026-10-21T17:09:04+00:00",
   "results": [
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
       "sport": "nba",
       "profile": "browser",
-      "status": 200,
-      "content_type": "text/plain",
-      "bytes_sampled": 400,
-      "starts_with": "{\r\n  \"meta\": {\r\n    \"version\": 1,\r\n    \"request\": \"http://nba.cloud/league/00/2026-27/sche"
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
     },
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
@@ -21,10 +19,8 @@
       "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
       "sport": "nba",
       "profile": "browser",
-      "status": 200,
-      "content_type": "text/plain",
-      "bytes_sampled": 400,
-      "starts_with": "{\r\n  \"meta\": {\r\n    \"version\": 1,\r\n    \"request\": \"https://nba-prod-us-east-1-mediaops-sta"
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
     },
     {
       "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
@@ -51,10 +47,8 @@
       "url": "https://cdn.nba.com/static/json/staticData/",
       "sport": "nba",
       "profile": "browser",
-      "status": 200,
-      "content_type": "application/octet-stream",
-      "bytes_sampled": 0,
-      "starts_with": ""
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
     },
     {
       "url": "https://cdn.nba.com/static/json/staticData/",
@@ -67,10 +61,8 @@
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
       "sport": "nba",
       "profile": "browser",
-      "status": 200,
-      "content_type": "text/plain",
-      "bytes_sampled": 400,
-      "starts_with": "{\r\n  \"meta\": {\r\n    \"version\": 1,\r\n    \"request\": \"http://nba.cloud/league/00/2026-27/sche"
+      "status": 403,
+      "error": "HTTPError 403 Forbidden"
     },
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
@@ -135,39 +127,18 @@
   "schedule_archives": [
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
-      "status": 200,
-      "bytes": 7389136,
-      "season_year": "2026-27",
-      "game_dates": 174,
-      "games": 1274,
-      "completed": 70,
-      "regular_season_games": 1206,
-      "first_game_utc": "2026-10-03T23:00:00Z",
-      "last_game_utc": "2027-04-12T00:30:00Z"
+      "status": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
-      "status": 200,
-      "bytes": 7398239,
-      "season_year": "2026-27",
-      "game_dates": 174,
-      "games": 1274,
-      "completed": 70,
-      "regular_season_games": 1206,
-      "first_game_utc": "2026-10-03T23:00:00Z",
-      "last_game_utc": "2027-04-12T00:30:00Z"
+      "status": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_2.json",
-      "status": 200,
-      "bytes": 3636904,
-      "season_year": "2026-27",
-      "game_dates": 174,
-      "games": 1274,
-      "completed": 70,
-      "regular_season_games": 1206,
-      "first_game_utc": "2026-10-03T23:00:00Z",
-      "last_game_utc": "2027-04-12T00:30:00Z"
+      "status": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_3.json",
