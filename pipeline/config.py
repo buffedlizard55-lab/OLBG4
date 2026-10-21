@@ -14,8 +14,9 @@ from datetime import timedelta, timezone, datetime
 # The owner excluded these OLBG sports from the deliverable. "football" in OLBG's
 # taxonomy means association football (soccer); the owner listed it explicitly along
 # with "soccer", "american football", hurling, horse racing, cycling, boxing, UFC/MMA
-# and "specials". Gaelic football is treated as out of scope because the owner
-# excluded "football" and "hurling" (both GAA codes are football/hurling family).
+# and "specials". Gaelic football is NOT excluded: the owner named hurling separately
+# and confirmed Gaelic football stays in scope, so it is listed as in-scope and simply
+# has no official machine-readable feed yet (see IN_SCOPE_NO_FEED).
 EXCLUDED_SPORTS = [
     "Soccer",
     "Football (association)",
@@ -24,11 +25,30 @@ EXCLUDED_SPORTS = [
     "UFC",
     "MMA",
     "Hurling",
-    "Gaelic Football",
     "Horse Racing",
     "Cycling",
     "Specials",
 ]
+
+# In-scope sports with no official, machine-readable fixture/result feed that this
+# project could verify. They are listed on the coverage page with the check that was
+# made; they are never priced. None of these is on the owner's exclusion list.
+IN_SCOPE_NO_FEED = {
+    "Tennis": "ATP/WTA publish draws as HTML pages, not a fixture/result API; no official "
+              "machine-readable endpoint was reachable to verify every row.",
+    "Cricket": "ICC and the national boards publish schedules as HTML; no official fixture API.",
+    "Rugby Union": "League and union bodies publish fixtures as HTML; no official fixture API.",
+    "Rugby League": "Super League publishes fixtures as HTML; no official fixture API.",
+    "Golf": "PGA/DP World Tour publish tee times and leaderboards as HTML; no official fixture API.",
+    "Darts": "PDC publishes fixtures and results as HTML; no official fixture API.",
+    "Snooker": "WST publishes fixtures and results as HTML; no official fixture API.",
+    "Gaelic Football": "GAA publishes fixtures and results as HTML; no official machine-readable feed.",
+    "Handball": "IHF/EHF publish fixtures as HTML; no official fixture API.",
+    "Volleyball": "FIVB/CEV publish fixtures as HTML; no official fixture API.",
+    "Greyhounds": "GBGB publishes results as HTML; no official fixture API.",
+    "Motor Sports": "Series publish entry lists and results as HTML; no single official fixture API.",
+    "Esports": "No single governing body or official fixture feed.",
+}
 
 # Sports we ingest. Only sports with an official, machine-readable league feed are
 # eligible; see docs/sources.md for the evaluation of every OLBG sport.

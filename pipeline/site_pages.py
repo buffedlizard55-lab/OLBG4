@@ -80,6 +80,17 @@ def _pick_cell(pick: dict) -> str:
 def _detail_html(row: dict, preds: list[dict]) -> str:
     fx = row["fixture"]
     a = row["analysis"]
+    if _withheld(row):
+        srcs = fx.get("official_source_urls") or fx.get("source_urls") or []
+        return (
+            f'<div class="small">{esc(a.get("market_note") or "markets withheld")}</div>'
+            '<div class="small muted" style="margin-top:6px">Official sources: '
+            + " · ".join(
+                f'<a href="{esc(u)}" target="_blank" rel="noopener noreferrer">{esc(u)}</a>'
+                for u in srcs
+            )
+            + "</div>"
+        )
     cur = a["expected"]["current"]
     opn = a["expected"]["opening"]
     unit = {"basketball": "points", "ice_hockey": "goals", "baseball": "runs"}[fx["sport"]]
@@ -141,25 +152,45 @@ def _detail_html(row: dict, preds: list[dict]) -> str:
     return "".join(parts)
 
 
+def _withheld(row: dict) -> bool:
+    return row.get("analysis", {}).get("market_status") == "withheld"
+
+
 def _fixture_table(ctx: dict, rows: list[dict], *, filterable: bool = True,
                    show_sport: bool = True) -> str:
     out = []
     for row in rows:
         fx = row["fixture"]
-        pick = row["analysis"]["headline_pick"]
+        pick = row["analysis"].get("headline_pick")
         preds = ctx["preds_by_fixture"].get(fx["id"], [])
+        withheld = _withheld(row)
+        conf = pick["confidence"] if pick else ("withheld" if withheld else "")
+        search = fx["away"]["name"] + " " + fx["home"]["name"] + " " + (fx.get("venue") or "")
+        if pick:
+            search += " " + pick["selection"]
+        if withheld:
+            pick_cell = ('<span class="badge low">Withheld</span>'
+                         '<div class="small muted">insufficient rating sample</div>')
+            market_cell = '<span class="small muted">—</span>'
+            prob_cell = '<span class="muted">—</span>'
+            conf_cell = '<span class="badge low" title="No market is originated on this sample">n/a</span>'
+        else:
+            pick_cell = _pick_cell(pick)
+            market_cell = f'<span class="small muted">{esc(pick["market_label"])}</span>'
+            prob_cell = pct(pick["prob"])
+            conf_cell = conf_badge(pick["confidence"])
         out.append(
-            f'<tr data-sport="{esc(fx["sport"])}" data-confidence="{esc(pick["confidence"])}" '
-            f'data-text="{esc(fx["away"]["name"] + " " + fx["home"]["name"] + " " + pick["selection"] + " " + (fx.get("venue") or ""))}">'
+            f'<tr data-sport="{esc(fx["sport"])}" data-confidence="{esc(conf)}" '
+            f'data-text="{esc(search)}">'
             f'<td class="nowrap"><div>{fmt_date(fx["start_utc"])}</div>'
             f'<div class="time">{fmt_time(fx["start_utc"])}</div></td>'
             f'<td>{sport_badge(fx["sport"])}</td>'
             f"<td>{_match_cell(fx)}</td>"
             f'<td class="nowrap" title="Away record – home record as published by the league">{_record_cell(fx)}</td>'
-            f"<td>{_pick_cell(pick)}</td>"
-            f'<td class="nowrap"><span class="small muted">{esc(pick["market_label"])}</span></td>'
-            f'<td class="num">{pct(pick["prob"])}</td>'
-            f'<td class="nowrap">{conf_badge(pick["confidence"])}</td>'
+            f"<td>{pick_cell}</td>"
+            f'<td class="nowrap">{market_cell}</td>'
+            f'<td class="num">{prob_cell}</td>'
+            f'<td class="nowrap">{conf_cell}</td>'
             f'<td class="src nowrap">{source_links(fx.get("official_source_urls") or fx.get("source_urls"))}</td>'
             f'<td><details class="market-detail"><summary>All markets</summary>'
             f"{_detail_html(row, preds)}</details></td></tr>"
@@ -179,8 +210,9 @@ def render_index(ctx: dict) -> str:
     snap = ctx["snapshot"]
     counts = snap.get("counts", {})
     rows = ctx["rows"]
+    priced = [r for r in rows if r["analysis"].get("headline_pick")]
     top = sorted(
-        rows,
+        priced,
         key=lambda r: (
             CONF_RANK[r["analysis"]["headline_pick"]["confidence"]],
             r["analysis"]["headline_pick"]["prob"],
@@ -190,14 +222,15 @@ def render_index(ctx: dict) -> str:
     window = snap.get("window", {})
     fetch_ok = sum(1 for f in snap.get("fetch_log", []) if f.get("status") == 200)
     ver = snap.get("verification", {})
-    high = [r for r in rows if r["analysis"]["winner_pick"]["confidence"] == "high"]
+    high = [r for r in priced if r["analysis"]["winner_pick"]["confidence"] == "high"]
     body = [
         '<div class="hero">',
         "<h1>Official-data line desk</h1>",
         "<p>We ingest NBA, NHL and MLB fixtures and results from league-owned feeds, fit our own "
-        "ratings, originate a price for every market, and grade a pick for every match. Every row "
-        "links to the official source it came from, and anything that cannot be verified is left "
-        "blank and listed on the Flagged for Review page.</p>",
+        "ratings, originate a price for every market the sample can support, and grade a pick "
+        "wherever a line exists. Every row links to the official source it came from, and "
+        "anything that cannot be verified is left blank and listed on the Flagged for Review "
+        "page.</p>",
         '<div class="chips">',
         f'<span class="chip">Window {esc(window.get("start", "")[:10])} → {esc(window.get("end", "")[:10])}</span>',
         f'<span class="chip">{counts.get("fixtures", 0)} fixtures</span>',
@@ -207,8 +240,8 @@ def render_index(ctx: dict) -> str:
         '<div class="section"><div class="grid">',
     ]
     kpis = [
-        ("Fixtures priced", counts.get("fixtures", 0), "matches in the window"),
-        ("Markets originated", len(rows) * 3, "winner · handicap · total"),
+        ("Fixtures priced", len(priced), "matches with an originated line"),
+        ("Markets originated", len(priced) * 3, "winner · handicap · total"),
         ("High-confidence winners", counts.get("high_picks", 0), "graded high"),
         ("Written predictions", ver.get("predictions_published", 0), "≥30 words, source-linked"),
         ("Official fetches", fetch_ok, "HTTP 200 responses"),
@@ -261,9 +294,11 @@ def render_index(ctx: dict) -> str:
     body.append(
         '<div class="section"><div class="grid two">'
         '<div class="card"><h2>What is out of scope</h2>'
-        "<p>The owner excluded soccer/football, American football, boxing, UFC/MMA, hurling, "
-        "Gaelic football, horse racing, cycling and specials. Those are excluded at ingestion, not "
-        "filtered afterwards, so they never enter the model.</p>"
+        "<p>The owner excluded soccer (association football), American football, boxing, UFC/MMA, "
+        "hurling, horse racing, cycling and specials. Those are excluded at ingestion, not "
+        "filtered afterwards, so they never enter the model. Gaelic football, tennis, cricket, "
+        "rugby, golf, darts, snooker and the other listed sports stay in scope; the coverage "
+        "page records which of them has an official feed this project can verify.</p>"
         '<p><a href="methodology.html">Read the scope rules →</a></p></div>'
         '<div class="card"><h2>What we could not verify</h2>'
         f'<p>{esc(len(ctx["flagged"]))} items are published on the Flagged for Review page with source '
@@ -298,6 +333,7 @@ def render_picks(ctx: dict) -> str:
     for row in ctx["rows"]:
         fx = row["fixture"]
         picks = [row["analysis"]["winner_pick"]] + row["analysis"]["market_picks"]
+        picks = [p for p in picks if p]
         for pick in picks:
             sort_key = (fx["start_utc"], fx["sport"], pick["market"], pick["selection"])
             rows.append((sort_key, 
@@ -392,7 +428,7 @@ def render_sport(ctx: dict, sport: str) -> str:
         f'<div class="card kpi"><div class="big mono">{esc(cur.get("sigma_margin", 0))}</div>'
         f'<small>margin sd</small><p>residual spread used for probabilities</p></div>',
         f'<div class="card kpi"><div class="big mono">{len(rows)}</div><small>fixtures in window</small>'
-        f'<p>{sum(1 for r in rows if r["analysis"]["winner_pick"]["confidence"] == "high")} graded high</p></div>',
+        f'<p>{sum(1 for r in rows if (r["analysis"].get("winner_pick") or {}).get("confidence") == "high")} graded high</p></div>',
         "</div>",
         '<div class="section"><h2>Model ratings</h2>'
         '<p class="lead">Ridge least-squares ratings from official final scores. Positive rating = '
@@ -427,7 +463,7 @@ def render_markets(ctx: dict) -> str:
         for k in ("moneyline", "handicap", "total") if prices[k]
     )
     examples = []
-    for row in rows[:6]:
+    for row in [r for r in rows if r["analysis"].get("markets")][:6]:
         fx = row["fixture"]
         a = row["analysis"]
         examples.append(
@@ -517,7 +553,8 @@ def render_analysis(ctx: dict) -> str:
                     f'<td class="num">{pct(vals["observed"])}</td></tr>'
                 )
     edges = sorted(
-        ctx["rows"], key=lambda r: abs(r["analysis"]["edge"]["margin"]), reverse=True
+        [r for r in ctx["rows"] if r["analysis"].get("edge")],
+        key=lambda r: abs(r["analysis"]["edge"]["margin"]), reverse=True,
     )[:10]
     edge_rows = "".join(
         f'<tr><td>{sport_badge(r["fixture"]["sport"])} '
