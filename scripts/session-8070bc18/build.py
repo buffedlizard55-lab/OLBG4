@@ -882,8 +882,8 @@ official fixture page was captured this pass, so no Gaelic rows are published.</
             esc(c["dataset"]), c["rows"], c["sourced"], c["official"], c["olbg"])
         for c in counts)
     cf_rows = "".join(
-        "<tr><td class=\"num\">{}</td><td>{}</td><td class=\"small\">{}</td></tr>".format(
-            esc(c["date"]), esc(c["pair"]), esc("; ".join(c["entries"])))
+        "<tr><td>{}</td><td class=\"small\">{}</td></tr>".format(
+            esc(c["pair"]), esc("; ".join(c["entries"])))
         for c in conflicts)
     fbody.append("""<div class="panel"><h2>Mechanical audit of the builds already in this repository</h2>
 <p class="small">Read-only scan of the three fixture files committed by earlier sessions. Counts and domain classes are
@@ -891,9 +891,9 @@ computed from those files at build time; no value from them is republished here.
 <div class="tablewrap"><table><thead><tr><th>Dataset</th><th>Rows</th><th>Rows with a source URL</th>
 <th>Source on an official league / governing-body domain</th><th>Source on OLBG.com</th></tr></thead><tbody>
 """ + ds_rows + """</tbody></table></div>
-<p class="small" style="margin-top:14px">Same fixture, different pick across builds, found by matching both club names and
-the row date: <strong>""" + str(len(conflicts)) + """</strong></p>
-<div class="tablewrap"><table><thead><tr><th>Date</th><th>Fixture</th><th>Picks recorded</th></tr></thead><tbody>
+<p class="small" style="margin-top:14px">Same fixture, different pick across builds — matched on both club names, because
+the earlier builds do not share a comparable date field: <strong>""" + str(len(conflicts)) + """</strong></p>
+<div class="tablewrap"><table><thead><tr><th>Fixture</th><th>Picks recorded</th></tr></thead><tbody>
 """ + cf_rows + """</tbody></table></div>
 <p class="small" style="margin-top:12px">Consequence: the repository publishes several independent, non-reconciled tables
 for overlapping windows. This desk is one more, deliberately separate, dataset; retiring or merging the older builds needs
