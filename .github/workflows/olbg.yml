@@ -1,0 +1,66 @@
+name: Ingest, verify, publish
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+  push:
+    branches:
+      - main
+      - arena/4afef1af-olbg4
+    paths:
+      - "pipeline/**"
+      - ".github/workflows/olbg.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: olbg-pipeline
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Offline self-test
+        run: python -m pipeline.selftest
+
+      - name: Ingest, originate, verify, build
+        run: python -m pipeline.run --strict
+
+      - name: Commit snapshot
+        run: |
+          set -euo pipefail
+          git config user.name "olbg-pipeline"
+          git config user.email "actions@users.noreply.github.com"
+          git add data assets index.html matches.html picks.html analysis.html \
+                  markets.html sources.html flagged.html methodology.html olbg.html \
+                  sport-nba.html sport-nhl.html sport-mlb.html .nojekyll
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore(snapshot): refresh official-data snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+            git push
+          fi
+
+      - name: Upload snapshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snapshot
+          path: |
+            data/
+            assets/data.json
+          retention-days: 14
