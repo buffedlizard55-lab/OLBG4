@@ -818,7 +818,7 @@ Claimed & completed **2026-10-21 UTC** on branch `arena/ee9c2db4-olbg4` (**PR #5
 - **PR #50** — https://github.com/buffedlizard55-lab/OLBG4/pull/50 — **MERGED** `2026-10-21T07:37:35Z` as merge commit `df08def8d783a84989edb3efb090b80d886b1b4a` with all PR checks passing (`verify`, `build-and-validate`, `audit`).
 - **Main post-merge workflows (5/5 `success`):** `Verify integrated dashboard` (`39563312540`), `Validate data and site` (`39563312496`), `Repository-wide publication audit` (`39563312658`), `Deploy OLBG4 to GitHub Pages` (`39563312488`), and `pages-build-deployment` (`39563311934`).
 - **Live GitHub Pages verified over HTTPS:** `https://buffedlizard55-lab.github.io/OLBG4/`, `https://buffedlizard55-lab.github.io/OLBG4/session-ee9c2db4/`, `predictions.html`, `markets.html`, `repo-review.html`, and `flagged.html` all serving live HTTP 200 with zero broken links.
-- **Post-deploy polish PR:** fixed `origin_feed` summary counter (`194` live OLBG + `74` official-API = `268`), `AFL` / `LoL Esports` / `NRL` official federation source links, and `Board Q` header labels across `session-ee9c2db4/`.
+- **PR #51** — https://github.com/buffedlizard55-lab/OLBG4/pull/51 — **MERGED** `2026-10-21T07:39:59Z` as `0ab0f7c78745f0f23339778725387d8bf45956ea`; all 5 post-merge workflows on `main` (`39563586461`, `39563586470`, `39563586472`, `39563585832`, `39563586352`) succeeded and live HTTPS `200` rendering confirmed on `https://buffedlizard55-lab.github.io/OLBG4/session-ee9c2db4/`.
 
 ### Board K publish record (2026-10-21)
 
