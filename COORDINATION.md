@@ -782,3 +782,30 @@ Claimed 2026-10-21T07:15Z on branch `arena/8070bc18-olbg4`. At claim time `git b
 
 ### Environment constraint (re-confirmed 2026-10-21T07:12Z)
 `curl https://www.nba.com/schedule`, `nhl.com/schedule`, `mlb.com/schedule`, `atptour.com`, `pdc.tv`, `olbg.com` all fail with `SSL_ERROR_SYSCALL` (egress allowlist). Official pages are therefore read with the agent's web-fetch tool, and every row stores the exact URL read. No value is copied from another board's data file — each is re-read from the official page in this session.
+
+### Board L results (2026-10-21)
+
+| Metric | Value |
+|---|---|
+| Fixtures published | 108 across 6 sports, window 2026-10-21 → 2026-10-27 |
+| Sports | NHL 33 · NBA 40 · MLB World Series 4 · PDC European Championship 16 · EHF Champions League 5 · WST Northern Ireland Open 10 |
+| Confidence | High 5 · Medium 16 · Low 87 |
+| Markets originated | Moneyline 108 · Handicap 33 · Total 33 (handicap/total only where the official standings supply the scoring input) |
+| Predictions | 5, one per High row, 94–119 words, unique, each naming team, player, form, last official result and selection |
+| Desk local links | 208 checked, 0 broken |
+| Repository-wide links | `scripts/audit_publication.py --check` → 3,312 local targets, 0 broken, 0 stale |
+| CI reproduction | `bash scripts/session-74f9613e/build_all.sh` exit 0 and leaves no diff; `python3 -m unittest discover -s audit` unchanged |
+
+**Sources (official only, captured 07:10Z–07:45Z on 21 Oct):** https://www.nhl.com/schedule · https://www.nhl.com/standings/2026-10-20/wildcard · https://www.nba.com/schedule?date=2026-10-21 · https://www.nba.com/standings · https://www.mlb.com/postseason · https://www.mlb.com/standings · https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/ · https://ehfcl.eurohandball.com/men/2026-27/matches/ · https://www.wst.tv/matches · https://bwfbadminton.com/calendar/ (coverage check only). No OLBG, aggregator or tipster page is the source of any published value.
+
+**Verification performed, line by line:**
+- Row counts per sport and date asserted in the build against the totals printed on the official pages (`check_counts`): NHL 2/12/2/12/5, NBA 11/2/12/8/7, MLB 4, PDC 8+8, EHF 5, WST 10.
+- Every NHL standings row re-checked internally: points/2·GP equals the published P% and GF−GA equals the published DIFF for all 32 clubs; league scoring average 6.26 goals/game recomputed from the same table.
+- Moneyline prices recomputed from p and the declared 4% margin; every price inside the build's sanity range; handicap/total probabilities from the published normal model.
+- Every row carries an official-domain source; the build fails if a source is off the allowlist, a row loses its pick or price, or a market is blank without a stated reason.
+- Predictions: uniqueness, ≥30 words, names the selection, names the market, and every numeric claim traced to the listed official page (standings line and/or 20 Oct result).
+- Blank cells: NHL venue, MLB ballpark, EHF hall, WST start time, NBA/EHF/PDC handicap and total — each blank carries its reason and, where systemic, a row on the flagged page.
+
+**Flagged for Review (published at `/docs/desk/flagged.html`, with links):** eight in-scope sports publish no match rows (no official match-level page captured); several parallel fixture datasets across the repo remain unreconciled — mechanical audit: Build A 137 rows (120 official-domain sources), Build B 116 rows (116 OLBG-sourced), Build D 66 rows (16 official, 2 OLBG), and 2 same-fixture pick conflicts (Florida–Ottawa; Milwaukee–Tampa Bay); WST start times blank because the list page renders clock times in the reader's locale; NHL/MLB/EHF venue blanks; NBA one-game sample caps confidence; PDC rankings page behind a cookie wall so darts lines are prior-only; EHF timezone unstated; 11 declared model constants are assumptions, not fitted values; player names reproduce NHL.com's initial+surname form.
+
+**Cross-session requests (not applied — other boards' files):** recommend retiring or reconciling `data/rows.json`, `data/board.json`, `data/matches.json` (two conflicting picks above) and qualifying the hub banner's "governing-body verified" claim, since the mechanical audit finds only 16 of 66 hub rows cite an official-domain source. Logged here rather than edited.
