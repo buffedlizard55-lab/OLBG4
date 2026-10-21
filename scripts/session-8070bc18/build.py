@@ -303,7 +303,7 @@ def confidence_note(r, d, player_ok):
 PREDICTIONS = [
     dict(
         fixture_id="NHL-08",  # LAK @ NYI, 22 Oct
-        headline="Islanders moneyline against a Kings side with the league's second-worst points percentage",
+        headline="Islanders moneyline against a Kings side stuck on a .286 points percentage",
         text=("New York Islanders to win on the moneyline. The Islanders are 5-3-1 (.611) with 27 goals scored and only 20 conceded, "
               "and they beat Anaheim 3-2 on 20 October, S. Holmstrom scoring the game-winner and I. Sorokin the winning goalie. "
               "Los Angeles are 1-4-2 (.286) with 17 goals in seven games and a minus-ten goal difference, and this is the middle game of three on the road in five nights. "
@@ -357,7 +357,7 @@ PREDICTIONS = [
     ),
     dict(
         fixture_id="NHL-24",  # CAR @ STL, 24 Oct
-        headline="Hurricanes moneyline: the league's leading offence against a .500 Blues side",
+        headline="Hurricanes moneyline: a .773 side against a .500 Blues team",
         text=("Carolina Hurricanes to win on the moneyline. Carolina are 8-2-1 (.773), have scored 42 goals, second only to Vegas in these standings, and conceded 27, and they won 6-3 in Vancouver on 20 October with N. Deslauriers scoring the winner and P. Kochetkov in goal. "
               "St. Louis are 4-4-1 (.500) with a level 29-29 goal record and won only 2-1 at home to Winnipeg on 20 October, P. Broberg scoring the game-winner and J. Hofer the winning goalie. "
               "Back Carolina on the moneyline at our price, and the -1.5 puck line for the bigger return."),
