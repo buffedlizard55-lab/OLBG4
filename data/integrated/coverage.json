@@ -1,0 +1,176 @@
+{
+ "schema": "olbg4.integrated.coverage/1",
+ "window": "2026-10-21 to 2026-10-31 (fixtures published here fall 21-31 Oct 2026)",
+ "excluded_by_brief": [
+  "Soccer / Football",
+  "Boxing",
+  "UFC / MMA",
+  "American Football",
+  "Hurling",
+  "Horse Racing",
+  "Cycling",
+  "Specials"
+ ],
+ "sports": [
+  {
+   "sport": "Ice Hockey",
+   "scope": "included",
+   "status": "published",
+   "rows": 14,
+   "note": "Full 12-game NHL slate for 22 Oct plus both games on 23 Oct, transcribed from the NHL score feed with records, venues, UTC start times and team leaders.",
+   "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+  },
+  {
+   "sport": "Basketball",
+   "scope": "included",
+   "status": "published (partial)",
+   "rows": 36,
+   "note": "NBA 21, 23, 24 and 25 Oct. Three of 46 scheduled games could not be read: the 22 Oct page (2 games) returned an error and the 23 Oct page truncated after 10 of 12 games.",
+   "source": "https://www.nba.com/games?date=2026-10-23"
+  },
+  {
+   "sport": "Baseball",
+   "scope": "included",
+   "status": "published",
+   "rows": 7,
+   "note": "Every 2026 World Series game (Rays v Brewers), games 1-7, with venue and UTC start from the MLB schedule API.",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-31"
+  },
+  {
+   "sport": "Handball",
+   "scope": "included",
+   "status": "published",
+   "rows": 5,
+   "note": "EHF Champions League men, the five matches on 22 Oct. The page publishes no timezone, so session times are printed verbatim and flagged.",
+   "source": "https://ehfcl.eurohandball.com/men/2026-27/matches/"
+  },
+  {
+   "sport": "Rugby Union",
+   "scope": "included",
+   "status": "published",
+   "rows": 5,
+   "note": "Gallagher Premiership round 4 (23-25 Oct) with recent form strings from the club fixture page. URC fixtures could not be located on unitedrugby.com (404).",
+   "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4"
+  },
+  {
+   "sport": "Snooker",
+   "scope": "included",
+   "status": "published (no picks)",
+   "rows": 8,
+   "note": "Northern Ireland Open matches on 21 Oct with match-centre links. WST publishes no ranking or form field on this page, so every selection is withheld instead of guessed.",
+   "source": "https://www.wst.tv/matches/"
+  },
+  {
+   "sport": "Tennis",
+   "scope": "included",
+   "status": "not published",
+   "rows": 0,
+   "note": "ATP's current-scores page lists in-play and completed matches only; its tournaments page is event-level. No official fixture list with pairings and start times could be read, so no row is published rather than inferred.",
+   "source": "https://www.atptour.com/en/scores/current"
+  },
+  {
+   "sport": "Darts",
+   "scope": "included",
+   "status": "not published",
+   "rows": 0,
+   "note": "pdc.tv returned a cookie-consent wall; no fixture, venue or session time could be read.",
+   "source": "https://www.pdc.tv/tournaments"
+  },
+  {
+   "sport": "Cricket",
+   "scope": "included",
+   "status": "not published",
+   "rows": 0,
+   "note": "icc-cricket.com/matches returned 404 at retrieval time; no other official board page was opened, so no fixture is claimed.",
+   "source": "https://www.icc-cricket.com/matches"
+  },
+  {
+   "sport": "Rugby League",
+   "scope": "included",
+   "status": "not captured",
+   "rows": 0,
+   "note": "No official page was opened this cycle. Left blank rather than copied from another build.",
+   "source": "https://www.nrl.com/draw/"
+  },
+  {
+   "sport": "Volleyball",
+   "scope": "included",
+   "status": "not captured",
+   "rows": 0,
+   "note": "No official page was opened this cycle. Left blank rather than copied.",
+   "source": "https://en.volleyballworld.com/"
+  },
+  {
+   "sport": "Badminton",
+   "scope": "included",
+   "status": "not captured",
+   "rows": 0,
+   "note": "No official page was opened this cycle. Left blank rather than copied.",
+   "source": "https://bwfbadminton.com/calendar/"
+  },
+  {
+   "sport": "Table Tennis",
+   "scope": "included",
+   "status": "not captured",
+   "rows": 0,
+   "note": "No official page was opened this cycle. Left blank rather than copied.",
+   "source": "https://worldtabletennis.com/events"
+  },
+  {
+   "sport": "Esports",
+   "scope": "included",
+   "status": "not captured",
+   "rows": 0,
+   "note": "No official page was opened this cycle. Left blank rather than copied.",
+   "source": "https://lolesports.com/schedule"
+  },
+  {
+   "sport": "Golf",
+   "scope": "included (event markets)",
+   "status": "not captured",
+   "rows": 0,
+   "note": "Golf is an outright/event market, not a two-sided match, so it cannot carry a match-winner line in this table.",
+   "source": "https://www.pgatour.com/schedule"
+  },
+  {
+   "sport": "Motor Racing",
+   "scope": "included (event markets)",
+   "status": "not captured",
+   "rows": 0,
+   "note": "Grands prix are events with outright markets, not head-to-head fixtures.",
+   "source": "https://www.formula1.com/en/racing/2026"
+  },
+  {
+   "sport": "Greyhounds",
+   "scope": "included",
+   "status": "not captured",
+   "rows": 0,
+   "note": "No official GBGB racecard was opened this cycle; nothing is copied from OLBG.",
+   "source": "https://www.gbgb.org.uk/"
+  },
+  {
+   "sport": "Aussie Rules",
+   "scope": "included",
+   "status": "not captured",
+   "rows": 0,
+   "note": "No official AFL fixture page was opened; the AFL home-and-away season is also outside this window, but that is not asserted as verified here.",
+   "source": "https://www.afl.com.au/fixtures"
+  },
+  {
+   "sport": "Gaelic Football",
+   "scope": "included",
+   "status": "not captured",
+   "rows": 0,
+   "note": "The brief excludes hurling but not Gaelic football, so it is in scope; no official GAA fixture page was opened this cycle.",
+   "source": "https://www.gaa.ie/"
+  },
+  {
+   "sport": "Soccer, Boxing, UFC/MMA, American Football, Hurling, Horse Racing, Cycling, Specials",
+   "scope": "excluded by brief",
+   "status": "excluded",
+   "rows": 0,
+   "note": "Excluded exactly as the brief requires; no row for these sports exists anywhere in data/integrated/.",
+   "source": "https://www.olbg.com/"
+  }
+ ]
+}

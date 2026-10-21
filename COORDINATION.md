@@ -565,3 +565,50 @@ Notes for other sessions: this board takes ownership of the root `index.html` la
 directories (`docs/`, `session-*`, `pipeline/`, `tools/`) are **not** edited or deleted; they stay
 reachable and are listed in the site's archive section. Conflicts are resolved by keeping every
 other board's files byte-identical.
+
+### Board K completion record (2026-10-21, session `arena/83451f65-olbg4`)
+
+| Task | Status | Files touched |
+|---|---|---|
+| K1 Repo audit against the brief (scope, source quality, overwritten files, contradicted claims) | done | `data/integrated/findings.json`, this board |
+| K2 Line-by-line re-verification of fixtures on official sources with a per-row ledger | done | `data/integrated/inputs.json`, `data/integrated/sources.json` |
+| K3 Own lines (winner / handicap / total) + pick + confidence for every verified fixture | done | `data/integrated/entries.json`, `scripts/session-83451f65/model.py` |
+| K4 High-confidence write-ups >= 30 words, unique, fact-linked | done | `data/integrated/predictions.json` |
+| K5 Consolidated Pages site (landing, category pages, all rows, analysis, flagged) | done | `index.html`, `entries.html`, `predictions.html`, `analysis.html`, `coverage.html`, `flagged.html`, `methodology.html`, `sources.html`, `archive.html`, `sports/*.html`, `assets/integrated.css`, `scripts/session-83451f65/build_site.py` |
+| K6 Verification gate + CI + PR + merge + Pages check | done | `scripts/session-83451f65/verify.py`, `.github/workflows/verify-integrated.yml` |
+
+**Sources used (all opened this session, 2026-10-21):** api-web.nhle.com `/v1/score/2026-10-22` and `/2026-10-23`;
+www.nba.com/games for 21, 23, 24 and 25 Oct; statsapi.mlb.com schedule 21–31 Oct; ehfcl.eurohandball.com
+`/men/2026-27/matches/`; premrugby.com `/fixtures-results?competition=gallagher-prem&round=4`; wst.tv `/matches/`.
+Attempted and rejected, with the reason recorded: atptour.com `/scores/current` and `/tournaments` (no fixture-level
+schedule), pdc.tv `/tournaments` (cookie wall), icc-cricket.com `/matches` (404), unitedrugby.com `/fixtures` (404),
+wst.tv `/tournaments/` (JavaScript-only). OLBG.com could not be fetched at all from this sandbox (SSL_ERROR_SYSCALL;
+only GitHub/PyPI/npm egress), so it is used only as the taxonomy reference the brief supplies — no OLBG figure or tip
+is published.
+
+**Results.** 75 verified fixtures in 6 sports (Ice Hockey 14, Basketball 36, Baseball 7, Rugby Union 5, Handball 5,
+Snooker 8); 67 match-winner picks, 21 handicaps, 69 totals (declared constants at symmetric 1.92); 4 High / 13 Medium /
+58 Low; 4 unique write-ups of 108–127 words with 16 linked facts; 14 findings; 13 in-scope sports documented as having
+no published row this cycle.
+
+**Verification performed.** `python3 scripts/session-83451f65/verify.py` — **366 checks, all pass**: every row on a
+governing-body domain (www-normalised allowlist), no OLBG or secondary link, no excluded sport anywhere in
+`data/integrated/`, prices equal 1/(p·1.02), probabilities sum to 1 and stay inside [0.05,0.95], every High grade has
+>= 8 verified games on both sides and |p-0.5| >= 0.18, every pick is one of the two sides, every withheld pick carries
+its reason, one unique >= 30-word write-up per High row whose price matches the model, 259 internal links with 0 broken,
+no `TODO` strings. The build is idempotent (byte-identical on re-run). `scripts/audit_publication.py --check` still
+reports 3,286 local targets and 0 broken across the whole repo.
+
+**Irregularities (published on `/flagged.html`, non-blocking).** F-01 old hub marked 26 rows verified on secondary
+sources; F-02 `cf9f024` overwrote Build A/B data (recoverable at 5918922); F-03 ten fixtures with opposite picks across
+builds; F-04 Premiership/WST clock times are rendered in the reader's timezone and were not converted; F-05 MLB local
+date v UTC start; F-06 all 8 snooker picks withheld (no form field); F-07 NBA opening week gives no High grades;
+F-08 totals are declared constants; F-09 three NBA games unreadable; F-10 thirteen in-scope sports with no row;
+F-11 Gaelic football treated as in scope; F-12 OLBG unreachable from the sandbox; F-13 EHF timezone unstated;
+F-14 four earlier fixtures contradicted by their governing bodies.
+
+**Scope discipline.** No file owned by another board was edited or deleted: `docs/`, `session-7114b6a1/`,
+`session-74f9613e/`, `session-6e0f382d/`, `session-4afef1af/`, `session-5e6c545d/`, `session-e1e0c27e/`, `pipeline/`,
+`audit/` and `data/{rows,matches,board,...}.json` are untouched. The only shared files changed are the ones the brief
+reserves for final integration: the root `index.html`, the root `methodology.html`, `sources.html`, `flagged.html`,
+`README.md` and this board. Board D's root category pages stay in place and are listed on `archive.html`.

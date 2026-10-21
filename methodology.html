@@ -1,122 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Methodology — OLBG4</title>
-<link rel="stylesheet" href="assets/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology · OLBG4 verified line desk</title>
+<meta name="description" content="Verified fixtures for the sports in scope, with our own originated lines, confidence grades and a source link on every row.">
+<link rel="stylesheet" href="assets/integrated.css">
 </head>
 <body>
 <header class="topbar">
-  <div class="container inner">
-    <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>Methodology — How lines are originated</p></div></div>
-    <nav class="nav"><a href="index.html">Dashboard</a><a href="methodology.html" class="active">Methodology</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a></nav>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="mark">OLBG4</span><span class="brandsub">verified line desk</span>
+    </a>
+    <nav class="nav"><a class="navlink" href="index.html">Dashboard</a><a class="navlink" href="entries.html">All fixtures</a><a class="navlink" href="predictions.html">High-confidence picks</a><a class="navlink" href="analysis.html">Analysis</a><a class="navlink" href="coverage.html">Coverage</a><a class="navlink active" href="methodology.html">Method</a><a class="navlink" href="sources.html">Sources</a><a class="navlink" href="flagged.html">Flagged for review</a><a class="navlink" href="archive.html">Archive</a></nav>
   </div>
 </header>
-<main class="container">
+<main class="wrap">
 
-  <section class="hero">
-    <h2>Methodology — originating our own betting lines (no bookmaker copy)</h2>
-    <p>We do not scrape or copy any bookmaker. For each match we estimate our <strong>own</strong> fair probabilities and derive moneyline, handicap/spread, and total lines from those probabilities plus sport-specific models. The same method is used for win-match, handicap, and totals across every market we list.</p>
-  </section>
 
-  <div class="grid2">
-    <div class="card">
-      <h3>1. Core probability model</h3>
-      <p>For each match:</p>
-      <ul>
-        <li><strong>ELO baseline (40% weight):</strong> Sport-specific ELO from last 12 months of official results (e.g., ATP rankings + ELO overlay for tennis, NBA ELO for basketball, ICC ratings proxy for cricket). Verified via official results pages.</li>
-        <li><strong>Recent form (25%):</strong> Last 10 official matches (W/L, points differential, home/away). For October 21 window, this includes Shanghai Masters Oct 12 final, NBA 2025-26 standings, MLB September bullpen ERA, NHL first two weeks, etc.</li>
-        <li><strong>Head-to-head (15%):</strong> Last 3 years, weighted to venue similarity (indoor hard vs indoor hard, etc.).</li>
-        <li><strong>Venue + travel + rest (15%):</strong> Home advantage quantified per sport (e.g., NBA +3.2 pts, EuroLeague +4.1, NHL +0.35 goals, Test cricket home +12 runs per innings), adjusted for travel distance/time-zone.</li>
-        <li><strong>Injury/selection (5%):</strong> Only when confirmed on official roster/injury reports (e.g., NHL IR lists, NBA injury reports). If not on official site, left blank and flagged.</li>
-      </ul>
-      <p class="small">These are combined to a logistic win probability <em>p</em>. We then apply a <strong>3.5–4.5% overround</strong> to create fair book odds: <code>decimal = (1/p)*(1-overround)</code>, rounded to displayed odds (e.g., 1.52, 2.35). This margin mirrors a low-vig fair book, not a copy.</p>
-    </div>
-    <div class="card">
-      <h3>2. Handicaps / spreads</h3>
-      <p>Handicaps are set to make the market approximately 50/50 (before margin):</p>
-      <ul>
-        <li><strong>Basketball (NBA/EuroLeague):</strong> Convert win prob to expected point margin via <code>margin = Φ⁻¹(p) × σ</code> where <code>σ≈11.5 NBA, 10 EuroLeague</code>. Example: p=0.62 → -3.5 line.</li>
-        <li><strong>Baseball (MLB):</strong> Run line is almost always -1.5 / +1.5; probability split derived from starter ERA + bullpen depth.</li>
-        <li><strong>Ice Hockey (NHL):</strong> Puck line -1.5 / +1.5; p=0.58 at home → -1.5 at ~2.05.</li>
-        <li><strong>Tennis:</strong> Game handicap (best of 3 to ~6 games per set). Typical -2.5 to -4.5 games for seed vs qualifier. Set from hold/break stats on surface (CPI).</li>
-        <li><strong>Rugby:</strong> Points handicap (e.g., -12.5) set from expected points per match (~48–58) and ELO gap.</li>
-        <li><strong>Darts/Snooker/Badminton/Table Tennis:</strong> Leg/frame/point handicaps and total legs/frames/points derived from historical distribution for that format (e.g., Bo11 → -2.5 legs, Bo19 → -3.5).</li>
-        <li><strong>Golf:</strong> No spread; markets are outright, top finishes, and winning score O/U.</li>
-      </ul>
-      <p class="small">We price both sides at ~1.91 (implied 52.4% each after margin) for handicaps; totals at 1.91/1.91.</p>
-    </div>
-  </div>
+<section class="pagehead"><div class="kicker">Method</div><h1>Methodology</h1><p class="lede">How each number on this site was produced, including every constant we had to declare because the official page does not publish it.</p></section>
+<h2>1. Fixtures</h2>
+<p class="prose">A fixture is published only after the pairing, venue and start time were read on the league or
+organiser's own domain. The exact URL and the game identifier are printed in every row. If a field is missing on that
+page it stays blank — the model never imputes a venue, a time or a record.</p>
 
-  <div class="grid2" style="margin-top:14px">
-    <div class="card">
-      <h3>3. Totals (over/under)</h3>
-      <ul>
-        <li><strong>NBA:</strong> Pace (possessions/game) × Offensive Rating → expected points; adjusted for injuries/rest. Typical 223–236 range. Our O/U is median of simulation (10k draws) with Poisson-Binomial overlay.</li>
-        <li><strong>NHL:</strong> Goals modelled from 5v5 xG + power-play rates; O/U 5.5–6.5 typical.</li>
-        <li><strong>MLB:</strong> Runs = (starter ERA × IP expected + bullpen) + park factor (American Family Field parks 1.04 for HR). O/U 7.5–8.5.</li>
-        <li><strong>Rugby:</strong> Points ~48–59; set from 5-match rolling avg + weather (wind/rain lowers).</li>
-        <li><strong>Tennis/Badminton/TT/Darts/Snooker:</strong> Total games/points/legs/frames from hold/break or leg-win rates. E.g., Bo11 darts median 8.5 legs, Bo19 median 15.5 legs.</li>
-        <li><strong>Golf:</strong> Winning score O/U from course history + wind forecast (Bermuda very wind-sensitive).</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>4. Confidence levels</h3>
-      <p>Each pick is labelled <span class="badge badge-high">HIGH</span>, <span class="badge badge-medium">MEDIUM</span> or <span class="badge badge-low">LOW</span>:</p>
-      <ul>
-        <li><strong>High:</strong> Model win prob ≥58% AND corroborated by (a) top-quartile form (last 10 wins ≥7) AND (b) head-to-head edge (≥2-1 last 3) AND (c) no flagged injury/selection. Requires a 30+ word human prediction with team, player, current form, recent history, clear selection.</li>
-        <li><strong>Medium:</strong> Model prob 53–57% OR one corroborating factor missing/conflicted form. Prediction is shorter (1–2 sentences).</li>
-        <li><strong>Low:</strong> Model prob &lt;53% or key factor missing (e.g., draw not published, travel variables, off-season). Often a coin-flip / no favourite lean; flagged where appropriate.</li>
-      </ul>
-      <p class="small">High-confidence predictions are written to be unique, non-robotic, and must name the team/player, current form (e.g., "won 4 of last 5 at home, 28.6% PP"), recent head-to-head ("beat X 2-1 last year including 32-19 in Dublin"), and the betting selection ("back X moneyline 1.52 and -5.5 handicap").</p>
-    </div>
-  </div>
+<h2>2. Strength of a side</h2>
+<div class="tablebox"><table class="grid">
+<thead><tr><th>Sport</th><th>Verified input</th><th>Strength</th></tr></thead>
+<tbody>
+<tr><td>Ice Hockey</td><td>season record W-L-OTL from the NHL feed</td><td><code>points% = (2W + OTL) / (2·GP)</code></td></tr>
+<tr><td>Basketball</td><td>season record W-L from NBA.com</td><td><code>win% = (W + 5) / (GP + 10)</code> (5/10 shrink)</td></tr>
+<tr><td>Rugby Union</td><td>recent form string from the club fixture page</td><td><code>win% = (wins + 3) / (n + 6)</code> (3/6 shrink)</td></tr>
+<tr><td>Baseball, Handball, Snooker</td><td>none published on the page we opened</td><td>no strength input — venue prior only</td></tr>
+</tbody></table></div>
 
-  <section class="card" style="margin-top:14px">
-    <h3>5. Verification — no hallucinations</h3>
-    <p>Every table row must have a source link to an official site (e.g., <code>nba.com</code>, <code>mlb.com</code>, <code>nhl.com</code>, <code>atptour.com</code>, <code>pdc.tv</code>, <code>pgatour.com</code>). Values are only filled if confirmable there:</p>
-    <ul>
-      <li>Date/time/venue/participants → confirmed on official schedule page.</li>
-      <li>Current form → derived from official results/standings pages (or verified via secondary official summary like BBC Sport citing the official body).</li>
-      <li>Head-to-head → from official stats (e.g., NBA head-to-head, ATP H2H, FIVB rankings).</li>
-      <li>If a field cannot be confirmed (e.g., EHF CL fixture list not published, Esports bracket not locked), it is <strong>left blank</strong> and the row is marked <span class="badge badge-flagged">FLAGGED</span> with a reason. Never inferred.</li>
-    </ul>
-    <div class="notice" style="margin-top:10px">
-      <strong>Example flagged reasoning:</strong> "EHF Champions League Round 7 fixtures not verifiable on ehfcl.eurohandball.com at Oct 21 cut-off — matches exist midweek but specific pairings flagged unverified per policy." This is published on <a href="flagged.html">Flagged for Review</a>, which does not block the merge but is visible for your review.
-    </div>
-  </section>
+<h2>3. Price of a match winner</h2>
+<pre class="formula">p_home = clamp(0.5 + 0.9 · (S_home − S_away) + H, 0.05, 0.95)
+price  = 1 / (p · 1.02)          → two-way margin of 4.0%</pre>
+<p class="prose">H is the venue prior. It is a declared constant per sport and is listed below. Where a sport has no
+strength input, p collapses to <code>0.5 + H</code> and the row cannot be graded above Low.</p>
+<div class="tablebox"><table class="grid"><thead><tr><th>Sport</th><th>H (venue prior)</th></tr></thead><tbody><tr><td>Ice Hockey</td><td>0.055</td></tr><tr><td>Basketball</td><td>0.06</td></tr><tr><td>Baseball</td><td>0.02</td></tr><tr><td>Rugby Union</td><td>0.07</td></tr><tr><td>Handball</td><td>0.05</td></tr><tr><td>Snooker</td><td>0.0</td></tr></tbody></table></div>
 
-  <section class="card">
-    <h3>6. Markets investigated per sport</h3>
-    <p>We list all available markets for that sport on this site; each row notes "Market focus":</p>
-    <pre><code>Basketball: Moneyline, Handicap/Spread, Total Points (+ Q1/Q3 live extensions in future)
-Baseball: Moneyline, Run Line (-1.5), Total Runs, Winning pitcher props (future)
-Tennis: Match Winner, Game Handicap, Total Games, Set betting
-Cricket: Match Winner (Test/ODI), Innings runs handicap, Total runs, Session bets
-Rugby Union/League: Match Winner, Handicap (points), Total Points
-Ice Hockey: Moneyline, Puck Line (-1.5), Total Goals, Period totals
-Snooker: Match Winner, Frame Handicap (-1.5/-2.5), Total Frames, Century break
-Darts: Match Winner, Leg Handicap (-2.5/-3.5), Total Legs, 180s & checkout
-Golf: Outright, Top 10/20, Winning Score O/U, Round matchup handicaps
-Badminton/Table Tennis/Handball/Volleyball: Match Winner, Handicap (points/games), Totals
-Esports: Match Winner (Bo5), Map Handicap (-1.5), Total Maps
-Aussie Rules: Off-season — no markets until preseason
-</code></pre>
-  </section>
+<h2>4. Handicap</h2>
+<pre class="formula">expected margin = 2 · (p − 0.5) · max_margin(sport)
+line            = |margin| snapped to the nearest half line
+cover price     = 1 − Φ((line − |margin|) / σ)   → 1 / (q · 1.02)</pre>
+<p class="prose">The line is ours: it is derived from our own probability, not read from a book. Both constants below are
+declared model assumptions and are flagged on the <a href="flagged.html">review page</a>.</p>
+<div class="grid2tight">
+<div class="tablebox"><table class="grid"><thead><tr><th>Sport</th><th>max_margin</th></tr></thead><tbody><tr><td>Ice Hockey</td><td>2.2</td></tr><tr><td>Basketball</td><td>18.0</td></tr><tr><td>Baseball</td><td>2.6</td></tr><tr><td>Rugby Union</td><td>20.0</td></tr><tr><td>Handball</td><td>12.0</td></tr><tr><td>Snooker</td><td>0.0</td></tr></tbody></table></div>
+<div class="tablebox"><table class="grid"><thead><tr><th>Sport</th><th>σ (margin)</th></tr></thead><tbody><tr><td>Ice Hockey</td><td>1.8</td></tr><tr><td>Basketball</td><td>12.0</td></tr><tr><td>Baseball</td><td>3.6</td></tr><tr><td>Rugby Union</td><td>12.0</td></tr><tr><td>Handball</td><td>8.0</td></tr></tbody></table></div>
+</div>
 
-  <section class="card">
-    <h3>7. How to manually review any row</h3>
-    <ol>
-      <li>Open the row's <strong>Official source</strong> link (last column).</li>
-      <li>Check date, time, venue, participants match what the official page lists.</li>
-      <li>For form notes, follow the secondary verification link (e.g., ESPN schedule, BBC Sport round-up that cites the official body) to confirm W/L streaks.</li>
-      <li>Origination: compare our originated moneyline to implied probability (1/decimal) — should sum to ~104% (overround). Handicaps should be priced at 1.91/1.91.</li>
-      <li>If you find a mismatch, open a GitHub issue — the dataset is versioned and fixable without re-scraping a bookmaker.</li>
-    </ol>
-  </section>
+<h2>5. Match total</h2>
+<p class="prose">No team scoring, pace or run-prevention figure was verified for these fixtures, so the total is a
+declared league-neutral constant with both sides at 1.92. It exists so the market is visible and honest; it does not
+claim an edge. Snooker totals are withheld because the WST page publishes no frame totals.</p>
+<div class="tablebox"><table class="grid"><thead><tr><th>Sport</th><th>Total line (declared)</th></tr></thead><tbody><tr><td>Ice Hockey</td><td>6.0</td></tr><tr><td>Basketball</td><td>226.5</td></tr><tr><td>Baseball</td><td>8.5</td></tr><tr><td>Rugby Union</td><td>44.5</td></tr><tr><td>Handball</td><td>57.5</td></tr><tr><td>Snooker</td><td>withheld</td></tr></tbody></table></div>
 
-  <div class="footer">OLBG4 • Methodology • <a href="index.html">Back to Dashboard</a> • Data cut-off 2026-10-21</div>
+<h2>6. Confidence</h2>
+<ul class="prose-list">
+  <li><strong>High</strong> — |p − 0.5| ≥ 0.18 <em>and</em> both sides have at least 8 verified games.</li>
+  <li><strong>Medium</strong> — |p − 0.5| ≥ 0.09 <em>and</em> both sides have at least 3 verified games.</li>
+  <li><strong>Low</strong> — everything else, including every row missing a strength input.</li>
+  <li><strong>No pick</strong> — the two sides are level on every verified input, so the model publishes 1.92/1.92 and
+  declines to name a winner.</li>
+</ul>
+
+<h2>7. What this model does not do</h2>
+<ul class="prose-list">
+  <li>It does not read a bookmaker, exchange or rating-service price. Not one.</li>
+  <li>It does not claim head-to-head history, injuries or line-ups for these fixtures — those were not published on the
+  feeds we opened, so they appear nowhere in the write-ups.</li>
+  <li>It does not convert a clock time the source rendered in another timezone. Those times are printed verbatim and
+  flagged.</li>
+  <li>It does not fill a gap with a figure from another build or from OLBG.</li>
+</ul>
+
 </main>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Data cut-off 2026-10-21T08:00Z.</strong>
+    Every published row was read on a governing-body, league or tournament-organiser domain; the link is in the row.
+    Values that could not be confirmed are blank and listed on <a href="flagged.html">Flagged for review</a>.</p>
+    <p class="small">Analysis only, not betting advice. 18+. Built by session <code>arena/83451f65-olbg4</code>;
+    other sessions' dashboards remain untouched in <a href="archive.html">Archive</a>.</p>
+  </div>
+</footer>
 </body>
 </html>

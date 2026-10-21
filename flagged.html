@@ -1,61 +1,153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flagged for Review — OLBG4</title>
-<link rel="stylesheet" href="assets/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for review · OLBG4 verified line desk</title>
+<meta name="description" content="Verified fixtures for the sports in scope, with our own originated lines, confidence grades and a source link on every row.">
+<link rel="stylesheet" href="assets/integrated.css">
 </head>
 <body>
 <header class="topbar">
-  <div class="container inner">
-    <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>Flagged for Review — irregularities & unverified items</p></div></div>
-    <nav class="nav"><a href="index.html">Dashboard</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged.html" class="active">Flagged for Review</a></nav>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="mark">OLBG4</span><span class="brandsub">verified line desk</span>
+    </a>
+    <nav class="nav"><a class="navlink" href="index.html">Dashboard</a><a class="navlink" href="entries.html">All fixtures</a><a class="navlink" href="predictions.html">High-confidence picks</a><a class="navlink" href="analysis.html">Analysis</a><a class="navlink" href="coverage.html">Coverage</a><a class="navlink" href="methodology.html">Method</a><a class="navlink" href="sources.html">Sources</a><a class="navlink active" href="flagged.html">Flagged for review</a><a class="navlink" href="archive.html">Archive</a></nav>
   </div>
 </header>
-<main class="container">
-  <section class="hero">
-    <h2>Flagged for Review — no blocked merge, transparent for your review</h2>
-    <p>These entries were published but marked <span class="badge badge-flagged">FLAGGED</span> because one or more fields could not be confirmed on an official site at the 2026-10-21 cut-off. Per the brief, flagged irregularities and unverified items <strong>do not block the merge</strong> — they are published here with source links for your manual review.</p>
-    <div class="notice"><strong>Policy:</strong> If a value can't be confirmed from an official source, it is left blank and flagged as unverified. Never inferred. You can request corrections via GitHub issue; fixes are applied as small commits without discarding others.</div>
-    <div class="small" style="margin-top:10px"><strong id="flaggedCount">loading flagged count…</strong> • All other rows on the dashboard are marked <span class="badge badge-verified">VERIFIED</span>.</div>
-  </section>
+<main class="wrap">
 
-  <section class="table-wrap">
-    <div style="padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;background:#fffbeb"><strong>Flagged entries from data/matches.json</strong><span class="small">Each links to its official source for manual comparison</span></div>
-    <div style="overflow:auto">
-      <table>
-        <thead><tr><th>ID</th><th>Match</th><th>Reason (why flagged)</th><th>Source link for review</th><th>Status</th></tr></thead>
-        <tbody id="flaggedTbody"><tr><td colspan="5" style="padding:16px" class="small">Loading…</td></tr></tbody>
-      </table>
-    </div>
-  </section>
 
-  <section class="card" style="margin-top:14px">
-    <h3>Flag details — line by line (2026-10-21 audit)</h3>
-    <table style="width:100%;border-collapse:collapse">
-      <thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Flagged entry / gap</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Category</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Reason & next check</th></tr></thead>
-      <tbody>
-        <tr><td style="padding:8px"><strong>VBL01/02 Volleyball — Oct 8-31 window</strong></td><td class="small">Volleyball</td><td class="small">Volleyball is in inter-season gap: VNL 2026 finished, Club World Championship is December (8 clubs confirmed Oct 15 per FIVB). No FIVB-ranked senior national-team matches in Oct 21-31 window → no lines originated. Flagged as legitimate "no market" (not inference), per verification policy. Manual review: <a href="https://www.fivb.com/eight-clubs-confirmed-for-2026-fivb-mens-volleyball-club-world-championship/" target="_blank">FIVB 8 clubs confirmed</a>.</td></tr>
-        <tr><td style="padding:8px"><strong>HDB01/02 Handball — EHF Champions League & IHF Qualifiers</strong></td><td class="small">Handball</td><td class="small">EHF CL Round 7 midweek Oct 22-23 exists but specific fixture pairings not published on <a href="https://ehfcl.eurohandball.com/" target="_blank">ehfcl.eurohandball.com</a> at cut-off (site paginated/outside allowed hosts for automated fetch). IHF WC 2027 qualifiers draw also not posted on <a href="https://www.ihf.info/" target="_blank">ihf.info</a> by Oct 21. Both left blank and flagged with EHF/IHF links. Re-check EHF CL match centre Oct 22 morning.</td></tr>
-        <tr><td style="padding:8px"><strong>ESP01/02 Esports — Worlds & Valorant Champions</strong></td><td class="small">Esports</td><td class="small">Both majors are in progress but brackets not locked: LoL Worlds QF Oct 22-25 field unknown until Swiss stage ends Oct 12-13; Valorant Champions Paris final Oct 22 field unknown until playoffs Oct 17. Specific matchups left blank, flagged, with bracket URLs (<a href="https://lolesports.com/schedule?leagues=worlds" target="_blank">lolesports.com</a>, <a href="https://valorantesports.com/en-US/schedule" target="_blank">valorantesports.com</a>). Re-check after each play-off round.</td></tr>
-        <tr><td style="padding:8px"><strong>AFL01 Aussie Rules — Oct 21-31 window</strong></td><td class="small">Aussie Rules</td><td class="small">AFL men's season correctly in off-season after Sep 27 Grand Final (verified on <a href="https://www.afl.com.au/fixture" target="_blank">afl.com.au/fixture</a>). No matches in window → no lines (not flagged as error, but listed here for transparency as "no market" per brief exclusion logic). AFLW is separate and not on men's OLBG card.</td></tr>
-        <tr><td style="padding:8px"><strong>RL01 Rugby League Pacific Championships</strong></td><td class="small">Rugby League</td><td class="small">Pacific Championships fixture (Aus vs NZ Oct 25 7:50pm) appears on NRL.com but could not be fetched via allowed outbound hosts at cut-off; listed with NRL.com link and flagged to request manual verification on <a href="https://www.nrl.com/pacific-championships/" target="_blank">nrl.com/pacific-championships</a>.</td></tr>
-        <tr><td style="padding:8px"><strong>Tennis ATP 250s — Daily order of play for Oct 22-24</strong></td><td class="small">Tennis</td><td class="small">Tournament-level entries (Almaty, Brussels, Lyon) verified via ATP Tour calendar/qualifier schedule. Specific day-level player-vs-player pairings for Oct 22-24 are not yet published on the ATP Tour draw center at cut-off (draws finalize day-before). Tournament entries are verified; daily matchups will be added in a follow-up commit once draws post (ATP Tour daily order-of-play PDFs).</td></tr>
-        <tr><td style="padding:8px"><strong>Golf — Bermuda winning-score O/U model inputs (wind)</strong></td><td class="small">Golf</td><td class="small">Wind forecast input (20-30 mph) used for Bermuda O/U -14.5 is a modelled forecast, not an official PGA TOUR measured value. Flagged as model-derived (transparent) and linked to PGA TOUR Fall schedule and Golfweek preview for course history. Live wind will be re-verified via official PGA TOUR ShotLink at tee-off.</td></tr>
-      </tbody>
-    </table>
-    <hr>
-    <p class="small"><strong>Irregularities log:</strong> No scores or results were inferred or hallucinated. All finished results (Shanghai Masters final Davidovich Fokina 1-6 7-6(7-5) 6-4 over Jódar; Baycurrent won by Michael Brennan) are cross-checked on two sources (e.g., Wikipedia sourced to ATP + PGATour/ESPN leaderboard). If you spot a discrepancy, open a GitHub issue referencing the row ID and official URL.</p>
-  </section>
+<section class="pagehead"><div class="kicker">Review queue</div><h1>Flagged for review</h1><p class="lede">Everything that is unverified, contradicted, missing or assumed — published with the links you need to check it. Nothing here blocks publication and nothing here was silently fixed.</p></section>
+<section class="notebox warn">
+  <strong>14 items.</strong> Items about earlier builds are reported, not edited: their files are owned by
+  other sessions and are still live in the <a href="archive.html">archive</a>. Items about this build are marked on the
+  affected row or market.
+</section>
 
-  <section class="card">
-    <h3>What happens next</h3>
-    <p class="small">This page is static GH Pages — flagged items do not block deployment. A second integration pass (per COORDINATION.md T16) will re-verify flagged items once draws/brackets publish (e.g., after EHF fixture list Oct 22, LoL Swiss Oct 12-13, ATP daily draws). Fixes are pushed as small commits with source links and the flagged badge is cleared.</p>
-  </section>
+<article class="finding sev-high">
+  <div class="fhead"><span class="fid">F-01</span>
+   <span class="badge sev">HIGH</span>
+   <span class="status off">open</span></div>
+  <h2>Earlier builds mark rows verified without an official source</h2>
+  <p>An independent audit committed in this repo (session-e1e0c27e) found 26 of the 66 rows on the previous root hub marked verified:true while the only link was to ESPN, Wikipedia, BBC, Sky or an OLBG blog. This integration does not reuse those rows: the table you are reading contains only rows whose values were read on a governing-body domain.</p>
+  <p class="tiny"><a href="https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/flagged.html" target="_blank" rel="noopener">Audit finding F-01</a> · <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/matches.json" target="_blank" rel="noopener">Audited data file</a></p>
+</article>
+<article class="finding sev-high">
+  <div class="fhead"><span class="fid">F-02</span>
+   <span class="badge sev">HIGH</span>
+   <span class="status off">open</span></div>
+  <h2>Build A and Build B data were overwritten by a later session</h2>
+  <p>Commit cf9f024 (session 4359d6a4) rewrote data/rows.json from 144 to 137 rows, deleted four docs/sports pages and replaced Build B&#x27;s per-claim sourced predictions with 25 templated texts, one of which compares Boston with the San Jose Sharks. The pre-overwrite files are recoverable at commit 5918922. Nothing was deleted by this integration, but the overwritten files are still wrong on main.</p>
+  <p class="tiny"><a href="https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/flagged.html" target="_blank" rel="noopener">Audit finding F-11/F-12</a> · <a href="https://github.com/buffedlizard55-lab/OLBG4/commit/cf9f024" target="_blank" rel="noopener">Commit cf9f024</a> · <a href="https://github.com/buffedlizard55-lab/OLBG4/tree/5918922" target="_blank" rel="noopener">Pre-overwrite state</a></p>
+</article>
+<article class="finding sev-medium">
+  <div class="fhead"><span class="fid">F-03</span>
+   <span class="badge sev">MEDIUM</span>
+   <span class="status off">open</span></div>
+  <h2>Ten fixtures carry opposite match-winner picks across builds</h2>
+  <p>The audit matched 93 fixtures that appear in two or more builds and found 10 with opposite winners (for example Hornets v Nets: Build C graded Charlotte High, Build A picked Brooklyn). Those picks are still published on the archive dashboards linked from this site, and they contradict each other.</p>
+  <p class="tiny"><a href="https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/cross-build.html" target="_blank" rel="noopener">Cross-build page</a></p>
+</article>
+<article class="finding sev-medium">
+  <div class="fhead"><span class="fid">F-04</span>
+   <span class="badge sev">MEDIUM</span>
+   <span class="status off">flagged on every row</span></div>
+  <h2>Published clock times are not all in UTC</h2>
+  <p>NHL times are exact UTC from the league feed. NBA tip-offs are ET as published. The Premiership and WST pages render session times into the reader&#x27;s own timezone and do not state it, so those times are printed exactly as they appeared and were not converted; treat them as approximate until you check the official page in your own timezone.</p>
+  <p class="tiny"><a href="https://www.premrugby.com/fixtures-results?competition=gallagher-prem&amp;round=4" target="_blank" rel="noopener">Premiership round 4</a> · <a href="https://www.wst.tv/matches/" target="_blank" rel="noopener">WST match list</a></p>
+</article>
+<article class="finding sev-low">
+  <div class="fhead"><span class="fid">F-05</span>
+   <span class="badge sev">LOW</span>
+   <span class="status off">flagged</span></div>
+  <h2>MLB publishes a local game date and a UTC start that differ</h2>
+  <p>World Series game 1 is dated 23 Oct locally but starts 2026-10-24T00:00:00Z. The table shows the local date (the one MLB prints) and the UTC instant separately so a reader in Asia or Europe is not misled.</p>
+  <p class="tiny"><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-21&amp;endDate=2026-10-31" target="_blank" rel="noopener">MLB schedule API query</a></p>
+</article>
+<article class="finding sev-medium">
+  <div class="fhead"><span class="fid">F-06</span>
+   <span class="badge sev">MEDIUM</span>
+   <span class="status off">open</span></div>
+  <h2>Every snooker selection is withheld</h2>
+  <p>WST&#x27;s match list publishes the pairing, match number and session time but no ranking, form or head-to-head. Our model therefore has no verified input that distinguishes the two players, so it publishes a 1.92/1.92 two-way price and no pick instead of inventing a favourite.</p>
+  <p class="tiny"><a href="https://www.wst.tv/matches/" target="_blank" rel="noopener">WST matches</a></p>
+</article>
+<article class="finding sev-medium">
+  <div class="fhead"><span class="fid">F-07</span>
+   <span class="badge sev">MEDIUM</span>
+   <span class="status off">open</span></div>
+  <h2>NBA opening week leaves 36 fixtures with almost no form</h2>
+  <p>Most clubs had played zero or one game at retrieval time, so the shrunk win percentage is barely different from 50% and no NBA row can be graded High. That is the honest output, not a modelling failure: the dashboards that show High-confidence NBA picks are using inputs that were not verified.</p>
+  <p class="tiny"><a href="https://www.nba.com/games?date=2026-10-23" target="_blank" rel="noopener">NBA games 23 Oct</a></p>
+</article>
+<article class="finding sev-medium">
+  <div class="fhead"><span class="fid">F-08</span>
+   <span class="badge sev">MEDIUM</span>
+   <span class="status off">declared assumption</span></div>
+  <h2>Match totals are declared constants</h2>
+  <p>No team scoring, pace or run-prevention figure was verified for these fixtures. Rather than infer one, every total is a declared constant (NHL 6.0 goals, NBA 226.5 points, MLB 8.5 runs, Premiership 44.5 points, EHF 57.5 goals) with both sides priced at 1.92, which claims no edge. Snooker totals are withheld.</p>
+  <p class="tiny"><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/integrated/entries.json" target="_blank" rel="noopener">Model constants</a></p>
+</article>
+<article class="finding sev-low">
+  <div class="fhead"><span class="fid">F-09</span>
+   <span class="badge sev">LOW</span>
+   <span class="status off">open</span></div>
+  <h2>Three NBA games in the window are missing from the table</h2>
+  <p>nba.com/games?date=2026-10-22 returned &#x27;Sorry, something went wrong&#x27; on two attempts (2 games), and the 23 Oct page truncated after 10 of its 12 games. Those games are not guessed at; they are listed as a gap in the coverage table.</p>
+  <p class="tiny"><a href="https://www.nba.com/games?date=2026-10-22" target="_blank" rel="noopener">22 Oct page that failed</a></p>
+</article>
+<article class="finding sev-high">
+  <div class="fhead"><span class="fid">F-10</span>
+   <span class="badge sev">HIGH</span>
+   <span class="status off">open</span></div>
+  <h2>Thirteen in-scope sports have no published rows this cycle</h2>
+  <p>Tennis, darts, cricket, rugby league, volleyball, badminton, table tennis, esports, golf, motor racing, greyhounds, Aussie rules and Gaelic football. For tennis, darts and cricket an official page was opened and failed (see coverage table); for the rest no official page was opened at all. No row was copied from another build or from OLBG to fill the gap.</p>
+  <p class="tiny"><a href="https://buffedlizard55-lab.github.io/OLBG4/coverage.html" target="_blank" rel="noopener">Coverage table</a></p>
+</article>
+<article class="finding sev-medium">
+  <div class="fhead"><span class="fid">F-11</span>
+   <span class="badge sev">MEDIUM</span>
+   <span class="status off">decision logged</span></div>
+  <h2>Gaelic football is treated as in scope</h2>
+  <p>The brief excludes soccer/football, boxing, UFC/MMA, American football, hurling, horse racing, cycling and specials. Hurling is named separately from football, so &#x27;football&#x27; is read as soccer and Gaelic football is in scope. It has no verified row this cycle.</p>
+  <p class="tiny"><a href="https://www.gaa.ie/" target="_blank" rel="noopener">GAA fixtures</a></p>
+</article>
+<article class="finding sev-low">
+  <div class="fhead"><span class="fid">F-12</span>
+   <span class="badge sev">LOW</span>
+   <span class="status off">environment</span></div>
+  <h2>OLBG.com is unreachable from the build sandbox</h2>
+  <p>Every outbound request from the sandbox fails with SSL_ERROR_SYSCALL and only GitHub/PyPI/npm are allowed, so OLBG.COM itself could not be re-read in this session. OLBG is therefore used only as the taxonomy reference the brief supplies; no OLBG price, tip or figure appears in the published table.</p>
+  <p class="tiny"><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md" target="_blank" rel="noopener">Prior session log</a></p>
+</article>
+<article class="finding sev-low">
+  <div class="fhead"><span class="fid">F-13</span>
+   <span class="badge sev">LOW</span>
+   <span class="status off">flagged</span></div>
+  <h2>EHF publishes a session time with no timezone</h2>
+  <p>The Champions League match list prints 18:45 and 20:45 without naming a zone. The times are printed verbatim and flagged; they were not shifted to CET or UTC.</p>
+  <p class="tiny"><a href="https://ehfcl.eurohandball.com/men/2026-27/matches/" target="_blank" rel="noopener">EHF match list</a></p>
+</article>
+<article class="finding sev-low">
+  <div class="fhead"><span class="fid">F-14</span>
+   <span class="badge sev">LOW</span>
+   <span class="status off">open</span></div>
+  <h2>Earlier builds publish fixtures that contradict the governing body</h2>
+  <p>The audit re-opened 18 rows against official pages and found 4 contradicted: a &#x27;seven-game&#x27; ALCS that was six, a Pacific Championships fixture that does not exist in 2026 (the RLWC is being played), a Bruins record of 1-3 where NHL.com showed 7-2-0, and an Elite League pairing with records inverted. Those pages are still live in the archive; this site does not repeat them.</p>
+  <p class="tiny"><a href="https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/spot-checks.html" target="_blank" rel="noopener">Spot-check page</a> · <a href="https://api-web.nhle.com/v1/standings/now" target="_blank" rel="noopener">NHL standings</a></p>
+</article>
 
-  <div class="footer">OLBG4 • Flagged for Review • <a href="index.html">Dashboard</a> • <a href="sources.html">Sources</a> • Data cut-off 2026-10-21</div>
 </main>
-<script src="assets/js/main.js"></script>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Data cut-off 2026-10-21T08:00Z.</strong>
+    Every published row was read on a governing-body, league or tournament-organiser domain; the link is in the row.
+    Values that could not be confirmed are blank and listed on <a href="flagged.html">Flagged for review</a>.</p>
+    <p class="small">Analysis only, not betting advice. 18+. Built by session <code>arena/83451f65-olbg4</code>;
+    other sessions' dashboards remain untouched in <a href="archive.html">Archive</a>.</p>
+  </div>
+</footer>
 </body>
 </html>

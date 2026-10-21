@@ -1,27 +1,76 @@
-# OLBG4 — Reverse Engineered OLBG.com (Six Verified Builds)
+# OLBG4 — verified fixtures, our own lines, one official source per row
 
-**Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
-**Data cut-off:** 2026-10-21 (UTC)  
-**Branches merged to `main`:** `arena/f0402305-olbg4` (A), `arena/7114b6a1-olbg4` (B), `arena/74f9613e-olbg4` (C), `arena/290a9dba-olbg4` (D — final hub)
+**Live site:** https://buffedlizard55-lab.github.io/OLBG4/
+**Data cut-off:** 2026-10-21T08:00Z · **Window:** 21–31 October 2026
+**Session:** `arena/83451f65-olbg4` (final integration — Board K)
 
-Four independent, verified builds live in this repo. All are published from the same Pages site — nothing has been discarded.
+The repository root is now a single verified line desk. Every published row was read on a
+governing-body, league or tournament-organiser domain, priced by our own model, and given a
+confidence grade; each row carries the exact source URL it came from. Nothing is inferred: where an
+official page is silent the cell is blank, and the gap is published on the Flagged page.
 
-| Build | Session | Where | What it is |
-|---|---|---|---|
-| **A** | `arena/f0402305-olbg4` | `docs/` (landing), `data/rows.json`, `build_site.py`, `gen_pages.py` | 144 rows, 15 sports, ratings built from **official governing-body** sources (NBA, NHL, URC, EHF, PDC, MLB, ICC, WST…). OLBG used to define sport universe. |
-| **B** | `arena/7114b6a1-olbg4` | `session-7114b6a1/` (dashboard), `data/*.json`, `scripts/` | 116 fixtures read **directly off OLBG's live sport pages** (reverse-engineered), own win/handicap/total lines, 9 high-confidence picks with 36 sourced facts. |
-| **C** | `arena/74f9613e-olbg4` | `session-74f9613e/` (dashboard), `data/session-74f9613e/*.json`, `scripts/session-74f9613e/` | 43 fixtures in 5 sports, each input transcribed from a primary league/tour page (`VERIFICATION.md`); 182 originated selections (money line, handicap, totals); 10 predictions where every claim is listed with its source; 11-row gap register. Build C also carries a portal linking all builds. |
-| **D** | `arena/290a9dba-olbg4` | `/` (primary hub `index.html`), `data/matches.json`, `assets/`, `tennis.html` … `aussie-rules.html` | 66 entries, 16 sports, **governing-body-first verified** — ATP, NBA, MLB, NHL, WST, PDC, PGA/LPGA, BWF, WTT/ITTF, FIVB. Originated lines (ELO 40%+form 25%+H2H 15%+venue 15%+injury 5% with 3.5-4.5% overround), 15 high-confidence predictions (each 68-105 words), 8 flagged. Most exclusion-compliant (correctly omits Gaelic Football/Greyhounds flagged in A/B). |
-| **G** | `arena/6e0f382d-olbg4` | `session-6e0f382d/` (dashboard), `data/raw/` + `data/verified/` + `data/matches/`, `tools/model.py` + `tools/build_site.py` | 140 matches + 24 outrights across **all 17 in-scope OLBG sports** (widest single sweep), line-by-line verified vs official sources; documented per-sport models (shrunk Poisson, Normal margins, logistic ratings chains) originating moneyline/handicap/totals; 31 high-confidence picks with unique 72–83-word predictions; greyhounds published flagged with **no pick** (no official form data — verdicts not copied). PR #12. |
+| | |
+|---|---|
+| Verified fixtures | **75** across **6 sports** (Ice Hockey 14, Basketball 36, Baseball 7, Rugby Union 5, Handball 5, Snooker 8) |
+| Our own lines | match winner on 67 rows, handicap on 21, match total on 69 (declared constants, symmetric 1.92) |
+| Picks | 67 match-winner picks; 8 snooker selections deliberately withheld (no verified form field) |
+| Confidence | 4 High · 13 Medium · 58 Low — thresholds published in `methodology.html` |
+| High-confidence write-ups | **4**, 108–127 words each, unique, every factual clause linked |
+| Flagged for review | **14** items, including 13 in-scope sports with no published row this cycle |
+| Inferred values | **0** |
 
-- **Root landing (`/`)** → **Board D hub dashboard** (66 entries, filterable KPIs, 15 category subpages, methodology + sources + flagged) + banner linking to A/B/C.
-- **`/docs/`** → Board A dashboard (144 rows, 12 high-confidence picks, 15 flagged)
-- **`/session-7114b6a1/`** → Board B dashboard (116 OLBG-live fixtures, 9 picks, 50 flags)
-- **`/session-74f9613e/`** → Board C dashboard (43 fixtures, 182 selections, 10 predictions, 11 flagged) + portal
+### Pages
+
+- `index.html` — dashboard: KPIs, category cards, highest-confidence picks
+- `entries.html` — all 75 rows, filterable by sport / confidence / pick availability
+- `sports/<sport>.html` — one category page per published sport
+- `predictions.html` — the four high-confidence write-ups with their fact lists
+- `analysis.html` — distribution by sport, biggest model edges, honest reading of the dataset
+- `coverage.html` — every sport in the brief, what was published and what happened to the rest
+- `flagged.html` — irregularities, assumptions and unverified items, with links
+- `methodology.html` — formulas, constants, confidence rules
+- `sources.html` — the exact URLs opened, what was checked on each, what it produced
+- `archive.html` — every earlier build in this repo, still published, clearly labelled
+
+### Data and pipeline
+
+```
+data/integrated/inputs.json        fixtures transcribed from official pages (the only input)
+data/integrated/entries.json       our lines, picks, confidence, market status (model.py output)
+data/integrated/predictions.json   the high-confidence write-ups + per-claim source URLs
+data/integrated/coverage.json      per-sport coverage decision + source
+data/integrated/findings.json      the Flagged-for-review register
+data/integrated/sources.json       source registry and official-domain allowlist
+scripts/session-83451f65/          transcribe_inputs.py -> model.py -> build_site.py -> verify.py
+.github/workflows/verify-integrated.yml   rebuilds and re-verifies on every push
+```
+
+Run it yourself:
+
+```bash
+python3 scripts/session-83451f65/transcribe_inputs.py
+python3 scripts/session-83451f65/model.py
+python3 scripts/session-83451f65/build_site.py
+python3 scripts/session-83451f65/verify.py     # 366 checks, exits non-zero on any failure
+```
+
+`verify.py` enforces: every row on an official domain · no excluded sport anywhere · prices equal
+1/(p·1.02) · probabilities sum to 1 · High grades have >=8 verified games both sides · one unique
+>=30-word write-up per High row · no broken internal link · no `TODO` placeholder.
+
+### Why this replaced the old root hub
+
+An independent audit committed in this repo (`session-e1e0c27e/`) found 26 of the old hub's 66 rows
+marked `verified:true` with only secondary sources, high-confidence predictions contradicted by
+NHL.com/MLB.com/NRL.com, and two builds' data files overwritten by a later commit. Rather than
+inherit those rows, this build re-read everything from the governing bodies and keeps the earlier
+dashboards published under Archive with a warning. Full detail: `flagged.html` (F-01, F-02, F-03, F-14).
 
 ---
 
-## Build A — `docs/` (144 rows)
+## Earlier builds (kept, unverified by this session)
+
+## Build A — `docs/` (137 rows after the overwrite; 144 originally)
 
 - `docs/` — static site: landing, one page per sport (basketball, ice-hockey, rugby-union/league, handball, darts, baseball, cricket, gaelic-football, volleyball, snooker, tennis, golf, motor-racing, greyhound-racing), Methodology & Markets, Flagged for Review
 - `data/rows.csv` / `data/rows.json` — every table row with model inputs, originated line, pick, confidence, verified basis, official source link, status
@@ -133,7 +182,7 @@ Site deploys on push to `main` via `.github/workflows/pages.yml` (+ `validate.ym
 
 After merge, verify at:
 
-- https://buffedlizard55-lab.github.io/OLBG4/ → **Hub (Board D, 66 entries)** with links to A/B/C
+- https://buffedlizard55-lab.github.io/OLBG4/ → **Board K verified line desk** (75 rows, 6 sports, 4 high picks); Board D's dashboard is archived
 - https://buffedlizard55-lab.github.io/OLBG4/docs/ → Board A dashboard (144 rows)
 - https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/index.html → Board B dashboard (116 fixtures, 9 picks)
 - https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/ → Board C dashboard (43 fixtures, 182 selections)
