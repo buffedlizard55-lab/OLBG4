@@ -1,0 +1,341 @@
+{
+ "schema": "olbg4.flagged/1",
+ "items": [
+  {
+   "type": "source_conflict",
+   "sport": "Cricket",
+   "what": "Venue of Afghanistan v Bangladesh 3rd ODI",
+   "detail": "ACB briefing (via Ariana News) says the last two tri-series matches are in Sharjah; ESPNcricinfo's scorecard header says Sharjah while another ESPNcricinfo match page shows Zayed Cricket Stadium, Abu Dhabi. Venue left out of the table rather than guessed.",
+   "source": "https://www.ariananews.af/acb-announces-afghanistan-squads-for-bangladesh-zimbabwe-series/"
+  },
+  {
+   "type": "source_conflict",
+   "sport": "Cricket",
+   "what": "Sharjah vs Abu Dhabi for the same fixture",
+   "detail": "Two pages on the same publisher disagree about the ground; recorded as a flag and not resolved by us.",
+   "source": "https://www.cricinfo.com/series/uae-odi-tri-series-2026-27-1555109/afghanistan-vs-bangladesh-3rd-match-1555119/live-cricket-score"
+  },
+  {
+   "type": "source_conflict",
+   "sport": "All",
+   "what": "OLBG start times are timezone-rendered",
+   "detail": "OLBG serves relative labels ('Today', 'Tomorrow') plus a clock time in the viewer's timezone. Cross-checking the same darts fixtures against dated PDC listings shows a 5-hour offset (PDC 18:15 UK rendered by OLBG as 'Tomorrow 13:15'). We therefore print OLBG's label verbatim and do NOT convert; treat every start time as provisional.",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+  },
+  {
+   "type": "source_conflict",
+   "sport": "Snooker",
+   "what": "Fixture and format not on the official WST site",
+   "detail": "WST's site confirms the event, venue and date but the per-match order of play used here comes from snooker.org, an independent archive. Flagged rather than presented as official.",
+   "source": "https://www.snooker.org/res/index.asp?template=45&event=2548"
+  },
+  {
+   "type": "source_conflict",
+   "sport": "Tennis",
+   "what": "Head-to-head record excluded",
+   "detail": "Secondary sites gave conflicting head-to-head tallies for Fernandez v Sasnovich, and no official WTA head-to-head page was captured, so no H2H claim is made anywhere.",
+   "source": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"
+  },
+  {
+   "type": "capture_gap",
+   "sport": "All",
+   "what": "OLBG paginates its tip lists",
+   "detail": "Every sport page carries a 'Load More Tips' control and lazy-loaded cards. The inventory is the first page of each sport exactly as served at capture, so it is a complete record of what OLBG showed first, not necessarily every fixture OLBG holds.",
+   "source": "https://www.olbg.com/betting-tips"
+  },
+  {
+   "type": "capture_gap",
+   "sport": "Rugby League",
+   "what": "No match fixtures at capture",
+   "detail": "OLBG's rugby league page served only 2027 outright markets (State of Origin, Super League, NRL) and no upcoming fixtures. Reported as empty rather than padded with invented matches.",
+   "source": "https://www.olbg.com/betting-tips/Rugby_League/10"
+  },
+  {
+   "type": "capture_gap",
+   "sport": "Baseball",
+   "what": "One fixture only",
+   "detail": "Only one MLB game (TB Rays @ MIL Brewers) was listed on the captured page, consistent with the postseason schedule. Not padded.",
+   "source": "https://www.olbg.com/betting-tips/Baseball/12"
+  },
+  {
+   "type": "capture_gap",
+   "sport": "Greyhounds",
+   "what": "Races are minute-by-minute snapshots",
+   "detail": "Greyhound cards turn over every few minutes; the six races recorded here had already expired by the time of publication. They are kept as examples of the capture format, not as live fixtures.",
+   "source": "https://www.olbg.com/betting-tips/Greyhounds/28"
+  },
+  {
+   "type": "capture_gap",
+   "sport": "Golf",
+   "what": "No golf rows captured",
+   "detail": "Golf tipsters are listed by OLBG but no golf fixture rows were served on the pages captured; OLBG's golf sport id was not observed and no id is invented.",
+   "source": "https://www.olbg.com/best-tipsters"
+  },
+  {
+   "type": "capture_gap",
+   "sport": "Motor Racing",
+   "what": "Outright-only sport",
+   "detail": "Motor racing on OLBG is race-winner/futures betting with no head-to-head match lines, so it cannot carry a per-match line. No id observed in this capture.",
+   "source": "https://www.olbg.com/best-tipsters"
+  },
+  {
+   "type": "capture_gap",
+   "sport": "Excluded sports",
+   "what": "Some excluded OLBG ids were not observed",
+   "detail": "Football (1), Horse Racing (2), American Football (11) and Boxing/UFC/MMA (16) ids were confirmed from live pages. Hurling, Cycling and Specials were on the exclusion list but their ids were not observed, so they are left null in data/sports.json instead of guessed.",
+   "source": "https://www.olbg.com/betting-tips"
+  },
+  {
+   "type": "unverified",
+   "sport": "Tennis",
+   "what": "Alexandrova v Kostyuk \u2014 tip count blank",
+   "detail": "The captured chunk cut off before the tip count rendered; probability, price and confidence are therefore blank/low rather than inferred.",
+   "source": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ekaterina_Alexandrova_vs_Marta_Kostyuk/3?event_id=902084"
+  },
+  {
+   "type": "unverified",
+   "sport": "Volleyball",
+   "what": "Novara W v Marignano W \u2014 tip count blank",
+   "detail": "Tip count truncated in the captured chunk; no model probability claimed.",
+   "source": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Novara_W_vs_Marignano_W/21?event_id=36976"
+  },
+  {
+   "type": "unverified",
+   "sport": "Rugby Union",
+   "what": "La Rochelle v Bordeaux \u2014 tip count blank",
+   "detail": "Tip count truncated in the captured chunk; no model probability claimed.",
+   "source": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/La_Rochelle_v_Bordeaux/9?event_id=609554"
+  },
+  {
+   "type": "unverified",
+   "sport": "Basketball",
+   "what": "Injury and availability news",
+   "detail": "No official NBA injury report was captured, so no availability claim is made for any game, including the Wizards pick.",
+   "source": "https://www.nba.com/game/mil-vs-was-0022600086"
+  },
+  {
+   "type": "unverified",
+   "sport": "Cricket",
+   "what": "Tuskers' recent results",
+   "detail": "The captured CSA results log did not list Tuskers' recent T20 Challenge results for this window, so their form is blank in the Eastern Storm prediction.",
+   "source": "https://cricsa.co.za/csa-t20-challenge-2026/"
+  },
+  {
+   "type": "unverified",
+   "sport": "Darts",
+   "what": "Van Duijvenbode's recent results",
+   "detail": "The PDC pages captured do not publish a per-player results list for van Duijvenbode, so his form is a declared gap rather than an assertion.",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+  },
+  {
+   "type": "unverified",
+   "sport": "All",
+   "what": "Competition names for tennis, snooker, cricket, darts, handball, volleyball, rugby",
+   "detail": "OLBG's list rows for these sports do not print a competition name (they do for NBA/EuroLeague/EHL etc.). The competition column is left blank on the board instead of being inferred from tournament dates.",
+   "source": "https://www.olbg.com/betting-tips"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Tennis",
+   "what": "Tennis: total_basis",
+   "detail": "MODEL ASSUMPTION: 22.5 total games for a best-of-three match; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Tennis",
+   "what": "Tennis: margin_basis",
+   "detail": "MODEL ASSUMPTION: 6-game average winning margin; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Basketball",
+   "what": "Basketball: total_basis",
+   "detail": "MODEL ASSUMPTION: 225.5 points; OLBG publishes no league average total on the captured page",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Basketball",
+   "what": "Basketball: margin_basis",
+   "detail": "MODEL ASSUMPTION: 9-point average winning margin; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Cricket",
+   "what": "Cricket: total_basis",
+   "detail": "MODEL ASSUMPTION: 320.5 combined runs (T20/ODI mixed card); not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Cricket",
+   "what": "Cricket: margin_basis",
+   "detail": "MODEL ASSUMPTION: 20-run average winning margin; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Snooker",
+   "what": "Snooker: total_basis",
+   "detail": "MODEL ASSUMPTION: 9.5 frames for a best-of-11; OLBG publishes the 6-5 scoreline frequency (23.9%) but not an average total",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Darts",
+   "what": "Darts: total_basis",
+   "detail": "MODEL ASSUMPTION: 9.5 legs for a best-of-11; OLBG's own highlighted total-legs line on this card is 9.50 - https://www.olbg.com/betting-tips/Darts/15",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Darts",
+   "what": "Darts: margin_basis",
+   "detail": "MODEL ASSUMPTION: 2.5-leg average winning margin on a best-of-11",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Handball",
+   "what": "Handball: base_rates_basis",
+   "detail": "OLBG published EHF Champions League men split: favourites 68.2%, underdogs 22.0%, ties 9.8%. Home/away shares are NOT published by OLBG; the 0.50/0.402 split here is a MODEL ASSUMPTION that preserves the published 9.8% tie rate within a 100% book - https://www.olbg.com/betting-tips/Handball/20",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Volleyball",
+   "what": "Volleyball: total_basis",
+   "detail": "MODEL ASSUMPTION: 175.5 total points across a best-of-five; not published on the captured source",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Volleyball",
+   "what": "Volleyball: margin_basis",
+   "detail": "MODEL ASSUMPTION: 12-point average margin across sets",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "model_assumption",
+   "sport": "Baseball",
+   "what": "Baseball: base_rates_basis",
+   "detail": "OLBG published MLB home win 59% / road 57% (i.e. home teams win slightly more games than they lose at home); the 0.545 prior is a MODEL ASSUMPTION inside that published range - https://www.olbg.com/betting-tips/Baseball/12",
+   "source": "data/model_config.json"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Cricket",
+   "what": "Afghanistan vs Bangladesh One Day Match (3rd ODI, UAE Tri-Series) \u2014 declared gap",
+   "detail": "Venue is contradictory across sources: the ACB briefing (via Ariana News) puts the last two matches in Sharjah and ESPNcricinfo's scorecard header says Sharjah, while an ESPNcricinfo match page also lists Abu Dhabi. Confirmed as a flag, not resolved.",
+   "source": "https://www.icc-cricket.com/news/afghanistan-announce-multi-format-series-against-bangladesh-and-zimbabwe"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Cricket",
+   "what": "Afghanistan vs Bangladesh One Day Match (3rd ODI, UAE Tri-Series) \u2014 declared gap",
+   "detail": "Bangladesh's XI and toss were not published at capture time, so no team-news claim is made.",
+   "source": "https://www.icc-cricket.com/news/afghanistan-announce-multi-format-series-against-bangladesh-and-zimbabwe"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Cricket",
+   "what": "North West Dragons vs Limpopo Impalas (CSA T20 Challenge, Senwes Park) \u2014 declared gap",
+   "detail": "No team sheets or toss information were published at capture; no player-level claims are made.",
+   "source": "https://cricsa.co.za/csa-t20-challenge-2026/"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Cricket",
+   "what": "North West Dragons vs Limpopo Impalas (CSA T20 Challenge, Senwes Park) \u2014 declared gap",
+   "detail": "Squad availability for either side is not confirmed by an official source in this capture.",
+   "source": "https://cricsa.co.za/csa-t20-challenge-2026/"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Cricket",
+   "what": "Eastern Storm vs Tuskers (CSA T20 Challenge, Willowmoore Park) \u2014 declared gap",
+   "detail": "Tuskers' recent T20 Challenge results were not on the captured CSA page for this date, so their form is left blank rather than inferred.",
+   "source": "https://cricsa.co.za/csa-t20-challenge-2026/"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Cricket",
+   "what": "Eastern Storm vs Tuskers (CSA T20 Challenge, Willowmoore Park) \u2014 declared gap",
+   "detail": "Team news and toss not published at capture.",
+   "source": "https://cricsa.co.za/csa-t20-challenge-2026/"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Tennis",
+   "what": "Leylah Fernandez vs Aliaksandra Sasnovich (WTA 500 Ningbo, round of 16) \u2014 declared gap",
+   "detail": "Sasnovich's first-round score is reported by secondary outlets but was not captured from an official WTA results page, so it is not quoted here.",
+   "source": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/player-list"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Tennis",
+   "what": "Leylah Fernandez vs Aliaksandra Sasnovich (WTA 500 Ningbo, round of 16) \u2014 declared gap",
+   "detail": "Head-to-head record is excluded: the WTA pages captured do not publish it, and secondary H2H figures conflicted.",
+   "source": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/player-list"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Basketball",
+   "what": "MIL Bucks @ WAS Wizards (NBA, Capital One Arena) \u2014 declared gap",
+   "detail": "Washington's 107-106 pre-season loss at New Orleans on 17 October comes from a schedule aggregator, not from an NBA page captured here; treat as unconfirmed.",
+   "source": "https://www.nba.com/game/mil-vs-was-0022600086"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Basketball",
+   "what": "MIL Bucks @ WAS Wizards (NBA, Capital One Arena) \u2014 declared gap",
+   "detail": "Injury reports were not published by an official source at capture and are not asserted.",
+   "source": "https://www.nba.com/game/mil-vs-was-0022600086"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Darts",
+   "what": "Luke Woodhouse vs Dirk van Duijvenbode (European Championship, round one) \u2014 declared gap",
+   "detail": "Van Duijvenbode's most recent match results are not published in the PDC pages captured, so his form is a gap rather than a claim.",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Darts",
+   "what": "Luke Woodhouse vs Dirk van Duijvenbode (European Championship, round one) \u2014 declared gap",
+   "detail": "No 180s, average or checkout statistics for this tie were available at capture.",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Darts",
+   "what": "Niels Zonneveld vs Cameron Menzies (European Championship, round one) \u2014 declared gap",
+   "detail": "Menzies' full Maastricht run beyond the 6-2 defeat to Bunting is not detailed in the PDC pages captured.",
+   "source": "https://www.pdc.tv/news/2026/october/18/Zonneveld-wins-first-ranking-title-at-Dutch-Darts-Championship"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Darts",
+   "what": "Danny Noppert vs Stephen Bunting (European Championship, round one) \u2014 declared gap",
+   "detail": "No official leg-by-leg scoring distribution for either player's recent matches was published in the captured pages, so the over is a probability judgement, not a measured rate.",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Snooker",
+   "what": "Elliot Slessor v Jamie Jones (Northern Ireland Open, last 32) \u2014 declared gap",
+   "detail": "WST's official site did not publish a per-match order of play for this tie in the pages captured; the fixture and format come from snooker.org and are flagged.",
+   "source": "https://www.wst.tv/news/2026/october/20/betvictor-northern-ireland-open-2026-day-three-evening"
+  },
+  {
+   "type": "prediction_gap",
+   "sport": "Snooker",
+   "what": "Elliot Slessor v Jamie Jones (Northern Ireland Open, last 32) \u2014 declared gap",
+   "detail": "Break-building statistics for Slessor at this event do not exist because he has not played a match.",
+   "source": "https://www.wst.tv/news/2026/october/20/betvictor-northern-ireland-open-2026-day-three-evening"
+  }
+ ]
+}

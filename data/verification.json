@@ -1,0 +1,96 @@
+{
+ "schema": "olbg4.verification/1",
+ "summary": {
+  "rows": 116,
+  "rows_with_source": 116,
+  "official_facts": 23,
+  "secondary_facts": 13,
+  "min_pred_words": 103,
+  "duplicate_bodies": 0,
+  "source_links": 139,
+  "local_links": 257,
+  "broken_local_links": 0,
+  "high": 9
+ },
+ "checks": [
+  {
+   "check": "Every match row links its OLBG source page",
+   "pass": true,
+   "result": "116/116",
+   "detail": "Each row stores the event URL (with event_id) the fixture, market, selection and tip count were read from."
+  },
+  {
+   "check": "Match ids unique",
+   "pass": true,
+   "result": "116/116",
+   "detail": "Ids are the join key between board, predictions and flags."
+  },
+  {
+   "check": "Every match row carries a pick",
+   "pass": true,
+   "result": "116/116",
+   "detail": "Pick = the selection we would back on the highlighted market."
+  },
+  {
+   "check": "Every match row has a low/medium/high label",
+   "pass": true,
+   "result": "116/116",
+   "detail": "Labels come mechanically from the thresholds in model_config.json."
+  },
+  {
+   "check": "Every high-confidence pick has a written prediction",
+   "pass": true,
+   "result": "9/9",
+   "detail": "Ids: bas-01, cri-01, cri-03, cri-05, dar-01, dar-02, dar-06, sno-03, ten-01"
+  },
+  {
+   "check": "No prediction attached to a non-high pick",
+   "pass": true,
+   "result": "9 predictions",
+   "detail": "Predictions exist only where confidence is high, so the label and the write-up cannot drift apart."
+  },
+  {
+   "check": "Every prediction is at least 30 words",
+   "pass": true,
+   "result": "shortest 103 words",
+   "detail": "Word counts: bas-01=103, cri-01=111, cri-03=115, cri-05=115, dar-01=109, dar-02=103, dar-06=111, sno-03=107, ten-01=106"
+  },
+  {
+   "check": "No duplicated prediction bodies",
+   "pass": true,
+   "result": "0 duplicates",
+   "detail": "Each write-up is written for its own match."
+  },
+  {
+   "check": "Every prediction fact carries a source URL",
+   "pass": true,
+   "result": "36 facts",
+   "detail": "Official-body vs secondary is tagged per fact and secondary facts are also listed on the flagged page."
+  },
+  {
+   "check": "Predictions cite official bodies where one publishes the fact",
+   "pass": true,
+   "result": "23 official / 13 secondary",
+   "detail": "Governing bodies used: PDC, WTA, NBA, ICC, ACB, Cricket South Africa, World Snooker Tour."
+  },
+  {
+   "check": "Unconfirmed values are blank, not filled",
+   "pass": true,
+   "result": "7 declared gaps",
+   "detail": "Missing tip counts, injury news and form data are declared and left blank in the tables."
+  },
+  {
+   "check": "Source links collected",
+   "pass": true,
+   "result": "139 unique sources",
+   "detail": "Counted across inventory rows, prediction facts and flags."
+  },
+  {
+   "check": "Internal link audit (no broken local links)",
+   "pass": true,
+   "result": "257 local links, 0 broken",
+   "detail": "Every href that is not absolute is resolved against the repo root; Pages serves these from /."
+  }
+ ],
+ "broken_links": []
+}

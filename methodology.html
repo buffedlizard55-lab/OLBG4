@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · OLBG4</title>
+<meta name="description" content="OLBG reverse-engineering: verified match inventory, own lines, picks and confidence levels.">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+</head><body>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html">OLBG<span>4</span> · own-lines dashboard</a>
+  <nav><a href="index.html">Dashboard</a><a href="predictions.html">High-confidence predictions</a><a href="futures.html">Futures</a><a href="flagged.html">Flagged for review</a><a href="verification.html">Verification</a><a href="methodology.html" class="active">Method</a></nav>
+</div></header>
+<main><div class="wrap">
+<p class="eyebrow">Reproducible</p><h1>Method: how the lines and picks are made</h1>
+<p class="lede">Everything below is implemented in <code>scripts/build_model.py</code> against
+<code>data/model_config.json</code>. No bookmaker price is read, scraped or referenced at any point.</p>
+
+<h2>1. Inventory</h2>
+<p>OLBG sport pages are read once per capture; every fixture, its highlighted market, the highlighted selection and the
+printed tip count (e.g. <i>9/11 Win Tips · 82%</i>) are recorded verbatim with the event URL. Rows where OLBG did not
+render a tip count are recorded with a blank probability rather than a guessed one.</p>
+
+<h2>2. Our probability</h2>
+<p>With <code>p_c</code> the OLBG consensus share and <code>n</code> the number of tips on the event,</p>
+<p><code>p = (n·p_c + k·0.5) / (n + k)</code>, with <code>k = 2</code>.</p>
+<p>The shrinkage term stops a 1/1 or 2/2 sample from producing a 100% probability. For 3-way sports (rugby union,
+rugby league, handball) the probability is split across home/away/draw using the base rates in the table below,
+so a “Tie” tip and a team tip both produce a complete three-way book.</p>
+
+<h2>3. Our price</h2>
+<p><code>decimal price = 1 / (p · (1 − m))</code> with margin <code>m = 0.04</code> (4%), applied to both sides.
+A price here is a model output — a hypothesis to compare against real prices, not a quote.</p>
+
+<h2>4. Our handicap and total</h2>
+<p>Handicap is derived from the sport's cited average winning margin scaled by the model edge:
+<code>line = avg_margin · (2p − 1) · 0.8</code>, where the attenuation stops a thin
+consensus from producing an implausible spread. Totals use the sport's average total; where a source publishes that
+average we cite it, otherwise the constant is a stated assumption and is flagged.</p>
+
+<h2>5. Confidence</h2>
+<ul class="srclist">
+<li><span class="pill high">high</span> our probability ≥ 0.75 <b>and</b> at least 4 tips on the event</li>
+<li><span class="pill medium">medium</span> our probability ≥ 0.6 <b>and</b> at least 2 tips</li>
+<li><span class="pill low">low</span> everything else, including rows with no rendered consensus</li>
+</ul>
+<p class="small">These thresholds are a design choice, declared here so you can disagree with them. They are applied mechanically — no pick was promoted to “high” by hand.</p>
+
+<h2>6. Constants and where they come from</h2>
+<div class="tablewrap"><table><thead><tr><th>Sport</th><th>Market shape</th><th class="num">Avg total</th>
+<th class="num">Avg margin</th><th>Basis (cited or declared assumption)</th></tr></thead><tbody><tr><td>Tennis</td><td>2way</td><td class="num">22.5</td><td class="num">6.0</td><td class="small">MODEL ASSUMPTION: 22.5 total games for a best-of-three match; not published on the captured source<br><span class="small">MODEL ASSUMPTION: 6-game average winning margin; not published on the captured source</span></td></tr><tr><td>Basketball</td><td>2way</td><td class="num">225.5</td><td class="num">9.0</td><td class="small">MODEL ASSUMPTION: 225.5 points; OLBG publishes no league average total on the captured page<br><span class="small">MODEL ASSUMPTION: 9-point average winning margin; not published on the captured source</span></td></tr><tr><td>Cricket</td><td>2way</td><td class="num">320.5</td><td class="num">20.0</td><td class="small">MODEL ASSUMPTION: 320.5 combined runs (T20/ODI mixed card); not published on the captured source<br><span class="small">MODEL ASSUMPTION: 20-run average winning margin; not published on the captured source</span></td></tr><tr><td>Snooker</td><td>2way</td><td class="num">9.5</td><td class="num">3.01</td><td class="small">MODEL ASSUMPTION: 9.5 frames for a best-of-11; OLBG publishes the 6-5 scoreline frequency (23.9%) but not an average total<br><span class="small">OLBG published average winning margin, Masters last 16 best-of-11: 3.01 frames - https://www.olbg.com/betting-tips/Snooker/8</span></td></tr><tr><td>Rugby Union</td><td>3way</td><td class="num">54.0</td><td class="num">15.2</td><td class="small">OLBG published average total points, Premiership: 54.0 - https://www.olbg.com/betting-tips/Rugby_Union/9<br><span class="small">OLBG published average winning margin, Premiership: 15.2 - https://www.olbg.com/betting-tips/Rugby_Union/9</span></td></tr><tr><td>Rugby League</td><td>3way</td><td class="num">42.0</td><td class="num">18.4</td><td class="small">OLBG published average total points, Super League: 42.0 - https://www.olbg.com/betting-tips/Rugby_League/10<br><span class="small">OLBG published average margin, Super League: 18.4 - https://www.olbg.com/betting-tips/Rugby_League/10</span></td></tr><tr><td>Ice Hockey</td><td>2way</td><td class="num">6.0</td><td class="num">1.5</td><td class="small">OLBG states NHL totals are commonly set around 6.0 (used as the modelling baseline) - https://www.olbg.com/betting-tips/Ice_Hockey/13<br><span class="small">OLBG states the NHL puck line is usually 1.5 - https://www.olbg.com/betting-tips/Ice_Hockey/13</span></td></tr><tr><td>Darts</td><td>2way</td><td class="num">9.5</td><td class="num">2.5</td><td class="small">MODEL ASSUMPTION: 9.5 legs for a best-of-11; OLBG&#x27;s own highlighted total-legs line on this card is 9.50 - https://www.olbg.com/betting-tips/Darts/15<br><span class="small">MODEL ASSUMPTION: 2.5-leg average winning margin on a best-of-11</span></td></tr><tr><td>Handball</td><td>3way</td><td class="num">60.82</td><td class="num">5.04</td><td class="small">OLBG published average goals per game, EHF Champions League men: 60.82 - https://www.olbg.com/betting-tips/Handball/20<br><span class="small">OLBG published average winning margin, EHF Champions League men: 5.04 - https://www.olbg.com/betting-tips/Handball/20</span></td></tr><tr><td>Volleyball</td><td>2way</td><td class="num">175.5</td><td class="num">12.0</td><td class="small">MODEL ASSUMPTION: 175.5 total points across a best-of-five; not published on the captured source<br><span class="small">MODEL ASSUMPTION: 12-point average margin across sets</span></td></tr><tr><td>Greyhounds</td><td>2way</td><td class="num">—</td><td class="num">—</td><td class="small">Not applicable: a six-dog race has no two-team total. Left blank rather than invented.<br><span class="small">Not applicable: no handicap market for graded six-dog races.</span></td></tr><tr><td>Baseball</td><td>2way</td><td class="num">8.5</td><td class="num">1.5</td><td class="small">OLBG uses 8.5 runs as its worked example of a baseball game total - https://www.olbg.com/betting-tips/Baseball/12<br><span class="small">OLBG states the favourite is usually given a 1.5-run handicap - https://www.olbg.com/betting-tips/Baseball/12</span></td></tr></tbody></table></div>
+
+<h2>7. Limits we accept</h2>
+<ul class="srclist">
+<li>Consensus is a crowd sample, not a measure of team strength. Shrinkage reduces but does not remove that bias.</li>
+<li>Handicap and total lines for sports without a published average are assumptions; they are listed on the flagged page.</li>
+<li>No injury, selection, weather or travel information is modelled, because none of it could be verified systematically inside one capture.</li>
+<li>Times are shown exactly as OLBG served them and are not converted between timezones.</li>
+</ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<p><b>OLBG4</b> · inventory captured 2026-10-21T05:50Z from OLBG.com · lines and picks are our own model output, not bookmaker prices.
+Nothing here is betting advice. 18+. <a href="flagged.html">Flagged for review</a> · <a href="methodology.html">Method</a> · <a href="verification.html">Verification</a></p>
+</div></footer>
+</body></html>
