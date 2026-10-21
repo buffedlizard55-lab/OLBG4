@@ -79,7 +79,7 @@
   }
 
   function row(r) {
-    var teams = esc(r.home) + '<span class="vs">vs</span>' + esc(r.away);
+    var teams = esc(r.home) + ' <span class="vs">vs</span> ' + esc(r.away);
     var pick = r.pick ? esc(r.pick) : '<span class="small">no pick</span>';
     var market = r.pick_market && r.pick ? '<div class="small">' + esc(r.pick_market) + "</div>" : "";
     var src = r.source_url

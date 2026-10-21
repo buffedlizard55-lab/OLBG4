@@ -91,6 +91,10 @@ def page(title: str, body: str, current: str, root: str = ".", subtitle: str = "
 """
 
 
+def plural(n: int, word: str) -> str:
+    return f"{n} {word}" + ("" if n == 1 else "s")
+
+
 def badge_conf(c: str) -> str:
     cls = {"High": "high", "Medium": "medium", "Low": "low"}.get(c, "none")
     return f'<span class="badge {cls}">{E(c or "none")}</span>'
@@ -169,7 +173,7 @@ def build_index() -> str:
         pct = int(round(100 * c["verified"] / c["rows"])) if c["rows"] else 0
         cards.append(f"""<a class="sport-card" href="./sports/{slug}.html">
   <h3>{E(sport)}</h3>
-  <div class="nums">{c['rows']} fixtures · {c['picks']} picks · {c['high']} high · {c['verified']} official-sourced</div>
+  <div class="nums">{plural(c['rows'], 'row')} · {plural(c['picks'], 'pick')} · {c['high']} high · {c['verified']} official-sourced</div>
   <div class="bar" title="{pct}% of rows carry an official source"><i style="width:{pct}%"></i></div>
   <div class="small">{pct}% of rows confirmed against an official body</div>
 </a>""")

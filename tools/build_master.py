@@ -685,6 +685,17 @@ def main() -> None:
 
     # ---- ids, tiers, status
     master.sort(key=lambda r: (r["date"] or "9999", r["sport"], r["home"], r["away"]))
+    # duplicate flags (the same note added twice by a build) are collapsed so the table reads cleanly
+    for row in master:
+        seen, uniq = set(), []
+        for f in row["flags"]:
+            key = (f.get("kind"), f.get("text"))
+            if key in seen:
+                continue
+            seen.add(key)
+            uniq.append(f)
+        row["flags"] = uniq
+
     for i, row in enumerate(master, 1):
         row["id"] = f"M{i:04d}"
         tier, dom, note = tier_for(row["source_url"])
