@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# OLBG4 — Reverse Engineered OLBG.com (Six Verified Builds)
-=======
 # OLBG4 — reverse-engineered OLBG.com coverage, originated lines and verified predictions
 
 **Live site:** https://buffedlizard55-lab.github.io/OLBG4/ · **Data cut-off:** 2026-10-21 (UTC)
@@ -93,7 +90,6 @@ Two other sessions reached the integration step at the same time and their work 
 Their root `index.html`/`methodology.html`/`sources.html`/`flagged.html` were replaced by this build's pages, because
 the brief gives the root landing to the final integration session; copies of the incoming versions are in the folders
 above and every one of their data files is untouched.
->>>>>>> origin/main
 
 ### Latest: consolidated verified desk (Board L, 2026-10-21)
 
@@ -124,32 +120,14 @@ above and every one of their data files is untouched.
 
 **Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
 **Data cut-off:** 2026-10-21 (UTC)  
-**Hub status after the 2026-10-21 remediation (Board K):** the root dashboard (`/`) was rebuilt from a frozen snapshot plus recorded evidence. Of 68 rows, **25 are CONFIRMED** against an official league or governing-body feed with the returned values quoted on `verification.html`, 2 are partial and **41 are UNVERIFIED** (time and venue blank, pick retained only as model output at LOW confidence, no prediction). All 66 previously published prediction texts were withdrawn; Five predictions are published — 3 high confidence and 2 medium — each requiring verified form on both sides. Nothing was promoted to fill a quota. See `data/board_k/evidence.json` (what was checked), `data/board_k/verification.json` (the register), `data/board_k/withdrawn_predictions.json` (the archive), `verification.html` (the published register), `flagged-verification.html` (findings K-01…K-11) and `dashboard-board-k.html` (this hub's own dashboard, retained alongside the integrated line desk that now serves `/`). The integrated site at `/` is generated from `data/integrated/inputs.json` by `scripts/session-83451f65/build_site.py`; the two datasets are separate and must not be added together.
+**Hub status after the 2026-10-21 remediation (Board K):** the root dashboard (`/`) was rebuilt from a frozen snapshot plus recorded evidence. Of 68 rows, **25 are CONFIRMED** against an official league or governing-body feed with the returned values quoted on `verification.html`, 2 are partial and **41 are UNVERIFIED** (time and venue blank, pick retained only as model output at LOW confidence, no prediction). All 66 previously published prediction texts were withdrawn; 3 high-confidence predictions are published, each requiring verified form on both sides. Nothing was promoted to fill a quota. See `data/board_k/evidence.json` (what was checked), `data/board_k/verification.json` (the register), `data/board_k/withdrawn_predictions.json` (the archive) and `verification.html`.
 
 **Branches merged to `main`:** `arena/f0402305-olbg4` (A), `arena/7114b6a1-olbg4` (B), `arena/74f9613e-olbg4` (C), `arena/290a9dba-olbg4` (D — final hub)
+> Two sessions reached the integration step at the same time (Board K `arena/83451f65-olbg4` and Build K2
+> `session-6b8d2d5f`). The root site is Board K's consolidated line desk; Build K2's dashboard stays published at
+> `session-6b8d2d5f/`, and its hub/flagged pages are preserved byte-for-byte in that folder. See COORDINATION.md.
 
-<<<<<<< HEAD
-Four independent, verified builds live in this repo. All are published from the same Pages site — nothing has been discarded.
-
-| Build | Session | Where | What it is |
-|---|---|---|---|
-| **A** | `arena/f0402305-olbg4` | `docs/` (landing), `data/rows.json`, `build_site.py`, `gen_pages.py` | 144 rows, 15 sports, ratings built from **official governing-body** sources (NBA, NHL, URC, EHF, PDC, MLB, ICC, WST…). OLBG used to define sport universe. |
-| **B** | `arena/7114b6a1-olbg4` | `session-7114b6a1/` (dashboard), `data/*.json`, `scripts/` | 116 fixtures read **directly off OLBG's live sport pages** (reverse-engineered), own win/handicap/total lines, 9 high-confidence picks with 36 sourced facts. |
-| **C** | `arena/74f9613e-olbg4` | `session-74f9613e/` (dashboard), `data/session-74f9613e/*.json`, `scripts/session-74f9613e/` | 43 fixtures in 5 sports, each input transcribed from a primary league/tour page (`VERIFICATION.md`); 182 originated selections (money line, handicap, totals); 10 predictions where every claim is listed with its source; 11-row gap register. Build C also carries a portal linking all builds. |
-| **D** | `arena/290a9dba-olbg4` → remediated by `arena/082d3c16-olbg4` | `/` (primary hub `index.html`), `data/matches.json`, `assets/`, `tennis.html` … `aussie-rules.html`, `verification.html` | 68 rows, 16 sports. **Rebuilt 2026-10-21:** 25 rows confirmed on an official league/governing-body feed with quoted evidence, 2 partial, 41 unverified (blank time/venue, no prediction), 3 high, 2 medium published (5), 66 withdrawn. Originated lines (ELO 40%+form 25%+H2H 15%+venue 15%+injury 5% with 3.5-4.5% overround). Most exclusion-compliant (correctly omits Gaelic Football/Greyhounds flagged in A/B). |
-| **G** | `arena/6e0f382d-olbg4` | `session-6e0f382d/` (dashboard), `data/raw/` + `data/verified/` + `data/matches/`, `tools/model.py` + `tools/build_site.py` | 140 matches + 24 outrights across **all 17 in-scope OLBG sports** (widest single sweep), line-by-line verified vs official sources; documented per-sport models (shrunk Poisson, Normal margins, logistic ratings chains) originating moneyline/handicap/totals; 31 high-confidence picks with unique 72–83-word predictions; greyhounds published flagged with **no pick** (no official form data — verdicts not copied). PR #12. |
-
-- **Root landing (`/`)** → **hub dashboard** (68 rows, filterable KPIs, 15 category subpages, verification register + methodology + sources + flagged) + banner linking to the archived builds.
-- **`/docs/`** → Board A dashboard (144 rows, 12 high-confidence picks, 15 flagged)
-- **`/session-7114b6a1/`** → Board B dashboard (116 OLBG-live fixtures, 9 picks, 50 flags)
-- **`/session-74f9613e/`** → Board C dashboard (43 fixtures, 182 selections, 10 predictions, 11 flagged) + portal
-
----
-
-## Build A — `docs/` (144 rows)
-=======
 ### Build A — `docs/` (137 rows after the overwrite; 144 originally)
->>>>>>> origin/main
 
 - `docs/` — static site: landing, one page per sport (basketball, ice-hockey, rugby-union/league, handball, darts, baseball, cricket, gaelic-football, volleyball, snooker, tennis, golf, motor-racing, greyhound-racing), Methodology & Markets, Flagged for Review
 - `data/rows.csv` / `data/rows.json` — every table row with model inputs, originated line, pick, confidence, verified basis, official source link, status
@@ -210,13 +188,9 @@ pipeline and commits the refreshed snapshot.
 - Review page: 20 module claims checked against official endpoints, 5 row-level spot checks
   re-opened live, 9 irregularities found and handled.
 
-<<<<<<< HEAD
-## Build K — `session-6b8d2d5f/` (final integration: verified command center, 48 fixtures)
-=======
 ### Build K2 — `session-6b8d2d5f/` (parallel final-integration attempt: verified command center, 48 fixtures)
->>>>>>> origin/main
 
-The last session takes the integration role the brief reserves for it: it re-opens the root hub row by row
+A parallel session also took the integration role: it re-opened the root hub row by row
 against official league endpoints, withdraws what the official data contradicts, and publishes a clean board
 containing **only** fixtures it could verify itself.
 
@@ -293,7 +267,7 @@ Site deploys on push to `main` via `.github/workflows/pages.yml` (+ `validate.ym
 
 After merge, verify at:
 
-- https://buffedlizard55-lab.github.io/OLBG4/ → **Hub (Board D, 66 entries)** with links to A/B/C
+- https://buffedlizard55-lab.github.io/OLBG4/ → **Board K verified line desk** (75 rows, 6 sports, 4 high picks); Board D's dashboard is archived
 - https://buffedlizard55-lab.github.io/OLBG4/docs/ → Board A dashboard (144 rows)
 - https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/index.html → Board B dashboard (116 fixtures, 9 picks)
 - https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/ → Board C dashboard (43 fixtures, 182 selections)
@@ -342,7 +316,7 @@ The hub had been published as "66 entries, governing-body verified" with 15 high
 |---|---|
 | Rows | 66 → 68 (two NHL fixtures for 22 Oct added, each verified) |
 | Verified status | 25 confirmed on an official source, 2 partial, 41 unverified |
-| Predictions | 66 withdrawn, 5 published (3 high confidence: NHL05, NHL07, NHL08; 2 medium: MLB01, NHL09) |
+| Predictions | 66 withdrawn, 4 published (3 high confidence: NHL05, NHL07, NHL08; 1 medium: MLB01) |
 | Corrections | CRK03 match number/date/venue, CRK05 final date, MLB03 venue, NHL01/NHL02 official results |
 | New page | `verification.html` — line-by-line register with quoted evidence and the official URL for every row |
 | New data | `data/board_k/evidence.json`, `data/board_k/verification.json`, `data/board_k/withdrawn_predictions.json`, `data/board_k/base_matches.json` |
@@ -361,3 +335,12 @@ Rebuild: `python3 scripts/board_k/build_hub.py`. The script asserts that no row 
 - The root pages (`index.html`, `picks.html`, `markets.html`, `flagged.html`, `sources.html`, `audit.html`,
   `methodology.html`, `archive.html`, `olbg.html`, `sports/*.html`) are generated by `tools/build_master_site.py`.
   Hand-editing them will be overwritten by the next build, and CI fails if the committed copy is stale.
+
+## Board K register and evidence dashboard (session `arena/082d3c16-olbg4`)
+
+Published alongside the integrated line desk that serves `/`:
+
+- `verification.html` — 68-row register: verdict, quoted values, official URL and correction per row (25 confirmed / 2 partial / 41 unverified).
+- `flagged-verification.html` — findings K-01…K-11, including the withdrawn prediction archive and the cross-session collisions.
+- `dashboard-board-k.html` — the Board K dashboard built directly from `data/matches.json` (3 high + 2 medium write-ups).
+- `data/board_k/` — `evidence.json`, `verification.json`, `withdrawn_predictions.json`, plus archives of the other sessions' hub data files.
