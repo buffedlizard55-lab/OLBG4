@@ -16,7 +16,13 @@ OUT = ROOT / "session-7114b6a1"
 OUT.mkdir(exist_ok=True)
 
 board = json.loads((DATA / "board.json").read_text())
-preds = json.loads((DATA / "predictions.json").read_text())
+# This build predates the shared 17-sport sweep. Board I moved Build B's prediction input into its
+# own namespace (data/session-7114b6a1/predictions.json) and repointed scripts/verify.py there; this
+# renderer is repointed the same way so a future shared-file collision cannot break Build B again
+# (Board K, F-11: commit cf9f024 overwrote data/predictions.json and this script raised
+# KeyError: 'match_id'). The build-owned file is authoritative.
+B_PREDICTIONS = DATA / "session-7114b6a1" / "predictions.json"
+preds = json.loads((B_PREDICTIONS if B_PREDICTIONS.exists() else DATA / "predictions.json").read_text())
 flagged = json.loads((DATA / "flagged.json").read_text())
 verif = json.loads((DATA / "verification.json").read_text())
 inv = json.loads((DATA / "match_inventory.json").read_text())
