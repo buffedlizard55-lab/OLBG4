@@ -1,77 +1,141 @@
-# OLBG4
+# OLBG4 — Reverse Engineered OLBG.com (Five Verified Builds)
 
-Reverse-engineering OLBG's sport coverage, then originating our **own** lines — never copying OLBG tips or odds.
+**Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
+**Data cut-off:** 2026-10-21 (UTC)  
+**Branches merged to `main`:** `arena/f0402305-olbg4` (A), `arena/7114b6a1-olbg4` (B), `arena/74f9613e-olbg4` (C), `arena/290a9dba-olbg4` (D — final hub)
 
-**Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/
-
-Four independent, verified builds live in this repo. Both are published from the same Pages site:
+Four independent, verified builds live in this repo. All are published from the same Pages site — nothing has been discarded.
 
 | Build | Session | Where | What it is |
 |---|---|---|---|
-| A | `arena/f0402305-olbg4` | `docs/` (landing), `data/rows.json`, `build_site.py`, `gen_pages.py` | 144 rows, 15 sports, ratings built from **official governing-body** sources (NBA, NHL, URC, EHF, PDC, MLB, ICC, WST…). OLBG used to define the sport universe. |
-| B | `arena/7114b6a1-olbg4` | `session-7114b6a1/` (dashboard), `data/*.json`, `scripts/` | 116 fixtures read **directly off OLBG's live sport pages** (reverse-engineered), own win/handicap/total lines, 9 high-confidence picks with 36 sourced facts. |
-| C | `arena/74f9613e-olbg4` | `session-74f9613e/` (dashboard), `data/session-74f9613e/*.json`, `scripts/session-74f9613e/` | 43 fixtures in 5 sports, each input transcribed from a primary league/tour page and recorded in `VERIFICATION.md`; 182 originated selections across money line, handicap and totals; 10 predictions where every claim is listed under the text with its source; 11-row gap register. |
-| D | `arena/4afef1af-olbg4` | `session-4afef1af/` (dashboard + generated data), `pipeline/` (source) | **Fully automated** pipeline: league APIs → ridge ratings → own moneyline/handicap/total prices → graded picks → linted predictions → verification gate → static site, refreshed by GitHub Actions every 6 hours. Every row carries a league-owned source link; rows without one are dropped and flagged. |
+| **A** | `arena/f0402305-olbg4` | `docs/` (landing), `data/rows.json`, `build_site.py`, `gen_pages.py` | 144 rows, 15 sports, ratings built from **official governing-body** sources (NBA, NHL, URC, EHF, PDC, MLB, ICC, WST…). OLBG used to define sport universe. |
+| **B** | `arena/7114b6a1-olbg4` | `session-7114b6a1/` (dashboard), `data/*.json`, `scripts/` | 116 fixtures read **directly off OLBG's live sport pages** (reverse-engineered), own win/handicap/total lines, 9 high-confidence picks with 36 sourced facts. |
+| **C** | `arena/74f9613e-olbg4` | `session-74f9613e/` (dashboard), `data/session-74f9613e/*.json`, `scripts/session-74f9613e/` | 43 fixtures in 5 sports, each input transcribed from a primary league/tour page (`VERIFICATION.md`); 182 originated selections (money line, handicap, totals); 10 predictions where every claim is listed with its source; 11-row gap register. Build C also carries a portal linking all builds. |
+| **D** | `arena/290a9dba-olbg4` | `/` (primary hub `index.html`), `data/matches.json`, `assets/`, `tennis.html` … `aussie-rules.html` | 66 entries, 16 sports, **governing-body-first verified** — ATP, NBA, MLB, NHL, WST, PDC, PGA/LPGA, BWF, WTT/ITTF, FIVB. Originated lines (ELO 40%+form 25%+H2H 15%+venue 15%+injury 5% with 3.5-4.5% overround), 15 high-confidence predictions (each 68-105 words), 8 flagged. Most exclusion-compliant (correctly omits Gaelic Football/Greyhounds flagged in A/B). |
 
-Pages source is the repo root. `/` is a portal page linking all three builds, build A's
-dashboard is at [`/docs/`](docs/), build B's at [`/session-7114b6a1/`](session-7114b6a1/)
-build C's at [`/session-74f9613e/`](session-74f9613e/) and build D's at [`/session-4afef1af/`](session-4afef1af/). `.nojekyll` keeps the generated
-HTML byte-identical to what the build scripts emit.
+- **Root landing (`/`)** → **Board D hub dashboard** (66 entries, filterable KPIs, 15 category subpages, methodology + sources + flagged) + banner linking to A/B/C.
+- **`/docs/`** → Board A dashboard (144 rows, 12 high-confidence picks, 15 flagged)
+- **`/session-7114b6a1/`** → Board B dashboard (116 OLBG-live fixtures, 9 picks, 50 flags)
+- **`/session-74f9613e/`** → Board C dashboard (43 fixtures, 182 selections, 10 predictions, 11 flagged) + portal
 
-## Build A (docs/)
+---
 
-- `docs/` — static site: landing dashboard, one page per sport, Methodology & Markets, Flagged for Review
+## Build A — `docs/` (144 rows)
+
+- `docs/` — static site: landing, one page per sport (basketball, ice-hockey, rugby-union/league, handball, darts, baseball, cricket, gaelic-football, volleyball, snooker, tennis, golf, motor-racing, greyhound-racing), Methodology & Markets, Flagged for Review
 - `data/rows.csv` / `data/rows.json` — every table row with model inputs, originated line, pick, confidence, verified basis, official source link, status
-- `build_site.py` — builds the dataset (Model v1 formula documented in the file and on the Methodology page)
-- `gen_pages.py` — renders `docs/` from `data/rows.json`
+- `build_site.py` + `gen_pages.py` — build Board A's dataset and render `docs/` (Model v1 formula documented in file + on Methodology page)
+- Snapshot: 21 Oct 2026 · Window: 21–25 Oct 2026
 
-Snapshot: 21 Oct 2026. Window: 21-25 Oct 2026.
+## Build B — `session-7114b6a1/` (116 fixtures + 8 futures)
 
-## Build B (session-7114b6a1/)
+- `data/match_inventory.json` — 116 fixtures across 11 sports, each with exact OLBG event URL (`?event_id=…`)
+- `data/model_config.json` — every model constant with `*_basis` (cited OLBG figure or explicit `MODEL ASSUMPTION`)
+- `data/board.json` — probability, price, handicap, total, pick, confidence per match
+- `data/predictions.json` — 9 high-confidence write-ups (≥103 words each) with per-fact source URLs
+- `data/flagged.json`, `data/verification.json` — review items + machine check log
+- `scripts/build_model.py` → `scripts/verify.py` → `scripts/build_site.py` (`scripts/README.md`)
 
-- `data/match_inventory.json` — 116 fixtures across 11 sports, each with the exact OLBG event URL (`?event_id=…`) it was read from
-- `data/model_config.json` — every model constant with a `*_basis` string (cited OLBG-published figure, or an explicit `MODEL ASSUMPTION`)
-- `data/board.json` — our probability, price, handicap, total, pick and confidence per match
-- `data/predictions.json` — 9 high-confidence write-ups (≥103 words each) with per-fact source URLs and declared gaps
-- `data/flagged.json`, `data/verification.json` — published review items and the machine-run check log
-- `scripts/build_model.py` → `scripts/verify.py` → `scripts/build_site.py` (see `scripts/README.md`); `verify.py` exits non-zero on a hard failure so it can gate a publish
+## Build C — `session-74f9613e/` (43 fixtures, 182 selections)
 
-## Build C (session-74f9613e/)
+- `data/session-74f9613e/inputs.json` — 43 fixtures with verified start time, venue, source id; `inputs_verified` lists confirmations
+- `data/session-74f9613e/matches.json` — model output: own money-line, handicap, totals, 182 selections, pick, confidence band
+- `data/session-74f9613e/predictions.json` — 10 high-confidence write-ups, each ≥30 words with fact list + source pages
+- `data/session-74f9613e/olbg_inventory.json` / `coverage.json` — reconstructed OLBG listing (53 rows) + coverage decision per OLBG sport (22 rows)
+- `data/session-74f9613e/findings.json` — irregularity register on Flagged page
+- `VERIFICATION.md` — line-by-line checks vs official pages, gaps left blank
+- `METHODOLOGY.md` — formulas, constants, thresholds per sport
+- `scripts/session-74f9613e/` — `prepare_inputs.py` → `model.py` → `prepare_inventory.py` → `build_site.py` → `validate.py`, wrapped by `build_all.sh`; validator exits non-zero on failure
+- CI: `.github/workflows/validate.yml` rebuilds all three data layers for this build and fails if committed output is stale
 
-- `data/session-74f9613e/inputs.json` — 43 fixtures with verified start time, venue and source id; `inputs_verified` lists what was and was not confirmed
-- `data/session-74f9613e/matches.json` — the model output: our own money-line, handicap and totals prices, 182 selections, pick and confidence band
-- `data/session-74f9613e/predictions.json` — 10 high-confidence write-ups, each ≥30 words and each carrying the exact list of facts and source pages used to write it
-- `data/session-74f9613e/olbg_inventory.json` / `coverage.json` — the reconstructed OLBG listing surface (53 rows) and one coverage decision per OLBG sport (22 rows)
-- `data/session-74f9613e/findings.json` — the irregularity register rendered on the Flagged page
-- `VERIFICATION.md` — the line-by-line checks performed against each official page, plus every gap left blank
-- `METHODOLOGY.md` — every formula, constant and confidence threshold, per sport
-- `scripts/session-74f9613e/` — `prepare_inputs.py` → `model.py` → `prepare_inventory.py` → `build_site.py` → `validate.py`, wrapped by `build_all.sh`; the validator exits non-zero on a missing source, an impossible price, an out-of-band overround, a pick that is not a match winner, a short or duplicated prediction, or a broken internal link
-- CI: `.github/workflows/validate.yml` rebuilds all three data layers for this build and fails if the committed output is stale
+## Build D — `/` hub + 15 category pages (66 entries, gov-body verified)
 
-## Scope
+- `index.html` — **primary hub dashboard** (all 66 entries filterable, KPIs, analysis) + banner linking to A/B/C
+- `tennis.html`, `basketball.html`, `baseball.html`, `cricket.html`, `rugby.html`, `ice-hockey.html`, `snooker.html`, `darts.html`, `golf.html`, `badminton.html`, `table-tennis.html`, `volleyball.html`, `handball.html`, `esports.html`, `aussie-rules.html` — filtered views of same `data/matches.json`
+- `methodology.html` — ELO+form+H2H+venue model, handicap/total math, confidence rules
+- `sources.html` — official source registry (18 source groups, every URL)
+- `flagged.html` — 8 flagged irregularities with source links (do not block merge)
+- `data/matches.json` — machine-readable verified dataset (66 rows, each with `sourceUrl`, `verified`, `flagged`)
+- `data/sources.json` — human-readable registry
+- `assets/css/style.css` + `assets/js/main.js` — clean dashboard UI
+- Sources (governing-body primary, 2026-10-21): ATP Tour, NBA.com/ESPN, MLB.com, NHL.com, WST, PDC, PGA TOUR, LPGA.com, BWF, WTT/ITTF/FFTT, FIVB, EHF/IHF, AFL — registry in `data/sources.json` + `sources.html`
+- High-confidence: 15 entries, each 68-105 words, unique, include team+player+form+H2H+clear selection
 
-Excluded per brief: soccer/football, American football, boxing, UFC/MMA, hurling, **Gaelic football**, horse racing, cycling, specials.
+---
 
-> Note: build A still contains 2 Gaelic Football rows and pages for Golf and Motor Racing. Gaelic football is **not** on the brief's exclusion list as build C reads it — the list names soccer/football, American football, boxing, UFC/MMA, hurling, horse racing, cycling and specials, and hurling is named separately from football, so "football" there means soccer. Boards A and B read it the other way and treat Gaelic football as excluded. Nothing was deleted: build C simply captured no Gaelic fixture it could verify, so the sport appears in its coverage register as "no verified fixture in window" and is flagged. Golf and Motor Racing are outright/race-winner sports with no head-to-head match lines.
+## Build E — `session-4afef1af/` (refreshable pipeline, 90 fixtures)
 
-Rule in all three builds: every row links to its source; anything unconfirmed is blank and on a Flagged for Review page. 18+ — analysis, not betting advice.
+The only build that refreshes itself. `pipeline/` pulls fixtures and results from
+`cdn.nba.com`, `api-web.nhle.com` and `statsapi.mlb.com`, fits margin and total ratings, and
+originates three market families per fixture (match winner, handicap, match total, with two
+alternate lines each). Every six hours the `Ingest, verify, publish` workflow re-runs the
+pipeline and commits the refreshed snapshot.
 
-Rebuild build C with `bash scripts/session-74f9613e/build_all.sh`.
+- 90 fixtures in the 21–28 Oct window: NBA 50, NHL 37, MLB 3.
+- 40 priced (NHL 37, MLB 3) with 120 market families and 78 graded picks (18 high / 37 medium / 23 low).
+- 18 written predictions, 38–60 words, 0 withdrawn, max pairwise similarity 0.483.
+- 4 findings: 1 warning + 3 informational. 0 rows excluded, 0 hard failures.
+- NBA opening week: only 3 completed regular-season games and no reachable prior-season archive,
+  so its 50 fixtures are listed with records and sources but **no markets and no pick**. The
+  dashboard says so on every affected row.
+- Review page: 20 module claims checked against official endpoints, 5 row-level spot checks
+  re-opened live, 9 irregularities found and handled.
 
-## Build D (session-4afef1af/) — automated official-API desk
+## Scope & exclusions (per brief)
 
-Build D is the only build that refreshes itself. `pipeline/run.py` ingests official league data,
-fits the ratings, originates prices and publishes the dashboard; `.github/workflows/olbg.yml` runs it
-every six hours and commits the snapshot. There is no manual entry step.
+Excluded everywhere: **soccer, boxing, UFC/MMA, football (soccer), American football, hurling, horse racing, cycling, specials**.  
+Board A still contains 2 Gaelic Football rows (flagged, not deleted). Board C reads "football" in the brief as soccer (since hurling is named separately), so Gaelic appears as "no verified fixture in window" rather than priced — flagged transparently.
 
-- `pipeline/providers/` — NBA (`cdn.nba.com` schedule JSON), NHL (`api-web.nhle.com`), MLB (`statsapi.mlb.com`)
-- `pipeline/model.py` — weighted ridge fits for margin and total, empirical residual probabilities, opening vs current line
-- `pipeline/markets.py` — moneyline, handicap and total construction, 4.5% two-way hold, half-point lines
-- `pipeline/predictions.py` — 30+ word write-ups for high-confidence picks, fact list with a source per claim, similarity lint
-- `pipeline/verify.py` — official-source gate, range checks, prediction lint; excluded rows are flagged, never published
-- `pipeline/selftest.py` — offline self-test run by CI before any network call
-- `session-4afef1af/` — generated dashboard (all pages, `data/*.json`, `assets/data.json`)
+> Boards A/B also include Golf and Motor Racing as outright/futures sports with no head-to-head lines — handled as market disclosures on their flagged pages.
 
-Live: https://buffedlizard55-lab.github.io/OLBG4/session-4afef1af/
+---
 
-Docs: `docs/olbg-reverse-engineering.md`, `docs/methodology.md`, `docs/sources.md`.
+## Verification — how to manually review any entry
+
+**Board D (primary hub — recommended for audit):**
+1. Open `index.html` or any `*.html` category page
+2. Click "Official source" link in last column — lands on governing-body domain (e.g., `nba.com`, `mlb.com`, `atptour.com`)
+3. Compare date/venue/participants to official page
+4. Check `flagged.html` for any entry not confirmable at cut-off (blank + flagged, never inferred)
+
+**Board A:** `docs/` — source links per row.  
+**Board B:** `session-7114b6a1/` — OLBG event URLs per row + `data/verification.json` gate (`python3 scripts/verify.py --links`).  
+**Board C:** `session-74f9613e/` — `VERIFICATION.md` line-by-line, `scripts/session-74f9613e/validate.py` gate, `.github/workflows/validate.yml` CI.
+
+All high-confidence predictions are ≥30 words and name team/player/form/H2H + selection. Word-count gates enforced in validators and audited manually.
+
+---
+
+## GitHub Pages deploy
+
+Site deploys on push to `main` via `.github/workflows/pages.yml` (+ `validate.yml` for Board C):
+
+- Validates `data/matches.json` + `data/sources.json` (D) **and** `data/rows.json` (A) **and** `session-74f9613e/*.json` (C) as JSON
+- Checks all builds' HTML pages exist (19 D pages + 17 A pages + 18 B pages + 13 C pages) and no `TODO` remain
+- Uploads entire repo root as Pages artifact → `github-pages`
+
+After merge, verify at:
+
+- https://buffedlizard55-lab.github.io/OLBG4/ → **Hub (Board D, 66 entries)** with links to A/B/C
+- https://buffedlizard55-lab.github.io/OLBG4/docs/ → Board A dashboard (144 rows)
+- https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/index.html → Board B dashboard (116 fixtures, 9 picks)
+- https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/ → Board C dashboard (43 fixtures, 182 selections)
+
+---
+
+## Coordination for parallel sessions
+
+See `COORDINATION.md` — shared task board per brief:
+
+- Claim task → commit/push claim immediately
+- Branch `session-<id>/<task>` per session, non-overlapping file scopes
+- Shared outputs (`index.html`, `data/*`, nav) only via final integration session (here: Board D as final hub integrator, which merged A+B+C without discarding)
+- Stale claim (>60 min no commits) may be taken over with log note
+- All merges logged with "how it was resolved — no work discarded"
+
+---
+
+## License & disclaimer
+
+Data curated from official public sources (linked per row). Code MIT-equivalent for site. **18+ — analysis, not betting advice.** Flagged irregularities do not block merge; they are published for your post-deploy review.
+

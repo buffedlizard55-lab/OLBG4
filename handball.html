@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-category="handball">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Handball — Verified Gaps (Flagged) — OLBG4</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container inner">
+    <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>EHF Champions League R7 Oct 22-23 (fixtures not yet published on EHF site at cut-off) — flagged per policy; IHF WC 2027 qualifiers late Oct</p></div></div>
+    <nav class="nav"><a href="index.html">Dashboard</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a></nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <h2>Handball — Verified Gaps (Flagged)</h2>
+    <p>EHF Champions League R7 Oct 22-23 (fixtures not yet published on EHF site at cut-off) — flagged per policy; IHF WC 2027 qualifiers late Oct — This is a filtered view of the same verified <code>data/matches.json</code> used on the dashboard. Every row below was verified line-by-line against its official source on 2026-10-21. Use the filters to narrow further.</p>
+    <div class="toc" style="margin-top:10px">
+      <a href="index.html">← Back to Dashboard (all sports)</a>
+      <a href="tennis.html">Tennis</a><a href="basketball.html">Basketball</a><a href="baseball.html">Baseball</a><a href="cricket.html">Cricket</a><a href="rugby.html">Rugby</a><a href="ice-hockey.html">Ice Hockey</a><a href="snooker.html">Snooker</a><a href="darts.html">Darts</a><a href="golf.html">Golf</a><a href="badminton.html">Badminton</a><a href="table-tennis.html">Table Tennis</a><a href="volleyball.html">Volleyball</a><a href="handball.html">Handball</a><a href="esports.html">Esports</a><a href="aussie-rules.html">Aussie Rules</a>
+    </div>
+  </section>
+
+  <section class="kpis" id="stats"></section>
+
+  <section class="controls">
+    <div class="left">
+      <select id="filterSport" class="select">
+        <option value="all">All sports</option>
+        <option value="basketball">Basketball</option>
+        <option value="baseball">Baseball</option>
+        <option value="tennis">Tennis</option>
+        <option value="cricket">Cricket</option>
+        <option value="rugby">Rugby</option>
+        <option value="ice-hockey">Ice Hockey</option>
+        <option value="snooker">Snooker</option>
+        <option value="darts">Darts</option>
+        <option value="golf">Golf</option>
+        <option value="badminton">Badminton</option>
+        <option value="table-tennis">Table Tennis</option>
+        <option value="volleyball">Volleyball</option>
+        <option value="handball">Handball</option>
+        <option value="esports">Esports</option>
+        <option value="aussie-rules">Aussie Rules</option>
+      </select>
+      <select id="filterConfidence" class="select">
+        <option value="all">All confidence</option><option value="high">High only</option><option value="medium">Medium</option><option value="low">Low</option>
+      </select>
+      <select id="filterStatus" class="select">
+        <option value="all">All statuses</option><option value="scheduled">Scheduled</option><option value="completed">Completed</option>
+      </select>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700"><input type="checkbox" id="toggleFlagged"> Flagged only</label>
+    </div>
+    <div class="right">
+      <div class="searchbar"><span>🔎</span><input id="q" placeholder="Search…"></div>
+      <button id="clearBtn" class="btn">Clear</button>
+    </div>
+  </section>
+
+  <section class="table-wrap">
+    <div style="padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;background:#f8fafc">
+      <strong style="font-size:13px">Handball — Verified Gaps (Flagged) — <span id="rowCount">loading…</span></strong>
+      <span class="small">Originated lines + pick + confidence + official source</span>
+    </div>
+    <div style="overflow:auto;max-height:72vh">
+      <table>
+        <thead><tr><th>Date & verify</th><th>Sport / comp</th><th>Match & venue</th><th>Originated lines</th><th>Pick & conf</th><th>Prediction + source</th></tr></thead>
+        <tbody id="tbody"><tr><td colspan="6" style="padding:16px;text-align:center" class="small">Loading filtered dataset…</td></tr></tbody>
+      </table>
+    </div>
+    <div class="small" style="padding:10px 14px;background:#f8fafc;border-top:1px solid var(--line)">Category page is a filter — the master dataset is <a href="data/matches.json">data/matches.json</a> (same as dashboard). All source links verifiable.</div>
+  </section>
+
+  <div class="footer">OLBG4 • Handball — Verified Gaps (Flagged) • <a href="index.html">Dashboard</a> • Data cut-off 2026-10-21 • Exclusions: soccer, boxing, UFC/MMA, football, hurling, horse racing, cycling, specials</div>
+</main>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
