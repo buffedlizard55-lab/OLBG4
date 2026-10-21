@@ -1,66 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Flagged for Review — moved</title>
+<link rel="canonical" href="flagged.html">
+<meta http-equiv="refresh" content="0; url=flagged.html">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flagged for Review — OLBG4</title>
-<link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
-<header class="topbar">
-  <div class="container inner">
-    <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>Flagged for Review — irregularities & unverified items</p></div></div>
-    <nav class="nav"><a href="../index.html">Dashboard</a><a href="../methodology.html">Methodology</a><a href="../sources.html">Sources</a><a href="../flagged.html" class="active">Flagged for Review</a></nav>
-  </div>
-</header>
-<main class="container">
-  <section class="hero">
-    <h2>Flagged for Review — no blocked merge, transparent for your review</h2>
-    <p>These entries were published but marked <span class="badge badge-flagged">FLAGGED</span> because one or more fields could not be confirmed on an official site at the 2026-10-21 cut-off. Per the brief, flagged irregularities and unverified items <strong>do not block the merge</strong> — they are published here with source links for your manual review.</p>
-    <div class="notice"><strong>Policy:</strong> If a value can't be confirmed from an official source, it is left blank and flagged as unverified. Never inferred. You can request corrections via GitHub issue; fixes are applied as small commits without discarding others.</div>
-    <div class="small" style="margin-top:10px"><strong id="flaggedCount">loading flagged count…</strong> • All other rows on the dashboard are marked <span class="badge badge-verified">VERIFIED</span>.</div>
-  </section>
-
-  <section class="table-wrap">
-    <div style="padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;background:#fffbeb"><strong>Flagged entries from data/matches.json</strong><span class="small">Each links to its official source for manual comparison</span></div>
-    <div style="overflow:auto">
-      <table>
-        <thead><tr><th>ID</th><th>Match</th><th>Reason (why flagged)</th><th>Source link for review</th><th>Status</th></tr></thead>
-        <tbody id="flaggedTbody"><tr><td colspan="5" style="padding:16px" class="small">Loading…</td></tr></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="card" style="margin-top:14px">
-    <h3>Flag details — line by line (2026-10-21 audit)</h3>
-    <table style="width:100%;border-collapse:collapse">
-      <thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Flagged entry / gap</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Category</th><th style="text-align:left;padding:8px;border-bottom:1px solid var(--line)">Reason & next check</th></tr></thead>
-      <tbody>
-        <tr><td style="padding:8px"><strong>VBL01/02 Volleyball — Oct 8-31 window</strong></td><td class="small">Volleyball</td><td class="small">Volleyball is in inter-season gap: VNL 2026 finished, Club World Championship is December (8 clubs confirmed Oct 15 per FIVB). No FIVB-ranked senior national-team matches in Oct 21-31 window → no lines originated. Flagged as legitimate "no market" (not inference), per verification policy. Manual review: <a href="https://www.fivb.com/eight-clubs-confirmed-for-2026-fivb-mens-volleyball-club-world-championship/" target="_blank">FIVB 8 clubs confirmed</a>.</td></tr>
-        <tr><td style="padding:8px"><strong>HDB01/02 Handball — EHF Champions League & IHF Qualifiers</strong></td><td class="small">Handball</td><td class="small">EHF CL Round 7 midweek Oct 22-23 exists but specific fixture pairings not published on <a href="https://ehfcl.eurohandball.com/" target="_blank">ehfcl.eurohandball.com</a> at cut-off (site paginated/outside allowed hosts for automated fetch). IHF WC 2027 qualifiers draw also not posted on <a href="https://www.ihf.info/" target="_blank">ihf.info</a> by Oct 21. Both left blank and flagged with EHF/IHF links. Re-check EHF CL match centre Oct 22 morning.</td></tr>
-        <tr><td style="padding:8px"><strong>ESP01/02 Esports — Worlds & Valorant Champions</strong></td><td class="small">Esports</td><td class="small">Both majors are in progress but brackets not locked: LoL Worlds QF Oct 22-25 field unknown until Swiss stage ends Oct 12-13; Valorant Champions Paris final Oct 22 field unknown until playoffs Oct 17. Specific matchups left blank, flagged, with bracket URLs (<a href="https://lolesports.com/schedule?leagues=worlds" target="_blank">lolesports.com</a>, <a href="https://valorantesports.com/en-US/schedule" target="_blank">valorantesports.com</a>). Re-check after each play-off round.</td></tr>
-        <tr><td style="padding:8px"><strong>AFL01 Aussie Rules — Oct 21-31 window</strong></td><td class="small">Aussie Rules</td><td class="small">AFL men's season correctly in off-season after Sep 27 Grand Final (verified on <a href="https://www.afl.com.au/fixture" target="_blank">afl.com.au/fixture</a>). No matches in window → no lines (not flagged as error, but listed here for transparency as "no market" per brief exclusion logic). AFLW is separate and not on men's OLBG card.</td></tr>
-        <tr><td style="padding:8px"><strong>RL01 Rugby League Pacific Championships</strong></td><td class="small">Rugby League</td><td class="small">Pacific Championships fixture (Aus vs NZ Oct 25 7:50pm) appears on NRL.com but could not be fetched via allowed outbound hosts at cut-off; listed with NRL.com link and flagged to request manual verification on <a href="https://www.nrl.com/pacific-championships/" target="_blank">nrl.com/pacific-championships</a>.</td></tr>
-        <tr><td style="padding:8px"><strong>Tennis ATP 250s — Daily order of play for Oct 22-24</strong></td><td class="small">Tennis</td><td class="small">Tournament-level entries (Almaty, Brussels, Lyon) verified via ATP Tour calendar/qualifier schedule. Specific day-level player-vs-player pairings for Oct 22-24 are not yet published on the ATP Tour draw center at cut-off (draws finalize day-before). Tournament entries are verified; daily matchups will be added in a follow-up commit once draws post (ATP Tour daily order-of-play PDFs).</td></tr>
-        <tr><td style="padding:8px"><strong>Golf — Bermuda winning-score O/U model inputs (wind)</strong></td><td class="small">Golf</td><td class="small">Wind forecast input (20-30 mph) used for Bermuda O/U -14.5 is a modelled forecast, not an official PGA TOUR measured value. Flagged as model-derived (transparent) and linked to PGA TOUR Fall schedule and Golfweek preview for course history. Live wind will be re-verified via official PGA TOUR ShotLink at tee-off.</td></tr>
-      </tbody>
-    </table>
-    <hr>
-    <p class="small"><strong>Irregularities log:</strong> No scores or results were inferred or hallucinated. All finished results (Shanghai Masters final Davidovich Fokina 1-6 7-6(7-5) 6-4 over Jódar; Baycurrent won by Michael Brennan) are cross-checked on two sources (e.g., Wikipedia sourced to ATP + PGATour/ESPN leaderboard). If you spot a discrepancy, open a GitHub issue referencing the row ID and official URL.</p>
-  </section>
-
-  <section class="card">
-    <h3>Board K update — 2026-10-21 (session arena/093bfd5e-olbg4)</h3>
-    <p class="small">Fresh official spot-checks (NBA.com, MLB.com, NHL.com, Cricket Australia, EuroLeague, World Rugby, BWF) were applied to <code>data/matches.json</code>: fixtures confirmed on official sites were upgraded to those URLs (EuroLeague derbies Oct 22, World Rugby Nations Championship Nov 6–8, BWF French Open, NHL Oct 20–21); rows still verified only on secondary sources (ESPN, Wikipedia, OLBG, Sky/BBC, blogs) were downgraded to unverified + flagged above; NHL statuses were corrected to the NHL.com results (SJS 4–3 MTL OT, NJD 4–3 COL, NYI 3–2 ANA, TOR 6–2 CBJ, DAL 3–2 BOS OT) and the lost picks flagged. Full evidence table: <a href="../session-093bfd5e/">Board K audit</a> · <a href="../session-093bfd5e/flagged.html">Board K flagged list</a>. No row was deleted and no value was inferred.</p>
-  </section>
-
-  <section class="card">
-    <h3>What happens next</h3>
-    <p class="small">This page is static GH Pages — flagged items do not block deployment. A second integration pass (per COORDINATION.md T16) will re-verify flagged items once draws/brackets publish (e.g., after EHF fixture list Oct 22, LoL Swiss Oct 12-13, ATP daily draws). Fixes are pushed as small commits with source links and the flagged badge is cleared.</p>
-  </section>
-
-  <div class="footer">OLBG4 • Flagged for Review • <a href="../index.html">Dashboard</a> • <a href="../sources.html">Sources</a> • Data cut-off 2026-10-21</div>
-</main>
-<script src="../assets/js/main.js"></script>
-</body>
-</html>
+<style>body{font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;max-width:640px;margin:80px auto;padding:0 20px;color:#0f172a}</style>
+</head><body>
+<h1>Flagged for Review</h1>
+<p>The Board K review page is published at <a href="flagged.html">session-6b8d2d5f/flagged.html</a>.
+This alias exists because the repository archive links to the older file name.</p>
+</body></html>
