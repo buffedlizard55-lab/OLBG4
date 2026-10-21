@@ -45,7 +45,8 @@ FIELD_ORDER = [
     "id", "sport", "category", "competition", "date", "time", "venue", "match",
     "teamA", "teamB", "status", "originatedMoneyline", "originatedSpread",
     "originatedTotal", "marketFocus", "pick", "confidence", "prediction",
-    "formNotes", "result", "grade", "sourceUrl", "sourceName", "verified",
+    "formNotes", "result", "grade", "sourceUrl", "sourceName", "priorSourceUrl",
+    "priorSourceName", "verified",
     "flagged", "flagReason", "verification", "facts",
 ]
 
@@ -110,6 +111,15 @@ def build():
             r["sourceUrl"] = evidence["source"]["url"]
             r["sourceName"] = evidence["source"]["name"]
         else:
+            if status == "unverified":
+                # Keep the earlier link only as provenance; it is not evidence for any value.
+                r["priorSourceUrl"] = row.get("sourceUrl", "")
+                r["priorSourceName"] = row.get("sourceName", "")
+                r["sourceUrl"] = ""
+                r["sourceName"] = ""
+            else:
+                r["sourceUrl"] = evidence["source"]["url"]
+                r["sourceName"] = evidence["source"]["name"]
             r["verified"] = False
             r["flagged"] = True
             r["flagReason"] = evidence.get("note") if evidence and evidence.get("note") else UNVERIFIED_BY_SPORT.get(r["sport"], "Could not be confirmed on an official source during the 2026-10-21 cycle; fields left blank rather than inferred.")
