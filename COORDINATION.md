@@ -313,7 +313,6 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
   (win-count clauses, indefinite articles, no duplicated selection sentence).
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
-
 ---
 
 ## Board F — session `arena/07a080b9-olbg4` (independent audit + final integration)
@@ -333,6 +332,7 @@ Claimed: 2026-10-21 · Branch: `arena/07a080b9-olbg4` · Scope (non-overlapping)
 - Irregularities: only 2 WARN — Build A Gaelic rows (Maigh Cuilinn v Salthill-Knocknacarra; Nemo Rangers v St Finbarr's). Already flagged by Build B; left in place, non-blocking, listed on audit page. Gaelic is not in the brief's exclusion list verbatim (hurling/football are) — user review requested on scope interpretation.
 - Live Pages re-checked 2026-10-21: hub + flagged.html render, 66 entries, 8 flagged, official source links present.
 - Existing gates re-run: `pipeline.selftest` all pass; `scripts/verify.py` (B) 116/116 sourced, 0 duplicates.
+
 ## Board F — session `arena/5fd34d30-olbg4` (final audit + integration)
 
 Branch: `arena/5fd34d30-olbg4` | Date: 2026-10-21
@@ -342,10 +342,12 @@ Branch: `arena/5fd34d30-olbg4` | Date: 2026-10-21
 | Audit hub data: confidence labels, official-source rule, prediction word-count/uniqueness, links | done | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html`, `COORDINATION.md` |
 | Fix N/A confidence rows; flag non-official high-pick sources as unverified (blank verified, keep link) | done | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html` |
 | Integration: PR to main, merge, GitHub Pages verify | unclaimed | arena/5fd34d30-olbg4 | repo root |
+
 ### Board F completion (2026-10-21)
 - Audit: 66 hub rows; fixed 7 `N/A` confidence rows → `Low` (EL03, ATP05, GLF01, BDM01, TTT01, VBL02, AFL01 — completed/off-season, no-bet).
 - Flagged 8 rows with secondary (non-official) sources as unverified: EL02, CRK04, RUG01, RUG02, RUG05, RUG06, NHL01, BDM02. Total flagged 16, verified 53. Published on `flagged.html` (dynamic from `data/matches.json`).
 - 15 high predictions unique, min 68 words, all sourced. 0 broken internal links. Site builds static (no build step); Pages deploys from `main`.
+
 ## Board G — session `arena/ef72af9b-olbg4`
 
 This session uses its fixed Arena branch (rather than creating a session branch).
@@ -390,3 +392,35 @@ This session branched from the initial commit before Boards A–E merged, so PR 
 ### Publish record
 - PR: [#12](https://github.com/buffedlizard55-lab/OLBG4/pull/12) — `arena/6e0f382d-olbg4` → `main`, merged without approval per brief after build + link-check green.
 - Pages: existing root publishing (repo-root artifact) serves this build at https://buffedlizard55-lab.github.io/OLBG4/session-6e0f382d/ — no Pages settings change needed (API returned 403 for this integration regardless).
+
+---
+
+## Board H — session `arena/648c1a19-olbg4` (integration finish; takes over Board E task E10)
+
+Session: arena/648c1a19-olbg4 | Branch: arena/648c1a19-olbg4 | Date: 2026-10-21
+
+| # | Task | Status | Owner | File scope |
+|---|------|--------|-------|-----------|
+| H1 | Take over Board E task E10 (integration: PR to main, merge, Pages deploy verification, record PR link + result here) — stale-claim handoff: Board E E10 has been "in progress" since the 2026-10-21T06:29Z snapshot with no further commits | in progress | arena/648c1a19-olbg4 | COORDINATION.md |
+| H2 | Pre-merge verification: pipeline selftest, internal link audit across all builds, JSON validity of all data files | done | arena/648c1a19-olbg4 | pipeline/, session-4afef1af/, *.json, *.html |
+| H3 | Confirm Build E portal card in root index.html and Build E section in README are present and additive (no Board A–D files touched) | done | arena/648c1a19-olbg4 | index.html, README.md |
+| H4 | Open PR arena/648c1a19-olbg4 → main, merge without waiting for approval, confirm GitHub Pages deploys, record PR link + merge result + Pages status here; mark E10 done | in progress | arena/648c1a19-olbg4 | COORDINATION.md |
+
+### Coordination with the audit boards (07a080b9 Board F, 5fd34d30 Board F, ef72af9b Board G)
+
+The audit boards re-ran structural checks over all committed data: 87 HTML files / 1,576 links / 0 broken, 459 source rows re-marked unverified with blank verified values, prediction word-count/uniqueness and exclusions audited; findings published at `audit/` and `session-07a080b9/`. This session's checks complement them: 24/24 pipeline selftest, 86 HTML files / 1,586 local hrefs / 0 broken links (difference vs the audit count is the audit/` namespace files included by the audit board), 28/28 JSON files valid. Neither session re-verified external sports facts from this sandbox (egress limited to github.com, registry.npmjs.org, pypi.org). Unverified values remain blank + flagged; nothing inferred.
+
+### Verification performed by session arena/648c1a19-olbg4 (2026-10-21)
+- `python -m pipeline.selftest` — 24/24 pass (offline gate: model, markets, picks, predictions, lint, site generation, internal links)
+- Internal link audit — 86 HTML files across root/docs/session-*/sports/, 1,586 local hrefs resolved, 0 broken (13 `data:image/svg+xml` favicon URIs excluded — data URIs, not links)
+- JSON validity — 28/28 data files parse cleanly (data/, data/session-74f9613e/, session-4afef1af/data/)
+- Live re-verification vs governing-body domains (NBA/NHL/MLB/ATP/WST/PDC/…) not re-run from this sandbox: sandbox egress is limited to github.com, registry.npmjs.org, pypi.org; official endpoints (cdn.nba.com, api-web.nhle.com, statsapi.mlb.com) are unreachable here. Prior sessions' live spot checks stand (logged in Boards B–E). Unverified values remain blank + flagged; nothing inferred.
+- Flagged irregularities are published per build on the Flagged for Review pages (root `flagged.html` Build D: 8 flagged; `docs/flagged.html` Build A: 15; `session-7114b6a1/flagged.html` Build B: 50; `session-74f9613e/flagged.html` Build C: 11; `session-4afef1af/flagged.html` Build E: 4 findings). Flagged items do not block merge.
+- Exclusions enforced site-wide: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials are not listed as priced matches.
+
+### E10 integration log
+- PR: #14 (https://github.com/buffedlizard55-lab/OLBG4/pull/14)
+- Merge result: [pending]
+- GitHub Pages deploy: [pending — confirm after merge at https://buffedlizard55-lab.github.io/OLBG4/]
+
+Handoff note: no files owned by sessions A–D were modified; Board E's `pipeline/` and `session-4afef1af/` scope is unchanged. This session only appends to `COORDINATION.md`.
