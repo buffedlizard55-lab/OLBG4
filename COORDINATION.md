@@ -541,3 +541,21 @@ Rules honoured: no file owned by another board is edited; requests for changes t
 - 11:35Z — second rebase conflict (main at `afc16ce`, another session had taken "Board I"); resolved the same way, renamed to Board J. Remote branch force-updated with `--force-with-lease` (own branch only, rewritten by the rebases).
 - **PR #22** — https://github.com/buffedlizard55-lab/OLBG4/pull/22 — checks `Validate data and site` + `Repository-wide publication audit` both pass; **MERGED** 2026-10-21T06:54:56Z as `1bb0964`.
 - **Pages deploy:** `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both `success` on `1bb0964`; Pages API `builds/latest` = `built`, commit `1bb0964`, error none. Live: https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/ (Flagged page fetched over HTTPS and confirmed to render all 13 findings).
+
+---
+
+## Board K — session `arena/082d3c16-olbg4` (root-hub remediation + evidence layer)
+
+Claimed 2026-10-21T11:40Z on branch `arena/082d3c16-olbg4`. At claim time all Boards A–J were `done` and `main` was at `43adf35` (PR #23 merged). Board K takes **no task** already owned by another board; it remediates the root hub, which Board J (F-01/F-02/F-03/F-04) and Board D both recorded as needing correction but neither could edit from its own scope.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| K1 | Root-hub (Build D) row-level re-verification against official sources; correct, blank or flag every fixture field | in progress | `arena/082d3c16-olbg4` | `data/matches.json`, `data/official/` |
+| K2 | Rewrite or withdraw every high-confidence prediction that cites facts absent from official sources (Board J F-02) | in progress | `arena/082d3c16-olbg4` | `data/matches.json` |
+| K3 | Publish a line-by-line verification register (one row per check, official link + verdict + quoted evidence) | in progress | `arena/082d3c16-olbg4` | `verification.html`, `data/verification.json` |
+| K4 | Update Flagged page + hub wording so the site no longer overstates "verified"; local-link gate | in progress | `arena/082d3c16-olbg4` | `flagged.html`, `index.html`, `*.html` (hub only) |
+
+Out of scope (owned by other boards, changes logged not applied): `docs/` (Board A), `session-7114b6a1/` (Board B), `session-74f9613e/` (Board C), `session-4afef1af/` (Build E), `session-6e0f382d/` (Build G), `session-e1e0c27e/` (Board J). Board J's F-11/F-12 request (restore `data/rows.json` / `data/predictions.json`) is **not** applied by this session; it is re-flagged for the owning sessions.
+
+### Board K log
+- 11:40Z — claim written and pushed. Basis: `git branch -a` shows only `main` and this branch; no other board has an open claim on the root hub.
