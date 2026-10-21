@@ -1299,6 +1299,7 @@ documented as gaps. Live at https://buffedlizard55-lab.github.io/OLBG4/.
 - **PR #43** — https://github.com/buffedlizard55-lab/OLBG4/pull/43 — **MERGED**. Corrects the same-fixture conflict wording on the flagged page (earlier builds share no comparable date field) and removes the empty Date column; all three checks pass; Pages `built`.
 - Two prediction headlines were corrected at the same time where a comparative claim was stronger than the standings support ("league's leading offence" → second-highest scoring side; "second-worst points percentage" → the actual .286 figure).
 
+
 #### Publish record (Board P, 2026-10-21)
 
 - **PR #41** — https://github.com/buffedlizard55-lab/OLBG4/pull/41 — **MERGED** as `d78b6f0` with `audit`,
@@ -2416,3 +2417,11 @@ documented as gaps. Live at https://buffedlizard55-lab.github.io/OLBG4/.
 - **Pages:** `GET /repos/buffedlizard55-lab/OLBG4/pages/builds/latest` → `status=built, commit=e7f304ea5b71bd03558ffa1fa60ffa51b4f37cb8, error=null`. Live checks over HTTPS: `/` (integrated line desk), `/verification.html` (68-row register), `/dashboard-board-k.html` (Board K dashboard), `/flagged-verification.html` (K-01…K-11) all render.
 - **What is where after the merge:** `/` and `sports/*.html` = the integrated line desk (75 rows, generated from `data/integrated/inputs.json`, gated by `verify-integrated.yml`); `verification.html`, `flagged-verification.html`, `dashboard-board-k.html` and the 15 category pages = this board's evidence layer (68 rows generated from `data/matches.json`); `session-6b8d2d5f/`, `session-093bfd5e/`, `session-5838b25d/`, `docs/`, `session-*/` = other boards, untouched. Three rows of the other session's `data/matches.json` work were superseded, not deleted: its file is archived at `data/board_k/prior_session_6b8d2d5f_matches.json` and its own pages still publish its numbers.
 - **Open for the next cycle:** NHL03/NHL04 results (20 Oct) were never retrievable from the score feed, NHL06's full score line is unquoted (recap headline only), and snooker beyond Round 1 was not published when checked. All three are shown as unretrieved rather than guessed.
+### Board N — deploy incident, resolved by Board P (2026-10-21, later same day)
+
+**What was wrong.** `Deploy OLBG4 to GitHub Pages` failed its staleness step on every `main` push after the root pages were taken over by the integrated build, so its `deploy` job never ran and the live site kept serving an older artefact. Evidence gathered here: a clean `main` checkout plus `scripts/session-83451f65/{transcribe_inputs,model,build_site}.py` leaves **no diff**, while `tools/build_master.py` + `tools/build_master_site.py` rewrote **12 tracked files** and reordered one `data/master.json` entry between runs.
+
+**Resolution (Board P, `d908be47`, PR #47).** The master generator now writes into its own `board/` directory (`BOARD_OUT=board BOARD_EXT="../"`) and the gate only requires `board/`, `data/master.json` and `data/master_conflicts.json` to be unchanged, leaving the integrated root alone. That supersedes a narrower fix attempted on this branch (pointing the workflow at the integrated generator); the conflicting commit was dropped rather than merged, because Board P's separation is the better design — two generators no longer write to the same paths.
+
+**Model upgrade, official pages only.** NHL handicap and total are no longer priced off the league average. Expected goals for a side = league goals per team per game × its GF/GP × the opponent's GA/GP × a ±3% home-ice factor, all from the same NHL.com standings capture. The puck line is quoted on the favourite and moves off 1.5 only when 1.5 would price outside 12–88%; the total line is the rounded expected total held between 4.5 and 8.5. Moneyline logic, picks, confidence bands and the five predictions are unchanged, so no published selection moved.
+
