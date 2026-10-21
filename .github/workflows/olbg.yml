@@ -43,41 +43,43 @@ jobs:
         run: python -m pipeline.probe
 
       - name: Ingest, originate, verify, build
+        id: pipeline
+        continue-on-error: true
         run: |
           set -o pipefail
           python -m pipeline.run --strict 2>&1 | tee -a /tmp/pipeline.log
 
-      - name: Publish failure log
-        if: failure()
+      # Commit whatever the run produced, and the log when it failed, so a red build is
+      # still diagnosable from the repository. Pushes are retried after a rebase because
+      # another session may have landed a commit while this job was running.
+      - name: Commit snapshot
+        if: always()
         run: |
+          set -uo pipefail
+          git config user.name "olbg-pipeline"
+          git config user.email "actions@users.noreply.github.com"
           mkdir -p .ci
           cp /tmp/pipeline.log .ci/last-run.log 2>/dev/null || true
-          tail -n 200 /tmp/pipeline.log 2>/dev/null || true
-          git config user.name "olbg-pipeline"
-          git config user.email "actions@users.noreply.github.com"
-          git add -f .ci/last-run.log 2>/dev/null || true
-          git commit -m "ci: capture failure log [skip ci]" 2>/dev/null || true
-          git push 2>/dev/null || true
-
-      - name: Commit snapshot
-        run: |
-          set -euo pipefail
-          git config user.name "olbg-pipeline"
-          git config user.email "actions@users.noreply.github.com"
-          git add session-4afef1af
+          git add -A session-4afef1af .ci
           if git diff --cached --quiet; then
             echo "No changes to commit"
-          else
-            git commit -m "chore(snapshot): refresh official-data snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-            git push
+            exit 0
           fi
+          if [ "${{ steps.pipeline.outcome }}" = "failure" ]; then
+            MSG="ci: snapshot + failure log $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          else
+            MSG="chore(snapshot): refresh official-data snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          fi
+          git commit -m "$MSG"
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin "${{ github.ref_name }}" && break
+            sleep 3
+          done
+          git push && echo "pushed"
 
-      - name: Upload snapshot
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: snapshot
-          path: |
-            data/
-            assets/data.json
-          retention-days: 14
+      - name: Fail the job when the pipeline failed
+        if: steps.pipeline.outcome == 'failure'
+        run: |
+          echo "pipeline step failed; see .ci/last-run.log" >&2
+          tail -n 40 .ci/last-run.log >&2 || true
+          exit 1
