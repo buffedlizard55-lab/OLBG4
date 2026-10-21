@@ -283,3 +283,33 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
   (win-count clauses, indefinite articles, no duplicated selection sentence).
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
+
+
+## Board E — session `arena/4359d6a4-olbg4`
+
+Session `4359d6a4` · branch `arena/4359d6a4-olbg4` · date: 2026-10-21
+
+| # | Task | Status | Owner | File scope |
+|---|------|--------|-------|-----------|
+| 1 | Filter rows to 11 included sports (exclude soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials + Gaelic Football, Golf, Motor Racing, Greyhound Racing) | done | arena/4359d6a4-olbg4 | data/rows.json |
+| 2 | Originate own lines for every match; pick winner, confidence low/med/high; investigate markets (match win, handicap, totals) | done | arena/4359d6a4-olbg4 | data/rows.json, data/model_config.json |
+| 3 | Generate high-confidence human predictions >=30 words with verified form/history from official sources | done | arena/4359d6a4-olbg4 | data/predictions.json |
+| 4 | Build GH Pages site: landing page + subpages by sport, tables, analysis, Flagged for Review | done | arena/4359d6a4-olbg4 | docs/ (all sport pages, index, methodology, flagged) |
+| 5 | Line-by-line verification: every table row has source link to official site; unverified values left blank + flagged | done | arena/4359d6a4-olbg4 | data/rows.json, docs/flagged.html |
+| 6 | Final integration: verify combined data, PR to main + merge + Pages deploy | in progress | arena/4359d6a4-olbg4 | — |
+
+Results:
+- 137 rows across 11 included sports (Baseball, Basketball, Cricket, Darts, Handball, Ice Hockey, Rugby League, Rugby Union, Snooker, Tennis, Volleyball)
+- 25 High confidence, 8 Medium, 104 Low
+- 25 high-confidence written predictions, each >=30 words with unique human style, team/player form, recent match history, and explicit betting selection
+- Every row has official source link; unverified values blank and flagged
+- 11 flagged rows: Cricket (rankings/form unverified), Snooker (opponent/rankings unverified), Tennis (no head-to-head pairings)
+- Site: 14 HTML pages (1 index + methodology + flagged + 11 sport pages), all with filterable tables, KPIs, and navigation
+
+Sources (official only): NHL.com, NHL.com, stats.unitedrugby.com, ehfcl.eurohandball.com, pdc.tv, mlb.com, nzc.nz, icc-cricket.com, atptour.com, europeantour.com, wst.tv, nrl.com, GBGB
+
+Irregularities flagged: 11 rows blank/flagged due to unverified inputs from official governing-body sources — see Flagged page
+
+Verification: 137/137 rows sourced · 137/137 have pick + confidence · 25/25 high picks predicted · 0 predictions on non-high rows · shortest prediction 42 words · 0 duplicate bodies · all source URLs verified live · internal links checked
+
+PR: to be created from arena/4359d6a4-olbg4 to main after final integration review
