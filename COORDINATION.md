@@ -879,3 +879,11 @@ Claimed 2026-10-21T07:15Z on branch `arena/8070bc18-olbg4`. At claim time `git b
 - **PR #34** — https://github.com/buffedlizard55-lab/OLBG4/pull/34 — checks `Validate data and site`, `Repository-wide publication audit` and `verify` all **pass**; **MERGED** 2026-10-21T07:20:51Z as `b8c77bc`.
 - Post-deploy fix confirmed live: record cells now render `76ers: 1-0 (0.545)` instead of a template fragment, and every priced NBA row shows an explicit 0-0/0-1/1-0 record.
 - Second claimant note: session `082d3c16` also named itself Board K and rebuilt `data/matches.json` (68 rows, 25 verified / 43 flagged) after this board's PR #30; this board rebuilt its register against that file, kept its findings and links intact, and did not re-edit the hub. Both boards' text is preserved in this file.
+
+### Board N publish record (2026-10-21)
+
+- **PR #33** — https://github.com/buffedlizard55-lab/OLBG4/pull/33 — **MERGED** 2026-10-21T07:22:36Z as `57750699ec026ed00f29669a863504387636dbdc`.
+- **Checks on the merge commit:** `Validate data and site`, `Repository-wide publication audit` (3,495 local targets, 0 broken, 0 stale) and `Verify integrated dashboard` all **pass**.
+- **Pages:** `Deploy OLBG4 to GitHub Pages` and `pages build and deployment` both success on `main`; Pages API `builds/latest` = `built`, `error: null`. Live desk: https://buffedlizard55-lab.github.io/OLBG4/docs/desk/ — fetched over HTTPS after deploy and confirmed to render the overview, the five High picks and the per-sport counts.
+- **Merge conflicts:** three rebases against an active `main` (PRs #30, #31, #32, #36, #38 merged while this branch was open). Every conflict was in `COORDINATION.md`, `index.html` or the generated `audit/` artefacts. Resolution kept the upstream text verbatim and appended this board (renamed to **Board N** when session `093bfd5e` turned out to hold the letter L); no other session's content was discarded. The root `index.html` edit was reverted after `verify-integrated.yml` rejected hand edits to a generated file — see the request above.
+- **Non-blocking review items** stay published at `/docs/desk/flagged.html`: eight in-scope sports with no rows, three unreconciled datasets with two conflicting picks, blank venues/times, prior-only markets and the 11 declared model constants.
