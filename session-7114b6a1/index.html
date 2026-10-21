@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · OLBG4</title>
+<meta name="description" content="OLBG reverse-engineering: verified match inventory, own lines, picks and confidence levels.">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+</head><body>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html">OLBG<span>4</span> · own-lines dashboard</a>
+  <nav><a href="index.html" class="active">Dashboard</a><a href="predictions.html">High-confidence predictions</a><a href="futures.html">Futures</a><a href="flagged.html">Flagged for review</a><a href="verification.html">Verification</a><a href="methodology.html">Method</a><a href="../docs/index.html">Other build (A) ↗</a></nav>
+</div></header>
+<main><div class="wrap">
+
+<p class="eyebrow">Reverse-engineering OLBG.com · capture 2026-10-21T05:50Z</p>
+<h1>Verified match inventory, our own lines, one pick per match.</h1>
+<p class="lede">We read OLBG's live sport pages, recorded every fixture it listed for the sports you asked for
+(everything except football, American football, boxing/UFC/MMA, hurling, Gaelic football, horse racing, cycling and specials),
+then originated our own win / handicap / total lines and labelled a pick on each match low, medium or high.
+Every row links back to the OLBG page it came from; every high-confidence pick has a written prediction with source links.</p>
+
+<div class="grid kpis">
+  <div class="kpi"><b>116</b><small>fixtures captured</small></div>
+  <div class="kpi"><b>11</b><small>sports with fixtures</small></div>
+  <div class="kpi"><b>9</b><small>high confidence picks</small></div>
+  <div class="kpi"><b>53</b><small>medium confidence</small></div>
+  <div class="kpi"><b>54</b><small>low confidence</small></div>
+  <div class="kpi"><b>140</b><small>source links checked</small></div>
+</div>
+
+<div class="note">
+<p><b>Read this first.</b> The OLBG consensus percentages below are OLBG's, recorded exactly as printed.
+Our probability, price, handicap and total are <b>our own model output</b> — they are not copied from any bookmaker,
+and they are not claims about the real world. Where a sport has no published average for margins or totals,
+the constant is a stated assumption and it appears on the <a href="flagged.html">Flagged for review</a> page.</p>
+<p class="small">Capture caveat: OLBG renders start times in the viewer's timezone. A cross-check against dated
+listings showed the feed running 5 hours behind UK time, so the “Start” column is exactly what OLBG served
+and has deliberately <b>not</b> been converted. See <a href="flagged.html">flags</a>.</p>
+</div>
+
+<h2>High-confidence picks (9)</h2>
+<div class="tablewrap"><table><thead><tr>
+<th>Sport</th><th>Match</th><th>Pick</th><th class="num">Our prob.</th><th class="num">Our price</th><th>Confidence</th><th>Prediction</th>
+</tr></thead><tbody><tr><td><a href="tennis.html">Tennis</a></td><td>Leylah Fernandez vs Aliaksandra Sasnovich</td><td><b>Leylah Fernandez</b></td><td class="num">77.8%</td><td class="num">1.34</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#ten-01">read</a></td></tr><tr><td><a href="basketball.html">Basketball</a></td><td>MIL Bucks @ WAS Wizards</td><td><b>WAS Wizards</b></td><td class="num">76.9%</td><td class="num">1.35</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#bas-01">read</a></td></tr><tr><td><a href="cricket.html">Cricket</a></td><td>Afghanistan vs Bangladesh One Day Match</td><td><b>Afghanistan</b></td><td class="num">88.9%</td><td class="num">1.17</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#cri-01">read</a></td></tr><tr><td><a href="cricket.html">Cricket</a></td><td>North West Dragons vs Limpopo Impalas T20</td><td><b>North West Dragons</b></td><td class="num">75.0%</td><td class="num">1.39</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#cri-03">read</a></td></tr><tr><td><a href="cricket.html">Cricket</a></td><td>Eastern Storm vs Tuskers T20</td><td><b>Eastern Storm</b></td><td class="num">83.3%</td><td class="num">1.25</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#cri-05">read</a></td></tr><tr><td><a href="snooker.html">Snooker</a></td><td>Elliot Slessor v Jamie Jones</td><td><b>Jamie Jones</b></td><td class="num">83.3%</td><td class="num">1.25</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#sno-03">read</a></td></tr><tr><td><a href="darts.html">Darts</a></td><td>Luke Woodhouse vs Dirk van Duijvenbode</td><td><b>Dirk van Duijvenbode</b></td><td class="num">80.0%</td><td class="num">1.30</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#dar-01">read</a></td></tr><tr><td><a href="darts.html">Darts</a></td><td>Niels Zonneveld vs Cameron Menzies</td><td><b>Niels Zonneveld</b></td><td class="num">77.8%</td><td class="num">1.34</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#dar-02">read</a></td></tr><tr><td><a href="darts.html">Darts</a></td><td>Danny Noppert vs Stephen Bunting</td><td><b>Over 9.50</b></td><td class="num">83.3%</td><td class="num">1.25</td><td><span class="pill high">high</span></td><td><a class="small" href="predictions.html#dar-06">read</a></td></tr></tbody></table></div>
+
+<h2>Browse by category</h2>
+<h3 style="margin-top:26px">Team</h3><div class="grid cards"><a class="card" href="basketball.html"><h3>Basketball</h3><p>14 fixtures · 14 priced · 1 high confidence</p><span class="meta">Open Basketball page →</span></a><a class="card" href="cricket.html"><h3>Cricket</h3><p>9 fixtures · 9 priced · 3 high confidence</p><span class="meta">Open Cricket page →</span></a><a class="card" href="rugby-union.html"><h3>Rugby Union</h3><p>15 fixtures · 14 priced · 0 high confidence</p><span class="meta">Open Rugby Union page →</span></a><a class="card" href="rugby-league.html"><h3>Rugby League</h3><p>no fixtures listed by OLBG at capture — futures only</p><span class="meta">Open Rugby League page →</span></a><a class="card" href="ice-hockey.html"><h3>Ice Hockey</h3><p>7 fixtures · 7 priced · 0 high confidence</p><span class="meta">Open Ice Hockey page →</span></a><a class="card" href="handball.html"><h3>Handball</h3><p>15 fixtures · 15 priced · 0 high confidence</p><span class="meta">Open Handball page →</span></a><a class="card" href="volleyball.html"><h3>Volleyball</h3><p>15 fixtures · 14 priced · 0 high confidence</p><span class="meta">Open Volleyball page →</span></a><a class="card" href="baseball.html"><h3>Baseball</h3><p>1 fixtures · 1 priced · 0 high confidence</p><span class="meta">Open Baseball page →</span></a></div><h3 style="margin-top:26px">Racket</h3><div class="grid cards"><a class="card" href="tennis.html"><h3>Tennis</h3><p>14 fixtures · 13 priced · 1 high confidence</p><span class="meta">Open Tennis page →</span></a></div><h3 style="margin-top:26px">Cue</h3><div class="grid cards"><a class="card" href="snooker.html"><h3>Snooker</h3><p>6 fixtures · 6 priced · 1 high confidence</p><span class="meta">Open Snooker page →</span></a></div><h3 style="margin-top:26px">Indoor</h3><div class="grid cards"><a class="card" href="darts.html"><h3>Darts</h3><p>14 fixtures · 14 priced · 3 high confidence</p><span class="meta">Open Darts page →</span></a></div><h3 style="margin-top:26px">Racing</h3><div class="grid cards"><a class="card" href="greyhounds.html"><h3>Greyhounds</h3><p>6 fixtures · 6 priced · 0 high confidence</p><span class="meta">Open Greyhounds page →</span></a></div>
+
+<h2>What is in the repo</h2>
+<div class="grid cards">
+  <a class="card" href="methodology.html"><h3>Method &amp; model</h3><p>Shrinkage, margin, handicap and total derivation, confidence thresholds, and every constant with its basis.</p><span class="meta">Read the method →</span></a>
+  <a class="card" href="verification.html"><h3>Verification log</h3><p>Automated checks: source link on every row, no duplicate predictions, word counts, internal link audit.</p><span class="meta">See the log →</span></a>
+  <a class="card" href="flagged.html"><h3>Flagged for review</h3><p>Assumptions, contradictions between sources, missing tip counts and anything we could not confirm.</p><span class="meta">50 items →</span></a>
+  <a class="card" href="futures.html"><h3>Futures / outrights</h3><p>Tournament winner markets OLBG listed, kept separate from match fixtures.</p><span class="meta">8 markets →</span></a>
+</div>
+
+</div></main>
+<footer class="site"><div class="wrap">
+<p><b>OLBG4</b> · inventory captured 2026-10-21T05:50Z from OLBG.com · lines and picks are our own model output, not bookmaker prices.
+Nothing here is betting advice. 18+. <a href="flagged.html">Flagged for review</a> · <a href="methodology.html">Method</a> · <a href="verification.html">Verification</a></p>
+</div></footer>
+</body></html>
