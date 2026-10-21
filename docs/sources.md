@@ -51,7 +51,8 @@ Per-row source links:
 | Ice Hockey (NHL) | in | yes — api-web.nhle.com | **yes** |
 | Baseball (MLB) | in | yes — statsapi.mlb.com | **yes** |
 | Tennis, Cricket, Rugby Union, Rugby League, Golf, Darts, Snooker, Handball, Volleyball, Greyhounds, Motor Sports, Esports | in | none identified that this pipeline can verify | no |
-| Soccer/Football, American Football, Boxing, UFC/MMA, Hurling, Gaelic Football, Horse Racing, Cycling, Specials | out | — | no (excluded at ingestion) |
+| Gaelic Football | in | none identified (GAA pages are HTML) | no — listed as in scope, not priced |
+| Soccer/Football, American Football, Boxing, UFC/MMA, Hurling, Horse Racing, Cycling, Specials | out | — | no (excluded at ingestion) |
 
 "None identified" is a statement about this pipeline's verified integrations, not a claim that no
 such API exists. Those sports are marked *not ingested* on the dashboard rather than filled from an

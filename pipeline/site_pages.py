@@ -777,9 +777,15 @@ def render_methodology(ctx: dict) -> str:
         "written predictions — and what it deliberately refuses to do.</p></div>",
         '<div class="card"><h2>1. Scope</h2>'
         "<p>The owner excluded soccer/association football, American football, boxing, UFC/MMA, "
-        "hurling, Gaelic football, horse racing, cycling and specials. Gaelic football is treated as "
-        "out of scope because the exclusion list names both football and hurling. Only sports with an "
-        "official, machine-readable league feed are ingested: the NBA, NHL and MLB.</p>"
+        "hurling, horse racing, cycling and specials. Gaelic football stays in scope: hurling was "
+        "named separately, and Gaelic football is only held out of the priced set because no "
+        "official machine-readable GAA feed was identified. Only sports with an official, "
+        "machine-readable league feed are ingested: the NBA, NHL and MLB.</p>"
+        "<h3>When a league is listed but not priced</h3>"
+        f"<p>If the per-team sample is below {config.MIN_GAMES_FOR_MARKETS} completed games, the "
+        "fixture keeps its record and official source link but no market and no pick is published. "
+        "The row is labelled <em>withheld</em> and the reason is written into it. A line built on a "
+        "handful of games is a guess with a decimal point on it.</p>"
         "<h3>Why not every OLBG sport?</h3><p>A row is only published if it has a source link on an "
         "official league domain. Tennis, cricket, rugby, golf, darts and snooker do not expose a "
         "public official fixture/results API we can verify against, so they are listed as "

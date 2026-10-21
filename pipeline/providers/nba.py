@@ -40,16 +40,21 @@ def load_schedule() -> dict:
         return _SCHEDULE_CACHE["payload"]
     errors = []
     for url in SCHEDULE_CANDIDATES:
-        try:
-            payload = http.fetch_json(url, headers=BROWSER_HEADERS, cache_seconds=900)
-        except Exception as exc:  # noqa: BLE001
-            errors.append(f"{url}: {type(exc).__name__}: {exc}")
-            continue
-        if _looks_like_schedule(payload):
-            _SCHEDULE_CACHE["payload"] = payload
-            _SCHEDULE_CACHE["url"] = url
-            return payload
-        errors.append(f"{url}: response was not a schedule")
+        for transport in ("urllib", "curl"):
+            try:
+                if transport == "urllib":
+                    payload = http.fetch_json(url, headers=BROWSER_HEADERS, cache_seconds=900)
+                else:
+                    payload = http.fetch_json_curl(url, headers=BROWSER_HEADERS)
+            except Exception as exc:  # noqa: BLE001
+                errors.append(f"{url} [{transport}]: {type(exc).__name__}: {exc}")
+                continue
+            if _looks_like_schedule(payload):
+                _SCHEDULE_CACHE["payload"] = payload
+                _SCHEDULE_CACHE["url"] = url
+                _SCHEDULE_CACHE["transport"] = transport
+                return payload
+            errors.append(f"{url} [{transport}]: response was not a schedule")
     raise RuntimeError("no official NBA schedule source available — " + " | ".join(errors))
 
 
@@ -194,7 +199,10 @@ def fetch_fixtures(start: datetime, end: datetime, now: datetime) -> tuple[list[
                 source_urls=[f"https://www.nba.com/games?date={day}", game_url],
             )
         )
-    return fixtures, [_SCHEDULE_CACHE.get("url", SCHEDULE_URL)]
+    return fixtures, [
+        f'{_SCHEDULE_CACHE.get("url", SCHEDULE_URL)} '
+        f'(transport: {_SCHEDULE_CACHE.get("transport", "urllib")})'
+    ]
 
 
 def _league_gamelog(season: str) -> list[dict]:
@@ -208,7 +216,10 @@ def _league_gamelog(season: str) -> list[dict]:
         SeasonType="Regular Season",
         Sorter="DATE",
     )
-    payload = http.fetch_json(url, headers=STATS_HEADERS)
+    try:
+        payload = http.fetch_json(url, headers=STATS_HEADERS)
+    except Exception:  # noqa: BLE001 - retry once with a different TLS client
+        payload = http.fetch_json_curl(url, headers=STATS_HEADERS)
     result_sets = payload.get("resultSets") or []
     if not result_sets:
         raise RuntimeError("leaguegamelog returned no resultSets")

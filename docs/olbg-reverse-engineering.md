@@ -87,8 +87,8 @@ not by start time — an important trap when reconstructing a schedule.
    `MIL Bucks @ WAS Wizards` on 21 Oct 2026 appears both in OLBG's listing and in the NBA schedule
    feed at 23:10Z (19:10 ET).
 6. **The exclusion list is not an OLBG category.** OLBG groups sports its own way; the owner's
-   exclusions (soccer, American football, boxing, UFC/MMA, hurling, Gaelic football, horse racing,
-   cycling, specials) had to be applied on top of OLBG's taxonomy.
+   exclusions (soccer, American football, boxing, UFC/MMA, hurling, horse racing, cycling,
+   specials) had to be applied on top of OLBG's taxonomy. Gaelic football is not excluded.
 
 ## 5. What we did with it
 
@@ -101,8 +101,9 @@ not by start time — an important trap when reconstructing a schedule.
 
 ## 6. Open questions for review
 
-* Gaelic football is treated as out of scope because the owner excluded both "football" and
-  "hurling". If Gaelic football should be included, this is the decision to revisit.
+* Gaelic football is in scope; it is listed as not priced only because no official
+  machine-readable GAA feed was identified. This was corrected after an earlier over-broad
+  reading of the exclusion list.
 * The Ice Hockey and Baseball OLBG sport ids were not captured in this session; the dashboard marks
   them as not captured rather than guessing.
 * OLBG's own competition coverage inside basketball is wider than the NBA. Expanding official-feed

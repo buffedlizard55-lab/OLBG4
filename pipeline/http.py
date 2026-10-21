@@ -119,6 +119,51 @@ def fetch_bytes(url: str, headers: dict | None = None, cache_seconds: int = 0) -
     raise RuntimeError(f"Failed to fetch {url}: {last_err}")
 
 
+def fetch_json_curl(url: str, headers: dict | None = None, timeout: int = 45):
+    """Fetch JSON with the system curl.
+
+    Some league edges (notably cdn.nba.com) fingerprint the TLS client and reject Python's
+    ssl stack with 403 no matter which headers are sent. curl negotiates HTTP/2 and a
+    different TLS profile, so it is kept as an explicit fallback: the caller tries urllib
+    first, and only falls back when the response was refused. Every attempt is logged.
+    """
+    import subprocess
+
+    hdrs = {
+        "User-Agent": config.USER_AGENT,
+        "Accept": "application/json, text/plain, */*",
+    }
+    if headers:
+        hdrs.update(headers)
+    cmd = ["curl", "-sS", "-L", "--compressed", "--http2", "--max-time", str(timeout)]
+    for key, value in hdrs.items():
+        cmd += ["-H", f"{key}: {value}"]
+    cmd.append(url)
+    proc = subprocess.run(cmd, capture_output=True)
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    if proc.returncode != 0 or not proc.stdout:
+        detail = (proc.stderr or b"").decode("utf-8", "replace").strip()[:200]
+        FETCH_LOG.append(
+            {"url": url, "status": None, "transport": "curl",
+             "error": f"curl exit {proc.returncode}: {detail}", "retrieved_utc": now}
+        )
+        raise RuntimeError(f"curl failed for {url}: exit {proc.returncode} {detail}")
+    payload = proc.stdout
+    status = 200
+    FETCH_LOG.append(
+        {
+            "url": url,
+            "status": status,
+            "bytes": len(payload),
+            "sha256": hashlib.sha256(payload).hexdigest(),
+            "cached": False,
+            "transport": "curl",
+            "retrieved_utc": now,
+        }
+    )
+    return json.loads(payload.decode("utf-8", "replace"))
+
+
 def fetch_json(url: str, headers: dict | None = None, cache_seconds: int = 0):
     payload = fetch_bytes(url, headers=headers, cache_seconds=cache_seconds)
     return json.loads(payload.decode("utf-8", "replace"))
