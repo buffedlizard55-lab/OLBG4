@@ -428,7 +428,10 @@ def main(argv: list[str] | None = None) -> int:
             {"market": p["market"], "selection": p["selection"], "id": p["fixture_id"] + ":" + p["market"]}
             for p in preds
         ]
-        row["analysis"]["rationale"] = predictions.short_rationale(row["fixture"], row["analysis"])
+        if row["analysis"].get("market_status") != "withheld":
+            row["analysis"]["rationale"] = predictions.short_rationale(
+                row["fixture"], row["analysis"]
+            )
 
     verification = verify.summary(findings, kept_fixtures, analysis_rows, prediction_rows)
 

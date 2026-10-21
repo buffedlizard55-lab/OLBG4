@@ -89,7 +89,9 @@ WINDOW_DAYS = int(os.environ.get("OLBG_WINDOW_DAYS", "7"))
 TRAINING_LOOKBACK_DAYS = {
     "basketball": 420,
     "ice_hockey": 420,
-    "baseball": 240,
+    # 620 days covers the completed season plus the one before it, which is what the
+    # opening line is built from.
+    "baseball": 620,
 }
 
 # ---------------------------------------------------------------------------
