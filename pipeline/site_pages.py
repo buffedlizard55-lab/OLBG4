@@ -904,7 +904,7 @@ def render_olbg(ctx: dict) -> str:
     return layout("OLBG reverse-engineering", "olbg", "".join(body), ctx["snapshot"])
 
 def render_review(ctx: dict) -> str:
-    from .review import IRREGULARITIES, REVIEW_ITEMS
+    from .review import IRREGULARITIES, REVIEW_ITEMS, SPOT_CHECKS
 
     badges = {
         "matches": '<span class="badge ok">matches</span>',
@@ -942,6 +942,19 @@ def render_review(ctx: dict) -> str:
         '<div class="section"><h2>Review log</h2>'
         + table([("Module", ""), ("Claim", ""), ("What was checked", ""), ("Official source", ""),
                  ("Outcome", "")], rows)
+        + "</div>",
+        '<div class="section"><h2>Row-level spot checks</h2>'
+        '<p class="lead">Published fixture rows re-opened against the live official endpoint while '
+        "this page was built. Times are UTC, exactly as stored.</p>"
+        + table([("Fixture id", ""), ("What we publish", ""), ("What the official feed says", ""),
+                 ("Official link", ""), ("Verdict", "")],
+                [f'<tr><td class="mono small">{esc(x["fixture"])}</td>'
+                 f'<td class="small">{esc(x["published"])}</td>'
+                 f'<td class="small">{esc(x["match"])}</td>'
+                 f'<td class="small"><a href="{esc(x["official"])}" target="_blank" '
+                 f'rel="noopener noreferrer">{esc(x["official"])}</a></td>'
+                 f'<td><span class="badge ok">{esc(x["verdict"])}</span></td></tr>'
+                 for x in SPOT_CHECKS])
         + "</div>",
         '<div class="section"><h2>Irregularities found and handled</h2>'
         '<div class="card"><ul class="clean">' + irregular + "</ul></div>"

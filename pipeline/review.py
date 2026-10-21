@@ -210,6 +210,51 @@ REVIEW_ITEMS = [
     },
 ]
 
+SPOT_CHECKS = [
+    {
+        "fixture": "mlb-849805",
+        "published": "Tampa Bay Rays @ Milwaukee Brewers, 2026-10-24T00:00:00Z, "
+                     "American Family Field, records 98-64 / 103-59",
+        "official": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-24",
+        "match": "gamePk 849805, gameDate 2026-10-24T00:00:00Z, World Series Game 1, "
+                 "venue American Family Field, away Rays, home Brewers",
+        "verdict": "exact",
+    },
+    {
+        "fixture": "mlb-849802",
+        "published": "Tampa Bay Rays @ Milwaukee Brewers, 2026-10-25T00:00:00Z, "
+                     "American Family Field",
+        "official": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-25",
+        "match": "gamePk 849802, gameDate 2026-10-25T00:00:00Z, World Series Game 2",
+        "verdict": "exact",
+    },
+    {
+        "fixture": "mlb-849804",
+        "published": "Milwaukee Brewers @ Tampa Bay Rays, 2026-10-27T00:00:00Z, "
+                     "Tropicana Field",
+        "official": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-26&endDate=2026-10-27",
+        "match": "gamePk 849804, gameDate 2026-10-27T00:00:00Z, World Series Game 3",
+        "verdict": "exact",
+    },
+    {
+        "fixture": "nhl-2026020166",
+        "published": "Montréal Canadiens @ Chicago Blackhawks, 2026-10-24T00:00:00Z, "
+                     "United Center",
+        "official": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "match": "id 2026020166, startTimeUTC 2026-10-24T00:00:00Z, venue United Center, "
+                 "gameCenterLink /gamecenter/mtl-vs-chi/2026/10/23/2026020166",
+        "verdict": "exact",
+    },
+    {
+        "fixture": "nhl-2026020167",
+        "published": "Tampa Bay Lightning @ Colorado Avalanche, 2026-10-24T01:00:00Z, "
+                     "Ball Arena",
+        "official": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "match": "id 2026020167, startTimeUTC 2026-10-24T01:00:00Z, venue Ball Arena",
+        "verdict": "exact",
+    },
+]
+
 IRREGULARITIES = [
     "NBA pre-season games were included in records and results until the 002-prefix filter "
     "was added; the affected snapshots were rebuilt.",
