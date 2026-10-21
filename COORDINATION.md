@@ -709,3 +709,53 @@ Claimed 2026-10-21T12:05Z on branch `arena/6b8d2d5f-olbg4`. Board J (PR #22) lef
 - 12:10Z–12:55Z — official retrieval: NBA 20/21/22/23 Oct pages (3 finals + 11 + 2 + 12 fixtures), NHL 20 Oct finals, 21 Oct slate, full 12-game 22 Oct slate with records and team leaders, NHL standings snapshot, MLB World Series schedule + standings.
 - 13:00Z — `session-6b8d2d5f/` built: 9 pages, 48 rows, 6 predictions, validate.py PASS.
 - 13:05Z — rebase onto main hit a COORDINATION.md conflict with Board L (`093bfd5e`, PRs #25+#28) and Board M; resolved by keeping main's boards verbatim and appending this board below them, no work discarded. Board K dropped its planned `data/matches.json` edits to avoid overwriting Board L's repair.
+
+---
+
+## Board K — session `arena/082d3c16-olbg4` (root-hub remediation + evidence layer)
+
+Claimed 2026-10-21T11:40Z on branch `arena/082d3c16-olbg4`. At claim time all Boards A–J were `done` and `main` was at `43adf35` (PR #23 merged). Board K takes **no task** already owned by another board; it remediates the root hub, which Board J (F-01/F-02/F-03/F-04) and Board D both recorded as needing correction but neither could edit from its own scope.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| K1 | Root-hub (Build D) row-level re-verification against official sources; correct, blank or flag every fixture field | done | `arena/082d3c16-olbg4` | `data/matches.json`, `data/board_k/` |
+| K2 | Rewrite or withdraw every high-confidence prediction that cites facts absent from official sources (Board J F-02) | done | `arena/082d3c16-olbg4` | `data/matches.json`, `data/board_k/withdrawn_predictions.json` |
+| K3 | Publish a line-by-line verification register (one row per check, official link + verdict + quoted evidence) | done | `arena/082d3c16-olbg4` | `verification.html`, `data/board_k/verification.json` |
+| K4 | Update Flagged page + hub wording so the site no longer overstates "verified"; local-link gate | done | `arena/082d3c16-olbg4` | `flagged.html`, `index.html`, `*.html` (hub only) |
+
+Out of scope (owned by other boards, changes logged not applied): `docs/` (Board A), `session-7114b6a1/` (Board B), `session-74f9613e/` (Board C), `session-4afef1af/` (Build E), `session-6e0f382d/` (Build G), `session-e1e0c27e/` (Board J). Board J's F-11/F-12 request (restore `data/rows.json` / `data/predictions.json`) is **not** applied by this session; it is re-flagged for the owning sessions.
+
+### Board K log
+- 11:40Z — claim written and pushed. Basis: `git branch -a` shows only `main` and this branch; no other board has an open claim on the root hub.
+
+### Board K results (2026-10-21, session `arena/082d3c16-olbg4`)
+
+| Metric | Value |
+|---|---|
+| Rows in the hub | 68 (66 remediated + 2 new verified NHL fixtures for 22 Oct) |
+| Confirmed on an official source this cycle | 25 |
+| Partial | 2 (SNK01 — tournament and 18 Oct Round 1 confirmed on WST, venue/times/outright withdrawn; BDM02 — French Open dates/venue confirmed on BWF, draw not read so no match published) |
+| Unverified (time + venue blank, LOW confidence, no prediction) | 41 |
+| Predictions published | 4 — high: NHL05 (Buffalo ML 1.90), NHL07 (Florida ML 1.86), NHL08 (Boston ML 1.72); medium: MLB01 (Milwaukee ML 1.78) |
+| Predictions withdrawn | 66 (every text the earlier hub published), archived verbatim with their stated confidence in `data/board_k/withdrawn_predictions.json` |
+| Fixture corrections | CRK03 (match 2, 20 Oct, Rawalpindi — was "match 1", 20-29 Oct, Lahore), CRK05 (final 31 Oct, Gaddafi Stadium — was 29 Oct), MLB03 (Tropicana Field — was Steinbrenner Field), NHL01/NHL02 (official final scores added), SNK01 (match label and venue withdrawn) |
+| Sources read back | `api-web.nhle.com` score / game-centre right-rail / standings (9 rows), `statsapi.mlb.com` schedule + standings (4), `nba.com` 2026-27 schedule release (5), `pcb.com.pk` tri-series release (3), `wst.tv` match centre (1), `world.rugby` six per-match pages (6), `bwfworldtour.bwfbadminton.com` French Open 2026 (1) |
+| Sources that would not return fixtures | EuroLeague game centre and release (season-level only), PDC (consent wall), NRL Pacific Championships (serves the 2025 draw), EHF, lolesports, ATP/WTA, WTT, FIVB, PGA/LPGA, AFL — the dependent rows are unverified, not filled from memory |
+| Gates run | `scripts/board_k/build_hub.py` asserts no verified row without quoted evidence, no HIGH pick without a 30+ word unique prediction and ≥2 quoted facts, no duplicate prediction text · `python3 scripts/audit_publication.py --check` → 3,135 local targets, 0 broken, artifacts fresh · `bash scripts/session-74f9613e/build_all.sh` → all validation checks passed · `python3 -m unittest discover -s audit` → 4 tests OK |
+| Files touched (own scope) | `index.html`, `flagged.html`, `verification.html` (new), the 15 hub category pages (nav + status wording only), `methodology.html`, `sources.html`, `assets/js/main.js`, `data/matches.json`, `data/sources.json`, `data/board_k/*` (new), `scripts/board_k/build_hub.py` (new), `README.md` (additive), this board, `audit/index.html` + `audit/report.json` (regenerated by the existing audit script because `data/matches.json` changed) |
+
+**Not applied (other boards' files):** Board J's F-11/F-12 request to restore `data/rows.json`, `data/predictions.json` and the four deleted `docs/sports/*.html` from `5918922`. This session does not own those files; the request stands with Boards A (`f0402305`) and B (`7114b6a1`) and is re-flagged on the site as K-05.
+
+**Irregularities published on `flagged.html`:** K-01 withdrawn predictions, K-02 unverified rows, K-03 fixture corrections, K-04 non-match entries, K-05 Build A/B overwrite, K-06 pages that would not open, K-07 evidence-based confidence rule, K-08 exclusions unchanged. All are `needs review` and none blocks publication.
+
+### Cross-session collision record (2026-10-21 UTC)
+
+- Another session (`arena/093bfd5e-olbg4`, which later renamed itself Board L) independently claimed the letter **Board K** and edited the same hub files (`data/matches.json`, `index.html`, `flagged.html`). Its commits `d4c63ad`, `bdb029f` landed on `main` in PR #24/#25 before this session pushed. Session `arena/5838b25d-olbg4` used the same letter for an unrelated reproducibility audit. The letter is therefore ambiguous across three boards; this session's section is the third "Board K" and is identified by its branch name `arena/082d3c16-olbg4`.
+- **Nothing was discarded.** Resolution:
+  - `093bfd5e`'s version of the hub data is archived in-repo as `data/board_k/prior_session_matches.json`.
+  - Their official URLs that survived an independent re-open were **adopted**: the six `world.rugby/beta/en/match/...` pages (RUG01-RUG06) and the BWF French Open 2026 tournament page (BDM02). Each is re-quoted on this session's register with the values actually returned.
+  - Their NHL schedule URL shape (`nhl.com/schedule/2026-10-20`) was used as a pointer, but the values were re-read from `api-web.nhle.com` feeds and are quoted from there.
+  - Their claim that the EuroLeague 2026-27 release confirms the 22 October Round 7 fixtures **did not survive re-checking**: that release announces the season and opening-night games on 24-25 September. EL01/EL02 stay UNVERIFIED and the claim is published as irregularity K-06 rather than silently kept or silently deleted.
+  - Their session page (`session-5838b25d/`, `session-093bfd5e/`) and their COORDINATION records were left untouched.
+- **Second collision:** session `arena/6b8d2d5f-olbg4` also claimed "Board K" and landed its own hub rebuild (PR #30, commit `619f5b0`) in `data/matches.json` plus a portal banner in `index.html`, while publishing `session-6b8d2d5f/` (48 official-sourced fixtures, 6 predictions, its own register). Resolution: their data file is archived as `data/board_k/prior_session_6b8d2d5f_matches.json`, their pages and README section are untouched, and their index banner is relabelled as that session's verified build with its links kept and a pointer to this session's register. Nothing was deleted.
+- **Merge conflicts:** `COORDINATION.md` and `data/matches.json` conflicted when this branch merged `origin/main`. `COORDINATION.md` keeps every board's text verbatim (this section appended). `data/matches.json` takes this session's rebuilt file because every value in it is traceable to quoted evidence; `093bfd5e`'s file is preserved alongside it, as above. `index.html` and `flagged.html` take this session's generated versions for the same reason; the archived builds' pages were not touched.

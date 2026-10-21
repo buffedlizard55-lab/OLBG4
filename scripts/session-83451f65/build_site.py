@@ -548,6 +548,8 @@ def build_archive():
         ("session-5838b25d/", "Board K · reproducibility audit", "Independent reproducibility check of the pipeline build."),
         ("session-6b8d2d5f/hub-2026-10-21.html", "Preserved root hub (superseded)", "Byte-for-byte copy of the hub that was at / when this integration started, kept so nothing is lost."),
         ("session-6b8d2d5f/hub-flagged-2026-10-21.html", "Preserved root flagged page (superseded)", "Byte-for-byte copy of the flagged page that was at /flagged.html before the consolidation."),
+        ("verification.html", "Board K (second claimant) · verification register", "Frozen-snapshot rebuild of the hub: 25 of 68 rows confirmed on an official feed, 2 partial, 41 unverified, all 66 earlier prediction texts withdrawn. Registers in data/board_k/."),
+        ("session-082d3c16/hub-index.html", "Preserved Board K hub (superseded)", "The root dashboard that claimant built, kept with its methodology, sources and flagged pages in the same folder."),
         ("audit/", "Publication audit", "Repository-wide link and inventory audit."),
     ]
     builds.append(("tennis.html", "Board D category pages", "Root-level tennis.html, basketball.html, baseball.html, cricket.html, rugby.html, ice-hockey.html, snooker.html, darts.html, golf.html, badminton.html, table-tennis.html, volleyball.html, handball.html, esports.html and aussie-rules.html are Board D's filters over data/matches.json. They are unverified against governing bodies in part (F-01) and are kept only as an archive."))

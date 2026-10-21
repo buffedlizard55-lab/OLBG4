@@ -1,75 +1,37 @@
 # OLBG4 — verified fixtures, our own lines, one official source per row
 
-**Live site:** https://buffedlizard55-lab.github.io/OLBG4/
-**Data cut-off:** 2026-10-21T08:00Z · **Window:** 21–31 October 2026
-**Session:** `arena/83451f65-olbg4` (final integration — Board K)
 
 The repository root is now a single verified line desk. Every published row was read on a
 governing-body, league or tournament-organiser domain, priced by our own model, and given a
 confidence grade; each row carries the exact source URL it came from. Nothing is inferred: where an
 official page is silent the cell is blank, and the gap is published on the Flagged page.
 
-| | |
-|---|---|
-| Verified fixtures | **75** across **6 sports** (Ice Hockey 14, Basketball 36, Baseball 7, Rugby Union 5, Handball 5, Snooker 8) |
-| Our own lines | match winner on 67 rows, handicap on 21, match total on 69 (declared constants, symmetric 1.92) |
-| Picks | 67 match-winner picks; 8 snooker selections deliberately withheld (no verified form field) |
-| Confidence | 4 High · 13 Medium · 58 Low — thresholds published in `methodology.html` |
-| High-confidence write-ups | **4**, 108–127 words each, unique, every factual clause linked |
-| Flagged for review | **14** items, including 13 in-scope sports with no published row this cycle |
-| Inferred values | **0** |
-
-### Pages
-
-- `index.html` — dashboard: KPIs, category cards, highest-confidence picks
-- `entries.html` — all 75 rows, filterable by sport / confidence / pick availability
-- `sports/<sport>.html` — one category page per published sport
-- `predictions.html` — the four high-confidence write-ups with their fact lists
-- `analysis.html` — distribution by sport, biggest model edges, honest reading of the dataset
-- `coverage.html` — every sport in the brief, what was published and what happened to the rest
-- `flagged.html` — irregularities, assumptions and unverified items, with links
-- `methodology.html` — formulas, constants, confidence rules
-- `sources.html` — the exact URLs opened, what was checked on each, what it produced
-- `archive.html` — every earlier build in this repo, still published, clearly labelled
-
-### Data and pipeline
-
-```
-data/integrated/inputs.json        fixtures transcribed from official pages (the only input)
-data/integrated/entries.json       our lines, picks, confidence, market status (model.py output)
-data/integrated/predictions.json   the high-confidence write-ups + per-claim source URLs
-data/integrated/coverage.json      per-sport coverage decision + source
-data/integrated/findings.json      the Flagged-for-review register
-data/integrated/sources.json       source registry and official-domain allowlist
-scripts/session-83451f65/          transcribe_inputs.py -> model.py -> build_site.py -> verify.py
-.github/workflows/verify-integrated.yml   rebuilds and re-verifies on every push
-```
-
-Run it yourself:
-
-```bash
-python3 scripts/session-83451f65/transcribe_inputs.py
-python3 scripts/session-83451f65/model.py
-python3 scripts/session-83451f65/build_site.py
-python3 scripts/session-83451f65/verify.py     # 366 checks, exits non-zero on any failure
-```
-
-`verify.py` enforces: every row on an official domain · no excluded sport anywhere · prices equal
-1/(p·1.02) · probabilities sum to 1 · High grades have >=8 verified games both sides · one unique
->=30-word write-up per High row · no broken internal link · no `TODO` placeholder.
-
-### Why this replaced the old root hub
-
-An independent audit committed in this repo (`session-e1e0c27e/`) found 26 of the old hub's 66 rows
-marked `verified:true` with only secondary sources, high-confidence predictions contradicted by
-NHL.com/MLB.com/NRL.com, and two builds' data files overwritten by a later commit. Rather than
-inherit those rows, this build re-read everything from the governing bodies and keeps the earlier
-dashboards published under Archive with a warning. Full detail: `flagged.html` (F-01, F-02, F-03, F-14).
 
 ---
 
 ## Earlier builds (kept, unverified by this session)
 
+## Parallel final-integration attempts (kept, superseded at the root)
+
+Two other sessions reached the integration step at the same time and their work is preserved rather than deleted:
+
+- **Build K2 — `session-6b8d2d5f/`** — 48 official-sourced fixtures, 6 predictions, 11 findings; its hub and flagged
+  pages are kept byte-for-byte as `session-6b8d2d5f/hub-2026-10-21.html` and `hub-flagged-2026-10-21.html`.
+- **Board L — `session-093bfd5e/`** — re-checked all 66 hub rows and downgraded 19 to unverified+flagged.
+- **Board K (second claimant, `arena/082d3c16-olbg4`)** — rebuilt the hub from a frozen snapshot with an evidence
+  register: it reported 25 of 68 rows CONFIRMED on an official feed, 2 partial and 41 UNVERIFIED, withdrew all 66
+  previous prediction texts and published 3. Its pages are preserved under `session-082d3c16/`, its registers under
+  `data/board_k/` and its dashboard at `verification.html`.
+
+Their root `index.html`/`methodology.html`/`sources.html`/`flagged.html` were replaced by this build's pages, because
+the brief gives the root landing to the final integration session; copies of the incoming versions are in the folders
+above and every one of their data files is untouched.
+
+**Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
+**Data cut-off:** 2026-10-21 (UTC)  
+**Hub status after the 2026-10-21 remediation (Board K):** the root dashboard (`/`) was rebuilt from a frozen snapshot plus recorded evidence. Of 68 rows, **25 are CONFIRMED** against an official league or governing-body feed with the returned values quoted on `verification.html`, 2 are partial and **41 are UNVERIFIED** (time and venue blank, pick retained only as model output at LOW confidence, no prediction). All 66 previously published prediction texts were withdrawn; 3 high-confidence predictions are published, each requiring verified form on both sides. Nothing was promoted to fill a quota. See `data/board_k/evidence.json` (what was checked), `data/board_k/verification.json` (the register), `data/board_k/withdrawn_predictions.json` (the archive) and `verification.html`.
+
+**Branches merged to `main`:** `arena/f0402305-olbg4` (A), `arena/7114b6a1-olbg4` (B), `arena/74f9613e-olbg4` (C), `arena/290a9dba-olbg4` (D — final hub)
 > Two sessions reached the integration step at the same time (Board K `arena/83451f65-olbg4` and Build K2
 > `session-6b8d2d5f`). The root site is Board K's consolidated line desk; Build K2's dashboard stays published at
 > `session-6b8d2d5f/`, and its hub/flagged pages are preserved byte-for-byte in that folder. See COORDINATION.md.
@@ -253,3 +215,22 @@ Data curated from official public sources (linked per row). Code MIT-equivalent 
 
 ## Board F — independent audit (`session-07a080b9/`)
 Re-runnable line-by-line audit of Builds A–E: `python3 session-07a080b9/audit.py` → `session-07a080b9/index.html` + `audit.json`. Result 2026-10-21: D 66 rows/15 high (min 68 words), A 144, B 116/9 predictions (min 103 words per B gate), C 43/182 selections/10 predictions, E 90 fixtures/18 predictions; 87 HTML files, 1,576 internal links, **0 broken**; only open items are the 2 Gaelic rows in Build A (WARN, already flagged by Build B — published, non-blocking).
+
+
+## Board K — root-hub remediation and verification register (2026-10-21)
+
+The hub had been published as "66 entries, governing-body verified" with 15 high-confidence predictions. Board J's audit showed that 26 rows had no official link and that several predictions were contradicted by NHL.com, MLB.com and NRL.com. This session remediated the hub rather than adding another build.
+
+| What changed | Detail |
+|---|---|
+| Rows | 66 → 68 (two NHL fixtures for 22 Oct added, each verified) |
+| Verified status | 25 confirmed on an official source, 2 partial, 41 unverified |
+| Predictions | 66 withdrawn, 4 published (3 high confidence: NHL05, NHL07, NHL08; 1 medium: MLB01) |
+| Corrections | CRK03 match number/date/venue, CRK05 final date, MLB03 venue, NHL01/NHL02 official results |
+| New page | `verification.html` — line-by-line register with quoted evidence and the official URL for every row |
+| New data | `data/board_k/evidence.json`, `data/board_k/verification.json`, `data/board_k/withdrawn_predictions.json`, `data/board_k/base_matches.json` |
+| New script | `scripts/board_k/build_hub.py` (rebuilds `data/matches.json`, the register, `verification.html`, `flagged.html`) |
+
+Evidence came from `api-web.nhle.com` (score, game-centre right-rail, standings), `statsapi.mlb.com` (schedule, standings), `nba.com` (2026-27 schedule release), `pcb.com.pk` (ODI tri-series release), `wst.tv` (match centre), `world.rugby` (six per-match pages) and `bwfworldtour.bwfbadminton.com` (French Open 2026). Ten other official pages — EuroLeague, PDC, NRL, World Rugby, ATP, BWF, WTT, FIVB, EHF, lolesports, PGA/LPGA, AFL — either rendered as navigation shells, sat behind consent walls or served an earlier season; the rows that depend on them are published as unverified instead of being given a value from memory.
+
+Rebuild: `python3 scripts/board_k/build_hub.py`. The script asserts that no row is marked verified without a quoted evidence line, that no HIGH pick lacks a 30+ word unique prediction and two quoted facts, and that no prediction text is duplicated.
