@@ -349,6 +349,16 @@ Published alongside the integrated line desk that serves `/`:
 - `dashboard-board-k.html` — the Board K dashboard built directly from `data/matches.json` (3 high + 2 medium write-ups).
 - `data/board_k/` — `evidence.json`, `verification.json`, `withdrawn_predictions.json`, plus archives of the other sessions' hub data files.
 
+## Board N desk — 108 official-source fixtures with originated lines (session `arena/8070bc18-olbg4`)
+
+Published at **https://buffedlizard55-lab.github.io/OLBG4/docs/desk/** and also linked from the root dashboard.
+
+- `docs/desk/` — overview, one page per sport, the full pick list, five written High-confidence predictions, coverage, methodology, sources and a **Flagged for Review** page. Filterable tables, 208 internal links checked at build time.
+- 108 fixtures in 21–27 Oct 2026 across six sports (NHL 33, NBA 40, MLB World Series 4, PDC 16, EHF Champions League 5, WST Northern Ireland Open 10). Every row cites the official league or governing-body page it was read from; no bookmaker or OLBG price is read anywhere.
+- Lines are originated here: moneyline for all 108 rows; handicap and total for NHL only, where the official standings supply each club's goals for and against. Every other market is blank and names the missing input.
+- Confidence is High / Medium / Low with a stated rule, and the five High rows each carry a unique 94–119 word prediction with its verified facts listed underneath.
+- `data/session-8070bc18/desk.json` is the machine-readable dataset; rebuild with `python3 scripts/session-8070bc18/build.py` (it re-runs five validation checks and a 208-link crawl and fails on a regression).
+
 ---
 
 ## Board Q — Complete 28-Slot OLBG Reverse-Engineering, 268-Event All-17-Sport Multi-Market Desk & 618-Row Repo Review (`session-ee9c2db4/`)
