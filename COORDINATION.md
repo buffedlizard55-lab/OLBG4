@@ -587,3 +587,6 @@ Claimed 2026-10-21 UTC after reading the shared task board. All earlier publishe
 - **PR #25** https://github.com/buffedlizard55-lab/OLBG4/pull/25 — MERGED to `main` 2026-10-21T07:11:15Z (merge required resolving a COORDINATION.md conflict with session 5838b25d, which had independently taken the letter Board K; both records retained, this session renamed Board L — no work discarded).
 - **Pages:** `Deploy OLBG4 to GitHub Pages` + `Validate data and site` + publication-audit runs for the PR #25 merge all completed **success**; Pages API status `built`; live check 2026-10-21 confirmed https://buffedlizard55-lab.github.io/OLBG4/session-093bfd5e/ renders (66 rows, 47 official-source, 30 verified, 36 flagged, 15 high picks min 68 words). Hub: https://buffedlizard55-lab.github.io/OLBG4/ · Flagged: https://buffedlizard55-lab.github.io/OLBG4/flagged.html
 - Flagged irregularities remain published and non-blocking as listed in the Board L completion record above.
+
+<!-- merge: both records retained, nothing discarded -->
+- **Publication:** PR #24 https://github.com/buffedlizard55-lab/OLBG4/pull/24 — merged to `main` at 2026-10-21T07:10:06Z as `a8aecc24c1b6186bdab30f9766074477b0c70365`; both PR checks passed. GitHub Pages deploy run 39560108376 completed successfully (build and deploy) for that merge commit.
