@@ -1,4 +1,4 @@
-# OLBG4 — Reverse Engineered OLBG.com (Four Verified Builds)
+# OLBG4 — Reverse Engineered OLBG.com (Five Verified Builds)
 
 **Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
 **Data cut-off:** 2026-10-21 (UTC)  
@@ -62,6 +62,24 @@ Four independent, verified builds live in this repo. All are published from the 
 - High-confidence: 15 entries, each 68-105 words, unique, include team+player+form+H2H+clear selection
 
 ---
+
+## Build E — `session-4afef1af/` (refreshable pipeline, 90 fixtures)
+
+The only build that refreshes itself. `pipeline/` pulls fixtures and results from
+`cdn.nba.com`, `api-web.nhle.com` and `statsapi.mlb.com`, fits margin and total ratings, and
+originates three market families per fixture (match winner, handicap, match total, with two
+alternate lines each). Every six hours the `Ingest, verify, publish` workflow re-runs the
+pipeline and commits the refreshed snapshot.
+
+- 90 fixtures in the 21–28 Oct window: NBA 50, NHL 37, MLB 3.
+- 40 priced (NHL 37, MLB 3) with 120 market families and 78 graded picks (18 high / 37 medium / 23 low).
+- 18 written predictions, 38–60 words, 0 withdrawn, max pairwise similarity 0.483.
+- 4 findings: 1 warning + 3 informational. 0 rows excluded, 0 hard failures.
+- NBA opening week: only 3 completed regular-season games and no reachable prior-season archive,
+  so its 50 fixtures are listed with records and sources but **no markets and no pick**. The
+  dashboard says so on every affected row.
+- Review page: 20 module claims checked against official endpoints, 5 row-level spot checks
+  re-opened live, 9 irregularities found and handled.
 
 ## Scope & exclusions (per brief)
 

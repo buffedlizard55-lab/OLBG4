@@ -1,0 +1,85 @@
+name: Ingest, verify, publish
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+  push:
+    branches:
+      - main
+      - arena/4afef1af-olbg4
+    paths:
+      - "pipeline/**"
+      - ".github/workflows/olbg.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: olbg-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Offline self-test
+        run: |
+          set -o pipefail
+          python -m pipeline.selftest 2>&1 | tee /tmp/pipeline.log
+
+      - name: Probe official endpoints
+        run: python -m pipeline.probe
+
+      - name: Ingest, originate, verify, build
+        id: pipeline
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python -m pipeline.run --strict 2>&1 | tee -a /tmp/pipeline.log
+
+      # Commit whatever the run produced, and the log when it failed, so a red build is
+      # still diagnosable from the repository. Pushes are retried after a rebase because
+      # another session may have landed a commit while this job was running.
+      - name: Commit snapshot
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "olbg-pipeline"
+          git config user.email "actions@users.noreply.github.com"
+          mkdir -p .ci
+          cp /tmp/pipeline.log .ci/last-run.log 2>/dev/null || true
+          git add -A session-4afef1af .ci
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          if [ "${{ steps.pipeline.outcome }}" = "failure" ]; then
+            MSG="ci: snapshot + failure log $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          else
+            MSG="chore(snapshot): refresh official-data snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          fi
+          git commit -m "$MSG"
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin "${{ github.ref_name }}" && break
+            sleep 3
+          done
+          git push && echo "pushed"
+
+      - name: Fail the job when the pipeline failed
+        if: steps.pipeline.outcome == 'failure'
+        run: |
+          echo "pipeline step failed; see .ci/last-run.log" >&2
+          tail -n 40 .ci/last-run.log >&2 || true
+          exit 1

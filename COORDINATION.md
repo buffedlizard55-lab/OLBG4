@@ -209,3 +209,77 @@ Resolution (no work discarded — four-build repo):
   * `/session-74f9613e/predictions.html` → all 10 write-ups, each followed by its verified-fact list and source links
   * `/session-74f9613e/flagged.html` → 11 unpriced fixtures with the missing input named per row, plus 53 inventory rows whose "official source" column links the fixture page
 * **Constraint recorded**: `PUT /repos/…/pages {build_type: workflow}` returns **403 Resource not accessible by integration** with this token, so Pages is published by the legacy branch build from `main` / and the Actions workflow is a validation gate only.
+
+---
+
+## Board E — session `arena/4afef1af-olbg4` (refreshable pipeline desk)
+
+Claimed at 05:21Z on branch `arena/4afef1af-olbg4` and published with the first push (`0720e29`).
+This is the automated counterpart to boards A–D: no hand-transcribed rows, every value read from a
+league-owned endpoint at build time, verified by code rather than prose, and re-run every six hours.
+Scope is disjoint from A–D: `pipeline/**`, `.github/workflows/olbg.yml`, `docs/methodology.md`,
+`docs/sources.md`, `docs/olbg-*.md`, `pipeline/review.py` and the `session-4afef1af/` namespace.
+The only shared-file edits are additive: one portal card in the root `index.html`, one README
+section and this board.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| E1 | OLBG reverse-engineering: URL grammar, sport ids, page anatomy, robots policy | done | `4afef1af` | `docs/olbg-reverse-engineering.md`, `session-4afef1af/data/olbg-taxonomy.json` |
+| E2 | Official-feed providers (NBA, NHL, MLB) with per-row source URLs | done | `4afef1af` | `pipeline/providers/**` |
+| E3 | Ratings, opening line, empirical probabilities, line origination | done | `4afef1af` | `pipeline/model.py`, `pipeline/markets.py` |
+| E4 | Pick grading, confidence rubric, prediction writer + uniqueness lint | done | `4afef1af` | `pipeline/predictions.py` |
+| E5 | Verification gate: official-domain check, schema, ranges, window, lint | done | `4afef1af` | `pipeline/verify.py` |
+| E6 | Dashboard: overview, matches, picks, three league desks, markets, analysis, sources, methodology, OLBG note, flagged, review | done | `4afef1af` | `session-4afef1af/` |
+| E7 | Automation: probe + ingest + verify + build + commit, every six hours | done | `4afef1af` | `.github/workflows/olbg.yml` |
+| E8 | Line-by-line review log + row-level spot checks + irregularity register | done | `4afef1af` | `pipeline/review.py`, `session-4afef1af/review.html` |
+| E9 | Withholding floor: no market on a sample under 20 games per team | done | `4afef1af` | `pipeline/config.py`, `pipeline/run.py` |
+| E10 | Integration: portal card, PR, merge, Pages verification, this record | in progress | `4afef1af` | root `index.html`, `README.md`, `COORDINATION.md` |
+
+### Verified snapshot (2026-10-21T06:22Z, run `39554706598`)
+
+| Metric | Value |
+|---|---|
+| Fixtures | 90 — NBA 50, NHL 37, MLB 3 |
+| Priced fixtures | 40 (NHL 37, MLB 3); 50 NBA withheld |
+| Markets | 120 market families, 14 selections each (moneyline 2; handicap main + 2 alternates; total main + 2 alternates) |
+| Picks | 78 — 40 match-winner + 38 market; 18 high / 37 medium / 23 low |
+| Written predictions | 18, 38–60 words, 0 withdrawn, max pairwise similarity 0.483 |
+| Verification | 90 fixtures, 120 market families, 18 predictions checked; 0 excluded, 0 hard failures |
+| Findings | 4 — 1 warning (`market_withheld`), 3 info (`missing_probable_pitcher`) |
+| Rating sample | NHL 1,463 games (1,312 prior-season opener) · MLB 4,946 (2,481 prior-season opener) · NBA 3 |
+| Backtest | NHL 151 holdout games, accuracy 0.6291, Brier 0.2343 · MLB 125, 0.576, 0.2416 |
+
+### Why the NBA is listed but not priced
+
+`stats.nba.com/stats/leaguegamelog` does not answer from the build runner (read timeout, under both
+urllib and curl, with browser headers), and the NBA CDN carries only the current season
+(`scheduleLeagueV2_3/_4/_2025` all return 403). Opening week therefore leaves three completed
+regular-season games in total. A line originated on that sample would be noise, so the 50 NBA
+fixtures keep their records and official source links but carry no markets and no pick, and the
+reason is written into each row and onto the flagged page. The condition clears by itself once the
+current-season sample reaches 20 games per team.
+
+### Sources and verification
+
+`cdn.nba.com/static/json/staticData/scheduleLeagueV2.json`, `api-web.nhle.com/v1/{schedule/<date>,
+club-schedule-season/<ABBR>/<SEASON>, standings/now}`, `statsapi.mlb.com/api/v1/{schedule, standings}`.
+OLBG is not a data source; only its public taxonomy and URL grammar were recorded, respecting
+`robots.txt`. `python -m pipeline.selftest` runs offline first (24 checks), then
+`python -m pipeline.run --strict` enforces the gate. The review page records 20 module claims,
+5 live row-level spot checks (3 MLB, 2 NHL — all exact) and 9 irregularities that were found and fixed.
+
+### Log
+
+- 05:21Z — claim pushed with the pipeline scaffold (`0720e29`).
+- 05:28Z — first CI attempt failed inside ingestion; the workflow now commits `.ci/last-run.log` so
+  red runs stay diagnosable without the blocked log host.
+- 05:33Z — moved every artefact into `session-4afef1af/` so no board A–D path is touched.
+- 05:44Z — run `39551047350` green: 40 fixtures, 18 predictions, 4 findings, 0 excluded.
+- 05:52Z — probe proved the NBA CDN answers 200 to the full browser profile (`Sec-Fetch-*`);
+  headers unified in `config.BROWSER_HEADERS` and shared by provider and probe.
+- 06:19Z — NBA ingesting again: 90 fixtures. NBA sample too small, so the withholding floor was added.
+- 06:25Z — MLB prior season ingested (4,946 results); its opening lines are now real, not league-average.
+- 06:33Z — Gaelic football corrected to in-scope; review page added; prediction grammar tightened
+  (win-count clauses, indefinite articles, no duplicated selection sentence).
+- 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
+  additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
