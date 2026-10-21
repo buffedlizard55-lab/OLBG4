@@ -541,3 +541,46 @@ Rules honoured: no file owned by another board is edited; requests for changes t
 - 11:35Z — second rebase conflict (main at `afc16ce`, another session had taken "Board I"); resolved the same way, renamed to Board J. Remote branch force-updated with `--force-with-lease` (own branch only, rewritten by the rebases).
 - **PR #22** — https://github.com/buffedlizard55-lab/OLBG4/pull/22 — checks `Validate data and site` + `Repository-wide publication audit` both pass; **MERGED** 2026-10-21T06:54:56Z as `1bb0964`.
 - **Pages deploy:** `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both `success` on `1bb0964`; Pages API `builds/latest` = `built`, commit `1bb0964`, error none. Live: https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/ (Flagged page fetched over HTTPS and confirmed to render all 13 findings).
+
+---
+
+## Board K — session `arena/47b1b4e2-olbg4` (remediation of Board J findings + final integration)
+
+Session: `arena/47b1b4e2-olbg4` | Branch: `arena/47b1b4e2-olbg4` | Claimed: 2026-10-21T07:15Z (branched from `main` @ `43adf35`)
+
+**Why this board exists.** Board J (`arena/e1e0c27e-olbg4`, PR #22, merged) is audit-only: it found 13
+findings, 4 of them `high`, and explicitly logged the fixes as *cross-session requests* rather than
+applying them, because the affected files belong to Boards A/B/D. No session has claimed those
+requests. Every board A–J task is `done` and merged, so this session acts as the **final integration
+session** permitted by the brief to change shared outputs (`data/rows.json`, `data/matches.json`,
+root `index.html`, `README.md`, navigation).
+
+**Claim scope (non-overlapping — no other session is active; all Boards A–J are merged):**
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| K1 | Claim board + push claim | done | 47b1b4e2 | `COORDINATION.md` |
+| K2 | **F-11/F-12** Restore Build A overwritten by `cf9f024`: `data/rows.json` 144 rows, 12 hand-written predictions, 4 deleted `docs/sports/*.html` (gaelic-football, golf, greyhound-racing, motor-racing) | unclaimed | 47b1b4e2 | `data/rows.json`, `data/rows.csv`, `docs/**` |
+| K3 | **F-01** Build D hub: set `verified:false` + flag every row whose `sourceUrl` is not a governing-body domain (26 rows) | unclaimed | 47b1b4e2 | `data/matches.json` |
+| K4 | **F-02** Withdraw or rewrite the 5 high-confidence predictions contradicted by official pages (NHL01, NHL06, EL02, MLB01, RL01) | unclaimed | 47b1b4e2 | `data/matches.json` |
+| K5 | **F-03/F-08** Correct fixture fields (CRK03, CRK05, MLB03, EL02) and timezone labels (DRT01-04, EL02) from official sources; blank + flag where not confirmable | unclaimed | 47b1b4e2 | `data/matches.json` |
+| K6 | **F-04** Separate non-match entries (tournaments/off-season/round summaries, ~32 rows) from the match table via an explicit `entryType` field + UI split | unclaimed | 47b1b4e2 | `data/matches.json`, root `*.html`, `assets/js/main.js` |
+| K7 | **F-07** Retract Build B's "Gaelic football excluded" irregularity note (brief excludes hurling, not Gaelic) | unclaimed | 47b1b4e2 | `session-7114b6a1/flagged.html`, `data/flagged.json` |
+| K8 | **F-06** Publish cross-build pick-conflict reconciliation on the portal instead of leaving contradictions unexplained | unclaimed | 47b1b4e2 | root `index.html` (additive) |
+| K9 | Qualify root banner claim ("governing-body verified") + link the audit and this remediation report | unclaimed | 47b1b4e2 | root `index.html`, `README.md` |
+| K10 | Re-verify line by line against official sources (web fetch), regenerate site, 0 broken links, all data valid | unclaimed | 47b1b4e2 | `session-47b1b4e2/`, all data |
+| K11 | Final integration: PR `arena/47b1b4e2-olbg4` → `main`, merge, confirm Pages deploy, record PR link + result here | unclaimed | 47b1b4e2 | — |
+
+**Rules honoured:** every value I publish must carry an official-source link; anything I cannot
+confirm is left **blank and flagged**, never inferred. Flagged items do not block merge. No other
+board's dashboard content is deleted — restoration re-runs Build A's own unmodified generator
+(`build_site.py` / `gen_pages.py`), which reproduces the pre-overwrite `5918922` bytes exactly
+(verified: regenerated `data/rows.json` is byte-identical to `5918922:data/rows.json`).
+
+### Board K log
+- 2026-10-21T07:15Z — unshallowed the clone (134 commits) to recover `5918922` / `cf9f024`.
+- 2026-10-21T07:15Z — confirmed F-11/F-12 live on `main`: `data/rows.json` 137 rows (was 144), 25 templated predictions of which **13 share the identical PDC opener** and the NHL ones carry a `.,` artefact; `docs/sports/` has 11 pages (4 deleted).
+- 2026-10-21T07:15Z — confirmed F-01 live: 25–26 of 66 hub rows are `verified:true` with only espn/wikipedia/bbc/sky/etusuora/olbg-blog/usatoday/tempo/findmygroup/montpellier sources.
+- 2026-10-21T07:15Z — confirmed Board I already restored Build B's 9 sourced predictions to `data/session-7114b6a1/predictions.json` and repointed `scripts/verify.py`; that part of F-11 needs no further action.
+- 2026-10-21T07:15Z — F-09 (stale E10) already resolved: `COORDINATION.md` line 266 shows E10 `done`.
+- 2026-10-21T07:15Z — claim committed and pushed before any remediation work.
