@@ -106,16 +106,17 @@ def main() -> int:
     check("not counted" in olbg["note"] or "unverified" in olbg["note"],
           "OLBG inventory note does not disclose its unverified status")
 
-    # ---- pages and links
+    # ---- pages and links (BOARD_DIR=board verifies the published sub-directory build)
+    SITE = os.path.join(ROOT, os.environ["BOARD_DIR"]) if os.environ.get("BOARD_DIR") else ROOT
     pages = ["index.html", "picks.html", "markets.html", "flagged.html", "sources.html",
              "audit.html", "methodology.html", "archive.html", "olbg.html"]
     pages += [f"sports/{r['sport_slug']}.html" for r in in_scope]
     pages = sorted(set(pages))
     for p in pages:
-        check(os.path.exists(os.path.join(ROOT, p)), f"missing page {p}")
+        check(os.path.exists(os.path.join(SITE, p)), f"missing page {p}")
 
-    html_files = sorted(set(glob.glob(os.path.join(ROOT, "*.html")) +
-                            glob.glob(os.path.join(ROOT, "sports/*.html"))))
+    html_files = sorted(set(glob.glob(os.path.join(SITE, "*.html")) +
+                            glob.glob(os.path.join(SITE, "sports/*.html"))))
     broken = []
     for f in html_files:
         body = open(f).read()
@@ -130,7 +131,7 @@ def main() -> int:
 
     # no leftover placeholders on the new pages
     for f in [p for p in pages]:
-        body = open(os.path.join(ROOT, f)).read()
+        body = open(os.path.join(SITE, f)).read()
         for bad in ("TODO", "Lorem ipsum", "undefined</", "NaN"):
             check(bad not in body, f"{f} contains {bad!r}")
 
