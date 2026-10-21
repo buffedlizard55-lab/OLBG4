@@ -39,14 +39,14 @@ jobs:
       - name: Rebuild the master board and dashboard from the six builds
         run: |
           python3 tools/build_master.py
-          python3 tools/build_master_site.py
+          BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py
 
       - name: Verify the master board (sources, predictions, links, scope)
-        run: python3 tools/verify_master.py
+        run: BOARD_DIR=board python3 tools/verify_master.py
 
       - name: Fail if the committed dashboard is stale
         run: |
-          if ! git diff --quiet; then
+          if ! git diff --quiet -- board data/master.json data/master_conflicts.json; then
             echo "tools/build_master.py or tools/build_master_site.py produced different output."
             echo "Run both locally and commit the result."
             git diff --stat

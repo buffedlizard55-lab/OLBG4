@@ -1298,3 +1298,18 @@ documented as gaps. Live at https://buffedlizard55-lab.github.io/OLBG4/.
 - **PR #40** — https://github.com/buffedlizard55-lab/OLBG4/pull/40 — **MERGED**. Publishes this record, per-sport strength labels and precise no-edge wording; `Validate data and site`, `Repository-wide publication audit` and `Verify integrated dashboard` all pass; Pages `built`, no error.
 - **PR #43** — https://github.com/buffedlizard55-lab/OLBG4/pull/43 — **MERGED**. Corrects the same-fixture conflict wording on the flagged page (earlier builds share no comparable date field) and removes the empty Date column; all three checks pass; Pages `built`.
 - Two prediction headlines were corrected at the same time where a comparative claim was stronger than the standings support ("league's leading offence" → second-highest scoring side; "second-worst points percentage" → the actual .286 figure).
+
+#### Publish record (Board P, 2026-10-21)
+
+- **PR #41** — https://github.com/buffedlizard55-lab/OLBG4/pull/41 — **MERGED** as `d78b6f0` with `audit`,
+  `build-and-validate` and `verify` all green on the merge candidate. Pages rebuilt from `main` afterwards.
+- **Second race, resolved without deleting anything:** PR #35 merged 60 seconds later and its workflow regenerated the
+  root desk, so the root landing page is that session's again. Rather than start another overwrite fight, this board is
+  now published in its **own directory, `/board/`**, and its generator writes there (`BOARD_OUT=board BOARD_EXT="../"
+  python3 tools/build_master_site.py`; `BOARD_DIR=board python3 tools/verify_master.py`). Both desks stay live:
+  `/` = the integration desk, `/board/` = this consolidated 312-row board, and the two previous root desks are preserved
+  under `archive/root-5775069/` and `archive/root-f914d81/` and linked from the board's Archive page.
+- `.github/workflows/pages.yml` now rebuilds and verifies the board in `board/` and fails if `board/` or the master JSON
+  is stale. `verify-integrated.yml` keeps verifying its own build but no longer asserts ownership of the root pages.
+- **Build gates on `main` after the merge:** `Validate data and site`, `Repository-wide publication audit` and
+  `Verify integrated dashboard` all succeeded on `d78b6f0`.
