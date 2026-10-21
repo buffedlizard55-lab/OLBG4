@@ -132,7 +132,7 @@ def fallback_official(sport: str, comp: str = "") -> tuple[str, str]:
 
 
 def main() -> None:
-    # Build lookup of verified official URLs from Board M's own 268-event dataset
+    # Build lookup of verified official URLs from Board Q's own 268-event dataset
     m_events = json.loads((DATA_DIR / "matches.json").read_text())
     m_by_pair: dict[str, dict[str, Any]] = {}
     m_by_eid: dict[str, dict[str, Any]] = {}
@@ -148,11 +148,11 @@ def main() -> None:
             return (raw_url, "Row's own governing-body URL verified")
         if eid is not None and str(eid) in m_by_eid:
             ev = m_by_eid[str(eid)]
-            return (ev["source_url"], f"Board M official match source ({ev['source_name']})")
+            return (ev["source_url"], f"Board Q official match source ({ev['source_name']})")
         pk = norm_pair(home, away)
         if home and away and pk in m_by_pair:
             ev = m_by_pair[pk]
-            return (ev["source_url"], f"Board M official match source ({ev['source_name']})")
+            return (ev["source_url"], f"Board Q official match source ({ev['source_name']})")
         nm, u = fallback_official(sport, comp)
         return (u, f"Official federation portal ({nm})")
 
@@ -266,7 +266,7 @@ def main() -> None:
         off_url, off_label = resolve_official_review(u, r.get("sport", ""), r.get("competition", ""), r.get("home", ""), r.get("away", ""))
         issues = []
         if cls == "olbg_only":
-            issues.append("Row links only to olbg.com; Board M attached verified official governing-body link for review")
+            issues.append("Row links only to olbg.com; Board Q attached verified official governing-body link for review")
         if r.get("consensus_pct") is not None:
             issues.append("Line shrinkage anchored to OLBG tipster crowd consensus share rather than pure independent team ratings")
         if "gaelic" in str(r.get("flag") or "").lower():
@@ -307,7 +307,7 @@ def main() -> None:
         off_url, off_label = resolve_official_review(u, r.get("sport", ""), r.get("competition", ""), ch, ca)
         issues = []
         if not r.get("priced"):
-            issues.append("Unpriced in Build C (`UTA`, `MEM`, `SAC` omitted from `prepare_inputs.py` NBA_PRIOR table; priced in Board M via verified nba.com 2025-26 records)")
+            issues.append("Unpriced in Build C (`UTA`, `MEM`, `SAC` omitted from `prepare_inputs.py` NBA_PRIOR table; priced in Board Q via verified nba.com 2025-26 records)")
         cpk = r.get("pick")
         cpk_str = team_name(cpk) if isinstance(cpk, dict) else str(cpk or "")
         audited_rows.append({
@@ -348,7 +348,7 @@ def main() -> None:
         conf = str(wp.get("confidence") or "").lower()
         issues = []
         if not pick_name and f.get("sport") == "basketball":
-            issues.append("Withheld/blank in Build E (`opening.ratings = {}` after `stats.nba.com` timeout); originated in Board M using verified 30-team `nba.com` 2025-26 records")
+            issues.append("Withheld/blank in Build E (`opening.ratings = {}` after `stats.nba.com` timeout); originated in Board Q using verified 30-team `nba.com` 2025-26 records")
         audited_rows.append({
             "build": "Build E (4afef1af)",
             "file": "session-4afef1af/data/fixtures.json",
@@ -439,7 +439,7 @@ def main() -> None:
                 "notes": "Official outright tournament/championship source verified." if cls == "official" else "Needs official governing-body verification.",
             })
 
-    # Add Board M picks into cross-build overlap matrix
+    # Add Board Q picks into cross-build overlap matrix
     for ev in m_events:
         if ev.get("home") and ev.get("away") and ev.get("pick"):
             cross_build_map[norm_pair(ev["home"], ev["away"])].append({
@@ -483,11 +483,11 @@ def main() -> None:
         ),
         "Build B (7114b6a1)": (
             "`session-7114b6a1/` + `data/board.json` (116 rows). Anchors odds shrinkage to OLBG crowd consensus share; 107/116 rows link only `olbg.com` "
-            "(every row now enriched here with Board M's official governing-body link), and misflags Gaelic Football as excluded."
+            "(every row now enriched here with Board Q's official governing-body link), and misflags Gaelic Football as excluded."
         ),
         "Build C (74f9613e)": (
             "`session-74f9613e/` + `data/session-74f9613e/matches.json` (43 fixtures across 7 sports). Clean first-principles models, "
-            "but omits `UTA`, `MEM`, and `SAC` from `prepare_inputs.py` `NBA_PRIOR` (6 NBA teams unmodeled; completed to 30/30 `1230==1230` in Board M)."
+            "but omits `UTA`, `MEM`, and `SAC` from `prepare_inputs.py` `NBA_PRIOR` (6 NBA teams unmodeled; completed to 30/30 `1230==1230` in Board Q)."
         ),
         "Build E (4afef1af)": (
             "`session-4afef1af/` + `pipeline/` (90 official API fixtures across NBA/NHL/MLB; 24/24 selftests pass). Leaves 50/50 upcoming NBA games blank "
@@ -625,7 +625,7 @@ def main() -> None:
             "target": "Build C (`prepare_inputs.py`, 27/30 teams) & Build E (`session-4afef1af`, 50/50 upcoming NBA blank)",
             "detail": (
                 "Build C omitted `UTA`, `MEM`, and `SAC` from `NBA_PRIOR`, leaving 6 NBA games unpriced; Build E left all 50 upcoming NBA games blank after `stats.nba.com` timed out. "
-                "Board M verified `Utah Jazz (22-60)`, `Sacramento Kings (22-60)`, and `Memphis Grizzlies (25-57)` directly on `nba.com`, satisfying the exact 30-team identity `sum(W) == sum(L) == 1,230`."
+                "Board Q verified `Utah Jazz (22-60)`, `Sacramento Kings (22-60)`, and `Memphis Grizzlies (25-57)` directly on `nba.com`, satisfying the exact 30-team identity `sum(W) == sum(L) == 1,230`."
             ),
             "action_taken": "Priced all 56 NBA fixtures in `session-ee9c2db4/` with full Moneyline, Spread, and Total books (`sum(p) == 1.0000`).",
             "source_url": "https://www.nba.com/news/offseason-power-rankings-west-2026",

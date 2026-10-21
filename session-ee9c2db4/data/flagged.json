@@ -401,7 +401,7 @@
     "severity": "medium",
     "sport": "Basketball (NBA)",
     "target": "Build C (`prepare_inputs.py`, 27/30 teams) & Build E (`session-4afef1af`, 50/50 upcoming NBA blank)",
-    "detail": "Build C omitted `UTA`, `MEM`, and `SAC` from `NBA_PRIOR`, leaving 6 NBA games unpriced; Build E left all 50 upcoming NBA games blank after `stats.nba.com` timed out. Board M verified `Utah Jazz (22-60)`, `Sacramento Kings (22-60)`, and `Memphis Grizzlies (25-57)` directly on `nba.com`, satisfying the exact 30-team identity `sum(W) == sum(L) == 1,230`.",
+    "detail": "Build C omitted `UTA`, `MEM`, and `SAC` from `NBA_PRIOR`, leaving 6 NBA games unpriced; Build E left all 50 upcoming NBA games blank after `stats.nba.com` timed out. Board Q verified `Utah Jazz (22-60)`, `Sacramento Kings (22-60)`, and `Memphis Grizzlies (25-57)` directly on `nba.com`, satisfying the exact 30-team identity `sum(W) == sum(L) == 1,230`.",
     "action_taken": "Priced all 56 NBA fixtures in `session-ee9c2db4/` with full Moneyline, Spread, and Total books (`sum(p) == 1.0000`).",
     "source_url": "https://www.nba.com/news/offseason-power-rankings-west-2026",
     "source_name": "NBA.com Official 2025-26 Team Records"

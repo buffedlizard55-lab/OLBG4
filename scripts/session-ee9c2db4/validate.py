@@ -160,8 +160,8 @@ def main() -> None:
 
     print(
         f"M7 validation PASSED 100%:\n"
-        f"  Board M HTML pages verified    : {len(our_html)}\n"
-        f"  Board M table rows w/ official : {total_our_trs}/{total_our_trs} (100.0%)\n"
+        f"  Board Q HTML pages verified    : {len(our_html)}\n"
+        f"  Board Q table rows w/ official : {total_our_trs}/{total_our_trs} (100.0%)\n"
         f"  Originated events / books      : {len(events)} events / {len(markets)} complete books (sum(p)==1.0000)\n"
         f"  High-confidence human prose    : {preds['count']} write-ups (min {preds['min_words']}w, max Jaccard {preds['max_pairwise_3gram_jaccard']})\n"
         f"  Audited existing repo rows     : {review['total_committed_rows_audited']} rows ({len(sources)} official sources, {len(flags)} flags)\n"

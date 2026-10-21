@@ -604,7 +604,7 @@ def page_shell(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{esc(title)} — OLBG4 Complete Desk (Board M · ee9c2db4)</title>
+  <title>{esc(title)} — OLBG4 Complete Desk (Board Q · ee9c2db4)</title>
   <link rel="stylesheet" href="{prefix}assets/styles.css">
 </head>
 <body>
@@ -630,7 +630,7 @@ def page_shell(
   </main>
   <footer class="footer">
     <div>
-      <strong>Board M (`arena/ee9c2db4-olbg4`)</strong> · Snapshot date: <strong>2026-10-21 UTC</strong> ·
+      <strong>Board Q (`arena/ee9c2db4-olbg4`)</strong> · Snapshot date: <strong>2026-10-21 UTC</strong> ·
       Excluded sports strictly enforced: <em>soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling, specials</em> (0 rows).
     </div>
     <div>
@@ -697,7 +697,7 @@ def render_event_rows(events: list[dict[str, Any]], prefix: str) -> str:
         )
         trs.append(
             f'<tr id="{esc(ev["id"])}" data-filter-item data-sport="{esc(ev["sport_slug"])}" '
-            f'data-confidence="{esc(conf_attr)}" data-feed="{esc(ev.get("feed_origin","olbg"))}">'
+            f'data-confidence="{esc(conf_attr)}" data-feed="{esc(ev.get("origin_feed", ev.get("feed_origin", "olbg_main_feed")))}">'
             f'<td class="num"><a href="{prefix}sports/{esc(ev["sport_slug"])}.html">{esc(ev["sport"])}</a>'
             f'<div style="font-size:0.74rem;color:#64748b;">{esc(ev["competition"])}</div></td>'
             f'<td class="num">{esc(ev.get("date") or "—")}'
@@ -750,7 +750,7 @@ def main() -> None:
     sports_nav = [(s["slug"], s["name"], len(by_sport[s["slug"]])) for s in sports_meta]
 
     conf_counts = Counter((ev.get("confidence") or "unverified").lower() for ev in events)
-    olbg_cnt = sum(1 for ev in events if ev.get("feed_origin", "").startswith("olbg"))
+    olbg_cnt = sum(1 for ev in events if ev.get("origin_feed", ev.get("feed_origin", "")).startswith("olbg"))
     ext_cnt = len(events) - olbg_cnt
 
     # 1. Overview Landing Page (`session-ee9c2db4/index.html`)
@@ -761,8 +761,13 @@ def main() -> None:
         sc = Counter((x.get("confidence") or "unverified").lower() for x in sevs)
         smk = sum(len(x.get("markets") or []) for x in sevs)
         pct_bar = min(100, int(round(100.0 * len(sevs) / max(1, max(len(v) for v in by_sport.values())))))
-        sample_src = sevs[0]["source_url"] if sevs else s.get("primary_official_source", "https://www.nba.com/games")
-        sample_src_name = sevs[0]["source_name"] if sevs else "Official Federation"
+        off_fallbacks = {
+            "aussie-rules": ("https://www.afl.com.au/matches", "AFL Official Match Centre (afl.com.au)"),
+            "esports": ("https://lolesports.com/schedule", "Riot LoL Esports Official Schedule (lolesports.com)"),
+        }
+        fb_url, fb_name = off_fallbacks.get(sl, ("https://www.afl.com.au/matches", "Official Federation"))
+        sample_src = sevs[0]["source_url"] if sevs else s.get("primary_official_source", fb_url)
+        sample_src_name = sevs[0]["source_name"] if sevs else fb_name
         sport_summary_rows.append(
             f"<tr>"
             f"<td><strong><a href='sports/{sl}.html'>{esc(s['name'])}</a></strong></td>"
@@ -780,7 +785,7 @@ def main() -> None:
 
     index_body = f"""
     <section class="hero">
-      <div class="eyebrow">Board M · Complete 28-Slot OLBG Reverse-Engineering, Multi-Market Origination &amp; Cross-Repo Audit</div>
+      <div class="eyebrow">Board Q · Complete 28-Slot OLBG Reverse-Engineering, Multi-Market Origination &amp; Cross-Repo Audit</div>
       <h1>Executive Sports Origination &amp; Verification Desk (2026-10-21)</h1>
       <p>
         Independent first-principles betting line origination across all <strong>17 in-scope OLBG sports</strong>
@@ -876,8 +881,8 @@ def main() -> None:
         </select>
         <select data-filter-attr="feed" aria-label="Filter by Feed Origin">
           <option value="all">All Feed Sources</option>
-          <option value="olbg_main">OLBG Main Feed</option>
-          <option value="olbg_subfeed">OLBG Sub-Competition Discovery (+54)</option>
+          <option value="olbg_main_feed">OLBG Main Feed</option>
+          <option value="olbg_subfeed_discovery">OLBG Sub-Competition Discovery (+54)</option>
           <option value="official_api_schedule">Official API Week-Ahead Extension (+74)</option>
         </select>
         <span class="toolbar-count" data-filter-count>Showing {len(events)} of {len(events)}</span>
