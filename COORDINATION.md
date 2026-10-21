@@ -421,6 +421,14 @@ Handoff basis: Board E's final-integration claim remains marked in progress, whi
 - `arena/5e6c545d-olbg4` merged `origin/main` after PR #19 reported a non-clean merge. The sole conflict was this shared task board.
 - Resolution: retained the upstream Board F/G records verbatim and retained this session's independent audit as **Board H** (renamed only to avoid the existing duplicate Board F headings). No source rows, site builds, lines, or findings from either side were discarded.
 
-| H3 | Final integration repair: restore Board B's historical prediction input into its own namespace and point its legacy verifier there, so the Board B verification gate remains reproducible after the newer Board G schema replaced shared `data/predictions.json`. | in progress | `arena/5e6c545d-olbg4` | `data/session-7114b6a1/predictions.json`, `scripts/verify.py`, `COORDINATION.md` |
+| H3 | Final integration repair: restore Board B's historical prediction input into its own namespace and point its legacy verifier there, so the Board B verification gate remains reproducible after the newer Board G schema replaced shared `data/predictions.json`. | done | `arena/5e6c545d-olbg4` | `data/session-7114b6a1/predictions.json`, `scripts/verify.py`, `COORDINATION.md` |
 
 **H3 claim note:** the failure was reproduced during final integration as `KeyError: 'unverified'` in `scripts/verify.py`. The recovery source will be the exact committed Board B prediction record at the common base (`5918922:data/predictions.json`), not inferred content.
+
+
+### Board H H3 completion / integration log (2026-10-21 UTC)
+
+- Recovered the exact Board B prediction input from committed base `5918922:data/predictions.json` into `data/session-7114b6a1/predictions.json`; no prediction text or source was re-authored. `scripts/verify.py` now reads that build-owned file instead of the newer Board G `data/predictions.json` schema.
+- `python3 scripts/verify.py --links` now passes: 116/116 rows sourced, 9 high predictions, shortest 103 words, 0 duplicate bodies, 275 local links, 0 broken. Its reproducible `data/verification.json` was refreshed accordingly.
+- Regenerated the existing repository-wide structural audit from current merged inputs: 452 source rows (66 hub, 137 A archive, 116 B consensus, 43 C model, 90 E feed), 2,220 local targets, 0 broken. The published audit artifact now matches the merged data rather than retaining a stale 144-row A count.
+- Merge-conflict log: PR #19 was initially non-mergeable because `main` advanced from the snapshot base. `origin/main` was merged into the session branch; only `COORDINATION.md` conflicted and both upstream records and Board H were retained. A subsequent `git pull --rebase origin arena/5e6c545d-olbg4` attempted to replay the historical upstream chain because of the grafted lineage and hit a README add/add conflict; it was aborted without discarding work. The explicit merge commit `037ba13` remains the preserved integration path.
