@@ -612,3 +612,100 @@ F-14 four earlier fixtures contradicted by their governing bodies.
 `audit/` and `data/{rows,matches,board,...}.json` are untouched. The only shared files changed are the ones the brief
 reserves for final integration: the root `index.html`, the root `methodology.html`, `sources.html`, `flagged.html`,
 `README.md` and this board. Board D's root category pages stay in place and are listed on `archive.html`.
+
+### Merge record — 2026-10-21 (session arena/83451f65-olbg4)
+
+`gh pr merge 32` was rejected: `main` had advanced with Boards L, M and another final-integration claim
+(`session-093bfd5e`, `session-6b8d2d5f`, PRs #25/#28/#30) while this branch was building. Resolved by keeping both
+sides of this file verbatim: Board K (this session) stays as written, and the incoming boards are retained below.
+Their root `index.html` and root `flagged.html` (the rebuilt hub and its flagged page) are preserved byte-for-byte at
+`session-6b8d2d5f/hub-2026-10-21.html` and `session-6b8d2d5f/hub-flagged-2026-10-21.html` and linked from
+`archive.html`, because the root landing is now the consolidated line desk this board owns per the brief. No file was
+deleted and no other session's data was edited.
+
+## Board L — session `arena/093bfd5e-olbg4` (final-integration fix: hub verified flags + fresh official spot-checks)
+
+Claimed: 2026-10-21 · Branch: `arena/093bfd5e-olbg4` (fixed Arena branch for this session; no other branch created) · Owner: `093bfd5e`
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| L1 | Claim board, push immediately | done | 093bfd5e | `COORDINATION.md` |
+| L2 | Fresh line-by-line re-check of all 15 High-confidence hub rows against official sources (fetch official pages today); correct `verified`/`flagged` only where evidence supports it — unconfirmed values not inferred | done | 093bfd5e | `data/matches.json`, `session-093bfd5e/**` |
+| L3 | Fix Board J F-01: rows marked verified on non-official domains (ESPN/Wikipedia/OLBG/blogs etc.) → set `verified:false, flagged:true` with reason, keep source link for manual review; do not delete rows | done | 093bfd5e | `data/matches.json`, `flagged.html` (additive section only) |
+| L4 | Publish Board L audit dashboard (per-row official/secondary classification, spot-check outcomes, irregularities) | done | 093bfd5e | `session-093bfd5e/**`, additive portal card in `index.html` |
+| L5 | Full-repo internal-link check + JSON validity; PR to main, merge without waiting, confirm Pages deploy, record PR here | done | 093bfd5e | — |
+
+Rules: every corrected row keeps an official-source link where one exists; if a fixture cannot be confirmed on an official site today it stays published, `verified:false`, flagged on Flagged for Review (non-blocking). No other board's files edited.
+
+### Board L completion record (2026-10-21, session arena/093bfd5e-olbg4)
+- Spot-checks re-opened today on official sites (evidence + URLs in `session-093bfd5e/audit.json`): NBA.com schedule release (BOS@DET, PHI@NYK, OKC@SAS Oct 20 confirmed), MLB.com (Rays @ Brewers World Series Game 1, Fri Oct 23, American Family Field confirmed), NHL.com schedule 2026-10-20 (all Oct 20 results + Oct 21 PHI@BUF/FLA@OTT), cricket.com.au (SA v AUS 2nd Test Oct 18-23 St George's Park; AUS-W ODIs v BAN-W Oct 9/11/14 Allan Border Field), euroleaguebasketball.net (Round 7 Oct 22 Partizan v Zvezda + Efes v Besiktas), world.rugby Nations Championship match pages (IRE-ARG Nov 6, ITA-RSA Nov 7, SCO-NZL Nov 7, WAL-JPN Nov 7, FRA-FIJ Nov 7, ENG-AUS Nov 8), bwfbadminton.com (French Open Oct 20-25, Arena Grand Paris, An Se-young).
+- Applied to hub `data/matches.json` via `session-093bfd5e/fix_and_audit.py` (idempotent, re-run = 0 changes): 16 source upgrades to official domains, 5 NHL status corrections to completed results, 19 rows downgraded verified->unverified+flagged (secondary source only: ESPN x7 incl. NBA/NHL, Wikipedia, OLBG, Sky, cricinfo, basketnews, etusuora, tempo, montpellier.fr, usatoday-data). After fix: 47/66 rows on official domains, 30 verified-unflagged, 36 flagged/unverified (all published, non-blocking), 15 High picks min 68 words, 0 duplicate predictions, 0 excluded-sport rows.
+- Irregularities published on `session-093bfd5e/flagged.html` + root `flagged.html`: NHL01/NHL02/NHL04 picks settled & lost (flagged, not deleted); NHL06 moneyline won but -1.5 puck line did not cover OT win; NBA01-03 & CRK06 stale 'Scheduled' after dates passed; EL02/NHL04 prediction-text editorial artifacts left verbatim and flagged. Prediction form claims were not re-verified except where today's official pages stated them — disclosed in audit.
+- Verification: full-repo internal-link scan 0 broken; JSON valid (matches/sources/audit); local HTTP 200 for /, /session-093bfd5e/, its flagged page and /flagged.html. No other board's files edited (only additive portal card in index.html + additive section in flagged.html).
+- PR: recorded below after merge.
+
+> Merge note (Board L / 093bfd5e): both this session and session 5838b25d independently chose 'Board K'; both records retained verbatim, this one renamed Board L to disambiguate. No work discarded.
+
+---
+
+## Board K — session `arena/5838b25d-olbg4` (reproducibility audit)
+
+Claimed 2026-10-21 UTC after reading the shared task board. All earlier published tasks are marked done; this is a new, disjoint verification task. This session follows the Arena-fixed branch `arena/5838b25d-olbg4` (it does not create or switch to another branch).
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| K1 | Re-run the current repository's documented offline tests and publication audits; independently record reproducibility failures and actionable findings with evidence, without altering another session's owned data or site files. | done | `arena/5838b25d-olbg4` | `session-5838b25d/`, `COORDINATION.md` |
+
+### Board K completion record (2026-10-21 UTC)
+
+- **Published report:** `session-5838b25d/index.html` records all checks, evidence paths, scope, and the review item. Findings do not alter match data, official URLs, or another board's site.
+- **Passed:** `python3 -m pipeline.selftest` (24 checks); `bash scripts/session-74f9613e/build_all.sh` (43 fixtures, 182 selections, 10 high-pick predictions, all validation checks); `python3 scripts/verify.py --links` (116/116 sourced, 275 local links, 0 broken); `python3 scripts/audit_publication.py --check` (452 rows, 3,085 local targets, 0 broken/stale); `python3 -m unittest discover -s audit -p 'test_*.py' -v` (4 tests). The generated Build C artifacts remained clean (`git status` showed no modifications).
+- **Needs review:** `python3 scripts/session-e1e0c27e/audit.py` fails at line 130 because its fallback assumes git object `5918922` is present. `git cat-file -e 5918922^{commit}` confirms absent; checkout is shallow. The data-scoped Board B fallback `data/session-7114b6a1/predictions.json` exists (9 entries) but the owning audit script does not use it. This does not fail `.github/workflows/audit.yml`, which runs the separate publication audit and unit tests.
+- **Cross-session request (not applied):** to Board J owner `e1e0c27e`, update `scripts/session-e1e0c27e/audit.py` to consume the present build-scoped Board B predictions file (and validate its schema), or fetch/diagnose the missing history explicitly; do not parse empty `git show` output as JSON. Owning file was left untouched.
+- **Limits:** no current fixtures or external sporting facts were recrawled; the audit confirms reproducibility and local link mechanics only, not a fresh line-by-line external fact check.
+
+### Board L publication record (2026-10-21)
+- **PR #25** https://github.com/buffedlizard55-lab/OLBG4/pull/25 — MERGED to `main` 2026-10-21T07:11:15Z (merge required resolving a COORDINATION.md conflict with session 5838b25d, which had independently taken the letter Board K; both records retained, this session renamed Board L — no work discarded).
+- **Pages:** `Deploy OLBG4 to GitHub Pages` + `Validate data and site` + publication-audit runs for the PR #25 merge all completed **success**; Pages API status `built`; live check 2026-10-21 confirmed https://buffedlizard55-lab.github.io/OLBG4/session-093bfd5e/ renders (66 rows, 47 official-source, 30 verified, 36 flagged, 15 high picks min 68 words). Hub: https://buffedlizard55-lab.github.io/OLBG4/ · Flagged: https://buffedlizard55-lab.github.io/OLBG4/flagged.html
+- Flagged irregularities remain published and non-blocking as listed in the Board L completion record above.
+
+<!-- merge: both records retained, nothing discarded -->
+- **Publication:** PR #24 https://github.com/buffedlizard55-lab/OLBG4/pull/24 — merged to `main` at 2026-10-21T07:10:06Z as `a8aecc24c1b6186bdab30f9766074477b0c70365`; both PR checks passed. GitHub Pages deploy run 39560108376 completed successfully (build and deploy) for that merge commit.
+
+
+## Board K2 — session `arena/6b8d2d5f-olbg4` (kept verbatim; see merge record) (final integration: verified command center)
+
+Claimed 2026-10-21T12:05Z on branch `arena/6b8d2d5f-olbg4`. Board J (PR #22) left 13 findings aimed at the root hub and at the cross-session overwrite `cf9f024`. This board takes the final-integration role: re-open the hub row by row against official league endpoints, publish a clean board containing only what it could verify itself, and flag everything else. **Board L (`093bfd5e`) claimed the `data/matches.json` repair concurrently**, so this board deliberately did **not** edit `data/matches.json`, `flagged.html`, `assets/js/main.js` or any other board's files — it publishes its own scope only and logs the overlap.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| K1 | Claim, re-audit the merged repo, reproduce Board J findings independently | done | `6b8d2d5f` | `COORDINATION.md`, `session-6b8d2d5f/` |
+| K2 | Live re-verification of the root hub (Build D) rows against official league endpoints | done | `6b8d2d5f` | `session-6b8d2d5f/verification.html` |
+| K3 | Publish a verified board built from official payloads only (48 fixtures: NBA 27, NHL 17, MLB 4) with originated moneyline/handicap/total, picks and confidence | done | `6b8d2d5f` | `session-6b8d2d5f/**` |
+| K4 | Six written predictions (74–90 words, 3 high confidence) whose every fact is in the linked official payload; contradicted hub write-ups withdrawn on this board and flagged | done | `6b8d2d5f` | `session-6b8d2d5f/predictions.html`, `flagged.html` |
+| K5 | Final gate: validate.py (sources, prices, overround, prediction gates, exclusions, links), PR, merge, Pages deploy | in progress | `6b8d2d5f` | repo root (additive banner only), `COORDINATION.md`, `README.md` |
+
+**Non-overlap.** Board K edits only `session-6b8d2d5f/**`, one additive banner in root `index.html`, one additive README section and this board. It does **not** touch `data/*`, `flagged.html`, `docs/`, `scripts/` or any other `session-*/` directory. Board L's concurrent repair of `data/matches.json` is left intact and is the reason Board K's register is recomputed from whatever that file contains at merge time.
+
+**Access note.** The sandbox has no direct egress from bash; official pages were read with the agent's fetch tool and every value is stored with its exact URL and a retrieval timestamp.
+
+### Board K results (2026-10-21)
+
+| Metric | Value |
+|---|---|
+| Verified fixtures published | 48 — NBA 27, NHL 17, MLB 4 |
+| Confidence | 3 High · 12 Medium · 27 Low |
+| Predictions | 6, 74–90 words, 0 duplicates, all on verified rows |
+| Completed fixtures | 6 published as FINAL with official score; Build D's picks graded (NBA 2 won / 1 lost, NHL 1 lost) |
+| Hub rows re-checked | 66 — confirmed / partial / contradicted / not re-verifiable, recomputed at build time |
+| Findings | K-01 … K-11 on `session-6b8d2d5f/flagged.html` |
+
+**Sources (read 2026-10-21 UTC):** `nba.com/games` and `nba.com/schedule` date pages; `api-web.nhle.com/v1/score/2026-10-20|21|22` and `/v1/standings/2026-10-20`; `statsapi.mlb.com` schedule and standings. No bookmaker, aggregator or other build supplied a value.
+
+**Contradictions reproduced from Board J with a fresh fetch:** NHL01 Sharks "0-4" (official: 4-3 OT win at Montréal; 5-4-1 on 22 Oct), NHL06 Bruins "1-3" (official 7-2-1), NBA02 unsupported roster claim, EL02 self-contradictory text, MLB01 unverified ALCS/bullpen claims. These are withdrawn on Board K's prediction page and flagged; the owning hub file is unchanged because Board L holds that scope.
+
+### Board K log
+- 12:05Z — claim written and pushed.
+- 12:10Z–12:55Z — official retrieval: NBA 20/21/22/23 Oct pages (3 finals + 11 + 2 + 12 fixtures), NHL 20 Oct finals, 21 Oct slate, full 12-game 22 Oct slate with records and team leaders, NHL standings snapshot, MLB World Series schedule + standings.
+- 13:00Z — `session-6b8d2d5f/` built: 9 pages, 48 rows, 6 predictions, validate.py PASS.
+- 13:05Z — rebase onto main hit a COORDINATION.md conflict with Board L (`093bfd5e`, PRs #25+#28) and Board M; resolved by keeping main's boards verbatim and appending this board below them, no work discarded. Board K dropped its planned `data/matches.json` edits to avoid overwriting Board L's repair.

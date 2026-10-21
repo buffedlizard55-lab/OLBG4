@@ -1,0 +1,2041 @@
+[
+ {
+  "id": "NBA-F01",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-20",
+  "time": "Final",
+  "venue": "Little Caesars Arena, Detroit, MI",
+  "away": "Boston Celtics",
+  "home": "Detroit Pistons",
+  "status": "Final",
+  "result": "113–121",
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-20",
+  "sourceName": "NBA.com official games page (final score)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "note": "Official final; no model inputs are used for a completed fixture."
+  },
+  "model": null,
+  "priorPick": "Detroit Pistons",
+  "graded": "won",
+  "prediction": null,
+  "notes": "Build D (data/matches.json) published a pick on this fixture; it is graded here against the official final."
+ },
+ {
+  "id": "NBA-F02",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-20",
+  "time": "Final",
+  "venue": "Madison Square Garden, New York, NY",
+  "away": "Philadelphia 76ers",
+  "home": "New York Knicks",
+  "status": "Final",
+  "result": "106–100",
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-20",
+  "sourceName": "NBA.com official games page (final score)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "note": "Official final; no model inputs are used for a completed fixture."
+  },
+  "model": null,
+  "priorPick": "New York Knicks",
+  "graded": "lost",
+  "prediction": null,
+  "notes": "Build D (data/matches.json) published a pick on this fixture; it is graded here against the official final."
+ },
+ {
+  "id": "NBA-F03",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-20",
+  "time": "Final",
+  "venue": "Frost Bank Center, San Antonio, TX",
+  "away": "Oklahoma City Thunder",
+  "home": "San Antonio Spurs",
+  "status": "Final",
+  "result": "116–104",
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-20",
+  "sourceName": "NBA.com official games page (final score)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "note": "Official final; no model inputs are used for a completed fixture."
+  },
+  "model": null,
+  "priorPick": "Oklahoma City Thunder",
+  "graded": "won",
+  "prediction": null,
+  "notes": "Build D (data/matches.json) published a pick on this fixture; it is graded here against the official final."
+ },
+ {
+  "id": "NBA-1021-01",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "19:00 ET",
+  "venue": "Kia Center, Orlando, FL",
+  "away": "Atlanta Hawks",
+  "home": "Orlando Magic",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Orlando Magic to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-02",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "19:00 ET",
+  "venue": "Capital One Arena, Washington, DC",
+  "away": "Milwaukee Bucks",
+  "home": "Washington Wizards",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Washington Wizards to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-03",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "19:30 ET",
+  "venue": "Kaseya Center, Miami, FL",
+  "away": "Minnesota Timberwolves",
+  "home": "Miami Heat",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Miami Heat to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-04",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "19:30 ET",
+  "venue": "Barclays Center, Brooklyn, NY",
+  "away": "Charlotte Hornets",
+  "home": "Brooklyn Nets",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Brooklyn Nets to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-05",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "19:30 ET",
+  "venue": "Scotiabank Arena, Toronto, ON",
+  "away": "Chicago Bulls",
+  "home": "Toronto Raptors",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Toronto Raptors to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-06",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "20:00 ET",
+  "venue": "FedExForum, Memphis, TN",
+  "away": "Utah Jazz",
+  "home": "Memphis Grizzlies",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Memphis Grizzlies to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-07",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "20:00 ET",
+  "venue": "Smoothie King Center, New Orleans, LA",
+  "away": "Indiana Pacers",
+  "home": "New Orleans Pelicans",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "New Orleans Pelicans to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-08",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "20:30 ET",
+  "venue": "Toyota Center, Houston, TX",
+  "away": "Dallas Mavericks",
+  "home": "Houston Rockets",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Houston Rockets to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-09",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "22:00 ET",
+  "venue": "Crypto.com Arena, Los Angeles, CA",
+  "away": "Golden State Warriors",
+  "home": "Los Angeles Lakers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Los Angeles Lakers to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-10",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "22:00 ET",
+  "venue": "Moda Center, Portland, OR",
+  "away": "Phoenix Suns",
+  "home": "Portland Trail Blazers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Portland Trail Blazers to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1021-11",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-21",
+  "time": "22:30 ET",
+  "venue": "Intuit Dome, Inglewood, CA",
+  "away": "Sacramento Kings",
+  "home": "LA Clippers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-21",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "LA Clippers to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1022-12",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-22",
+  "time": "19:00 ET",
+  "venue": "Xfinity Mobile Arena, Philadelphia, PA",
+  "away": "Cleveland Cavaliers",
+  "home": "Philadelphia 76ers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/schedule?date=2026-10-22",
+  "sourceName": "NBA.com official schedule (date page)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.545,
+   "awayRecord": null,
+   "homeRecord": [
+    1,
+    0
+   ],
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.571,
+   "pAway": 0.429,
+   "pick": "Philadelphia 76ers to win",
+   "pickProb": 0.571,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.69,
+    "away": 2.25
+   },
+   "handicap": {
+    "side": "home",
+    "line": 2.0,
+    "price": 1.9,
+    "coverProb": 0.507,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1022-13",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-22",
+  "time": "21:30 ET",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "away": "Denver Nuggets",
+  "home": "Oklahoma City Thunder",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/schedule?date=2026-10-22",
+  "sourceName": "NBA.com official schedule (date page)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.545,
+   "awayRecord": null,
+   "homeRecord": [
+    1,
+    0
+   ],
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.571,
+   "pAway": 0.429,
+   "pick": "Oklahoma City Thunder to win",
+   "pickProb": 0.571,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.69,
+    "away": 2.25
+   },
+   "handicap": {
+    "side": "home",
+    "line": 2.0,
+    "price": 1.9,
+    "coverProb": 0.507,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-14",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "16:00 ET",
+  "venue": "Fiserv Forum, Milwaukee, WI",
+  "away": "Chicago Bulls",
+  "home": "Milwaukee Bucks",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Milwaukee Bucks to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-15",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "19:00 ET",
+  "venue": "TD Garden, Boston, MA",
+  "away": "New York Knicks",
+  "home": "Boston Celtics",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.455,
+   "homePct": 0.455,
+   "awayRecord": [
+    0,
+    1
+   ],
+   "homeRecord": [
+    0,
+    1
+   ],
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Boston Celtics to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-16",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "19:00 ET",
+  "venue": "Spectrum Center, Charlotte, NC",
+  "away": "Atlanta Hawks",
+  "home": "Charlotte Hornets",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Charlotte Hornets to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-17",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "19:00 ET",
+  "venue": "Gainbridge Fieldhouse, Indianapolis, IN",
+  "away": "Dallas Mavericks",
+  "home": "Indiana Pacers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Indiana Pacers to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-18",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "19:00 ET",
+  "venue": "Kia Center, Orlando, FL",
+  "away": "Minnesota Timberwolves",
+  "home": "Orlando Magic",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Orlando Magic to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-19",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "19:00 ET",
+  "venue": "Capital One Arena, Washington, DC",
+  "away": "Toronto Raptors",
+  "home": "Washington Wizards",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Washington Wizards to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-20",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "20:00 ET",
+  "venue": "Kaseya Center, Miami, FL",
+  "away": "Detroit Pistons",
+  "home": "Miami Heat",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.545,
+   "homePct": 0.5,
+   "awayRecord": [
+    1,
+    0
+   ],
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.489,
+   "pAway": 0.511,
+   "pick": "Detroit Pistons to win",
+   "pickProb": 0.511,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.98,
+    "away": 1.89
+   },
+   "handicap": null,
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-21",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "21:30 ET",
+  "venue": "Moody Center, Austin, TX",
+  "away": "Houston Rockets",
+  "home": "San Antonio Spurs",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.455,
+   "awayRecord": null,
+   "homeRecord": [
+    0,
+    1
+   ],
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.489,
+   "pAway": 0.511,
+   "pick": "Houston Rockets to win",
+   "pickProb": 0.511,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.98,
+    "away": 1.89
+   },
+   "handicap": null,
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-22",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "21:30 ET",
+  "venue": "Delta Center, Salt Lake City, UT",
+  "away": "New Orleans Pelicans",
+  "home": "Utah Jazz",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Utah Jazz to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-23",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "22:00 ET",
+  "venue": "Chase Center, San Francisco, CA",
+  "away": "Memphis Grizzlies",
+  "home": "Golden State Warriors",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Golden State Warriors to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NBA-1023-24",
+  "sport": "Basketball",
+  "league": "NBA",
+  "date": "2026-10-23",
+  "time": "22:00 ET",
+  "venue": "Crypto.com Arena, Los Angeles, CA",
+  "away": "LA Clippers",
+  "home": "Los Angeles Lakers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://www.nba.com/games?date=2026-10-23",
+  "sourceName": "NBA.com official games page (date)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Win-loss records exactly as displayed by NBA.com at retrieval; opening-week samples are shrunk hard toward .500, so every NBA line here is low confidence by construction."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Los Angeles Lakers to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=12.5; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Early-season sample: no club had played more than one game, so the model cannot justify a high-confidence pick."
+ },
+ {
+  "id": "NHL-F01",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-20",
+  "time": "Final",
+  "venue": "Centre Bell, Montréal",
+  "away": "San Jose Sharks",
+  "home": "Montreal Canadiens",
+  "status": "Final",
+  "result": "4–3 (OT)",
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-20",
+  "sourceName": "NHL official scores endpoint (final score, venue)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "note": "Official final; no model inputs are used for a completed fixture."
+  },
+  "model": null,
+  "priorPick": "Montreal Canadiens",
+  "graded": "lost",
+  "prediction": null,
+  "notes": "Build D published a pick on this fixture; it is graded here against the official final (Sharks won 4-3 in overtime)."
+ },
+ {
+  "id": "NHL-F02",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-20",
+  "time": "Final",
+  "venue": "Prudential Center, Newark, NJ",
+  "away": "Colorado Avalanche",
+  "home": "New Jersey Devils",
+  "status": "Final",
+  "result": "3–4",
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-20",
+  "sourceName": "NHL official scores endpoint (final score, venue)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "note": "Official final; no model inputs are used for a completed fixture."
+  },
+  "model": null,
+  "priorPick": null,
+  "graded": null,
+  "prediction": null,
+  "notes": "Build D published a pick on this fixture; it is graded here against the official final (Sharks won 4-3 in overtime)."
+ },
+ {
+  "id": "NHL-F03",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-20",
+  "time": "Final",
+  "venue": "UBS Arena, Elmont, NY",
+  "away": "Anaheim Ducks",
+  "home": "New York Islanders",
+  "status": "Final",
+  "result": "2–3",
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-20",
+  "sourceName": "NHL official scores endpoint (final score, venue)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "note": "Official final; no model inputs are used for a completed fixture."
+  },
+  "model": null,
+  "priorPick": null,
+  "graded": null,
+  "prediction": null,
+  "notes": "Build D published a pick on this fixture; it is graded here against the official final (Sharks won 4-3 in overtime)."
+ },
+ {
+  "id": "NHL-1021-01",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-21",
+  "time": "19:30 ET",
+  "venue": "KeyBank Center, Buffalo, NY",
+  "away": "Philadelphia Flyers",
+  "home": "Buffalo Sabres",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-21",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.318,
+   "homePct": 0.556,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: PHI 2-6-3, BUF 4-3-2."
+  },
+  "model": {
+   "pHome": 0.661,
+   "pAway": 0.339,
+   "pick": "Buffalo Sabres to win",
+   "pickProb": 0.661,
+   "confidence": "High",
+   "moneyline": {
+    "home": 1.46,
+    "away": 2.85
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 1.74,
+    "coverProb": 0.554,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": {
+   "selection": "Buffalo Sabres to win (moneyline, our price 1.45)",
+   "text": "Buffalo Sabres are our pick at KeyBank Center against the Philadelphia Flyers. The NHL score endpoint lists Buffalo at 4-3-2 and Philadelphia at 2-6-3, a points-percentage gap of .556 to .318 that our model converts into a 66% home win probability. Tage Thompson has five goals and Zach Benson six assists for Buffalo, while Ukko-Pekka Luukkonen has already recorded three wins. Philadelphia's Matvei Michkov has six goals but the club has lost six of eleven; back Buffalo moneyline.",
+   "facts": [
+    [
+     "Buffalo 4-3-2, Philadelphia 2-6-3",
+     "NHL score endpoint 2026-10-21"
+    ],
+    [
+     "Tage Thompson 5 goals, Zach Benson 6 assists, Luukkonen 3 wins",
+     "same payload, team leaders"
+    ]
+   ],
+   "wordCount": 78
+  },
+  "notes": ""
+ },
+ {
+  "id": "NHL-1021-02",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-21",
+  "time": "19:30 ET",
+  "venue": "Canadian Tire Centre, Ottawa, ON",
+  "away": "Florida Panthers",
+  "home": "Ottawa Senators",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-21",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.667,
+   "homePct": 0.667,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: FLA 5-2-2, OTT 6-3-0."
+  },
+  "model": {
+   "pHome": 0.53,
+   "pAway": 0.47,
+   "pick": "Ottawa Senators to win",
+   "pickProb": 0.53,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.82,
+    "away": 2.06
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.3,
+    "coverProb": 0.42,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-03",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "19:00 ET",
+  "venue": "TD Garden, Boston, MA",
+  "away": "Nashville Predators",
+  "home": "Boston Bruins",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.562,
+   "homePct": 0.75,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: NSH 3-2-3, BOS 7-2-1."
+  },
+  "model": {
+   "pHome": 0.633,
+   "pAway": 0.367,
+   "pick": "Boston Bruins to win",
+   "pickProb": 0.633,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.53,
+    "away": 2.63
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 1.84,
+    "coverProb": 0.525,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": {
+   "selection": "Boston Bruins to win (moneyline, our price 1.52)",
+   "text": "Boston Bruins return to TD Garden against the Nashville Predators with the better verified record: 7-2-1 against 3-2-3, which is .750 against .563 in points percentage. David Pastrnak leads Boston with four goals and eight assists, Jeremy Swayman has six wins in ten decisions, and Nashville's Ryan O'Reilly and Roman Josi carry their offence. The model makes Boston a 63% home favourite, so the Bruins moneyline is a medium-confidence selection rather than a high one.",
+   "facts": [
+    [
+     "Boston 7-2-1, Nashville 3-2-3",
+     "NHL score endpoint 2026-10-22"
+    ],
+    [
+     "Pastrnak 4 goals 8 assists, Swayman 6 wins",
+     "same payload, team leaders"
+    ]
+   ],
+   "wordCount": 75
+  },
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-04",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "19:00 ET",
+  "venue": "Scotiabank Arena, Toronto, ON",
+  "away": "New York Rangers",
+  "home": "Toronto Maple Leafs",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.682,
+   "homePct": 0.545,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: NYR 7-3-1, TOR 5-4-2."
+  },
+  "model": {
+   "pHome": 0.455,
+   "pAway": 0.545,
+   "pick": "New York Rangers to win",
+   "pickProb": 0.545,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 2.12,
+    "away": 1.77
+   },
+   "handicap": null,
+   "total": null
+  },
+  "prediction": null,
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-05",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "19:00 ET",
+  "venue": "Canadian Tire Centre, Ottawa, ON",
+  "away": "San Jose Sharks",
+  "home": "Ottawa Senators",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.55,
+   "homePct": 0.667,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: SJS 5-4-1, OTT 6-3-0."
+  },
+  "model": {
+   "pHome": 0.594,
+   "pAway": 0.406,
+   "pick": "Ottawa Senators to win",
+   "pickProb": 0.594,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.63,
+    "away": 2.38
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.0,
+    "coverProb": 0.484,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-06",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "19:00 ET",
+  "venue": "Prudential Center, Newark, NJ",
+  "away": "Anaheim Ducks",
+  "home": "New Jersey Devils",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.444,
+   "homePct": 0.556,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: ANA 4-5-0, NJD 5-4-0."
+  },
+  "model": {
+   "pHome": 0.591,
+   "pAway": 0.409,
+   "pick": "New Jersey Devils to win",
+   "pickProb": 0.591,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.63,
+    "away": 2.36
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.01,
+    "coverProb": 0.481,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-07",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "19:00 ET",
+  "venue": "PPG Paints Arena, Pittsburgh, PA",
+  "away": "Florida Panthers",
+  "home": "Pittsburgh Penguins",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.667,
+   "homePct": 0.35,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: FLA 5-2-2, PIT 3-6-1."
+  },
+  "model": {
+   "pHome": 0.356,
+   "pAway": 0.644,
+   "pick": "Florida Panthers to win",
+   "pickProb": 0.644,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 2.72,
+    "away": 1.5
+   },
+   "handicap": null,
+   "total": null
+  },
+  "prediction": {
+   "selection": "Florida Panthers to win (moneyline, our price 1.55)",
+   "text": "Florida Panthers are the away side to back in Pittsburgh. The NHL score endpoint has Florida at 5-2-2 (.667) and the Penguins at 3-6-1 (.350), and our model converts that into a 64% chance for the Panthers despite home ice. Brady Tkachuk has six goals, Matthew Tkachuk eleven assists and Jacob Markstrom three wins for Florida, while Pittsburgh's Evgeni Malkin has five goals and the club has won three of ten. Take Florida moneyline.",
+   "facts": [
+    [
+     "Florida 5-2-2, Pittsburgh 3-6-1",
+     "NHL score endpoint 2026-10-22"
+    ],
+    [
+     "Brady Tkachuk 6 goals, Matthew Tkachuk 11 assists; Malkin 5 goals",
+     "same payload, team leaders"
+    ]
+   ],
+   "wordCount": 74
+  },
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-08",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "19:30 ET",
+  "venue": "UBS Arena, Elmont, NY",
+  "away": "Los Angeles Kings",
+  "home": "New York Islanders",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.286,
+   "homePct": 0.611,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: LAK 1-4-2, NYI 5-3-1."
+  },
+  "model": {
+   "pHome": 0.709,
+   "pAway": 0.291,
+   "pick": "New York Islanders to win",
+   "pickProb": 0.709,
+   "confidence": "High",
+   "moneyline": {
+    "home": 1.36,
+    "away": 3.32
+   },
+   "handicap": {
+    "side": "home",
+    "line": 1.0,
+    "price": 1.94,
+    "coverProb": 0.498,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": {
+   "selection": "New York Islanders to win (moneyline, our price 1.36)",
+   "text": "New York Islanders host the Los Angeles Kings at UBS Arena and are the strongest home selection on Thursday's slate. The NHL score payload has the Islanders at 5-3-1 (.611 points percentage) against a Kings side at 1-4-2 (.286), and the model prices the home win at 71%. Bo Horvat has five goals, Matthew Schaefer eight assists and Ilya Sorokin five wins for New York, while Los Angeles have one win in seven and Darcy Kuemper has a single victory; take the Islanders moneyline and consider the -1.5 puck line.",
+   "facts": [
+    [
+     "Islanders 5-3-1, Kings 1-4-2",
+     "NHL score endpoint 2026-10-22"
+    ],
+    [
+     "Horvat 5 goals, Schaefer 8 assists, Sorokin 5 wins; Kuemper 1 win",
+     "same payload, team leaders"
+    ]
+   ],
+   "wordCount": 90
+  },
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-09",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "20:00 ET",
+  "venue": "Enterprise Center, St. Louis, MO",
+  "away": "Vegas Golden Knights",
+  "home": "St. Louis Blues",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.727,
+   "homePct": 0.5,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: VGK 8-3-0, STL 4-4-1."
+  },
+  "model": {
+   "pHome": 0.405,
+   "pAway": 0.595,
+   "pick": "Vegas Golden Knights to win",
+   "pickProb": 0.595,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 2.39,
+    "away": 1.62
+   },
+   "handicap": null,
+   "total": null
+  },
+  "prediction": null,
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-10",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "20:00 ET",
+  "venue": "American Airlines Center, Dallas, TX",
+  "away": "Winnipeg Jets",
+  "home": "Dallas Stars",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.556,
+   "homePct": 0.611,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: WPG 4-3-2, DAL 5-3-1."
+  },
+  "model": {
+   "pHome": 0.561,
+   "pAway": 0.439,
+   "pick": "Dallas Stars to win",
+   "pickProb": 0.561,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.72,
+    "away": 2.2
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.15,
+    "coverProb": 0.45,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-11",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "21:00 ET",
+  "venue": "Scotiabank Saddledome, Calgary, AB",
+  "away": "Minnesota Wild",
+  "home": "Calgary Flames",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.7,
+   "homePct": 0.25,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: MIN 6-2-2, CGY 2-6-0."
+  },
+  "model": {
+   "pHome": 0.282,
+   "pAway": 0.718,
+   "pick": "Minnesota Wild to win",
+   "pickProb": 0.718,
+   "confidence": "High",
+   "moneyline": {
+    "home": 3.42,
+    "away": 1.35
+   },
+   "handicap": null,
+   "total": null
+  },
+  "prediction": {
+   "selection": "Minnesota Wild to win (moneyline, our price 1.35)",
+   "text": "Minnesota Wild are a road pick at the Scotiabank Saddledome because the form gap is the widest on the board: the NHL score endpoint shows Minnesota at 6-2-2 (.700 points percentage) and Calgary at 2-6-0 (.250). Kirill Kaprizov already has eleven goals, Quinn Hughes eleven assists and Jesper Wallstedt six wins, while Calgary's leading scorer has three goals and Dustin Wolf has one win. Our model gives Minnesota a 72% chance, so take the Wild moneyline.",
+   "facts": [
+    [
+     "Minnesota 6-2-2, Calgary 2-6-0",
+     "NHL score endpoint 2026-10-22"
+    ],
+    [
+     "Kaprizov 11 goals, Hughes 11 assists, Wallstedt 6 wins; Frost 3 goals, Wolf 1 win",
+     "same payload, team leaders"
+    ]
+   ],
+   "wordCount": 76
+  },
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-12",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "21:00 ET",
+  "venue": "Rogers Place, Edmonton, AB",
+  "away": "Carolina Hurricanes",
+  "home": "Edmonton Oilers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.773,
+   "homePct": 0.833,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: CAR 8-2-1, EDM 7-1-1."
+  },
+  "model": {
+   "pHome": 0.563,
+   "pAway": 0.437,
+   "pick": "Edmonton Oilers to win",
+   "pickProb": 0.563,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.72,
+    "away": 2.21
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.13,
+    "coverProb": 0.453,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": {
+    "line": 7.0,
+    "expHome": 3.51,
+    "expAway": 3.41,
+    "over": 1.93,
+    "under": 1.93,
+    "note": "expected goals from each club's verified GF/GA per game (NHL standings 20 Oct)"
+   }
+  },
+  "prediction": null,
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-13",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "22:00 ET",
+  "venue": "Climate Pledge Arena, Seattle, WA",
+  "away": "Utah Mammoth",
+  "home": "Seattle Kraken",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.7,
+   "homePct": 0.65,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: UTA 7-3-0, SEA 6-3-1."
+  },
+  "model": {
+   "pHome": 0.503,
+   "pAway": 0.497,
+   "pick": "Seattle Kraken to win",
+   "pickProb": 0.503,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.92,
+    "away": 1.94
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.46,
+    "coverProb": 0.393,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.8; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": ""
+ },
+ {
+  "id": "NHL-1022-14",
+  "sport": "Ice Hockey",
+  "league": "NHL",
+  "date": "2026-10-22",
+  "time": "22:00 ET",
+  "venue": "Rogers Arena, Vancouver, BC",
+  "away": "Detroit Red Wings",
+  "home": "Vancouver Canucks",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://api-web.nhle.com/v1/score/2026-10-22",
+  "sourceName": "NHL official scores endpoint (fixture, venue, records)",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.5,
+   "homePct": 0.227,
+   "awayRecord": null,
+   "homeRecord": null,
+   "note": "Records verified in the NHL score payload: DET 3-3-3, VAN 2-8-1."
+  },
+  "model": {
+   "pHome": 0.38,
+   "pAway": 0.62,
+   "pick": "Detroit Red Wings to win",
+   "pickProb": 0.62,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 2.54,
+    "away": 1.56
+   },
+   "handicap": null,
+   "total": null
+  },
+  "prediction": {
+   "selection": "Detroit Red Wings to win (moneyline, our price 1.61)",
+   "text": "Detroit Red Wings visit Rogers Arena to face a Vancouver Canucks side that has won twice in eleven games. The NHL score endpoint lists Detroit at 3-3-3 (.500) and Vancouver at 2-8-1 (.227), which our model turns into a 62% chance for the visitors. Alex DeBrincat has six goals and five assists for Detroit and John Gibson has two wins, while Vancouver's Elias Pettersson has eight assists but Leevi Merilainen has only one win; back Detroit moneyline.",
+   "facts": [
+    [
+     "Detroit 3-3-3, Vancouver 2-8-1",
+     "NHL score endpoint 2026-10-22"
+    ],
+    [
+     "DeBrincat 6 goals 5 assists, Gibson 2 wins; Pettersson 8 assists",
+     "same payload, team leaders"
+    ]
+   ],
+   "wordCount": 77
+  },
+  "notes": ""
+ },
+ {
+  "id": "MLB-WS1",
+  "sport": "Baseball",
+  "league": "MLB",
+  "date": "2026-10-23",
+  "time": "20:00 ET",
+  "venue": "American Family Field, Milwaukee, WI",
+  "away": "Tampa Bay Rays",
+  "home": "Milwaukee Brewers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-27",
+  "sourceName": "MLB official Stats API schedule (postseason) + standings",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.605,
+   "homePct": 0.636,
+   "awayRecord": [
+    98,
+    64
+   ],
+   "homeRecord": [
+    103,
+    59
+   ],
+   "note": "Regular-season records verified from the MLB Stats API: Tampa Bay Rays 98-64, Milwaukee Brewers 103-59.",
+   "standingsUrl": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+  },
+  "model": {
+   "pHome": 0.563,
+   "pAway": 0.437,
+   "pick": "Milwaukee Brewers to win",
+   "pickProb": 0.563,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.72,
+    "away": 2.21
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.17,
+    "coverProb": 0.446,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.7; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Game 1, World Series (best-of-seven). Starting pitchers were not published at retrieval, so no pitcher input is used."
+ },
+ {
+  "id": "MLB-WS2",
+  "sport": "Baseball",
+  "league": "MLB",
+  "date": "2026-10-24",
+  "time": "20:00 ET",
+  "venue": "American Family Field, Milwaukee, WI",
+  "away": "Tampa Bay Rays",
+  "home": "Milwaukee Brewers",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-27",
+  "sourceName": "MLB official Stats API schedule (postseason) + standings",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.605,
+   "homePct": 0.636,
+   "awayRecord": [
+    98,
+    64
+   ],
+   "homeRecord": [
+    103,
+    59
+   ],
+   "note": "Regular-season records verified from the MLB Stats API: Tampa Bay Rays 98-64, Milwaukee Brewers 103-59.",
+   "standingsUrl": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+  },
+  "model": {
+   "pHome": 0.563,
+   "pAway": 0.437,
+   "pick": "Milwaukee Brewers to win",
+   "pickProb": 0.563,
+   "confidence": "Medium",
+   "moneyline": {
+    "home": 1.72,
+    "away": 2.21
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.17,
+    "coverProb": 0.446,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.7; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Game 2, World Series (best-of-seven). Starting pitchers were not published at retrieval, so no pitcher input is used."
+ },
+ {
+  "id": "MLB-WS3",
+  "sport": "Baseball",
+  "league": "MLB",
+  "date": "2026-10-26",
+  "time": "20:00 ET",
+  "venue": "Tropicana Field, St. Petersburg, FL",
+  "away": "Milwaukee Brewers",
+  "home": "Tampa Bay Rays",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-27",
+  "sourceName": "MLB official Stats API schedule (postseason) + standings",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.636,
+   "homePct": 0.605,
+   "awayRecord": [
+    103,
+    59
+   ],
+   "homeRecord": [
+    98,
+    64
+   ],
+   "note": "Regular-season records verified from the MLB Stats API: Milwaukee Brewers 103-59, Tampa Bay Rays 98-64.",
+   "standingsUrl": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+  },
+  "model": {
+   "pHome": 0.507,
+   "pAway": 0.493,
+   "pick": "Tampa Bay Rays to win",
+   "pickProb": 0.507,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.9,
+    "away": 1.96
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.47,
+    "coverProb": 0.391,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.7; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Game 3, World Series (best-of-seven). Starting pitchers were not published at retrieval, so no pitcher input is used."
+ },
+ {
+  "id": "MLB-WS4",
+  "sport": "Baseball",
+  "league": "MLB",
+  "date": "2026-10-27",
+  "time": "20:00 ET",
+  "venue": "Tropicana Field, St. Petersburg, FL",
+  "away": "Milwaukee Brewers",
+  "home": "Tampa Bay Rays",
+  "status": "Scheduled",
+  "result": null,
+  "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-27",
+  "sourceName": "MLB official Stats API schedule (postseason) + standings",
+  "retrievedAt": "2026-10-21T12:30:00Z",
+  "inputs": {
+   "awayPct": 0.636,
+   "homePct": 0.605,
+   "awayRecord": [
+    103,
+    59
+   ],
+   "homeRecord": [
+    98,
+    64
+   ],
+   "note": "Regular-season records verified from the MLB Stats API: Milwaukee Brewers 103-59, Tampa Bay Rays 98-64.",
+   "standingsUrl": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+  },
+  "model": {
+   "pHome": 0.507,
+   "pAway": 0.493,
+   "pick": "Tampa Bay Rays to win",
+   "pickProb": 0.507,
+   "confidence": "Low",
+   "moneyline": {
+    "home": 1.9,
+    "away": 1.96
+   },
+   "handicap": {
+    "side": "home",
+    "line": 0.5,
+    "price": 2.47,
+    "coverProb": 0.391,
+    "note": "line = σ·Φ⁻¹(p) with σ=1.7; cover probability from the same normal margin model"
+   },
+   "total": null
+  },
+  "prediction": null,
+  "notes": "Game 4, World Series (best-of-seven). Starting pitchers were not published at retrieval, so no pitcher input is used."
+ }
+]

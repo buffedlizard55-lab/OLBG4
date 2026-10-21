@@ -543,6 +543,11 @@ def build_archive():
         ("session-4afef1af/", "Build E · 90 fixtures", "Automated pipeline over NBA/NHL/MLB feeds; refreshes every six hours."),
         ("session-5e6c545d/", "Build I · audit", "Second audit pass with corrections."),
         ("session-e1e0c27e/", "Build J · independent audit", "592 rows audited, 18 spot checks, 13 findings that this site cites."),
+        ("session-6b8d2d5f/", "Build K2 · verified command center", "48 official-sourced fixtures (NBA 27, NHL 17, MLB 4), 6 predictions, 11 findings. Its hub and flagged pages are preserved as hub-2026-10-21.html and hub-flagged-2026-10-21.html below."),
+        ("session-093bfd5e/", "Board L · hub repair", "Re-checked all 66 hub rows, upgraded 16 sources to official domains and downgraded 19 rows to unverified+flagged."),
+        ("session-5838b25d/", "Board K · reproducibility audit", "Independent reproducibility check of the pipeline build."),
+        ("session-6b8d2d5f/hub-2026-10-21.html", "Preserved root hub (superseded)", "Byte-for-byte copy of the hub that was at / when this integration started, kept so nothing is lost."),
+        ("session-6b8d2d5f/hub-flagged-2026-10-21.html", "Preserved root flagged page (superseded)", "Byte-for-byte copy of the flagged page that was at /flagged.html before the consolidation."),
         ("audit/", "Publication audit", "Repository-wide link and inventory audit."),
     ]
     builds.append(("tennis.html", "Board D category pages", "Root-level tennis.html, basketball.html, baseball.html, cricket.html, rugby.html, ice-hockey.html, snooker.html, darts.html, golf.html, badminton.html, table-tennis.html, volleyball.html, handball.html, esports.html and aussie-rules.html are Board D's filters over data/matches.json. They are unverified against governing bodies in part (F-01) and are kept only as an archive."))
