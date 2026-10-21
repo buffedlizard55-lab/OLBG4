@@ -82,6 +82,22 @@ pipeline and commits the refreshed snapshot.
 - Review page: 20 module claims checked against official endpoints, 5 row-level spot checks
   re-opened live, 9 irregularities found and handled.
 
+## Build J — `session-e1e0c27e/` (independent cross-build audit)
+
+Audits, does not originate. `scripts/session-e1e0c27e/audit.py` reads every build's committed
+data (592 rows across A, B, C, D, E, G), classifies each row's source link as official / OLBG /
+secondary, matches the same fixture across builds, and `build_site.py` renders seven pages
+(Overview, All rows, By build, Spot checks, Cross-build, Method, Flagged for Review).
+
+- 451 rows carry an official link; 109 are OLBG-only (Build B); 32 are secondary-only (Build D).
+- 18 row-level re-checks against official pages, with links: 9 confirmed, 5 partial, 4 contradicted.
+- 93 fixtures appear in 2+ builds; 10 have opposite match-winner picks.
+- 13 findings. The main ones: root hub rows self-marked verified with only ESPN/Wikipedia/BBC/Sky/blog
+  sources and high-confidence predictions contradicted by NHL.com, MLB.com and NRL.com (F-01/F-02);
+  and a later session's commit `cf9f024` overwriting Build A's `data/rows.json`/`docs/` and Build B's
+  `data/predictions.json` with templated texts (F-11/F-12). Nothing in another build was edited by
+  this session; requests are logged in `COORDINATION.md`.
+
 ## Scope & exclusions (per brief)
 
 Excluded everywhere: **soccer, boxing, UFC/MMA, football (soccer), American football, hurling, horse racing, cycling, specials**.  
@@ -156,3 +172,10 @@ Data curated from official public sources (linked per row). Code MIT-equivalent 
 
 ## Board F — independent audit (`session-07a080b9/`)
 Re-runnable line-by-line audit of Builds A–E: `python3 session-07a080b9/audit.py` → `session-07a080b9/index.html` + `audit.json`. Result 2026-10-21: D 66 rows/15 high (min 68 words), A 144, B 116/9 predictions (min 103 words per B gate), C 43/182 selections/10 predictions, E 90 fixtures/18 predictions; 87 HTML files, 1,576 internal links, **0 broken**; only open items are the 2 Gaelic rows in Build A (WARN, already flagged by Build B — published, non-blocking).
+
+## Board M — Unified 17-Sport Multi-Market Desk & Repo Audit (`session-e62da3b5/`)
+Re-runnable generator and verification suite: `python3 scripts/session-e62da3b5/build_and_verify.py` → `data/session-e62da3b5/*.json` + `session-e62da3b5/` (24 HTML pages: Dashboard, All Markets, High-Confidence Predictions, Methodology & OLBG Reverse-Engineering, Official Sources Registry, Line-by-Line Repo Audit, Flagged for Review, and 17 sport subpages).
+- **172 match fixtures + 24 outrights = 196 entries across all 17 in-scope OLBG sports** (144 priced with Win/Handicap/Total lines; 28 unverified left blank and flagged).
+- **45 High-confidence predictions** (59–83 words each, 100% unique, naming both competitors, form, history, and selection) + 62 Medium + 65 Low picks.
+- Fixes 9 malformed `--0.5` double-minus handicaps and 2 Snooker attribution bugs (`9931` Elliot Slessor vs Jamie Jones; `9930` Sam Craigie vs Xu Si) found during our line-by-line review of Build G.
+

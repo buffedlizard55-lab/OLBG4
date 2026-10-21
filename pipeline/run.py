@@ -332,7 +332,7 @@ def main(argv: list[str] | None = None) -> int:
                     "headline_pick": None, "expected": None, "se": None, "edge": None,
                     "predictions": [],
                     "rationale": (
-                        f"{meta['league']} ratings rest on {current_fit.games} completed games, "
+                        f"{config.SPORTS[sport]['league']} ratings rest on {current_fit.games} completed games, "
                         f"so no line is originated for this fixture."
                     ),
                 },

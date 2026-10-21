@@ -207,7 +207,7 @@ HANDICAP_BLOCKS = [
     [
         "{fav} {wins5_clause}.",
         "{fav} hold a {record} {record_label} and {wins5_clause}.",
-        "Recent form has {fav} {wins5_clause}, while {dog} {dog_wins_clause}.",
+        "Recent form favors {fav}, who {wins5_clause}, while {dog} {dog_wins_clause}.",
         "{form_sentence}",
     ],
     [
