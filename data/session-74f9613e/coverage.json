@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "generated_by": "scripts/prepare_inventory.py",
+    "captured_at_utc": "2026-10-21T09:00:00Z",
+    "decision_rule": "A sport is priced only when every model input for a match is verifiable from an official source. Otherwise the fixture is published with a blank line and a flag."
+  },
+  "sports": [
+    {
+      "sport": "Ice Hockey",
+      "olbg_id": 13,
+      "status": "priced",
+      "fixtures_listed": 12,
+      "fixtures_priced": 12,
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "note": "All 12 NHL games scheduled for 22 Oct 2026 priced from official NHL standings and schedule."
+    },
+    {
+      "sport": "Basketball",
+      "olbg_id": 4,
+      "status": "priced",
+      "fixtures_listed": 11,
+      "fixtures_priced": 9,
+      "sources": [
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "note": "All 11 NBA games on 21 Oct 2026 captured from the official schedule; two (Utah at Memphis, Sacramento at LA Clippers) left unpriced because those clubs' 2025-26 records were truncated in the official table. Totals are not originated for this sport: no official pace/efficiency table was captured."
+    },
+    {
+      "sport": "Baseball",
+      "olbg_id": 12,
+      "status": "priced",
+      "fixtures_listed": 1,
+      "fixtures_priced": 1,
+      "sources": [
+        "S15",
+        "S16"
+      ],
+      "note": "World Series Game 1 (Tampa Bay at Milwaukee, 23 Oct 2026) is the only MLB fixture on the official calendar in the window."
+    },
+    {
+      "sport": "Rugby Union",
+      "olbg_id": 9,
+      "status": "priced",
+      "fixtures_listed": 19,
+      "fixtures_priced": 8,
+      "sources": [
+        "S19",
+        "S20",
+        "S06"
+      ],
+      "note": "All eight URC Round 4 matches priced from the official league table and match centre. Eleven French Top 14 / Pro D2 fixtures also appeared on OLBG; they are listed on the Flagged page but not priced because no official LNR source was captured."
+    },
+    {
+      "sport": "Snooker",
+      "olbg_id": 8,
+      "status": "partially priced",
+      "fixtures_listed": 11,
+      "fixtures_priced": 2,
+      "sources": [
+        "S17",
+        "S18"
+      ],
+      "note": "All 11 Northern Ireland Open Round 2 matches confirmed on the official WST draw. Only two pairings have both players inside the official top-36 prize-money extract, so only those two are priced."
+    },
+    {
+      "sport": "Cricket",
+      "olbg_id": 7,
+      "status": "fixture-only",
+      "fixtures_listed": 10,
+      "fixtures_priced": 0,
+      "sources": [
+        "S21",
+        "S22"
+      ],
+      "note": "Fixtures confirmed by the ICC. No lines: the ICC ODI team-ranking table rendered empty, so team strength could not be verified."
+    },
+    {
+      "sport": "Darts",
+      "olbg_id": 15,
+      "status": "unverified inventory",
+      "fixtures_listed": 16,
+      "fixtures_priced": 0,
+      "sources": [
+        "S23",
+        "S02"
+      ],
+      "note": "European Championship fixtures seen on OLBG. PDC's tournament page confirms the event but not a machine-readable draw; pairings are therefore flagged, not published as priced rows."
+    },
+    {
+      "sport": "Tennis",
+      "olbg_id": 3,
+      "status": "unverified inventory",
+      "fixtures_listed": 15,
+      "fixtures_priced": 0,
+      "sources": [
+        "S24",
+        "S04"
+      ],
+      "note": "Fixtures seen on OLBG. ATP pages did not render a usable draw or per-player form table in this environment, so nothing is priced."
+    },
+    {
+      "sport": "Rugby League",
+      "olbg_id": 10,
+      "status": "no-match-market",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S07"
+      ],
+      "note": "OLBG's rugby-league all-events page listed only outright markets at capture time (State of Origin 2027, Super League 2027 Grand Final, NRL 2027 Grand Final). No head-to-head fixture to price."
+    },
+    {
+      "sport": "Gaelic Football",
+      "olbg_id": 25,
+      "status": "unverified inventory",
+      "fixtures_listed": 1,
+      "fixtures_priced": 0,
+      "sources": [
+        "S01"
+      ],
+      "note": "Club fixture seen on OLBG; no GAA official confirmation captured."
+    },
+    {
+      "sport": "Golf",
+      "olbg_id": 5,
+      "status": "not covered",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": "Sport hub exists in the OLBG taxonomy; tournament/outright markets only. Not covered in this cycle."
+    },
+    {
+      "sport": "Motor Racing",
+      "olbg_id": 14,
+      "status": "not covered",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": "Sport hub exists in the OLBG taxonomy; race/outright markets only. Not covered in this cycle."
+    },
+    {
+      "sport": "Greyhounds",
+      "olbg_id": 28,
+      "status": "not covered",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": "Sport hub exists in the OLBG taxonomy; race-level markets. Not covered in this cycle."
+    },
+    {
+      "sport": "Handball",
+      "olbg_id": 20,
+      "status": "not covered",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": "Sport hub exists in the OLBG taxonomy. Not covered in this cycle."
+    },
+    {
+      "sport": "Volleyball",
+      "olbg_id": 21,
+      "status": "not covered",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": "Sport hub exists in the OLBG taxonomy. Not covered in this cycle."
+    },
+    {
+      "sport": "eSports",
+      "olbg_id": 23,
+      "status": "not covered",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": "Sport hub exists in the OLBG taxonomy (best-tipsters page only). Not covered in this cycle."
+    },
+    {
+      "sport": "Aussie Rules",
+      "olbg_id": 22,
+      "status": "not covered",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": "Sport hub exists in the OLBG taxonomy (best-tipsters page only). Not covered in this cycle."
+    },
+    {
+      "sport": "Horse Racing",
+      "olbg_id": 2,
+      "status": "excluded by brief",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": ""
+    },
+    {
+      "sport": "Football",
+      "olbg_id": 1,
+      "status": "excluded by brief",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": ""
+    },
+    {
+      "sport": "American Football",
+      "olbg_id": 11,
+      "status": "excluded by brief",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": ""
+    },
+    {
+      "sport": "Boxing",
+      "olbg_id": 16,
+      "status": "excluded by brief",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": ""
+    },
+    {
+      "sport": "Cycling",
+      "olbg_id": 17,
+      "status": "excluded by brief",
+      "fixtures_listed": 0,
+      "fixtures_priced": 0,
+      "sources": [
+        "S09"
+      ],
+      "note": ""
+    }
+  ]
+}

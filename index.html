@@ -1,1 +1,52 @@
-<!doctype html><html><head><meta charset="utf-8"><title>OLBG4 — Originated Lines Dashboard</title><meta http-equiv="refresh" content="0; url=docs/"><link rel="canonical" href="docs/"></head><body><p>Redirecting to the <a href="docs/">OLBG4 dashboard</a>…</p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OLBG4 — originated lines and predictions</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         background: #f6f7f9; color: #1b1f24; }
+  @media (prefers-color-scheme: dark) { body { background: #14171b; color: #e7eaee; } .card { background: #1d2228 !important; border-color: #2c333b !important; } }
+  main { max-width: 900px; margin: 0 auto; padding: 56px 20px 72px; }
+  h1 { font-size: 1.9rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+  p.lead { margin: 0 0 32px; font-size: 1.05rem; opacity: 0.85; max-width: 62ch; }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card { display: block; padding: 22px 24px; border: 1px solid #d9dee5; border-radius: 12px; background: #fff;
+          text-decoration: none; color: inherit; transition: transform .12s ease, box-shadow .12s ease; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.09); }
+  .card h2 { margin: 0 0 6px; font-size: 1.12rem; }
+  .card p { margin: 0; font-size: .93rem; opacity: .8; }
+  .k { display: inline-block; margin-top: 12px; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; opacity: .55; }
+  footer { margin-top: 40px; font-size: .85rem; opacity: .65; }
+  a { color: #1a5fb4; }
+</style>
+</head>
+<body>
+<main>
+  <h1>OLBG4 — originated lines &amp; predictions</h1>
+  <p class="lead">Two independently built research dashboards for the OLBG fixture window of 21–25 October 2026.
+     Every fixture, quote and model input is taken from the official league or governing body; nothing is
+     copied from a bookmaker, and anything that could not be confirmed is left blank and flagged.</p>
+  <div class="grid">
+    <a class="card" href="docs/">
+      <h2>Combined dashboard</h2>
+      <p>116 fixtures across 11 sports, transparent pricing model, 9 written predictions and a
+         Flagged for Review page. Landed on main in PR #3.</p>
+      <span class="k">docs/ &middot; landing + sport pages</span>
+    </a>
+    <a class="card" href="session-74f9613e/">
+      <h2>Verification-first dashboard</h2>
+      <p>43 fixtures across 5 sports re-derived from primary sources, 182 originated selections,
+         10 predictions with per-claim citations and an 11-item gap register.</p>
+      <span class="k">session-74f9613e/ &middot; full audit trail</span>
+    </a>
+  </div>
+  <footer>Research output for comparison only — not betting advice. Prices are independent model
+      output, not quotes from a bookmaker. <a href="session-74f9613e/methodology.html">Methodology</a> &middot;
+      <a href="session-74f9613e/flagged.html">Flagged items</a> &middot;
+      <a href="session-74f9613e/sources.html">Source register</a></footer>
+</main>
+</body>
+</html>

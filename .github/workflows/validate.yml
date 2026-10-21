@@ -1,0 +1,40 @@
+name: Validate data and site
+
+# GitHub Pages for this repository is published from the repository root of `main`
+# using the account's legacy Pages build (a branch build, not an Actions build), and
+# `.nojekyll` disables Jekyll processing so the generated HTML is served byte for byte.
+# This workflow is therefore the CI gate: it rebuilds every artefact from source and
+# fails on any broken link, missing official source, impossible price or invalid
+# prediction.
+
+on:
+  push:
+    branches: [main, "arena/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild data and site, then validate
+        run: bash scripts/session-74f9613e/build_all.sh
+
+      - name: Fail if the committed site is out of date
+        run: |
+          if ! git diff --quiet; then
+            echo "Generated files are stale. Run bash scripts/build_all.sh and commit the result."
+            git diff --stat
+            exit 1
+          fi
