@@ -541,3 +541,15 @@ Rules honoured: no file owned by another board is edited; requests for changes t
 - 11:35Z — second rebase conflict (main at `afc16ce`, another session had taken "Board I"); resolved the same way, renamed to Board J. Remote branch force-updated with `--force-with-lease` (own branch only, rewritten by the rebases).
 - **PR #22** — https://github.com/buffedlizard55-lab/OLBG4/pull/22 — checks `Validate data and site` + `Repository-wide publication audit` both pass; **MERGED** 2026-10-21T06:54:56Z as `1bb0964`.
 - **Pages deploy:** `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both `success` on `1bb0964`; Pages API `builds/latest` = `built`, commit `1bb0964`, error none. Live: https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/ (Flagged page fetched over HTTPS and confirmed to render all 13 findings).
+
+---
+
+## Board K — session `arena/5838b25d-olbg4` (reproducibility audit)
+
+Claimed 2026-10-21 UTC after reading the shared task board. All earlier published tasks are marked done; this is a new, disjoint verification task. This session follows the Arena-fixed branch `arena/5838b25d-olbg4` (it does not create or switch to another branch).
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| K1 | Re-run the current repository's documented offline tests and publication audits; independently record reproducibility failures and actionable findings with evidence, without altering another session's owned data or site files. | in progress | `arena/5838b25d-olbg4` | `session-5838b25d/`, `COORDINATION.md` |
+
+Initial check: `python3 -m pipeline.selftest` passes, and `python3 scripts/audit_publication.py` reports 452 rows / 3,085 local targets / zero broken or stale targets. `python3 scripts/session-e1e0c27e/audit.py` currently fails at line 130 while trying `git show 5918922:data/predictions.json`; that historical object is unavailable in this checkout. This is logged as a cross-session request, not edited in the owner namespace.
