@@ -27,6 +27,8 @@ TARGETS = [
     ("https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json", "nba"),
     ("https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json", "nba"),
     ("https://stats.nba.com/stats/scheduleleaguev2?LeagueID=00&Season=2026-27", "nba"),
+    ("https://cdn.nba.com/static/json/staticData/", "nba"),
+    ("https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json", "nba"),
     ("https://www.nba.com/games?date=2026-10-21", "nba"),
     ("https://api-web.nhle.com/v1/schedule/2026-10-21", "nhl"),
     ("https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-21", "mlb"),
