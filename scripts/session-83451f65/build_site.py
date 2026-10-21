@@ -31,7 +31,8 @@ COUNTS = E["counts"]
 
 NAV = [("index.html", "Dashboard"), ("entries.html", "All fixtures"), ("predictions.html", "High-confidence picks"),
        ("analysis.html", "Analysis"), ("coverage.html", "Coverage"), ("methodology.html", "Method"),
-       ("sources.html", "Sources"), ("flagged.html", "Flagged for review"), ("archive.html", "Archive")]
+       ("sources.html", "Sources"), ("flagged.html", "Flagged for review"), ("archive.html", "Archive"),
+       ("verification.html", "Verification register (Board K)"), ("dashboard-board-k.html", "Evidence dashboard (Board K)")]
 
 
 def layout(title, body, active="", subtitle=""):

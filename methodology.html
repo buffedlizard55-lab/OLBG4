@@ -1,115 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Methodology — OLBG4</title>
-<meta name="description" content="Reverse-engineered OLBG.com sport coverage with originated lines, picks and line-by-line sourcing.">
-<link rel="stylesheet" href="./assets/master/site.css">
+<title>Methodology · OLBG4 verified line desk</title>
+<meta name="description" content="Verified fixtures for the sports in scope, with our own originated lines, confidence grades and a source link on every row.">
+<link rel="stylesheet" href="assets/integrated.css">
 </head>
-<body data-root=".">
-<header class="site"><div class="wrap">
-  <div class="brand"><span class="dot"></span>OLBG4</div>
-  <nav class="site"><a href="./index.html">Dashboard</a><a href="./picks.html">Picks</a><a href="./markets.html">Markets</a><a href="./sources.html">Sources</a><a href="./flagged.html">Flagged</a><a href="./audit.html">Audit</a><a href="./methodology.html" aria-current="page">Method</a><a href="./archive.html">Archive</a></nav>
-</div></header>
+<body>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="mark">OLBG4</span><span class="brandsub">verified line desk</span>
+    </a>
+    <nav class="nav"><a class="navlink" href="index.html">Dashboard</a><a class="navlink" href="entries.html">All fixtures</a><a class="navlink" href="predictions.html">High-confidence picks</a><a class="navlink" href="analysis.html">Analysis</a><a class="navlink" href="coverage.html">Coverage</a><a class="navlink active" href="methodology.html">Method</a><a class="navlink" href="sources.html">Sources</a><a class="navlink" href="flagged.html">Flagged for review</a><a class="navlink" href="archive.html">Archive</a><a class="navlink" href="verification.html">Verification register (Board K)</a><a class="navlink" href="dashboard-board-k.html">Evidence dashboard (Board K)</a></nav>
+  </div>
+</header>
 <main class="wrap">
 
-<section class="page-head">
-  <h1>Methodology</h1>
-  <p class="lede">How the list was assembled, how the prices were produced, how confidence was graded, and exactly
-  where every value came from. If a method is not described here, it was not used.</p>
-</section>
 
-<div class="panel prose">
-<h2>1. What was reverse-engineered</h2>
-<p>OLBG publishes a betting-tips index across 20+ sports. Its sport list — Football, Horse Racing, Tennis, Golf,
-American Football, Baseball, Basketball, Boxing/UFC, Cricket, Cycling, Darts, Gaelic Football, Greyhound Racing, Handball,
-Hurling, Ice Hockey, Motor Racing, Rugby League, Rugby Union, Snooker, Volleyball, Specials — is used only to define the
-sport universe. OLBG's own tips, odds and text are never copied into a price.</p>
-<p>Applying the brief's exclusions (soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling,
-specials) leaves these sports in scope: Aussie Rules, Badminton, Baseball, Basketball, Cricket, Darts, Esports, Golf, Greyhounds, Handball, Ice Hockey, Motor Racing, Rugby League, Rugby Union, Snooker, Table Tennis, Tennis, Volleyball.</p>
+<section class="pagehead"><div class="kicker">Method</div><h1>Methodology</h1><p class="lede">How each number on this site was produced, including every constant we had to declare because the official page does not publish it.</p></section>
+<h2>1. Fixtures</h2>
+<p class="prose">A fixture is published only after the pairing, venue and start time were read on the league or
+organiser's own domain. The exact URL and the game identifier are printed in every row. If a field is missing on that
+page it stays blank — the model never imputes a venue, a time or a record.</p>
 
-<h2>2. How the master board was built</h2>
-<p>Six builds already existed in this repository. <code>tools/build_master.py</code> reads their committed data and:</p>
-<ol>
-<li>normalises sport names and team names (accents, sponsor prefixes such as "Vodacom", venue prefixes, bracketed notes);</li>
-<li>clusters records that describe the same fixture — same sport, same two teams, and dates within one day, or an exact
-date when the pairing is a multi-game series (detected because one build lists that pairing on two or more dates);</li>
-<li>picks the row with the most evidence inside each cluster (has a pick → has a non-templated prediction → official source
-→ build-marked verified → backbone order G, E, C, A, D, B) and keeps every other build's pick, grade, date and source in a
-<code>cross_build</code> list;</li>
-<li>records which build supplied any field that had to be filled from an alternative record (<code>fields_from</code>);</li>
-<li>classifies each source domain as official, secondary or OLBG, and marks a row verified only when its domain is official
-<em>and</em> the originating build marked it verified;</li>
-<li>flags date disagreements, opposing picks, templated write-ups, missing picks, placeholder fixtures and out-of-scope rows.</li>
-</ol>
-<p>No value is inferred, refreshed or re-priced during this merge. The master is a synthesis of committed work plus a
-verification layer, not a new model.</p>
+<h2>2. Strength of a side</h2>
+<div class="tablebox"><table class="grid">
+<thead><tr><th>Sport</th><th>Verified input</th><th>Strength</th></tr></thead>
+<tbody>
+<tr><td>Ice Hockey</td><td>season record W-L-OTL from the NHL feed</td><td><code>points% = (2W + OTL) / (2·GP)</code></td></tr>
+<tr><td>Basketball</td><td>season record W-L from NBA.com</td><td><code>win% = (W + 5) / (GP + 10)</code> (5/10 shrink)</td></tr>
+<tr><td>Rugby Union</td><td>recent form string from the club fixture page</td><td><code>win% = (wins + 3) / (n + 6)</code> (3/6 shrink)</td></tr>
+<tr><td>Baseball, Handball, Snooker</td><td>none published on the page we opened</td><td>no strength input — venue prior only</td></tr>
+</tbody></table></div>
 
-<h2>3. Line origination, per build</h2>
-<h3>Build G — per-sport models (no margin)</h3>
-<ul>
-<li><strong>Baseball</strong> — strength = average of actual win% and Pythagorean win%; log5 head-to-head; home-field
-log-odds shift +0.16.</li>
-<li><strong>Cricket</strong> — logistic on official ICC ratings, divisor 18 (ODI) / 30 (T20I) with a stated home
-adjustment and no adjustment at neutral venues. Win Match only.</li>
-<li><strong>Snooker</strong> — frame probability from seeding,
-<code>1 / (1 + exp(-0.40 × (ln rank_worse − ln rank_better)))</code>, independent frames to 4.</li>
-<li><strong>Ice hockey, handball, volleyball, rugby, darts, tennis, basketball</strong> — shrunk scoring models
-(Poisson / normal margins / logistic strength) with constants either read from the official page or declared as an
-explicit assumption.</li>
-</ul>
-<h3>Build E — NBA, NHL, MLB from league endpoints</h3>
-<p>Margins and totals fitted from results pulled from <code>cdn.nba.com</code>, <code>api-web.nhle.com</code> and
-<code>statsapi.mlb.com</code>, then converted to prices with a stated margin. It publishes moneyline, handicap (main line
-plus two alternates) and totals per fixture, and withholds the NBA entirely while the sample is under 20 games per team.</p>
-<h3>Build C — five leagues with transcribed inputs</h3>
-<p>Every input is a literal tuple next to the league page it came from; prices carry a 4% two-way / 5% three-way
-overround; a validator fails the build on a missing source, an impossible price or a short/duplicated prediction.</p>
-<h3>Build A — Model v1</h3>
-<p>Rating difference with shrinkage toward 0.5 and a home prior, margins applied at the last step. The same formula is
-reused across sports, which is why its write-ups are templated and are not counted as predictions here.</p>
-<h3>Build D — weighted composite</h3>
-<p>ELO 40% + form 25% + head-to-head 15% + venue/travel 15% + injury 5%, converted to a probability, then a 3.5–4.5%
-overround; handicap from Φ⁻¹(p)·σ.</p>
-<h3>Build B — OLBG consensus</h3>
-<p>Prices derived from the consensus captured on OLBG event pages. Because OLBG is the site being reverse-engineered, those
-rows have no official source and are published unverified on the <a href="./olbg.html">OLBG inventory</a> page.</p>
+<h2>3. Price of a match winner</h2>
+<pre class="formula">p_home = clamp(0.5 + 0.9 · (S_home − S_away) + H, 0.05, 0.95)
+price  = 1 / (p · 1.02)          → two-way margin of 4.0%</pre>
+<p class="prose">H is the venue prior. It is a declared constant per sport and is listed below. Where a sport has no
+strength input, p collapses to <code>0.5 + H</code> and the row cannot be graded above Low.</p>
+<div class="tablebox"><table class="grid"><thead><tr><th>Sport</th><th>H (venue prior)</th></tr></thead><tbody><tr><td>Ice Hockey</td><td>0.055</td></tr><tr><td>Basketball</td><td>0.06</td></tr><tr><td>Baseball</td><td>0.02</td></tr><tr><td>Rugby Union</td><td>0.07</td></tr><tr><td>Handball</td><td>0.05</td></tr><tr><td>Snooker</td><td>0.0</td></tr></tbody></table></div>
 
-<h2>4. Confidence grading</h2>
-<p>Grades are the originating build's, not re-scored here. In practice they rest on the model's probability and the size of
-the verified sample, for example build B used p ≥ 0.75 with at least 4 tips for High and p ≥ 0.60 with 2 tips for Medium;
-build E caps a grade when the sample is small or a source is secondary. <strong>High</strong> means the inputs and the model
-agree strongly — it is not a probability of winning, and no stake is implied.</p>
-
-<h2>5. Verification rules</h2>
-<ul>
-<li>Every row carries one source URL. If the URL is not a league, tour, federation, organiser or regulator page, the row is
-marked unverified and listed on <a href="./flagged.html">Flagged for Review</a>.</li>
-<li>A row is marked <em>verified</em> only when the domain is official <em>and</em> the build that produced it marked it
-verified. A live re-check adds a separate badge.</li>
-<li>If a live check contradicts a row, the row stays published, loses its verified mark and is listed at the top of the
-Flagged page.</li>
-<li>Values that could not be confirmed are blank. Missing markets are blank with the reason recorded — never filled with a
-made-up line.</li>
-</ul>
-
-<h2>6. Known limitations</h2>
-<ul>
-<li>Coverage is a snapshot of 2026-10-21: 284 rows are fixtures that had not started, the rest are already
-played and are hidden by default.</li>
-<li>Different sports carry different model quality. Ice hockey and basketball have dense verified samples; badminton and
-table tennis do not, and their rows are marked accordingly.</li>
-<li>The board merges six independent efforts. Where they disagree the disagreement is published rather than averaged.</li>
-<li>Prices are analysis, not bookmaker odds, and no profit, stake or return is claimed anywhere.</li>
-</ul>
+<h2>4. Handicap</h2>
+<pre class="formula">expected margin = 2 · (p − 0.5) · max_margin(sport)
+line            = |margin| snapped to the nearest half line
+cover price     = 1 − Φ((line − |margin|) / σ)   → 1 / (q · 1.02)</pre>
+<p class="prose">The line is ours: it is derived from our own probability, not read from a book. Both constants below are
+declared model assumptions and are flagged on the <a href="flagged.html">review page</a>.</p>
+<div class="grid2tight">
+<div class="tablebox"><table class="grid"><thead><tr><th>Sport</th><th>max_margin</th></tr></thead><tbody><tr><td>Ice Hockey</td><td>2.2</td></tr><tr><td>Basketball</td><td>18.0</td></tr><tr><td>Baseball</td><td>2.6</td></tr><tr><td>Rugby Union</td><td>20.0</td></tr><tr><td>Handball</td><td>12.0</td></tr><tr><td>Snooker</td><td>0.0</td></tr></tbody></table></div>
+<div class="tablebox"><table class="grid"><thead><tr><th>Sport</th><th>σ (margin)</th></tr></thead><tbody><tr><td>Ice Hockey</td><td>1.8</td></tr><tr><td>Basketball</td><td>12.0</td></tr><tr><td>Baseball</td><td>3.6</td></tr><tr><td>Rugby Union</td><td>12.0</td></tr><tr><td>Handball</td><td>8.0</td></tr></tbody></table></div>
 </div>
 
+<h2>5. Match total</h2>
+<p class="prose">No team scoring, pace or run-prevention figure was verified for these fixtures, so the total is a
+declared league-neutral constant with both sides at 1.92. It exists so the market is visible and honest; it does not
+claim an edge. Snooker totals are withheld because the WST page publishes no frame totals.</p>
+<div class="tablebox"><table class="grid"><thead><tr><th>Sport</th><th>Total line (declared)</th></tr></thead><tbody><tr><td>Ice Hockey</td><td>6.0</td></tr><tr><td>Basketball</td><td>226.5</td></tr><tr><td>Baseball</td><td>8.5</td></tr><tr><td>Rugby Union</td><td>44.5</td></tr><tr><td>Handball</td><td>57.5</td></tr><tr><td>Snooker</td><td>withheld</td></tr></tbody></table></div>
+
+<h2>6. Confidence</h2>
+<ul class="prose-list">
+  <li><strong>High</strong> — |p − 0.5| ≥ 0.18 <em>and</em> both sides have at least 8 verified games.</li>
+  <li><strong>Medium</strong> — |p − 0.5| ≥ 0.09 <em>and</em> both sides have at least 3 verified games.</li>
+  <li><strong>Low</strong> — everything else, including every row missing a strength input.</li>
+  <li><strong>No pick</strong> — the two sides are level on every verified input, so the model publishes 1.92/1.92 and
+  declines to name a winner.</li>
+</ul>
+
+<h2>7. What this model does not do</h2>
+<ul class="prose-list">
+  <li>It does not read a bookmaker, exchange or rating-service price. Not one.</li>
+  <li>It does not claim head-to-head history, injuries or line-ups for these fixtures — those were not published on the
+  feeds we opened, so they appear nowhere in the write-ups.</li>
+  <li>It does not convert a clock time the source rendered in another timezone. Those times are printed verbatim and
+  flagged.</li>
+  <li>It does not fill a gap with a figure from another build or from OLBG.</li>
+</ul>
+
 </main>
-<footer class="site"><div class="wrap">
-  <div>Data cut-off 2026-10-21 · 312 rows · 308 in scope · every row links its source</div>
-  <div>Analysis, not betting advice · 18+ · values are copied from the builds' committed data, never guessed</div>
-</div></footer>
-<script src="./assets/master/app.js"></script>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Data cut-off 2026-10-21T08:00Z.</strong>
+    Every published row was read on a governing-body, league or tournament-organiser domain; the link is in the row.
+    Values that could not be confirmed are blank and listed on <a href="flagged.html">Flagged for review</a>.</p>
+    <p class="small">Analysis only, not betting advice. 18+. Built by session <code>arena/83451f65-olbg4</code>;
+    other sessions' dashboards remain untouched in <a href="archive.html">Archive</a>.</p>
+  </div>
+</footer>
 </body>
 </html>
