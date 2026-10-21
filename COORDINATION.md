@@ -2,7 +2,7 @@
 
 Four sessions worked this repo in parallel. This file is the merged board: Boards A/B are kept verbatim, Boards C/D appended, cross-session conflicts logged.
 
-Last board update: 2026-10-21T09:15Z · integration owner: `arena/290a9dba-olbg4` (final hub — all builds merged, Pages live)
+Last board update: 2026-10-21 · current integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard) — see the Board H section at the end of this file · earlier hub owner `arena/290a9dba-olbg4` (Board D)
 
 ---
 
@@ -901,3 +901,82 @@ documented as gaps. Live at https://buffedlizard55-lab.github.io/OLBG4/.
 - **Pages:** `Deploy OLBG4 to GitHub Pages` and `pages build and deployment` both success on `main`; Pages API `builds/latest` = `built`, `error: null`. Live desk: https://buffedlizard55-lab.github.io/OLBG4/docs/desk/ — fetched over HTTPS after deploy and confirmed to render the overview, the five High picks and the per-sport counts.
 - **Merge conflicts:** three rebases against an active `main` (PRs #30, #31, #32, #36, #38 merged while this branch was open). Every conflict was in `COORDINATION.md`, `index.html` or the generated `audit/` artefacts. Resolution kept the upstream text verbatim and appended this board (renamed to **Board N** when session `093bfd5e` turned out to hold the letter L); no other session's content was discarded. The root `index.html` edit was reverted after `verify-integrated.yml` rejected hand edits to a generated file — see the request above.
 - **Non-blocking review items** stay published at `/docs/desk/flagged.html`: eight in-scope sports with no rows, three unreconciled datasets with two conflicting picks, blank venues/times, prior-only markets and the 11 declared model constants.
+
+> **Letter collision note.** Another session (`arena/648c1a19-olbg4`) had already published a "Board H"; this
+> session's board is therefore published as **Board P** from here on. Its early commits are titled "Board H".
+
+## Board P — session `arena/d908be47-olbg4` (final integration: deduplicated master board + new dashboard)
+
+Session `arena/d908be47-olbg4` · branch `arena/d908be47-olbg4` · claimed 2026-10-21 (UTC) · **status: active**
+
+Scope is non-overlapping and additive: new files only, plus the four shared files this session is explicitly claiming as final integrator.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| P1 | Read boards A–G, audit every build's committed data, record provenance | in progress | arena/d908be47-olbg4 | `COORDINATION.md` |
+| P2 | Build deduplicated master dataset from A/B/C/D/E/G with per-row provenance + cross-build conflict register | in progress | arena/d908be47-olbg4 | `data/master.json`, `data/master_conflicts.json`, `tools/build_master.py` |
+| P3 | Live re-verification of a stratified sample against official sources; record confirm/contradict per row | in progress | arena/d908be47-olbg4 | `data/live_checks.json`, `tools/live_checks.py` |
+| P4 | New clean dashboard: landing + per-sport subpages + picks/markets/flagged/sources/methodology/audit/archive | in progress | arena/d908be47-olbg4 | `index.html`, `sports/`, `picks.html`, `markets.html`, `flagged.html`, `sources.html`, `methodology.html`, `audit.html`, `archive.html`, `assets/master/*`, `tools/build_master_site.py` |
+| P5 | Machine gate: schema, unique ids, official-domain source per row, prediction >=30 words + unique, 0 broken internal links, no excluded sports in master | in progress | arena/d908be47-olbg4 | `tools/verify_master.py`, `.github/workflows/pages.yml` |
+| P6 | PR to main, merge, confirm Pages deploy, record result here | in progress | arena/d908be47-olbg4 | — |
+
+**Shared-file claim:** this session acts as final integration per the brief, so it claims `index.html`, `README.md`, `COORDINATION.md`, `.github/workflows/pages.yml` for additive edits. No other session's files are edited. Everything else added is new-path only (`sports/`, `tools/`, `data/master*.json`, `assets/master/`), so no A–G artefact is overwritten or deleted.
+
+### Board P completion record (2026-10-21, session `arena/d908be47-olbg4`; published as Board H in its first commits)
+
+| ID | Task | Status | Output |
+|---|---|---|---|
+| H1 | Audit every build's committed data; record provenance | done | this board |
+| H2 | Deduplicated master dataset with per-row provenance + conflict register | done | `data/master.json` (312 rows), `data/master_conflicts.json` (15), `data/source_registry.json`, `data/master_olbg.json`, `tools/build_master.py` |
+| H3 | Live re-verification against official sources | done | `data/live_checks.json` (15 checks: 13 confirmed, 1 contradicted, 2 pages unreadable) |
+| H4 | New dashboard: landing + 18 sport pages + 7 topic pages | done | `index.html`, `sports/*.html`, `picks.html`, `markets.html`, `flagged.html`, `sources.html`, `audit.html`, `methodology.html`, `archive.html`, `olbg.html`, `assets/master/*` |
+| H5 | Machine gate wired into CI | done | `tools/verify_master.py`, `.github/workflows/pages.yml` |
+| H6 | PR to main, merge, confirm Pages deploy | in progress | publish record appended below once merged |
+
+**What the merge produced.** 312 rows from the five earlier builds with a committed dataset (G 130, A 60, D 58, E 48, C 16
+primaries), 18 sports in scope, 267 genuine fixtures (31 market notes and 10 incomplete rows kept and flagged, hidden from
+the fixture view), 277 rows with an originated pick, 244 rows sourced to an official domain and build-verified, 63
+non-templated written predictions of which all 62 high-confidence fixtures are covered, 34 rows re-confirmed live today,
+1 row contradicted by an official schedule. Build B's 116 OLBG-only fixtures are published separately in
+`data/master_olbg.json` / `olbg.html` because none of them has an official source.
+
+**Verification performed.** `python3 tools/build_master.py && python3 tools/build_master_site.py && python3 tools/verify_master.py`
+— 9 assertion families: unique ids · every in-scope row has a source URL that is in the registry · no excluded sport in scope ·
+verified rows must cite an official domain *and* be build-verified · contradicted rows may not be marked verified ·
+high-confidence rows must have a pick and, if they carry prose, ≥30 words · no byte-identical predictions · conflict count
+matches row flags · 27 pages exist with 0 broken internal links and no placeholders. Result: `OK — all master-board checks
+passed`. Rebuilds are byte-identical (checked by running the builders twice and `cmp`-ing the output).
+
+**Irregularities found and published** (all on `/flagged.html`, none blocking):
+1. Build E lists Brewers v Rays on 2026-10-25; the MLB StatsAPI schedule has no game that day (Games 1–5 are 23, 24, 26, 27, 28 Oct). Row kept, unverified, top of the Flagged page.
+2. Build A's predictions are generated from a small set of fixed sentence frames (one skeleton repeats verbatim across ten rows). Not counted as written predictions — see item 10 for what was done about it.
+3. Build G's darts batch repeats one opening sentence across seven rows (0.96 pairwise similarity). Flagged as templated.
+4. `data/rows.json` holds 137 rows / 11 sports while build A's published site text claims 144 rows / 15 sports; the repo's own audit attributes this to a later overwrite. The data file is what the board reads.
+5. 15 fixtures have opposite picks in different builds (model disagreement, not a factual error) — both published with sources.
+6. 30 rows are dated differently by different builds: mostly UTC-vs-local (Pelicans–Pacers is 21 Oct locally, 22 Oct in UTC). Both values kept.
+7. 64 in-scope rows are unverified: 39 have no source at all (build D recorded none), 25 cite an official domain but their
+   originating build marked them unverified. Build B's 116 OLBG-only fixtures are not in the master table at all; they are
+   published separately in `data/master_olbg.json` and `olbg.html`.
+8. Gaelic football (4 rows) retained but out of scope; greyhounds/golf/motor racing have no head-to-head markets.
+9. pdc.tv's articles and rankings pages served a cookie-consent wall rather than content today, and wst.tv's match centre is an
+   empty single-page app; both are recorded as `not-readable` rather than passed. Because of the PDC wall, one darts row
+   (Humphries v Searle) had its confidence lowered from High to Medium instead of being given an unverifiable write-up.
+10. Build A's prediction text is frame-generated — one sentence skeleton repeats verbatim across ten rows ("Take X to win
+    this ... our ratings make them Y% favourites"). Detected after the merge and marked `templated` (14 rows at Low/Medium).
+    Five of A's high-confidence rows were rewritten from official pages read today (`data/authored_predictions.json` lists
+    every fact and its URL), so all 62 high-confidence fixtures now carry a genuine write-up.
+
+**Root-page collision with Board N (`5775069`).** `main` advanced twice while this board was being rebased, and its root
+desk (index/entries/predictions/analysis/coverage/methodology/sources/flagged/archive plus six `sports/` pages) was
+generated by that session. This board's dashboard replaced those root pages because the brief reserves the landing page for
+the final integration session; the incoming versions were copied to `archive/root-5775069/` (including its stylesheet,
+sport pages and a provenance README), linked from `archive.html`, and left described in `README.md`. Text and markup are
+unchanged — only the relative `href`/`src` values were rebased one directory deeper so the archive copy still resolves
+(`scripts/audit_publication.py`: 0 broken local targets). None of that session's data files
+(`data/matches.json`, `data/board_k/*`, `docs/`, `session-*/`) were modified. No other board's text in this file was edited.
+
+**No other session's file was edited.** Added paths only: `tools/build_master*.py`, `tools/verify_master.py`, `data/master*.json`,
+`data/source_registry.json`, `data/live_checks.json`, `sports/`, `assets/master/`, and the seven new root pages. Shared files
+touched additively: `index.html` (replaced by the new hub, earlier builds linked from `archive.html`), `README.md`,
+`COORDINATION.md`, `.github/workflows/pages.yml` (added rebuild + verify steps).
+
