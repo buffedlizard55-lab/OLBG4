@@ -31,7 +31,8 @@ UNIT = {"basketball": "points", "ice_hockey": "goals", "baseball": "runs"}
 # ---------------------------------------------------------------------------
 # facts
 # ---------------------------------------------------------------------------
-def build_form(results: list[dict], sport: str, before: datetime) -> dict[str, dict]:
+def build_form(results: list[dict], sport: str, before: datetime,
+               season: str | None = None) -> dict[str, dict]:
     """Recent results per team, newest first, from official final scores only."""
     by_team: dict[str, list[dict]] = defaultdict(list)
     for r in results:
@@ -81,7 +82,15 @@ def build_form(results: list[dict], sport: str, before: datetime) -> dict[str, d
             "wins_last5": wins,
             "losses_last5": played - wins,
             "streak": streak,
-            "record": f"{sum(1 for g in games if g['won'])}-{sum(1 for g in games if not g['won'])}",
+            # The record shown next to the form line is the *current-season* record. Counting
+            # every game in the two-season lookback produced misleading lines like "41-52"
+            # next to an opening-week fixture.
+            "record": (
+                f"{sum(1 for g in games if g['won'] and str(g.get('season')) == str(season))}-"
+                f"{sum(1 for g in games if not g['won'] and str(g.get('season')) == str(season))}"
+                if season and any(str(g.get("season")) == str(season) for g in games)
+                else None
+            ),
             "last_game": games[0] if games else None,
             "avg_scored_last5": round(sum(g["team_score"] for g in last5) / played, 1) if played else None,
             "avg_allowed_last5": round(sum(g["opp_score"] for g in last5) / played, 1) if played else None,
@@ -186,7 +195,7 @@ WINNER_BLOCKS = [
         "We price that at {american}, inclusive of our 4.5% two-way margin.",
         "The model probability is {prob}%, and we quote {american}.",
         "At {american}, the implied probability after our margin is {prob}%.",
-        "Our price of {american} reflects a {prob}% win probability.",
+        "We quote {american} after the 4.5% two-way margin.",
     ],
     [  # selection
         "Selection: {selection} at {american}.",

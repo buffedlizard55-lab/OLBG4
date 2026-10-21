@@ -297,7 +297,10 @@ def main(argv: list[str] | None = None) -> int:
         opening_fit = pack.get("_opening_fit")
         if not current_fit or not opening_fit:
             continue
-        form = predictions.build_form(all_results, sport, _dt(fx["start_utc"]))
+        form = predictions.build_form(
+            all_results, sport, _dt(fx["start_utc"]),
+            season=(fx.get("context") or {}).get("season"),
+        )
         h2h = predictions.head_to_head(
             all_results, fx["home"]["id"], fx["away"]["id"], _dt(fx["start_utc"])
         )
