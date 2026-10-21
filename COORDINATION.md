@@ -541,3 +541,23 @@ Rules honoured: no file owned by another board is edited; requests for changes t
 - 11:35Z — second rebase conflict (main at `afc16ce`, another session had taken "Board I"); resolved the same way, renamed to Board J. Remote branch force-updated with `--force-with-lease` (own branch only, rewritten by the rebases).
 - **PR #22** — https://github.com/buffedlizard55-lab/OLBG4/pull/22 — checks `Validate data and site` + `Repository-wide publication audit` both pass; **MERGED** 2026-10-21T06:54:56Z as `1bb0964`.
 - **Pages deploy:** `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both `success` on `1bb0964`; Pages API `builds/latest` = `built`, commit `1bb0964`, error none. Live: https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/ (Flagged page fetched over HTTPS and confirmed to render all 13 findings).
+
+---
+
+## Board K — session `arena/6f6b366b-olbg4` (final line-by-line verification + site publish)
+
+Claimed: 2026-10-21T07:07Z · Branch: `arena/6f6b366b-olbg4` · Base: `43adf35` (main with 6 builds + audit J)
+
+| # | Task | Status | Owner | File scope |
+|---|------|--------|-------|-----------|
+| K1 | Line-by-line verification of hub `data/matches.json` (66 rows) vs official governing-body sources; classify each source link as official / secondary / OLBG; correct `verified`/`flagged` flags per brief rule | in progress | arena/6f6b366b-olbg4 | `data/matches.json`, `data/sources.json` |
+| K2 | Fix contradicted high-confidence predictions (NHL01, NHL06, EL02, MLB01, RL01 etc) — remove hallucinated stats, rewrite from official pages or withdraw prediction + lower confidence, keep all claims source-linked | in progress | arena/6f6b366b-olbg4 | `data/matches.json`, `flagged.html` |
+| K3 | Fix fixture-field errors (CRK03 venue, CRK05 final date, MLB03 venue, EL02 timezone, DRT CET→CEST) | pending | arena/6f6b366b-olbg4 | `data/matches.json` |
+| K4 | Publish line-by-line verification log `audit/board-k-verification.md` with official source links for manual review; update `flagged.html` irregularities register | pending | arena/6f6b366b-olbg4 | `audit/board-k-verification.md`, `flagged.html`, `sources.html` |
+| K5 | Site build check: JSON valid, no TODO, internal links 0 broken, GH Pages deploy | pending | arena/6f6b366b-olbg4 | `index.html`, `.github/workflows/pages.yml` |
+| K6 | PR `arena/6f6b366b-olbg4` → `main`, merge without approval, confirm Pages `built`, record PR link + deploy | pending | arena/6f6b366b-olbg4 | `COORDINATION.md`, `README.md` |
+
+Rules honoured: no parallel session's build files (`docs/`, `session-*`, `pipeline/`) edited except additive portal/README notes; scopes non-overlapping — only hub files owned by Board D are corrected; flagged items published not deleted; shared outputs (`data/matches.json` hub dataset + `flagged.html` + `index.html` banner) only via this final integration.
+
+Stale-claim check: last active claim was Board J `e1e0c27e` merged at `43adf35`. No active in-progress claim blocks this board; Board K is the integration owner per brief.
+
