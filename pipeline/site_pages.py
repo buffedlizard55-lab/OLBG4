@@ -235,7 +235,7 @@ def render_index(ctx: dict) -> str:
         '<div class="chips">',
         f'<span class="chip">Window {esc(window.get("start", "")[:10])} → {esc(window.get("end", "")[:10])}</span>',
         f'<span class="chip">{counts.get("fixtures", 0)} fixtures</span>',
-        f'<span class="chip">{counts.get("market_picks", 0)} market picks</span>',
+        f'<span class="chip">{counts.get("high_picks", 0) + counts.get("medium_picks", 0) + counts.get("low_picks", 0) + counts.get("market_picks", 0)} graded picks</span>',
         f'<span class="chip">{counts.get("findings", 0)} flagged items</span>',
         "</div></div>",
         '<div class="section"><div class="grid">',
