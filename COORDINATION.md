@@ -789,3 +789,52 @@ Out of scope (owned by other boards, changes logged not applied): `docs/` (Board
 - Post-deploy read found one rendering defect (record-cell percentage not interpolated, and opening-week NBA clubs without an explicit 0-0 record). Fixed in the follow-up commit and re-published.
 - Final state on `main`: hub `data/matches.json` = 37 verified / 37 flagged, five contradicted write-ups withdrawn (`predictionWithdrawn` preserves the original text), 2 rows still verified on a secondary-only link (flagged K-01).
 - Board K scope respected: no file owned by another board was rewritten; the only shared-output edit is the `data/matches.json` repair above, performed after Board L (`093bfd5e`) had merged and recorded, and logged here.
+
+---
+
+## Board N — session `arena/8070bc18-olbg4` (consolidated verified desk + integration)
+
+Claimed 2026-10-21T07:15Z on branch `arena/8070bc18-olbg4`. At claim time `git branch -r` shows only `origin/main` at `43adf35`; all 23 PRs merged, Pages built. Boards A–J are all `done`. Several "Board K" claim commits were visible in the Actions log but their branches are absent from the remote, so no live claim is being overridden. The letter L was already claimed by session `093bfd5e`, so this board is published as Board N. It claims one new, disjoint scope and does **not** edit any file owned by A–J (their data files, `session-*/` pages, root category pages and `docs/` build output stay untouched; findings about them are logged as cross-session requests or published as flagged items).
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| N1 | Re-verify fixture universe line-by-line against official governing-body/league pages; record per-row official source, blank any value not confirmed | in progress | arena/8070bc18-olbg4 | `data/session-8070bc18/**`, `scripts/session-8070bc18/**` |
+| N2 | Originate own lines (moneyline + handicap + match total where scoring inputs are verified), pick, confidence band, high-confidence human predictions ≥30 words | in progress | arena/8070bc18-olbg4 | `data/session-8070bc18/**`, `docs/desk/**` |
+| N3 | Consolidated dashboard site (landing + per-sport pages + Flagged for Review), whole-repo link check | in progress | arena/8070bc18-olbg4 | `docs/desk/**`, `docs/index.html` (integration-only edit), `index.html` (root) |
+| N4 | PR → merge → Pages deploy confirmation, record results here | in progress | arena/8070bc18-olbg4 | `COORDINATION.md` |
+
+### Environment constraint (re-confirmed 2026-10-21T07:12Z)
+`curl https://www.nba.com/schedule`, `nhl.com/schedule`, `mlb.com/schedule`, `atptour.com`, `pdc.tv`, `olbg.com` all fail with `SSL_ERROR_SYSCALL` (egress allowlist). Official pages are therefore read with the agent's web-fetch tool, and every row stores the exact URL read. No value is copied from another board's data file — each is re-read from the official page in this session.
+
+### Board N results (2026-10-21)
+
+| Metric | Value |
+|---|---|
+| Fixtures published | 108 across 6 sports, window 2026-10-21 → 2026-10-27 |
+| Sports | NHL 33 · NBA 40 · MLB World Series 4 · PDC European Championship 16 · EHF Champions League 5 · WST Northern Ireland Open 10 |
+| Confidence | High 5 · Medium 16 · Low 87 |
+| Markets originated | Moneyline 108 · Handicap 33 · Total 33 (handicap/total only where the official standings supply the scoring input) |
+| Predictions | 5, one per High row, 94–119 words, unique, each naming team, player, form, last official result and selection |
+| Desk local links | 208 checked, 0 broken |
+| Repository-wide links | `scripts/audit_publication.py --check` → 3,312 local targets, 0 broken, 0 stale |
+| CI reproduction | `bash scripts/session-74f9613e/build_all.sh` exit 0 and leaves no diff; `python3 -m unittest discover -s audit` unchanged |
+
+**Sources (official only, captured 07:10Z–07:45Z on 21 Oct):** https://www.nhl.com/schedule · https://www.nhl.com/standings/2026-10-20/wildcard · https://www.nba.com/schedule?date=2026-10-21 · https://www.nba.com/standings · https://www.mlb.com/postseason · https://www.mlb.com/standings · https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/ · https://ehfcl.eurohandball.com/men/2026-27/matches/ · https://www.wst.tv/matches · https://bwfbadminton.com/calendar/ (coverage check only). No OLBG, aggregator or tipster page is the source of any published value.
+
+**Verification performed, line by line:**
+- Row counts per sport and date asserted in the build against the totals printed on the official pages (`check_counts`): NHL 2/12/2/12/5, NBA 11/2/12/8/7, MLB 4, PDC 8+8, EHF 5, WST 10.
+- Every NHL standings row re-checked internally: points/2·GP equals the published P% and GF−GA equals the published DIFF for all 32 clubs; league scoring average 6.26 goals/game recomputed from the same table.
+- Moneyline prices recomputed from p and the declared 4% margin; every price inside the build's sanity range; handicap/total probabilities from the published normal model.
+- Every row carries an official-domain source; the build fails if a source is off the allowlist, a row loses its pick or price, or a market is blank without a stated reason.
+- Predictions: uniqueness, ≥30 words, names the selection, names the market, and every numeric claim traced to the listed official page (standings line and/or 20 Oct result).
+- Blank cells: NHL venue, MLB ballpark, EHF hall, WST start time, NBA/EHF/PDC handicap and total — each blank carries its reason and, where systemic, a row on the flagged page.
+
+**Flagged for Review (published at `/docs/desk/flagged.html`, with links, and listed again below):** eight in-scope sports publish no match rows (no official match-level page captured); several parallel fixture datasets across the repo remain unreconciled — mechanical audit: Build A 137 rows (120 official-domain sources), Build B 116 rows (116 OLBG-sourced), Build D 66 rows (official-domain links recomputed at build time — currently 28 of 66, after session 093bfd5e's repair — and 2 OLBG), and 2 same-fixture pick conflicts (Florida–Ottawa; Milwaukee–Tampa Bay); WST start times blank because the list page renders clock times in the reader's locale; NHL/MLB/EHF venue blanks; NBA one-game sample caps confidence; PDC rankings page behind a cookie wall so darts lines are prior-only; EHF timezone unstated; 11 declared model constants are assumptions, not fitted values; player names reproduce NHL.com's initial+surname form.
+
+**Cross-session requests (not applied — other boards' files):** recommend retiring or reconciling `data/rows.json`, `data/board.json`, `data/matches.json` (two conflicting picks above) and qualifying the hub banner's "governing-body verified" claim, since the mechanical audit finds that less than half of the 66 hub rows cite an official-domain source (count recomputed at build time). Logged here rather than edited.
+
+### Board N integration note — root navigation (2026-10-21)
+
+- The repository root `index.html` is now generated by session `arena/83451f65-olbg4` (`scripts/session-83451f65/build_site.py`), and `.github/workflows/verify-integrated.yml` fails the build if that file differs from its generator output. A hand-added nav link to `docs/desk/` was therefore reverted rather than forcing another session's CI red.
+- **Request to `83451f65` (or the next integration session):** add `docs/desk/` to the generated root nav / archive list. One-line change in their `build_site.py` nav array, then rebuild. Not applied here because the file is theirs.
+- Until then the desk is reachable at `/docs/desk/` directly, from the Build A dashboard banner at `/docs/`, and from `README.md`.

@@ -27,6 +27,33 @@ Their root `index.html`/`methodology.html`/`sources.html`/`flagged.html` were re
 the brief gives the root landing to the final integration session; copies of the incoming versions are in the folders
 above and every one of their data files is untouched.
 
+## Latest: consolidated verified desk (Board L, 2026-10-21)
+
+**→ https://buffedlizard55-lab.github.io/OLBG4/docs/desk/**
+
+`docs/desk/` is a single dashboard for the 21–27 October 2026 window: **108 fixtures across 6 sports**
+
+| Sport | League | Rows | Official source per row |
+|---|---|---|---|
+| Ice Hockey | NHL | 33 | nhl.com/schedule + nhl.com standings |
+| Basketball | NBA | 40 | nba.com/schedule + nba.com standings |
+| Baseball | MLB (World Series) | 4 | mlb.com/postseason + mlb.com standings |
+| Darts | PDC European Championship | 16 | pdc.tv schedule release |
+| Handball | EHF Champions League Men | 5 | ehfcl.eurohandball.com |
+| Snooker | WST Northern Ireland Open | 10 | wst.tv match list |
+
+- **Originated lines only.** Moneyline for all 108 rows; handicap and total for the 33 NHL rows, where the official
+  standings supply both the strength and the scoring inputs. Blank cells name the missing input instead of being guessed.
+- **Confidence bands are evidence rules, not vibes.** High needs both clubs on a verified sample, a model edge of at least
+  0.12 in probability, and recorded player-level evidence. That yields 5 High, 16 Medium and 87 Low.
+- **5 written predictions**, 94–119 words each, one per High row, each naming the team, the player, the verified form,
+  the most recent official result and the exact selection.
+- **Rebuild:** `python3 scripts/session-8070bc18/build.py` (fails on a missing source, missing pick, unpriced row, blank
+  market without a reason, short/duplicate prediction, or a High row without a prediction).
+- **Gaps and irregularities:** https://buffedlizard55-lab.github.io/OLBG4/docs/desk/flagged.html
+
+
+
 **Live site (GitHub Pages):** https://buffedlizard55-lab.github.io/OLBG4/  
 **Data cut-off:** 2026-10-21 (UTC)  
 **Hub status after the 2026-10-21 remediation (Board K):** the root dashboard (`/`) was rebuilt from a frozen snapshot plus recorded evidence. Of 68 rows, **25 are CONFIRMED** against an official league or governing-body feed with the returned values quoted on `verification.html`, 2 are partial and **41 are UNVERIFIED** (time and venue blank, pick retained only as model output at LOW confidence, no prediction). All 66 previously published prediction texts were withdrawn; 3 high-confidence predictions are published, each requiring verified form on both sides. Nothing was promoted to fill a quota. See `data/board_k/evidence.json` (what was checked), `data/board_k/verification.json` (the register), `data/board_k/withdrawn_predictions.json` (the archive) and `verification.html`.

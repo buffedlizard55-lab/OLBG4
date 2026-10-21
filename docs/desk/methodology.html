@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology · OLBG4 verified desk</title>
+<meta name="description" content="Official-source verified fixtures, independently originated lines and confidence-labelled picks.">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="top"><div class="wrap">
+<h1>OLBG4 — Verified Line Desk</h1>
+<p>Session <code>arena/8070bc18-olbg4</code> · captured 2026-10-21T07:45Z · every row cites the official page it came from</p>
+</div></header>
+<nav class="main"><div class="wrap"><a class="" href="index.html">Overview</a><a class="" href="picks.html">Picks</a><a class="" href="predictions.html">Predictions</a><a class="" href="nhl.html">Ice Hockey</a><a class="" href="nba.html">Basketball</a><a class="" href="mlb.html">Baseball</a><a class="" href="darts.html">Darts</a><a class="" href="handball.html">Handball</a><a class="" href="snooker.html">Snooker</a><a class="" href="coverage.html">Coverage</a><a class="" href="flagged.html">Flagged for Review</a><a class="on" href="methodology.html">Methodology</a><a class="" href="sources.html">Sources</a></div></nav>
+<main>
+<h1 class="page">Methodology</h1>
+<p class="lede">Everything needed to reproduce or challenge a price: the inputs, the formulas, the constants and the
+thresholds. The build refuses to publish if a row loses its source, its pick, or its blank-value reason.</p>
+<div class="panel"><h2>1. Verified inputs</h2>
+<div class="kv">
+<div>Ice hockey</div><div>NHL.com standings, all 32 clubs: games played, points percentage, goals for and against
+(21 October, 03:10 EDT). League scoring average <code>2 × ΣGF / ΣGP = 6.25</code> goals per game
+from the same table (ΣGF 944, ΣGP 302).</div>
+<div>Basketball</div><div>NBA.com 2026-27 standings: six clubs had played one game at capture, the rest none. Ratings use a
+6-game shrinkage prior, so a 1-0 club rates 0.571 and a 0-1 club 0.429.</div>
+<div>Baseball</div><div>MLB.com final 2026 regular-season records for the two World Series clubs
+(Milwaukee 103-59, Tampa Bay 98-64).</div>
+<div>Snooker</div><div>WST round-one frame scores for the players whose result appears on the match list; a player with no
+captured score sits on a 0.5 prior and the row says so.</div>
+<div>Darts, handball</div><div>No verified strength or ranking feed was captured, so these rows use a 0.5 prior (handball
+adds the declared home edge) and are marked prior-only.</div>
+</div></div>
+<div class="panel"><h2>2. Originated prices</h2>
+<div class="kv">
+<div>Moneyline</div><div><code>p_home = 0.5 + 0.55 × (rating_home − rating_away) + 0.03</code>,
+clamped to [0.05, 0.95]; prices are <code>1 / (p × 0.96)</code> — a 4% theoretical margin.</div>
+<div>Baseball</div><div>Ratings are final-season win percentages combined with log5, plus a 0.02 home edge.</div>
+<div>Puck line</div><div>Projected goal margin <code>2.2 × (p − 0.5)</code>; P(win by 2+) from a normal
+distribution with sd 1.7, priced at ±1.5.</div>
+<div>Total</div><div>Line is the league average rounded to the nearest half goal (6.25 →
+6.5); over/under from a normal distribution with sd 1.9.</div>
+<div>Other markets</div><div>No handicap or total is originated where the necessary input (a scoring average, a leg model, a
+run environment) was not on an official page. The cell says “blank” and names the missing input.</div>
+</div></div>
+<div class="panel"><h2>3. Confidence rule</h2>
+<table><thead><tr><th>Band</th><th>Requirement</th></tr></thead><tbody>
+<tr><td><span class="badge High">High</span></td><td>Both competitors have a verified strength sample <em>and</em> the model edge
+<code>|p − 0.5| ≥ 0.12</code> <em>and</em> verified player-level evidence is recorded for the fixture.
+Every High row carries a written prediction.</td></tr>
+<tr><td><span class="badge Medium">Medium</span></td><td>Both sides sampled with edge ≥ 0.07, or one side sampled with edge
+≥ 0.12, or a large edge that is capped because no player-level evidence exists.</td></tr>
+<tr><td><span class="badge Low">Low</span></td><td>Everything else, including prior-only rows and rows where the model shows no edge.</td></tr>
+</tbody></table></div>
+<div class="panel"><h2>4. Reproduce it</h2>
+<p class="small"><code>python3 scripts/session-8070bc18/build.py</code> rebuilds <code>data/session-8070bc18/desk.json</code>
+and every page in <code>docs/desk/</code>, and fails the build if a row has no official source, no pick, no price, a blank
+market without a reason, a prediction under 30 words, a duplicate prediction, a prediction that does not name its
+selection, or a High row without a prediction.</p></div>
+<div class="panel"><h2>5. Known limits</h2>
+<ul class="small">
+<li>Standings are a snapshot: 2026-10-21T07:45Z. Later games change every rating.</li>
+<li>NHL venues and MLB ballparks are blank because the schedule pages used do not publish them.</li>
+<li>The WST list page renders clock times in the reader's locale, so snooker start times are blank.</li>
+<li>NBA, darts and handball samples are too thin for High confidence; that is a property of the data, not of the picks.</li>
+<li>No closing-line comparison is possible: no bookmaker or OLBG price is read anywhere in this build.</li>
+</ul></div>
+</main>
+<footer>
+Built by <code>scripts/session-8070bc18/build.py</code> from <code>data/session-8070bc18/desk.json</code>.
+Prices are our own originated prices, not bookmaker prices. Nothing here is betting advice.
+Unverified values are left blank and listed on the <a href="flagged.html">Flagged for Review</a> page.
+</footer>
+<script src="app.js"></script>
+</body></html>
