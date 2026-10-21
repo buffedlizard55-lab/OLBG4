@@ -23,9 +23,9 @@
 ## Task board
 | # | Task | Status | Owner (session) | File scope | Sources / verification | Irregularities |
 |---|---|---|---|---|---|---|
-| 1 | Reverse-engineer OLBG site structure (sports, markets, URL patterns) | in progress | 6e0f382d | `docs/data/olbg-structure.json`, `COORDINATION.md` | olbg.com pages (the site itself, for its own structure only) | — |
-| 2 | Collect match lists per included sport from OLBG | unclaimed | 6e0f382d | `docs/data/matches/*.json` | OLBG sport pages (listing source only) | — |
-| 3 | Verify every match against official sources (fixture, date, competition) | unclaimed | 6e0f382d | `docs/data/matches/*.json` | Official governing-body / league sites per sport | — |
+| 1 | Reverse-engineer OLBG site structure (sports, markets, URL patterns) | done | 6e0f382d | `data/olbg-structure.json` | olbg.com sitemap + sport pages (the site itself, for its own structure only) | Sport IDs 18, 19, 24, 27 unused — flagged. Gaelic Football inclusion interpretation flagged. |
+| 2 | Collect match lists per included sport from OLBG | done | 6e0f382d | `data/raw/*.json` | OLBG sport landing pages, fetched 2026-10-21 — 150 matches + 14 outrights across 17 sports | Rugby League, Aussie Rules, eSports list zero matches — flagged as coverage gaps to cross-check. |
+| 3 | Verify every match against official sources (fixture, date, competition) | in progress | 6e0f382d | `data/matches/*.json` | Official governing-body / league sites per sport | — |
 | 4 | Originate lines + winner pick + confidence per match; investigate all markets (win, handicap, totals, etc.) | unclaimed | 6e0f382d | `docs/data/matches/*.json` | Documented model using official rankings/standings/form inputs | — |
 | 5 | High-confidence written predictions (≥30 words, unique, verified facts only) | unclaimed | 6e0f382d | `docs/data/matches/*.json` | Official rankings/form sources linked per row | — |
 | 6 | Build GitHub Pages site (dashboard + per-sport pages + methodology + Flagged for Review) | unclaimed | 6e0f382d | `docs/**` | Local build check; link check | — |
