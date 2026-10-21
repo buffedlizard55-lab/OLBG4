@@ -305,7 +305,7 @@ This session uses its fixed Arena branch (rather than creating a session branch)
 
 | Task | Status | Owner | File scope |
 |---|---|---|---|
-| Repository-wide publication audit and local-link gate; disclose unsupported verification claims | in progress | arena/ef72af9b-olbg4 | `scripts/audit_publication.py`, `audit/`, `.github/workflows/audit.yml`, `COORDINATION.md` |
+| Repository-wide publication audit and local-link gate; disclose unsupported verification claims | done | arena/ef72af9b-olbg4 | `scripts/audit_publication.py`, `audit/`, `.github/workflows/audit.yml`, `COORDINATION.md` |
 
 Other builds and the active E integration claim are not modified. Official sports websites cannot be reached through sandbox shell egress; prior verification claims are not accepted as fresh verification. Findings will distinguish structural validation from official factual verification.
 
@@ -317,3 +317,11 @@ Other builds and the active E integration claim are not modified. Official sport
 - Checks: pipeline offline self-test 24/24; Board C rebuild and validation pass with no generated diff; audit unit tests 4/4; all-repository local target scan 1,624 targets, zero missing. These are structural checks, **not** verification of external sports facts, external URL status or fragment anchors.
 - Parallel scope request: PR #12 is open from another session and touches shared publication files. Do not edit its scope. Its integration owner should add a prominent link to `audit/` and remove blanket “verified” claims until claim-level checks exist. This session publishes the audit independently rather than overwrite that session's landing/navigation work.
 - Initial claim push: the new remote branch did not yet exist, so `git pull --rebase origin arena/ef72af9b-olbg4` failed. Rebased against `origin/main`, then pushed only the fixed session branch successfully; no merge conflict or discarded work.
+
+### Board F publication record
+
+- PR https://github.com/buffedlizard55-lab/OLBG4/pull/13 **MERGED** at 2026-10-21T06:42:23Z, merge commit `52bae89f5f05cdda5d26b96f6e10ac5814d93ff7`.
+- PR checks: repository-wide audit and existing build-and-validate both pass.
+- GitHub Pages legacy run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39557088719 **success**; Pages Actions run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39557088565 **success**.
+- Public audit https://buffedlizard55-lab.github.io/OLBG4/audit/ fetched successfully after deployment; title, 459-row inventory, review notice and source links present. Main dashboard remains at https://buffedlizard55-lab.github.io/OLBG4/ .
+- Factual completeness remains **needs review** (published, not a merge blocker): no complete all-sports live inventory or full claim-level verification is asserted. No new unsupported predictions or lines added. Existing builds remain untouched to avoid conflict with the parallel integration session; audit-link request sent on PR #12.
