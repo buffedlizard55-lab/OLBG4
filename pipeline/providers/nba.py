@@ -68,6 +68,14 @@ STATS_HEADERS = {
 }
 
 
+REGULAR_SEASON_PREFIX = "002"
+
+
+def _is_regular_season(game: dict) -> bool:
+    """NBA game ids encode the season type: 001 preseason, 002 regular, 004 playoffs."""
+    return str(game.get("gameId") or "").startswith(REGULAR_SEASON_PREFIX)
+
+
 def _iter_games(payload: dict):
     sched = payload.get("leagueSchedule") or {}
     for block in sched.get("gameDates", []):
@@ -92,7 +100,7 @@ def _season_games(payload: dict) -> list[dict]:
     """Completed games from the season file, used for ratings and W-L records."""
     out = []
     for g in _iter_games(payload):
-        if g.get("gameStatus") != 3:
+        if g.get("gameStatus") != 3 or not _is_regular_season(g):
             continue
         home, away = _team(g.get("homeTeam") or {}), _team(g.get("awayTeam") or {})
         if None in (home["score"], away["score"], home["id"], away["id"]):
@@ -134,7 +142,7 @@ def fetch_fixtures(start: datetime, end: datetime, now: datetime) -> tuple[list[
 
     fixtures: list[dict] = []
     for g in _iter_games(payload):
-        if g.get("gameStatus") != 1:  # 1 = scheduled, 2 = live, 3 = final
+        if g.get("gameStatus") != 1 or not _is_regular_season(g):
             continue
         date = g.get("gameDateTimeUTC") or g.get("gameDateTimeEst")
         if not date:
@@ -158,8 +166,8 @@ def fetch_fixtures(start: datetime, end: datetime, now: datetime) -> tuple[list[
         context = {
             "game_type": "regular_season",
             "season": str((payload.get("leagueSchedule") or {}).get("seasonYear") or ""),
-            "home_record_label": "Record, games in official schedule file",
-            "away_record_label": "Record, games in official schedule file",
+            "home_record_label": "Regular-season record",
+            "away_record_label": "Regular-season record",
             "home_wins": hr["w"],
             "home_losses": hr["l"],
             "away_wins": ar["w"],

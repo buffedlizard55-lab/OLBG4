@@ -139,7 +139,7 @@ def _clean_record_label(label: str | None) -> str:
 
 def _names_selection(text: str) -> bool:
     low = text.lower()
-    return any(token in low for token in ("selection:", "backing", "pick is", "taking"))
+    return any(token in low for token in ("selection:", "backing", "pick is", "taking", "we take"))
 
 
 def _seed(fixture_id: str, market: str) -> int:
@@ -181,7 +181,7 @@ WINNER_BLOCKS = [
         "Selection: {selection} at {american}.",
         "We are backing {selection} at {american}.",
         "The pick is {selection} at {american}.",
-        "We take {selection} at {american}.",
+        "We are taking {selection} at {american}.",
     ],
 ]
 
@@ -213,7 +213,7 @@ HANDICAP_BLOCKS = [
         "Selection: {selection} at {american}.",
         "We are backing {selection} at {american}.",
         "The pick is {selection} at {american}.",
-        "We take {selection} at {american}.",
+        "We are taking {selection} at {american}.",
     ],
 ]
 
@@ -245,7 +245,7 @@ TOTAL_BLOCKS = [
         "Selection: {selection} at {american}.",
         "We are backing {selection} at {american}.",
         "The pick is {selection} at {american}.",
-        "We take {selection} at {american}.",
+        "We are taking {selection} at {american}.",
     ],
 ]
 
