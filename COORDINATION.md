@@ -15,3 +15,9 @@ Rules (per brief): every row needs an official source link; unconfirmed values l
 
 ## Log
 - 2026-10-21: Session arena/f0402305-olbg4 claimed tasks 1-5 on branch arena/f0402305-olbg4. Repo was empty except README "# OLBG4" (commit f40a495).
+
+## Completion record (2026-10-21, session arena/f0402305-olbg4)
+- Tasks 1-5 DONE by this session acting also as final integration (task 6): 144 rows, 15 included sports, 12 high-confidence picks (each unique, >=30 words; min 66 words), 15 flagged rows.
+- Sources (official only): NBA.com, NHL.com (+NHL standings 20 Oct), stats.unitedrugby.com, premiershiprugby.com, nrl.com (RLWC R1/R2), ehfcl.eurohandball.com, pdc.tv, mlb.com, nzc.nz, icc-cricket.com, galwaygaa.ie, gaacork.ie, volleyballworld.com, wst.tv, atptour.com, europeantour.com, formula1.com, gbgb.org.uk; OLBG.com used only to define sport universe + cross-check.
+- Irregularities flagged on site /flagged.html: (1) OLBG snooker pairing Cheung v Bingham not on WST match centre; (2) OLBG Galway final 14:00 vs Galway GAA 19:00; (3) OLBG Cork final 12:00 vs Cork GAA 16:00; (4) Australia v Fiji model conflict; (5) scope limit disclosure; (6) handicap/total markets investigated but not originated (no verified scoring inputs) — fields blank.
+- Verification: predictions uniqueness/word-count asserted in build; internal links checked (0 broken); external source links sampled live (NHL, URC, EHF, PDC, MLB, ICC, Volleyball World all resolved 21 Oct).
