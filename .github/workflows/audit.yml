@@ -1,0 +1,31 @@
+name: Repository-wide publication audit
+
+on:
+  push:
+    branches: [main, "arena/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test audit boundary cases
+        run: python -m unittest discover -s audit -p 'test_*.py' -v
+      - name: Inventory all five builds and check every local HTML target
+        run: |
+          python scripts/audit_publication.py
+          python scripts/audit_publication.py --check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-audit
+          path: |
+            audit/index.html
+            audit/report.json
