@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit — OLBG4</title>
+<meta name="description" content="Reverse-engineered OLBG.com sport coverage with originated lines, picks and line-by-line sourcing.">
+<link rel="stylesheet" href="./assets/master/site.css">
+</head>
+<body data-root=".">
+<header class="site"><div class="wrap">
+  <div class="brand"><span class="dot"></span>OLBG4</div>
+  <nav class="site"><a href="./index.html">Dashboard</a><a href="./picks.html">Picks</a><a href="./markets.html">Markets</a><a href="./sources.html">Sources</a><a href="./flagged.html">Flagged</a><a href="./audit.html" aria-current="page">Audit</a><a href="./methodology.html">Method</a><a href="./archive.html">Archive</a></nav>
+</div></header>
+<main class="wrap">
+
+<section class="page-head">
+  <h1>Verification log</h1>
+  <p class="lede">What was checked, how, and what it showed. Machine checks run in
+  <code>tools/verify_master.py</code> and are re-run by CI on every push; the live checks below were performed by hand
+  against the official pages on 2026-10-21.</p>
+</section>
+
+<div class="panel">
+<h2>Dataset totals</h2>
+<table><tbody><tr><td>Rows in master file</td><td class='num'>312</td></tr><tr><td>Rows in scope</td><td class='num'>308</td></tr><tr><td>Rows confirmed on an official source</td><td class='num'>244</td></tr><tr><td>Rows re-checked live this session</td><td class='num'>34</td></tr><tr><td>Rows contradicted by a live check</td><td class='num'>1</td></tr><tr><td>Fixtures merged from 2+ builds</td><td class='num'>120</td></tr><tr><td>Fixtures with opposing picks across builds</td><td class='num'>15</td></tr><tr><td>Rows carrying at least one flag</td><td class='num'>272</td></tr><tr><td>Outright markets</td><td class='num'>23</td></tr><tr><td>Out-of-scope rows retained</td><td class='num'>4</td></tr></tbody></table>
+</div>
+
+<div class="panel">
+<h2>Where the rows come from</h2>
+<table><thead><tr><th>Build</th><th>Primary rows</th><th>Description</th></tr></thead><tbody><tr><td>G</td><td class='num'>130</td><td>G — widest single sweep: 17 sport files with documented per-sport models</td></tr><tr><td>A</td><td class='num'>60</td><td>A — governing-body ratings desk (Model v1)</td></tr><tr><td>D</td><td class='num'>58</td><td>D — hub board as it now stands in the repo (later sessions rebuilt it and downgraded rows they could not re-confirm; those flags are taken as given)</td></tr><tr><td>E</td><td class='num'>48</td><td>E — refreshable NBA/NHL/MLB pipeline built from league endpoints</td></tr><tr><td>C</td><td class='num'>16</td><td>C — verified-input desk: every input transcribed from a league page with a source id</td></tr></tbody></table>
+<p class="small">"Primary rows" counts rows whose price, pick and confidence came from that build after deduplication.
+Rows that were merged in from another build are still listed in each row's <code>cross_build</code> field.</p>
+</div>
+
+<h2>Live re-checks (13 confirmed, 2 unreadable, 1 contradicted)</h2>
+<div class="pick-card">
+  <div class="top"><h3>LC-01 · Ice Hockey</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://www.nhl.com/gamecenter/fla-vs-pit/2026/10/22/2026020158" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></div>
+  <p class="text"><strong>Checked:</strong> Florida Panthers at Pittsburgh Penguins on 22 October 2026; Face-off 7:00 PM EDT; Venue PPG Paints Arena, Pittsburgh</p>
+  <p class="text"><strong>Evidence:</strong> Page title &#x27;Florida Panthers - Pittsburgh Penguins - Oct 22, 2026 | NHL.com&#x27;; body shows &#x27;7:00 PM EDT 10/22/2026&#x27; and &#x27;Location PPG Paints Arena, Pittsburgh&#x27;. Records shown: Florida 5-2-2, Pittsburgh 3-6-1.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-02 · Ice Hockey</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" target="_blank" rel="noopener nofollow">source</a><span class="small"> api-web.nhle.com</span></div>
+  <p class="text"><strong>Checked:</strong> 12 NHL games scheduled on 22 October 2026; Nashville at Boston, TD Garden, 23:00Z; NY Rangers at Toronto, Scotiabank Arena; San Jose at Ottawa, Canadian Tire Centre; Anaheim at New Jersey, Prudential Center; Florida at Pittsburgh, PPG Paints Arena</p>
+  <p class="text"><strong>Evidence:</strong> League JSON: numberOfGames 12; 2026020154 NSH at BOS, venue TD Garden, startTimeUTC 2026-10-22T23:00:00Z; 2026020155 NYR at TOR; 2026020156 SJS at OTT; 2026020157 ANA at NJD; 2026020158 FLA at PIT.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-03 · Baseball</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-23&amp;endDate=2026-10-28" target="_blank" rel="noopener nofollow">source</a><span class="small"> statsapi.mlb.com</span></div>
+  <p class="text"><strong>Checked:</strong> Game 1 on 23 Oct at American Family Field, Rays away, Brewers home; Game 2 on 24 Oct at American Family Field; Game 3 on 26 Oct at Tropicana Field, Brewers away; Game 4 on 27 Oct at Tropicana Field; Game 5 (if necessary) on 28 Oct; No game scheduled on 25 Oct</p>
+  <p class="text"><strong>Evidence:</strong> MLB StatsAPI returns five games: officialDate 2026-10-23 (gamePk 849805, &#x27;World Series Game 1&#x27;, Tampa Bay Rays at Milwaukee Brewers, American Family Field), 10-24 (849802, Game 2), 10-26 (849804, Game 3, Brewers at Rays, Tropicana Field), 10-27 (849803, Game 4), 10-28 (849799, Game 5 &#x27;If Necessary Game&#x27;). No date entry exists for 2026-10-25.</p>
+  <p class='text' style='color:#b42318'><strong>Irregularity:</strong> Build E lists a Milwaukee Brewers v Tampa Bay Rays fixture on 2026-10-25. MLB&#x27;s official schedule has no game that day, so that row contradicts its official source. It is kept, marked unverified and published on Flagged for Review.</p>
+</div><div class="pick-card">
+  <div class="top"><h3>LC-04 · Rugby Union</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://stats.unitedrugby.com/match-centre/2026-27/4" target="_blank" rel="noopener nofollow">source</a><span class="small"> stats.unitedrugby.com</span></div>
+  <p class="text"><strong>Checked:</strong> Cardiff Rugby v Hollywoodbets Sharks, Fri 23 Oct, 14:45, Cardiff Arms Park; Connacht v Zebre Parma, Fri 23 Oct, 14:45, Dexcom Stadium; Edinburgh v 10bet Lions, Fri 23 Oct, 14:45, Hive Stadium; All kick-off times shown are local</p>
+  <p class="text"><strong>Evidence:</strong> URC Match Centre round 4: &#x27;FRI, 23 OCT - 14:45 CAR v SHA ... Cardiff Arms Park&#x27;, &#x27;CON v ZEB ... Dexcom Stadium&#x27;, &#x27;EDI v LIO ... Hive Stadium&#x27;, with the note &#x27;All times shown are Local&#x27;.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-05 · Handball</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://ehfcl.eurohandball.com/men/2026-27/" target="_blank" rel="noopener nofollow">source</a><span class="small"> ehfcl.eurohandball.com</span></div>
+  <p class="text"><strong>Checked:</strong> Dinamo Bucuresti v SAH - Aarhus on 21 Oct at 18:45; Aalborg Handbold v RK Celje Pivovarna Lasko on 21 Oct at 20:45; Kolstad Handball v SC Magdeburg on 22 Oct at 20:45; Barça v Montpellier Handball on 22 Oct</p>
+  <p class="text"><strong>Evidence:</strong> EHF Champions League page: 21 Oct block lists &#x27;EHF CL - M 18:45 Dinamo Bucuresti 0 SAH - Aarhus 0&#x27; and &#x27;Aalborg Håndbold 0 RK Celje Pivovarna Laško 0&#x27; (20:45); 22 Oct block lists &#x27;Kolstad Håndball 0 SC Magdeburg 0&#x27; (20:45) and &#x27;Barça 0 Montpellier Handball 0&#x27;.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-06 · Darts</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.pdc.tv</span></div>
+  <p class="text"><strong>Checked:</strong> The eight round-one ties on 22 October 2026; Venue Westfalenhalle, Dortmund; Tournament dates 22-25 October 2026</p>
+  <p class="text"><strong>Evidence:</strong> PDC schedule release: &#x27;Thursday October 22 (1900-2300 CEST) Round One x8: Luke Woodhouse v Dirk van Duijvenbode; Danny Noppert v Stephen Bunting; Niels Zonneveld v Cameron Menzies; Gerwyn Price v Rob Cross; James Wade v Damon Heta; Luke Humphries v Ryan Searle; Gian van Veen v Andrew Gilding; Ross Smith v Karel Sedlacek&#x27;.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-07 · Cricket</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://www.bcci.tv/news/article/indias-odi-and-test-squads-for-new-zealand-tour-announced" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.bcci.tv</span></div>
+  <p class="text"><strong>Checked:</strong> The 22 October fixture is the 1st T20I at Hagley Oval, Christchurch; The 24 October fixture is the 2nd T20I at Hagley Oval, Christchurch; The Tests are in November</p>
+  <p class="text"><strong>Evidence:</strong> BCCI&#x27;s fixtures table gives 1st Test 19-Nov-26 Wellington and 2nd Test 27-Nov-26 Christchurch. The T20I series in Christchurch on 22 and 24 October is listed on ESPNcricinfo&#x27;s series page (&#x27;1st T20I 22 October 2026 ... New Zealand v India ... Hagley Oval&#x27;) and in the Indian Express schedule.</p>
+  <p class='text' style='color:#b42318'><strong>Irregularity:</strong> Builds dated the same pairing differently (22 Oct in G, 24 Oct in A). Both are correct: they are two different T20Is. The master keeps two rows and does not merge them.</p>
+</div><div class="pick-card">
+  <div class="top"><h3>LC-08 · Basketball</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://www.espn.com/nba/scoreboard/_/date/20261021" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.espn.com</span></div>
+  <p class="text"><strong>Checked:</strong> Milwaukee Bucks at Washington Wizards, Capital One Arena, 7:00 pm ET on 21 Oct; Indiana Pacers at New Orleans Pelicans, Smoothie King Center, 8:00 pm ET (2026-10-22T00:00Z); Atlanta Hawks at Orlando Magic on 21 Oct</p>
+  <p class="text"><strong>Evidence:</strong> ESPN scoreboard for 20261021 lists Bucks at Wizards (Capital One Arena, Washington DC), Timberwolves at Heat (Kaseya Center), Pacers at Pelicans (Smoothie King Center) and Mavericks at Rockets; the Pacers-Pelicans game page gives &#x27;2026-10-22T00:00Z&#x27;, i.e. 8pm ET on 21 October.</p>
+  <p class='text' style='color:#b42318'><strong>Irregularity:</strong> Builds C and E record the Pelicans-Pacers game as 22 October because they store the UTC date. The local date is 21 October. Both values are kept; the master uses 21 October and the 22 October value stays in the cross-build column.</p>
+</div><div class="pick-card">
+  <div class="top"><h3>LC-09 · Darts</h3>
+    <span class="badge flag">not-readable</span></div>
+  <div class="sub"><a href="https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.pdc.tv</span></div>
+  <p class="text"><strong>Checked:</strong> The draw bracket on pdc.tv&#x27;s own 18 October page</p>
+  <p class="text"><strong>Evidence:</strong> Direct fetch returned only the cookie-consent shell with no article text, so the page could not be read in this session. The pairings were confirmed instead through LC-06 (pdc.tv&#x27;s 19 October schedule release).</p>
+  <p class='text' style='color:#b42318'><strong>Irregularity:</strong> The cited URL resolves but its content is not machine-readable without JavaScript. Recorded as unreadable rather than passed.</p>
+</div><div class="pick-card">
+  <div class="top"><h3>LC-10 · Snooker</h3>
+    <span class="badge flag">not-readable</span></div>
+  <div class="sub"><a href="https://www.wst.tv/match-centre" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.wst.tv</span></div>
+  <p class="text"><strong>Checked:</strong> Cheung Ka Wai v Stuart Bingham on 21 October 2026</p>
+  <p class="text"><strong>Evidence:</strong> Fetch returned the site shell only (&#x27;Home of World Snooker - World Snooker Tour&#x27;) with no match list, so the fixture could not be confirmed from WST in this session.</p>
+  <p class='text' style='color:#b42318'><strong>Irregularity:</strong> Build A flagged that this pairing was not visible on WST&#x27;s match centre. That remains unresolved: the row stays published, marked unverified, on Flagged for Review.</p>
+</div><div class="pick-card">
+  <div class="top"><h3>LC-11 · Handball</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener nofollow">source</a><span class="small"> ehfcl.eurohandball.com</span></div>
+  <p class="text"><strong>Checked:</strong> Aalborg Handbold v RK Celje Pivovarna Lasko is scheduled for 21 October 2026, 20:45 CET; Aalborg have 4 played, 3 wins, 1 draw, 136:115, 7 points in Group C; Celje have 4 played, 0 wins, 4 defeats, 120:154, 0 points in Group C</p>
+  <p class="text"><strong>Evidence:</strong> EHF Champions League Men 2026/27 standings page, Group C table: &#x27;Aalborg Håndbold 4 3 1 0 136:115 21 7&#x27; and &#x27;RK Celje Pivovarna Laško 4 0 0 4 120:154 -34 0&#x27;. The competition front page lists the fixture under Oct21 at 20:45 with the match link /matches/details/202711020101029/AalborgHåndbold-RKCeljePivovarnaLaško/.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-12 · Handball</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener nofollow">source</a><span class="small"> ehfcl.eurohandball.com</span></div>
+  <p class="text"><strong>Checked:</strong> One Veszprem HC v Fuchse Berlin is scheduled for 21 October 2026, 18:45 CET; Veszprem lead Group A: 4 played, 4 wins, 146:111, 8 points; Fuchse Berlin are second in Group A: 4 played, 3 wins, 1 defeat, 149:133, 6 points</p>
+  <p class="text"><strong>Evidence:</strong> Group A table on the EHF standings page: &#x27;One Veszprém HC 4 4 0 0 146:111 35 8&#x27;, &#x27;Füchse Berlin 4 3 0 1 149:133 16 6&#x27;. Fixture listed on the competition front page under Oct21 at 18:45.</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-13 · Rugby League</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nrl.com</span></div>
+  <p class="text"><strong>Checked:</strong> Tonga v Lebanon is Round 2 of the 2026 Men&#x27;s Rugby League World Cup on Friday 23 October 2026, 8:05pm AEDT, at CommBank Stadium, Sydney; Tonga beat England 30-12 in Round 1 at HBF Park, Perth; Papua New Guinea beat Lebanon 42-18 in Round 1 in Port Moresby</p>
+  <p class="text"><strong>Evidence:</strong> NRL.com Round 2 team lists: &#x27;Tonga v Lebanon, Friday 8.05pm AEDT at CommBank Stadium, Sydney&#x27;. NRL.com Round 1 draw: England 12 - Tonga 30 at HBF Park, Perth (17 Oct); Papua New Guinea 42 - Lebanon 18 at Santos National Football Stadium (17 Oct).</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-14 · Rugby League</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nrl.com</span></div>
+  <p class="text"><strong>Checked:</strong> England v France is Round 2 on Saturday 24 October 2026, 5:35pm AEDT, at HBF Park, Perth; England lost their opener 12-30 to Tonga; Samoa beat France 78-4 in Round 1 at CommBank Stadium</p>
+  <p class="text"><strong>Evidence:</strong> NRL.com Round 2 team lists: &#x27;England v France, Saturday 5.35pm AEDT at HBF Park, Perth&#x27;, with the note that coach Brian McDermott keeps the same 19-man squad and Luke Thompson starts at prop for the injured Morgan Knowles. NRL.com Round 1 draw: Samoa 78 - France 4 (16 Oct); England 12 - Tonga 30 (17 Oct).</p>
+  
+</div><div class="pick-card">
+  <div class="top"><h3>LC-15 · Rugby Union</h3>
+    <span class="badge ok">confirmed</span></div>
+  <div class="sub"><a href="https://stats.unitedrugby.com/match-centre/2026-27/4" target="_blank" rel="noopener nofollow">source</a><span class="small"> stats.unitedrugby.com</span></div>
+  <p class="text"><strong>Checked:</strong> Ospreys v Dragons RFC is United Rugby Championship Round 4 on Saturday 24 October 2026, 14:00 local, at St Helen&#x27;s; Round 3 on 9 October: Dragons 31-38 Ospreys at Rodney Parade; After three rounds Dragons are 8th on 9 points (1W 1D 1L) and Ospreys 13th on 6 points (1W 2L)</p>
+  <p class="text"><strong>Evidence:</strong> URC Match Centre Round 4 lists &#x27;SAT, 24 OCT • 14:00 Ospreys v Dragons RFC ... St Helen&#x27;s&#x27;. The same page&#x27;s Round 3 results show &#x27;Dragons 31 - Ospreys 38&#x27; at Rodney Parade on 9 October. The URC table page gives Dragons 9 pts (PL 3, W 1, D 1, L 1, 88:83) and Ospreys 6 pts (PL 3, W 1, D 0, L 2, 81:107).</p>
+  
+</div>
+
+<h2>Machine checks</h2>
+<p class="lede">The build fails if any of these regress: unique row ids; every in-scope row has a source URL; every row's
+sport is inside the brief's scope; every high-confidence pick has a prediction of at least 30 words; no two prediction
+texts are identical or near-identical; no broken internal links; JSON parses.</p>
+<p class="small">Run locally: <code>python3 tools/verify_master.py</code>. CI runs it via
+<code>.github/workflows/pages.yml</code> before deploying.</p>
+
+</main>
+<footer class="site"><div class="wrap">
+  <div>Data cut-off 2026-10-21 · 312 rows · 308 in scope · every row links its source</div>
+  <div>Analysis, not betting advice · 18+ · values are copied from the builds' committed data, never guessed</div>
+</div></footer>
+<script src="./assets/master/app.js"></script>
+</body>
+</html>
