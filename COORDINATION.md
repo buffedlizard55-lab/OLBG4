@@ -184,3 +184,17 @@ click from the front page.
 ### Log
 - 2026-10-21T09:05Z — `74f9613e` — C1…C5 complete locally; validator green.
 - 2026-10-21T09:20Z — `74f9613e` — rebased onto `main` (`d8a2b70`); build C namespaced, no board A/B file modified.
+
+### Publish record (final integration session `arena/74f9613e-olbg4`)
+
+* PR: **https://github.com/buffedlizard55-lab/OLBG4/pull/4** — "OLBG reverse-engineering: verified fixture list, independent lines, predictions and dashboard"
+* Merge result: **MERGED** with `gh pr merge 4 --merge` at **2026-10-21T05:25:40Z**, merge commit `42b2c49676234e6708e9fad6a504fb4725a2d4eb`. CI on the head commit (`build-and-validate`) passed in 8s before the merge; `mergeable` was `MERGEABLE` / `CLEAN`.
+* Why the branch was rebased first: `main` had moved to `d8a2b70` (PRs #1, #2, #3, #5 landed while this session was building). Build C's files were namespaced instead of overwriting board A's or board B's paths, and the root `index.html` was replaced by a portal that links all three dashboards, so `docs/` and `session-7114b6a1/` still resolve.
+* GitHub Pages: legacy branch build from `main` / (the REST call to switch to `build_type=workflow` returns **403 Resource not accessible by integration** with this token, so no Actions deploy path was attempted). Build for commit `42b2c49` reported **built** in 20.3s via `gh api repos/…/pages/builds/latest`.
+* Live URLs checked after deploy:
+  * https://buffedlizard55-lab.github.io/OLBG4/ → portal with the three dashboards
+  * https://buffedlizard55-lab.github.io/OLBG4/docs/ → build A dashboard (144 rows)
+  * https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/ → build B dashboard (116 fixtures)
+  * https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/ → build C dashboard (43 fixtures, 32 priced, 182 selections, 10 predictions)
+  * https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/flagged.html → 64 flagged items
+* Local gate before merge: `bash scripts/session-74f9613e/build_all.sh` → `OK - all validation checks passed`; 19 HTML files and **0 broken local links** across build C plus the portal.

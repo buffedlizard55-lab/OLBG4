@@ -26,20 +26,26 @@
 <body>
 <main>
   <h1>OLBG4 — originated lines &amp; predictions</h1>
-  <p class="lead">Two independently built research dashboards for the OLBG fixture window of 21–25 October 2026.
+  <p class="lead">Three independently built research dashboards for the OLBG fixture window of 21–25 October 2026.
      Every fixture, quote and model input is taken from the official league or governing body; nothing is
      copied from a bookmaker, and anything that could not be confirmed is left blank and flagged.</p>
-  <div class="grid">
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
     <a class="card" href="docs/">
       <h2>Combined dashboard</h2>
       <p>116 fixtures across 11 sports, transparent pricing model, 9 written predictions and a
          Flagged for Review page. Landed on main in PR #3.</p>
       <span class="k">docs/ &middot; landing + sport pages</span>
     </a>
+    <a class="card" href="session-7114b6a1/">
+      <h2>Inventory-first dashboard</h2>
+      <p>116 fixtures read directly off OLBG's live sport pages across 11 sports, with own
+         win/handicap/total lines, 9 sourced predictions and 50 review items.</p>
+      <span class="k">session-7114b6a1/ &middot; reverse-engineered surface</span>
+    </a>
     <a class="card" href="session-74f9613e/">
       <h2>Verification-first dashboard</h2>
       <p>43 fixtures across 5 sports re-derived from primary sources, 182 originated selections,
-         10 predictions with per-claim citations and an 11-item gap register.</p>
+         10 predictions with per-claim citations and a 10-item gap register.</p>
       <span class="k">session-74f9613e/ &middot; full audit trail</span>
     </a>
   </div>
