@@ -491,7 +491,7 @@ Claimed 2026-10-21T10:05Z on branch `arena/e1e0c27e-olbg4`. At claim time every 
 | I1 | Mechanical audit of every published table row in all five builds: source-domain classification (official governing body / league feed vs secondary vs none), blank-value and flag consistency | done | `e1e0c27e` | `session-e1e0c27e/`, `scripts/session-e1e0c27e/` |
 | I2 | Row-level spot checks against official sources (web search + official pages), with links for manual review | done | `e1e0c27e` | `session-e1e0c27e/data/` |
 | I3 | Cross-build consistency: same fixture listed in more than one build with different date/time/venue/pick | done | `e1e0c27e` | `session-e1e0c27e/data/` |
-| I4 | Publish audit as `session-e1e0c27e/` pages (audit table + Flagged for Review), additive card on root `index.html`, PR + merge + Pages check | needs review (published; PR + Pages recorded below) | `e1e0c27e` | `session-e1e0c27e/`, root `index.html` (one card, additive), `COORDINATION.md`, `README.md` (one section, additive) |
+| I4 | Publish audit as `session-e1e0c27e/` pages (audit table + Flagged for Review), additive card on root `index.html`, PR + merge + Pages check | done (findings remain `needs review` on the Flagged page) | `e1e0c27e` | `session-e1e0c27e/`, root `index.html` (one card, additive), `COORDINATION.md`, `README.md` (one section, additive) |
 
 Rules honoured: no file owned by another board is edited; requests for changes to other boards' files are logged under *Cross-session requests* below, not applied.
 
@@ -538,3 +538,6 @@ Rules honoured: no file owned by another board is edited; requests for changes t
 - 11:05Z — `git pull --rebase` hit a conflict in COORDINATION.md (main had advanced by PRs #12–#18: sessions 07a080b9, 5fd34d30, ef72af9b, 6e0f382d, 4359d6a4, 648c1a19). Resolved by keeping main's text verbatim and appending this board renamed from F to I, then to J when a second session also took I; no other session's work discarded.
 - 11:20Z — audit re-run on the new main: Build G (`session-6e0f382d/`, 140 rows) added; found that `cf9f024` had overwritten Build A/B data (F-11/F-12); summary now 592 rows, 93 overlaps, 13 findings; 3,081 local links, 0 broken.
 - Additive edits only outside own scope: one portal card in root `index.html`, one README section, this board.
+- 11:35Z — second rebase conflict (main at `afc16ce`, another session had taken "Board I"); resolved the same way, renamed to Board J. Remote branch force-updated with `--force-with-lease` (own branch only, rewritten by the rebases).
+- **PR #22** — https://github.com/buffedlizard55-lab/OLBG4/pull/22 — checks `Validate data and site` + `Repository-wide publication audit` both pass; **MERGED** 2026-10-21T06:54:56Z as `1bb0964`.
+- **Pages deploy:** `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both `success` on `1bb0964`; Pages API `builds/latest` = `built`, commit `1bb0964`, error none. Live: https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/ (Flagged page fetched over HTTPS and confirmed to render all 13 findings).
