@@ -759,3 +759,25 @@ Out of scope (owned by other boards, changes logged not applied): `docs/` (Board
   - Their session page (`session-5838b25d/`, `session-093bfd5e/`) and their COORDINATION records were left untouched.
 - **Second collision:** session `arena/6b8d2d5f-olbg4` also claimed "Board K" and landed its own hub rebuild (PR #30, commit `619f5b0`) in `data/matches.json` plus a portal banner in `index.html`, while publishing `session-6b8d2d5f/` (48 official-sourced fixtures, 6 predictions, its own register). Resolution: their data file is archived as `data/board_k/prior_session_6b8d2d5f_matches.json`, their pages and README section are untouched, and their index banner is relabelled as that session's verified build with its links kept and a pointer to this session's register. Nothing was deleted.
 - **Merge conflicts:** `COORDINATION.md` and `data/matches.json` conflicted when this branch merged `origin/main`. `COORDINATION.md` keeps every board's text verbatim (this section appended). `data/matches.json` takes this session's rebuilt file because every value in it is traceable to quoted evidence; `093bfd5e`'s file is preserved alongside it, as above. `index.html` and `flagged.html` take this session's generated versions for the same reason; the archived builds' pages were not touched.
+
+### Board K publish record (2026-10-21)
+
+- **PR #32** — https://github.com/buffedlizard55-lab/OLBG4/pull/32 — **MERGED** 2026-10-21T07:19:45Z as
+  `626903a60fa7d2d8e1ab19bfafd074d2bcea2b63` with all three gates green on the merge candidate:
+  `verify` (366 checks), `build-and-validate` (Build C rebuild, no drift) and `audit` (3,582 local targets, 0 broken).
+- **Pages:** `GET /repos/buffedlizard55-lab/OLBG4/pages/builds/latest` → `status=built, commit=626903a, error=null`.
+  Live root fetched over HTTPS and confirmed to render the line desk (75 fixtures, 4 high picks, category cards).
+- **Two merge races had to be resolved without discarding anyone's work:**
+  1. `main` advanced to `28b0bbd` (PRs #25/#28/#30 — Boards L, M and a parallel "Build K" from `session-6b8d2d5f`).
+     Their root hub and flagged page were preserved byte-for-byte at `session-6b8d2d5f/hub-2026-10-21.html` and
+     `hub-flagged-2026-10-21.html`, their boards kept verbatim in this file (their "Board K" renamed **K2**), and
+     their dashboard left at `session-6b8d2d5f/`.
+  2. `main` advanced again to `5725339` (PR #31 — `arena/082d3c16-olbg4`, a second final-integration claimant with a
+     68-row frozen-snapshot rebuild and `verification.html`). Their four root pages were preserved under
+     `session-082d3c16/`, their registers (`data/board_k/*`) untouched, their `verification.html` kept and linked from
+     `archive.html`. Only the four root pages the brief reserves for the integration owner were replaced.
+- **Final state of the site:** `/` dashboard · `/entries.html` (75 rows) · `/sports/*.html` (6 categories) ·
+  `/predictions.html` (4) · `/analysis.html` · `/coverage.html` (19 in-scope sports) · `/flagged.html` (14 findings) ·
+  `/methodology.html` · `/sources.html` · `/archive.html`.
+- **Nothing is marked verified without a governing-body link**, and the 13 in-scope sports with no row this cycle are
+  published as gaps rather than filled in.
