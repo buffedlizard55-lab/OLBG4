@@ -39,6 +39,9 @@ jobs:
           set -o pipefail
           python -m pipeline.selftest 2>&1 | tee /tmp/pipeline.log
 
+      - name: Probe official endpoints
+        run: python -m pipeline.probe
+
       - name: Ingest, originate, verify, build
         run: |
           set -o pipefail

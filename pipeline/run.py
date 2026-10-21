@@ -288,6 +288,7 @@ def main(argv: list[str] | None = None) -> int:
     fixtures_by_id = {fx["id"]: fx for fx in all_fixtures}
     analysis_rows: list[dict] = []
     prediction_rows: list[dict] = []
+    prediction_variant = 0
     for fx in all_fixtures:
         sport = fx["sport"]
         pack = models.get(sport) or {}
@@ -329,7 +330,9 @@ def main(argv: list[str] | None = None) -> int:
             pred = predictions.make_prediction(
                 fx, {**result, "headline_pick": pick}, form, h2h,
                 fx.get("official_source_urls") or fx.get("source_urls") or [],
+                variant=prediction_variant,
             )
+            prediction_variant += 1
             pred["fixture_id"] = fx["id"]
             pred["sport"] = sport
             pred["league"] = fx["league"]

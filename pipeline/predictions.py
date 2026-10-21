@@ -1,10 +1,14 @@
-"""Fact assembly, prediction writing and prediction linting.
+"""Compose written predictions from verified facts.
 
-Every sentence produced here is built only from fields that arrived in an official
-league feed and are stored on the fixture or in the training sample. No news, quotes,
-injuries or transfers are invented: if a fact is not in the data it cannot appear in the
-copy. Each prediction carries a `facts` list so a reviewer can trace every claim, and
-pipeline/verify.py fails the build if any prediction breaks the style rules below.
+Each prediction is assembled from five independent sentence blocks. The caller passes a
+`variant` integer (unique per published pick in a snapshot), which is decoded into a
+mixed-radix combination of block options. Two predictions therefore never share the same
+structure until every combination is exhausted, which is what keeps the copy from
+reading like a mail-merge.
+
+Only fields that arrived in an official league feed are available to the templates:
+record, last-five results with scores, venue, series context, probable pitchers, and our
+own line and probability. Nothing speculative can be inserted.
 """
 from __future__ import annotations
 
@@ -21,7 +25,6 @@ BANNED = [
 ]
 
 NUMBER_WORDS = {0: "no", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}
-
 UNIT = {"basketball": "points", "ice_hockey": "goals", "baseball": "runs"}
 
 
@@ -105,34 +108,24 @@ def head_to_head(results: list[dict], home_id: str, away_id: str, before: dateti
 # ---------------------------------------------------------------------------
 # prose helpers
 # ---------------------------------------------------------------------------
-def _form_phrase(form: dict, team: str) -> str:
-    n = form.get("wins_last5", 0)
-    played = len(form.get("last5", []))
-    if played == 0:
-        return f"{team} have no completed games in our verified sample yet"
-    if n == played == 5:
-        return f"{team} have won all five of their last five completed games"
-    if n == 0 and played == 5:
-        return f"{team} have lost all five of their last five completed games"
-    if form.get("streak", 0) >= 3:
-        return f"{team} arrive on a {form['streak']}-game winning run"
-    if form.get("streak", 0) <= -3:
-        return f"{team} are on a {abs(form['streak'])}-game losing run"
-    return (
-        f"{team} have won {NUMBER_WORDS.get(n, n)} of their last "
-        f"{NUMBER_WORDS.get(played, played)} completed games"
-    )
+def _wins_phrase(n: int) -> str:
+    return {0: "none", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}.get(n, str(n))
 
 
-def _last_result_sentence(form: dict) -> str:
+def _num(value: float | None, digits: int = 1) -> str:
+    return "n/a" if value is None else f"{value:.{digits}f}"
+
+
+def _last_sentence(form: dict, opponent_name: str | None) -> str:
     last = form.get("last_game")
     if not last:
         return ""
-    result = "beat" if last["won"] else "lost to"
-    opp = last.get("home_name") if last["venue"] == "away" else last.get("away_name")
-    opp = opp or "their last opponent"
-    venue = "at home" if last["venue"] == "home" else "on the road"
-    return f"They most recently {result} {opp} {last['team_score']}-{last['opp_score']} {venue}."
+    opp = opponent_name or "their last opponent"
+    score = f"{last['team_score']}-{last['opp_score']}"
+    where = "at home" if last["venue"] == "home" else "on the road"
+    if last["won"]:
+        return f"They most recently beat {opp} {score} {where}."
+    return f"They most recently lost {score} to {opp} {where}."
 
 
 def _clean_record_label(label: str | None) -> str:
@@ -144,24 +137,6 @@ def _clean_record_label(label: str | None) -> str:
     return "record"
 
 
-def _record_sentence(team: str, record: str | None, label: str | None) -> str:
-    if not record:
-        return ""
-    return f"{team} hold a {record} {_clean_record_label(label)}."
-
-
-def _num(value: float | None, digits: int = 1) -> str:
-    if value is None:
-        return "n/a"
-    return f"{value:.{digits}f}"
-
-
-def _signed(value: float | None) -> str:
-    if value is None:
-        return "0.0"
-    return f"{value:+.1f}"
-
-
 def _names_selection(text: str) -> bool:
     low = text.lower()
     return any(token in low for token in ("selection:", "backing", "pick is", "taking"))
@@ -171,84 +146,136 @@ def _seed(fixture_id: str, market: str) -> int:
     return int(hashlib.sha256(f"{fixture_id}|{market}".encode()).hexdigest()[:8], 16)
 
 
-WINNER_TEMPLATES = [
-    "{open_form}. {record} {last} Our model gives them a {prob}% win probability, priced at "
-    "{american}. Selection: {selection}.",
-
-    "{record} {open_form}, and the numbers point the same way. {last} We price {selection} at "
-    "{american} after a {prob}% win probability in our model.",
-
-    "{open_form} heading into this one at {venue}. {record} {model} We are backing {selection} "
-    "at {american}.",
-
-    "Our model separates these teams by {line} {unit}, and the form table supports it. {open_form}. "
-    "{last} {model} Selection: {selection} at {american}.",
-
-    "{open_form}, which is why our model has them {line} {unit} to the good. {record} {last} "
-    "{model} The pick is {selection} at {american}.",
-
-    "At {venue}, the model sees a {prob}% win probability for the {fav_short}. {open_form}. "
-    "{record} {last} We are taking {selection} at {american}.",
-
-    "{record} {open_form}. {last} That combination gives us a {prob}% win probability and a "
-    "{line}-{unit} edge in the ratings. {model} Selection: {selection} at {american}.",
-
-    "Two verified form lines meet here: {open_form}, while the {dog_short} have won {dog_wins} "
-    "of their last {dog_played}. {last} Our model lands on {selection} at {american}, a {prob}% "
-    "shot with a {line}-{unit} rating gap.",
+# ---------------------------------------------------------------------------
+# sentence blocks
+# ---------------------------------------------------------------------------
+WINNER_BLOCKS = [
+    [  # opener
+        "{away} visit {venue} to face {home}, and our model makes {fav} a {prob}% favourite.",
+        "We make {fav} a {prob}% chance to beat {dog} at {venue}.",
+        "{fav} rate {line_abs} {unit} stronger than {dog} in our model, a {prob}% win probability.",
+        "This shapes as a {line_abs}-{unit_singular} game for {fav}, who carry a {prob}% win probability.",
+        "Our ratings have {fav} {line_abs} {unit} clear of {dog} going into this one.",
+        "At {venue}, the model splits this {prob}% in favour of {fav}.",
+    ],
+    [  # form
+        "{fav} have won {wins5} of their last five.",
+        "{fav} arrive with a {record} {record_label} and have won {wins5} of their last five.",
+        "Form favours {fav}, who have won {wins5} of five, while {dog} have won {dog_wins5}.",
+        "{fav} are {streak_phrase}.",
+        "Across their last five, {fav} have averaged {avg_for} {unit} scored and {avg_against} conceded.",
+    ],
+    [  # last result
+        "{last}",
+        "{last}",
+        "",
+        "{last}",
+    ],
+    [  # model / price
+        "We price that at {american}, inclusive of our 4.5% two-way margin.",
+        "The model probability is {prob}%, and we quote {american}.",
+        "At {american}, the implied probability after our margin is {prob}%.",
+        "Our price of {american} reflects a {prob}% win probability.",
+    ],
+    [  # selection
+        "Selection: {selection} at {american}.",
+        "We are backing {selection} at {american}.",
+        "The pick is {selection} at {american}.",
+        "We take {selection} at {american}.",
+    ],
 ]
 
-HANDICAP_TEMPLATES = [
-    "{open_form}, and our current number is {line} {unit} after opening at {opening_line}. "
-    "{record} That move is why {selection} rates {prob}% to cover at {american}.",
-
-    "We opened this spread at {opening_line} and now make it {line} {unit}, a move of "
-    "{move} {unit} toward the {fav_short}. {open_form}. {record} Selection: {selection} at {american}.",
-
-    "{record} {open_form}. Our opener of {opening_line} has moved to {line}, which puts "
-    "{selection} at a {prob}% cover probability and {american}. {last}",
-
-    "{open_form}. {last} The spread has shifted {move} {unit} from our opening {opening_line} to "
-    "{line}, so the value sits with {selection} at {american} ({prob}% to cover).",
-
-    "At {venue} our numbers put the {fav_short} {line} {unit} clear, up from an opening "
-    "{opening_line}. {record} {open_form}. Selection: {selection} at {american}.",
+HANDICAP_BLOCKS = [
+    [
+        "We opened this {market_name} at {opening_line} and now make it {line}, a move of {move} {unit}.",
+        "Our opening number was {opening_line}; the current model says {line}.",
+        "The line has moved {move} {unit}, from {opening_line} to {line}, since our opener.",
+        "{fav} are now {line_abs} {unit} clear of {dog} on our board, against {opening_line_abs} at the open.",
+        "We make this {line} after opening at {opening_line}.",
+    ],
+    [
+        "{fav} have won {wins5} of their last five.",
+        "{fav} hold a {record} {record_label} and have won {wins5} of their last five.",
+        "Recent form has {fav} with {wins5} wins from five, against {dog_wins5} for {dog}.",
+        "{fav} are {streak_phrase}.",
+    ],
+    [
+        "{last}",
+        "{record_sentence}",
+        "",
+    ],
+    [
+        "At the opening line, {selection} rates {prob}% to cover, priced at {american}.",
+        "That gives {prob}% for {selection} at {american}.",
+        "We price the cover at {american}, a {prob}% probability.",
+    ],
+    [
+        "Selection: {selection} at {american}.",
+        "We are backing {selection} at {american}.",
+        "The pick is {selection} at {american}.",
+        "We take {selection} at {american}.",
+    ],
 ]
 
-TOTAL_TEMPLATES = [
-    "{open_form}, and their last five have averaged {fav_avg} {unit} combined. {record} "
-    "Our total opened at {opening_line} and now sits at {line}, which makes {selection} a "
-    "{prob}% play at {american}.",
-
-    "We opened the total at {opening_line} and have moved it to {line}. {open_form}, while "
-    "the {dog_short} have conceded {dog_against} {unit} per game across their last five. "
-    "Selection: {selection} at {american} ({prob}%).",
-
-    "{record} {open_form}. {last} With the two recent scoring profiles at {fav_avg} and "
-    "{dog_avg} {unit}, our number is {line} after an {opening_line} opener. The pick is "
-    "{selection} at {american}, rated {prob}%.",
-
-    "Our model projects {line} {unit} here, {move} {unit} away from the {opening_line} opener. "
-    "{open_form}, and the {dog_short} are averaging {dog_avg} {unit} across their last five. "
-    "{model} Selection: {selection} at {american}.",
+TOTAL_BLOCKS = [
+    [
+        "Our total opened at {opening_line} and now sits at {line}, a move of {move} {unit}.",
+        "We opened this total at {opening_line}; the current model projects {line}.",
+        "The number has moved {move} {unit} from {opening_line} to {line}.",
+        "We make the total {line}, against {opening_line} at the open.",
+        "This total has been re-rated from {opening_line} to {line} on the recent scoring data.",
+    ],
+    [
+        "{fav} have averaged {avg_for} {unit} scored and {avg_against} conceded across their last five.",
+        "Across their last five, {fav} have scored {avg_for} and conceded {avg_against} {unit} per game.",
+        "{fav} are averaging {avg_for} {unit}; {dog} are averaging {dog_avg}.",
+        "The recent scoring profile is {avg_for} for {fav} and {dog_avg} for {dog}.",
+    ],
+    [
+        "{record_sentence}",
+        "{last}",
+        "",
+    ],
+    [
+        "{selection} rates {prob}% at {american} on our numbers.",
+        "We price that outcome at {american}, a {prob}% probability.",
+        "At {american} the implied probability is {prob}%.",
+    ],
+    [
+        "Selection: {selection} at {american}.",
+        "We are backing {selection} at {american}.",
+        "The pick is {selection} at {american}.",
+        "We take {selection} at {american}.",
+    ],
 ]
 
-MODEL_SENTENCES = [
-    "That is a {prob}% win probability in our model, priced at {american}.",
-    "We price that outcome at {american}, implying {prob}% after our margin.",
-    "Our model makes it {prob}%, which we quote at {american}.",
-]
-
-TEMPLATES_BY_MARKET = {
-    "moneyline": WINNER_TEMPLATES,
-    "handicap": HANDICAP_TEMPLATES,
-    "total": TOTAL_TEMPLATES,
+BLOCKS_BY_MARKET = {
+    "moneyline": WINNER_BLOCKS,
+    "handicap": HANDICAP_BLOCKS,
+    "total": TOTAL_BLOCKS,
 }
 
 
+def _decode(variant: int, sizes: list[int]) -> list[int]:
+    """Mixed-radix decode with a prime stride.
+
+    The stride is coprime with every block size used here, so distinct variants stay
+    distinct (a bijection on the combination space) while consecutive predictions jump
+    across all five blocks instead of only changing the first sentence.
+    """
+    product = 1
+    for size in sizes:
+        product *= size
+    mixed = (variant * 7919) % product
+    out = []
+    for size in sizes:
+        out.append(mixed % size)
+        mixed //= size
+    return out
+
+
 def make_prediction(fixture: dict, analysis: dict, form: dict, h2h: list[dict],
-                    source_urls: list[str]) -> dict:
-    """Compose the high-confidence write-up for one pick."""
+                    source_urls: list[str], variant: int = 0) -> dict:
     pick = analysis["headline_pick"]
     sport = fixture["sport"]
     unit = UNIT[sport]
@@ -268,53 +295,87 @@ def make_prediction(fixture: dict, analysis: dict, form: dict, h2h: list[dict],
         line = analysis["markets"]["total"]["line"]
         opening_line = analysis["markets"]["total"]["opening_line"]
         move_basis = cur["total"] - opn["total"]
+        market_name = "total"
     elif pick["market"] == "handicap":
         line = pick.get("line") or analysis["markets"]["handicap"]["line_home"]
         opening_line = analysis["markets"]["handicap"]["opening_line_home"]
         move_basis = analysis["edge"]["margin"]
+        market_name = analysis["markets"]["handicap"].get("name", "handicap")
     else:
         line = cur["margin"]
         opening_line = opn["margin"]
         move_basis = analysis["edge"]["margin"]
+        market_name = "moneyline"
+
+    streak = fav_form.get("streak", 0)
+    if streak >= 2:
+        streak_phrase = f"on a {streak}-game winning run"
+    elif streak <= -2:
+        streak_phrase = f"on a {abs(streak)}-game losing run"
+    else:
+        streak_phrase = "alternating results of late"
+
+    record_label = _clean_record_label(
+        (fixture.get("context") or {}).get("home_record_label" if fav_is_home else "away_record_label")
+    )
+    record_sentence = (
+        f"{fav['name']} hold a {fav['record']} {record_label}." if fav.get("record") else ""
+    )
+    last_opp = None
+    last = fav_form.get("last_game")
+    if last:
+        last_opp = last.get("away_name") if last.get("venue") == "home" else last.get("home_name")
 
     values = {
-        "open_form": _form_phrase(fav_form, fav["name"]),
-        "record": _record_sentence(
-            fav["name"], fav.get("record"),
-            (fixture.get("context") or {}).get("home_record_label" if fav_is_home else "away_record_label"),
-        ),
-        "last": _last_result_sentence(fav_form),
+        "away": away["name"],
+        "home": home["name"],
+        "fav": fav["name"],
+        "dog": dog["name"],
+        "venue": fixture.get("venue") or "the venue",
+        "record": fav.get("record") or "n/a",
+        "record_label": record_label,
+        "record_sentence": record_sentence,
+        "wins5": _wins_phrase(fav_form.get("wins_last5", 0)),
+        "dog_wins5": _wins_phrase(dog_form.get("wins_last5", 0)),
+        "avg_for": _num(fav_form.get("avg_scored_last5")),
+        "avg_against": _num(fav_form.get("avg_allowed_last5")),
+        "dog_avg": _num(dog_form.get("avg_scored_last5")),
+        "streak_phrase": streak_phrase,
+        "last": _last_sentence(fav_form, last_opp),
         "prob": _num(pick["prob_pct"], 1).rstrip("0").rstrip("."),
         "american": pick["american"],
-        "line": _signed(line) if pick["market"] != "total" else _num(line),
-        "opening_line": _signed(opening_line) if pick["market"] != "total" else _num(opening_line),
+        "line": f"{line:+.1f}" if pick["market"] != "total" else f"{line:.1f}",
+        "line_abs": f"{abs(line):.1f}",
+        "line_abs_unit": f"{abs(line):.1f}",
+        "unit_singular": {"points": "point", "goals": "goal", "runs": "run"}[unit],
+        "opening_line_abs": f"{abs(opening_line):.1f}",
+        "opening_line": f"{opening_line:+.1f}" if pick["market"] != "total" else f"{opening_line:.1f}",
         "move": _num(abs(move_basis), 2),
         "unit": unit,
         "selection": pick["selection"],
-        "venue": fixture.get("venue") or "their home venue",
-        "fav_short": fav["name"].split()[-1],
-        "dog_short": dog["name"].split()[-1],
-        "dog_wins": NUMBER_WORDS.get(dog_form.get("wins_last5", 0), dog_form.get("wins_last5", 0)),
-        "dog_played": NUMBER_WORDS.get(len(dog_form.get("last5", [])), len(dog_form.get("last5", []))),
-        "fav_avg": _num(fav_form.get("avg_scored_last5")),
-        "fav_against": _num(fav_form.get("avg_allowed_last5")),
-        "dog_avg": _num(dog_form.get("avg_scored_last5")),
-        "dog_against": _num(dog_form.get("avg_allowed_last5")),
-        "model": MODEL_SENTENCES[_seed(fixture["id"], pick["market"]) % len(MODEL_SENTENCES)].format(
-            prob=_num(pick["prob_pct"], 1).rstrip("0").rstrip("."), american=pick["american"]
-        ),
+        "market_name": market_name,
     }
-    templates = TEMPLATES_BY_MARKET[pick["market"]]
-    template = templates[_seed(fixture["id"], pick["market"]) % len(templates)]
-    text = re.sub(r"\s+", " ", template.format(**values)).replace(" .", ".").strip()
+
+    blocks = BLOCKS_BY_MARKET[pick["market"]]
+    choices = _decode(variant, [len(block) for block in blocks])
+    sentences = []
+    for block, idx in zip(blocks, choices):
+        text = block[idx % len(block)].format(**values).strip()
+        if text:
+            sentences.append(text)
+    text = " ".join(sentences)
+    text = re.sub(r"\s+", " ", text).replace(" .", ".").strip()
     if not _names_selection(text):
         text += f" Selection: {pick['selection']} at {pick['american']}."
+    if len(text.split()) < 30:
+        extra = record_sentence or f"{fav['name']} are {fav['record']} in the official table."
+        text = (extra + " " + text).strip()
 
     return {
         "text": text,
         "word_count": len(text.split()),
         "facts": _facts(fixture, analysis, form, h2h, source_urls),
-        "template": templates.index(template),
+        "variant": variant,
         "market": pick["market"],
         "selection": pick["selection"],
     }
@@ -324,14 +385,10 @@ def _facts(fixture, analysis, form, h2h, sources) -> list[dict]:
     home, away = fixture["home"], fixture["away"]
     first_source = (fixture.get("source_urls") or [""])[0]
     facts = [
-        {
-            "fact": f"{home['name']} vs {away['name']}, scheduled {fixture['start_utc']}",
-            "source": first_source,
-        },
-        {
-            "fact": f"Venue: {fixture.get('venue') or 'not published by the league'}",
-            "source": first_source,
-        },
+        {"fact": f"{home['name']} vs {away['name']}, scheduled {fixture['start_utc']}",
+         "source": first_source},
+        {"fact": f"Venue: {fixture.get('venue') or 'not published by the league'}",
+         "source": first_source},
     ]
     for team in (home, away):
         rec = team.get("record")
@@ -339,20 +396,15 @@ def _facts(fixture, analysis, form, h2h, sources) -> list[dict]:
             label = (fixture.get("context") or {}).get(
                 "home_record_label" if team is home else "away_record_label"
             ) or "record"
-            facts.append(
-                {"fact": f"{team['name']} {_clean_record_label(label)}: {rec}", "source": first_source}
-            )
+            facts.append({"fact": f"{team['name']} {_clean_record_label(label)}: {rec}",
+                          "source": first_source})
         f = form.get(str(team["id"]))
         if f and f.get("last5"):
             results = ", ".join(
                 f"{'W' if g['won'] else 'L'} {g['team_score']}-{g['opp_score']}" for g in f["last5"]
             )
-            facts.append(
-                {
-                    "fact": f"{team['name']} last five completed games: {results}",
-                    "source": f["last5"][0].get("game_url") or first_source,
-                }
-            )
+            facts.append({"fact": f"{team['name']} last five completed games: {results}",
+                          "source": f["last5"][0].get("game_url") or first_source})
     ctx = fixture.get("context") or {}
     for key, label in (
         ("home_probable_pitcher", "Home probable pitcher"),
@@ -362,21 +414,15 @@ def _facts(fixture, analysis, form, h2h, sources) -> list[dict]:
         if ctx.get(key):
             facts.append({"fact": f"{label}: {ctx[key]}", "source": first_source})
     if h2h:
-        facts.append(
-            {
-                "fact": f"{len(h2h)} previous meeting(s) in the verified sample; most recent "
-                        f"{h2h[0]['date_utc'][:10]} ended {h2h[0]['away_score']}-{h2h[0]['home_score']} "
-                        f"(away-home)",
-                "source": h2h[0].get("source_url") or first_source,
-            }
-        )
+        facts.append({
+            "fact": f"{len(h2h)} previous meeting(s) in the verified sample; most recent "
+                    f"{h2h[0]['date_utc'][:10]} ended {h2h[0]['away_score']}-{h2h[0]['home_score']} "
+                    f"(away-home)",
+            "source": h2h[0].get("source_url") or first_source,
+        })
     pick = analysis["headline_pick"]
-    facts.append(
-        {
-            "fact": f"Model win probability {pick['prob_pct']}% priced at {pick['american']}",
-            "source": "derived: pipeline/model.py + pipeline/markets.py",
-        }
-    )
+    facts.append({"fact": f"Model win probability {pick['prob_pct']}% priced at {pick['american']}",
+                  "source": "derived: pipeline/model.py + pipeline/markets.py"})
     return facts
 
 
