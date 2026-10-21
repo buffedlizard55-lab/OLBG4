@@ -420,3 +420,7 @@ Handoff basis: Board E's final-integration claim remains marked in progress, whi
 
 - `arena/5e6c545d-olbg4` merged `origin/main` after PR #19 reported a non-clean merge. The sole conflict was this shared task board.
 - Resolution: retained the upstream Board F/G records verbatim and retained this session's independent audit as **Board H** (renamed only to avoid the existing duplicate Board F headings). No source rows, site builds, lines, or findings from either side were discarded.
+
+| H3 | Final integration repair: restore Board B's historical prediction input into its own namespace and point its legacy verifier there, so the Board B verification gate remains reproducible after the newer Board G schema replaced shared `data/predictions.json`. | in progress | `arena/5e6c545d-olbg4` | `data/session-7114b6a1/predictions.json`, `scripts/verify.py`, `COORDINATION.md` |
+
+**H3 claim note:** the failure was reproduced during final integration as `KeyError: 'unverified'` in `scripts/verify.py`. The recovery source will be the exact committed Board B prediction record at the common base (`5918922:data/predictions.json`), not inferred content.
