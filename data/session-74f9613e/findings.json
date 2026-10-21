@@ -1,0 +1,64 @@
+{
+  "findings": [
+    {
+      "id": "F1",
+      "title": "OLBG exposes 22 sport hubs, five of them excluded by the brief",
+      "text": "The betting-tips sitemap lists 22 sport hubs with stable numeric IDs. Horse Racing (2), Football (1), American Football (11), Boxing (16) and Cycling (17) fall inside the brief's exclusion list and were not processed. The remaining 17 are in scope for this project.",
+      "sources": ["S09"]
+    },
+    {
+      "id": "F2",
+      "title": "Rugby league had no head-to-head market to price",
+      "text": "OLBG's rugby-league all-events page carried three rows at capture time, all outright markets: State of Origin 2027, Super League 2027 Grand Final and NRL 2027 Grand Final. There was no fixture-level market, so no line could be originated rather than the sport being skipped.",
+      "sources": ["S07"]
+    },
+    {
+      "id": "F3",
+      "title": "Two sports could not be verified against an official source",
+      "text": "Darts and tennis pairings were visible on OLBG, but the PDC draw and the ATP tournament draw did not render as machine-readable pages through the sandbox fetcher. Those rows are published on the Flagged for Review page with the OLBG link and an explicit 'official source: none found' marker instead of an invented price.",
+      "sources": ["S02", "S04", "S23", "S24"]
+    },
+    {
+      "id": "F4",
+      "title": "Cricket fixtures verified, team strength not",
+      "text": "The ICC home page confirms ten upcoming fixtures in the window, including Afghanistan v Bangladesh and both Namibia v Ireland one-day internationals. The ICC ODI team-ranking table rendered as an empty grid in this environment, so no verified team-strength input exists and no cricket line was originated.",
+      "sources": ["S21", "S22"]
+    },
+    {
+      "id": "F5",
+      "title": "Snooker: official ranking money is a usable strength input, but only for 36 players",
+      "text": "The WST Johnstone's Paint World Rankings publish exact prize-money totals, which made a proper best-of-seven model possible. Eleven Northern Ireland Open second-round matches are confirmed, but six feature at least one player outside the captured top-36 extract, so only two pairings could be priced without inference.",
+      "sources": ["S17", "S18"]
+    },
+    {
+      "id": "F6",
+      "title": "One NBA game was deliberately left unpriced",
+      "text": "Utah at Memphis appears on the official NBA schedule for 21 October. The 2025-26 record row for Memphis was truncated in the captured standings table, so the match is listed but carries no line. It is the clearest example of the rule that a missing input is left blank rather than estimated.",
+      "sources": ["S12", "S14"]
+    },
+    {
+      "id": "F7",
+      "title": "NBA totals were not originated",
+      "text": "Money lines and spreads can be built from official win-loss records and final-season point margins, but a totals model needs verified pace or offensive/defensive efficiency data. No such official table was captured, so NBA totals are absent rather than guessed. NHL, MLB, URC and snooker totals are originated because their official tables carry goals, runs, points and frame data.",
+      "sources": ["S10", "S15", "S20", "S17"]
+    },
+    {
+      "id": "F8",
+      "title": "Early-season shrinkage matters most in the URC and NHL",
+      "text": "URC teams had played only three rounds and NHL teams between seven and eleven games at capture time. Scoring rates were therefore shrunk toward competition averages (3.05 goals per NHL team per game; a 47.5-point URC match) before totals were set. Without that step, Ospreys v Dragons would have been priced at a 60-point line off a three-game sample.",
+      "sources": ["S10", "S20"]
+    },
+    {
+      "id": "F9",
+      "title": "Time zones were not inferred",
+      "text": "NHL face-offs are published in EDT, NBA tip-offs in ET, snooker in UK time and URC kick-offs in local stadium time. Each row records the time exactly as the official source published it. URC rows deliberately carry no UTC conversion because the source does not state one.",
+      "sources": ["S11", "S14", "S18", "S19"]
+    },
+    {
+      "id": "F10",
+      "title": "The model is deliberately transparent rather than clever",
+      "text": "Every line is a deterministic function of published records, goal or point differentials and a stated home-advantage term. No bookmaker prices were read, so there is no possibility of the model quietly copying a market. The trade-off is that the probabilities are less sharp than a fitted model, which is why confidence labels are banded conservatively.",
+      "sources": ["S10", "S12", "S15", "S20", "S17"]
+    }
+  ]
+}

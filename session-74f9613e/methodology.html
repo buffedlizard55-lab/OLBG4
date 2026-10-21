@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · OLBG Reverse-Engineering Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <strong>OLBG Reverse-Engineering Dashboard</strong>
+      <span>Independent lines · verified inputs only · snapshot 2026-10-21</span>
+    </div>
+    <nav class="main"><a class="" href="index.html">Overview</a><a class="" href="picks.html">Picks</a><a class="" href="markets.html">All markets</a><a class="" href="predictions.html">Predictions</a><a class="" href="coverage.html">Sport coverage</a><a class="" href="findings.html">Findings</a><a class="" href="flagged.html">Flagged for review</a><a class="active" href="methodology.html">Method</a><a class="" href="sources.html">Sources</a></nav>
+  </div>
+</header>
+<main><div class="wrap">
+
+<h1>Method</h1>
+<p class="lede">The whole point of this build is that the numbers can be audited. This page states every formula, every constant and
+every place where a judgement was made.</p>
+
+<h2>1. Capture</h2>
+<div class="tablewrap"><table>
+<tr><th>Step</th><th>What was captured</th><th>How</th></tr>
+<tr><td>Inventory</td><td>OLBG's sport taxonomy and its in-scope fixture lists</td><td>Read the OLBG betting-tips sitemap and each sport's
+"all events" page. Only day/time, participants and the market OLBG displayed were read — no OLBG prices were used as inputs.</td></tr>
+<tr><td>Verification</td><td>Official fixture confirmation and model inputs</td><td>Official league, tour and federation pages: nhl.com,
+nba.com, mlb.com, wst.tv, stats.unitedrugby.com, icc-cricket.com.</td></tr>
+<tr><td>Transcription</td><td>Numeric inputs</td><td><code>scripts/prepare_inputs.py</code> — every table is copied field by field from the
+official page. Values that were not on the page are omitted.</td></tr>
+</table></div>
+
+<h2>2. The model</h2>
+<p class="small">Every match is priced by a deterministic function. No bookmaker price is an input, so there is no copying. Margins are
+applied only at the last step: 4% overround on two-way markets, 5% on three-way markets. Decimal odds = 1 / (probability × overround).</p>
+<div class="tablewrap"><table>
+<tr><th>Sport</th><th>Strength input</th><th>Win probability</th><th>Totals</th><th>Handicap</th></tr>
+<tr><td>NHL</td><td>Points percentage shrunk toward .500 by GP/(GP+12), plus goal difference per game × 0.012</td>
+<td>0.5 + (rating diff) × 0.80 + 0.035 home term, clamped 0.08–0.92</td>
+<td>Goals rates shrunk to 3.05 per team per game with weight 10; normal(σ=1.9) around the expected total, line rounded to the nearest 0.5</td>
+<td>Puck line ±1.5 from normal(σ=2.0) on the expected goal difference</td></tr>
+<tr><td>NBA</td><td>2025-26 win% shrunk by 0.75 toward .500, blended with 2026-27 record weighted GP/(GP+20)</td>
+<td>Log-odds difference plus a 0.24 home term (≈57.5% base home win rate), clamped 0.05–0.95</td>
+<td>Not originated — no official pace/efficiency table captured</td>
+<td>Spread = inverse-normal(p) × 11.5, rounded to the nearest 0.5</td></tr>
+<tr><td>MLB</td><td>Win% shrunk by 162/202 toward .500</td>
+<td>Log-odds difference plus a 0.17 home term (≈54%), clamped 0.10–0.90</td>
+<td>Runs per game from RS/RA with a 0.12 run home adjustment; normal(σ=4.2)</td>
+<td>Run line ±1.5 from normal(σ=4.2)</td></tr>
+<tr><td>URC</td><td>Win rate + points difference per game × 0.010, shrunk toward .500 by PL/(PL+6)</td>
+<td>0.5 + (rating diff) × 0.90 + 0.05 home term; 5.5% draw, remaining probability split</td>
+<td>Match points shrunk toward 47.5 with weight 6; normal(σ=12)</td>
+<td>Spread = inverse-normal(p) × 13, rounded to the nearest 0.5</td></tr>
+<tr><td>Snooker</td><td>Log of official ranking prize money, scaled by 0.45 into a per-frame win probability (clamped 0.15–0.85)</td>
+<td>Exact best-of-seven binomial series probability</td>
+<td>Exact distribution over 4–7 frames; expected frames rounded to the nearest 0.5</td>
+<td>Frame handicap −1.5 = series won by two frames or more</td></tr>
+</table></div>
+
+<h2>3. Pick and confidence</h2>
+<p class="small">The pick is the model's match winner (home or away on the money line). Confidence uses the model probability of that
+pick: <strong>high ≥ 0.65</strong>, <strong>medium 0.57–0.649</strong>, <strong>low &lt; 0.57</strong>. A pick is only eligible for
+"high" when every input for that match is verified; a match with any missing input is not priced at all.</p>
+
+<h2>4. Predictions</h2>
+<p class="small">Written predictions exist only for high-confidence picks. Each is at least 30 words, names the selection explicitly,
+uses the verified form line and the most recent confirmed result, and lists every factual claim with its official source underneath.</p>
+
+<h2>5. What this model is not</h2>
+<ul class="small">
+<li>It is not fitted to market prices, so it cannot tell you whether a bookmaker price is value. It only tells you what our own price is.</li>
+<li>It does not know about injuries, team news, suspensions, weather or schedule spots. Those are real reasons a human might disagree.</li>
+<li>Early-season samples are small. Shrinkage reduces the damage but does not remove it.</li>
+<li>Confidence is a probability band, not a guarantee. Short prices lose too.</li>
+</ul>
+
+<div class="foot">
+  <p><strong>Method:</strong> every line is generated by a documented deterministic model from official-source inputs. No bookmaker prices were read or copied.
+  <strong>Status:</strong> research output, not betting advice. 18+. Betting involves risk.</p>
+  <p>Snapshot captured 2026-10-21T09:00:00Z. Build artefacts generated by <code>scripts/build_site.py</code>.
+  Source links open the publisher's page; some publishers render tables with JavaScript and may look different in a browser than in the capture used here.</p>
+  <p>Unverified or incomplete items are never hidden — see <a href="flagged.html">Flagged for review</a>.</p>
+</div>
+</div></main>
+</body>
+</html>

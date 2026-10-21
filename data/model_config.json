@@ -1,0 +1,103 @@
+{
+  "schema": "olbg4.model/1",
+  "description": "Inputs for originating our own lines. Every constant is either a figure OLBG publishes on the cited page, or an explicit MODEL ASSUMPTION that is surfaced as such in the site and in data/flagged.json. Nothing here is copied from a bookmaker price.",
+  "shrinkage_k": 2,
+  "shrinkage_prior": 0.5,
+  "margin": 0.04,
+  "handicap_attenuation": 0.8,
+  "confidence": {
+    "high": {"min_p": 0.75, "min_tips": 4},
+    "medium": {"min_p": 0.60, "min_tips": 2},
+    "note": "anything below the medium floor is LOW"
+  },
+  "sports": {
+    "Tennis": {
+      "match_type": "2way", "points_unit": "games",
+      "avg_total": 22.5, "total_basis": "MODEL ASSUMPTION: 22.5 total games for a best-of-three match; not published on the captured source",
+      "avg_margin": 6.0, "margin_basis": "MODEL ASSUMPTION: 6-game average winning margin; not published on the captured source",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.50, "away": 0.50, "draw": 0.0}
+    },
+    "Basketball": {
+      "match_type": "2way", "points_unit": "points",
+      "avg_total": 225.5, "total_basis": "MODEL ASSUMPTION: 225.5 points; OLBG publishes no league average total on the captured page",
+      "avg_margin": 9.0, "margin_basis": "MODEL ASSUMPTION: 9-point average winning margin; not published on the captured source",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.55, "away": 0.45, "draw": 0.0}
+    },
+    "Cricket": {
+      "match_type": "2way", "points_unit": "runs",
+      "avg_total": 320.5, "total_basis": "MODEL ASSUMPTION: 320.5 combined runs (T20/ODI mixed card); not published on the captured source",
+      "avg_margin": 20.0, "margin_basis": "MODEL ASSUMPTION: 20-run average winning margin; not published on the captured source",
+      "supports_handicap": false, "supports_total": false,
+      "base_rates": {"home": 0.52, "away": 0.48, "draw": 0.0}
+    },
+    "Snooker": {
+      "match_type": "2way", "points_unit": "frames",
+      "avg_total": 9.5, "total_basis": "MODEL ASSUMPTION: 9.5 frames for a best-of-11; OLBG publishes the 6-5 scoreline frequency (23.9%) but not an average total",
+      "avg_margin": 3.01, "margin_basis": "OLBG published average winning margin, Masters last 16 best-of-11: 3.01 frames - https://www.olbg.com/betting-tips/Snooker/8",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.50, "away": 0.50, "draw": 0.0}
+    },
+    "Rugby Union": {
+      "match_type": "3way", "points_unit": "points",
+      "avg_total": 54.0, "total_basis": "OLBG published average total points, Premiership: 54.0 - https://www.olbg.com/betting-tips/Rugby_Union/9",
+      "avg_margin": 15.2, "margin_basis": "OLBG published average winning margin, Premiership: 15.2 - https://www.olbg.com/betting-tips/Rugby_Union/9",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.641, "away": 0.341, "draw": 0.019},
+      "base_rates_basis": "OLBG published Premiership home/away/level-after-80 rates - https://www.olbg.com/betting-tips/Rugby_Union/9"
+    },
+    "Rugby League": {
+      "match_type": "3way", "points_unit": "points",
+      "avg_total": 42.0, "total_basis": "OLBG published average total points, Super League: 42.0 - https://www.olbg.com/betting-tips/Rugby_League/10",
+      "avg_margin": 18.4, "margin_basis": "OLBG published average margin, Super League: 18.4 - https://www.olbg.com/betting-tips/Rugby_League/10",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.573, "away": 0.402, "draw": 0.025},
+      "base_rates_basis": "OLBG published Super League home/away/level-after-80 rates - https://www.olbg.com/betting-tips/Rugby_League/10"
+    },
+    "Ice Hockey": {
+      "match_type": "2way", "points_unit": "goals",
+      "avg_total": 6.0, "total_basis": "OLBG states NHL totals are commonly set around 6.0 (used as the modelling baseline) - https://www.olbg.com/betting-tips/Ice_Hockey/13",
+      "avg_margin": 1.5, "margin_basis": "OLBG states the NHL puck line is usually 1.5 - https://www.olbg.com/betting-tips/Ice_Hockey/13",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.53, "away": 0.47, "draw": 0.0}
+    },
+    "Darts": {
+      "match_type": "2way", "points_unit": "legs",
+      "avg_total": 9.5, "total_basis": "MODEL ASSUMPTION: 9.5 legs for a best-of-11; OLBG's own highlighted total-legs line on this card is 9.50 - https://www.olbg.com/betting-tips/Darts/15",
+      "avg_margin": 2.5, "margin_basis": "MODEL ASSUMPTION: 2.5-leg average winning margin on a best-of-11",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.50, "away": 0.50, "draw": 0.0}
+    },
+    "Handball": {
+      "match_type": "3way", "points_unit": "goals",
+      "avg_total": 60.82, "total_basis": "OLBG published average goals per game, EHF Champions League men: 60.82 - https://www.olbg.com/betting-tips/Handball/20",
+      "avg_margin": 5.04, "margin_basis": "OLBG published average winning margin, EHF Champions League men: 5.04 - https://www.olbg.com/betting-tips/Handball/20",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.50, "away": 0.402, "draw": 0.098},
+      "base_rates_basis": "OLBG published EHF Champions League men split: favourites 68.2%, underdogs 22.0%, ties 9.8%. Home/away shares are NOT published by OLBG; the 0.50/0.402 split here is a MODEL ASSUMPTION that preserves the published 9.8% tie rate within a 100% book - https://www.olbg.com/betting-tips/Handball/20"
+    },
+    "Volleyball": {
+      "match_type": "2way", "points_unit": "points",
+      "avg_total": 175.5, "total_basis": "MODEL ASSUMPTION: 175.5 total points across a best-of-five; not published on the captured source",
+      "avg_margin": 12.0, "margin_basis": "MODEL ASSUMPTION: 12-point average margin across sets",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.55, "away": 0.45, "draw": 0.0}
+    },
+    "Greyhounds": {
+      "match_type": "2way", "points_unit": "",
+      "avg_total": null, "total_basis": "Not applicable: a six-dog race has no two-team total. Left blank rather than invented.",
+      "avg_margin": null, "margin_basis": "Not applicable: no handicap market for graded six-dog races.",
+      "supports_handicap": false, "supports_total": false,
+      "base_rates": {"home": 0.50, "away": 0.50, "draw": 0.0}
+    },
+    "Baseball": {
+      "match_type": "2way", "points_unit": "runs",
+      "avg_total": 8.5, "total_basis": "OLBG uses 8.5 runs as its worked example of a baseball game total - https://www.olbg.com/betting-tips/Baseball/12",
+      "avg_margin": 1.5, "margin_basis": "OLBG states the favourite is usually given a 1.5-run handicap - https://www.olbg.com/betting-tips/Baseball/12",
+      "supports_handicap": true, "supports_total": true,
+      "base_rates": {"home": 0.545, "away": 0.455, "draw": 0.0},
+      "base_rates_basis": "OLBG published MLB home win 59% / road 57% (i.e. home teams win slightly more games than they lose at home); the 0.545 prior is a MODEL ASSUMPTION inside that published range - https://www.olbg.com/betting-tips/Baseball/12"
+    }
+  }
+}
