@@ -317,3 +317,5 @@ Other builds and the active E integration claim are not modified. Official sport
 - Checks: pipeline offline self-test 24/24; Board C rebuild and validation pass with no generated diff; audit unit tests 4/4; all-repository local target scan 1,624 targets, zero missing. These are structural checks, **not** verification of external sports facts, external URL status or fragment anchors.
 - Parallel scope request: PR #12 is open from another session and touches shared publication files. Do not edit its scope. Its integration owner should add a prominent link to `audit/` and remove blanket “verified” claims until claim-level checks exist. This session publishes the audit independently rather than overwrite that session's landing/navigation work.
 - Initial claim push: the new remote branch did not yet exist, so `git pull --rebase origin arena/ef72af9b-olbg4` failed. Rebased against `origin/main`, then pushed only the fixed session branch successfully; no merge conflict or discarded work.
+
+- PR: https://github.com/buffedlizard55-lab/OLBG4/pull/15 — MERGED 2026-10-21T06:43Z. Pages build d675651: built, no error. Live: https://buffedlizard55-lab.github.io/OLBG4/
