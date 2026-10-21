@@ -901,3 +901,23 @@ documented as gaps. Live at https://buffedlizard55-lab.github.io/OLBG4/.
 - **Pages:** `Deploy OLBG4 to GitHub Pages` and `pages build and deployment` both success on `main`; Pages API `builds/latest` = `built`, `error: null`. Live desk: https://buffedlizard55-lab.github.io/OLBG4/docs/desk/ — fetched over HTTPS after deploy and confirmed to render the overview, the five High picks and the per-sport counts.
 - **Merge conflicts:** three rebases against an active `main` (PRs #30, #31, #32, #36, #38 merged while this branch was open). Every conflict was in `COORDINATION.md`, `index.html` or the generated `audit/` artefacts. Resolution kept the upstream text verbatim and appended this board (renamed to **Board N** when session `093bfd5e` turned out to hold the letter L); no other session's content was discarded. The root `index.html` edit was reverted after `verify-integrated.yml` rejected hand edits to a generated file — see the request above.
 - **Non-blocking review items** stay published at `/docs/desk/flagged.html`: eight in-scope sports with no rows, three unreconciled datasets with two conflicting picks, blank venues/times, prior-only markets and the 11 declared model constants.
+
+> **Letter collision note.** Another session (`arena/648c1a19-olbg4`) had already published a "Board H"; this
+> session's board is therefore published as **Board P** from here on. Its early commits are titled "Board H".
+
+## Board P — session `arena/d908be47-olbg4` (final integration: deduplicated master board + new dashboard)
+
+Session `arena/d908be47-olbg4` · branch `arena/d908be47-olbg4` · claimed 2026-10-21 (UTC) · **status: active**
+
+Scope is non-overlapping and additive: new files only, plus the four shared files this session is explicitly claiming as final integrator.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| P1 | Read boards A–G, audit every build's committed data, record provenance | in progress | arena/d908be47-olbg4 | `COORDINATION.md` |
+| P2 | Build deduplicated master dataset from A/B/C/D/E/G with per-row provenance + cross-build conflict register | in progress | arena/d908be47-olbg4 | `data/master.json`, `data/master_conflicts.json`, `tools/build_master.py` |
+| P3 | Live re-verification of a stratified sample against official sources; record confirm/contradict per row | in progress | arena/d908be47-olbg4 | `data/live_checks.json`, `tools/live_checks.py` |
+| P4 | New clean dashboard: landing + per-sport subpages + picks/markets/flagged/sources/methodology/audit/archive | in progress | arena/d908be47-olbg4 | `index.html`, `sports/`, `picks.html`, `markets.html`, `flagged.html`, `sources.html`, `methodology.html`, `audit.html`, `archive.html`, `assets/master/*`, `tools/build_master_site.py` |
+| P5 | Machine gate: schema, unique ids, official-domain source per row, prediction >=30 words + unique, 0 broken internal links, no excluded sports in master | in progress | arena/d908be47-olbg4 | `tools/verify_master.py`, `.github/workflows/pages.yml` |
+| P6 | PR to main, merge, confirm Pages deploy, record result here | in progress | arena/d908be47-olbg4 | — |
+
+**Shared-file claim:** this session acts as final integration per the brief, so it claims `index.html`, `README.md`, `COORDINATION.md`, `.github/workflows/pages.yml` for additive edits. No other session's files are edited. Everything else added is new-path only (`sports/`, `tools/`, `data/master*.json`, `assets/master/`), so no A–G artefact is overwritten or deleted.
