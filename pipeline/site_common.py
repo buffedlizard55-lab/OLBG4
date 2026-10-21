@@ -122,6 +122,7 @@ def layout(title: str, active: str, body: str, snapshot: dict, subtitle: str = "
   <div class="wrap">
     <span>Snapshot {esc(generated[:16].replace('T', ' '))} UTC · window {esc(window_txt)}</span>
     <span class="spacer"></span>
+    <a href="../index.html">← All dashboards</a>
     <a href="methodology.html">Methodology</a>
     <a href="sources.html">Sources</a>
     <a href="olbg.html">OLBG reverse-engineering</a>

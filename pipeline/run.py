@@ -28,7 +28,9 @@ from . import markets as markets_mod
 from .providers import mlb, nba, nhl
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "data"
+# Published inside our own namespace so parallel sessions never share output paths.
+PUBLISH_DIR = ROOT / "session-4afef1af"
+DATA = PUBLISH_DIR / "data"
 
 PROVIDERS = {"nba": nba, "nhl": nhl, "mlb": mlb}
 
@@ -425,7 +427,7 @@ def main(argv: list[str] | None = None) -> int:
             "snapshot": snapshot,
             "taxonomy": _load_taxonomy(),
         }
-        build_site.build(payload, ROOT)
+        build_site.build(payload, PUBLISH_DIR)
         print("site built")
 
     if args.strict:
