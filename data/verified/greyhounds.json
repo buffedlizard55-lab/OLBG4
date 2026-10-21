@@ -1,0 +1,16 @@
+{
+  "sport": "Greyhounds",
+  "verified_on": "2026-10-21",
+  "status": "FLAGGED - NO ORIGINATED LINES OR PICKS (see explanation)",
+  "explanation": "The six OLBG-listed races are graded races at GBGB-licensed tracks (Kinsley, Harlow, Monmore Green, Nottingham) on the morning of Wednesday 21 October 2026; morning BAGS fixtures at these tracks on this date are confirmed by track racecard listings (e.g., Nottingham Greyhounds official site lists its Wednesday 21 Oct morning card). However, no official public racecard with full form lines (each dog's recent calculated times) could be extracted from the GBGB website in this environment (the GBGB racecards-and-results page returned 404, and GBGB does not publish a machine-readable public card we could locate), and the secondary racecard indexes tested also failed to render. Under this project's verified-input policy - never infer, never copy another tipster's selection as our own - no win probabilities and no picks are originated for greyhound racing. These six races are published on the Flagged for Review page with this explanation. If official GBGB/track racecard PDFs with calculated times are supplied, a time-based model (softmax over each dog's best recent calculated time at the course and distance) can be originated immediately.",
+  "model_if_data_supplied": "Win probability per dog = softmax(-best_recent_calculated_time / 0.12s) across the field, using official racecard calculated times at the same course and distance.",
+  "events": [
+    {"event_id": 689390, "race": "11:14 Kinsley", "date": "2026-10-21", "pick": null, "win_probability": null, "source_url": "https://www.gbgb.org.uk/", "flag": "No verifiable form data extractable - blank, flagged."},
+    {"event_id": 689384, "race": "10:32 Harlow", "date": "2026-10-21", "pick": null, "win_probability": null, "source_url": "https://www.gbgb.org.uk/", "flag": "No verifiable form data extractable - blank, flagged."},
+    {"event_id": 689385, "race": "10:48 Harlow", "date": "2026-10-21", "pick": null, "win_probability": null, "source_url": "https://www.gbgb.org.uk/", "flag": "No verifiable form data extractable - blank, flagged."},
+    {"event_id": 689387, "race": "11:03 Monmore", "date": "2026-10-21", "pick": null, "win_probability": null, "source_url": "https://www.gbgb.org.uk/", "flag": "No verifiable form data extractable - blank, flagged."},
+    {"event_id": 689383, "race": "11:04 Harlow", "date": "2026-10-21", "pick": null, "win_probability": null, "source_url": "https://www.gbgb.org.uk/", "flag": "No verifiable form data extractable - blank, flagged."},
+    {"event_id": 689386, "race": "11:09 Nottingham", "date": "2026-10-21", "pick": null, "win_probability": null, "source_url": "https://www.nottingham-greyhounds.co.uk/racing", "flag": "Meeting confirmed on official track site; form data not extractable - blank, flagged."}
+  ],
+  "outrights": []
+}

@@ -1,0 +1,72 @@
+{
+  "sport": "Ice Hockey",
+  "verified_on": "2026-10-21",
+  "model": "Per league: shrink each team's GF/GA per game toward the league average with a 5-game league-average prior (early season). Expected goals lambda_home = att_home' x def_away' / league_avg x 1.045 home factor (away inverted). Independent Poissons give the regulation score distribution; a tied regulation score is decided in OT/SO with win probability = lambda share pulled halfway to 50%. Markets originated (the three OLBG lists for hockey): Money Line (incl. OT), Puck Line -1.5 on the model favourite (must win by 2+ in regulation, since OT winners win by 1), Game Totals at the fair half-goal line nearest the expected total (total includes the OT-deciding goal when regulation ends tied).",
+  "leagues": {
+    "NHL": {
+      "source_url": "https://api-web.nhle.com/v1/standings/now",
+      "note": "Official NHL API standings dated 2026-10-20, all 32 teams extracted; goals for = goals against = 944 over 302 team-games -> league average 3.126 goals/team/game. Fixtures confirmed via the official NHL schedule API (both games Wed 21 Oct 2026, 19:30 ET).",
+      "league_avg_goals_per_team_game": 3.126,
+      "teams": {
+        "Philadelphia Flyers": {"gp": 11, "w": 2, "l": 6, "otl": 3, "pts": 7, "gf": 17, "ga": 36, "note": "Road record 0-4-1; on a 2-game win streak but league-low 1.55 goals/game."},
+        "Buffalo Sabres": {"gp": 9, "w": 4, "l": 3, "otl": 2, "pts": 10, "gf": 27, "ga": 34, "note": "Home 3-2-0; came off an OT loss; conceding 3.78/game."},
+        "Florida Panthers": {"gp": 9, "w": 5, "l": 2, "otl": 2, "pts": 12, "gf": 30, "ga": 25, "note": "3-game win streak; road 3-1-2."},
+        "Ottawa Senators": {"gp": 9, "w": 6, "l": 3, "otl": 0, "pts": 12, "gf": 24, "ga": 23, "note": "Home 3-1-0; lost last game; low-scoring profile (2.67 for, 2.56 against)."}
+      },
+      "all_32_teams_gp_gf_ga": {"CAR": [11,42,27], "VGK": [11,44,30], "EDM": [9,41,27], "BOS": [10,36,22], "NYR": [11,33,24], "TBL": [9,31,23], "UTA": [10,38,31], "MIN": [10,31,25], "SEA": [10,39,34], "OTT": [9,24,23], "FLA": [9,30,25], "TOR": [11,38,35], "NYI": [9,27,20], "DAL": [9,23,15], "COL": [10,41,31], "SJS": [10,27,35], "WSH": [9,30,29], "WPG": [9,24,26], "NJD": [9,29,30], "BUF": [9,27,34], "MTL": [9,30,34], "NSH": [8,23,24], "STL": [9,29,29], "DET": [9,23,28], "ANA": [9,26,29], "PIT": [10,33,38], "PHI": [11,17,36], "CBJ": [8,20,29], "CHI": [9,21,36], "VAN": [11,33,51], "LAK": [7,17,27], "CGY": [8,17,37]}
+    },
+    "ICE_Hockey_League_(OLBG: Austria EHL)": {
+      "source_url": "https://www.ice.hockey/en/season/standings",
+      "note": "Official win2day ICE Hockey League standings fetched 2026-10-21 (14 teams). OLBG labels this 'Austria EHL'; it is the multinational ICE Hockey League (Austria/Italy/Hungary/Slovenia). Milano HC is a 2026/27 expansion team - identity verified on the official league site (opened with 8 straight road games). Goals for = goals against = 490 over 158 team-games -> league average 3.101.",
+      "league_avg_goals_per_team_game": 3.101,
+      "table_gp_w_l_otw_otl_gf_ga_pts": {
+        "HCB Südtirol Alperia (Bolzano)": [11,6,1,2,2,44,28,24],
+        "Steinbach Black Wings Linz": [12,7,3,1,1,45,33,24],
+        "Olimpija Ljubljana": [11,7,3,1,0,52,32,23],
+        "EC-KAC (Klagenfurt)": [12,6,4,1,1,46,36,21],
+        "Vienna Capitals": [11,5,3,2,1,34,30,20],
+        "Milano HC": [12,6,4,0,2,36,36,20],
+        "HC Falkensteiner Pustertal": [10,4,3,2,1,31,27,17],
+        "Moser Medical Graz99ers": [11,3,3,3,2,30,31,17],
+        "FTC-Telekom": [10,4,4,1,1,31,34,15],
+        "HC TIWAG Innsbruck": [12,3,6,3,0,30,35,15],
+        "EC VSV": [11,3,4,1,3,29,35,14],
+        "EC Red Bull Salzburg": [11,4,6,0,1,33,42,13],
+        "Hydro Fehervar AV19": [12,2,5,2,3,23,39,13],
+        "Pioneers Vorarlberg": [12,0,11,0,1,26,52,1]
+      }
+    },
+    "SHL": {
+      "source_url": "https://www.shl.se/",
+      "note": "Official shl.se standings URL returned 404; table extracted from Elite Prospects' SHL page and cross-checked against two Swedish standings listings (sportstatistik.nu, hockeyresultat.se) - rows agree exactly for the two teams in our match. Provenance flagged. Goals for = goals against = 374 over 142 team-games -> league average 2.634.",
+      "league_avg_goals_per_team_game": 2.634,
+      "flag": "Secondary-source table (official page unavailable); Timrå and Färjestad rows verified across three listings.",
+      "table_gp_w_l_otw_otl_gf_ga_pts": {
+        "Färjestad BK": [10,8,0,1,1,40,11,27],
+        "Frölunda HC": [11,7,2,2,0,38,24,25],
+        "Skellefteå AIK": [10,5,2,1,2,32,25,19],
+        "IF Björklöven": [10,5,4,1,0,23,25,17],
+        "Brynäs IF": [10,4,5,1,0,28,23,14],
+        "Rögle BK": [10,4,5,1,0,23,21,14],
+        "Malmö Redhawks": [9,3,2,1,3,26,25,14],
+        "Luleå HF": [10,4,4,0,2,26,30,14],
+        "Örebro HK": [10,4,4,0,2,20,29,14],
+        "Timrå IK": [10,2,5,3,0,20,23,12],
+        "Växjö Lakers HC": [10,3,5,1,1,29,34,12],
+        "Djurgårdens IF": [11,2,5,2,2,23,33,12],
+        "HV71": [11,1,5,2,3,29,39,10],
+        "Linköping HC": [10,2,6,1,1,17,32,9]
+      }
+    }
+  },
+  "matches": [
+    {"event_id": 199881, "league": "ICE_Hockey_League_(OLBG: Austria EHL)", "date": "2026-10-21", "home": "HC Falkensteiner Pustertal", "away": "Pioneers Vorarlberg", "source_url": "https://www.ice.hockey/en/season/standings", "form_context": "Pioneers are winless through 12 games (0-11-0-1, 1 point, 26:52 goals) - the league's clear bottom side. Pustertal sit 7th with a positive goal difference."},
+    {"event_id": 199878, "league": "ICE_Hockey_League_(OLBG: Austria EHL)", "date": "2026-10-21", "home": "HCB Südtirol Alperia (Bolzano)", "away": "HC TIWAG Innsbruck", "source_url": "https://www.ice.hockey/en/season/standings", "form_context": "League leaders Bolzano retook top spot with a 5-0 win over Linz on 19 Oct; only one regulation loss in 11. Innsbruck are 10th."},
+    {"event_id": 199876, "league": "ICE_Hockey_League_(OLBG: Austria EHL)", "date": "2026-10-21", "home": "Moser Medical Graz99ers", "away": "Milano HC", "source_url": "https://www.ice.hockey/en/season/standings", "form_context": "Expansion side Milano are 6th (20 pts from 12) after opening the season with eight straight road games; Graz 8th with a league-high five OT-decided games."},
+    {"event_id": 199880, "league": "ICE_Hockey_League_(OLBG: Austria EHL)", "date": "2026-10-21", "home": "EC-KAC (Klagenfurt)", "away": "Hydro Fehervar AV19", "source_url": "https://www.ice.hockey/en/season/standings", "form_context": "KAC 4th with the league's 2nd-best attack (46 goals); Fehervar 13th with the weakest attack (23 goals in 12)."},
+    {"event_id": 199901, "league": "SHL", "date": "2026-10-22", "home": "Timrå IK", "away": "Färjestad BK", "source_url": "https://www.shl.se/", "form_context": "Färjestad are unbeaten in regulation (8-0-1-1) and top of the SHL with a remarkable 40:11 goal line - best attack AND best defence. Timrå are 10th; half their games have gone beyond regulation (3 OT wins from 5 non-regulation results in 10).", "flag": "Standings from secondary source (flagged at league level)."},
+    {"event_id": 199897, "league": "NHL", "date": "2026-10-21 (19:30 ET)", "venue": "KeyBank Center, Buffalo", "home": "Buffalo Sabres", "away": "Philadelphia Flyers", "source_url": "https://api-web.nhle.com/v1/standings/now", "form_context": "Philadelphia have the NHL's lowest scoring rate (17 goals in 11 games) and are winless on the road (0-4-1), though they arrive on a 2-game win streak. Buffalo leak goals (34 against in 9)."},
+    {"event_id": 199896, "league": "NHL", "date": "2026-10-21 (19:30 ET)", "venue": "Canadian Tire Centre, Ottawa", "home": "Ottawa Senators", "away": "Florida Panthers", "source_url": "https://api-web.nhle.com/v1/standings/now", "form_context": "Both on 12 points from 9 games. Florida arrive on a 3-game win streak with a strong road record (3-1-2); Ottawa's games are the tighter, lower-scoring profile."}
+  ],
+  "outrights": []
+}

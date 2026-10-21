@@ -1,0 +1,54 @@
+{
+ "sport": "Baseball",
+ "matches": [
+  {
+   "event_id": 160789,
+   "sport": "Baseball",
+   "competition": "MLB World Series - Game 1",
+   "date": "2026-10-23 (20:00 ET)",
+   "venue": "American Family Field, Milwaukee",
+   "home": "Milwaukee Brewers",
+   "away": "Tampa Bay Rays",
+   "prob_home": 0.5976,
+   "prob_draw": null,
+   "prob_away": 0.4024,
+   "pick": "Milwaukee Brewers",
+   "pick_probability": 0.5976,
+   "confidence": "medium",
+   "expected_score": "Modelled expected runs: Tampa Bay Rays 3.8 - 4.7 Milwaukee Brewers (regulation model; extra innings not modelled for totals)",
+   "lines": [
+    {
+     "market": "Money Line",
+     "selection": "Milwaukee Brewers",
+     "line": null,
+     "probability": 0.5976,
+     "fair_odds": 1.67
+    },
+    {
+     "market": "Run Line",
+     "selection": "Milwaukee Brewers -1.5",
+     "line": -1.5,
+     "probability": 0.4253,
+     "fair_odds": 2.35
+    },
+    {
+     "market": "Game Totals",
+     "selection": "Over 8.5",
+     "line": 8.5,
+     "probability": 0.4758,
+     "fair_odds": 2.1
+    }
+   ],
+   "inputs_summary": "Official MLB 2026 regular season: TB 98-64 (736 RS, 650 RA), MIL 103-59 (832 RS, 618 RA); league avg 4.481 runs/team/game. Money Line via blended actual/Pythagorean win% + log5 + home shift; Run Line/Totals via Poisson run model (regulation-tie probability 13% would go to extra innings).",
+   "form_context": "Milwaukee own MLB's best record (103-59) with a +214 run differential and a 55-26 home record; their Pythagorean record matches their actual record exactly, so no luck adjustment applies. Tampa Bay won 98 games but their underlying run differential (+86) profiles closer to a 90-win team - they went 25-14 in one-run games.",
+   "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23",
+   "source_name": "MLB Stats API (official)",
+   "flags": [
+    "Probable starting pitchers not yet announced on the official MLB schedule; team-level model only."
+   ],
+   "status": "modelled",
+   "prediction": null
+  }
+ ],
+ "outrights": []
+}
