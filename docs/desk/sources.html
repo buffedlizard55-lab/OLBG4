@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sources · OLBG4 verified desk</title>
+<meta name="description" content="Official-source verified fixtures, independently originated lines and confidence-labelled picks.">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="top"><div class="wrap">
+<h1>OLBG4 — Verified Line Desk</h1>
+<p>Session <code>arena/8070bc18-olbg4</code> · captured 2026-10-21T07:45Z · every row cites the official page it came from</p>
+</div></header>
+<nav class="main"><div class="wrap"><a class="" href="index.html">Overview</a><a class="" href="picks.html">Picks</a><a class="" href="predictions.html">Predictions</a><a class="" href="nhl.html">Ice Hockey</a><a class="" href="nba.html">Basketball</a><a class="" href="mlb.html">Baseball</a><a class="" href="darts.html">Darts</a><a class="" href="handball.html">Handball</a><a class="" href="snooker.html">Snooker</a><a class="" href="coverage.html">Coverage</a><a class="" href="flagged.html">Flagged for Review</a><a class="" href="methodology.html">Methodology</a><a class="on" href="sources.html">Sources</a></div></nav>
+<main>
+<h1 class="page">Sources</h1>
+<p class="lede">Every published value traces to one of these pages, all on a league or governing-body domain. They were read
+in this session with the agent web-fetch tool; direct <code>curl</code> to these hosts is blocked by the sandbox egress
+allowlist, which is why the captured timestamps matter.</p>
+<div class="panel"><div class="tablewrap"><table><thead><tr><th>Page</th><th>Domain</th><th>What it verified</th>
+<th>Captured (UTC)</th></tr></thead><tbody><tr><td>NHL.com — League schedule, 20–26 October 2026</td><td><a href="https://www.nhl.com/schedule" target="_blank" rel="noopener">nhl.com</a></td><td class="small">All NHL fixtures (date, start time, home/away, broadcast) and the 20 October final scores, winning goalies and game-winning goals.</td><td class="num small">2026-10-21T07:20Z</td></tr><tr><td>NHL.com — 2026-27 standings (captured 21 Oct, 03:10 EDT)</td><td><a href="https://www.nhl.com/standings/2026-10-20/wildcard" target="_blank" rel="noopener">nhl.com</a></td><td class="small">Games played, points percentage, goals for/against and home/away records for all 32 clubs — the model&#x27;s strength and scoring inputs.</td><td class="num small">2026-10-21T07:32Z</td></tr><tr><td>NBA.com — 2026-27 schedule, week 1 (20–25 October 2026)</td><td><a href="https://www.nba.com/schedule?date=2026-10-21" target="_blank" rel="noopener">nba.com</a></td><td class="small">All NBA fixtures: date, tip-off time (ET), arena, city, game id, and the 20 October final scores.</td><td class="num small">2026-10-21T07:12Z</td></tr><tr><td>NBA.com — 2026-27 regular-season standings</td><td><a href="https://www.nba.com/standings" target="_blank" rel="noopener">nba.com</a></td><td class="small">Early-season win/loss records used (with shrinkage) as the NBA strength input.</td><td class="num small">2026-10-21T07:40Z</td></tr><tr><td>MLB.com — 2026 Postseason bracket and World Series schedule</td><td><a href="https://www.mlb.com/postseason" target="_blank" rel="noopener">mlb.com</a></td><td class="small">World Series games 1–4 (dates, first-pitch times ET, home/away, game ids).</td><td class="num small">2026-10-21T07:22Z</td></tr><tr><td>MLB.com — 2026 regular-season final standings (through 27 September)</td><td><a href="https://www.mlb.com/standings" target="_blank" rel="noopener">mlb.com</a></td><td class="small">Final 2026 win/loss records and run totals for Tampa Bay and Milwaukee, the two World Series clubs.</td><td class="num small">2026-10-21T07:44Z</td></tr><tr><td>PDC — 2026 Machineseeker European Championship schedule confirmed</td><td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">pdc.tv</a></td><td class="small">All 16 round-one ties, session dates and session windows (1900-2300 CEST / 1800-2200 BST), venue (Westfalenhalle, Dortmund).</td><td class="num small">2026-10-21T07:36Z</td></tr><tr><td>EHF Champions League Men 2026-27 — matches, results and schedule</td><td><a href="https://ehfcl.eurohandball.com/men/2026-27/matches/" target="_blank" rel="noopener">ehfcl.eurohandball.com</a></td><td class="small">Five round fixtures on 22 October (pairings, published throw-off times, per-match detail URLs).</td><td class="num small">2026-10-21T07:38Z</td></tr><tr><td>World Snooker Tour — BetVictor Northern Ireland Open 2026 matches</td><td><a href="https://www.wst.tv/matches" target="_blank" rel="noopener">wst.tv</a></td><td class="small">Round 1 results (frames) on 18–19 October and the ten Round 2 pairings scheduled for 21 October, with match-centre URLs.</td><td class="num small">2026-10-21T07:34Z</td></tr><tr><td>BWF — tournament calendar (YONEX French Open 2026, 20–25 October)</td><td><a href="https://bwfbadminton.com/calendar/" target="_blank" rel="noopener">bwfbadminton.com</a></td><td class="small">Coverage check only: confirmed the dates, venue and match-centre id for the French Open. No match-level draw was captured, so no badminton rows are published.</td><td class="num small">2026-10-21T07:39Z</td></tr></tbody></table></div></div>
+<div class="panel"><h2>Not used as sources</h2>
+<p class="small">OLBG.com, ESPNcricinfo, Sky Sports, Sporting News, Wikipedia and any tipster or aggregator page. They were
+not used for any published value, because the brief requires official sources only. Where a fixture list only existed on
+such a site, the sport appears on the coverage page as a gap instead of as rows.</p></div>
+</main>
+<footer>
+Built by <code>scripts/session-8070bc18/build.py</code> from <code>data/session-8070bc18/desk.json</code>.
+Prices are our own originated prices, not bookmaker prices. Nothing here is betting advice.
+Unverified values are left blank and listed on the <a href="flagged.html">Flagged for Review</a> page.
+</footer>
+<script src="app.js"></script>
+</body></html>
