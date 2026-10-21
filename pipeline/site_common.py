@@ -23,6 +23,7 @@ NAV = [
     ("sport-mlb.html", "MLB", "mlb"),
     ("markets.html", "Markets", "markets"),
     ("sources.html", "Sources", "sources"),
+    ("review.html", "Review", "review"),
 ]
 
 

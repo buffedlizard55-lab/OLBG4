@@ -7,10 +7,10 @@ from the same constants.
 ## 1. Scope
 
 In scope: every sport on OLBG except the ones the owner excluded — soccer/association football,
-American football, boxing, UFC/MMA, hurling, Gaelic football, horse racing, cycling and specials.
-
-Gaelic football is treated as out of scope because the exclusion list names both football and
-hurling. This interpretation is published on the Flagged for Review page.
+American football, boxing, UFC/MMA, hurling, horse racing, cycling and specials. Gaelic football
+**is in scope**: the owner named hurling separately and confirmed Gaelic football stays in, so it
+is listed as in-scope and only excluded from the *priced* set because no official machine-readable
+GAA fixture/result feed was identified.
 
 Eligible for ingestion: sports with an **official, machine-readable** fixture/results feed. Three
 qualify today:
@@ -24,6 +24,16 @@ qualify today:
 Every other sport is listed on the dashboard's Sources page as *not ingested*, with the reason.
 No unofficial aggregator is substituted. A row is never published without a source URL on the
 league's own domain.
+
+### When a league is listed but not priced
+
+If the per-team sample behind a league is below **20 completed games**, the fixture is published
+with its record and official source link but **no markets and no pick**. A line originated on a
+one- or three-game sample is a guess with a decimal point on it; the project would rather show a
+"withheld" state. This applies to the NBA during its opening week: `stats.nba.com` (the official
+prior-season source) does not respond from the build runner and the CDN carries only the current
+season, so the NBA rating sample is three games. The reason is written into the row, into
+`data/snapshot.json` and onto the Flagged for Review page.
 
 ## 2. Inputs
 

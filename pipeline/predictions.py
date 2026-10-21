@@ -154,15 +154,15 @@ WINNER_BLOCKS = [
         "{away} visit {venue} to face {home}, and our model makes {fav} a {prob}% favourite.",
         "We make {fav} a {prob}% chance to beat {dog} at {venue}.",
         "{fav} rate {line_abs} {unit} stronger than {dog} in our model, a {prob}% win probability.",
-        "This shapes as a {line_abs}-{unit_singular} game for {fav}, who carry a {prob}% win probability.",
+        "Our model has {fav} {line_abs} {unit} clear in this one, a {prob}% win probability.",
         "Our ratings have {fav} {line_abs} {unit} clear of {dog} going into this one.",
         "At {venue}, the model splits this {prob}% in favour of {fav}.",
     ],
     [  # form
-        "{fav} have won {wins5} of their last five.",
-        "{fav} arrive with a {record} {record_label} and have won {wins5} of their last five.",
-        "Form favours {fav}, who have won {wins5} of five, while {dog} have won {dog_wins5}.",
-        "{fav} are {streak_phrase}.",
+        "{fav} {wins5_clause}.",
+        "{fav} arrive with a {record} {record_label} and {wins5_clause}.",
+        "Form favours {fav}, who {wins5_clause}, while {dog} {dog_wins_clause}.",
+        "{form_sentence}",
         "Across their last five, {fav} have averaged {avg_for} {unit} scored and {avg_against} conceded.",
     ],
     [  # last result
@@ -190,14 +190,14 @@ HANDICAP_BLOCKS = [
         "We opened this {market_name} at {opening_line} and now make it {line}, a move of {move} {unit}.",
         "Our opening number was {opening_line}; the current model says {line}.",
         "The line has moved {move} {unit}, from {opening_line} to {line}, since our opener.",
-        "{fav} are now {line_abs} {unit} clear of {dog} on our board, against {opening_line_abs} at the open.",
-        "We make this {line} after opening at {opening_line}.",
+        "{fav} sit {line_abs} {unit} clear of {dog} on our board; the opener had it at {opening_line_abs}.",
+        "We make the {market_name} {line} for {fav}, having opened it at {opening_line}.",
     ],
     [
-        "{fav} have won {wins5} of their last five.",
-        "{fav} hold a {record} {record_label} and have won {wins5} of their last five.",
-        "Recent form has {fav} with {wins5} wins from five, against {dog_wins5} for {dog}.",
-        "{fav} are {streak_phrase}.",
+        "{fav} {wins5_clause}.",
+        "{fav} hold a {record} {record_label} and {wins5_clause}.",
+        "Recent form has {fav} {wins5_clause}, while {dog} {dog_wins_clause}.",
+        "{form_sentence}",
     ],
     [
         "{last}",
@@ -308,12 +308,22 @@ def make_prediction(fixture: dict, analysis: dict, form: dict, h2h: list[dict],
         market_name = "moneyline"
 
     streak = fav_form.get("streak", 0)
+    wins5 = fav_form.get("wins_last5", 0) or 0
     if streak >= 2:
-        streak_phrase = f"on a {streak}-game winning run"
+        form_sentence = f"{fav['name']} are on a {streak}-game winning run."
     elif streak <= -2:
-        streak_phrase = f"on a {abs(streak)}-game losing run"
+        form_sentence = f"{fav['name']} are on a {abs(streak)}-game losing run."
     else:
-        streak_phrase = "alternating results of late"
+        form_sentence = f"{fav['name']} {_wins_clause(wins5)}."
+
+    def _wins_clause(n: int) -> str:
+        n = int(n or 0)
+        words = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}
+        if n <= 0:
+            return "have not won any of their last five"
+        if n >= 5:
+            return "have won each of their last five"
+        return f"have won {words.get(n, n)} of their last five"
 
     record_label = _clean_record_label(
         (fixture.get("context") or {}).get("home_record_label" if fav_is_home else "away_record_label")
@@ -340,7 +350,9 @@ def make_prediction(fixture: dict, analysis: dict, form: dict, h2h: list[dict],
         "avg_for": _num(fav_form.get("avg_scored_last5")),
         "avg_against": _num(fav_form.get("avg_allowed_last5")),
         "dog_avg": _num(dog_form.get("avg_scored_last5")),
-        "streak_phrase": streak_phrase,
+        "form_sentence": form_sentence,
+        "wins5_clause": _wins_clause(wins5),
+        "dog_wins_clause": _wins_clause(dog_form.get("wins_last5", 0) or 0),
         "last": _last_sentence(fav_form, last_opp),
         "prob": _num(pick["prob_pct"], 1).rstrip("0").rstrip("."),
         "american": pick["american"],
@@ -363,6 +375,8 @@ def make_prediction(fixture: dict, analysis: dict, form: dict, h2h: list[dict],
         text = block[idx % len(block)].format(**values).strip()
         if text:
             sentences.append(text)
+    if pick["market"] != "total" and abs(line) < 0.05:
+        sentences[0] = f"Our model gives {fav['name']} a {values['prob']}% win probability."
     text = " ".join(sentences)
     text = re.sub(r"\s+", " ", text).replace(" .", ".").strip()
     if not _names_selection(text):

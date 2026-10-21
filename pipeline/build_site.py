@@ -51,6 +51,7 @@ def build(payload: dict, out_dir: Path) -> list[str]:
         "flagged.html": site_pages.render_flagged(ctx),
         "methodology.html": site_pages.render_methodology(ctx),
         "olbg.html": site_pages.render_olbg(ctx),
+        "review.html": site_pages.render_review(ctx),
     }
     for sport, meta in SPORT_META.items():
         pages[f"sport-{meta['slug']}.html"] = site_pages.render_sport(ctx, sport)

@@ -4,6 +4,7 @@ from __future__ import annotations
 import urllib.parse
 from collections import Counter, defaultdict
 
+from . import config
 from .site_common import (
     SPORTS,
     SPORT_META,
@@ -253,6 +254,15 @@ def render_index(ctx: dict) -> str:
             f"<small>{esc(label)}</small><p>{esc(sub)}</p></div>"
         )
     body.append("</div></div>")
+    if counts.get("markets_withheld"):
+        body.append(
+            '<div class="notice warn"><b>'
+            f'{counts["markets_withheld"]} fixtures are listed without markets.</b> '
+            "The league sample behind their ratings is smaller than the 20 completed games per "
+            "team required to originate a price, so no line and no pick is published for them. "
+            "The fixtures, records and official source links are still there; "
+            '<a href="flagged.html">see the flag and the reason</a>.</div>'
+        )
 
     body.append(
         '<div class="section"><div class="split"><div>'
@@ -436,7 +446,13 @@ def render_sport(ctx: dict, sport: str) -> str:
         + table([("Team", ""), ("Rating", "num"), ("Offence", "num"), ("Defence", "num"), ("Games", "num")],
                 [rating_rows] if rating_rows else ['<tr><td colspan="5" class="muted">No games in sample.</td></tr>'])
         + f'<div class="notice info">{bt_html}</div></div>',
-        '<div class="section"><h2>Fixtures &amp; picks</h2>'
+        ('<div class="notice warn"><b>Markets are withheld for this league.</b> '
+         f'{sum(1 for r in rows if r["analysis"].get("market_status") == "withheld")} fixtures are '
+         f'listed but not priced: the official sample is {esc(cur.get("games", 0))} completed games, '
+         f'below the {config.MIN_GAMES_FOR_MARKETS}-game floor this project requires before it '
+         'originates a line. Fixtures and source links are still published.</div>'
+         if rows and all(r["analysis"].get("market_status") == "withheld" for r in rows) else "")
+        + '<div class="section"><h2>Fixtures &amp; picks</h2>'
         '<p class="lead">Same columns as the all-matches page, filtered to this league.</p>'
         + filters(show_sport=False, show_confidence=True)
         + _fixture_table(ctx, rows, filterable=True, show_sport=False)
@@ -880,3 +896,52 @@ def render_olbg(ctx: dict) -> str:
         "markets so our coverage maps cleanly onto it.</p></div>",
     ]
     return layout("OLBG reverse-engineering", "olbg", "".join(body), ctx["snapshot"])
+
+def render_review(ctx: dict) -> str:
+    from .review import IRREGULARITIES, REVIEW_ITEMS
+
+    badges = {
+        "matches": '<span class="badge ok">matches</span>',
+        "corrected": '<span class="badge warn">corrected</span>',
+        "documented": '<span class="badge low">modelling choice</span>',
+        "limited": '<span class="badge err">source limited</span>',
+    }
+    rows = [
+        f'<tr><td class="mono small">{esc(item["area"])}</td>'
+        f'<td>{esc(item["claim"])}</td>'
+        f'<td class="small">{esc(item["check"])}</td>'
+        f'<td class="small"><a href="{esc(item["source"])}" target="_blank" '
+        f'rel="noopener noreferrer">{esc(item["source"])}</a></td>'
+        f'<td>{badges.get(item["outcome"], esc(item["outcome"]))}</td></tr>'
+        for item in REVIEW_ITEMS
+    ]
+    counts = Counter(item["outcome"] for item in REVIEW_ITEMS)
+    irregular = "".join(f"<li>{esc(x)}</li>" for x in IRREGULARITIES)
+    body = [
+        '<div class="page-head"><h1>Line-by-line review</h1>'
+        "<p>Each pipeline module was checked against the official source it claims to use. "
+        "Every row below names the claim, what was compared, the official link, and the "
+        "outcome. Defects found in the review are listed underneath and are also published on "
+        "the Flagged for Review page.</p></div>",
+        '<div class="grid">'
+        f'<div class="card kpi"><div class="big mono">{len(REVIEW_ITEMS)}</div>'
+        "<small>claims reviewed</small><p>module by module</p></div>"
+        f'<div class="card kpi"><div class="big mono">{counts.get("matches", 0)}</div>'
+        "<small>matched the source</small><p>no change needed</p></div>"
+        f'<div class="card kpi"><div class="big mono">{counts.get("corrected", 0)}</div>'
+        "<small>corrected</small><p>fix committed and re-verified</p></div>"
+        f'<div class="card kpi"><div class="big mono">{counts.get("limited", 0)}</div>'
+        "<small>source limited</small><p>withheld, never guessed</p></div>"
+        "</div>",
+        '<div class="section"><h2>Review log</h2>'
+        + table([("Module", ""), ("Claim", ""), ("What was checked", ""), ("Official source", ""),
+                 ("Outcome", "")], rows)
+        + "</div>",
+        '<div class="section"><h2>Irregularities found and handled</h2>'
+        '<div class="card"><ul class="clean">' + irregular + "</ul></div>"
+        '<p class="small muted" style="margin-top:8px">Rows that could not be verified are left '
+        'blank and listed on <a href="flagged.html">Flagged for Review</a>; they never block a '
+        "publish, but they are never silently dropped either.</p></div>",
+    ]
+    return layout("Review", "review", "".join(body), ctx["snapshot"])
+
