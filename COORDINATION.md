@@ -766,3 +766,19 @@ Out of scope (owned by other boards, changes logged not applied): `docs/` (Board
 - Post-deploy read found one rendering defect (record-cell percentage not interpolated, and opening-week NBA clubs without an explicit 0-0 record). Fixed in the follow-up commit and re-published.
 - Final state on `main`: hub `data/matches.json` = 37 verified / 37 flagged, five contradicted write-ups withdrawn (`predictionWithdrawn` preserves the original text), 2 rows still verified on a secondary-only link (flagged K-01).
 - Board K scope respected: no file owned by another board was rewritten; the only shared-output edit is the `data/matches.json` repair above, performed after Board L (`093bfd5e`) had merged and recorded, and logged here.
+
+---
+
+## Board N — session `arena/8070bc18-olbg4` (consolidated verified desk + integration)
+
+Claimed 2026-10-21T07:15Z on branch `arena/8070bc18-olbg4`. At claim time `git branch -r` shows only `origin/main` at `43adf35`; all 23 PRs merged, Pages built. Boards A–J are all `done`. Several "Board K" claim commits were visible in the Actions log but their branches are absent from the remote, so no live claim is being overridden. The letter L was already claimed by session `093bfd5e`, so this board is published as Board N. It claims one new, disjoint scope and does **not** edit any file owned by A–J (their data files, `session-*/` pages, root category pages and `docs/` build output stay untouched; findings about them are logged as cross-session requests or published as flagged items).
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| N1 | Re-verify fixture universe line-by-line against official governing-body/league pages; record per-row official source, blank any value not confirmed | in progress | arena/8070bc18-olbg4 | `data/session-8070bc18/**`, `scripts/session-8070bc18/**` |
+| N2 | Originate own lines (moneyline + handicap + match total where scoring inputs are verified), pick, confidence band, high-confidence human predictions ≥30 words | in progress | arena/8070bc18-olbg4 | `data/session-8070bc18/**`, `docs/desk/**` |
+| N3 | Consolidated dashboard site (landing + per-sport pages + Flagged for Review), whole-repo link check | in progress | arena/8070bc18-olbg4 | `docs/desk/**`, `docs/index.html` (integration-only edit), `index.html` (root) |
+| N4 | PR → merge → Pages deploy confirmation, record results here | in progress | arena/8070bc18-olbg4 | `COORDINATION.md` |
+
+### Environment constraint (re-confirmed 2026-10-21T07:12Z)
+`curl https://www.nba.com/schedule`, `nhl.com/schedule`, `mlb.com/schedule`, `atptour.com`, `pdc.tv`, `olbg.com` all fail with `SSL_ERROR_SYSCALL` (egress allowlist). Official pages are therefore read with the agent's web-fetch tool, and every row stores the exact URL read. No value is copied from another board's data file — each is re-read from the official page in this session.
