@@ -1,0 +1,188 @@
+[
+  {
+    "id": "flag-001",
+    "severity": "warning",
+    "category": "provider_unavailable",
+    "detail": "NBA fixture feed failed: RuntimeError: no official NBA schedule source available — https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json: RuntimeError: Failed to fetch https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json: HTTP Error 403: Forbidden",
+    "field": "fixtures",
+    "value": null,
+    "action": "published",
+    "source_urls": [
+      "nba.com"
+    ],
+    "sport": null,
+    "fixture_id": null,
+    "match": null,
+    "start_utc": null
+  },
+  {
+    "id": "flag-002",
+    "severity": "info",
+    "category": "missing_probable_pitcher",
+    "detail": "probable pitchers not yet announced; left blank rather than guessed",
+    "field": "probable_pitcher",
+    "value": null,
+    "action": "published_blank",
+    "source_urls": [
+      "https://www.mlb.com/gameday/849805",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849805"
+    ],
+    "sport": "baseball",
+    "fixture_id": "mlb-849805",
+    "match": "Tampa Bay Rays at Milwaukee Brewers",
+    "start_utc": "2026-10-24T00:00:00Z"
+  },
+  {
+    "id": "flag-003",
+    "severity": "info",
+    "category": "missing_probable_pitcher",
+    "detail": "probable pitchers not yet announced; left blank rather than guessed",
+    "field": "probable_pitcher",
+    "value": null,
+    "action": "published_blank",
+    "source_urls": [
+      "https://www.mlb.com/gameday/849802",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849802"
+    ],
+    "sport": "baseball",
+    "fixture_id": "mlb-849802",
+    "match": "Tampa Bay Rays at Milwaukee Brewers",
+    "start_utc": "2026-10-25T00:00:00Z"
+  },
+  {
+    "id": "flag-004",
+    "severity": "info",
+    "category": "missing_probable_pitcher",
+    "detail": "probable pitchers not yet announced; left blank rather than guessed",
+    "field": "probable_pitcher",
+    "value": null,
+    "action": "published_blank",
+    "source_urls": [
+      "https://www.mlb.com/gameday/849804",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849804"
+    ],
+    "sport": "baseball",
+    "fixture_id": "mlb-849804",
+    "match": "Milwaukee Brewers at Tampa Bay Rays",
+    "start_utc": "2026-10-27T00:00:00Z"
+  },
+  {
+    "id": "flag-005",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020156: 0.72 similarity with nhl-2026020154",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
+      "https://api-web.nhle.com/v1/schedule/2026-10-22"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020156",
+    "match": "San Jose Sharks at Ottawa Senators",
+    "start_utc": "2026-10-22T23:00:00Z"
+  },
+  {
+    "id": "flag-006",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020162: 0.68 similarity with nhl-2026020152",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
+      "https://api-web.nhle.com/v1/schedule/2026-10-22"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020162",
+    "match": "Minnesota Wild at Calgary Flames",
+    "start_utc": "2026-10-23T01:00:00Z"
+  },
+  {
+    "id": "flag-007",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020171: 0.73 similarity with nhl-2026020155",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
+      "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020171",
+    "match": "New York Rangers at Ottawa Senators",
+    "start_utc": "2026-10-24T23:00:00Z"
+  },
+  {
+    "id": "flag-008",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020176: 0.57 similarity with nhl-2026020162",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
+      "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020176",
+    "match": "Toronto Maple Leafs at Edmonton Oilers",
+    "start_utc": "2026-10-24T23:00:00Z"
+  },
+  {
+    "id": "flag-009",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020181: 0.86 similarity with nhl-2026020161",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
+      "https://api-web.nhle.com/v1/schedule/2026-10-25"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020181",
+    "match": "New York Islanders at Dallas Stars",
+    "start_utc": "2026-10-25T22:00:00Z"
+  },
+  {
+    "id": "flag-010",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020184: 0.57 similarity with nhl-2026020162",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
+      "https://api-web.nhle.com/v1/schedule/2026-10-25"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020184",
+    "match": "Minnesota Wild at Vancouver Canucks",
+    "start_utc": "2026-10-26T02:00:00Z"
+  },
+  {
+    "id": "flag-011",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020185: 0.55 similarity with nhl-2026020166",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
+      "https://api-web.nhle.com/v1/schedule/2026-10-26"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020185",
+    "match": "Los Angeles Kings at New York Rangers",
+    "start_utc": "2026-10-26T23:00:00Z"
+  }
+]

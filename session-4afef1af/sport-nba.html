@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NBA desk · OLBG4</title>
+<meta name="description" content="Automated multi-sport line origination, picks and verification dashboard built from official league data.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f766e'/><text x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'>O4</text></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap head">
+    <a class="brand" href="index.html"><span class="mark">O4</span>
+      <span>OLBG4 <small>Line origination &amp; picks desk</small></span></a>
+    <nav class="main"><a href="index.html" class="">Overview</a><a href="matches.html" class="">Matches</a><a href="picks.html" class="">Picks</a><a href="analysis.html" class="">Analysis</a><a href="sport-nba.html" class="active">NBA</a><a href="sport-nhl.html" class="">NHL</a><a href="sport-mlb.html" class="">MLB</a><a href="markets.html" class="">Markets</a><a href="sources.html" class="">Sources</a><a href="flagged.html" class="flag ">Flagged<span class="pill-count">11</span></a></nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    
+    <div class="page-head"><h1>NBA desk <span class="muted">· Basketball</span></h1><p>0 fixtures, 0 completed games in the rating sample (no season recorded). Opening line: no usable prior season: opening line is league-average (ratings 0, league mean scoring, home advantage 0).</p></div><div class="grid"><div class="card kpi"><div class="big mono">0</div><small>rating games</small><p>0 teams rated</p></div><div class="card kpi"><div class="big mono">0.0</div><small>home advantage</small><p>in basketball scoring units</p></div><div class="card kpi"><div class="big mono">1.0</div><small>margin sd</small><p>residual spread used for probabilities</p></div><div class="card kpi"><div class="big mono">0</div><small>fixtures in window</small><p>0 graded high</p></div></div><div class="section"><h2>Model ratings</h2><p class="lead">Ridge least-squares ratings from official final scores. Positive rating = stronger than the league average; offence/defence are in the same scoring unit as the sport.</p><div class="table-wrap"><table ><thead><tr><th class="" data-sortable>Team</th><th class="num" data-sortable>Rating</th><th class="num" data-sortable>Offence</th><th class="num" data-sortable>Defence</th><th class="num" data-sortable>Games</th></tr></thead><tbody><tr><td colspan="5" class="muted">No games in sample.</td></tr></tbody></table></div><div class="notice info"><p class="small muted">Backtest unavailable: insufficient sample (train=0, holdout=0)</p></div></div><div class="section"><h2>Fixtures &amp; picks</h2><p class="lead">Same columns as the all-matches page, filtered to this league.</p><div class="filters"><input type="search" data-filter="search" placeholder="Search team, pick or venue…" aria-label="Search"><select data-filter="confidence" aria-label="Confidence"><option value="">All confidence</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select><span class="count" data-count></span></div><div class="table-wrap"><table data-filterable="1"><thead><tr><th class="nosort" >When</th><th class="nosort" >Sport</th><th class="" data-sortable>Match</th><th class="nosort" >Records A–H</th><th class="" data-sortable>Our pick</th><th class="" data-sortable>Market</th><th class="num" data-sortable>Prob</th><th class="" data-sortable>Conf.</th><th class="nosort" >Sources</th><th class="nosort" >Markets</th></tr></thead><tbody></tbody></table></div></div>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>Snapshot 2026-10-21 05:39 UTC · window 21 Oct 2026 – 28 Oct 2026</span>
+    <span class="spacer"></span>
+    <a href="../index.html">← All dashboards</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="sources.html">Sources</a>
+    <a href="olbg.html">OLBG reverse-engineering</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="https://github.com/buffedlizard55-lab/OLBG4">GitHub</a>
+  </div>
+  <div class="wrap" style="margin-top:8px">
+    <span>Model output for research and review. Not betting advice. Odds are our own originated prices, not a bookmaker's. 18+.</span>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
