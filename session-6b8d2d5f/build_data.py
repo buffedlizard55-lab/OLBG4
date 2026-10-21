@@ -379,6 +379,11 @@ PRED = {
     ("DeBrincat 6 goals 5 assists, Gibson 2 wins; Pettersson 8 assists", "same payload, team leaders"),
   ]},
 }
+# every NBA club that appears gets an explicit record, defaulting to 0-0 before its opener
+for _d, _a, _h, _t, _v in NBA_UPCOMING:
+    REC.setdefault(_a, (0, 0))
+    REC.setdefault(_h, (0, 0))
+
 ALL = NBA_ROWS + NHL_ROWS + MLB_ROWS
 for r in ALL:
     if r["id"] in PRED:

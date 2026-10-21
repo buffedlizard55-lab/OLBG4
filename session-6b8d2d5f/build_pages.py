@@ -212,9 +212,15 @@ def match_table(rs, tid="tbl"):
             ar, hr = i.get("awayRecord"), i.get("homeRecord")
             rec = ""
             if ar:
-                rec += f'<div>{e(r["away"].split()[-1])}: <b>{ar[0]}-{ar[1]}' + (f'-{ar[2]}' if len(ar) > 2 else '') + '</b> <span class="mut">({i["awayPct"]:.3f})</span></div>'
+                apct = "{:.3f}".format(i["awayPct"])
+                rec += ('<div>' + e(r["away"].split()[-1]) + ': <b>' + str(ar[0]) + "-" + str(ar[1])
+                        + (("-" + str(ar[2])) if len(ar) > 2 else "") + '</b> <span class="mut">('
+                        + apct + ')</span></div>')
             if hr:
-                rec += f'<div>{e(r["home"].split()[-1])}: <b>{hr[0]}-{hr[1]}' + (f'-{hr[2]}' if len(hr) > 2 else '') + '</b> <span class="mut">({i["homePct"]:.3f})</span></div>'
+                hpct = "{:.3f}".format(i["homePct"])
+                rec += ('<div>' + e(r["home"].split()[-1]) + ': <b>' + str(hr[0]) + "-" + str(hr[1])
+                        + (("-" + str(hr[2])) if len(hr) > 2 else "") + '</b> <span class="mut">('
+                        + hpct + ')</span></div>')
             pick = f'<span class="pick">{e(m["pick"])}</span><div class="mut">p = {m["pickProb"]:.3f}</div>'
             status = f'<div><b>{e(r["date"])}</b></div><div class="mut">{e(r["time"])} · {e(r["venue"])}</div>'
             res = ""
@@ -341,7 +347,7 @@ vrows = "".join(f"""<tr><td><b>{e(x['id'])}</b><div class="mut">{e(x['sport'])} 
 <td class="mut">{e(x['note'])}</td></tr>""" for x in register)
 
 vbody = f"""<h1>Verification log — the root hub, line by line</h1>
-<p class="lead">The root hub (<code>data/matches.json</code>, 66 rows) is the landing dashboard of this
+<p class="lead">The root hub (<code>data/matches.json</code>, {n_d_rows} rows) is the landing dashboard of this
 repository. Every row was opened against an official page where one could be reached on 2026-10-21.
 Results: {counts.get('confirmed',0)} confirmed · {counts.get('partial',0)} partial ·
 {counts.get('contradicted',0)} contradicted · {counts.get('not re-verified',0)} could not be re-verified.</p>
@@ -368,7 +374,7 @@ Results: {counts.get('confirmed',0)} confirmed · {counts.get('partial',0)} part
 <td>regular-season wins/losses</td></tr>
 </tbody></table></div>
 
-<h2>Carry-over register — all 66 hub rows</h2>
+<h2>Carry-over register — all {n_d_rows} hub rows</h2>
 {filters('tbl-reg')}
 <table id="tbl-reg"><thead><tr><th>ID</th><th>Row as published</th><th>Source link on the row</th>
 <th>Hub's own status</th><th>This session</th><th>Evidence</th></tr></thead><tbody>{vrows}</tbody></table>
@@ -431,7 +437,7 @@ open(os.path.join(HERE, "methodology.html"), "w").write(page("Methodology", "met
 # flagged
 FLAGS = [
  ("K-01", "high", "Root hub marks rows verified without an official source",
-  f"{n_secondary_verified} of the 66 hub rows still carry `verified: true` while their only link is a secondary page "
+  f"{n_secondary_verified} of the {n_d_rows} hub rows still carry `verified: true` while their only link is a secondary page "
   "(ESPN, Wikipedia, BBC, Sky Sports, ESPNcricinfo, etusuora, findmygroup, tempo.co, USA Today, basketnews, "
   "montpellier.fr) or OLBG itself. The hub's claim that every row links to a governing body is not supported by its "
   "own data. Board L (`093bfd5e`) has since downgraded the rows it could not confirm; this count is recomputed from "
@@ -440,24 +446,24 @@ FLAGS = [
  ("K-02", "high", "Hub prediction NBA02 cites a roster that the official game page does not support",
   "The hub's write-up says Philadelphia 'integrate LeBron James and Jaylen Brown'. NBA.com's page for 2026-10-20 "
   "shows Philadelphia winning 106-100 with Tyrese Maxey on 28 points as the game leader; no official page read "
-  "today supports the roster claim. Prediction withdrawn; the pick is graded LOST.",
+  "today supports the roster claim. The write-up has been removed from the hub by the owning rebuild (082d3c16); the row remains for review and this board grades the pick LOST.",
   "https://www.nba.com/games?date=2026-10-20"),
  ("K-03", "high", "Hub prediction NHL01 says the Sharks are 0-4 — they won that night",
   "NHL data for 2026-10-20 shows San Jose beating Montreal 4-3 in overtime, and the club's record on 22 October "
-  "is 5-4-1. The '0-4 ... conceding 4.2 goals per game' passage is contradicted. Prediction withdrawn; pick graded LOST.",
+  "is 5-4-1. The '0-4 ... conceding 4.2 goals per game' passage is contradicted. The write-up has been removed from the hub by the owning rebuild (082d3c16); this board grades the pick LOST.",
   "https://api-web.nhle.com/v1/score/2026-10-20"),
  ("K-04", "medium", "Hub prediction NHL06 misstates the Bruins' record",
   "The hub says Boston are '1-3' and 'without Marchand on IR'. The NHL score payload has Boston at 7-2-1, "
-  "with Jeremy Swayman on six wins. Prediction withdrawn.",
+  "with Jeremy Swayman on six wins. The write-up has been removed from the hub by the owning rebuild (082d3c16).",
   "https://api-web.nhle.com/v1/score/2026-10-22"),
  ("K-05", "medium", "Hub prediction EL02 is self-contradictory and contains drafting residue",
   "The text reads 'Efes opened with a 93-101 win at Bayern ... Actually Efes beat Bayern 101-93' — two different "
-  "scores in one paragraph, an unedited 'Actually' fragment, and a source link that is a Wikipedia page. Withdrawn.",
+  "scores in one paragraph, an unedited 'Actually' fragment, and a source link that is a Wikipedia page. The row is flagged in the hub and its write-up removed.",
   "../data/matches.json"),
  ("K-06", "medium", "Hub prediction MLB01 asserts facts no official page supports",
   "Venue, date and both records are confirmed (Milwaukee 103-59, Tampa Bay 98-64, Game 1 on 23 October at "
   "American Family Field). The 'seven-game ALCS', the 52-29 home record and the bullpen ERAs are not on any "
-  "official page read today; they are removed and the row carries a Medium pick with no write-up.",
+  "official page read today. RESOLVED: the owning rebuild (082d3c16) rewrote this write-up using only facts that are in the MLB feed (TB 98-64, 43-38 on the road, opener 8:00 p.m. ET at American Family Field); the original text is preserved in that session's record.",
   "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-27"),
  ("K-07", "medium", "The hub's 'match' table mixes tournaments, futures and off-season notes into fixtures",
   "ATP, WTC, snooker, darts, golf, badminton, table-tennis, volleyball, handball, esports and AFL rows are "
