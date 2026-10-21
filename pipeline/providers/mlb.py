@@ -10,6 +10,7 @@ schedule endpoint returns.
 """
 from __future__ import annotations
 
+import time
 from datetime import datetime, timedelta
 
 from .. import http
@@ -131,9 +132,12 @@ def fetch_fixtures(start: datetime, end: datetime, now: datetime) -> tuple[list[
 def fetch_training(start: datetime, end: datetime) -> tuple[list[dict], dict]:
     """Completed games with final scores, used only to fit the ratings model."""
     results: list[dict] = []
+    deadline = time.monotonic() + 240
     cursor = start
     while cursor < end:
-        chunk_end = min(cursor + timedelta(days=20), end)
+        if time.monotonic() > deadline:
+            break
+        chunk_end = min(cursor + timedelta(days=45), end)
         payload = _schedule(cursor, chunk_end, hydrate="probablePitcher")
         for block in payload.get("dates", []):
             for g in block.get("games", []):

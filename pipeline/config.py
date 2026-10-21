@@ -69,7 +69,7 @@ WINDOW_DAYS = int(os.environ.get("OLBG_WINDOW_DAYS", "7"))
 TRAINING_LOOKBACK_DAYS = {
     "basketball": 420,
     "ice_hockey": 420,
-    "baseball": 400,
+    "baseball": 240,
 }
 
 # ---------------------------------------------------------------------------
@@ -98,8 +98,8 @@ USER_AGENT = (
 # official domain list for its sport. Anything else is dropped and flagged.
 REQUIRE_OFFICIAL_SOURCE = True
 
-HTTP_TIMEOUT = 45
-HTTP_RETRIES = 3
+HTTP_TIMEOUT = 25
+HTTP_RETRIES = 2
 CACHE_DIR = os.environ.get("OLBG_CACHE_DIR", ".cache/http")
 
 

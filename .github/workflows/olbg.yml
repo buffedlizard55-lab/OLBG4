@@ -17,7 +17,7 @@ permissions:
 
 concurrency:
   group: olbg-${{ github.ref_name }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   snapshot:
@@ -35,12 +35,14 @@ jobs:
           python-version: "3.12"
 
       - name: Offline self-test
-        run: python -m pipeline.selftest
+        run: |
+          set -o pipefail
+          python -m pipeline.selftest 2>&1 | tee /tmp/pipeline.log
 
       - name: Ingest, originate, verify, build
         run: |
           set -o pipefail
-          python -m pipeline.run --strict 2>&1 | tee /tmp/pipeline.log
+          python -m pipeline.run --strict 2>&1 | tee -a /tmp/pipeline.log
 
       - name: Publish failure log
         if: failure()

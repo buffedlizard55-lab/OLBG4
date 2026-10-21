@@ -10,6 +10,7 @@ Per-game source link: the official GameCenter URL returned by the API
 """
 from __future__ import annotations
 
+import time
 from datetime import datetime, timedelta
 
 from .. import http
@@ -146,7 +147,12 @@ def fetch_training(start: datetime, end: datetime) -> tuple[list[dict], dict]:
     seasons = {season_of(start), season_of(end), season_of(start - timedelta(days=365))}
     results: list[dict] = []
     seen: set[str] = set()
+    deadline = time.monotonic() + 240
+    truncated = False
     for abbr in abbrs:
+        if time.monotonic() > deadline:
+            truncated = True
+            break
         for season in sorted(seasons):
             try:
                 payload = http.fetch_json(
@@ -191,5 +197,8 @@ def fetch_training(start: datetime, end: datetime) -> tuple[list[dict], dict]:
     return results, {
         "training_games": len(results),
         "training_sources": [f"{BASE}/club-schedule-season/<ABBR>/<SEASON>", f"{BASE}/standings/now"],
-        "training_notes": [] if results else ["no completed games returned"],
+        "training_notes": (
+            ["training fetch hit the 240s budget; sample may be partial"] if truncated
+            else ([] if results else ["no completed games returned"])
+        ),
     }

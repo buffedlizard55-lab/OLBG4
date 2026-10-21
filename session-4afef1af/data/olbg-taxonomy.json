@@ -1,0 +1,269 @@
+{
+  "captured_utc": "2026-10-21T05:45:00Z",
+  "captured_by": "arena/4afef1af-olbg4",
+  "method": "Public OLBG hub pages were fetched with a single-page reader after reviewing robots.txt. No restricted path (/api/, /sports/, /events.php) was requested and no bulk crawl was performed. Only structure, taxonomy and URL grammar were recorded; no OLBG price, tip or prediction is copied into this project.",
+  "robots_policy": {
+    "url": "https://www.olbg.com/robots.txt",
+    "disallowed_relevant_paths": ["/api/", "/sports/", "/events.php", "/tips/hot", "/newbg/", "/storage/app/json_data/*"],
+    "blocked_agents_examples": ["Python-urllib", "Wget", "WebZip", "Teleport", "EmailCollector"],
+    "note": "The betting-tips hub pages used for this note are not disallowed for a normal user agent, but the project keeps to a handful of page views and identifies honestly."
+  },
+  "hub_pattern": "https://www.olbg.com/betting-tips/<Sport>/<sport_id>",
+  "url_pattern": "https://www.olbg.com/betting-tips/<Sport>/<Region>/<Competition>/<Event_slug>/<sport_id>?event_id=<event_id>",
+  "captured_urls": [
+    "https://www.olbg.com/betting-tips",
+    "https://www.olbg.com/betting-tips/Basketball/4",
+    "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIL_Bucks_@_WAS_Wizards/4?event_id=534889",
+    "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Hapoel_Tel_Aviv_vs_Virtus_Bologna/4?event_id=535919",
+    "https://www.olbg.com/betting-tips/Football/UK/England_Premier_League/Chelsea_v_Tottenham/1?event_id=2043412",
+    "https://www.olbg.com/betting-tips/Horse_Racing/UK/Newmarket/2:25_Newmarket/2?event_id=1134655",
+    "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Finbarrs_v_Nemo_Rangers/25?event_id=3530",
+    "https://www.olbg.com/robots.txt"
+  ],
+  "page_anatomy": [
+    "Sport hub: /betting-tips/<Sport>/<id>. The numeric id segment is mandatory — /betting-tips/Basketball alone returns HTTP 404, while /betting-tips/Basketball/4 resolves.",
+    "Hub header: sport name, a SPORTS MENU filter, a Show Expired Events toggle and a Customise Tips control.",
+    "Hub body: a list of upcoming events, each row carrying the event link (with ?event_id=), the competition label (e.g. NBA, Euroleague, Korea KBL), a day and local start time, the featured selection, the market label (e.g. Money Line, Full Time Result, Daily Racing), a win-tip count and percentage, a comment count and, where applicable, an expert count.",
+    "Competition hubs nest one level deeper: /betting-tips/Basketball/NBA/4, /betting-tips/Basketball/WNBA/4, /betting-tips/Basketball/European/Euroleague/4, /betting-tips/Basketball/Other/Korea_KBL/4.",
+    "Event slugs use more than one convention: MIL_Bucks_@_WAS_Wizards and Chelsea_v_Tottenham and Hapoel_Tel_Aviv_vs_Virtus_Bologna all appear. The slug is not a reliable indicator of venue.",
+    "The path id and the event_id query parameter are different identifiers: 4 is the sport id for every basketball event, while event_id (e.g. 534889) identifies the fixture.",
+    "Default ordering on the tips hub is by number of community tips, not by kick-off time; the captured listing interleaves NBA, EuroLeague, EuroCup and KBL events.",
+    "Listing rows expose community aggregates (tip share, comments, experts) but no bookmaker price. The Value Rating described on the page compares a selection's odds with its tip share, which implies prices live on the event or bookmaker layer rather than the listing."
+  ],
+  "sports": [
+    {
+      "name": "Basketball",
+      "olbg_id": 4,
+      "id_evidence": "captured",
+      "in_owner_scope": true,
+      "official_source": "cdn.nba.com (NBA official schedule JSON)",
+      "ingested": true,
+      "note": "NBA ingested from the league's own schedule feed. OLBG also lists WNBA, EuroLeague, EuroCup, Basketball Champions League and Korea KBL; those competitions have no feed this pipeline can verify, so they are not priced."
+    },
+    {
+      "name": "Ice Hockey",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "api-web.nhle.com (NHL official API)",
+      "ingested": true,
+      "note": "NHL ingested from the league's own API (schedule, club season results, standings)."
+    },
+    {
+      "name": "Baseball",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "statsapi.mlb.com (MLB official Stats API)",
+      "ingested": true,
+      "note": "MLB ingested from the league's official Stats API, including the World Series window."
+    },
+    {
+      "name": "Football (association)",
+      "olbg_id": 1,
+      "id_evidence": "captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (soccer/football)",
+      "note": "Excluded at ingestion, never modelled."
+    },
+    {
+      "name": "Horse Racing",
+      "olbg_id": 2,
+      "id_evidence": "captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (horse racing)",
+      "note": "Excluded at ingestion. OLBG lists races by course and time (e.g. 2:25 Newmarket)."
+    },
+    {
+      "name": "Gaelic Football",
+      "olbg_id": 25,
+      "id_evidence": "captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (football and hurling family)",
+      "note": "The owner excluded both football and hurling, so both GAA codes are treated as out of scope. This is an interpretation and is flagged for review."
+    },
+    {
+      "name": "Hurling",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (hurling)",
+      "note": "Excluded at ingestion."
+    },
+    {
+      "name": "American Football",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (american football / football)",
+      "note": "Excluded at ingestion; NFL and NCAA are not modelled."
+    },
+    {
+      "name": "Boxing",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (boxing)",
+      "note": "Excluded at ingestion."
+    },
+    {
+      "name": "UFC / MMA",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (UFC, MMA)",
+      "note": "Excluded at ingestion."
+    },
+    {
+      "name": "Cycling",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (cycling)",
+      "note": "Excluded at ingestion."
+    },
+    {
+      "name": "Specials / Politics",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": false,
+      "official_source": null,
+      "ingested": false,
+      "exclusion": "excluded by the owner (specials)",
+      "note": "Excluded at ingestion."
+    },
+    {
+      "name": "Tennis",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "atptour.com / wtatennis.com (no public machine-readable fixture API identified)",
+      "ingested": false,
+      "note": "In scope, but not ingested: this pipeline only publishes rows it can re-verify against an official machine-readable feed. A hand-verified tennis build exists in another dashboard in this repository."
+    },
+    {
+      "name": "Cricket",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "icc-cricket.com (no public machine-readable fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested for the same verification reason."
+    },
+    {
+      "name": "Rugby Union",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "world.rugby / unitedrugby.com (no public machine-readable fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested for the same verification reason."
+    },
+    {
+      "name": "Rugby League",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "nrl.com (no documented public fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested for the same verification reason."
+    },
+    {
+      "name": "Golf",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "pgatour.com / europeantour.com (no public machine-readable fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested."
+    },
+    {
+      "name": "Darts",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "pdc.tv (no public fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested."
+    },
+    {
+      "name": "Snooker",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "wst.tv (no public fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested."
+    },
+    {
+      "name": "Handball",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "ehfcl.eurohandball.com (no public fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested."
+    },
+    {
+      "name": "Volleyball",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "volleyballworld.com (no public fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested."
+    },
+    {
+      "name": "Greyhounds",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "gbgb.org.uk (no public fixture API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested. Not on the owner's exclusion list, but no official machine-readable feed was identified."
+    },
+    {
+      "name": "Motor Sports",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": "formula1.com (no public machine-readable entry-list API identified)",
+      "ingested": false,
+      "note": "In scope, not ingested. The owner excluded cycling but did not exclude motorsport."
+    },
+    {
+      "name": "Esports",
+      "olbg_id": null,
+      "id_evidence": "not captured",
+      "in_owner_scope": true,
+      "official_source": null,
+      "ingested": false,
+      "note": "In scope, not ingested: no single official governing body or fixture feed."
+    }
+  ],
+  "findings": [
+    "The numeric sport id is part of the canonical hub URL: /betting-tips/Basketball returns 404 while /betting-tips/Basketball/4 works. Any integration that guesses hub URLs without the id will silently fail.",
+    "Event slugs are not normalised: away-vs-home is written with '@' for NBA, '_v_' for Premier League and Gaelic football, and '_vs_' for EuroLeague. Do not parse the slug for venue or home/away.",
+    "The event_id query parameter is a separate identifier from the sport id in the path; both are required to deep-link reliably.",
+    "OLBG's tips hub is ordered by community tip volume by default, not by start time. Any schedule built by reading the hub top-to-bottom will mix dates and competitions.",
+    "The listing exposes community tip share and comment counts but no bookmaker price, so OLBG cannot be used as a price source without the event/bookmaker layer. This project originates its own prices instead.",
+    "Basketball coverage on OLBG is wider than the NBA (WNBA, EuroLeague, EuroCup, Basketball Champions League, Korea KBL). Our official-feed coverage is NBA-only, so the two inventories are not the same universe; the NBA fixtures that do overlap agree on date and matchup (e.g. MIL Bucks @ WAS Wizards on 21 Oct 2026).",
+    "robots.txt disallows /api/, /sports/, /events.php and names Python-urllib and Wget among blocked agents; the pipeline therefore never crawls OLBG and treats it as a taxonomy reference only."
+  ]
+}
