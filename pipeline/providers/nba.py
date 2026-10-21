@@ -185,11 +185,18 @@ def _league_gamelog(season: str) -> list[dict]:
         pts = row[idx["PTS"]]
         if pts is None:
             continue
-        entry = games.setdefault(gid, {"game_id": gid, "date": row[idx["GAME_DATE"]], "home": None, "away": None})
+        entry = games.setdefault(
+            gid,
+            {"game_id": gid, "date": row[idx["GAME_DATE"]], "home": None, "away": None,
+             "home_name": None, "away_name": None},
+        )
+        team_name = row[idx["TEAM_NAME"]] if "TEAM_NAME" in idx else None
         if " vs. " in matchup:
             entry["home"] = (team_id, int(pts))
+            entry["home_name"] = team_name
         elif " @ " in matchup:
             entry["away"] = (team_id, int(pts))
+            entry["away_name"] = team_name
     out = []
     for gid, e in games.items():
         if not e["home"] or not e["away"]:
@@ -210,8 +217,8 @@ def _league_gamelog(season: str) -> list[dict]:
                 away_score=e["away"][1],
                 season=season,
                 source_url="https://stats.nba.com/stats/leaguegamelog",
-                home_name=None,
-                away_name=None,
+                home_name=e.get("home_name"),
+                away_name=e.get("away_name"),
             )
         )
     return [r for r in out if r["date_utc"]]
@@ -230,7 +237,7 @@ def fetch_training(start: datetime, end: datetime) -> tuple[list[dict], dict]:
 
     # Prior season(s), official stats endpoint, used to stabilise early-season ratings.
     current_year = end.year
-    for season_start in (current_year - 1, current_year - 2):
+    for season_start in (current_year - 1,):
         season = f"{season_start}-{str(season_start + 1)[-2:]}"
         try:
             results.extend(_league_gamelog(season))

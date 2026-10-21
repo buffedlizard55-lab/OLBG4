@@ -111,11 +111,16 @@ are added only when the thresholds above are met.
 
 | Grade | Match winner | Handicap / total |
 |---|---|---|
-| High | p ≥ 62%, ≥ 40 games per team, opening model agrees on the same winner | edge ≥ 2× threshold, p ≥ 60%, ≥ 40 games per team, opener not a league-average fallback |
+| High | p ≥ 62%, ≥ 40 games per team, and the stability check agrees on the same winner | edge ≥ 2× threshold, p ≥ 60%, ≥ 40 games per team, opener not a league-average fallback |
 | Medium | p ≥ 55%, ≥ 20 games per team | edge ≥ threshold, p ≥ 55%, ≥ 20 games per team |
 | Low | everything else | everything else |
 
-If the match-winner pick fails the "opening agrees" test it is capped at medium. If the opener is a
+The stability check is: does our opening model agree on the same winner? When there is no prior
+season to build an opener from (for example MLB, whose season is complete and whose prior season is
+outside the lookback), we instead refit the model **without the last 14 days of games** and require
+that fit to agree. Either way the check is recorded on the pick (`stability_basis`).
+
+If the match-winner pick fails the stability test it is capped at medium. If the opener is a
 league-average fallback, handicap/total picks are capped at medium: there is no prior season to have
 moved away from, so the "edge" is only a deviation from the league mean.
 

@@ -89,7 +89,8 @@ def _opening_adjusted(opening: Fit, current: Fit) -> Fit:
     return opening
 
 
-def build_markets(fixture: dict, current: Fit, opening: Fit, form: dict) -> dict:
+def build_markets(fixture: dict, current: Fit, opening: Fit, form: dict,
+                  sensitivity: Fit | None = None) -> dict:
     sport = fixture["sport"]
     home_id, away_id = fixture["home"]["id"], fixture["away"]["id"]
     home_name, away_name = fixture["home"]["name"], fixture["away"]["name"]
@@ -165,8 +166,12 @@ def build_markets(fixture: dict, current: Fit, opening: Fit, form: dict) -> dict
 
     # ---- picks ---------------------------------------------------------
     winner = "home" if p_home >= p_away else "away"
+    sens_margin = None
+    if sensitivity is not None and sensitivity.games:
+        sens_margin = sensitivity.expected(home_id, away_id)["margin"]
     winner_pick = _grade_winner(
-        fixture, current, markets["moneyline"]["selections"], winner, opn, bool(opening.ratings)
+        fixture, current, markets["moneyline"]["selections"], winner, opn,
+        bool(opening.ratings), sens_margin,
     )
 
     edges = _market_edges(sport, cur, opn, current, opening)
@@ -245,7 +250,7 @@ def _market_edges(sport: str, cur: dict, opn: dict, current: Fit, opening: Fit) 
 
 
 def _grade_winner(fixture, current: Fit, selections, winner: str, opn: dict,
-                  opening_has_ratings: bool) -> dict:
+                  opening_has_ratings: bool, sensitivity_margin: float | None = None) -> dict:
     pick = next(s for s in selections if s["side"] == winner)
     prob = pick["prob"]
     home_id, away_id = fixture["home"]["id"], fixture["away"]["id"]
@@ -253,9 +258,18 @@ def _grade_winner(fixture, current: Fit, selections, winner: str, opn: dict,
     n_away = current.games_per_team.get(str(away_id), 0)
     n = min(n_home, n_away)
 
-    # stability: does the opening model agree on the same winner?
+    # Stability check. Preferred: does our opening model agree on the same winner?
+    # Fallback (no prior season): does a model refitted without the last 14 days agree?
     op_winner = "home" if opn["margin"] >= 0 else "away"
-    stable = bool(opening_has_ratings) and op_winner == winner
+    if opening_has_ratings:
+        stable = op_winner == winner
+        basis = "opening model"
+    elif sensitivity_margin is not None:
+        stable = (sensitivity_margin >= 0) == (winner == "home")
+        basis = "model refitted without the last 14 days"
+    else:
+        stable = False
+        basis = "none available"
 
     conf = _grade(prob, n, stable)
     return {
@@ -274,6 +288,7 @@ def _grade_winner(fixture, current: Fit, selections, winner: str, opn: dict,
         "sample_home": n_home,
         "sample_away": n_away,
         "opening_agrees": stable,
+        "stability_basis": basis,
         "rationale_key": "winner",
     }
 

@@ -265,6 +265,15 @@ def main(argv: list[str] | None = None) -> int:
         }
         print(f"[model] {meta['league']} {current_fit.games} games, "
               f"opening={opening.games} ({opening.kind})", flush=True)
+        recent_cutoff = now - timedelta(days=14)
+        older = [r for r in results if _safe_before(r.get("date_utc"), recent_cutoff)]
+        sensitivity_fit = model.fit(older, sport, now, kind="sensitivity")
+        models[sport]["sensitivity"] = {
+            "games": sensitivity_fit.games,
+            "window": "refitted without the last 14 days",
+        }
+        models[sport]["_sensitivity_fit"] = sensitivity_fit
+
         backtests[sport] = backtest(results, sport, now)
         models[sport]["backtest"] = backtests[sport]
 
@@ -291,7 +300,9 @@ def main(argv: list[str] | None = None) -> int:
             all_results, fx["home"]["id"], fx["away"]["id"], _dt(fx["start_utc"])
         )
         try:
-            result = markets_mod.build_markets(fx, current_fit, opening_fit, form)
+            result = markets_mod.build_markets(
+                fx, current_fit, opening_fit, form, pack.get("_sensitivity_fit")
+            )
         except Exception as exc:  # noqa: BLE001
             findings.add(severity="error", category="market_build_failed",
                          detail=f"{type(exc).__name__}: {exc}", fixture=fx, action="excluded")
@@ -341,6 +352,7 @@ def main(argv: list[str] | None = None) -> int:
     kept_ids = {fx["id"] for fx in kept_fixtures}
     analysis_rows = [r for r in analysis_rows if r["fixture"]["id"] in kept_ids]
     analysis_rows = verify.check_analysis(analysis_rows, findings)
+    prediction_rows = [p for p in prediction_rows if p["fixture_id"] in kept_ids]
     prediction_rows = verify.check_predictions(prediction_rows, findings, fixtures_by_id)
     verify.check_schedule_horizon(analysis_rows, start, end, findings)
 
@@ -371,6 +383,7 @@ def main(argv: list[str] | None = None) -> int:
         pack.pop("_current_fit", None)
         pack.pop("_opening_fit", None)
         pack.pop("_season", None)
+        pack.pop("_sensitivity_fit", None)
 
     snapshot["counts"] = {
         "fixtures": len(kept_fixtures),
@@ -449,6 +462,15 @@ def _load_taxonomy() -> dict | None:
         return None
     with open(path, encoding="utf-8") as fh:
         return json.load(fh)
+
+
+def _safe_before(value: str | None, cutoff: datetime) -> bool:
+    if not value:
+        return False
+    try:
+        return _dt(value) < cutoff
+    except Exception:  # noqa: BLE001
+        return False
 
 
 def _dt(value: str) -> datetime:
