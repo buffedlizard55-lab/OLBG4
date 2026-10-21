@@ -82,6 +82,34 @@ pipeline and commits the refreshed snapshot.
 - Review page: 20 module claims checked against official endpoints, 5 row-level spot checks
   re-opened live, 9 irregularities found and handled.
 
+## Build K — `session-6b8d2d5f/` (final integration: verified command center, 48 fixtures)
+
+The last session takes the integration role the brief reserves for it: it re-opens the root hub row by row
+against official league endpoints, withdraws what the official data contradicts, and publishes a clean board
+containing **only** fixtures it could verify itself.
+
+- `session-6b8d2d5f/data.json` — 48 fixtures (NBA 27, NHL 17, MLB 4), each with the exact official URL and a
+  `retrievedAt` timestamp, verified inputs (records/points percentage), our own moneyline, handicap, and — only
+  where both clubs' GF/GA exist — a total. 3 High · 12 Medium · 27 Low.
+- `session-6b8d2d5f/predictions.html` — 6 write-ups (74–90 words), 3 of them high confidence, each quoting only
+  facts from the linked official payload.
+- `session-6b8d2d5f/verification.html` — the carry-over register for all 66 hub rows: 14 confirmed, 2 partial,
+  2 contradicted, 48 not re-verifiable from this sandbox.
+- `session-6b8d2d5f/flagged.html` — 11 findings (K-01 … K-11) with evidence links.
+- `session-6b8d2d5f/{build_data,build_pages,validate}.py` — reproducible build; `validate.py` exits non-zero on
+  a missing official source, an impossible price, an out-of-band overround, a short or duplicated prediction,
+  an after-the-fact line on a completed fixture, an excluded sport, or a broken local link.
+
+**Sources used (read 2026-10-21 UTC):** `nba.com/games` and `nba.com/schedule` (date pages),
+`api-web.nhle.com/v1/score/{date}` and `/v1/standings/2026-10-20`, `statsapi.mlb.com` schedule + standings.
+No bookmaker, aggregator or other build was read for any value.
+
+**Repairs made to the hub's published claims:** NBA02 (unsupported roster claim), NHL01 (Sharks "0-4" —
+they won 4-3 in OT), NHL06 (Bruins "1-3" — actually 7-2-1), EL02 (self-contradictory text), MLB01 (unverified
+ALCS/bullpen claims) — all five write-ups withdrawn and graded or flagged, with evidence on the Flagged page.
+Neither `data/rows.json` nor `data/predictions.json` was edited: the cross-session overwrite recorded by Board J
+(K-09) is left to the owning builds.
+
 ## Build J — `session-e1e0c27e/` (independent cross-build audit)
 
 Audits, does not originate. `scripts/session-e1e0c27e/audit.py` reads every build's committed
