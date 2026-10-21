@@ -270,9 +270,21 @@ def assign(rows):
     return rows
 
 
+SPORT_INPUT = {
+    "Ice Hockey": "NHL points % from the 21 Oct standings (all 32 clubs)",
+    "Basketball": "2026-27 W-L with a 6-game shrinkage prior",
+    "Baseball": "Final 2026 regular-season records, combined with log5",
+    "Darts": "No verified ranking feed captured — 50/50 prior",
+    "Handball": "No verified strength feed captured — 50/50 prior + home edge",
+    "Snooker": "Round-one frame scores where published, else 50/50",
+}
+
+
 def confidence_note(r, d, player_ok):
     if r["edge"] == 0:
-        return "Model has no edge (50/50 prior); pick is only the home side by the declared home edge."
+        return ("Model has no edge (50/50 prior); the pick is the first-listed side only and carries no model edge."
+                if r["sport"] in ("Darts", "Snooker")
+                else "Model has no edge; the pick is the home side on the declared home edge only.")
     if r["evidence"] == 0:
         return "Prior only: no verified strength input for either side."
     if r["evidence"] == 1:
@@ -722,7 +734,7 @@ def write_site(rows, preds, sources, stats, checks, conflicts, counts):
             f'<td class="num">{sum(1 for x in rs if x["confidence"]=="High")}</td>'
             f'<td class="num">{sum(1 for x in rs if x["confidence"]=="Medium")}</td>'
             f'<td class="num">{sum(1 for x in rs if x["confidence"]=="Low")}</td>'
-            f'<td class="small">{esc(rs[0]["rating_basis"])}</td></tr>')
+            f'<td class="small">{esc(SPORT_INPUT.get(r["sport"], rs[0]["rating_basis"]))}</td></tr>')
     body = f"""<h1 class="page">Overview</h1>
 <p class="lede">A single verified desk: {len(rows)} fixtures in the 21–27 October 2026 window across {len(by_sport)} sports,
 each traced to the official league or governing-body page it was read from. Lines are ours, produced by the documented
