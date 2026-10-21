@@ -38,7 +38,21 @@ jobs:
         run: python -m pipeline.selftest
 
       - name: Ingest, originate, verify, build
-        run: python -m pipeline.run --strict
+        run: |
+          set -o pipefail
+          python -m pipeline.run --strict 2>&1 | tee /tmp/pipeline.log
+
+      - name: Publish failure log
+        if: failure()
+        run: |
+          mkdir -p .ci
+          cp /tmp/pipeline.log .ci/last-run.log 2>/dev/null || true
+          tail -n 200 /tmp/pipeline.log 2>/dev/null || true
+          git config user.name "olbg-pipeline"
+          git config user.email "actions@users.noreply.github.com"
+          git add -f .ci/last-run.log 2>/dev/null || true
+          git commit -m "ci: capture failure log [skip ci]" 2>/dev/null || true
+          git push 2>/dev/null || true
 
       - name: Commit snapshot
         run: |

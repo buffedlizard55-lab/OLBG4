@@ -139,8 +139,11 @@ def fetch_training(start: datetime, end: datetime) -> tuple[list[dict], dict]:
         )
     except Exception:  # noqa: BLE001
         abbrs = []
-    seasons = {f"{start.year}{start.year + 1}", f"{end.year}{end.year + 1}"}
-    seasons |= {f"{y}{y + 1}" for y in range(start.year, end.year + 1)}
+    def season_of(dt: datetime) -> str:
+        year = dt.year if dt.month >= 7 else dt.year - 1
+        return f"{year}{year + 1}"
+
+    seasons = {season_of(start), season_of(end), season_of(start - timedelta(days=365))}
     results: list[dict] = []
     seen: set[str] = set()
     for abbr in abbrs:

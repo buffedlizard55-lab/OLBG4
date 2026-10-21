@@ -98,6 +98,12 @@ def fetch_bytes(url: str, headers: dict | None = None, cache_seconds: int = 0) -
                 }
             )
             return raw
+        except urllib.error.HTTPError as exc:
+            last_err = exc
+            if 400 <= exc.code < 500:  # client errors are deterministic; do not hammer
+                break
+            if attempt < config.HTTP_RETRIES:
+                time.sleep(min(2 ** attempt, 8))
         except Exception as exc:  # noqa: BLE001 - network layer
             last_err = exc
             if attempt < config.HTTP_RETRIES:

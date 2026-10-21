@@ -194,6 +194,7 @@ def main(argv: list[str] | None = None) -> int:
         provider_name = meta["provider"]
         provider = PROVIDERS[provider_name]
         entry = {"sport": sport, "league": meta["league"], "provider": provider_name}
+        print(f"[ingest] {meta['league']} fixtures…", flush=True)
         try:
             fixtures, fixture_sources = provider.fetch_fixtures(start, end, now)
             entry["fixture_sources"] = fixture_sources
@@ -207,6 +208,7 @@ def main(argv: list[str] | None = None) -> int:
                 detail=f"{meta['league']} fixture feed failed: {type(exc).__name__}: {exc}",
                 source_urls=[config.SPORTS[sport]["official_domains"][0]],
             )
+        print(f"[ingest] {meta['league']} completed results…", flush=True)
         try:
             results, train_meta = provider.fetch_training(
                 config.training_start(sport, now), now
@@ -259,6 +261,8 @@ def main(argv: list[str] | None = None) -> int:
                 "notes": opening.notes,
             },
         }
+        print(f"[model] {meta['league']} {current_fit.games} games, "
+              f"opening={opening.games} ({opening.kind})", flush=True)
         backtests[sport] = backtest(results, sport, now)
         models[sport]["backtest"] = backtests[sport]
 
@@ -399,7 +403,7 @@ def main(argv: list[str] | None = None) -> int:
     _json_dump(DATA / "flagged.json", findings.items)
     _json_dump(DATA / "snapshot.json", snapshot)
 
-    print(f"fixtures={len(kept_fixtures)} analysis={len(analysis_rows)} "
+    print(f"[publish] fixtures={len(kept_fixtures)} analysis={len(analysis_rows)} "
           f"predictions={len(prediction_rows)} findings={len(findings.items)}")
     print(f"hard_failures={verification['hard_failures']} "
           f"counts={json.dumps(snapshot['counts'])}")
@@ -492,4 +496,10 @@ def _form_summary(form: dict | None) -> dict | None:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except SystemExit:
+        raise
+    except Exception:  # noqa: BLE001 - top-level guard, traceback is the deliverable
+        traceback.print_exc()
+        raise SystemExit(1)
