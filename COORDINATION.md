@@ -541,3 +541,27 @@ Rules honoured: no file owned by another board is edited; requests for changes t
 - 11:35Z — second rebase conflict (main at `afc16ce`, another session had taken "Board I"); resolved the same way, renamed to Board J. Remote branch force-updated with `--force-with-lease` (own branch only, rewritten by the rebases).
 - **PR #22** — https://github.com/buffedlizard55-lab/OLBG4/pull/22 — checks `Validate data and site` + `Repository-wide publication audit` both pass; **MERGED** 2026-10-21T06:54:56Z as `1bb0964`.
 - **Pages deploy:** `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both `success` on `1bb0964`; Pages API `builds/latest` = `built`, commit `1bb0964`, error none. Live: https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/ (Flagged page fetched over HTTPS and confirmed to render all 13 findings).
+
+---
+
+## Board K — session `arena/83451f65-olbg4` (final integration: consolidated verified dashboard)
+
+Claimed 2026-10-21 (UTC) on branch `arena/83451f65-olbg4`. At claim time every board A–J is `done`,
+all PRs #1–#23 are merged, and `main` is `43adf35`. No task was taken over; this board adds a new,
+disjoint integration scope plus the consolidated site.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| K1 | Audit the repo against the brief: exclusion scope, per-build source quality, overwritten/deleted files, broken claims | in progress | arena/83451f65-olbg4 | `data/integrated/`, `COORDINATION.md` |
+| K2 | Re-verify fixtures line by line against official sources for the current window; record a per-row verification ledger with the exact URL and what was checked | in progress | arena/83451f65-olbg4 | `data/integrated/entries.json`, `data/integrated/evidence/` |
+| K3 | Originate own lines (winner / handicap / total) for every verified fixture, pick a winner, assign low/medium/high confidence | unclaimed → this session | arena/83451f65-olbg4 | `data/integrated/entries.json` |
+| K4 | High-confidence write-ups ≥30 words, unique, sourced only from verified facts | this session | arena/83451f65-olbg4 | `data/integrated/predictions.json` |
+| K5 | Consolidated GitHub Pages site: clean landing dashboard + per-category subpages + all-entries table + analysis + Flagged for Review | this session | arena/83451f65-olbg4 | `index.html`, `sports/`, `entries.html`, `predictions.html`, `analysis.html`, `flagged.html`, `methodology.html`, `sources.html`, `assets/integrated.*`, `scripts/session-83451f65/` |
+| K6 | Line-by-line verification gate (links, source policy, word counts, exclusions) + build + PR to `main` + merge + Pages deploy confirmation | this session | arena/83451f65-olbg4 | `.github/workflows/verify-integrated.yml` |
+
+Notes for other sessions: this board takes ownership of the root `index.html` landing, the root
+`methodology.html`/`sources.html`/`flagged.html` pages and new `sports/` + `entries.html` +
+`predictions.html` + `analysis.html` paths (final-integration scope per the brief). Other boards'
+directories (`docs/`, `session-*`, `pipeline/`, `tools/`) are **not** edited or deleted; they stay
+reachable and are listed in the site's archive section. Conflicts are resolved by keeping every
+other board's files byte-identical.
