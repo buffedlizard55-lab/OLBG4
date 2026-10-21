@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OLBG4 — Hub Dashboard: Verified Matches, Originated Lines & High-Confidence Picks</title>
-<meta name="description" content="OLBG4 — Six verified builds: gov-body-verified hub (66 entries, 15 high predictions), docs/ 144 rows, session-7114b6a1 116 OLBG-live fixtures, session-74f9613e 43 fixtures 182 selections. Every row sourced.">
+<meta name="description" content="OLBG4 — six builds. Hub (Build D): 66 entries, 32 of them matches, each row labelled with its source class; only governing-body-sourced rows are marked verified. docs/ 144 rows, session-7114b6a1 116 OLBG-live fixtures, session-74f9613e 43 fixtures 182 selections. Every row carries a source link; unconfirmed values are blank and flagged.">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
   .grid3 { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
@@ -21,7 +21,7 @@
       <div class="logo">OL</div>
       <div>
         <h1>OLBG<span>4</span> — Reverse Engineered</h1>
-        <p>Verified matches • Originated lines • No hallucinations • Every row sourced • 6 builds preserved</p>
+        <p>Originated lines • Every row sourced • Source class shown per row • 6 builds preserved</p>
       </div>
     </div>
     <nav class="nav">
@@ -36,7 +36,7 @@
 <main class="container">
   <!-- Four-build banner -->
   <div style="max-width:1280px;margin:12px auto 0;padding:14px 16px;border:1px solid #cddffd;background:#eaf1ff;border-radius:12px;font:14px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#12161c">
-    <b>Six verified builds are published here — nothing discarded.</b> This <b>hub (Build D)</b> is the primary dashboard (66 entries, governing-body verified, 15 high-confidence predictions — most exclusion-compliant). Other builds: <a href="docs/"><b>docs/</b></a> (Build A, 144 rows), <a href="session-7114b6a1/"><b>session-7114b6a1/</b></a> (Build B, 116 OLBG-live fixtures), <a href="session-74f9613e/"><b>session-74f9613e/</b></a> (Build C, 43 fixtures, 182 selections). A fifth, refreshable build lives at <a href="session-4afef1af/"><b>session-4afef1af/</b></a> (90 fixtures pulled from league APIs, 120 originated market families, 18 written predictions). A sixth build — the widest single sweep (17 sports, 140 matches + 24 outrights, every row verified against official sources) — lives at <a href="session-6e0f382d/"><b>session-6e0f382d/</b></a>. An independent publication audit of every build (claims vs evidence, local-link gate) is published at <a href="audit/"><b>audit/</b></a>. See <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md">COORDINATION.md</a> for the full merge log and <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md">README</a> for build comparisons.
+    <b>Six verified builds are published here — nothing discarded.</b> This <b>hub (Build D)</b> is the primary dashboard: 66 entries, of which <b>32 are matches</b> and the rest are tournaments, completed results or coverage notes (use the <b>Entry</b> filter). <b>43 rows link a governing body</b>; the other 23 link a secondary site and are flagged unverified rather than presented as confirmed. <b>2 high-confidence predictions</b> remain published — the 14 that could not be supported by an official source were withdrawn by the Board K remediation and are disclosed, with their text, on the <a href="flagged.html">Flagged for Review</a> page. Most exclusion-compliant build. Other builds: <a href="docs/"><b>docs/</b></a> (Build A, 144 rows), <a href="session-7114b6a1/"><b>session-7114b6a1/</b></a> (Build B, 116 OLBG-live fixtures), <a href="session-74f9613e/"><b>session-74f9613e/</b></a> (Build C, 43 fixtures, 182 selections). A fifth, refreshable build lives at <a href="session-4afef1af/"><b>session-4afef1af/</b></a> (90 fixtures pulled from league APIs, 120 originated market families, 18 written predictions). A sixth build — the widest single sweep (17 sports, 140 matches + 24 outrights, every row verified against official sources) — lives at <a href="session-6e0f382d/"><b>session-6e0f382d/</b></a>. An independent publication audit of every build (claims vs evidence, local-link gate) is published at <a href="audit/"><b>audit/</b></a>. See <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md">COORDINATION.md</a> for the full merge log and <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md">README</a> for build comparisons.
   </div>
 
   <!-- Portal cards (like main's portal) -->
@@ -71,26 +71,51 @@
       </a>
       <a class="portal-card" href="#hub-table" style="border-color:#0ea5e9;background:#f0f9ff">
         <h3>Build D — This hub (below) ⭐ Primary</h3>
-        <p>66 entries, 16 sports, 15 high-confidence predictions (68-105 words), gov-body verified (ATP, NBA, MLB, NHL, WST, PDC, PGA/LPGA, BWF, WTT/ITTF, FIVB). Most exclusion-compliant. Use the filterable table below.</p>
+        <p>66 entries, 16 sports. After the Board K remediation: <b>32 matches</b> (plus 28 tournament/round entries, 3 completed results, 3 notes), <b>43 rows on a governing-body source</b> (NBA, MLB, NHL, ATP/WTA, PGA/LPGA, Cricket Australia, PCB, ECB, EuroLeague, EHF/IHF, FIVB, ITTF/FFTT, PDC, WST, AFL, NRL/RLWC, Riot) and <b>2 high-confidence predictions</b> that survive line-by-line official verification. 14 predictions were withdrawn and are published with their text and reasons on the Flagged page. Most exclusion-compliant. Use the filterable table below.</p>
+      </a>
+      <a class="portal-card" href="session-47b1b4e2/" style="border-color:#15803d;background:#f0fdf4">
+        <h3>Board K remediation — session-47b1b4e2/ (what changed and why)</h3>
+        <p>Applies every high-severity Board J finding: Build A restored to its pre-overwrite 144 rows
+           and 12 hand-written predictions, Build B's broken renderer repaired, 26 hub rows downgraded
+           from verified, 14 predictions withdrawn, 14 rows corrected against governing-body pages
+           (NHL.com, MLB.com, PCB, ECB, EuroLeague, PDC, RLWC2026.com), and non-match entries separated
+           from the match table. Every change lists the official URL it was checked against.</p>
       </a>
       <a class="portal-card" href="session-e1e0c27e/" style="border-color:#b91c1c;background:#fef2f2">
         <h3>Audit (Board J) — session-e1e0c27e/ (read this first)</h3>
         <p>Independent line-by-line audit of builds A–E and G: 592 rows, every source link classified
            (official / OLBG / secondary), 18 row-level re-checks against official pages, 93 cross-build
-           overlaps, 13 findings. Note: 26 rows of this hub are still marked verified without an official source,
-           several hub predictions are contradicted by NHL.com / MLB.com / NRL.com, and a later session overwrote
-           Build A/B data files (F-11/F-12) — see its Flagged for Review page.</p>
+           overlaps, 13 findings. <b>All of its high-severity findings have now been remediated by Board K</b> —
+           the 26 rows verified without an official source are downgraded and flagged, the predictions
+           contradicted by NHL.com / MLB.com / RLWC2026.com are withdrawn, the wrong fixture fields
+           (CRK03, CRK05, MLB03, EL02, RL01) are corrected against governing-body pages, and Build A/B's
+           overwritten files (F-11/F-12) are restored. See its Flagged for Review page and the
+           <a href="session-47b1b4e2/">Board K remediation report</a>.</p>
       </a>
     </div>
   </section>
 
   <section class="hero" id="hub-table">
     <h2>Updated matches for every covered sport — excluding soccer, boxing, UFC/MMA, football, horse racing, cycling, hurling, specials</h2>
+    <div class="notice" style="margin-top:10px;border-left:4px solid #b45309;background:#fffbeb">
+      <strong>Reading the builds side by side? Board J finding F-06, reconciled.</strong>
+      Six independent builds in this repo modelled the same window with different inputs and different
+      models, so <strong>93 fixtures appear in two or more builds and 10 of them have opposite
+      match-winner picks</strong> — for example Charlotte Hornets v Brooklyn Nets on 21 Oct is a
+      <em>high-confidence Charlotte</em> pick in Build C and a <em>low-confidence Brooklyn</em> pick in
+      Build A. That is a genuine disagreement between models, not a data error, and no build has been
+      edited to hide it. Each build publishes its own model constants and its own source per row, so
+      the disagreement is auditable: compare the two rows' sources before treating either as a tip.
+      All 93 overlaps and the 10 conflicts are listed on
+      <a href="session-e1e0c27e/crossbuild.html">Board J's cross-build page</a>. Where this hub's own
+      rows were wrong, Board K corrected or withdrew them — see the
+      <a href="session-47b1b4e2/">remediation report</a>.
+    </div>
     <p>
       This hub reverse-engineers <a href="https://www.olbg.com" target="_blank" rel="noopener">OLBG.com</a> to provide a <strong>full, dated, sourced list</strong> of upcoming matches for the sports we cover.
       For each match we <strong>originate our own lines</strong> (moneyline, handicap/spread, total) and pick a match winner with <strong>Low / Medium / High</strong> confidence.
       High-confidence picks include a unique, human, 30+ word prediction with team, player, current form, recent head-to-head, and a clear betting selection.
-      <strong>Every row has an official source link.</strong> If a value can't be confirmed, it is left blank and flagged — never inferred.
+      <strong>Every row has a source link, and each row states whether that source is a governing body or a secondary site.</strong> Only governing-body-sourced rows are marked verified. If a value can't be confirmed on an official source, it is left blank and flagged — never inferred.
     </p>
     <div class="notice green" style="margin-top:12px">
       <strong>Verification commitment:</strong> Line-by-line verified 2026-10-21 against official sources (ATP Tour, NBA.com, MLB.com, NHL.com, WST, PDC, PGA TOUR, LPGA, BWF, WTT/ITTF, FIVB). Click any "Official source" link to manually review. Flagged entries are published on the <a href="flagged.html">Flagged for Review</a> page and do not block the site.
