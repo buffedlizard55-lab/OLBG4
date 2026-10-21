@@ -404,7 +404,7 @@ Session: arena/648c1a19-olbg4 | Branch: arena/648c1a19-olbg4 | Date: 2026-10-21
 | H1 | Take over Board E task E10 (integration: PR to main, merge, Pages deploy verification, record PR link + result here) — stale-claim handoff: Board E E10 has been "in progress" since the 2026-10-21T06:29Z snapshot with no further commits | in progress | arena/648c1a19-olbg4 | COORDINATION.md |
 | H2 | Pre-merge verification: pipeline selftest, internal link audit across all builds, JSON validity of all data files | done | arena/648c1a19-olbg4 | pipeline/, session-4afef1af/, *.json, *.html |
 | H3 | Confirm Build E portal card in root index.html and Build E section in README are present and additive (no Board A–D files touched) | done | arena/648c1a19-olbg4 | index.html, README.md |
-| H4 | Open PR arena/648c1a19-olbg4 → main, merge without waiting for approval, confirm GitHub Pages deploys, record PR link + merge result + Pages status here; mark E10 done | in progress | arena/648c1a19-olbg4 | COORDINATION.md |
+| H4 | Open PR arena/648c1a19-olbg4 → main, merge without waiting for approval, confirm GitHub Pages deploys, record PR link + merge result + Pages status here; mark E10 done | done | arena/648c1a19-olbg4 | COORDINATION.md |
 
 ### Coordination with the audit boards (07a080b9 Board F, 5fd34d30 Board F, ef72af9b Board G)
 
@@ -419,9 +419,9 @@ The audit boards re-ran structural checks over all committed data: 87 HTML files
 - Exclusions enforced site-wide: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials are not listed as priced matches.
 
 ### E10 integration log
-- PR: #14 (https://github.com/buffedlizard55-lab/OLBG4/pull/14)
-- Merge result: [pending]
-- GitHub Pages deploy: [pending — confirm after merge at https://buffedlizard55-lab.github.io/OLBG4/]
+- PR: #14 (https://github.com/buffedlizard55-lab/OLBG4/pull/14) — MERGED to `main` via `gh pr merge 14 --merge`, merge commit `b8fcf28af4f29ad9a44dd824ec9b48ab3047cf6e`. All checks success: Validate data and site, Deploy OLBG4 to GitHub Pages, pages build and deployment, Repository-wide publication audit.
+- GitHub Pages deploy: **success** — Pages status `built`, legacy build from `main` path `/`, live at https://buffedlizard55-lab.github.io/OLBG4/ (hub dashboard); sister builds at /docs/ (Build A), /session-7114b6a1/ (Build B), /session-74f9613e/ (Build C), /session-4afef1af/ (Build E pipeline desk), /audit/ (publication audit), /session-6e0f382d/ (Build G 17-sport sweep). Flagged for Review pages live per build.
+- E10 (Board E task E10 integration finish): **done** — handed off from stale claim (session 4afef1af), completed by session arena/648c1a19-olbg4 as Board H.
 
 Handoff note: no files owned by sessions A–D were modified; Board E's `pipeline/` and `session-4afef1af/` scope is unchanged. This session only appends to `COORDINATION.md`.
 
