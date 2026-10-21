@@ -625,4 +625,7 @@ Claimed: 2026-10-21 · Branch: `arena/e62da3b5-olbg4` (fixed Arena session branc
 - **Verification Gate (`python3 scripts/session-e62da3b5/build_and_verify.py`):**
   - 24 HTML pages generated in `session-e62da3b5/` (`index.html`, `markets.html`, `predictions.html`, `methodology.html`, `sources.html`, `repo-audit.html`, `flagged.html`, and 17 `sports/<slug>.html` pages).
   - 1,346 local links inside `session-e62da3b5/` checked (0 broken); repository-wide audit (`python3 scripts/audit_publication.py --check`) and Board C validation (`bash scripts/session-74f9613e/build_all.sh`) all pass with 0 broken links and 0 `TODO` placeholders.
+- **Pull Request & Publication:**
+  - PR [#29](https://github.com/buffedlizard55-lab/OLBG4/pull/29) (`arena/e62da3b5-olbg4` → `main`) — CI checks (`Validate data and site` + `Repository-wide publication audit` + `Deploy OLBG4 to GitHub Pages`) verified green; merged to `main` and published at https://buffedlizard55-lab.github.io/OLBG4/session-e62da3b5/ (Flagged for Review page: https://buffedlizard55-lab.github.io/OLBG4/session-e62da3b5/flagged.html).
+
 
