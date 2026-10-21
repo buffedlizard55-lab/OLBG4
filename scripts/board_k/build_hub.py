@@ -343,7 +343,7 @@ def write_verification_page(summary):
         <li>If they disagree, the row is wrong and the quote is on this page — open an issue with the row id.</li>
         <li>If a field is blank, it was not confirmable; it was not inferred or copied from another build.</li>
       </ol>
-      <p class="small">Limits: league feeds answer for their own sport only. Where a page is JavaScript-rendered or behind a consent wall (EuroLeague, PDC, NRL, World Rugby, lolesports, EHF), no value was taken from memory — the row is marked unverified.</p>
+      <p class="small">Limits: league feeds answer for their own sport only. Where a page is JavaScript-rendered, behind a consent wall or serves a different season (EuroLeague game centre and its season release, PDC, NRL Pacific Championships, EHF, lolesports, ATP/WTA, WTT, FIVB, PGA/LPGA, AFL), no value was taken from memory — the row is marked unverified. World Rugby and BWF did return fixtures and their values are quoted above.</p>
     </div>
   </section>'''
     (ROOT / "verification.html").write_text(
