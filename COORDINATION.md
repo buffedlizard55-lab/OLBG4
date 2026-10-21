@@ -233,7 +233,7 @@ section and this board.
 | E7 | Automation: probe + ingest + verify + build + commit, every six hours | done | `4afef1af` | `.github/workflows/olbg.yml` |
 | E8 | Line-by-line review log + row-level spot checks + irregularity register | done | `4afef1af` | `pipeline/review.py`, `session-4afef1af/review.html` |
 | E9 | Withholding floor: no market on a sample under 20 games per team | done | `4afef1af` | `pipeline/config.py`, `pipeline/run.py` |
-| E10 | Integration: portal card, PR, merge, Pages verification, this record | in progress | `4afef1af` | root `index.html`, `README.md`, `COORDINATION.md` |
+| E10 | Integration: portal card, PR, merge, Pages verification, this record | done | `4afef1af` | root `index.html`, `README.md`, `COORDINATION.md` |
 
 ### Verified snapshot (2026-10-21T06:22Z, run `39554706598`)
 
@@ -284,7 +284,22 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
 
-## Board F — session `arena/ef72af9b-olbg4`
+---
+
+## Board F — session `arena/5fd34d30-olbg4` (final audit + integration)
+
+Branch: `arena/5fd34d30-olbg4` | Date: 2026-10-21
+
+| Task | Status | Owner | File scope |
+|------|--------|-------|-----------|
+| Audit hub data: confidence labels, official-source rule, prediction word-count/uniqueness, links | done | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html`, `COORDINATION.md` |
+| Fix N/A confidence rows; flag non-official high-pick sources as unverified (blank verified, keep link) | done | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html` |
+| Integration: PR to main, merge, GitHub Pages verify | unclaimed | arena/5fd34d30-olbg4 | repo root |
+### Board F completion (2026-10-21)
+- Audit: 66 hub rows; fixed 7 `N/A` confidence rows → `Low` (EL03, ATP05, GLF01, BDM01, TTT01, VBL02, AFL01 — completed/off-season, no-bet).
+- Flagged 8 rows with secondary (non-official) sources as unverified: EL02, CRK04, RUG01, RUG02, RUG05, RUG06, NHL01, BDM02. Total flagged 16, verified 53. Published on `flagged.html` (dynamic from `data/matches.json`).
+- 15 high predictions unique, min 68 words, all sourced. 0 broken internal links. Site builds static (no build step); Pages deploys from `main`.
+## Board G — session `arena/ef72af9b-olbg4`
 
 This session uses its fixed Arena branch (rather than creating a session branch).
 
