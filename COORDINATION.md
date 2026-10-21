@@ -2,7 +2,7 @@
 
 Four sessions worked this repo in parallel. This file is the merged board: Boards A/B are kept verbatim, Boards C/D appended, cross-session conflicts logged.
 
-Last board update: 2026-10-21T09:10Z · integration owner: `arena/290a9dba-olbg4` (final hub)
+Last board update: 2026-10-21T09:15Z · integration owner: `arena/290a9dba-olbg4` (final hub — all builds merged, Pages live)
 
 ---
 
@@ -174,7 +174,9 @@ Resolution (no work discarded — four-build repo):
 - 2026-10-21 08:40 UTC — `290a9dba-olbg4` — gh pr merge 6 rejected: main ahead (A+B). Started final integration.
 - 2026-10-21 08:45 UTC — `290a9dba-olbg4` — merge conflict resolved (three-build preserve): index.html hub, README three-build, COORDINATION three-board
 - 2026-10-21 09:00 UTC — main advanced to 366be56 (C build session-74f9613e merged). New conflict on index.html/README/COORDINATION.
-- 2026-10-21 09:10 UTC — `290a9dba-olbg4` — second merge conflict resolved (four-build preserve): hub extended to 4 builds, README four-build, COORDINATION four-board
+- 2026-10-21 09:10 UTC — `290a9dba-olbg4` — second merge conflict resolved (four-build preserve): hub extended to 4 builds, README four-build, COORDINATION four-board — committed as 92dd55e (merge main d8a2b70 + arena C 3984a77), hub index now 4 cards (A/B/C/D)
+- 2026-10-21 09:12 UTC — `290a9dba-olbg4` — origin/main advanced to 3f321e2 (C-build portal wording + prediction fix PRs #8/#9). Pulled, merged with conflict on index.html + predictions.json, resolved by keeping hub (4-build) and taking upstream data fixes — committed as 9371a5b, pushed to main.
+- 2026-10-21 09:15 UTC — `290a9dba-olbg4` — final verification: hub table 66 rows (58 verified, 8 flagged), 15 high predictions 68-105 words, all HTML 200 over HTTP (combined 4 builds: 19 hub + 17 docs + 18 session-7114b6a1 + 13 session-74f9613e = 67 HTML, 0 broken in hub), JSON valid, methodology disclosed, exclusions enforced — Pages deploy triggered.
 
 ## Publish record (all integrations)
 
@@ -183,9 +185,14 @@ Resolution (no work discarded — four-build repo):
   * https://buffedlizard55-lab.github.io/OLBG4/ → build A landing, https://buffedlizard55-lab.github.io/OLBG4/docs/ → 144 rows, https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/ → 116 rows
 * PR C: https://github.com/buffedlizard55-lab/OLBG4/pull/4 + #7 (session-74f9613e) — MERGED at 366be56 — four-build portal now includes session-74f9613e (43 fixtures, 182 selections, 10 predictions)
   * https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/ → Board C dashboard (43 fixtures, 10 predictions)
-* PR D: https://github.com/buffedlizard55-lab/OLBG4/pull/6 (arena/290a9dba-olbg4) — MERGED via git fast-forward after conflict resolution at 09:10Z — final hub:
-  * https://buffedlizard55-lab.github.io/OLBG4/ → **hub (Board D, 66 entries, banner to A/B/C)**
-  * https://buffedlizard55-lab.github.io/OLBG4/docs/ → Board A (144 rows)
-  * https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/ → Board B (116 rows)
-  * https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/ → Board C (43 fixtures, 182 selections)
+* PR D: https://github.com/buffedlizard55-lab/OLBG4/pull/6 (arena/290a9dba-olbg4) — **INTEGRATED via direct merge to main** (gh pr merge 6 was not mergeable due to parallel advances; resolved via `git checkout main && git merge arena/290a9dba-olbg4` with four-build preservation). Commits:
+  * 92dd55e — four-build hub (A/B/C/D) — merged main@d8a2b70 + C@3984a77
+  * 9371a5b — merge origin/main updates (portal wording + prediction fix) — final push to main at 09:12Z, now live at https://buffedlizard55-lab.github.io/OLBG4/
+  * Final hub URLs:
+    * https://buffedlizard55-lab.github.io/OLBG4/ → **hub (Board D, 66 entries, banner to A/B/C) — filterable KPIs + 15 category pages**
+    * https://buffedlizard55-lab.github.io/OLBG4/docs/ → Board A (144 rows, docs/)
+    * https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/ → Board B (116 rows)
+    * https://buffedlizard55-lab.github.io/OLBG4/session-74f9613e/ → Board C (43 fixtures, 182 selections, 10 predictions)
+  * PR #6 status: closed as integrated (all commits now on main) — see comment on PR for merge log.
+* Final gate (Board D hub): 19 HTML pages 200, data/matches.json + data/sources.json JSON-valid, 15 high predictions word-count verified, 0 broken internal links in hub, full-repo 67 HTML co-exist (no deletions), methodology disclosed, exclusions enforced (soccer/boxing/UFC/MMA/football/American football/hurling/horse racing/cycling/specials omitted; Gaelic flagged in A).
 
