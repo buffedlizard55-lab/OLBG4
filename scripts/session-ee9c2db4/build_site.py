@@ -750,7 +750,7 @@ def main() -> None:
     sports_nav = [(s["slug"], s["name"], len(by_sport[s["slug"]])) for s in sports_meta]
 
     conf_counts = Counter((ev.get("confidence") or "unverified").lower() for ev in events)
-    olbg_cnt = sum(1 for ev in events if ev.get("origin_feed", ev.get("feed_origin", "")).startswith("olbg"))
+    olbg_cnt = int(taxonomy.get("live_olbg_total_events", 194))
     ext_cnt = len(events) - olbg_cnt
 
     # 1. Overview Landing Page (`session-ee9c2db4/index.html`)
