@@ -613,6 +613,19 @@ def main() -> None:
         t = re.sub(r"[^a-z %]+", " ", t)
         return " ".join(t.split()[:14])
 
+    def frame_of(text: str, home: str, away: str, venue: str) -> str:
+        t = (text or "").lower()
+        for name in (home, away, venue):
+            if name:
+                t = t.replace(name.lower(), " team ")
+        t = re.sub(r"[-+]?\d+([.,]\d+)?%?", " n ", t)
+        t = re.sub(r"[^a-z ]+", " ", t)
+        return " ".join(t.split()[:6])
+
+    frame_counts = Counter()
+    for r in master:
+        if r["prediction"]:
+            frame_counts[frame_of(r["prediction"], r["home"], r["away"], r.get("venue") or "")] += 1
     skels2 = Counter(skeleton2(r["prediction"], r["home"], r["away"]) for r in master if r["prediction"])
     by_build_pred = defaultdict(list)
     for r in master:
@@ -642,7 +655,14 @@ def main() -> None:
             reasons.append(f"the same opening sentence appears on {skels2[sk]} rows")
         if max_sim >= 0.55:
             reasons.append(f"it is {max_sim:.0%} identical to another write-up from the same build")
-        r["prediction_style"] = "templated" if reasons else "written"
+        if reasons:
+            r["prediction_style"] = "templated"
+        else:
+            # A "model-generated summary" is unique prose but built from one of a handful of frames:
+            # strip team names, numbers and the venue, and the opening words repeat across rows.
+            frame = frame_of(r["prediction"], r["home"], r["away"], r.get("venue") or "")
+            r["prediction_style"] = "model-generated" if frame_counts[frame] >= 3 else "written"
+            r["prediction_frame"] = frame
         r["prediction_similarity"] = round(max_sim, 3)
         if reasons:
             r["flags"].append({"kind": "templated-prediction",
@@ -717,6 +737,11 @@ def main() -> None:
         if not row["pick"]:
             row["flags"].append({"kind": "no-pick",
                                  "text": "No pick originated: the originating build could not verify enough inputs."})
+        m = re.search(r"(20\d{2})[-/](\d{2})[-/](\d{2})", row.get("source_url") or "")
+        if m and row["date"] and f"{m.group(1)}-{m.group(2)}-{m.group(3)}" != row["date"]:
+            row["flags"].append({"kind": "source-url-date-differs",
+                                 "text": f"The cited page's URL carries {m.group(1)}-{m.group(2)}-{m.group(3)} while the row is "
+                                         f"dated {row['date']} — usually a UTC-versus-local rollover. Both values are left as recorded."})
         if not row["prediction"] and row["confidence"] == "High":
             row["flags"].append({"kind": "missing-prediction",
                                  "text": "High-confidence row with no written prediction in the source build."})
@@ -799,6 +824,7 @@ def main() -> None:
         "rows_with_pick": sum(1 for r in in_scope if r["pick"]),
         "rows_with_prediction": sum(1 for r in in_scope if r["prediction"]),
         "rows_with_written_prediction": sum(1 for r in in_scope if r["prediction"] and r["prediction_style"] == "written"),
+        "rows_with_model_generated_prediction": sum(1 for r in in_scope if r["prediction_style"] == "model-generated"),
         "rows_with_templated_prediction": sum(1 for r in in_scope if r["prediction_style"] == "templated"),
         "high_with_written_prediction": sum(1 for r in in_scope if r["confidence"] == "High"
                                             and r["row_type"] == "fixture" and r["prediction_style"] == "written"),

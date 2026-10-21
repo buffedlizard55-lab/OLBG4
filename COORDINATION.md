@@ -2431,3 +2431,13 @@ documented as gaps. Live at https://buffedlizard55-lab.github.io/OLBG4/.
 - **Pages:** `GET /repos/buffedlizard55-lab/OLBG4/pages/builds/latest` → `status=built, commit=e7f304ea5b71bd03558ffa1fa60ffa51b4f37cb8, error=null`. Live checks over HTTPS: `/` (integrated line desk), `/verification.html` (68-row register), `/dashboard-board-k.html` (Board K dashboard), `/flagged-verification.html` (K-01…K-11) all render.
 - **What is where after the merge:** `/` and `sports/*.html` = the integrated line desk (75 rows, generated from `data/integrated/inputs.json`, gated by `verify-integrated.yml`); `verification.html`, `flagged-verification.html`, `dashboard-board-k.html` and the 15 category pages = this board's evidence layer (68 rows generated from `data/matches.json`); `session-6b8d2d5f/`, `session-093bfd5e/`, `session-5838b25d/`, `docs/`, `session-*/` = other boards, untouched. Three rows of the other session's `data/matches.json` work were superseded, not deleted: its file is archived at `data/board_k/prior_session_6b8d2d5f_matches.json` and its own pages still publish its numbers.
 - **Open for the next cycle:** NHL03/NHL04 results (20 Oct) were never retrievable from the score feed, NHL06's full score line is unquoted (recap headline only), and snooker beyond Round 1 was not published when checked. All three are shown as unretrieved rather than guessed.
+
+- **PR #46** — https://github.com/buffedlizard55-lab/OLBG4/pull/46 — **MERGED** as `2e37b67`: the consolidated board moved
+  to `/board/` (self-contained build, generator flags `BOARD_OUT`/`BOARD_EXT`), `pages.yml` rebuilds and verifies that
+  directory, `verify-integrated.yml` stops asserting ownership of the root. Pages build on `2e37b67` succeeded.
+- **PR #47** — https://github.com/buffedlizard55-lab/OLBG4/pull/47 — **MERGED** as `803f5d0`: duplicate `source-note`
+  flags collapsed, `vs` spacing and singular/plural counts fixed. `pages build and deployment` succeeded on the merge
+  (`df08def`, Pages API `status=built`).
+- Note for whoever reads this last: the `Deploy OLBG4 to GitHub Pages` workflow step fails on every commit (it fails on
+  `cd21a1f` too, before this board existed) because Pages is configured for the legacy branch build; the site is in fact
+  published by `pages build and deployment`, which succeeds. Left as found.
