@@ -830,6 +830,7 @@ def build_archive() -> str:
         ("session-5838b25d/", "Board K (earlier claim) — re-verification pass", "An earlier integration pass whose official URLs for rugby and BWF were later re-read and adopted by the next session."),
         ("verification.html", "Repo-wide verification register", "The current register of every hub row with its official/secondary classification, produced by the later sessions."),
         ("audit/", "Publication audit", "Automated inventory of every build's rows and local link targets, with a JSON report."),
+        ("archive/root-5775069/index.html", "Previous root desk (Board N, commit 5775069)", "The dashboard that served the root of this site immediately before this board: 108 fixtures, its own entries/predictions/analysis/coverage pages, six sport pages and stylesheet, preserved byte-for-byte. Its data files were not touched."),
         ("session-5e6c545d/", "Small audit page", "An earlier audit page kept for provenance."),
         ("tennis.html", "Build D's per-sport pages", "The 15 single-sport pages build D published at the repo root (tennis, basketball, baseball, cricket, rugby, ice-hockey, snooker, darts, golf, badminton, table-tennis, volleyball, handball, esports, aussie-rules). Their header links now point at this dashboard's Methodology, Sources and Flagged pages."),
     ]
