@@ -283,3 +283,13 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
   (win-count clauses, indefinite articles, no duplicated selection sentence).
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
+
+## Board F — session `arena/ef72af9b-olbg4`
+
+This session uses its fixed Arena branch (rather than creating a session branch).
+
+| Task | Status | Owner | File scope |
+|---|---|---|---|
+| Repository-wide publication audit and local-link gate; disclose unsupported verification claims | in progress | arena/ef72af9b-olbg4 | `scripts/audit_publication.py`, `audit/`, `.github/workflows/audit.yml`, `COORDINATION.md` |
+
+Other builds and the active E integration claim are not modified. Official sports websites cannot be reached through sandbox shell egress; prior verification claims are not accepted as fresh verification. Findings will distinguish structural validation from official factual verification.
