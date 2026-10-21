@@ -32,7 +32,8 @@ COUNTS = E["counts"]
 NAV = [("index.html", "Dashboard"), ("entries.html", "All fixtures"), ("predictions.html", "High-confidence picks"),
        ("analysis.html", "Analysis"), ("coverage.html", "Coverage"), ("methodology.html", "Method"),
        ("sources.html", "Sources"), ("flagged.html", "Flagged for review"), ("archive.html", "Archive"),
-       ("verification.html", "Verification register (Board K)"), ("dashboard-board-k.html", "Evidence dashboard (Board K)")]
+       ("verification.html", "Verification register (Board K)"), ("dashboard-board-k.html", "Evidence dashboard (Board K)"),
+       ("board/index.html", "Consolidated board (Board P)"), ("session-ee9c2db4/index.html", "All 17 sports desk · 268 events (Board Q)")]
 
 
 def layout(title, body, active="", subtitle=""):
@@ -200,7 +201,17 @@ def build_index():
   Sports excluded by the brief (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials)
   are not present anywhere in this dataset.</p>
   <div class="cta"><a class="btn primary" href="entries.html">Open the full table</a>
-  <a class="btn" href="predictions.html">Read the {len(P["predictions"])} high-confidence write-ups</a></div>
+  <a class="btn" href="predictions.html">Read the {len(P["predictions"])} high-confidence write-ups</a>
+  <a class="btn" href="session-ee9c2db4/index.html">Open All-17-Sports Desk (268 events · 696 books · 38 High picks)</a></div>
+</section>
+<section class="notebox">
+  <strong>Complete 28-Slot OLBG Reverse-Engineering &amp; 17-Sport Multi-Market Desk (<a href="session-ee9c2db4/index.html">Board Q · session-ee9c2db4</a>).</strong>
+  268 verified events across all 17 in-scope OLBG sports (all 194 live OLBG matches &amp; outrights incl. +54 sub-feed discoveries + 74 official-API NBA/NHL/MLB week-ahead fixtures),
+  <a href="session-ee9c2db4/markets.html">696 complete probability books (&Sigma;p = 1.0000)</a>,
+  <a href="session-ee9c2db4/predictions.html">38 bespoke human High-confidence analyses</a>,
+  <a href="session-ee9c2db4/repo-review.html">618-row line-by-line repo review</a>, and
+  <a href="session-ee9c2db4/flagged.html">39 flagged irregularities</a> · also see
+  <a href="board/index.html">Board P Master Board (/board/)</a> and <a href="docs/desk/index.html">Board N Desk (/docs/desk/)</a>.
 </section>
 <section class="kpis">
   {kpi(len(ENTRIES), "verified fixtures", "every row carries an official link")}
@@ -537,6 +548,10 @@ pages — and are labelled as such on <a href="archive.html">Archive</a>.</p>
 
 def build_archive():
     builds = [
+        ("session-ee9c2db4/", "Board Q · 268 events across all 17 sports", "Complete 28-slot OLBG reverse-engineering + 696 vigorish-free market books (sum(p)=1.0000), 38 human High-confidence analyses (66-101w), NBA 1230=1230 & NHL 936=936 checks, 618-row line-by-line repo review, and 39 flagged items."),
+        ("board/", "Board P · consolidated 312-row master board", "Deduplicated multi-build master board published at /board/ with 18 sport pages and conflict register."),
+        ("docs/desk/", "Board N · 108-fixture verified desk", "108 official-sourced fixtures across 6 sports (NHL, NBA, MLB, PDC, EHF, WST) with 5 High-confidence write-ups."),
+        ("session-e62da3b5/", "Board M · 17-sport multi-market desk", "196 entries across 17 OLBG sports, 45 High-confidence predictions, and Build G line/attribution fixes."),
         ("docs/", "Build A · 137 rows", "Dashboard in docs/, data/rows.json. Governing-body sources for most rows; a later commit dropped its Gaelic rows and replaced its predictions, which is logged as F-02/F-12."),
         ("session-7114b6a1/", "Build B · 116 fixtures", "Rows sourced from OLBG event pages, not governing bodies; tipster-consensus confidence."),
         ("session-74f9613e/", "Build C · 43 fixtures", "Five sports, 182 selections, 10 predictions with per-claim sources."),

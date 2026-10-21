@@ -348,3 +348,11 @@ Published alongside the integrated line desk that serves `/`:
 - `flagged-verification.html` — findings K-01…K-11, including the withdrawn prediction archive and the cross-session collisions.
 - `dashboard-board-k.html` — the Board K dashboard built directly from `data/matches.json` (3 high + 2 medium write-ups).
 - `data/board_k/` — `evidence.json`, `verification.json`, `withdrawn_predictions.json`, plus archives of the other sessions' hub data files.
+
+---
+
+## Board Q — Complete 28-Slot OLBG Reverse-Engineering, 268-Event All-17-Sport Multi-Market Desk & 618-Row Repo Review (`session-ee9c2db4/`)
+
+- **Live URL:** https://buffedlizard55-lab.github.io/OLBG4/session-ee9c2db4/
+- **Reproducible pipeline:** `bash scripts/session-ee9c2db4/run_all.sh`
+- **Coverage & Markets:** 28 OLBG sport slots reverse-engineered (`17` in-scope, `7` excluded = `0` rows, `4` unassigned); **268 verified events** (`194` live OLBG matches/outrights incl. `+54` hidden sub-feed fixtures + `74` official-API week-ahead NBA/NHL/MLB games); **696 complete vigorish-free market books (`sum(prob) == 1.0000`)** with runtime closed-league checks (**NBA `1,230=1,230`**, **NHL `936=936`**); **38 bespoke human High-confidence analyses** (`66–101` words, mean `78.0w`, `0.0391` max 3-gram Jaccard); **618-row line-by-line repo review** & **39 flagged items** (`2,863/2,863` rows with official `https://` links, `0` broken links).
