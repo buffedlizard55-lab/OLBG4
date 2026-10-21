@@ -1,5 +1,5 @@
 {
-  "probed_utc": "2026-10-21T05:53:50+00:00",
+  "probed_utc": "2026-10-21T06:03:05+00:00",
   "results": [
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
@@ -136,7 +136,7 @@
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
       "status": 200,
-      "bytes": 7389135,
+      "bytes": 7389136,
       "season_year": "2026-27",
       "game_dates": 174,
       "games": 1274,
@@ -156,6 +156,38 @@
       "regular_season_games": 1206,
       "first_game_utc": "2026-10-03T23:00:00Z",
       "last_game_utc": "2027-04-12T00:30:00Z"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_2.json",
+      "status": 200,
+      "bytes": 3636904,
+      "season_year": "2026-27",
+      "game_dates": 174,
+      "games": 1274,
+      "completed": 70,
+      "regular_season_games": 1206,
+      "first_game_utc": "2026-10-03T23:00:00Z",
+      "last_game_utc": "2027-04-12T00:30:00Z"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_3.json",
+      "status": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_4.json",
+      "status": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_2025.json",
+      "status": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://cdn.nba.com/static/json/staticData/schedule_2025.json",
+      "status": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     }
   ],
   "note": "Diagnostic only. A 403/000 here means the runner could not reach that official endpoint; the pipeline then reports the provider as unavailable instead of substituting an unofficial source."
