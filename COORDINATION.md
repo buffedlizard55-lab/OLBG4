@@ -295,7 +295,7 @@ Claimed: 2026-10-21 · Branch: `arena/07a080b9-olbg4` · Scope (non-overlapping)
 | F1 | Claim board | done | 07a080b9 | COORDINATION.md |
 | F2 | Line-by-line audit: JSON validity, source links, exclusions, prediction word-count/uniqueness, internal links (all builds) | done | 07a080b9 | `session-07a080b9/` |
 | F3 | Publish audit + flagged-for-review page | done | 07a080b9 | `session-07a080b9/` |
-| F4 | PR to main, merge, confirm Pages deploy | in progress | 07a080b9 | — |
+| F4 | PR to main, merge, confirm Pages deploy | done | 07a080b9 | — |
 
 ### Board F results (2026-10-21)
 - Audit: `session-07a080b9/audit.py` checks committed data only, nothing inferred. Stats: D 66 rows, 15 High, min 68 words, 0 duplicates, 0 excluded sports, all sourceUrl present; A 144 rows all sourced; B 116 rows, 9 predictions; C 43 fixtures/10 predictions; E 90 fixtures/18 predictions, all with `source_urls`.
@@ -334,3 +334,8 @@ Other builds and the active E integration claim are not modified. Official sport
 - Checks: pipeline offline self-test 24/24; Board C rebuild and validation pass with no generated diff; audit unit tests 4/4; all-repository local target scan 1,624 targets, zero missing. These are structural checks, **not** verification of external sports facts, external URL status or fragment anchors.
 - Parallel scope request: PR #12 is open from another session and touches shared publication files. Do not edit its scope. Its integration owner should add a prominent link to `audit/` and remove blanket “verified” claims until claim-level checks exist. This session publishes the audit independently rather than overwrite that session's landing/navigation work.
 - Initial claim push: the new remote branch did not yet exist, so `git pull --rebase origin arena/ef72af9b-olbg4` failed. Rebased against `origin/main`, then pushed only the fixed session branch successfully; no merge conflict or discarded work.
+
+### Board F publish record (07a080b9)
+- PR: https://github.com/buffedlizard55-lab/OLBG4/pull/17 — MERGED 2026-10-21T06:43:48Z (merge required resolving COORDINATION.md conflict with origin/main's additive Board F/G session — both preserved, no work discarded; audit re-run after merge: 88 HTML, 1,578 links, 0 broken).
+- Pages: build `d675651` status **built**; live audit at https://buffedlizard55-lab.github.io/OLBG4/session-07a080b9/ verified via fetch.
+- F4 status: done.
