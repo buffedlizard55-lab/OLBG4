@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repository Reproducibility Audit · OLBG</title>
+<style>
+:root{color-scheme:light;--ink:#17212b;--muted:#5d6b78;--line:#dce4e8;--bg:#f4f7f8;--card:#fff;--green:#087f5b;--amber:#9a5b00;--red:#a93226;--navy:#102b3f}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}header{background:var(--navy);color:#fff;padding:36px max(24px,calc((100vw - 1080px)/2))}header p{color:#c5d6df;margin:.4rem 0 0}main{max-width:1080px;margin:28px auto;padding:0 20px 50px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-size:.75rem;color:#87c7b3}h1{margin:.2rem 0;font-size:clamp(1.8rem,4vw,2.7rem)}h2{font-size:1.3rem;margin:0 0 .6rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px;margin:18px 0 26px}.card,section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}.metric{font-size:1.75rem;font-weight:750;line-height:1.2}.label{font-size:.88rem;color:var(--muted)}section{margin:14px 0}.status{display:inline-block;border-radius:999px;padding:3px 10px;font-size:.78rem;font-weight:750}.pass{background:#e4f5ed;color:#056644}.review{background:#fff1db;color:#804600}.fail{background:#fce8e6;color:#922b21}table{border-collapse:collapse;width:100%;margin:.6rem 0}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--line)}th{font-size:.82rem;color:#45545f}a{color:#075f9c;overflow-wrap:anywhere}code{background:#edf1f3;padding:.1rem .3rem;border-radius:4px}ul{padding-left:1.2rem}.note{border-left:4px solid #d49428;padding:10px 14px;background:#fff8eb}footer{color:var(--muted);font-size:.85rem;margin:25px 0} @media(max-width:650px){table,tbody,tr,td{display:block}thead{display:none}tr{border-bottom:1px solid var(--line);padding:8px 0}td{border:0;padding:5px 3px}td:before{content:attr(data-label) ': ';font-weight:700}}
+</style>
+</head>
+<body>
+<header><div class="eyebrow">OLBG · Independent repository check</div><h1>Reproducibility audit</h1><p>Reviewable technical checks of the committed snapshots and build tools. This is not a fresh fixture feed or a claim that every sporting fact was re-verified today.</p></header>
+<main>
+<div class="grid" aria-label="Audit summary">
+<div class="card"><div class="metric">24</div><div class="label"><span class="status pass">PASS</span> pipeline self-tests</div></div>
+<div class="card"><div class="metric">452</div><div class="label"><span class="status pass">PASS</span> publication rows inventoried</div></div>
+<div class="card"><div class="metric">3,085</div><div class="label"><span class="status pass">PASS</span> local targets checked · 0 broken / stale</div></div>
+<div class="card"><div class="metric">1</div><div class="label"><span class="status review">REVIEW</span> historical audit script cannot replay in this checkout</div></div>
+</div>
+<section><h2>Checks performed</h2>
+<table><thead><tr><th>Check</th><th>Result</th><th>Evidence</th></tr></thead><tbody>
+<tr><td data-label="Check">Model and site self-tests</td><td data-label="Result"><span class="status pass">PASS</span> 24 checks</td><td data-label="Evidence"><a href="../pipeline/selftest.py">pipeline/selftest.py</a></td></tr>
+<tr><td data-label="Check">Build C source, model, and page validation</td><td data-label="Result"><span class="status pass">PASS</span> 43 fixtures · 182 market selections · 10 high-pick narratives</td><td data-label="Evidence"><a href="../scripts/session-74f9613e/build_all.sh">build_all.sh</a> and <a href="../scripts/session-74f9613e/validate.py">validate.py</a></td></tr>
+<tr><td data-label="Check">Build B row/source and local-link verifier</td><td data-label="Result"><span class="status pass">PASS</span> 116/116 rows sourced · 275 local links · 0 broken</td><td data-label="Evidence"><a href="../scripts/verify.py">scripts/verify.py</a> · <a href="../data/verification.json">verification.json</a></td></tr>
+<tr><td data-label="Check">Repository publication inventory</td><td data-label="Result"><span class="status pass">PASS</span> 452 rows · 3,085 targets · 0 broken or stale</td><td data-label="Evidence"><a href="../scripts/audit_publication.py">audit_publication.py</a> · <a href="../audit/report.json">report.json</a></td></tr>
+<tr><td data-label="Check">Audit boundary tests</td><td data-label="Result"><span class="status pass">PASS</span> 4 unit tests</td><td data-label="Evidence"><a href="../audit/test_audit.py">test_audit.py</a></td></tr>
+<tr><td data-label="Check">Cross-build row-level audit replay</td><td data-label="Result"><span class="status review">REVIEW</span> Could not complete</td><td data-label="Evidence"><a href="../scripts/session-e1e0c27e/audit.py">session-e1e0c27e/audit.py</a> lines 126–131 require a historical object.</td></tr>
+</tbody></table>
+</section>
+<section><h2>Flagged for review · historical object dependency</h2>
+<p>The standalone cross-build audit stops at line 130 while executing <code>git show 5918922:data/predictions.json</code>. In this checkout, <code>git cat-file -e 5918922^{commit}</code> fails; the repository reports itself as shallow. The script does not check the <code>git show</code> exit status before parsing stdout, so the result is a JSON decode exception and the remaining audit is not run.</p>
+<div class="note"><strong>Recommended owner-side fix:</strong> read the already-present, build-scoped <a href="../data/session-7114b6a1/predictions.json">data/session-7114b6a1/predictions.json</a> (9 prediction entries) as the fallback, or explicitly fetch the required historical commit and fail with a clear diagnostic if unavailable. This audit did not edit that script or another session's files.</div>
+<p>This failure is specific to the standalone Board J audit tool. It is not a failure of the active repository-wide CI workflow: <a href="../.github/workflows/audit.yml">audit.yml</a> runs the boundary tests and <code>scripts/audit_publication.py</code>, not that standalone script. The publication audit passes in this checkout.</p>
+</section>
+<section><h2>Scope and limitations</h2>
+<ul><li>No fixture schedule or live odds were fetched in this audit. Existing sporting records remain snapshots; inspect each row's cited official source before relying on it.</li><li>The static publication audit checks internal links and consistency mechanics, not whether each external official page still agrees with each dated value.</li><li>For the previous independent row/source-domain review and its flagged sporting discrepancies, see <a href="../session-e1e0c27e/index.html">Board J audit</a> and <a href="../session-e1e0c27e/flagged.html">Board J Flagged for Review</a>.</li><li>Source URLs are carried with the published match rows; this technical page intentionally does not add or infer match facts.</li></ul>
+</section>
+<footer>Run date: 2026-10-21 UTC · Branch: arena/5838b25d-olbg4 · Audit performed against the checked-out repository snapshot.</footer>
+</main></body></html>

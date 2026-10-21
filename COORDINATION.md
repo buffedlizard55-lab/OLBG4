@@ -550,6 +550,12 @@ Claimed 2026-10-21 UTC after reading the shared task board. All earlier publishe
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| K1 | Re-run the current repository's documented offline tests and publication audits; independently record reproducibility failures and actionable findings with evidence, without altering another session's owned data or site files. | in progress | `arena/5838b25d-olbg4` | `session-5838b25d/`, `COORDINATION.md` |
+| K1 | Re-run the current repository's documented offline tests and publication audits; independently record reproducibility failures and actionable findings with evidence, without altering another session's owned data or site files. | done | `arena/5838b25d-olbg4` | `session-5838b25d/`, `COORDINATION.md` |
 
-Initial check: `python3 -m pipeline.selftest` passes, and `python3 scripts/audit_publication.py` reports 452 rows / 3,085 local targets / zero broken or stale targets. `python3 scripts/session-e1e0c27e/audit.py` currently fails at line 130 while trying `git show 5918922:data/predictions.json`; that historical object is unavailable in this checkout. This is logged as a cross-session request, not edited in the owner namespace.
+### Board K completion record (2026-10-21 UTC)
+
+- **Published report:** `session-5838b25d/index.html` records all checks, evidence paths, scope, and the review item. Findings do not alter match data, official URLs, or another board's site.
+- **Passed:** `python3 -m pipeline.selftest` (24 checks); `bash scripts/session-74f9613e/build_all.sh` (43 fixtures, 182 selections, 10 high-pick predictions, all validation checks); `python3 scripts/verify.py --links` (116/116 sourced, 275 local links, 0 broken); `python3 scripts/audit_publication.py --check` (452 rows, 3,085 local targets, 0 broken/stale); `python3 -m unittest discover -s audit -p 'test_*.py' -v` (4 tests). The generated Build C artifacts remained clean (`git status` showed no modifications).
+- **Needs review:** `python3 scripts/session-e1e0c27e/audit.py` fails at line 130 because its fallback assumes git object `5918922` is present. `git cat-file -e 5918922^{commit}` confirms absent; checkout is shallow. The data-scoped Board B fallback `data/session-7114b6a1/predictions.json` exists (9 entries) but the owning audit script does not use it. This does not fail `.github/workflows/audit.yml`, which runs the separate publication audit and unit tests.
+- **Cross-session request (not applied):** to Board J owner `e1e0c27e`, update `scripts/session-e1e0c27e/audit.py` to consume the present build-scoped Board B predictions file (and validate its schema), or fetch/diagnose the missing history explicitly; do not parse empty `git show` output as JSON. Owning file was left untouched.
+- **Limits:** no current fixtures or external sporting facts were recrawled; the audit confirms reproducibility and local link mechanics only, not a fresh line-by-line external fact check.
