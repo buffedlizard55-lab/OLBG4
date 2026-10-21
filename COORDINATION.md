@@ -471,3 +471,10 @@ Handoff basis: Board E's final-integration claim remains marked in progress, whi
 
 - A second `origin/main` merge was required after main advanced with PR #14. Again, the only conflict was this shared task board.
 - Resolution: retained the upstream `arena/648c1a19-olbg4` integration record verbatim and retained this session's audit/correction/verifier records as **Board I** (renamed only to avoid the already-used Board H heading). No data, source links, site files, or findings were discarded.
+
+### Board I publication record (2026-10-21 UTC)
+
+- **PR #19:** https://github.com/buffedlizard55-lab/OLBG4/pull/19 — **MERGED** at 2026-10-21T06:49:53Z, merge commit `d61d0ef41a5a94c6e12b12d3801cd6a1fc245f43`.
+- **Merge validation:** GitHub Actions `Repository-wide publication audit` and `Validate data and site` both passed on the merge commit (runs 39557882189 and 39557882263).
+- **Pages:** `Deploy OLBG4 to GitHub Pages` run 39557882198 completed successfully (build + deploy) for the merge commit. Published root: https://buffedlizard55-lab.github.io/OLBG4/ ; Board I audit: https://buffedlizard55-lab.github.io/OLBG4/session-5e6c545d/
+- **Non-blocking review items remain visible:** Build E’s player-evidence gap (18 high narratives), 5 narratives without an explicit latest-result sentence, and 50 intentionally unpriced NBA rows remain flagged rather than inferred.
