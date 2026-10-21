@@ -233,7 +233,7 @@ section and this board.
 | E7 | Automation: probe + ingest + verify + build + commit, every six hours | done | `4afef1af` | `.github/workflows/olbg.yml` |
 | E8 | Line-by-line review log + row-level spot checks + irregularity register | done | `4afef1af` | `pipeline/review.py`, `session-4afef1af/review.html` |
 | E9 | Withholding floor: no market on a sample under 20 games per team | done | `4afef1af` | `pipeline/config.py`, `pipeline/run.py` |
-| E10 | Integration: portal card, PR, merge, Pages verification, this record | in progress | `4afef1af` | root `index.html`, `README.md`, `COORDINATION.md` |
+| E10 | Integration: portal card, PR, merge, Pages verification, this record | done | `4afef1af` | root `index.html`, `README.md`, `COORDINATION.md` |
 
 ### Verified snapshot (2026-10-21T06:22Z, run `39554706598`)
 
@@ -284,13 +284,45 @@ OLBG is not a data source; only its public taxonomy and URL grammar were recorde
 - 06:45Z — merged `origin/main` (five-build hub) and resolved the three shared-file conflicts
   additively: their `index.html`/`README.md`/`COORDINATION.md` kept, mine appended.
 
-## Board F — session `arena/ef72af9b-olbg4`
+---
+
+## Board F — session `arena/07a080b9-olbg4` (independent audit + final integration)
+
+Claimed: 2026-10-21 · Branch: `arena/07a080b9-olbg4` · Scope (non-overlapping): `session-07a080b9/**` only, plus additive entries in this file and README. No A–E files edited.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| F1 | Claim board | done | 07a080b9 | COORDINATION.md |
+| F2 | Line-by-line audit: JSON validity, source links, exclusions, prediction word-count/uniqueness, internal links (all builds) | done | 07a080b9 | `session-07a080b9/` |
+| F3 | Publish audit + flagged-for-review page | done | 07a080b9 | `session-07a080b9/` |
+| F4 | PR to main, merge, confirm Pages deploy | in progress | 07a080b9 | — |
+
+### Board F results (2026-10-21)
+- Audit: `session-07a080b9/audit.py` checks committed data only, nothing inferred. Stats: D 66 rows, 15 High, min 68 words, 0 duplicates, 0 excluded sports, all sourceUrl present; A 144 rows all sourced; B 116 rows, 9 predictions; C 43 fixtures/10 predictions; E 90 fixtures/18 predictions, all with `source_urls`.
+- Links: 87 HTML files, 1,576 internal links, **0 broken** (initial 13 'broken' were `data:` favicon URIs — checker fixed, not site files).
+- Irregularities: only 2 WARN — Build A Gaelic rows (Maigh Cuilinn v Salthill-Knocknacarra; Nemo Rangers v St Finbarr's). Already flagged by Build B; left in place, non-blocking, listed on audit page. Gaelic is not in the brief's exclusion list verbatim (hurling/football are) — user review requested on scope interpretation.
+- Live Pages re-checked 2026-10-21: hub + flagged.html render, 66 entries, 8 flagged, official source links present.
+- Existing gates re-run: `pipeline.selftest` all pass; `scripts/verify.py` (B) 116/116 sourced, 0 duplicates.
+## Board F — session `arena/5fd34d30-olbg4` (final audit + integration)
+
+Branch: `arena/5fd34d30-olbg4` | Date: 2026-10-21
+
+| Task | Status | Owner | File scope |
+|------|--------|-------|-----------|
+| Audit hub data: confidence labels, official-source rule, prediction word-count/uniqueness, links | done | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html`, `COORDINATION.md` |
+| Fix N/A confidence rows; flag non-official high-pick sources as unverified (blank verified, keep link) | done | arena/5fd34d30-olbg4 | `data/matches.json`, `flagged.html` |
+| Integration: PR to main, merge, GitHub Pages verify | unclaimed | arena/5fd34d30-olbg4 | repo root |
+### Board F completion (2026-10-21)
+- Audit: 66 hub rows; fixed 7 `N/A` confidence rows → `Low` (EL03, ATP05, GLF01, BDM01, TTT01, VBL02, AFL01 — completed/off-season, no-bet).
+- Flagged 8 rows with secondary (non-official) sources as unverified: EL02, CRK04, RUG01, RUG02, RUG05, RUG06, NHL01, BDM02. Total flagged 16, verified 53. Published on `flagged.html` (dynamic from `data/matches.json`).
+- 15 high predictions unique, min 68 words, all sourced. 0 broken internal links. Site builds static (no build step); Pages deploys from `main`.
+## Board G — session `arena/ef72af9b-olbg4`
 
 This session uses its fixed Arena branch (rather than creating a session branch).
 
 | Task | Status | Owner | File scope |
 |---|---|---|---|
-| Repository-wide publication audit and local-link gate; disclose unsupported verification claims | in progress | arena/ef72af9b-olbg4 | `scripts/audit_publication.py`, `audit/`, `.github/workflows/audit.yml`, `COORDINATION.md` |
+| Repository-wide publication audit and local-link gate; disclose unsupported verification claims | done | arena/ef72af9b-olbg4 | `scripts/audit_publication.py`, `audit/`, `.github/workflows/audit.yml`, `COORDINATION.md` |
 
 Other builds and the active E integration claim are not modified. Official sports websites cannot be reached through sandbox shell egress; prior verification claims are not accepted as fresh verification. Findings will distinguish structural validation from official factual verification.
 
@@ -302,6 +334,14 @@ Other builds and the active E integration claim are not modified. Official sport
 - Checks: pipeline offline self-test 24/24; Board C rebuild and validation pass with no generated diff; audit unit tests 4/4; all-repository local target scan 1,624 targets, zero missing. These are structural checks, **not** verification of external sports facts, external URL status or fragment anchors.
 - Parallel scope request: PR #12 is open from another session and touches shared publication files. Do not edit its scope. Its integration owner should add a prominent link to `audit/` and remove blanket “verified” claims until claim-level checks exist. This session publishes the audit independently rather than overwrite that session's landing/navigation work.
 - Initial claim push: the new remote branch did not yet exist, so `git pull --rebase origin arena/ef72af9b-olbg4` failed. Rebased against `origin/main`, then pushed only the fixed session branch successfully; no merge conflict or discarded work.
+
+### Board F publication record
+
+- PR https://github.com/buffedlizard55-lab/OLBG4/pull/13 **MERGED** at 2026-10-21T06:42:23Z, merge commit `52bae89f5f05cdda5d26b96f6e10ac5814d93ff7`.
+- PR checks: repository-wide audit and existing build-and-validate both pass.
+- GitHub Pages legacy run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39557088719 **success**; Pages Actions run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39557088565 **success**.
+- Public audit https://buffedlizard55-lab.github.io/OLBG4/audit/ fetched successfully after deployment; title, 459-row inventory, review notice and source links present. Main dashboard remains at https://buffedlizard55-lab.github.io/OLBG4/ .
+- Factual completeness remains **needs review** (published, not a merge blocker): no complete all-sports live inventory or full claim-level verification is asserted. No new unsupported predictions or lines added. Existing builds remain untouched to avoid conflict with the parallel integration session; audit-link request sent on PR #12.
 
 ## Board G — session `arena/6e0f382d-olbg4` (full 17-sport sweep, documented per-sport models)
 
