@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-21T07:58:45Z",
+ "generated_utc": "2026-10-21T08:21:49Z",
  "builds": {
   "A": {
    "rows": 144,
@@ -192,14 +192,18 @@
    }
   },
   "D": {
-   "rows": 66,
+   "rows": 68,
    "verdicts": {
-    "official source present": 42,
-    "secondary source only — no official source": 24
+    "official source present": 27,
+    "no source": 41
    },
    "domains": [
     [
-     "espn.com",
+     "world.rugby",
+     6
+    ],
+    [
+     "api-web.nhle.com",
      6
     ],
     [
@@ -207,28 +211,8 @@
      5
     ],
     [
-     "en.wikipedia.org",
-     5
-    ],
-    [
-     "bbc.com",
-     5
-    ],
-    [
-     "mlb.com",
+     "statsapi.mlb.com",
      4
-    ],
-    [
-     "atptour.com",
-     4
-    ],
-    [
-     "pdc.tv",
-     4
-    ],
-    [
-     "cricket.com.au",
-     3
     ],
     [
      "pcb.com.pk",
@@ -236,95 +220,25 @@
     ],
     [
      "nhl.com",
-     3
-    ],
-    [
-     "pgatour.com",
-     3
-    ],
-    [
-     "euroleaguebasketball.net",
-     2
-    ],
-    [
-     "etusuora.com",
-     2
-    ],
-    [
-     "fivb.com",
-     2
-    ],
-    [
-     "basketnews.com",
      1
     ],
     [
-     "wtatennis.com",
+     "wst.tv",
      1
     ],
     [
-     "findmygroup.uk",
-     1
-    ],
-    [
-     "lpga.com",
-     1
-    ],
-    [
-     "sportsdata.usatoday.com",
-     1
-    ],
-    [
-     "en.tempo.co",
-     1
-    ],
-    [
-     "fftt.com",
-     1
-    ],
-    [
-     "montpellier.fr",
-     1
-    ],
-    [
-     "ittf.com",
-     1
-    ],
-    [
-     "ehfcl.eurohandball.com",
-     1
-    ],
-    [
-     "ihf.info",
-     1
-    ],
-    [
-     "lolesports.com",
-     1
-    ],
-    [
-     "valorantesports.com",
-     1
-    ],
-    [
-     "afl.com.au",
-     1
-    ],
-    [
-     "rlwc2026.com",
+     "bwfworldtour.bwfbadminton.com",
      1
     ]
    ],
-   "high_confidence_rows": 2,
+   "high_confidence_rows": 3,
    "high_predictions_under_30_words": [],
    "high_rows_without_prediction_text_in_data": [],
-   "rows_self_marked_verified_without_official_source": [
-    "RL01"
-   ],
+   "rows_self_marked_verified_without_official_source": [],
    "confidence_mix": {
-    "medium": 29,
-    "high": 2,
-    "low": 35
+    "low": 62,
+    "medium": 3,
+    "high": 3
    }
   },
   "E": {
@@ -527,15 +441,15 @@
    }
   }
  },
- "total_rows": 599,
+ "total_rows": 601,
  "notes": [],
  "total_verdicts": {
-  "official source present": 468,
+  "official source present": 453,
   "OLBG only — no official fixture source": 107,
-  "secondary source only — no official source": 24
+  "no source": 41
  },
  "cross_build": {
-  "fixtures_in_2_or_more_builds": 95,
+  "fixtures_in_2_or_more_builds": 94,
   "pick_conflicts": 10
  }
 }

@@ -36,8 +36,25 @@ jobs:
           ls -la tennis.html basketball.html baseball.html cricket.html rugby.html ice-hockey.html snooker.html darts.html golf.html badminton.html table-tennis.html volleyball.html handball.html esports.html aussie-rules.html
           if [ -f docs/index.html ]; then echo "✓ docs/index.html (Build A)"; ls docs/sports/*.html | head; fi
           if [ -f session-7114b6a1/index.html ]; then echo "✓ session-7114b6a1/index.html (Build B)"; fi
-          echo "=== Board K remediation report ==="
+          echo "=== Board K (47b1b4e2) remediation report ==="
           ls -la session-47b1b4e2/index.html session-47b1b4e2/changes.html session-47b1b4e2/withdrawn.html session-47b1b4e2/restored.html session-47b1b4e2/verification.html
+      - name: Rebuild the master board and dashboard from the six builds
+        run: |
+          python3 tools/build_master.py
+          BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py
+
+      - name: Verify the master board (sources, predictions, links, scope)
+        run: BOARD_DIR=board python3 tools/verify_master.py
+
+      - name: Fail if the committed dashboard is stale
+        run: |
+          if ! git diff --quiet -- board data/master.json data/master_conflicts.json; then
+            echo "tools/build_master.py or tools/build_master_site.py produced different output."
+            echo "Run both locally and commit the result."
+            git diff --stat
+            exit 1
+          fi
+
       - name: Check no TODO placeholders
         run: |
           ! grep -R "TODO" --include="*.html" --include="*.json" . || (echo "TODO found" && exit 1)

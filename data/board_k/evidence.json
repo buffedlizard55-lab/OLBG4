@@ -1,0 +1,716 @@
+{
+  "schema": "olbg4.board-k.evidence/1",
+  "session": "arena/082d3c16-olbg4",
+  "checkedAt": "2026-10-21",
+  "policy": {
+    "confirmed": "Participants, date and the stated start time were read back from an official league/tour governing-body endpoint or page during this cycle. Claimed venue/time that the source does not state is blanked, not kept.",
+    "partial": "Part of the claim (e.g. the tournament and one round) was confirmed; the rest was not and is blanked/flagged.",
+    "unverified": "Nothing in the row could be confirmed on an official source in this cycle. Time and venue are blanked, the pick is retained only as our own model output at LOW confidence and the prediction text is withdrawn.",
+    "confidenceRule": "HIGH requires both sides' current form to be read from an official feed and quoted here. MEDIUM requires a verified fixture plus at least one verified form fact. Everything else is LOW."
+  },
+  "sourcesUsed": [
+    {
+      "name": "NHL.com / api-web.nhle.com schedule + score + game-center feeds",
+      "url": "https://api-web.nhle.com/v1/score/2026-10-20"
+    },
+    {
+      "name": "NHL.com game-center right-rail (club form, special teams)",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail"
+    },
+    {
+      "name": "NHL.com 2026-27 standings",
+      "url": "https://api-web.nhle.com/v1/standings/2026-10-21"
+    },
+    {
+      "name": "MLB.com / statsapi.mlb.com postseason schedule",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-28"
+    },
+    {
+      "name": "MLB.com / statsapi.mlb.com 2026 regular-season standings",
+      "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+    },
+    {
+      "name": "NBA.com 2026-27 schedule release (13 Aug 2026)",
+      "url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
+    },
+    {
+      "name": "Pakistan Cricket Board press release, 19 Aug 2026 (ODI tri-series schedule)",
+      "url": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html"
+    },
+    {
+      "name": "World Snooker Tour match centre (BetVictor Northern Ireland Open 2026)",
+      "url": "https://www.wst.tv/matches/"
+    }
+  ],
+  "rows": {
+    "NBA01": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+        "name": "NBA.com — 2026-27 schedule release (Aug 13, 2026)"
+      },
+      "evidence": [
+        "\"American Express NBA Tip-Off 2026 will begin on Tuesday, Oct. 20 with an NBC/Peacock tripleheader as the Boston Celtics visit the Detroit Pistons (3 p.m. ET)…\""
+      ],
+      "corrections": {
+        "time": "15:00 ET (NBC/Peacock)",
+        "venue": ""
+      },
+      "note": "The release names the pairing and the 3 p.m. ET tip but not the arena, so the venue is left blank rather than carried over."
+    },
+    "NBA02": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+        "name": "NBA.com — 2026-27 schedule release (Aug 13, 2026)"
+      },
+      "evidence": [
+        "\"…the defending NBA champion New York Knicks host the Philadelphia 76ers (7 p.m. ET)…\""
+      ],
+      "corrections": {
+        "time": "19:00 ET",
+        "venue": ""
+      },
+      "note": "Pairing, host and tip time confirmed. Arena not named in the release, so blank."
+    },
+    "NBA03": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+        "name": "NBA.com — 2026-27 schedule release (Aug 13, 2026)"
+      },
+      "evidence": [
+        "\"…the San Antonio Spurs meet the Oklahoma City Thunder at Frost Bank Center (9:30 p.m. ET).\""
+      ],
+      "corrections": {
+        "time": "21:30 ET",
+        "venue": "Frost Bank Center, San Antonio, TX"
+      },
+      "note": "Venue named by the official release; confirms Oklahoma City as the road team."
+    },
+    "NBA04": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+        "name": "NBA.com — 2026-27 schedule release (Aug 13, 2026)"
+      },
+      "evidence": [
+        "\"On Oct. 22, NBA all-time scoring leader LeBron James will make his Philadelphia home debut when the 76ers face seven-time NBA All-Star Donovan Mitchell and the Cleveland Cavaliers (7 p.m. ET).\""
+      ],
+      "corrections": {
+        "time": "19:00 ET",
+        "venue": ""
+      },
+      "note": "Pairing and tip confirmed. Arena not named, blank."
+    },
+    "NBA05": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+        "name": "NBA.com — 2026-27 schedule release (Aug 13, 2026)"
+      },
+      "evidence": [
+        "\"Two-time reigning Kia NBA MVP Shai Gilgeous-Alexander will then lead the Thunder against three-time Kia NBA MVP Nikola Jokić and the Denver Nuggets at Paycom Center (9:30 p.m. ET).\""
+      ],
+      "corrections": {
+        "time": "21:30 ET",
+        "venue": "Paycom Center, Oklahoma City, OK"
+      },
+      "facts": [
+        {
+          "claim": "Oklahoma City roster reference",
+          "value": "Shai Gilgeous-Alexander described as two-time reigning Kia NBA MVP",
+          "quote": "Two-time reigning Kia NBA MVP Shai Gilgeous-Alexander",
+          "url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
+        },
+        {
+          "claim": "Denver roster reference",
+          "value": "Nikola Jokić described as three-time Kia NBA MVP",
+          "quote": "three-time Kia NBA MVP Nikola Jokić",
+          "url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
+        }
+      ]
+    },
+    "MLB01": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23",
+        "name": "MLB.com schedule API (gamePk 849805)"
+      },
+      "evidence": [
+        "gamePk 849805 · date 2026-10-23 · away Tampa Bay Rays · home Milwaukee Brewers · venue American Family Field · gameDate 2026-10-24T00:00:00Z (= 8:00 p.m. ET, 23 Oct)"
+      ],
+      "corrections": {
+        "time": "20:00 ET (first pitch 00:00Z on 24 Oct)",
+        "venue": "American Family Field, Milwaukee, WI"
+      },
+      "facts": [
+        {
+          "claim": "Tampa Bay 2026 regular-season record",
+          "value": "98-64, AL East first, 55-26 at home / 43-38 away",
+          "quote": "wins 98, losses 64; divisionRank 1; splitRecords home 55-26, away 43-38",
+          "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+        }
+      ]
+    },
+    "MLB02": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-24",
+        "name": "MLB.com schedule API (gamePk 849802)"
+      },
+      "evidence": [
+        "gamePk 849802 · date 2026-10-24 · away Tampa Bay Rays · home Milwaukee Brewers · venue American Family Field · gameDate 2026-10-25T00:00:00Z (= 8:00 p.m. ET, 24 Oct)"
+      ],
+      "corrections": {
+        "time": "20:00 ET (first pitch 00:00Z on 25 Oct)",
+        "venue": "American Family Field, Milwaukee, WI"
+      }
+    },
+    "MLB03": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-26",
+        "name": "MLB.com schedule API (gamePk 849804)"
+      },
+      "evidence": [
+        "gamePk 849804 · date 2026-10-26 · away Milwaukee Brewers · home Tampa Bay Rays · venue Tropicana Field · gameDate 2026-10-27T00:00:00Z (= 8:00 p.m. ET, 26 Oct)"
+      ],
+      "corrections": {
+        "time": "20:00 ET (first pitch 00:00Z on 27 Oct)",
+        "venue": "Tropicana Field, St. Petersburg, FL"
+      },
+      "correctionNote": "The pre-remediation row read 'George M. Steinbrenner Field / Tropicana Field replacement'. MLB's official schedule names Tropicana Field. Corrected."
+    },
+    "MLB04": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-27",
+        "name": "MLB.com schedule API (gamePk 849803)"
+      },
+      "evidence": [
+        "gamePk 849803 · date 2026-10-27 · away Milwaukee Brewers · home Tampa Bay Rays · venue Tropicana Field · gameDate 2026-10-28T00:00:00Z (= 8:00 p.m. ET, 27 Oct)"
+      ],
+      "corrections": {
+        "time": "20:00 ET (first pitch 00:00Z on 28 Oct)",
+        "venue": "Tropicana Field, St. Petersburg, FL"
+      }
+    },
+    "CRK03": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+        "name": "Pakistan Cricket Board press release, 19 Aug 2026"
+      },
+      "evidence": [
+        "\"The hosts will face England in the second match at the same venue on Tuesday, 20 October…\"",
+        "Schedule: \"20 October – Pakistan v England, Rawalpindi Cricket Stadium, Rawalpindi\""
+      ],
+      "corrections": {
+        "match": "Pakistan vs England — ODI tri-series match 2",
+        "competition": "ODI tri-series (Pakistan, Sri Lanka, England) — match 2 of 6",
+        "date": "2026-10-20",
+        "time": "",
+        "venue": "Rawalpindi Cricket Stadium, Rawalpindi"
+      },
+      "correctionNote": "The pre-remediation row read 'England vs Pakistan — Tri-Series Match 1' with a date range of 20-29 Oct and a Gaddafi Stadium/Lahore venue. PCB: this is match 2 (match 1 was Pakistan v Sri Lanka on 18 Oct), played at Rawalpindi. Corrected; start time not stated by the source, so blank."
+    },
+    "CRK04": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+        "name": "Pakistan Cricket Board press release, 19 Aug 2026"
+      },
+      "evidence": [
+        "\"…while Sri Lanka and England will meet in the third match at the Rawalpindi Cricket Stadium on Thursday, 22 October.\""
+      ],
+      "corrections": {
+        "competition": "ODI tri-series (Pakistan, Sri Lanka, England) — match 3 of 6",
+        "time": "",
+        "venue": "Rawalpindi Cricket Stadium, Rawalpindi"
+      },
+      "correctionNote": "Source upgraded from skysports.com to the governing body; venue confirmed, start time not stated so blank."
+    },
+    "CRK05": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+        "name": "Pakistan Cricket Board press release, 19 Aug 2026"
+      },
+      "evidence": [
+        "\"…while the top two sides will meet in the final at the same venue on Saturday, 31 October.\"",
+        "Schedule: \"31 October – Tri-series final, Gaddafi Stadium, Lahore\""
+      ],
+      "corrections": {
+        "match": "ODI tri-series final — TBD (top two on the table)",
+        "date": "2026-10-31",
+        "time": "",
+        "venue": "Gaddafi Stadium, Lahore",
+        "pick": "",
+        "confidence": "Low",
+        "status": "Scheduled"
+      },
+      "correctionNote": "The pre-remediation row dated the final 29 Oct. PCB: 29 Oct is Sri Lanka v England; the final is 31 Oct at Gaddafi Stadium. The row's own text says the finalists are TBD, so the previously published 'lean Pakistan' pick was withdrawn."
+    },
+    "NHL01": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://api-web.nhle.com/v1/score/2026-10-20",
+        "name": "NHL.com score feed, 20 Oct 2026 (game 2026020141)"
+      },
+      "evidence": [
+        "venue Centre Bell · startTimeUTC 2026-10-20T23:00:00Z · away San Jose Sharks score 4 · home Montreal Canadiens score 3 · lastPeriodType OT"
+      ],
+      "corrections": {
+        "status": "Completed",
+        "time": "19:00 ET",
+        "venue": "Centre Bell, Montreal, QC",
+        "result": "San Jose Sharks 4, Montreal Canadiens 3 (OT)"
+      },
+      "grade": {
+        "pick": "Montreal Canadiens to win",
+        "outcome": "LOST",
+        "note": "Sharks won 4-3 in overtime."
+      }
+    },
+    "NHL02": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://api-web.nhle.com/v1/gamecenter/2026020142/right-rail",
+        "name": "NHL.com game center, 20 Oct 2026 (game 2026020142)"
+      },
+      "evidence": [
+        "venue Prudential Center · startTimeUTC 2026-10-20T23:00:00Z · COL score 3 · NJD score 4 · lastPeriodType REG"
+      ],
+      "corrections": {
+        "status": "Completed",
+        "time": "19:00 ET",
+        "venue": "Prudential Center, Newark, NJ",
+        "result": "New Jersey Devils 4, Colorado Avalanche 3"
+      },
+      "grade": {
+        "pick": "Colorado Avalanche to win",
+        "outcome": "LOST",
+        "note": "Devils won 4-3 in regulation."
+      }
+    },
+    "NHL05": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail",
+        "name": "NHL.com game center right-rail, 21 Oct 2026 (game 2026020152)"
+      },
+      "evidence": [
+        "startTimeUTC 2026-10-21T23:30:00Z · venue KeyBank Center · records PHI 2-6-3, BUF 4-3-2",
+        "PHI: GF/G 1.55 (rank 32), GA/G 3.18, PP 12.9% (27), PK 84.6% (8), last ten 2-5-3, streak W2",
+        "BUF: GF/G 3.00, GA/G 3.67, PP 9.1% (31), PK 64.5% (30), last ten 4-3-2"
+      ],
+      "corrections": {
+        "time": "19:30 ET (23:30Z)",
+        "venue": "KeyBank Center, Buffalo, NY"
+      },
+      "facts": [
+        {
+          "claim": "Philadelphia 2026-27 record",
+          "value": "2-6-3; 1.55 goals for per game (32nd); 12.9% power play (27th); 84.6% penalty kill (8th)",
+          "quote": "record 2-6-3 · goalsForPerGamePlayed 1.55 rank 32 · ppPctg 0.129032 rank 27 · pkPctg 0.846154 rank 8",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail"
+        },
+        {
+          "claim": "Buffalo 2026-27 record",
+          "value": "4-3-2; 3.00 goals for per game; 9.1% power play (31st); 64.5% penalty kill (30th)",
+          "quote": "record 4-3-2 · goalsForPerGamePlayed 3.0 · ppPctg 0.090909 rank 31 · pkPctg 0.645161 rank 30",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail"
+        },
+        {
+          "claim": "Philadelphia recent form",
+          "value": "Last ten 2-5-3, currently on a two-game win streak (Colorado, Ottawa)",
+          "quote": "last10Record awayTeam record 2-5-3, streakType W, streak 2, pastGameResults COL W, OTT W",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail"
+        }
+      ]
+    },
+    "NHL06": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026",
+        "name": "NHL.com game recap, 20 Oct 2026"
+      },
+      "evidence": [
+        "NHL.com news index, 20 Oct 2026: \"Rantanen caps hat trick with OT goal, lifts Stars past Bruins\" (Boston Bruins Dallas Stars game recap October 20, 2026)"
+      ],
+      "corrections": {
+        "status": "Completed",
+        "time": "",
+        "venue": "",
+        "result": "Dallas Stars beat Boston Bruins in overtime (full score not captured in the source read)"
+      },
+      "note": "The fixture date and outcome are confirmed by NHL.com. Venue and start time were not read back from the feed in this cycle, so both are blank.",
+      "grade": {
+        "pick": "Dallas Stars to win",
+        "outcome": "WON",
+        "note": "Stars won in overtime."
+      }
+    },
+    "NHL07": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail",
+        "name": "NHL.com game center right-rail, 21 Oct 2026 (game 2026020153)"
+      },
+      "evidence": [
+        "startTimeUTC 2026-10-21T23:30:00Z · venue Canadian Tire Centre · records FLA 5-2-2, OTT 6-3-0",
+        "FLA: GF/G 3.33 (10), GA/G 2.78 (11), PP 20.9% (17), PK 80.6% (13), last ten 5-2-2, streak W3",
+        "OTT: GF/G 2.44 (25), GA/G 2.56 (7), PP 12.8% (29), PK 79.4% (16), last ten 6-3-0"
+      ],
+      "corrections": {
+        "time": "19:30 ET (23:30Z)",
+        "venue": "Canadian Tire Centre, Ottawa, ON"
+      },
+      "facts": [
+        {
+          "claim": "Florida 2026-27 form",
+          "value": "5-2-2; 3.33 goals for per game (10th); 20.9% power play (17th); three-game win streak",
+          "quote": "record 5-2-2 · goalsForPerGamePlayed 3.33 rank 10 · ppPctg 0.209302 rank 17 · streakType W streak 3",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail"
+        },
+        {
+          "claim": "Florida recent results",
+          "value": "Last ten 5-2-2 with wins over Seattle, Vancouver (OT) and Columbus",
+          "quote": "pastGameResults SEA W, VAN OTW, CBJ W",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail"
+        },
+        {
+          "claim": "Ottawa 2026-27 form",
+          "value": "6-3-0; 2.44 goals for per game (25th); 12.8% power play (29th)",
+          "quote": "record 6-3-0 · goalsForPerGamePlayed 2.44 rank 25 · ppPctg 0.128205 rank 29",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail"
+        }
+      ]
+    },
+    "SNK01": {
+      "status": "partial",
+      "source": {
+        "url": "https://www.wst.tv/matches/",
+        "name": "World Snooker Tour — match centre"
+      },
+      "evidence": [
+        "WST match centre lists \"BetVictor Northern Ireland Open 2026\" with completed Round 1 matches on Sunday 18 Oct (e.g. Jack Lisowski 4-1 Huang Jiahao; Mark Selby 2-4 Louis Heathcote)"
+      ],
+      "corrections": {
+        "pick": "",
+        "confidence": "Low",
+        "time": "",
+        "match": "Northern Ireland Open 2026 — Round 1 (18 October confirmed)",
+        "venue": "",
+        "status": "Scheduled"
+      },
+      "note": "WST confirms the BetVictor Northern Ireland Open 2026 and completed first-round matches on Sunday 18 October. The row's claims about a 64-player first round running to 25 October, the venue and the daily 10:00/19:00 session times are not stated on the page read, so venue, times and the outright pick are withdrawn."
+    },
+    "RUG01": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.world.rugby/beta/en/match/1e74b48e-25fe-4ebe-beea-abb6cea010a0",
+        "name": "World Rugby official match page — Ireland v Argentina - Nations Championship 2026"
+      },
+      "evidence": [
+        "Page title: \"Ireland v Argentina - Nations Championship 2026\" · date shown: Friday 06 November 2026 · venue: Aviva Stadium, Dublin, Ireland · kick-off field shows '21:10 Local Time' and '15:10 Your Time (America/New_York)' where the two differ, and identical values where they do not"
+      ],
+      "corrections": {
+        "competition": "Nations Championship 2026",
+        "date": "2026-11-06",
+        "time": "",
+        "venue": "Aviva Stadium, Dublin, Ireland",
+        "status": "Scheduled"
+      },
+      "note": "Fixture, date and venue confirmed on World Rugby's own match page. The page prints two times, 'local' and 'your time', and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.",
+      "inheritedFrom": "URL located by session arena/093bfd5e-olbg4; re-opened and re-quoted by this session."
+    },
+    "RUG02": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.world.rugby/beta/en/match/54780758-13bb-414b-94d6-2095f217459c",
+        "name": "World Rugby official match page — Italy v South Africa - Nations Championship 2026"
+      },
+      "evidence": [
+        "Page title: \"Italy v South Africa - Nations Championship 2026\" · date shown: Saturday 07 November 2026 · venue: Allianz Stadium, Turin, Italy · kick-off field shows '21:10 Local Time' and '15:10 Your Time (America/New_York)' where the two differ, and identical values where they do not"
+      ],
+      "corrections": {
+        "competition": "Nations Championship 2026",
+        "date": "2026-11-07",
+        "time": "",
+        "venue": "Allianz Stadium, Turin, Italy",
+        "status": "Scheduled"
+      },
+      "note": "Fixture, date and venue confirmed on World Rugby's own match page. The page prints two times, 'local' and 'your time', and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.",
+      "inheritedFrom": "URL located by session arena/093bfd5e-olbg4; re-opened and re-quoted by this session."
+    },
+    "RUG03": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.world.rugby/beta/en/match/db7d80ff-3fa4-4b76-8b84-f615725dd62b",
+        "name": "World Rugby official match page — Scotland v New Zealand - Nations Championship 2026"
+      },
+      "evidence": [
+        "Page title: \"Scotland v New Zealand - Nations Championship 2026\" · date shown: Saturday 07 November 2026 · venue: Murrayfield, Edinburgh, Scotland · kick-off field shows '21:10 Local Time' and '15:10 Your Time (America/New_York)' where the two differ, and identical values where they do not"
+      ],
+      "corrections": {
+        "competition": "Nations Championship 2026",
+        "date": "2026-11-07",
+        "time": "",
+        "venue": "Murrayfield, Edinburgh, Scotland",
+        "status": "Scheduled"
+      },
+      "note": "Fixture, date and venue confirmed on World Rugby's own match page. The page prints two times, 'local' and 'your time', and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.",
+      "inheritedFrom": "URL located by session arena/093bfd5e-olbg4; re-opened and re-quoted by this session."
+    },
+    "RUG04": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.world.rugby/beta/en/match/20078fb5-fab3-4d28-ad54-d550b01b472d",
+        "name": "World Rugby official match page — Wales v Japan - Nations Championship 2026"
+      },
+      "evidence": [
+        "Page title: \"Wales v Japan - Nations Championship 2026\" · date shown: Saturday 07 November 2026 · venue: Principality Stadium, Cardiff, Wales · kick-off field shows '21:10 Local Time' and '15:10 Your Time (America/New_York)' where the two differ, and identical values where they do not"
+      ],
+      "corrections": {
+        "competition": "Nations Championship 2026",
+        "date": "2026-11-07",
+        "time": "",
+        "venue": "Principality Stadium, Cardiff, Wales",
+        "status": "Scheduled"
+      },
+      "note": "Fixture, date and venue confirmed on World Rugby's own match page. The page prints two times, 'local' and 'your time', and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.",
+      "inheritedFrom": "URL located by session arena/093bfd5e-olbg4; re-opened and re-quoted by this session."
+    },
+    "RUG05": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.world.rugby/beta/en/match/d21f7bed-f2f9-45bd-be33-3a0fc9beec42",
+        "name": "World Rugby official match page — England v Australia - Nations Championship 2026"
+      },
+      "evidence": [
+        "Page title: \"England v Australia - Nations Championship 2026\" · date shown: Sunday 08 November 2026 · venue: Allianz Stadium, London, England · kick-off field shows '21:10 Local Time' and '15:10 Your Time (America/New_York)' where the two differ, and identical values where they do not"
+      ],
+      "corrections": {
+        "competition": "Nations Championship 2026",
+        "date": "2026-11-08",
+        "time": "",
+        "venue": "Allianz Stadium, London, England",
+        "status": "Scheduled"
+      },
+      "note": "Fixture, date and venue confirmed on World Rugby's own match page. The page prints two times, 'local' and 'your time', and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.",
+      "inheritedFrom": "URL located by session arena/093bfd5e-olbg4; re-opened and re-quoted by this session."
+    },
+    "RUG06": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://www.world.rugby/beta/en/match/267608f1-90cc-4c93-ac68-b0f0fa3bbf9e",
+        "name": "World Rugby official match page — France v Fiji - Nations Championship 2026"
+      },
+      "evidence": [
+        "Page title: \"France v Fiji - Nations Championship 2026\" · date shown: Saturday 07 November 2026 · venue: Groupama Stadium, Lyon, France · kick-off field shows '21:10 Local Time' and '15:10 Your Time (America/New_York)' where the two differ, and identical values where they do not"
+      ],
+      "corrections": {
+        "competition": "Nations Championship 2026",
+        "date": "2026-11-07",
+        "time": "",
+        "venue": "Groupama Stadium, Lyon, France",
+        "status": "Scheduled"
+      },
+      "note": "Fixture, date and venue confirmed on World Rugby's own match page. The page prints two times, 'local' and 'your time', and for this fixture they are identical, which cannot be correct across two time zones. No conversion was applied, so the kick-off time is left blank; only the date and venue are published.",
+      "inheritedFrom": "URL located by session arena/093bfd5e-olbg4; re-opened and re-quoted by this session."
+    },
+    "BDM02": {
+      "status": "partial",
+      "source": {
+        "url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+        "name": "BWF World Tour — YONEX French Open 2026 tournament page"
+      },
+      "evidence": [
+        "\"YONEX French Open 2026\" · \"20 - 25 October\" · \"Arena Grand Paris, 1 Av. Traversiere\" · \"Prize Money USD 950,000\""
+      ],
+      "corrections": {
+        "date": "2026-10-20 to 2026-10-25",
+        "venue": "Arena Grand Paris, Paris, France",
+        "competition": "BWF World Tour Super 750 — YONEX French Open 2026",
+        "time": "",
+        "pick": "",
+        "confidence": "Low"
+      },
+      "note": "Tournament dates and venue confirmed on BWF's own page. It is a tournament, not a single fixture: the draw was not read back, so no match, court, session time or pick is published. The previous outright pick was withdrawn.",
+      "inheritedFrom": "URL located by session arena/093bfd5e-olbg4; re-opened and re-quoted by this session."
+    }
+  },
+  "newRows": [
+    {
+      "id": "NHL08",
+      "sport": "Ice Hockey",
+      "category": "ice-hockey",
+      "competition": "NHL 2026-27 regular season",
+      "date": "2026-10-22",
+      "time": "19:00 ET (23:00Z)",
+      "venue": "TD Garden, Boston, MA",
+      "match": "Nashville Predators @ Boston Bruins",
+      "teamA": "Nashville Predators",
+      "teamB": "Boston Bruins",
+      "status": "Scheduled",
+      "originatedMoneyline": {
+        "a": "2.10",
+        "b": "1.72"
+      },
+      "originatedSpread": "BOS -1.5 @ 2.55 | NSH +1.5 @ 1.52",
+      "originatedTotal": "O/U 5.5 @ 1.91 / 1.91",
+      "marketFocus": "Win Match, Puck Line (-1.5), Match Total",
+      "pick": "Boston Bruins to win (moneyline, our 1.72)",
+      "confidence": "High",
+      "sourceUrl": "https://api-web.nhle.com/v1/gamecenter/2026020154/right-rail",
+      "sourceName": "NHL.com game center right-rail (game 2026020154)"
+    },
+    {
+      "id": "NHL09",
+      "sport": "Ice Hockey",
+      "category": "ice-hockey",
+      "competition": "NHL 2026-27 regular season",
+      "date": "2026-10-22",
+      "time": "19:00 ET (23:00Z)",
+      "venue": "Scotiabank Arena, Toronto, ON",
+      "match": "New York Rangers @ Toronto Maple Leafs",
+      "teamA": "New York Rangers",
+      "teamB": "Toronto Maple Leafs",
+      "status": "Scheduled",
+      "originatedMoneyline": {
+        "a": "1.88",
+        "b": "2.00"
+      },
+      "originatedSpread": "TOR -1.5 @ 2.70 | NYR +1.5 @ 1.48",
+      "originatedTotal": "O/U 6.0 @ 1.91 / 1.91",
+      "marketFocus": "Win Match, Puck Line (-1.5), Match Total",
+      "pick": "New York Rangers +1.5 puck line (our 1.48)",
+      "confidence": "Medium",
+      "sourceUrl": "https://api-web.nhle.com/v1/gamecenter/2026020155/right-rail",
+      "sourceName": "NHL.com game center right-rail (game 2026020155)"
+    }
+  ],
+  "newRowEvidence": {
+    "NHL08": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://api-web.nhle.com/v1/gamecenter/2026020154/right-rail",
+        "name": "NHL.com game center right-rail, 22 Oct 2026 (game 2026020154)"
+      },
+      "evidence": [
+        "startTimeUTC 2026-10-22T23:00:00Z · venue TD Garden · NSH last ten 3-2-3, BOS last ten 7-2-1",
+        "BOS: GF/G 3.60 (7), GA/G 2.20 (4), PP 21.4% (15), PK 80.0% (14), faceoffs 52.7% (6)",
+        "NSH: GF/G 2.88 (22), GA/G 2.75 (10), PP 29.6% (3), PK 85.2% (7), faceoffs 49.0% (20)",
+        "Standings feed independent cross-check (https://api-web.nhle.com/v1/standings, date 2026-10-20, standingsDateTimeUtc 2026-10-21T07:07:00Z): Boston 7-2-1, 15 points, 36 goals for, 22 against in 10 games, streak OT1."
+      ],
+      "facts": [
+        {
+          "claim": "Boston 2026-27 form",
+          "value": "7-2-1; 3.60 goals for per game (7th); 2.20 against (4th); 52.7% faceoffs (6th)",
+          "quote": "record 7-2-1 · goalsForPerGamePlayed 3.6 rank 7 · goalsAgainstPerGamePlayed 2.2 rank 4 · faceoffWinningPctg 0.527304 rank 6",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020154/right-rail"
+        },
+        {
+          "claim": "Boston recent results",
+          "value": "Last ten 7-2-1, one point off an OT loss to Dallas, with wins over Los Angeles, Anaheim, San Jose, Philadelphia and Utah",
+          "quote": "pastGameResults DAL OTL, LAK W, ANA W, SJS W, PHI W, UTA W",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020154/right-rail"
+        },
+        {
+          "claim": "Nashville 2026-27 form",
+          "value": "3-2-3; 2.88 goals for per game (22nd); 29.6% power play (3rd)",
+          "quote": "record 3-2-3 · goalsForPerGamePlayed 2.88 rank 22 · ppPctg 0.296296 rank 3",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020154/right-rail"
+        },
+        {
+          "claim": "Boston standings cross-check",
+          "value": "7-2-1, 15 points, 36 GF / 22 GA in 10 games",
+          "quote": "\"teamAbbrev\":\"BOS\",\"wins\":7,\"losses\":2,\"otLosses\":1,\"points\":15,\"goalFor\":36,\"goalAgainst\":22,\"gamesPlayed\":10,\"streakCode\":\"OT\"",
+          "source": "https://api-web.nhle.com/v1/standings"
+        }
+      ]
+    },
+    "NHL09": {
+      "status": "confirmed",
+      "source": {
+        "url": "https://api-web.nhle.com/v1/gamecenter/2026020155/right-rail",
+        "name": "NHL.com game center right-rail, 22 Oct 2026 (game 2026020155)"
+      },
+      "evidence": [
+        "startTimeUTC 2026-10-22T23:00:00Z · venue Scotiabank Arena · NYR last ten 7-2-1, TOR last ten 5-3-2",
+        "NYR: GF/G 3.00 (17), GA/G 2.18 (3), PK 94.1% (2), faceoffs 53.9% (3)",
+        "TOR: GF/G 3.45 (8), GA/G 3.09 (16), PP 27.5% (5), PK 97.4% (1)"
+      ],
+      "facts": [
+        {
+          "claim": "New York Rangers 2026-27 form",
+          "value": "7-2-1 in the last ten; 2.18 goals against per game (3rd); 94.1% penalty kill (2nd)",
+          "quote": "record 7-2-1 · goalsAgainstPerGamePlayed 2.18 rank 3 · pkPctg 0.941176 rank 2",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020155/right-rail"
+        },
+        {
+          "claim": "Toronto 2026-27 form",
+          "value": "5-3-2 in the last ten; 3.45 goals for per game (8th); 97.4% penalty kill (1st); 27.5% power play (5th)",
+          "quote": "record 5-3-2 · goalsForPerGamePlayed 3.45 rank 8 · pkPctg 0.973684 rank 1 · ppPctg 0.275 rank 5",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2026020155/right-rail"
+        }
+      ]
+    }
+  },
+  "predictions": {
+    "NHL05": {
+      "confidence": "High",
+      "pick": "Buffalo Sabres to win (moneyline, our 1.90)",
+      "text": "Buffalo Sabres to win at home against Philadelphia on 21 October. Buffalo are 4-3-2 and average 3.00 goals per game, while Philadelphia are 2-6-3 and manage only 1.55 goals per game, the lowest rate in the NHL according to the official game-center feed, with a 12.9% power play that ranks 27th. Philadelphia have won their last two against Colorado and Ottawa, but that followed a 2-5-3 stretch. Buffalo's own special teams are poor, at 9.1% on the power play and 64.5% on the penalty kill, yet the five-on-five scoring gap and home ice make the Sabres moneyline at our 1.90 the selection."
+    },
+    "NHL07": {
+      "confidence": "High",
+      "pick": "Florida Panthers to win (moneyline, our 1.86)",
+      "text": "Florida Panthers to win in Ottawa on 21 October. The Panthers are 5-2-2 and on a three-game run of wins over Seattle, Vancouver in overtime and Columbus, scoring 3.33 goals per game, tenth in the league, while conceding 2.78. Ottawa's 6-3-0 start is built on defence rather than offence: they score 2.44 goals per game, 25th in the NHL, and their power play converts just 12.8%, 29th. Florida also hold the better special-teams numbers, with a 20.9% power play against Ottawa's 12.8%, so the Panthers moneyline at our 1.86 is the pick."
+    },
+    "NHL08": {
+      "confidence": "High",
+      "pick": "Boston Bruins to win (moneyline, our 1.72)",
+      "text": "Boston Bruins to win against Nashville at TD Garden on 22 October. Boston are 7-2-1 and have scored 3.60 goals per game, seventh in the NHL, while conceding only 2.20, fourth, with a 52.7% faceoff rate that ranks sixth; their last ten include wins over Los Angeles, Anaheim, San Jose, Philadelphia and Utah. Nashville are 3-2-3 and score 2.88 goals per game, 22nd in the league, although their power play is dangerous at 29.6%. Boston's five-on-five control and home ice make the Bruins moneyline at our 1.72 the pick."
+    },
+    "MLB01": {
+      "confidence": "Medium",
+      "pick": "Milwaukee Brewers to win Game 1 (moneyline, our 1.78)",
+      "text": "Milwaukee Brewers to win World Series Game 1 against Tampa Bay at American Family Field on 23 October. MLB's official schedule places the opener at 8:00 p.m. ET with the Rays as the visiting side, and the same feed puts Games 1 and 2 in Milwaukee. Tampa Bay finished the regular season 98-64 and were 43-38 on the road, so they are a genuine opponent rather than a soft draw. We price Milwaukee at 1.78 and the total at 8.0, but this stays a medium-confidence selection because Milwaukee's full-season record could not be re-read from the official standings feed during this cycle."
+    },
+    "NHL09": {
+      "confidence": "Medium",
+      "pick": "New York Rangers +1.5 puck line (our 1.48)",
+      "text": "New York Rangers +1.5 on the puck line in Toronto on 22 October is the value play. The Rangers concede only 2.18 goals per game, third in the NHL, kill penalties at 94.1%, second, and win 53.9% of faceoffs, third, so even a quiet offensive night keeps this inside one goal on the road. Toronto score 3.45 a game, eighth, with the league's best penalty kill at 97.4%, but they also concede 3.09, sixteenth, which is too leaky to trust by a two-goal margin at our 1.48."
+    }
+  },
+  "withdrawn": {
+    "reason_contradicted": "The published text was contradicted by an official page.",
+    "reason_unverifiable": "The published text asserted statistics, records or player availability that appear on no official source we could open; the claim was withdrawn rather than reworded around it.",
+    "reason_not_a_match": "The row is a tournament, round or off-season note rather than a single fixture, so a match prediction does not apply."
+  },
+  "priorSessionReview": {
+    "reviewedSession": "arena/093bfd5e-olbg4 (Board K/L)",
+    "reviewedFile": "data/matches.json",
+    "archivedAs": "data/board_k/prior_session_matches.json",
+    "adopted": [
+      "World Rugby per-match URLs for RUG01-RUG06 (re-opened and re-quoted above)",
+      "BWF tournament page for BDM02 (re-opened and re-quoted above)",
+      "NHL schedule URL shape for NHL01-NHL07 (values re-read from api-web.nhle.com instead)"
+    ],
+    "notAdopted": [
+      {
+        "id": "EL01/EL02",
+        "claim": "Fixture confirmed on EuroLeague official release",
+        "why": "The release linked (29 July 2026) announces the season and opening-night games on 24-25 September; it does not list the Round 7 fixtures on 22 October. Re-opening it therefore does not confirm these two rows, which remain UNVERIFIED."
+      },
+      {
+        "id": "RUG/RUG competition",
+        "claim": "Autumn Nations Series",
+        "why": "World Rugby's own pages title these matches 'Nations Championship 2026'; the competition name was corrected."
+      }
+    ]
+  }
+}

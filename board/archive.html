@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archive — OLBG4</title>
+<meta name="description" content="Reverse-engineered OLBG.com sport coverage with originated lines, picks and line-by-line sourcing.">
+<link rel="stylesheet" href="./assets/master/site.css">
+</head>
+<body data-root=".">
+<header class="site"><div class="wrap">
+  <div class="brand"><span class="dot"></span>OLBG4</div>
+  <nav class="site"><a href="./index.html">Dashboard</a><a href="./picks.html">Picks</a><a href="./markets.html">Markets</a><a href="./sources.html">Sources</a><a href="./flagged.html">Flagged</a><a href="./audit.html">Audit</a><a href="./methodology.html">Method</a><a href="./archive.html" aria-current="page">Archive</a></nav>
+</div></header>
+<main class="wrap">
+
+<section class="page-head">
+  <h1>Archive — the earlier dashboards</h1>
+  <p class="lede">This repository was worked by several sessions in parallel. Nothing has been deleted: every earlier
+  dashboard is still served from this same GitHub Pages site. The dashboard you are on is the merged, re-verified view;
+  these are the originals, kept so you can trace any row back.</p>
+</section>
+<div class="grid two"><a class="sport-card" href="../docs/index.html">
+  <h3>Build A — governing-body ratings desk</h3>
+  <div class="nums">137 rows in data/rows.json (the site text says 144 in 15 sports), 11 sports, Model v1, 32 predictions of which most are templated.</div>
+  <div class="small">Open → docs/</div>
+</a><a class="sport-card" href="../session-7114b6a1/index.html">
+  <h3>Build B — OLBG read directly</h3>
+  <div class="nums">116 fixtures captured from OLBG&#x27;s own sport pages with per-row OLBG event URLs, 9 high-confidence picks, 50 flags.</div>
+  <div class="small">Open → session-7114b6a1/</div>
+</a><a class="sport-card" href="../session-74f9613e/index.html">
+  <h3>Build C — verified-input desk</h3>
+  <div class="nums">43 fixtures in 5 sports, 182 originated selections, 10 predictions with per-fact sources, 11-row gap register, CI validator.</div>
+  <div class="small">Open → session-74f9613e/</div>
+</a><a class="sport-card" href="../session-6e0f382d/index.html">
+  <h3>Build G — widest sweep</h3>
+  <div class="nums">140 matches + 24 outrights across 17 sport files (15 with fixtures), documented per-sport models, 31 predictions.</div>
+  <div class="small">Open → session-6e0f382d/</div>
+</a><a class="sport-card" href="../session-4afef1af/index.html">
+  <h3>Build E — refreshable pipeline</h3>
+  <div class="nums">90 NBA/NHL/MLB fixtures from league endpoints, three market families with alternates, 18 predictions, re-runs every six hours.</div>
+  <div class="small">Open → session-4afef1af/</div>
+</a><a class="sport-card" href="../session-e1e0c27e/index.html">
+  <h3>Build J — independent cross-build audit</h3>
+  <div class="nums">Reads every build&#x27;s committed data (592 rows), classifies each source, matches fixtures across builds and lists 13 findings.</div>
+  <div class="small">Open → session-e1e0c27e/</div>
+</a><a class="sport-card" href="../session-07a080b9/index.html">
+  <h3>Build F — re-runnable audit</h3>
+  <div class="nums">Machine audit of builds A–E: JSON validity, source presence, prediction length and uniqueness, internal links.</div>
+  <div class="small">Open → session-07a080b9/</div>
+</a><a class="sport-card" href="../session-6b8d2d5f/index.html">
+  <h3>Board K — verified command center (later session)</h3>
+  <div class="nums">48 official-sourced fixtures with 6 predictions, its own verification and flagged pages, plus a per-league breakdown. Its rows are not merged into this board; the dashboard links it here so nothing is lost.</div>
+  <div class="small">Open → session-6b8d2d5f/</div>
+</a><a class="sport-card" href="../session-093bfd5e/index.html">
+  <h3>Board L — hub verified-flag repair (later session)</h3>
+  <div class="nums">Re-checked the 15 high-confidence hub rows, downgraded rows whose sources were not official and published a per-row classification register.</div>
+  <div class="small">Open → session-093bfd5e/</div>
+</a><a class="sport-card" href="../session-5838b25d/index.html">
+  <h3>Board K (earlier claim) — re-verification pass</h3>
+  <div class="nums">An earlier integration pass whose official URLs for rugby and BWF were later re-read and adopted by the next session.</div>
+  <div class="small">Open → session-5838b25d/</div>
+</a><a class="sport-card" href="../verification.html">
+  <h3>Repo-wide verification register</h3>
+  <div class="nums">The current register of every hub row with its official/secondary classification, produced by the later sessions.</div>
+  <div class="small">Open → verification.html</div>
+</a><a class="sport-card" href="../audit/index.html">
+  <h3>Publication audit</h3>
+  <div class="nums">Automated inventory of every build&#x27;s rows and local link targets, with a JSON report.</div>
+  <div class="small">Open → audit/</div>
+</a><a class="sport-card" href="../archive/root-f914d81/index.html">
+  <h3>Previous root desk (commit f914d81)</h3>
+  <div class="nums">The dashboard that served the root of this site immediately before this board: its entries, predictions, analysis, coverage, methodology, sources and flagged pages, six sport pages and stylesheet. Text unchanged; only relative links rebased so they resolve from the archive folder.</div>
+  <div class="small">Open → archive/root-f914d81/index.html</div>
+</a><a class="sport-card" href="../archive/root-5775069/index.html">
+  <h3>Previous root desk (Board N, commit 5775069)</h3>
+  <div class="nums">The dashboard that served the root of this site immediately before this board: 108 fixtures, its own entries/predictions/analysis/coverage pages, six sport pages and stylesheet, text and markup unchanged (only its relative links were rebased one directory deeper so they still resolve). Its data files were not touched.</div>
+  <div class="small">Open → archive/root-5775069/index.html</div>
+</a><a class="sport-card" href="../session-5e6c545d/index.html">
+  <h3>Small audit page</h3>
+  <div class="nums">An earlier audit page kept for provenance.</div>
+  <div class="small">Open → session-5e6c545d/</div>
+</a><a class="sport-card" href="../tennis.html">
+  <h3>Build D&#x27;s per-sport pages</h3>
+  <div class="nums">The 15 single-sport pages build D published at the repo root (tennis, basketball, baseball, cricket, rugby, ice-hockey, snooker, darts, golf, badminton, table-tennis, volleyball, handball, esports, aussie-rules). Their header links now point at this dashboard&#x27;s Methodology, Sources and Flagged pages.</div>
+  <div class="small">Open → tennis.html</div>
+</a></div>
+<div class="panel prose">
+<h2>Why there is more than one answer for some fixtures</h2>
+<p>Each build ran its own model over its own captured inputs. Where two builds priced the same match they can legitimately
+disagree — different inputs, different formulas, different home-field terms. Nothing in this repo deletes a build's opinion
+to make the numbers look consistent: the merged board publishes the better-sourced row and lists every alternative on the
+<a href="./flagged.html">Flagged for Review</a> page.</p>
+<p>Machine-readable sources for the merged view: <code>data/master.json</code>,
+<code>data/master_conflicts.json</code>, <code>data/source_registry.json</code>, <code>data/live_checks.json</code>,
+<code>data/master_olbg.json</code>.</p>
+</div>
+
+</main>
+<footer class="site"><div class="wrap">
+  <div>Data cut-off 2026-10-21 · 317 rows · 312 in scope · every row links its source</div>
+  <div>Analysis, not betting advice · 18+ · values are copied from the builds' committed data, never guessed</div>
+</div></footer>
+<script src="./assets/master/app.js"></script>
+</body>
+</html>

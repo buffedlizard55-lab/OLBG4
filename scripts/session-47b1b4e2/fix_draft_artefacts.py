@@ -1,35 +1,43 @@
 #!/usr/bin/env python3
-"""Board K, finding K-F14 (NEW - not reported by Boards F, I or J):
-unfinished draft text is published in Build D's data fields.
+"""Board R (session 47b1b4e2), finding R-F14 - unfinished draft text published in rendered fields.
 
-`data/matches.json` contains unresolved self-corrections of the form "X? Actually Y" in
-fields that the site renders directly - including `teamB`, `pick`, `competition` and
-`originatedSpread` - so the published dashboard shows strings like:
+Originally raised as "K-F14" while this session still held the letter K; three sessions
+independently claimed Board K (`83451f65`, `5838b25d` and this one), so this board's record is
+renamed R to disambiguate, following the precedent Board L set for the same collision.
 
-    competition      : "WTT Youth/Feeder Concurrent — Chengdu? Actually Chennai"
-    originatedSpread : "Game Handicap: MS -? Actually badminton: -6.5 points handicap @ 1.91"
-    teamB            : "Course: El Tigre? Actually Vidanta Vallarta — par 71, wide fairways"
+THE DEFECT. `data/matches.json` publishes unresolved self-corrections of the form "X? Actually Y"
+in fields the site renders directly, and working notes to the author in fields presented as picks:
 
-Board J caught one instance of this in a prediction (EL02) but not the others, and not the
-data fields. Separately, eight predictions on Low/Medium rows are not predictions at all but
-working notes to the author ("Wait for Saturday's averages before committing outright",
-"monitor net run-rate", "wait for upper bracket semis Oct 18-19 before pricing handicaps"),
-several carrying statistics with no source at all.
+    competition      "WTT Youth/Feeder Concurrent — Chengdu? Actually Chennai"
+    originatedSpread "Game Handicap: MS -? Actually badminton: -6.5 points handicap @ 1.91"
+    teamB            "Course: El Tigre? Actually Vidanta Vallarta — par 71, wide fairways"
+    pick             "No pick yet — monitor entry lists (Alcaraz/Sinner expected in Basel/Vienna)"
+    marketFocus      "No match markets until draw — monitor pools"
 
-Action taken, per the brief ("if a value can't be confirmed from an official source, leave it
-blank and flag it as unverified - never infer or fill in values"):
+`assets/js/main.js` renders `competition`, `pick`, `originatedSpread` and `marketFocus` on the hub
+category pages, and `tools/build_master.py` reads `pick`, `competition`, `teamB` and
+`originatedSpread` into the consolidated board at `/board/`, so the artefacts are live in both places.
+Boards F, G, I, J, K(83451f65), L, M, N, P and Q all audited or re-verified this dataset without
+reporting it; Board J caught one instance, in EL02's prediction text only.
 
-  * a field containing an unresolved self-correction is BLANKED. The "Actually ..." answer is
-    NOT adopted, because adopting it would be choosing between two values the author never
-    reconciled and this session cannot confirm from a governing body. The original string is
-    preserved on the row under k_unverified_values.
-  * a prediction that is a working note rather than a selection is withdrawn and preserved
-    under k_withdrawn.
-  * a `pick` that says no selection was made is restated plainly as "No selection originated"
-    with the original wording preserved, so the table no longer reads like a to-do list.
-  * every affected row is flagged and appears on the Flagged for Review page.
+ACTION, per the brief ("if a value can't be confirmed from an official source, leave it blank and
+flag it as unverified - never infer or fill in values"):
 
-Run: python3 scripts/session-47b1b4e2/fix_draft_artefacts.py   (after remediate.py)
+  * a field containing an unresolved self-correction is BLANKED. The "Actually ..." answer is NOT
+    adopted: choosing between two values the author never reconciled, with no governing-body page
+    behind either, would be inference.
+  * a `pick`/`marketFocus` cell that says no selection was made is restated plainly as
+    "No selection originated", so the table stops reading like a to-do list. The substance is
+    unchanged - no selection was made either way.
+  * every affected row is flagged, and the original string is preserved on the row under
+    `r_f14_removed` so nothing is lost and the change is auditable.
+  * fields another board deliberately blanked during its own verification cycle are left alone.
+
+This script is schema-agnostic and idempotent: it adds only the `r_f14_removed` key, appends to
+`flagReason`, and sets `flagged`. It never touches `verification`, `priorSourceUrl`, `verified` or
+`confidence`, which are owned by the board that wrote them.
+
+Run: python3 scripts/session-47b1b4e2/fix_draft_artefacts.py
 """
 import json
 import os
@@ -38,19 +46,19 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 MATCHES = os.path.join(ROOT, "data", "matches.json")
-LOG = os.path.join(ROOT, "data", "session-47b1b4e2", "remediation.json")
+OUT = os.path.join(ROOT, "data", "session-47b1b4e2", "draft_artefacts.json")
 
+# An unresolved self-correction: the author wrote a value, doubted it, wrote another, and published both.
 SELF = re.compile(r"\?\s*Actually", re.I)
+# An instruction to the author, or a deferral, published where a value belongs.
 INSTR = re.compile(r"\bwait for\b|\bwait until\b|\bmonitor\b|check \w+ rules|before committing|"
                    r"before pricing|Verify tip|post-Bermuda|after weather forecast|until FedEx", re.I)
 NO_PICK = re.compile(r"^\s*(no pick|no favourite|no outright pick|no match markets)", re.I)
 
-# Fields the site renders verbatim. flagReason and the k_* audit fields are ours, so skip them.
-SKIP = {"flagReason"}
-NOW = "2026-10-21T08:30Z"
-FINDING = "K-F14"
-REASON_BASE = ("Board K finding %s: the published value contains unfinished draft text, so it cannot "
-               "be relied on. " % FINDING)
+# Keys this board owns, plus audit keys written by other boards - never rewrite those.
+SKIP = {"flagReason", "verification", "priorSourceUrl", "priorSourceName", "facts", "r_f14_removed"}
+NOW = "2026-10-21T09:40Z"
+FINDING = "R-F14"
 
 
 def main():
@@ -58,125 +66,80 @@ def main():
         rows = json.load(f)
 
     changes = []
-    n_fields = n_preds = n_picks = 0
+    n_blank = n_restate = 0
 
     for r in rows:
-        rid = r["id"]
+        if not isinstance(r, dict):
+            continue
+        removed = dict(r.get("r_f14_removed") or {})
         touched = []
 
         for k, v in list(r.items()):
-            if not isinstance(v, str) or k in SKIP or k.startswith("k_"):
+            if k in SKIP or k.startswith(("k_", "r_f14")) or not isinstance(v, str) or not v.strip():
                 continue
 
-            # ---- 1. unresolved self-correction in any rendered field
             if SELF.search(v):
-                if k == "prediction":
-                    r["k_withdrawn"] = {
-                        "prediction": v, "confidence": r.get("confidence"),
-                        "reason": (REASON_BASE + "It contains an unresolved self-correction "
-                                   "('... after Boston? Actually Toronto rested; but ...'), so it was "
-                                   "never a finished write-up. No replacement was invented."),
-                        "withdrawn_utc": NOW, "finding": FINDING}
-                    r["prediction"] = ""
-                    n_preds += 1
-                    touched.append(dict(field=k, before=v, after="", action="prediction withdrawn"))
-                else:
-                    r.setdefault("k_unverified_values", {})[k] = {
-                        "value": v,
-                        "removed_because": ("unresolved self-correction ('X? Actually Y') published in a "
-                                            "rendered field; the two candidate values were never reconciled "
-                                            "and neither is confirmable here from a governing body, so the "
-                                            "field is blanked rather than guessed"),
-                        "finding": FINDING}
-                    r[k] = ""
-                    n_fields += 1
-                    touched.append(dict(field=k, before=v, after="", action="blanked (self-correction)"))
-                continue
-
-            # ---- 2. a working note published as a prediction
-            if k == "prediction" and INSTR.search(v):
-                r["k_withdrawn"] = {
-                    "prediction": v, "confidence": r.get("confidence"),
-                    "reason": (REASON_BASE + "This is a note to the author rather than a selection "
-                               "(it tells the reader to wait for, or monitor, a future input before "
-                               "committing), and several of its statistics carry no source. The brief "
-                               "requires a prediction to state a clear betting selection, so it is "
-                               "withdrawn rather than published."),
-                    "withdrawn_utc": NOW, "finding": FINDING}
-                r["prediction"] = ""
-                n_preds += 1
-                touched.append(dict(field=k, before=v, after="", action="prediction withdrawn (working note)"))
-                continue
-
-            # ---- 3. a pick/market cell that reads as a to-do
-            if k in ("pick", "marketFocus") and INSTR.search(v) and NO_PICK.search(v):
-                r.setdefault("k_unverified_values", {})[k] = {
-                    "value": v,
-                    "removed_because": ("phrased as a working note ('monitor ...', 'wait until ...'); "
-                                        "restated plainly so the table does not read as a to-do list. "
-                                        "The substance is unchanged: no selection was originated."),
-                    "finding": FINDING}
-                r[k] = ("No selection originated" if k == "pick"
-                        else "No market originated")
-                n_picks += 1
-                touched.append(dict(field=k, before=v, after=r[k], action="restated as 'no selection'"))
+                removed[k] = {"value": v,
+                              "why": ("unresolved self-correction ('X? Actually Y') published in a rendered "
+                                      "field. Neither candidate value is confirmable here from a governing "
+                                      "body, so the field is blanked rather than guessed - the brief forbids "
+                                      "inferring values."),
+                              "finding": FINDING}
+                r[k] = ""
+                n_blank += 1
+                touched.append((k, "blanked"))
+            elif k in ("pick", "marketFocus") and INSTR.search(v) and NO_PICK.search(v):
+                removed[k] = {"value": v,
+                              "why": ("phrased as a working note ('monitor ...', 'wait until ...'). Restated "
+                                      "plainly; the substance is unchanged - no selection was originated."),
+                              "finding": FINDING}
+                r[k] = "No selection originated" if k == "pick" else "No market originated"
+                n_restate += 1
+                touched.append((k, "restated"))
 
         if touched:
+            r["r_f14_removed"] = removed
             r["flagged"] = True
-            note = (REASON_BASE + "%d field(s) affected: %s. Original values are preserved on this row "
-                    "under k_unverified_values / k_withdrawn. Nothing was inferred or substituted with a "
-                    "guessed value." % (len(touched), ", ".join(t["field"] for t in touched)))
+            note = ("Board R finding %s: unfinished draft text was published in %s. The original strings are "
+                    "preserved on this row under r_f14_removed. Nothing was inferred or substituted with a "
+                    "guessed value." % (FINDING, ", ".join("%s (%s)" % t for t in touched)))
             r["flagReason"] = (r.get("flagReason") + " | " + note) if r.get("flagReason") else note
-            # A row whose rendered FIXTURE fields were blanked cannot claim to be verified. Withdrawing
-            # only a prediction does not make the fixture itself unverified, so leave `verified` alone then.
-            if any(t["action"].startswith("blanked") for t in touched):
-                r["verified"] = False
-            changes.append(dict(id=rid, finding=FINDING, sport=r.get("sport"),
-                                match=r.get("match"), fields=touched))
+            changes.append(dict(id=r.get("id"), sport=r.get("sport"), fields=touched,
+                                originals={k: v["value"] for k, v in removed.items()}))
 
     with open(MATCHES, "w", encoding="utf-8") as f:
         json.dump(rows, f, indent=1, ensure_ascii=False)
         f.write("\n")
 
-    # append to the shared remediation log so the report page picks it up
-    with open(LOG, encoding="utf-8") as f:
-        log = json.load(f)
-    if not any(c.get("finding") == FINDING for c in log["changes"]):
-        log["findings_addressed"].append(FINDING)
-        log["changes"].extend(
-            dict(id=c["id"], finding=FINDING, action="draft text removed from published fields",
-                 what_was_wrong="; ".join("%s: %r" % (t["field"], t["before"][:110]) for t in c["fields"]),
-                 fields=[dict(field=t["field"], before=t["before"], after=t["after"]) for t in c["fields"]],
-                 official_source="", prediction_withdrawn=any("prediction" in t["action"] for t in c["fields"]))
-            for c in changes)
-        log["summary"]["k_f14_rows"] = len(changes)
-        log["summary"]["k_f14_fields_blanked"] = n_fields
-        log["summary"]["k_f14_predictions_withdrawn"] = n_preds
-        log["summary"]["k_f14_picks_restated"] = n_picks
-        log["summary"]["flagged_rows"] = sum(1 for r in rows if r.get("flagged"))
-        log["summary"]["verified_rows"] = sum(1 for r in rows if r.get("verified"))
-        log["k_f14"] = {
-            "title": "Unfinished draft text published in rendered data fields",
-            "discovered_by": "arena/47b1b4e2-olbg4 (Board K) while writing the artefact check in check_all.py",
-            "not_reported_by": "Boards F (07a080b9, 5fd34d30), G (ef72af9b), I (5e6c545d) and J (e1e0c27e)",
-            "note": ("Board J caught one instance in a prediction (EL02). This pass found five more "
-                     "self-corrections, including in fields the table renders directly, plus eight "
-                     "predictions that are working notes rather than selections."),
-            "rows": changes,
-        }
-        with open(LOG, "w", encoding="utf-8") as f:
-            json.dump(log, f, indent=1, ensure_ascii=False)
-            f.write("\n")
-    else:
-        print("K-F14 already recorded in the remediation log; data pass re-applied only")
+    # Derive the log from the rows themselves, not from this run's delta, so re-running is idempotent
+    # and the committed record always describes the whole remediation rather than the last invocation.
+    all_changes = []
+    for r in rows:
+        rem = r.get("r_f14_removed") if isinstance(r, dict) else None
+        if not rem:
+            continue
+        all_changes.append(dict(
+            id=r.get("id"), sport=r.get("sport"),
+            fields=[(k, "restated" if r.get(k) in ("No selection originated", "No market originated")
+                     else "blanked") for k in rem],
+            originals={k: v["value"] for k, v in rem.items()},
+            reasons={k: v["why"] for k, v in rem.items()}))
+    n_all_restate = sum(1 for c in all_changes for k, a in c["fields"] if a == "restated")
+    with open(OUT, "w", encoding="utf-8") as f:
+        json.dump({"schema": "olbg4.boardr-draft-artefacts/1", "finding": FINDING, "run_utc": NOW,
+                   "dataset": "data/matches.json", "rows_in_dataset": len(rows),
+                   "rows_affected": len(all_changes),
+                   "fields_blanked": sum(len(c["fields"]) for c in all_changes) - n_all_restate,
+                   "fields_restated": n_all_restate,
+                   "changed_this_run": len(changes), "changes": all_changes}, f, indent=1, ensure_ascii=False)
+        f.write("\n")
 
-    print("rows affected           :", len(changes))
-    print("fields blanked          :", n_fields)
-    print("predictions withdrawn   :", n_preds)
-    print("picks restated          :", n_picks)
-    for c in changes:
-        print("  %-6s %-13s %s" % (c["id"], (c["sport"] or "")[:13],
-                                   ", ".join(t["field"] for t in c["fields"])))
+    print("rows in dataset      :", len(rows))
+    print("rows affected (total):", len(all_changes), "| changed this run:", len(changes))
+    for c in all_changes:
+        print("  %-7s %-13s %s" % (c["id"], (c["sport"] or "")[:13],
+                                   ", ".join("%s(%s)" % t for t in c["fields"])))
+    print("wrote", os.path.relpath(OUT, ROOT))
     return 0
 
 

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Draft-text fix — OLBG4 Board R</title>
+<style>
+:root{--ink:#111827;--mut:#6b7280;--line:#e5e7eb;--bg:#f8fafc;--blue:#2563eb;--amber:#b45309;--green:#15803d}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+header .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+b.brand{font-size:17px}b.brand span{color:var(--blue)}
+nav{display:flex;flex-wrap:wrap;gap:4px}
+nav a{padding:6px 11px;border-radius:8px;text-decoration:none;color:var(--mut);font-size:14px;font-weight:600}
+nav a:hover{background:#eef2ff;color:var(--blue)}
+nav a.on{background:var(--blue);color:#fff}
+main{max-width:1200px;margin:0 auto;padding:22px 18px 60px}
+h1{font-size:26px;margin:6px 0 4px}h2{font-size:19px;margin:30px 0 8px}
+.lede{color:var(--mut);margin:0 0 18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.06em;color:var(--blue);font-weight:800;font-size:11.5px;margin:0 0 6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:18px 0}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.kpi .v{font-size:27px;font-weight:800;margin-top:3px}
+.kpi .s{font-size:12.5px;color:var(--mut);margin-top:3px}
+.tw{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{background:#f1f5f9;text-align:left;padding:9px 11px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:#475569;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.small{font-size:12.5px;color:var(--mut)}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.03em}
+.hi{background:#fee2e2;color:#991b1b}.me{background:#fef3c7;color:#92400e}.lo{background:#e0e7ff;color:#3730a3}
+.ok{background:#dcfce7;color:#166534}
+.note{background:#eff6ff;border:1px solid #cddffd;border-left:4px solid var(--blue);border-radius:10px;padding:12px 15px;margin:14px 0}
+.warn{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid var(--amber);border-radius:10px;padding:12px 15px;margin:14px 0}
+.good{background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid var(--green);border-radius:10px;padding:12px 15px;margin:14px 0}
+code{background:#f1f5f9;padding:1px 5px;border-radius:5px;font-size:12.5px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px 16px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.65}
+a{color:var(--blue)}
+.strike{text-decoration:line-through;color:var(--mut)}
+ul{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><div class="wrap">
+<b class="brand">OLBG4 <span>· Board R</span></b>
+<nav><a href="index.html">Overview</a><a href="draft-text.html" class="on">Draft-text fix</a><a href="restored.html">Restored files</a><a href="verification.html">Verification</a><a href="merge.html">Merge record</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Finding R-F14 — unfinished draft text published in rendered fields</h1>
+<p class="lede">Discovered by this board while writing the artefact check in <code>check_all.py</code>.
+Ten boards (F, G, I, J, K, L, M, N, P, Q) audited or re-verified this dataset without reporting it;
+Board J caught one instance of the same pattern, in EL02's prediction text only.</p>
+
+<div class="warn"><strong>The defect.</strong> <code>data/matches.json</code> published unresolved
+self-corrections of the form "X? Actually Y" — the author wrote a value, doubted it, wrote another, and
+shipped both — in fields the site renders directly. It also published instructions to the author where a
+pick belongs. Because <code>assets/js/main.js</code> renders <code>competition</code>, <code>pick</code>,
+<code>originatedSpread</code> and <code>marketFocus</code>, and <code>tools/build_master.py</code> reads
+<code>pick</code>, <code>competition</code>, <code>teamB</code> and <code>originatedSpread</code> into the
+consolidated board, these strings were live on both the hub category pages and <code>/board/</code>.</div>
+
+<h2>What a reader was being shown</h2>
+<div class="tw"><table><thead><tr><th>Field</th><th>Published string (verbatim)</th></tr></thead><tbody>
+<tr><td><code>competition</code></td><td>WTT Youth/Feeder Concurrent — Chengdu<strong>? Actually</strong> Chennai</td></tr>
+<tr><td><code>originatedSpread</code></td><td>Game Handicap: MS -<strong>? Actually</strong> badminton: -6.5 points handicap @ 1.91</td></tr>
+<tr><td><code>teamB</code></td><td>Course: El Tigre<strong>? Actually</strong> Vidanta Vallarta — par 71, wide fairways</td></tr>
+<tr><td><code>originatedSpread</code></td><td>Game Handicap -1.5 @ 1.91 (Best of 5 last-16<strong>? Actually</strong> Champions is Bo5 R32-16, Bo7 QF onward; <strong>check WTT rules</strong>)</td></tr>
+<tr><td><code>pick</code></td><td>Sei Young Kim (defending) to contend — but low confidence outright; back Over -18.5 winning score<strong>? Actually</strong> course plays under, lean Under -18.5 if wind</td></tr>
+<tr><td><code>pick</code></td><td>No pick yet — <strong>monitor</strong> entry lists (Alcaraz/Sinner expected in Basel/Vienna)</td></tr>
+<tr><td><code>marketFocus</code></td><td>No match markets until draw — <strong>monitor</strong> pools</td></tr>
+</tbody></table></div>
+
+<h2>Every field changed (8 rows)</h2>
+<div class="tw"><table><thead><tr><th>Row</th><th>Field</th><th>Action</th><th>Was published as</th><th>Now</th><th>Why</th></tr></thead>
+<tbody><tr><td><strong>ATP04</strong><div class='small'>Tennis</div></td><td><code>pick</code></td><td><span class='pill me'>RESTATED</span></td><td class='small'><span class='strike'>No pick yet — monitor entry lists (Alcaraz/Sinner expected in Basel/Vienna)</span></td><td class='small'>No selection originated</td><td class='small'>phrased as a working note (&#x27;monitor ...&#x27;, &#x27;wait until ...&#x27;). Restated plainly; the substance is unchanged - no selection was originated.</td></tr><tr><td><strong>SNK03</strong><div class='small'>Snooker</div></td><td><code>pick</code></td><td><span class='pill me'>RESTATED</span></td><td class='small'><span class='strike'>No outright pick until QF results — monitor century rate</span></td><td class='small'>No selection originated</td><td class='small'>phrased as a working note (&#x27;monitor ...&#x27;, &#x27;wait until ...&#x27;). Restated plainly; the substance is unchanged - no selection was originated.</td></tr><tr><td><strong>GLF03</strong><div class='small'>Golf</div></td><td><code>teamB</code></td><td><span class='pill hi'>BLANKED</span></td><td class='small'><span class='strike'>Course: El Tigre? Actually Vidanta Vallarta — par 71, wide fairways</span></td><td class='small'><em>(blank)</em></td><td class='small'>unresolved self-correction (&#x27;X? Actually Y&#x27;) published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values.</td></tr><tr><td><strong>GLF03</strong><div class='small'>Golf</div></td><td><code>pick</code></td><td><span class='pill me'>RESTATED</span></td><td class='small'><span class='strike'>No favourite — wait until Bermuda results shift FedEx standings</span></td><td class='small'>No selection originated</td><td class='small'>phrased as a working note (&#x27;monitor ...&#x27;, &#x27;wait until ...&#x27;). Restated plainly; the substance is unchanged - no selection was originated.</td></tr><tr><td><strong>GLF04</strong><div class='small'>Golf</div></td><td><code>pick</code></td><td><span class='pill hi'>BLANKED</span></td><td class='small'><span class='strike'>Sei Young Kim (defending) to contend — but low confidence outright; back Over -18.5 winning score? Actually course plays under, lean Under -18.5 if wind</span></td><td class='small'><em>(blank)</em></td><td class='small'>unresolved self-correction (&#x27;X? Actually Y&#x27;) published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values.</td></tr><tr><td><strong>BDM01</strong><div class='small'>Badminton</div></td><td><code>originatedSpread</code></td><td><span class='pill hi'>BLANKED</span></td><td class='small'><span class='strike'>Game Handicap: MS -? Actually badminton: -6.5 points handicap @ 1.91</span></td><td class='small'><em>(blank)</em></td><td class='small'>unresolved self-correction (&#x27;X? Actually Y&#x27;) published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values.</td></tr><tr><td><strong>TTT02</strong><div class='small'>Table Tennis</div></td><td><code>originatedSpread</code></td><td><span class='pill hi'>BLANKED</span></td><td class='small'><span class='strike'>Game Handicap -1.5 @ 1.91 (Best of 5 last-16? Actually Champions is Bo5 R32-16, Bo7 QF onward; check WTT rules)</span></td><td class='small'><em>(blank)</em></td><td class='small'>unresolved self-correction (&#x27;X? Actually Y&#x27;) published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values.</td></tr><tr><td><strong>TTT03</strong><div class='small'>Table Tennis</div></td><td><code>competition</code></td><td><span class='pill hi'>BLANKED</span></td><td class='small'><span class='strike'>WTT Youth/Feeder Concurrent — Chengdu? Actually Chennai</span></td><td class='small'><em>(blank)</em></td><td class='small'>unresolved self-correction (&#x27;X? Actually Y&#x27;) published in a rendered field. Neither candidate value is confirmable here from a governing body, so the field is blanked rather than guessed - the brief forbids inferring values.</td></tr><tr><td><strong>VBL01</strong><div class='small'>Volleyball</div></td><td><code>marketFocus</code></td><td><span class='pill me'>RESTATED</span></td><td class='small'><span class='strike'>No match markets until draw — monitor pools</span></td><td class='small'>No market originated</td><td class='small'>phrased as a working note (&#x27;monitor ...&#x27;, &#x27;wait until ...&#x27;). Restated plainly; the substance is unchanged - no selection was originated.</td></tr></tbody></table></div>
+
+<div class="note"><strong>Why the "Actually …" answer was not adopted.</strong> It looks like the author
+left the correct value in the string, so simply keeping the second half is tempting. This board did not do
+that. Picking between two values the author never reconciled, with no governing-body page behind either,
+is <em>inference</em> — and the brief is explicit: if a value cannot be confirmed from an official source,
+leave it blank and flag it as unverified; never infer or fill values. So the field is blanked, the row is
+flagged, and the original string is preserved on the row under <code>r_f14_removed</code> so a reviewer can
+see exactly what was removed and confirm it against a source themselves.</div>
+
+<div class="good"><strong>Nothing was lost and nothing else was touched.</strong> The fix adds only the
+<code>r_f14_removed</code> key, appends to <code>flagReason</code> and sets <code>flagged</code>. It never
+rewrites <code>verification</code>, <code>priorSourceUrl</code>, <code>verified</code> or
+<code>confidence</code>, which belong to the board that wrote them. Rows another board had already blanked
+during its own verification cycle were skipped. The script is idempotent: a second run reports
+"changed this run: 0".</div>
+
+<h2>Reproduce</h2>
+<pre>python3 scripts/session-47b1b4e2/fix_draft_artefacts.py   # writes data/session-47b1b4e2/draft_artefacts.json
+python3 tools/build_master.py &amp;&amp; BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py
+BOARD_DIR=board python3 tools/verify_master.py            # master-board gate</pre>
+
+</main>
+<footer class="wrap">Board R · session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · remediation and
+integration. Sources: official governing-body pages, linked inline. Nothing on this site is betting
+advice; unconfirmed values are left blank and flagged rather than inferred.</footer>
+</body></html>

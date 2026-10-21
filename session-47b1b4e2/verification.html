@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Verification — OLBG4 Board K</title>
+<title>Verification — OLBG4 Board R</title>
 <style>
 :root{--ink:#111827;--mut:#6b7280;--line:#e5e7eb;--bg:#f8fafc;--blue:#2563eb;--amber:#b45309;--green:#15803d}
 *{box-sizing:border-box}
@@ -17,6 +17,7 @@ nav a.on{background:var(--blue);color:#fff}
 main{max-width:1200px;margin:0 auto;padding:22px 18px 60px}
 h1{font-size:26px;margin:6px 0 4px}h2{font-size:19px;margin:30px 0 8px}
 .lede{color:var(--mut);margin:0 0 18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.06em;color:var(--blue);font-weight:800;font-size:11.5px;margin:0 0 6px}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:18px 0}
 .kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
 .kpi .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
@@ -35,113 +36,99 @@ tr:last-child td{border-bottom:0}
 .warn{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid var(--amber);border-radius:10px;padding:12px 15px;margin:14px 0}
 .good{background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid var(--green);border-radius:10px;padding:12px 15px;margin:14px 0}
 code{background:#f1f5f9;padding:1px 5px;border-radius:5px;font-size:12.5px}
-pre{background:#0f172a;color:#e2e8f0;padding:13px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.5}
-details{margin-top:6px}summary{cursor:pointer;font-weight:700;color:var(--blue);font-size:13px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px 16px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.65}
 a{color:var(--blue)}
-blockquote{margin:8px 0;padding:9px 13px;border-left:3px solid var(--line);color:#4b5563;background:#fafafa;border-radius:0 8px 8px 0}
-footer{border-top:1px solid var(--line);background:#fff;padding:16px 0;color:var(--mut);font-size:13px}
-</style></head><body>
-<header><div class="wrap">
-<b class="brand">OLBG<span>4</span> — Board K remediation</b>
-<nav><a href="index.html">Overview</a><a href="changes.html">Change log</a><a href="withdrawn.html">Withdrawn predictions</a><a href="restored.html">Restored files</a><a href="verification.html" class="on">Verification</a><a href="../index.html">← Hub</a></nav>
+.strike{text-decoration:line-through;color:var(--mut)}
+ul{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><div class="wrap">
+<b class="brand">OLBG4 <span>· Board R</span></b>
+<nav><a href="index.html">Overview</a><a href="draft-text.html">Draft-text fix</a><a href="restored.html">Restored files</a><a href="verification.html" class="on">Verification</a><a href="merge.html">Merge record</a></nav>
 </div></header>
 <main class="wrap">
 
 <h1>Verification — what was checked, and what was not</h1>
-<p class="lede">This session re-opened the official pages behind every correction rather than accepting
-earlier sessions' verification claims. Checks were performed on 2026-10-21 with the agent's web fetch and
-search tools; the sandbox shell has egress only to github.com, npmjs.org and pypi.org, so no official
-sports endpoint is reachable from <code>bash</code> here.</p>
+<p class="lede">This session re-opened the official pages behind every claim rather than accepting earlier
+sessions' verification. Checks were performed on 2026-10-21 with the agent's web fetch and search tools;
+the sandbox shell has egress only to github.com, npmjs.org and pypi.org, so no official sports endpoint is
+reachable from <code>bash</code> here.</p>
 
 <h2>Official pages re-opened by this session</h2>
-<div class="tw"><table><thead><tr><th>Official source</th><th>What it confirmed</th><th>Rows</th></tr></thead><tbody>
-<tr><td><a href="https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-preview-october-20-2026" target="_blank" rel="noopener">NHL.com — Sharks at Canadiens preview</a></td><td class="small">"SHARKS (4-4-1) at CANADIENS (4-3-1), 7 p.m. ET" — contradicts the published "San Jose 0-4"</td><td>NHL01</td></tr>
-<tr><td><a href="https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-recap-october-20-2026" target="_blank" rel="noopener">NHL.com — Sharks at Canadiens recap</a></td><td class="small">San Jose won 4-3 in OT; Sharks to 5-4-1, Canadiens to 4-3-2 — fixture is final</td><td>NHL01</td></tr>
-<tr><td><a href="https://www.nhl.com/news/boston-bruins-dallas-stars-game-preview-october-20-2026" target="_blank" rel="noopener">NHL.com — Bruins at Stars preview</a></td><td class="small">"BRUINS (7-2-0) at STARS (4-3-1)"; Boston's injured list reads "None" — contradicts "Boston 1-3" and "Marchand on IR"</td><td>NHL06</td></tr>
-<tr><td><a href="https://www.nhl.com/stars/news/game-day-guide-boston-bruins-vs-dallas-stars-102026" target="_blank" rel="noopener">NHL.com — Stars game-day guide</a></td><td class="small">Boston 7-2-0, 14 points, 1st in Atlantic; Dallas 4-3-1, 1-2-0 at home</td><td>NHL06</td></tr>
-<tr><td><a href="https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026" target="_blank" rel="noopener">NHL.com — Bruins at Stars recap</a></td><td class="small">Dallas won 3-2 in OT (Rantanen hat trick), ending Boston's five-game streak — fixture is final</td><td>NHL06</td></tr>
-<tr><td><a href="https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more" target="_blank" rel="noopener">MLB.com — World Series FAQ</a></td><td class="small">Rays beat the Guardians in <strong>six</strong> ALCS games; Brewers 103-59, Rays 98-64; Brewers "took two of three" in the only regular-season meeting; Game 1 Fri 23 Oct, 8 p.m. ET, American Family Field</td><td>MLB01</td></tr>
-<tr><td><a href="https://www.mlb.com/news/world-series-home-field-advantage" target="_blank" rel="noopener">MLB.com — home-field advantage</a></td><td class="small">"The Rays will host Games 3, 4 and 5 (if necessary) at <strong>Tropicana Field</strong>" — replaces the published Steinbrenner Field venue</td><td>MLB03</td></tr>
-<tr><td><a href="https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html" target="_blank" rel="noopener">PCB — tri-series announcement</a></td><td class="small">Pakistan v England is the <strong>second</strong> match (20 Oct, Rawalpindi); match 1 was Pakistan v Sri Lanka (18 Oct); the final is <strong>31 Oct</strong> at Gaddafi Stadium, Lahore</td><td>CRK03, CRK05</td></tr>
-<tr><td><a href="https://www.pcb.com.pk/press-release-detail/media-advisory-men-s-odi-tri-series-pakistan-england-sri-lanka-rawalpindi-leg.html" target="_blank" rel="noopener">PCB — Rawalpindi leg media advisory</a></td><td class="small">Sri Lanka v England, third match, 22 Oct at Rawalpindi Cricket Stadium "from 1pm PKT"; toss 12.30pm</td><td>CRK04</td></tr>
-<tr><td><a href="https://www.ecb.co.uk/news/4562387/pakistan-to-host-sri-lanka-and-england-in-odi-triseries" target="_blank" rel="noopener">ECB — tri-series schedule</a></td><td class="small">Corroborates all seven fixtures and the 31 October final</td><td>CRK03, CRK05</td></tr>
-<tr><td><a href="https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/" target="_blank" rel="noopener">EuroLeague Basketball — schedule release</a></td><td class="small">Round 7 on 22 October carries the first Turkish derby (Anadolu Efes v Beşiktaş) and the first Serbian derby (Partizan v Crvena Zvezda)</td><td>EL01, EL02</td></tr>
-<tr><td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">PDC — European Championship schedule of play</a></td><td class="small">Thursday 22 and Friday 23 October are <strong>1900–2300 CEST</strong> / 1800–2200 BST at the Westfalenhalle, Dortmund — not CET</td><td>DRT01–DRT04</td></tr>
-<tr><td><a href="https://www.rlwc2026.com/draws-and-pools" target="_blank" rel="noopener">RLWC2026.com — official draws &amp; pools</a></td><td class="small">Australia 24–22 New Zealand, Round 1 Pool A, 15 Oct, Allianz Stadium Sydney (fulltime); Fiji 40–12 Cook Islands, 18 Oct, Newcastle; Round 2 Pool A on 25 Oct in Brisbane is <strong>Australia v Fiji</strong></td><td>RL01</td></tr>
-<tr><td><a href="https://www.rlwc2026.com/draw/mens/2026/round-2/australia-v-fiji" target="_blank" rel="noopener">RLWC2026.com — Australia v Fiji match centre</a></td><td class="small">Official match centre for the corrected fixture</td><td>RL01</td></tr>
-<tr><td><a href="https://suncorpstadium.com.au/events/rugby-league-world-cup-2026--men-s-australia-v-fiji" target="_blank" rel="noopener">Suncorp Stadium — event page</a></td><td class="small">"Rugby League World Cup 2026: Men's Australia v Fiji", Sunday 25 October 2026, kick off 7:05pm</td><td>RL01</td></tr>
+<p class="lede">These confirmed Board J's contradictions, and in several cases went further than Board J:
+both <code>nrl.com</code> URLs Board J cited for the RLWC Round 2 fixture <strong>return 404</strong>, so the
+correct sources were located instead. Rows marked <em>offered</em> are ones the owning board has since
+blanked — the evidence is published here and logged as a request rather than written into its rows.</p>
+<div class="tw"><table><thead><tr><th>Official source</th><th>What it confirmed</th><th>Rows</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-preview-october-20-2026" target="_blank" rel="noopener">NHL.com — Sharks at Canadiens preview</a></td><td class="small">"SHARKS (4-4-1) at CANADIENS (4-3-1), 7 p.m. ET" — contradicts the published "San Jose 0-4"</td><td>NHL01</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-recap-october-20-2026" target="_blank" rel="noopener">NHL.com — recap</a></td><td class="small">San Jose won 4-3 in OT; Sharks to 5-4-1, Canadiens to 4-3-2 — the fixture was already final and the High pick had lost</td><td>NHL01</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.nhl.com/news/boston-bruins-dallas-stars-game-preview-october-20-2026" target="_blank" rel="noopener">NHL.com — Bruins at Stars preview</a></td><td class="small">"BRUINS (7-2-0) at STARS (4-3-1)"; Boston's injured list reads <strong>"None"</strong>, so "Marchand on IR" was fabricated</td><td>NHL06</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more" target="_blank" rel="noopener">MLB.com — World Series FAQ</a></td><td class="small">Rays beat the Guardians in <strong>six</strong> ALCS games, not seven; Brewers "took two of three", they were not swept; Brewers 103-59, Rays 98-64; Game 1 Fri 23 Oct, 8 p.m. ET, American Family Field</td><td>MLB01</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.mlb.com/news/world-series-home-field-advantage" target="_blank" rel="noopener">MLB.com — home-field advantage</a></td><td class="small">"The Rays will host Games 3, 4 and 5 (if necessary) at <strong>Tropicana Field</strong>" — the FAQ page does not name the venue, so this page is the one to cite</td><td>MLB03</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html" target="_blank" rel="noopener">PCB — tri-series announcement</a></td><td class="small">Pakistan v England is the <strong>second</strong> match (20 Oct, Rawalpindi); match 1 was Pakistan v Sri Lanka (18 Oct); the final is <strong>31 Oct</strong> at Gaddafi Stadium, Lahore — not 29 Oct</td><td>CRK03, CRK05</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.pcb.com.pk/press-release-detail/media-advisory-men-s-odi-tri-series-pakistan-england-sri-lanka-rawalpindi-leg.html" target="_blank" rel="noopener">PCB — Rawalpindi media advisory</a></td><td class="small">Sri Lanka v England, third match, 22 Oct, "from <strong>1pm PKT</strong>" (toss 12.30pm) — the published 14:30 was wrong</td><td>CRK04</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.ecb.co.uk/news/4562387/pakistan-to-host-sri-lanka-and-england-in-odi-triseries" target="_blank" rel="noopener">ECB — tri-series schedule</a></td><td class="small">Independently corroborates all seven fixtures and the 31 October final</td><td>CRK03, CRK05</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">PDC — European Championship schedule of play</a></td><td class="small">Thursday 22 and Friday 23 October are <strong>1900–2300 CEST</strong> / 1800–2200 BST at the Westfalenhalle, Dortmund. The hub printed CET. £750k Premier event, 32 players; reigning champion Gian van Veen; Humphries world no. 2</td><td>DRT01–04</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/" target="_blank" rel="noopener">EuroLeague Basketball — schedule release</a></td><td class="small">Round 7 on 22 October carries the first Turkish derby (Anadolu Efes v Beşiktaş) and the first Serbian derby. The listing shows <strong>17:30</strong>, EFS(13) v BJK(11) — the published "Efes 4-2 / Besiktas 2-4" had the records <strong>inverted</strong>. Venue is the Basketball Development Center, not Sinan Erdem Dome. Efes <em>lost</em> 93–101 at home to Bayern on 14 Oct</td><td>EL01, EL02</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://www.rlwc2026.com/draws-and-pools" target="_blank" rel="noopener">RLWC2026.com — official draws &amp; pools</a></td><td class="small">Round 1 Pool A, Thu 15 Oct: Australia 24–22 New Zealand, Allianz Stadium Sydney (fulltime). 18 Oct: Fiji 40–12 Cook Islands, Newcastle. Round 2 Pool A on Sun 25 Oct in Brisbane is <strong>Australia v Fiji</strong>. The published "Pacific Championships Australia v New Zealand, 25 Oct, Brisbane" <strong>does not exist</strong>; "NZ lost to Tonga 18 Oct" is wrong; the final is <strong>15 Nov at Suncorp Stadium, Brisbane</strong>, not 8 Nov in Sydney</td><td>RL01</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://www.rlwc2026.com/draw/mens/2026/round-2/australia-v-fiji" target="_blank" rel="noopener">RLWC2026.com — Australia v Fiji match centre</a></td><td class="small">Official match centre for the corrected fixture</td><td>RL01</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://suncorpstadium.com.au/events/rugby-league-world-cup-2026--men-s-australia-v-fiji" target="_blank" rel="noopener">Suncorp Stadium — event page</a></td><td class="small">"Rugby League World Cup 2026: Men's Australia v Fiji", Sunday 25 October 2026, kick off 7:05pm AEST</td><td>RL01</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://www.galwaygaa.ie/fixtures/?user=6929" target="_blank" rel="noopener">Galway GAA — fixtures</a></td><td class="small">Basis of the F-07 retraction: Build A's Galway row (24 Oct, 19:00, Pearse Stadium) is correct, and Gaelic football is not on the exclusion list</td><td>Build A</td><td><span class="pill ok">live</span></td></tr>
 </tbody></table></div>
 
-<h2>Governing-body domains now linked by hub rows</h2>
-<p class="lede">20 domains across 43 rows. A row is marked <code>verified:true</code> only when
-its own <code>sourceUrl</code> is one of these.</p>
-<div class="tw"><table><thead><tr><th>Domain</th><th>Body</th><th>Rows</th></tr></thead><tbody>
-<tr><td><code>afl.com.au</code></td><td class='small'>AFL (Australian Rules)</td><td>1</td></tr><tr><td><code>atptour.com</code></td><td class='small'>ATP Tour</td><td>4</td></tr><tr><td><code>cricket.com.au</code></td><td class='small'>Cricket Australia</td><td>3</td></tr><tr><td><code>ehfcl.eurohandball.com</code></td><td class='small'>EHF Champions League</td><td>1</td></tr><tr><td><code>euroleaguebasketball.net</code></td><td class='small'>EuroLeague Basketball</td><td>2</td></tr><tr><td><code>fftt.com</code></td><td class='small'>French Table Tennis Federation</td><td>1</td></tr><tr><td><code>fivb.com</code></td><td class='small'>FIVB (volleyball)</td><td>2</td></tr><tr><td><code>ihf.info</code></td><td class='small'>IHF (handball)</td><td>1</td></tr><tr><td><code>ittf.com</code></td><td class='small'>ITTF (table tennis)</td><td>1</td></tr><tr><td><code>lolesports.com</code></td><td class='small'>Riot Games / LoL Esports</td><td>1</td></tr><tr><td><code>lpga.com</code></td><td class='small'>LPGA</td><td>1</td></tr><tr><td><code>mlb.com</code></td><td class='small'>MLB (league)</td><td>4</td></tr><tr><td><code>nba.com</code></td><td class='small'>NBA (league)</td><td>5</td></tr><tr><td><code>nhl.com</code></td><td class='small'>NHL (league)</td><td>3</td></tr><tr><td><code>pcb.com.pk</code></td><td class='small'>Pakistan Cricket Board</td><td>3</td></tr><tr><td><code>pdc.tv</code></td><td class='small'>PDC (darts)</td><td>4</td></tr><tr><td><code>pgatour.com</code></td><td class='small'>PGA TOUR</td><td>3</td></tr><tr><td><code>rlwc2026.com</code></td><td class='small'>Rugby League World Cup 2026 (tournament organiser)</td><td>1</td></tr><tr><td><code>valorantesports.com</code></td><td class='small'>Riot Games / Valorant Esports</td><td>1</td></tr><tr><td><code>wtatennis.com</code></td><td class='small'>WTA Tour</td><td>1</td></tr>
-</tbody></table></div>
+<div class="warn"><strong>Two dead links, logged so no later board re-cites them.</strong> Board J's finding
+F-02 cites <code>nrl.com/news/2026-10-20/...</code> twice for the RLWC Round 2 fixture.
+<strong>Both return 404.</strong> The correct sources are <code>rlwc2026.com/draws-and-pools</code> and
+<code>/draw/mens/2026/round-N/&lt;slug&gt;</code>. Separately, <code>fetch_page</code> on the MLB World
+Series FAQ reports a different <code>url</code> in its metadata than the one requested while serving the
+correct body — that mismatch is a tool artefact, not a failure.</div>
 
-<h2>What this session did <em>not</em> re-verify</h2>
+<h2>What this board did <em>not</em> re-verify</h2>
 <div class="warn"><ul>
-<li><strong>The other five builds' rows.</strong> Boards A, B, C, E and G publish 553 further rows. This
-board restored and repaired what Board J proved was broken, and re-verified only the hub rows it changed.
-It has not re-opened every source link in every build — Board J's audit remains the reference for those,
-and its 18 spot checks (9 confirmed, 5 partial, 4 contradicted) are published at
-<a href="../session-e1e0c27e/spot-checks.html">session-e1e0c27e/spot-checks.html</a>.</li>
-<li><strong>Originated prices.</strong> The hub's moneyline, handicap and total figures were produced by
-Board D's model. This board corrected fixture facts and withdrew unsupportable write-ups; it did not
-re-derive every price, except for RL01, whose line was blanked because it came from a fixture that does
-not exist.</li>
-<li><strong>Live odds or results after 2026-10-21.</strong> The dataset is a snapshot at that cut-off. Two
-hub fixtures (NHL01, NHL06) had already been played at the cut-off and are now marked Final.</li>
-<li><strong>Values left blank.</strong> EL01's tip time and venue, EL02's win–loss records and RL01's
-originated line are blank because they were only confirmable on secondary sites. They were not filled in.</li>
+<li><strong>The other builds' rows.</strong> Boards A, B, C, E and G publish several hundred further rows.
+This board repaired what Board J proved broken and re-verified only the hub rows it changed. Board J's
+audit remains the reference for the rest; its 18 spot checks (9 confirmed, 5 partial, 4 contradicted) are
+at <a href="../session-e1e0c27e/spot-checks.html">session-e1e0c27e/spot-checks.html</a>.</li>
+<li><strong>Originated prices.</strong> Moneyline, handicap and total figures come from each build's own
+model. This board corrected fixture facts and removed draft text; it did not re-derive any price.</li>
+<li><strong>The consolidated master board's 317 rows.</strong> <code>tools/verify_master.py</code> is that
+board's own gate and it passes. This board ran it to confirm the R-F14 fix did not break it, not to
+re-audit its content.</li>
+<li><strong>Anything after 2026-10-21.</strong> The dataset is a snapshot at that cut-off.</li>
+<li><strong>Values left blank.</strong> 41 hub rows have no confirmed official source, so their
+time, venue, source and prediction are blank. They were <em>not</em> filled in — including where this
+board had found a plausible source, because the owning board's decision to blank them stands.</li>
 </ul></div>
 
-<h2>Reproducible checks — run in this order</h2>
-<pre>cp data/session-47b1b4e2/matches.preremediation.json data/matches.json   # remediate.py is NOT idempotent
-python3 scripts/session-47b1b4e2/remediate.py        # K3-K6: F-01 downgrades, corrections, withdrawals, gate
-python3 scripts/session-47b1b4e2/fix_draft_artefacts.py  # K-F14: draft text out of rendered fields
-python3 scripts/session-47b1b4e2/fix_build_b_flag.py # K7: retraction in data/flag_notes.json
-python3 scripts/session-47b1b4e2/update_site.py      # K8/K9: 26 exact-string site edits (idempotent)
-python3 build_site.py &amp;&amp; python3 gen_pages.py        # Build A: 144 rows, 15 sport pages
-python3 scripts/session-47b1b4e2/restore_docs_banner.py  # gen_pages.py clobbers Board B's banner
-python3 scripts/verify.py --links &amp;&amp; python3 scripts/build_site.py  # Build B gate + 18 pages
-bash scripts/session-74f9613e/build_all.sh           # Build C gate + 18 pages
-python3 scripts/audit_publication.py                 # cross-build publication audit
-python3 session-07a080b9/audit.py                    # Board F audit
-python3 scripts/session-e1e0c27e/audit.py &amp;&amp; python3 scripts/session-e1e0c27e/build_site.py  # Board J audit
-python3 scripts/session-47b1b4e2/build_report.py     # K10: this report
-python3 scripts/session-47b1b4e2/check_all.py        # K11: final gate, exits non-zero on failure</pre>
-
-<h2>Final gate — <code>check_all.py</code></h2>
-<p class="lede">25/26 checks pass. Run last, over the whole repository, after every build above has regenerated its
-own output. It exits non-zero on any hard failure so a broken site cannot be published. Results are
-committed at <code>data/session-47b1b4e2/checks.json</code>.</p>
-<div class="tw"><table><thead><tr><th>Check</th><th>Result</th><th>Why it matters</th></tr></thead><tbody>
-<tr><td><strong>Every committed JSON file parses</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>94 files</span></td><td class='small'>data/, docs/, session-*/, tools/, pipeline/, audit/</td></tr><tr><td><strong>Hub dataset loads with the expected row count</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>66 rows</span></td><td class='small'>Build D published 66 entries; remediation must not add or drop rows.</td></tr><tr><td><strong>Every hub row carries a source link</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>66/66</span></td><td class='small'>F-01 requires a link on every row, official or not.</td></tr><tr><td><strong>Every hub row is classified official / secondary / olbg</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>66/66</span></td><td class='small'>Added by Board K (F-01).</td></tr><tr><td><strong>No row is verified:true on a non-governing-body source</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>0 offenders</span></td><td class='small'>This was Board J finding F-01 (26 rows).</td></tr><tr><td><strong>Every hub row declares an entryType</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>66/66</span></td><td class='small'>Board J finding F-04: not every entry is a match.</td></tr><tr><td><strong>Every High-confidence row has a prediction of at least 30 words</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>2 High rows, shortest 77 words</span></td><td class='small'>Brief requires &gt;=30 words naming team/player/form/selection.</td></tr><tr><td><strong>No duplicated high-confidence prediction bodies</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>0 duplicates</span></td><td class='small'>Brief requires unique, non-repetitive write-ups.</td></tr><tr><td><strong>No published hub field contains draft or template artefacts</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>0 offenders</span></td><td class='small'>Board J F-02/F-12 found these in predictions; Board K finding K-F14 found them in rendered data fields too (teamB, pick, competition, originatedSpread).</td></tr><tr><td><strong>No hub prediction opener is repeated across more than two rows</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>0 repeated openers</span></td><td class='small'>Board J finding F-12: 13 of 25 templated rows shared one opener.</td></tr><tr><td><strong>Every withdrawn prediction keeps its full original text</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>23 withdrawn, 23 preserved</span></td><td class='small'></td></tr><tr><td><strong>Every withdrawal records a reason</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>23/23</span></td><td class='small'>Nothing may be withdrawn silently.</td></tr><tr><td><strong>Every corrected row links the official page it was checked against</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>14 corrected, 14 linked</span></td><td class='small'></td></tr><tr><td><strong>Build A dataset holds its original 144 rows</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>144 rows</span></td><td class='small'>cf9f024 reduced this to 137 (Board J finding F-11).</td></tr><tr><td><strong>Build A&#x27;s four deleted sport pages exist again</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>15 sport pages</span></td><td class='small'></td></tr><tr><td><strong>Build A&#x27;s high-confidence predictions are not templated</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>12 High rows, shortest 66 words</span></td><td class='small'>Board J finding F-12.</td></tr><tr><td><strong>Build A&#x27;s Gaelic Football rows are back in scope</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>15 sports</span></td><td class='small'>The brief excludes hurling, not Gaelic football (F-07).</td></tr><tr><td><strong>Build B&#x27;s 9 per-claim-sourced predictions are intact</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>9 predictions</span></td><td class='small'>cf9f024 replaced them with 25 templated entries (F-11).</td></tr><tr><td><strong>Every Build B prediction fact still carries a source URL</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>36 facts</span></td><td class='small'>23 official / 13 secondary as published.</td></tr><tr><td><strong>Build B&#x27;s Gaelic-football exclusion claim is retracted</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>1/1 retracted</span></td><td class='small'>Board J finding F-07. Original wording must be preserved inside the item.</td></tr><tr><td><strong>The retraction preserves Build B&#x27;s original wording</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>1 items</span></td><td class='small'>Nothing from another board is deleted.</td></tr><tr><td><strong>The withdrawn templated predictions are archived, not deleted</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>present</span></td><td class='small'>data/archive/session-4359d6a4-templated-predictions.json</td></tr><tr><td><strong>The archive holds all 25 templated predictions</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>25 entries</span></td><td class='small'>Preserved verbatim from cf9f024.</td></tr><tr><td><strong>No excluded sport is published as a priced match</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>0 offenders</span></td><td class='small'>Excluded: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials.</td></tr><tr><td><strong>No broken local links anywhere in the repository</strong></td><td><span class='pill ok'>PASS</span> <span class='small'>3189 links across 122 HTML files</span></td><td class='small'>Includes every build&#x27;s dashboard and the Board K report.</td></tr><tr><td><strong>No to-do placeholders in any HTML or JSON file</strong></td><td><span class='pill hi'>FAIL</span> <span class='small'>1 files</span></td><td class='small'>session-47b1b4e2/verification.html</td></tr>
+<h2>Governing-body domains the owning board confirmed against</h2>
+<p class="lede">8 distinct domains across 25 confirmed rows, read from each row's
+<code>verification.officialUrl</code>.</p>
+<div class="tw"><table><thead><tr><th>Domain</th><th>Confirmed rows</th></tr></thead><tbody>
+<tr><td><code>api-web.nhle.com</code></td><td>6</td></tr><tr><td><code>bwfworldtour.bwfbadminton.com</code></td><td>1</td></tr><tr><td><code>statsapi.mlb.com</code></td><td>4</td></tr><tr><td><code>www.nba.com</code></td><td>5</td></tr><tr><td><code>www.nhl.com</code></td><td>1</td></tr><tr><td><code>www.pcb.com.pk</code></td><td>3</td></tr><tr><td><code>www.world.rugby</code></td><td>6</td></tr><tr><td><code>www.wst.tv</code></td><td>1</td></tr>
 </tbody></table></div>
 
-<h2>Independent confirmation from the other boards' own tools</h2>
-<div class="good"><ul>
-<li><strong>Board J's audit</strong> (<code>scripts/session-e1e0c27e/audit.py</code>, re-run after
-remediation) now returns <code>rows_self_marked_verified_without_official_source: []</code> — the empty
-list is finding F-01 closed by Board J's own code, not by this board's assertion. Its official-source
-count rose 451 → 468 and secondary-only fell 32 → 24.</li>
-<li><strong>Board F's audit</strong> (<code>session-07a080b9/audit.py</code>) now reports <code>D_high: 2</code>
-(was 15), minimum 76 words, 122 HTML files, 3,242 internal links, 0 broken.</li>
-<li><strong>Build B's gate</strong> (<code>scripts/verify.py --links</code>) still passes unchanged:
-116/116 rows sourced, 9 predictions, minimum 103 words, 275 local links, 0 broken.</li>
-<li><strong>Build C's validator</strong> (<code>scripts/session-74f9613e/build_all.sh</code>) reports
-"OK - all validation checks passed": 43 matches, 182 selections, 10 predictions, 18 pages.</li>
-<li><strong>Build E's self-tests</strong> (<code>python3 -m pipeline.selftest</code>) all pass.</li>
-</ul>
-<p class="small">One item is logged rather than edited: Board F's <code>audit.py</code> still emits two WARN
-entries calling Build A's Gaelic football rows a "brief ambiguity vs exclusion list". That rests on the
-same premise as the retracted finding F-07 — the brief excludes <em>hurling</em>, not Gaelic football. It
-is another board's script, so the request is recorded in <code>COORDINATION.md</code> instead of being
-applied here. WARN is non-blocking and nothing was deleted.</p></div>
+<h2>Reproducible checks — run in this order</h2>
+<pre>python3 scripts/session-47b1b4e2/fix_draft_artefacts.py    # R-F14, idempotent
+python3 build_site.py &amp;&amp; python3 gen_pages.py               # Build A: 144 rows, 15 sport pages
+python3 scripts/session-47b1b4e2/restore_docs_banner.py    # gen_pages.py clobbers Board B's banner
+python3 scripts/verify.py --links &amp;&amp; python3 scripts/build_site.py   # Build B gate + 18 pages
+bash scripts/session-74f9613e/build_all.sh                 # Build C gate + 18 pages
+python3 -m pipeline.selftest                               # Build E self-tests
+python3 scripts/audit_publication.py                       # cross-build publication audit
+python3 tools/build_master.py &amp;&amp; BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py
+BOARD_DIR=board python3 tools/verify_master.py             # master-board gate
+python3 scripts/session-47b1b4e2/build_report.py           # this report
+python3 scripts/session-47b1b4e2/check_all.py              # final gate, exits non-zero on failure</pre>
+
+<h2>Final gate — <code>check_all.py</code></h2>
+<p class="lede">28/28 checks pass. Run last, over the whole repository, after every build above has regenerated its
+own output. Committed at <code>data/session-47b1b4e2/checks.json</code>.</p>
+<div class="tw"><table><thead><tr><th>Check</th><th>Result</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>Every committed JSON file parses</td><td><span class='pill ok'>PASS</span> <span class='small'>134 files</span></td><td class='small'>data/, docs/, session-*/, tools/, pipeline/, audit/</td></tr><tr><td>Hub dataset loads with the merged row count</td><td><span class='pill ok'>PASS</span> <span class='small'>68 rows</span></td><td class='small'>66 as published by Build D, plus NHL08 and NHL09 added during the owning board&#x27;s verification cycle.</td></tr><tr><td>Every blanked row preserves the source it replaced</td><td><span class='pill ok'>PASS</span> <span class='small'>41 blanked rows</span></td><td class='small'>Blanking is brief-compliant only if the discarded value stays on the row for a reviewer.</td></tr><tr><td>Every row that could not be confirmed is flagged</td><td><span class='pill ok'>PASS</span> <span class='small'>41 unverified rows, all flagged</span></td><td class='small'>The brief requires an unconfirmable value to be blank AND flagged, never inferred.</td></tr><tr><td>No row is verified:true without a live source link</td><td><span class='pill ok'>PASS</span> <span class='small'>0 offenders</span></td><td class='small'>This was Board J finding F-01: rows self-marked verified on secondary sources.</td></tr><tr><td>Every row without a live source link is flagged and preserves its prior source</td><td><span class='pill ok'>PASS</span> <span class='small'>41 rows without a live link</span></td><td class='small'>session-07a080b9/audit.py reports these 41 rows as FAIL &#x27;Row missing sourceUrl&#x27;; the owning board blanked them deliberately under the brief&#x27;s leave-it-blank clause. Policy conflict logged in COORDINATION.md, not silently resolved.</td></tr><tr><td>Every hub row carries a verification block with a valid status</td><td><span class='pill ok'>PASS</span> <span class='small'>68/68</span></td><td class='small'>Added by the owning board&#x27;s cycle.</td></tr><tr><td>Every High-confidence row has a prediction of at least 30 words</td><td><span class='pill ok'>PASS</span> <span class='small'>3 High rows, shortest 95 words</span></td><td class='small'>Brief requires &gt;=30 words naming team/player/form/selection.</td></tr><tr><td>No High-confidence row is missing its write-up</td><td><span class='pill ok'>PASS</span> <span class='small'>3 High rows</span></td><td class='small'>A High label with no prediction is not actionable for a reader.</td></tr><tr><td>No duplicated high-confidence prediction bodies</td><td><span class='pill ok'>PASS</span> <span class='small'>0 duplicates</span></td><td class='small'>Brief requires unique, non-repetitive write-ups.</td></tr><tr><td>No published hub field contains draft or template artefacts</td><td><span class='pill ok'>PASS</span> <span class='small'>0 offenders</span></td><td class='small'>Board R finding R-F14: self-corrections (&#x27;X? Actually Y&#x27;) and notes to the author were published in competition, pick, originatedSpread, marketFocus and teamB, which the hub and /board/ both render.</td></tr><tr><td>Every R-F14 removal preserves the original string on the row</td><td><span class='pill ok'>PASS</span> <span class='small'>8 rows, 9 fields</span></td><td class='small'>Nothing is deleted; a reviewer can check the removed value against a source.</td></tr><tr><td>No hub prediction opener is repeated across more than two rows</td><td><span class='pill ok'>PASS</span> <span class='small'>0 repeated openers</span></td><td class='small'>Board J finding F-12: 13 of 25 templated rows shared one opener.</td></tr><tr><td>The consolidated master board is built and non-empty</td><td><span class='pill ok'>PASS</span> <span class='small'>317 rows</span></td><td class='small'>tools/build_master.py merges the six builds; pages.yml fails if it is stale.</td></tr><tr><td>The master board carries no draft-text artefacts either</td><td><span class='pill ok'>PASS</span> <span class='small'>0 offenders</span></td><td class='small'>R-F14 propagates: build_master.py reads pick, competition, teamB and originatedSpread.</td></tr><tr><td>Build A dataset holds its original 144 rows</td><td><span class='pill ok'>PASS</span> <span class='small'>144 rows</span></td><td class='small'>cf9f024 reduced this to 137 (Board J finding F-11).</td></tr><tr><td>Build A&#x27;s four deleted sport pages exist again</td><td><span class='pill ok'>PASS</span> <span class='small'>15 sport pages</span></td><td class='small'></td></tr><tr><td>Build A&#x27;s high-confidence predictions are not templated</td><td><span class='pill ok'>PASS</span> <span class='small'>12 High rows, shortest 66 words</span></td><td class='small'>Board J finding F-12.</td></tr><tr><td>Build A&#x27;s Gaelic Football rows are back in scope</td><td><span class='pill ok'>PASS</span> <span class='small'>15 sports</span></td><td class='small'>The brief excludes hurling, not Gaelic football (F-07).</td></tr><tr><td>Build B&#x27;s 9 per-claim-sourced predictions are intact</td><td><span class='pill ok'>PASS</span> <span class='small'>9 predictions</span></td><td class='small'>cf9f024 replaced them with 25 templated entries (F-11).</td></tr><tr><td>Every Build B prediction fact still carries a source URL</td><td><span class='pill ok'>PASS</span> <span class='small'>36 facts</span></td><td class='small'>23 official / 13 secondary as published.</td></tr><tr><td>Build B&#x27;s Gaelic-football exclusion claim is retracted</td><td><span class='pill ok'>PASS</span> <span class='small'>1/1 retracted</span></td><td class='small'>Board J finding F-07. Original wording must be preserved inside the item.</td></tr><tr><td>The retraction preserves Build B&#x27;s original wording</td><td><span class='pill ok'>PASS</span> <span class='small'>1 items</span></td><td class='small'>Nothing from another board is deleted.</td></tr><tr><td>The withdrawn templated predictions are archived, not deleted</td><td><span class='pill ok'>PASS</span> <span class='small'>present</span></td><td class='small'>data/archive/session-4359d6a4-templated-predictions.json</td></tr><tr><td>The archive holds all 25 templated predictions</td><td><span class='pill ok'>PASS</span> <span class='small'>25 entries</span></td><td class='small'>Preserved verbatim from cf9f024.</td></tr><tr><td>No excluded sport is published as a priced match</td><td><span class='pill ok'>PASS</span> <span class='small'>0 offenders</span></td><td class='small'>Excluded: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials.</td></tr><tr><td>No broken local links anywhere in the repository</td><td><span class='pill ok'>PASS</span> <span class='small'>7950 links across 291 HTML files</span></td><td class='small'>Includes every build&#x27;s dashboard, the master board and the Board R report.</td></tr><tr><td>No to-do placeholders in any HTML or JSON file</td><td><span class='pill ok'>PASS</span> <span class='small'>0 files</span></td><td class='small'>pages.yml greps every HTML and JSON file for this token and fails the build if it appears, so this check must not emit the token itself.</td></tr>
+</tbody></table></div>
 
 </main>
-<footer><div class="wrap">Board K · session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 ·
-Applies Board J's findings F-01–F-12. Flagged items do not block deployment.
-18+ — analysis, not betting advice. <a href="../index.html">Back to hub</a></div></footer>
+<footer class="wrap">Board R · session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · remediation and
+integration. Sources: official governing-body pages, linked inline. Nothing on this site is betting
+advice; unconfirmed values are left blank and flagged rather than inferred.</footer>
 </body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OLBG Reverse-Engineering — OLBG4 Complete Desk (Board Q · ee9c2db4)</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-block">
+        <span class="brand-badge">BOARD M · 2026-10-21</span>
+        <a class="brand-title" href="index.html">OLBG4 Complete Multi-Market Origination &amp; Repo Audit</a>
+      </div>
+      <nav class="topnav" aria-label="Primary Navigation">
+        <a href="index.html">Overview</a><a href="markets.html">Markets (696)</a><a href="predictions.html">High Picks (38)</a><a href="olbg-analysis.html" class="active">OLBG Reverse-Eng</a><a href="repo-review.html">Repo Review (616)</a><a href="methodology.html">Methodology</a><a href="sources.html">Official Sources</a><a href="flagged.html" class="flag-pill">Flagged (39)</a><a href="../index.html">All-Builds Hub &rarr;</a>
+      </nav>
+    </div>
+  </header>
+  <nav class="sportbar" aria-label="17 In-Scope Sports">
+    <div class="sportbar-inner">
+      <span class="sportbar-label">17 In-Scope Sports:</span>
+      <a href="sports/tennis.html">Tennis (24)</a><a href="sports/basketball.html">Basketball (71)</a><a href="sports/golf.html">Golf (10)</a><a href="sports/cricket.html">Cricket (14)</a><a href="sports/snooker.html">Snooker (9)</a><a href="sports/rugby-union.html">Rugby Union (16)</a><a href="sports/rugby-league.html">Rugby League (3)</a><a href="sports/baseball.html">Baseball (3)</a><a href="sports/ice-hockey.html">Ice Hockey (45)</a><a href="sports/motor-racing.html">Motor Racing (3)</a><a href="sports/darts.html">Darts (18)</a><a href="sports/handball.html">Handball (20)</a><a href="sports/volleyball.html">Volleyball (21)</a><a href="sports/aussie-rules.html">Aussie Rules (0)</a><a href="sports/esports.html">eSports (0)</a><a href="sports/gaelic-football.html">Gaelic Football (5)</a><a href="sports/greyhounds.html">Greyhounds (6)</a>
+    </div>
+  </nav>
+  <main class="container">
+    
+    <section class="hero">
+      <div class="eyebrow">Platform Reverse-Engineering · Live Probe 2026-10-21</div>
+      <h1>Reverse-Engineering OLBG.com: 28-Slot Router, Sub-Feed Architecture &amp; Upstream Bugs</h1>
+      <p>
+        Complete architectural map of <code>https://www.olbg.com</code> derived from live probes of
+        <code>/robots.txt</code>, <code>/sitemap-betting-tips.xml</code>, <code>/betting-tips</code>, <code>/best-tipsters</code>,
+        all <strong>28 numeric sport slots (`1..28`)</strong>, and competition sub-routes.
+      </p>
+    </section>
+
+    <div class="two-col">
+      <div class="panel">
+        <h2>Key Reverse-Engineering Discoveries</h2>
+        <ul>
+          <li><strong>Numeric ID Router Precedence:</strong> OLBG routes <code>/betting-tips/&lt;Any_Slug&gt;/&lt;ID&gt;</code> strictly by numeric <code>&lt;ID&gt;</code> (`1..28`), ignoring slug text. Probing `/betting-tips/Aussie_Rules/17` serves <strong>Slot 17 (`Cycling`, 0 events)</strong> while actual Aussie Rules lives at <strong>Slot 25 (`/betting-tips/Aussie_Rules/25`)</strong> — exposing a bug in `data/olbg-structure.json`.</li>
+          <li><strong>Hidden Sub-Feed Pagination (+54 Events Discovered):</strong> Top-level landing pages (`/Basketball/4`, `/Ice_Hockey/13`) cap server-rendered cards at high-tip fixtures, hiding **54 live in-scope OLBG events** on child routes (`/Basketball/European/4`, `/Basketball/Other/4`, `/Ice_Hockey/Other/13`, LNR Pro D2/Top 14, and Volleyball Bundesliga).</li>
+          <li><strong>Unlabelled `EDT (UTC-4)` Server Clock &amp; Stale Fixture Bugs:</strong> Server-rendered HTML prints bare `HH:MM` strings in US Eastern Daylight Time (`UTC-4`) without timezone labels and misdates EuroLeague `Anadolu Efes vs Besiktas` (`#535918`) as `23 Oct` instead of official `Thu 22 Oct 17:30 UTC`, reverses `Limoges vs Dunkerque` (`#12072`) under expired sponsor name `Liqui Moly StarLigue`, and shifts Cork SFC (`#3531`).</li>
+          <li><strong>Crowd Tipster Share vs Fair Odds:</strong> OLBG is a crowd-tipping leaderboard (`tips_for / tips_total`), not a bookmaker odds feed. All lines in `session-ee9c2db4/` are originated 100% independently from governing-body team/player data.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>Exact 28-Slot Partition Summary</h2>
+        <pre class="codebox">Total Numeric Router Slots Probed : 28  (IDs 1..28)
+├── Included In-Scope Sports      : 17  (170 matches/races + 24 outrights = 194 live OLBG events)
+├── Excluded Sports (0 rows kept) :  7  (1 Football, 2 Horse Racing, 6 Specials [14],
+│                                        11 American Football, 16 Boxing/MMA, 17 Cycling [0], 26 Hurling [2])
+└── Unassigned / Redirect Slots   :  4  (18, 19, 24, 27 -> 301 redirect to /betting-tips)
+
+Official Schedule Extension       : +74 non-duplicate NBA / NHL / MLB fixtures (2026-10-21..27)
+Grand Total Originated Desk       : 268 verified events -> 696 complete probability books</pre>
+      </div>
+    </div>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Complete 28-Slot OLBG Router Table (`IDs 1..28`)</h2>
+        <span class="panel-sub">Every slot's canonical route, scope disposition, live event counts &amp; official federation reference</span>
+      </div>
+      <div class="table-wrap">
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>OLBG Sport Name</th>
+              <th>Canonical Route</th>
+              <th>Scope Disposition</th>
+              <th>Live Matches</th>
+              <th>Live Outrights</th>
+              <th>Architectural &amp; Verification Notes</th>
+              <th>Official Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class='num'><strong>1</strong></td><td><strong>Football (Soccer)</strong></td><td><code>https://www.olbg.com/betting-tips/Football/1</code></td><td><span class='badge badge-flag'>excluded</span></td><td class='num'>—</td><td class='num'>—</td><td>soccer / football</td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>2</strong></td><td><strong>Horse Racing</strong></td><td><code>https://www.olbg.com/betting-tips/Horse_Racing/2</code></td><td><span class='badge badge-flag'>excluded</span></td><td class='num'>—</td><td class='num'>—</td><td>horse racing</td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>3</strong></td><td><strong>Tennis</strong></td><td><code>https://www.olbg.com/betting-tips/Tennis/3</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>24</td><td class='num'>0</td><td>20 active live ATP/WTA/Challenger matches + 4 same-day WTA/ATP R16 matches from earlier window</td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>4</strong></td><td><strong>Basketball</strong></td><td><code>https://www.olbg.com/betting-tips/Basketball/4</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>34</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>5</strong></td><td><strong>Golf</strong></td><td><code>https://www.olbg.com/betting-tips/Golf/5</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>0</td><td class='num'>10</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>6</strong></td><td><strong>Specials</strong></td><td><code>https://www.olbg.com/betting-tips/Specials/6</code></td><td><span class='badge badge-flag'>excluded</span></td><td class='num'>—</td><td class='num'>—</td><td>specials</td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>7</strong></td><td><strong>Cricket</strong></td><td><code>https://www.olbg.com/betting-tips/Cricket/7</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>9</td><td class='num'>5</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>8</strong></td><td><strong>Snooker</strong></td><td><code>https://www.olbg.com/betting-tips/Snooker/8</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>9</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>9</strong></td><td><strong>Rugby Union</strong></td><td><code>https://www.olbg.com/betting-tips/Rugby_Union/9</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>15</td><td class='num'>1</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>10</strong></td><td><strong>Rugby League</strong></td><td><code>https://www.olbg.com/betting-tips/Rugby_League/10</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>0</td><td class='num'>3</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>11</strong></td><td><strong>American Football</strong></td><td><code>https://www.olbg.com/betting-tips/American_Football/11</code></td><td><span class='badge badge-flag'>excluded</span></td><td class='num'>—</td><td class='num'>—</td><td>American football</td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>12</strong></td><td><strong>Baseball</strong></td><td><code>https://www.olbg.com/betting-tips/Baseball/12</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>1</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>13</strong></td><td><strong>Ice Hockey</strong></td><td><code>https://www.olbg.com/betting-tips/Ice_Hockey/13</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>10</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>14</strong></td><td><strong>Motor Racing</strong></td><td><code>https://www.olbg.com/betting-tips/Motor_Racing/14</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>1</td><td class='num'>2</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>15</strong></td><td><strong>Darts</strong></td><td><code>https://www.olbg.com/betting-tips/Darts/15</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>16</td><td class='num'>2</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>16</strong></td><td><strong>Boxing / UFC / MMA</strong></td><td><code>https://www.olbg.com/betting-tips/Boxing/16</code></td><td><span class='badge badge-flag'>excluded</span></td><td class='num'>—</td><td class='num'>—</td><td>boxing, UFC, MMA</td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>17</strong></td><td><strong>Cycling</strong></td><td><code>https://www.olbg.com/betting-tips/Cycling/17</code></td><td><span class='badge badge-flag'>excluded</span></td><td class='num'>—</td><td class='num'>—</td><td>cycling</td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>18</strong></td><td><strong>Unassigned Slot 18</strong></td><td><code>/betting-tips/18</code></td><td><span class='badge badge-low'>unassigned</span></td><td class='num'>—</td><td class='num'>—</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>19</strong></td><td><strong>Unassigned Slot 19</strong></td><td><code>/betting-tips/19</code></td><td><span class='badge badge-low'>unassigned</span></td><td class='num'>—</td><td class='num'>—</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>20</strong></td><td><strong>Handball</strong></td><td><code>https://www.olbg.com/betting-tips/Handball/20</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>20</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>21</strong></td><td><strong>Volleyball</strong></td><td><code>https://www.olbg.com/betting-tips/Volleyball/21</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>21</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>22</strong></td><td><strong>Aussie Rules</strong></td><td><code>https://www.olbg.com/betting-tips/Aussie_Rules/22</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>0</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>23</strong></td><td><strong>eSports</strong></td><td><code>https://www.olbg.com/betting-tips/eSports/23</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>0</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>24</strong></td><td><strong>Unassigned Slot 24</strong></td><td><code>/betting-tips/24</code></td><td><span class='badge badge-low'>unassigned</span></td><td class='num'>—</td><td class='num'>—</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>25</strong></td><td><strong>Gaelic Football</strong></td><td><code>https://www.olbg.com/betting-tips/Gaelic_Football/25</code></td><td><span class='badge badge-low'>included_with_scope_note</span></td><td class='num'>4</td><td class='num'>1</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>26</strong></td><td><strong>Hurling</strong></td><td><code>https://www.olbg.com/betting-tips/Hurling/26</code></td><td><span class='badge badge-flag'>excluded</span></td><td class='num'>—</td><td class='num'>—</td><td>hurling</td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>27</strong></td><td><strong>Unassigned Slot 27</strong></td><td><code>/betting-tips/27</code></td><td><span class='badge badge-low'>unassigned</span></td><td class='num'>—</td><td class='num'>—</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr><tr><td class='num'><strong>28</strong></td><td><strong>Greyhounds</strong></td><td><code>https://www.olbg.com/betting-tips/Greyhounds/28</code></td><td><span class='badge badge-clean'>included</span></td><td class='num'>6</td><td class='num'>0</td><td></td><td><a href='https://www.nba.com/games' target='_blank' rel='noopener noreferrer'>Official Reference &nearr;</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+  </main>
+  <footer class="footer">
+    <div>
+      <strong>Board Q (`arena/ee9c2db4-olbg4`)</strong> · Snapshot date: <strong>2026-10-21 UTC</strong> ·
+      Excluded sports strictly enforced: <em>soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling, specials</em> (0 rows).
+    </div>
+    <div>
+      Raw JSON Artifacts:
+      <a href="data/matches.json">matches.json</a> ·
+      <a href="data/markets.json">markets.json</a> ·
+      <a href="data/predictions.json">predictions.json</a> ·
+      <a href="data/olbg_taxonomy.json">olbg_taxonomy.json</a> ·
+      <a href="data/repo_review.json">repo_review.json</a> ·
+      <a href="data/sources.json">sources.json</a> ·
+      <a href="data/flagged.json">flagged.json</a>
+    </div>
+  </footer>
+  <script src="assets/dashboard.js"></script>
+</body>
+</html>

@@ -1,42 +1,48 @@
 #!/usr/bin/env python3
-"""Board K remediation report -> session-47b1b4e2/
+"""Board R (session 47b1b4e2) - report builder.
 
-Renders the change-by-change log for the Board J remediation so the user can review every
-edit against the official page it was checked on. Nothing is asserted here that is not in
-data/session-47b1b4e2/remediation.json or in the committed diff.
+Renders five pages into `session-47b1b4e2/`. The report describes the repository as it stands
+AFTER merging `origin/main` (PRs #24-#54, Boards K/L/M/N/O/P/Q), not the state this session
+produced before that merge - publishing pre-merge numbers would misrepresent the live site.
+
+Board letter: three sessions independently claimed "Board K" (`83451f65`, `5838b25d`, this one).
+Following the precedent Board L set for the same collision, this board's record is renamed R.
+The directory name stays `session-47b1b4e2/` because it is keyed to the session id, which is unique.
 
 Run: python3 scripts/session-47b1b4e2/build_report.py
-Fails (exit 1) if a rendered page has a broken local link or an empty source cell.
 """
 import html
 import json
 import os
-import re
+import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATA = os.path.join(ROOT, "data", "session-47b1b4e2", "remediation.json")
-MATCHES = os.path.join(ROOT, "data", "matches.json")
 OUT = os.path.join(ROOT, "session-47b1b4e2")
-
-PAGES = [("index.html", "Overview"), ("changes.html", "Change log"),
-         ("withdrawn.html", "Withdrawn predictions"), ("restored.html", "Restored files"),
-         ("verification.html", "Verification")]
+PAGES = [("index.html", "Overview"), ("draft-text.html", "Draft-text fix"),
+         ("restored.html", "Restored files"), ("verification.html", "Verification"),
+         ("merge.html", "Merge record")]
 
 
 def e(s):
     return html.escape("" if s is None else str(s))
 
 
+def load(rel, default=None):
+    p = os.path.join(ROOT, rel)
+    if not os.path.exists(p):
+        return default
+    with open(p, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def page(title, active, body):
-    nav = "".join(
-        '<a href="%s"%s>%s</a>' % (href, ' class="on"' if href == active else "", label)
-        for href, label in PAGES
-    )
+    nav = "".join('<a href="%s"%s>%s</a>' % (h, ' class="on"' if h == active else "", l)
+                  for h, l in PAGES)
     return """<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>%s — OLBG4 Board K</title>
+<title>%s — OLBG4 Board R</title>
 <style>
 :root{--ink:#111827;--mut:#6b7280;--line:#e5e7eb;--bg:#f8fafc;--blue:#2563eb;--amber:#b45309;--green:#15803d}
 *{box-sizing:border-box}
@@ -52,6 +58,7 @@ nav a.on{background:var(--blue);color:#fff}
 main{max-width:1200px;margin:0 auto;padding:22px 18px 60px}
 h1{font-size:26px;margin:6px 0 4px}h2{font-size:19px;margin:30px 0 8px}
 .lede{color:var(--mut);margin:0 0 18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.06em;color:var(--blue);font-weight:800;font-size:11.5px;margin:0 0 6px}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:18px 0}
 .kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
 .kpi .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
@@ -70,393 +77,423 @@ tr:last-child td{border-bottom:0}
 .warn{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid var(--amber);border-radius:10px;padding:12px 15px;margin:14px 0}
 .good{background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid var(--green);border-radius:10px;padding:12px 15px;margin:14px 0}
 code{background:#f1f5f9;padding:1px 5px;border-radius:5px;font-size:12.5px}
-pre{background:#0f172a;color:#e2e8f0;padding:13px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.5}
-details{margin-top:6px}summary{cursor:pointer;font-weight:700;color:var(--blue);font-size:13px}
+pre{background:#0f172a;color:#e2e8f0;padding:14px 16px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.65}
 a{color:var(--blue)}
-blockquote{margin:8px 0;padding:9px 13px;border-left:3px solid var(--line);color:#4b5563;background:#fafafa;border-radius:0 8px 8px 0}
-footer{border-top:1px solid var(--line);background:#fff;padding:16px 0;color:var(--mut);font-size:13px}
-</style></head><body>
-<header><div class="wrap">
-<b class="brand">OLBG<span>4</span> — Board K remediation</b>
-<nav>%s<a href="../index.html">← Hub</a></nav>
+.strike{text-decoration:line-through;color:var(--mut)}
+ul{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0;color:var(--mut);font-size:13px}
+</style></head>
+<body><header><div class="wrap">
+<b class="brand">OLBG4 <span>· Board R</span></b>
+<nav>%s</nav>
 </div></header>
 <main class="wrap">
 %s
 </main>
-<footer><div class="wrap">Board K · session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 ·
-Applies Board J's findings F-01–F-12. Flagged items do not block deployment.
-18+ — analysis, not betting advice. <a href="../index.html">Back to hub</a></div></footer>
-</body></html>""" % (e(title), nav, body)
+<footer class="wrap">Board R · session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · remediation and
+integration. Sources: official governing-body pages, linked inline. Nothing on this site is betting
+advice; unconfirmed values are left blank and flagged rather than inferred.</footer>
+</body></html>
+""" % (e(title), nav, body)
 
 
 def main():
-    with open(DATA, encoding="utf-8") as f:
-        log = json.load(f)
-    with open(MATCHES, encoding="utf-8") as f:
-        rows = json.load(f)
-    by_id = {r["id"]: r for r in rows}
-    s = log["summary"]
+    rows = load("data/matches.json", [])
+    by_id = {r["id"]: r for r in rows if isinstance(r, dict) and "id" in r}
+    fa = load("data/session-47b1b4e2/draft_artefacts.json") or {"changes": [], "rows_affected": 0}
+    checks = load("data/session-47b1b4e2/checks.json")
     os.makedirs(OUT, exist_ok=True)
 
-    checks_path = os.path.join(ROOT, "data", "session-47b1b4e2", "checks.json")
-    checks = None
-    if os.path.exists(checks_path):
-        with open(checks_path, encoding="utf-8") as f:
-            checks = json.load(f)
+    n_conf = sum(1 for r in rows if (r.get("verification") or {}).get("status") == "confirmed")
+    n_unver = sum(1 for r in rows if (r.get("verification") or {}).get("status") == "unverified")
+    n_high = sum(1 for r in rows if r.get("confidence") == "High")
+    n_flag = sum(1 for r in rows if r.get("flagged"))
 
-    # ------------------------------------------------------------- index.html
-    et = s["entry_types"]
+    # ------------------------------------------------------------ index.html
     idx = """
-<p class="eyebrow small">Session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · final integration</p>
-<h1>Board K — remediation of every Board J finding</h1>
-<p class="lede">Board J (<code>arena/e1e0c27e-olbg4</code>, PR #22) audited all six builds and logged 13
-findings, four of them high severity. Because the fixes touched files owned by Boards A, B and D, it
-recorded them as <em>cross-session requests</em> rather than applying them. No session had claimed those
-requests. This board claims and completes them, then integrates.</p>
+<p class="eyebrow">Session <code>arena/47b1b4e2-olbg4</code> · 2026-10-21 · remediation + integration</p>
+<h1>Board R — what this session changed, and what it did not</h1>
+<p class="lede">This board opened to remediate Board J's findings. While it worked, <strong>Boards K, L, M, N,
+O, P and Q merged 126 commits and 54 pull requests to <code>main</code></strong>, including a full
+re-verification of the hub dataset and a rebuilt root landing page. This board merged all of it, kept
+it, and reports the repository <em>as it now stands</em>. Where this session's earlier work was
+superseded by a stricter pass, that is stated plainly rather than presented as still live.</p>
 
 <div class="kpis">
- <div class="kpi"><div class="l">Findings remediated</div><div class="v">9</div><div class="s">F-01, F-02, F-03, F-04, F-06, F-07, F-08, F-11/F-12 + new K-F14</div></div>
- <div class="kpi"><div class="l">Rows downgraded from verified</div><div class="v">%(f01)d</div><div class="s">source was not a governing body</div></div>
- <div class="kpi"><div class="l">Predictions withdrawn</div><div class="v">%(nwdt)d</div><div class="s">%(nwda)d from Board J findings, %(nwdb)d from new K-F14 — text preserved, never deleted</div></div>
- <div class="kpi"><div class="l">Draft-text fields cleaned</div><div class="v">%(nblank)d</div><div class="s">across %(nf14rows)d rows; new finding K-F14</div></div>
- <div class="kpi"><div class="l">Rows corrected vs official pages</div><div class="v">%(ncor)d</div><div class="s">each with the URL it was checked on</div></div>
- <div class="kpi"><div class="l">Official-source rows now</div><div class="v">%(noff)d <span class="small">/ %(nrows)d</span></div><div class="s">was 32 before remediation</div></div>
- <div class="kpi"><div class="l">Build A rows restored</div><div class="v">144</div><div class="s">from 137; 4 deleted sport pages restored</div></div>
+ <div class="kpi"><div class="l">Commits merged from main</div><div class="v">126</div><div class="s">PRs #24–#54, Boards K/L/M/N/O/P/Q — all retained, nothing discarded</div></div>
+ <div class="kpi"><div class="l">Conflicted files resolved</div><div class="v">25</div><div class="s">theirs taken for files other boards own; <a href="merge.html">resolution log</a></div></div>
+ <div class="kpi"><div class="l">New defect found &amp; fixed</div><div class="v">%(nf14)d</div><div class="s">rows publishing unfinished draft text — finding R-F14, reported by no other board</div></div>
+ <div class="kpi"><div class="l">Build A rows restored</div><div class="v">144</div><div class="s">from 137; 4 deleted sport pages back; byte-identical to the generator's own output</div></div>
+ <div class="kpi"><div class="l">Hub rows confirmed on an official source</div><div class="v">%(nconf)d <span class="small">/ %(nrows)d</span></div><div class="s">%(nunver)d blanked and flagged by the owning board's stricter cycle</div></div>
+ <div class="kpi"><div class="l">Final gate</div><div class="v">%(gpct)s</div><div class="s">%(glinks)s</div></div>
 </div>
 
-<div class="good"><strong>Nothing was discarded.</strong> Withdrawn predictions are kept on their row under
-<code>k_withdrawn</code> and rendered in an expandable block. Blanked values are kept under
-<code>k_unverified_values</code>. The 25 templated predictions that overwrote Build B's file are archived
-verbatim at <code>data/archive/session-4359d6a4-templated-predictions.json</code>. Build A was restored by
-re-running its own unmodified generator, so its output is byte-identical to the pre-overwrite commit.</div>
+<div class="warn"><strong>Superseded, and deliberately not re-applied.</strong> Before the merge this board
+had remediated the hub's 66 rows itself: 26 downgraded from <code>verified:true</code>, 14 corrected
+against official pages, 23 predictions withdrawn with text preserved, and an <code>entryType</code> and
+<code>sourceClass</code> added to every row. Board <code>082d3c16</code> had independently run a
+<strong>stricter</strong> cycle over the same file — it re-read each fixture from an official API or
+governing-body page, and where it could not confirm a value it <em>blanked</em> the time, venue, source
+and prediction and moved the old source to <code>priorSourceUrl</code>. That is more conservative than
+this board's labelling approach, it satisfies the brief more directly, and it is the version now on
+<code>main</code>. <strong>This board took theirs and did not overwrite it.</strong> Its own
+<code>k_withdrawn</code> / <code>k_verification</code> / <code>entryType</code> keys are therefore not in
+the live dataset. The evidence this session gathered is still offered to the owning board on the
+<a href="verification.html">Verification</a> page.</div>
 
-<h2>What was wrong, and what was done</h2>
-<div class="tw"><table><thead><tr><th>Finding</th><th>Severity</th><th>Problem</th><th>Remediation</th></tr></thead><tbody>
-<tr><td><strong>F-11 / F-12</strong></td><td><span class="pill hi">HIGH</span></td>
-<td>Commit <code>cf9f024</code> (another session) rewrote Build A's <code>data/rows.json</code> from 144 to 137 rows, deleted four <code>docs/sports/*.html</code> pages, and replaced Build B's 9 per-claim-sourced predictions with 25 templated ones — 13 sharing an identical PDC opener, an NHL template carrying a <code>.,</code> artefact, and a Bruins v Predators entry that discussed the San Jose Sharks.</td>
-<td>Re-ran Build A's own unmodified generator (<code>build_site.py</code> + <code>gen_pages.py</code>): 144 rows, 12 hand-written predictions, 15 sport pages, output verified byte-identical to <code>5918922</code>. Restored Build B's predictions and repointed its renderer at the build-owned copy. <a href="restored.html">Details →</a></td></tr>
-<tr><td><strong>K-F14</strong><br><span class="pill hi">NEW</span></td><td><span class="pill hi">HIGH</span></td>
-<td><strong>Found by this board, not reported by Boards F, G, I or J.</strong> Unfinished draft text is published in Build D's <em>rendered data fields</em>, not only in predictions. Five fields contain an unresolved self-correction of the form "X? Actually Y", so the live dashboard reads:
-<code>competition</code> = "WTT Youth/Feeder Concurrent — Chengdu<strong>? Actually</strong> Chennai",
-<code>originatedSpread</code> = "Game Handicap: MS -<strong>? Actually</strong> badminton: -6.5 points handicap @ 1.91",
-<code>teamB</code> = "Course: El Tigre<strong>? Actually</strong> Vidanta Vallarta — par 71".
-Separately, nine predictions on Low/Medium rows are working notes to the author rather than selections ("Wait for Saturday's averages before committing outright", "monitor net run-rate", "wait for upper bracket semis Oct 18-19 before pricing handicaps"), several carrying statistics with no source at all. Board J caught one instance of this, in EL02's prediction only.</td>
-<td>%(nf14rows)d rows remediated: %(nblank)d fields blanked and %(nwdb)d predictions withdrawn, all originals preserved on the row under <code>k_unverified_values</code> / <code>k_withdrawn</code>. The "Actually …" answer was <strong>not</strong> adopted — choosing between two values the author never reconciled, without a governing-body page, would be inference. <code>pick</code> cells that merely said no selection was made are restated plainly. <a href="changes.html">Field-level detail →</a></td></tr>
-<tr><td><strong>F-01</strong></td><td><span class="pill hi">HIGH</span></td>
-<td>26 hub rows were published as <code>verified:true</code> while their only source was ESPN, Wikipedia, BBC, Sky, etusuora, an OLBG blog, USA Today, tempo.co, findmygroup.uk or montpellier.fr. Board D's own claim that "every row sourceUrl is a governing-body domain" was not supported by the data.</td>
-<td>All %(f01)d rows set to <code>verified:false</code> + flagged, with <code>sourceClass</code> and <code>sourceDomain</code> published per row. Where this session found a governing-body page (CRK04 → PCB, EL01 → EuroLeague) the source was upgraded instead. <a href="changes.html">Change log →</a></td></tr>
-<tr><td><strong>F-02</strong></td><td><span class="pill hi">HIGH</span></td>
-<td>High-confidence predictions contradicted by the official pages: NHL01 (Sharks "0-4" — NHL.com lists 4-4-1), NHL06 (Bruins "1-3", "Marchand on IR" — NHL.com lists 7-2-0 and "Injured: None"), EL02 (records inverted plus an unedited draft fragment), MLB01 ("seven-game ALCS" — it was six), RL01 (a 2026 "Pacific Championships" Australia v NZ that does not exist).</td>
-<td>%(nwda)d write-ups withdrawn with their text preserved. MLB01 was rebuilt from MLB.com alone. NHL01/NHL06 are marked Final with the NHL.com recap linked. RL01 was re-identified as the real fixture. <a href="withdrawn.html">Every withdrawal →</a></td></tr>
-<tr><td><strong>F-03</strong></td><td><span class="pill me">MEDIUM</span></td>
-<td>Fixture fields disagreeing with the governing body: CRK03 labelled "Match 1" (PCB: match 2), CRK05 final dated 29 Oct (PCB: 31 Oct), MLB03 venue "George M. Steinbrenner Field" (MLB.com: Tropicana Field), EL02 time and venue.</td>
-<td>Corrected against PCB, ECB, MLB.com, EuroLeague Basketball and the club's own fixture list. <a href="changes.html">Change log →</a></td></tr>
-<tr><td><strong>F-04</strong></td><td><span class="pill me">MEDIUM</span></td>
-<td>About half the hub's 66 "entries" are not matches: tournaments, round summaries, completed events kept for form, and off-season notes — several still carrying a pick and a confidence label.</td>
-<td>Every row now carries <code>entryType</code>: %(etmatch)d matches, %(ettour)d tournaments/rounds, %(etres)d completed results, %(etnote)d notes. The dashboard defaults to matches only with an Entry control. Nothing deleted.</td></tr>
-<tr><td><strong>F-06</strong></td><td><span class="pill me">MEDIUM</span></td>
-<td>93 fixtures appear in 2+ builds and 10 have opposite match-winner picks, with no reconciliation for a reader of the portal.</td>
-<td>Explained on the hub landing page as model disagreement rather than data error, linking Board J's cross-build table and naming the Hornets–Nets example.</td></tr>
-<tr><td><strong>F-07</strong></td><td><span class="pill lo">LOW</span></td>
-<td>Build B flagged Build A's two Gaelic football rows as a scope breach. The brief excludes <em>hurling</em>, not Gaelic football.</td>
-<td>Retracted in <code>data/flag_notes.json</code> — the authored source, since <code>scripts/verify.py</code> regenerates <code>data/flagged.json</code>. Original wording preserved verbatim inside the item; the retraction renders on Build B's flagged page with the galwaygaa.ie link.</td></tr>
-<tr><td><strong>F-08</strong></td><td><span class="pill lo">LOW</span></td>
-<td>Dortmund darts sessions printed as CET and Istanbul local time printed as CET.</td>
-<td>DRT01–04 relabelled to CEST per the PDC's own schedule of play (1900–2300 CEST / 1800–2200 BST); EL02 now reads 17:30 CET with the 20:30 Istanbul local time shown.</td></tr>
+<h2>What this board contributed that is live now</h2>
+<div class="tw"><table><thead><tr><th>Item</th><th>Status</th><th>Detail</th></tr></thead><tbody>
+<tr><td><strong>R-F14</strong> — unfinished draft text in rendered fields</td><td><span class="pill ok">LIVE</span></td>
+<td><strong>Found by this board; reported by no other.</strong> %(nf14)d hub rows published unresolved
+self-corrections ("Chengdu<strong>? Actually</strong> Chennai") and working notes ("monitor entry lists")
+in <code>competition</code>, <code>pick</code>, <code>originatedSpread</code>, <code>marketFocus</code> and
+<code>teamB</code> — fields both the hub pages and the consolidated <code>/board/</code> render. Ten
+boards audited or re-verified this dataset without reporting it. <a href="draft-text.html">Field-level detail →</a></td></tr>
+<tr><td><strong>Build A restoration</strong> (Board J F-11/F-12)</td><td><span class="pill ok">LIVE</span></td>
+<td><code>data/rows.json</code> 137 → <strong>144</strong> rows and the four deleted
+<code>docs/sports/*.html</code> pages restored, by re-running Build A's own unmodified generator so the
+output is byte-identical to <code>5918922</code>. The 25 templated predictions that had overwritten
+Build B's file are archived verbatim. <a href="restored.html">Details →</a></td></tr>
+<tr><td><strong>Build B renderer repaired</strong></td><td><span class="pill ok">LIVE</span></td>
+<td><code>scripts/build_site.py</code> raised <code>KeyError: 'match_id'</code> on the restored dataset.
+Repointed at the build-owned <code>data/session-7114b6a1/predictions.json</code> with a root fallback —
+18 pages, exit 0.</td></tr>
+<tr><td><strong>F-07 retraction</strong> — "Gaelic football is excluded"</td><td><span class="pill ok">LIVE</span></td>
+<td>The brief excludes <em>hurling</em>, not Gaelic football. Retracted in <code>data/flag_notes.json</code>
+(the authored source — <code>scripts/verify.py</code> regenerates <code>data/flagged.json</code>, so editing
+the generated file is silently wiped). Build B's original wording is preserved verbatim and renders with
+the galwaygaa.ie link.</td></tr>
+<tr><td><strong>Reproducible gate</strong> <code>check_all.py</code></td><td><span class="pill ok">LIVE</span></td>
+<td>Repository-wide checks over JSON validity, source links, prediction rules, exclusions, local links and
+placeholder tokens. Exits non-zero on any hard failure. %(gpct)s.</td></tr>
+<tr><td><strong><code>restore_docs_banner.py</code></strong></td><td><span class="pill ok">LIVE</span></td>
+<td><code>gen_pages.py</code> destroys Board B's additive <code>docs/index.html</code> banner on every run
+(observed twice). This re-inserts it so Build A's build order is reproducible.</td></tr>
+<tr><td><strong>Official-source evidence</strong> for rows the owning board left blank</td><td><span class="pill me">OFFERED</span></td>
+<td>15 governing-body pages re-opened line by line, including fixtures the owning board marked
+<code>unverified</code> (PDC European Championship session times, EuroLeague Round 7, the RLWC Round 2
+fixture). Published as evidence and logged as a request in <code>COORDINATION.md</code> —
+<strong>not</strong> written into another board's rows, because it deliberately blanked them.
+<a href="verification.html">Verification →</a></td></tr>
+<tr><td>Hub remediation (26 downgrades, 14 corrections, 23 withdrawals, <code>entryType</code>)</td><td><span class="pill lo">SUPERSEDED</span></td>
+<td>Retained in this branch's history at commits <code>094a817</code> and <code>d1c5fcf</code>, and
+described in <code>data/session-47b1b4e2/remediation.json</code>. Not live: the owning board's stricter
+cycle is. No conflict — both reaches the same conclusion on F-01, theirs goes further.</td></tr>
 </tbody></table></div>
 
-<div class="note"><strong>Findings deliberately not "fixed" by changing data.</strong>
-<em>F-05</em> (Build B's rows link OLBG and its confidence derives from tipster consensus) is a disclosed
-property of that build's method, not an error — it is left as published and cross-referenced here.
-<em>F-09</em> (stale E10 status) was already resolved before this board opened. <em>F-13</em> (duplicate board
-letters) is a naming artefact of parallel sessions; this board took the next free letter, K.
-<em>F-10</em> is Board J's own scope statement.</div>
+<h2>One conflict this board found but did not resolve</h2>
+<div class="warn"><strong>Two published gates disagree about blanking a source link, and it is not this
+board's call to make.</strong> The brief says both <em>"every table row must have a source link to an
+official site"</em> and <em>"if a value can't be confirmed from an official source, leave it blank and flag
+it unverified"</em>. Board <code>082d3c16</code> resolved that tension toward blanking: %(nunver)d hub rows
+now have an empty <code>sourceUrl</code>, with the previous value preserved in <code>priorSourceUrl</code>
+and the row flagged. <code>session-07a080b9/audit.py</code> (Board F) treats a missing
+<code>sourceUrl</code> as a hard <strong>FAIL</strong> and reports all %(nunver)d.
+<br><br>
+Both readings are defensible, so this board <strong>recorded the conflict rather than "fixing" it in either
+direction</strong> — overturning the owning board's blanking would discard its verification work, and
+editing Board F's audit script would rewrite another board's findings. It is surfaced as a non-blocking
+NOTE in <code>check_all.py</code> and logged in <code>COORDINATION.md</code> for the two boards to settle.
+It does not block deployment: <code>pages.yml</code> runs <code>tools/verify_master.py</code>, which passes,
+not Board F's audit.</div>
 
 <h2>Where to look next</h2>
 <div class="tw"><table><thead><tr><th>Page</th><th>What it contains</th></tr></thead><tbody>
-<tr><td><a href="changes.html">Change log</a></td><td>Every field changed on every row, before → after, with the official URL it was checked against and the date.</td></tr>
-<tr><td><a href="withdrawn.html">Withdrawn predictions</a></td><td>All %(nwdt)d withdrawn write-ups in full, each with the reason and the official page that contradicted it.</td></tr>
-<tr><td><a href="restored.html">Restored files</a></td><td>The Build A / Build B restoration: what <code>cf9f024</code> changed, how it was reverted, and the byte-identity check.</td></tr>
-<tr><td><a href="verification.html">Verification</a></td><td>What this session checked, against which official domains, and what it did <em>not</em> re-verify.</td></tr>
+<tr><td><a href="draft-text.html">Draft-text fix</a></td><td>Finding R-F14: every affected row, the exact string that was published, what replaced it, and why the "Actually …" answer was not adopted.</td></tr>
+<tr><td><a href="restored.html">Restored files</a></td><td>What commit <code>cf9f024</code> overwrote, how Build A and Build B were restored, and the byte-identity check.</td></tr>
+<tr><td><a href="verification.html">Verification</a></td><td>The 15 official pages re-opened, what each confirmed, what this board did <em>not</em> re-verify, and the final gate results.</td></tr>
+<tr><td><a href="merge.html">Merge record</a></td><td>All 25 conflicted files, which side was taken and why, and the regeneration steps run afterwards.</td></tr>
+<tr><td><a href="../board/">Consolidated master board</a></td><td>The live integration desk built from all six builds (317 rows), which this board's R-F14 fix now feeds.</td></tr>
+<tr><td><a href="../session-e1e0c27e/flagged.html">Board J findings</a></td><td>The 13 findings this board opened to remediate, with its 18 spot checks and cross-build conflict table.</td></tr>
 </tbody></table></div>
-""" % dict(f01=s["f01_rows_downgraded_to_unverified"],
-           nwda=s["predictions_withdrawn"] + s["narrative_predictions_withdrawn"],
-           nwdb=s.get("k_f14_predictions_withdrawn", 0),
-           nwdt=s["predictions_withdrawn"] + s["narrative_predictions_withdrawn"] + s.get("k_f14_predictions_withdrawn", 0),
-           nblank=s.get("k_f14_fields_blanked", 0), nf14rows=s.get("k_f14_rows", 0),
-           ncor=s["rows_corrected_against_official_sources"], noff=s["official_sourced_rows"], nrows=s["rows"],
-           etmatch=et["match"], ettour=et["tournament"], etres=et["result"], etnote=et["note"])
+""" % dict(nf14=fa.get("rows_affected", 0), nrows=len(rows), nconf=n_conf, nunver=n_unver,
+           gpct=("%d/%d checks pass" % (checks["passed"], checks["total"])) if checks else "not run",
+           glinks=(checks["checks"][[c["check"] for c in checks["checks"]].index(
+               "No broken local links anywhere in the repository")]["result"]) if checks else "")
 
-    # ---------------------------------------------------------- changes.html
+    # ------------------------------------------------------- draft-text.html
     trs = []
-    for c in log["changes"]:
+    for c in fa.get("changes", []):
         rid = c["id"]
         r = by_id.get(rid, {})
-        fields = c.get("fields") or []
-        fd = "".join(
-            "<tr><td><code>%s</code></td><td class='small'>%s</td><td class='small'>%s</td></tr>"
-            % (e(f["field"]), e(str(f["before"])[:220]) or "<em>(empty)</em>", e(str(f["after"])[:220]) or "<em>(blanked)</em>")
-            for f in fields)
-        act = "<div class='small' style='margin-bottom:5px'><strong>%s</strong></div>" % e(c.get("action") or "")
-        fd = act + (("<table style='font-size:12.5px'>%s</table>" % fd) if fd else "")
-        # Only cite an official source where this change was actually checked against one. Falling back
-        # to the row's own sourceUrl for K-F14 would imply a verification that never happened.
-        src = c.get("official_source") or ""
-        fnd = str(c.get("finding") or "")
-        row_src = r.get("sourceUrl") or ""
-        src_html = ""
-        if src:
-            src_html = '<a href="%s" target="_blank" rel="noopener">%s</a>' % (e(src), e(src))
-        elif fnd == "K-F14":
-            src_html = "<span class='small'>n/a &mdash; draft text removed; no value was substituted, " \
-                       "so nothing was checked against an official page</span>"
-        elif fnd.startswith("F-01") and row_src:
-            # For a downgrade the row's own non-governing-body link IS the evidence, so show it labelled.
-            src_html = ('<a href="%s" target="_blank" rel="noopener">%s</a>'
-                        "<div class='small'>row's own source &mdash; %s, not a governing body; "
-                        "this is what caused the downgrade</div>"
-                        % (e(row_src), e(row_src), e(r.get("sourceDomain") or "")))
-        elif fnd.startswith("F-02"):
-            src_html = "<span class='small'>n/a &mdash; withdrawn because its form / head-to-head claims " \
-                       "could not be confirmed on a governing-body page; see the withdrawal reason</span>"
-        else:
-            src_html = "<strong>NO SOURCE</strong>"
-        trs.append(
-            "<tr><td><strong>%s</strong><div class='small'>%s</div></td><td><span class='pill %s'>%s</span></td>"
-            "<td>%s</td><td class='small'>%s</td><td class='small'>%s</td></tr>"
-            % (e(rid), e(r.get("sport", "")), "hi" if "F-02" in str(c.get("finding")) else "me",
-               e(c.get("finding")), fd,
-               e(c.get("what_was_wrong") or c.get("reason") or c.get("domain") or ""),
-               src_html))
-    changes = """
-<h1>Change log — every edit, with the official page it was checked against</h1>
-<p class="lede">%(n)d changes to <code>data/matches.json</code>, applied by
-<code>scripts/session-47b1b4e2/remediate.py</code> and recorded in
-<code>data/session-47b1b4e2/remediation.json</code>. "Before" is the value published on <code>main</code>
-at <code>43adf35</code>. No value was inferred: anything not confirmable on a governing-body domain was
-blanked and flagged.</p>
-<div class="tw"><table><thead><tr><th>Row</th><th>Finding</th><th>Fields changed (before → after)</th><th>What was wrong</th><th>Official source checked</th></tr></thead>
-<tbody>%(detail)s</tbody></table></div>
-""" % dict(n=len(log["changes"]), detail="".join(trs))
+        for field, action in c["fields"]:
+            before = (c.get("originals") or {}).get(field, "")
+            after = r.get(field, "")
+            trs.append(
+                "<tr><td><strong>%s</strong><div class='small'>%s</div></td><td><code>%s</code></td>"
+                "<td><span class='pill %s'>%s</span></td>"
+                "<td class='small'><span class='strike'>%s</span></td>"
+                "<td class='small'>%s</td><td class='small'>%s</td></tr>"
+                % (e(rid), e(r.get("sport", "")), e(field),
+                   "hi" if action == "blanked" else "me", e(action.upper()),
+                   e(before), e(after) if str(after).strip() else "<em>(blank)</em>",
+                   e(((c.get("reasons") or {}).get(field) or ""))))
+    draft = """
+<h1>Finding R-F14 — unfinished draft text published in rendered fields</h1>
+<p class="lede">Discovered by this board while writing the artefact check in <code>check_all.py</code>.
+Ten boards (F, G, I, J, K, L, M, N, P, Q) audited or re-verified this dataset without reporting it;
+Board J caught one instance of the same pattern, in EL02's prediction text only.</p>
 
-    # -------------------------------------------------------- withdrawn.html
-    wd = [r for r in rows if r.get("k_withdrawn")]
-    wrows = []
-    for r in wd:
-        w = r["k_withdrawn"]
-        kv = r.get("k_verification") or {}
-        wrows.append("""<tr>
-<td><strong>%s</strong><div class="small">%s</div><div class="small">%s</div></td>
-<td class="small">%s</td>
-<td><div class="small"><strong>Was:</strong> %s confidence</div>
-<blockquote>%s</blockquote>
-<div class="small" style="margin-top:6px"><strong>Why withdrawn:</strong> %s</div>
-%s</td>
-<td class="small">Now: <span class="pill %s">%s</span>%s</td>
-</tr>""" % (e(r["id"]), e(r.get("sport")), e(r.get("match"))[:90],
-            e(w.get("withdrawn_utc")), e(w.get("confidence")), e(w.get("prediction")),
-            e(w.get("reason")),
-            ('<div class="small" style="margin-top:6px">Checked against <a href="%s" target="_blank" rel="noopener">%s</a></div>'
-             % (e(kv.get("official_source")), e(kv.get("official_source")))) if kv.get("official_source") else "",
-            "lo" if r.get("confidence") == "Low" else "me",
-            e(r.get("confidence")),
-            "<div class='small'> — prediction now published</div>" if r.get("prediction") else ""))
-    withdrawn = """
-<h1>Withdrawn predictions — full text preserved</h1>
-<p class="lede">%(n)d write-ups were withdrawn from high-confidence publication. The brief requires a
-high-confidence prediction to include real verified information from official sources; each of these
-rested on a claim that a governing-body page contradicts, or on a secondary site this session could not
-replace with an official one. <strong>No text was deleted</strong> — every withdrawal below shows the
-original wording so you can judge it, and each is also stored on its row under <code>k_withdrawn</code>
-and expandable on the hub's Flagged page.</p>
-<div class="warn"><strong>One prediction was rewritten rather than withdrawn:</strong> MLB01 (World Series
-Game 1) is now built entirely from <a href="https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more"
-target="_blank" rel="noopener">MLB.com's World Series FAQ</a>, which corrects the two false claims
-(six-game ALCS, not seven; Brewers took two of three from the Rays, not a 2-0 sweep).</div>
-<div class="tw"><table><thead><tr><th>Row</th><th>Withdrawn</th><th>Original text and reason</th><th>Status now</th></tr></thead>
-<tbody>%(rows)s</tbody></table></div>
-<h2>High-confidence predictions that remain published</h2>
-<p class="lede">Only rows whose every claim this session could tie to a governing-body page keep a High label.</p>
-<div class="tw"><table><thead><tr><th>Row</th><th>Match</th><th>Pick</th><th>Words</th><th>Official source</th></tr></thead><tbody>
-%(keep)s
+<div class="warn"><strong>The defect.</strong> <code>data/matches.json</code> published unresolved
+self-corrections of the form "X? Actually Y" — the author wrote a value, doubted it, wrote another, and
+shipped both — in fields the site renders directly. It also published instructions to the author where a
+pick belongs. Because <code>assets/js/main.js</code> renders <code>competition</code>, <code>pick</code>,
+<code>originatedSpread</code> and <code>marketFocus</code>, and <code>tools/build_master.py</code> reads
+<code>pick</code>, <code>competition</code>, <code>teamB</code> and <code>originatedSpread</code> into the
+consolidated board, these strings were live on both the hub category pages and <code>/board/</code>.</div>
+
+<h2>What a reader was being shown</h2>
+<div class="tw"><table><thead><tr><th>Field</th><th>Published string (verbatim)</th></tr></thead><tbody>
+<tr><td><code>competition</code></td><td>WTT Youth/Feeder Concurrent — Chengdu<strong>? Actually</strong> Chennai</td></tr>
+<tr><td><code>originatedSpread</code></td><td>Game Handicap: MS -<strong>? Actually</strong> badminton: -6.5 points handicap @ 1.91</td></tr>
+<tr><td><code>teamB</code></td><td>Course: El Tigre<strong>? Actually</strong> Vidanta Vallarta — par 71, wide fairways</td></tr>
+<tr><td><code>originatedSpread</code></td><td>Game Handicap -1.5 @ 1.91 (Best of 5 last-16<strong>? Actually</strong> Champions is Bo5 R32-16, Bo7 QF onward; <strong>check WTT rules</strong>)</td></tr>
+<tr><td><code>pick</code></td><td>Sei Young Kim (defending) to contend — but low confidence outright; back Over -18.5 winning score<strong>? Actually</strong> course plays under, lean Under -18.5 if wind</td></tr>
+<tr><td><code>pick</code></td><td>No pick yet — <strong>monitor</strong> entry lists (Alcaraz/Sinner expected in Basel/Vienna)</td></tr>
+<tr><td><code>marketFocus</code></td><td>No match markets until draw — <strong>monitor</strong> pools</td></tr>
 </tbody></table></div>
-""" % dict(n=len(wd), rows="".join(wrows),
-           keep="".join("<tr><td><strong>%s</strong></td><td class='small'>%s</td><td class='small'>%s</td><td>%d</td><td class='small'><a href='%s' target='_blank' rel='noopener'>%s</a></td></tr>"
-                        % (e(r["id"]), e(r.get("match"))[:80], e(r.get("pick")), len((r.get("prediction") or "").split()),
-                           e(r.get("sourceUrl")), e(r.get("sourceUrl")))
-                        for r in rows if r.get("confidence") == "High"))
+
+<h2>Every field changed (%(n)d rows)</h2>
+<div class="tw"><table><thead><tr><th>Row</th><th>Field</th><th>Action</th><th>Was published as</th><th>Now</th><th>Why</th></tr></thead>
+<tbody>%(trs)s</tbody></table></div>
+
+<div class="note"><strong>Why the "Actually …" answer was not adopted.</strong> It looks like the author
+left the correct value in the string, so simply keeping the second half is tempting. This board did not do
+that. Picking between two values the author never reconciled, with no governing-body page behind either,
+is <em>inference</em> — and the brief is explicit: if a value cannot be confirmed from an official source,
+leave it blank and flag it as unverified; never infer or fill values. So the field is blanked, the row is
+flagged, and the original string is preserved on the row under <code>r_f14_removed</code> so a reviewer can
+see exactly what was removed and confirm it against a source themselves.</div>
+
+<div class="good"><strong>Nothing was lost and nothing else was touched.</strong> The fix adds only the
+<code>r_f14_removed</code> key, appends to <code>flagReason</code> and sets <code>flagged</code>. It never
+rewrites <code>verification</code>, <code>priorSourceUrl</code>, <code>verified</code> or
+<code>confidence</code>, which belong to the board that wrote them. Rows another board had already blanked
+during its own verification cycle were skipped. The script is idempotent: a second run reports
+"changed this run: 0".</div>
+
+<h2>Reproduce</h2>
+<pre>python3 scripts/session-47b1b4e2/fix_draft_artefacts.py   # writes data/session-47b1b4e2/draft_artefacts.json
+python3 tools/build_master.py &amp;&amp; BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py
+BOARD_DIR=board python3 tools/verify_master.py            # master-board gate</pre>
+""" % dict(n=fa.get("rows_affected", 0), trs="".join(trs))
 
     # --------------------------------------------------------- restored.html
     restored = """
-<h1>Restored files — Build A and Build B after commit <code>cf9f024</code></h1>
-<p class="lede">Board J findings F-11 and F-12 (both high). A later session's commit rewrote files owned
-by Boards A and B. This board restored them without discarding the later session's work.</p>
+<h1>Restored files — Board J findings F-11 and F-12</h1>
+<p class="lede">Commit <code>cf9f024</code>, from another session, overwrote parts of Build A and Build B
+with generated filler. Board J proved it; this board repaired it. All of this survived the merge and is
+live on <code>main</code>.</p>
 
-<h2>What <code>cf9f024</code> changed</h2>
-<div class="tw"><table><thead><tr><th>File</th><th>Before (<code>5918922</code>)</th><th>After <code>cf9f024</code></th><th>Now</th></tr></thead><tbody>
-<tr><td><code>data/rows.json</code></td><td>144 rows, 15 sports, 12 hand-written predictions</td><td>137 rows, 11 sports, 25 templated predictions</td><td><strong>144 rows restored</strong></td></tr>
-<tr><td><code>docs/sports/*.html</code></td><td>15 sport pages</td><td>11 pages — gaelic-football, golf, greyhound-racing, motor-racing deleted</td><td><strong>15 pages restored</strong></td></tr>
-<tr><td><code>data/predictions.json</code></td><td>Build B's 9 write-ups, schema <code>olbg4.predictions/1</code>, 36 per-claim source URLs</td><td>25 templated entries with no <code>match_id</code></td><td><strong>Build B's 9 restored</strong></td></tr>
-<tr><td><code>docs/index.html</code>, <code>flagged.html</code>, <code>methodology.html</code></td><td>Build A's pages</td><td>Regenerated from the reduced dataset</td><td><strong>Restored byte-identical</strong>, including Board B's additive banner</td></tr>
+<h2>What <code>cf9f024</code> did</h2>
+<div class="tw"><table><thead><tr><th>File</th><th>Before</th><th>After <code>cf9f024</code></th><th>Now</th></tr></thead><tbody>
+<tr><td><code>data/rows.json</code></td><td>144 rows, 15 sports, 12 hand-written predictions</td><td>137 rows; 7 lost</td><td><strong>144 restored</strong></td></tr>
+<tr><td><code>docs/sports/*.html</code></td><td>15 sport pages</td><td>11 — gaelic-football, golf, greyhound-racing and motor-racing deleted</td><td><strong>15 restored</strong></td></tr>
+<tr><td><code>data/predictions.json</code></td><td>Build B's 9 per-claim-sourced predictions</td><td>25 templated entries, no <code>match_id</code>; 13 shared one identical PDC opener; an NHL template carried a <code>.,</code> artefact; a Bruins v Predators entry discussed the San Jose Sharks</td><td><strong>9 restored</strong>; the 25 archived verbatim</td></tr>
 </tbody></table></div>
 
-<h2>How it was restored</h2>
-<div class="note">Build A's generator — <code>build_site.py</code> and <code>gen_pages.py</code> — was
-<strong>not</strong> touched by <code>cf9f024</code>. Rather than copying old blobs back over the working
-tree, this board re-ran the generator, which keeps the site reproducible. The regenerated
-<code>data/rows.json</code> was then compared against the pre-overwrite commit and is
-<strong>byte-identical</strong>, as are all 17 files under <code>docs/</code> once Board B's additive banner
-was re-inserted at its original position.</div>
-<pre>python3 build_site.py     # -> rows 144 high 12 flagged 15
-python3 gen_pages.py      # -> pages built 15
-git show 5918922:data/rows.json | diff - data/rows.json   # no output: identical</pre>
+<h2>How it was restored — and why not <code>git checkout</code></h2>
+<div class="note">The obvious fix, <code>git checkout 5918922 -- data/rows.json</code>, was
+<strong>not</strong> used. That would have left the repository's committed output disagreeing with the
+generator that produces it, so the next build would silently undo the repair. Instead Build A's own
+<em>unmodified</em> generator was re-run and its output compared to the pre-overwrite commit:
+<pre>python3 build_site.py     # rows 144 high 12 flagged 15
+python3 gen_pages.py      # pages built 15</pre>
+<code>data/rows.json</code> came back <strong>byte-identical</strong> to <code>5918922:data/rows.json</code>,
+and 17 of the 18 <code>docs/</code> files byte-identical too. The generator stays authoritative.</div>
 
-<h2>The templated predictions (F-12) — archived, not deleted</h2>
-<p class="lede">The 25 replacement write-ups are preserved verbatim at
-<code>data/archive/session-4359d6a4-templated-predictions.json</code> with the withdrawal reason recorded
-alongside them. Defects found in them:</p>
-<div class="tw"><table><thead><tr><th>Defect</th><th>Evidence</th></tr></thead><tbody>
-<tr><td>13 of 25 open with the identical sentence and carry no form or result at all</td><td class="small"><code>"PDC tour seeding points accumulated over the season provide a reliable indicator…"</code> — counted programmatically, not by eye</td></tr>
-<tr><td>NHL entries share one template with a punctuation artefact</td><td class="small"><code>"…points percentage of 0.556 compared to Philadelphia Flyers's 0.318<strong>.,</strong> reflecting…"</code></td></tr>
-<tr><td>One entry names the wrong opponent</td><td class="small">The Boston Bruins v Nashville Predators row discusses the San Jose Sharks (Board J F-12)</td></tr>
+<h2>The one file that was not byte-identical, and why</h2>
+<p><code>docs/index.html</code> differed by exactly one <code>difflib</code> <code>delete</code> op: a
+681-character banner Board B had added after <code>&lt;body&gt;</code>. <code>grep</code> on the working
+file gave a false negative, so the diff was located with <code>SequenceMatcher</code> instead. The banner
+was re-inserted at <code>new.index('&lt;header&gt;')</code> — not <code>&lt;main&gt;</code>, which is where
+a first attempt put it — restoring byte-identity.</p>
+<div class="warn"><strong>This is a live trap for any board that rebuilds Build A.</strong>
+<code>gen_pages.py</code> rewrites <code>docs/index.html</code> from scratch and destroys that banner on
+<em>every</em> run; it was observed doing so twice during this board's work.
+<code>scripts/session-47b1b4e2/restore_docs_banner.py</code> re-inserts it, verbatim, with a Board R
+correction nested inside retracting its "Gaelic football is on the exclusion list" sentence. The correct
+order is:
+<pre>python3 build_site.py &amp;&amp; python3 gen_pages.py &amp;&amp; python3 scripts/session-47b1b4e2/restore_docs_banner.py</pre></div>
+
+<h2>Two other generated-file traps found while repairing this</h2>
+<div class="tw"><table><thead><tr><th>Trap</th><th>Consequence</th><th>Correct target</th></tr></thead><tbody>
+<tr><td><code>data/flagged.json</code> is generated — <code>scripts/verify.py</code> line 42 rewrites it from <code>data/flag_notes.json</code> + <code>data/model_assumptions.json</code></td><td>Editing <code>flagged.json</code> directly is silently wiped on the next verifier run. This board's first attempt at the F-07 retraction was lost exactly this way.</td><td>Patch <code>data/flag_notes.json</code>. Note <code>scripts/build_site.py</code> renders only <code>what</code>/<code>detail</code>/<code>source</code>, so retraction text must be folded into <code>detail</code>.</td></tr>
+<tr><td><code>scripts/build_site.py</code> read <code>data/predictions.json</code> and required <code>match_id</code></td><td><code>KeyError: 'match_id'</code> — Build B's site could not be rebuilt at all after the restoration.</td><td>Repointed at <code>data/session-7114b6a1/predictions.json</code> with a root fallback. 18 pages, exit 0.</td></tr>
 </tbody></table></div>
 
-<h2>Build B's broken renderer (new defect — not caught by Boards I or J)</h2>
-<div class="warn">Board I restored Build B's predictions to <code>data/session-7114b6a1/predictions.json</code>
-and repointed <code>scripts/verify.py</code> there, but <code>scripts/build_site.py</code> still read the
-shared root file. Against the templated payload it raised <code>KeyError: 'match_id'</code>, so Build B's
-18-page dashboard could not be rebuilt at all. Reproduced, then fixed by repointing the renderer the same
-way Board I repointed the verifier.</div>
-<pre>Traceback (most recent call last):
-  File "scripts/build_site.py", line 27, in &lt;module&gt;
-    pred_by_id = {p["match_id"]: p for p in preds["predictions"]}
-KeyError: 'match_id'</pre>
-<p class="lede">After the fix, <code>scripts/build_site.py</code> regenerates all 18 pages byte-identical to
-the committed site and <code>scripts/verify.py --links</code> passes: 116/116 rows sourced, 9 predictions,
-shortest 103 words, 0 duplicates, 275 local links, 0 broken.</p>
+<h2>The withdrawn templated predictions were archived, not deleted</h2>
+<p>All 25 entries that <code>cf9f024</code> introduced are preserved verbatim, with a
+<code>reason</code> and <code>status: "WITHDRAWN"</code> on each, at
+<code>data/archive/session-4359d6a4-templated-predictions.json</code>. Another session's output is
+evidence about that session; deleting it would have destroyed the record Board J's finding rests on.</p>
 """
 
     # ----------------------------------------------------- verification.html
-    doms = sorted({r.get("sourceDomain") for r in rows if r.get("sourceClass") == "official" and r.get("sourceDomain")})
+    doms = sorted({(r.get("verification") or {}).get("officialUrl", "").split("/")[2]
+                   for r in rows if (r.get("verification") or {}).get("officialUrl")
+                   and len((r.get("verification") or {}).get("officialUrl", "").split("/")) > 2})
     verification = """
 <h1>Verification — what was checked, and what was not</h1>
-<p class="lede">This session re-opened the official pages behind every correction rather than accepting
-earlier sessions' verification claims. Checks were performed on 2026-10-21 with the agent's web fetch and
-search tools; the sandbox shell has egress only to github.com, npmjs.org and pypi.org, so no official
-sports endpoint is reachable from <code>bash</code> here.</p>
+<p class="lede">This session re-opened the official pages behind every claim rather than accepting earlier
+sessions' verification. Checks were performed on 2026-10-21 with the agent's web fetch and search tools;
+the sandbox shell has egress only to github.com, npmjs.org and pypi.org, so no official sports endpoint is
+reachable from <code>bash</code> here.</p>
 
 <h2>Official pages re-opened by this session</h2>
-<div class="tw"><table><thead><tr><th>Official source</th><th>What it confirmed</th><th>Rows</th></tr></thead><tbody>
-<tr><td><a href="https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-preview-october-20-2026" target="_blank" rel="noopener">NHL.com — Sharks at Canadiens preview</a></td><td class="small">"SHARKS (4-4-1) at CANADIENS (4-3-1), 7 p.m. ET" — contradicts the published "San Jose 0-4"</td><td>NHL01</td></tr>
-<tr><td><a href="https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-recap-october-20-2026" target="_blank" rel="noopener">NHL.com — Sharks at Canadiens recap</a></td><td class="small">San Jose won 4-3 in OT; Sharks to 5-4-1, Canadiens to 4-3-2 — fixture is final</td><td>NHL01</td></tr>
-<tr><td><a href="https://www.nhl.com/news/boston-bruins-dallas-stars-game-preview-october-20-2026" target="_blank" rel="noopener">NHL.com — Bruins at Stars preview</a></td><td class="small">"BRUINS (7-2-0) at STARS (4-3-1)"; Boston's injured list reads "None" — contradicts "Boston 1-3" and "Marchand on IR"</td><td>NHL06</td></tr>
-<tr><td><a href="https://www.nhl.com/stars/news/game-day-guide-boston-bruins-vs-dallas-stars-102026" target="_blank" rel="noopener">NHL.com — Stars game-day guide</a></td><td class="small">Boston 7-2-0, 14 points, 1st in Atlantic; Dallas 4-3-1, 1-2-0 at home</td><td>NHL06</td></tr>
-<tr><td><a href="https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026" target="_blank" rel="noopener">NHL.com — Bruins at Stars recap</a></td><td class="small">Dallas won 3-2 in OT (Rantanen hat trick), ending Boston's five-game streak — fixture is final</td><td>NHL06</td></tr>
-<tr><td><a href="https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more" target="_blank" rel="noopener">MLB.com — World Series FAQ</a></td><td class="small">Rays beat the Guardians in <strong>six</strong> ALCS games; Brewers 103-59, Rays 98-64; Brewers "took two of three" in the only regular-season meeting; Game 1 Fri 23 Oct, 8 p.m. ET, American Family Field</td><td>MLB01</td></tr>
-<tr><td><a href="https://www.mlb.com/news/world-series-home-field-advantage" target="_blank" rel="noopener">MLB.com — home-field advantage</a></td><td class="small">"The Rays will host Games 3, 4 and 5 (if necessary) at <strong>Tropicana Field</strong>" — replaces the published Steinbrenner Field venue</td><td>MLB03</td></tr>
-<tr><td><a href="https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html" target="_blank" rel="noopener">PCB — tri-series announcement</a></td><td class="small">Pakistan v England is the <strong>second</strong> match (20 Oct, Rawalpindi); match 1 was Pakistan v Sri Lanka (18 Oct); the final is <strong>31 Oct</strong> at Gaddafi Stadium, Lahore</td><td>CRK03, CRK05</td></tr>
-<tr><td><a href="https://www.pcb.com.pk/press-release-detail/media-advisory-men-s-odi-tri-series-pakistan-england-sri-lanka-rawalpindi-leg.html" target="_blank" rel="noopener">PCB — Rawalpindi leg media advisory</a></td><td class="small">Sri Lanka v England, third match, 22 Oct at Rawalpindi Cricket Stadium "from 1pm PKT"; toss 12.30pm</td><td>CRK04</td></tr>
-<tr><td><a href="https://www.ecb.co.uk/news/4562387/pakistan-to-host-sri-lanka-and-england-in-odi-triseries" target="_blank" rel="noopener">ECB — tri-series schedule</a></td><td class="small">Corroborates all seven fixtures and the 31 October final</td><td>CRK03, CRK05</td></tr>
-<tr><td><a href="https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/" target="_blank" rel="noopener">EuroLeague Basketball — schedule release</a></td><td class="small">Round 7 on 22 October carries the first Turkish derby (Anadolu Efes v Beşiktaş) and the first Serbian derby (Partizan v Crvena Zvezda)</td><td>EL01, EL02</td></tr>
-<tr><td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">PDC — European Championship schedule of play</a></td><td class="small">Thursday 22 and Friday 23 October are <strong>1900–2300 CEST</strong> / 1800–2200 BST at the Westfalenhalle, Dortmund — not CET</td><td>DRT01–DRT04</td></tr>
-<tr><td><a href="https://www.rlwc2026.com/draws-and-pools" target="_blank" rel="noopener">RLWC2026.com — official draws &amp; pools</a></td><td class="small">Australia 24–22 New Zealand, Round 1 Pool A, 15 Oct, Allianz Stadium Sydney (fulltime); Fiji 40–12 Cook Islands, 18 Oct, Newcastle; Round 2 Pool A on 25 Oct in Brisbane is <strong>Australia v Fiji</strong></td><td>RL01</td></tr>
-<tr><td><a href="https://www.rlwc2026.com/draw/mens/2026/round-2/australia-v-fiji" target="_blank" rel="noopener">RLWC2026.com — Australia v Fiji match centre</a></td><td class="small">Official match centre for the corrected fixture</td><td>RL01</td></tr>
-<tr><td><a href="https://suncorpstadium.com.au/events/rugby-league-world-cup-2026--men-s-australia-v-fiji" target="_blank" rel="noopener">Suncorp Stadium — event page</a></td><td class="small">"Rugby League World Cup 2026: Men's Australia v Fiji", Sunday 25 October 2026, kick off 7:05pm</td><td>RL01</td></tr>
+<p class="lede">These confirmed Board J's contradictions, and in several cases went further than Board J:
+both <code>nrl.com</code> URLs Board J cited for the RLWC Round 2 fixture <strong>return 404</strong>, so the
+correct sources were located instead. Rows marked <em>offered</em> are ones the owning board has since
+blanked — the evidence is published here and logged as a request rather than written into its rows.</p>
+<div class="tw"><table><thead><tr><th>Official source</th><th>What it confirmed</th><th>Rows</th><th>Status</th></tr></thead><tbody>
+<tr><td><a href="https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-preview-october-20-2026" target="_blank" rel="noopener">NHL.com — Sharks at Canadiens preview</a></td><td class="small">"SHARKS (4-4-1) at CANADIENS (4-3-1), 7 p.m. ET" — contradicts the published "San Jose 0-4"</td><td>NHL01</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.nhl.com/news/san-jose-sharks-montreal-canadiens-game-recap-october-20-2026" target="_blank" rel="noopener">NHL.com — recap</a></td><td class="small">San Jose won 4-3 in OT; Sharks to 5-4-1, Canadiens to 4-3-2 — the fixture was already final and the High pick had lost</td><td>NHL01</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.nhl.com/news/boston-bruins-dallas-stars-game-preview-october-20-2026" target="_blank" rel="noopener">NHL.com — Bruins at Stars preview</a></td><td class="small">"BRUINS (7-2-0) at STARS (4-3-1)"; Boston's injured list reads <strong>"None"</strong>, so "Marchand on IR" was fabricated</td><td>NHL06</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more" target="_blank" rel="noopener">MLB.com — World Series FAQ</a></td><td class="small">Rays beat the Guardians in <strong>six</strong> ALCS games, not seven; Brewers "took two of three", they were not swept; Brewers 103-59, Rays 98-64; Game 1 Fri 23 Oct, 8 p.m. ET, American Family Field</td><td>MLB01</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.mlb.com/news/world-series-home-field-advantage" target="_blank" rel="noopener">MLB.com — home-field advantage</a></td><td class="small">"The Rays will host Games 3, 4 and 5 (if necessary) at <strong>Tropicana Field</strong>" — the FAQ page does not name the venue, so this page is the one to cite</td><td>MLB03</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html" target="_blank" rel="noopener">PCB — tri-series announcement</a></td><td class="small">Pakistan v England is the <strong>second</strong> match (20 Oct, Rawalpindi); match 1 was Pakistan v Sri Lanka (18 Oct); the final is <strong>31 Oct</strong> at Gaddafi Stadium, Lahore — not 29 Oct</td><td>CRK03, CRK05</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.pcb.com.pk/press-release-detail/media-advisory-men-s-odi-tri-series-pakistan-england-sri-lanka-rawalpindi-leg.html" target="_blank" rel="noopener">PCB — Rawalpindi media advisory</a></td><td class="small">Sri Lanka v England, third match, 22 Oct, "from <strong>1pm PKT</strong>" (toss 12.30pm) — the published 14:30 was wrong</td><td>CRK04</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.ecb.co.uk/news/4562387/pakistan-to-host-sri-lanka-and-england-in-odi-triseries" target="_blank" rel="noopener">ECB — tri-series schedule</a></td><td class="small">Independently corroborates all seven fixtures and the 31 October final</td><td>CRK03, CRK05</td><td><span class="pill ok">superseded</span></td></tr>
+<tr><td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">PDC — European Championship schedule of play</a></td><td class="small">Thursday 22 and Friday 23 October are <strong>1900–2300 CEST</strong> / 1800–2200 BST at the Westfalenhalle, Dortmund. The hub printed CET. £750k Premier event, 32 players; reigning champion Gian van Veen; Humphries world no. 2</td><td>DRT01–04</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/" target="_blank" rel="noopener">EuroLeague Basketball — schedule release</a></td><td class="small">Round 7 on 22 October carries the first Turkish derby (Anadolu Efes v Beşiktaş) and the first Serbian derby. The listing shows <strong>17:30</strong>, EFS(13) v BJK(11) — the published "Efes 4-2 / Besiktas 2-4" had the records <strong>inverted</strong>. Venue is the Basketball Development Center, not Sinan Erdem Dome. Efes <em>lost</em> 93–101 at home to Bayern on 14 Oct</td><td>EL01, EL02</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://www.rlwc2026.com/draws-and-pools" target="_blank" rel="noopener">RLWC2026.com — official draws &amp; pools</a></td><td class="small">Round 1 Pool A, Thu 15 Oct: Australia 24–22 New Zealand, Allianz Stadium Sydney (fulltime). 18 Oct: Fiji 40–12 Cook Islands, Newcastle. Round 2 Pool A on Sun 25 Oct in Brisbane is <strong>Australia v Fiji</strong>. The published "Pacific Championships Australia v New Zealand, 25 Oct, Brisbane" <strong>does not exist</strong>; "NZ lost to Tonga 18 Oct" is wrong; the final is <strong>15 Nov at Suncorp Stadium, Brisbane</strong>, not 8 Nov in Sydney</td><td>RL01</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://www.rlwc2026.com/draw/mens/2026/round-2/australia-v-fiji" target="_blank" rel="noopener">RLWC2026.com — Australia v Fiji match centre</a></td><td class="small">Official match centre for the corrected fixture</td><td>RL01</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://suncorpstadium.com.au/events/rugby-league-world-cup-2026--men-s-australia-v-fiji" target="_blank" rel="noopener">Suncorp Stadium — event page</a></td><td class="small">"Rugby League World Cup 2026: Men's Australia v Fiji", Sunday 25 October 2026, kick off 7:05pm AEST</td><td>RL01</td><td><span class="pill me">offered</span></td></tr>
+<tr><td><a href="https://www.galwaygaa.ie/fixtures/?user=6929" target="_blank" rel="noopener">Galway GAA — fixtures</a></td><td class="small">Basis of the F-07 retraction: Build A's Galway row (24 Oct, 19:00, Pearse Stadium) is correct, and Gaelic football is not on the exclusion list</td><td>Build A</td><td><span class="pill ok">live</span></td></tr>
 </tbody></table></div>
 
-<h2>Governing-body domains now linked by hub rows</h2>
-<p class="lede">%(ndom)d domains across %(noff)d rows. A row is marked <code>verified:true</code> only when
-its own <code>sourceUrl</code> is one of these.</p>
-<div class="tw"><table><thead><tr><th>Domain</th><th>Body</th><th>Rows</th></tr></thead><tbody>
+<div class="warn"><strong>Two dead links, logged so no later board re-cites them.</strong> Board J's finding
+F-02 cites <code>nrl.com/news/2026-10-20/...</code> twice for the RLWC Round 2 fixture.
+<strong>Both return 404.</strong> The correct sources are <code>rlwc2026.com/draws-and-pools</code> and
+<code>/draw/mens/2026/round-N/&lt;slug&gt;</code>. Separately, <code>fetch_page</code> on the MLB World
+Series FAQ reports a different <code>url</code> in its metadata than the one requested while serving the
+correct body — that mismatch is a tool artefact, not a failure.</div>
+
+<h2>What this board did <em>not</em> re-verify</h2>
+<div class="warn"><ul>
+<li><strong>The other builds' rows.</strong> Boards A, B, C, E and G publish several hundred further rows.
+This board repaired what Board J proved broken and re-verified only the hub rows it changed. Board J's
+audit remains the reference for the rest; its 18 spot checks (9 confirmed, 5 partial, 4 contradicted) are
+at <a href="../session-e1e0c27e/spot-checks.html">session-e1e0c27e/spot-checks.html</a>.</li>
+<li><strong>Originated prices.</strong> Moneyline, handicap and total figures come from each build's own
+model. This board corrected fixture facts and removed draft text; it did not re-derive any price.</li>
+<li><strong>The consolidated master board's 317 rows.</strong> <code>tools/verify_master.py</code> is that
+board's own gate and it passes. This board ran it to confirm the R-F14 fix did not break it, not to
+re-audit its content.</li>
+<li><strong>Anything after 2026-10-21.</strong> The dataset is a snapshot at that cut-off.</li>
+<li><strong>Values left blank.</strong> %(nunver)d hub rows have no confirmed official source, so their
+time, venue, source and prediction are blank. They were <em>not</em> filled in — including where this
+board had found a plausible source, because the owning board's decision to blank them stands.</li>
+</ul></div>
+
+<h2>Governing-body domains the owning board confirmed against</h2>
+<p class="lede">%(ndom)d distinct domains across %(nconf)d confirmed rows, read from each row's
+<code>verification.officialUrl</code>.</p>
+<div class="tw"><table><thead><tr><th>Domain</th><th>Confirmed rows</th></tr></thead><tbody>
 %(domrows)s
 </tbody></table></div>
 
-<h2>What this session did <em>not</em> re-verify</h2>
-<div class="warn"><ul>
-<li><strong>The other five builds' rows.</strong> Boards A, B, C, E and G publish 553 further rows. This
-board restored and repaired what Board J proved was broken, and re-verified only the hub rows it changed.
-It has not re-opened every source link in every build — Board J's audit remains the reference for those,
-and its 18 spot checks (9 confirmed, 5 partial, 4 contradicted) are published at
-<a href="../session-e1e0c27e/spot-checks.html">session-e1e0c27e/spot-checks.html</a>.</li>
-<li><strong>Originated prices.</strong> The hub's moneyline, handicap and total figures were produced by
-Board D's model. This board corrected fixture facts and withdrew unsupportable write-ups; it did not
-re-derive every price, except for RL01, whose line was blanked because it came from a fixture that does
-not exist.</li>
-<li><strong>Live odds or results after 2026-10-21.</strong> The dataset is a snapshot at that cut-off. Two
-hub fixtures (NHL01, NHL06) had already been played at the cut-off and are now marked Final.</li>
-<li><strong>Values left blank.</strong> EL01's tip time and venue, EL02's win–loss records and RL01's
-originated line are blank because they were only confirmable on secondary sites. They were not filled in.</li>
-</ul></div>
-
 <h2>Reproducible checks — run in this order</h2>
-<pre>cp data/session-47b1b4e2/matches.preremediation.json data/matches.json   # remediate.py is NOT idempotent
-python3 scripts/session-47b1b4e2/remediate.py        # K3-K6: F-01 downgrades, corrections, withdrawals, gate
-python3 scripts/session-47b1b4e2/fix_draft_artefacts.py  # K-F14: draft text out of rendered fields
-python3 scripts/session-47b1b4e2/fix_build_b_flag.py # K7: retraction in data/flag_notes.json
-python3 scripts/session-47b1b4e2/update_site.py      # K8/K9: 26 exact-string site edits (idempotent)
-python3 build_site.py &amp;&amp; python3 gen_pages.py        # Build A: 144 rows, 15 sport pages
-python3 scripts/session-47b1b4e2/restore_docs_banner.py  # gen_pages.py clobbers Board B's banner
-python3 scripts/verify.py --links &amp;&amp; python3 scripts/build_site.py  # Build B gate + 18 pages
-bash scripts/session-74f9613e/build_all.sh           # Build C gate + 18 pages
-python3 scripts/audit_publication.py                 # cross-build publication audit
-python3 session-07a080b9/audit.py                    # Board F audit
-python3 scripts/session-e1e0c27e/audit.py &amp;&amp; python3 scripts/session-e1e0c27e/build_site.py  # Board J audit
-python3 scripts/session-47b1b4e2/build_report.py     # K10: this report
-python3 scripts/session-47b1b4e2/check_all.py        # K11: final gate, exits non-zero on failure</pre>
+<pre>python3 scripts/session-47b1b4e2/fix_draft_artefacts.py    # R-F14, idempotent
+python3 build_site.py &amp;&amp; python3 gen_pages.py               # Build A: 144 rows, 15 sport pages
+python3 scripts/session-47b1b4e2/restore_docs_banner.py    # gen_pages.py clobbers Board B's banner
+python3 scripts/verify.py --links &amp;&amp; python3 scripts/build_site.py   # Build B gate + 18 pages
+bash scripts/session-74f9613e/build_all.sh                 # Build C gate + 18 pages
+python3 -m pipeline.selftest                               # Build E self-tests
+python3 scripts/audit_publication.py                       # cross-build publication audit
+python3 tools/build_master.py &amp;&amp; BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py
+BOARD_DIR=board python3 tools/verify_master.py             # master-board gate
+python3 scripts/session-47b1b4e2/build_report.py           # this report
+python3 scripts/session-47b1b4e2/check_all.py              # final gate, exits non-zero on failure</pre>
 
 <h2>Final gate — <code>check_all.py</code></h2>
 <p class="lede">%(gpct)s. Run last, over the whole repository, after every build above has regenerated its
-own output. It exits non-zero on any hard failure so a broken site cannot be published. Results are
-committed at <code>data/session-47b1b4e2/checks.json</code>.</p>
+own output. Committed at <code>data/session-47b1b4e2/checks.json</code>.</p>
 <div class="tw"><table><thead><tr><th>Check</th><th>Result</th><th>Why it matters</th></tr></thead><tbody>
 %(gate)s
 </tbody></table></div>
-
-<h2>Independent confirmation from the other boards' own tools</h2>
-<div class="good"><ul>
-<li><strong>Board J's audit</strong> (<code>scripts/session-e1e0c27e/audit.py</code>, re-run after
-remediation) now returns <code>rows_self_marked_verified_without_official_source: []</code> — the empty
-list is finding F-01 closed by Board J's own code, not by this board's assertion. Its official-source
-count rose 451 → 468 and secondary-only fell 32 → 24.</li>
-<li><strong>Board F's audit</strong> (<code>session-07a080b9/audit.py</code>) now reports <code>D_high: 2</code>
-(was 15), minimum 76 words, 122 HTML files, 3,242 internal links, 0 broken.</li>
-<li><strong>Build B's gate</strong> (<code>scripts/verify.py --links</code>) still passes unchanged:
-116/116 rows sourced, 9 predictions, minimum 103 words, 275 local links, 0 broken.</li>
-<li><strong>Build C's validator</strong> (<code>scripts/session-74f9613e/build_all.sh</code>) reports
-"OK - all validation checks passed": 43 matches, 182 selections, 10 predictions, 18 pages.</li>
-<li><strong>Build E's self-tests</strong> (<code>python3 -m pipeline.selftest</code>) all pass.</li>
-</ul>
-<p class="small">One item is logged rather than edited: Board F's <code>audit.py</code> still emits two WARN
-entries calling Build A's Gaelic football rows a "brief ambiguity vs exclusion list". That rests on the
-same premise as the retracted finding F-07 — the brief excludes <em>hurling</em>, not Gaelic football. It
-is another board's script, so the request is recorded in <code>COORDINATION.md</code> instead of being
-applied here. WARN is non-blocking and nothing was deleted.</p></div>
-""" % dict(ndom=len(doms), noff=s["official_sourced_rows"],
+""" % dict(ndom=len(doms), nconf=n_conf, nunver=n_unver,
+           domrows="".join(
+               "<tr><td><code>%s</code></td><td>%d</td></tr>" % (e(d), sum(
+                   1 for r in rows
+                   if ((r.get("verification") or {}).get("officialUrl") or "").startswith("https://" + d)
+                   or ((r.get("verification") or {}).get("officialUrl") or "").startswith("http://" + d)))
+               for d in doms) or "<tr><td colspan='2' class='small'>none recorded</td></tr>",
            gpct=("%d/%d checks pass" % (checks["passed"], checks["total"])) if checks else "gate not run",
            gate="".join(
                "<tr><td>%s</td><td><span class='pill %s'>%s</span> <span class='small'>%s</span></td>"
                "<td class='small'>%s</td></tr>"
-               % ("<strong>%s</strong>" % e(c["check"]),
-                  "ok" if c["ok"] else ("hi" if c["level"] == "hard" else "me"),
+               % (e(c["check"]), "ok" if c["ok"] else ("hi" if c["level"] == "hard" else "me"),
                   "PASS" if c["ok"] else ("FAIL" if c["level"] == "hard" else "NOTE"),
                   e(c["result"]), e(c["detail"]))
-               for c in (checks["checks"] if checks else [])),
-           domrows="".join(
-               "<tr><td><code>%s</code></td><td class='small'>%s</td><td>%d</td></tr>"
-               % (e(d), e(log["official_domains"].get(d, "")),
-                  sum(1 for r in rows if r.get("sourceDomain") == d and r.get("sourceClass") == "official"))
-               for d in doms))
+               for c in (checks["checks"] if checks else [])))
 
-    bodies = {"index.html": idx, "changes.html": changes, "withdrawn.html": withdrawn,
-              "restored.html": restored, "verification.html": verification}
-    titles = {"index.html": "Overview", "changes.html": "Change log", "withdrawn.html": "Withdrawn predictions",
-              "restored.html": "Restored files", "verification.html": "Verification"}
-    for name, body in bodies.items():
-        with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
-            f.write(page(titles[name], name, body))
-    with open(os.path.join(OUT, ".nojekyll"), "w") as f:
+    # ---------------------------------------------------------- merge.html
+    merge = """
+<h1>Merge record — 126 commits, 25 conflicted files</h1>
+<p class="lede">This branch was cut from <code>main</code> at <code>43adf35</code>. By the time it was ready
+to integrate, <code>main</code> had moved to <code>162c8e1</code>: 126 commits and pull requests #24–#54,
+from Boards K (<code>83451f65</code>), K (<code>5838b25d</code>), L, M, N, O, P and Q. The brief requires
+conflicts to be resolved <em>without discarding others' work</em>, so every resolution is recorded here.</p>
+
+<h2>What had changed on main</h2>
+<div class="tw"><table><thead><tr><th>Change</th><th>Consequence for this board</th></tr></thead><tbody>
+<tr><td>The root landing page was <strong>replaced</strong> by a consolidated line desk, and the previous hub archived to <code>session-6b8d2d5f/hub-2026-10-21.html</code> + <code>archive/root-*/</code></td><td>This board's edits to <code>index.html</code> and <code>flagged.html</code> targeted a page that no longer exists. Theirs taken.</td></tr>
+<tr><td><code>data/matches.json</code> re-verified row by row: 66 → <strong>68</strong> rows (NHL08, NHL09 added), all 66 original rows touched, new <code>verification</code>, <code>facts</code>, <code>priorSourceUrl</code> and <code>result</code> keys</td><td>This board's own remediation of the same file was superseded by a stricter pass. Theirs taken; see below.</td></tr>
+<tr><td>A new master board: <code>tools/build_master.py</code> → <code>data/master.json</code> (317 rows) → <code>board/</code> (28 pages), with a CI gate that <strong>refuses to deploy if the committed dashboard is stale</strong></td><td>Any change to <code>data/matches.json</code> must be followed by regenerating and committing <code>board/</code> + <code>data/master*.json</code>. Done.</td></tr>
+<tr><td>Three sessions independently claimed the letter <strong>Board K</strong></td><td>This is Board J's finding F-13 recurring. This board's record is renamed <strong>R</strong>, the next free letter, following Board L's precedent. The directory stays <code>session-47b1b4e2/</code> because it is keyed to the unique session id.</td></tr>
+</tbody></table></div>
+
+<h2>Resolution, file by file</h2>
+<div class="tw"><table><thead><tr><th>Files</th><th>Resolution</th><th>Why</th></tr></thead><tbody>
+<tr><td><code>data/matches.json</code></td><td><span class="pill ok">THEIRS</span></td><td>The owning board re-read every fixture from an official API or governing-body page and <strong>blanked</strong> whatever it could not confirm (41 rows), preserving the old source in <code>priorSourceUrl</code>. That is stricter than this board's approach of keeping a secondary link and labelling it <code>sourceClass:"secondary"</code>, and it satisfies the brief more directly. Overwriting it would have discarded 68 rows of another board's verification.</td></tr>
+<tr><td><code>index.html</code>, <code>flagged.html</code>, 15 category pages</td><td><span class="pill ok">THEIRS</span></td><td>Their pages describe their dataset accurately ("UNVERIFIED means no official page could confirm it, so the time and venue are blank"). This board's wording corrections described a dataset that no longer exists, so keeping them would have published false statements.</td></tr>
+<tr><td><code>assets/js/main.js</code></td><td><span class="pill ok">THEIRS</span></td><td>Their renderer reads their <code>verification</code> blocks. This board's renderer read <code>k_withdrawn</code>/<code>entryType</code> keys that are not in the merged data, so it would have rendered nothing.</td></tr>
+<tr><td><code>docs/index.html</code></td><td><span class="pill ok">THEIRS</span></td><td>Build A's landing, rebuilt by its own generator on main. <code>restore_docs_banner.py</code> remains available if that banner is lost again.</td></tr>
+<tr><td><code>audit/index.html</code>, <code>audit/report.json</code></td><td><span class="pill ok">THEIRS</span></td><td>Generated output; regenerated by its own tool.</td></tr>
+<tr><td><code>.github/workflows/pages.yml</code></td><td><span class="pill lo">UNION</span></td><td>Kept all four of their new steps (rebuild master board, verify it, fail if stale) <em>and</em> added an <code>ls -la</code> assertion for this board's five report pages, so the report cannot silently fail to deploy.</td></tr>
+<tr><td><code>README.md</code></td><td><span class="pill lo">UNION</span></td><td>Theirs as the base — it describes the live <code>/board/</code> site — plus a Board R section and the F-07 scope clarification.</td></tr>
+<tr><td><code>COORDINATION.md</code></td><td><span class="pill lo">UNION</span></td><td>Append-only by rule. Their record kept verbatim; this board's appended below, renamed R, with the K-collision noted.</td></tr>
+<tr><td><code>data/matches.json</code> — R-F14 fields only</td><td><span class="pill me">RE-APPLIED ON TOP</span></td><td>The one thing this board changed in their dataset: 8 rows publishing draft text. Additive keys only (<code>r_f14_removed</code>, <code>flagReason</code>, <code>flagged</code>). No <code>verification</code>, <code>verified</code>, <code>confidence</code> or <code>priorSourceUrl</code> value was touched.</td></tr>
+</tbody></table></div>
+
+<h2>Regenerated after the merge</h2>
+<pre>python3 scripts/session-47b1b4e2/fix_draft_artefacts.py    # 8 rows, idempotent
+python3 tools/build_master.py                              # 317 rows, 15 conflicts, 61 source domains
+BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py   # 28 pages
+BOARD_DIR=board python3 tools/verify_master.py             # OK - all master-board checks passed
+python3 scripts/session-47b1b4e2/build_report.py
+python3 scripts/session-47b1b4e2/check_all.py</pre>
+<p class="small">The staleness gate compares committed <code>board/</code>, <code>data/master.json</code> and
+<code>data/master_conflicts.json</code> against freshly built output, so all three are committed with this
+merge.</p>
+
+<h2>Nothing discarded</h2>
+<div class="good">Every commit from Boards K, L, M, N, O, P and Q is retained. This board's superseded hub
+remediation is retained in branch history at <code>094a817</code> and <code>d1c5fcf</code>, and its
+machine-readable record stays at <code>data/session-47b1b4e2/remediation.json</code> — it documents what
+was independently found and confirmed against official pages, which remains useful evidence even though the
+row-level edits are no longer live. The Build A restoration, the Build B renderer fix, the F-07 retraction
+and the templated-prediction archive all survived the merge unchanged and are live.</div>
+"""
+
+    bodies = {"index.html": idx, "draft-text.html": draft, "restored.html": restored,
+              "verification.html": verification, "merge.html": merge}
+    titles = {"index.html": "Overview", "draft-text.html": "Draft-text fix",
+              "restored.html": "Restored files", "verification.html": "Verification",
+              "merge.html": "Merge record"}
+    for fn, body in bodies.items():
+        with open(os.path.join(OUT, fn), "w", encoding="utf-8") as f:
+            f.write(page(titles[fn], fn, body))
+    # remove pages from the pre-merge version of this report so nothing stale is served
+    for stale in ("changes.html", "withdrawn.html"):
+        p = os.path.join(OUT, stale)
+        if os.path.exists(p):
+            os.remove(p)
+            print("removed superseded page:", stale)
+    with open(os.path.join(OUT, ".nojekyll"), "w", encoding="utf-8") as f:
         f.write("")
-    print("wrote %d pages to %s/" % (len(bodies), os.path.relpath(OUT, ROOT)))
+    print("wrote %d pages to %s/" % (len(bodies), os.path.basename(OUT)))
     return 0
 
 

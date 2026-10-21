@@ -1,57 +1,71 @@
 {
  "schema": "olbg4.boardk-checks/1",
  "run_utc": "2026-10-21T08:20Z",
- "passed": 26,
- "total": 26,
+ "passed": 28,
+ "total": 28,
  "hard_fail": false,
  "checks": [
   {
    "check": "Every committed JSON file parses",
    "ok": true,
-   "result": "94 files",
+   "result": "134 files",
    "detail": "data/, docs/, session-*/, tools/, pipeline/, audit/",
    "level": "hard"
   },
   {
-   "check": "Hub dataset loads with the expected row count",
+   "check": "Hub dataset loads with the merged row count",
    "ok": true,
-   "result": "66 rows",
-   "detail": "Build D published 66 entries; remediation must not add or drop rows.",
+   "result": "68 rows",
+   "detail": "66 as published by Build D, plus NHL08 and NHL09 added during the owning board's verification cycle.",
    "level": "hard"
   },
   {
-   "check": "Every hub row carries a source link",
+   "check": "Every blanked row preserves the source it replaced",
    "ok": true,
-   "result": "66/66",
-   "detail": "F-01 requires a link on every row, official or not.",
+   "result": "41 blanked rows",
+   "detail": "Blanking is brief-compliant only if the discarded value stays on the row for a reviewer.",
    "level": "hard"
   },
   {
-   "check": "Every hub row is classified official / secondary / olbg",
+   "check": "Every row that could not be confirmed is flagged",
    "ok": true,
-   "result": "66/66",
-   "detail": "Added by Board K (F-01).",
+   "result": "41 unverified rows, all flagged",
+   "detail": "The brief requires an unconfirmable value to be blank AND flagged, never inferred.",
    "level": "hard"
   },
   {
-   "check": "No row is verified:true on a non-governing-body source",
+   "check": "No row is verified:true without a live source link",
    "ok": true,
    "result": "0 offenders",
-   "detail": "This was Board J finding F-01 (26 rows).",
+   "detail": "This was Board J finding F-01: rows self-marked verified on secondary sources.",
    "level": "hard"
   },
   {
-   "check": "Every hub row declares an entryType",
+   "check": "Every row without a live source link is flagged and preserves its prior source",
    "ok": true,
-   "result": "66/66",
-   "detail": "Board J finding F-04: not every entry is a match.",
+   "result": "41 rows without a live link",
+   "detail": "session-07a080b9/audit.py reports these 41 rows as FAIL 'Row missing sourceUrl'; the owning board blanked them deliberately under the brief's leave-it-blank clause. Policy conflict logged in COORDINATION.md, not silently resolved.",
+   "level": "review"
+  },
+  {
+   "check": "Every hub row carries a verification block with a valid status",
+   "ok": true,
+   "result": "68/68",
+   "detail": "Added by the owning board's cycle.",
    "level": "hard"
   },
   {
    "check": "Every High-confidence row has a prediction of at least 30 words",
    "ok": true,
-   "result": "2 High rows, shortest 77 words",
+   "result": "3 High rows, shortest 95 words",
    "detail": "Brief requires >=30 words naming team/player/form/selection.",
+   "level": "hard"
+  },
+  {
+   "check": "No High-confidence row is missing its write-up",
+   "ok": true,
+   "result": "3 High rows",
+   "detail": "A High label with no prediction is not actionable for a reader.",
    "level": "hard"
   },
   {
@@ -65,7 +79,14 @@
    "check": "No published hub field contains draft or template artefacts",
    "ok": true,
    "result": "0 offenders",
-   "detail": "Board J F-02/F-12 found these in predictions; Board K finding K-F14 found them in rendered data fields too (teamB, pick, competition, originatedSpread).",
+   "detail": "Board R finding R-F14: self-corrections ('X? Actually Y') and notes to the author were published in competition, pick, originatedSpread, marketFocus and teamB, which the hub and /board/ both render.",
+   "level": "hard"
+  },
+  {
+   "check": "Every R-F14 removal preserves the original string on the row",
+   "ok": true,
+   "result": "8 rows, 9 fields",
+   "detail": "Nothing is deleted; a reviewer can check the removed value against a source.",
    "level": "hard"
   },
   {
@@ -76,24 +97,17 @@
    "level": "hard"
   },
   {
-   "check": "Every withdrawn prediction keeps its full original text",
+   "check": "The consolidated master board is built and non-empty",
    "ok": true,
-   "result": "23 withdrawn, 23 preserved",
-   "detail": "",
+   "result": "317 rows",
+   "detail": "tools/build_master.py merges the six builds; pages.yml fails if it is stale.",
    "level": "hard"
   },
   {
-   "check": "Every withdrawal records a reason",
+   "check": "The master board carries no draft-text artefacts either",
    "ok": true,
-   "result": "23/23",
-   "detail": "Nothing may be withdrawn silently.",
-   "level": "hard"
-  },
-  {
-   "check": "Every corrected row links the official page it was checked against",
-   "ok": true,
-   "result": "14 corrected, 14 linked",
-   "detail": "",
+   "result": "0 offenders",
+   "detail": "R-F14 propagates: build_master.py reads pick, competition, teamB and originatedSpread.",
    "level": "hard"
   },
   {
@@ -176,8 +190,8 @@
   {
    "check": "No broken local links anywhere in the repository",
    "ok": true,
-   "result": "3189 links across 122 HTML files",
-   "detail": "Includes every build's dashboard and the Board K report.",
+   "result": "7950 links across 291 HTML files",
+   "detail": "Includes every build's dashboard, the master board and the Board R report.",
    "level": "hard"
   },
   {

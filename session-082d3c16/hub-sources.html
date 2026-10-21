@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Official Sources — OLBG4</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container inner">
+    <div class="brand"><div class="logo">OL</div><div><h1>OLBG<span>4</span></h1><p>Official sources — manual review links</p></div></div>
+    <nav class="nav"><a href="../index.html">Dashboard</a><a href="../verification.html">Verification</a><a href="../methodology.html">Methodology</a><a href="../sources.html" class="active">Sources</a><a href="../flagged.html">Flagged for Review</a></nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <h2>Source registry — what was opened, and what would not open</h2>
+    <p>This is the 2026-10-21 register of every source this session actually opened. Seven feeds returned the values quoted on the rows (NHL, MLB, NBA, PCB, WST, World Rugby, BWF); ten pages did not return usable fixture data and are listed as such, because the rows that depend on them are published as <b>UNVERIFIED</b> rather than backed by a URL that was never read.</p>
+    <div class="notice"><strong>How to verify:</strong> open the link, compare the values on the page with the quoted evidence on the <a href="../verification.html">Verification register</a>. A URL in this table is a place to look, not proof on its own — the proof is the quoted value on the register. No bookmaker price is used anywhere.</div>
+  </section>
+
+  <section class="table-wrap">
+    <div style="padding:10px 14px;border-bottom:1px solid var(--line);background:#f8fafc"><strong>Source registry — read status as of 2026-10-21</strong></div>
+    <div style="overflow:auto">
+      <table>
+        <thead><tr><th>Sport</th><th>Source URLs (primary + secondary)</th><th>Verified date & notes</th></tr></thead>
+        <tbody id="sourcesList"><tr><td colspan="3" style="padding:16px" class="small">Loading data/sources.json…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top:14px">
+    <h3>Trust hierarchy we follow</h3>
+    <ol>
+      <li><strong>Governing body domain</strong> (e.g., <code>nba.com</code>, <code>mlb.com</code>, <code>atptour.com</code>, <code>wtatennis.com</code>, <code>nhl.com</code>, <code>pdc.tv</code>, <code>pgatour.com</code>, <code>lpga.com</code>, <code>bwfbadminton.com</code>, <code>worldtabletennis.com</code>, <code>fivb.com</code>) — always the source of record.</li>
+      <li><strong>Official competition microsite</strong> (e.g., <code>euroleaguebasketball.net</code>, <code>wst.tv</code>, <code>pcb.com.pk</code>) — accepted as official for its own competition.</li>
+      <li><strong>Not used for values</strong> — BBC, ESPN, Sky Sports, Wikipedia, OLBG and other secondary or market sites. Earlier sessions used some of these as row sources; those rows are now unverified in this hub.</li>
+      <li><strong>Blocked, JavaScript-only or not published</strong> → the value is blank, the row is flagged, and the reason is on the <a href="../flagged.html">Flagged for Review</a> page.</li>
+    </ol>
+    <div class="notice" style="margin-top:10px">If you find an official source contradicts a row, please open a GitHub issue with the URL and correction. The dataset is intentionally human-reviewable.</div>
+  </section>
+
+  <div class="footer">OLBG4 • Sources • <a href="../index.html">Dashboard</a> • <a href="../verification.html">Verification register</a> • Data cut-off 2026-10-21</div>
+</main>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

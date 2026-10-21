@@ -55,33 +55,60 @@ for rel in sorted(json_files):
 add("Every committed JSON file parses", not bad_json, "%d files" % len(json_files),
     "; ".join(bad_json) or "data/, docs/, session-*/, tools/, pipeline/, audit/")
 
-# ---------------------------------------------------------------- 2. hub dataset
+# ---------------------------------------------------------------- 2. hub dataset (post-merge schema)
+# Board 082d3c16 re-verified every row and blanks whatever it could not confirm, preserving the old
+# source in priorSourceUrl. This board's earlier entryType/sourceClass pass was superseded by that, so
+# the checks below assert THEIR schema plus this board's additive r_f14_removed key.
 rows = load("data/matches.json")
-add("Hub dataset loads with the expected row count", len(rows) == 66, "%d rows" % len(rows),
-    "Build D published 66 entries; remediation must not add or drop rows.")
+add("Hub dataset loads with the merged row count", len(rows) == 68, "%d rows" % len(rows),
+    "66 as published by Build D, plus NHL08 and NHL09 added during the owning board's verification cycle.")
 
-no_src = [r["id"] for r in rows if not (r.get("sourceUrl") or "").startswith("http")]
-add("Every hub row carries a source link", not no_src, "%d/%d" % (len(rows) - len(no_src), len(rows)),
-    ", ".join(no_src) or "F-01 requires a link on every row, official or not.")
+blanked = [r for r in rows if r.get("priorSourceUrl") and not r.get("sourceUrl")]
+add("Every blanked row preserves the source it replaced",
+    all(r.get("priorSourceUrl") for r in blanked), "%d blanked rows" % len(blanked),
+    "Blanking is brief-compliant only if the discarded value stays on the row for a reviewer.")
 
-no_cls = [r["id"] for r in rows if r.get("sourceClass") not in ("official", "secondary", "olbg")]
-add("Every hub row is classified official / secondary / olbg", not no_cls,
-    "%d/%d" % (len(rows) - len(no_cls), len(rows)), ", ".join(no_cls) or "Added by Board K (F-01).")
+unconf = [r["id"] for r in rows
+          if (r.get("verification") or {}).get("status") == "unverified" and not r.get("flagged")]
+add("Every row that could not be confirmed is flagged", not unconf,
+    "%d unverified rows, all flagged" % sum(1 for r in rows if (r.get("verification") or {}).get("status") == "unverified"),
+    ", ".join(unconf) or "The brief requires an unconfirmable value to be blank AND flagged, never inferred.")
 
-lying = [r["id"] for r in rows if r.get("verified") is True and r.get("sourceClass") != "official"]
-add("No row is verified:true on a non-governing-body source", not lying,
-    "%d offenders" % len(lying), ", ".join(lying) or "This was Board J finding F-01 (26 rows).")
+lying = [r["id"] for r in rows
+         if r.get("verified") is True and not (r.get("sourceUrl") or "").startswith("http")]
+add("No row is verified:true without a live source link", not lying, "%d offenders" % len(lying),
+    ", ".join(lying) or "This was Board J finding F-01: rows self-marked verified on secondary sources.")
 
-no_et = [r["id"] for r in rows if r.get("entryType") not in ("match", "result", "tournament", "note")]
-add("Every hub row declares an entryType", not no_et, "%d/%d" % (len(rows) - len(no_et), len(rows)),
-    ", ".join(no_et) or "Board J finding F-04: not every entry is a match.")
+# ---- cross-board policy conflict, surfaced as a NOTE (non-blocking)
+# The brief says both "every table row must have a source link to an official site" and "if a value
+# can't be confirmed from an official source, leave it blank and flag it unverified". Board 082d3c16
+# resolved that toward blanking sourceUrl (preserving the old value in priorSourceUrl and flagging the
+# row); session-07a080b9/audit.py treats a missing sourceUrl as a hard FAIL. Both readings are
+# defensible, so this is recorded rather than "fixed" - neither board's decision is this board's to
+# overturn. It does not block deployment: pages.yml runs verify_master.py, not Board F's audit.
+unsourced = [r["id"] for r in rows if not (r.get("sourceUrl") or "").startswith("http")]
+preserved_all = all(r.get("priorSourceUrl") and r.get("flagged") for r in rows
+                    if not (r.get("sourceUrl") or "").startswith("http"))
+add("Every row without a live source link is flagged and preserves its prior source",
+    preserved_all, "%d rows without a live link" % len(unsourced),
+    "session-07a080b9/audit.py reports these %d rows as FAIL 'Row missing sourceUrl'; the owning board "
+    "blanked them deliberately under the brief's leave-it-blank clause. Policy conflict logged in "
+    "COORDINATION.md, not silently resolved." % len(unsourced), hard=False)
 
-# ---------------------------------------------------------------- 3. predictions
+no_v = [r["id"] for r in rows if not isinstance(r.get("verification"), dict)
+        or (r["verification"].get("status") not in ("confirmed", "unverified", "partial"))]
+add("Every hub row carries a verification block with a valid status", not no_v,
+    "%d/%d" % (len(rows) - len(no_v), len(rows)), ", ".join(no_v) or "Added by the owning board's cycle.")
+
 high = [r for r in rows if r.get("confidence") == "High"]
 short = [(r["id"], words(r.get("prediction"))) for r in high if words(r.get("prediction")) < 30]
 add("Every High-confidence row has a prediction of at least 30 words", not short,
     "%d High rows, shortest %d words" % (len(high), min([words(r.get("prediction")) for r in high] or [0])),
     ", ".join("%s=%d" % x for x in short) or "Brief requires >=30 words naming team/player/form/selection.")
+
+nopred = [r["id"] for r in high if not (r.get("prediction") or "").strip()]
+add("No High-confidence row is missing its write-up", not nopred, "%d High rows" % len(high),
+    ", ".join(nopred) or "A High label with no prediction is not actionable for a reader.")
 
 dupes = [b for b, n in collections.Counter(
     re.sub(r"\W+", " ", (r.get("prediction") or "").lower()).strip() for r in high if r.get("prediction")
@@ -89,19 +116,33 @@ dupes = [b for b, n in collections.Counter(
 add("No duplicated high-confidence prediction bodies", not dupes, "%d duplicates" % len(dupes),
     "Brief requires unique, non-repetitive write-ups.")
 
-# template artefacts across every build's published predictions
-ARTEFACT = re.compile(r"\?\s*Actually|\bVerify tip\b|\.\,|\bwait for\b|\bwait until\b|"
+# ---- R-F14: unfinished draft text in fields the site renders
+# NOTE on the `.,` signature: Board J's F-12 templated predictions carried strings like
+# "a points percentage of 0.556 compared to Philadelphia Flyers's 0.318., reflecting ...". The
+# artefact is a DIGIT followed by ".,", not a bare ".,": a bare pattern false-positives on ordinary
+# abbreviations such as "e.g.," -- which is how Build G's entirely legitimate greyhound policy note
+# ("... track racecard listings (e.g., Nottingham Greyhounds official site ...)") was first flagged.
+# Build G's note is correct, brief-compliant prose and must not be altered.
+ARTEFACT = re.compile(r"\?\s*Actually|\bVerify tip\b|\d\.\,|\bwait for\b|\bwait until\b|"
                       r"\bmonitor\b|check \w+ rules|before committing|before pricing", re.I)
+SKIP_KEYS = ("flagReason", "formNotes", "priorSourceUrl", "priorSourceName", "r_f14_removed", "verification")
 artefacts = []
 for r in rows:
     for k, v in r.items():
-        if isinstance(v, str) and not k.startswith("k_") and k not in ("flagReason", "formNotes") \
+        if isinstance(v, str) and not k.startswith(("k_", "r_f14")) and k not in SKIP_KEYS \
                 and ARTEFACT.search(v):
             artefacts.append("%s.%s" % (r["id"], k))
 add("No published hub field contains draft or template artefacts", not artefacts,
     "%d offenders" % len(artefacts), ", ".join(artefacts[:8]) or
-    "Board J F-02/F-12 found these in predictions; Board K finding K-F14 found them in rendered "
-    "data fields too (teamB, pick, competition, originatedSpread).")
+    "Board R finding R-F14: self-corrections ('X? Actually Y') and notes to the author were published in "
+    "competition, pick, originatedSpread, marketFocus and teamB, which the hub and /board/ both render.")
+
+preserved = [r for r in rows if r.get("r_f14_removed")]
+lost = [r["id"] for r in preserved
+        if not all((v.get("value") or "").strip() for v in r["r_f14_removed"].values())]
+add("Every R-F14 removal preserves the original string on the row", not lost,
+    "%d rows, %d fields" % (len(preserved), sum(len(r["r_f14_removed"]) for r in preserved)),
+    ", ".join(lost) or "Nothing is deleted; a reviewer can check the removed value against a source.")
 
 openers = collections.Counter()
 for r in rows:
@@ -113,19 +154,26 @@ add("No hub prediction opener is repeated across more than two rows", not rep,
     "%d repeated openers" % len(rep), "; ".join("%r x%d" % (k, v) for k, v in rep.items()) or
     "Board J finding F-12: 13 of 25 templated rows shared one opener.")
 
-# ---------------------------------------------------------------- 4. withdrawals preserved
-withdrawn = [r for r in rows if r.get("k_withdrawn")]
-lost = [r["id"] for r in withdrawn if not (r["k_withdrawn"].get("prediction") or "").strip()]
-add("Every withdrawn prediction keeps its full original text", not lost,
-    "%d withdrawn, %d preserved" % (len(withdrawn), len(withdrawn) - len(lost)))
-add("Every withdrawal records a reason", all((r["k_withdrawn"].get("reason") or "").strip() for r in withdrawn),
-    "%d/%d" % (sum(1 for r in withdrawn if r["k_withdrawn"].get("reason")), len(withdrawn)),
-    "Nothing may be withdrawn silently.")
-
-corrected = [r for r in rows if r.get("k_verification")]
-no_v = [r["id"] for r in corrected if not (r["k_verification"].get("official_source") or "").startswith("http")]
-add("Every corrected row links the official page it was checked against", not no_v,
-    "%d corrected, %d linked" % (len(corrected), len(corrected) - len(no_v)), ", ".join(no_v) or "")
+# ---------------------------------------------------------------- 4. master board consistency
+master = load("data/master.json")
+if master:
+    mrows = master["rows"] if isinstance(master, dict) and "rows" in master else master
+    add("The consolidated master board is built and non-empty", len(mrows) > 300,
+        "%d rows" % len(mrows), "tools/build_master.py merges the six builds; pages.yml fails if it is stale.")
+    mart = []
+    for r in mrows:
+        if not isinstance(r, dict):
+            continue
+        for k, v in r.items():
+            if isinstance(v, str) and ARTEFACT.search(v) and k not in SKIP_KEYS \
+                    and not k.startswith(("k_", "r_f14", "prior")):
+                mart.append("%s.%s" % (r.get("id"), k))
+    add("The master board carries no draft-text artefacts either", not mart,
+        "%d offenders" % len(mart), ", ".join(mart[:8]) or
+        "R-F14 propagates: build_master.py reads pick, competition, teamB and originatedSpread.")
+else:
+    add("The consolidated master board is built and non-empty", False, "data/master.json MISSING",
+        "Run tools/build_master.py then tools/build_master_site.py.", hard=False)
 
 # ---------------------------------------------------------------- 5. Build A restored
 rowsA = load("data/rows.json")
@@ -213,7 +261,7 @@ for path in sorted(html_files):
             broken.append("%s -> %s" % (os.path.relpath(path, ROOT), href))
 add("No broken local links anywhere in the repository", not broken,
     "%d links across %d HTML files" % (total, len(html_files)),
-    "; ".join(broken[:8]) or "Includes every build's dashboard and the Board K report.")
+    "; ".join(broken[:8]) or "Includes every build's dashboard, the master board and the Board R report.")
 
 # ---------------------------------------------------------------- 10. no placeholders
 MARKER = "TO" + "DO"
