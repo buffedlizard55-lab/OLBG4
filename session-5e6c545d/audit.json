@@ -1,0 +1,2436 @@
+{
+  "audit_generated_utc": "2026-10-21T06:46:13+00:00",
+  "scope": {
+    "desk": "session-4afef1af",
+    "snapshot_generated_utc": "2026-10-21T06:27:33+00:00",
+    "window": {
+      "start": "2026-10-21T00:00:00+00:00",
+      "end": "2026-10-28T00:00:00+00:00",
+      "days": 7
+    },
+    "mode": "static integrity and provenance audit; no external requests were made during this audit"
+  },
+  "summary": {
+    "fixtures": 90,
+    "analysis_rows": 90,
+    "fixture_row_errors": 0,
+    "priced_fixtures": 40,
+    "withheld_fixtures": 50,
+    "market_families": 120,
+    "market_families_passing": 120,
+    "written_predictions": 18,
+    "prediction_row_errors": 0,
+    "unique_prediction_bodies": 18,
+    "local_html_pages": 13,
+    "local_links_checked": 261,
+    "broken_local_links": 0,
+    "archived_fetch_statuses": {
+      "HTTP 200": 122,
+      "no response": 2
+    }
+  },
+  "checks": {
+    "fixture_analysis_ids_match": true,
+    "fixture_row_errors": [],
+    "prediction_row_errors": [],
+    "local_links": {
+      "pages": 13,
+      "links_checked": 261,
+      "broken": []
+    }
+  },
+  "findings": [
+    {
+      "id": "F-01",
+      "severity": "needs review",
+      "title": "Player context is unverified in all written high-confidence predictions",
+      "detail": "18 of 18 written predictions have no player field and no player-level fact/source in the committed record. The player value is intentionally left blank here; do not infer a player from a roster.",
+      "affected": [
+        "nhl-2026020152/moneyline",
+        "nhl-2026020154/moneyline",
+        "nhl-2026020155/total",
+        "nhl-2026020156/moneyline",
+        "nhl-2026020159/moneyline",
+        "nhl-2026020161/moneyline",
+        "nhl-2026020162/moneyline",
+        "nhl-2026020162/handicap",
+        "nhl-2026020166/moneyline",
+        "nhl-2026020169/total",
+        "nhl-2026020170/moneyline",
+        "nhl-2026020171/total",
+        "nhl-2026020176/moneyline",
+        "nhl-2026020181/moneyline",
+        "nhl-2026020184/moneyline",
+        "nhl-2026020185/moneyline",
+        "nhl-2026020186/handicap",
+        "nhl-2026020187/moneyline"
+      ],
+      "sources": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-21",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22",
+        "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24",
+        "https://api-web.nhle.com/v1/schedule/2026-10-25",
+        "https://api-web.nhle.com/v1/schedule/2026-10-26",
+        "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
+        "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169",
+        "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159",
+        "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
+        "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
+        "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
+        "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
+        "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154",
+        "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
+        "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
+        "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155",
+        "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152",
+        "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
+        "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
+        "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
+        "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
+        "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161"
+      ]
+    },
+    {
+      "id": "F-02",
+      "severity": "needs review",
+      "title": "Some high-confidence narratives do not state a specific latest result",
+      "detail": "5 narratives have form/score context but do not use a specific last-result sentence. Their fact lists still carry official last-five / head-to-head source links.",
+      "affected": [
+        "nhl-2026020155/total",
+        "nhl-2026020162/handicap",
+        "nhl-2026020169/total",
+        "nhl-2026020171/total",
+        "nhl-2026020186/handicap"
+      ],
+      "sources": [
+        "https://www.nhl.com/gamecenter/ana-vs-nyi/2026/10/20/2026020143",
+        "https://www.nhl.com/gamecenter/ana-vs-nyr/2026/10/19/2026020137",
+        "https://www.nhl.com/gamecenter/bos-vs-dal/2026/10/20/2026020147",
+        "https://www.nhl.com/gamecenter/bos-vs-nsh/2026/03/05/2025020979",
+        "https://www.nhl.com/gamecenter/bos-vs-sjs/2026/10/13/2026020105",
+        "https://www.nhl.com/gamecenter/buf-vs-mtl/2026/10/17/2026020126",
+        "https://www.nhl.com/gamecenter/car-vs-cgy/2026/10/18/2026020136",
+        "https://www.nhl.com/gamecenter/car-vs-van/2026/10/20/2026020150",
+        "https://www.nhl.com/gamecenter/cgy-vs-min/2026/01/29/2025020853",
+        "https://www.nhl.com/gamecenter/chi-vs-mtl/2025/12/18/2025020536",
+        "https://www.nhl.com/gamecenter/col-vs-njd/2026/10/20/2026020142",
+        "https://www.nhl.com/gamecenter/col-vs-phi/2026/10/19/2026020138",
+        "https://www.nhl.com/gamecenter/dal-vs-chi/2026/10/17/2026020130",
+        "https://www.nhl.com/gamecenter/dal-vs-nyi/2026/03/26/2025021141",
+        "https://www.nhl.com/gamecenter/det-vs-edm/2025/12/11/2025020491",
+        "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
+        "https://www.nhl.com/gamecenter/det-vs-sea/2026/10/20/2026020149",
+        "https://www.nhl.com/gamecenter/lak-vs-njd/2026/03/14/2025021050",
+        "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169",
+        "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/03/13/2025021041",
+        "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159",
+        "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/03/16/2025021065",
+        "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
+        "https://www.nhl.com/gamecenter/lak-vs-wsh/2026/10/20/2026020144",
+        "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
+        "https://www.nhl.com/gamecenter/min-vs-edm/2026/10/20/2026020148",
+        "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
+        "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
+        "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154",
+        "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
+        "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
+        "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/03/25/2025021136",
+        "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155",
+        "https://www.nhl.com/gamecenter/ott-vs-nyr/2026/03/23/2025021119",
+        "https://www.nhl.com/gamecenter/ott-vs-phi/2026/10/17/2026020128",
+        "https://www.nhl.com/gamecenter/phi-vs-buf/2026/01/14/2025020736",
+        "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152",
+        "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
+        "https://www.nhl.com/gamecenter/sjs-vs-mtl/2026/10/20/2026020141",
+        "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/03/15/2025021058",
+        "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
+        "https://www.nhl.com/gamecenter/stl-vs-nsh/2026/10/17/2026020131",
+        "https://www.nhl.com/gamecenter/tor-vs-cbj/2026/10/20/2026020145",
+        "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/02/02/2025020885",
+        "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
+        "https://www.nhl.com/gamecenter/tor-vs-edm/2026/02/03/2025020891",
+        "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
+        "https://www.nhl.com/gamecenter/van-vs-min/2026/04/02/2025021199",
+        "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/04/02/2025021198",
+        "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161",
+        "https://www.nhl.com/gamecenter/wpg-vs-stl/2026/10/20/2026020146"
+      ]
+    },
+    {
+      "id": "F-03",
+      "severity": "published blank",
+      "title": "NBA pricing remains withheld, not guessed",
+      "detail": "50 NBA fixtures have no originated market because the snapshot recorded only 3 completed games and the declared threshold is 20. The archived NBA historical-results requests timed out; prices, probabilities and picks remain blank.",
+      "affected": [
+        "nba-0022600004",
+        "nba-0022600005",
+        "nba-0022600085",
+        "nba-0022600086",
+        "nba-0022600087",
+        "nba-0022600088",
+        "nba-0022600089",
+        "nba-0022600090",
+        "nba-0022600091",
+        "nba-0022600092",
+        "nba-0022600093",
+        "nba-0022600006",
+        "nba-0022600007",
+        "nba-0022600008",
+        "nba-0022600009",
+        "nba-0022600094",
+        "nba-0022600095",
+        "nba-0022600096",
+        "nba-0022600097",
+        "nba-0022600098",
+        "nba-0022600099",
+        "nba-0022600100",
+        "nba-0022600101",
+        "nba-0022600102",
+        "nba-0022600103",
+        "nba-0022600104",
+        "nba-0022600105",
+        "nba-0022600106",
+        "nba-0022600107",
+        "nba-0022600108",
+        "nba-0022600109",
+        "nba-0022600110",
+        "nba-0022600111",
+        "nba-0022600112",
+        "nba-0022600113",
+        "nba-0022600114",
+        "nba-0022600115",
+        "nba-0022600116",
+        "nba-0022600117",
+        "nba-0022600118",
+        "nba-0022600119",
+        "nba-0022600120",
+        "nba-0022600121",
+        "nba-0022600122",
+        "nba-0022600123",
+        "nba-0022600124",
+        "nba-0022600125",
+        "nba-0022600126",
+        "nba-0022600127",
+        "nba-0022600128"
+      ],
+      "sources": [
+        "https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2025-26&SeasonType=Regular+Season&Sorter=DATE",
+        "https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2025-26&SeasonType=Regular+Season&Sorter=DATE"
+      ]
+    },
+    {
+      "id": "F-04",
+      "severity": "clarification",
+      "title": "‘High-confidence winners’ and written-prediction totals measure different subsets",
+      "detail": "The snapshot's high_picks count is 13 match-winner picks, while 18 written high predictions include 2 handicap and 3 total selections. This is not a pricing error, but the label should not be read as the total number of written high selections.",
+      "affected": [],
+      "sources": []
+    },
+    {
+      "id": "F-05",
+      "severity": "fixed in this handoff",
+      "title": "Cross-sport withheld-rationale label and grammar defect corrected",
+      "detail": "The static audit confirmed all 50 NBA withheld rows now identify the NBA and its three-game sample. The one generated ‘Recent form has … have’ construction was corrected in the current snapshot and future template.",
+      "affected": [
+        "nba-0022600004",
+        "nba-0022600005",
+        "nba-0022600085",
+        "nba-0022600086",
+        "nba-0022600087",
+        "nba-0022600088",
+        "nba-0022600089",
+        "nba-0022600090",
+        "nba-0022600091",
+        "nba-0022600092",
+        "nba-0022600093",
+        "nba-0022600006",
+        "nba-0022600007",
+        "nba-0022600008",
+        "nba-0022600009",
+        "nba-0022600094",
+        "nba-0022600095",
+        "nba-0022600096",
+        "nba-0022600097",
+        "nba-0022600098",
+        "nba-0022600099",
+        "nba-0022600100",
+        "nba-0022600101",
+        "nba-0022600102",
+        "nba-0022600103",
+        "nba-0022600104",
+        "nba-0022600105",
+        "nba-0022600106",
+        "nba-0022600107",
+        "nba-0022600108",
+        "nba-0022600109",
+        "nba-0022600110",
+        "nba-0022600111",
+        "nba-0022600112",
+        "nba-0022600113",
+        "nba-0022600114",
+        "nba-0022600115",
+        "nba-0022600116",
+        "nba-0022600117",
+        "nba-0022600118",
+        "nba-0022600119",
+        "nba-0022600120",
+        "nba-0022600121",
+        "nba-0022600122",
+        "nba-0022600123",
+        "nba-0022600124",
+        "nba-0022600125",
+        "nba-0022600126",
+        "nba-0022600127",
+        "nba-0022600128"
+      ],
+      "sources": []
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "nba-0022600004",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Minnesota Timberwolves at Miami Heat",
+      "start_utc": "2026-10-21T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-21",
+        "https://www.nba.com/game/min-vs-mia-0022600004"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600005",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Golden State Warriors at Los Angeles Lakers",
+      "start_utc": "2026-10-22T02:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-22",
+        "https://www.nba.com/game/gsw-vs-lal-0022600005"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600085",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Atlanta Hawks at Orlando Magic",
+      "start_utc": "2026-10-21T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-21",
+        "https://www.nba.com/game/atl-vs-orl-0022600085"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600086",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Milwaukee Bucks at Washington Wizards",
+      "start_utc": "2026-10-21T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-21",
+        "https://www.nba.com/game/mil-vs-was-0022600086"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600087",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Charlotte Hornets at Brooklyn Nets",
+      "start_utc": "2026-10-21T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-21",
+        "https://www.nba.com/game/cha-vs-bkn-0022600087"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600088",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Chicago Bulls at Toronto Raptors",
+      "start_utc": "2026-10-21T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-21",
+        "https://www.nba.com/game/chi-vs-tor-0022600088"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600089",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Utah Jazz at Memphis Grizzlies",
+      "start_utc": "2026-10-22T00:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-22",
+        "https://www.nba.com/game/uta-vs-mem-0022600089"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600090",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Indiana Pacers at New Orleans Pelicans",
+      "start_utc": "2026-10-22T00:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-22",
+        "https://www.nba.com/game/ind-vs-nop-0022600090"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600091",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Dallas Mavericks at Houston Rockets",
+      "start_utc": "2026-10-22T00:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-22",
+        "https://www.nba.com/game/dal-vs-hou-0022600091"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600092",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Phoenix Suns at Portland Trail Blazers",
+      "start_utc": "2026-10-22T02:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-22",
+        "https://www.nba.com/game/phx-vs-por-0022600092"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600093",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Sacramento Kings at LA Clippers",
+      "start_utc": "2026-10-22T02:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-22",
+        "https://www.nba.com/game/sac-vs-lac-0022600093"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600006",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Cleveland Cavaliers at Philadelphia 76ers",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-22",
+        "https://www.nba.com/game/cle-vs-phi-0022600006"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600007",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Denver Nuggets at Oklahoma City Thunder",
+      "start_utc": "2026-10-23T01:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-23",
+        "https://www.nba.com/game/den-vs-okc-0022600007"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600008",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "New York Knicks at Boston Celtics",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-23",
+        "https://www.nba.com/game/nyk-vs-bos-0022600008"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600009",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Houston Rockets at San Antonio Spurs",
+      "start_utc": "2026-10-24T01:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/hou-vs-sas-0022600009"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600094",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Atlanta Hawks at Charlotte Hornets",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-23",
+        "https://www.nba.com/game/atl-vs-cha-0022600094"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600095",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Dallas Mavericks at Indiana Pacers",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-23",
+        "https://www.nba.com/game/dal-vs-ind-0022600095"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600096",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Minnesota Timberwolves at Orlando Magic",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-23",
+        "https://www.nba.com/game/min-vs-orl-0022600096"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600097",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Toronto Raptors at Washington Wizards",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-23",
+        "https://www.nba.com/game/tor-vs-was-0022600097"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600098",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Detroit Pistons at Miami Heat",
+      "start_utc": "2026-10-24T00:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/det-vs-mia-0022600098"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600099",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Chicago Bulls at Milwaukee Bucks",
+      "start_utc": "2026-10-23T20:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-23",
+        "https://www.nba.com/game/chi-vs-mil-0022600099"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600100",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "New Orleans Pelicans at Utah Jazz",
+      "start_utc": "2026-10-24T01:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/nop-vs-uta-0022600100"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600101",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Memphis Grizzlies at Golden State Warriors",
+      "start_utc": "2026-10-24T02:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/mem-vs-gsw-0022600101"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600102",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "LA Clippers at Los Angeles Lakers",
+      "start_utc": "2026-10-24T02:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/lac-vs-lal-0022600102"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600103",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Portland Trail Blazers at Sacramento Kings",
+      "start_utc": "2026-10-24T02:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/por-vs-sac-0022600103"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600104",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Miami Heat at Charlotte Hornets",
+      "start_utc": "2026-10-24T22:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/mia-vs-cha-0022600104"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600105",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Brooklyn Nets at Cleveland Cavaliers",
+      "start_utc": "2026-10-24T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/bkn-vs-cle-0022600105"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600106",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Milwaukee Bucks at Philadelphia 76ers",
+      "start_utc": "2026-10-24T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-24",
+        "https://www.nba.com/game/mil-vs-phi-0022600106"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600107",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Houston Rockets at Atlanta Hawks",
+      "start_utc": "2026-10-25T00:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/hou-vs-atl-0022600107"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600108",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Washington Wizards at Chicago Bulls",
+      "start_utc": "2026-10-25T00:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/was-vs-chi-0022600108"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600109",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "San Antonio Spurs at Dallas Mavericks",
+      "start_utc": "2026-10-25T00:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/sas-vs-dal-0022600109"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600110",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "New Orleans Pelicans at Denver Nuggets",
+      "start_utc": "2026-10-25T01:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/nop-vs-den-0022600110"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600111",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Golden State Warriors at Phoenix Suns",
+      "start_utc": "2026-10-25T02:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/gsw-vs-phx-0022600111"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600112",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Los Angeles Lakers at Utah Jazz",
+      "start_utc": "2026-10-25T21:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/lal-vs-uta-0022600112"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600113",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Indiana Pacers at Brooklyn Nets",
+      "start_utc": "2026-10-25T22:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/ind-vs-bkn-0022600113"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600114",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Orlando Magic at New York Knicks",
+      "start_utc": "2026-10-25T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/orl-vs-nyk-0022600114"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600115",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Toronto Raptors at Minnesota Timberwolves",
+      "start_utc": "2026-10-25T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/tor-vs-min-0022600115"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600116",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "LA Clippers at Oklahoma City Thunder",
+      "start_utc": "2026-10-25T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/lac-vs-okc-0022600116"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600117",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Detroit Pistons at Philadelphia 76ers",
+      "start_utc": "2026-10-25T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-25",
+        "https://www.nba.com/game/det-vs-phi-0022600117"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600118",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Memphis Grizzlies at Sacramento Kings",
+      "start_utc": "2026-10-26T01:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-26",
+        "https://www.nba.com/game/mem-vs-sac-0022600118"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600119",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Washington Wizards at Charlotte Hornets",
+      "start_utc": "2026-10-26T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-26",
+        "https://www.nba.com/game/was-vs-cha-0022600119"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600120",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Minnesota Timberwolves at Cleveland Cavaliers",
+      "start_utc": "2026-10-26T23:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-26",
+        "https://www.nba.com/game/min-vs-cle-0022600120"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600121",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Chicago Bulls at Boston Celtics",
+      "start_utc": "2026-10-26T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-26",
+        "https://www.nba.com/game/chi-vs-bos-0022600121"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600122",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Dallas Mavericks at Miami Heat",
+      "start_utc": "2026-10-26T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-26",
+        "https://www.nba.com/game/dal-vs-mia-0022600122"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600123",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Indiana Pacers at Milwaukee Bucks",
+      "start_utc": "2026-10-27T00:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-27",
+        "https://www.nba.com/game/ind-vs-mil-0022600123"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600124",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Phoenix Suns at Oklahoma City Thunder",
+      "start_utc": "2026-10-27T00:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-27",
+        "https://www.nba.com/game/phx-vs-okc-0022600124"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600125",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Atlanta Hawks at Houston Rockets",
+      "start_utc": "2026-10-27T00:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-27",
+        "https://www.nba.com/game/atl-vs-hou-0022600125"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600126",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Memphis Grizzlies at Utah Jazz",
+      "start_utc": "2026-10-27T01:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-27",
+        "https://www.nba.com/game/mem-vs-uta-0022600126"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600127",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Golden State Warriors at Denver Nuggets",
+      "start_utc": "2026-10-27T02:00:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-27",
+        "https://www.nba.com/game/gsw-vs-den-0022600127"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nba-0022600128",
+      "sport": "basketball",
+      "league": "NBA",
+      "match": "Brooklyn Nets at Boston Celtics",
+      "start_utc": "2026-10-27T23:30:00Z",
+      "sources": [
+        "https://www.nba.com/games?date=2026-10-27",
+        "https://www.nba.com/game/bkn-vs-bos-0022600128"
+      ],
+      "market_status": "withheld",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020152",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Philadelphia Flyers at Buffalo Sabres",
+      "start_utc": "2026-10-21T23:30:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152",
+        "https://api-web.nhle.com/v1/schedule/2026-10-21"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020153",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Florida Panthers at Ottawa Senators",
+      "start_utc": "2026-10-21T23:30:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/fla-vs-ott/2026/10/21/2026020153",
+        "https://api-web.nhle.com/v1/schedule/2026-10-21"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020154",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Nashville Predators at Boston Bruins",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020155",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "New York Rangers at Toronto Maple Leafs",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020156",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "San Jose Sharks at Ottawa Senators",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020157",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Anaheim Ducks at New Jersey Devils",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/ana-vs-njd/2026/10/22/2026020157",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020158",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Florida Panthers at Pittsburgh Penguins",
+      "start_utc": "2026-10-22T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/fla-vs-pit/2026/10/22/2026020158",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020159",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Los Angeles Kings at New York Islanders",
+      "start_utc": "2026-10-22T23:30:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020160",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Vegas Golden Knights at St. Louis Blues",
+      "start_utc": "2026-10-23T00:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/vgk-vs-stl/2026/10/22/2026020160",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020161",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Winnipeg Jets at Dallas Stars",
+      "start_utc": "2026-10-23T00:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020162",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Minnesota Wild at Calgary Flames",
+      "start_utc": "2026-10-23T01:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020163",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Carolina Hurricanes at Edmonton Oilers",
+      "start_utc": "2026-10-23T01:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/car-vs-edm/2026/10/22/2026020163",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020164",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Utah Mammoth at Seattle Kraken",
+      "start_utc": "2026-10-23T02:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/uta-vs-sea/2026/10/22/2026020164",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020165",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Detroit Red Wings at Vancouver Canucks",
+      "start_utc": "2026-10-23T02:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/det-vs-van/2026/10/22/2026020165",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020166",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Montréal Canadiens at Chicago Blackhawks",
+      "start_utc": "2026-10-24T00:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
+        "https://api-web.nhle.com/v1/schedule/2026-10-23"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020167",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Tampa Bay Lightning at Colorado Avalanche",
+      "start_utc": "2026-10-24T01:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/tbl-vs-col/2026/10/23/2026020167",
+        "https://api-web.nhle.com/v1/schedule/2026-10-23"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020168",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Anaheim Ducks at Philadelphia Flyers",
+      "start_utc": "2026-10-24T17:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/ana-vs-phi/2026/10/24/2026020168",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020169",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Los Angeles Kings at New Jersey Devils",
+      "start_utc": "2026-10-24T19:30:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020170",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "San Jose Sharks at Boston Bruins",
+      "start_utc": "2026-10-24T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020171",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "New York Rangers at Ottawa Senators",
+      "start_utc": "2026-10-24T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020172",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Nashville Predators at Pittsburgh Penguins",
+      "start_utc": "2026-10-24T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/nsh-vs-pit/2026/10/24/2026020172",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020173",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Buffalo Sabres at Washington Capitals",
+      "start_utc": "2026-10-24T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/buf-vs-wsh/2026/10/24/2026020173",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020174",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Vegas Golden Knights at Columbus Blue Jackets",
+      "start_utc": "2026-10-24T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/vgk-vs-cbj/2026/10/24/2026020174",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020175",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Carolina Hurricanes at St. Louis Blues",
+      "start_utc": "2026-10-24T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/car-vs-stl/2026/10/24/2026020175",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020176",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Toronto Maple Leafs at Edmonton Oilers",
+      "start_utc": "2026-10-24T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020177",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Tampa Bay Lightning at Utah Mammoth",
+      "start_utc": "2026-10-25T01:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/tbl-vs-uta/2026/10/24/2026020177",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020178",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Detroit Red Wings at Calgary Flames",
+      "start_utc": "2026-10-25T02:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/det-vs-cgy/2026/10/24/2026020178",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020179",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Minnesota Wild at Seattle Kraken",
+      "start_utc": "2026-10-25T02:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/min-vs-sea/2026/10/24/2026020179",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020180",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Florida Panthers at Chicago Blackhawks",
+      "start_utc": "2026-10-25T19:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/fla-vs-chi/2026/10/25/2026020180",
+        "https://api-web.nhle.com/v1/schedule/2026-10-25"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020181",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "New York Islanders at Dallas Stars",
+      "start_utc": "2026-10-25T22:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
+        "https://api-web.nhle.com/v1/schedule/2026-10-25"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020182",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Montréal Canadiens at Winnipeg Jets",
+      "start_utc": "2026-10-25T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/mtl-vs-wpg/2026/10/25/2026020182",
+        "https://api-web.nhle.com/v1/schedule/2026-10-25"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020183",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Colorado Avalanche at Nashville Predators",
+      "start_utc": "2026-10-26T00:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/col-vs-nsh/2026/10/25/2026020183",
+        "https://api-web.nhle.com/v1/schedule/2026-10-25"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020184",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Minnesota Wild at Vancouver Canucks",
+      "start_utc": "2026-10-26T02:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
+        "https://api-web.nhle.com/v1/schedule/2026-10-25"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020185",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Los Angeles Kings at New York Rangers",
+      "start_utc": "2026-10-26T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
+        "https://api-web.nhle.com/v1/schedule/2026-10-26"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020186",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Toronto Maple Leafs at Calgary Flames",
+      "start_utc": "2026-10-27T00:30:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
+        "https://api-web.nhle.com/v1/schedule/2026-10-26"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020187",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Detroit Red Wings at Edmonton Oilers",
+      "start_utc": "2026-10-27T01:30:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
+        "https://api-web.nhle.com/v1/schedule/2026-10-26"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "nhl-2026020188",
+      "sport": "ice_hockey",
+      "league": "NHL",
+      "match": "Columbus Blue Jackets at Philadelphia Flyers",
+      "start_utc": "2026-10-27T23:00:00Z",
+      "sources": [
+        "https://www.nhl.com/gamecenter/cbj-vs-phi/2026/10/27/2026020188",
+        "https://api-web.nhle.com/v1/schedule/2026-10-27"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "mlb-849805",
+      "sport": "baseball",
+      "league": "MLB",
+      "match": "Tampa Bay Rays at Milwaukee Brewers",
+      "start_utc": "2026-10-24T00:00:00Z",
+      "sources": [
+        "https://www.mlb.com/gameday/849805",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849805"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "mlb-849802",
+      "sport": "baseball",
+      "league": "MLB",
+      "match": "Tampa Bay Rays at Milwaukee Brewers",
+      "start_utc": "2026-10-25T00:00:00Z",
+      "sources": [
+        "https://www.mlb.com/gameday/849802",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849802"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    },
+    {
+      "id": "mlb-849804",
+      "sport": "baseball",
+      "league": "MLB",
+      "match": "Milwaukee Brewers at Tampa Bay Rays",
+      "start_utc": "2026-10-27T00:00:00Z",
+      "sources": [
+        "https://www.mlb.com/gameday/849804",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849804"
+      ],
+      "market_status": "priced",
+      "result": "pass",
+      "errors": []
+    }
+  ],
+  "predictions": [
+    {
+      "fixture_id": "nhl-2026020152",
+      "match": "Philadelphia Flyers at Buffalo Sabres",
+      "market": "moneyline",
+      "selection": "Buffalo Sabres",
+      "words": 54,
+      "sources": [
+        "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152",
+        "https://api-web.nhle.com/v1/schedule/2026-10-21"
+      ],
+      "facts": [
+        {
+          "fact": "Buffalo Sabres vs Philadelphia Flyers, scheduled 2026-10-21T23:30:00Z",
+          "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152"
+        },
+        {
+          "fact": "Venue: KeyBank Center",
+          "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152"
+        },
+        {
+          "fact": "Buffalo Sabres record: 4-3-2",
+          "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152"
+        },
+        {
+          "fact": "Buffalo Sabres last five completed games: L 3-4, W 5-4, L 3-4, W 5-3, L 1-4",
+          "source": "https://www.nhl.com/gamecenter/buf-vs-mtl/2026/10/17/2026020126"
+        },
+        {
+          "fact": "Philadelphia Flyers record: 2-6-3",
+          "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152"
+        },
+        {
+          "fact": "Philadelphia Flyers last five completed games: W 3-2, W 3-1, L 1-2, L 2-3, L 1-4",
+          "source": "https://www.nhl.com/gamecenter/col-vs-phi/2026/10/19/2026020138"
+        },
+        {
+          "fact": "3 previous meeting(s) in the verified sample; most recent 2026-01-15 ended 2-5 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/01/14/2025020736"
+        },
+        {
+          "fact": "Model win probability 60.4% priced at -172",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020154",
+      "match": "Nashville Predators at Boston Bruins",
+      "market": "moneyline",
+      "selection": "Boston Bruins",
+      "words": 52,
+      "sources": [
+        "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "facts": [
+        {
+          "fact": "Boston Bruins vs Nashville Predators, scheduled 2026-10-22T23:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154"
+        },
+        {
+          "fact": "Venue: TD Garden",
+          "source": "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154"
+        },
+        {
+          "fact": "Boston Bruins record: 7-2-1",
+          "source": "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154"
+        },
+        {
+          "fact": "Boston Bruins last five completed games: L 2-3, W 4-1, W 4-2, W 6-3, W 5-1",
+          "source": "https://www.nhl.com/gamecenter/bos-vs-dal/2026/10/20/2026020147"
+        },
+        {
+          "fact": "Nashville Predators record: 3-2-3",
+          "source": "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154"
+        },
+        {
+          "fact": "Nashville Predators last five completed games: W 5-2, L 2-3, L 2-5, L 2-3, W 5-2",
+          "source": "https://www.nhl.com/gamecenter/stl-vs-nsh/2026/10/17/2026020131"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2026-03-06 ended 3-6 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/bos-vs-nsh/2026/03/05/2025020979"
+        },
+        {
+          "fact": "Model win probability 62.6% priced at -189",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020155",
+      "match": "New York Rangers at Toronto Maple Leafs",
+      "market": "total",
+      "selection": "Under 6.5",
+      "words": 40,
+      "sources": [
+        "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "facts": [
+        {
+          "fact": "Toronto Maple Leafs vs New York Rangers, scheduled 2026-10-22T23:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155"
+        },
+        {
+          "fact": "Venue: Scotiabank Arena",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155"
+        },
+        {
+          "fact": "Toronto Maple Leafs record: 5-4-2",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155"
+        },
+        {
+          "fact": "Toronto Maple Leafs last five completed games: W 6-2, W 3-1, L 1-4, L 4-5, L 4-5",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-cbj/2026/10/20/2026020145"
+        },
+        {
+          "fact": "New York Rangers record: 7-3-1",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155"
+        },
+        {
+          "fact": "New York Rangers last five completed games: W 5-2, L 0-1, L 1-7, W 4-1, W 6-2",
+          "source": "https://www.nhl.com/gamecenter/ana-vs-nyr/2026/10/19/2026020137"
+        },
+        {
+          "fact": "3 previous meeting(s) in the verified sample; most recent 2026-03-25 ended 3-4 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/03/25/2025021136"
+        },
+        {
+          "fact": "Model win probability 67.9% priced at -244",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "not stated in narrative"
+    },
+    {
+      "fixture_id": "nhl-2026020156",
+      "match": "San Jose Sharks at Ottawa Senators",
+      "market": "moneyline",
+      "selection": "Ottawa Senators",
+      "words": 56,
+      "sources": [
+        "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "facts": [
+        {
+          "fact": "Ottawa Senators vs San Jose Sharks, scheduled 2026-10-22T23:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156"
+        },
+        {
+          "fact": "Venue: Canadian Tire Centre",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156"
+        },
+        {
+          "fact": "Ottawa Senators record: 6-3-0",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156"
+        },
+        {
+          "fact": "Ottawa Senators last five completed games: L 1-3, W 2-1, L 2-7, W 4-1, W 3-2",
+          "source": "https://www.nhl.com/gamecenter/ott-vs-phi/2026/10/17/2026020128"
+        },
+        {
+          "fact": "San Jose Sharks record: 5-4-1",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156"
+        },
+        {
+          "fact": "San Jose Sharks last five completed games: W 4-3, L 1-3, L 3-4, W 3-2, L 3-6",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-mtl/2026/10/20/2026020141"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2026-03-15 ended 4-7 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/03/15/2025021058"
+        },
+        {
+          "fact": "Model win probability 64.8% priced at -210",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020159",
+      "match": "Los Angeles Kings at New York Islanders",
+      "market": "moneyline",
+      "selection": "New York Islanders",
+      "words": 59,
+      "sources": [
+        "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "facts": [
+        {
+          "fact": "New York Islanders vs Los Angeles Kings, scheduled 2026-10-22T23:30:00Z",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
+        },
+        {
+          "fact": "Venue: UBS Arena",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
+        },
+        {
+          "fact": "New York Islanders record: 5-3-1",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
+        },
+        {
+          "fact": "New York Islanders last five completed games: W 3-2, W 4-1, L 1-2, W 3-2, L 3-5",
+          "source": "https://www.nhl.com/gamecenter/ana-vs-nyi/2026/10/20/2026020143"
+        },
+        {
+          "fact": "Los Angeles Kings record: 1-4-2",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
+        },
+        {
+          "fact": "Los Angeles Kings last five completed games: W 5-2, L 1-4, L 1-4, L 1-2, L 1-2",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-wsh/2026/10/20/2026020144"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2026-03-13 ended 3-2 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/03/13/2025021041"
+        },
+        {
+          "fact": "Model win probability 60.4% priced at -171",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020161",
+      "match": "Winnipeg Jets at Dallas Stars",
+      "market": "moneyline",
+      "selection": "Dallas Stars",
+      "words": 54,
+      "sources": [
+        "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "facts": [
+        {
+          "fact": "Dallas Stars vs Winnipeg Jets, scheduled 2026-10-23T00:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161"
+        },
+        {
+          "fact": "Venue: American Airlines Center",
+          "source": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161"
+        },
+        {
+          "fact": "Dallas Stars record: 5-3-1",
+          "source": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161"
+        },
+        {
+          "fact": "Dallas Stars last five completed games: W 3-2, W 4-0, W 3-2, L 2-3, L 1-2",
+          "source": "https://www.nhl.com/gamecenter/bos-vs-dal/2026/10/20/2026020147"
+        },
+        {
+          "fact": "Winnipeg Jets record: 4-3-2",
+          "source": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161"
+        },
+        {
+          "fact": "Winnipeg Jets last five completed games: L 1-2, L 2-3, L 3-4, W 5-2, L 1-5",
+          "source": "https://www.nhl.com/gamecenter/wpg-vs-stl/2026/10/20/2026020146"
+        },
+        {
+          "fact": "3 previous meeting(s) in the verified sample; most recent 2026-04-03 ended 0-3 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/04/02/2025021198"
+        },
+        {
+          "fact": "Model win probability 66.1% priced at -223",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020162",
+      "match": "Minnesota Wild at Calgary Flames",
+      "market": "moneyline",
+      "selection": "Minnesota Wild",
+      "words": 59,
+      "sources": [
+        "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "facts": [
+        {
+          "fact": "Calgary Flames vs Minnesota Wild, scheduled 2026-10-23T01:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "fact": "Venue: Scotiabank Saddledome",
+          "source": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "fact": "Calgary Flames record: 2-6-0",
+          "source": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "fact": "Calgary Flames last five completed games: W 3-2, L 2-6, W 4-2, L 2-4, L 3-7",
+          "source": "https://www.nhl.com/gamecenter/car-vs-cgy/2026/10/18/2026020136"
+        },
+        {
+          "fact": "Minnesota Wild record: 6-2-2",
+          "source": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "fact": "Minnesota Wild last five completed games: L 3-4, W 2-1, W 5-4, L 2-5, W 4-2",
+          "source": "https://www.nhl.com/gamecenter/min-vs-edm/2026/10/20/2026020148"
+        },
+        {
+          "fact": "3 previous meeting(s) in the verified sample; most recent 2026-01-30 ended 1-4 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/cgy-vs-min/2026/01/29/2025020853"
+        },
+        {
+          "fact": "Model win probability 68.4% priced at -250",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020162",
+      "match": "Minnesota Wild at Calgary Flames",
+      "market": "handicap",
+      "selection": "Minnesota Wild -0.5",
+      "words": 58,
+      "sources": [
+        "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ],
+      "facts": [
+        {
+          "fact": "Calgary Flames vs Minnesota Wild, scheduled 2026-10-23T01:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "fact": "Venue: Scotiabank Saddledome",
+          "source": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "fact": "Calgary Flames record: 2-6-0",
+          "source": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "fact": "Calgary Flames last five completed games: W 3-2, L 2-6, W 4-2, L 2-4, L 3-7",
+          "source": "https://www.nhl.com/gamecenter/car-vs-cgy/2026/10/18/2026020136"
+        },
+        {
+          "fact": "Minnesota Wild record: 6-2-2",
+          "source": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "fact": "Minnesota Wild last five completed games: L 3-4, W 2-1, W 5-4, L 2-5, W 4-2",
+          "source": "https://www.nhl.com/gamecenter/min-vs-edm/2026/10/20/2026020148"
+        },
+        {
+          "fact": "3 previous meeting(s) in the verified sample; most recent 2026-01-30 ended 1-4 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/cgy-vs-min/2026/01/29/2025020853"
+        },
+        {
+          "fact": "Model win probability 60.4% priced at -171",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "not stated in narrative"
+    },
+    {
+      "fixture_id": "nhl-2026020166",
+      "match": "Montréal Canadiens at Chicago Blackhawks",
+      "market": "moneyline",
+      "selection": "Montréal Canadiens",
+      "words": 51,
+      "sources": [
+        "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
+        "https://api-web.nhle.com/v1/schedule/2026-10-23"
+      ],
+      "facts": [
+        {
+          "fact": "Chicago Blackhawks vs Montréal Canadiens, scheduled 2026-10-24T00:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166"
+        },
+        {
+          "fact": "Venue: United Center",
+          "source": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166"
+        },
+        {
+          "fact": "Chicago Blackhawks record: 3-6-0",
+          "source": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166"
+        },
+        {
+          "fact": "Chicago Blackhawks last five completed games: L 0-4, W 4-3, W 5-3, L 2-5, L 1-4",
+          "source": "https://www.nhl.com/gamecenter/dal-vs-chi/2026/10/17/2026020130"
+        },
+        {
+          "fact": "Montréal Canadiens record: 4-3-2",
+          "source": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166"
+        },
+        {
+          "fact": "Montréal Canadiens last five completed games: L 3-4, W 4-3, L 4-5, W 4-3, W 1-0",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-mtl/2026/10/20/2026020141"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2025-12-19 ended 1-4 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/chi-vs-mtl/2025/12/18/2025020536"
+        },
+        {
+          "fact": "Model win probability 61.4% priced at -180",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020169",
+      "match": "Los Angeles Kings at New Jersey Devils",
+      "market": "total",
+      "selection": "Over 5.5",
+      "words": 38,
+      "sources": [
+        "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "facts": [
+        {
+          "fact": "New Jersey Devils vs Los Angeles Kings, scheduled 2026-10-24T19:30:00Z",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169"
+        },
+        {
+          "fact": "Venue: Prudential Center",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169"
+        },
+        {
+          "fact": "New Jersey Devils record: 5-4-0",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169"
+        },
+        {
+          "fact": "New Jersey Devils last five completed games: W 4-3, L 2-4, W 7-1, W 5-4, L 1-4",
+          "source": "https://www.nhl.com/gamecenter/col-vs-njd/2026/10/20/2026020142"
+        },
+        {
+          "fact": "Los Angeles Kings record: 1-4-2",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169"
+        },
+        {
+          "fact": "Los Angeles Kings last five completed games: W 5-2, L 1-4, L 1-4, L 1-2, L 1-2",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-wsh/2026/10/20/2026020144"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2026-03-14 ended 4-6 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/03/14/2025021050"
+        },
+        {
+          "fact": "Model win probability 61.1% priced at -177",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "not stated in narrative"
+    },
+    {
+      "fixture_id": "nhl-2026020170",
+      "match": "San Jose Sharks at Boston Bruins",
+      "market": "moneyline",
+      "selection": "Boston Bruins",
+      "words": 51,
+      "sources": [
+        "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "facts": [
+        {
+          "fact": "Boston Bruins vs San Jose Sharks, scheduled 2026-10-24T23:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170"
+        },
+        {
+          "fact": "Venue: TD Garden",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170"
+        },
+        {
+          "fact": "Boston Bruins record: 7-2-1",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170"
+        },
+        {
+          "fact": "Boston Bruins last five completed games: L 2-3, W 4-1, W 4-2, W 6-3, W 5-1",
+          "source": "https://www.nhl.com/gamecenter/bos-vs-dal/2026/10/20/2026020147"
+        },
+        {
+          "fact": "San Jose Sharks record: 5-4-1",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170"
+        },
+        {
+          "fact": "San Jose Sharks last five completed games: W 4-3, L 1-3, L 3-4, W 3-2, L 3-6",
+          "source": "https://www.nhl.com/gamecenter/sjs-vs-mtl/2026/10/20/2026020141"
+        },
+        {
+          "fact": "3 previous meeting(s) in the verified sample; most recent 2026-10-14 ended 6-3 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/bos-vs-sjs/2026/10/13/2026020105"
+        },
+        {
+          "fact": "Model win probability 69.2% priced at -262",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020171",
+      "match": "New York Rangers at Ottawa Senators",
+      "market": "total",
+      "selection": "Under 6.5",
+      "words": 43,
+      "sources": [
+        "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "facts": [
+        {
+          "fact": "Ottawa Senators vs New York Rangers, scheduled 2026-10-24T23:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171"
+        },
+        {
+          "fact": "Venue: Canadian Tire Centre",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171"
+        },
+        {
+          "fact": "Ottawa Senators record: 6-3-0",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171"
+        },
+        {
+          "fact": "Ottawa Senators last five completed games: L 1-3, W 2-1, L 2-7, W 4-1, W 3-2",
+          "source": "https://www.nhl.com/gamecenter/ott-vs-phi/2026/10/17/2026020128"
+        },
+        {
+          "fact": "New York Rangers record: 7-3-1",
+          "source": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171"
+        },
+        {
+          "fact": "New York Rangers last five completed games: W 5-2, L 0-1, L 1-7, W 4-1, W 6-2",
+          "source": "https://www.nhl.com/gamecenter/ana-vs-nyr/2026/10/19/2026020137"
+        },
+        {
+          "fact": "3 previous meeting(s) in the verified sample; most recent 2026-03-23 ended 2-1 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/ott-vs-nyr/2026/03/23/2025021119"
+        },
+        {
+          "fact": "Model win probability 75.5% priced at -375",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "not stated in narrative"
+    },
+    {
+      "fixture_id": "nhl-2026020176",
+      "match": "Toronto Maple Leafs at Edmonton Oilers",
+      "market": "moneyline",
+      "selection": "Edmonton Oilers",
+      "words": 52,
+      "sources": [
+        "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
+        "https://api-web.nhle.com/v1/schedule/2026-10-24"
+      ],
+      "facts": [
+        {
+          "fact": "Edmonton Oilers vs Toronto Maple Leafs, scheduled 2026-10-24T23:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176"
+        },
+        {
+          "fact": "Venue: Rogers Place",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176"
+        },
+        {
+          "fact": "Edmonton Oilers record: 7-1-1",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176"
+        },
+        {
+          "fact": "Edmonton Oilers last five completed games: W 4-3, W 6-2, L 2-4, W 4-1, W 3-1",
+          "source": "https://www.nhl.com/gamecenter/min-vs-edm/2026/10/20/2026020148"
+        },
+        {
+          "fact": "Toronto Maple Leafs record: 5-4-2",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176"
+        },
+        {
+          "fact": "Toronto Maple Leafs last five completed games: W 6-2, W 3-1, L 1-4, L 4-5, L 4-5",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-cbj/2026/10/20/2026020145"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2026-02-04 ended 5-2 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/02/03/2025020891"
+        },
+        {
+          "fact": "Model win probability 62.1% priced at -185",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020181",
+      "match": "New York Islanders at Dallas Stars",
+      "market": "moneyline",
+      "selection": "Dallas Stars",
+      "words": 62,
+      "sources": [
+        "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
+        "https://api-web.nhle.com/v1/schedule/2026-10-25"
+      ],
+      "facts": [
+        {
+          "fact": "Dallas Stars vs New York Islanders, scheduled 2026-10-25T22:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181"
+        },
+        {
+          "fact": "Venue: American Airlines Center",
+          "source": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181"
+        },
+        {
+          "fact": "Dallas Stars record: 5-3-1",
+          "source": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181"
+        },
+        {
+          "fact": "Dallas Stars last five completed games: W 3-2, W 4-0, W 3-2, L 2-3, L 1-2",
+          "source": "https://www.nhl.com/gamecenter/bos-vs-dal/2026/10/20/2026020147"
+        },
+        {
+          "fact": "New York Islanders record: 5-3-1",
+          "source": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181"
+        },
+        {
+          "fact": "New York Islanders last five completed games: W 3-2, W 4-1, L 1-2, W 3-2, L 3-5",
+          "source": "https://www.nhl.com/gamecenter/ana-vs-nyi/2026/10/20/2026020143"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2026-03-26 ended 1-2 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/dal-vs-nyi/2026/03/26/2025021141"
+        },
+        {
+          "fact": "Model win probability 61.4% priced at -179",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020184",
+      "match": "Minnesota Wild at Vancouver Canucks",
+      "market": "moneyline",
+      "selection": "Minnesota Wild",
+      "words": 65,
+      "sources": [
+        "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
+        "https://api-web.nhle.com/v1/schedule/2026-10-25"
+      ],
+      "facts": [
+        {
+          "fact": "Vancouver Canucks vs Minnesota Wild, scheduled 2026-10-26T02:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184"
+        },
+        {
+          "fact": "Venue: Rogers Arena",
+          "source": "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184"
+        },
+        {
+          "fact": "Vancouver Canucks record: 2-8-1",
+          "source": "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184"
+        },
+        {
+          "fact": "Vancouver Canucks last five completed games: L 3-6, L 2-4, L 2-3, L 2-3, L 2-6",
+          "source": "https://www.nhl.com/gamecenter/car-vs-van/2026/10/20/2026020150"
+        },
+        {
+          "fact": "Minnesota Wild record: 6-2-2",
+          "source": "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184"
+        },
+        {
+          "fact": "Minnesota Wild last five completed games: L 3-4, W 2-1, W 5-4, L 2-5, W 4-2",
+          "source": "https://www.nhl.com/gamecenter/min-vs-edm/2026/10/20/2026020148"
+        },
+        {
+          "fact": "3 previous meeting(s) in the verified sample; most recent 2026-04-03 ended 2-5 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/van-vs-min/2026/04/02/2025021199"
+        },
+        {
+          "fact": "Model win probability 72.1% priced at -306",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020185",
+      "match": "Los Angeles Kings at New York Rangers",
+      "market": "moneyline",
+      "selection": "New York Rangers",
+      "words": 66,
+      "sources": [
+        "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
+        "https://api-web.nhle.com/v1/schedule/2026-10-26"
+      ],
+      "facts": [
+        {
+          "fact": "New York Rangers vs Los Angeles Kings, scheduled 2026-10-26T23:00:00Z",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185"
+        },
+        {
+          "fact": "Venue: Madison Square Garden",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185"
+        },
+        {
+          "fact": "New York Rangers record: 7-3-1",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185"
+        },
+        {
+          "fact": "New York Rangers last five completed games: W 5-2, L 0-1, L 1-7, W 4-1, W 6-2",
+          "source": "https://www.nhl.com/gamecenter/ana-vs-nyr/2026/10/19/2026020137"
+        },
+        {
+          "fact": "Los Angeles Kings record: 1-4-2",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185"
+        },
+        {
+          "fact": "Los Angeles Kings last five completed games: W 5-2, L 1-4, L 1-4, L 1-2, L 1-2",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-wsh/2026/10/20/2026020144"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2026-03-16 ended 4-1 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/03/16/2025021065"
+        },
+        {
+          "fact": "Model win probability 62.1% priced at -185",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    },
+    {
+      "fixture_id": "nhl-2026020186",
+      "match": "Toronto Maple Leafs at Calgary Flames",
+      "market": "handicap",
+      "selection": "Toronto Maple Leafs +0.5",
+      "words": 43,
+      "sources": [
+        "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
+        "https://api-web.nhle.com/v1/schedule/2026-10-26"
+      ],
+      "facts": [
+        {
+          "fact": "Calgary Flames vs Toronto Maple Leafs, scheduled 2026-10-27T00:30:00Z",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186"
+        },
+        {
+          "fact": "Venue: Scotiabank Saddledome",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186"
+        },
+        {
+          "fact": "Calgary Flames record: 2-6-0",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186"
+        },
+        {
+          "fact": "Calgary Flames last five completed games: W 3-2, L 2-6, W 4-2, L 2-4, L 3-7",
+          "source": "https://www.nhl.com/gamecenter/car-vs-cgy/2026/10/18/2026020136"
+        },
+        {
+          "fact": "Toronto Maple Leafs record: 5-4-2",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186"
+        },
+        {
+          "fact": "Toronto Maple Leafs last five completed games: W 6-2, W 3-1, L 1-4, L 4-5, L 4-5",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-cbj/2026/10/20/2026020145"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2026-02-03 ended 4-2 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/02/02/2025020885"
+        },
+        {
+          "fact": "Model win probability 64.4% priced at -206",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "not stated in narrative"
+    },
+    {
+      "fixture_id": "nhl-2026020187",
+      "match": "Detroit Red Wings at Edmonton Oilers",
+      "market": "moneyline",
+      "selection": "Edmonton Oilers",
+      "words": 61,
+      "sources": [
+        "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
+        "https://api-web.nhle.com/v1/schedule/2026-10-26"
+      ],
+      "facts": [
+        {
+          "fact": "Edmonton Oilers vs Detroit Red Wings, scheduled 2026-10-27T01:30:00Z",
+          "source": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187"
+        },
+        {
+          "fact": "Venue: Rogers Place",
+          "source": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187"
+        },
+        {
+          "fact": "Edmonton Oilers record: 7-1-1",
+          "source": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187"
+        },
+        {
+          "fact": "Edmonton Oilers last five completed games: W 4-3, W 6-2, L 2-4, W 4-1, W 3-1",
+          "source": "https://www.nhl.com/gamecenter/min-vs-edm/2026/10/20/2026020148"
+        },
+        {
+          "fact": "Detroit Red Wings record: 3-3-3",
+          "source": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187"
+        },
+        {
+          "fact": "Detroit Red Wings last five completed games: L 3-4, W 4-3, W 2-1, L 4-5, L 0-1",
+          "source": "https://www.nhl.com/gamecenter/det-vs-sea/2026/10/20/2026020149"
+        },
+        {
+          "fact": "2 previous meeting(s) in the verified sample; most recent 2025-12-12 ended 1-4 (away-home)",
+          "source": "https://www.nhl.com/gamecenter/det-vs-edm/2025/12/11/2025020491"
+        },
+        {
+          "fact": "Model win probability 63.5% priced at -198",
+          "source": "derived: pipeline/model.py + pipeline/markets.py"
+        }
+      ],
+      "result": "pass",
+      "errors": [],
+      "player_context": "unverified — no player fact or player source is published",
+      "recent_result": "stated"
+    }
+  ]
+}

@@ -19,7 +19,10 @@ DATA = ROOT / "data"
 OUT = ROOT / "session-7114b6a1"
 
 board = json.loads((DATA / "board.json").read_text())
-preds = json.loads((DATA / "predictions.json").read_text())
+# This build predates the shared 17-sport sweep, which owns data/predictions.json.
+# Keep the Board B input namespaced so the legacy verifier can remain reproducible.
+B_PREDICTIONS = DATA / "session-7114b6a1" / "predictions.json"
+preds = json.loads(B_PREDICTIONS.read_text())
 assumptions = json.loads((DATA / "model_assumptions.json").read_text())["flags"]
 notes = json.loads((DATA / "flag_notes.json").read_text())["items"]
 inv = json.loads((DATA / "match_inventory.json").read_text())
