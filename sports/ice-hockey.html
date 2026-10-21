@@ -1,45 +1,567 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ice Hockey fixtures · OLBG4 verified line desk</title>
-<meta name="description" content="Verified fixtures for the sports in scope, with our own originated lines, confidence grades and a source link on every row.">
-<link rel="stylesheet" href="../assets/integrated.css">
+<title>Ice Hockey — OLBG4</title>
+<meta name="description" content="Reverse-engineered OLBG.com sport coverage with originated lines, picks and line-by-line sourcing.">
+<link rel="stylesheet" href="../assets/master/site.css">
 </head>
-<body>
-<header class="topbar">
-  <div class="wrap bar">
-    <a class="brand" href="../index.html">
-      <span class="mark">OLBG4</span><span class="brandsub">verified line desk</span>
-    </a>
-    <nav class="nav"><a class="navlink" href="../index.html">Dashboard</a><a class="navlink" href="../entries.html">All fixtures</a><a class="navlink" href="../predictions.html">High-confidence picks</a><a class="navlink" href="../analysis.html">Analysis</a><a class="navlink" href="../coverage.html">Coverage</a><a class="navlink" href="../methodology.html">Method</a><a class="navlink" href="../sources.html">Sources</a><a class="navlink" href="../flagged.html">Flagged for review</a><a class="navlink" href="../archive.html">Archive</a></nav>
-  </div>
-</header>
+<body data-root="..">
+<header class="site"><div class="wrap">
+  <div class="brand"><span class="dot"></span>OLBG4<span class="sub"> · Ice Hockey</span></div>
+  <nav class="site"><a href="../index.html">Dashboard</a><a href="../picks.html">Picks</a><a href="../markets.html">Markets</a><a href="../sources.html">Sources</a><a href="../flagged.html">Flagged</a><a href="../audit.html">Audit</a><a href="../methodology.html">Method</a><a href="../archive.html">Archive</a></nav>
+</div></header>
 <main class="wrap">
 
-
-<section class="pagehead"><div class="kicker">Category</div><h1>Ice Hockey</h1><p class="lede">NHL score feed. Strength = points percentage (2W+OTL)/(2*GP) from the published season record; start times are exact UTC. 12-game slate of 22 Oct plus both games of 23 Oct.</p></section>
-<section class="kpis tight">
-  <div class="kpi"><div class="kval">14</div><div class="klab">fixtures</div><div class="knote">verified on the official source</div></div>
-  <div class="kpi"><div class="kval">14</div><div class="klab">picks</div><div class="knote">with our own price</div></div>
-  <div class="kpi"><div class="kval">4</div><div class="klab">high confidence</div><div class="knote">each written up</div></div>
-  <div class="kpi"><div class="kval">14</div><div class="klab">handicaps</div><div class="knote">originated from our margin</div></div>
+<section class="page-head">
+  <h1>Ice Hockey</h1>
+  <p class="lede">Every Ice Hockey row in the master board, with the price each build originated, the pick, the
+  confidence grade and the official page the fixture was read from.</p>
+  <p class="meta"><a href="../index.html">← All sports</a></p>
 </section>
-<section class="notebox">Full 12-game NHL slate for 22 Oct plus both games on 23 Oct, transcribed from the NHL score feed with records, venues, UTC start times and team leaders.</section>
-<div class="tablebox"><table class="grid"><thead><tr><th>Date</th><th>Sport</th><th>Fixture</th><th>Our originated line</th><th>Pick</th><th>Verified source</th></tr></thead><tbody><tr data-sport="Ice Hockey" data-conf="High" data-pick="1" data-text="boston bruins nashville predators nhl regular season 2026-27 boston bruins"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Boston Bruins</strong> v Nashville Predators</div><div class="tiny">TD Garden, Boston</div><div class="tiny">Record 7-2-1 v 3-2-3</div></td><td class="lines"><div><span class="lbl">Win</span> 1.35 / 3.55</div><div><span class="lbl">Hcp</span> Boston Bruins -1.0 @ 1.97<div class="tiny">Nashville Predators +1.0 @ 1.95</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Boston Bruins</strong><div class="tiny">Match winner (two-way) @ 1.35</div><div class="badges"><span class="badge b-high">High</span></div><div class="tiny"><a href="../predictions.html#nhl-2026-10-22-nsh-BOS">Read the write-up</a></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020154</div></td></tr><tr data-sport="Ice Hockey" data-conf="Low" data-pick="1" data-text="toronto maple leafs new york rangers nhl regular season 2026-27 new york rangers"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Toronto Maple Leafs</strong> v New York Rangers</div><div class="tiny">Scotiabank Arena, Toronto</div><div class="tiny">Record 5-4-2 v 7-3-1</div></td><td class="lines"><div><span class="lbl">Win</span> 2.27 / 1.73</div><div><span class="lbl">Hcp</span> New York Rangers -0.5 @ 2.15<div class="tiny">Toronto Maple Leafs +0.5 @ 1.8</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>New York Rangers</strong><div class="tiny">Match winner (two-way) @ 1.73</div><div class="badges"><span class="badge b-low">Low</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020155</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="ottawa senators san jose sharks nhl regular season 2026-27 ottawa senators"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Ottawa Senators</strong> v San Jose Sharks</div><div class="tiny">Canadian Tire Centre, Ottawa</div><div class="tiny">Record 6-3-0 v 5-4-1</div></td><td class="lines"><div><span class="lbl">Win</span> 1.49 / 2.88</div><div><span class="lbl">Hcp</span> Ottawa Senators -0.5 @ 1.8<div class="tiny">San Jose Sharks +0.5 @ 2.16</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Ottawa Senators</strong><div class="tiny">Match winner (two-way) @ 1.49</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020156</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="new jersey devils anaheim ducks nhl regular season 2026-27 new jersey devils"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>New Jersey Devils</strong> v Anaheim Ducks</div><div class="tiny">Prudential Center, Newark</div><div class="tiny">Record 5-4-0 v 4-5-0</div></td><td class="lines"><div><span class="lbl">Win</span> 1.5 / 2.84</div><div><span class="lbl">Hcp</span> New Jersey Devils -0.5 @ 1.81<div class="tiny">Anaheim Ducks +0.5 @ 2.13</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>New Jersey Devils</strong><div class="tiny">Match winner (two-way) @ 1.5</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020157</div></td></tr><tr data-sport="Ice Hockey" data-conf="High" data-pick="1" data-text="pittsburgh penguins florida panthers nhl regular season 2026-27 florida panthers"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Pittsburgh Penguins</strong> v Florida Panthers</div><div class="tiny">PPG Paints Arena, Pittsburgh</div><div class="tiny">Record 3-6-1 v 5-2-2</div></td><td class="lines"><div><span class="lbl">Win</span> 3.63 / 1.34</div><div><span class="lbl">Hcp</span> Florida Panthers -1.0 @ 1.95<div class="tiny">Pittsburgh Penguins +1.0 @ 1.97</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Florida Panthers</strong><div class="tiny">Match winner (two-way) @ 1.34</div><div class="badges"><span class="badge b-high">High</span></div><div class="tiny"><a href="../predictions.html#nhl-2026-10-22-fla-PIT">Read the write-up</a></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020158</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="new york islanders los angeles kings nhl regular season 2026-27 new york islanders"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:30:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>New York Islanders</strong> v Los Angeles Kings</div><div class="tiny">UBS Arena, Elmont</div><div class="tiny">Record 5-3-1 v 1-4-2</div></td><td class="lines"><div><span class="lbl">Win</span> 1.16 / 6.44</div><div><span class="lbl">Hcp</span> New York Islanders -1.5 @ 1.93<div class="tiny">Los Angeles Kings +1.5 @ 1.99</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>New York Islanders</strong><div class="tiny">Match winner (two-way) @ 1.16</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020159</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="st. louis blues vegas golden knights nhl regular season 2026-27 vegas golden knights"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T00:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>St. Louis Blues</strong> v Vegas Golden Knights</div><div class="tiny">Enterprise Center, St. Louis</div><div class="tiny">Record 4-4-1 v 8-3-0</div></td><td class="lines"><div><span class="lbl">Win</span> 2.8 / 1.51</div><div><span class="lbl">Hcp</span> Vegas Golden Knights -0.5 @ 1.83<div class="tiny">St. Louis Blues +0.5 @ 2.11</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Vegas Golden Knights</strong><div class="tiny">Match winner (two-way) @ 1.51</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020160</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="dallas stars winnipeg jets nhl regular season 2026-27 dallas stars"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T00:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Dallas Stars</strong> v Winnipeg Jets</div><div class="tiny">American Airlines Center, Dallas</div><div class="tiny">Record 5-3-1 v 4-3-2</div></td><td class="lines"><div><span class="lbl">Win</span> 1.62 / 2.48</div><div><span class="lbl">Hcp</span> Dallas Stars -0.5 @ 1.99<div class="tiny">Winnipeg Jets +0.5 @ 1.93</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Dallas Stars</strong><div class="tiny">Match winner (two-way) @ 1.62</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020161</div></td></tr><tr data-sport="Ice Hockey" data-conf="High" data-pick="1" data-text="calgary flames minnesota wild nhl regular season 2026-27 minnesota wild"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T01:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Calgary Flames</strong> v Minnesota Wild</div><div class="tiny">Scotiabank Saddledome, Calgary</div><div class="tiny">Record 2-6-0 v 6-2-2</div></td><td class="lines"><div><span class="lbl">Win</span> 6.54 / 1.15</div><div><span class="lbl">Hcp</span> Minnesota Wild -1.5 @ 1.93<div class="tiny">Calgary Flames +1.5 @ 2.0</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Minnesota Wild</strong><div class="tiny">Match winner (two-way) @ 1.15</div><div class="badges"><span class="badge b-high">High</span></div><div class="tiny"><a href="../predictions.html#nhl-2026-10-23-min-CGY">Read the write-up</a></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020162</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="edmonton oilers carolina hurricanes nhl regular season 2026-27 edmonton oilers"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T01:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Edmonton Oilers</strong> v Carolina Hurricanes</div><div class="tiny">Rogers Place, Edmonton</div><div class="tiny">Record 7-1-1 v 8-2-1</div></td><td class="lines"><div><span class="lbl">Win</span> 1.61 / 2.51</div><div><span class="lbl">Hcp</span> Edmonton Oilers -0.5 @ 1.98<div class="tiny">Carolina Hurricanes +0.5 @ 1.95</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Edmonton Oilers</strong><div class="tiny">Match winner (two-way) @ 1.61</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020163</div></td></tr><tr data-sport="Ice Hockey" data-conf="Low" data-pick="1" data-text="seattle kraken utah mammoth nhl regular season 2026-27 seattle kraken"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T02:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Seattle Kraken</strong> v Utah Mammoth</div><div class="tiny">Climate Pledge Arena, Seattle</div><div class="tiny">Record 6-3-1 v 7-3-0</div></td><td class="lines"><div><span class="lbl">Win</span> 1.92 / 2.0</div><div><span class="lbl">Hcp</span> Seattle Kraken -0.5 @ 2.45<div class="tiny">Utah Mammoth +0.5 @ 1.63</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Seattle Kraken</strong><div class="tiny">Match winner (two-way) @ 1.92</div><div class="badges"><span class="badge b-low">Low</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020164</div></td></tr><tr data-sport="Ice Hockey" data-conf="High" data-pick="1" data-text="vancouver canucks detroit red wings nhl regular season 2026-27 detroit red wings"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T02:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Vancouver Canucks</strong> v Detroit Red Wings</div><div class="tiny">Rogers Arena, Vancouver</div><div class="tiny">Record 2-8-1 v 3-3-3</div></td><td class="lines"><div><span class="lbl">Win</span> 3.17 / 1.42</div><div><span class="lbl">Hcp</span> Detroit Red Wings -1.0 @ 2.11<div class="tiny">Vancouver Canucks +1.0 @ 1.83</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Detroit Red Wings</strong><div class="tiny">Match winner (two-way) @ 1.42</div><div class="badges"><span class="badge b-high">High</span></div><div class="tiny"><a href="../predictions.html#nhl-2026-10-23-det-VAN">Read the write-up</a></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020165</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="chicago blackhawks montreal canadiens nhl regular season 2026-27 montreal canadiens"><td class="nowrap">2026-10-23<div class="tiny">2026-10-24T00:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Chicago Blackhawks</strong> v Montreal Canadiens</div><div class="tiny">United Center, Chicago</div><div class="tiny">Record 3-6-0 v 4-3-2</div></td><td class="lines"><div><span class="lbl">Win</span> 2.76 / 1.52</div><div><span class="lbl">Hcp</span> Montreal Canadiens -0.5 @ 1.85<div class="tiny">Chicago Blackhawks +0.5 @ 2.09</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Montreal Canadiens</strong><div class="tiny">Match winner (two-way) @ 1.52</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-23" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 23 Oct 2026</div><div class="tiny mono">NHL game 2026020166</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="colorado avalanche tampa bay lightning nhl regular season 2026-27 tampa bay lightning"><td class="nowrap">2026-10-23<div class="tiny">2026-10-24T01:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Colorado Avalanche</strong> v Tampa Bay Lightning</div><div class="tiny">Ball Arena, Denver</div><div class="tiny">Record 5-4-1 v 7-2-0</div></td><td class="lines"><div><span class="lbl">Win</span> 2.8 / 1.51</div><div><span class="lbl">Hcp</span> Tampa Bay Lightning -0.5 @ 1.83<div class="tiny">Colorado Avalanche +0.5 @ 2.11</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Tampa Bay Lightning</strong><div class="tiny">Match winner (two-way) @ 1.51</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-23" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 23 Oct 2026</div><div class="tiny mono">NHL game 2026020167</div></td></tr></tbody></table></div>
-<h2>High-confidence write-ups</h2><ul class="tops"><li><a href="../predictions.html#nhl-2026-10-22-nsh-BOS"><strong>Boston Bruins to win (match winner, two-way market)</strong></a><span class="tiny"> Nashville Predators at Boston Bruins</span></li><li><a href="../predictions.html#nhl-2026-10-22-fla-PIT"><strong>Florida Panthers to win (match winner, two-way market)</strong></a><span class="tiny"> Florida Panthers at Pittsburgh Penguins</span></li><li><a href="../predictions.html#nhl-2026-10-23-min-CGY"><strong>Minnesota Wild to win (match winner, two-way market)</strong></a><span class="tiny"> Minnesota Wild at Calgary Flames</span></li><li><a href="../predictions.html#nhl-2026-10-23-det-VAN"><strong>Detroit Red Wings to win (match winner, two-way market)</strong></a><span class="tiny"> Detroit Red Wings at Vancouver Canucks</span></li></ul>
-<p class="small"><a href="../entries.html">← All fixtures</a> · <a href="../coverage.html">Coverage by sport</a></p>
+
+<div class="kpis">
+  <div class="kpi"><div class="n">47</div><div class="l">rows</div></div>
+  <div class="kpi ok"><div class="n">42</div><div class="l">official-sourced</div></div>
+  <div class="kpi"><div class="n">47</div><div class="l">picks</div></div>
+  <div class="kpi"><div class="n">22</div><div class="l">high confidence</div></div>
+  <div class="kpi"><div class="n">29</div><div class="l">written predictions</div></div>
+</div>
+
+<div class="panel prose">
+  <h2>Analysis</h2>
+  <p>Ice Hockey contributes <strong>47 rows</strong> to the master board, 42 of which are confirmed against an official body. The window runs 2026-10-20 to 2026-10-27. 47 rows carry an originated pick (23 on the home side, 16 on the away side), and 22 are graded high confidence.</p><p>Competitions in this sport: NHL (36), NHL 2026-27 Regular Season (6), ICE Hockey League (OLBG: &quot;Austria EHL&quot;) (4), Swedish Hockey League (SHL) (1).</p><p>Market coverage: match winner priced on 42 rows, handicap on 42, match total on 47. Where a market is at zero the build recorded why in its flags — those rows are on <a href="../flagged.html">Flagged for Review</a> rather than being given a made-up line.</p><p>Source domains for this sport: <a href="https://www.nhl.com" target="_blank" rel="noopener nofollow">www.nhl.com</a> (37), <a href="https://www.espn.com" target="_blank" rel="noopener nofollow">www.espn.com</a> (5), <a href="https://www.ice.hockey" target="_blank" rel="noopener nofollow">www.ice.hockey</a> (4), <a href="https://www.shl.se" target="_blank" rel="noopener nofollow">www.shl.se</a> (1).</p><p>Flag types present: market-note ×33, date-discrepancy ×13, secondary-source ×5, templated-prediction ×3, build-flag ×1, not-a-fixture ×1.</p>
+  <p class="small">Builds contributing rows here: E (33), D (6), G (5), A (3).
+  A row's build is the one whose model produced the displayed price, pick and confidence; where a field came from a
+  different build it is marked in the data (<code>fields_from</code>).</p>
+</div>
+
+<h2>High-confidence predictions</h2><div class="pick-card">
+  <div class="top"><h3>Boston Bruins vs Dallas Stars</h3><span class="badge high">High</span>
+    <span class="selection">Dallas Stars to win</span></div>
+  <div class="sub">2026-10-20 · NHL 2026-27 Regular Season</div>
+  <p class="text">Dallas Stars are a high-confidence home pick over Boston. The Stars opened Oct 2 hosting St Louis and are 4-1 at American Airlines Center with 3.8 goals for per game, while Boston are 1-3 on their Texas swing conceding 3.5+ in each road loss. Dallas own the faceoff circle (54.8%) and Boston are without Marchand on IR; with Dallas&#x27; top line fresh after beating St Louis Oct 13, back Dallas moneyline 1.65 and Dallas puck line -1.5 for added value.</p>
+  <div class="foot"><span>Selection: <strong>Dallas Stars to win</strong> (Match winner (moneyline))</span>
+  <span><a href="https://www.espn.com/nhl/schedule" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.espn.com</span></span><span class="badge flag">secondary source</span></div>
+</div><div class="pick-card">
+  <div class="top"><h3>San Jose Sharks vs Montreal Canadiens</h3><span class="badge high">High</span>
+    <span class="selection">Montreal Canadiens to win</span></div>
+  <div class="sub">2026-10-20 · NHL 2026-27 Regular Season</div>
+  <p class="text">Montreal Canadiens are a high-confidence home pick against rebuilding San Jose. The Canadiens opened Oct 6 with a win over Carolina and sit 3-1 at home, while San Jose are 0-4 on their Eastern road trip conceding 4.2 goals per game. Montreal&#x27;s power play is humming at 28.6% this October versus San Jose&#x27;s 31st-ranked penalty kill (68.4%). With the Bell Centre crowd and extra rest, back Montreal moneyline at 1.45 and Montreal puck line -1.5 for value toward underdog Sharks travel fatigue.</p>
+  <div class="foot"><span>Selection: <strong>Montreal Canadiens to win</strong> (Match winner (moneyline))</span>
+  <span><a href="https://www.espn.com/nhl/schedule" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.espn.com</span></span><span class="badge flag">secondary source</span></div>
+</div><div class="pick-card">
+  <div class="top"><h3>Buffalo Sabres vs Philadelphia Flyers</h3><span class="badge high">High</span>
+    <span class="selection">Buffalo Sabres</span></div>
+  <div class="sub">2026-10-21 · NHL</div>
+  <p class="text">Philadelphia Flyers visit KeyBank Center to face Buffalo Sabres, and our model makes Buffalo Sabres a 60.4% favourite. Buffalo Sabres have won two of their last five. They most recently lost 3-4 to Montréal Canadiens on the road. We price that at -172, inclusive of our 4.5% two-way margin. Selection: Buffalo Sabres at -172.</p>
+  <div class="foot"><span>Selection: <strong>Buffalo Sabres</strong> (moneyline)</span>
+  <span><a href="https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></span><span class="badge ok">official source</span></div>
+</div><div class="pick-card">
+  <div class="top"><h3>EC-KAC (Klagenfurt) vs Hydro Fehervar AV19</h3><span class="badge high">High</span>
+    <span class="selection">EC-KAC (Klagenfurt)</span></div>
+  <div class="sub">2026-10-21 · ICE Hockey League (OLBG: &quot;Austria EHL&quot;)</div>
+  <p class="text">KAC Klagenfurt bring the league&#x27;s second-best attack into this one, 46 goals in twelve games, while visitors Fehérvár have managed a competition-worst 23 over the same span and sit 13th. Our Poisson model expects about 3.9 goals for the hosts against 2.1 for the Hungarians, which translates to a 77% win probability including overtime. The selection is EC-KAC Klagenfurt to win, and our puck-line price gives them a 54% chance of covering the -1.5 as well.</p>
+  <div class="foot"><span>Selection: <strong>EC-KAC (Klagenfurt)</strong> (Match winner (moneyline))</span>
+  <span><a href="https://www.ice.hockey/en/season/standings" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.ice.hockey</span></span><span class="badge ok">official source</span></div>
+</div><div class="pick-card">
+  <div class="top"><h3>HC Falkensteiner Pustertal vs Pioneers Vorarlberg</h3><span class="badge high">High</span>
+    <span class="selection">HC Falkensteiner Pustertal</span></div>
+  <div class="sub">2026-10-21 · ICE Hockey League (OLBG: &quot;Austria EHL&quot;)</div>
+  <p class="text">Pioneers Vorarlberg are the clear bottom side in this league: winless through twelve games, one point collected, and a 26-52 goal record. Pustertal, by contrast, sit seventh with a positive goal difference and enjoy home advantage in Bruneck. Our model expects roughly a 4.2 to 2.1 home win and rates HC Pustertal at 80% on the money line including overtime. That makes the hosts one of the more straightforward selections on this slate: Pustertal to win.</p>
+  <div class="foot"><span>Selection: <strong>HC Falkensteiner Pustertal</strong> (Match winner (moneyline))</span>
+  <span><a href="https://www.ice.hockey/en/season/standings" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.ice.hockey</span></span><span class="badge ok">official source</span></div>
+</div><div class="pick-card">
+  <div class="top"><h3>HCB Südtirol Alperia (Bolzano) vs HC TIWAG Innsbruck</h3><span class="badge high">High</span>
+    <span class="selection">HCB Südtirol Alperia (Bolzano)</span></div>
+  <div class="sub">2026-10-21 · ICE Hockey League (OLBG: &quot;Austria EHL&quot;)</div>
+  <p class="text">Bolzano retook top spot in the ICE Hockey League with a 5-0 win over Linz on 19 October and have lost just once in regulation through eleven games, outscoring opponents 44-28. Innsbruck sit tenth with 30 goals scored and 35 conceded. At home, with the stronger attack and the tighter defence, HCB Südtirol Alperia are the selection to win on the money line - our model prices them at 73%, with an expected score of roughly 3.7 to 2.3.</p>
+  <div class="foot"><span>Selection: <strong>HCB Südtirol Alperia (Bolzano)</strong> (Match winner (moneyline))</span>
+  <span><a href="https://www.ice.hockey/en/season/standings" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.ice.hockey</span></span><span class="badge ok">official source</span></div>
+</div><p class="small">Showing 6 of 22 high-confidence write-ups. <a href="../picks.html">See all picks</a>.</p>
+
+<h2>All Ice Hockey rows</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Date</th><th>Match</th><th>Pick</th><th>Conf.</th><th>Our markets</th><th>Source</th><th>Verification</th></tr></thead>
+<tbody><tr>
+<td class="num">2026-10-20</td>
+<td class="teams"><strong>Anaheim Ducks</strong><span class="vs">vs</span><strong>New York Islanders</strong>
+  <span class="vs">NHL 2026-27 Regular Season</span></td>
+<td class="pick">NY Islanders to win
+  </td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Anaheim Ducks 2.40 / New York Islanders 1.60<br>Handicap: NYI -1.5 @ 2.10 | ANA +1.5 @ 1.80<br>Total: O/U 5.5 @ 1.91 / 1.91 (Under lean)</td>
+<td class="src"><a href="https://www.espn.com/nhl/schedule" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.espn.com</span></td>
+<td><span class="badge flag">secondary source</span><div class="flags"><span class="f">secondary-source</span></div></td>
+</tr><tr>
+<td class="num">2026-10-20</td>
+<td class="teams"><strong>Boston Bruins</strong><span class="vs">vs</span><strong>Dallas Stars</strong>
+  <span class="vs">NHL 2026-27 Regular Season</span></td>
+<td class="pick">Dallas Stars to win
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Boston Bruins 2.30 / Dallas Stars 1.65<br>Handicap: DAL -1.5 @ 2.05 | BOS +1.5 @ 1.85<br>Total: O/U 5.5 @ 1.91</td>
+<td class="src"><a href="https://www.espn.com/nhl/schedule" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.espn.com</span></td>
+<td><span class="badge flag">secondary source</span><div class="flags"><span class="f">secondary-source</span></div></td>
+</tr><tr>
+<td class="num">2026-10-20</td>
+<td class="teams"><strong>Colorado Avalanche</strong><span class="vs">vs</span><strong>New Jersey Devils</strong>
+  <span class="vs">NHL 2026-27 Regular Season</span></td>
+<td class="pick">Colorado Avalanche to win (coin-flip, slight road lean)
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge low">Low</span></td>
+<td class="markets">Win: Colorado Avalanche 1.95 / New Jersey Devils 1.95<br>Handicap: NJ -1.5 @ 2.30 | COL +1.5 @ 1.65<br>Total: O/U 6.5 @ 1.91 / 1.91</td>
+<td class="src"><a href="https://www.espn.com/nhl/schedule" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.espn.com</span></td>
+<td><span class="badge flag">secondary source</span><div class="flags"><span class="f">secondary-source</span></div></td>
+</tr><tr>
+<td class="num">2026-10-20</td>
+<td class="teams"><strong>San Jose Sharks</strong><span class="vs">vs</span><strong>Montreal Canadiens</strong>
+  <span class="vs">NHL 2026-27 Regular Season</span></td>
+<td class="pick">Montreal Canadiens to win
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: San Jose Sharks 2.85 / Montreal Canadiens 1.45<br>Handicap: MTL -1.5 @ 1.95 | SJS +1.5 @ 1.95<br>Total: O/U 6.5 @ 1.91 / 1.91</td>
+<td class="src"><a href="https://www.espn.com/nhl/schedule" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.espn.com</span></td>
+<td><span class="badge flag">secondary source</span><div class="flags"><span class="f">build-flag</span><span class="f">secondary-source</span></div></td>
+</tr><tr>
+<td class="num">2026-10-20</td>
+<td class="teams"><strong>Toronto Maple Leafs</strong><span class="vs">vs</span><strong>Columbus Blue Jackets</strong>
+  <span class="vs">NHL 2026-27 Regular Season</span></td>
+<td class="pick">Columbus Blue Jackets to win
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Toronto Maple Leafs 1.88 / Columbus Blue Jackets 2.02<br>Handicap: CBJ -1.5 @ 2.25 | TOR +1.5 @ 1.68<br>Total: O/U 6.5 @ 1.91</td>
+<td class="src"><a href="https://www.espn.com/nhl/schedule" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.espn.com</span></td>
+<td><span class="badge flag">secondary source</span><div class="flags"><span class="f">secondary-source</span></div></td>
+</tr><tr>
+<td class="num">2026-10-21</td>
+<td class="teams"><strong>Buffalo Sabres</strong><span class="vs">vs</span><strong>Philadelphia Flyers</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Buffalo Sabres
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Buffalo Sabres 1.583 / Philadelphia Flyers 2.419<br>Handicap: Buffalo Sabres -0.5 @ 1.732; Philadelphia Flyers +0.5 @ 2.139<br>Total: Over 6.5 @ 2.348; Under 6.5 @ 1.615</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-21</td>
+<td class="teams"><strong>EC-KAC (Klagenfurt)</strong><span class="vs">vs</span><strong>Hydro Fehervar AV19</strong>
+  <span class="vs">ICE Hockey League (OLBG: &quot;Austria EHL&quot;)</span></td>
+<td class="pick">EC-KAC (Klagenfurt)
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Total: Over 5.5 @ 1.79</td>
+<td class="src"><a href="https://www.ice.hockey/en/season/standings" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.ice.hockey</span></td>
+<td><span class="badge ok">official source</span></td>
+</tr><tr>
+<td class="num">2026-10-21</td>
+<td class="teams"><strong>Florida Panthers (Stanley Cup Finalists 2026)</strong><span class="vs">vs</span><strong>Ottawa Senators</strong>
+  <span class="vs">NHL 2026-27 Regular Season</span></td>
+<td class="pick">Florida Panthers to win
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Florida Panthers (Stanley Cup Finalists 2026) 1.80 / Ottawa Senators 2.05<br>Handicap: FLA -1.5 @ 2.05 | OTT +1.5 @ 1.85<br>Total: O/U 6.5 @ 1.91</td>
+<td class="src"><a href="https://www.nhl.com/news/nhl-releases-2026-27-regular-season-schedule" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">not-a-fixture</span></div></td>
+</tr><tr>
+<td class="num">2026-10-21</td>
+<td class="teams"><strong>HC Falkensteiner Pustertal</strong><span class="vs">vs</span><strong>Pioneers Vorarlberg</strong>
+  <span class="vs">ICE Hockey League (OLBG: &quot;Austria EHL&quot;)</span></td>
+<td class="pick">HC Falkensteiner Pustertal
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Total: Over 6.5 @ 2.1</td>
+<td class="src"><a href="https://www.ice.hockey/en/season/standings" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.ice.hockey</span></td>
+<td><span class="badge ok">official source</span></td>
+</tr><tr>
+<td class="num">2026-10-21</td>
+<td class="teams"><strong>HCB Südtirol Alperia (Bolzano)</strong><span class="vs">vs</span><strong>HC TIWAG Innsbruck</strong>
+  <span class="vs">ICE Hockey League (OLBG: &quot;Austria EHL&quot;)</span></td>
+<td class="pick">HCB Südtirol Alperia (Bolzano)
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Total: Over 5.5 @ 1.82</td>
+<td class="src"><a href="https://www.ice.hockey/en/season/standings" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.ice.hockey</span></td>
+<td><span class="badge ok">official source</span></td>
+</tr><tr>
+<td class="num">2026-10-21</td>
+<td class="teams"><strong>Moser Medical Graz99ers</strong><span class="vs">vs</span><strong>Milano HC</strong>
+  <span class="vs">ICE Hockey League (OLBG: &quot;Austria EHL&quot;)</span></td>
+<td class="pick">Moser Medical Graz99ers
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge low">Low</span></td>
+<td class="markets">Total: Over 5.5 @ 2.03</td>
+<td class="src"><a href="https://www.ice.hockey/en/season/standings" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.ice.hockey</span></td>
+<td><span class="badge ok">official source</span></td>
+</tr><tr>
+<td class="num">2026-10-22</td>
+<td class="teams"><strong>Boston Bruins</strong><span class="vs">vs</span><strong>Nashville Predators</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Boston Bruins
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Boston Bruins 1.528 / Nashville Predators 2.56<br>Handicap: Boston Bruins -0.5 @ 1.659; Nashville Predators +0.5 @ 2.262<br>Total: Over 6.5 @ 2.367; Under 6.5 @ 1.607</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge check">re-checked live</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-22</td>
+<td class="teams"><strong>Edmonton Oilers</strong><span class="vs">vs</span><strong>Carolina Hurricanes</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Edmonton Oilers
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Edmonton Oilers 1.68 / Carolina Hurricanes 2.24<br>Handicap: Edmonton Oilers +0.5 @ 1.686; Carolina Hurricanes -0.5 @ 2.212<br>Total: Over 6.5 @ 1.84; Under 6.5 @ 1.994</td>
+<td class="src"><a href="https://www.nhl.com/schedule/2026-10-21" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">templated-prediction</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-22</td>
+<td class="teams"><strong>New Jersey Devils</strong><span class="vs">vs</span><strong>Anaheim Ducks</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">New Jersey Devils
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: New Jersey Devils 1.58 / Anaheim Ducks 2.45<br>Handicap: New Jersey Devils -0.5 @ 1.931; Anaheim Ducks +0.5 @ 1.897<br>Total: Over 6.5 @ 2.013; Under 6.5 @ 1.824</td>
+<td class="src"><a href="https://www.nhl.com/schedule/2026-10-21" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge check">re-checked live</span><div class="flags"><span class="f">market-note</span><span class="f">templated-prediction</span></div></td>
+</tr><tr>
+<td class="num">2026-10-22</td>
+<td class="teams"><strong>New York Islanders</strong><span class="vs">vs</span><strong>Los Angeles Kings</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">New York Islanders
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: New York Islanders 1.585 / Los Angeles Kings 2.415<br>Handicap: New York Islanders -0.5 @ 1.738; Los Angeles Kings +0.5 @ 2.129<br>Total: Over 5.5 @ 1.858; Under 5.5 @ 1.973</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-22</td>
+<td class="teams"><strong>Ottawa Senators</strong><span class="vs">vs</span><strong>San Jose Sharks</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Ottawa Senators
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Ottawa Senators 1.476 / San Jose Sharks 2.721<br>Handicap: Ottawa Senators -1.5 @ 2.022; San Jose Sharks +1.5 @ 1.817<br>Total: Over 5.5 @ 1.849; Under 5.5 @ 1.983</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge check">re-checked live</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-22</td>
+<td class="teams"><strong>Pittsburgh Penguins</strong><span class="vs">vs</span><strong>Florida Panthers</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Pittsburgh Penguins
+  <div class="small">moneyline</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Pittsburgh Penguins 1.714 / Florida Panthers 2.167<br>Handicap: Pittsburgh Penguins -0.5 @ 1.934; Florida Panthers +0.5 @ 1.894<br>Total: Over 7.5 @ 2.312; Under 7.5 @ 1.633</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/fla-vs-pit/2026/10/22/2026020158" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge check">re-checked live</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-22</td>
+<td class="teams"><strong>Timrå IK</strong><span class="vs">vs</span><strong>Färjestad BK</strong>
+  <span class="vs">Swedish Hockey League (SHL)</span></td>
+<td class="pick">Färjestad BK
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Total: Over 4.5 @ 1.91</td>
+<td class="src"><a href="https://www.shl.se/" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.shl.se</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">source-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-22</td>
+<td class="teams"><strong>Toronto Maple Leafs</strong><span class="vs">vs</span><strong>New York Rangers</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Under 6.5
+  <div class="small">total</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Toronto Maple Leafs 2.005 / New York Rangers 1.83<br>Handicap: Toronto Maple Leafs +0.5 @ 1.783; New York Rangers -0.5 @ 2.065<br>Total: Over 5.5 @ 1.961; Under 5.5 @ 1.869</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge check">re-checked live</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-23</td>
+<td class="teams"><strong>Calgary Flames</strong><span class="vs">vs</span><strong>Minnesota Wild</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Minnesota Wild
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Calgary Flames 3.025 / Minnesota Wild 1.4<br>Handicap: Calgary Flames +1.5 @ 1.799; Minnesota Wild -1.5 @ 2.044<br>Total: Over 6.5 @ 2.382; Under 6.5 @ 1.6</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-23</td>
+<td class="teams"><strong>Dallas Stars</strong><span class="vs">vs</span><strong>Winnipeg Jets</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Dallas Stars
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Dallas Stars 1.449 / Winnipeg Jets 2.819<br>Handicap: Dallas Stars -1.5 @ 1.952; Winnipeg Jets +1.5 @ 1.878<br>Total: Over 5.5 @ 2.312; Under 5.5 @ 1.633</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-23</td>
+<td class="teams"><strong>Seattle Kraken</strong><span class="vs">vs</span><strong>Utah Mammoth</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Over 5.5
+  <div class="small">total</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Seattle Kraken 2.079 / Utah Mammoth 1.773<br>Handicap: Seattle Kraken +0.5 @ 1.841; Utah Mammoth -0.5 @ 1.993<br>Total: Over 6.5 @ 2.035; Under 6.5 @ 1.806</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/uta-vs-sea/2026/10/22/2026020164" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-23</td>
+<td class="teams"><strong>St. Louis Blues</strong><span class="vs">vs</span><strong>Vegas Golden Knights</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Vegas Golden Knights
+  <div class="small">moneyline</div></td>
+<td><span class="badge low">Low</span></td>
+<td class="markets">Win: St. Louis Blues 1.946 / Vegas Golden Knights 1.883<br>Handicap: St. Louis Blues +0.5 @ 1.73; Vegas Golden Knights -0.5 @ 2.141<br>Total: Over 5.5 @ 1.907; Under 5.5 @ 1.921</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/vgk-vs-stl/2026/10/22/2026020160" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-23</td>
+<td class="teams"><strong>Vancouver Canucks</strong><span class="vs">vs</span><strong>Detroit Red Wings</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Detroit Red Wings
+  <div class="small">moneyline</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Vancouver Canucks 2.264 / Detroit Red Wings 1.658<br>Handicap: Vancouver Canucks +0.5 @ 1.94; Detroit Red Wings -0.5 @ 1.888<br>Total: Over 6.5 @ 2.193; Under 6.5 @ 1.698</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/det-vs-van/2026/10/22/2026020165" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Boston Bruins</strong><span class="vs">vs</span><strong>San Jose Sharks</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Boston Bruins
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Boston Bruins 1.382 / San Jose Sharks 3.112<br>Handicap: Boston Bruins -1.5 @ 1.853; San Jose Sharks +1.5 @ 1.979<br>Total: Over 5.5 @ 1.804; Under 5.5 @ 2.038</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Chicago Blackhawks</strong><span class="vs">vs</span><strong>Montréal Canadiens</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Montréal Canadiens
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Chicago Blackhawks 2.482 / Montréal Canadiens 1.557<br>Handicap: Chicago Blackhawks +0.5 @ 2.053; Montréal Canadiens -0.5 @ 1.792<br>Total: Over 6.5 @ 1.816; Under 6.5 @ 2.022</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Colorado Avalanche</strong><span class="vs">vs</span><strong>Tampa Bay Lightning</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Over 6.5
+  <div class="small">total</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Colorado Avalanche 1.701 / Tampa Bay Lightning 2.188<br>Handicap: Colorado Avalanche -0.5 @ 1.888; Tampa Bay Lightning +0.5 @ 1.941<br>Total: Over 7.5 @ 2.165; Under 7.5 @ 1.715</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/tbl-vs-col/2026/10/23/2026020167" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Columbus Blue Jackets</strong><span class="vs">vs</span><strong>Vegas Golden Knights</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Vegas Golden Knights +0.5
+  <div class="small">handicap</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Columbus Blue Jackets 2.079 / Vegas Golden Knights 1.773<br>Handicap: Columbus Blue Jackets +0.5 @ 1.846; Vegas Golden Knights -0.5 @ 1.987<br>Total: Over 6.5 @ 2.331; Under 6.5 @ 1.623</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/vgk-vs-cbj/2026/10/24/2026020174" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Edmonton Oilers</strong><span class="vs">vs</span><strong>Toronto Maple Leafs</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Edmonton Oilers
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Edmonton Oilers 1.54 / Toronto Maple Leafs 2.528<br>Handicap: Edmonton Oilers -0.5 @ 1.663; Toronto Maple Leafs +0.5 @ 2.253<br>Total: Over 7.5 @ 2.095; Under 7.5 @ 1.762</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>New Jersey Devils</strong><span class="vs">vs</span><strong>Los Angeles Kings</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Over 5.5
+  <div class="small">total</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: New Jersey Devils 1.644 / Los Angeles Kings 2.289<br>Handicap: New Jersey Devils -0.5 @ 1.846; Los Angeles Kings +0.5 @ 1.987<br>Total: Over 6.5 @ 2.151; Under 6.5 @ 1.724</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Ottawa Senators</strong><span class="vs">vs</span><strong>New York Rangers</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Under 6.5
+  <div class="small">total</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Ottawa Senators 1.73 / New York Rangers 2.141<br>Handicap: Ottawa Senators -0.5 @ 1.947; New York Rangers +0.5 @ 1.882<br>Total: Over 5.5 @ 2.328; Under 5.5 @ 1.625</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Philadelphia Flyers</strong><span class="vs">vs</span><strong>Anaheim Ducks</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Philadelphia Flyers
+  <div class="small">moneyline</div></td>
+<td><span class="badge low">Low</span></td>
+<td class="markets">Win: Philadelphia Flyers 1.757 / Anaheim Ducks 2.102<br>Handicap: Philadelphia Flyers -0.5 @ 1.979; Anaheim Ducks +0.5 @ 1.853<br>Total: Over 5.5 @ 2.013; Under 5.5 @ 1.824</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/ana-vs-phi/2026/10/24/2026020168" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Pittsburgh Penguins</strong><span class="vs">vs</span><strong>Nashville Predators</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Pittsburgh Penguins
+  <div class="small">moneyline</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Pittsburgh Penguins 1.706 / Nashville Predators 2.18<br>Handicap: Pittsburgh Penguins -0.5 @ 1.897; Nashville Predators +0.5 @ 1.932<br>Total: Over 7.5 @ 2.219; Under 7.5 @ 1.683</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/nsh-vs-pit/2026/10/24/2026020172" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>St. Louis Blues</strong><span class="vs">vs</span><strong>Carolina Hurricanes</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Carolina Hurricanes
+  <div class="small">moneyline</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: St. Louis Blues 2.155 / Carolina Hurricanes 1.721<br>Handicap: St. Louis Blues +0.5 @ 1.884; Carolina Hurricanes -0.5 @ 1.945<br>Total: Over 6.5 @ 2.298; Under 6.5 @ 1.64</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/car-vs-stl/2026/10/24/2026020175" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-24</td>
+<td class="teams"><strong>Washington Capitals</strong><span class="vs">vs</span><strong>Buffalo Sabres</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Washington Capitals +0.5
+  <div class="small">handicap</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Washington Capitals 1.772 / Buffalo Sabres 2.08<br>Handicap: Washington Capitals -0.5 @ 1.999; Buffalo Sabres +0.5 @ 1.836<br>Total: Over 6.5 @ 1.816; Under 6.5 @ 2.022</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/buf-vs-wsh/2026/10/24/2026020173" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-25</td>
+<td class="teams"><strong>Calgary Flames</strong><span class="vs">vs</span><strong>Detroit Red Wings</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Detroit Red Wings
+  <div class="small">moneyline</div></td>
+<td><span class="badge low">Low</span></td>
+<td class="markets">Win: Calgary Flames 2.126 / Detroit Red Wings 1.74<br>Handicap: Calgary Flames +0.5 @ 1.847; Detroit Red Wings -0.5 @ 1.986<br>Total: Over 5.5 @ 2.165; Under 5.5 @ 1.715</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/det-vs-cgy/2026/10/24/2026020178" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-25</td>
+<td class="teams"><strong>Chicago Blackhawks</strong><span class="vs">vs</span><strong>Florida Panthers</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Florida Panthers
+  <div class="small">Match winner (moneyline)</div></td>
+<td><span class="badge low">Low</span></td>
+<td class="markets">Win: Chicago Blackhawks 3.24 / Florida Panthers 1.36<br>Handicap: Chicago Blackhawks +0.5 @ 1.952; Florida Panthers -0.5 @ 1.878<br>Total: Over 6.5 @ 2.165; Under 6.5 @ 1.715</td>
+<td class="src"><a href="https://www.nhl.com/schedule/2026-10-21" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">templated-prediction</span></div></td>
+</tr><tr>
+<td class="num">2026-10-25</td>
+<td class="teams"><strong>Dallas Stars</strong><span class="vs">vs</span><strong>New York Islanders</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Dallas Stars
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Dallas Stars 1.559 / New York Islanders 2.479<br>Handicap: Dallas Stars -0.5 @ 1.706; New York Islanders +0.5 @ 2.18<br>Total: Over 4.5 @ 1.789; Under 4.5 @ 2.058</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-25</td>
+<td class="teams"><strong>Seattle Kraken</strong><span class="vs">vs</span><strong>Minnesota Wild</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Minnesota Wild
+  <div class="small">moneyline</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Seattle Kraken 2.144 / Minnesota Wild 1.728<br>Handicap: Seattle Kraken +0.5 @ 1.86; Minnesota Wild -0.5 @ 1.971<br>Total: Over 6.5 @ 1.999; Under 6.5 @ 1.835</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/min-vs-sea/2026/10/24/2026020179" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-25</td>
+<td class="teams"><strong>Utah Mammoth</strong><span class="vs">vs</span><strong>Tampa Bay Lightning</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Over 6.5
+  <div class="small">total</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Utah Mammoth 1.877 / Tampa Bay Lightning 1.952<br>Handicap: Utah Mammoth +0.5 @ 1.686; Tampa Bay Lightning -0.5 @ 2.212<br>Total: Over 7.5 @ 2.212; Under 7.5 @ 1.687</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/tbl-vs-uta/2026/10/24/2026020177" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-25</td>
+<td class="teams"><strong>Winnipeg Jets</strong><span class="vs">vs</span><strong>Montréal Canadiens</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Montréal Canadiens
+  <div class="small">moneyline</div></td>
+<td><span class="badge low">Low</span></td>
+<td class="markets">Win: Winnipeg Jets 1.955 / Montréal Canadiens 1.875<br>Handicap: Winnipeg Jets +0.5 @ 1.741; Montréal Canadiens -0.5 @ 2.124<br>Total: Over 6.5 @ 1.915; Under 6.5 @ 1.912</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/mtl-vs-wpg/2026/10/25/2026020182" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span></div></td>
+</tr><tr>
+<td class="num">2026-10-26</td>
+<td class="teams"><strong>Nashville Predators</strong><span class="vs">vs</span><strong>Colorado Avalanche</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Nashville Predators +1.5
+  <div class="small">handicap</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Nashville Predators 2.351 / Colorado Avalanche 1.614<br>Handicap: Nashville Predators +0.5 @ 1.979; Colorado Avalanche -0.5 @ 1.853<br>Total: Over 5.5 @ 1.795; Under 5.5 @ 2.049</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/col-vs-nsh/2026/10/25/2026020183" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-26</td>
+<td class="teams"><strong>New York Rangers</strong><span class="vs">vs</span><strong>Los Angeles Kings</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">New York Rangers
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: New York Rangers 1.54 / Los Angeles Kings 2.528<br>Handicap: New York Rangers -0.5 @ 1.663; Los Angeles Kings +0.5 @ 2.253<br>Total: Over 5.5 @ 1.724; Under 5.5 @ 2.15</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span></td>
+</tr><tr>
+<td class="num">2026-10-26</td>
+<td class="teams"><strong>Vancouver Canucks</strong><span class="vs">vs</span><strong>Minnesota Wild</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Minnesota Wild
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Vancouver Canucks 3.432 / Minnesota Wild 1.327<br>Handicap: Vancouver Canucks +1.5 @ 1.884; Minnesota Wild -1.5 @ 1.945<br>Total: Over 6.5 @ 1.769; Under 6.5 @ 2.084</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span><div class="flags"><span class="f">market-note</span><span class="f">date-discrepancy</span></div></td>
+</tr><tr>
+<td class="num">2026-10-27</td>
+<td class="teams"><strong>Calgary Flames</strong><span class="vs">vs</span><strong>Toronto Maple Leafs</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Toronto Maple Leafs +0.5
+  <div class="small">handicap</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Calgary Flames 2.203 / Toronto Maple Leafs 1.692<br>Handicap: Calgary Flames +0.5 @ 1.911; Toronto Maple Leafs -0.5 @ 1.917<br>Total: Over 6.5 @ 1.912; Under 6.5 @ 1.916</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span></td>
+</tr><tr>
+<td class="num">2026-10-27</td>
+<td class="teams"><strong>Edmonton Oilers</strong><span class="vs">vs</span><strong>Detroit Red Wings</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Edmonton Oilers
+  <div class="small">moneyline</div></td>
+<td><span class="badge high">High</span></td>
+<td class="markets">Win: Edmonton Oilers 1.506 / Detroit Red Wings 2.624<br>Handicap: Edmonton Oilers -1.5 @ 2.041; Detroit Red Wings +1.5 @ 1.801<br>Total: Over 5.5 @ 1.802; Under 5.5 @ 2.041</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span></td>
+</tr><tr>
+<td class="num">2026-10-27</td>
+<td class="teams"><strong>Philadelphia Flyers</strong><span class="vs">vs</span><strong>Columbus Blue Jackets</strong>
+  <span class="vs">NHL</span></td>
+<td class="pick">Under 5.5
+  <div class="small">total</div></td>
+<td><span class="badge medium">Medium</span></td>
+<td class="markets">Win: Philadelphia Flyers 1.799 / Columbus Blue Jackets 2.044<br>Handicap: Philadelphia Flyers -0.5 @ 2.022; Columbus Blue Jackets +0.5 @ 1.817<br>Total: Over 4.5 @ 1.803; Under 4.5 @ 2.039</td>
+<td class="src"><a href="https://www.nhl.com/gamecenter/cbj-vs-phi/2026/10/27/2026020188" target="_blank" rel="noopener nofollow">source</a><span class="small"> www.nhl.com</span></td>
+<td><span class="badge ok">official source</span></td>
+</tr></tbody>
+</table></div>
 
 </main>
-<footer class="foot">
-  <div class="wrap">
-    <p><strong>Data cut-off 2026-10-21T08:00Z.</strong>
-    Every published row was read on a governing-body, league or tournament-organiser domain; the link is in the row.
-    Values that could not be confirmed are blank and listed on <a href="../flagged.html">Flagged for review</a>.</p>
-    <p class="small">Analysis only, not betting advice. 18+. Built by session <code>arena/83451f65-olbg4</code>;
-    other sessions' dashboards remain untouched in <a href="../archive.html">Archive</a>.</p>
-  </div>
-</footer>
+<footer class="site"><div class="wrap">
+  <div>Data cut-off 2026-10-21 · 312 rows · 308 in scope · every row links its source</div>
+  <div>Analysis, not betting advice · 18+ · values are copied from the builds' committed data, never guessed</div>
+</div></footer>
+<script src="../assets/master/app.js"></script>
 </body>
 </html>

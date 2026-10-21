@@ -545,6 +545,49 @@ def main() -> None:
             primary["archive_rows"] = len(group) - 1
             master.append(primary)
 
+    # ---- final write-up classification (done after merging so copied texts are covered too)
+    import difflib
+
+    def skeleton2(text: str, home: str, away: str) -> str:
+        t = (text or "").lower()
+        for name in (home, away):
+            if name:
+                t = t.replace(name.lower(), " team ")
+        t = re.sub(r"\d+(\.\d+)?", " n ", t)
+        t = re.sub(r"[^a-z %]+", " ", t)
+        return " ".join(t.split()[:14])
+
+    skels2 = Counter(skeleton2(r["prediction"], r["home"], r["away"]) for r in master if r["prediction"])
+    by_build_pred = defaultdict(list)
+    for r in master:
+        if r["prediction"]:
+            by_build_pred[r["build"]].append(r)
+    for r in master:
+        r["flags"] = [f for f in r["flags"] if f["kind"] != "templated-prediction"]
+        r["prediction_style"] = ""
+        if not r["prediction"]:
+            continue
+        sk = skeleton2(r["prediction"], r["home"], r["away"])
+        peers = [o for o in by_build_pred[r["build"]] if o is not r]
+        max_sim = max((difflib.SequenceMatcher(None, r["prediction"], o["prediction"]).ratio()
+                       for o in peers), default=0.0)
+        reasons = []
+        if r["build"] == "A":
+            # Every one of build A's 32 write-ups follows one of a handful of fixed sentence frames
+            # ("Take X to win this ...", "Back X to win ...", "X entered this match with a points
+            # percentage of ..."). Treated as a generation template rather than as prose.
+            reasons.append("build A generates every write-up from a small set of fixed sentence frames")
+        if skels2[sk] >= 3:
+            reasons.append(f"the same opening sentence appears on {skels2[sk]} rows")
+        if max_sim >= 0.55:
+            reasons.append(f"it is {max_sim:.0%} identical to another write-up from the same build")
+        r["prediction_style"] = "templated" if reasons else "written"
+        r["prediction_similarity"] = round(max_sim, 3)
+        if reasons:
+            r["flags"].append({"kind": "templated-prediction",
+                               "text": f"Build {r['build']} generated this write-up from boilerplate: " +
+                                       "; ".join(reasons) + ". It is not counted as a written prediction."})
+
     # ---- conflicts, date disputes and verification flags
     for row in master:
         side = side_of(row["pick"], row["home"], row["away"])
@@ -680,6 +723,10 @@ def main() -> None:
         "rows_verified_in_scope": sum(1 for r in in_scope if r["verified"]),
         "rows_with_pick": sum(1 for r in in_scope if r["pick"]),
         "rows_with_prediction": sum(1 for r in in_scope if r["prediction"]),
+        "rows_with_written_prediction": sum(1 for r in in_scope if r["prediction"] and r["prediction_style"] == "written"),
+        "rows_with_templated_prediction": sum(1 for r in in_scope if r["prediction_style"] == "templated"),
+        "high_with_written_prediction": sum(1 for r in in_scope if r["confidence"] == "High"
+                                            and r["row_type"] == "fixture" and r["prediction_style"] == "written"),
         "confidence": dict(Counter(r["confidence"] or "none" for r in in_scope)),
         "by_sport": {
             s: {
@@ -737,6 +784,18 @@ def main() -> None:
                                                     -kv[1]))]
     json.dump({"schema": "olbg4.sources/1", "count": len(registry), "sources": registry},
               open(os.path.join(ROOT, "data/source_registry.json"), "w"), indent=1, ensure_ascii=False)
+
+    # Build B's OLBG-only inventory is published on its own page, not in the master table.
+    for r in olbg_rows:
+        r["source_tier"], r["source_domain"], r["source_note"] = tier_for(r["source_url"])
+    json.dump({"schema": "olbg4.olbg_inventory/1", "generated_on": SNAPSHOT.isoformat(),
+               "note": "Fixtures captured from OLBG's own sport pages by build B. OLBG is the site being "
+                       "reverse-engineered, so none of these rows has an official source. They are published as "
+                       "unverified and are not counted as verified in the master board.",
+               "counts": {"rows": len(olbg_rows),
+                          "by_sport": dict(Counter(r["sport"] for r in olbg_rows))},
+               "rows": olbg_rows},
+              open(os.path.join(ROOT, "data/master_olbg.json"), "w"), indent=1, ensure_ascii=False)
 
     print(json.dumps({k: v for k, v in counts.items() if k != "by_sport"}, indent=1))
     for s, v in counts["by_sport"].items():
