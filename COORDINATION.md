@@ -390,3 +390,18 @@ This session branched from the initial commit before Boards A–E merged, so PR 
 ### Publish record
 - PR: [#12](https://github.com/buffedlizard55-lab/OLBG4/pull/12) — `arena/6e0f382d-olbg4` → `main`, merged without approval per brief after build + link-check green.
 - Pages: existing root publishing (repo-root artifact) serves this build at https://buffedlizard55-lab.github.io/OLBG4/session-6e0f382d/ — no Pages settings change needed (API returned 403 for this integration regardless).
+
+---
+
+## Board H — session `arena/e62da3b5-olbg4` (cross-build reconciliation, official-source verification & unified multi-market desk)
+
+Claimed: 2026-10-21 · Branch: `arena/e62da3b5-olbg4` (fixed Arena session branch) · Non-overlapping scope: `session-e62da3b5/`, `data/session-e62da3b5/`, `scripts/session-e62da3b5/` (plus additive integration entries in `COORDINATION.md`, `README.md`, and root `index.html` at integration time without modifying any other session's files).
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| H1 | Claim task scope in `COORDINATION.md` and push immediately | in progress | `arena/e62da3b5-olbg4` | `COORDINATION.md` |
+| H2 | Reverse-engineer OLBG.com sport taxonomy & full match universe (strictly excluding soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling, specials) and reconcile all existing repository builds line by line against official governing-body sources | unclaimed | `arena/e62da3b5-olbg4` | `data/session-e62da3b5/`, `scripts/session-e62da3b5/` |
+| H3 | Originate independent lines across all investigated markets (Win Match, Handicap/Spread, Match Total, and sport-specific sub-markets), assign Low/Medium/High confidence, and write unique 30+ word human predictions for every High-confidence selection using verified official facts | unclaimed | `arena/e62da3b5-olbg4` | `data/session-e62da3b5/`, `scripts/session-e62da3b5/` |
+| H4 | Build clean dashboard site (`session-e62da3b5/`) with landing page, category subpages per covered sport, Markets & Methodology page, Sources page, Cross-Build Repo Audit page, and Flagged for Review page | unclaimed | `arena/e62da3b5-olbg4` | `session-e62da3b5/`, `scripts/session-e62da3b5/` |
+| H5 | Final verification, additive hub integration, PR to `main`, merge, and GitHub Pages deployment check | unclaimed | `arena/e62da3b5-olbg4` | `session-e62da3b5/`, `index.html`, `README.md`, `COORDINATION.md` |
+
