@@ -261,7 +261,7 @@ def page(title, heading, body):
 </header>
 <main class="container">
 {body}
-  <div class="footer">OLBG4 • verified register • data cut-off 2026-10-21 • <a href="index.html">Dashboard</a> • <a href="flagged.html">Flagged for Review</a> • <a href="https://github.com/buffedlizard55-lab/OLBG4" target="_blank" rel="noopener">GitHub repo</a></div>
+  <div class="footer">OLBG4 • verified register • data cut-off 2026-10-21 • <a href="index.html">Dashboard</a> • <a href="flagged.html">Flagged for Review</a> • <a href="https://github.com/buffedlizard55-lab/OLBG4" target="_blank" rel="noopener">GitHub repo</a> • <span>18+ — analysis, not betting advice</span></div>
 </main>
 <script src="assets/js/main.js"></script>
 </body>
