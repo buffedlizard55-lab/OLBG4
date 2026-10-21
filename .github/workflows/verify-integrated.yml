@@ -1,0 +1,50 @@
+name: Verify integrated dashboard
+
+# Gate for the consolidated build (session arena/83451f65-olbg4).
+# It rebuilds the line desk from data/integrated/inputs.json and fails if:
+#   - any published row lacks a governing-body source URL
+#   - any high-confidence row lacks a >=30 word unique write-up
+#   - any excluded sport appears in the dataset
+#   - any internal link is broken or a generated page is stale
+
+on:
+  push:
+    branches: [main, "arena/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild lines and pages from the committed inputs
+        run: |
+          python3 scripts/session-83451f65/transcribe_inputs.py
+          python3 scripts/session-83451f65/model.py
+          python3 scripts/session-83451f65/build_site.py
+
+      - name: Fail if committed output is stale
+        run: |
+          if ! git diff --quiet -- data/integrated index.html entries.html predictions.html \
+                analysis.html coverage.html flagged.html methodology.html sources.html \
+                archive.html sports assets/integrated.css; then
+            echo "Generated files are stale. Run the three scripts and commit the result."
+            git diff --stat
+            exit 1
+          fi
+
+      - name: Line-by-line verification
+        run: python3 scripts/session-83451f65/verify.py
+
+      - name: Confirmed JSON parses
+        run: |
+          for f in data/integrated/*.json; do python3 -m json.tool "$f" > /dev/null && echo "ok $f"; done

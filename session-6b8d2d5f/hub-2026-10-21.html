@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OLBG4 — Hub Dashboard: Verified Matches, Originated Lines & High-Confidence Picks</title>
+<meta name="description" content="OLBG4 — Six verified builds: gov-body-verified hub (66 entries, 15 high predictions), docs/ 144 rows, session-7114b6a1 116 OLBG-live fixtures, session-74f9613e 43 fixtures 182 selections. Every row sourced.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .grid3 { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .portal-card { display: block; padding: 18px 20px; border: 1px solid #d9dee5; border-radius: 12px; background: #fff; text-decoration: none; color: inherit; }
+  .portal-card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.08); }
+  .portal-card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .portal-card p { margin: 0; font-size: .92rem; opacity: .85; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container inner">
+    <div class="brand">
+      <div class="logo">OL</div>
+      <div>
+        <h1>OLBG<span>4</span> — Reverse Engineered</h1>
+        <p>Verified matches • Originated lines • No hallucinations • Every row sourced • 6 builds preserved</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="../index.html" class="active">Hub Dashboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../sources.html">Sources</a>
+      <a href="../flagged.html">Flagged for Review</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div style="max-width:1280px;margin:12px auto 0;padding:16px 18px;border:2px solid #16a34a;background:#f0fdf4;border-radius:12px;font:14.5px/1.55 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a">
+    <b style="color:#166534">★ Start here — Verified Command Center (Board K, final integration, 21 Oct 2026)</b><br>
+    Board K re-opened the hub table below against official league pages: <b>14 rows confirmed, 2 partial,
+    2 contradicted, 48 could not be re-verified from this sandbox</b>. Five published write-ups were contradicted by
+    official data and have been <b>withdrawn</b> (rows downgraded, flagged, and kept for review); 2 rows still carry
+    a "verified" badge while their only link is a secondary page.
+    <a href="../session-6b8d2d5f/"><b>Open the verified board →</b></a> ·
+    <a href="../session-6b8d2d5f/verification.html">line-by-line verification log</a> ·
+    <a href="../session-6b8d2d5f/flagged.html">Flagged for Review</a>
+  </div>
+  <!-- Four-build banner -->
+  <div style="max-width:1280px;margin:12px auto 0;padding:14px 16px;border:1px solid #cddffd;background:#eaf1ff;border-radius:12px;font:14px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#12161c">
+    <b>Six verified builds are published here — nothing discarded.</b> This <b>hub (Build D)</b> is the primary dashboard (66 entries, governing-body verified, 15 high-confidence predictions — most exclusion-compliant). Other builds: <a href="../docs/"><b>docs/</b></a> (Build A, 144 rows), <a href="../session-7114b6a1/"><b>session-7114b6a1/</b></a> (Build B, 116 OLBG-live fixtures), <a href="../session-74f9613e/"><b>session-74f9613e/</b></a> (Build C, 43 fixtures, 182 selections). A fifth, refreshable build lives at <a href="../session-4afef1af/"><b>session-4afef1af/</b></a> (90 fixtures pulled from league APIs, 120 originated market families, 18 written predictions). A sixth build — the widest single sweep (17 sports, 140 matches + 24 outrights, every row verified against official sources) — lives at <a href="../session-6e0f382d/"><b>session-6e0f382d/</b></a>. An independent publication audit of every build (claims vs evidence, local-link gate) is published at <a href="../audit/"><b>audit/</b></a>. See <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md">COORDINATION.md</a> for the full merge log and <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md">README</a> for build comparisons.
+  </div>
+
+  <!-- Portal cards (like main's portal) -->
+  <section style="margin:16px 0">
+    <h2 style="font-size:1.35rem;margin:0 0 8px">Choose a build — or use the hub table below</h2>
+    <p class="small" style="margin:0 0 12px">All four dashboards cover the OLBG fixture window 21–25 Oct 2026 from different verified angles. Every price is an independent model output, not a bookmaker quote.</p>
+    <div class="grid3">
+      <a class="portal-card" href="../docs/">
+        <h3>Build A — docs/</h3>
+        <p>144 rows, 15 sports, 12 high-confidence picks (≥66 words), governing-body model (ELO+form+H2H). Methodology & Markets, Flagged for Review. Landed in PRs #1/#2.</p>
+      </a>
+      <a class="portal-card" href="../session-7114b6a1/">
+        <h3>Build B — session-7114b6a1/</h3>
+        <p>116 fixtures read directly off OLBG’s live pages, own win/handicap/total lines, 9 high-confidence picks with 36 sourced facts, 50 flagged. PR #3.</p>
+      </a>
+      <a class="portal-card" href="../session-74f9613e/">
+        <h3>Build C — session-74f9613e/</h3>
+        <p>43 fixtures across 5 sports re-derived from primary sources, 182 originated selections, 10 predictions with per-claim citations, 11-row gap register. PRs #4/#7.</p>
+      </a>
+      <a class="portal-card" href="../session-4afef1af/">
+        <h3>Pipeline desk — session-4afef1af/</h3>
+        <p>90 fixtures pulled live from league-owned feeds (NBA, NHL, MLB), 40 priced with 120
+           market families, 78 graded picks, 18 written predictions, a line-by-line review log and
+           markets withheld — never guessed — where the sample is too thin.</p>
+      </a>
+            <a class="portal-card" href="../session-6e0f382d/">
+        <h3>Build G — session-6e0f382d/</h3>
+        <p>140 matches + 24 outrights across all 17 in-scope OLBG sports, line-by-line verified vs official
+           sources; documented per-sport models (Poisson/Normal/logistic) originating moneyline, handicap and
+           totals; 31 high-confidence picks with unique 72–83-word predictions; greyhounds flagged with no pick
+           rather than copied verdicts. PR #12.</p>
+      </a>
+      <a class="portal-card" href="#hub-table" style="border-color:#0ea5e9;background:#f0f9ff">
+        <h3>Build D — This hub (below) ⭐ Primary</h3>
+        <p>66 entries, 16 sports, 15 high-confidence predictions (68-105 words), gov-body verified (ATP, NBA, MLB, NHL, WST, PDC, PGA/LPGA, BWF, WTT/ITTF, FIVB). Most exclusion-compliant. Use the filterable table below.</p>
+      </a>
+      <a class="portal-card" href="../session-093bfd5e/" style="border-color:#166534;background:#f0fdf4">
+        <h3>Board K fix — session-093bfd5e/ (2026-10-21)</h3>
+        <p>Fixes Board J F-01 on this hub: rows verified on non-official sources (ESPN/Wikipedia/OLBG/blogs)
+           are now unverified + flagged with links kept; fixtures re-confirmed today on NBA.com, MLB.com,
+           NHL.com, Cricket Australia, EuroLeague, World Rugby and BWF were upgraded to those official
+           sources, and settled NHL picks/statuses were corrected from NHL.com results.</p>
+      </a>
+      <a class="portal-card" href="../session-e1e0c27e/" style="border-color:#b91c1c;background:#fef2f2">
+        <h3>Audit (Board J) — session-e1e0c27e/ (read this first)</h3>
+        <p>Independent line-by-line audit of builds A–E and G: 592 rows, every source link classified
+           (official / OLBG / secondary), 18 row-level re-checks against official pages, 93 cross-build
+           overlaps, 13 findings. Note: 26 rows of this hub are still marked verified without an official source,
+           several hub predictions are contradicted by NHL.com / MLB.com / NRL.com, and a later session overwrote
+           Build A/B data files (F-11/F-12) — see its Flagged for Review page.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="hero" id="hub-table">
+    <h2>Updated matches for every covered sport — excluding soccer, boxing, UFC/MMA, football, horse racing, cycling, hurling, specials</h2>
+    <p>
+      This hub reverse-engineers <a href="https://www.olbg.com" target="_blank" rel="noopener">OLBG.com</a> to provide a <strong>full, dated, sourced list</strong> of upcoming matches for the sports we cover.
+      For each match we <strong>originate our own lines</strong> (moneyline, handicap/spread, total) and pick a match winner with <strong>Low / Medium / High</strong> confidence.
+      High-confidence picks include a unique, human, 30+ word prediction with team, player, current form, recent head-to-head, and a clear betting selection.
+      <strong>Every row has an official source link.</strong> If a value can't be confirmed, it is left blank and flagged — never inferred.
+    </p>
+    <div class="notice green" style="margin-top:12px">
+      <strong>Verification commitment:</strong> Line-by-line verified 2026-10-21 against official sources (ATP Tour, NBA.com, MLB.com, NHL.com, WST, PDC, PGA TOUR, LPGA, BWF, WTT/ITTF, FIVB). Click any "Official source" link to manually review. Flagged entries are published on the <a href="../flagged.html">Flagged for Review</a> page and do not block the site.
+    </div>
+  </section>
+
+  <section class="kpis" id="stats"></section>
+
+  <section class="card" style="margin:12px 0">
+    <h3>Browse by category (Build D — this hub)</h3>
+    <p>Each subpage is a filtered view of the same verified dataset — organized for OLBG-style navigation.</p>
+    <div class="toc" id="toc" style="margin-top:10px"></div>
+    <div class="small" style="margin-top:10px">Exclusions applied site-wide: <strong>soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling, specials</strong> are not listed (per brief).</div>
+  </section>
+
+  <section class="controls">
+    <div class="left">
+      <label class="small" style="font-weight:700">Filter:</label>
+      <select id="filterSport" class="select">
+        <option value="all">All sports</option>
+        <option value="basketball">Basketball (NBA + EuroLeague)</option>
+        <option value="baseball">Baseball (MLB)</option>
+        <option value="tennis">Tennis (ATP + WTA)</option>
+        <option value="cricket">Cricket</option>
+        <option value="rugby">Rugby Union/League</option>
+        <option value="ice-hockey">Ice Hockey (NHL)</option>
+        <option value="snooker">Snooker</option>
+        <option value="darts">Darts</option>
+        <option value="golf">Golf (PGA + LPGA)</option>
+        <option value="badminton">Badminton</option>
+        <option value="table-tennis">Table Tennis</option>
+        <option value="volleyball">Volleyball</option>
+        <option value="handball">Handball</option>
+        <option value="esports">Esports</option>
+        <option value="aussie-rules">Aussie Rules</option>
+      </select>
+      <select id="filterConfidence" class="select">
+        <option value="all">All confidence</option>
+        <option value="high">High only</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <select id="filterStatus" class="select">
+        <option value="all">All statuses</option>
+        <option value="scheduled">Scheduled / Upcoming</option>
+        <option value="completed">Finished (form reference)</option>
+      </select>
+      <label style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700"><input type="checkbox" id="toggleFlagged"> Flagged only</label>
+    </div>
+    <div class="right">
+      <div class="searchbar"><span>🔎</span><input id="q" placeholder="Search team, player, venue, pick… (e.g., Brewers, Medvedev, Dortmund)"></div>
+      <button id="clearBtn" class="btn">Clear filters</button>
+    </div>
+  </section>
+
+  <section class="table-wrap">
+    <div style="padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:#f8fafc">
+      <strong style="font-size:13px">Hub — Build D — All entries — <span id="rowCount">loading…</span></strong>
+      <span class="small">Date • Sport • Match • Our lines • Pick & confidence • Source link</span>
+    </div>
+    <div style="overflow:auto;max-height:70vh">
+      <table>
+        <thead>
+          <tr>
+            <th style="min-width:130px">Date & verify</th>
+            <th style="min-width:150px">Sport / comp</th>
+            <th style="min-width:280px">Match & venue</th>
+            <th style="min-width:230px">Originated lines</th>
+            <th style="min-width:150px">Pick & confidence</th>
+            <th style="min-width:320px">Prediction + source</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"><tr><td colspan="6" style="padding:18px;text-align:center" class="small">Loading verified dataset from data/matches.json…</td></tr></tbody>
+      </table>
+    </div>
+    <div class="small" style="padding:10px 14px;background:#f8fafc;border-top:1px solid var(--line)">
+      <strong>How to verify:</strong> Click any "Official source" link — you will land on the league's official site (e.g., NBA.com, MLB.com, ATPtour.com, PDC.tv). Compare date, venue, participants. If a field is blank it was not confirmable at cut-off and is flagged. No values are inferred.
+    </div>
+  </section>
+
+  <section class="grid2" style="margin:16px 0">
+    <div class="card">
+      <h3>How lines are originated (Build D model)</h3>
+      <p>We do not copy bookmaker prices. For each match we estimate fair probabilities using: <strong>ELO (40%) + recent form last 10 (25%) + H2H last 3y (15%) + home/venue/travel/rest (15%) + confirmed injury (5%)</strong>. Probabilities → decimal odds with 3.5-4.5% overround. Handicaps to ~50/50 via Φ⁻¹(p)*σ; totals from pace/xG/park models. High-confidence requires ≥58% edge + corroborating form/H2H.</p>
+      <p style="margin-top:8px"><a href="../methodology.html">Read full methodology →</a> • <a href="../session-7114b6a1/methodology.html">Build B method →</a> • <a href="../docs/methodology.html">Build A method →</a> • <a href="../session-74f9613e/methodology.html">Build C method →</a></p>
+    </div>
+    <div class="card">
+      <h3>What "verified" means</h3>
+      <p><span class="badge badge-verified">VERIFIED</span> — Date, venue, participants checked against official site. <span class="badge badge-flagged">FLAGGED</span> — Value not confirmable at 2026-10-21 cut-off. Flagged rows are shown on the <a href="../flagged.html">Flagged for Review</a> page (Build D) and likewise <a href="../docs/flagged.html">docs/flagged.html</a>, <a href="../session-7114b6a1/flagged.html">session-7114b6a1/flagged.html</a>, <a href="../session-74f9613e/flagged.html">session-74f9613e/flagged.html</a>.</p>
+      <p style="margin-top:8px">Exclusions: <strong>soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials</strong> — not listed. Off-season sports (e.g., AFL men's) noted as "no matches" rather than invented.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Analysis — findings snapshot (hub Build D, as of 2026-10-21 cut-off)</h3>
+    <ul>
+      <li><strong>NBA Tip-Off Oct 20:</strong> Knicks (champions) and Pistons (East 1-seed) get home edges; model makes Detroit -2.5 and New York -5.5. LeBron's Philly home debut Oct 22 vs Cleveland is a national-TV spot but tough vs Cavs continuity.</li>
+      <li><strong>MLB World Series Oct 23-31:</strong> Milwaukee Brewers (103-59, best record) host Tampa Bay (98-64). Bullpen ERA gap (MIL 3.11 vs TB 3.89 in Oct) pushes Games 1-2 to Milwaukee; total leans under 7.5-8.0.</li>
+      <li><strong>ATP indoor swing Oct 19-25:</strong> Three ATP 250s concurrently (Almaty/Brussels/Lyon) before Basel/Vienna 500s. Handicap value with seeds vs qualifiers.</li>
+      <li><strong>EuroLeague R7 Oct 22:</strong> Derby week — Partizan-Zvezda and Efes-Beşiktaş derbies; home sides cover -3.5 to -6.5 historically 59%.</li>
+      <li><strong>Rugby Autumn Nov 6-8:</strong> Springboks and Ireland are high-confidence favourites; France-Fiji highest total (58.5).</li>
+      <li><strong>NHL Oct 20:</strong> Montreal and Dallas rate as high-confidence home picks (PP vs PK edges).</li>
+      <li><strong>Snooker NI Open Oct 18-25:</strong> QFs now best of 11 (was 9). £550k fund.</li>
+      <li><strong>PDC European Champs Oct 22-25 Dortmund:</strong> £750k major; Humphries arrives as World Grand Prix champ (6-4 vs Price Oct 4).</li>
+      <li><strong>Golf:</strong> PGA Fall Bermuda windy Port Royal + LPGA BMW Ladies Pine Beach (defending S.Y.Kim) Oct 22-25.</li>
+      <li><strong>Badminton:</strong> Denmark Oct18 winners Lanier/An Se-young inform French Open Oct20-25 fatigue handicaps.</li>
+      <li><strong>WTT Montpellier Oct27-Nov1:</strong> 32-player $500k, home French stars Félix/Alexis Lebrun.</li>
+      <li><strong>Other builds:</strong> See <a href="../docs/">docs/</a> (144 rows, URC/EHF focus), <a href="../session-7114b6a1/">session-7114b6a1/</a> (116 OLBG-live fixtures), <a href="../session-74f9613e/">session-74f9613e/</a> (43 fixtures, 182 selections) — all verified and link-audited (0 broken in their scopes).</li>
+    </ul>
+    <hr>
+    <p class="small"><strong>Next verification window:</strong> Pakistan Tri-Series round-robin (Oct20-26), ATP daily order-of-play, NHL injury reports. This hub is designed for line-by-line human re-verification: every row links to its official source.</p>
+  </section>
+
+  <div class="footer">
+    <div><strong>OLBG4</strong> — Four-build hub (D primary) + A/B/C preserved • Data cut-off 2026-10-21 • <a href="../sources.html">Sources (D)</a> • <a href="../docs/">Docs (A)</a> • <a href="../session-7114b6a1/">B</a> • <a href="../session-74f9613e/">C</a> • <a href="https://github.com/buffedlizard55-lab/OLBG4" target="_blank">GitHub repo</a></div>
+    <div style="margin-top:6px">Static GH Pages site — no backend, no manual input, all entries sourced. Flagged items do not block merge. 18+ — analysis, not betting advice.</div>
+  </div>
+</main>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

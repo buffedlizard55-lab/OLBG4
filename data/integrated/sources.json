@@ -1,0 +1,147 @@
+{
+ "schema": "olbg4.integrated.sources/1",
+ "retrieved_at": "2026-10-21T08:00Z",
+ "policy": "A row may only be published if the value was read on a domain owned by the clubs' governing body, league or the tournament organiser. OLBG.com was used only to define the sport universe; no OLBG figure, price or tip is published here. Secondary sites (ESPN, BBC, Sky, Wikipedia, blogs, snooker.org, etusuora) are not used as sources for any value.",
+ "official_domains": [
+  "api-web.nhle.com",
+  "nhl.com",
+  "nba.com",
+  "statsapi.mlb.com",
+  "mlb.com",
+  "ehfcl.eurohandball.com",
+  "ehf.eu",
+  "premrugby.com",
+  "premiershiprugby.com",
+  "wst.tv"
+ ],
+ "registry": [
+  {
+   "org": "NHL",
+   "sport": "Ice Hockey",
+   "url": "https://api-web.nhle.com/v1/score/2026-10-22",
+   "covers": "12-game slate 22 Oct 2026",
+   "checked": "venue, startTimeUTC, records, team leaders",
+   "result": "used: 14 rows"
+  },
+  {
+   "org": "NHL",
+   "sport": "Ice Hockey",
+   "url": "https://api-web.nhle.com/v1/score/2026-10-23",
+   "covers": "2-game slate 23 Oct 2026",
+   "checked": "venue, startTimeUTC, records, team leaders",
+   "result": "used: 2 rows"
+  },
+  {
+   "org": "NBA",
+   "sport": "Basketball",
+   "url": "https://www.nba.com/games?date=2026-10-21",
+   "covers": "21 Oct 2026 (11 games)",
+   "checked": "pairings, tip-off ET, records",
+   "result": "used: 11 rows"
+  },
+  {
+   "org": "NBA",
+   "sport": "Basketball",
+   "url": "https://www.nba.com/games?date=2026-10-23",
+   "covers": "23 Oct 2026 (12 scheduled, 10 readable)",
+   "checked": "pairings, tip-off ET, records, game ids",
+   "result": "used: 10 rows"
+  },
+  {
+   "org": "NBA",
+   "sport": "Basketball",
+   "url": "https://www.nba.com/games?date=2026-10-24",
+   "covers": "24 Oct 2026 (8 games)",
+   "checked": "pairings, tip-off ET, records, game ids",
+   "result": "used: 8 rows"
+  },
+  {
+   "org": "NBA",
+   "sport": "Basketball",
+   "url": "https://www.nba.com/games?date=2026-10-25",
+   "covers": "25 Oct 2026 (7 games)",
+   "checked": "pairings, tip-off ET, records, game ids",
+   "result": "used: 7 rows"
+  },
+  {
+   "org": "MLB",
+   "sport": "Baseball",
+   "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-31",
+   "covers": "World Series, games 1-7",
+   "checked": "clubs, venue, series label, UTC start, status",
+   "result": "used: 7 rows"
+  },
+  {
+   "org": "EHF",
+   "sport": "Handball",
+   "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/",
+   "covers": "Champions League men, 21-28 Oct",
+   "checked": "pairings, published session time, match ids",
+   "result": "used: 5 rows (22 Oct)"
+  },
+  {
+   "org": "Premiership Rugby",
+   "sport": "Rugby Union",
+   "url": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
+   "covers": "Gallagher Premiership round 4",
+   "checked": "venue, published time, recent form, match centre id",
+   "result": "used: 5 rows"
+  },
+  {
+   "org": "World Snooker Tour",
+   "sport": "Snooker",
+   "url": "https://www.wst.tv/matches/",
+   "covers": "BetVictor Northern Ireland Open 2026",
+   "checked": "round, match number, pairing, session time, match centre id",
+   "result": "used: 8 rows (21 Oct)"
+  },
+  {
+   "org": "ATP Tour",
+   "sport": "Tennis",
+   "url": "https://www.atptour.com/en/scores/current",
+   "covers": "live/current matches",
+   "checked": "draw round, players, scores",
+   "result": "not used: page carries in-play and completed matches only, no upcoming fixture list with pairings and times"
+  },
+  {
+   "org": "ATP Tour",
+   "sport": "Tennis",
+   "url": "https://www.atptour.com/en/tournaments",
+   "covers": "2026-27 calendar",
+   "checked": "event list",
+   "result": "not used: event-level calendar, no fixture rows"
+  },
+  {
+   "org": "PDC",
+   "sport": "Darts",
+   "url": "https://www.pdc.tv/tournaments",
+   "covers": "PDC tournament hub",
+   "checked": "attempted",
+   "result": "not used: the page returned a cookie-consent wall and no fixture data could be read"
+  },
+  {
+   "org": "ICC",
+   "sport": "Cricket",
+   "url": "https://www.icc-cricket.com/matches",
+   "covers": "international fixtures",
+   "checked": "attempted",
+   "result": "not used: returned HTTP 404 at retrieval time"
+  },
+  {
+   "org": "United Rugby Championship",
+   "sport": "Rugby Union",
+   "url": "https://www.unitedrugby.com/fixtures",
+   "covers": "URC fixtures",
+   "checked": "attempted",
+   "result": "not used: returned a 404 page (the site moved its fixtures)"
+  },
+  {
+   "org": "World Snooker Tour",
+   "sport": "Snooker",
+   "url": "https://www.wst.tv/tournaments/",
+   "covers": "tournament list",
+   "checked": "attempted",
+   "result": "not used: JavaScript-only calendar, no rows in the returned HTML"
+  }
+ ]
+}
