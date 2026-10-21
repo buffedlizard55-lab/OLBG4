@@ -196,3 +196,16 @@ Resolution (no work discarded — four-build repo):
   * PR #6 status: closed as integrated (all commits now on main) — see comment on PR for merge log.
 * Final gate (Board D hub): 19 HTML pages 200, data/matches.json + data/sources.json JSON-valid, 15 high predictions word-count verified, 0 broken internal links in hub, full-repo 67 HTML co-exist (no deletions), methodology disclosed, exclusions enforced (soccer/boxing/UFC/MMA/football/American football/hurling/horse racing/cycling/specials omitted; Gaelic flagged in A).
 
+
+## Board C addendum — follow-up merges and post-deploy checks (`arena/74f9613e-olbg4`)
+
+* **PR #7** — publish record for PR #4, and the root portal extended to three dashboards. MERGED; Pages build `366be56` **built** in 18.4s.
+* **PR #8** — two copy fixes found while reading the deployed HTML: the Hornets–Nets write-up no longer calls the fixture a league-wide opening night (it is those clubs' first game), and the footer names the real generator path. MERGED; Pages build `39f7802` **built** in 23.6s.
+* **PR #9** — the portal's combined-dashboard card said 116 fixtures, which is build B's figure; corrected to build A's 144 rows / 15 sports. MERGED; Pages build `3f321e2` **built** in 22.1s.
+* **PR #10** — this addendum. Board C's own gate after every change: `bash scripts/session-74f9613e/build_all.sh` → `OK - all validation checks passed`; 19 HTML files, 0 broken local links.
+* **Post-deploy inspection** (public URLs, sandbox has no direct `curl` egress so the fetch tool was used):
+  * `/` → hub (Board D) with cards to `docs/`, `session-7114b6a1/` and `session-74f9613e/`
+  * `/session-74f9613e/` → 43 fixtures, 32 priced, 182 selections, 10 high-confidence picks
+  * `/session-74f9613e/predictions.html` → all 10 write-ups, each followed by its verified-fact list and source links
+  * `/session-74f9613e/flagged.html` → 11 unpriced fixtures with the missing input named per row, plus 53 inventory rows whose "official source" column links the fixture page
+* **Constraint recorded**: `PUT /repos/…/pages {build_type: workflow}` returns **403 Resource not accessible by integration** with this token, so Pages is published by the legacy branch build from `main` / and the Actions workflow is a validation gate only.
