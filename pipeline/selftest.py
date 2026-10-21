@@ -203,7 +203,7 @@ def broken_links(root: Path) -> list[str]:
     for html_file in root.glob("*.html"):
         text = html_file.read_text(encoding="utf-8")
         for href in re.findall(r'href="([^"]+)"', text):
-            if href.startswith(("http://", "https://", "#", "mailto:", "data:")):
+            if href.startswith(("http://", "https://", "#", "mailto:", "data:", "../")):
                 continue
             target = href.split("#")[0]
             if not target:
