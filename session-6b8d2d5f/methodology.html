@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology · OLBG4 Verified Command Center</title>
+<link rel="stylesheet" href="assets/site.css"></head><body>
+<header><div class="wrap bar">
+  <div class="logo">OL</div>
+  <div class="brand"><b>OLBG4 · Verified Command Center</b>
+    <span>Board K · session 6b8d2d5f · re-verified 21 Oct 2026</span></div>
+  <nav><a href="index.html" class="">Overview</a><a href="nba.html" class="">NBA</a><a href="nhl.html" class="">NHL</a><a href="mlb.html" class="">MLB</a><a href="predictions.html" class="">Predictions</a><a href="verification.html" class="">Verification</a><a href="sources.html" class="">Sources</a><a href="methodology.html" class="on">Method</a><a href="flagged.html" class="">Flagged for Review</a></nav>
+</div></header>
+<main class="wrap"><h1>Methodology</h1>
+<p class="lead">Our own lines, our own probabilities, no bookmaker input anywhere in the pipeline.</p>
+<div class="card"><h3>Rating inputs</h3><ul>
+<li><b>NHL</b> — points percentage <code>(2W + OTL) / (2·GP)</code> from the same official payload as the fixture.</li>
+<li><b>NBA</b> — win percentage shrunk to a 10-game .500 prior: <code>(W + 5) / (GP + 10)</code>. One opening-week result cannot move a rating far.</li>
+<li><b>MLB</b> — regular-season win percentage <code>W / (W + L)</code>; no pitcher input, because starters were not published at retrieval.</li>
+</ul></div>
+<div class="card"><h3>Probability and price</h3>
+<pre>NHL: p_home = 0.5 + 0.55·(pts%_home − pts%_away) + 0.03
+NBA: p_home = 0.5 + 0.90·(s_home − s_away) + 0.03
+MLB: p_home = 0.5 + 0.90·(wp_home − wp_away) + 0.035
+price  = (1/p) / 1.035        (our own 3.5% overround)</pre>
+<p class="mut">The home edge (0.03 / 0.035) is a declared model constant, not a measured value.</p></div>
+<div class="card"><h3>Handicap and totals</h3>
+<p>Handicap lines come from a normal margin model: <code>line = σ·Φ⁻¹(p)</code> rounded to the sport's
+half-line, with σ = 1.8 goals (NHL), 12.5 points (NBA), 1.7 runs (MLB). The cover probability is
+<code>1 − Φ((line − μ)/σ)</code> and is priced at the same 3.5% overround.</p>
+<p>Totals are only originated when <b>both</b> clubs' goals-for and goals-against are verified. That is true for
+one fixture on this board (Carolina at Edmonton, from the NHL standings snapshot of 20 October). Everywhere
+else the total is left blank rather than guessed.</p></div>
+<div class="card"><h3>Confidence bands</h3>
+<p>High ≥ 0.65 · Medium 0.55–0.649 · Low &lt; 0.55. Three fixtures clear the high band. The NBA carries no
+high picks: with one game played, the shrunk rating sits near .500 by construction, and we would rather publish
+a low-confidence row than inflate it.</p></div>
+<div class="card"><h3>What we refuse to do</h3>
+<ul><li>No value is copied from a bookmaker, an aggregator, or another build.</li>
+<li>No line is issued for a fixture whose official inputs we could not read.</li>
+<li>No prediction is published for a completed game — the result is published and the earlier pick graded.</li>
+<li>No field is filled by inference. Blanks stay blank and are explained.</li></ul></div></main>
+<footer><div class="wrap">Every fixture on this site links to the official governing-body page it was
+read from on 2026-10-21 (UTC). Values that could not be confirmed are blank and flagged, never inferred.
+18+ · analysis, not betting advice. · <a href="../index.html">All builds</a> ·
+<a href="https://github.com/buffedlizard55-lab/OLBG4">Repository</a></div></footer>
+<script>
+document.querySelectorAll('[data-filter]').forEach(function(inp){
+  var tbl=document.getElementById(inp.dataset.filter);
+  inp.addEventListener('input',function(){
+    var q=inp.value.toLowerCase();
+    tbl.querySelectorAll('tbody tr').forEach(function(tr){
+      tr.style.display = tr.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+});
+document.querySelectorAll('[data-select]').forEach(function(sel){
+  var tbl=document.getElementById(sel.dataset.select);
+  sel.addEventListener('change',function(){
+    tbl.querySelectorAll('tbody tr').forEach(function(tr){
+      tr.style.display = (sel.value==='all'||tr.dataset[sel.dataset.key]===sel.value) ? '' : 'none';
+    });
+  });
+});
+</script></body></html>

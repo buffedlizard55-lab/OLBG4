@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for Review · OLBG4 Verified Command Center</title>
+<link rel="stylesheet" href="assets/site.css"></head><body>
+<header><div class="wrap bar">
+  <div class="logo">OL</div>
+  <div class="brand"><b>OLBG4 · Verified Command Center</b>
+    <span>Board K · session 6b8d2d5f · re-verified 21 Oct 2026</span></div>
+  <nav><a href="index.html" class="">Overview</a><a href="nba.html" class="">NBA</a><a href="nhl.html" class="">NHL</a><a href="mlb.html" class="">MLB</a><a href="predictions.html" class="">Predictions</a><a href="verification.html" class="">Verification</a><a href="sources.html" class="">Sources</a><a href="methodology.html" class="">Method</a><a href="flagged.html" class="on">Flagged for Review</a></nav>
+</div></header>
+<main class="wrap"><h1>Flagged for Review</h1><p class="lead">Irregularities found during final integration. Each item names the evidence, links it, and states what this session did about it. Nothing here blocks the merge — it is published so you can review it after the site is live.</p><div class="flagbox"><b>K-01 · HIGH · Root hub marks rows verified without an official source</b>
+<p>26 of the 66 hub rows carry `verified: true` while their only link is a secondary page (ESPN, Wikipedia, BBC, Sky Sports, ESPNcricinfo, etusuora, findmygroup, tempo.co, USA Today, basketnews, montpellier.fr) or OLBG itself. The hub&#x27;s claim that every row links to a governing body is not supported by its own data.</p><div class="mut">Evidence: <a href="../data/matches.json" target="_blank" rel="noopener">../data/matches.json</a></div></div><div class="flagbox"><b>K-02 · HIGH · Hub prediction NBA02 cites a roster that the official game page does not support</b>
+<p>The hub&#x27;s write-up says Philadelphia &#x27;integrate LeBron James and Jaylen Brown&#x27;. NBA.com&#x27;s page for 2026-10-20 shows Philadelphia winning 106-100 with Tyrese Maxey on 28 points as the game leader; no official page read today supports the roster claim. Prediction withdrawn; the pick is graded LOST.</p><div class="mut">Evidence: <a href="https://www.nba.com/games?date=2026-10-20" target="_blank" rel="noopener">https://www.nba.com/games?date=2026-10-20</a></div></div><div class="flagbox"><b>K-03 · HIGH · Hub prediction NHL01 says the Sharks are 0-4 — they won that night</b>
+<p>NHL data for 2026-10-20 shows San Jose beating Montreal 4-3 in overtime, and the club&#x27;s record on 22 October is 5-4-1. The &#x27;0-4 ... conceding 4.2 goals per game&#x27; passage is contradicted. Prediction withdrawn; pick graded LOST.</p><div class="mut">Evidence: <a href="https://api-web.nhle.com/v1/score/2026-10-20" target="_blank" rel="noopener">https://api-web.nhle.com/v1/score/2026-10-20</a></div></div><div class="flagbox"><b>K-04 · MEDIUM · Hub prediction NHL06 misstates the Bruins&#x27; record</b>
+<p>The hub says Boston are &#x27;1-3&#x27; and &#x27;without Marchand on IR&#x27;. The NHL score payload has Boston at 7-2-1, with Jeremy Swayman on six wins. Prediction withdrawn.</p><div class="mut">Evidence: <a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">https://api-web.nhle.com/v1/score/2026-10-22</a></div></div><div class="flagbox"><b>K-05 · MEDIUM · Hub prediction EL02 is self-contradictory and contains drafting residue</b>
+<p>The text reads &#x27;Efes opened with a 93-101 win at Bayern ... Actually Efes beat Bayern 101-93&#x27; — two different scores in one paragraph, an unedited &#x27;Actually&#x27; fragment, and a source link that is a Wikipedia page. Withdrawn.</p><div class="mut">Evidence: <a href="../data/matches.json" target="_blank" rel="noopener">../data/matches.json</a></div></div><div class="flagbox"><b>K-06 · MEDIUM · Hub prediction MLB01 asserts facts no official page supports</b>
+<p>Venue, date and both records are confirmed (Milwaukee 103-59, Tampa Bay 98-64, Game 1 on 23 October at American Family Field). The &#x27;seven-game ALCS&#x27;, the 52-29 home record and the bullpen ERAs are not on any official page read today; they are removed and the row carries a Medium pick with no write-up.</p><div class="mut">Evidence: <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-21&amp;endDate=2026-10-27" target="_blank" rel="noopener">https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-21&amp;endDate=2026-10-27</a></div></div><div class="flagbox"><b>K-07 · MEDIUM · The hub&#x27;s &#x27;match&#x27; table mixes tournaments, futures and off-season notes into fixtures</b>
+<p>ATP, WTC, snooker, darts, golf, badminton, table-tennis, volleyball, handball, esports and AFL rows are tournaments or look-aheads with picks attached, not head-to-head matches. They remain in the hub and are excluded from this board, which lists matches only.</p><div class="mut">Evidence: <a href="../data/matches.json" target="_blank" rel="noopener">../data/matches.json</a></div></div><div class="flagbox"><b>K-08 · LOW · Completed fixtures were published as upcoming picks</b>
+<p>Four hub rows dated 20 October were already final when the hub was published (status still &#x27;Scheduled&#x27;). This board publishes them as FINAL with the official score and grades the earlier pick.</p><div class="mut">Evidence: <a href="https://www.nba.com/games?date=2026-10-20" target="_blank" rel="noopener">https://www.nba.com/games?date=2026-10-20</a></div></div><div class="flagbox"><b>K-09 · HIGH · Cross-session overwrite of Build A/B data is still unresolved</b>
+<p>Board J recorded that commit cf9f024 rewrote Build A&#x27;s data/rows.json and Build B&#x27;s data/predictions.json. The pre-overwrite files are recoverable at 5918922. This session did not touch either file — the owning builds must confirm or restore. Logged in COORDINATION.md rather than fixed unilaterally.</p><div class="mut">Evidence: <a href="https://github.com/buffedlizard55-lab/OLBG4/commit/cf9f024" target="_blank" rel="noopener">https://github.com/buffedlizard55-lab/OLBG4/commit/cf9f024</a></div></div><div class="flagbox"><b>K-10 · LOW · 13 in-scope sports have no verified fixture on this board</b>
+<p>Cricket, rugby union, rugby league, snooker, darts, tennis, golf, badminton, table tennis, volleyball, handball, esports and Aussie rules could not be re-verified from an official page in this sandbox today. No value from those sports is asserted here; the rows stay in their owning builds and are marked &#x27;not re-verified&#x27; in the verification log.</p><div class="mut">Evidence: <a href="verification.html" target="_blank" rel="noopener">verification.html</a></div></div><div class="flagbox"><b>K-11 · LOW · One NBA fixture is missing from this board rather than guessed</b>
+<p>NBA.com lists 12 games for 23 October 2026. Eleven were captured in full; the twelfth was truncated at a page-chunk boundary during retrieval. It is omitted, and the NBA page states so, instead of being rebuilt from memory.</p><div class="mut">Evidence: <a href="https://www.nba.com/schedule?date=2026-10-22" target="_blank" rel="noopener">https://www.nba.com/schedule?date=2026-10-22</a></div></div><div class="card"><h3>Not flagged, recorded for completeness</h3>
+<ul><li>Excluded sports (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials)
+appear nowhere on this board.</li>
+<li>The hub's Gaelic Football rows are outside this brief's scope; they are left untouched on the owning page
+and are not repeated here.</li></ul></div></main>
+<footer><div class="wrap">Every fixture on this site links to the official governing-body page it was
+read from on 2026-10-21 (UTC). Values that could not be confirmed are blank and flagged, never inferred.
+18+ · analysis, not betting advice. · <a href="../index.html">All builds</a> ·
+<a href="https://github.com/buffedlizard55-lab/OLBG4">Repository</a></div></footer>
+<script>
+document.querySelectorAll('[data-filter]').forEach(function(inp){
+  var tbl=document.getElementById(inp.dataset.filter);
+  inp.addEventListener('input',function(){
+    var q=inp.value.toLowerCase();
+    tbl.querySelectorAll('tbody tr').forEach(function(tr){
+      tr.style.display = tr.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+});
+document.querySelectorAll('[data-select]').forEach(function(sel){
+  var tbl=document.getElementById(sel.dataset.select);
+  sel.addEventListener('change',function(){
+    tbl.querySelectorAll('tbody tr').forEach(function(tr){
+      tr.style.display = (sel.value==='all'||tr.dataset[sel.dataset.key]===sel.value) ? '' : 'none';
+    });
+  });
+});
+</script></body></html>
