@@ -4,7 +4,7 @@ Two sessions worked this repo in parallel. This file is the merged board: board 
 verbatim as the owning session wrote it, board B is appended, and the cross-session conflict
 that had to be resolved at integration is logged at the bottom.
 
-Last board update: 2026-10-21T07:45Z · integration owner: `arena/7114b6a1-olbg4`
+Last board update: 2026-10-21T08:15Z · integration owner: `arena/7114b6a1-olbg4`
 
 ---
 
@@ -43,7 +43,7 @@ Session `7114b6a1` · branch `arena/7114b6a1-olbg4` · sole claim on the B scope
 | B3 | High-confidence prediction write-ups w/ official sources | done | 7114b6a1 | `data/predictions.json` |
 | B4 | Site build (landing + category/sport pages + flagged page) | done | 7114b6a1 | `session-7114b6a1/`, `assets/` |
 | B5 | Line-by-line verification + link check | done | 7114b6a1 | `scripts/verify.py`, `data/verification.json` |
-| B6 | Integration with board A, PR to `main`, merge, Pages deploy | in progress | 7114b6a1 | repo root, `COORDINATION.md`, `docs/index.html` |
+| B6 | Integration with board A, PR to `main`, merge, Pages deploy | done | 7114b6a1 | repo root, `COORDINATION.md`, `docs/index.html` |
 
 At claim time `git branch -a` showed only `main` and `arena/7114b6a1-olbg4`; board A's
 branches had already been merged and deleted, so the claim did not collide. Board A's
@@ -127,3 +127,14 @@ Resolution (no work discarded):
   left as build A's redirect, `docs/index.html` gained one additive banner linking the two builds.
 - 2026-10-21T08:00Z — `7114b6a1` — whole-site link audit over HTTP: 37 HTML files, 509 local links, **0 broken**.
   Build B's own gate: 13/13 checks pass, 50 flagged items published, 23 official / 13 secondary prediction facts.
+
+## Publish record (final integration session `7114b6a1`)
+
+* PR: **https://github.com/buffedlizard55-lab/OLBG4/pull/3** — "OLBG4: verified 116-fixture inventory, own-line model, 9 sourced predictions, Pages dashboard"
+* Merge result: **MERGED** via `gh pr merge 3 --merge` at 2026-10-21T05:21:47Z (UTC), merge commit `5072ea5a66c7fc4ea3471cb044073c9ad4a3e4db`. First attempt was rejected with a merge conflict caused by board A's PRs #1/#2 landing mid-build; resolved as logged above and merged on the rebased branch.
+* GitHub Pages: build for commit `5072ea5` reported **built** (build duration ~36s, `gh api repos/…/pages/builds/latest`).
+* Live URLs checked after deploy:
+  * https://buffedlizard55-lab.github.io/OLBG4/ → build A landing, now carrying the two-build banner
+  * https://buffedlizard55-lab.github.io/OLBG4/docs/ → build A dashboard (144 rows)
+  * https://buffedlizard55-lab.github.io/OLBG4/session-7114b6a1/index.html → build B dashboard (116 rows, 9 high-confidence picks, 50 flags)
+* Pre-merge gate: 37 HTML files, 509 local links, **0 broken**; `scripts/verify.py --links` 13/13 checks pass.
