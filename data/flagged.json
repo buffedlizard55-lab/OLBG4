@@ -135,6 +135,20 @@
    "source": "https://www.olbg.com/betting-tips"
   },
   {
+   "type": "cross_session",
+   "sport": "Gaelic Football",
+   "what": "Excluded sport present in the other build",
+   "detail": "Build A (session f0402305, live at /docs/) publishes 2 Gaelic Football rows and a Gaelic Football sport page. Gaelic football is on the exclusion list in both sessions' brief. The rows were left in place rather than deleted, and are flagged here for your decision.",
+   "source": "https://buffedlizard55-lab.github.io/OLBG4/docs/sports/gaelic-football.html"
+  },
+  {
+   "type": "cross_session",
+   "sport": "Golf / Motor Racing",
+   "what": "Two sports with outright markets only",
+   "detail": "Build A lists Golf and Motor Racing as included sports. Both are race/tournament-winner markets with no head-to-head match lines, so they cannot carry a per-match line; build B could not capture either as a match sport (OLBG ids not observed).",
+   "source": "https://www.olbg.com/best-tipsters"
+  },
+  {
    "type": "model_assumption",
    "sport": "Tennis",
    "what": "Tennis: total_basis",

@@ -81,7 +81,7 @@ predictions on non-high rows · shortest prediction 103 words · 0 duplicate bod
 36/36 fact URLs (23 official / 13 secondary) · 257 local links, 0 broken · 139 unique sources.
 Re-checked over HTTP after the move: all pages 200.
 
-### Irregularities (published on `session-7114b6a1/flagged.html`, 48 items)
+### Irregularities (published on `session-7114b6a1/flagged.html`, 50 items)
 1. Afghanistan v Bangladesh 3rd ODI venue contradicts itself (Sharjah vs Abu Dhabi) — blank.
 2. OLBG renders clock times in the viewer's timezone (5h behind UK on a dated cross-check) — printed verbatim, never converted.
 3. Snooker fixture/format sourced from snooker.org, not WST (tagged secondary).
@@ -120,7 +120,10 @@ Resolution (no work discarded):
 - 2026-10-21T06:00Z — `7114b6a1` — B2 done: model + config, board.json (9/53/54).
 - 2026-10-21T06:20Z — `7114b6a1` — B3 done: 9 predictions, 36 sourced facts, declared gaps.
 - 2026-10-21T06:45Z — `7114b6a1` — B4 done: 18 pages + assets, relative links only.
-- 2026-10-21T07:00Z — `7114b6a1` — B5 done: 13/13 checks pass, 0 broken links, 48 flags.
+- 2026-10-21T07:00Z — `7114b6a1` — B5 done: 13/13 checks pass, 0 broken links, 50 flags.
 - 2026-10-21T07:20Z — `7114b6a1` — PR #3 opened.
 - 2026-10-21T07:35Z — `7114b6a1` — `gh pr merge 3` rejected: merge conflict with board A's merged work. Rebased, resolved as above.
-- 2026-10-21T07:50Z — `7114b6a1` — both sites served locally: all pages 200, every local href resolves.
+- 2026-10-21T07:50Z — `7114b6a1` — integration committed: build B moved to `session-7114b6a1/`, root `index.html`
+  left as build A's redirect, `docs/index.html` gained one additive banner linking the two builds.
+- 2026-10-21T08:00Z — `7114b6a1` — whole-site link audit over HTTP: 37 HTML files, 509 local links, **0 broken**.
+  Build B's own gate: 13/13 checks pass, 50 flagged items published, 23 official / 13 secondary prediction facts.

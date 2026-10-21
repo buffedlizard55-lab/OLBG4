@@ -12,6 +12,8 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
+OUT = ROOT / "session-7114b6a1"
+OUT.mkdir(exist_ok=True)
 
 board = json.loads((DATA / "board.json").read_text())
 preds = json.loads((DATA / "predictions.json").read_text())
@@ -66,6 +68,7 @@ def nav(active=""):
         ("flagged.html", "Flagged for review"),
         ("verification.html", "Verification"),
         ("methodology.html", "Method"),
+        ("../docs/index.html", "Other build (A) ↗"),
     ]
     out = []
     for u, t in links:
@@ -223,7 +226,7 @@ and has deliberately <b>not</b> been converted. See <a href="flagged.html">flags
 </div>
 """
 
-(ROOT / "index.html").write_text(page("Dashboard", "index.html", index_body))
+(OUT / "index.html").write_text(page("Dashboard", "index.html", index_body))
 
 # ---------------------------------------------------------------- sport pages
 for sport, slug, cat in SPORTS:
@@ -279,7 +282,7 @@ for sport, slug, cat in SPORTS:
         else:
             body.append("<p class='small'>None — every row had a rendered tip count.</p>")
     body.append('<p class="small" style="margin-top:26px"><a href="index.html">← back to dashboard</a></p>')
-    (ROOT / f"{slug}.html").write_text(page(f"{sport} fixtures", f"{slug}.html", "".join(body)))
+    (OUT / f"{slug}.html").write_text(page(f"{sport} fixtures", f"{slug}.html", "".join(body)))
 
 # ---------------------------------------------------------------- predictions
 pred_body = ['<p class="eyebrow">High confidence only</p><h1>Written predictions</h1>',
@@ -307,7 +310,7 @@ for mid, p in pred_by_id.items():
   <ul class="srclist">{unv}</ul>
   <p class="small"><a href="index.html">← dashboard</a></p>
 </article>""")
-(ROOT / "predictions.html").write_text(page("Predictions", "predictions.html", "".join(pred_body)))
+(OUT / "predictions.html").write_text(page("Predictions", "predictions.html", "".join(pred_body)))
 
 # ---------------------------------------------------------------- futures
 fut_rows = "".join(
@@ -324,7 +327,7 @@ kept out of the match board and carry no handicap or total line. Consensus figur
 <th class="num">Tips</th><th class="num">%</th><th>Listed start</th><th>Source</th></tr></thead>
 <tbody>{fut_rows}</tbody></table></div>
 <p class="small">Rugby League's Super League and NRL rows are 2027 outrights, which is why that sport has no fixtures on the board.</p>"""
-(ROOT / "futures.html").write_text(page("Futures", "futures.html", fut_body))
+(OUT / "futures.html").write_text(page("Futures", "futures.html", fut_body))
 
 # ---------------------------------------------------------------- flagged
 groups = {}
@@ -340,8 +343,9 @@ labels = {
     "unverified": "Could not be confirmed from an official source",
     "capture_gap": "Capture gaps on the OLBG side",
     "prediction_gap": "Prediction gaps declared in the write-ups",
+    "cross_session": "Cross-session review (other build)",
 }
-for t in ["source_conflict", "unverified", "capture_gap", "prediction_gap", "model_assumption"]:
+for t in ["source_conflict", "cross_session", "unverified", "capture_gap", "prediction_gap", "model_assumption"]:
     if t not in groups:
         continue
     flag_body.append(f'<h2>{labels[t]}</h2><div class="tablewrap"><table><thead><tr><th>Sport / area</th>'
@@ -353,7 +357,7 @@ for t in ["source_conflict", "unverified", "capture_gap", "prediction_gap", "mod
         flag_body.append(f'<tr><td>{esc(it.get("sport",""))}</td><td>{esc(it["what"])}</td>'
                          f'<td class="small">{esc(it["detail"])}</td><td>{srclink}</td></tr>')
     flag_body.append("</tbody></table></div>")
-(ROOT / "flagged.html").write_text(page("Flagged for review", "flagged.html", "".join(flag_body)))
+(OUT / "flagged.html").write_text(page("Flagged for review", "flagged.html", "".join(flag_body)))
 
 # ---------------------------------------------------------------- verification
 v = verif["summary"]
@@ -383,7 +387,7 @@ ver_body = f"""<p class="eyebrow">Line-by-line</p><h1>Verification log</h1>
 <li><b>Our own lines</b> are not facts and are never presented as verified data — they are model output driven by the constants on the method page.</li>
 <li><b>Blank beats wrong</b>: where a value was missing or contradictory it is blank in the tables and listed in the flags file.</li>
 </ul>"""
-(ROOT / "verification.html").write_text(page("Verification", "verification.html", ver_body))
+(OUT / "verification.html").write_text(page("Verification", "verification.html", ver_body))
 
 # ---------------------------------------------------------------- methodology
 const_rows = "".join(
@@ -437,6 +441,6 @@ average we cite it, otherwise the constant is a stated assumption and is flagged
 <li>No injury, selection, weather or travel information is modelled, because none of it could be verified systematically inside one capture.</li>
 <li>Times are shown exactly as OLBG served them and are not converted between timezones.</li>
 </ul>"""
-(ROOT / "methodology.html").write_text(page("Method", "methodology.html", method_body))
+(OUT / "methodology.html").write_text(page("Method", "methodology.html", method_body))
 
 print("wrote", len(SPORTS) + 6, "pages")

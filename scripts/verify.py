@@ -16,6 +16,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
+OUT = ROOT / "session-7114b6a1"
 
 board = json.loads((DATA / "board.json").read_text())
 preds = json.loads((DATA / "predictions.json").read_text())
@@ -105,7 +106,7 @@ link_count = 0
 broken = []
 if "--links" in sys.argv:
     local_targets = set()
-    for page in ROOT.glob("*.html"):
+    for page in OUT.glob("*.html"):
         html_text = page.read_text()
         for href in re.findall(r'href="([^"]+)"', html_text):
             if href.startswith(("http://", "https://", "mailto:", "#")):
@@ -115,7 +116,7 @@ if "--links" in sys.argv:
                 continue
             link_count += 1
             local_targets.add(target)
-            if not (ROOT / target).exists():
+            if not (OUT / target).exists():
                 broken.append(f"{page.name} -> {href}")
     add("Internal link audit (no broken local links)", not broken, f"{link_count} local links, {len(broken)} broken",
         "Every href that is not absolute is resolved against the repo root; Pages serves these from /.", hard=True)

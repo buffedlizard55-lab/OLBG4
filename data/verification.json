@@ -7,8 +7,8 @@
   "secondary_facts": 13,
   "min_pred_words": 103,
   "duplicate_bodies": 0,
-  "source_links": 139,
-  "local_links": 257,
+  "source_links": 140,
+  "local_links": 275,
   "broken_local_links": 0,
   "high": 9
  },
@@ -82,13 +82,13 @@
   {
    "check": "Source links collected",
    "pass": true,
-   "result": "139 unique sources",
+   "result": "140 unique sources",
    "detail": "Counted across inventory rows, prediction facts and flags."
   },
   {
    "check": "Internal link audit (no broken local links)",
    "pass": true,
-   "result": "257 local links, 0 broken",
+   "result": "275 local links, 0 broken",
    "detail": "Every href that is not absolute is resolved against the repo root; Pages serves these from /."
   }
  ],
