@@ -542,6 +542,29 @@ Rules honoured: no file owned by another board is edited; requests for changes t
 - **PR #22** — https://github.com/buffedlizard55-lab/OLBG4/pull/22 — checks `Validate data and site` + `Repository-wide publication audit` both pass; **MERGED** 2026-10-21T06:54:56Z as `1bb0964`.
 - **Pages deploy:** `pages build and deployment` + `Deploy OLBG4 to GitHub Pages` both `success` on `1bb0964`; Pages API `builds/latest` = `built`, commit `1bb0964`, error none. Live: https://buffedlizard55-lab.github.io/OLBG4/session-e1e0c27e/ (Flagged page fetched over HTTPS and confirmed to render all 13 findings).
 
+## Board L — session `arena/093bfd5e-olbg4` (final-integration fix: hub verified flags + fresh official spot-checks)
+
+Claimed: 2026-10-21 · Branch: `arena/093bfd5e-olbg4` (fixed Arena branch for this session; no other branch created) · Owner: `093bfd5e`
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| L1 | Claim board, push immediately | done | 093bfd5e | `COORDINATION.md` |
+| L2 | Fresh line-by-line re-check of all 15 High-confidence hub rows against official sources (fetch official pages today); correct `verified`/`flagged` only where evidence supports it — unconfirmed values not inferred | done | 093bfd5e | `data/matches.json`, `session-093bfd5e/**` |
+| L3 | Fix Board J F-01: rows marked verified on non-official domains (ESPN/Wikipedia/OLBG/blogs etc.) → set `verified:false, flagged:true` with reason, keep source link for manual review; do not delete rows | done | 093bfd5e | `data/matches.json`, `flagged.html` (additive section only) |
+| L4 | Publish Board L audit dashboard (per-row official/secondary classification, spot-check outcomes, irregularities) | done | 093bfd5e | `session-093bfd5e/**`, additive portal card in `index.html` |
+| L5 | Full-repo internal-link check + JSON validity; PR to main, merge without waiting, confirm Pages deploy, record PR here | done | 093bfd5e | — |
+
+Rules: every corrected row keeps an official-source link where one exists; if a fixture cannot be confirmed on an official site today it stays published, `verified:false`, flagged on Flagged for Review (non-blocking). No other board's files edited.
+
+### Board L completion record (2026-10-21, session arena/093bfd5e-olbg4)
+- Spot-checks re-opened today on official sites (evidence + URLs in `session-093bfd5e/audit.json`): NBA.com schedule release (BOS@DET, PHI@NYK, OKC@SAS Oct 20 confirmed), MLB.com (Rays @ Brewers World Series Game 1, Fri Oct 23, American Family Field confirmed), NHL.com schedule 2026-10-20 (all Oct 20 results + Oct 21 PHI@BUF/FLA@OTT), cricket.com.au (SA v AUS 2nd Test Oct 18-23 St George's Park; AUS-W ODIs v BAN-W Oct 9/11/14 Allan Border Field), euroleaguebasketball.net (Round 7 Oct 22 Partizan v Zvezda + Efes v Besiktas), world.rugby Nations Championship match pages (IRE-ARG Nov 6, ITA-RSA Nov 7, SCO-NZL Nov 7, WAL-JPN Nov 7, FRA-FIJ Nov 7, ENG-AUS Nov 8), bwfbadminton.com (French Open Oct 20-25, Arena Grand Paris, An Se-young).
+- Applied to hub `data/matches.json` via `session-093bfd5e/fix_and_audit.py` (idempotent, re-run = 0 changes): 16 source upgrades to official domains, 5 NHL status corrections to completed results, 19 rows downgraded verified->unverified+flagged (secondary source only: ESPN x7 incl. NBA/NHL, Wikipedia, OLBG, Sky, cricinfo, basketnews, etusuora, tempo, montpellier.fr, usatoday-data). After fix: 47/66 rows on official domains, 30 verified-unflagged, 36 flagged/unverified (all published, non-blocking), 15 High picks min 68 words, 0 duplicate predictions, 0 excluded-sport rows.
+- Irregularities published on `session-093bfd5e/flagged.html` + root `flagged.html`: NHL01/NHL02/NHL04 picks settled & lost (flagged, not deleted); NHL06 moneyline won but -1.5 puck line did not cover OT win; NBA01-03 & CRK06 stale 'Scheduled' after dates passed; EL02/NHL04 prediction-text editorial artifacts left verbatim and flagged. Prediction form claims were not re-verified except where today's official pages stated them — disclosed in audit.
+- Verification: full-repo internal-link scan 0 broken; JSON valid (matches/sources/audit); local HTTP 200 for /, /session-093bfd5e/, its flagged page and /flagged.html. No other board's files edited (only additive portal card in index.html + additive section in flagged.html).
+- PR: recorded below after merge.
+
+> Merge note (Board L / 093bfd5e): both this session and session 5838b25d independently chose 'Board K'; both records retained verbatim, this one renamed Board L to disambiguate. No work discarded.
+
 ---
 
 ## Board K — session `arena/5838b25d-olbg4` (reproducibility audit)
