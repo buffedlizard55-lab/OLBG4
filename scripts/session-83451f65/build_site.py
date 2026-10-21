@@ -169,6 +169,9 @@ SPORT_NOTE = {
 }
 
 
+INSCOPE = [s for s in C["sports"] if s["scope"].startswith("included")]
+
+
 def build_index():
     bysport = defaultdict(list)
     for r in ENTRIES:
@@ -200,7 +203,7 @@ def build_index():
 </section>
 <section class="kpis">
   {kpi(len(ENTRIES), "verified fixtures", "every row carries an official link")}
-  {kpi(len(SPORT_ORDER), "sports published", "of 20 in scope — see coverage")}
+  {kpi(len(SPORT_ORDER), "sports published", f"of {len(INSCOPE)} in scope — see coverage")}
   {kpi(sum(1 for r in ENTRIES if r["pick"]), "match-winner picks", "each with our own price")}
   {kpi(sum(1 for r in ENTRIES if r["confidence"] == "High"), "high confidence", "written up and fact-checked")}
   {kpi(0, "inferred values", "blank where the source is silent")}
