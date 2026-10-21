@@ -234,6 +234,8 @@ def clean_team(s: str) -> str:
         s = re.split(r"[\u2014\u2013]", s)[-1].strip()
     if " - " in s and s.count(" ") > 3:
         s = s.rsplit(" - ", 1)[-1].strip()
+    if re.fullmatch(r"[^()]{2,40}\s*\([^()]*\)", s):
+        s = re.sub(r"\s*\([^()]*\)\s*$", "", s).strip()
     return s
 
 
@@ -654,10 +656,13 @@ def main() -> None:
             row["status"] = "date-unconfirmed"
         row["sport_slug"] = SLUGS.get(row["sport"],
                                       re.sub(r"[^a-z0-9]+", "-", row["sport"].lower()).strip("-"))
+        blob = f'{row["home"]} {row["away"]}'
         placeholder = (re.search(r"\b(TBD|Field|Winner|Loser|Qualifiers?|Favourites?|Seeded|Players?|"
-                                 r"Finalists?|Top \d+|Round \d+|Spread|No pick)\b",
-                                 f'{row["home"]} {row["away"]}', re.I)
-                       or re.search(r"\d+%|\b\d{2}[A-Z/]", f'{row["home"]} {row["away"]}'))
+                                 r"Finalists?|Top \d+|Round \d+|Spread|No pick|Bo5|LCK|LPL|LEC|LCS|"
+                                 r"World Champions|Asian swing|Europe|Rest of)\b", blob, re.I)
+                       or re.search(r"\d+%|\b\d{2}[A-Z/]", blob)
+                       or "?" in blob
+                       or len(row["home"]) > 40 or len(row["away"]) > 40)
         row["row_type"] = "market-note" if placeholder else "fixture"
         if not row["home"] or not row["away"]:
             row["row_type"] = "incomplete"

@@ -1,4 +1,68 @@
-# OLBG4 — verified fixtures, our own lines, one official source per row
+# OLBG4 — reverse-engineered OLBG.com coverage, originated lines and verified predictions
+
+**Live site:** https://buffedlizard55-lab.github.io/OLBG4/ · **Data cut-off:** 2026-10-21 (UTC)
+
+## Start here — the merged master board
+
+The root of the site is a single dashboard built from every earlier build in this repository:
+
+| Page | What it shows |
+|---|---|
+| `/` | 308 in-scope rows across 18 sports, filterable by sport, confidence, market and verification, each row with its source link |
+| `/picks.html` | 69 high-confidence picks with written predictions (≥30 words, no duplicates, source under each one) |
+| `/markets.html` | Match winner / handicap / total coverage per sport, plus 23 outright markets |
+| `/flagged.html` | Everything unconfirmed: 1 contradicted row, 59 unverified rows, 15 cross-build model conflicts, 30 date discrepancies, 19 templated write-ups, 4 out-of-scope rows |
+| `/sources.html` | Every domain in use (76), classified official / secondary / OLBG, with the live re-check log |
+| `/audit.html` | Verification log: dataset totals, where each row came from, the evidence for every live check |
+| `/methodology.html` | How the list was assembled, how each build priced its lines, how confidence was graded, limitations |
+| `/archive.html` | The six earlier dashboards, all still online |
+| `/olbg.html` | Build B's OLBG-only inventory (116 fixtures, no official source — published separately on purpose) |
+
+Machine-readable: `data/master.json` (312 rows), `data/master_conflicts.json`, `data/source_registry.json`,
+`data/live_checks.json`, `data/master_olbg.json`.
+
+Rebuild and re-verify:
+
+```bash
+python3 tools/build_master.py        # merge the six builds -> data/master*.json
+python3 tools/build_master_site.py   # render 27 pages
+python3 tools/verify_master.py       # gate: sources, scope, predictions, links
+```
+
+`pages.yml` runs all three on every push to `main` and refuses to deploy if the committed dashboard is stale or any
+check fails.
+
+### What "verified" means here
+
+A row is marked **official source** only when its link is a league, tour, federation, organiser or regulator page *and* the
+build that produced it marked it verified. A second, independent badge — **re-checked live** — is applied only to rows this
+session re-opened against the official page on the cut-off date (30 rows). Rows that are neither are published anyway,
+marked unverified, and listed on the Flagged page. One row contradicts an official schedule and is marked **contradicted**.
+
+### Headline numbers
+
+- 312 rows total, 308 in scope, 18 sports (soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials excluded).
+- 267 genuine fixtures; 31 market notes and 10 incomplete rows are kept, flagged and hidden from the fixture view.
+- 280 rows carry an originated pick; 253 are official-sourced and build-verified; 30 were re-checked live today.
+- 121 non-templated written predictions (38–105 words, max pairwise similarity 0.40); 69 of them on high-confidence fixtures.
+- 15 fixtures have opposite picks in different builds — both sides published.
+
+---
+
+## Earlier root desks, preserved
+
+`main` served a different root page each time another session reached the integration step. Both previous versions are
+kept and linked from [`archive.html`](archive.html):
+
+- [`archive/root-f914d81/`](archive/root-f914d81/index.html) — the desk that served the root immediately before this board
+  (entries / predictions / analysis / coverage / six sport pages, plus its stylesheet).
+- [`archive/root-5775069/`](archive/root-5775069/index.html) — the version before that.
+
+Their text and markup are unchanged; only relative links were rebased one directory deeper so they still resolve. Their
+datasets (`data/matches.json`, `data/board_k/*`, `data/integrated/*`, `docs/`, `session-*/`) were not touched, and their
+own description of themselves is reproduced below.
+
+## OLBG4 — verified fixtures, our own lines, one official source per row
 
 
 The repository root is now a single verified line desk. Every published row was read on a
@@ -9,9 +73,9 @@ official page is silent the cell is blank, and the gap is published on the Flagg
 
 ---
 
-## Earlier builds (kept, unverified by this session)
+### Earlier builds (kept, unverified by this session)
 
-## Parallel final-integration attempts (kept, superseded at the root)
+### Parallel final-integration attempts (kept, superseded at the root)
 
 Two other sessions reached the integration step at the same time and their work is preserved rather than deleted:
 
@@ -27,7 +91,7 @@ Their root `index.html`/`methodology.html`/`sources.html`/`flagged.html` were re
 the brief gives the root landing to the final integration session; copies of the incoming versions are in the folders
 above and every one of their data files is untouched.
 
-## Latest: consolidated verified desk (Board L, 2026-10-21)
+### Latest: consolidated verified desk (Board L, 2026-10-21)
 
 **→ https://buffedlizard55-lab.github.io/OLBG4/docs/desk/**
 
@@ -63,14 +127,14 @@ above and every one of their data files is untouched.
 > `session-6b8d2d5f`). The root site is Board K's consolidated line desk; Build K2's dashboard stays published at
 > `session-6b8d2d5f/`, and its hub/flagged pages are preserved byte-for-byte in that folder. See COORDINATION.md.
 
-## Build A — `docs/` (137 rows after the overwrite; 144 originally)
+### Build A — `docs/` (137 rows after the overwrite; 144 originally)
 
 - `docs/` — static site: landing, one page per sport (basketball, ice-hockey, rugby-union/league, handball, darts, baseball, cricket, gaelic-football, volleyball, snooker, tennis, golf, motor-racing, greyhound-racing), Methodology & Markets, Flagged for Review
 - `data/rows.csv` / `data/rows.json` — every table row with model inputs, originated line, pick, confidence, verified basis, official source link, status
 - `build_site.py` + `gen_pages.py` — build Board A's dataset and render `docs/` (Model v1 formula documented in file + on Methodology page)
 - Snapshot: 21 Oct 2026 · Window: 21–25 Oct 2026
 
-## Build B — `session-7114b6a1/` (116 fixtures + 8 futures)
+### Build B — `session-7114b6a1/` (116 fixtures + 8 futures)
 
 - `data/match_inventory.json` — 116 fixtures across 11 sports, each with exact OLBG event URL (`?event_id=…`)
 - `data/model_config.json` — every model constant with `*_basis` (cited OLBG figure or explicit `MODEL ASSUMPTION`)
@@ -79,7 +143,7 @@ above and every one of their data files is untouched.
 - `data/flagged.json`, `data/verification.json` — review items + machine check log
 - `scripts/build_model.py` → `scripts/verify.py` → `scripts/build_site.py` (`scripts/README.md`)
 
-## Build C — `session-74f9613e/` (43 fixtures, 182 selections)
+### Build C — `session-74f9613e/` (43 fixtures, 182 selections)
 
 - `data/session-74f9613e/inputs.json` — 43 fixtures with verified start time, venue, source id; `inputs_verified` lists confirmations
 - `data/session-74f9613e/matches.json` — model output: own money-line, handicap, totals, 182 selections, pick, confidence band
@@ -91,7 +155,7 @@ above and every one of their data files is untouched.
 - `scripts/session-74f9613e/` — `prepare_inputs.py` → `model.py` → `prepare_inventory.py` → `build_site.py` → `validate.py`, wrapped by `build_all.sh`; validator exits non-zero on failure
 - CI: `.github/workflows/validate.yml` rebuilds all three data layers for this build and fails if committed output is stale
 
-## Build D — `/` hub + 15 category pages (66 entries, gov-body verified)
+### Build D — `/` hub + 15 category pages (66 entries, gov-body verified)
 
 - `index.html` — **primary hub dashboard** (all 66 entries filterable, KPIs, analysis) + banner linking to A/B/C
 - `tennis.html`, `basketball.html`, `baseball.html`, `cricket.html`, `rugby.html`, `ice-hockey.html`, `snooker.html`, `darts.html`, `golf.html`, `badminton.html`, `table-tennis.html`, `volleyball.html`, `handball.html`, `esports.html`, `aussie-rules.html` — filtered views of same `data/matches.json`
@@ -106,7 +170,7 @@ above and every one of their data files is untouched.
 
 ---
 
-## Build E — `session-4afef1af/` (refreshable pipeline, 90 fixtures)
+### Build E — `session-4afef1af/` (refreshable pipeline, 90 fixtures)
 
 The only build that refreshes itself. `pipeline/` pulls fixtures and results from
 `cdn.nba.com`, `api-web.nhle.com` and `statsapi.mlb.com`, fits margin and total ratings, and
@@ -124,7 +188,7 @@ pipeline and commits the refreshed snapshot.
 - Review page: 20 module claims checked against official endpoints, 5 row-level spot checks
   re-opened live, 9 irregularities found and handled.
 
-## Build K2 — `session-6b8d2d5f/` (parallel final-integration attempt: verified command center, 48 fixtures)
+### Build K2 — `session-6b8d2d5f/` (parallel final-integration attempt: verified command center, 48 fixtures)
 
 A parallel session also took the integration role: it re-opened the root hub row by row
 against official league endpoints, withdraws what the official data contradicts, and publishes a clean board
@@ -152,7 +216,7 @@ ALCS/bullpen claims) — all five write-ups withdrawn and graded or flagged, wit
 Neither `data/rows.json` nor `data/predictions.json` was edited: the cross-session overwrite recorded by Board J
 (K-09) is left to the owning builds.
 
-## Build J — `session-e1e0c27e/` (independent cross-build audit)
+### Build J — `session-e1e0c27e/` (independent cross-build audit)
 
 Audits, does not originate. `scripts/session-e1e0c27e/audit.py` reads every build's committed
 data (592 rows across A, B, C, D, E, G), classifies each row's source link as official / OLBG /
@@ -168,7 +232,7 @@ secondary, matches the same fixture across builds, and `build_site.py` renders s
   `data/predictions.json` with templated texts (F-11/F-12). Nothing in another build was edited by
   this session; requests are logged in `COORDINATION.md`.
 
-## Scope & exclusions (per brief)
+### Scope & exclusions (per brief)
 
 Excluded everywhere: **soccer, boxing, UFC/MMA, football (soccer), American football, hurling, horse racing, cycling, specials**.  
 Board A still contains 2 Gaelic Football rows (flagged, not deleted). Board C reads "football" in the brief as soccer (since hurling is named separately), so Gaelic appears as "no verified fixture in window" rather than priced — flagged transparently.
@@ -177,7 +241,7 @@ Board A still contains 2 Gaelic Football rows (flagged, not deleted). Board C re
 
 ---
 
-## Verification — how to manually review any entry
+### Verification — how to manually review any entry
 
 **Board D (primary hub — recommended for audit):**
 1. Open `index.html` or any `*.html` category page
@@ -193,7 +257,7 @@ All high-confidence predictions are ≥30 words and name team/player/form/H2H + 
 
 ---
 
-## GitHub Pages deploy
+### GitHub Pages deploy
 
 Site deploys on push to `main` via `.github/workflows/pages.yml` (+ `validate.yml` for Board C):
 
@@ -211,7 +275,7 @@ After merge, verify at:
 
 ---
 
-## Build G — `session-6e0f382d/` (140 matches + 24 outrights, 17 sports)
+### Build G — `session-6e0f382d/` (140 matches + 24 outrights, 17 sports)
 
 - `data/olbg-structure.json` — OLBG structure map (24 sections, URL patterns, markets, scope decisions)
 - `data/raw/*.json` — OLBG server-rendered feed as collected 2026-10-21 (150 matches/events + 14 outrights)
@@ -223,7 +287,7 @@ After merge, verify at:
 
 ---
 
-## Coordination for parallel sessions
+### Coordination for parallel sessions
 
 See `COORDINATION.md` — shared task board per brief:
 
@@ -235,16 +299,16 @@ See `COORDINATION.md` — shared task board per brief:
 
 ---
 
-## License & disclaimer
+### License & disclaimer
 
 Data curated from official public sources (linked per row). Code MIT-equivalent for site. **18+ — analysis, not betting advice.** Flagged irregularities do not block merge; they are published for your post-deploy review.
 
 
-## Board F — independent audit (`session-07a080b9/`)
+### Board F — independent audit (`session-07a080b9/`)
 Re-runnable line-by-line audit of Builds A–E: `python3 session-07a080b9/audit.py` → `session-07a080b9/index.html` + `audit.json`. Result 2026-10-21: D 66 rows/15 high (min 68 words), A 144, B 116/9 predictions (min 103 words per B gate), C 43/182 selections/10 predictions, E 90 fixtures/18 predictions; 87 HTML files, 1,576 internal links, **0 broken**; only open items are the 2 Gaelic rows in Build A (WARN, already flagged by Build B — published, non-blocking).
 
 
-## Board K — root-hub remediation and verification register (2026-10-21)
+### Board K — root-hub remediation and verification register (2026-10-21)
 
 The hub had been published as "66 entries, governing-body verified" with 15 high-confidence predictions. Board J's audit showed that 26 rows had no official link and that several predictions were contradicted by NHL.com, MLB.com and NRL.com. This session remediated the hub rather than adding another build.
 
@@ -262,9 +326,18 @@ Evidence came from `api-web.nhle.com` (score, game-centre right-rail, standings)
 
 Rebuild: `python3 scripts/board_k/build_hub.py`. The script asserts that no row is marked verified without a quoted evidence line, that no HIGH pick lacks a 30+ word unique prediction and two quoted facts, and that no prediction text is duplicated.
 
-## Board M — Unified 17-Sport Multi-Market Desk & Repo Audit (`session-e62da3b5/`)
+### Board M — Unified 17-Sport Multi-Market Desk & Repo Audit (`session-e62da3b5/`)
 Re-runnable generator and verification suite: `python3 scripts/session-e62da3b5/build_and_verify.py` → `data/session-e62da3b5/*.json` + `session-e62da3b5/` (24 HTML pages: Dashboard, All Markets, High-Confidence Predictions, Methodology & OLBG Reverse-Engineering, Official Sources Registry, Line-by-Line Repo Audit, Flagged for Review, and 17 sport subpages).
 - **172 match fixtures + 24 outrights = 196 entries across all 17 in-scope OLBG sports** (144 priced with Win/Handicap/Total lines; 28 unverified left blank and flagged).
 - **45 High-confidence predictions** (59–83 words each, 100% unique, naming both competitors, form, history, and selection) + 62 Medium + 65 Low picks.
 - Fixes 9 malformed `--0.5` double-minus handicaps and 2 Snooker attribution bugs (`9931` Elliot Slessor vs Jamie Jones; `9930` Sam Craigie vs Xu Si) found during our line-by-line review of Build G.
 
+
+---
+
+## Scope notes
+
+- Nothing was deleted. Build B's 116 OLBG-only fixtures live in `data/master_olbg.json` / `/olbg.html`; build D's 39
+  source-less rows stay in the master table, marked unverified, in the first block on `/flagged.html`.
+- The root pages are generated by `tools/build_master_site.py`. Hand edits are overwritten by the next build, and CI
+  fails if the committed copy is stale.
