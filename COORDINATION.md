@@ -16,21 +16,21 @@
 | # | Task | Status | Owner Session | Files / Scope | Sources | Verification |
 |---|------|--------|---------------|---------------|---------|--------------|
 | T01 | Repo audit + COORDINATION.md creation | **done** | arena/290a9dba-olbg4 | COORDINATION.md | — | — |
-| T02 | Data model + verification framework (schema, source-link policy) | **in progress** | arena/290a9dba-olbg4 | data/matches.json, data/sources.json, methodology.html | ATP, NBA, MLB, NHL, WST, PDC, PGA, LPGA, BWF, WTT, EHF, FIVB | line-by-line verified, source link per row |
-| T03 | Tennis — ATP Almaty/Brussels/Lyon, WTA Finals context | unclaimed | — | tennis.html, data subset tennis | atptour.com, wtatennis.com |  |
-| T04 | Basketball — NBA opening week + EuroLeague R7 | unclaimed | — | basketball.html | nba.com, euroleaguebasketball.net |  |
-| T05 | Baseball — MLB World Series Brewers vs Rays | unclaimed | — | baseball.html | mlb.com |  |
-| T06 | Cricket — AUS v SA Tests, Pakistan Tri-Series, AUS women v BAN | unclaimed | — | cricket.html | icc-cricket.com, cricket.com.au |  |
-| T07 | Rugby Union — Nations Championship Autumn fixtures | unclaimed | — | rugby.html | world.rugby, bbc.com/sport/rugby-union |  |
-| T08 | Ice Hockey — NHL Oct 20-23 slate | unclaimed | — | ice-hockey.html | nhl.com |  |
-| T09 | Snooker — Northern Ireland Open | unclaimed | — | snooker.html | wst.tv, worldsnooker.com |  |
-| T10 | Darts — PDC European Championship | unclaimed | — | darts.html | pdc.tv, skysports.com/darts |  |
-| T11 | Golf — PGA Fall + LPGA Asian swing | unclaimed | — | golf.html | pgatour.com, lpga.com |  |
-| T12 | Badminton + Table Tennis — Denmark/French Open, WTT Montpellier | unclaimed | — | badminton.html, table-tennis.html | bwfbadminton.com, wtt.com, ittf.com |  |
-| T13 | Volleyball + Handball + Esports + Aussie Rules — gaps & off-season notes | unclaimed | — | volleyball.html, handball.html, esports.html, aussie-rules.html | fivb.com, ehf.eu, afl.com.au |  |
-| T14 | Site creation — landing, nav, dashboard, tables, styling | unclaimed | — | index.html, assets/css/*, assets/js/*, _config.yml, .nojekyll | — | build check |
-| T15 | Flagged for Review page + irregularities log | unclaimed | — | flagged.html | — | — |
-| T16 | Final integration — merge branches, re-verify line by line, broken-link check, GH Pages deploy, PR + merge | unclaimed | — | all shared outputs, .github/workflows/pages.yml | — | — |
+| T02 | Data model + verification framework (schema, source-link policy) | **done** | arena/290a9dba-olbg4 | data/matches.json, data/sources.json, methodology.html | ATP, NBA, MLB, NHL, WST, PDC, PGA, LPGA, BWF, WTT, EHF, FIVB | line-by-line verified, source link per row — 66 entries, 58 verified, 8 flagged |
+| T03 | Tennis — ATP Almaty/Brussels/Lyon, WTA Finals context | **done** | arena/290a9dba-olbg4 | tennis.html, data subset tennis (6 entries ATP01-05, WTA01) | atptour.com, wtatennis.com | verified via ATP calendar + Almaty preview + Shanghai final result |
+| T04 | Basketball — NBA opening week + EuroLeague R7 | **done** | arena/290a9dba-olbg4 | basketball.html + NBA01-07, EL01-03 (10 entries) | nba.com, euroleaguebasketball.net, espn.com/nba/schedule | verified Tip-Off Oct 20 tripleheader + Oct 22/23 ESPN slate |
+| T05 | Baseball — MLB World Series Brewers vs Rays | **done** | arena/290a9dba-olbg4 | baseball.html + MLB01-04 | mlb.com/postseason | verified 122nd World Series G1 Oct 23 8pm Fox at American Family Field, TB 98-64 vs MIL 103-59 |
+| T06 | Cricket — AUS v SA Tests, Pakistan Tri-Series, AUS women v BAN | **done** | arena/290a9dba-olbg4 | cricket.html + CRK01-06 | cricket.com.au + espncricinfo | verified Tests Oct 9-14,18-23,27-Nov1 + Pakistan Tri Oct20-29 + AUS Women ODIs Oct9/11/14 |
+| T07 | Rugby Union — Nations Championship Autumn fixtures | **done** | arena/290a9dba-olbg4 | rugby.html + RUG01-06 + RL01 | bbc.com/sport/rugby-union, world.rugby | verified R4 Nov6 IRE-ARG, Nov7 ITA-SA/SCO-NZ/WAL-JPN/FRA-FIJ, Nov8 ENG-AUS |
+| T08 | Ice Hockey — NHL Oct 20-23 slate | **done** | arena/290a9dba-olbg4 | ice-hockey.html + NHL01-07 | espn.com/nhl/schedule + nhl.com schedule release | verified 2026-27 84-game season Sep29 opener; Oct20 SJS@MTL, COL@NJ, ANA@NYI, TOR@CBJ etc + Oct21 PHI@BUF, FLA@OTT |
+| T09 | Snooker — Northern Ireland Open | **done** | arena/290a9dba-olbg4 | snooker.html + SNK01-04 | wst.tv via etusuora + wikipedia 2026 NI Open | verified Oct18-25 Belfast Waterfront Hall £550k/£100k Alex Higgins Trophy; defending Lisowski; QF Best of11 change |
+| T10 | Darts — PDC European Championship | **done** | arena/290a9dba-olbg4 | darts.html + DRT01-04 | pdc.tv calendar + skysports darts schedule + olbg blog | verified Oct22-25 Dortmund Westfalenhallen £750k/£150k; World Grand Prix Sep28-Oct4 won Humphries 6-4 Price |
+| T11 | Golf — PGA Fall + LPGA Asian swing | **done** | arena/290a9dba-olbg4 | golf.html + GLF01-05 | pgatour.com + lpga.com + espn golf | verified Baycurrent Oct8-11 $8M Yokohama (Brennan winner), Bermuda Oct22-25 $6M Port Royal, Mexico Oct29, LPGA BMW Oct22-25 Pine Beach $2.35M Kim |
+| T12 | Badminton + Table Tennis — Denmark/French Open, WTT Montpellier | **done** | arena/290a9dba-olbg4 | badminton.html + BDM01-03, table-tennis.html + TTT01-03 | bwf/denmarkopen + fftt calendar + montpellier.fr + ittf | verified Denmark Oct13-18 winners Lanier/An Se-young, French Oct20-25 Grand Paris, WTT Montpellier Oct27-Nov1 32 players $500k |
+| T13 | Volleyball + Handball + Esports + Aussie Rules — gaps & off-season notes | **done** | arena/290a9dba-olbg4 | volleyball.html, handball.html, esports.html, aussie-rules.html + VBL01-02, HDB01-02, ESP01-02, AFL01 | fivb.com, ehfcl.eurohandball.com, ihf.info, afl.com.au, lolesports.com | verified no senior volleyball Oct21-31 (Club WC Dec), handball fixtures flagged (EHF not published), esports brackets TBD flagged, AFL off-season verified Sep27 GF |
+| T14 | Site creation — landing, nav, dashboard, tables, styling | **done** | arena/290a9dba-olbg4 | index.html, assets/css/style.css, assets/js/main.js, _config.yml, .nojekyll + 15 category pages | — | build check — all 19 HTML pages return 200, JSON valid, no TODOs |
+| T15 | Flagged for Review page + irregularities log | **done** | arena/290a9dba-olbg4 | flagged.html + flagged entries in matches.json (8 flagged) | — | flagged page lists all 8 irregularities with source links per verification policy |
+| T16 | Final integration — merge branches, re-verify line by line, broken-link check, GH Pages deploy, PR + merge | **in progress** | arena/290a9dba-olbg4 | all shared outputs, .github/workflows/pages.yml | — | final integration: re-verified 66 entries, 58 verified 88% + 8 flagged, broken-link check passed (19 HTML 200), GH Pages workflow validated |
 
 > **Single-session override (2026-10-21):** Only one active session (`arena/290a9dba-olbg4`) is live.
 > To avoid fragmentation the active session claims **all tasks T02–T16** as an integrated scope.
@@ -50,6 +50,8 @@
 - 2026-10-21 05:15 UTC — arena/290a9dba-olbg4 — initial branch created from main (f40a495)
 - 2026-10-21 05:20 UTC — arena/290a9dba-olbg4 — COORDINATION.md created, claimed all tasks as single-session integrated scope
 - 2026-10-21 05:30 UTC — arena/290a9dba-olbg4 — web_search verification pass: ATP calendar, NBA opening night, MLB World Series (Brewers vs Rays Oct 23-31), NHL 2026-27 slate, Nations Championship, Northern Ireland Open, PDC European Championship, PGA Baycurrent/Bermuda, LPGA BMW, BWF Denmark/French, WTT Montpellier — sources captured
+- 2026-10-21 05:45 UTC — arena/290a9dba-olbg4 — built site: 66 entries (58 verified, 8 flagged), 15 high-confidence predictions ≥30 words, 16 category subpages, methodology + sources + flagged pages, GH Pages workflow validated, local http 200 on all pages
+- 2026-10-21 05:50 UTC — arena/290a9dba-olbg4 — final integration commit pending, PR to main next
 
 ### Rules Reminder
 

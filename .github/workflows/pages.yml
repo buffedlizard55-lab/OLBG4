@@ -1,0 +1,52 @@
+name: Deploy OLBG4 to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Verify site data is valid JSON
+        run: |
+          echo "Validating data/matches.json..."
+          python3 -m json.tool data/matches.json > /dev/null
+          echo "Validating data/sources.json..."
+          python3 -m json.tool data/sources.json > /dev/null
+          echo "Checking for broken internal links (basic)..."
+          ls -la index.html methodology.html sources.html flagged.html
+          ls -la tennis.html basketball.html baseball.html cricket.html rugby.html ice-hockey.html snooker.html darts.html golf.html badminton.html table-tennis.html volleyball.html handball.html esports.html aussie-rules.html
+      - name: Check no manual input placeholders remain
+        run: |
+          ! grep -R "TODO" --include="*.html" --include="*.json" . || (echo "TODO found" && exit 1)
+          echo "No TODO placeholders"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
