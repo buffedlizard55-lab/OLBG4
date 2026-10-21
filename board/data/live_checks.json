@@ -1,0 +1,370 @@
+{
+ "schema": "olbg4.live_checks/1",
+ "checked_on": "2026-10-21",
+ "method": "Each check re-opened the official page named in the row's source column (or the governing body's own JSON endpoint) and compared the fixture, date and venue with what the build recorded. The evidence field quotes the page as served on 2026-10-21. Where an official page could not be read (JavaScript shell, cookie wall) the check is recorded as 'not-readable' and the row is not marked confirmed.",
+ "checks": [
+  {
+   "id": "LC-01",
+   "sport": "Ice Hockey",
+   "teams": [
+    [
+     "Florida Panthers",
+     "Pittsburgh Penguins"
+    ]
+   ],
+   "claims_checked": [
+    "Florida Panthers at Pittsburgh Penguins on 22 October 2026",
+    "Face-off 7:00 PM EDT",
+    "Venue PPG Paints Arena, Pittsburgh"
+   ],
+   "source_url": "https://www.nhl.com/gamecenter/fla-vs-pit/2026/10/22/2026020158",
+   "evidence": "Page title 'Florida Panthers - Pittsburgh Penguins - Oct 22, 2026 | NHL.com'; body shows '7:00 PM EDT 10/22/2026' and 'Location PPG Paints Arena, Pittsburgh'. Records shown: Florida 5-2-2, Pittsburgh 3-6-1.",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-02",
+   "sport": "Ice Hockey",
+   "teams": [
+    [
+     "Nashville Predators",
+     "Boston Bruins"
+    ],
+    [
+     "New York Rangers",
+     "Toronto Maple Leafs"
+    ],
+    [
+     "San Jose Sharks",
+     "Ottawa Senators"
+    ],
+    [
+     "Anaheim Ducks",
+     "New Jersey Devils"
+    ],
+    [
+     "Florida Panthers",
+     "Pittsburgh Penguins"
+    ]
+   ],
+   "claims_checked": [
+    "12 NHL games scheduled on 22 October 2026",
+    "Nashville at Boston, TD Garden, 23:00Z",
+    "NY Rangers at Toronto, Scotiabank Arena",
+    "San Jose at Ottawa, Canadian Tire Centre",
+    "Anaheim at New Jersey, Prudential Center",
+    "Florida at Pittsburgh, PPG Paints Arena"
+   ],
+   "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+   "evidence": "League JSON: numberOfGames 12; 2026020154 NSH at BOS, venue TD Garden, startTimeUTC 2026-10-22T23:00:00Z; 2026020155 NYR at TOR; 2026020156 SJS at OTT; 2026020157 ANA at NJD; 2026020158 FLA at PIT.",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-03",
+   "sport": "Baseball",
+   "teams": [
+    [
+     "Tampa Bay Rays",
+     "Milwaukee Brewers"
+    ]
+   ],
+   "claims_checked": [
+    "Game 1 on 23 Oct at American Family Field, Rays away, Brewers home",
+    "Game 2 on 24 Oct at American Family Field",
+    "Game 3 on 26 Oct at Tropicana Field, Brewers away",
+    "Game 4 on 27 Oct at Tropicana Field",
+    "Game 5 (if necessary) on 28 Oct",
+    "No game scheduled on 25 Oct"
+   ],
+   "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-28",
+   "evidence": "MLB StatsAPI returns five games: officialDate 2026-10-23 (gamePk 849805, 'World Series Game 1', Tampa Bay Rays at Milwaukee Brewers, American Family Field), 10-24 (849802, Game 2), 10-26 (849804, Game 3, Brewers at Rays, Tropicana Field), 10-27 (849803, Game 4), 10-28 (849799, Game 5 'If Necessary Game'). No date entry exists for 2026-10-25.",
+   "result": "confirmed",
+   "irregularity": "Build E lists a Milwaukee Brewers v Tampa Bay Rays fixture on 2026-10-25. MLB's official schedule has no game that day, so that row contradicts its official source. It is kept, marked unverified and published on Flagged for Review.",
+   "contradicts": [
+    {
+     "sport": "Baseball",
+     "teams": [
+      "Milwaukee Brewers",
+      "Tampa Bay Rays"
+     ],
+     "date": "2026-10-25",
+     "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-28"
+    }
+   ]
+  },
+  {
+   "id": "LC-04",
+   "sport": "Rugby Union",
+   "teams": [
+    [
+     "Cardiff Rugby",
+     "Hollywoodbets Sharks"
+    ],
+    [
+     "Connacht",
+     "Zebre Parma"
+    ],
+    [
+     "Edinburgh",
+     "10bet Lions"
+    ]
+   ],
+   "claims_checked": [
+    "Cardiff Rugby v Hollywoodbets Sharks, Fri 23 Oct, 14:45, Cardiff Arms Park",
+    "Connacht v Zebre Parma, Fri 23 Oct, 14:45, Dexcom Stadium",
+    "Edinburgh v 10bet Lions, Fri 23 Oct, 14:45, Hive Stadium",
+    "All kick-off times shown are local"
+   ],
+   "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+   "evidence": "URC Match Centre round 4: 'FRI, 23 OCT - 14:45 CAR v SHA ... Cardiff Arms Park', 'CON v ZEB ... Dexcom Stadium', 'EDI v LIO ... Hive Stadium', with the note 'All times shown are Local'.",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-05",
+   "sport": "Handball",
+   "teams": [
+    [
+     "Dinamo Bucuresti",
+     "SAH - Aarhus"
+    ],
+    [
+     "Aalborg Handbold",
+     "RK Celje Pivovarna Lasko"
+    ],
+    [
+     "Kolstad Handball",
+     "SC Magdeburg"
+    ],
+    [
+     "Barça",
+     "Montpellier Handball"
+    ]
+   ],
+   "claims_checked": [
+    "Dinamo Bucuresti v SAH - Aarhus on 21 Oct at 18:45",
+    "Aalborg Handbold v RK Celje Pivovarna Lasko on 21 Oct at 20:45",
+    "Kolstad Handball v SC Magdeburg on 22 Oct at 20:45",
+    "Barça v Montpellier Handball on 22 Oct"
+   ],
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+   "evidence": "EHF Champions League page: 21 Oct block lists 'EHF CL - M 18:45 Dinamo Bucuresti 0 SAH - Aarhus 0' and 'Aalborg Håndbold 0 RK Celje Pivovarna Laško 0' (20:45); 22 Oct block lists 'Kolstad Håndball 0 SC Magdeburg 0' (20:45) and 'Barça 0 Montpellier Handball 0'.",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-06",
+   "sport": "Darts",
+   "teams": [
+    [
+     "Luke Woodhouse",
+     "Dirk van Duijvenbode"
+    ],
+    [
+     "Danny Noppert",
+     "Stephen Bunting"
+    ],
+    [
+     "Niels Zonneveld",
+     "Cameron Menzies"
+    ],
+    [
+     "Gerwyn Price",
+     "Rob Cross"
+    ],
+    [
+     "James Wade",
+     "Damon Heta"
+    ],
+    [
+     "Luke Humphries",
+     "Ryan Searle"
+    ],
+    [
+     "Gian van Veen",
+     "Andrew Gilding"
+    ],
+    [
+     "Ross Smith",
+     "Karel Sedlacek"
+    ]
+   ],
+   "claims_checked": [
+    "The eight round-one ties on 22 October 2026",
+    "Venue Westfalenhalle, Dortmund",
+    "Tournament dates 22-25 October 2026"
+   ],
+   "source_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+   "evidence": "PDC schedule release: 'Thursday October 22 (1900-2300 CEST) Round One x8: Luke Woodhouse v Dirk van Duijvenbode; Danny Noppert v Stephen Bunting; Niels Zonneveld v Cameron Menzies; Gerwyn Price v Rob Cross; James Wade v Damon Heta; Luke Humphries v Ryan Searle; Gian van Veen v Andrew Gilding; Ross Smith v Karel Sedlacek'.",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-07",
+   "sport": "Cricket",
+   "teams": [
+    [
+     "New Zealand",
+     "India"
+    ]
+   ],
+   "claims_checked": [
+    "The 22 October fixture is the 1st T20I at Hagley Oval, Christchurch",
+    "The 24 October fixture is the 2nd T20I at Hagley Oval, Christchurch",
+    "The Tests are in November"
+   ],
+   "source_url": "https://www.bcci.tv/news/article/indias-odi-and-test-squads-for-new-zealand-tour-announced",
+   "evidence": "BCCI's fixtures table gives 1st Test 19-Nov-26 Wellington and 2nd Test 27-Nov-26 Christchurch. The T20I series in Christchurch on 22 and 24 October is listed on ESPNcricinfo's series page ('1st T20I 22 October 2026 ... New Zealand v India ... Hagley Oval') and in the Indian Express schedule.",
+   "result": "confirmed",
+   "irregularity": "Builds dated the same pairing differently (22 Oct in G, 24 Oct in A). Both are correct: they are two different T20Is. The master keeps two rows and does not merge them."
+  },
+  {
+   "id": "LC-08",
+   "sport": "Basketball",
+   "teams": [
+    [
+     "Washington Wizards",
+     "Milwaukee Bucks"
+    ],
+    [
+     "New Orleans Pelicans",
+     "Indiana Pacers"
+    ],
+    [
+     "Atlanta Hawks",
+     "Orlando Magic"
+    ]
+   ],
+   "claims_checked": [
+    "Milwaukee Bucks at Washington Wizards, Capital One Arena, 7:00 pm ET on 21 Oct",
+    "Indiana Pacers at New Orleans Pelicans, Smoothie King Center, 8:00 pm ET (2026-10-22T00:00Z)",
+    "Atlanta Hawks at Orlando Magic on 21 Oct"
+   ],
+   "source_url": "https://www.espn.com/nba/scoreboard/_/date/20261021",
+   "evidence": "ESPN scoreboard for 20261021 lists Bucks at Wizards (Capital One Arena, Washington DC), Timberwolves at Heat (Kaseya Center), Pacers at Pelicans (Smoothie King Center) and Mavericks at Rockets; the Pacers-Pelicans game page gives '2026-10-22T00:00Z', i.e. 8pm ET on 21 October.",
+   "result": "confirmed",
+   "irregularity": "Builds C and E record the Pelicans-Pacers game as 22 October because they store the UTC date. The local date is 21 October. Both values are kept; the master uses 21 October and the 22 October value stays in the cross-build column."
+  },
+  {
+   "id": "LC-09",
+   "sport": "Darts",
+   "teams": [],
+   "claims_checked": [
+    "The draw bracket on pdc.tv's own 18 October page"
+   ],
+   "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+   "evidence": "Direct fetch returned only the cookie-consent shell with no article text, so the page could not be read in this session. The pairings were confirmed instead through LC-06 (pdc.tv's 19 October schedule release).",
+   "result": "not-readable",
+   "irregularity": "The cited URL resolves but its content is not machine-readable without JavaScript. Recorded as unreadable rather than passed."
+  },
+  {
+   "id": "LC-10",
+   "sport": "Snooker",
+   "teams": [
+    [
+     "Cheung Ka Wai",
+     "Stuart Bingham"
+    ]
+   ],
+   "claims_checked": [
+    "Cheung Ka Wai v Stuart Bingham on 21 October 2026"
+   ],
+   "source_url": "https://www.wst.tv/match-centre",
+   "evidence": "Fetch returned the site shell only ('Home of World Snooker - World Snooker Tour') with no match list, so the fixture could not be confirmed from WST in this session.",
+   "result": "not-readable",
+   "irregularity": "Build A flagged that this pairing was not visible on WST's match centre. That remains unresolved: the row stays published, marked unverified, on Flagged for Review."
+  },
+  {
+   "id": "LC-11",
+   "sport": "Handball",
+   "teams": [
+    [
+     "Aalborg Handbold",
+     "RK Celje Pivovarna Lasko"
+    ]
+   ],
+   "claims_checked": [
+    "Aalborg Handbold v RK Celje Pivovarna Lasko is scheduled for 21 October 2026, 20:45 CET",
+    "Aalborg have 4 played, 3 wins, 1 draw, 136:115, 7 points in Group C",
+    "Celje have 4 played, 0 wins, 4 defeats, 120:154, 0 points in Group C"
+   ],
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "evidence": "EHF Champions League Men 2026/27 standings page, Group C table: 'Aalborg Håndbold 4 3 1 0 136:115 21 7' and 'RK Celje Pivovarna Laško 4 0 0 4 120:154 -34 0'. The competition front page lists the fixture under Oct21 at 20:45 with the match link /matches/details/202711020101029/AalborgHåndbold-RKCeljePivovarnaLaško/.",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-12",
+   "sport": "Handball",
+   "teams": [
+    [
+     "One Veszprem HC",
+     "Fuchse Berlin"
+    ]
+   ],
+   "claims_checked": [
+    "One Veszprem HC v Fuchse Berlin is scheduled for 21 October 2026, 18:45 CET",
+    "Veszprem lead Group A: 4 played, 4 wins, 146:111, 8 points",
+    "Fuchse Berlin are second in Group A: 4 played, 3 wins, 1 defeat, 149:133, 6 points"
+   ],
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "evidence": "Group A table on the EHF standings page: 'One Veszprém HC 4 4 0 0 146:111 35 8', 'Füchse Berlin 4 3 0 1 149:133 16 6'. Fixture listed on the competition front page under Oct21 at 18:45.",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-13",
+   "sport": "Rugby League",
+   "teams": [
+    [
+     "Tonga",
+     "Lebanon"
+    ]
+   ],
+   "claims_checked": [
+    "Tonga v Lebanon is Round 2 of the 2026 Men's Rugby League World Cup on Friday 23 October 2026, 8:05pm AEDT, at CommBank Stadium, Sydney",
+    "Tonga beat England 30-12 in Round 1 at HBF Park, Perth",
+    "Papua New Guinea beat Lebanon 42-18 in Round 1 in Port Moresby"
+   ],
+   "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
+   "evidence": "NRL.com Round 2 team lists: 'Tonga v Lebanon, Friday 8.05pm AEDT at CommBank Stadium, Sydney'. NRL.com Round 1 draw: England 12 - Tonga 30 at HBF Park, Perth (17 Oct); Papua New Guinea 42 - Lebanon 18 at Santos National Football Stadium (17 Oct).",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-14",
+   "sport": "Rugby League",
+   "teams": [
+    [
+     "England",
+     "France"
+    ]
+   ],
+   "claims_checked": [
+    "England v France is Round 2 on Saturday 24 October 2026, 5:35pm AEDT, at HBF Park, Perth",
+    "England lost their opener 12-30 to Tonga",
+    "Samoa beat France 78-4 in Round 1 at CommBank Stadium"
+   ],
+   "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
+   "evidence": "NRL.com Round 2 team lists: 'England v France, Saturday 5.35pm AEDT at HBF Park, Perth', with the note that coach Brian McDermott keeps the same 19-man squad and Luke Thompson starts at prop for the injured Morgan Knowles. NRL.com Round 1 draw: Samoa 78 - France 4 (16 Oct); England 12 - Tonga 30 (17 Oct).",
+   "result": "confirmed"
+  },
+  {
+   "id": "LC-15",
+   "sport": "Rugby Union",
+   "teams": [
+    [
+     "Ospreys",
+     "Dragons"
+    ]
+   ],
+   "claims_checked": [
+    "Ospreys v Dragons RFC is United Rugby Championship Round 4 on Saturday 24 October 2026, 14:00 local, at St Helen's",
+    "Round 3 on 9 October: Dragons 31-38 Ospreys at Rodney Parade",
+    "After three rounds Dragons are 8th on 9 points (1W 1D 1L) and Ospreys 13th on 6 points (1W 2L)"
+   ],
+   "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+   "evidence": "URC Match Centre Round 4 lists 'SAT, 24 OCT • 14:00 Ospreys v Dragons RFC ... St Helen's'. The same page's Round 3 results show 'Dragons 31 - Ospreys 38' at Rodney Parade on 9 October. The URC table page gives Dragons 9 pts (PL 3, W 1, D 1, L 1, 88:83) and Ospreys 6 pts (PL 3, W 1, D 0, L 2, 81:107).",
+   "result": "confirmed"
+  }
+ ],
+ "summary": {
+  "checks": 15,
+  "confirmed": 13,
+  "contradicted": 1,
+  "not_readable": 2
+ }
+}
