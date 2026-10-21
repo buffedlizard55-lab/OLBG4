@@ -112,6 +112,17 @@ def _wins_phrase(n: int) -> str:
     return {0: "none", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}.get(n, str(n))
 
 
+def _wins_clause(n: int) -> str:
+    """A grammatical clause for a 0-5 win count over the last five games."""
+    n = int(n or 0)
+    words = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}
+    if n <= 0:
+        return "have not won any of their last five"
+    if n >= 5:
+        return "have won each of their last five"
+    return f"have won {words.get(n, n)} of their last five"
+
+
 def _num(value: float | None, digits: int = 1) -> str:
     return "n/a" if value is None else f"{value:.{digits}f}"
 
@@ -316,14 +327,6 @@ def make_prediction(fixture: dict, analysis: dict, form: dict, h2h: list[dict],
     else:
         form_sentence = f"{fav['name']} {_wins_clause(wins5)}."
 
-    def _wins_clause(n: int) -> str:
-        n = int(n or 0)
-        words = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}
-        if n <= 0:
-            return "have not won any of their last five"
-        if n >= 5:
-            return "have won each of their last five"
-        return f"have won {words.get(n, n)} of their last five"
 
     record_label = _clean_record_label(
         (fixture.get("context") or {}).get("home_record_label" if fav_is_home else "away_record_label")
@@ -379,6 +382,8 @@ def make_prediction(fixture: dict, analysis: dict, form: dict, h2h: list[dict],
         sentences[0] = f"Our model gives {fav['name']} a {values['prob']}% win probability."
     text = " ".join(sentences)
     text = re.sub(r"\s+", " ", text).replace(" .", ".").strip()
+    # "a 86.2%" reads badly; use the correct indefinite article for eight-/eleven-/eighteen-
+    text = re.sub(r"\ba (?=(?:8\d|11|18)\b)", "an ", text)
     if not _names_selection(text):
         text += f" Selection: {pick['selection']} at {pick['american']}."
     if len(text.split()) < 30:
