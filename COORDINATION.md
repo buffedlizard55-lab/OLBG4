@@ -3743,3 +3743,4 @@ Exclusive working scope: `session-0d3b826c/**`, `data/session-0d3b826c/**`, `scr
 
 ### AF root-integration handoff (2026-10-22T21:12Z)
 - Re-checked open PRs before touching root navigation. PR #102 (`arena/1695b749-olbg4`) remains idle since 09:18Z, beyond the 60-minute handoff threshold. Board AF therefore takes over only the additive root-pointer step. PR #102 and all `session-1695b749/**` files remain untouched for their owner. Root `index.html` received one navlink and one callout; every prior link and section is preserved verbatim.
+- AF6 scope addendum: added `.github/workflows/af-0d3b826c-verify.yml` as a new, non-overlapping offline CI gate for this desk. It performs no sports-network requests and edits no existing workflow.
