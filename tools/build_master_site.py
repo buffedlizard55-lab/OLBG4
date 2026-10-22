@@ -27,10 +27,10 @@ MASTER = json.load(open(os.path.join(ROOT, "data/master.json")))
 CONFLICTS = json.load(open(os.path.join(ROOT, "data/master_conflicts.json")))
 REGISTRY = json.load(open(os.path.join(ROOT, "data/source_registry.json")))
 CHECKS = json.load(open(os.path.join(ROOT, "data/live_checks.json")))
-# Board U (session arena/e5f2dad3-olbg4) publishes its own dashboard in session-e5f2dad3/.
+# Board W (session arena/e5f2dad3-olbg4) publishes its own dashboard in session-e5f2dad3/.
 # This pointer is generated from that board's committed data so the root page never drifts.
-BOARD_U_PATH = os.path.join(ROOT, "data/session-e5f2dad3/board.json")
-BOARD_U = json.load(open(BOARD_U_PATH)) if os.path.exists(BOARD_U_PATH) else None
+BOARD_W_PATH = os.path.join(ROOT, "data/session-e5f2dad3/board.json")
+BOARD_W = json.load(open(BOARD_W_PATH)) if os.path.exists(BOARD_W_PATH) else None
 OLBG_PATH = os.path.join(ROOT, "data/master_olbg.json")
 OLBG = json.load(open(OLBG_PATH)) if os.path.exists(OLBG_PATH) else {"rows": [], "counts": {}}
 
@@ -187,16 +187,16 @@ def build_index() -> str:
         for s in sorted(sports))
     conf_opts = "".join(f'<option value="{c}">{c}</option>' for c in ("High", "Medium", "Low", "none"))
 
-    if BOARD_U:
-        u_off = sum(1 for r in BOARD_U["fixtures"] if r.get("verification") == "official")
-        u_priced = sum(1 for r in BOARD_U["fixtures"] if r.get("markets"))
+    if BOARD_W:
+        u_off = sum(1 for r in BOARD_W["fixtures"] if r.get("verification") == "official")
+        u_priced = sum(1 for r in BOARD_W["fixtures"] if r.get("markets"))
         board_u_html = (
             '<div class="callout"><strong>Newest refresh — Board W (22 Oct 2026).</strong> '
             f'A fresh, independently captured desk for the 22 Oct – 2 Nov window is published at '
             f'<a href="{EXT}session-e5f2dad3/index.html">/session-e5f2dad3/</a>: '
-            f'{len(BOARD_U["fixtures"])} matches across {len(BOARD_U["counts"])} sports, of which '
+            f'{len(BOARD_W["fixtures"])} matches across {len(BOARD_W["counts"])} sports, of which '
             f'{u_off} were confirmed on an official league endpoint and {u_priced} carry an originated '
-            f'moneyline, puck/run line and total. It publishes {len(BOARD_U.get("outrights", []))} OLBG '
+            f'moneyline, puck/run line and total. It publishes {len(BOARD_W.get("outrights", []))} OLBG '
             f'outright markets separately, hashes every source payload, and lists every unconfirmed row on '
             f'<a href="{EXT}session-e5f2dad3/flagged.html">its own Flagged page</a>. '
             f'This master board below keeps the 21 Oct cut-off and is unchanged.</div>'

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for review · OLBG4 Board V</title>
+<meta name="description" content="Board V: verified fixtures, our own originated lines and confidence-graded picks, published with an official source per row.">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="top"><div class="wrap">
+<div class="brand"><span class="dot"></span><a href="index.html">OLBG4 · Board V</a>
+<small>verified fixtures · our own lines · 22 October 2026</small></div>
+<nav><a href="index.html">All fixtures</a><a href="picks.html">Picks &amp; predictions</a><a href="markets.html">Markets</a><a href="coverage.html">Coverage</a><a href="verification.html">Verification</a><a href="sources.html">Sources</a><a href="methodology.html">Methodology</a><a href="audit.html">Desk audit</a><a href="flagged.html" class="on">Flagged for review</a></nav></div></header>
+<main class="wrap">
+<h1>Flagged for review</h1>
+<p class="lede">Everything this board could not confirm, could not price, or chose to cap. These are published rather
+than smoothed over: an irregularity a reader can see is worth more than a table that looks complete. None of these
+blocks publication.</p>
+<div class="kpis"><div class="kpi"><b>90</b><span>Fixtures priced</span></div><div class="kpi"><b>98</b><span>Fixtures listed</span></div><div class="kpi"><b>3</b><span>Sports</span></div><div class="kpi"><b>8</b><span>High confidence</span></div><div class="kpi"><b>8</b><span>High inside −250…+10,000</span></div><div class="kpi"><b>8</b><span>Written predictions</span></div><div class="kpi"><b>14</b><span>In-scope sports on OLBG today</span></div></div>
+<article class="card flag">
+  <div class="card-head"><span class="date">V-F01 · scope</span>
+  <span class="chip warn">unverified</span></div>
+  <h3>Eleven in-scope sports have no readable official fixture feed in this cycle</h3>
+  <p class="meta">11 in-scope sports</p>
+  <p>For those sports the official pages returned the HTTP statuses listed on the Coverage page and served a JavaScript shell with no fixture table. No fixture, price or pick is published for them rather than copying one from a tipster or aggregator site.</p>
+  <p class="srcs"><a class="src" href="https://www.olbg.com/betting-tips" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F02 · taxonomy</span>
+  <span class="chip warn">needs-review</span></div>
+  <h3>OLBG no longer lists esports, badminton, table tennis or Aussie rules in its live menu</h3>
+  <p class="meta">Esports</p>
+  <p>The live menu captured on 2026-10-22 has 21 entries: the 14 in-scope sports above plus the seven the brief excludes. Earlier boards in this repo carried Badminton, Table Tennis, Aussie Rules, Esports and &quot;Greyhound Racing&quot; as separate OLBG sports. Board V therefore takes its in-scope list from the live menu and publishes esports only because Riot Games serves an official schedule API.</p>
+  <p class="srcs"><a class="src" href="https://www.olbg.com/betting-tips" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F03 · sample</span>
+  <span class="chip warn">verified</span></div>
+  <h3>Six of nine esports fixtures carry no pick, because one or both teams have no captured result</h3>
+  <p class="meta">Esports</p>
+  <p>The Riot feed captured here holds results for 2026-10-06 to 2026-10-18 only. Seven of the eight Worlds Swiss teams on 23 October do not appear in that window at all, so rating them would be a guess. Those rows are published with the fixture, the official link and an explicit &quot;no pick - no verified form&quot; instead of a coin-flip price. The one esports fixture with form on both sides (Galions v Solary, 22 Oct) is priced and graded Medium.</p>
+  <p class="srcs"><a class="src" href="https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F10 · coverage</span>
+  <span class="chip warn">verified</span></div>
+  <h3>A pick is published only when both teams have at least one verified result</h3>
+  <p class="meta">Esports</p>
+  <p>This rule was applied after a first build priced six Worlds fixtures at even money on a 50/50 prior and priced LOS v T1 at -250 with no data for T1 at all. Those rows were pulled back to no-pick before publication; the rebuild is in this branch history.</p>
+  <p class="srcs"><a class="src" href="verification.html" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F04 · sample</span>
+  <span class="chip warn">verified</span></div>
+  <h3>NHL clubs have played only 7-11 games, so team strength is shrunk toward the mean</h3>
+  <p class="meta">Ice Hockey</p>
+  <p>The model multiplies each club rating by GP/(GP+8) so that a 9-game start cannot dominate the price. Ratings will sharpen as the season progresses; they are recomputed from each new capture.</p>
+  <p class="srcs"><a class="src" href="https://api-web.nhle.com/v1/standings/2026-10-22" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F05 · pricing</span>
+  <span class="chip warn">needs-review</span></div>
+  <h3>Seven of the eight High picks are published at the -250 floor</h3>
+  <p class="meta">Ice Hockey</p>
+  <p>The brief restricts our published prices to -250..+10,000. A fair price for a 71.5%-plus favourite is shorter than -250, so the desk publishes the floor price and prints the fair price in the row. This is a pricing rule, not an error: the fair prices are 1.23-1.39.</p>
+  <p class="srcs"><a class="src" href="methodology.html" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F06 · model</span>
+  <span class="chip warn">verified</span></div>
+  <h3>MLB run totals and run line use season-long rates against a post-season series</h3>
+  <p class="meta">Baseball</p>
+  <p>Expected runs are the average of each club&#x27;s season runs scored and conceded per game from the final 2026 regular-season table. Post-season run environments differ; the totals are marked as model output, not as a claim about the actual game.</p>
+  <p class="srcs"><a class="src" href="https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&amp;season=2026" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F07 · evidence</span>
+  <span class="chip warn">verified</span></div>
+  <h3>No head-to-head history is captured, so no prediction claims a previous meeting</h3>
+  <p class="meta">All</p>
+  <p>The verified inputs are season-to-date standings and the fixture list. Predictions therefore cite records, goals and last-ten form only. Any site claiming a specific prior meeting would be inferring a value this desk cannot confirm.</p>
+  <p class="srcs"><a class="src" href="verification.html" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F08 · provenance</span>
+  <span class="chip warn">verified</span></div>
+  <h3>Raw official bytes were captured by the Board U collector, not by this session</h3>
+  <p class="meta">All</p>
+  <p>The GitHub Actions runner can reach official domains; this sandbox reaches GitHub only. Board V therefore parses the committed snapshot data/session-e5f2dad3/raw/** (copied to data/session-f957db05/raw/**, SHA-256 recorded per file) and re-derives every published value.</p>
+  <p class="srcs"><a class="src" href="https://github.com/buffedlizard55-lab/OLBG4/blob/arena/f957db05-olbg4/data/session-f957db05/raw/peer-manifest.json" rel="noopener">evidence ↗</a></p>
+</article><article class="card flag">
+  <div class="card-head"><span class="date">V-F09 · coverage</span>
+  <span class="chip warn">needs-review</span></div>
+  <h3>This desk prices 3 sports, not the full 14-sport in-scope menu</h3>
+  <p class="meta">All</p>
+  <p>The Board V table is a verified subset, not a padded one: 98 fixtures across ice hockey, baseball and esports. The Coverage page names each missing sport with its official URL and the HTTP status that stopped it, so the gap is auditable rather than silent.</p>
+  <p class="srcs"><a class="src" href="coverage.html" rel="noopener">evidence ↗</a></p>
+</article>
+<div class="note"><strong>If you only read one.</strong> <em>V-F09</em> is the scope gap: this desk prices three sports
+because those are the three whose official feeds were readable in the capture window. <em>V-F01</em> names the other
+eleven in-scope sports with their official URLs. <em>V-F05</em> explains why seven of eight High picks sit at −250.</div>
+</main>
+<footer class="wrap foot">
+<p><strong>Board V</strong> · session <code>arena/f957db05-olbg4</code> · data cut-off 2026-10-22.
+Every fixture, price and pick is regenerated by <code>data/session-f957db05/model.py</code> from the official bytes
+listed on the <a href="sources.html">Sources</a> page. OLBG.com is used only to reconstruct the sport universe, never as a fact source.</p>
+<p><a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG4">repository</a></p>
+</footer>
+<script src="app.js"></script>
+</body></html>
