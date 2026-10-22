@@ -3359,7 +3359,7 @@ only to re-derive `data/integrated/`, which is unchanged here. Recorded as a coo
 
 ## Board AC — session `arena/f0622b6e-olbg4` (2026-10-22T08:35Z live OLBG reverse-engineering + 17-sport official verification + 4-market line origination + 40 in-window High-confidence human predictions + repo-wide audit)
 
-Session: `arena/f0622b6e-olbg4` · Branch: `arena/f0622b6e-olbg4` (branch name fixed by Arena; all deliverables isolated under `f0622b6e`) · Claimed: `2026-10-22T08:27Z UTC` · **status: in progress**
+Session: `arena/f0622b6e-olbg4` · Branch: `arena/f0622b6e-olbg4` (branch name fixed by Arena; all deliverables isolated under `f0622b6e`) · Claimed: `2026-10-22T08:27Z UTC` · **status: done**
 
 To ensure zero file-scope overlap with active sessions, Board AC claims exclusively `session-f0622b6e/**`, `data/session-f0622b6e/**`, `scripts/session-f0622b6e/**`, and append-only entries in `COORDINATION.md` (plus additive root pointer at final integration only if uncontested after pulling `origin/main`).
 
@@ -3370,7 +3370,16 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 | AC3 | Author **40** unique, natural, non-robotic ≥30-word (`58–87`w, avg `66.8`w) High-confidence human predictions across **16 distinct sports**, every selection strictly inside `-250` to `+10000` American odds (`-250` to `+650` book, `1.40`–`8.06` decimal) with verified 2026–27 stats, recent match history, named players/teams, and official source links | done | arena/f0622b6e-olbg4 | `data/session-f0622b6e/predictions.json`, `scripts/session-f0622b6e/predictions_bank.py` |
 | AC4 | Line-by-line repository review of `data/master.json` (`336` rows, `24` outrights) and peer session desks against official sources, logging exact row defects and manual-review URLs | done | arena/f0622b6e-olbg4 | `data/session-f0622b6e/repo_review.json`, `data/session-f0622b6e/flagged.json` |
 | AC5 | Build clean, simple, dashboard-style GitHub Pages site (`session-f0622b6e/`) with landing page, 17 sport category subpages, filterable multi-market tables with official source links on every row, OLBG architecture & value analysis, High-confidence predictions, repo review, and Flagged for Review page | done | arena/f0622b6e-olbg4 | `session-f0622b6e/**`, `scripts/session-f0622b6e/build_site.py` |
-| AC6 | Deterministic line-by-line verification gate, repo-wide link & staleness checks, `git pull` / merge sync, PR from `arena/f0622b6e-olbg4` to `main`, merge without waiting, confirm GitHub Pages deployment, and record PR & deploy result in `COORDINATION.md` | in progress | arena/f0622b6e-olbg4 | `scripts/session-f0622b6e/verify.py`, `COORDINATION.md` |
+| AC6 | Deterministic line-by-line verification gate, repo-wide link & staleness checks, `git pull` / merge sync, PR from `arena/f0622b6e-olbg4` to `main`, merge without waiting, confirm GitHub Pages deployment, and record PR & deploy result in `COORDINATION.md` | done | arena/f0622b6e-olbg4 | `scripts/session-f0622b6e/verify.py`, `COORDINATION.md` |
+
+### Board AC (`f0622b6e`) PR / merge / Pages record (2026-10-22 UTC)
+
+| Item | Result |
+|---|---|
+| PR #103 | https://github.com/buffedlizard55-lab/OLBG4/pull/103 — CI checks `audit`, `build-and-validate`, `verify` all **pass**; **MERGED** `2026-10-22T09:20:37Z`, merge commit `ea4b61a1c92be8815a5b15a91424993055f59b6f` |
+| GitHub Pages build & deploy | Legacy Pages build `1304970962` (`status: built`, `error: null`) + `pages-build-deployment` run `39754684251` (`completed/success`) + `github-pages` deployment `7248562251` (`state: success` at `2026-10-22T09:48:05Z`) |
+| Live read-back | https://buffedlizard55-lab.github.io/OLBG4/session-f0622b6e/index.html & https://buffedlizard55-lab.github.io/OLBG4/session-f0622b6e/flagged.html verified live HTTP 200 ("Dashboard · Board AC Betting Desk (f0622b6e)" — 233 verified entries, 40 High picks, 17 sport subpages, 113 flagged rows with blank unconfirmed fields) |
+| Final status | AC1–AC6 **done**. Flagged items published on `session-f0622b6e/flagged.html` for manual review (non-blocking per governance). |
 
 ### Board AC (`f0622b6e`) completion summary (2026-10-22 UTC)
 
