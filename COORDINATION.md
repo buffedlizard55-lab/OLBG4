@@ -3056,3 +3056,15 @@ URC (404), EHF (404), GBGB (no response), AFL API (401), WTT and BWF match pages
 - **Live verification (fetched after deploy):** `/session-e5f2dad3/index.html` renders the 226-match dashboard, the 3 in-window High write-ups (Rangers 1.45, Hurricanes 1.42, Bruins 1.40) and the Flagged-for-Review link; `/board/index.html` carries the additive Board W callout and the 312-row master board is unchanged; the root `/index.html` lists Board W in the "desks re-read on 22 October" block.
 - **Nothing was blocked by flags:** the 137 flagged items (103 listing-only rows, 8 unpriced sports, the −250/70% tension, OLBG timezone rendering) remain published on the desk's Flagged page and did not gate the merge, per the brief.
 - **Post-merge state:** `data/master*.json`, `data/rows.json`, `docs/**` and every other `session-*/` are byte-identical to the pre-merge `main`; the only shared-file deltas are the root pointer, the data-driven `board/index.html` callout, one `README.md` section and this record.
+
+---
+
+## Board X — session `arena/27462ea7-olbg4` (README freshness handoff)
+
+Session `arena/27462ea7-olbg4` · branch `arena/27462ea7-olbg4` · claimed 2026-10-22 UTC · **status: in progress**
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| X1 | Verify the README count discrepancy against canonical metadata and record a non-overlapping request; do not edit files in active session scopes. | in progress | arena/27462ea7-olbg4 | `COORDINATION.md` |
+
+**Claim boundary.** Main has merged Board V PRs #80/#83 and Board W PRs #82/#84. Board W has active follow-up PR #85 and still owns additive README edits; this session preserves that work and limits its scope to a coordination request about the old master-count wording. No README, root navigation, fixture or prediction file is edited by Board X.
