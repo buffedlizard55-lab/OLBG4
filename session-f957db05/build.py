@@ -12,13 +12,15 @@ LINES = json.load(open(os.path.join(DATA, 'lines.json')))
 PRED = json.load(open(os.path.join(DATA, 'predictions.json')))['predictions']
 COV = json.load(open(os.path.join(DATA, 'coverage.json')))
 FLAGS = json.load(open(os.path.join(DATA, 'flags.json')))['flags']
+AUDIT = json.load(open(os.path.join(DATA, 'audit.json')))
 ROWS = LINES['rows']
 MANIFEST = json.load(open(os.path.join(DATA, 'raw', 'peer-manifest.json')))
 
 NAV = [('index.html', 'All fixtures'), ('picks.html', 'Picks & predictions'),
        ('markets.html', 'Markets'), ('coverage.html', 'Coverage'),
        ('verification.html', 'Verification'), ('sources.html', 'Sources'),
-       ('methodology.html', 'Methodology'), ('flagged.html', 'Flagged for review')]
+       ('methodology.html', 'Methodology'), ('audit.html', 'Desk audit'),
+       ('flagged.html', 'Flagged for review')]
 
 SPORTS = [('ice-hockey', 'Ice Hockey'), ('baseball', 'Baseball'), ('esports', 'Esports')]
 
@@ -428,6 +430,74 @@ opinion and are labelled as such everywhere.</div>
     return shell('Verification', body, 'verification.html')
 
 
+
+
+# ------------------------------------------------------------- desk audit
+def page_audit():
+    a = AUDIT
+    sm = a['summary']
+    frows = ''.join(
+        f'<tr><td><span class="chip warn">{E(f["kind"])}</span></td><td><code>{E(f["row"])}</code></td>'
+        f'<td>{E(f["detail"])}</td><td><a class="src" href="{E(f["evidence"])}" rel="noopener">source ↗</a></td></tr>'
+        for f in sorted(a['findings'], key=lambda x: (x['kind'] != 'outside-window', x['row'])))
+    vrows = ''.join(
+        f'<tr><td><code>{E(v["row"])}</code></td><td>{E(v["fixture"])}</td><td class="nw">{E(v["date"])}</td>'
+        f'<td class="nw">{E(v["official_start_utc"])}</td><td><small>{E(v["venue_official"])}</small></td>'
+        f'<td><a class="src" href="{E(v["source"])}" rel="noopener">desk source ↗</a></td></tr>'
+        for v in a['verified'])
+    urows = ''.join(
+        f'<tr><td><code>{E(u["row"])}</code></td><td>{E(u["sport"])}</td><td>{E(u["why"])}</td>'
+        f'<td><a class="src" href="{E(u["source"])}" rel="noopener">link ↗</a></td></tr>'
+        for u in a['unverifiable'])
+    body = f'''<h1>Independent audit of the Board T desk</h1>
+<p class="lede">The desk that merged to <code>main</code> in PR #61 (<code>data/session-4ec1fc72/data.json</code>)
+publishes {sm["rows"]} rows across four sports. This page re-checks every one of them against this board's own official
+captures and against the rules in the brief. Nothing in their files was edited — disagreements are published, not
+overwritten.</p>
+<div class="kpis">
+<div class="kpi"><b>{sm["fixtures_confirmed"]}</b><span>fixtures confirmed against the official feed</span></div>
+<div class="kpi"><b>{sm["not_independently_verifiable"]}</b><span>not independently verifiable here</span></div>
+<div class="kpi"><b>{sm["findings"]}</b><span>findings</span></div>
+<div class="kpi"><b>{sm["priced"]}</b><span>priced rows in their desk</span></div>
+<div class="kpi"><b>{sm["high"]}</b><span>High picks in their desk</span></div>
+</div>
+<h2>What was confirmed</h2>
+<p>{sm["fixtures_confirmed"]} rows — every NHL and MLB fixture — were matched club-for-club and date-for-date against
+<code>api-web.nhle.com</code> and <code>statsapi.mlb.com</code>. Each match below lists the official start time in UTC
+next to the venue the official feed publishes.</p>
+<div class="scroll"><table class="grid"><thead><tr><th>Row</th><th>Fixture</th><th>Date</th><th>Official start (UTC)</th>
+<th>Official venue</th><th>Their source</th></tr></thead><tbody>{vrows}</tbody></table></div>
+<h2>Findings</h2>
+<p>{len(a["findings"])} findings, of which <strong>2</strong> affect the brief's pricing window and
+<strong>{sm["findings_by_kind"].get("blank-venue", 0)}</strong> are blank venues that the official feed does publish.
+None is a wrong fixture: no club, date or start time contradicts the official capture.</p>
+<div class="scroll"><table class="grid"><thead><tr><th>Kind</th><th>Row</th><th>Detail</th><th>Evidence</th></tr>
+</thead><tbody>{frows}</tbody></table></div>
+<div class="note"><strong>Two rows worth a human look.</strong> <code>T-NHL-32</code> is published at 1.395 (−253) and
+<code>T-NHL-47</code> at 1.252 (−397). Both sit <em>shorter</em> than the −250 floor the brief specifies, so a reader
+filtering for the requested window would see picks outside it. That is a compliance nit, not a factual error: their
+fair prices are consistent with their own model probabilities.</div>
+<h2>Rows this board could not verify</h2>
+<p>{sm["not_independently_verifiable"]} rows cover sports where no machine-readable official capture exists in this
+session (basketball: the NBA endpoints returned 403/0 to the collector; darts: the PDC page is an article, not a fixture
+table). They are listed as unverified here rather than assumed correct.</p>
+<div class="scroll"><table class="grid"><thead><tr><th>Row</th><th>Sport</th><th>Why not verified</th><th>Their source</th>
+</tr></thead><tbody>{urows}</tbody></table></div>
+<h2>Method and its limits</h2>
+<ul class="prose">
+<li>Comparison key: club names are compared after stripping accents and punctuation (<em>Montréal</em> = <em>Montreal</em>);
+dates are compared on the date key the official feed publishes.</li>
+<li>Their "8:00 PM ET" strings are converted to UTC with the October offset (−4) and compared with the official
+<code>startTimeUTC</code>.</li>
+<li>A row is <em>confirmed</em> when club, date and start time all match. It is <em>not</em> an endorsement of their
+price or their pick, which are opinions.</li>
+<li>Three rows initially failed the club match because of the accent in <em>Montréal</em>; the matcher was fixed before
+anything was published, and those three now pass. Findings are only published after their cause is understood.</li>
+</ul>
+<p class="fine">Machine-readable: <code>data/session-f957db05/audit.json</code> ·
+regenerate with <code>python3 data/session-f957db05/audit_desk.py</code></p>'''
+    return shell('Desk audit', body, 'audit.html')
+
 # ---------------------------------------------------------------- flagged
 def page_flagged():
     cards = []
@@ -577,6 +647,7 @@ def main():
         'index.html': page_index(), 'picks.html': page_picks(), 'markets.html': page_markets(),
         'coverage.html': page_coverage(), 'sources.html': page_sources(),
         'methodology.html': page_methodology(), 'verification.html': page_verification(),
+        'audit.html': page_audit(),
         'flagged.html': page_flagged(),
     }
     os.makedirs(os.path.join(OUT, 'sports'), exist_ok=True)

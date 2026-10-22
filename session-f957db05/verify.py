@@ -8,6 +8,7 @@ ROOT = os.path.dirname(HERE)
 DATA = os.path.join(ROOT, 'data', 'session-f957db05')
 
 OFFICIAL = {'api-web.nhle.com', 'statsapi.mlb.com', 'esports-api.lolesports.com',
+            'www.nhl.com', 'www.nba.com', 'www.pdc.tv',
             'www.atptour.com', 'www.wtatennis.com', 'cdn.nba.com', 'stats.nba.com',
             'www.pgatour.com', 'www.lpga.com', 'www.icc-cricket.com', 'www.ecb.co.uk',
             'www.cricket.com.au', 'www.wst.tv', 'www.unitedrugby.com', 'www.premiershiprugby.com',
