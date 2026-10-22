@@ -10,14 +10,14 @@
     "total_rows": 317,
     "in_scope_rows": 312,
     "current_fixture_rows": 164,
-    "carried_current": 152,
-    "held_current": 12,
-    "high_written": 60,
-    "high_templated": 3,
+    "carried_current": 150,
+    "held_current": 14,
+    "high_written": 33,
+    "high_templated": 5,
     "review_statuses": {
-      "carried-current": 152,
+      "carried-current": 150,
       "excluded": 5,
-      "held-copy": 2,
+      "held-copy": 4,
       "held-source": 4,
       "held-verification": 6,
       "historical": 103,
@@ -2051,7 +2051,7 @@
       "build": "C",
       "selection": "Toronto Raptors",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Toronto Raptors: 1.4; Chicago Bulls: 3.09",
         "handicap": "Toronto Raptors -5.5 @ 1.9; Chicago Bulls +5.5 @ 1.94",
@@ -2087,6 +2087,10 @@
         {
           "kind": "market-withheld",
           "text": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 0); 20 are required to originate a price."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.4 (American -250) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -2595,7 +2599,7 @@
       "build": "A",
       "selection": "Aalborg Handbold",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Aalborg Handbold: 1.04; RK Celje Pivovarna Lasko: 12.0",
         "handicap": "Aalborg Handbold -12.5 @ 2.0",
@@ -2615,6 +2619,10 @@
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.04 (-2500) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
         },
         {
           "kind": "source-note",
@@ -2795,7 +2803,7 @@
       "build": "A",
       "selection": "Paris Saint-Germain",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "HC Zagreb: 10.38; Paris Saint-Germain: 1.06",
         "handicap": "Paris Saint-Germain -3.5 @ 2.04",
@@ -2815,6 +2823,10 @@
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.06 (-1667) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
         },
         {
           "kind": "source-note",
@@ -3015,38 +3027,42 @@
       "date": "2026-10-21",
       "time": "",
       "sport": "Handball",
-      "competition": "EHF Champions League Men, Group A",
+      "competition": "EHF Champions League Men — Group Phase",
       "home": "RK Partizan AdmiralBet",
       "away": "FC Porto",
       "row_type": "fixture",
       "in_scope": true,
-      "build": "G",
+      "build": "A",
       "selection": "FC Porto",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "Low",
+      "confidence": "High",
       "markets": {
         "winner": "RK Partizan AdmiralBet: 2.7; FC Porto: 1.49",
         "handicap": "FC Porto -0.5 @ 2.04",
         "total": "Over 66.5 @ 1.94"
       },
-      "official_source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "official_source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
       "source_domain": "ehfcl.eurohandball.com",
       "source_status": "official-source / original-build-verified",
       "source_note": "The master record labels this source official and records original-build verification. S1 did not re-open the external page.",
       "original_build_verified": true,
       "review_status": "historical",
       "review_reason": "Dated before the review boundary; preserved as history, not an active match.",
-      "prediction_style": "none",
-      "prediction_words": 0,
-      "prediction_present": false,
+      "prediction_style": "templated",
+      "prediction_words": 81,
+      "prediction_present": true,
       "flags": [
+        {
+          "kind": "market-note",
+          "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
+        },
         {
           "kind": "source-note",
           "text": "Only 4 group games played - small sample."
         },
         {
-          "kind": "market-note",
-          "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
+          "kind": "templated-prediction",
+          "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
         }
       ]
     },
@@ -3351,7 +3367,7 @@
       "build": "G",
       "selection": "Stuart Bingham",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Stuart Bingham: 1.21",
         "handicap": "Stuart Bingham -2.5 @ 2.18",
@@ -3371,6 +3387,10 @@
         {
           "kind": "source-note",
           "text": "Round 1 produced an exceptional run of upsets (world No.1 seed casualties included Trump, O’Sullivan, Murphy, Selby, Robertson, Zhao, Xiao, Hawkins, Wakelin) - best-of-7 variance is high; confidence tiers still follow the mechanical model, but this is flagged in Findings."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.21 (American -476) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -3515,7 +3535,7 @@
       "build": "G",
       "selection": "John Higgins",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "John Higgins: 1.27",
         "handicap": "John Higgins -2.5 @ 2.43",
@@ -3535,6 +3555,10 @@
         {
           "kind": "source-note",
           "text": "Round 1 produced an exceptional run of upsets (world No.1 seed casualties included Trump, O’Sullivan, Murphy, Selby, Robertson, Zhao, Xiao, Hawkins, Wakelin) - best-of-7 variance is high; confidence tiers still follow the mechanical model, but this is flagged in Findings."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.27 (American -370) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -3723,7 +3747,7 @@
       "build": "G",
       "selection": "Pang Junxu",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Pang Junxu: 1.34",
         "handicap": "Pang Junxu -1.5 @ 1.7",
@@ -3755,6 +3779,10 @@
         {
           "kind": "build-flag",
           "text": "Pairing verified via WST listings; rankings/form unverified in session — line and pick left blank."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.34 (American -294) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -3811,7 +3839,7 @@
       "build": "C",
       "selection": "Mark Williams",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Zhang Anda: 3.11; Mark Williams: 1.39",
         "handicap": "Zhang Anda -1.5 frames @ 4.98; Mark Williams +1.5 frames @ 1.19",
@@ -3827,7 +3855,12 @@
       "prediction_style": "written",
       "prediction_words": 61,
       "prediction_present": true,
-      "flags": []
+      "flags": [
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.39 (American -256) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
+        }
+      ]
     },
     {
       "id": "M0092",
@@ -3842,7 +3875,7 @@
       "build": "G",
       "selection": "Andrey Rublev",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Andrey Rublev: 1.29",
         "handicap": "",
@@ -3866,6 +3899,10 @@
         {
           "kind": "source-note",
           "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 9410."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.29 (American -345) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -3882,7 +3919,7 @@
       "build": "G",
       "selection": "Tommy Paul",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Tommy Paul: 1.19",
         "handicap": "",
@@ -3906,6 +3943,10 @@
         {
           "kind": "source-note",
           "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 496."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.19 (American -526) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4002,7 +4043,7 @@
       "build": "G",
       "selection": "Remy Bertola",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Remy Bertola: 1.16",
         "handicap": "",
@@ -4026,6 +4067,10 @@
         {
           "kind": "source-note",
           "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 7485."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.16 (American -625) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4082,7 +4127,7 @@
       "build": "G",
       "selection": "Marta Kostyuk",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Marta Kostyuk: 1.35",
         "handicap": "",
@@ -4102,6 +4147,10 @@
         {
           "kind": "source-note",
           "text": "Exact start time not confirmed on an official source; OLBG label shown as OLBG's own data."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.35 (American -286) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4158,7 +4207,7 @@
       "build": "G",
       "selection": "Luciano Darderi",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Luciano Darderi: 1.31",
         "handicap": "",
@@ -4182,6 +4231,10 @@
         {
           "kind": "source-note",
           "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 9410."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.31 (American -323) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4198,7 +4251,7 @@
       "build": "G",
       "selection": "Belinda Bencic",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Belinda Bencic: 1.18",
         "handicap": "",
@@ -4218,6 +4271,10 @@
         {
           "kind": "source-note",
           "text": "Exact start time not confirmed on an official source; OLBG label shown as OLBG's own data."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.18 (American -556) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4270,7 +4327,7 @@
       "build": "G",
       "selection": "Leylah Fernandez",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Leylah Fernandez: 1.3",
         "handicap": "",
@@ -4290,6 +4347,10 @@
         {
           "kind": "source-note",
           "text": "Exact start time not confirmed on an official source; OLBG label shown as OLBG's own data."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.3 (American -333) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4346,7 +4407,7 @@
       "build": "G",
       "selection": "Francisco Cerundolo",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Francisco Cerundolo: 1.21",
         "handicap": "",
@@ -4370,6 +4431,10 @@
         {
           "kind": "source-note",
           "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 7485."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.21 (American -476) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4426,7 +4491,7 @@
       "build": "G",
       "selection": "Lorenzo Musetti",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Lorenzo Musetti: 1.12",
         "handicap": "",
@@ -4450,6 +4515,10 @@
         {
           "kind": "source-note",
           "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 496."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.12 (American -833) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4542,7 +4611,7 @@
       "build": "G",
       "selection": "Stefanos Tsitsipas",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Stefanos Tsitsipas: 1.07",
         "handicap": "",
@@ -4566,6 +4635,10 @@
         {
           "kind": "source-note",
           "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 9410."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.07 (American -1429) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -4582,7 +4655,7 @@
       "build": "G",
       "selection": "Tomas Machac",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Tomas Machac: 1.01",
         "handicap": "",
@@ -4602,6 +4675,10 @@
         {
           "kind": "source-note",
           "text": "Exact start time not confirmed on an official source; OLBG label shown as OLBG's own data."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.01 (American -10000) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -5102,7 +5179,7 @@
       "build": "C",
       "selection": "Houston Rockets",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Houston Rockets: 1.25; Dallas Mavericks: 4.19",
         "handicap": "Houston Rockets -8.5 @ 1.92; Dallas Mavericks +8.5 @ 1.93",
@@ -5134,6 +5211,10 @@
         {
           "kind": "date-discrepancy",
           "text": "Builds disagree on the date: 2026-10-21, 2026-10-22 (spread 1 day(s)). Primary date kept — check the official source."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.25 (American -400) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -5150,7 +5231,7 @@
       "build": "C",
       "selection": "Los Angeles Lakers",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Los Angeles Lakers: 1.38; Golden State Warriors: 3.17",
         "handicap": "Los Angeles Lakers -6.0 @ 1.93; Golden State Warriors +6.0 @ 1.91",
@@ -5182,6 +5263,10 @@
         {
           "kind": "date-discrepancy",
           "text": "Builds disagree on the date: 2026-10-21, 2026-10-22 (spread 1 day(s)). Primary date kept — check the official source."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.38 (American -263) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -5409,7 +5494,7 @@
       "build": "G",
       "selection": "Australia Women",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Australia Women: 1.19",
         "handicap": "",
@@ -5425,7 +5510,12 @@
       "prediction_style": "written",
       "prediction_words": 80,
       "prediction_present": true,
-      "flags": []
+      "flags": [
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.19 (American -526) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
+        }
+      ]
     },
     {
       "id": "M0133",
@@ -5646,17 +5736,17 @@
       "date": "2026-10-22",
       "time": "19:00 CEST session",
       "sport": "Darts",
-      "competition": "PDC European Championship 2026, First Round",
+      "competition": "PDC European Championship — Round 1",
       "home": "Gerwyn Price",
       "away": "Rob Cross",
       "row_type": "fixture",
       "in_scope": true,
-      "build": "G",
+      "build": "A",
       "selection": "Gerwyn Price",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "Medium",
+      "confidence": "High",
       "markets": {
-        "winner": "Gerwyn Price: 1.58",
+        "winner": "Westfalenhalle, Dortmund — Gerwyn Price: 1.47; Rob Cross: 2.77",
         "handicap": "Gerwyn Price -1.5 @ 1.98",
         "total": "Over 9.5 @ 2.12"
       },
@@ -5665,15 +5755,19 @@
       "source_status": "official-source / original-build-verified",
       "source_note": "The master record labels this source official and records original-build verification. S1 did not re-open the external page.",
       "original_build_verified": true,
-      "review_status": "carried-current",
-      "review_reason": "Current/future fixture carried from an original-build-verified official-source record. No S1 re-pricing or external re-check was performed.",
-      "prediction_style": "none",
-      "prediction_words": 0,
-      "prediction_present": false,
+      "review_status": "held-copy",
+      "review_reason": "High-confidence copy is templated or shorter than 30 words rather than a compliant unique written prediction; do not publish it as a high-confidence write-up.",
+      "prediction_style": "templated",
+      "prediction_words": 91,
+      "prediction_present": true,
       "flags": [
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "templated-prediction",
+          "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
         }
       ]
     },
@@ -5710,6 +5804,10 @@
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.1 (-1000) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
         }
       ]
     },
@@ -5784,8 +5882,12 @@
           "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
         },
         {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.38 (-263) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
+        },
+        {
           "kind": "confidence-lowered",
-          "text": "Confidence lowered from High to Medium: pdc.tv returned only a cookie-consent wall to this crawler on both the draw article and the rankings page, so no official page could be read today to support a fact-based high-confidence write-up. The pick stands; the confidence was lowered rather than padded with unverified claims."
+          "text": "Confidence lowered from Medium to Medium: pdc.tv returned only a cookie-consent wall to this crawler on both the draw article and the rankings page, so no official page could be read today to support a fact-based high-confidence write-up. The pick stands; the confidence was lowered rather than padded with unverified claims."
         },
         {
           "kind": "templated-prediction",
@@ -5882,7 +5984,7 @@
       "build": "G",
       "selection": "Ross Smith",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Ross Smith: 1.38",
         "handicap": "Ross Smith -2.5 @ 2.23",
@@ -5902,6 +6004,10 @@
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.38 (American -263) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -7405,7 +7511,7 @@
       "build": "G",
       "selection": "Luke Littler",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Luke Littler: 1.12",
         "handicap": "Luke Littler -3.5 @ 2.05",
@@ -7425,6 +7531,14 @@
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.3 (-333) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.12 (American -833) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -7441,7 +7555,7 @@
       "build": "G",
       "selection": "Nathan Aspinall",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Nathan Aspinall: 1.22",
         "handicap": "Nathan Aspinall -2.5 @ 1.77",
@@ -7461,6 +7575,10 @@
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.22 (American -455) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -7645,7 +7763,7 @@
       "build": "E",
       "selection": "Minnesota Wild",
       "selection_market": "moneyline",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Calgary Flames: 3.025; Minnesota Wild: 1.4",
         "handicap": "Calgary Flames +1.5 @ 1.799; Minnesota Wild -1.5 @ 2.044",
@@ -7669,6 +7787,10 @@
         {
           "kind": "date-discrepancy",
           "text": "Builds disagree on the date: 2026-10-22, 2026-10-23 (spread 1 day(s)). Primary date kept — check the official source."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.4 (American -250) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -8132,6 +8254,10 @@
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.36 (-278) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
         }
       ]
     },
@@ -9114,7 +9240,7 @@
       "build": "E",
       "selection": "Boston Bruins",
       "selection_market": "moneyline",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Boston Bruins: 1.382; San Jose Sharks: 3.112",
         "handicap": "Boston Bruins -1.5 @ 1.853; San Jose Sharks +1.5 @ 1.979",
@@ -9134,6 +9260,10 @@
         {
           "kind": "market-note",
           "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.382 (American -262) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -9286,6 +9416,10 @@
         {
           "kind": "market-note",
           "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.31 (-323) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
         }
       ]
     },
@@ -9554,7 +9688,7 @@
       "build": "A",
       "selection": "England",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "England: 1.32; France: 3.5",
         "handicap": "",
@@ -9574,6 +9708,10 @@
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.32 (-312) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
         }
       ]
     },
@@ -9626,7 +9764,7 @@
       "build": "A",
       "selection": "Samoa",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "Medium",
+      "confidence": "High",
       "markets": {
         "winner": "Papua New Guinea: 2.7; Samoa: 1.49",
         "handicap": "",
@@ -9637,15 +9775,19 @@
       "source_status": "official-source / original-build-verified",
       "source_note": "The master record labels this source official and records original-build verification. S1 did not re-open the external page.",
       "original_build_verified": true,
-      "review_status": "carried-current",
-      "review_reason": "Current/future fixture carried from an original-build-verified official-source record. No S1 re-pricing or external re-check was performed.",
-      "prediction_style": "none",
-      "prediction_words": 0,
-      "prediction_present": false,
+      "review_status": "held-copy",
+      "review_reason": "High-confidence copy is templated or shorter than 30 words rather than a compliant unique written prediction; do not publish it as a high-confidence write-up.",
+      "prediction_style": "templated",
+      "prediction_words": 92,
+      "prediction_present": true,
       "flags": [
         {
           "kind": "market-note",
           "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "templated-prediction",
+          "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
         }
       ]
     },
@@ -9841,17 +9983,17 @@
       "date": "2026-10-24",
       "time": "Sat 24 Oct 2026, 13:00 local",
       "sport": "Rugby Union",
-      "competition": "United Rugby Championship, Round 4",
+      "competition": "United Rugby Championship",
       "home": "Leinster",
       "away": "Munster",
       "row_type": "fixture",
       "in_scope": true,
-      "build": "G",
+      "build": "A",
       "selection": "Leinster",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "Medium",
+      "confidence": "High",
       "markets": {
-        "winner": "Leinster: 1.94; Draw: 17.32; Munster: 2.1",
+        "winner": "Leinster: 1.51; Munster: 2.63",
         "handicap": "Leinster -7.5 @ 1.95",
         "total": "Over 46.5 @ 2.05"
       },
@@ -9860,12 +10002,16 @@
       "source_status": "official-source / original-build-verified",
       "source_note": "The master record labels this source official and records original-build verification. S1 did not re-open the external page.",
       "original_build_verified": true,
-      "review_status": "carried-current",
-      "review_reason": "Current/future fixture carried from an original-build-verified official-source record. No S1 re-pricing or external re-check was performed.",
-      "prediction_style": "none",
-      "prediction_words": 0,
-      "prediction_present": false,
+      "review_status": "held-copy",
+      "review_reason": "High-confidence copy is templated or shorter than 30 words rather than a compliant unique written prediction; do not publish it as a high-confidence write-up.",
+      "prediction_style": "templated",
+      "prediction_words": 79,
+      "prediction_present": true,
       "flags": [
+        {
+          "kind": "market-note",
+          "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+        },
         {
           "kind": "source-note",
           "text": "Only 3 rounds played - small sample; ratings statistically shrunk, confidence capped."
@@ -9879,8 +10025,8 @@
           "text": "Kick-off time is the local time published by URC; no UTC conversion applied."
         },
         {
-          "kind": "market-note",
-          "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+          "kind": "templated-prediction",
+          "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
         }
       ]
     },
@@ -9889,21 +10035,21 @@
       "date": "2026-10-24",
       "time": "Sat 24 Oct 2026, 14:00 local",
       "sport": "Rugby Union",
-      "competition": "URC Round 4",
+      "competition": "United Rugby Championship",
       "home": "Ospreys",
-      "away": "Dragons RFC",
+      "away": "Dragons",
       "row_type": "fixture",
       "in_scope": true,
-      "build": "C",
-      "selection": "Dragons RFC",
+      "build": "A",
+      "selection": "Ospreys",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "Low",
+      "confidence": "High",
       "markets": {
-        "winner": "Ospreys: 2.15; Draw: 17.32; Dragons RFC: 1.9",
+        "winner": "Ospreys: 1.43; Dragons: 2.91",
         "handicap": "Ospreys +1.0 @ 1.92; Dragons RFC -1.0 @ 1.92",
         "total": "Over 51.5 @ 1.91; Under 51.5 @ 1.94"
       },
-      "official_source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+      "official_source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
       "source_domain": "stats.unitedrugby.com",
       "source_status": "official-source / original-build-verified",
       "source_note": "The master record labels this source official and records original-build verification. S1 did not re-open the external page.",
@@ -9915,12 +10061,12 @@
       "prediction_present": true,
       "flags": [
         {
-          "kind": "source-note",
-          "text": "Kick-off time is the local time published by URC; no UTC conversion applied."
-        },
-        {
           "kind": "market-note",
           "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "source-note",
+          "text": "Kick-off time is the local time published by URC; no UTC conversion applied."
         }
       ]
     },
@@ -9968,7 +10114,7 @@
       "build": "C",
       "selection": "Vodacom Bulls",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Vodacom Bulls: 1.39; Draw: 17.32; Ulster: 3.69",
         "handicap": "Vodacom Bulls -8.0 @ 1.94; Ulster +8.0 @ 1.91",
@@ -10000,6 +10146,10 @@
         {
           "kind": "source-note",
           "text": "Loftus Versfeld is at altitude (~1,350m) - not separately adjusted for in the model."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.39 (American -256) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -10672,7 +10822,7 @@
       "build": "A",
       "selection": "Florida Panthers",
       "selection_market": "Match winner (moneyline)",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Chicago Blackhawks: 3.24; Florida Panthers: 1.36",
         "handicap": "Chicago Blackhawks +0.5 @ 1.952; Florida Panthers -0.5 @ 1.878",
@@ -10683,8 +10833,8 @@
       "source_status": "official-source / original-build-verified",
       "source_note": "The master record labels this source official and records original-build verification. S1 did not re-open the external page.",
       "original_build_verified": true,
-      "review_status": "held-copy",
-      "review_reason": "High-confidence copy is templated rather than a unique written prediction; do not publish it as a compliant high-confidence write-up.",
+      "review_status": "carried-current",
+      "review_reason": "Current/future fixture carried from an original-build-verified official-source record. No S1 re-pricing or external re-check was performed.",
       "prediction_style": "templated",
       "prediction_words": 72,
       "prediction_present": true,
@@ -10692,6 +10842,10 @@
         {
           "kind": "market-note",
           "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+        },
+        {
+          "kind": "build-flag",
+          "text": "Downgraded from High: originated odds 1.36 (-278) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
         },
         {
           "kind": "templated-prediction",
@@ -11012,7 +11166,7 @@
       "source_note": "The master record labels this source official and records original-build verification. S1 did not re-open the external page.",
       "original_build_verified": true,
       "review_status": "held-copy",
-      "review_reason": "High-confidence copy is templated rather than a unique written prediction; do not publish it as a compliant high-confidence write-up.",
+      "review_reason": "High-confidence copy is templated or shorter than 30 words rather than a compliant unique written prediction; do not publish it as a high-confidence write-up.",
       "prediction_style": "templated",
       "prediction_words": 83,
       "prediction_present": true,
@@ -11561,7 +11715,7 @@
       "build": "E",
       "selection": "Minnesota Wild",
       "selection_market": "moneyline",
-      "confidence": "High",
+      "confidence": "Medium",
       "markets": {
         "winner": "Vancouver Canucks: 3.432; Minnesota Wild: 1.327",
         "handicap": "Vancouver Canucks +1.5 @ 1.884; Minnesota Wild -1.5 @ 1.945",
@@ -11585,6 +11739,10 @@
         {
           "kind": "date-discrepancy",
           "text": "Builds disagree on the date: 2026-10-25, 2026-10-26 (spread 1 day(s)). Primary date kept — check the official source."
+        },
+        {
+          "kind": "odds-window-downgrade",
+          "text": "Downgraded from High to Medium: originated odds 1.327 (American -306) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
         }
       ]
     },
@@ -12750,7 +12908,7 @@
     {
       "id": "S1-F04",
       "severity": "held",
-      "title": "3 high-confidence records use templated, not unique, prediction copy",
+      "title": "5 high-confidence records use templated, not unique, prediction copy",
       "detail": "The canonical data identifies these high-confidence predictions as `templated`. They do not meet the brief's unique human-written prediction requirement and are held from S1's strict current view.",
       "action": "Replace only after re-checking each cited official source and writing a distinct 30+ word prediction.",
       "evidence": [
@@ -12765,18 +12923,32 @@
       ],
       "rows": [
         {
-          "id": "M0065",
-          "match": "HC Zagreb vs Paris Saint-Germain",
+          "id": "M0071",
+          "match": "RK Partizan AdmiralBet vs FC Porto",
           "date": "2026-10-21",
           "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
-          "words": 73
+          "words": 81
         },
         {
-          "id": "M0266",
-          "match": "Chicago Blackhawks vs Florida Panthers",
-          "date": "2026-10-25",
-          "source_url": "https://www.nhl.com/schedule/2026-10-21",
-          "words": 72
+          "id": "M0139",
+          "match": "Gerwyn Price vs Rob Cross",
+          "date": "2026-10-22",
+          "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+          "words": 91
+        },
+        {
+          "id": "M0240",
+          "match": "Papua New Guinea vs Samoa",
+          "date": "2026-10-24",
+          "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
+          "words": 92
+        },
+        {
+          "id": "M0246",
+          "match": "Leinster vs Munster",
+          "date": "2026-10-24",
+          "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+          "words": 79
         },
         {
           "id": "M0274",
