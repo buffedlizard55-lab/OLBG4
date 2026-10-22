@@ -2782,9 +2782,12 @@ stats.unitedrugby.com/match-centre/2026-27/4 (Round 4 fixtures + Round 3 results
 - The build refuses to publish if a row lacks a source, if the source host is not on the official list, if a High pick lacks a
   ≥30-word unique write-up, if a High pick's price leaves the −250…+10,000 window, if an excluded-sport token appears, or if any
   internal link or anchor does not resolve (`python3 scripts/session-c92c927c/build_site.py --check` → `validated: 30 rows … links=ok`).
-- **Line-by-line review of prior output:** 23 sampled claims from earlier boards re-checked against the official page —
-  19 confirmed, 1 contradicted (README counts), 1 contradicted (duplicate Greyhounds / Greyhound Racing labels), 2 unverifiable
-  (EHF 404, PDC cookie shell). Register: `data/session-c92c927c/review.json`, rendered on `session-c92c927c/analysis.html`.
+- **Line-by-line review of prior output:** 22 sampled claims from earlier boards re-checked against the official page —
+  18 confirmed (all eight URC Round 3 scorelines, all five RLWC Round 1 scorelines and the Round 2 fixtures, the NHL fixture, the
+  World Series fixture set, and two internal recomputations of `data/master.json` and `data/rows.json`), 2 contradicted
+  (README counts 308/312/18 sports vs 317/312/19; the duplicate "Greyhounds" / "Greyhound Racing" sport labels), and 2 unverifiable
+  (EHF fixture path 404; pdc.tv returned only a cookie shell). Register: `data/session-c92c927c/review.json`, rendered on
+  `session-c92c927c/analysis.html`.
 - Repository gates re-run green after the change: `bash scripts/session-74f9613e/build_all.sh` (OK), `python3 scripts/audit_publication.py --check`
   (10,576 local targets, 0 broken, 0 stale), `python3 tools/build_master.py` + `BOARD_DIR=board python3 tools/verify_master.py` (OK),
   `python3 -m pipeline.selftest` (all self-tests passed).
@@ -2888,3 +2891,14 @@ is stored with the exact URL it came from. Sources that cannot be retrieved are 
 | Root integration | Additive only: one nav link, one landing banner and a README section in `index.html` / `README.md`; both desks are linked, no other board's files touched |
 | Merge | `git fetch origin main` + `git merge` (never rebase). One conflict, in this file, because a second session claimed the same board letter; resolved by keeping **both** blocks and logging the duplicate claim |
 - **PR / merge / Pages (Board T final):** PR https://github.com/buffedlizard55-lab/OLBG4/pull/61 — checks `audit`, `build-and-validate`, `verify` all PASS; **MERGED** to `main` 2026-10-22T02:54:51Z, merge commit `e6ab5043b54098abf9ecd3d822cda6fab21c4263`. GitHub Pages: `Deploy OLBG4 to GitHub Pages` run `39713967508` completed **success**; Pages API reports `status: built` from `main`. Live verification 2026-10-22: https://buffedlizard55-lab.github.io/OLBG4/session-4ec1fc72/picks.html returned the 2 High picks (Minnesota -223, Edmonton -229) with 111/118-word predictions. Board T tasks T1-T4: **done** (flagged items are `needs review`, non-blocking per brief).
+
+**Pull request and deploy (recorded after merge).**
+
+| Item | Result |
+|---|---|
+| PR | https://github.com/buffedlizard55-lab/OLBG4/pull/64 — **MERGED** `arena/c92c927c-olbg4` → `main` at 2026-10-22T02:59:30Z, merge commit `9ab0472` |
+| Checks | `audit` pass, `build-and-validate` pass, `verify` pass — all three green before merge |
+| Pages deploy | `Deploy OLBG4 to GitHub Pages` run `39714384083` **success** (build + deploy) on the merge commit |
+| Live verification | `https://buffedlizard55-lab.github.io/OLBG4/session-c92c927c/index.html` read back over HTTPS after the deploy: title "Dashboard · OLBG4 verified desk (Board U)", 30 fixtures, 9 High picks with their official source links, KPI row intact |
+| Flagged items | 10 editorial/blank items plus the unverifiable and contradicted review rows, all on `session-c92c927c/flagged.html` with source links; flagged does not block the merge per brief |
+
