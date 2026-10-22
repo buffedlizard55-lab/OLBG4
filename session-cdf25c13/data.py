@@ -262,3 +262,21 @@ URC_ROUND3_RESULTS = [
     ("2026-10-10", "Ulster Rugby", 26, 26, "Munster Rugby"),
     ("2026-10-10", "Leinster Rugby", 29, 5, "Cardiff Rugby"),
 ]
+
+# EHF Champions League Men — fixtures verified on the organiser's page but NOT priced this session,
+# because the standings view returned goal totals for only one group. (date, time as published, home, away)
+EHF_GAMES = [
+    ("2026-10-22", "18:45", "MT Melsungen", "Orlen Wisla Plock"),
+    ("2026-10-22", "18:45", "OTP Bank - PICK Szeged", "GOG"),
+    ("2026-10-22", "20:45", "Sporting Clube de Portugal", "IFK Kristianstad"),
+    ("2026-10-22", "20:45", "Barca", "Montpellier Handball"),
+    ("2026-10-22", "20:45", "Kolstad Handball", "SC Magdeburg"),
+    ("2026-10-28", "18:45", "Orlen Wisla Plock", "HBC Nantes"),
+    ("2026-10-28", "18:45", "FC Porto", "One Veszprem HC"),
+    ("2026-10-28", "18:45", "HC Vardar 1961", "MT Melsungen"),
+    ("2026-10-28", "20:45", "Industria Kielce", "Kolstad Handball"),
+    ("2026-10-28", "20:45", "RK Celje Pivovarna Lasko", "HC Zagreb"),
+    ("2026-10-28", "20:45", "SC Magdeburg", "HC Kriens-Luzern"),
+    ("2026-10-28", "20:45", "Paris Saint-Germain", "Aalborg Handbold"),
+]
+EHF_URL = "https://ehfcl.eurohandball.com/men/2026-27/matches/"
