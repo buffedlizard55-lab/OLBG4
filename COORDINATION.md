@@ -3417,3 +3417,22 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 
 ---
 
+
+---
+
+## Board AD — session `arena/7c581d22-olbg4` (2026-10-22 fresh-window refresh + final integration)
+
+Session: `arena/7c581d22-olbg4` | Branch: `arena/7c581d22-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AD1 | Fresh fixture capture 23 Oct–5 Nov 2026 for in-scope OLBG sports (all except soccer, boxing, UFC/MMA, football/American football, hurling, horse racing, cycling, specials) from official league/tour/federation sources only; OLBG used only for taxonomy cross-check | in progress | arena/7c581d22-olbg4 | `session-7c581d22/`, `data/session-7c581d22/`, `scripts/session-7c581d22/`, `COORDINATION.md` (append only) |
+| AD2 | Originate own lines (match winner, handicap/spread, totals where verified inputs exist); pick winner + confidence low/medium/high per match; investigate every available market | in progress | arena/7c581d22-olbg4 | same |
+| AD3 | High-confidence focus: picks ≥70% model probability AND inside −250…+10,000 American-odds window; unique human written predictions ≥30 words with verified form/history + obvious selection, source under each | in progress | arena/7c581d22-olbg4 | same |
+| AD4 | GitHub Pages dashboard: landing + per-sport subpages + all-entries table + markets/coverage + Flagged-for-Review; every row carries official source link; unverified values blank + flagged | in progress | arena/7c581d22-olbg4 | same |
+| AD5 | Final integration: line-by-line re-verification, link check, PR to `main`, merge without waiting, confirm Pages deploy, record result here | in progress | arena/7c581d22-olbg4 | same + PR only |
+
+**Claim boundary.** New non-overlapping deliverable. All existing data, boards, session folders, root `*.html`, generators and workflows are read-only for Board AD. Open parallel PR #102 (Board AC, `arena/1695b749-olbg4`) touches `session-1695b749/**`, `data/session-1695b749/**`, `scripts/session-1695b749/**`, `index.html`, `README.md`, `COORDINATION.md` — Board AD edits none of those except append-only entries here. Findings needing another owner's file are logged here as integration requests, not applied.
+
+### AD working log
+- 2026-10-22 UTC — `7c581d22` — board claimed; scope `session-7c581d22/` + `data/session-7c581d22/` + `scripts/session-7c581d22/`; claim committed and pushed before any other work.
