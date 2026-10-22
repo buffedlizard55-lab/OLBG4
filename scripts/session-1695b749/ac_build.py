@@ -549,10 +549,12 @@ def build_coverage(fixtures, listing):
               "Greyhound Racing", "Handball", "Rugby League", "Rugby Union", "Snooker",
               "Tennis", "Volleyball", "Aussie Rules", "Badminton", "Table Tennis",
               "Gaelic Football", "Motor Racing"]
-    priced, listed = {}, {}
+    priced, listed, unpriced = {}, {}, {}
     for f in fixtures:
         if f.get("priced") is not False:
             priced[f["sport"]] = priced.get(f["sport"], 0) + 1
+        else:
+            unpriced[f["sport"]] = unpriced.get(f["sport"], 0) + 1
     for e in listing:
         listed[e["sport"]] = listed.get(e["sport"], 0) + 1
     rows = []
@@ -561,7 +563,10 @@ def build_coverage(fixtures, listing):
         l = listed.get(lab, 0)
         if n:
             status = "priced"
+            u = unpriced.get(lab, 0)
             note = f"{n} fixtures with our own moneyline, handicap and total"
+            if u:
+                note += f"; {u} further fixtures are listed without a price because the official payload returns no usable record"
         elif l:
             status = "listed only"
             note = (f"{l} match rows on OLBG's live listing; no official numeric input captured, "
@@ -569,7 +574,8 @@ def build_coverage(fixtures, listing):
         else:
             status = "no fixture"
             note = "no in-window fixture on any official page captured this session"
-        rows.append({"sport": lab, "priced": n, "listed": l, "status": status, "note": note})
+        rows.append({"sport": lab, "priced": n, "listed": l, "unpriced": unpriced.get(lab, 0),
+                     "status": status, "note": note})
     excluded = ["Soccer", "Boxing", "UFC/MMA", "American Football", "Football (any code not listed above)",
                 "Hurling", "Horse Racing", "Cycling", "Specials"]
     return {"schema": "olbg4.board-ac.coverage/1", "rows": rows,

@@ -348,7 +348,7 @@ The last column is deliberately blunt: it names what was <em>not</em> checked, s
     (OUT / "verification.html").write_text(page("Verification", body, "verification.html"))
 
     # ---------------- coverage ----------------
-    crows = ''.join(f"<tr><td><strong>{e(r['sport'])}</strong></td><td class='num'>{r['priced'] or '—'}</td><td class='num'>{r['listed'] or '—'}</td><td><span class='tag {'ok' if r['status']=='priced' else 'no'}'>{e(r['status'])}</span></td><td class='small'>{e(r['note'])}</td></tr>" for r in cov["rows"])
+    crows = ''.join(f"<tr><td><strong>{e(r['sport'])}</strong></td><td class='num'>{r['priced'] or '—'}</td><td class='num'>{r.get('unpriced') or '—'}</td><td class='num'>{r['listed'] or '—'}</td><td><span class='tag {'ok' if r['status']=='priced' else 'no'}'>{e(r['status'])}</span></td><td class='small'>{e(r['note'])}</td></tr>" for r in cov["rows"])
     body = f"""<p class="crumbs"><a href="index.html">Overview</a> · Coverage</p>
 <h1>19 sport labels considered, 3 priced, 16 honestly blank.</h1>
 <p class="lede">A label is only priced when an official page returned a numeric input for both sides. Anything else stays blank, with the reason, rather than being estimated from a name, a ranking guess or a bookmaker price.</p>
@@ -358,7 +358,7 @@ The last column is deliberately blunt: it names what was <em>not</em> checked, s
   {stat(cov['summary']['no_fixture'], 'labels with no in-window fixture found')}
   {stat(len(cov['excluded_by_brief']), 'sport categories excluded by the brief')}
 </div>
-<table><thead><tr><th>Sport label</th><th class="num">Priced fixtures</th><th class="num">OLBG listing rows</th><th>Status</th><th>Reason</th></tr></thead><tbody>{crows}</tbody></table>
+<table><thead><tr><th>Sport label</th><th class="num">Priced fixtures</th><th class="num">Listed, unpriced</th><th class="num">OLBG listing rows</th><th>Status</th><th>Reason</th></tr></thead><tbody>{crows}</tbody></table>
 <h2>Excluded by the brief</h2>
 <p>These categories are not present anywhere in the dataset: {', '.join(e(x) for x in cov['excluded_by_brief'])}.</p>
 <p class="small muted">Gaelic Football and Motor Racing are named on OLBG but are neither in the brief's exclusion list nor in its sport list, so they are left out of this board rather than silently added or priced. That decision is recorded as part of <a href="flagged.html">AF-07</a>.</p>"""
@@ -441,7 +441,7 @@ Assumptions are declared where they change a price, rather than buried inside a 
 <h1>A line-by-line review of the repository, with links to every line.</h1>
 <p class="lede">{len(files):,} tracked text files were opened, counted, hashed and machine-checked, and {len(findings)} of them are discussed in detail below.
 Checks applied to every file: does a JSON file parse, does an HTML page have a doctype and a closing tag, does any page call a loopback address,
-does any script carry an unresolved placeholder, and does any dataset mention a sport the brief excludes.</p>
+does any script carry an unresolved placeholder, and does any dataset attach a price to a sport the brief excludes.</p>
 <h2>Findings on the files that decide what gets published</h2>
 <div class="cards">{krows}</div>
 <h2>Every tracked text file</h2>
