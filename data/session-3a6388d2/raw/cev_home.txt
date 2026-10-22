@@ -1,0 +1,1224 @@
+ 
+<!DOCTYPE html> 
+<html lang="en-US"> 
+<head> 
+ <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png"> 
+ <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png"> 
+ <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png"> 
+ <link rel="manifest" href="/assets/img/favicon/site.webmanifest"> 
+ <link rel="mask-icon" color="#0000ff" href="/assets/img/favicon/safari-pinned-tab.svg"> 
+ <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico"> 
+ <title>Home | CEV</title> 
+ <meta name="description" content="" /> 
+ <link rel="canonical" href="http://www.cev.eu/" /> 
+ <meta charset="UTF-8"> 
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,IE=8"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+ <link rel="stylesheet" href="/assets/css/utilities.css" /> 
+ <link rel="stylesheet" href="/assets/css/main.css" /> 
+ </head> 
+<body data-require="./src/views/body-view" class="u-bg-wild-sand"> 
+ <header class="c-nav-primary-header u-bg-white u-text-navy sticky brand--cev" data-require="./src/components/cnav" openedState="false"> 
+ <div class="container c-nav-primary-header__container"> 
+ <div class="c-nav-primary-header__inner u-flex u-items-stretch"> 
+ <a class="primary-header__logo u-py-2 u-flex u-items-center u-no-underline u-mr-5" href="http://www.cev.eu/"> 
+ CEV 
+ </a> 
+ <form id="searchBar" class="u-py-2 u-flex u-items-left u-mr-auto" style="border-bottom:1px solid gray; max-width:50%"> 
+ <input id="srch-input" style="max-width:90%" type="text" placeholder="Search..." name="searchTerm" /> 
+ <input style="display:none" type="text" placeholder="NodeId" value="CEV" name="siteName" /> 
+ <button id="searchBtn" type="submit" data-toggle="modal" data-target="#exampleModal" style="width:20px;opacity:40%"> </button> 
+ </form> 
+ <div class="c-nav"> 
+ <ul class="c-nav__list"> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="0"> 
+ <a class="menuItem" href="https://livescores.cev.eu/" target=&quot;_blank&quot;> 
+ Live Scores 
+ </a> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="1"> 
+ <a class="menuItem" href="https://www.eurovolley.tv" target=&quot;_blank&quot;> 
+ EuroVolley TV 
+ </a> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="2"> 
+ <a class="menuItem" href="/club/" > 
+ Club 
+ </a> 
+ <div data-menu-slab class="menuSlab"> 
+ <div class="container"> 
+ <div class="menuSlab__row"> 
+ <div class=""> 
+ <a class="title" href="http://championsleague.cev.eu/en/" title="Champions League Volley">Champions League Volley</a> 
+ <ul class="level-1"> 
+ <li><a href="http://championsleague.cev.eu/en/men/#4th-round" title="Men">Men</a></li> 
+ <li><a href="http://championsleague.cev.eu/en/women/#4th-round" title="Women">Women</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/club/cev-volleyball-cup/" title="Volleyball Cup">Volleyball Cup</a> 
+ <ul class="level-1"> 
+ <li><a href="/club/cev-volleyball-cup/2027/men/#main-round" title="Men">Men</a></li> 
+ <li><a href="/club/cev-volleyball-cup/2027/women/" title="Women">Women</a></li> 
+ </ul> 
+ </div> 
+ </div> 
+ <div class="menuSlab__row"> 
+ <div class=""> 
+ <a class="title" href="/club/volleyball-challenge-cup/" title="Volleyball Challenge Cup">Volleyball Challenge Cup</a> 
+ <ul class="level-1"> 
+ <li><a href="/club/volleyball-challenge-cup/2027/men/#main-round" title="Men">Men</a></li> 
+ <li><a href="/club/volleyball-challenge-cup/2027/women/#main-round" title="Women">Women</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/club/archive/" title="Archive">Archive</a> 
+ <ul class="level-1"> 
+ </ul> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="3"> 
+ <a class="menuItem" href="/national-team/" > 
+ National 
+ </a> 
+ <div data-menu-slab class="menuSlab"> 
+ <div class="container"> 
+ <div class="menuSlab__row"> 
+ <div class=""> 
+ <a class="title" href="http://eurovolley.cev.eu/en/" title="EuroVolley">EuroVolley</a> 
+ <ul class="level-1"> 
+ <li><a href="http://eurovolley.cev.eu/en/2026/men/" title="Men">Men</a></li> 
+ <li><a href="http://eurovolley.cev.eu/en/2026/women/" title="Women">Women</a></li> 
+ <li><a href="http://eurovolley.cev.eu/en/2023/men/history/" title="Men History">Men History</a></li> 
+ <li><a href="http://eurovolley.cev.eu/en/2023/women/history/" title="Women History">Women History</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/national-team/age-group-championships/" title="Age Group">Age Group</a> 
+ <ul class="level-1"> 
+ <li><a href="/national-team/age-group-championships/u16m-2027/" title="U16 Men">U16 Men</a></li> 
+ <li><a href="/national-team/age-group-championships/u16w-2027/" title="U16 Women">U16 Women</a></li> 
+ <li><a href="/national-team/age-group-championships/u18m-2026/" title="U18 Men">U18 Men</a></li> 
+ <li><a href="/national-team/age-group-championships/u18w-2026/" title="U18 Women">U18 Women</a></li> 
+ <li><a href="/national-team/age-group-championships/u20m-2027/" title="U20 Men">U20 Men</a></li> 
+ <li><a href="/national-team/age-group-championships/u20w-2027/" title="U20 Women">U20 Women</a></li> 
+ <li><a href="/national-team/age-group-championships/u22m-2026/" title="U22 Men">U22 Men</a></li> 
+ <li><a href="/national-team/age-group-championships/u22w-2026/" title="U22 Women">U22 Women</a></li> 
+ <li><a href="/national-team/age-group-championships/history/" title="History">History</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/national-team/european-leagues/cev-volleyball-european-league/" title="CEV Volleyball European League">CEV Volleyball European League</a> 
+ <ul class="level-1"> 
+ <li><a href="/national-team/european-leagues/cev-volleyball-european-league/men/2026/" title="Men">Men</a></li> 
+ <li><a href="/national-team/european-leagues/cev-volleyball-european-league/women/2026/" title="Women">Women</a></li> 
+ </ul> 
+ </div> 
+ </div> 
+ <div class="menuSlab__row"> 
+ <div class=""> 
+ <a class="title" href="/national-team/rankings/" title="Rankings">Rankings</a> 
+ <ul class="level-1"> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/national-team/archive/" title="Archive">Archive</a> 
+ <ul class="level-1"> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/national-team/multi-sport-events/eyof/" title="Multi-Sport">Multi-Sport</a> 
+ <ul class="level-1"> 
+ </ul> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="4"> 
+ <a class="menuItem" href="/beach/" > 
+ Beach 
+ </a> 
+ <div data-menu-slab class="menuSlab"> 
+ <div class="container"> 
+ <div class="menuSlab__row"> 
+ <div class=""> 
+ <a class="title" href="http://eurobeachvolley.cev.eu/en/" title="EuroBeachVolley">EuroBeachVolley</a> 
+ <ul class="level-1"> 
+ <li><a href="http://eurobeachvolley.cev.eu/en/2026/" title="Poland 2026">Poland 2026</a></li> 
+ <li><a href="http://eurobeachvolley.cev.eu/en/2025/" title="Germany 2025">Germany 2025</a></li> 
+ <li><a href="http://eurobeachvolley.cev.eu/en/history-old/" title="History">History</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/beach/nations-cup/2026/" title="Nations Cup">Nations Cup</a> 
+ <ul class="level-1"> 
+ <li><a href="/beach/nations-cup/2026/preliminary-phase/" title="Preliminary Phase">Preliminary Phase</a></li> 
+ <li><a href="/beach/nations-cup/2026/nations-cup-final/" title="Nations Cup Final">Nations Cup Final</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/beach/queen-king-of-the-court-european-finals/queen-king-of-the-court-european-finals-2023/" target="" title="Queen &amp; King of the Court">Queen &amp; King of the Court</a> 
+ <ul class="level-1"> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/beach/european-cup/2026/" title="CEV Beach Volley European Cup">CEV Beach Volley European Cup</a> 
+ <ul class="level-1"> 
+ </ul> 
+ </div> 
+ </div> 
+ <div class="menuSlab__row"> 
+ <div class=""> 
+ <a class="title" href="/beach/beach-pro-tour/2026/" title="Beach Pro Tour Futures">Beach Pro Tour Futures</a> 
+ <ul class="level-1"> 
+ <li><a href="https://www.cev.eu/beach/beach-pro-tour/" title="History">History</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/beach/agegroups/" title="Age Group">Age Group</a> 
+ <ul class="level-1"> 
+ <li><a href="/beach/agegroups/2026/u22/" title="U22">U22</a></li> 
+ <li><a href="/beach/agegroups/2026/u20/" title="U20">U20</a></li> 
+ <li><a href="/beach/agegroups/2026/u18/" title="U18">U18</a></li> 
+ <li><a href="/beach/agegroups/history/" title="History">History</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <a class="title" href="/beach/zonal-events/" title="Zonal Events">Zonal Events</a> 
+ <ul class="level-1"> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <span class="title"> 
+ Rankings 
+ </span> 
+ <ul class="level-1"> 
+ <li><a href="/beach/cev-entry-ranking/" title="CEV Entry Ranking">CEV Entry Ranking</a></li> 
+ <li><a href="/beach/country-ranking/" target="_blank" title="Country Ranking">Country Ranking</a></li> 
+ <li><a href="/beach/beach-volleyball-age-group-rankings/" title="Beach Volleyball Age Group Rankings">Beach Volleyball Age Group Rankings</a></li> 
+ <li><a href="/beach/european-cup/rankings/" title="BV European Cup Country Ranking">BV European Cup Country Ranking</a></li> 
+ </ul> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="5"> 
+ <a class="menuItem" href="/news/" > 
+ News 
+ </a> 
+ <div data-menu-slab class="menuSlab"> 
+ <div class="container"> 
+ <div class="menuSlab__row"> 
+ <div class=""> 
+ <span class="title"> 
+ Sport 
+ </span> 
+ <ul class="level-1"> 
+ <li><a href="/articles/club-volleyball/" title="Club Volleyball">Club Volleyball</a></li> 
+ <li><a href="/articles/volleyball/" title="National Team Volleyball">National Team Volleyball</a></li> 
+ <li><a href="/articles/beach-volleyball/" title="Beach Volleyball">Beach Volleyball</a></li> 
+ <li><a href="/articles/snow-volleyball/" title="Snow Volleyball">Snow Volleyball</a></li> 
+ <li><a href="/articles/features/" title="Features">Features</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <span class="title"> 
+ Institution 
+ </span> 
+ <ul class="level-1"> 
+ <li><a href="http://inside.cev.eu/articles/cev/" title="CEV">CEV</a></li> 
+ <li><a href="http://inside.cev.eu/articles/development/" title="Development">Development</a></li> 
+ <li><a href="http://inside.cev.eu/articles/campaigns/" title="Campaigns">Campaigns</a></li> 
+ <li><a href="http://inside.cev.eu/articles/partners-sponsors/" title="Partners &amp; Sponsors">Partners &amp; Sponsors</a></li> 
+ </ul> 
+ </div> 
+ </div> 
+ <div class="menuSlab__row"> 
+ <div class=""> 
+ <span class="title"> 
+ Organisation 
+ </span> 
+ <ul class="level-1"> 
+ <li><a href="http://inside.cev.eu/articles/clubs/" title="Clubs">Clubs</a></li> 
+ <li><a href="http://inside.cev.eu/articles/federations/" title="Federations">Federations</a></li> 
+ </ul> 
+ </div> 
+ <div class=""> 
+ <span class="title"> 
+ Competition 
+ </span> 
+ <ul class="level-1"> 
+ <li><a href="http://championsleague.cev.eu/en/articles/" title="Champions League">Champions League</a></li> 
+ <li><a href="http://eurovolley.cev.eu/en/articles/" title="EuroVolley">EuroVolley</a></li> 
+ <li><a href="http://eurobeachvolley.cev.eu/en/articles/" title="EuroBeachVolley">EuroBeachVolley</a></li> 
+ <li><a href="http://eurosnowvolley.cev.eu/en/articles/" title="EuroSnowVolley">EuroSnowVolley</a></li> 
+ </ul> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="6"> 
+ <a class="menuItem" href="https://playzone.cev.eu/" > 
+ Game Hub 
+ </a> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="7"> 
+ <a class="menuItem" href="/calendar/" > 
+ Calendar 
+ </a> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="8"> 
+ <a class="menuItem" href="http://inside.cev.eu/sponsors-partners/" > 
+ Sponsors 
+ </a> 
+ </li> 
+ <li class="c-nav__list__item" data-mainMenu data-nav-item-id="9"> 
+ <a class="menuItem" href="http://inside.cev.eu/" > 
+ CEV 
+ </a> 
+ </li> 
+ </ul> 
+ <ul data-nav-extra class="c-nav__extra"></ul> 
+ <button class="btn-wrapper hidden" data-hamburger> 
+ <span class="btn-burger" data-state="off">Menu</span> 
+ </button> 
+ </div> 
+ </div> 
+ </div> 
+ </header> 
+<div id="searchContainer" style="display:none"> 
+</div> 
+<div class="u-bg-wild-sand breadcrumb-wrapper sticky"> 
+ <div class="container u-flex u-flex-wrap u-items-center u-relative"> 
+ <ul class="breadcrumbs u-w-full u-py-4 u-list-reset u-gap-y-2 u-flex u-flex-wrap u-uppercase"> 
+ <li class="u-pr-6 u-mr-6 u-triangle-after-breadcrumb"> 
+ <a class="u-text-silver hocus:u-text-silver--dark" href="http://www.cev.eu/" target="_self">Home</a> 
+ </li> 
+ </ul> 
+ </div> 
+</div> 
+ <div class="carousel-component "> 
+ <div class="c-hero-carousel u-bg-navy u-z-0 u-w-full u-h-auto swiper-container auto-play" 
+ data-require="./src/components/hero-carousel"> 
+ <div class="swiper-wrapper"> 
+ <article class="swiper-slide u-relative u-w-full u-overflow-hidden"> 
+ <div style="background-image: url(https://webmedia.cev.eu/media/nxpnbvon/220007_esemenyfoto-28.jpg?width=1920&amp;height=756&amp;v=1dd620ca3242ed0);" class="carousel-component__article-slide c-hero-carousel__item u-bg-cover u-flex u-items-center u-text-white u-px-4 u-py-8 md:u-p-16 lg:u-p-24 u-static"> 
+ <div class="overlay overlay--right "></div> 
+ <div class="container u-flex u-z-10 u-justify-end"> 
+ <div class="md:u-w-1/2 lg:u-w-2/5 u-max-w-full sm:u-max-w-lg"> 
+ <div class="u-text-yellow u-text-lg u-mb-3">CEV Champions League Volley 2027</div> 
+ <h2 class="u-text-3xl md:u-text-5xl u-leading-none u-max-w-full u-mb-4 u-z-10 u-break-words md:u-break-normal"> 
+Fino win thrilling battle, but victory comes at a heavy price </h2> 
+ <p class="u-text-2xl u-mb-4 u-z-10"> 
+News </p> 
+ <a class="u-inline-block u-mb-4 u-z-10" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/fino-win-thrilling-battle-but-victory-comes-at-a-heavy-price/">Read more</a> 
+ <hr class="u-m-0 u-border-yellow u-border-4 u-w-16"> 
+ <div class="u-inline-block"> 
+ <div class="swiper-pagination u-h-3 u-relative u-mt-4 u-gap-x-2"></div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </article> 
+ <article class="swiper-slide u-relative u-w-full u-overflow-hidden"> 
+ <div style="background-image: url(https://webmedia.cev.eu/media/4pxlmjk0/215159__dsc8318.jpg?width=1920&amp;height=756&amp;v=1dd61a9115da520);" class="carousel-component__article-slide c-hero-carousel__item u-bg-cover u-flex u-items-center u-text-white u-px-4 u-py-8 md:u-p-16 lg:u-p-24 u-static"> 
+ <div class="overlay "></div> 
+ <div class="container u-flex u-z-10 u-justify-start"> 
+ <div class="md:u-w-1/2 lg:u-w-2/5 u-max-w-full sm:u-max-w-lg"> 
+ <div class="u-text-yellow u-text-lg u-mb-3">CEV Champions League Volley 2027</div> 
+ <h2 class="u-text-3xl md:u-text-5xl u-leading-none u-max-w-full u-mb-4 u-z-10 u-break-words md:u-break-normal"> 
+Asterix Avo and Maritza record 3-0 wins in #CLVolleyW opening round </h2> 
+ <p class="u-text-2xl u-mb-4 u-z-10"> 
+News </p> 
+ <a class="u-inline-block u-mb-4 u-z-10" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/asterix-avo-and-maritza-record-3-0-wins-in-clvolleyw-opening-round/">Read more</a> 
+ <hr class="u-m-0 u-border-yellow u-border-4 u-w-16"> 
+ <div class="u-inline-block"> 
+ <div class="swiper-pagination u-h-3 u-relative u-mt-4 u-gap-x-2"></div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </article> 
+ <article class="swiper-slide u-relative u-w-full u-overflow-hidden"> 
+ <div style="background-image: url(https://webmedia.cev.eu/media/ugknf2i0/190901_img_1733-res.jpeg?width=1920&amp;height=756&amp;v=1dd60d45ec2a250);" class="carousel-component__article-slide c-hero-carousel__item u-bg-cover u-flex u-items-center u-text-white u-px-4 u-py-8 md:u-p-16 lg:u-p-24 u-static"> 
+ <div class="overlay "></div> 
+ <div class="container u-flex u-z-10 u-justify-start"> 
+ <div class="md:u-w-1/2 lg:u-w-2/5 u-max-w-full sm:u-max-w-lg"> 
+ <div class="u-text-yellow u-text-lg u-mb-3">CEV Champions League Volley 2027</div> 
+ <h2 class="u-text-3xl md:u-text-5xl u-leading-none u-max-w-full u-mb-4 u-z-10 u-break-words md:u-break-normal"> 
+Rookies Turan TOVUZ enjoy dream start to maiden #CLVolleyW campaign </h2> 
+ <p class="u-text-2xl u-mb-4 u-z-10"> 
+News </p> 
+ <a class="u-inline-block u-mb-4 u-z-10" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/rookies-turan-tovuz-enjoy-dream-start-to-maiden-clvolleyw-campaign/">Read more</a> 
+ <hr class="u-m-0 u-border-yellow u-border-4 u-w-16"> 
+ <div class="u-inline-block"> 
+ <div class="swiper-pagination u-h-3 u-relative u-mt-4 u-gap-x-2"></div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </article> 
+ <article class="swiper-slide u-relative u-w-full u-overflow-hidden"> 
+ <div style="background-image: url(https://webmedia.cev.eu/media/rvicvir1/201339_dsc_8280.jpg?width=1920&amp;height=756&amp;v=1dd60d5ca8b99f0);" class="carousel-component__article-slide c-hero-carousel__item u-bg-cover u-flex u-items-center u-text-white u-px-4 u-py-8 md:u-p-16 lg:u-p-24 u-static"> 
+ <div class="overlay "></div> 
+ <div class="container u-flex u-z-10 u-justify-start"> 
+ <div class="md:u-w-1/2 lg:u-w-2/5 u-max-w-full sm:u-max-w-lg"> 
+ <div class="u-text-yellow u-text-lg u-mb-3">CEV Champions League Volley 2027</div> 
+ <h2 class="u-text-3xl md:u-text-5xl u-leading-none u-max-w-full u-mb-4 u-z-10 u-break-words md:u-break-normal"> 
+Mladost score away win as #CLVolleyM early rounds get underway </h2> 
+ <p class="u-text-2xl u-mb-4 u-z-10"> 
+News </p> 
+ <a class="u-inline-block u-mb-4 u-z-10" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/mladost-score-away-win-as-clvolleym-early-rounds-get-underway/">Read more</a> 
+ <hr class="u-m-0 u-border-yellow u-border-4 u-w-16"> 
+ <div class="u-inline-block"> 
+ <div class="swiper-pagination u-h-3 u-relative u-mt-4 u-gap-x-2"></div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </article> 
+ <article class="swiper-slide u-relative u-w-full u-overflow-hidden"> 
+ <div style="background-image: url(https://webmedia.cev.eu/media/ewwhiaih/rovaniemi.png?width=1920&amp;height=756&amp;v=1dd616804a99aa0);" class="carousel-component__article-slide c-hero-carousel__item u-bg-cover u-flex u-items-center u-text-white u-px-4 u-py-8 md:u-p-16 lg:u-p-24 u-static"> 
+ <div class="overlay overlay--right "></div> 
+ <div class="container u-flex u-z-10 u-justify-end"> 
+ <div class="md:u-w-1/2 lg:u-w-2/5 u-max-w-full sm:u-max-w-lg"> 
+ <div class="u-text-yellow u-text-lg u-mb-3">Volleyball</div> 
+ <h2 class="u-text-3xl md:u-text-5xl u-leading-none u-max-w-full u-mb-4 u-z-10 u-break-words md:u-break-normal"> 
+Rovaniemi hosts northernmost European qualifier and NEVZA championships ever </h2> 
+ <p class="u-text-2xl u-mb-4 u-z-10"> 
+News </p> 
+ <a class="u-inline-block u-mb-4 u-z-10" href="/articles/volleyball/rovaniemi-hosts-northernmost-european-qualifier-and-nevza-championships-ever/">Read more</a> 
+ <hr class="u-m-0 u-border-yellow u-border-4 u-w-16"> 
+ <div class="u-inline-block"> 
+ <div class="swiper-pagination u-h-3 u-relative u-mt-4 u-gap-x-2"></div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </article> 
+ <article class="swiper-slide u-relative u-w-full u-overflow-hidden"> 
+ <div style="background-image: url(https://webmedia.cev.eu/media/mj1exeka/nik_7593.jpg?width=1920&amp;height=756&amp;v=1dd60d7f8e3d9a0);" class="carousel-component__article-slide c-hero-carousel__item u-bg-cover u-flex u-items-center u-text-white u-px-4 u-py-8 md:u-p-16 lg:u-p-24 u-static"> 
+ <div class="overlay "></div> 
+ <div class="container u-flex u-z-10 u-justify-start"> 
+ <div class="md:u-w-1/2 lg:u-w-2/5 u-max-w-full sm:u-max-w-lg"> 
+ <div class="u-text-yellow u-text-lg u-mb-3">Club Volleyball</div> 
+ <h2 class="u-text-3xl md:u-text-5xl u-leading-none u-max-w-full u-mb-4 u-z-10 u-break-words md:u-break-normal"> 
+ISTANBUL Gen&#xE7;lik grab BVA Cup and ticket to CEV Challenge Cup </h2> 
+ <p class="u-text-2xl u-mb-4 u-z-10"> 
+News </p> 
+ <a class="u-inline-block u-mb-4 u-z-10" href="/articles/club-volleyball/istanbul-genclik-grab-bva-cup-and-ticket-to-cev-challenge-cup/">Read more</a> 
+ <hr class="u-m-0 u-border-yellow u-border-4 u-w-16"> 
+ <div class="u-inline-block"> 
+ <div class="swiper-pagination u-h-3 u-relative u-mt-4 u-gap-x-2"></div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </article> 
+ <article class="swiper-slide u-relative u-w-full u-overflow-hidden"> 
+ <div style="background-image: url(https://webmedia.cev.eu/media/efmpwbga/001.jpeg?width=1920&amp;height=756&amp;v=1dd55d626fba050);" class="carousel-component__article-slide c-hero-carousel__item u-bg-cover u-flex u-items-center u-text-white u-px-4 u-py-8 md:u-p-16 lg:u-p-24 u-static"> 
+ <div class="overlay overlay--right "></div> 
+ <div class="container u-flex u-z-10 u-justify-end"> 
+ <div class="md:u-w-1/2 lg:u-w-2/5 u-max-w-full sm:u-max-w-lg"> 
+ <div class="u-text-yellow u-text-lg u-mb-3">CEV Champions League Volley 2027</div> 
+ <h2 class="u-text-3xl md:u-text-5xl u-leading-none u-max-w-full u-mb-4 u-z-10 u-break-words md:u-break-normal"> 
+FC PORTO chase second appearance in elite #CLVolleyW group stage </h2> 
+ <p class="u-text-2xl u-mb-4 u-z-10"> 
+News </p> 
+ <a class="u-inline-block u-mb-4 u-z-10" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/fc-porto-chase-second-appearance-in-elite-clvolleyw-group-stage/">Read more</a> 
+ <hr class="u-m-0 u-border-yellow u-border-4 u-w-16"> 
+ <div class="u-inline-block"> 
+ <div class="swiper-pagination u-h-3 u-relative u-mt-4 u-gap-x-2"></div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </article> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="lg:u-block sub-navigation"> 
+ </div> 
+ <main class="u-bg-wild-sand lg:u--mt-24 lg:u-pt-24 u-pb-4"> 
+ <section class="heading-component"> 
+ <div class="container"> 
+ <h2 class="centered-heading">FOLLOW US ON SOCIAL</h2> 
+ </div> 
+ </section> 
+ <div class="container u-py-8 u-bg-white">
+ <div id="follow_us_content" class="row" style="text-align:center; width:100%;
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ margin:auto;
+ background-image: url(https://webmedia.cev.eu/media/qrnn2v4w/artboard-1.png?v=1da8cf6b035a4c0)">
+ <div class="follow_us_header" style="width:100%">
+ <hgroup class="section_header">
+ <h1 class="mediaWallTitle">Number Of Followers</h1>
+ <div class="sub_title"></div>
+ <h2 class="mediaWallTotal">3,312,000</h2>
+ </hgroup>
+ </div>
+ <div class="follow_us_inner" style="margin: 30px 10px 30px 10px; display: grid; column-gap: 14px; position: relative; width: calc(100% - 40px);">
+ <a class="social_item" target="_blank" href="https://www.facebook.com/CEVolleyball">
+ <div class="social_icon">
+ </div>
+ <h4 class="d-none d-md-block">European Volleyball</h4>
+ <h4>950,000</h4>
+ </a>
+ <a class="social_item" target="_blank" href="https://www.facebook.com/CEVolleyballCL">
+ <div class="social_icon">
+ </div>
+ <h4 class="d-none d-md-block">Champions League</h4>
+ <h4>395,000</h4>
+ </a>
+ <a class="social_item" target="_blank" href="https://instagram.com/cevolleyball/">
+ <div class="social_icon instagram">
+ </div>
+ <p></p>
+ <h4>664,000</h4>
+ </a>
+ <a class="social_item" target="_blank" href="https://www.youtube.com/CEVolleyball?sub_confirmation=1">
+ <div class="social_icon youtube">
+ </div>
+ <h4></h4>
+ <h4>585,000</h4>
+ </a>
+ <a class="social_item" target="_blank" href="https://x.com/CEVolleyball">
+ <div class="social_icon twitter">
+ </div>
+ <h4></h4>
+ <h4>89,000</h4>
+ </a>
+ <a class="social_item" target="_blank" href="https://www.tiktok.com/cev">
+ <div class="social_icon">
+ </div>
+ <h4></h4>
+ <h4>629,000</h4>
+ </a>
+ </div>
+ </div>
+ </div>
+ <section class="heading-component"> 
+ <div class="container"> 
+ <h2 class="centered-heading">TRENDING NOW</h2> 
+ </div> 
+ </section> 
+ <div class="news-articles u-o-8 u-py-24 brand--cev"> 
+ <div class="article-listing--standard container u-hidden lg:u-block"> 
+ <div class="row"> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/fino-win-thrilling-battle-but-victory-comes-at-a-heavy-price/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/nxpnbvon/220007_esemenyfoto-28.jpg?width=300&amp;height=300&amp;v=1dd620ca3242ed0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Fino win thrilling battle, but victory comes at a heavy price<br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">CEV Champions League Volley 2027</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">21 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Fino win thrilling battle, but victory comes at a heavy price</span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/mladost-score-away-win-as-clvolleym-early-rounds-get-underway/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/rvicvir1/201339_dsc_8280.jpg?width=300&amp;height=300&amp;v=1dd60d5ca8b99f0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Mladost score away win as #CLVolleyM early rounds get underway <br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">CEV Champions League Volley 2027</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">20 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Mladost score away win as #CLVolleyM early rounds get underway </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/fino-kaposvar-poised-to-make-fourth-appearance-in-clvolleym-early-rounds/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/ho0mpox3/fino-kaposvar.jpg?width=300&amp;height=300&amp;v=1dd5fc88854a710');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Fino KAPOSVAR poised to make fourth appearance in #CLVolleyM early rounds <br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">CEV Champions League Volley 2027</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">19 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Fino KAPOSVAR poised to make fourth appearance in #CLVolleyM early rounds </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/veteran-setter-arslan-eksi-sets-the-bar-high-for-galatasaray/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/leklrood/190955__ond1529-res.jpg?width=300&amp;height=300&amp;v=1dd59a8c3a98ef0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Veteran setter Arslan Ek&#x15F;i sets the bar high for Galatasaray <br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">CEV Champions League Volley 2027</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">11 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Veteran setter Arslan Ek&#x15F;i sets the bar high for Galatasaray </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="container"> 
+ <div class="article-listing--mobile lg:u-hidden u-overflow-hidden" data-require="./src/components/article-listing"> 
+<div class="u-absolute u-m-5 u-pin-l u-pin-t u-pin-r u-flex u-justify-between"> 
+ <div class="u-inline-block u-mr-1"> 
+ <div class="swiper-pagination u-text-left u-relative u-gap-x-2"></div> 
+ </div> 
+ <div class="article-listing__swipe-prompt u-font-bold u-p-2 u-rounded u-shadow u-select-none u-text-white u-z-10"> 
+ <div class="u-flex"> 
+ Swipe for more… 
+ </div> 
+ </div> 
+</div> 
+ <div class="swiper-wrapper"> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/fino-win-thrilling-battle-but-victory-comes-at-a-heavy-price/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/nxpnbvon/220007_esemenyfoto-28.jpg?width=300&amp;height=300&amp;v=1dd620ca3242ed0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Fino win thrilling battle, but victory comes at a heavy price<br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">CEV Champions League Volley 2027</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">21 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Fino win thrilling battle, but victory comes at a heavy price</span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/mladost-score-away-win-as-clvolleym-early-rounds-get-underway/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/rvicvir1/201339_dsc_8280.jpg?width=300&amp;height=300&amp;v=1dd60d5ca8b99f0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Mladost score away win as #CLVolleyM early rounds get underway <br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">CEV Champions League Volley 2027</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">20 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Mladost score away win as #CLVolleyM early rounds get underway </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/fino-kaposvar-poised-to-make-fourth-appearance-in-clvolleym-early-rounds/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/ho0mpox3/fino-kaposvar.jpg?width=300&amp;height=300&amp;v=1dd5fc88854a710');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Fino KAPOSVAR poised to make fourth appearance in #CLVolleyM early rounds <br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">CEV Champions League Volley 2027</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">19 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Fino KAPOSVAR poised to make fourth appearance in #CLVolleyM early rounds </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="http://championsleague.cev.eu/en/articles/cev-champions-league-volley-2027/veteran-setter-arslan-eksi-sets-the-bar-high-for-galatasaray/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/leklrood/190955__ond1529-res.jpg?width=300&amp;height=300&amp;v=1dd59a8c3a98ef0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Veteran setter Arslan Ek&#x15F;i sets the bar high for Galatasaray <br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">CEV Champions League Volley 2027</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">11 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Veteran setter Arslan Ek&#x15F;i sets the bar high for Galatasaray </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="news-articles u-o-8 u-py-24 brand--cev"> 
+ <div class="article-listing--standard container u-hidden lg:u-block"> 
+ <div class="row"> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="/articles/beach-volleyball/budapest-turns-cev-beach-volley-nations-cup-final-2026-into-lasting-legacy/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/jeagwbhy/dsc03949.jpg?width=300&amp;height=300&amp;v=1dd5d88b09fa1d0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Budapest turns CEV Beach Volley Nations Cup Final 2026 into lasting legacy<br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">Beach Volleyball</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">16 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Budapest turns CEV Beach Volley Nations Cup Final 2026 into lasting legacy</span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="/articles/beach-volleyball/young-swedes-claim-eurobeachvolley-title-book-ticket-to-la28/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/bzpghsjk/dsc_5076.jpg?width=300&amp;height=300&amp;v=1dd2e12ccc90cc0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Young Swedes claim EuroBeachVolley title, book ticket to LA28 <br>News</p> 
+ <div class="u-mt-2"><em>by</em> Federico Ferraro</div> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">Beach Volleyball</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">16 August 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Young Swedes claim EuroBeachVolley title, book ticket to LA28 </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="/articles/beach-volleyball/stamschoon-crowned-european-champions-in-stare-jablonki-as-netherlands-secure-la28-spot/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/davbfsnl/dsc_4598-res.jpg?width=300&amp;height=300&amp;v=1dd2d9b03e56910');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Stam/Schoon crowned European champions in Stare Jablonki as Netherlands secure LA28 spot <br>News</p> 
+ <div class="u-mt-2"><em>by</em> Federico Ferraro</div> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">Beach Volleyball</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">16 August 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Stam/Schoon crowned European champions in Stare Jablonki as Netherlands secure LA28 spot </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="/articles/beach-volleyball/three-scandinavian-teams-plus-france-reach-eurobeachvolley-men-s-semis/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/lqyd1z5t/dsc_5623.jpg?width=300&amp;height=300&amp;v=1dd2ce13a326d70');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Three Scandinavian teams plus France reach EuroBeachVolley men&#x2019;s semis <br>News</p> 
+ <div class="u-mt-2"><em>by</em> Federico Ferraro</div> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">Beach Volleyball</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">15 August 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Three Scandinavian teams plus France reach EuroBeachVolley men&#x2019;s semis </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="container"> 
+ <div class="article-listing--mobile lg:u-hidden u-overflow-hidden" data-require="./src/components/article-listing"> 
+<div class="u-absolute u-m-5 u-pin-l u-pin-t u-pin-r u-flex u-justify-between"> 
+ <div class="u-inline-block u-mr-1"> 
+ <div class="swiper-pagination u-text-left u-relative u-gap-x-2"></div> 
+ </div> 
+ <div class="article-listing__swipe-prompt u-font-bold u-p-2 u-rounded u-shadow u-select-none u-text-white u-z-10"> 
+ <div class="u-flex"> 
+ Swipe for more… 
+ </div> 
+ </div> 
+</div> 
+ <div class="swiper-wrapper"> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="/articles/beach-volleyball/budapest-turns-cev-beach-volley-nations-cup-final-2026-into-lasting-legacy/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/jeagwbhy/dsc03949.jpg?width=300&amp;height=300&amp;v=1dd5d88b09fa1d0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Budapest turns CEV Beach Volley Nations Cup Final 2026 into lasting legacy<br>News</p> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">Beach Volleyball</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">16 October 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Budapest turns CEV Beach Volley Nations Cup Final 2026 into lasting legacy</span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="/articles/beach-volleyball/young-swedes-claim-eurobeachvolley-title-book-ticket-to-la28/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/bzpghsjk/dsc_5076.jpg?width=300&amp;height=300&amp;v=1dd2e12ccc90cc0');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Young Swedes claim EuroBeachVolley title, book ticket to LA28 <br>News</p> 
+ <div class="u-mt-2"><em>by</em> Federico Ferraro</div> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">Beach Volleyball</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">16 August 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Young Swedes claim EuroBeachVolley title, book ticket to LA28 </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="/articles/beach-volleyball/stamschoon-crowned-european-champions-in-stare-jablonki-as-netherlands-secure-la28-spot/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/davbfsnl/dsc_4598-res.jpg?width=300&amp;height=300&amp;v=1dd2d9b03e56910');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Stam/Schoon crowned European champions in Stare Jablonki as Netherlands secure LA28 spot <br>News</p> 
+ <div class="u-mt-2"><em>by</em> Federico Ferraro</div> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">Beach Volleyball</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">16 August 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Stam/Schoon crowned European champions in Stare Jablonki as Netherlands secure LA28 spot </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column c-article-listing-summary u-bg-white u-h-full" data-hover-expand> 
+ <a class="u-block" href="/articles/beach-volleyball/three-scandinavian-teams-plus-france-reach-eurobeachvolley-men-s-semis/" title="Read more" target="_self" style="position: relative"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/lqyd1z5t/dsc_5623.jpg?width=300&amp;height=300&amp;v=1dd2ce13a326d70');"> 
+ </div> 
+ <div class="c-article-listing-summary__summary u-p-8 u-bg-white u-absolute u-pin-l u-pin-b u-w-full"> 
+ <div class="u-leading-tight"> 
+ <p class="u-text-xl u-font-extrabold">Three Scandinavian teams plus France reach EuroBeachVolley men&#x2019;s semis <br>News</p> 
+ <div class="u-mt-2"><em>by</em> Federico Ferraro</div> 
+ </div> 
+ <div class="u-gap-x-4" style="max-height: 0px; overflow: hidden; transition: max-height 0.25s ease-in-out; " data-hover-expand-body> 
+ <div class="u-flex u-justify-between u-mt-4"> 
+ <div class="u-text-blue u-truncate">Beach Volleyball</div> 
+ <div class="u-text-silver u-whitespace-no-wrap">15 August 2026</div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="u-p-8 u-bg-white"> 
+ <p><span class="u-text-xl u-font-extrabold">Three Scandinavian teams plus France reach EuroBeachVolley men&#x2019;s semis </span><br>News</p> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ <section class="heading-component"> 
+ <div class="container"> 
+ <h2 class="centered-heading">EXPERIENCE VOLLEYBALL</h2> 
+ </div> 
+ </section> 
+ <div class="article-listing-component u-o-8 u-py-8 brand--cev"> 
+ <div class="u-mb-2 container"> 
+ <h3 class="u-text-2xl">QUICK LINKS</h3> 
+ </div> 
+ <div class="article-listing--standard container u-hidden lg:u-block"> 
+ <div class="row"> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column u-bg-white u-h-full"> 
+ <a class="u-block" href="/club/" title="Club"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/j1he0wix/champions-league-volley.jpg?width=300&amp;height=300&amp;v=1d9c5682da92230');"> 
+ </div> 
+ <div class="u-p-4 xl:u-p-8"> 
+ <div class="u-leading-tight"> 
+ <p><span class="u-text-xl u-font-extrabold">Club Volleyball</span><br></p> 
+ </div> 
+ <div class="u-flex u-justify-between u-gap-x-4"> 
+ <div class="u-text-blue u-truncate u-mt-4"></div> 
+ </div> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column u-bg-white u-h-full"> 
+ <a class="u-block" href="/national-team/" title="National"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/x2kjdlok/eurovolley.jpg?width=300&amp;height=300&amp;v=1d9c5682d7abf30');"> 
+ </div> 
+ <div class="u-p-4 xl:u-p-8"> 
+ <div class="u-leading-tight"> 
+ <p><span class="u-text-xl u-font-extrabold">National Team Volleyball</span><br></p> 
+ </div> 
+ <div class="u-flex u-justify-between u-gap-x-4"> 
+ <div class="u-text-blue u-truncate u-mt-4"></div> 
+ </div> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column u-bg-white u-h-full"> 
+ <a class="u-block" href="/beach/" title="Beach"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/iskaobfm/beach-volleyball.jpg?width=300&amp;height=300&amp;v=1d9c5682de82700');"> 
+ </div> 
+ <div class="u-p-4 xl:u-p-8"> 
+ <div class="u-leading-tight"> 
+ <p><span class="u-text-xl u-font-extrabold">Beach Volleyball</span><br></p> 
+ </div> 
+ <div class="u-flex u-justify-between u-gap-x-4"> 
+ <div class="u-text-blue u-truncate u-mt-4"></div> 
+ </div> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="u-mb-4 col-3"> 
+ <div class="article-listing--standard__column u-bg-white u-h-full"> 
+ <a class="u-block" href="/snow/" title="Snow"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/2tzneosw/snow-volleyball.jpg?width=300&amp;height=300&amp;v=1d9c5682d4c8340');"> 
+ </div> 
+ <div class="u-p-4 xl:u-p-8"> 
+ <div class="u-leading-tight"> 
+ <p><span class="u-text-xl u-font-extrabold">Snow Volleyball</span><br></p> 
+ </div> 
+ <div class="u-flex u-justify-between u-gap-x-4"> 
+ <div class="u-text-blue u-truncate u-mt-4"></div> 
+ </div> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="container"> 
+ <div class="article-listing--mobile lg:u-hidden u-overflow-hidden" data-require="./src/components/article-listing"> 
+<div class="u-absolute u-m-5 u-pin-l u-pin-t u-pin-r u-flex u-justify-between"> 
+ <div class="u-inline-block u-mr-1"> 
+ <div class="swiper-pagination u-text-left u-relative u-gap-x-2"></div> 
+ </div> 
+ <div class="article-listing__swipe-prompt u-font-bold u-p-2 u-rounded u-shadow u-select-none u-text-white u-z-10"> 
+ <div class="u-flex"> 
+ Swipe for more… 
+ </div> 
+ </div> 
+</div> 
+ <div class="swiper-wrapper"> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column u-bg-white u-h-full"> 
+ <a class="u-block" href="/club/" title="Club"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/j1he0wix/champions-league-volley.jpg?width=300&amp;height=300&amp;v=1d9c5682da92230');"> 
+ </div> 
+ <div class="u-p-4 xl:u-p-8"> 
+ <div class="u-leading-tight"> 
+ <p><span class="u-text-xl u-font-extrabold">Club Volleyball</span><br></p> 
+ </div> 
+ <div class="u-flex u-justify-between u-gap-x-4"> 
+ <div class="u-text-blue u-truncate u-mt-4"></div> 
+ </div> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column u-bg-white u-h-full"> 
+ <a class="u-block" href="/national-team/" title="National"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/x2kjdlok/eurovolley.jpg?width=300&amp;height=300&amp;v=1d9c5682d7abf30');"> 
+ </div> 
+ <div class="u-p-4 xl:u-p-8"> 
+ <div class="u-leading-tight"> 
+ <p><span class="u-text-xl u-font-extrabold">National Team Volleyball</span><br></p> 
+ </div> 
+ <div class="u-flex u-justify-between u-gap-x-4"> 
+ <div class="u-text-blue u-truncate u-mt-4"></div> 
+ </div> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column u-bg-white u-h-full"> 
+ <a class="u-block" href="/beach/" title="Beach"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/iskaobfm/beach-volleyball.jpg?width=300&amp;height=300&amp;v=1d9c5682de82700');"> 
+ </div> 
+ <div class="u-p-4 xl:u-p-8"> 
+ <div class="u-leading-tight"> 
+ <p><span class="u-text-xl u-font-extrabold">Beach Volleyball</span><br></p> 
+ </div> 
+ <div class="u-flex u-justify-between u-gap-x-4"> 
+ <div class="u-text-blue u-truncate u-mt-4"></div> 
+ </div> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="article-listing-slide article-listing-slide--basic swiper-slide"> 
+ <div class="article-listing--standard__column u-bg-white u-h-full"> 
+ <a class="u-block" href="/snow/" title="Snow"> 
+ <div class="u-aspect-ratio-square u-relative content-card__image" style="background-image: url('https://webmedia.cev.eu/media/2tzneosw/snow-volleyball.jpg?width=300&amp;height=300&amp;v=1d9c5682d4c8340');"> 
+ </div> 
+ <div class="u-p-4 xl:u-p-8"> 
+ <div class="u-leading-tight"> 
+ <p><span class="u-text-xl u-font-extrabold">Snow Volleyball</span><br></p> 
+ </div> 
+ <div class="u-flex u-justify-between u-gap-x-4"> 
+ <div class="u-text-blue u-truncate u-mt-4"></div> 
+ </div> 
+ </div> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </main> 
+ <footer class="primary-footer u-pt-10 u-pb-16 u-bg-navy u-text-white"> 
+ <div class="container"> 
+ <div class="partners-wrapper u-flex u-flex-col u-flex-wrap md:u-flex-row"> 
+ <div class="partners-col"> 
+ <div class="cev-partners-footer" id="premium-partners"> 
+ <h5>Naming Partner Women</h5> 
+ <div class="partners-logos u-flex u-flex-col u-items-baseline md:u-items-start xl:u-items-center u-gap-10 md:u-gap-4 xl:u-gap-40 md:u-flex-col xl:u-flex-row"> 
+ <a class="primary-footer__logo u-py-2" href="https://www.zerengroup.com/en/" target="_blank"> 
+ <img class="icon icon-logo u-w-auto" src="https://webmedia.cev.eu/media/ikzbouto/zeren_group_logo_white.png?height=69&v=1dbfb07f82e7a60" alt="ZEREN GROUP" style="height: 50px;"> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="cev-partners-footer" id="official-partners-men"> 
+ <h5 class="u-static md:u-relative md:u-top-2">Official Partners Men</h5> 
+ <div class="partners-logos u-flex u-flex-col u-items-baseline md:u-items-start xl:u-items-center u-gap-10 md:u-gap-4 xl:u-gap-40 md:u-flex-col xl:u-flex-row"> 
+ <a class="primary-footer__logo u-py-2" href="https://www.halkbank.com.tr/" target="_blank"> 
+ <img class="icon icon-logo u-w-auto" src="https://umbraco.cev.eu/media/0r4pz2d4/halk.png" alt="Halk" style="height: 42px;"> 
+ </a> 
+ <a class="primary-footer__logo u-py-2" href="https://asseco.com/" target="_blank"> 
+ <img class="icon icon-logo u-w-auto" src="https://umbraco.cev.eu/media/adfoixpf/asseco.png" alt="Asseco" style="width:210px !important; height: auto;"> 
+ </a> 
+ <a class="primary-footer__logo u-py-2" href="https://www.groupenicollin.com/" target="_blank"> 
+ <img class="icon icon-logo u-w-auto" src="https://umbraco.cev.eu/media/0arki03o/logo-nicollin-blanc.png" alt="Nicollin" style="height:90px !important;"> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="cev-partners-footer" id="official-partners-women"> 
+ <h5>Official Partners Women</h5> 
+ <div class="partners-logos u-flex u-flex-col u-items-baseline md:u-items-start xl:u-items-center u-gap-10 md:u-gap-4 xl:u-gap-40 md:u-flex-col xl:u-flex-row"> 
+ <a class="primary-footer__logo u-py-2" href="https://www.igorgorgonzola.com/" target="_blank"> 
+ <img class="icon icon-logo u-w-auto" src="https://umbraco.cev.eu/media/zrwkn0mj/igor_gorgonzola_novara_logo.png" alt="IGOR Gorgonzola" style="height: 60px;"> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="partners-col second-partners-col"> 
+ <div class="cev-partners-footer md:u-pl-20" id="official-suppliers"> 
+ <h5>Official Suppliers</h5> 
+ <div class="partners-logos u-flex u-flex-col u-items-baseline md:u-items-start xl:u-items-center u-gap-10 md:u-gap-4 xl:u-gap-40 md:u-flex-col xl:u-flex-row"> 
+ <a class="primary-footer__logo u-py-2" href="https://mikasasports.com/" target="_blank"> 
+ <img class="icon icon-logo u-w-auto" src="https://umbraco.cev.eu/media/wv3latmp/mikasa-logo-white.png" alt="Mikasa" style="height: 40px;"> 
+ </a> 
+ <a class="primary-footer__logo u-py-2" href="https://www.gerflor.com/" target="_blank"> 
+ <img class="icon icon-logo u-w-auto" src="https://umbraco.cev.eu/media/g13oa55n/geflor.png" alt="Gerflor" style="height: 40px;"> 
+ </a> 
+ </div> 
+ </div> 
+ <div class="cev-partners-footer md:u-pl-20" id="media-partners"> 
+ <h5>Media Partner</h5> 
+ <div class="partners-logos u-flex u-flex-col u-items-baseline md:u-items-start xl:u-items-center u-gap-10 md:u-gap-4 xl:u-gap-40 md:u-flex-col xl:u-flex-row"> 
+ <a class="primary-footer__logo u-py-2" href="https://www.infront.co/global/en.html" target="_blank"> 
+ <img class="icon icon-logo u-w-auto" src="https://umbraco.cev.eu/media/tedhkio4/infront-white.png" alt="Infront"> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="primary-footer__inner u-flex-0 lg:u-flex md:u-justify-between"> 
+ <div class="primary-footer__links md:u-justify-between u-max-w-lg u-w-full"> 
+ <div class="div-columns u-flex-0 md:u-flex md:u-justify-between"> 
+ <div class="div-columns__item"> 
+ <h5>CEV</h5> 
+ <ul> 
+ <li><a href="http://inside.cev.eu/" title="Inside CEV">Inside CEV</a></li> 
+ <li><a href="http://inside.cev.eu/institutions/" title="About">About</a></li> 
+ <li><a href="http://inside.cev.eu/mission/" title="Mission">Mission</a></li> 
+ <li><a href="http://inside.cev.eu/documents/" title="Documents">Documents</a></li> 
+ <li><a href="http://inside.cev.eu/contacts/" title="Contact Us">Contact Us</a></li> 
+ </ul> 
+ </div> 
+ <div class="div-columns__item"> 
+ <h5>Sports</h5> 
+ <ul> 
+ <li><a href="/club/" title="Club">Club</a></li> 
+ <li><a href="/national-team/" title="National">National</a></li> 
+ <li><a href="/beach/" title="Beach">Beach</a></li> 
+ <li><a href="/snow/" title="Snow">Snow</a></li> 
+ </ul> 
+ </div> 
+ <div class="div-columns__item"> 
+ <h5>Top Events</h5> 
+ <ul> 
+ <li><a href="http://championsleague.cev.eu/en/" title="Champions League">Champions League</a></li> 
+ <li><a href="http://eurovolley.cev.eu/en/2026/" title="EuroVolley">EuroVolley</a></li> 
+ <li><a href="http://eurobeachvolley.cev.eu/en/history-old/2024/" title="EuroBeachVolley">EuroBeachVolley</a></li> 
+ </ul> 
+ </div> 
+ <div class="div-columns__item"> 
+ <h5>Platforms</h5> 
+ <ul> 
+ <li><a href="https://www.eurovolley.tv/" target="_blank" title="EuroVolley TV">EuroVolley TV</a></li> 
+ <li><a href="https://cev.fanavenue.com/en/19-clothes" target="_blank" title="Official Shop">Official Shop</a></li> 
+ <li><a href="https://campus.cev.eu/" target="_blank" title="CEV Campus">CEV Campus</a></li> 
+ <li><a href="http://mediaclub.cev.eu/" target="_blank" title="CEV Media Club">CEV Media Club</a></li> 
+ </ul> 
+ </div> 
+ <div class="div-columns__item"> 
+ <h5>Legal</h5> 
+ <ul> 
+ <li><a href="/privacy-policy/" title="Privacy Policy">Privacy Policy</a></li> 
+ <li><a href="/terms-of-use/" title="Terms of Use">Terms of Use</a></li> 
+ </ul> 
+ </div> 
+ </div> 
+ </div> 
+ <div class="primary-footer__info u-mb-8 md:u-mb-0 md:u-ml-5 u-max-w-xs"> 
+ <div class="primary-footer__info-inner"> 
+ <h5>Social</h5> 
+ <div class="primary-footer__socials u-flex u-mb-8 md:u-justify-start md:u-items-center"> 
+ <a class="primary-footer__social-item facebook" href="https://www.facebook.com/CEVolleyball/" target="_blank"> 
+ </a> 
+ <a class="primary-footer__social-item instagram-v2" href="https://www.instagram.com/cevolleyball/" target="_blank"> 
+ </a> 
+ <a class="primary-footer__social-item twitter" href="https://x.com/CEVolleyball" target="_blank"> 
+ </a> 
+ <a class="primary-footer__social-item tiktok" href="https://www.tiktok.com/@europeanvolleyball" target="_blank"> 
+ </a> 
+ <a class="primary-footer__social-item youtube" href="https://www.youtube.com/cevolleyball"> 
+ </a> 
+ <a class="primary-footer__social-item linkedin" href="https://www.linkedin.com/company/cevolleyball" target="_blank"> 
+ </a> 
+ </div> 
+ <div class="u-mb-4"> 
+ <a href="http://www.cev.eu/newsletter/" target="_self" class="u-block u-w-full btn-box btn-box--solid-blue-to-white">Newsletter Sign-Up</a> 
+ </div> 
+ </div> 
+ <div class="primary-footer__legals"> 
+ <span class="primary-footer__copyright u-block">&#xA9; CEV 2026</span> 
+ <div class="u-flex u-flex-no-wrap u-justify-start u-py-2"> 
+ <div class="primary-footer__copyright u-w-block"> 
+ <a target="_blank" href="https://www.itech28.eu/"> 
+ <span style="padding-right: 5px !important;"> 
+ Hosted by 
+ </span> 
+ <span style="vertical-align:middle"> 
+ <img class="icon u-w-auto" src="/assets/ITech28_white.png"> 
+ <img style="filter:invert(100%)" src="/assets/Itech28.svg" class="icon u-w-auto"> 
+ </span> 
+ </a> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </footer> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.15/mediaelementplayer.min.css" /> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/2.5.1/quality/quality.min.css" /> 
+ <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" /> 
+</body> 
+</html> 
