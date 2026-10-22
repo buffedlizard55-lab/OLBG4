@@ -3485,3 +3485,18 @@ AD integration log: concurrent main merge caused an append-only COORDINATION.md 
 
 ### AD final record
 - PRs: #107 (Board AD dashboard/audit) MERGED; #109 (master-board regeneration fix) MERGED. Pages run 39776192643 SUCCESS, Pages status=built: https://buffedlizard55-lab.github.io/OLBG4/session-d2d25025/ — AD6 done. All AD1-AD6 done.
+
+### d28c49c5 final PR / deployment record
+
+| Item | Confirmed result |
+|---|---|
+| Implementation PR | https://github.com/buffedlizard55-lab/OLBG4/pull/110 — **MERGED** 2026-10-22T12:14:09Z; merge `2bbc4da1001088eb186bcf67f50f5c8a24280a34` |
+| Checks | `audit`, `build-and-validate`, `verify` all passed on final combined tree. Isolated `verify-evidence-desk` passed after precision correction; six local tests passed again after main integration. |
+| Pages | Legacy `pages-build-deployment` run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39776683638 **completed/success** (build + deploy). Custom Pages workflow https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39776685395 also **completed/success**. |
+| Published dashboard | https://buffedlizard55-lab.github.io/OLBG4/session-d28c49c5/ |
+| Published flags | https://buffedlizard55-lab.github.io/OLBG4/session-d28c49c5/flagged.html |
+| Delivered | 56 captured official fixture records; 18 category subpages; 233 scoped prior rows reviewed; 39 High/probability conflicts; 147 exploratory market rows across 49 NHL fixtures, all Low confidence with exact official inputs and model assumptions. |
+| Deliberately incomplete | Exhaustive live all-sport/market coverage, official verification of every fact in every peer dataset, calibrated production picks and independently substantiated High write-ups are **not** claimed. Coverage gaps and unsupported claims remain **needs review**, published and non-blocking. |
+| Status | AD1–AD3 **done for scoped evidence desk**; broader user goals remain partial as explicitly published. Root pointer remains a request to root-file owner, not an unauthorized edit. |
+
+Deployment success above is verified through GitHub API/Actions; direct public-site HTTP read-back is not claimed from the restricted sandbox. Both append conflicts were resolved preserving the other sessions' text. `git pull --rebase=merges` preserves the integration graph without rewriting published session commits.
