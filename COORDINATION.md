@@ -2636,3 +2636,26 @@ All 9 predictions are 72–89 words, each quoting the verified form (standings, 
 | Flagged items | Published on `session-77af9500/flagged.html` and `docs/flagged.html` + `board/flagged.html` — 9 Build A High downgrades (odds window) + 26 master-board High downgrades + 5 longstanding irregularities (Snooker pairing, Galway/Cork time mismatches, Australia v Fiji conflict, handicap/total not originated) — all with source links for manual review; flagged does not block merge per brief |
 
 **Site live (pending deploy of commit 1432418):** Board S dashboard at https://buffedlizard55-lab.github.io/OLBG4/session-77af9500/ — 144 rows, 9 High inside -250 to +10,000 (each 72–89 words, verified facts, obvious moneyline selection), 15 flagged, 15 sports, 23 pages, 0 broken links. Master board and Build A docs also live and updated with window enforcement. If deploy fails, will retry until live per brief.
+
+
+---
+
+## Board T — session `arena/c92c927c-olbg4` (fresh 22–27 Oct 2026 desk, re-verification, site rebuild, integration)
+
+Session `arena/c92c927c-olbg4` · branch `arena/c92c927c-olbg4` · claimed 2026-10-22 (UTC) · **status: active**
+
+Scope is a new, non-overlapping session deliverable. Prior boards' directories (`session-*/`, `docs/**`,
+`board/**`, `data/master*.json`, `data/rows.json`, `tools/*`) are **read-only** for this board; nothing another
+session produced is hand-edited or deleted. The only shared file this board writes is `COORDINATION.md` (its own
+section) plus, at final integration, the root navigation entry for its own desk.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Re-verify prior published rows line-by-line against the official page each row cites; record pass / mismatch / unreadable with the evidence quoted and the source URL | in progress | arena/c92c927c-olbg4 | `session-c92c927c/`, `data/session-c92c927c/`, `scripts/session-c92c927c/` |
+| T2 | Collect the current fixture list (22–27 Oct 2026) for every in-scope sport from official governing-body / league sources; blank + flag anything the official page does not confirm | in progress | arena/c92c927c-olbg4 | `data/session-c92c927c/fixtures.json` |
+| T3 | Originate our own lines (moneyline, handicap, total) from verified inputs only, with the model documented; no bookmaker price is read | unclaimed→in progress | arena/c92c927c-olbg4 | `data/session-c92c927c/lines.json`, `session-c92c927c/methodology.html` |
+| T4 | Pick a winner per match with Low/Medium/High confidence; enforce the High-confidence odds window −250…+10,000 American (1.40–101.00 decimal) | in progress | arena/c92c927c-olbg4 | `data/session-c92c927c/lines.json` |
+| T5 | Write unique, human, ≥30-word High-confidence predictions with verified form / recent results and an obvious selection | in progress | arena/c92c927c-olbg4 | `data/session-c92c927c/predictions.json` |
+| T6 | Build the GitHub Pages dashboard for this desk: landing KPI page, per-category subpages, full table, markets, verification register, analysis, sources, Flagged-for-Review page | in progress | arena/c92c927c-olbg4 | `session-c92c927c/**` |
+| T7 | Gates: deterministic rebuild, JSON validity, link check, official-source-per-row check, word-count/uniqueness check | in progress | arena/c92c927c-olbg4 | `scripts/session-c92c927c/**` |
+| T8 | Final integration: root navigation entry, PR → `main`, merge, confirm GitHub Pages deploy, record result here | in progress | arena/c92c927c-olbg4 | `COORDINATION.md`, root nav only |
