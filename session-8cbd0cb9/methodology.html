@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology — OLBG4 Board AD</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><nav class="topnav"><ul><li><a href="index.html">Dashboard</a></li><li><a href="sports/tennis.html">Sport pages</a></li><li><a href="predictions.html">High-confidence predictions</a></li><li><a href="flagged.html">Flagged for Review</a></li><li><a href="markets.html">Markets & coverage</a></li><li><a href="methodology.html">Methodology</a></li><li><a href="verification.html">Verification</a></li></ul></nav><header class="band"><div class="wrap"><h1>Methodology</h1>
+<p class="subtitle">OLBG reverse-engineering re-verification · originated lines · high-confidence predictions · official sources or blank+flagged</p></div></header>
+<main class="wrap"><section class="section">
+<h2>Methodology</h2>
+<h3>Scope</h3>
+<p>In-scope sports: every OLBG sport except soccer/football, boxing (incl. UFC & MMA), American football, hurling, horse racing, cycling and specials.
+OLBG sport IDs in scope: 3 Tennis, 4 Basketball, 5 Golf, 7 Cricket, 8 Snooker, 9 Rugby Union, 10 Rugby League, 12 Baseball, 13 Ice Hockey,
+14 Motor Racing, 15 Darts, 20 Handball, 21 Volleyball, 22 Aussie Rules, 23 eSports, 25 Gaelic Football, 28 Greyhounds.</p>
+<h3>Source of the fixture list</h3>
+<p>Committed OLBG reverse-engineering snapshot <code>data/raw/*.json</code> (collected 2026-10-21): server-rendered event feeds from each in-scope
+OLBG sport landing page. Limitation recorded on the source page: OLBG only surfaces events that have received at least one tip, and additional
+events sit behind a JavaScript "Load More Tips" control, so the public feed is not a complete fixture list. Untipped fixtures are not enumerable
+from OLBG's public pages and are not invented here.</p>
+<h3>Line origination (our own lines)</h3>
+<p>No live market odds or team-strength feeds are reachable from this sandbox (egress limited to GitHub and package registries), so fair prices
+originate from a disclosed <strong>neutral-prior model</strong>: win probability 0.50 / 0.50 for two-sided matches (fair decimal 2.00 per side);
+book price at a disclosed 4.2% vig → decimal 1.92 (American −109 per side); handicap line 0.0 (pick'em); match total not originated (no verified
+scoring inputs). Golf and motor-racing entries are tournament/race winner events with no head-to-head match-winner line. Greyhounds are quarantined
+(GBGB feed WAF-blocked, HTTP 403). All lines are our own opinion expressions, not verified probabilities.</p>
+<h3>Confidence</h3>
+<p>Low for all neutral-prior rows (no verified strength inputs). High <strong>only</strong> where model probability ≥ 70% <strong>and</strong>
+originated book American odds fall inside −250…+10000. Two peer-session verified rows (session e1161e0e, Board X) clear that rule and are overlaid
+with attribution: X032 Toronto Raptors at Washington Wizards (p 0.708, −242) and X087 Samoa v Wales (p 0.700, −233).</p>
+<h3>Predictions</h3>
+<p>High-confidence picks only: unique, human-written, ≥ 30 words each, naming teams/players, stating verified form and recent match history from
+the cited official source, and stating the explicit betting selection. No text is templated or generated from unverified inputs.</p>
+<h3>Verification standard</h3>
+<p>Every table row shows its source link. If a value cannot be confirmed from an official source it is left blank and the row is flagged.
+Nothing is inferred or filled in. Repo-wide line-by-line review findings are in <code>data/session-8cbd0cb9/repo_review.json</code> and summarised
+on the Flagged for Review page.</p>
+<h3>Network limitation</h3>
+<p class="muted">OLBG.com and governing-body domains were unreachable from this sandbox at build time (HTTP connect failed); verification is therefore
+against the committed official-source records (data/source_registry.json) and attributed peer-session data, not against live pages. All live
+re-verification is left as manual review items on the Flagged for Review page.</p>
+</section></main><footer class="wrap"><hr>
+<p style="font-size:13px;color:#64748b">OLBG4 — session arena/8cbd0cb9-olbg4 (Board AD). Peer sessions: <a href="https://buffedlizard55-lab.github.io/OLBG4/session-f0622b6e/">session-f0622b6e</a> · <a href="https://buffedlizard55-lab.github.io/OLBG4/session-19b8e377/">session-19b8e377</a>. No entries from excluded sports (soccer/football, boxing/UFC/MMA, American football, hurling, horse racing, cycling, specials).</p></footer>
+<script src="assets/app.js"></script></body></html>
