@@ -2548,3 +2548,56 @@ commit **flattens the merge** and replays every merged commit individually — i
 of `main`'s commits onto this branch and had to be aborted with `git rebase --abort`. Use
 `git fetch origin main` + `git merge origin/main` (or `--ff-only` where possible) instead. The push
 had already carried the correct merge commit, so nothing was lost.
+
+---
+
+## Board S — session `arena/77af9500-olbg4` (odds-range compliance, human predictions, line-by-line verification & site rebuild)
+
+Session `arena/77af9500-olbg4` · branch `arena/77af9500-olbg4` · claimed 2026-10-22 (UTC) · **status: active**
+
+Scope is non-overlapping: claim covers remediation of high-confidence odds-range compliance, generation of unique human predictions, line-by-line verification, and GH Pages site rebuild. No other session's `session-*/` or `data/board_k/*`, `data/master*.json` generative files are overwritten without merging; shared files claimed explicitly.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| S1 | Audit OLBG reverse-engineering & excluded/included sports; verify sport taxonomy vs OLBG live pages | done | arena/77af9500-olbg4 | `data/sports.json`, `data/olbg-structure.json`, `COORDINATION.md` |
+| S2 | Line-by-line verification of every table row vs official source; provide source link per row, blank unverified, flag irregularities | done | arena/77af9500-olbg4 | `data/rows.json`, `data/rows.csv`, `data/matches.json`, `verification.html`, `data/board_s/verification.json` |
+| S3 | Remediate high-confidence picks to odds window –250 to +10,000 (decimal 1.40–101.00); downgrade violations, originate new High picks only inside window | done | arena/77af9500-olbg4 | `data/rows.json`, `build_site.py`, `data/rows.csv`, `tools/build_master.py`, `data/master.json` |
+| S4 | Generate well-written unique human predictions (≥30 words) for every High pick: team, player where relevant, current form, recent match history, obvious selection, verified facts + official links | done | arena/77af9500-olbg4 | `data/rows.json`, `data/rows.csv`, `data/predictions.json`, `tools/build_master.py` |
+| S5 | Investigate every available market (win, handicap, totals) per sport; document blanks with reason on Flagged page | done | arena/77af9500-olbg4 | `build_site.py`, `data/rows.json`, `docs/methodology.html`, `flagged.html` |
+| S6 | Rebuild GH Pages site: clean landing + subpages by category, simple dashboard tables, analysis & findings, no broken links | done | arena/77af9500-olbg4 | `index.html`, `docs/**`, `board/**`, `sports/**`, `picks.html`, `markets.html`, `flagged.html`, `sources.html`, `methodology.html`, `audit.html`, `assets/**`, `.nojekyll`, `_config.yml`, `.github/workflows/pages.yml` |
+| S7 | Final integration: run all gates, PR to main, merge, confirm Pages deploy, record result | in progress | arena/77af9500-olbg4 | `COORDINATION.md` |
+
+**Shared-file claim (final integration per brief):** this session claims `index.html`, `README.md`, `COORDINATION.md`, `.github/workflows/pages.yml`, `data/rows.json`, `data/rows.csv`, `build_site.py` for the above remediation. Other sessions' `session-*/`, `data/board_k/*`, `docs/desk/*`, `board/*` generative outputs are not hand-edited; they are regenerated via their owners' scripts.
+
+### Board S completion record (2026-10-22, session arena/77af9500-olbg4)
+
+| Metric | Value |
+|---|---|
+| Rows in Build A | 144 across 15 included sports (21–25 Oct 2026) — every row with an official source link (verified) or flagged with blank (unverified) |
+| High confidence | 9 (was 12, 9 outside window downgraded to Medium, 6 promoted from Medium/Low inside window) — all 9 inside -250 to +10,000 (1.40–101.00 decimal, -250 to +10,000 American) — verified via `python3 session-77af9500/build.py` assertion and `build_site.py` post-processing |
+| Predictions | 9 High each with unique human prediction 72–89 words (mean 80.1, max 3-gram Jaccard 0.07) — each names team, current form, recent match history, obvious moneyline selection, verified facts + official link |
+| Markets investigated | Win match (moneyline) originated where verified rating exists (104 rows); handicap and total investigated for all sports but not originated where official scoring inputs absent — blank and documented on Flagged page |
+| Master board | 317 rows (312 in scope) · 38 High after window enforcement (was 64, 26 downgraded from High to Medium for odds window) · 33 High with written predictions — all inside window (0 violations) |
+| Verification | Every table row carries an official-domain source or is flagged no-source; line-by-line register at `session-77af9500/verification.html` with quoted basis and source URL per row; downgrades documented on Flagged page |
+| Sources | Official only: nhl.com, nba.com, stats.unitedrugby.com, premiershiprugby.com, nrl.com, ehfcl.eurohandball.com, pdc.tv, mlb.com, nzc.nz, icc-cricket.com, galwaygaa.ie, gaacork.ie, volleyballworld.com, wst.tv, atptour.com, europeantour.com, formula1.com, gbgb.org.uk — each row links its source; 0 broken internal links (10,268 local targets checked) |
+| Irregularities flagged | (1) Snooker Cheung Ka Wai vs Stuart Bingham not on WST match centre; (2) Galway final 14:00 vs official 19:00; (3) Cork final 12:00 vs official 16:00; (4) Australia v Fiji model conflict; (5) handicap/total not originated (no verified inputs); (6) 9 Build A High downgrades for odds window + 26 master-board High downgrades — published on Flagged page |
+| Site | `session-77af9500/` — clean dashboard: landing with KPIs, per-sport subpages, picks, markets, flagged, sources, methodology, verification, analysis — 23 HTML pages, 0 broken links, responsive CSS, no JS tracking |
+| Gates | `python3 build_site.py` → rows 144 high 9 flagged 15 · `python3 tools/build_master.py` → 317 rows 38 high · `BOARD_DIR=board python3 tools/verify_master.py` → OK · `python3 scripts/audit_publication.py --check` → 10,268 targets 0 broken 0 stale |
+| Builds touched | `build_site.py` (odds-window logic + 6 new predictions), `gen_pages.py` (methodology wording), `tools/build_master.py` (window enforcement), `data/rows.json/.csv`, `data/master.json/.conflicts/.registry`, `docs/**` (15 sport pages regenerated), `board/**` (28 pages regenerated), `session-77af9500/**` (new site, 23 pages) |
+
+**High picks inside -250 to +10,000 (Board S verified, all with ≥30-word unique predictions):**
+
+| Date | Match | Pick | Our line | American | Source |
+|---|---|---|---|---|---|
+| 2026-10-22 | Boston Bruins vs Nashville Predators | Boston Bruins | 1.45 / 2.83 | -222 | NHL.com standings 20 Oct + game-centre feed |
+| 2026-10-24 | Bulls vs Ulster | Bulls | 1.51 / 2.63 | -196 | URC match centre Round 3 |
+| 2026-10-24 | Leinster vs Munster | Leinster | 1.51 / 2.63 | -196 | URC match centre Round 3 |
+| 2026-10-24 | Ospreys vs Dragons | Ospreys | 1.43 / 2.91 | -233 | URC match centre Round 3 |
+| 2026-10-23 | Tonga vs Lebanon | Tonga | 1.42 / 2.97 | -238 | NRL Round 1 reports |
+| 2026-10-24 | Papua New Guinea vs Samoa | Samoa | 2.70 / 1.49 | -204 | NRL Round 1 reports |
+| 2026-10-25 | New Zealand vs Cook Islands | New Zealand | 1.55 / 2.53 | -182 | NRL Round 1 reports |
+| 2026-10-21 | RK Partizan AdmiralBet vs FC Porto | FC Porto | 2.70 / 1.49 | -204 | EHF CL standings |
+| 2026-10-22 | Gerwyn Price vs Rob Cross | Gerwyn Price | 1.47 / 2.77 | -213 | PDC draw 18 Oct |
+
+All 9 predictions are 72–89 words, each quoting the verified form (standings, Round 1 margins, EHF points, PDC seedings) and naming the moneyline selection. Full texts on `session-77af9500/picks.html` and `docs/sports/*.html`.
+

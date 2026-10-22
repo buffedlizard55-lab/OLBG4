@@ -748,6 +748,59 @@ def main() -> None:
                              "from the default view and published on Flagged for Review instead of being deleted."
                              if row["sport"] in AMBIGUOUS else "")
 
+    # ---- odds window enforcement for High confidence (Board S remediation)
+    # High picks must sit between -250 and +10,000 American (decimal 1.40-101.00)
+    # This downgrades any High that is a heavy favorite beyond -250, per the updated brief
+    def _american(decimal):
+        try:
+            dec = float(decimal)
+        except:
+            return None
+        return (dec - 1) * 100 if dec >= 2 else -100 / (dec - 1)
+    def _in_window(dec):
+        amer = _american(dec)
+        return amer is not None and -250 <= amer <= 10000
+    def _pick_decimal(row):
+        pick = row.get("pick", "")
+        home = row.get("home", "")
+        away = row.get("away", "")
+        win_odds = row.get("win", {}).get("odds", {}) if isinstance(row.get("win"), dict) else {}
+        # try win odds dict lookup via substring match
+        for team, od in win_odds.items():
+            if pick and team and team.lower() in pick.lower():
+                try:
+                    # handle string odds like "1.40" or numeric
+                    od_str = str(od).strip()
+                    if od_str.replace('.','',1).replace('-','',1).isdigit():
+                        return float(od_str)
+                    # also handle odds that are strings with extra text
+                    m = re.search(r"(\d+\.\d+)", od_str)
+                    if m:
+                        return float(m.group(1))
+                except:
+                    pass
+        # fallback: if win dict has exactly 2 entries, try to infer pick side via norm_name
+        if win_odds and pick:
+            for team, od in win_odds.items():
+                if norm_name(team) and norm_name(team) in norm_name(pick):
+                    try:
+                        return float(str(od).strip())
+                    except:
+                        pass
+        return None
+
+    downgraded_highs = 0
+    for row in master:
+        if row.get("confidence") == "High":
+            dec = _pick_decimal(row)
+            if dec is not None and not _in_window(dec):
+                row["confidence"] = "Medium"
+                row["flags"].append({"kind": "odds-window-downgrade",
+                                     "text": f"Downgraded from High to Medium: originated odds {dec} (American {round(_american(dec))}) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."})
+                downgraded_highs += 1
+    if downgraded_highs:
+        print(f"Board S: downgraded {downgraded_highs} High picks outside -250 to +10,000 window to Medium")
+
     # ---- attach live re-checks (data/live_checks.json) to the rows they cover
     checks = json.load(open(os.path.join(ROOT, "data/live_checks.json")))["checks"]
     for row in master:

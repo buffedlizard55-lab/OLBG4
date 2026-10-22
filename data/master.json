@@ -68,15 +68,15 @@
   "rows_verified_official": 249,
   "rows_verified_in_scope": 244,
   "rows_with_pick": 276,
-  "rows_with_prediction": 67,
+  "rows_with_prediction": 71,
   "rows_with_written_prediction": 63,
-  "rows_with_templated_prediction": 4,
-  "high_with_written_prediction": 60,
+  "rows_with_templated_prediction": 8,
+  "high_with_written_prediction": 33,
   "confidence": {
-   "Low": 152,
+   "Low": 150,
    "none": 26,
-   "Medium": 71,
-   "High": 63
+   "Medium": 98,
+   "High": 38
   },
   "by_sport": {
    "Aussie Rules": {
@@ -113,7 +113,7 @@
     "rows": 72,
     "verified": 69,
     "picks": 60,
-    "high": 5,
+    "high": 2,
     "predicted": 5,
     "market_win": 46,
     "market_handicap": 19,
@@ -123,7 +123,7 @@
     "rows": 17,
     "verified": 8,
     "picks": 14,
-    "high": 1,
+    "high": 0,
     "predicted": 1,
     "market_win": 10,
     "market_handicap": 6,
@@ -133,8 +133,8 @@
     "rows": 20,
     "verified": 16,
     "picks": 20,
-    "high": 5,
-    "predicted": 6,
+    "high": 3,
+    "predicted": 7,
     "market_win": 20,
     "market_handicap": 20,
     "market_total": 20
@@ -183,8 +183,8 @@
     "rows": 22,
     "verified": 20,
     "picks": 22,
-    "high": 2,
-    "predicted": 3,
+    "high": 1,
+    "predicted": 4,
     "market_win": 14,
     "market_handicap": 20,
     "market_total": 20
@@ -193,7 +193,7 @@
     "rows": 47,
     "verified": 45,
     "picks": 47,
-    "high": 22,
+    "high": 18,
     "predicted": 22,
     "market_win": 42,
     "market_handicap": 42,
@@ -214,7 +214,7 @@
     "verified": 8,
     "picks": 10,
     "high": 3,
-    "predicted": 3,
+    "predicted": 4,
     "market_win": 10,
     "market_handicap": 1,
     "market_total": 1
@@ -223,8 +223,8 @@
     "rows": 30,
     "verified": 30,
     "picks": 30,
-    "high": 9,
-    "predicted": 10,
+    "high": 10,
+    "predicted": 11,
     "market_win": 19,
     "market_handicap": 25,
     "market_total": 25
@@ -233,7 +233,7 @@
     "rows": 17,
     "verified": 7,
     "picks": 10,
-    "high": 5,
+    "high": 1,
     "predicted": 5,
     "market_win": 11,
     "market_handicap": 11,
@@ -253,7 +253,7 @@
     "rows": 28,
     "verified": 20,
     "picks": 26,
-    "high": 11,
+    "high": 0,
     "predicted": 11,
     "market_win": 26,
     "market_handicap": 6,
@@ -272,14 +272,14 @@
   },
   "by_build": {
    "D": 58,
-   "A": 61,
-   "G": 131,
-   "C": 17,
+   "A": 65,
+   "G": 128,
+   "C": 16,
    "E": 50
   },
   "cross_build_fixtures": 122,
   "cross_build_conflicts": 15,
-  "rows_flagged": 278,
+  "rows_flagged": 280,
   "outrights": 24,
   "outrights_in_scope": 23,
   "upcoming": 289,
@@ -3241,7 +3241,7 @@
    "total": "",
    "pick": "Toronto Raptors",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Back the Toronto Raptors at home in the season opener. The Raptors closed 2025-26 at 46-36 and fifth in the Eastern Conference, with a 24-17 record at Scotiabank Arena. Chicago finished 31-51 and won only 13 of 41 road games, missing the playoffs. With both sides 0-0 for the new campaign, Toronto's home form and a 15-win cushion in last season's table are the deciding inputs.",
    "source_url": "https://www.nba.com/standings?Season=2025-26",
    "source_name": "NBA 2025-26 regular season final standings",
@@ -3266,6 +3266,10 @@
     {
      "kind": "market-withheld",
      "text": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 0); 20 are required to originate a price."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.4 (American -250) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Toronto Raptors",
@@ -4011,7 +4015,7 @@
    "total": "Over 66.5 @ 1.92",
    "pick": "Aalborg Handbold",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "No side in Group C has been harder to break down than Aalborg, who have taken seven points from four Champions League rounds with a 136:115 goal difference and are level with Paris Saint-Germain at the top. Celje arrive bottom of the section on zero points after conceding 154 goals. The Danish defence should control this from the first wave: take Aalborg Handbold to win, and expect the margin to grow after half-time.",
    "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "source_name": "EHF Champions League official site — standings & calendar (Oct 2026)",
@@ -4020,6 +4024,10 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.04 (-2500) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
     },
     {
      "kind": "source-note",
@@ -4363,7 +4371,7 @@
    "total": "Over 66.5 @ 1.98",
    "pick": "Paris Saint-Germain",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Back Paris Saint-Germain to win this EHF Champions League match away to HC Zagreb. The official EHF group standings show Paris Saint-Germain unbeaten after four matches with three wins and a draw for seven points, scoring 154 goals, while Zagreb have won only once, losing three times for two points. That verified current form, plus Paris Saint-Germain's superior goal output in Group C, makes the away win our high-confidence selection for this match.",
    "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "source_name": "EHF Champions League official site — standings & calendar (Oct 2026)",
@@ -4372,6 +4380,10 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.06 (-1667) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
     },
     {
      "kind": "source-note",
@@ -4693,12 +4705,12 @@
    "live_verified": true
   },
   {
-   "build": "G",
+   "build": "A",
    "build_verified": true,
    "sport": "Handball",
-   "competition": "EHF Champions League Men, Group A",
+   "competition": "EHF Champions League Men — Group Phase",
    "date": "2026-10-21",
-   "date_raw": "2026-10-21 18:45 CET",
+   "date_raw": "2026-10-21",
    "time": "",
    "venue": "",
    "home": "RK Partizan AdmiralBet",
@@ -4715,39 +4727,45 @@
    "total": "Over 66.5 @ 1.94",
    "pick": "FC Porto",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Low",
-   "prediction": "",
-   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
-   "source_name": "EHF Champions League official site",
-   "notes": "Official standings GF/GA: RK Partizan AdmiralBet 115:151 in 4g, FC Porto 125:140 in 4g; league avg 31.9 goals/team; shrunk Poisson (k=2), home x1.05; 3-way incl. draw.",
+   "confidence": "High",
+   "prediction": "Back FC Porto to win away to RK Partizan AdmiralBet on 21 October, the away moneyline at our 1.49 the selection. The official EHF Champions League standings after four rounds have Partizan bottom of Group A on zero points from four defeats, conceding heavily, while Porto sit third on two points with a single win and three narrow losses. Porto's superior goal difference and verified group position make the Portuguese side the high-confidence pick to take two points in Belgrade.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "source_name": "EHF Champions League official site — standings & calendar (Oct 2026)",
+   "notes": "Model v1 rating = official EHF Group standings points rate (points / (2 x games played)) after four rounds: Group A — Veszprem 4-0, Fuchse Berlin 3-1, FC Porto 1-3, Partizan 0-4; Group C — Paris Saint-Germain 3 wins 1 draw, Aalborg 3 wins 1 draw, Zagreb 1-3, Celje 0-4 (ehfcl.eurohandball.com standings).",
    "flags": [
+    {
+     "kind": "market-note",
+     "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
+    },
     {
      "kind": "source-note",
      "text": "Only 4 group games played - small sample."
     },
     {
-     "kind": "market-note",
-     "text": "Match winner investigated; handicap (goals) and match total (goals) investigated — not originated, see Flagged page"
+     "kind": "templated-prediction",
+     "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
     }
    ],
    "home_raw": "RK Partizan AdmiralBet",
    "away_raw": "FC Porto",
-   "prediction_style": "",
+   "prediction_style": "templated",
    "cross_build": [
     {
-     "build": "A",
+     "build": "G",
      "pick": "FC Porto",
-     "confidence": "Medium",
+     "confidence": "Low",
      "date": "2026-10-21",
-     "date_raw": "2026-10-21",
-     "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "date_raw": "2026-10-21 18:45 CET",
+     "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
      "side": "away"
     }
    ],
    "fields_from": {
-    "win": "A"
+    "handicap": "G",
+    "total": "G"
    },
    "archive_rows": 1,
+   "prediction_similarity": 0.128,
    "pick_side": "away",
    "id": "M0071",
    "source_tier": "official",
@@ -5242,7 +5260,7 @@
    "total": "Over 5.5 @ 2.02",
    "pick": "Stuart Bingham",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Cheung Ka Wai owns the result of the tournament so far, a 4-3 defeat of Ronnie O'Sullivan, but he now runs into a former world champion in Stuart Bingham, seeded 19th against Cheung's 106th and a solid 4-2 winner over Yao Pengcheng in round one. Fairytale runs usually end against this level of scoring power and experience. Our model gives Stuart Bingham an 82% chance, so the selection is Stuart Bingham to win, with 4-1 the most likely scoreline.",
    "source_url": "https://www.wst.tv/match-centre",
    "source_name": "WST (wst.tv) official match centre / rankings",
@@ -5251,6 +5269,10 @@
     {
      "kind": "source-note",
      "text": "Round 1 produced an exceptional run of upsets (world No.1 seed casualties included Trump, O’Sullivan, Murphy, Selby, Robertson, Zhao, Xiao, Hawkins, Wakelin) - best-of-7 variance is high; confidence tiers still follow the mechanical model, but this is flagged in Findings."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.21 (American -476) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Cheung Ka Wai",
@@ -5481,7 +5503,7 @@
    "total": "Over 5.5 @ 1.89",
    "pick": "John Higgins",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "John Higgins stopped the rot for the top seeds by beating Liam Highfield 4-1 with a 121 break, the first top-16 player to win on table one all week. He is the official world No.6 with £905,000 in ranking earnings; Jak Jones, seeded 30th, beat Tom Ford 4-1 but steps up several levels here. At 79% in our model, the selection is John Higgins to win in Belfast, most likely 4-1 or 4-2.",
    "source_url": "https://www.wst.tv/match-centre",
    "source_name": "WST (wst.tv) official match centre / rankings",
@@ -5490,6 +5512,10 @@
     {
      "kind": "source-note",
      "text": "Round 1 produced an exceptional run of upsets (world No.1 seed casualties included Trump, O’Sullivan, Murphy, Selby, Robertson, Zhao, Xiao, Hawkins, Wakelin) - best-of-7 variance is high; confidence tiers still follow the mechanical model, but this is flagged in Findings."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.27 (American -370) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "John Higgins",
@@ -5784,7 +5810,7 @@
    "total": "Over 5.5 @ 1.8",
    "pick": "Pang Junxu",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Liam Davies produced one of the shocks of round one by beating Shaun Murphy 4-2, but Pang Junxu is a different calibre of opponent over the season as a whole: seeded 26th here against Liam Davies's 89th, and a 4-2 winner over Alfie Burden in his own opener. Best-of-seven in Belfast has already buried bigger names this week, yet on ranking strength our model makes Pang a 75% chance. The selection is Pang Junxu to win, with 4-1 our single most likely scoreline.",
    "source_url": "https://www.wst.tv/match-centre",
    "source_name": "WST (wst.tv) official match centre / rankings",
@@ -5805,6 +5831,10 @@
     {
      "kind": "build-flag",
      "text": "Pairing verified via WST listings; rankings/form unverified in session — line and pick left blank."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.34 (American -294) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Pang Junxu",
@@ -5941,12 +5971,17 @@
    "total": "Over 2.0 frames @ 3.11; Under 2.0 frames @ 1.39",
    "pick": "Mark Williams",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Mark Williams is the pick here. He is eighth in the world on 747,400 pounds of ranking prize money and came through his Belfast opener 4-2 against Robbie Williams. Zhang Anda is ranked 21st on 332,600 pounds and also won 4-2, beating Liam Pullen. In a best-of-seven the ranking gap is a meaningful guide, and it points to Williams.",
    "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
    "source_name": "Johnstone's Paint World Rankings (official prize-money list, top 36 as rendered)",
    "notes": "",
-   "flags": [],
+   "flags": [
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.39 (American -256) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
+    }
+   ],
    "home_raw": "Zhang Anda",
    "away_raw": "Mark Williams",
    "prediction_style": "written",
@@ -5990,7 +6025,7 @@
    "total": "Over 22.5 @ 2.12",
    "pick": "Andrey Rublev",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Andrey Rublev, the world No.22 and fourth seed in Almaty, opens his campaign after a first-round bye against Adrian Mannarino, who needed three sets to get past Aleksandar Vukic. The ranking-points gap - 2,175 against 743 - is what drives our model's 77% assessment, and Andrey Rublev's weight of shot indoors usually suffocates counter-punchers given enough rallies. Adrian Mannarino is awkward enough to pinch a set, but the selection is Andrey Rublev to win this round-of-16 match.",
    "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
    "source_name": "ATP official main draw PDF (protennislive.com), tournament 9410",
@@ -6003,6 +6038,10 @@
     {
      "kind": "source-note",
      "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 9410."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.29 (American -345) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Adrian Mannarino",
@@ -6048,7 +6087,7 @@
    "total": "Over 21.5 @ 2.07",
    "pick": "Tommy Paul",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Tommy Paul, the fourth seed and world No.15, begins in Lyon after a first-round bye against Benjamin Bonzi, who battled past Cameron Norrie in three sets. The points comparison is stark - 2,575 against 605 - and Paul's all-court game indoors gives opponents very few free patterns to attack. Our model makes him an 84% chance, 56% of that in straight sets. The selection is Tommy Paul to win this round-of-16 match.",
    "source_url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
    "source_name": "ATP official main draw PDF (protennislive.com), tournament 496",
@@ -6061,6 +6100,10 @@
     {
      "kind": "source-note",
      "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 496."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.19 (American -526) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Benjamin Bonzi",
@@ -6220,7 +6263,7 @@
    "total": "Over 20.5 @ 1.93",
    "pick": "Remy Bertola",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "This selection needs its caveat stated plainly: our model runs on current ranking points, and on those it is not close - lucky loser Remy Bertola, world No.219 with 256 points, against David Goffin, now No.657 with 53 points in what ATP describes as his final season. That produces an 86% rating for Remy Bertola, even though the 35-year-old former world No.7 has the crowd and a lifetime of pedigree. Following the numbers, the selection is Remy Bertola to win.",
    "source_url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
    "source_name": "ATP official main draw PDF (protennislive.com), tournament 7485",
@@ -6233,6 +6276,10 @@
     {
      "kind": "source-note",
      "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 7485."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.16 (American -625) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "David Goffin",
@@ -6335,7 +6382,7 @@
    "total": "Over 22.5 @ 2.03",
    "pick": "Marta Kostyuk",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Marta Kostyuk is the third seed and world No.10, carrying 3,920 ranking points into Ningbo; Ekaterina Alexandrova, ranked 33rd, cruised past wild card Hanyu Guo 6-2 6-3 but now meets a top-ten player fresh from a bye. Our model rates Marta Kostyuk a 74% chance - solid rather than overwhelming, because Ekaterina Alexandrova's flat hitting can rush anyone on a fast hard court. Still, the selection is Marta Kostyuk to win this round-of-16 match.",
    "source_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
    "source_name": "WTA official main draw PDF (wtafiles.wtatennis.com)",
@@ -6344,6 +6391,10 @@
     {
      "kind": "source-note",
      "text": "Exact start time not confirmed on an official source; OLBG label shown as OLBG's own data."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.35 (American -286) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Ekaterina Alexandrova",
@@ -6446,7 +6497,7 @@
    "total": "Over 22.5 @ 2.09",
    "pick": "Luciano Darderi",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Luciano Darderi is the second seed in Almaty and the world No.23 with 2,160 ranking points; James Duckworth, ranked 73rd, did well to beat Miomir Kecmanovic 6-4 6-3 but steps up a level here after Luciano Darderi's first-round bye. Our model rates the Italian a 76% chance, with a straight-sets win the single most likely outcome at 47%. The selection is Luciano Darderi to win, with our total games line set at 22.5.",
    "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
    "source_name": "ATP official main draw PDF (protennislive.com), tournament 9410",
@@ -6459,6 +6510,10 @@
     {
      "kind": "source-note",
      "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 9410."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.31 (American -323) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "James Duckworth",
@@ -6504,7 +6559,7 @@
    "total": "Over 20.5 @ 1.89",
    "pick": "Belinda Bencic",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Belinda Bencic, the fifth seed and world No.14, was leading Jelena Ostapenko 6-3 1-1 when the Latvian retired, so she arrives fresh and already grooved on these courts. Qualifier Katarzyna Kawa, ranked 128th, fought back well to beat Daria Snigur but concedes a huge points gap here - 2,662 against 586. Our model puts the Swiss at 85%, with 2-0 the likeliest path at 57%. The selection is Belinda Bencic to win in Ningbo.",
    "source_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
    "source_name": "WTA official main draw PDF (wtafiles.wtatennis.com)",
@@ -6513,6 +6568,10 @@
     {
      "kind": "source-note",
      "text": "Exact start time not confirmed on an official source; OLBG label shown as OLBG's own data."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.18 (American -556) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Katarzyna Kawa",
@@ -6611,7 +6670,7 @@
    "total": "Over 22.5 @ 2.1",
    "pick": "Leylah Fernandez",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Leylah Fernandez announced herself in Ningbo by knocking out seventh seed Elise Mertens from a set down, and she now faces a qualifier ranked 92 places below her. Aliaksandra Sasnovich beat Daria Kasatkina 6-4 6-2, so she is clearly playing above her No.122 ranking, but the points gap - 1,709 against 603 - still produces a 77% rating for the Canadian in our model. The selection is Leylah Fernandez to win and reach the quarter-finals.",
    "source_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
    "source_name": "WTA official main draw PDF (wtafiles.wtatennis.com)",
@@ -6620,6 +6679,10 @@
     {
      "kind": "source-note",
      "text": "Exact start time not confirmed on an official source; OLBG label shown as OLBG's own data."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.3 (American -333) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Leylah Fernandez",
@@ -6722,7 +6785,7 @@
    "total": "Over 21.5 @ 2.02",
    "pick": "Francisco Cerundolo",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Francisco Cerundolo, the third seed in Brussels and world No.21, starts his week against lucky loser Martin Damm, ranked 107th, who took his second chance by beating Yannick Hanfmann 7-5 6-3. The class gap in ranking points is almost four to one (2,220 against 564), and our model puts the Argentine at 83%, with a 54% chance of doing it in straight sets. The selection is Francisco Cerundolo to win this round-of-16 tie.",
    "source_url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
    "source_name": "ATP official main draw PDF (protennislive.com), tournament 7485",
@@ -6735,6 +6798,10 @@
     {
      "kind": "source-note",
      "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 7485."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.21 (American -476) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Martin Damm",
@@ -6837,7 +6904,7 @@
    "total": "Over 20.5 @ 2.09",
    "pick": "Lorenzo Musetti",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Moise Kouame gave the Lyon crowd something to shout about by beating Lorenzo Sonego as a wild card, but Lorenzo Musetti is a level above anyone the Frenchman has faced: the world No.26 with 1,870 points against 300, and he dismissed Matteo Arnaldi 6-1 6-4 in his opener. Our model rates Lorenzo Musetti an 89% chance, most likely in straight sets. Home support may keep it noisy, but the selection is Lorenzo Musetti to win.",
    "source_url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
    "source_name": "ATP official main draw PDF (protennislive.com), tournament 496",
@@ -6850,6 +6917,10 @@
     {
      "kind": "source-note",
      "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 496."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.12 (American -833) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Moise Kouame",
@@ -7005,7 +7076,7 @@
    "total": "Over 19.5 @ 2.14",
    "pick": "Stefanos Tsitsipas",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Mikhail Kukushkin's first-round win at 38, delaying retirement in front of his home crowd, was one of the stories of the week - but Stefanos Tsitsipas, the world No.39 with 1,330 ranking points against 127, is a standard of opposition the Kazakh has not beaten in years. Stefanos Tsitsipas came through a three-setter against Aleksandar Kovacevic and our model makes him a 94% chance here. The selection is Stefanos Tsitsipas to win, with 2-0 priced at 72%.",
    "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
    "source_name": "ATP official main draw PDF (protennislive.com), tournament 9410",
@@ -7018,6 +7089,10 @@
     {
      "kind": "source-note",
      "text": "Formal sponsored tournament name not stated in the parsed official draw PDF; city and ATP 250 level verified via atptour.com tournament 9410."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.07 (American -1429) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Stefanos Tsitsipas",
@@ -7063,7 +7138,7 @@
    "total": "Over 16.5 @ 2.14",
    "pick": "Tomas Machac",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "This is the most lopsided tie on the entire tennis slate. Zangar Nurlanuly is an 18-year-old home wild card ranked 1,308th in the world with 8 ranking points and no ATP-level wins; Tomas Machac is the world No.72 with 779 points. Our points-ratio model makes the Czech a 99% chance and expects something close to a straight-sets procession, with total games around 17. The selection is Tomas Machac to win, and to win 2-0 - anything else would be a sensation.",
    "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
    "source_name": "ATP official main draw PDF (protennislive.com), tournament 9410",
@@ -7072,6 +7147,10 @@
     {
      "kind": "source-note",
      "text": "Exact start time not confirmed on an official source; OLBG label shown as OLBG's own data."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.01 (American -10000) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Zangar Nurlanuly",
@@ -7794,7 +7873,7 @@
    "total": "",
    "pick": "Houston Rockets",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "The Houston Rockets are the pick in the Texas opener. The Rockets finished 2025-26 at 52-30, fifth in the Western Conference, and were 30-11 at Toyota Center. Dallas ended the season 26-56 and managed just 10 wins in 40 road games. Both teams start 2026-27 with a clean record, so that 26-win gap in last season's standings is the strongest verified signal on the board.",
    "source_url": "https://www.nba.com/standings?Season=2025-26",
    "source_name": "NBA 2025-26 regular season final standings",
@@ -7815,6 +7894,10 @@
     {
      "kind": "date-discrepancy",
      "text": "Builds disagree on the date: 2026-10-21, 2026-10-22 (spread 1 day(s)). Primary date kept — check the official source."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.25 (American -400) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Houston Rockets",
@@ -7880,7 +7963,7 @@
    "total": "",
    "pick": "Los Angeles Lakers",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Take the Los Angeles Lakers at Crypto.com Arena. Los Angeles finished 2025-26 at 53-29 and fourth in the Western Conference, going 28-13 at home and winning its final three games. Golden State closed at 37-45 with a 15-26 road record and lost its last three. With both clubs opening a new season, a 16-win difference and the Lakers' home split make Los Angeles the selection.",
    "source_url": "https://www.nba.com/standings?Season=2025-26",
    "source_name": "NBA 2025-26 regular season final standings",
@@ -7901,6 +7984,10 @@
     {
      "kind": "date-discrepancy",
      "text": "Builds disagree on the date: 2026-10-21, 2026-10-22 (spread 1 day(s)). Primary date kept — check the official source."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.38 (American -263) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Los Angeles Lakers",
@@ -8322,12 +8409,17 @@
    "total": "",
    "pick": "Australia Women",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Australia Women already lead this series 2-0, chasing 163 to win the opener by two wickets through Ellyse Perry's 52, then winning the second game by 40 runs as Ashleigh Gardner hit 84 off 45 and took 2/17. Ranked No.1 in the ICC women's T20I table on 291 points against New Zealand's 249, and playing at home, Australia are the clear selection to win the third T20I and complete the clean sweep, rated at 84% by our model.",
    "source_url": "https://www.icc-cricket.com/rankings/team-rankings/womens/t20i",
    "source_name": "ICC / official board",
    "notes": "Official ICC ratings (Oct 2026): Australia Women 291, New Zealand Women 249; home adjustment +8 to Australia Women; logistic divisor 30.",
-   "flags": [],
+   "flags": [
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.19 (American -526) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
+    }
+   ],
    "home_raw": "Australia Women",
    "away_raw": "New Zealand Women",
    "prediction_style": "written",
@@ -8698,56 +8790,63 @@
    "live_verified": true
   },
   {
-   "build": "G",
+   "build": "A",
    "build_verified": true,
    "sport": "Darts",
-   "competition": "PDC European Championship 2026, First Round",
+   "competition": "PDC European Championship — Round 1",
    "date": "2026-10-22",
-   "date_raw": "2026-10-22, Westfalenhallen, Dortmund",
+   "date_raw": "2026-10-22",
    "time": "19:00 CEST session",
-   "venue": "Westfalenhallen, Dortmund",
+   "venue": "Westfalenhalle, Dortmund",
    "home": "Gerwyn Price",
    "away": "Rob Cross",
    "neutral": null,
    "win": {
     "odds": {
-     "Gerwyn Price": 1.58
+     "Westfalenhalle, Dortmund — Gerwyn Price": 1.47,
+     "Rob Cross": 2.77
     },
-    "basis": "build G fair odds (its own model, no bookmaker price)"
+    "basis": "build A Model v1 line (its own price)"
    },
    "handicap": "Gerwyn Price -1.5 @ 1.98",
    "total": "Over 9.5 @ 2.12",
    "pick": "Gerwyn Price",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Medium",
-   "prediction": "",
+   "confidence": "High",
+   "prediction": "Take Gerwyn Price to win his first-round match against Rob Cross at the European Championship in Dortmund on 22 October, the moneyline at our originated 1.47 the pick. The PDC's official draw release on 18 October seeds Price 13th on the European Tour Order of Merit against Cross at 20th, which translates to a 0.625 to 0.406 model rating in our book. Price's higher seeding and his record as a former world champion in this venue give him the edge, so the Welshman's moneyline is the high-confidence selection.",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
-   "source_name": "PDC (pdc.tv) official draw",
-   "notes": "Official PDC Order of Merit (2-yr prize money): Gerwyn Price world #4 GBP 782,000 (EC seed 13); Rob Cross world #22 GBP 398,500 (EC seed 20). Leg prob via logistic on log-money (k=0.30).",
+   "source_name": "PDC official — European Championship field & draw confirmed (18 Oct 2026); schedule: PDC 19 Oct 2026",
+   "notes": "Seedings are the official PDC European Tour rankings published in the PDC draw announcement (18 Oct 2026): Gerwyn Price is seeded 13, Rob Cross is seeded 20. Model v1 rating = (33 - seed)/32. The PDC also confirms in that announcement: Gian van Veen is defending champion, Ross Smith beat Gary Anderson in Budapest, Luke Humphries was last year's runner-up and is world number two, and Luke Littler is World Champion. No other form claims are used.",
    "flags": [
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "templated-prediction",
+     "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
     }
    ],
-   "home_raw": "Gerwyn Price",
+   "home_raw": "Westfalenhalle, Dortmund — Gerwyn Price",
    "away_raw": "Rob Cross",
-   "prediction_style": "",
+   "prediction_style": "templated",
    "cross_build": [
     {
-     "build": "A",
+     "build": "G",
      "pick": "Gerwyn Price",
-     "confidence": "Low",
+     "confidence": "Medium",
      "date": "2026-10-22",
-     "date_raw": "2026-10-22",
+     "date_raw": "2026-10-22, Westfalenhallen, Dortmund",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
      "side": "home"
     }
    ],
    "fields_from": {
-    "time": "A"
+    "handicap": "G",
+    "total": "G"
    },
    "archive_rows": 1,
+   "prediction_similarity": 0.133,
    "pick_side": "home",
    "id": "M0139",
    "source_tier": "official",
@@ -8796,6 +8895,10 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.1 (-1000) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
     }
    ],
    "home_raw": "Gian van Veen",
@@ -8805,7 +8908,7 @@
     {
      "build": "A",
      "pick": "Gian van Veen",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-22",
      "date_raw": "2026-10-22",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -8936,8 +9039,12 @@
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
     },
     {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.38 (-263) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
+    },
+    {
      "kind": "confidence-lowered",
-     "text": "Confidence lowered from High to Medium: pdc.tv returned only a cookie-consent wall to this crawler on both the draw article and the rankings page, so no official page could be read today to support a fact-based high-confidence write-up. The pick stands; the confidence was lowered rather than padded with unverified claims."
+     "text": "Confidence lowered from Medium to Medium: pdc.tv returned only a cookie-consent wall to this crawler on both the draw article and the rankings page, so no official page could be read today to support a fact-based high-confidence write-up. The pick stands; the confidence was lowered rather than padded with unverified claims."
     },
     {
      "kind": "templated-prediction",
@@ -8964,7 +9071,7 @@
    },
    "archive_rows": 1,
    "confidence_note": "pdc.tv returned only a cookie-consent wall to this crawler on both the draw article and the rankings page, so no official page could be read today to support a fact-based high-confidence write-up. The pick stands; the confidence was lowered rather than padded with unverified claims.",
-   "prediction_similarity": 0.024,
+   "prediction_similarity": 0.117,
    "pick_side": "home",
    "id": "M0142",
    "source_tier": "official",
@@ -9145,7 +9252,7 @@
    "total": "Over 9.5 @ 2.29",
    "pick": "Ross Smith",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Ross Smith is the top seed in Dortmund after winning two European Tour titles during 2026, and the draw has handed him the lowest seed in the field, Karel Sedlacek. The world rankings underline the gap too: 13th against 44th, with more than three times the ranking money. Best-of-11 legs can still bite, but everything verified points one way - Ross Smith to win the match is the selection, rated a 72% chance by our model.",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
@@ -9154,6 +9261,10 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.38 (American -263) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Ross Smith",
@@ -9916,6 +10027,15 @@
    "prediction_style": "written",
    "cross_build": [
     {
+     "build": "A",
+     "pick": "Boston Bruins",
+     "confidence": "High",
+     "date": "2026-10-22",
+     "date_raw": "2026-10-22",
+     "source_url": "https://www.nhl.com/schedule/2026-10-21",
+     "side": "home"
+    },
+    {
      "build": "D",
      "pick": "Boston Bruins to win (moneyline, our 1.72)",
      "confidence": "High",
@@ -9931,15 +10051,6 @@
      "date": "2026-10-22",
      "date_raw": "2026-10-22T23:00:00Z",
      "source_url": "https://www.nhl.com/standings/2026-10-20/wildcard",
-     "side": "home"
-    },
-    {
-     "build": "A",
-     "pick": "Boston Bruins",
-     "confidence": "Medium",
-     "date": "2026-10-22",
-     "date_raw": "2026-10-22",
-     "source_url": "https://www.nhl.com/schedule/2026-10-21",
      "side": "home"
     }
    ],
@@ -11805,7 +11916,7 @@
    "total": "Over 8.5 @ 2.02",
    "pick": "Luke Littler",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Luke Littler arrives in Dortmund as the reigning World Champion and world number one, having won two of the three European Tour events he entered in 2026. His £3,113,500 of two-year ranking money dwarfs William O'Connor's £274,500, and even in a sprint format our model puts the teenager at 89% to come through. William O'Connor can trouble anyone in patches, but the only sensible selection here is Luke Littler to win, with our fair leg handicap set at -3.5.",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
@@ -11814,6 +11925,14 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.3 (-333) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.12 (American -833) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Luke Littler",
@@ -11823,7 +11942,7 @@
     {
      "build": "A",
      "pick": "Luke Littler",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
@@ -11871,7 +11990,7 @@
    "total": "Over 8.5 @ 1.72",
    "pick": "Nathan Aspinall",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "This is one of the widest ranking gaps in the first round: Nathan Aspinall, the world No.11 with £579,500 earned over two years, against Cristo Reyes, ranked 71st with £95,000. Nathan Aspinall is also the sixth seed here on European Tour form, while Cristo Reyes is seeded 27th. Over a race to six legs that class difference should tell, so back Nathan Aspinall to win the match - our model gives him an 82% chance and makes a fairly short evening of it.",
    "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
    "source_name": "PDC (pdc.tv) official draw",
@@ -11880,6 +11999,10 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap (legs/sets) and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.22 (American -455) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Nathan Aspinall",
@@ -12189,7 +12312,7 @@
    "total": "Over 6.5 @ 2.382; Under 6.5 @ 1.6",
    "pick": "Minnesota Wild",
    "pick_market": "moneyline",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Minnesota Wild sit 0.5 goals clear of Calgary Flames on our board; the opener had it at 0.5. Recent form favors Minnesota Wild, who have won three of their last five, while Calgary Flames have won two of their last five. We price the cover at -171, a 60.4% probability. We are taking Minnesota Wild -0.5 at -171.",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
    "source_name": "NHL official schedule/game page",
@@ -12202,6 +12325,10 @@
     {
      "kind": "date-discrepancy",
      "text": "Builds disagree on the date: 2026-10-22, 2026-10-23 (spread 1 day(s)). Primary date kept — check the official source."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.4 (American -250) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Calgary Flames",
@@ -13045,6 +13172,10 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.36 (-278) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
     }
    ],
    "home_raw": "Edinburgh",
@@ -13054,7 +13185,7 @@
     {
      "build": "A",
      "pick": "Edinburgh",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-23",
      "date_raw": "2026-10-23",
      "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
@@ -14586,7 +14717,7 @@
    "total": "Over 5.5 @ 1.804; Under 5.5 @ 2.038",
    "pick": "Boston Bruins",
    "pick_market": "moneyline",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Boston Bruins rate 1.5 goals stronger than San Jose Sharks in our model, a 69.2% win probability. Boston Bruins have won four of their last five. They most recently lost 2-3 to Dallas Stars on the road. Our price of -262 reflects a 69.2% win probability. Selection: Boston Bruins at -262.",
    "source_url": "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
    "source_name": "NHL official schedule/game page",
@@ -14595,6 +14726,10 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.382 (American -262) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Boston Bruins",
@@ -14861,6 +14996,10 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.31 (-323) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
     }
    ],
    "home_raw": "Edmonton Oilers",
@@ -14870,7 +15009,7 @@
     {
      "build": "A",
      "pick": "Edmonton Oilers",
-     "confidence": "High",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -15359,7 +15498,7 @@
    "total": "",
    "pick": "England",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "England lost their opener 12:30 to Tonga in Perth, but they now face a France team that shipped 78 points to Samoa in Sydney. Brian McDermott has named the same 19-man squad, with Luke Thompson starting at prop because Morgan Knowles is injured and Jack Welsby held on the bench. France reshuffle again, moving Thomas Lacans to five-eighth and Ben Garcia to lock. Back England to win at HBF Park on Saturday.",
    "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
    "source_name": "NRL official — World Cup men's Round 2 team lists & schedule; Round 1 results: NRL Round 1 team lists (13 Oct 2026)",
@@ -15368,6 +15507,10 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.32 (-312) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
     }
    ],
    "home_raw": "England",
@@ -15483,8 +15626,8 @@
    "total": "",
    "pick": "Samoa",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Medium",
-   "prediction": "",
+   "confidence": "High",
+   "prediction": "Back Samoa to win away to Papua New Guinea in Port Moresby on 24 October, taking the moneyline at our 1.49 as the high-confidence play. The NRL's verified Round 1 reports have Samoa destroying France 78-4 in Perth, the largest winning margin of the opening weekend, with a brand of power running that overwhelmed the French pack, while Papua New Guinea beat Lebanon 42-18 at home in a game that stayed closer for longer. On verified margin alone Samoa rate 0.87 to 0.62, so the visitors are the selection.",
    "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
    "source_name": "NRL official — World Cup men's Round 2 team lists & schedule; Round 1 results: NRL Round 1 team lists (13 Oct 2026)",
    "notes": "Model v1 rating from verified Round 1 results reported by the NRL: Australia 24-22 New Zealand, Samoa 78-4 France, Papua New Guinea 42-18 Lebanon, England 12-30 Tonga, Fiji 40-12 Cook Islands (rating = 0.50 + winning margin/200, capped in code inputs). Fixture, venue and round confirmed on the NRL's official Round 2 team-list article (20 Oct 2026).",
@@ -15492,14 +15635,19 @@
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "templated-prediction",
+     "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Papua New Guinea",
    "away_raw": "Samoa",
-   "prediction_style": "",
+   "prediction_style": "templated",
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
+   "prediction_similarity": 0.14,
    "pick_side": "away",
    "id": "M0240",
    "source_tier": "official",
@@ -15818,35 +15966,38 @@
    "live_contradicted": false
   },
   {
-   "build": "G",
+   "build": "A",
    "build_verified": true,
    "sport": "Rugby Union",
-   "competition": "United Rugby Championship, Round 4",
+   "competition": "United Rugby Championship",
    "date": "2026-10-24",
-   "date_raw": "2026-10-24, Aviva Stadium, Dublin",
+   "date_raw": "2026-10-24",
    "time": "Sat 24 Oct 2026, 13:00 local",
-   "venue": "Aviva Stadium",
+   "venue": "Aviva Stadium, Dublin",
    "home": "Leinster",
    "away": "Munster",
    "neutral": null,
    "win": {
     "odds": {
-     "Leinster": 1.94,
-     "Draw": 17.32,
-     "Munster": 2.1
+     "Leinster": 1.51,
+     "Munster": 2.63
     },
-    "basis": "build C originated price (its own margin applied)"
+    "basis": "build A Model v1 line (its own price)"
    },
    "handicap": "Leinster -7.5 @ 1.95",
    "total": "Over 46.5 @ 2.05",
    "pick": "Leinster",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Medium",
-   "prediction": "",
+   "confidence": "High",
+   "prediction": "We like Leinster to win the derby against Munster at the Aviva Stadium on 24 October, backing the moneyline at our 1.51. The URC's official Round 3 centre has Leinster as the form side after a clinical 29-5 victory over Cardiff in Dublin, featuring strong defence and bonus-point attack, while Munster were held 26-26 by Ulster and needed a late comeback to salvage a draw. That recent scoring gap plus home advantage makes Leinster the high-confidence selection here.",
    "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
-   "source_name": "URC official match centre",
-   "notes": "Official table PF/PA: Leinster 75:58 in 3g, Munster 72:74 in 3g; league avg 26.2 pts/team; shrunk attack/defence (k=2), home x1.10; Normal margin SD 15 / total SD 13.",
+   "source_name": "URC official match centre (Round 4 fixtures; Round 3 results)",
+   "notes": "Model v1 rating derived only from verified Round 3 results on the official URC match centre: Glasgow 36-19 Connacht, Dragons 31-38 Ospreys, Bulls 57-15 Lions, Stormers 39-22 Sharks, Zebre 12-29 Edinburgh, Scarlets 27-26 Benetton, Ulster 26-26 Munster, Leinster 29-5 Cardiff (ratings: win 0.60, narrow win 0.55, draw 0.50, loss 0.40, heavy loss/win by 20+ adjusted to 0.35/0.65).",
    "flags": [
+    {
+     "kind": "market-note",
+     "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+    },
     {
      "kind": "source-note",
      "text": "Only 3 rounds played - small sample; ratings statistically shrunk, confidence capped."
@@ -15860,14 +16011,23 @@
      "text": "Kick-off time is the local time published by URC; no UTC conversion applied."
     },
     {
-     "kind": "market-note",
-     "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+     "kind": "templated-prediction",
+     "text": "Build A generated this write-up from boilerplate: build A generates every write-up from a small set of fixed sentence frames. It is not counted as a written prediction."
     }
    ],
    "home_raw": "Leinster",
    "away_raw": "Munster",
-   "prediction_style": "",
+   "prediction_style": "templated",
    "cross_build": [
+    {
+     "build": "G",
+     "pick": "Leinster",
+     "confidence": "Medium",
+     "date": "2026-10-24",
+     "date_raw": "2026-10-24, Aviva Stadium, Dublin",
+     "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+     "side": "home"
+    },
     {
      "build": "C",
      "pick": "Leinster",
@@ -15876,23 +16036,15 @@
      "date_raw": "Sat 24 Oct 2026, 13:00 local",
      "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
      "side": "home"
-    },
-    {
-     "build": "A",
-     "pick": "Leinster",
-     "confidence": "Medium",
-     "date": "2026-10-24",
-     "date_raw": "2026-10-24",
-     "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
-     "side": "home"
     }
    ],
    "fields_from": {
-    "win": "C",
-    "venue": "C",
+    "handicap": "G",
+    "total": "G",
     "time": "C"
    },
    "archive_rows": 2,
+   "prediction_similarity": 0.142,
    "pick_side": "home",
    "id": "M0246",
    "source_tier": "official",
@@ -15908,59 +16060,62 @@
    "live_contradicted": false
   },
   {
-   "build": "C",
+   "build": "A",
    "build_verified": true,
    "sport": "Rugby Union",
-   "competition": "URC Round 4",
+   "competition": "United Rugby Championship",
    "date": "2026-10-24",
-   "date_raw": "Sat 24 Oct 2026, 14:00 local",
+   "date_raw": "2026-10-24",
    "time": "Sat 24 Oct 2026, 14:00 local",
-   "venue": "St Helen's",
+   "venue": "Swansea.com Stadium",
    "home": "Ospreys",
-   "away": "Dragons RFC",
+   "away": "Dragons",
    "neutral": null,
    "win": {
     "odds": {
-     "Ospreys": 2.15,
-     "Draw": 17.32,
-     "Dragons RFC": 1.9
+     "Ospreys": 1.43,
+     "Dragons": 2.91
     },
-    "basis": "build C originated price (its own margin applied)"
+    "basis": "build A Model v1 line (its own price)"
    },
    "handicap": "Ospreys +1.0 @ 1.92; Dragons RFC -1.0 @ 1.92",
    "total": "Over 51.5 @ 1.91; Under 51.5 @ 1.94",
-   "pick": "Dragons RFC",
+   "pick": "Ospreys",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "Low",
+   "confidence": "High",
    "prediction": "Ospreys won the first Welsh derby of the season 38:31 at Rodney Parade on 9 October, and that remains their only victory of the campaign, with six points and an 81:107 points difference leaving them 13th. Dragons sit eighth on nine points from one win, one draw and one defeat, but they have not beaten Ospreys this season. Take Ospreys to complete the double at St Helen's on Saturday afternoon.",
-   "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
-   "source_name": "URC League Table 2026/27",
-   "notes": "",
+   "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+   "source_name": "URC official match centre (Round 4 fixtures; Round 3 results)",
+   "notes": "Model v1 rating derived only from verified Round 3 results on the official URC match centre: Glasgow 36-19 Connacht, Dragons 31-38 Ospreys, Bulls 57-15 Lions, Stormers 39-22 Sharks, Zebre 12-29 Edinburgh, Scarlets 27-26 Benetton, Ulster 26-26 Munster, Leinster 29-5 Cardiff (ratings: win 0.60, narrow win 0.55, draw 0.50, loss 0.40, heavy loss/win by 20+ adjusted to 0.35/0.65).",
    "flags": [
-    {
-     "kind": "source-note",
-     "text": "Kick-off time is the local time published by URC; no UTC conversion applied."
-    },
     {
      "kind": "market-note",
      "text": "Match winner investigated; handicap and match total investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "source-note",
+     "text": "Kick-off time is the local time published by URC; no UTC conversion applied."
     }
    ],
    "home_raw": "Ospreys",
-   "away_raw": "Dragons RFC",
+   "away_raw": "Dragons",
    "prediction_style": "written",
    "cross_build": [
     {
-     "build": "A",
-     "pick": "Ospreys",
-     "confidence": "Medium",
+     "build": "C",
+     "pick": "Dragons RFC",
+     "confidence": "Low",
      "date": "2026-10-24",
-     "date_raw": "2026-10-24",
-     "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
-     "side": "home"
+     "date_raw": "Sat 24 Oct 2026, 14:00 local",
+     "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+     "side": "away"
     }
    ],
-   "fields_from": {},
+   "fields_from": {
+    "handicap": "C",
+    "total": "C",
+    "time": "C"
+   },
    "archive_rows": 1,
    "prediction_source": "authored 2026-10-21",
    "authored_facts": [
@@ -15973,7 +16128,7 @@
     "https://stats.unitedrugby.com/match-centre/table/2026-27"
    ],
    "prediction_similarity": 0.0,
-   "pick_side": "away",
+   "pick_side": "home",
    "cross_build_conflict": true,
    "id": "M0247",
    "source_tier": "official",
@@ -16059,7 +16214,7 @@
    "total": "Over 51.5 @ 1.9; Under 51.5 @ 1.95",
    "pick": "Vodacom Bulls",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "The Vodacom Bulls are the pick at Loftus Versfeld. They have scored 126 points in three URC rounds, the highest total in the competition, and hammered the Lions 57-15 in Round 3. Ulster are still without a win after a 26-26 draw with Munster, a second draw alongside an opening loss, and their points difference is minus five. A plus-72 differential against that record points firmly to the Bulls.",
    "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
    "source_name": "URC League Table 2026/27",
@@ -16080,6 +16235,10 @@
     {
      "kind": "source-note",
      "text": "Loftus Versfeld is at altitude (~1,350m) - not separately adjusted for in the model."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.39 (American -256) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Vodacom Bulls",
@@ -17185,7 +17344,7 @@
    "total": "Over 6.5 @ 2.165; Under 6.5 @ 1.715",
    "pick": "Florida Panthers",
    "pick_market": "Match winner (moneyline)",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Take the Florida Panthers to win on the road against the Chicago Blackhawks. Florida's recent match history supports a strong selection: the official NHL standings dated 20 October show the Panthers at 5-2-2 (.667 points percentage) riding a three-game winning streak, with a +5 goal differential. Chicago, by contrast, are 3-6-0 (.333) with a -15 goal differential, the weakest profile in this fixture, so the Panthers are a high-confidence away win pick.",
    "source_url": "https://www.nhl.com/schedule/2026-10-21",
    "source_name": "NHL.com official schedule (week of 21-27 Oct 2026); standings: NHL.com standings 20 Oct 2026",
@@ -17194,6 +17353,10 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "build-flag",
+     "text": "Downgraded from High: originated odds 1.36 (-278) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000."
     },
     {
      "kind": "templated-prediction",
@@ -17221,7 +17384,7 @@
     "time": "E"
    },
    "archive_rows": 1,
-   "prediction_similarity": 0.086,
+   "prediction_similarity": 0.091,
    "pick_side": "away",
    "id": "M0266",
    "source_tier": "official",
@@ -17724,7 +17887,7 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.069,
+   "prediction_similarity": 0.127,
    "pick_side": "home",
    "id": "M0274",
    "source_tier": "official",
@@ -18518,7 +18681,7 @@
    "total": "Over 6.5 @ 1.769; Under 6.5 @ 2.084",
    "pick": "Minnesota Wild",
    "pick_market": "moneyline",
-   "confidence": "High",
+   "confidence": "Medium",
    "prediction": "Our ratings have Minnesota Wild 1.6 goals clear of Vancouver Canucks going into this one. Form favours Minnesota Wild, who have won three of their last five, while Vancouver Canucks have not won any of their last five. They most recently lost 3-4 to Edmonton Oilers on the road. Our price of -306 reflects a 72.1% win probability. The pick is Minnesota Wild at -306.",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
    "source_name": "NHL official schedule/game page",
@@ -18531,6 +18694,10 @@
     {
      "kind": "date-discrepancy",
      "text": "Builds disagree on the date: 2026-10-25, 2026-10-26 (spread 1 day(s)). Primary date kept — check the official source."
+    },
+    {
+     "kind": "odds-window-downgrade",
+     "text": "Downgraded from High to Medium: originated odds 1.327 (American -306) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Vancouver Canucks",
