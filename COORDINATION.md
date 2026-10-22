@@ -2683,20 +2683,22 @@ Session: `arena/4ec1fc72-olbg4` | Branch: `arena/4ec1fc72-olbg4` | Claimed: 2026
 - **Integration request (not applied):** add a root-nav link to `session-4ec1fc72/` in the master-board generator (`tools/build_master_site.py`) at the next integration session. Root pages, `data/master.json` and other boards' files were not edited.
 - **PR / merge / Pages:** recorded below after merge.
 
-## Board V — session `arena/c4fda15e-olbg4` (OLBG live-listing reverse-engineering → official reconciliation → own lines → in-window High write-ups)
+## Board W — session `arena/c4fda15e-olbg4` (OLBG live-listing reverse-engineering → official reconciliation → own lines → in-window High write-ups)
 
 Session `arena/c4fda15e-olbg4` · branch `arena/c4fda15e-olbg4` (Arena fixes the branch name, so the brief's `session-<id>/<task>` pattern cannot be used; every file this board writes is keyed to the session id instead) · claimed 2026-10-22T02:55Z UTC · **status: in progress**
+
+**Letter-collision note (2026-10-22T03:00Z).** This board was first pushed as "Board V" at ~02:55Z; `arena/f957db05-olbg4` had already renumbered its own claim to "Board V" at 02:51:37Z (independent re-verification of the 22 Oct desks + High expansion + integration). Their claim is earlier, so this board is **renamed W** and its task IDs become W1–W6. Scopes do not overlap: f957db05 re-verifies the official-feed desks; Board W builds its list from OLBG's live hubs. Also active at 03:00Z and read-only for Board W: `arena/c92c927c-olbg4` (T, fresh 22–27 Oct desk), `arena/fca9d738-olbg4` (S2, canonical High odds-window review), `arena/4ec1fc72-olbg4` (T, PR open), `arena/cdf25c13-olbg4` (T), `arena/e5f2dad3-olbg4` (U), `arena/eb251d10-olbg4` (E1), `arena/27462ea7-olbg4` (T, README).
 
 **Why this is a distinct task.** At claim time three active boards (`arena/cdf25c13-olbg4` T, `arena/4ec1fc72-olbg4` T, `arena/e5f2dad3-olbg4` U) build fresh desks from official league feeds and each states that OLBG is used as taxonomy reference only; `arena/eb251d10-olbg4` (E1) audits publication and `arena/27462ea7-olbg4` (T) owns the README. **No board has claimed the brief's first requirement: take the match list from OLBG's *live* listing (reverse-engineering), then confirm every OLBG event against an official source.** Board V does exactly that and nothing in the other boards' scopes. Where an OLBG event also appears on another board's desk, the final integrator can join on teams + date; Board V does not edit their files.
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| V1 | Live OLBG capture (22 Oct): every event on each in-scope OLBG sport hub — event_id, OLBG URL, competition label, listed start, market label (structure only; no OLBG tip/percentage copied) | in progress | arena/c4fda15e-olbg4 | `data/session-c4fda15e/olbg_*.json`, `scripts/session-c4fda15e/` |
-| V2 | Event-by-event official reconciliation: official page per OLBG event (date/time/participants); verified / mismatch / unverified (blank + flagged) | in progress | arena/c4fda15e-olbg4 | `data/session-c4fda15e/reconciliation.json` |
-| V3 | Own lines for every verified event (match winner; handicap and total where official numeric inputs exist), pick, Low/Medium/High | in progress | arena/c4fda15e-olbg4 | `data/session-c4fda15e/lines.json`, `scripts/session-c4fda15e/model.py` |
-| V4 | High picks restricted to −250…+10,000; unique ≥30-word human write-ups built only from official-source facts (form, recent results, selection obvious) | in progress | arena/c4fda15e-olbg4 | `data/session-c4fda15e/predictions.json` |
-| V5 | Dashboard sub-site (landing, per-sport pages, picks, markets, OLBG reconciliation, sources, methodology, Flagged for Review) + link check + verify gate | in progress | arena/c4fda15e-olbg4 | `session-c4fda15e/**` |
-| V6 | PR `arena/c4fda15e-olbg4` → `main`, merge, confirm Pages deploy, record result here; root-nav pointer logged as an integration request (not hand-applied while T/U hold the root) | in progress | arena/c4fda15e-olbg4 | `COORDINATION.md` |
+| W1 | Live OLBG capture (22 Oct): every event on each in-scope OLBG sport hub — event_id, OLBG URL, competition label, listed start, market label (structure only; no OLBG tip/percentage copied) | in progress | arena/c4fda15e-olbg4 | `data/session-c4fda15e/olbg_*.json`, `scripts/session-c4fda15e/` |
+| W2 | Event-by-event official reconciliation: official page per OLBG event (date/time/participants); verified / mismatch / unverified (blank + flagged) | in progress | arena/c4fda15e-olbg4 | `data/session-c4fda15e/reconciliation.json` |
+| W3 | Own lines for every verified event (match winner; handicap and total where official numeric inputs exist), pick, Low/Medium/High | in progress | arena/c4fda15e-olbg4 | `data/session-c4fda15e/lines.json`, `scripts/session-c4fda15e/model.py` |
+| W4 | High picks restricted to −250…+10,000; unique ≥30-word human write-ups built only from official-source facts (form, recent results, selection obvious) | in progress | arena/c4fda15e-olbg4 | `data/session-c4fda15e/predictions.json` |
+| W5 | Dashboard sub-site (landing, per-sport pages, picks, markets, OLBG reconciliation, sources, methodology, Flagged for Review) + link check + verify gate | in progress | arena/c4fda15e-olbg4 | `session-c4fda15e/**` |
+| W6 | PR `arena/c4fda15e-olbg4` → `main`, merge, confirm Pages deploy, record result here; root-nav pointer logged as an integration request (not hand-applied while T/U hold the root) | in progress | arena/c4fda15e-olbg4 | `COORDINATION.md` |
 
 **Claim boundary.** Board V writes only `session-c4fda15e/**`, `data/session-c4fda15e/**`, `scripts/session-c4fda15e/**`, `.github/workflows/v-c4fda15e.yml` (if an Actions fetch is needed) and appends to this file. Root `index.html`, `README.md`, `data/master*.json`, `data/rows.*`, `board/**`, `docs/**` and every other `session-*/` are read-only.
 
