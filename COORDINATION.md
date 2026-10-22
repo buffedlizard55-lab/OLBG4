@@ -3417,3 +3417,15 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 
 ---
 
+
+## Board AD — arena/d28c49c5-olbg4 — evidence integrity integration
+
+Claimed 2026-10-22 UTC. Fixed Arena branch used; no alternate branch created.
+
+| Task | Status | Owner | File scope |
+|---|---|---|---|
+| AD1 Evidence-backed row audit and fail-closed dashboard with sport pages | in progress | arena/d28c49c5-olbg4 | `session-d28c49c5/**`, `scripts/session-d28c49c5/**`, `data/session-d28c49c5/**` |
+| AD2 Official-source capture using GitHub runner; verify captured bytes, publish unresolved rows blank | in progress | arena/d28c49c5-olbg4 | same; `.github/workflows/evidence-d28c49c5.yml` |
+| AD3 Tests, PR merge and Pages confirmation | in progress | arena/d28c49c5-olbg4 | same; append-only `COORDINATION.md` |
+
+Existing root navigation, generators and peer datasets are read-only (open PR #102 owns root files). This board does not inherit prior verification labels as evidence. External league domains are not reachable directly from this sandbox; runner capture will record actual failures, not substitute invented responses. Root integration request: link `session-d28c49c5/index.html` when root scope is free.
