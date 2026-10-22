@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology &amp; Sources · Board AC Betting Desk (f0622b6e)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <a href="index.html" class="brand-title">OLBG4 · Board AC Verified Betting Desk</a>
+        <span class="brand-sub">Session <code>f0622b6e</code> · Cutoff <code>2026-10-22T08:35Z</code> · <a href="../index.html" class="portal-link">← Repo Portal</a></span>
+      </div>
+      <nav class="topnav" aria-label="Primary"><a href="index.html" class="nav-link">Dashboard</a><a href="predictions.html" class="nav-link">High Picks (40)</a><a href="matches.html" class="nav-link">All Matches (233)</a><a href="markets.html" class="nav-link">4-Market Lines</a><a href="olbg.html" class="nav-link">OLBG Reverse-Eng</a><a href="review.html" class="nav-link">Repo Audit</a><a href="flagged.html" class="nav-link">Flagged for Review</a><a href="methodology.html" class="nav-link active">Methodology &amp; Sources</a></nav>
+    </div>
+  </header>
+  <div class="scope-bar">
+    <div class="container">
+      <strong>Scope Mandate Enforced:</strong> 0 rows from excluded sports (<code>soccer</code>, <code>boxing</code>, <code>ufc</code>, <code>mma</code>, <code>football</code>, <code>american football</code>, <code>hurling</code>, <code>horse racing</code>, <code>cycling</code>, <code>specials</code>). Unconfirmed inputs are strictly left blank and routed to <a href="flagged.html">Flagged for Review</a>.
+    </div>
+  </div>
+  <main class="container main-content">
+    
+    <h1>Line Origination Methodology &amp; Official Source Registry</h1>
+    <p class="lead">
+      How Board AC independently originates fair and bookmaker lines across 16 sports without copying sportsbook or OLBG consensus prices, and why High-confidence selections are bounded to <code>-250</code> to <code>+10000</code>.
+    </p>
+    <div class="info-box">
+      <h3>1. Independent Multi-Market Origination Architecture</h3>
+      <ul>
+        <li><strong>Governing-Body Rating Inputs Only:</strong> Every fixture probability is derived from official league tables, points-per-game / goal-differential rates, ATP/WTA/WST/PDC/ICC/BWF rankings, and confirmed venue/rest adjustments.</li>
+        <li><strong>Zero-Vig Fair vs. Bookmaker Margin:</strong> Zero-vig fair decimal odds equal <code>1 / p</code>. Bookmaker prices apply a favorite-longshot-adjusted power margin targeting <strong><code>4.2%</code> overround on 2-way markets</strong> and <strong><code>5.2%</code> on 3-way 1X2 markets</strong>.</li>
+        <li><strong>4 Market Families Investigated Per Match:</strong> (1) Match Winner / 1X2, (2) Gaussian &amp; Markov Bo3/Bo5/Bo7/Bo11 Handicap Spreads, (3) Pace-calibrated Match Totals (withheld when official venue innings averages are unprinted), and (4) Sport-Specific Derivatives (1st Set, F5 Moneyline, 60m Regulation, 1H Spread, 7th-Frame Decider, Most 180s, Straight Sweep, Winning Margin, First Blood, Podium/Top-5).</li>
+        <li><strong>Resolving the <code>&gt;70%</code> vs. <code>-250</code> Paradox:</strong> Because <code>p &gt; 71.43%</code> implies fair odds shorter than <code>-250</code> (<code>1.40</code> decimal), outright moneylines on heavy favorites offer poor risk-reward. Our desk still picks the Match Winner on every match, while focusing all <strong>40 High-confidence picks</strong> strictly inside <code>-250</code> to <code>+10000</code> via value moneylines (<code>58%–70%</code>) or calibrated Set/Frame/Leg/Goal/Point handicaps and totals.</li>
+      </ul>
+    </div>
+
+    <h2>Official Governing-Body Source Registry (20 Verified Authorities)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Sport</th><th>Official Governing Body</th><th>Verified Coverage Scope</th><th>Official URLs</th></tr></thead>
+        <tbody><tr>
+          <td><strong>Tennis</strong></td>
+          <td>ATP Tour &amp; ProTennisLive</td>
+          <td>ATP 250 Almaty (9410), ATP 250 Brussels (7485), ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (496) draws, OOPs, seeds, and live ATP rankings</td>
+          <td class="mono"><a href="https://www.atptour.com/en/rankings/singles" target="_blank" rel="noopener">https://www.atptour.com/en/rankings/singles ↗</a><br><a href="https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule" target="_blank" rel="noopener">https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule ↗</a><br><a href="https://www.protennislive.com/posting/2026/7485/op.pdf" target="_blank" rel="noopener">https://www.protennislive.com/posting/2026/7485/op.pdf ↗</a><br><a href="https://www.protennislive.com/posting/2026/496/op.pdf" target="_blank" rel="noopener">https://www.protennislive.com/posting/2026/496/op.pdf ↗</a><br><a href="https://www.protennislive.com/posting/2026/496/mds.pdf" target="_blank" rel="noopener">https://www.protennislive.com/posting/2026/496/mds.pdf ↗</a></td>
+        </tr><tr>
+          <td><strong>Tennis</strong></td>
+          <td>Women&#x27;s Tennis Association (WTA)</td>
+          <td>WTA 500 Ningbo (World #1 Elena Rybakina top seed) &amp; WTA 250 Osaka R16/QF draws, R1/R2 scores, and WTA rankings</td>
+          <td class="mono"><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">https://www.wtatennis.com/rankings/singles ↗</a><br><a href="https://www.wtatennis.com/tournaments/2092/ningbo/2026/order-of-play" target="_blank" rel="noopener">https://www.wtatennis.com/tournaments/2092/ningbo/2026/order-of-play ↗</a><br><a href="https://www.wtatennis.com/tournaments/405/osaka/2026/order-of-play" target="_blank" rel="noopener">https://www.wtatennis.com/tournaments/405/osaka/2026/order-of-play ↗</a></td>
+        </tr><tr>
+          <td><strong>Basketball</strong></td>
+          <td>National Basketball Association (NBA)</td>
+          <td>2026-27 NBA Week 1 Oct 22-24 schedule, Oct 21 final scores (HOU 128-110 DAL), venues, and 2025-26 baseline standings</td>
+          <td class="mono"><a href="https://www.nba.com/schedule?date=2026-10-22" target="_blank" rel="noopener">https://www.nba.com/schedule?date=2026-10-22 ↗</a><br><a href="https://www.nba.com/game/cle-vs-phi-0022600006" target="_blank" rel="noopener">https://www.nba.com/game/cle-vs-phi-0022600006 ↗</a><br><a href="https://www.nba.com/game/den-vs-okc-0022600007" target="_blank" rel="noopener">https://www.nba.com/game/den-vs-okc-0022600007 ↗</a><br><a href="https://www.nba.com/standings?Season=2025-26" target="_blank" rel="noopener">https://www.nba.com/standings?Season=2025-26 ↗</a></td>
+        </tr><tr>
+          <td><strong>Basketball</strong></td>
+          <td>EuroLeague Basketball</td>
+          <td>Full 2026-27 EuroLeague (E2026) Round 1-6 final scores, standings, and all 9 Round 7 fixtures (incl. Anadolu Efes vs Besiktas &amp; Bayern vs Dubai Basketball)</td>
+          <td class="mono"><a href="https://www.euroleaguebasketball.net/en/euroleague/game-center/" target="_blank" rel="noopener">https://www.euroleaguebasketball.net/en/euroleague/game-center/ ↗</a><br><a href="https://api-live.euroleague.net/v2/competitions/E2026/seasons/E2026/games" target="_blank" rel="noopener">https://api-live.euroleague.net/v2/competitions/E2026/seasons/E2026/games ↗</a></td>
+        </tr><tr>
+          <td><strong>Basketball</strong></td>
+          <td>Liga Nacional de Basquete (NBB CAIXA Brazil)</td>
+          <td>NBB CAIXA 2026/27 opening-week schedule Oct 22-24 (Basquete Cearense/Fortaleza vs Pinheiros, Ceisc/Uniao Corinthians vs Minas Storm, Brasilia vs Corinthians, Bauru vs Mogi)</td>
+          <td class="mono"><a href="https://lnb.com.br/noticias/onde-assistir-ao-nbb-caixa-2026-27-agenda-de-transmissoes-da-semana/" target="_blank" rel="noopener">https://lnb.com.br/noticias/onde-assistir-ao-nbb-caixa-2026-27-agenda-de-transmissoes-da-semana/ ↗</a></td>
+        </tr><tr>
+          <td><strong>Basketball</strong></td>
+          <td>Korean Basketball League (KBL)</td>
+          <td>KBL 2026-27 Oct 22 Ulsan Hyundai Mobis Phoebus vs Changwon LG Sakers (19:00 KST / 10:00 UTC, Ulsan Dongcheon Gymnasium)</td>
+          <td class="mono"><a href="https://phoebus.kbl.or.kr/" target="_blank" rel="noopener">https://phoebus.kbl.or.kr/ ↗</a><br><a href="https://sakers.kbl.or.kr/" target="_blank" rel="noopener">https://sakers.kbl.or.kr/ ↗</a></td>
+        </tr><tr>
+          <td><strong>Baseball</strong></td>
+          <td>Major League Baseball (MLB)</td>
+          <td>2026 World Series Games 1-7: AL Champion Tampa Bay Rays (98-64, Drew Rasmussen 11-0 1.73 2H ERA, Freddy Peralta ALCS MVP) @ NL Champion Milwaukee Brewers (103-59, Jacob Misiorowski 1.80 ERA, 252 SO, 0.80 WHIP)</td>
+          <td class="mono"><a href="https://www.mlb.com/postseason" target="_blank" rel="noopener">https://www.mlb.com/postseason ↗</a><br><a href="https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup" target="_blank" rel="noopener">https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup ↗</a><br><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-10-31" target="_blank" rel="noopener">https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-10-31 ↗</a></td>
+        </tr><tr>
+          <td><strong>Ice Hockey</strong></td>
+          <td>National Hockey League (NHL)</td>
+          <td>All 12 Oct 22 NHL games + 2 Oct 23 NHL games, Oct 21 final scores (PHI 3-1 BUF, OTT 5-1 FLA), and full 2026-27 team standings/streaks</td>
+          <td class="mono"><a href="https://www.nhl.com/schedule" target="_blank" rel="noopener">https://www.nhl.com/schedule ↗</a><br><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" target="_blank" rel="noopener">https://api-web.nhle.com/v1/schedule/2026-10-22 ↗</a><br><a href="https://api-web.nhle.com/v1/standings/2026-10-22" target="_blank" rel="noopener">https://api-web.nhle.com/v1/standings/2026-10-22 ↗</a></td>
+        </tr><tr>
+          <td><strong>Ice Hockey</strong></td>
+          <td>Finnish Liiga &amp; Swedish Hockey League (SHL)</td>
+          <td>Liiga Oct 22 JYP (#8, 24 pts in 12 GP) vs HPK (#11, 21 pts in 15 GP) + SHL Oct 22 6-game slate with official SweHockey 2026/27 standings</td>
+          <td class="mono"><a href="https://liiga.fi/fi/ohjelma" target="_blank" rel="noopener">https://liiga.fi/fi/ohjelma ↗</a><br><a href="https://www.shl.se/" target="_blank" rel="noopener">https://www.shl.se/ ↗</a><br><a href="https://stats.swehockey.se/ScheduleAndResults/Overview/20961" target="_blank" rel="noopener">https://stats.swehockey.se/ScheduleAndResults/Overview/20961 ↗</a></td>
+        </tr><tr>
+          <td><strong>Darts</strong></td>
+          <td>Professional Darts Corporation (PDC)</td>
+          <td>2026 Machineseeker European Championship (Westfalenhalle, Dortmund): all 16 Round 1 ties (Oct 22-23, best of 11 legs) and PDC Order of Merit prize money</td>
+          <td class="mono"><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/ ↗</a><br><a href="https://www.pdc.tv/order-of-merit/pdc-order-of-merit" target="_blank" rel="noopener">https://www.pdc.tv/order-of-merit/pdc-order-of-merit ↗</a></td>
+        </tr><tr>
+          <td><strong>Snooker</strong></td>
+          <td>World Snooker Tour (WST)</td>
+          <td>BetVictor Northern Ireland Open 2026 (Waterfront Hall, Belfast): all 8 Last-16 ties (Oct 22, best of 7 frames), R64/R32 scores, and 2026/27 World &amp; 1-Year rankings</td>
+          <td class="mono"><a href="https://www.wst.tv/tournaments/northern-ireland-open-2026/" target="_blank" rel="noopener">https://www.wst.tv/tournaments/northern-ireland-open-2026/ ↗</a><br><a href="https://www.wst.tv/matches/" target="_blank" rel="noopener">https://www.wst.tv/matches/ ↗</a><br><a href="https://www.wst.tv/rankings/" target="_blank" rel="noopener">https://www.wst.tv/rankings/ ↗</a></td>
+        </tr><tr>
+          <td><strong>Handball</strong></td>
+          <td>European Handball Federation (EHF) &amp; Domestic Leagues (LNH, ASOBAL, Tophaandbold, Handbollsligan)</td>
+          <td>EHFCL Men Rd 5 (all 5 Oct 22 ties + standings/H2H), Women&#x27;s WCQ Phase 1 (Bulgaria-Italy, Estonia-Kosovo), French StarLigue J08 (Oct 23-25), Liga ASOBAL J7, Danish Herreligaen, Swedish Handbollsligan</td>
+          <td class="mono"><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener">https://ehfcl.eurohandball.com/men/2026-27/standings/ ↗</a><br><a href="https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins/" target="_blank" rel="noopener">https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins/ ↗</a><br><a href="https://www.eurohandball.com/en/news/en/eight-teams-begin-european-journey-to-2027-womens-world-championship/" target="_blank" rel="noopener">https://www.eurohandball.com/en/news/en/eight-teams-begin-european-journey-to-2027-womens-world-championship/ ↗</a><br><a href="https://www.lnh.fr/daikin-starligue/calendrier" target="_blank" rel="noopener">https://www.lnh.fr/daikin-starligue/calendrier ↗</a><br><a href="https://asobal.es/" target="_blank" rel="noopener">https://asobal.es/ ↗</a><br><a href="https://tophaandbold.dk/kampprogram/herreligaen" target="_blank" rel="noopener">https://tophaandbold.dk/kampprogram/herreligaen ↗</a><br><a href="https://handbollsligan.se/herr/" target="_blank" rel="noopener">https://handbollsligan.se/herr/ ↗</a></td>
+        </tr><tr>
+          <td><strong>Volleyball</strong></td>
+          <td>Lega Pallavolo Serie A, PlusLiga Poland &amp; CVF Czechia</td>
+          <td>Italian SuperLega Credem Banca Rd 2 (Oct 25) + Rd 1 scores, Polish PlusLiga Rd 2 (Oct 23-25) + Rd 1 scores, Czech CEZ Extraliga Rd 2 (all 5 Oct 22 ties) + Rd 1 standings</td>
+          <td class="mono"><a href="https://www.legavolley.it/calendario/?Anno=2026&amp;IdCampionato=991" target="_blank" rel="noopener">https://www.legavolley.it/calendario/?Anno=2026&amp;IdCampionato=991 ↗</a><br><a href="https://www.legavolley.it/risultati/?Anno=2026&amp;IdCampionato=991" target="_blank" rel="noopener">https://www.legavolley.it/risultati/?Anno=2026&amp;IdCampionato=991 ↗</a><br><a href="https://www.plusliga.pl/games.html" target="_blank" rel="noopener">https://www.plusliga.pl/games.html ↗</a><br><a href="https://www.cvf.cz/extraliga/extraliga-muzi?filteredGroupId=29147" target="_blank" rel="noopener">https://www.cvf.cz/extraliga/extraliga-muzi?filteredGroupId=29147 ↗</a></td>
+        </tr><tr>
+          <td><strong>Rugby Union</strong></td>
+          <td>United Rugby Championship &amp; Ligue Nationale de Rugby (Top 14 / Pro D2)</td>
+          <td>URC Rd 4 (Connacht-Zebre, Bulls-Ulster, Stormers-Scarlets, Leinster-Munster at Croke Park) + Rd 3 table, Top 14 Rd 7 + table, Pro D2 Rd 8 + table</td>
+          <td class="mono"><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" target="_blank" rel="noopener">https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/ ↗</a><br><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" target="_blank" rel="noopener">https://stats.unitedrugby.com/match-centre/table/2026-27 ↗</a><br><a href="https://top14.lnr.fr/calendrier-et-resultats" target="_blank" rel="noopener">https://top14.lnr.fr/calendrier-et-resultats ↗</a><br><a href="https://prod2.lnr.fr/calendrier-et-resultats" target="_blank" rel="noopener">https://prod2.lnr.fr/calendrier-et-resultats ↗</a></td>
+        </tr><tr>
+          <td><strong>Rugby League</strong></td>
+          <td>NRL / Rugby League World Cup 2026</td>
+          <td>RLWC 2026 Men&#x27;s Round 2 (all 5 Oct 23-25 ties: Tonga-Lebanon, PNG-Samoa, England-France, NZ-Cook Islands, Australia-Fiji) + Round 1 wrap &amp; team-list injury news</td>
+          <td class="mono"><a href="https://www.rlwc2026.com/draws-and-pools" target="_blank" rel="noopener">https://www.rlwc2026.com/draws-and-pools ↗</a><br><a href="https://www.nrl.com/news/2026/10/19/the-wrap-world-cup-mens-round-1/" target="_blank" rel="noopener">https://www.nrl.com/news/2026/10/19/the-wrap-world-cup-mens-round-1/ ↗</a><br><a href="https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/" target="_blank" rel="noopener">https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/ ↗</a></td>
+        </tr><tr>
+          <td><strong>Cricket</strong></td>
+          <td>International Cricket Council (ICC)</td>
+          <td>UAE Men&#x27;s ODI Tri-Series Final (Oct 23, Abu Dhabi: Afghanistan #8 vs Zimbabwe #11; Oct 19 group meeting AFG 294 beat ZIM 136)</td>
+          <td class="mono"><a href="https://www.icc-cricket.com/tournaments/uae-mens-odi-tri-series-2026/matches" target="_blank" rel="noopener">https://www.icc-cricket.com/tournaments/uae-mens-odi-tri-series-2026/matches ↗</a><br><a href="https://www.icc-cricket.com/rankings/team-rankings/mens/odi" target="_blank" rel="noopener">https://www.icc-cricket.com/rankings/team-rankings/mens/odi ↗</a></td>
+        </tr><tr>
+          <td><strong>eSports</strong></td>
+          <td>Riot Games LoL Esports &amp; VALORANT Esports</td>
+          <td>EMEA Masters Summer Grand Final (Oct 22: Galions vs Solary Bo5) + all 8 LoL Worlds 2026 Swiss Stage Round 1 Bo1 ties (Oct 23)</td>
+          <td class="mono"><a href="https://lolesports.com/en-US/news/worlds-2026-primer" target="_blank" rel="noopener">https://lolesports.com/en-US/news/worlds-2026-primer ↗</a><br><a href="https://valorantesports.com/en-US/news/valorant-game-changers-championship-2026-everything-you-need-to-know" target="_blank" rel="noopener">https://valorantesports.com/en-US/news/valorant-game-changers-championship-2026-everything-you-need-to-know ↗</a></td>
+        </tr><tr>
+          <td><strong>Golf</strong></td>
+          <td>PGA Tour &amp; PGA Tour Champions</td>
+          <td>Butterfield Bermuda Championship (Port Royal GC, Oct 22-25, $6M purse) &amp; Stifel Charity Classic (Norwood Hills CC, Oct 23-25, $2.2M purse)</td>
+          <td class="mono"><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528 ↗</a><br><a href="https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026045" target="_blank" rel="noopener">https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026045 ↗</a></td>
+        </tr><tr>
+          <td><strong>Motor Racing</strong></td>
+          <td>Formula 1 / FIA</td>
+          <td>2026 Formula 1 Lenovo United States Grand Prix (COTA Austin, Race Oct 25 20:00Z; Drivers Championship: Antonelli 340, Russell 238, Hamilton 229, Verstappen 221)</td>
+          <td class="mono"><a href="https://www.formula1.com/en/racing/2026/united-states" target="_blank" rel="noopener">https://www.formula1.com/en/racing/2026/united-states ↗</a><br><a href="https://www.formula1.com/en/results/2026/drivers" target="_blank" rel="noopener">https://www.formula1.com/en/results/2026/drivers ↗</a></td>
+        </tr><tr>
+          <td><strong>Badminton &amp; Aussie Rules</strong></td>
+          <td>BWF World Tour &amp; NAB AFLW</td>
+          <td>YONEX French Open 2026 Super 750 R16 singles (Cesson-Sevigne, Oct 22) &amp; 2026 NAB AFLW Round 11 + official 10-round ladder</td>
+          <td class="mono"><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22" target="_blank" rel="noopener">https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22 ↗</a><br><a href="https://www.afl.com.au/aflw" target="_blank" rel="noopener">https://www.afl.com.au/aflw ↗</a></td>
+        </tr></tbody>
+      </table>
+    </div>
+    
+  </main>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>Board AC (<code>arena/f0622b6e-olbg4</code>) · Zero-vig fair + 4.2% book origination · Every table row verified against official governing bodies.</div>
+      <div>Data exports: <a href="../data/session-f0622b6e/desk.json">desk.json</a> · <a href="../data/session-f0622b6e/predictions.json">predictions.json</a> · <a href="../data/session-f0622b6e/flagged.json">flagged.json</a> · <a href="../data/session-f0622b6e/olbg_inventory.json">olbg_inventory.json</a> · <a href="../data/session-f0622b6e/repo_review.json">repo_review.json</a></div>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

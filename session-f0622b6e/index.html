@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Board AC Betting Desk (f0622b6e)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <a href="index.html" class="brand-title">OLBG4 · Board AC Verified Betting Desk</a>
+        <span class="brand-sub">Session <code>f0622b6e</code> · Cutoff <code>2026-10-22T08:35Z</code> · <a href="../index.html" class="portal-link">← Repo Portal</a></span>
+      </div>
+      <nav class="topnav" aria-label="Primary"><a href="index.html" class="nav-link active">Dashboard</a><a href="predictions.html" class="nav-link">High Picks (40)</a><a href="matches.html" class="nav-link">All Matches (233)</a><a href="markets.html" class="nav-link">4-Market Lines</a><a href="olbg.html" class="nav-link">OLBG Reverse-Eng</a><a href="review.html" class="nav-link">Repo Audit</a><a href="flagged.html" class="nav-link">Flagged for Review</a><a href="methodology.html" class="nav-link">Methodology &amp; Sources</a></nav>
+    </div>
+  </header>
+  <div class="scope-bar">
+    <div class="container">
+      <strong>Scope Mandate Enforced:</strong> 0 rows from excluded sports (<code>soccer</code>, <code>boxing</code>, <code>ufc</code>, <code>mma</code>, <code>football</code>, <code>american football</code>, <code>hurling</code>, <code>horse racing</code>, <code>cycling</code>, <code>specials</code>). Unconfirmed inputs are strictly left blank and routed to <a href="flagged.html">Flagged for Review</a>.
+    </div>
+  </div>
+  <main class="container main-content">
+    
+    <h1>Board AC — Verified Multi-Sport Betting Desk &amp; OLBG Audit</h1>
+    <p class="lead">
+      Live reverse-engineering of <code>OLBG.com</code> reconciled at <strong>2026-10-22T08:35:00Z</strong> against 22 official governing-body websites and APIs across all <strong>17 in-scope sports</strong>. Every verified match features 4 independently originated betting markets, a Match Winner pick with <code>Low</code>/<code>Medium</code>/<code>High</code> confidence, and <strong>40 bespoke High-confidence human predictions</strong> strictly inside <code>-250</code> to <code>+10000</code> American odds.
+    </p>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-val">233</div><div class="kpi-lbl">Verified Upcoming Matches &amp; Outrights</div></div>
+      <div class="kpi-card"><div class="kpi-val">920+</div><div class="kpi-lbl">Originated Fair + 4.2% Book Market Lines</div></div>
+      <div class="kpi-card"><div class="kpi-val">40</div><div class="kpi-lbl">High-Confidence Picks in [-250, +10000]</div></div>
+      <div class="kpi-card"><div class="kpi-val">16 / 17</div><div class="kpi-lbl">Sports Priced (Greyhounds WAF-Flagged)</div></div>
+      <div class="kpi-card"><div class="kpi-val">180</div><div class="kpi-lbl">Live OLBG Events Reconciled (08:35Z)</div></div>
+      <div class="kpi-card"><div class="kpi-val">336</div><div class="kpi-lbl">Canonical master.json Rows Audited</div></div>
+    </div>
+
+    <div class="info-box">
+      <strong>Key Live Reconciliation Findings (07:33Z SSR Capture → 08:31Z Live Sweep):</strong>
+      <ul>
+        <li><strong>41 Sub-<code>-250</code> OLBG Crowd Chalk Traps Identified:</strong> 31% of OLBG's upcoming featured tips sit shorter than <code>-250</code> (e.g., <em>Daniil Medvedev</em> <code>-1667</code>, <em>Panathinaikos</em> <code>-1429</code>, <em>Barça Handball</em> <code>-1111</code>, <em>Leinster</em> <code>-901</code>, <em>Elena Rybakina</em> <code>-800</code>). Our desk prices every match winner and pivots actionable High-confidence bets onto calibrated Spread/Set/Frame/Leg/Total lines inside <code>[-250, +10000]</code>.</li>
+        <li><strong>Major OLBG Crowd Mispricings Uncovered:</strong> On F1 <code>#912</code> (<em>Drivers' Championship Without Kimi Antonelli</em>), OLBG prices 4th-place Max Verstappen (221 pts) at <code>1.73</code> despite George Russell holding 2nd on <code>formula1.com</code> with 238 pts. On Pro D2 <code>#609556</code>, unbeaten 7-0-0 table leader Oyonnax (+159 diff) is priced as a <code>2.50</code> road underdog at 8th-placed Montauban.</li>
+        <li><strong>Real-Time Feed Drift Caught:</strong> Caught newly listed NHL <code>#199937</code> (<em>NY Rangers @ TOR Maple Leafs</em>, absent at 07:33Z), live consensus flips on <code>#9945</code> (<em>David Gilbert</em>) &amp; <code>#536020</code> (<em>Minas -5.5</em>), and OLBG's premature 08:00Z expiration of WTA Ningbo <code>#902072</code> (<em>Eala vs Shnaider</em>, official OOP 09:00Z).</li>
+      </ul>
+    </div>
+
+    <h2>Browse by Sport Category (17 In-Scope Sports)</h2>
+    <div class="sport-grid">
+        <a class="sport-card" href="sports/tennis.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Tennis</span>
+            <span class="badge badge-high">4 High</span>
+          </div>
+          <div class="sport-card-sub">ATP 250 Almaty / Brussels / Lyon &amp; WTA 500 Ningbo / 250 Guangzhou</div>
+          <div class="sport-card-stats">
+            <span class="pill">17 Verified Priced</span>
+            <span class="pill">68 Market Lines</span>
+            <span class="pill">7 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/basketball.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Basketball</span>
+            <span class="badge badge-high">6 High</span>
+          </div>
+          <div class="sport-card-sub">NBA Regular Season, EuroLeague Rd 7, Brazil NBB &amp; Korea KBL</div>
+          <div class="sport-card-stats">
+            <span class="pill">16 Verified Priced</span>
+            <span class="pill">64 Market Lines</span>
+            <span class="pill">5 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/baseball.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Baseball</span>
+            <span class="badge badge-high">2 High</span>
+          </div>
+          <div class="sport-card-sub">2026 MLB World Series — Milwaukee Brewers vs Tampa Bay Rays</div>
+          <div class="sport-card-stats">
+            <span class="pill">4 Verified Priced</span>
+            <span class="pill">16 Market Lines</span>
+            
+          </div>
+        </a>
+        <a class="sport-card" href="sports/ice-hockey.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Ice Hockey</span>
+            <span class="badge badge-high">6 High</span>
+          </div>
+          <div class="sport-card-sub">NHL Regular Season, Swedish SHL &amp; Finnish Liiga</div>
+          <div class="sport-card-stats">
+            <span class="pill">58 Verified Priced</span>
+            <span class="pill">232 Market Lines</span>
+            <span class="pill">2 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/darts.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Darts</span>
+            <span class="badge badge-high">3 High</span>
+          </div>
+          <div class="sport-card-sub">PDC Machineseeker European Championship (Westfalenhalle, Dortmund)</div>
+          <div class="sport-card-stats">
+            <span class="pill">17 Verified Priced</span>
+            <span class="pill">68 Market Lines</span>
+            <span class="pill">1 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/snooker.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Snooker</span>
+            <span class="badge badge-high">4 High</span>
+          </div>
+          <div class="sport-card-sub">WST BetVictor Northern Ireland Open Last 16 (Waterfront Hall, Belfast)</div>
+          <div class="sport-card-stats">
+            <span class="pill">8 Verified Priced</span>
+            <span class="pill">32 Market Lines</span>
+            
+          </div>
+        </a>
+        <a class="sport-card" href="sports/handball.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Handball</span>
+            <span class="badge badge-high">3 High</span>
+          </div>
+          <div class="sport-card-sub">EHF Champions League Men Rd 5 &amp; 5 European Domestic Leagues</div>
+          <div class="sport-card-stats">
+            <span class="pill">39 Verified Priced</span>
+            <span class="pill">156 Market Lines</span>
+            <span class="pill">2 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/volleyball.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Volleyball</span>
+            <span class="badge badge-high">2 High</span>
+          </div>
+          <div class="sport-card-sub">Italy SuperLega, Poland PlusLiga/TAURON Liga &amp; Czech Extraliga</div>
+          <div class="sport-card-stats">
+            <span class="pill">15 Verified Priced</span>
+            <span class="pill">60 Market Lines</span>
+            <span class="pill">4 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/rugby-union.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Rugby Union</span>
+            <span class="badge badge-high">2 High</span>
+          </div>
+          <div class="sport-card-sub">United Rugby Championship Rd 4, Top 14 &amp; Pro D2 Rd 8</div>
+          <div class="sport-card-stats">
+            <span class="pill">23 Verified Priced</span>
+            <span class="pill">92 Market Lines</span>
+            <span class="pill">1 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/rugby-league.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Rugby League</span>
+            <span class="badge badge-high">1 High</span>
+          </div>
+          <div class="sport-card-sub">2026 Rugby League World Cup Round 2</div>
+          <div class="sport-card-stats">
+            <span class="pill">4 Verified Priced</span>
+            <span class="pill">16 Market Lines</span>
+            <span class="pill">3 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/cricket.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Cricket</span>
+            <span class="badge badge-high">2 High</span>
+          </div>
+          <div class="sport-card-sub">ICC UAE Men&#x27;s ODI Tri-Series Final &amp; Bilateral ODI/T20I Tours</div>
+          <div class="sport-card-stats">
+            <span class="pill">4 Verified Priced</span>
+            <span class="pill">16 Market Lines</span>
+            <span class="pill">10 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/esports.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">eSports</span>
+            <span class="badge badge-high">1 High</span>
+          </div>
+          <div class="sport-card-sub">LoL Worlds 2026 Swiss Stage Rd 1 &amp; EMEA Masters Grand Final</div>
+          <div class="sport-card-stats">
+            <span class="pill">9 Verified Priced</span>
+            <span class="pill">36 Market Lines</span>
+            <span class="pill">4 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/badminton.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Badminton</span>
+            <span class="badge badge-high">1 High</span>
+          </div>
+          <div class="sport-card-sub">BWF Super 750 YONEX French Open Round of 16</div>
+          <div class="sport-card-stats">
+            <span class="pill">5 Verified Priced</span>
+            <span class="pill">20 Market Lines</span>
+            
+          </div>
+        </a>
+        <a class="sport-card" href="sports/aussie-rules.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Aussie Rules</span>
+            <span class="badge badge-high">1 High</span>
+          </div>
+          <div class="sport-card-sub">2026 NAB AFLW Round 11</div>
+          <div class="sport-card-stats">
+            <span class="pill">9 Verified Priced</span>
+            <span class="pill">36 Market Lines</span>
+            
+          </div>
+        </a>
+        <a class="sport-card" href="sports/golf.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Golf</span>
+            <span class="badge badge-high">1 High</span>
+          </div>
+          <div class="sport-card-sub">PGA Tour Butterfield Bermuda Championship &amp; Schwab Cup Playoffs</div>
+          <div class="sport-card-stats">
+            <span class="pill">2 Verified Priced</span>
+            <span class="pill">8 Market Lines</span>
+            <span class="pill">1 Blank/Flagged</span>
+          </div>
+        </a>
+        <a class="sport-card" href="sports/motor-racing.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Motor Racing</span>
+            <span class="badge badge-high">1 High</span>
+          </div>
+          <div class="sport-card-sub">2026 Formula 1 United States Grand Prix &amp; Drivers&#x27; Championship</div>
+          <div class="sport-card-stats">
+            <span class="pill">3 Verified Priced</span>
+            <span class="pill">12 Market Lines</span>
+            
+          </div>
+        </a>
+        <a class="sport-card" href="sports/greyhounds.html">
+          <div class="sport-card-head">
+            <span class="sport-card-title">Greyhounds</span>
+            <span class="badge badge-blank">WAF Quarantined</span>
+          </div>
+          <div class="sport-card-sub">UK GBGB Racecards — WAF-Quarantined on Flagged for Review</div>
+          <div class="sport-card-stats">
+            <span class="pill">0 Verified Priced</span>
+            <span class="pill">0 Market Lines</span>
+            <span class="pill">7 Blank/Flagged</span>
+          </div>
+        </a></div>
+
+    <h2>Featured High-Confidence Predictions Preview (<a href="predictions.html">View All 40 Predictions →</a>)</h2>
+    <div class="pred-grid">
+    <article class="pred-card" data-filter-row data-sport="Tennis" data-conf="High">
+      <div class="pred-meta">
+        <span><a href="sports/tennis.html"><strong>Tennis</strong></a> · WTA 500 Ningbo Open — R16</span>
+        <span class="mono">2026-10-22 11:00Z · 71 words</span>
+      </div>
+      <div class="pred-title">Elena Rybakina vs Polina Kudermetova</div>
+      <div class="pred-pick-bar">
+        <div>
+          <span class="badge badge-high">HIGH</span>
+          <span class="pred-pick-name">Elena Rybakina -1.5 Sets</span>
+          <span class="muted">(Set Handicap · Match Winner Pick: Elena Rybakina)</span>
+        </div>
+        <div class="pred-odds">Book -130 (1.77) · Fair -118 (1.85)</div>
+      </div>
+      <p class="pred-body">Newly crowned WTA World No. 1 Elena Rybakina — champion at both Roland Garros and the US Open during a dominant 2026 season — is an unplayable -800 on the outright moneyline in Ningbo, making the straight-sets handicap the smart vehicle. Facing 102nd-ranked Polina Kudermetova under fast evening hard-court conditions, Rybakina&#x27;s first-serve free points and flat backhand return pressure routinely prevent triple-digit opponents from forcing deciders. Back Elena Rybakina -1.5 Sets.</p>
+      <ul class="pred-facts"><li>Elena Rybakina is #1 seed and WTA World #1 in Oct 2026 (wtatennis.com Ningbo draw)</li><li>Polina Kudermetova ranked outside top 100 (#102); OLBG Rybakina ML sits at 1.12 (-800)</li></ul>
+      <div class="pred-links">
+        <a href="https://www.wtatennis.com/tournaments/2092/ningbo/2026/order-of-play" target="_blank" rel="noopener">Official Source (wtatennis.com) ↗</a>
+        <a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Polina_Kudermetova/3?event_id=902073" target="_blank" rel="noopener">OLBG Event Page (Elena Rybakina @ 1.12) ↗</a>
+      </div>
+    </article>
+    <article class="pred-card" data-filter-row data-sport="Tennis" data-conf="High">
+      <div class="pred-meta">
+        <span><a href="sports/tennis.html"><strong>Tennis</strong></a> · ATP 250 Grand Prix Auvergne-Rhône-Alpes Lyon — R16</span>
+        <span class="mono">2026-10-22 13:30Z · 65 words</span>
+      </div>
+      <div class="pred-title">Pierre-Hugues Herbert vs Taylor Fritz</div>
+      <div class="pred-pick-bar">
+        <div>
+          <span class="badge badge-high">HIGH</span>
+          <span class="pred-pick-name">Taylor Fritz -1.5 Sets</span>
+          <span class="muted">(Set Handicap · Match Winner Pick: Taylor Fritz)</span>
+        </div>
+        <div class="pred-odds">Book -143 (1.70) · Fair -130 (1.77)</div>
+      </div>
+      <p class="pred-body">Second-seeded Taylor Fritz (ATP Live No. 14, 34-19 in 2026) opens his Lyon indoor campaign after an opening-round bye against 35-year-old French qualifier Pierre-Hugues Herbert, who already expended three qualifying and first-round matches including a grueling win over Sebastián Báez. Rather than laying -556 on Fritz&#x27;s moneyline, indoor serve-plus-one consistency against fatigued legs points straight to a 2-0 sweep — take Taylor Fritz -1.5 Sets.</p>
+      <ul class="pred-facts"><li>Taylor Fritz #2 seed in Lyon (ATP Live #14, 34-19 season record per atptour.com)</li><li>Qualifier Pierre-Hugues Herbert came through qualifying + R32 win over Sebastian Baez</li></ul>
+      <div class="pred-links">
+        <a href="https://www.protennislive.com/posting/2026/496/op.pdf" target="_blank" rel="noopener">Official Source (protennislive.com) ↗</a>
+        <a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Pierre_Hugues_Herbert_vs_Taylor_Fritz/3?event_id=902087" target="_blank" rel="noopener">OLBG Event Page (Taylor Fritz @ 1.18) ↗</a>
+      </div>
+    </article>
+    <article class="pred-card" data-filter-row data-sport="Tennis" data-conf="High">
+      <div class="pred-meta">
+        <span><a href="sports/tennis.html"><strong>Tennis</strong></a> · ATP 250 Grand Prix Auvergne-Rhône-Alpes Lyon — R16</span>
+        <span class="mono">2026-10-22 18:30Z · 64 words</span>
+      </div>
+      <div class="pred-title">Kyrian Jacquet vs Brandon Nakashima</div>
+      <div class="pred-pick-bar">
+        <div>
+          <span class="badge badge-high">HIGH</span>
+          <span class="pred-pick-name">Brandon Nakashima Moneyline</span>
+          <span class="muted">(Match Winner · Match Winner Pick: Brandon Nakashima)</span>
+        </div>
+        <div class="pred-odds">Book -238 (1.42) · Fair -213 (1.47)</div>
+      </div>
+      <p class="pred-body">Indoor hard courts reward compact, repeatable ball-striking, and Brandon Nakashima has quietly turned sheltered European conditions into his best surface. Meeting French qualifier Kyrian Jacquet in Thursday&#x27;s final night-session match on Court Central in Lyon, Nakashima&#x27;s top-40 return depth and low unforced-error rate neutralize Jacquet&#x27;s crowd-fueled shotmaking over a full best-of-three battle. At -205 inside our target range, Brandon Nakashima Moneyline is the play.</p>
+      <ul class="pred-facts"><li>ProTennisLive 496/op.pdf confirms [Q] Kyrian Jacquet vs Brandon Nakashima on Court Central, Lyon</li><li>OLBG market lists Nakashima at 1.48 (-208)</li></ul>
+      <div class="pred-links">
+        <a href="https://www.protennislive.com/posting/2026/496/op.pdf" target="_blank" rel="noopener">Official Source (protennislive.com) ↗</a>
+        <a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Kyrian_Jacquet_vs_Brandon_Nakashima/3?event_id=902105" target="_blank" rel="noopener">OLBG Event Page (Brandon Nakashima @ 1.48) ↗</a>
+      </div>
+    </article>
+    <article class="pred-card" data-filter-row data-sport="Tennis" data-conf="High">
+      <div class="pred-meta">
+        <span><a href="sports/tennis.html"><strong>Tennis</strong></a> · ATP 250 Grand Prix Auvergne-Rhône-Alpes Lyon — QF</span>
+        <span class="mono">2026-10-23 12:00Z · 65 words</span>
+      </div>
+      <div class="pred-title">Corentin Moutet vs Tommy Paul</div>
+      <div class="pred-pick-bar">
+        <div>
+          <span class="badge badge-high">HIGH</span>
+          <span class="pred-pick-name">Tommy Paul -3.5 Games</span>
+          <span class="muted">(Game Handicap · Match Winner Pick: Tommy Paul)</span>
+        </div>
+        <div class="pred-odds">Book -102 (1.98) · Fair +107 (2.07)</div>
+      </div>
+      <p class="pred-body">Fourth-seeded Tommy Paul (ATP Live No. 15, 42-19 on the 2026 season) cruised past Benjamin Bonzi to reach the Lyon quarterfinals and owns a clean 2-0 ATP head-to-head record over Corentin Moutet. While Moutet rode home support past Ugo Humbert and Arthur Balshaw, Paul&#x27;s elite lateral court coverage neutralizes drop-shot variety without paying OLBG&#x27;s -400 moneyline tax. Lay the spread with Tommy Paul -3.5 Games.</p>
+      <ul class="pred-facts"><li>Tommy Paul #4 seed Lyon (ATP Live #15, 42-19 in 2026, 2-0 H2H vs Moutet per atptour.com)</li><li>Corentin Moutet beat Ugo Humbert R1 and WC Balshaw R2 in Lyon (ProTennisLive 496/mds.pdf)</li></ul>
+      <div class="pred-links">
+        <a href="https://www.protennislive.com/posting/2026/496/mds.pdf" target="_blank" rel="noopener">Official Source (protennislive.com) ↗</a>
+        <a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Corentin_Moutet_vs_Tommy_Paul/3?event_id=902133" target="_blank" rel="noopener">OLBG Event Page (Tommy Paul @ 1.25) ↗</a>
+      </div>
+    </article>
+    <article class="pred-card" data-filter-row data-sport="Basketball" data-conf="High">
+      <div class="pred-meta">
+        <span><a href="sports/basketball.html"><strong>Basketball</strong></a> · EuroLeague — Round 7</span>
+        <span class="mono">2026-10-22 18:00Z · 70 words</span>
+      </div>
+      <div class="pred-title">FC Bayern Munich vs Dubai Basketball</div>
+      <div class="pred-pick-bar">
+        <div>
+          <span class="badge badge-high">HIGH</span>
+          <span class="pred-pick-name">Dubai Basketball Moneyline</span>
+          <span class="muted">(Match Winner · Match Winner Pick: Dubai Basketball)</span>
+        </div>
+        <div class="pred-odds">Book -169 (1.59) · Fair -154 (1.65)</div>
+      </div>
+      <p class="pred-body">Expansion newcomer Dubai Basketball has quickly proven it belongs in the EuroLeague upper tier, climbing to 4-2 after stunning Armani Olimpia Milan 101-97 on the road in Round 6. Bayern Munich heads back to SAP Garden at 2-4 with a -31 scoring differential after surrendering 95 points in an 87-95 defeat at Beşiktaş earlier this week. With Bayern leaking perimeter looks in transition, ride the visitors on Dubai Basketball Moneyline.</p>
+      <ul class="pred-facts"><li>Dubai Basketball 4-2 in 2026-27 EuroLeague; beat Olimpia Milan 101-97 away in Rd 6</li><li>FC Bayern Munich 2-4 (-31 diff, 521 PF / 552 PA); lost 87-95 at Besiktas in Rd 6</li></ul>
+      <div class="pred-links">
+        <a href="https://www.euroleaguebasketball.net/en/euroleague/game-center/" target="_blank" rel="noopener">Official Source (euroleaguebasketball.net) ↗</a>
+        <a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Bayern_Munich_vs_BC_Dubai/4?event_id=535920" target="_blank" rel="noopener">OLBG Event Page (BC Dubai @ 1.83) ↗</a>
+      </div>
+    </article>
+    <article class="pred-card" data-filter-row data-sport="Basketball" data-conf="High">
+      <div class="pred-meta">
+        <span><a href="sports/basketball.html"><strong>Basketball</strong></a> · EuroLeague — Round 7</span>
+        <span class="mono">2026-10-22 18:05Z · 67 words</span>
+      </div>
+      <div class="pred-title">Maccabi Rapyd Tel Aviv vs Real Madrid</div>
+      <div class="pred-pick-bar">
+        <div>
+          <span class="badge badge-high">HIGH</span>
+          <span class="pred-pick-name">Real Madrid Moneyline</span>
+          <span class="muted">(Match Winner · Match Winner Pick: Real Madrid)</span>
+        </div>
+        <div class="pred-odds">Book -179 (1.56) · Fair -161 (1.62)</div>
+      </div>
+      <p class="pred-body">Playing away from Tel Aviv inside Belgrade&#x27;s Aleksandar Nikolić Hall strips Maccabi Rapyd Tel Aviv (2-4, -31 point differential) of traditional home-court edge despite its narrow 91-88 win at Valencia in Round 6. Real Madrid arrives at 3-3 (+23 differential) fresh off dismantling LDLC ASVEL 111-92 behind Facundo Campazzo and Edy Tavares&#x27;s interior control. Superior half-court size on neutral hardwood makes Real Madrid Moneyline the clear call.</p>
+      <ul class="pred-facts"><li>Real Madrid 3-3 (+23 diff, 554 PF / 531 PA); beat ASVEL 111-92 in EuroLeague Rd 6</li><li>Maccabi Tel Aviv 2-4 (-31 diff) hosting at neutral Aleksandar Nikolic Hall, Belgrade</li></ul>
+      <div class="pred-links">
+        <a href="https://www.euroleaguebasketball.net/en/euroleague/game-center/" target="_blank" rel="noopener">Official Source (euroleaguebasketball.net) ↗</a>
+        <a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Maccabi_Tel_Aviv_vs_Real_Madrid/4?event_id=535921" target="_blank" rel="noopener">OLBG Event Page (Real Madrid @ 1.57) ↗</a>
+      </div>
+    </article>
+    <article class="pred-card" data-filter-row data-sport="Basketball" data-conf="High">
+      <div class="pred-meta">
+        <span><a href="sports/basketball.html"><strong>Basketball</strong></a> · Brazil NBB CAIXA 2026/27 — Week 1</span>
+        <span class="mono">2026-10-22 22:30Z · 66 words</span>
+      </div>
+      <div class="pred-title">Ceisc/União Corinthians vs KTO Minas Storm</div>
+      <div class="pred-pick-bar">
+        <div>
+          <span class="badge badge-high">HIGH</span>
+          <span class="pred-pick-name">Minas Storm Moneyline</span>
+          <span class="muted">(Match Winner · Match Winner Pick: KTO Minas Storm)</span>
+        </div>
+        <div class="pred-odds">Book -233 (1.43) · Fair -213 (1.47)</div>
+      </div>
+      <p class="pred-body">KTO Minas Storm travels south to Santa Cruz do Sul carrying championship pedigree after capturing the 2026 Copa Super 8 title 85-62 over Pinheiros behind Wini Silva and Juan Pablo Arengo and finishing third at 29-9 last NBB season. Ceisc/União Corinthians scraped into the 12th playoff seed last campaign and faces a steep defensive step up in Thursday&#x27;s NBB CAIXA week-one clash. Take Minas Storm Moneyline.</p>
+      <ul class="pred-facts"><li>Minas Storm won 2026 Copa Super 8 (85-62 vs Pinheiros) and went 29-9 in NBB</li><li>Official LNB schedule confirms Ceisc/Uniao Corinthians vs Minas Storm on Oct 22 at 19:30 BRT</li></ul>
+      <div class="pred-links">
+        <a href="https://lnb.com.br/noticias/onde-assistir-ao-nbb-caixa-2026-27-agenda-de-transmissoes-da-semana/" target="_blank" rel="noopener">Official Source (lnb.com.br) ↗</a>
+        <a href="https://www.olbg.com/betting-tips/Basketball/Other/Brazil_NBB/Uniao_Corinthians_vs_Minas/4?event_id=536020" target="_blank" rel="noopener">OLBG Event Page (Minas @ 1.42) ↗</a>
+      </div>
+    </article>
+    <article class="pred-card" data-filter-row data-sport="Basketball" data-conf="High">
+      <div class="pred-meta">
+        <span><a href="sports/basketball.html"><strong>Basketball</strong></a> · NBA — Regular Season</span>
+        <span class="mono">2026-10-23 01:30Z · 72 words</span>
+      </div>
+      <div class="pred-title">Oklahoma City Thunder vs Denver Nuggets</div>
+      <div class="pred-pick-bar">
+        <div>
+          <span class="badge badge-high">HIGH</span>
+          <span class="pred-pick-name">Oklahoma City Thunder -6.5</span>
+          <span class="muted">(Point Spread · Match Winner Pick: Oklahoma City Thunder)</span>
+        </div>
+        <div class="pred-odds">Book -105 (1.95) · Fair +104 (2.04)</div>
+      </div>
+      <p class="pred-body">OLBG&#x27;s 3-for-3 moneyline consensus on Oklahoma City sits at an unplayable -321, so moving to the two-possession spread unlocks genuine value inside our odds window. Led by Shai Gilgeous-Alexander and Chet Holmgren, the Thunder went 64-18 overall and a dominant 35-6 at Paycom Center, suffocating opponents in half-court sets. Denver (50-32, 21-20 away) leans heavily on Nikola Jokić surviving non-starter stretches on the road. Lay the points with Oklahoma City Thunder -6.5.</p>
+      <ul class="pred-facts"><li>OKC 64-18 baseline record (35-6 home at Paycom Center)</li><li>Denver 50-32 baseline record (21-20 road); OLBG ML consensus sits at 1.31 (-321)</li></ul>
+      <div class="pred-links">
+        <a href="https://www.nba.com/game/den-vs-okc-0022600007" target="_blank" rel="noopener">Official Source (nba.com) ↗</a>
+        <a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DEN_Nuggets_@_OKC_Thunder/4?event_id=534843" target="_blank" rel="noopener">OLBG Event Page (OKC Thunder @ 1.31) ↗</a>
+      </div>
+    </article></div>
+    
+  </main>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>Board AC (<code>arena/f0622b6e-olbg4</code>) · Zero-vig fair + 4.2% book origination · Every table row verified against official governing bodies.</div>
+      <div>Data exports: <a href="../data/session-f0622b6e/desk.json">desk.json</a> · <a href="../data/session-f0622b6e/predictions.json">predictions.json</a> · <a href="../data/session-f0622b6e/flagged.json">flagged.json</a> · <a href="../data/session-f0622b6e/olbg_inventory.json">olbg_inventory.json</a> · <a href="../data/session-f0622b6e/repo_review.json">repo_review.json</a></div>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
