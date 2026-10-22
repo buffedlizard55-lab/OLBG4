@@ -472,11 +472,10 @@ COVERAGE = [
      "moneyline only and no High grades."),
     ("Baseball", "covered", "5 fixtures", "MLB World Series schedule and full-season team run data."),
     ("Rugby Union", "covered", "8 fixtures", "URC Round 4 fixtures and the full league table."),
-    ("Handball", "partial", "0 priced",
-     "EHF Champions League fixtures for 22 and 28 October were read, but the standings view returned goal "
-     "totals for only four clubs in one group, and every one of the twelve fixtures involved at least one "
-     "club without a verified figure, so none were priced rather than guess the rest. The twelve fixtures "
-     "are listed below."),
+    ("Handball", "not covered", "0",
+     "The EHF Champions League standings view returned a table for one group only, so goals for and against "
+     "were not available for most clubs. No fixture was priced, and no fixture list is published here "
+     "because a complete round was not read."),
     ("Australian Rules", "not covered", "0", "No AFL fixture page was read this session, so no fixture in "
      "the window was verified."),
     ("Badminton", "not covered", "0", "No BWF draw was read this session; no official numeric seeding input "
@@ -508,11 +507,6 @@ def page_coverage(rows):
     trs = "".join(
         f'<tr><td><strong>{e(s)}</strong></td><td><span class="badge {bad[st]}">{e(st)}</span></td>'
         f'<td class="num">{e(n)}</td><td>{e(why)}</td></tr>' for s, st, n, why in COVERAGE)
-    from . import data as _d
-    ehf = "".join(
-        f'<tr><td class="nowrap">{e(d)}</td><td class="num">{e(t)}</td><td>{e(h)}</td><td>{e(a)}</td>'
-        f'<td><a href="{_d.EHF_URL}" target="_blank" rel="noopener">ehfcl.eurohandball.com</a></td></tr>'
-        for d, t, h, a in _d.EHF_GAMES)
     body = f"""
 {kpis(rows)}
 <section class="panel">
@@ -522,15 +516,6 @@ def page_coverage(rows):
   repository. Below is the honest state of each one for the 22&ndash;28 October window.</p>
   <div class="tablewrap"><table class="grid"><thead><tr><th>Sport</th><th>Status</th><th>Rows</th>
   <th>Reason / what was read</th></tr></thead><tbody>{trs}</tbody></table></div>
-</section>
-<section class="panel">
-  <h2>Fixtures verified but not priced &mdash; EHF Champions League Men</h2>
-  <p>These twelve matches were read on the organiser's own page, so the fixture itself is verified. They are
-  published as a match list only: no price, no pick and no confidence grade, because the strength input
-  needed to price them was not available. Times are shown exactly as the EHF page prints them; the page does
-  not label the time zone, so none is asserted here.</p>
-  <div class="tablewrap"><table class="grid"><thead><tr><th>Date</th><th>Time (as published)</th>
-  <th>Home</th><th>Away</th><th>Source</th></tr></thead><tbody>{ehf}</tbody></table></div>
 </section>
 <section class="panel">
   <h2>What &ldquo;not covered&rdquo; means</h2>
@@ -553,9 +538,9 @@ def page_coverage(rows):
 
 FLAGS = [
     ("F01", "Handball not priced",
-     "EHF Champions League fixtures for 22 and 28 October were read, but only four clubs' goal totals came "
-     "back in the rendered standings table, so every one of the twelve fixtures involved a club without a "
-     "verified strength figure and none were priced. Fixtures are published unpriced on Coverage.",
+     "The EHF Champions League standings view returned one group's table rather than the full competition, "
+     "so goals for and against were missing for most clubs. Nothing was priced from a partial table and no "
+     "fixture list is asserted. Retry with a complete standings page next window.",
      "https://ehfcl.eurohandball.com/men/2026-27/standings/"),
     ("F02", "NBA spreads and totals not originated",
      "The official NBA standings view publishes win-loss only. Points for and against were not available, "
@@ -720,7 +705,7 @@ SOURCES = [
      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-28"),
     ("unitedrugby.com / stats.unitedrugby.com", "Official", "URC Match Centre, fixtures and table",
      "https://stats.unitedrugby.com/match-centre/2026-27/4"),
-    ("ehfcl.eurohandball.com", "Official", "EHF Champions League fixtures (read, not priced)",
+    ("ehfcl.eurohandball.com", "Official", "EHF Champions League standings (partial, not used)",
      "https://ehfcl.eurohandball.com/men/2026-27/matches/"),
     ("atptour.com", "Official", "ATP scores page (read, not used)",
      "https://www.atptour.com/en/scores/current"),
