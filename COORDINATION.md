@@ -2548,3 +2548,22 @@ commit **flattens the merge** and replays every merged commit individually — i
 of `main`'s commits onto this branch and had to be aborted with `git rebase --abort`. Use
 `git fetch origin main` + `git merge origin/main` (or `--ff-only` where possible) instead. The push
 had already carried the correct merge commit, so nothing was lost.
+
+---
+
+## Board S — session `arena/f8feb803-olbg4` (live re-verification + in-band high-confidence desk)
+
+Claimed 2026-10-22T01:30Z, branch `arena/f8feb803-olbg4`. At claim time `git branch -r` showed `origin/main` at `b108a0a` (last snapshot commit) with no live claim newer than 2026-10-21. This board claims a **new, disjoint scope**: it does not rewrite any earlier board's data or pages. It adds `session-f8feb803/` (data + site) and a session report, and it edits only `COORDINATION.md` plus the root landing page at integration time.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| S1 | Re-verify the live fixture universe for the publishing window (22–28 Oct 2026) against official league endpoints; one official source per row | in progress | arena/f8feb803-olbg4 | `session-f8feb803/data/**`, `desk/**` |
+| S2 | Originate own lines (moneyline / handicap / match total) and grade confidence, with the owner's requested high-confidence price band (-250 … +10000) enforced as a hard rule | in progress | arena/f8feb803-olbg4 | `session-f8feb803/data/**`, `desk/model/**` |
+| S3 | Hand-written, non-templated predictions for every in-band high-confidence pick (≥30 words, team + player + form + recent history + explicit selection) | in progress | arena/f8feb803-olbg4 | `desk/data/authored_predictions.json` |
+| S4 | Clean dashboard site (landing + category pages + Flagged for Review), whole-repo link check | in progress | arena/f8feb803-olbg4 | `desk/**`, `index.html` (integration-only) |
+| S5 | PR → merge → Pages deploy confirmation, recorded here | blocked (see environment note) | arena/f8feb803-olbg4 | `COORDINATION.md` |
+
+### Environment notes (recorded, 2026-10-22T01:25Z)
+- **GitHub automation is degraded in this session.** `gh auth status` reports the `GH_TOKEN` is invalid; every `api.github.com` call returns **403 rate-limited** (unauthenticated). Consequences: no `workflow_dispatch`, no PR creation, no PR merge, no Actions run. `git ls-remote` and `git push --dry-run` **do** work, so commits are pushed to this branch only.
+- **Sandbox egress is still allowlisted** (github/pypi/npm only). Direct `curl` to `nhl.com`, `api-web.nhle.com`, `statsapi.mlb.com` and `cdn.nba.com` fails with `SSL_ERROR_SYSCALL`. Official data is therefore read with the agent's page-fetch tool, which returns the endpoints' raw JSON; every value stored carries the exact URL it was read from, and the raw endpoint is recorded per row.
+- The pipeline in `pipeline/` (Board E, `session-4afef1af`) is **not re-run**: its snapshot job only runs in GitHub Actions, which is unavailable to this session. Its committed snapshot (generated 2026-10-21T21:39Z) is left untouched and is cited as prior work, not as this board's data.
