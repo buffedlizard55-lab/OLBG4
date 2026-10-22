@@ -477,20 +477,20 @@ COVERAGE = [
      "totals for only four clubs in one group, and every one of the twelve fixtures involved at least one "
      "club without a verified figure, so none were priced rather than guess the rest. The twelve fixtures "
      "are listed below."),
-    ("Australian Rules", "not covered", "0", "AFL season is over; the men's competition has no fixtures in "
-     "the window."),
+    ("Australian Rules", "not covered", "0", "No AFL fixture page was read this session, so no fixture in "
+     "the window was verified."),
     ("Badminton", "not covered", "0", "No BWF draw was read this session; no official numeric seeding input "
      "was verified."),
     ("Cricket", "not covered", "0", "No ICC fixture page was read this session; a fixture list was not "
      "verified end to end."),
     ("Darts", "not covered", "0", "pdc.tv returned a cookie-consent wall instead of tournament content, so "
      "no draw or order-of-merit figure could be read."),
-    ("Esports", "not covered", "0", "No single official governing body publishes a comparable schedule."),
+    ("Esports", "not covered", "0", "No official publisher with a machine-readable schedule was identified in this session."),
     ("Golf", "not covered", "0", "A field-level probability model needs official strokes-gained data that "
      "was not read this session."),
     ("Greyhound Racing", "not covered", "0", "Official GBGB cards were not read; race-level trap data was "
      "not verified."),
-    ("Greyhounds", "not covered", "0", "Duplicate OLBG label of Greyhound Racing; same reason."),
+    ("Greyhounds", "not covered", "0", "Second OLBG greyhound label; same reason as Greyhound Racing."),
     ("Motor Racing", "not covered", "0", "A race-winner line needs a verified entry list and circuit data "
      "that was not read this session."),
     ("Rugby League", "not covered", "0", "No NRL or international fixture page was read end to end in the "
@@ -562,7 +562,7 @@ FLAGS = [
      "so handicap and total markets are blank for all 29 NBA rows rather than estimated.",
      "https://www.nba.com/standings"),
     ("F03", "Every NBA row is Low confidence",
-     "Consequence of F02 plus a two-game sample. No NBA selection is presented as High.",
+     "Consequence of F02 plus a sample of at most two games per club. No NBA selection is presented as High.",
      "https://www.nba.com/standings"),
     ("F04", "World Series Game 5 is an 'if necessary' game",
      "The MLB schedule marks 28 October as 'If Necessary'. It is published with that note attached.",
