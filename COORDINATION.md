@@ -3936,7 +3936,25 @@ would require editing another owner's file is logged below as an integration req
 
 ### Board AF completion record (session `arena/80bc6293-olbg4`), 2026-10-22 UTC
 
-**Pull request:** https://github.com/buffedlizard55-lab/OLBG4/pull/129 — merge and Pages-deploy result appended below.
+**Pull request / merge result.** https://github.com/buffedlizard55-lab/OLBG4/pull/129 — **MERGED** to `main` at
+`2026-10-22T21:45:51Z`, merge commit `a2a81787eed7be6fd5bf1a77575f270bdfbab8d5`. All PR checks green (`audit`,
+`build-and-validate`, `verify`, `Verify Board AF evidence desk`). Post-merge CI on `main` all green:
+`Repository-wide publication audit` run `39859859241` success, `Validate data and site` run `39859859223` success,
+`Verify integrated dashboard` run `39859859215` success, **`Deploy OLBG4 to GitHub Pages` run `39859859206` success** and
+the repository's `pages build and deployment` run `39859857565` success.
+
+**GitHub Pages confirmed live (fetched after deploy, HTTP 200, rendered content verified):**
+- https://buffedlizard55-lab.github.io/OLBG4/session-80bc6293/ — dashboard renders all 8 headline counters (264 rows,
+  164 priced, 1,542 markets, 3 High, 28 in-window candidates, 5 predictions, 100 unpriced, 106 flagged) and the full
+  17-sport coverage table with per-sport links.
+- https://buffedlizard55-lab.github.io/OLBG4/session-80bc6293/sports/ice-hockey.html — all five written predictions
+  render with their facts and official `nhl.com/gamecenter/…` source links, followed by the 145-row fixture table.
+
+**Merge-conflict log.** While Board AF was working, another session's board was merged to `main`, so `COORDINATION.md`
+collided at the end of the file (a single content conflict; no other file conflicted). Resolved by keeping the other
+session's appended section 100% verbatim and placing the whole Board AF section after it, with the resolution recorded in
+the AF working log above. No work from either session was discarded, and every gate was re-run after the resolution:
+`verify.py` 8,728 checks / 0 errors, `audit_publication.py --check` exit 0, before the merge was retried.
 
 **Published output.** [`session-80bc6293/index.html`](session-80bc6293/index.html) — dashboard landing plus `entries.html`
 (264 rows, filterable), `picks.html` (5 written predictions + the 28-selection in-window High scan + the closest Medium
