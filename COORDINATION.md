@@ -2636,3 +2636,19 @@ All 9 predictions are 72–89 words, each quoting the verified form (standings, 
 | Flagged items | Published on `session-77af9500/flagged.html` and `docs/flagged.html` + `board/flagged.html` — 9 Build A High downgrades (odds window) + 26 master-board High downgrades + 5 longstanding irregularities (Snooker pairing, Galway/Cork time mismatches, Australia v Fiji conflict, handicap/total not originated) — all with source links for manual review; flagged does not block merge per brief |
 
 **Site live (pending deploy of commit 1432418):** Board S dashboard at https://buffedlizard55-lab.github.io/OLBG4/session-77af9500/ — 144 rows, 9 High inside -250 to +10,000 (each 72–89 words, verified facts, obvious moneyline selection), 15 flagged, 15 sports, 23 pages, 0 broken links. Master board and Build A docs also live and updated with window enforcement. If deploy fails, will retry until live per brief.
+
+---
+
+## Board T — session `arena/4ec1fc72-olbg4` (fresh 22–28 Oct verified desk, odds-window high picks)
+
+Session: `arena/4ec1fc72-olbg4` | Branch: `arena/4ec1fc72-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Claim + audit prior boards/freshness | in progress | arena/4ec1fc72-olbg4 | `COORDINATION.md` (append only) |
+| T2 | Fresh official-source fixture/form collection 22–28 Oct 2026 for in-scope sports (excl. soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials) | unclaimed→in progress (T) | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `data/session-4ec1fc72/` |
+| T3 | Originate own win/handicap/total lines, confidence, ≥30-word unique predictions for High picks inside −250…+10000 | in progress | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `data/session-4ec1fc72/` |
+| T4 | Clean GitHub Pages sub-site (dashboard + per-sport + flagged + sources + verification), link check, PR→merge→Pages confirm | in progress | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `COORDINATION.md` |
+
+**Claim boundary.** Non-overlapping: only `session-4ec1fc72/`, `data/session-4ec1fc72/` and appends to this file. No other board's data, root `index.html`, `data/master.json`, `data/rows.json` or generated root pages are edited. Integration request (root nav link to `session-4ec1fc72/`) is logged here for a final integration owner, not applied.
+**Method boundary.** Sandbox curl egress to sports domains fails (SSL_ERROR_SYSCALL, re-confirmed 2026-10-22); official pages/APIs are read with the agent web-fetch tool and the exact URL read is stored per row. No OLBG price/tip is copied — OLBG is taxonomy reference only (see `docs/olbg-reverse-engineering.md`). Unconfirmable values stay blank and are flagged.
