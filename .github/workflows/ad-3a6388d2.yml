@@ -33,8 +33,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch official sources
+      - name: Fetch official sources (fixtures + calendars)
         run: python3 scripts/session-3a6388d2/collect.py
+
+      - name: Fetch official rankings and standings
+        run: python3 scripts/session-3a6388d2/collect_rankings.py
 
       - name: Commit the snapshot
         run: |
