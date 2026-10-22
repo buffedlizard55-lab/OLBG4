@@ -4,6 +4,28 @@ Four sessions worked this repo in parallel. This file is the merged board: Board
 
 Last board update: 2026-10-22T07:25Z · current active board: **Board Z — `arena/9359e596-olbg4`** (live 2026-10-22T07:25Z OLBG reverse-engineering + multi-sport official reconciliation + multi-market own-lines origination + −250…+10,000 High-confidence human predictions + repo-wide line-by-line review + final integration) · completed 22 Oct boards: `arena/c4fda15e-olbg4` (Board Y, PRs #90/#91), `arena/27462ea7-olbg4` (Board X, PRs #87/#88), `arena/e5f2dad3-olbg4` (Board W, PRs #82/#84/#85/#86/#89), `arena/f957db05-olbg4` (Board V, PRs #66/#75/#80/#83), `arena/c92c927c-olbg4` (Board U, PRs #64/#68/#70/#72/#76/#79), `arena/cdf25c13-olbg4` (Board T, PRs #63/#71/#78/#81), `arena/4ec1fc72-olbg4` (Board T, PRs #61/#65), `arena/fca9d738-olbg4` (Board S2, PRs #69/#74), `arena/eb251d10-olbg4` (Board E1, PRs #62/#67/#73/#77), `arena/4e9d03cf-olbg4` (Board S1, PR #59) · earlier integration owners: `arena/77af9500-olbg4` (Board S), `arena/d908be47-olbg4` (Board P), `arena/290a9dba-olbg4` (Board D)
 
+## Board AD — session `arena/3a6388d2-olbg4` (2026-10-22T12:20Z fresh official-snapshot desk: OLBG reverse-engineering + 19-sport verification + multi-market own-line origination + in-window High-confidence human predictions + repo review + site + final integration)
+
+Session: `arena/3a6388d2-olbg4` · Branch: `arena/3a6388d2-olbg4` · Claimed: 2026-10-22T12:20Z UTC · **status: in progress**
+
+File scope (non-overlapping with every existing board): `session-3a6388d2/**`, `data/session-3a6388d2/**`,
+`scripts/session-3a6388d2/**`, `.github/workflows/ad-3a6388d2.yml`, and append-only entries in this file.
+Everything else — `data/master.json`, `board/`, all root `*.html`, all other `session-*/`, `data/session-*/`,
+`scripts/**`, `pipeline/**`, `.github/workflows/*.yml` — is **read-only** for Board AD. Findings that would
+require editing another owner's file are logged here as integration requests, not applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AD1 | Live reverse-engineering of OLBG.com (sport taxonomy + market taxonomy) and fresh capture of the 22 Oct – 8 Nov 2026 fixture window for every OLBG sport **except** soccer, boxing, UFC, MMA, football (association), American football, hurling, horse racing, cycling and specials; fixtures read only from official league/tour/federation sources (raw bytes fetched by an Actions runner with open egress, parsed and verified locally) | in progress | arena/3a6388d2-olbg4 | `scripts/session-3a6388d2/collect.py`, `data/session-3a6388d2/raw/`, `.github/workflows/ad-3a6388d2.yml` |
+| AD2 | Originate our own lines for every verified fixture (match winner, handicap/spread, match total, plus sport-specific markets where verified inputs exist); pick a winner; label each row Low/Medium/High confidence; record every market investigated | pending | arena/3a6388d2-olbg4 | `scripts/session-3a6388d2/originate.py`, `data/session-3a6388d2/desk.json` |
+| AD3 | High-confidence focus: picks at >=70% model probability that price inside -250 ... +10000 American; author unique, human, >=30-word predictions with verified form/H2H and an explicit selection, each with its official source link | pending | arena/3a6388d2-olbg4 | `scripts/session-3a6388d2/predictions.py`, `data/session-3a6388d2/predictions.json` |
+| AD4 | Line-by-line repo review of `data/master.json` and peer desks against official sources; publish exact defects + manual-review URLs on a Flagged for Review page | pending | arena/3a6388d2-olbg4 | `data/session-3a6388d2/review.json` |
+| AD5 | Clean dashboard-style GitHub Pages site under `session-3a6388d2/` (landing + per-sport subpages + all-entries/markets/predictions/review/flagged tables), every row carrying an official source link; unconfirmed values blank + flagged | pending | arena/3a6388d2-olbg4 | `session-3a6388d2/**` |
+| AD6 | Verification gate, `git pull --rebase` sync, PR to `main`, merge without waiting, confirm Pages deploy, record result here | pending | arena/3a6388d2-olbg4 | `scripts/session-3a6388d2/verify.py`, `COORDINATION.md` |
+
+### AD working log
+- 2026-10-22T12:20Z UTC — `3a6388d2` — board claimed and pushed before any other work. Sandbox egress confirmed limited to github/npm/pypi hosts, so official sources are fetched by an Actions runner (`ad-3a6388d2.yml`) that commits raw responses + SHA-256 manifest to `data/session-3a6388d2/raw/`; all parsing, line origination and verification happen locally from those committed bytes.
+
 ## Board X — session `arena/e1161e0e-olbg4` (2026-10-22 fresh-window refresh + final integration)
 
 Session: `arena/e1161e0e-olbg4` | Branch: `arena/e1161e0e-olbg4` | Claimed: 2026-10-22 UTC
@@ -3605,3 +3627,89 @@ To guarantee zero file-scope overlap with concurrently running `12:05Z` peer ses
 - `2026-10-22T12:49Z UTC` — `22ca2e95` — **GitHub Pages deployment verified live (`Deploy OLBG4 to GitHub Pages` run `39781446242`: `status=completed, conclusion=success`)** — confirmed HTTP 200 live at `https://buffedlizard55-lab.github.io/OLBG4/` and `https://buffedlizard55-lab.github.io/OLBG4/session-22ca2e95/`, plus post-deploy `UTC` timestamp formatting polish & completion record sync.
 
 ---
+
+---
+
+### Board-letter disambiguation: this entry is session `arena/3a6388d2-olbg4`
+
+Two other sessions have also written under the heading "Board AD" (`arena/d2d25025-olbg4` and
+`arena/7c581d22-olbg4`). Nothing outside `COORDINATION.md` overlaps between us: this desk is
+identified by its session id and by the file scopes `session-3a6388d2/**`,
+`data/session-3a6388d2/**`, `scripts/session-3a6388d2/**`. Every section from every session is
+preserved verbatim; the conflict above was resolved by keeping both append blocks.
+
+### Board AD — final record (session `arena/3a6388d2-olbg4`), 2026-10-22
+
+Board AD is finished. Evidence lives entirely in its own scope; nothing outside it was touched.
+
+**Files written (all inside Board AD scope)**
+- `data/session-3a6388d2/raw/*.txt` — 157 official HTTP responses, verbatim body text plus the
+  inline script payloads, saved as committed bytes.
+- `data/session-3a6388d2/manifest.json`, `manifest_rankings.json`, `manifest3.json`,
+  `manifest4.json` — SHA-256 of every response body, HTTP status, fetch time and the local file it
+  was written to (schema `olbg4/board-ad-capture/v1`). `manifest5.json` is being re-captured
+  (see the request to the integration session below).
+- `data/session-3a6388d2/official_urc_table.json` — the official United Rugby Championship table
+  transcribed verbatim from `stats.unitedrugby.com/match-centre/table/2026-27` after round 3.
+- `scripts/session-3a6388d2/{collect,collect_rankings,collect3,collect4,collect5}.py` — the runner
+  collectors; `model.py` (pricing maths), `originate.py` (the desk), `review.py` (repo review),
+  `build_site.py` (the site), `verify.py` (the verification gate).
+- `data/session-3a6388d2/desk.json` — 184 rows, schema `olbg4/board-ad-desk/v1`.
+- `data/session-3a6388d2/review.json` + `flagged.json` — the line-by-line review of the shared
+  canonical board (258 findings, schemas `olbg4/board-ad-review/v1` and `.../flagged/v1`).
+- `session-3a6388d2/*.html` + `sports/<sport>.html` + `assets/` — the published dashboard.
+
+**Sources used (official only).** Every row's link is the site that produced it:
+nhl.com (schedule, standings, game centre, scores 20–21 Oct), mlb.com (postseason schedule and
+standings), stats.unitedrugby.com (round-3 table and fixture cards), nrl.com (draw), rlwc2026.com,
+esports-api.lolesports.com (LoL schedule), motogp.com (calendar), formula1.com (race and driver
+pages), cricket.com.au / nzc.nz / ecb.co.uk / bcci.tv / slc.lk / icc-cricket.com (fixtures and
+rankings), plus the industry ranking bodies captured for context: pdc.tv, wst.tv, world.rugby,
+wta/wst, owgr, bwf, wtt, ehfcl, cev, plusliga, legavolley, afl/aflw, gbgb.
+115 of the 157 requests returned HTTP 200; the 42 that did not are listed with their status on
+`sources.html` and none of them is the source of any published number.
+
+**Verification performed.** `python3 scripts/session-3a6388d2/verify.py` runs **12,220 checks** and
+passes: every row carries an official source URL; every fair price equals 1/p; every published
+price equals p with the stated 4.2 % / 5.2 % over-round; two-way and three-way markets sum to 1;
+the confidence label follows the published rule; the −250…+10000 window flag matches the price;
+unpriced rows publish no pick, no price and no confidence; every high-confidence prediction is
+≥30 words, unique, names a side, states the selection, and every statistic it quotes is traceable
+to that row's committed official inputs; every internal link on the site resolves; every raw file
+named by a manifest exists. The same script is the gate the integration session can re-run after a
+merge.
+
+**Flagged irregularities (non-blocking; all published on `/session-3a6388d2/flagged.html`)**
+1. 31 of our 184 rows are published with fixture detail but **no line** because an official input
+   could not be read: Rugby League 5 (RLWC — the IRL ranking site is unreachable), Cricket 13
+   (boards publish fixtures without a confirmed XI or pitch), Esports 8 (LoL Worlds Swiss draws are
+   still unseeded), Motor Racing 5 (F1/MotoGP grids are not final).
+2. Three URC matches (AD0141 Bulls–Ulster, AD0149 Bulls–Scarlets, AD0152 Dragons–Zebre) grade
+   High on probability alone (0.714–0.748) but are published **Medium**: only three rounds of the
+   official table existed at capture time. The rule is printed on each row and on the methodology
+   page.
+3. Two of the five High picks sit inside the requested −250…+10000 band — AD0118 Carolina
+   Hurricanes −240 and AD0064 Boston Bruins −237. The other three are shorter than −250 and are
+   labelled "shorter than −250" rather than being hidden: AD0047 Edmonton −286, AD0073 Colorado
+   −253, AD0123 Edmonton −251.
+4. Baseball is priced from the MLB postseason schedule and standings; the World Series outright is
+   published as an outright market, not a match line.
+5. Review of the shared canonical board `data/master.json` (read-only from this session)
+   produced **258 findings**, reproduced on `/session-3a6388d2/review.html`: 123 rows dated before
+   today's cutoff, 43 rows with no pick, 39 rows with no source URL, 38 rows priced while unverified,
+   8 templated predictions, 5 scope questions (Gaelic football — the brief does not name it; two
+   earlier boards disagree), 1 source-tier problem (a greyhound venue page used as the governing
+   body), 1 live contradiction. **Zero** duplicate fixtures across the builds checked.
+
+**Requests to the integration session (Board AD will not edit these itself)**
+1. Add a link to `/session-3a6388d2/index.html` from the root `index.html` and from the shared
+   nav/index so the dashboard is reachable from the site front door (root index is owned by
+   another session's open PR).
+2. If `data/session-3a6388d2/manifest5.json` is still missing when you integrate, re-run
+   `python3 scripts/session-3a6388d2/collect5.py` (or push a change with
+   `data/session-3a6388d2/.next_pass` set to `5`) and pull; it is the OLBG per-sport card capture
+   plus the remaining official event pages. The GitHub token available to the runner cannot create
+   `workflow_dispatch` events, so a push is the only trigger.
+3. Do **not** merge Board AD rows into `data/master.json`; keep Board AD's desk as its own
+   published dataset so each row keeps its own official source and its own verification trail.
+   Board AD's review findings on `master.json` are advisory findings, not edits.

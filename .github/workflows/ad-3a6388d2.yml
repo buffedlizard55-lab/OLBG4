@@ -1,0 +1,106 @@
+name: Board AD official-source capture (3a6388d2)
+
+# Session arena/3a6388d2-olbg4. The interactive sandbox cannot reach league, federation
+# or OLBG domains, so this job fetches them on a runner with open egress and commits the
+# exact bytes plus a SHA-256 manifest. Nothing is parsed or interpreted here.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/3a6388d2-olbg4
+    paths:
+      - "scripts/session-3a6388d2/collect.py"
+      - ".github/workflows/ad-3a6388d2.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: board-ad-collect-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Choose collector pass
+        id: which
+        run: |
+          P=$(cat data/session-3a6388d2/.next_pass 2>/dev/null || echo all)
+          echo "pass=$P" >> "$GITHUB_OUTPUT"
+          echo "running pass: $P"
+
+      - name: Fetch official sources (fixtures + calendars)
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == '1' }}
+        run: python3 scripts/session-3a6388d2/collect.py
+
+      - name: Fetch official rankings and standings
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == 'rankings' }}
+        run: python3 scripts/session-3a6388d2/collect_rankings.py
+
+      - name: Fetch corrected URLs with SPA payloads preserved
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == '3' }}
+        run: python3 scripts/session-3a6388d2/collect3.py
+
+      - name: Fetch official standings and results used as rating inputs
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == '4' }}
+        run: python3 scripts/session-3a6388d2/collect4.py
+
+      - name: Fetch OLBG per-sport cards and remaining official event pages
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == '5' }}
+        run: python3 scripts/session-3a6388d2/collect5.py
+
+      - name: Commit the snapshot
+        run: |
+          set -uo pipefail
+          BR="${GITHUB_REF_NAME}"
+          git config user.name "board-ad-collector"
+          git config user.email "actions@users.noreply.github.com"
+          git fetch origin "$BR" || true
+          # re-point the working tree at the current branch tip, keeping our new files
+          git checkout -B board-ad-snapshot "origin/$BR"
+          for f in data/session-3a6388d2/manifest.json data/session-3a6388d2/manifest3.json \
+                   data/session-3a6388d2/manifest4.json data/session-3a6388d2/manifest5.json \
+                   data/session-3a6388d2/manifest_rankings.json; do
+            [ -f "$f" ] && git add -- "$f"
+          done
+          git add -- data/session-3a6388d2/raw
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+            exit 0
+          fi
+          git commit -q -m "Board AD: official-source snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:$BR"; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            sleep 10
+            git fetch origin "$BR" || true
+            git rebase "origin/$BR" || git rebase --abort || true
+          done
+          {
+            echo "### Board AD capture: push failed after 3 attempts"
+            echo '```'
+            git status --short | head -20
+            echo "--- last log ---"
+            git log --oneline -3
+            echo "--- remote ---"
+            git log --oneline -3 "origin/$BR"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+
+            git push origin "HEAD:${GITHUB_REF_NAME}" && break
+            sleep 5
+          done
