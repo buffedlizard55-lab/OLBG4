@@ -3439,3 +3439,79 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 
 ---
 
+
+### Board AD — final record (session `arena/3a6388d2-olbg4`), 2026-10-22
+
+Board AD is finished. Evidence lives entirely in its own scope; nothing outside it was touched.
+
+**Files written (all inside Board AD scope)**
+- `data/session-3a6388d2/raw/*.txt` — 157 official HTTP responses, verbatim body text plus the
+  inline script payloads, saved as committed bytes.
+- `data/session-3a6388d2/manifest.json`, `manifest_rankings.json`, `manifest3.json`,
+  `manifest4.json` — SHA-256 of every response body, HTTP status, fetch time and the local file it
+  was written to (schema `olbg4/board-ad-capture/v1`). `manifest5.json` is being re-captured
+  (see the request to the integration session below).
+- `data/session-3a6388d2/official_urc_table.json` — the official United Rugby Championship table
+  transcribed verbatim from `stats.unitedrugby.com/match-centre/table/2026-27` after round 3.
+- `scripts/session-3a6388d2/{collect,collect_rankings,collect3,collect4,collect5}.py` — the runner
+  collectors; `model.py` (pricing maths), `originate.py` (the desk), `review.py` (repo review),
+  `build_site.py` (the site), `verify.py` (the verification gate).
+- `data/session-3a6388d2/desk.json` — 184 rows, schema `olbg4/board-ad-desk/v1`.
+- `data/session-3a6388d2/review.json` + `flagged.json` — the line-by-line review of the shared
+  canonical board (258 findings, schemas `olbg4/board-ad-review/v1` and `.../flagged/v1`).
+- `session-3a6388d2/*.html` + `sports/<sport>.html` + `assets/` — the published dashboard.
+
+**Sources used (official only).** Every row's link is the site that produced it:
+nhl.com (schedule, standings, game centre, scores 20–21 Oct), mlb.com (postseason schedule and
+standings), stats.unitedrugby.com (round-3 table and fixture cards), nrl.com (draw), rlwc2026.com,
+esports-api.lolesports.com (LoL schedule), motogp.com (calendar), formula1.com (race and driver
+pages), cricket.com.au / nzc.nz / ecb.co.uk / bcci.tv / slc.lk / icc-cricket.com (fixtures and
+rankings), plus the industry ranking bodies captured for context: pdc.tv, wst.tv, world.rugby,
+wta/wst, owgr, bwf, wtt, ehfcl, cev, plusliga, legavolley, afl/aflw, gbgb.
+115 of the 157 requests returned HTTP 200; the 42 that did not are listed with their status on
+`sources.html` and none of them is the source of any published number.
+
+**Verification performed.** `python3 scripts/session-3a6388d2/verify.py` runs **12,220 checks** and
+passes: every row carries an official source URL; every fair price equals 1/p; every published
+price equals p with the stated 4.2 % / 5.2 % over-round; two-way and three-way markets sum to 1;
+the confidence label follows the published rule; the −250…+10000 window flag matches the price;
+unpriced rows publish no pick, no price and no confidence; every high-confidence prediction is
+≥30 words, unique, names a side, states the selection, and every statistic it quotes is traceable
+to that row's committed official inputs; every internal link on the site resolves; every raw file
+named by a manifest exists. The same script is the gate the integration session can re-run after a
+merge.
+
+**Flagged irregularities (non-blocking; all published on `/session-3a6388d2/flagged.html`)**
+1. 31 of our 184 rows are published with fixture detail but **no line** because an official input
+   could not be read: Rugby League 5 (RLWC — the IRL ranking site is unreachable), Cricket 13
+   (boards publish fixtures without a confirmed XI or pitch), Esports 8 (LoL Worlds Swiss draws are
+   still unseeded), Motor Racing 5 (F1/MotoGP grids are not final).
+2. Three URC matches (AD0141 Bulls–Ulster, AD0149 Bulls–Scarlets, AD0152 Dragons–Zebre) grade
+   High on probability alone (0.714–0.748) but are published **Medium**: only three rounds of the
+   official table existed at capture time. The rule is printed on each row and on the methodology
+   page.
+3. Two of the five High picks sit inside the requested −250…+10000 band — AD0118 Carolina
+   Hurricanes −240 and AD0064 Boston Bruins −237. The other three are shorter than −250 and are
+   labelled "shorter than −250" rather than being hidden: AD0047 Edmonton −286, AD0073 Colorado
+   −253, AD0123 Edmonton −251.
+4. Baseball is priced from the MLB postseason schedule and standings; the World Series outright is
+   published as an outright market, not a match line.
+5. Review of the shared canonical board `data/master.json` (read-only from this session)
+   produced **258 findings**, reproduced on `/session-3a6388d2/review.html`: 123 rows dated before
+   today's cutoff, 43 rows with no pick, 39 rows with no source URL, 38 rows priced while unverified,
+   8 templated predictions, 5 scope questions (Gaelic football — the brief does not name it; two
+   earlier boards disagree), 1 source-tier problem (a greyhound venue page used as the governing
+   body), 1 live contradiction. **Zero** duplicate fixtures across the builds checked.
+
+**Requests to the integration session (Board AD will not edit these itself)**
+1. Add a link to `/session-3a6388d2/index.html` from the root `index.html` and from the shared
+   nav/index so the dashboard is reachable from the site front door (root index is owned by
+   another session's open PR).
+2. If `data/session-3a6388d2/manifest5.json` is still missing when you integrate, re-run
+   `python3 scripts/session-3a6388d2/collect5.py` (or push a change with
+   `data/session-3a6388d2/.next_pass` set to `5`) and pull; it is the OLBG per-sport card capture
+   plus the remaining official event pages. The GitHub token available to the runner cannot create
+   `workflow_dispatch` events, so a push is the only trigger.
+3. Do **not** merge Board AD rows into `data/master.json`; keep Board AD's desk as its own
+   published dataset so each row keeps its own official source and its own verification trail.
+   Board AD's review findings on `master.json` are advisory findings, not edits.

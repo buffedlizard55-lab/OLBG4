@@ -63,22 +63,44 @@ jobs:
       - name: Commit the snapshot
         run: |
           set -uo pipefail
+          BR="${GITHUB_REF_NAME}"
           git config user.name "board-ad-collector"
           git config user.email "actions@users.noreply.github.com"
-          git add data/session-3a6388d2/raw data/session-3a6388d2/manifest.json \
-                  data/session-3a6388d2/manifest3.json data/session-3a6388d2/manifest4.json \
-                  data/session-3a6388d2/manifest5.json data/session-3a6388d2/manifest_rankings.json
+          git fetch origin "$BR" || true
+          # re-point the working tree at the current branch tip, keeping our new files
+          git checkout -B board-ad-snapshot "origin/$BR"
+          for f in data/session-3a6388d2/manifest.json data/session-3a6388d2/manifest3.json \
+                   data/session-3a6388d2/manifest4.json data/session-3a6388d2/manifest5.json \
+                   data/session-3a6388d2/manifest_rankings.json; do
+            [ -f "$f" ] && git add -- "$f"
+          done
+          git add -- data/session-3a6388d2/raw
           if git diff --cached --quiet; then
-            echo "no changes"
+            echo "no changes to commit"
             exit 0
           fi
-          git commit -m "Board AD: official-source snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git commit -q -m "Board AD: official-source snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           for attempt in 1 2 3; do
-            git fetch origin "${GITHUB_REF_NAME}" || true
-            git rebase "origin/${GITHUB_REF_NAME}" || { git rebase --abort || true; }
-            sleep 3
+            if git push origin "HEAD:$BR"; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            sleep 10
+            git fetch origin "$BR" || true
+            git rebase "origin/$BR" || git rebase --abort || true
           done
-          for attempt in 1 2 3; do
+          {
+            echo "### Board AD capture: push failed after 3 attempts"
+            echo '```'
+            git status --short | head -20
+            echo "--- last log ---"
+            git log --oneline -3
+            echo "--- remote ---"
+            git log --oneline -3 "origin/$BR"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+
             git push origin "HEAD:${GITHUB_REF_NAME}" && break
             sleep 5
           done
