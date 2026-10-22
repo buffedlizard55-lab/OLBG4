@@ -3417,3 +3417,14 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 
 ---
 
+
+## Board AD — arena/7bbc825b-olbg4 — evidence-integrity integration
+
+Claimed 2026-10-22 UTC. Fixed Arena branch used instead of the requested alternate branch name.
+
+| Task | Status | Owner | File scope |
+|---|---|---|---|
+| AD1 Evidence-integrity review, source-access probes, fail-closed dashboard and tests | in progress | arena/7bbc825b-olbg4 | `session-7bbc825b/**`, `scripts/session-7bbc825b/**`, `data/session-7bbc825b/**`, append-only `COORDINATION.md` |
+| AD2 PR, merge, Pages confirmation | in progress | arena/7bbc825b-olbg4 | same scope |
+
+Other session outputs, root navigation, data and workflows are read-only. No historical claims of official verification are inherited. Root navigation integration request: add a link to `session-7bbc825b/index.html` when its owner is available. Existing open PR #102 owns root navigation.
