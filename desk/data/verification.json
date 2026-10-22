@@ -1,0 +1,112 @@
+{
+ "checks": [
+  {
+   "check": "every fixture carries an official-domain source URL",
+   "ok": true,
+   "detail": "36/36 rows OK"
+  },
+  {
+   "check": "no excluded sport is present",
+   "ok": true,
+   "detail": "sports: ['baseball', 'ice hockey']"
+  },
+  {
+   "check": "every fixture is inside the published window 2026-10-22..2026-10-28",
+   "ok": true,
+   "detail": "all 36 rows inside the window"
+  },
+  {
+   "check": "fixture ids are unique",
+   "ok": true,
+   "detail": "36 unique of 36"
+  },
+  {
+   "check": "no fixture is listed twice (same date and clubs)",
+   "ok": true,
+   "detail": "36 unique of 36"
+  },
+  {
+   "check": "every quoted price reproduces from its probability and the declared hold",
+   "ok": true,
+   "detail": "432 selections checked"
+  },
+  {
+   "check": "every published high-confidence pick is inside -250..+10000",
+   "ok": true,
+   "detail": "7 published picks, all in band"
+  },
+  {
+   "check": "every published high-confidence pick clears 70.0%",
+   "ok": true,
+   "detail": "all clear 70.0%"
+  },
+  {
+   "check": "every published pick came from a fixture with 7+ games played",
+   "ok": true,
+   "detail": "sample sizes: [7, 8, 9]"
+  },
+  {
+   "check": "every published pick is confirmed by the independent win-rate/secondary check",
+   "ok": true,
+   "detail": "stability_agrees true on every published pick"
+  },
+  {
+   "check": "every published high-confidence pick has a hand-written prediction",
+   "ok": true,
+   "detail": "7/7 covered"
+  },
+  {
+   "check": "no prediction is published for a pick that is not a published high-confidence pick",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "check": "every prediction is at least 30 words",
+   "ok": true,
+   "detail": "word counts: [87, 91, 92, 97, 97, 102, 105]"
+  },
+  {
+   "check": "every prediction names its exact selection",
+   "ok": true,
+   "detail": "all name the selection"
+  },
+  {
+   "check": "every prediction names both clubs",
+   "ok": true,
+   "detail": "all name both clubs"
+  },
+  {
+   "check": "every prediction names at least one player from the official team-leaders data",
+   "ok": true,
+   "detail": "all name a player"
+  },
+  {
+   "check": "every number in a prediction appears in that prediction's own fact block",
+   "ok": true,
+   "detail": "all numbers traced to a listed fact"
+  },
+  {
+   "check": "every fact in every prediction carries a source",
+   "ok": true,
+   "detail": "46 facts, all sourced"
+  },
+  {
+   "check": "no two predictions share a six-word run (uniqueness)",
+   "ok": true,
+   "detail": "max pairwise similarity 0.032"
+  },
+  {
+   "check": "moneyline, handicap and total are originated for every covered sport",
+   "ok": true,
+   "detail": "{\"Baseball\": true, \"Ice Hockey\": true}"
+  },
+  {
+   "check": "every blank venue is disclosed on the flagged page",
+   "ok": true,
+   "detail": "15 rows have no venue captured and are listed on Flagged"
+  }
+ ],
+ "passed": 21,
+ "failed": 0,
+ "generated_utc": "2026-10-22T02:40:00Z"
+}

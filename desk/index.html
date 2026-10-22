@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — Board S · OLBG4</title>
+<meta name="description" content="Board S — official-source fixtures, our own originated lines, confidence grades and hand-written predictions for the sports in scope.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="index.html"><span class="mark">OLBG4</span><span class="sub">Board S · live desk 22 Oct 2026</span></a>
+  <nav class="main"><a href="index.html" aria-current="page">Dashboard</a><a href="matches.html">Fixtures</a><a href="picks.html">High-confidence picks</a><a href="strong-picks.html">Strong picks (out of band)</a><a href="markets.html">Markets</a><a href="analysis.html">Analysis</a><a href="verification.html">Verification</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="methodology.html">Method</a></nav>
+</div></header>
+<main><div class="wrap">
+
+<section class="hero">
+  <div class="kicker">Board S · refreshed 22 October 2026</div>
+  <h1>Updated fixtures, our own lines, and seven high-confidence picks inside the price band you asked for.</h1>
+  <p class="lede">Thirty-six fixtures across two sports, every one read on an official league page, 432
+  market selections priced by our own model, and a hand-written prediction on each of the seven high-confidence picks that
+  lands between -250 and +10000. Nothing is filled in when the official page is silent.</p>
+  <div class="cta">
+    <a class="btn primary" href="picks.html">Read the 7 predictions</a>
+    <a class="btn" href="matches.html">Open the fixture table</a>
+    <a class="btn" href="analysis.html">Why the band is narrow</a>
+  </div>
+</section>
+<div class="grid kpis">
+  <div class="kpi"><div class="n">36</div><div class="l">fixtures</div></div>
+  <div class="kpi"><div class="n">2</div><div class="l">sports covered</div></div>
+  <div class="kpi"><div class="n">432</div><div class="l">market selections originated</div></div>
+  <div class="kpi"><div class="n">7</div><div class="l">published high-confidence picks</div></div>
+  <div class="kpi"><div class="n">7</div><div class="l">in-band high selections</div></div>
+  <div class="kpi"><div class="n">21/21</div><div class="l">verification gates passed</div></div>
+</div>
+<div class="note warn">
+  <strong>Read this first.</strong> The band you asked for, -250 to +10000, is exactly the 0.00%-71.43% implied-probability
+  range. Combined with "greater than 70% to win", the publishable window is 70.00%-71.43% — a 1.43-point slice. Every pick
+  stronger than 71.43% prices shorter than -250 and is therefore published separately, graded, on the
+  <a href="strong-picks.html">Strong picks</a> page rather than here. That is a mathematical property of the request, not a
+  modelling choice, and it is logged as <a href="flagged.html">S-02</a>.
+</div>
+<h2>What is on the desk</h2>
+<div class="tablewrap"><table>
+<tr><th>Sport</th><th class="num">Fixtures</th><th class="num">Selections</th><th class="num">Winner picks graded High</th><th class="num">Published high picks</th><th>Page</th></tr>
+<tr><td><strong>Baseball</strong></td><td class='num'>5</td><td class='num'>60</td><td class='num'>0</td><td class='num'>0</td><td><span class="muted">open baseball page</span></td></tr><tr><td><strong>Ice Hockey</strong></td><td class='num'>31</td><td class='num'>372</td><td class='num'>7</td><td class='num'>7</td><td><span class="muted">open ice hockey page</span></td></tr>
+</table></div>
+<h2>Three of the seven high-confidence picks</h2>
+<div class="grid cards"><div class='card'><div class='meta'>2026-10-22 · NHL</div><h3>Florida Panthers at Pittsburgh Penguins</h3><p><strong>Over 5.5</strong> at <span class='mono'>-246</span> · 71.1%</p><div class='meta'><span class="badge b-high">High</span> <span class="badge b-band">in band</span></div></div><div class='card'><div class='meta'>2026-10-22 · NHL</div><h3>Los Angeles Kings at New York Islanders</h3><p><strong>Los Angeles Kings +2.5</strong> at <span class='mono'>-248</span> · 71.2%</p><div class='meta'><span class="badge b-high">High</span> <span class="badge b-band">in band</span></div></div><div class='card'><div class='meta'>2026-10-22 · NHL</div><h3>Vegas Golden Knights at St. Louis Blues</h3><p><strong>Over 5.5</strong> at <span class='mono'>-243</span> · 70.9%</p><div class='meta'><span class="badge b-high">High</span> <span class="badge b-band">in band</span></div></div></div>
+<h2>How a row is built</h2>
+<div class="grid cards">
+  <div class="card"><h3>1 · Official fixture</h3><p class="meta">Date, start time, venue and clubs read on the league's own domain;
+  the per-row link is the official game page. OLBG is not used as a source of any published value.</p></div>
+  <div class="card"><h3>2 · Our own line</h3><p class="meta">A margin model on official goals/runs and record data, plus an
+  independent win-rate model as a stability check. Prices are fair opening lines with no bookmaker input.</p></div>
+  <div class="card"><h3>3 · Grade, then write</h3><p class="meta">High needs ≥70%, a price inside the band, seven games on both
+  clubs and agreement between the two models. Only then is a human prediction written, with every number traced to a fact.</p></div>
+</div>
+<h2>Everything that is not confirmed</h2>
+<p>13 items are on the <a href="flagged.html">Flagged for review</a> page with their sources, including the
+deployment blocker (S-01), the band arithmetic (S-02) and the sports this session could not capture (S-07).</p>
+
+</div></main>
+<footer><div class="wrap">
+<p><strong>Board S</strong> · data cut-off 2026-10-22T02:00Z · every row carries the official page it was read from ·
+every published pick is inside the requested -250..+10000 band · no bookmaker price is read anywhere.</p>
+<p class="small">Probabilities and prices on this site are model output, not betting advice. Blank cells mean the official
+source is silent, not that the value is zero. <a href="flagged.html">Flagged for review</a> lists everything
+unconfirmed or structurally awkward. Earlier dashboards: <a href="../board/index.html">master board</a>,
+<a href="../docs/index.html">docs build</a>, <a href="../index.html">repository root</a>, and the <a href="verification.html">verification register</a>.</p>
+</div></footer>
+<script src="assets/app.js" defer></script>
+</body></html>

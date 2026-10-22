@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for review — Board S · OLBG4</title>
+<meta name="description" content="Board S — official-source fixtures, our own originated lines, confidence grades and hand-written predictions for the sports in scope.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="index.html"><span class="mark">OLBG4</span><span class="sub">Board S · live desk 22 Oct 2026</span></a>
+  <nav class="main"><a href="index.html">Dashboard</a><a href="matches.html">Fixtures</a><a href="picks.html">High-confidence picks</a><a href="strong-picks.html">Strong picks (out of band)</a><a href="markets.html">Markets</a><a href="analysis.html">Analysis</a><a href="verification.html">Verification</a><a href="sources.html">Sources</a><a href="flagged.html" aria-current="page">Flagged for review</a><a href="methodology.html">Method</a></nav>
+</div></header>
+<main><div class="wrap">
+
+<section class="hero" style="padding:22px 26px">
+  <div class="kicker">Flagged for review</div>
+  <h1 style="font-size:30px">13 items, with sources</h1>
+  <p class="lede" style="font-size:16px">Everything unconfirmed, structurally awkward or incomplete is here rather than buried.
+  Nothing on this page blocks publication: the site states the limitation instead of filling the gap with a guess.</p>
+</section>
+<div class="note bad"><strong>Two items matter most.</strong> S-01: the GitHub connection in this environment cannot open a pull
+request or deploy, so this site is published as a branch, not on Pages. S-02: the requested price band mathematically caps the
+publishable probability at 71.43%, which is why the strongest picks sit outside the published set.</div>
+<article class="pick">
+  <div class="top"><div><h3>GitHub automation unavailable in this session: no pull request, no merge, no Pages deploy</h3>
+  <div class="meta">S-01 · severity high</div></div>
+  <div><span class="badge b-out">high</span></div></div>
+  <p class="body">The GitHub CLI token in this environment is invalid and every api.github.com call returns HTTP 403 (rate-limited, unauthenticated). Workflow dispatch, PR creation, PR merge and the Pages deployment therefore could not be performed by this session. Commits were pushed to arena/f8feb803-olbg4 only. The site in this repository is complete and self-contained; publishing needs a working GitHub connection and one PR from this branch to main.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/arena/f8feb803-olbg4/COORDINATION.md" rel="noopener">COORDINATION.md environment note</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>The requested band and the &gt;70% rule leave a 1.43-point probability window; stronger picks cannot be published inside it</h3>
+  <div class="meta">S-02 · severity high</div></div>
+  <div><span class="badge b-out">high</span></div></div>
+  <p class="body">At fair odds -250 is exactly a 71.43% implied probability. A pick that clears 70% but is stronger than 71.43% necessarily prices shorter than -250 and therefore falls outside the band the owner asked us to work in. 78 selections in this dataset clear 70% and price shorter than -250; they are published on the Strong picks page with their grade but without a prediction, because the brief restricts published high-confidence picks to the band. If the owner wants those in the published set, the band floor has to move (for example to -400) or the confidence rule has to change.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><span class="muted">Strong picks outside the band</span></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>Published picks are concentrated in match totals</h3>
+  <div class="meta">S-03 · severity medium</div></div>
+  <div><span class="badge b-warn">medium</span></div></div>
+  <p class="body">Five of the seven published high-confidence picks are match totals and two are puck lines on alternate lines. That is a direct consequence of S-02: moneyline favourites on this card sit above 71.43% and fall outside the band, leaving the total and alternate-line markets as the only selections that land in the 70.00-71.43% window. It is a diversity limitation of the rule set, not a modelling preference.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><span class="muted">High-confidence picks</span></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>NHL records were captured as of 21 October 9:25 PM EDT, after which at least one game finished</h3>
+  <div class="meta">S-04 · severity medium</div></div>
+  <div><span class="badge b-warn">medium</span></div></div>
+  <p class="body">The standings snapshot used for every rating is the NHL.com Wild Card table timestamped &#x27;current as of Oct 21, 9:25 PM EDT&#x27;. The NHL.com schedule shows Florida losing 3-1 in Ottawa on 21 October, and the score feed for 22 October still lists Florida at 5-2-2. Team records, and therefore every rating built from them, may be one game stale for clubs that played late on 21 October. We did not adjust any record by hand.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://www.nhl.com/standings/2026-10-21/wildcard" rel="noopener">NHL.com standings, 21 October</a></li><li><a href="https://www.nhl.com/schedule" rel="noopener">NHL.com schedule</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>No game-level backtest: the model&#x27;s constants are declared, not fitted on this data</h3>
+  <div class="meta">S-05 · severity medium</div></div>
+  <div><span class="badge b-warn">medium</span></div></div>
+  <p class="body">The sandbox could not pull historical game logs (direct egress to league hosts is blocked and the refresh workflow needs Actions, which is unavailable), so the margin and total distributions are fixed at long-run league values and the shrinkage weights are policy choices. Accuracy, calibration and closing-line performance of this model are therefore unmeasured. Every constant is listed with its reason on the Methodology page.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><span class="muted">Methodology</span></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>MLB picks use regular-season records only; no pitcher adjustment was applied</h3>
+  <div class="meta">S-06 · severity medium</div></div>
+  <div><span class="badge b-warn">medium</span></div></div>
+  <p class="body">The World Series participants&#x27; final 2026 regular-season records, run differentials and last-ten records were read from the official MLB Stats API, but postseason results are not part of a regular-season standings table and were not modelled. A probable pitcher is published for Game 1 (Jacob Misiorowski, Milwaukee) and none for Games 2-5 at capture time, and no official ERA was captured, so no pitcher adjustment is applied anywhere. No MLB game reached the published high-confidence set.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&amp;season=2026&amp;standingsTypes=regularSeason" rel="noopener">MLB Stats API standings</a></li><li><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-10-29&amp;hydrate=probablePitcher" rel="noopener">MLB Stats API schedule</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>Coverage: 14 in-scope sports were not captured in this session</h3>
+  <div class="meta">S-07 · severity medium</div></div>
+  <div><span class="badge b-warn">medium</span></div></div>
+  <p class="body">This desk covers ice hockey (NHL, 31 fixtures, 22-25 October) and baseball (MLB World Series, 5 games, 23-28 October). The other in-scope OLBG sports (tennis, cricket, rugby union, rugby league, darts, snooker, handball, volleyball, badminton, table tennis, golf, greyhound racing, motor racing, esports, Aussie rules) publish fixtures as HTML or require a browser session and no official machine-readable feed was captured here; the NBA also failed (its CDN scoreboard endpoint returned HTTP 500 through the page-fetch tool and stats.nba.com did not respond). Earlier sessions&#x27; datasets for those sports remain in the repository at their own 21 October cut-off and were not re-verified or overwritten by this session.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><span class="muted">Earlier boards (archive)</span></li><li><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/arena/f8feb803-olbg4/COORDINATION.md" rel="noopener">Coverage notes in the repo</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>Venue blank on 15 of 31 NHL rows</h3>
+  <div class="meta">S-08 · severity low</div></div>
+  <div><span class="badge b-low">low</span></div></div>
+  <p class="body">Venue was recorded only where the official NHL score feed for that date published it. For the other rows the cell is blank rather than filled from an unofficial source. Each row still carries its official GameCenter link, which states the venue.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://www.nhl.com/schedule" rel="noopener">NHL.com schedule</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>Four published picks sit on alternate lines (4.5, 7.5, +2.5)</h3>
+  <div class="meta">S-09 · severity low</div></div>
+  <div><span class="badge b-low">low</span></div></div>
+  <p class="body">Standard NHL totals are 5.5 or 6.5 and the standard puck line is 1.5. Where no selection on a standard line landed inside the requested band, the pick is quoted on an alternate line and labelled as such on the card and in the table.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><span class="muted">Methodology</span></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>OLBG.com itself could not be crawled from this environment</h3>
+  <div class="meta">S-10 · severity low</div></div>
+  <div><span class="badge b-low">low</span></div></div>
+  <p class="body">Direct requests to olbg.com fail from the build sandbox (SSL_ERROR_SYSCALL, egress allowlist). The fixture universe in this desk therefore comes from the official league pages, not from an OLBG crawl, and no OLBG event id is claimed. The OLBG taxonomy used to decide which sports are in scope is the one recorded by earlier sessions in data/olbg-taxonomy.json.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/olbg-taxonomy.json" rel="noopener">data/olbg-taxonomy.json</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>Start times are published in ET exactly as NHL.com prints them, not converted</h3>
+  <div class="meta">S-11 · severity low</div></div>
+  <div><span class="badge b-low">low</span></div></div>
+  <p class="body">Converting Eastern times to UTC would introduce an inference (and DST questions) that the source page does not make, so the table prints the published local time and labels the column &#x27;ET, as published&#x27;. MLB start times are the UTC values returned by the official API.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://www.nhl.com/schedule" rel="noopener">NHL.com schedule</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>One published pick rests on a seven-game sample</h3>
+  <div class="meta">S-12 · severity low</div></div>
+  <div><span class="badge b-low">low</span></div></div>
+  <p class="body">The Los Angeles Kings have played seven games and the pick on their +2.5 puck line uses that sample. The high-confidence gate requires seven games; it is the weakest sample in the published set. The Carolina, Nashville and Colorado picks rest on 8-11 games.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://www.nhl.com/standings/2026-10-21/wildcard" rel="noopener">NHL.com standings, 21 October</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>The rest of the repository was not re-audited line by line in this session</h3>
+  <div class="meta">S-13 · severity medium</div></div>
+  <div><span class="badge b-warn">medium</span></div></div>
+  <p class="body">The repository carries a 317-row master board and a dozen earlier dashboards, all cut off on 21 October. They were left byte-identical. This session&#x27;s verification register covers its own 36 rows and 7 predictions; it does not re-open the earlier boards, whose own registers, flags and sources remain the authority for their rows. Readers should treat those pages as dated snapshots.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><span class="muted">Master board (earlier cut-off)</span></li><li><span class="muted">Earlier verification register</span></li>
+  </ul></details>
+</article>
+
+</div></main>
+<footer><div class="wrap">
+<p><strong>Board S</strong> · data cut-off 2026-10-22T02:00Z · every row carries the official page it was read from ·
+every published pick is inside the requested -250..+10000 band · no bookmaker price is read anywhere.</p>
+<p class="small">Probabilities and prices on this site are model output, not betting advice. Blank cells mean the official
+source is silent, not that the value is zero. <a href="flagged.html">Flagged for review</a> lists everything
+unconfirmed or structurally awkward. Earlier dashboards: <a href="../board/index.html">master board</a>,
+<a href="../docs/index.html">docs build</a>, <a href="../index.html">repository root</a>, and the <a href="verification.html">verification register</a>.</p>
+</div></footer>
+<script src="assets/app.js" defer></script>
+</body></html>

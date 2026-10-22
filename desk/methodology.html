@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method — Board S · OLBG4</title>
+<meta name="description" content="Board S — official-source fixtures, our own originated lines, confidence grades and hand-written predictions for the sports in scope.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="index.html"><span class="mark">OLBG4</span><span class="sub">Board S · live desk 22 Oct 2026</span></a>
+  <nav class="main"><a href="index.html">Dashboard</a><a href="matches.html">Fixtures</a><a href="picks.html">High-confidence picks</a><a href="strong-picks.html">Strong picks (out of band)</a><a href="markets.html">Markets</a><a href="analysis.html">Analysis</a><a href="verification.html">Verification</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="methodology.html" aria-current="page">Method</a></nav>
+</div></header>
+<main><div class="wrap">
+
+<section class="hero" style="padding:22px 26px">
+  <div class="kicker">Method</div>
+  <h1 style="font-size:30px">How a fixture becomes a pick</h1>
+  <p class="lede" style="font-size:16px">Five steps, each with its inputs named. Every constant is listed below with the reason
+  it has the value it has; none of them is fitted on data this session could not see.</p>
+</section>
+<h2>1 · Fixture</h2>
+<p>A fixture is published only if a league or governing body's own domain lists it with at least a date and two clubs. The row
+stores that URL. Where the official page is silent on a field — venue, for example — the cell is blank and the gap is on
+<a href="flagged.html">Flagged</a>.</p>
+<h2>2 · Projection</h2>
+<p>Two estimates: a margin model on shrunk goal/run differential plus a declared home edge, and an independent win-rate model
+on shrunk win percentage. The margin model sets the price; the win-rate model is a stability check and never blended in.</p>
+<h2>3 · Line</h2>
+<p>Prices are fair opening lines: decimal price = 1/probability, with no overround added. Moneyline, least two handicap lines
+and at least two total lines are priced for every fixture. Half-point lines only, so nothing can push.</p>
+<h2>4 · Grade</h2>
+<ul>
+  <li><strong>High</strong> — probability ≥ 70%, price inside -250 to +10000, both clubs on 7+ games,
+  and the second model agreeing on the side.</li>
+  <li><strong>Medium</strong> — probability 60.0%-69.9%, or a High-level probability that fails one of the gates above.</li>
+  <li><strong>Low</strong> — below 60.0%.</li>
+</ul>
+<h2>5 · Prediction</h2>
+<p>A prediction is written by hand for each published High pick and must name the clubs, a player from the official club-leaders
+data, current form, the recent record and the exact selection. The build rejects anything under 30 words, anything whose numbers
+are not in its own fact block, and any pair of predictions sharing a six-word run.</p>
+<h2>Declared constants</h2>
+<div class="tablewrap"><table><tr><th>Constant</th><th class="num">Value</th><th>Why</th></tr><tr><td class='mono'>hold</td><td class='num'>0.0</td><td>Our published prices are FAIR opening lines: decimal price = 1/probability with no overround added. This is deliberate. The owner asked for high-confidence picks priced between -250 and +10000; -250 is exactly a 71.43% implied probability, so any fair price shorter than -250 can only come from a probability above 71.43%. With no hold, the requested band is precisely the 70.00%-71.43% probability window, and that is the window the published high-confidence set is drawn from.</td></tr><tr><td class='mono'>home_edge_goals</td><td class='num'>0.2</td><td>NHL home teams out-score visitors by a little under a quarter of a goal per game on average. Applied to the projected margin before the probability is taken.</td></tr><tr><td class='mono'>home_edge_runs</td><td class='num'>0.15</td><td>MLB home teams out-score visitors by about 0.15 runs per game. Applied to the projected run margin.</td></tr><tr><td class='mono'>sigma_margin_nhl</td><td class='num'>1.9</td><td>Standard deviation of the goal margin of an NHL game. Fixed here because the sandbox could not pull game-level results; the value is the long-run league figure.</td></tr><tr><td class='mono'>sigma_total_nhl</td><td class='num'>1.65</td><td>Standard deviation of the total goals in an NHL game, used for over/under pricing.</td></tr><tr><td class='mono'>sigma_margin_mlb</td><td class='num'>4.0</td><td>Standard deviation of the run margin of an MLB game, used for the run line and moneyline probabilities.</td></tr><tr><td class='mono'>sigma_total_mlb</td><td class='num'>4.3</td><td>Standard deviation of total runs in an MLB game.</td></tr><tr><td class='mono'>shrink_margin_games</td><td class='num'>6</td><td>Pseudo-games at zero goal differential used to shrink early-season goal differential (a team with 7-11 games played is not yet 7-11 games proven).</td></tr><tr><td class='mono'>shrink_rate_games</td><td class='num'>6</td><td>Pseudo-games at the league scoring average used to shrink early-season goals for and against before the projected total is built.</td></tr><tr><td class='mono'>shrink_win_games</td><td class='num'>8</td><td>Pseudo-games at .500 used to shrink the win rate feeding the independent stability check.</td></tr><tr><td class='mono'>mlb_shrink_games</td><td class='num'>40</td><td>Pseudo-games at zero run differential for MLB, whose 162-game samples need much less shrinkage than an NHL October sample.</td></tr><tr><td class='mono'>league_goals_per_team</td><td class='num'>3.1258</td><td>League average goals per team per game used as the shrinkage target for totals. Recomputed from the captured standings table on every build (see build note) rather than hard-coded at run time.</td></tr></table></div>
+<h2>What this method cannot do</h2>
+<p>It cannot measure its own accuracy: no historical game log was reachable, so there is no backtest, no calibration table and no
+closing-line record. It cannot see injuries, rest, travel or goaltender starters beyond the one probable pitcher MLB published.
+And it cannot produce a high-confidence pick at a long price, because "high confidence" is defined by probability and long prices
+are low probabilities. Those limits are published, not hidden.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p><strong>Board S</strong> · data cut-off 2026-10-22T02:00Z · every row carries the official page it was read from ·
+every published pick is inside the requested -250..+10000 band · no bookmaker price is read anywhere.</p>
+<p class="small">Probabilities and prices on this site are model output, not betting advice. Blank cells mean the official
+source is silent, not that the value is zero. <a href="flagged.html">Flagged for review</a> lists everything
+unconfirmed or structurally awkward. Earlier dashboards: <a href="../board/index.html">master board</a>,
+<a href="../docs/index.html">docs build</a>, <a href="../index.html">repository root</a>, and the <a href="verification.html">verification register</a>.</p>
+</div></footer>
+<script src="assets/app.js" defer></script>
+</body></html>

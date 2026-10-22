@@ -1,0 +1,183 @@
+{
+ "generated_utc": "2026-10-22T02:35:00Z",
+ "counts": {
+  "total": 13,
+  "high": 2,
+  "medium": 6,
+  "low": 5
+ },
+ "items": [
+  {
+   "id": "S-01",
+   "severity": "high",
+   "title": "GitHub automation unavailable in this session: no pull request, no merge, no Pages deploy",
+   "detail": "The GitHub CLI token in this environment is invalid and every api.github.com call returns HTTP 403 (rate-limited, unauthenticated). Workflow dispatch, PR creation, PR merge and the Pages deployment therefore could not be performed by this session. Commits were pushed to arena/f8feb803-olbg4 only. The site in this repository is complete and self-contained; publishing needs a working GitHub connection and one PR from this branch to main.",
+   "sources": [
+    {
+     "label": "COORDINATION.md environment note",
+     "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/arena/f8feb803-olbg4/COORDINATION.md"
+    }
+   ]
+  },
+  {
+   "id": "S-02",
+   "severity": "high",
+   "title": "The requested band and the >70% rule leave a 1.43-point probability window; stronger picks cannot be published inside it",
+   "detail": "At fair odds -250 is exactly a 71.43% implied probability. A pick that clears 70% but is stronger than 71.43% necessarily prices shorter than -250 and therefore falls outside the band the owner asked us to work in. 78 selections in this dataset clear 70% and price shorter than -250; they are published on the Strong picks page with their grade but without a prediction, because the brief restricts published high-confidence picks to the band. If the owner wants those in the published set, the band floor has to move (for example to -400) or the confidence rule has to change.",
+   "sources": [
+    {
+     "label": "Strong picks outside the band",
+     "url": "strong-picks.html"
+    }
+   ]
+  },
+  {
+   "id": "S-03",
+   "severity": "medium",
+   "title": "Published picks are concentrated in match totals",
+   "detail": "Five of the seven published high-confidence picks are match totals and two are puck lines on alternate lines. That is a direct consequence of S-02: moneyline favourites on this card sit above 71.43% and fall outside the band, leaving the total and alternate-line markets as the only selections that land in the 70.00-71.43% window. It is a diversity limitation of the rule set, not a modelling preference.",
+   "sources": [
+    {
+     "label": "High-confidence picks",
+     "url": "picks.html"
+    }
+   ]
+  },
+  {
+   "id": "S-04",
+   "severity": "medium",
+   "title": "NHL records were captured as of 21 October 9:25 PM EDT, after which at least one game finished",
+   "detail": "The standings snapshot used for every rating is the NHL.com Wild Card table timestamped 'current as of Oct 21, 9:25 PM EDT'. The NHL.com schedule shows Florida losing 3-1 in Ottawa on 21 October, and the score feed for 22 October still lists Florida at 5-2-2. Team records, and therefore every rating built from them, may be one game stale for clubs that played late on 21 October. We did not adjust any record by hand.",
+   "sources": [
+    {
+     "label": "NHL.com standings, 21 October",
+     "url": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "label": "NHL.com schedule",
+     "url": "https://www.nhl.com/schedule"
+    }
+   ]
+  },
+  {
+   "id": "S-05",
+   "severity": "medium",
+   "title": "No game-level backtest: the model's constants are declared, not fitted on this data",
+   "detail": "The sandbox could not pull historical game logs (direct egress to league hosts is blocked and the refresh workflow needs Actions, which is unavailable), so the margin and total distributions are fixed at long-run league values and the shrinkage weights are policy choices. Accuracy, calibration and closing-line performance of this model are therefore unmeasured. Every constant is listed with its reason on the Methodology page.",
+   "sources": [
+    {
+     "label": "Methodology",
+     "url": "methodology.html"
+    }
+   ]
+  },
+  {
+   "id": "S-06",
+   "severity": "medium",
+   "title": "MLB picks use regular-season records only; no pitcher adjustment was applied",
+   "detail": "The World Series participants' final 2026 regular-season records, run differentials and last-ten records were read from the official MLB Stats API, but postseason results are not part of a regular-season standings table and were not modelled. A probable pitcher is published for Game 1 (Jacob Misiorowski, Milwaukee) and none for Games 2-5 at capture time, and no official ERA was captured, so no pitcher adjustment is applied anywhere. No MLB game reached the published high-confidence set.",
+   "sources": [
+    {
+     "label": "MLB Stats API standings",
+     "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+    },
+    {
+     "label": "MLB Stats API schedule",
+     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-29&hydrate=probablePitcher"
+    }
+   ]
+  },
+  {
+   "id": "S-07",
+   "severity": "medium",
+   "title": "Coverage: 14 in-scope sports were not captured in this session",
+   "detail": "This desk covers ice hockey (NHL, 31 fixtures, 22-25 October) and baseball (MLB World Series, 5 games, 23-28 October). The other in-scope OLBG sports (tennis, cricket, rugby union, rugby league, darts, snooker, handball, volleyball, badminton, table tennis, golf, greyhound racing, motor racing, esports, Aussie rules) publish fixtures as HTML or require a browser session and no official machine-readable feed was captured here; the NBA also failed (its CDN scoreboard endpoint returned HTTP 500 through the page-fetch tool and stats.nba.com did not respond). Earlier sessions' datasets for those sports remain in the repository at their own 21 October cut-off and were not re-verified or overwritten by this session.",
+   "sources": [
+    {
+     "label": "Earlier boards (archive)",
+     "url": "../board/index.html"
+    },
+    {
+     "label": "Coverage notes in the repo",
+     "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/arena/f8feb803-olbg4/COORDINATION.md"
+    }
+   ]
+  },
+  {
+   "id": "S-08",
+   "severity": "low",
+   "title": "Venue blank on 15 of 31 NHL rows",
+   "detail": "Venue was recorded only where the official NHL score feed for that date published it. For the other rows the cell is blank rather than filled from an unofficial source. Each row still carries its official GameCenter link, which states the venue.",
+   "sources": [
+    {
+     "label": "NHL.com schedule",
+     "url": "https://www.nhl.com/schedule"
+    }
+   ]
+  },
+  {
+   "id": "S-09",
+   "severity": "low",
+   "title": "Four published picks sit on alternate lines (4.5, 7.5, +2.5)",
+   "detail": "Standard NHL totals are 5.5 or 6.5 and the standard puck line is 1.5. Where no selection on a standard line landed inside the requested band, the pick is quoted on an alternate line and labelled as such on the card and in the table.",
+   "sources": [
+    {
+     "label": "Methodology",
+     "url": "methodology.html"
+    }
+   ]
+  },
+  {
+   "id": "S-10",
+   "severity": "low",
+   "title": "OLBG.com itself could not be crawled from this environment",
+   "detail": "Direct requests to olbg.com fail from the build sandbox (SSL_ERROR_SYSCALL, egress allowlist). The fixture universe in this desk therefore comes from the official league pages, not from an OLBG crawl, and no OLBG event id is claimed. The OLBG taxonomy used to decide which sports are in scope is the one recorded by earlier sessions in data/olbg-taxonomy.json.",
+   "sources": [
+    {
+     "label": "data/olbg-taxonomy.json",
+     "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/olbg-taxonomy.json"
+    }
+   ]
+  },
+  {
+   "id": "S-11",
+   "severity": "low",
+   "title": "Start times are published in ET exactly as NHL.com prints them, not converted",
+   "detail": "Converting Eastern times to UTC would introduce an inference (and DST questions) that the source page does not make, so the table prints the published local time and labels the column 'ET, as published'. MLB start times are the UTC values returned by the official API.",
+   "sources": [
+    {
+     "label": "NHL.com schedule",
+     "url": "https://www.nhl.com/schedule"
+    }
+   ]
+  },
+  {
+   "id": "S-12",
+   "severity": "low",
+   "title": "One published pick rests on a seven-game sample",
+   "detail": "The Los Angeles Kings have played seven games and the pick on their +2.5 puck line uses that sample. The high-confidence gate requires seven games; it is the weakest sample in the published set. The Carolina, Nashville and Colorado picks rest on 8-11 games.",
+   "sources": [
+    {
+     "label": "NHL.com standings, 21 October",
+     "url": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    }
+   ]
+  },
+  {
+   "id": "S-13",
+   "severity": "medium",
+   "title": "The rest of the repository was not re-audited line by line in this session",
+   "detail": "The repository carries a 317-row master board and a dozen earlier dashboards, all cut off on 21 October. They were left byte-identical. This session's verification register covers its own 36 rows and 7 predictions; it does not re-open the earlier boards, whose own registers, flags and sources remain the authority for their rows. Readers should treat those pages as dated snapshots.",
+   "sources": [
+    {
+     "label": "Master board (earlier cut-off)",
+     "url": "../board/index.html"
+    },
+    {
+     "label": "Earlier verification register",
+     "url": "../verification.html"
+    }
+   ]
+  }
+ ]
+}
