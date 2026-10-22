@@ -22,7 +22,7 @@ from datetime import datetime, timezone
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SID = "session-3a6388d2"
 OUT = os.path.join(ROOT, "data", SID, "raw")
-MANIFEST = os.path.join(ROOT, "data", SID, "manifest3.json")
+MANIFEST = os.path.join(ROOT, "data", SID, "manifest5.json")
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
       "Chrome/126.0.0.0 Safari/537.36")
@@ -31,7 +31,7 @@ BROWSER = {
     "User-Agent": UA,
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
-    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Encoding": "gzip, deflate",
     "sec-ch-ua": '"Chromium";v="126", "Not(A:Brand";v="24"',
     "sec-ch-ua-platform": '"Windows"',
     "Upgrade-Insecure-Requests": "1",
@@ -89,9 +89,22 @@ def fetch(url: str, headers: dict):
     req = urllib.request.Request(url, headers={"User-Agent": UA, **headers})
     with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
         raw = resp.read()
-        if resp.headers.get("Content-Encoding") == "gzip":
+        enc = (resp.headers.get("Content-Encoding") or "").lower()
+        if enc == "gzip":
             import gzip
             raw = gzip.decompress(raw)
+        elif enc == "deflate":
+            import zlib
+            try:
+                raw = zlib.decompress(raw)
+            except zlib.error:
+                raw = zlib.decompress(raw, -zlib.MAX_WBITS)
+        elif enc == "br":
+            try:
+                import brotli                       # noqa
+                raw = brotli.decompress(raw)
+            except Exception:
+                pass
         return raw, resp.geturl(), int(resp.status)
 
 
@@ -141,7 +154,7 @@ def main() -> int:
         "session": "arena/3a6388d2-olbg4",
         "board": "AD",
         "pass": "olbg-per-sport-cards",
-        "collector": "scripts/session-3a6388d2/collect3.py",
+        "collector": "scripts/session-3a6388d2/collect5.py",
         "started_at_utc": started,
         "finished_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "targets_total": len(TARGETS),

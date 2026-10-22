@@ -284,3 +284,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+# pass-5 re-capture: OLBG per-sport cards must be decompressed (brotli-safe)
