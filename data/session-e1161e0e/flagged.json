@@ -1,0 +1,185 @@
+{
+ "flags": [
+  {
+   "id": "X-F01",
+   "title": "Odds-window arithmetic",
+   "detail": "Only 1 of 8 High picks (Toronto @ Washington, −242) sits inside −250…+10,000. The other seven are −253 to −537 at fair odds. This is arithmetic, not reticence: ≥70% and ≥−250 overlap only between p 0.700–0.714. Published labelled, per brief.",
+   "review": "picks.html"
+  },
+  {
+   "id": "X-F02",
+   "title": "NBA records source tier",
+   "detail": "Fixtures are from NBA.com, but the 82-game 2025-26 W-L inputs were read on the Basketball-Reference archive because NBA.com standings render as a script shell in this environment. Headline records (OKC 64-18, BOS 56-26, NYK 53-29, CLE 52-30, DEN 54-28, MIN 49-33, POR 42-40, UTA 22-60) agree with NBA.com-published figures in the captured excerpts. Disclosed on every NBA row.",
+   "review": "https://www.nba.com/standings"
+  },
+  {
+   "id": "X-F03",
+   "title": "NHL standings timestamp",
+   "detail": "Standings were current as of Oct 22, 3:24 AM EDT; eight Oct 22 evening games post-date the snapshot, so 23-27 Oct prices use pre-Oct-22 form. Stated on every NHL row.",
+   "review": "https://www.nhl.com/standings"
+  },
+  {
+   "id": "X-F04",
+   "title": "NHL Oct 27 slate completeness",
+   "detail": "Four Oct 27 games were listed at capture; the full slate could not be confirmed game-by-game, so later-listed games may exist. Flagged rather than guessed.",
+   "review": "https://www.nhl.com/schedule"
+  },
+  {
+   "id": "X-F05",
+   "title": "Three PDC ties priced 50/50",
+   "detail": "Joyce v Wattimena, Ratajski v Chisnall and Clayton v Springer: pairings confirmed on PDC.tv, but their seed numbers were not in the official excerpt read, so both players are priced 2.00 with Low confidence instead of inferring seeds from bracket arithmetic.",
+   "review": "https://www.pdc.tv/news/2026/october/21/2026-machineseeker-european-championship-preview"
+  },
+  {
+   "id": "X-F06",
+   "title": "URC table will move",
+   "detail": "URC Round 5 is priced from the post-Round-3 table; Round 4 (23-25 Oct) is played in between, so form inputs will be one round stale at kick-off. Re-price after Round 4.",
+   "review": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+  },
+  {
+   "id": "X-F07",
+   "title": "RLWC one-game samples + Round 3 priced blind",
+   "detail": "All Rugby League prices rest on a single Round-1 margin per team (shrunk 65%, Medium cap). Round-3 rows are priced before Round 2 kicks off and will need repricing. Women's 4th Round-3 fixture (England v Samoa by group rotation) was not confirmed on an official page read and is NOT listed.",
+   "review": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/"
+  },
+  {
+   "id": "X-F08",
+   "title": "Cricket series state + unpriced ODI",
+   "detail": "The 1st T20I (22 Oct, Christchurch) result was not known at capture, so the series score is blank on all cricket rows. The 1st ODI (4 Nov) is listed unpriced because ICC ODI ratings were not read this session.",
+   "review": "https://www.icc-cricket.com/rankings/team-rankings/mens/t20i"
+  },
+  {
+   "id": "X-F09",
+   "title": "Tennis / snooker / esports pairings did not exist at capture",
+   "detail": "Basel & Vienna draws publish 23-24 Oct; Northern Ireland Open QF pairings were decided on capture day; LoL Worlds Swiss pairings are drawn round-by-round from 23 Oct. All three sports are on the Coverage Register as NOT PRICED with no invented fixtures.",
+   "review": "coverage.html"
+  },
+  {
+   "id": "X-F10",
+   "title": "World Series Games 5-7 are if-necessary",
+   "detail": "Published with the same regular-season price and an explicit if-necessary label; they vanish if the series ends early. Probable pitchers are not modelled.",
+   "review": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule"
+  },
+  {
+   "id": "X-F11",
+   "title": "Gaelic football scope call",
+   "detail": "Earlier boards treated Gaelic football as inside the brief's football exclusion (5 master rows excluded from strict views). Board X keeps that treatment and flags it for the owner's confirmation rather than silently changing scope.",
+   "review": "coverage.html"
+  },
+  {
+   "id": "X-F12",
+   "title": "Markets investigated but not originated",
+   "detail": "NBA totals, MLB totals, all outright/tournament-winner and correct-score markets: investigated, then left blank because the verified inputs (pace/efficiency, RS/RA splits, full-field ratings) were not captured. See Markets page.",
+   "review": "markets.html"
+  },
+  {
+   "id": "X-F13",
+   "title": "Venues blank on some NBA rows",
+   "detail": "Oct 23 venues were read from the published schedule; Oct 24-25 venues were not individually confirmed and are left blank rather than filled from memory.",
+   "review": "https://www.nba.com/schedule"
+  },
+  {
+   "id": "X-F14",
+   "title": "Repo integration request (not applied)",
+   "detail": "Root README/board counts describe the 21-Oct master (317 rows). Board X does not edit other boards' files; a future integration owner may add a Board X pointer. Logged in COORDINATION.md.",
+   "review": "../COORDINATION.md"
+  }
+ ],
+ "coverage": [
+  {
+   "sport": "Ice Hockey",
+   "status": "PRICED",
+   "note": "NHL 23-27 Oct (26 games). KHL/European leagues listed by OLBG were not captured from an official feed this session."
+  },
+  {
+   "sport": "Basketball",
+   "status": "PRICED",
+   "note": "NBA Week 1, 23-25 Oct (27 games). EuroLeague/other leagues not captured from an official feed this session."
+  },
+  {
+   "sport": "Baseball",
+   "status": "PRICED",
+   "note": "MLB World Series Games 1-7 (5-7 if necessary)."
+  },
+  {
+   "sport": "Darts",
+   "status": "PRICED",
+   "note": "PDC European Championship Round One, Friday 23 Oct (8 ties). Thursday's ties were already in progress/played at capture and are excluded."
+  },
+  {
+   "sport": "Rugby Union",
+   "status": "PRICED",
+   "note": "URC Round 5, 30-31 Oct (8 games). Premiership/Top 14 not captured from an official feed this session."
+  },
+  {
+   "sport": "Rugby League",
+   "status": "PRICED",
+   "note": "RLWC 2026 men R2+R3, women R2+R3 (17 games). Semi-final pairings (7-8 Nov) depend on pool results — not yet knowable."
+  },
+  {
+   "sport": "Cricket",
+   "status": "PARTIAL",
+   "note": "NZ v India T20Is priced from ICC ratings; 1st ODI listed unpriced (ODI ratings not read). Other series (Pakistan tri-series, Namibia v Ireland) not confirmed on an official ICC page this session."
+  },
+  {
+   "sport": "Tennis",
+   "status": "NOT PRICED",
+   "note": "ATP Basel & Vienna (26 Oct-1 Nov) confirmed on the official ATP calendar, but singles draws are published 23-24 Oct — no pairings existed to price at capture. Brussels/Lyon quarter-finalists likewise undecided."
+  },
+  {
+   "sport": "Snooker",
+   "status": "NOT PRICED",
+   "note": "Northern Ireland Open quarter-finals fall on 23 Oct, but the pairings were decided by last-16 ties played on capture day (22 Oct) and could not be confirmed on wst.tv."
+  },
+  {
+   "sport": "Esports",
+   "status": "NOT PRICED",
+   "note": "LoL Worlds 2026 Swiss Stage starts 23 Oct in Allen, TX (Riot primer); Swiss pairings are drawn round-by-round, so no fixture existed to price at capture. Quarter-final draw is 31 Oct."
+  },
+  {
+   "sport": "Golf",
+   "status": "NOT PRICED",
+   "note": "No official tour field/tee-time sheet with verified scoring inputs was read this session."
+  },
+  {
+   "sport": "Handball",
+   "status": "NOT PRICED",
+   "note": "EHF Champions League fixtures were not confirmed with standings inputs on an official EHF page this session."
+  },
+  {
+   "sport": "Volleyball",
+   "status": "NOT PRICED",
+   "note": "No Volleyball World fixture + standings capture this session."
+  },
+  {
+   "sport": "Badminton / Table Tennis",
+   "status": "NOT PRICED",
+   "note": "No BWF/WTT draw with verified rankings read this session."
+  },
+  {
+   "sport": "Aussie Rules",
+   "status": "NO FIXTURE",
+   "note": "AFL men's season is in its off-season window in this period (repo master board records the same); no fixture to price."
+  },
+  {
+   "sport": "Greyhound Racing",
+   "status": "NOT PRICED",
+   "note": "No GBGB racecard with verified form inputs read this session."
+  },
+  {
+   "sport": "Motor Racing",
+   "status": "NOT PRICED",
+   "note": "No official entry list with verified performance inputs read this session; outright-only market not originated (see Markets)."
+  },
+  {
+   "sport": "Gaelic Games (football)",
+   "status": "EXCLUDED SCOPE NOTE",
+   "note": "Gaelic football sits inside the brief's football exclusion as applied by earlier boards; hurling is excluded by name. Left out deliberately — flagged for the owner's confirmation."
+  },
+  {
+   "sport": "Excluded by brief",
+   "status": "OUT OF SCOPE",
+   "note": "Soccer, boxing, UFC/MMA, football/American football, hurling, horse racing, cycling, specials."
+  }
+ ]
+}
