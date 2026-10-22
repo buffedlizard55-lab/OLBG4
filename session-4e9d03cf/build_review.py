@@ -104,11 +104,13 @@ def review_status(row: dict[str, Any], official_url: str) -> tuple[str, str]:
         return "held-source", "No eligible official-source link is available for this row. Leave values unverified."
     if not row.get("verified"):
         return "held-verification", "Official URL is recorded, but the canonical row was not marked originally verified."
-    if row.get("confidence") == "High" and row.get("prediction_style") != "written":
+    if row.get("confidence") == "High" and (
+        row.get("prediction_style") != "written" or count_words(str(row.get("prediction") or "")) < 30
+    ):
         return (
             "held-copy",
-            "High-confidence copy is templated rather than a unique written prediction; do not publish it "
-            "as a compliant high-confidence write-up.",
+            "High-confidence copy is templated or shorter than 30 words rather than a compliant unique written "
+            "prediction; do not publish it as a high-confidence write-up.",
         )
     return (
         "carried-current",
@@ -363,7 +365,7 @@ def build_index(data: dict[str, Any]) -> str:
   <article><span>Current/upcoming fixtures</span><strong>{counts['current_fixture_rows']}</strong><small>in-scope · {REVIEW_DATE} onward</small></article>
   <article><span>Strict carried rows</span><strong>{counts['carried_current']}</strong><small>official URL + original verification</small></article>
   <article class="warn-card"><span>Held current rows</span><strong>{counts['held_current']}</strong><small>source, verification, or copy gap</small></article>
-  <article><span>Unique high write-ups</span><strong>{counts['high_written']}</strong><small>canonical written predictions</small></article>
+  <article><span>Written high write-ups</span><strong>{counts['high_written']}</strong><small>canonical written predictions</small></article>
 </section>
 
 <section class="panel" id="method">

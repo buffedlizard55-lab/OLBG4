@@ -105,6 +105,8 @@ def main() -> int:
                 failures.append(f"{reviewed['id']}: strict carried row violates source/current gate")
             if reviewed["confidence"] == "High" and reviewed["prediction_style"] != "written":
                 failures.append(f"{reviewed['id']}: templated high copy was promoted")
+            if reviewed["confidence"] == "High" and reviewed["prediction_words"] < 30:
+                failures.append(f"{reviewed['id']}: short high-confidence copy was promoted")
         if reviewed["in_scope"] and reviewed["row_type"] == "fixture" and reviewed["date"] >= REVIEW_DATE:
             current.append(reviewed)
 
@@ -113,11 +115,14 @@ def main() -> int:
         row for row in review_rows
         if row["confidence"] == "High" and row["prediction_style"] != "written"
     ]
-    if len(templated_high) != 3:
-        failures.append(f"expected 3 canonical templated high rows, found {len(templated_high)}")
     promoted = [row["id"] for row in templated_high if row["review_status"] == "carried-current"]
     if promoted:
         failures.append(f"templated high rows promoted: {promoted}")
+    for row in templated_high:
+        source = master_rows[row["id"]]
+        kinds = {flag.get("kind") for flag in source.get("flags", [])}
+        if "templated-prediction" not in kinds:
+            failures.append(f"{row['id']}: non-written High row lacks a canonical templated-prediction flag")
 
     # S1's high-focus statement must come directly from the committed pipeline data.
     focused = [
