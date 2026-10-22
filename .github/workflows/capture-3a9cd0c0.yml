@@ -1,0 +1,44 @@
+name: Board Z capture (3a9cd0c0)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["arena/3a9cd0c0-olbg4"]
+    paths:
+      - "scripts/session-3a9cd0c0/capture.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: z-3a9cd0c0-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG hubs and 18-sport official sources
+        run: python3 scripts/session-3a9cd0c0/capture.py
+      - name: Commit SHA-256 capture manifest and compressed payloads
+        run: |
+          set -uo pipefail
+          git config user.name "board-z-capture[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/session-3a9cd0c0/capture
+          if git diff --cached --quiet; then
+            echo "No capture changes"
+            exit 0
+          fi
+          git commit -m "chore(board-z): live OLBG + 18-sport official capture $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin arena/3a9cd0c0-olbg4 && git push origin HEAD:arena/3a9cd0c0-olbg4 && break
+            sleep 4
+          done
