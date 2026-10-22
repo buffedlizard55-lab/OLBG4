@@ -2636,3 +2636,26 @@ All 9 predictions are 72–89 words, each quoting the verified form (standings, 
 | Flagged items | Published on `session-77af9500/flagged.html` and `docs/flagged.html` + `board/flagged.html` — 9 Build A High downgrades (odds window) + 26 master-board High downgrades + 5 longstanding irregularities (Snooker pairing, Galway/Cork time mismatches, Australia v Fiji conflict, handicap/total not originated) — all with source links for manual review; flagged does not block merge per brief |
 
 **Site live (pending deploy of commit 1432418):** Board S dashboard at https://buffedlizard55-lab.github.io/OLBG4/session-77af9500/ — 144 rows, 9 High inside -250 to +10,000 (each 72–89 words, verified facts, obvious moneyline selection), 15 flagged, 15 sports, 23 pages, 0 broken links. Master board and Build A docs also live and updated with window enforcement. If deploy fails, will retry until live per brief.
+
+---
+
+## Board T — session `arena/e5f2dad3-olbg4` (22 Oct 2026 official-source refresh, own lines, high-confidence write-ups, new dashboard)
+
+Session `arena/e5f2dad3-olbg4` · branch `arena/e5f2dad3-olbg4` · claimed 2026-10-22 (UTC) · **status: in progress**
+
+**Why a new board.** Board S1's 22 Oct review (PR #60) reported that the canonical master is dated 21 Oct, that only NBA/NHL/MLB are covered by an automated current feed, and that zero High rows meet both the >=70% probability and the -250..+10,000 focus window. This board therefore (a) captures a new, timestamped official-source snapshot for every in-scope sport it can reach, (b) originates its own lines from verified inputs only, and (c) publishes a fresh dashboard at `/session-e5f2dad3/` without overwriting another board's files.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Raw official-source capture with per-URL status + SHA-256 manifest | in progress | arena/e5f2dad3-olbg4 | `data/session-e5f2dad3/raw/`, `scripts/session-e5f2dad3/collect.py`, `.github/workflows/collect-e5f2dad3.yml` |
+| T2 | Fixture verification line by line (official page/API only; blank + flag when silent) | unclaimed | arena/e5f2dad3-olbg4 | `data/session-e5f2dad3/fixtures.json`, `data/session-e5f2dad3/verification.json` |
+| T3 | Own-lines model (moneyline, handicap, total) + pick + confidence | unclaimed | arena/e5f2dad3-olbg4 | `data/session-e5f2dad3/markets.json`, `scripts/session-e5f2dad3/model.py` |
+| T4 | High-confidence write-ups >=30 words inside -250..+10,000 | unclaimed | arena/e5f2dad3-olbg4 | `data/session-e5f2dad3/predictions.json` |
+| T5 | Dashboard (landing + sport subpages + tables + analysis + Flagged for Review) | unclaimed | arena/e5f2dad3-olbg4 | `session-e5f2dad3/**` |
+| T6 | Independent verification gate (sources, prices, predictions, links) | unclaimed | arena/e5f2dad3-olbg4 | `scripts/session-e5f2dad3/verify.py` |
+| T7 | Final integration: root nav pointer, PR to `main`, merge, Pages deploy confirmation | unclaimed | arena/e5f2dad3-olbg4 | `index.html`, `README.md`, `tools/build_master_site.py`, `COORDINATION.md` |
+
+**Claim boundary.** Existing `session-*/`, `data/board_k/*`, `data/master*.json`, `data/rows.json`, `docs/**` and `board/**` are read-only for this board unless the final integration step (T7) needs a root pointer; that pointer is added through the generator that owns the root so the Pages staleness gate stays green. T2–T7 are listed as unclaimed only because they were not started when this claim was pushed; this session is the sole owner and starts them immediately after the claim commit.
+
+**Access constraint (unchanged from Boards B/R):** the interactive sandbox has no general HTTPS egress. Official pages are therefore captured by `scripts/session-e5f2dad3/collect.py` running on a GitHub Actions runner (open egress), which writes the exact bytes plus the URL, HTTP status, byte count, fetch timestamp and SHA-256 into the repository. Parsing happens only against those committed bytes, so every published value is reproducible from the manifest.
+
