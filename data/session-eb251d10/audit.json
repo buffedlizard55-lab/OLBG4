@@ -1,0 +1,478 @@
+{
+  "schema": "olbg4.eb251d10-publication-audit/1",
+  "audit_date": "2026-10-22",
+  "scope": "Read-only reproduction of committed master metadata, taxonomy and site checks; no sports-provider page fetched and no fixture/pick/prediction changed.",
+  "input_sha256": "ac83844b9187466638f02fdb43c8642493bee95ed34de7a92c20153784dccd23",
+  "metrics": {
+    "total_rows": 317,
+    "in_scope_rows": 312,
+    "sport_labels_in_scope": 19,
+    "excluded_rows": 5,
+    "current_fixture_rows": 164,
+    "current_strict_carried": 150,
+    "current_held": 14,
+    "official_rows_verified_in_scope": 244,
+    "live_contradicted_rows": 1,
+    "rows_without_official_classification": 40,
+    "official_link_without_original_verification": 27,
+    "unverified_rows": 68,
+    "unverified_rows_with_displayed_values": 66,
+    "unverified_rows_with_market_text": 43,
+    "high_picks": 38,
+    "high_written": 33,
+    "high_templated": 5,
+    "all_written_predictions": 63,
+    "prediction_focus_qualifiers": 0,
+    "rows_with_pick": 276
+  },
+  "market_coverage_by_sport": [
+    {
+      "sport": "Aussie Rules",
+      "rows": 1,
+      "win": 1,
+      "handicap": 1,
+      "total": 1,
+      "example_source": "",
+      "example_source_name": "",
+      "source_note": "No classified official source in canonical rows; held.",
+      "verified_count": 0
+    },
+    {
+      "sport": "Badminton",
+      "rows": 3,
+      "win": 3,
+      "handicap": 2,
+      "total": 3,
+      "example_source": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+      "example_source_name": "BWF World Tour — YONEX French Open 2026 tournament page",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 0
+    },
+    {
+      "sport": "Baseball",
+      "rows": 5,
+      "win": 5,
+      "handicap": 5,
+      "total": 5,
+      "example_source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23",
+      "example_source_name": "MLB.com schedule API (gamePk 849805)",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 4
+    },
+    {
+      "sport": "Basketball",
+      "rows": 72,
+      "win": 46,
+      "handicap": 19,
+      "total": 20,
+      "example_source": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "example_source_name": "NBA.com — 2026-27 schedule release (Aug 13, 2026)",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 69
+    },
+    {
+      "sport": "Cricket",
+      "rows": 17,
+      "win": 10,
+      "handicap": 6,
+      "total": 6,
+      "example_source": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+      "example_source_name": "Pakistan Cricket Board press release, 19 Aug 2026",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 8
+    },
+    {
+      "sport": "Darts",
+      "rows": 20,
+      "win": 20,
+      "handicap": 20,
+      "total": 20,
+      "example_source": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "example_source_name": "PDC (pdc.tv) official draw",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 16
+    },
+    {
+      "sport": "Esports",
+      "rows": 2,
+      "win": 2,
+      "handicap": 2,
+      "total": 2,
+      "example_source": "",
+      "example_source_name": "",
+      "source_note": "No classified official source in canonical rows; held.",
+      "verified_count": 0
+    },
+    {
+      "sport": "Golf",
+      "rows": 6,
+      "win": 5,
+      "handicap": 5,
+      "total": 5,
+      "example_source": "",
+      "example_source_name": "",
+      "source_note": "No classified official source in canonical rows; held.",
+      "verified_count": 0
+    },
+    {
+      "sport": "Greyhound Racing",
+      "rows": 2,
+      "win": 0,
+      "handicap": 0,
+      "total": 0,
+      "example_source": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+      "example_source_name": "GBGB official — 2026 Category One Schedule (Romford 23 Oct; Dunstall Park 24 Oct)",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 0
+    },
+    {
+      "sport": "Greyhounds",
+      "rows": 6,
+      "win": 0,
+      "handicap": 0,
+      "total": 0,
+      "example_source": "https://www.gbgb.org.uk/",
+      "example_source_name": "GBGB (governing body)",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 0
+    },
+    {
+      "sport": "Handball",
+      "rows": 22,
+      "win": 14,
+      "handicap": 20,
+      "total": 20,
+      "example_source": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "example_source_name": "EHF Champions League official site — standings & calendar (Oct 2026)",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 20
+    },
+    {
+      "sport": "Ice Hockey",
+      "rows": 47,
+      "win": 42,
+      "handicap": 42,
+      "total": 47,
+      "example_source": "https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026",
+      "example_source_name": "NHL.com game recap, 20 Oct 2026",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 45
+    },
+    {
+      "sport": "Motor Racing",
+      "rows": 2,
+      "win": 0,
+      "handicap": 0,
+      "total": 0,
+      "example_source": "https://www.formula1.com/en/racing/2026/united-states",
+      "example_source_name": "Formula1.com official — United States Grand Prix 2026 (23-25 Oct, Austin)",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 0
+    },
+    {
+      "sport": "Rugby League",
+      "rows": 10,
+      "win": 10,
+      "handicap": 1,
+      "total": 1,
+      "example_source": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-womens-round-2/",
+      "example_source_name": "NRL official — World Cup women's Round 2 team lists & schedule; Round 1 wrap (NRL, 19 Oct 2026)",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 8
+    },
+    {
+      "sport": "Rugby Union",
+      "rows": 30,
+      "win": 19,
+      "handicap": 25,
+      "total": 25,
+      "example_source": "https://prod2.lnr.fr/classement",
+      "example_source_name": "LNR Pro D2 official standings/fixtures",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 30
+    },
+    {
+      "sport": "Snooker",
+      "rows": 17,
+      "win": 11,
+      "handicap": 11,
+      "total": 11,
+      "example_source": "https://www.wst.tv/matches/",
+      "example_source_name": "World Snooker Tour — match centre",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 7
+    },
+    {
+      "sport": "Table Tennis",
+      "rows": 3,
+      "win": 3,
+      "handicap": 2,
+      "total": 3,
+      "example_source": "",
+      "example_source_name": "",
+      "source_note": "No classified official source in canonical rows; held.",
+      "verified_count": 0
+    },
+    {
+      "sport": "Tennis",
+      "rows": 28,
+      "win": 26,
+      "handicap": 6,
+      "total": 26,
+      "example_source": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+      "example_source_name": "ATP Tour official — 2026 ATP Tour calendar (Brussels & Lyon, 19-25 Oct)",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 20
+    },
+    {
+      "sport": "Volleyball",
+      "rows": 19,
+      "win": 13,
+      "handicap": 11,
+      "total": 11,
+      "example_source": "https://www.legavolleyfemminile.it/classifica/",
+      "example_source_name": "Lega Pallavolo Serie A Femminile official standings",
+      "source_note": "Recorded official-domain example; not re-fetched in this audit.",
+      "verified_count": 17
+    }
+  ],
+  "findings": [
+    {
+      "id": "E1-01",
+      "severity": "needs review",
+      "title": "README headline counts are stale",
+      "detail": "README.md describes the old master as 312 rows total / 308 in scope / 18 sports and calls the root URL the master board. The committed canonical master now records 317 total rows / 312 in scope / 19 sport labels, while the root landing page is a six-sport desk and the consolidated board is under /board/.",
+      "action": "Integration request: update README counts, route descriptions, and the dated data cutoff from the canonical outputs; do not imply that an old README count is current.",
+      "evidence": [
+        {
+          "label": "README (main)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md",
+          "kind": "repo"
+        },
+        {
+          "label": "Canonical master JSON",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+          "kind": "repo"
+        },
+        {
+          "label": "Published consolidated board",
+          "url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+          "kind": "site"
+        }
+      ]
+    },
+    {
+      "id": "E1-02",
+      "severity": "needs review",
+      "title": "Gaelic Football scope conflicts across taxonomy records",
+      "detail": "data/olbg-structure.json marks Gaelic Football (OLBG sport 25) in scope; data/sports.json marks Gaelic Football excluded; all five Gaelic Football master rows are currently out of scope. This should be resolved as an explicit interpretation, not silently changed.",
+      "action": "Integration request: select and document one policy. The current master excludes these five rows, consistent with data/sports.json and the more literal reading of the request.",
+      "evidence": [
+        {
+          "label": "OLBG Gaelic Football page (official)",
+          "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Finbarrs_v_Nemo_Rangers/25",
+          "kind": "official"
+        },
+        {
+          "label": "OLBG football page (official)",
+          "url": "https://www.olbg.com/betting-tips/Football/1",
+          "kind": "official"
+        },
+        {
+          "label": "Committed taxonomy files",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/olbg-structure.json",
+          "kind": "repo"
+        }
+      ]
+    },
+    {
+      "id": "E1-03",
+      "severity": "held",
+      "title": "The canonical list is a dated snapshot, not a live all-sport feed",
+      "detail": "The master metadata says generated_on=2026-10-21 and explicitly says values are copied from prior committed builds without refresh. The row-level freshness review counts 164 in-scope fixture rows dated on/after 2026-10-22: 150 are carried as strict rows and 14 are held for source, verification, or copy gaps. This is not proof that the 312-row dataset reflects the live fixture universe today.",
+      "action": "Keep the cutoff visible; refresh only from official governing-body feeds, and leave unconfirmed values blank until a new source check is recorded.",
+      "evidence": [
+        {
+          "label": "Official OLBG sitemap index",
+          "url": "https://www.olbg.com/sitemap.xml",
+          "kind": "official"
+        },
+        {
+          "label": "OLBG sport-page structure capture",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/olbg-structure.json",
+          "kind": "repo"
+        },
+        {
+          "label": "Row-level freshness review",
+          "url": "../session-4e9d03cf/index.html",
+          "kind": "local"
+        }
+      ]
+    },
+    {
+      "id": "E1-04",
+      "severity": "held",
+      "title": "Forty in-scope rows lack a classified official source",
+      "detail": "The canonical master has 312 in-scope rows. The row-level review classifies 40 with no official source recorded or an unclassified source; 27 additional in-scope rows have an official-domain link but no original build-verified flag; and one row is explicitly contradicted by a later live check. The canonical metadata counts 244 in-scope rows as officially verified. These other rows remain listed/flagged, not independently confirmed here.",
+      "action": "Do not present those rows as official confirmations. The existing Flagged for Review pages are the manual-review queue; add evidence only after the governing-body page itself is checked.",
+      "evidence": [
+        {
+          "label": "Official-source and verification review",
+          "url": "../session-4e9d03cf/index.html",
+          "kind": "local"
+        },
+        {
+          "label": "Master flagged register",
+          "url": "../board/flagged.html",
+          "kind": "local"
+        },
+        {
+          "label": "Recorded official-source example (NHL)",
+          "url": "https://api-web.nhle.com/v1/score/2026-10-22",
+          "kind": "official"
+        }
+      ]
+    },
+    {
+      "id": "E1-05",
+      "severity": "held",
+      "title": "Five High picks do not have unique human-written predictions",
+      "detail": "There are 38 High rows in the canonical in-scope master. 33 are marked written and 5 are marked templated. A templated prediction does not satisfy the brief's unique human copy requirement, even if it exceeds 30 words.",
+      "action": "Keep the five templated High records visibly flagged or downgrade them until distinct, source-checked copy replaces the templates.",
+      "evidence": [
+        {
+          "label": "Master predictions page",
+          "url": "../board/picks.html",
+          "kind": "local"
+        },
+        {
+          "label": "Prediction review and flagged rows",
+          "url": "../session-4e9d03cf/flagged.html",
+          "kind": "local"
+        },
+        {
+          "label": "Official EHF standings source recorded for a held pick",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+          "kind": "official"
+        }
+      ]
+    },
+    {
+      "id": "E1-06",
+      "severity": "needs review",
+      "title": "The same greyhound category appears under two sport labels",
+      "detail": "The canonical sport list contains both 'Greyhound Racing' and 'Greyhounds'. OLBG's captured taxonomy records 'Greyhounds' as its category; the extra label appears to come from merged source builds. This audit did not assume they are interchangeable or merge records.",
+      "action": "Review the source-build provenance and normalize only if an official OLBG category/ID proves the labels map to the same sport.",
+      "evidence": [
+        {
+          "label": "Official OLBG Greyhounds page",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+          "kind": "official"
+        },
+        {
+          "label": "Canonical master metadata",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+          "kind": "repo"
+        }
+      ]
+    },
+    {
+      "id": "E1-07",
+      "severity": "information boundary",
+      "title": "No fresh provider-page verification was possible in this audit",
+      "detail": "The audit independently rebuilt repository checks and compared committed metadata. It did not fetch OLBG, league, tournament, or governing-body pages during this turn; the provider-domain values and source URLs remain evidence inherited from committed session records, not fresh confirmations.",
+      "action": "Treat source URLs as links for manual review. No missing result, line, form statistic, or prediction fact was inferred or backfilled.",
+      "evidence": [
+        {
+          "label": "Official OLBG sitemap (manual review)",
+          "url": "https://www.olbg.com/sitemap.xml",
+          "kind": "official"
+        },
+        {
+          "label": "Latest successful Pages deployment",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39707686122",
+          "kind": "repo"
+        }
+      ]
+    },
+    {
+      "id": "E1-08",
+      "severity": "needs review",
+      "title": "Unverified values remain visible instead of being blanked",
+      "detail": "The master classifies 68 in-scope rows as not verified. The generated board table renders row names and any stored pick/market text without gating those cells on verification; 66 unverified rows currently have at least one such displayed value, including 43 with non-empty market fields. This differs from the brief's instruction to leave unconfirmed values blank. The data is flagged, but the values are not blanked.",
+      "action": "Integration request: keep the evidence/flag rows, but hide or blank every unverified value in the public fixture table until a row-level official source check is logged. Do not infer replacements.",
+      "evidence": [
+        {
+          "label": "Master table renderer (repository)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py#L144-L159",
+          "kind": "repo"
+        },
+        {
+          "label": "Canonical master data",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+          "kind": "repo"
+        },
+        {
+          "label": "Published master flagged register",
+          "url": "../board/flagged.html",
+          "kind": "local"
+        }
+      ]
+    },
+    {
+      "id": "E1-09",
+      "severity": "needs review",
+      "title": "The OLBG fixture capture is not an exhaustive all-match feed",
+      "detail": "The committed reverse-engineering record describes OLBG sport pages as a server-rendered tipped-event list with additional entries behind a JavaScript Load More control; untipped fixtures are not shown until someone tips them. Therefore the captured OLBG inventory cannot by itself prove a complete fixture universe. Other merged builds add matches from their own sources, so the origin of each list remains important.",
+      "action": "Describe the coverage honestly as the captured tipped-event inventory; only call it a full fixture list if each governing body or league supplies a complete schedule and the comparison is documented.",
+      "evidence": [
+        {
+          "label": "Official OLBG betting tips sitemap",
+          "url": "https://www.olbg.com/sitemap-betting-tips.xml",
+          "kind": "official"
+        },
+        {
+          "label": "Official OLBG tennis sport page",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3",
+          "kind": "official"
+        },
+        {
+          "label": "Committed reverse-engineering notes",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/olbg-structure.json",
+          "kind": "repo"
+        }
+      ]
+    },
+    {
+      "id": "E1-10",
+      "severity": "needs review",
+      "title": "No current automated pick meets both high-focus filters",
+      "detail": "The committed freshness review reports 17 automated high-confidence prediction records dated on/after 2026-10-22, but zero meet both a model probability of at least 70% and the requested American-price window of -250 to +10,000. This does not justify manufacturing a qualifying prediction; the pick list should remain empty for that intersection until supported model output exists.",
+      "action": "Do not add or upgrade a pick to satisfy a quota. Re-evaluate only after a fresh official input/model run yields a qualifying price and probability, and attach source-linked prediction facts.",
+      "evidence": [
+        {
+          "label": "Freshness review focus-filter finding",
+          "url": "../session-4e9d03cf/flagged.html",
+          "kind": "local"
+        },
+        {
+          "label": "Committed automated predictions",
+          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-4afef1af/data/predictions.json",
+          "kind": "repo"
+        },
+        {
+          "label": "Official NHL feed used in automated snapshot",
+          "url": "https://api-web.nhle.com/v1/score/2026-10-22",
+          "kind": "official"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "master_total_matches_metadata": true,
+    "in_scope_total_matches_metadata": true,
+    "gaelic_scope_conflict_reproduced": true,
+    "current_freshness_counts_match_s1_review": true,
+    "high_prediction_style_counts_match_rows": true
+  }
+}
