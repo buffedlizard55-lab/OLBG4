@@ -48,7 +48,6 @@ EXT = os.environ.get("BOARD_EXT", "")
 
 NAV = [
     ("index.html", "Dashboard"),
-    ("session-c92c927c/index.html", "New desk \u00b7 22\u201327 Oct"),
     ("picks.html", "Picks"),
     ("markets.html", "Markets"),
     ("sources.html", "Sources"),
