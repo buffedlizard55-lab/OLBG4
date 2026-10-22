@@ -1,0 +1,82 @@
+[
+ {
+  "id": "L01",
+  "url": "https://api-web.nhle.com/v1/standings/now",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "\"standingsDateTimeUtc\":\"2026-10-22T12:00:45Z\"; first team Carolina Hurricanes GP11 W8 L2 OT1 PTS17 GF42 GA27 streak W1.",
+  "compared_with": "data/session-e5f2dad3/raw/nhl_standings_2026-10-22.json — identical Carolina line (11, 8-2-1, 17, 42, 27).",
+  "result": "match"
+ },
+ {
+  "id": "L02",
+  "url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "2026-10-24: 12 games; id 2026020168 Anaheim Ducks @ Philadelphia Flyers 17:00Z Xfinity Mobile Arena; 2026020169 LAK@NJD Prudential Center; 2026020170 SJS@BOS TD Garden; 2026020171 NYR@OTT Canadian Tire Centre.",
+  "compared_with": "Committed nhl_schedule_2026-10-24.json parse — verify.py asserts these four game IDs/teams/venues.",
+  "result": "match"
+ },
+ {
+  "id": "L03",
+  "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-11-05",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "totalGames 7, all World Series: G1 2026-10-23 Tampa Bay Rays @ Milwaukee Brewers, American Family Field, gamePk 849805; G5/G6/G7 ifNecessary Y (gamePks 849799/849801/849800).",
+  "compared_with": "data/session-e5f2dad3/raw/mlb_schedule.json — same 7 gamePks, venues, if-necessary flags.",
+  "result": "match"
+ },
+ {
+  "id": "L04",
+  "url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "Feed lastUpdated 2026-10-22T09:46:03Z. QFs 2026-10-23: LS004 Ann Li (seed 1) v Lilli Tagger 11:30+09:00; LS005 Talia Gibson (4) v Ashlyn Krueger; LS006 Katie Boulter (8) v Antonia Ruzic; LS007 Mary Stoiana v Katerina Siniakova. R2 today: Li d Sonmez 6-3 6-1; Siniakova d Linette 6-4 6-1; Stoiana d Uchijima 6-2 2-6 6-3; Ruzic d Day 6-4 ret.",
+  "compared_with": "Committed wta_405_matches.json.gz (08:37Z) had LS007 opponent TBD; live feed resolves it to Siniakova — live value used, difference disclosed.",
+  "result": "newer than capture; live value used"
+ },
+ {
+  "id": "L05",
+  "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "Direct fetch returned cookie-consent text only (7 chunks, no article body). Search excerpt of the same pdc.tv URL lists Friday 23 Oct R1 x8: Joyce v Wattimena, Ratajski v Chisnall, Aspinall v Reyes, Clayton v Springer, Littler v O'Connor, Nijman v Schindler, Doets v Van Gerwen, Rock v Dobey (1900-2300 CEST). Seeded bracket read from verbatim republications of the official pdc.tv draw (seeds printed per tie). pdc.tv 22 Oct: Humphries withdrawn (gastroenteritis) — affects Thursday's tie only.",
+  "compared_with": "pdc.tv draw article excerpt (18 Oct) and schedule article excerpt (19 Oct) agree on all eight Friday pairings.",
+  "result": "match (via excerpt; AD-F03)"
+ },
+ {
+  "id": "L06",
+  "url": "https://www.nba.com/games?date=2026-10-24",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "Calendar counts only (23 Oct: 12 GAMES, 24 Oct: 8 GAMES) then 'Sorry, something went wrong.' nba.com/schedule returned filter UI only; cdn.nba.com todaysScoreboard_00.json HTTP 500; stats.nba.com scoreboardv3 fetch failed.",
+  "compared_with": "Committed manifest: scheduleLeagueV2.json HTTP 403, stats.nba.com status 0.",
+  "result": "no official pairing readable — NBA coverage-only (AD-F08)"
+ },
+ {
+  "id": "L07",
+  "url": "https://www.wst.tv/matches",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "BetVictor Northern Ireland Open: Round 3 scheduled Thu 22 Oct (Matthew Selt v Sam Craigie, Kyren Wilson v Pang Junxu, Anthony McGill v Mateusz Baranowski, Elliot Slessor v Ricky Walden, Mark Williams v Martin O'Donnell, David Gilbert v Ka Wai Cheung, Jordan Brown v Scott Donaldson, Jak Jones v Daniel Wells). No 23 Oct quarter-final pairings listed.",
+  "compared_with": "—",
+  "result": "QF pairings do not exist yet; snooker coverage-only (AD-F09)"
+ },
+ {
+  "id": "L08",
+  "url": "https://www.atptour.com/en/scores/current",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "Round of 16 live today: Almaty Machac v Khachanov (5); Brussels Collignon v Lehecka (2); Lyon Vacherot (3) v Van Assche, Gojo v Altmaier.",
+  "compared_with": "—",
+  "result": "Friday ATP QF pairings incomplete at capture (AD-F09)"
+ },
+ {
+  "id": "L09",
+  "url": "https://www.wtatennis.com/rankings/singles",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "Page returned site chrome/notifications only — no ranking rows. https://api.wtatennis.com/tennis/players/326096 returned {\"id\":326096,\"fullName\":\"Ann Li\",...} with no ranking field.",
+  "compared_with": "—",
+  "result": "rankings unreadable — WTA listed unpriced (AD-F05)"
+ },
+ {
+  "id": "L10",
+  "url": "repo manifests",
+  "fetched": "2026-10-22 (this session)",
+  "observed": "build.py re-hashed every payload it parsed and asserted equality with data/session-e5f2dad3/manifest.json and data/session-9359e596/capture/20261022T083834Z/manifest.json before use (see sources.json).",
+  "compared_with": "Manifest SHA-256 values recorded at capture on 2026-10-22.",
+  "result": "match (asserted in code)"
+ }
+]
