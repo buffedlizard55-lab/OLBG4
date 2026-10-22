@@ -75,17 +75,17 @@ Gates for this board: `python3 scripts/session-e5f2dad3/build.py`, `python3 scri
 
 | Page | What it shows |
 |---|---|
-| `/` | 312 in-scope rows across 19 stored sport labels (Greyhound Racing and Greyhounds are separate labels), filterable by sport, confidence, market and verification, each row with its source link — `data/master.json`, 21 Oct snapshot |
-| `/picks.html` | 62 high-confidence picks, every one with a written prediction (≥30 words, 38–92 words, source under each) |
+| `/` | 331 in-scope rows across 19 stored sport labels (Greyhound Racing and Greyhounds are separate labels), filterable by sport, confidence, market and verification, each row with its source link — `data/master.json`, rebuilt 2026-10-22 from the refreshed official-data snapshot |
+| `/picks.html` | 41 high-confidence picks, every one with a written prediction (≥30 words, source cited under each) |
 | `/markets.html` | Match winner / handicap / total coverage per sport, plus 23 outright markets |
-| `/flagged.html` | Everything unconfirmed: 1 contradicted row, 64 unverified rows, 15 cross-build model conflicts, 30 date discrepancies, 14 templated write-ups, 4 out-of-scope rows |
+| `/flagged.html` | Everything unconfirmed: 68 in-scope rows without an official source, 16 cross-build model conflicts, 8 templated write-ups, 5 out-of-scope rows |
 | `/sources.html` | Every domain in use, classified official / secondary / OLBG, with the live re-check log |
 | `/audit.html` | Verification log: dataset totals, where each row came from, the evidence for every live check |
 | `/methodology.html` | How the list was assembled, how each build priced its lines, how confidence was graded, limitations |
 | `/archive.html` | The six earlier dashboards, all still online |
 | `/olbg.html` | Build B's OLBG-only inventory (116 fixtures, no official source — published separately on purpose) |
 
-Machine-readable: `data/master.json` (312 rows), `data/master_conflicts.json`, `data/source_registry.json`,
+Machine-readable: `data/master.json` (331 in-scope rows), `data/master_conflicts.json`, `data/source_registry.json`,
 `data/live_checks.json`, `data/master_olbg.json`.
 
 Rebuild and re-verify:
@@ -108,14 +108,14 @@ marked unverified, and listed on the Flagged page. One row contradicts an offici
 
 ### Headline numbers
 
-- 317 rows total, 312 in scope, 19 stored sport labels (soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials excluded; Greyhound Racing and Greyhounds remain distinct labels). Counts verified against `data/master.json` on 2026-10-22 — this is the 21 Oct snapshot, not a 22 Oct live re-read.
-- 267 genuine fixtures; 31 market notes and 10 incomplete rows are kept, flagged and hidden from the fixture view.
-- 277 rows carry an originated pick; 244 are official-sourced *and* build-verified; 34 were re-opened and re-checked on 2026-10-21.
-- 63 non-templated written predictions. Every one of the 62 high-confidence fixtures carries one, and five of those were
+- 336 rows total, 331 in scope, 19 stored sport labels (soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials excluded; Greyhound Racing and Greyhounds remain distinct labels). Counts verified against `data/master.json` on 2026-10-22 after the board was rebuilt from the refreshed official-data snapshot. The underlying cut-off is still the 21 Oct dataset, so this is not a 22 Oct live re-read of every row.
+- 286 genuine fixtures; 30 market notes and 15 incomplete rows are kept, flagged and hidden from the fixture view.
+- 288 in-scope rows carry an originated pick; 263 of the 331 in-scope rows are official-sourced *and* build-verified; 36 were re-opened and re-checked.
+- 65 non-templated written predictions. All 41 high-confidence rows carry one, and five of those were
   written by this session from facts re-read on official pages (each card lists the facts and their URLs).
-- 14 further rows carry templated text from build A (one sentence frame repeated verbatim); they stay at Low/Medium and are
+- 8 further rows carry templated text from build A (one sentence frame repeated verbatim); they stay at Low/Medium and are
   listed on Flagged.
-- 15 fixtures have opposite picks in different builds — both sides published.
+- 16 cross-build conflicts have opposite picks in different builds — both sides published.
 - 39 rows have no source at all (build D never recorded one); they stay visible, marked unverified, and are the first block on Flagged.
 
 ---
