@@ -2890,14 +2890,14 @@ majority of its rows were already played by the time this session started.
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| T1 | Re-read official league/tour feeds live for the 22–28 Oct 2026 window; build an updated in-scope fixture list (excluded sports: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials) | in progress | arena/cdf25c13-olbg4 | `data/session-cdf25c13/fixtures.json`, `session-cdf25c13/` |
-| T2 | Originate own lines (moneyline, handicap, match total) per fixture from official numeric inputs; document the model | unclaimed→ | arena/cdf25c13-olbg4 | `data/session-cdf25c13/markets.json`, `session-cdf25c13/build.py` |
-| T3 | Pick a winner per priced fixture + confidence Low/Medium/High from evidence rules | — | arena/cdf25c13-olbg4 | `data/session-cdf25c13/picks.json` |
-| T4 | High-confidence written predictions (≥30 words, unique, verified facts, explicit selection) restricted to the −250…+10,000 American-price window | — | arena/cdf25c13-olbg4 | `data/session-cdf25c13/predictions.json` |
-| T5 | Line-by-line verification register with an official source URL per row; blanks + flags for anything unconfirmed | — | arena/cdf25c13-olbg4 | `data/session-cdf25c13/verification.json` |
-| T6 | Dashboard: landing + per-category subpages + analysis + Flagged for Review, no broken links | — | arena/cdf25c13-olbg4 | `session-cdf25c13/**` |
-| T7 | Root integration: root landing pointer/nav + README + COORDINATION records; run every existing gate | — | arena/cdf25c13-olbg4 | `index.html`, `README.md`, `COORDINATION.md` |
-| T8 | PR from `arena/cdf25c13-olbg4` → `main`, merge without waiting, confirm the Pages deploy, record the result | — | arena/cdf25c13-olbg4 | `COORDINATION.md` |
+| T1 | Re-read official league/tour feeds live for the 22–28 Oct 2026 window; build an updated in-scope fixture list (excluded sports: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials) | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/fixtures.json`, `session-cdf25c13/` |
+| T2 | Originate own lines (moneyline, handicap, match total) per fixture from official numeric inputs; document the model | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/markets.json`, `session-cdf25c13/build.py` |
+| T3 | Pick a winner per priced fixture + confidence Low/Medium/High from evidence rules | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/picks.json` |
+| T4 | High-confidence written predictions (≥30 words, unique, verified facts, explicit selection) restricted to the −250…+10,000 American-price window | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/predictions.json` |
+| T5 | Line-by-line verification register with an official source URL per row; blanks + flags for anything unconfirmed | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/verification.json` |
+| T6 | Dashboard: landing + per-category subpages + analysis + Flagged for Review, no broken links | **done** | arena/cdf25c13-olbg4 | `session-cdf25c13/**` |
+| T7 | Root integration: root landing pointer/nav + README + COORDINATION records; run every existing gate | **done** | arena/cdf25c13-olbg4 | `index.html`, `README.md`, `COORDINATION.md` |
+| T8 | PR from `arena/cdf25c13-olbg4` → `main`, merge without waiting, confirm the Pages deploy, record the result | **done** | arena/cdf25c13-olbg4 | `COORDINATION.md` |
 
 **Claim boundary.** Board T owns `session-cdf25c13/` and `data/session-cdf25c13/`. Shared root files (`index.html`,
 `README.md`, `COORDINATION.md`) are claimed only for additive edits: a pointer block to the new dashboard, a README
@@ -2923,6 +2923,19 @@ is stored with the exact URL it came from. Sources that cannot be retrieved are 
 | Gates | `python3 -m session-cdf25c13.build` · `python3 -m session-cdf25c13.render` · `python3 -m session-cdf25c13.verify` → OK; `python3 tools/build_master.py` → 317 rows; `BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py`; `BOARD_DIR=board python3 tools/verify_master.py` → OK; `python3 scripts/audit_publication.py --check` → 10,689 targets, 0 broken, 0 stale. The Pages workflow runs the Board T build/render/verify and fails if the committed output drifts |
 | Root integration | Additive only: one nav link, one landing banner and a README section in `index.html` / `README.md`; both desks are linked, no other board's files touched |
 | Merge | `git fetch origin main` + `git merge` (never rebase). One conflict, in this file, because a second session claimed the same board letter; resolved by keeping **both** blocks and logging the duplicate claim |
+
+### Board T — PR, merge and deploy record (session `arena/cdf25c13-olbg4`)
+
+| Item | Result |
+|---|---|
+| PR #63 (main delivery) | https://github.com/buffedlizard55-lab/OLBG4/pull/63 — checks `audit`, `build-and-validate`, `verify` all **pass**; **MERGED** 2026-10-22T03:03:03Z, merge commit `2123e65263e8810b2933e3762294aa4232ccbbb4`; Pages deploy run `39714744860` **success** |
+| PR #71 (claim corrections) | https://github.com/buffedlizard55-lab/OLBG4/pull/71 — MERGED 2026-10-22T03:07:16Z, merge commit `98d9adf16c82e09e444c5030984aed070a2130e4`; deploy run `39715225170` **success**. Removed the false "weakest defence in the West" superlative, the "at home" reading of an overall record, and two opinion-as-fact defensive descriptions; gate extended to reject that class of claim |
+| PR #78 (second claim sweep) | https://github.com/buffedlizard55-lab/OLBG4/pull/78 — MERGED 2026-10-22T03:11:03Z, merge commit `a39c9b7eeb09e912097fa75cabe45b235d203e07`; deploy run `39715463930` **success**. Removed a "beaten by Seattle earlier in the week" line about a fixture that had not been played at the cutoff, and an unverified arena name |
+| Live check | https://buffedlizard55-lab.github.io/OLBG4/session-cdf25c13/ returns the desk; the picks page carries the 8 High cards with the corrected prose and the fact/URL table under each |
+| Remaining status | T1–T8 **done**. The flagged items (`session-cdf25c13/flagged.html` F01–F12) are published as *needs review* and do not block merge, per the brief |
+| Known limitation | Four sports priced of nineteen in scope. The other fifteen are listed with reasons rather than filled in; the sandbox can only reach league domains through the page-fetch tool, and several pages (PDC consent wall, partial EHF standings, ATP scores without tournament names) returned nothing safe to price |
+
+
 - **PR / merge / Pages (Board T final):** PR https://github.com/buffedlizard55-lab/OLBG4/pull/61 — checks `audit`, `build-and-validate`, `verify` all PASS; **MERGED** to `main` 2026-10-22T02:54:51Z, merge commit `e6ab5043b54098abf9ecd3d822cda6fab21c4263`. GitHub Pages: `Deploy OLBG4 to GitHub Pages` run `39713967508` completed **success**; Pages API reports `status: built` from `main`. Live verification 2026-10-22: https://buffedlizard55-lab.github.io/OLBG4/session-4ec1fc72/picks.html returned the 2 High picks (Minnesota -223, Edmonton -229) with 111/118-word predictions. Board T tasks T1-T4: **done** (flagged items are `needs review`, non-blocking per brief).
 
 **Copy correction after first deploy (2026-10-22).** Five write-ups carried details the official pages do not print — a coach's name, "eight tries", "five tries", "conceded a single try" and "Swansea" for St Helen's. All five were rewritten to quote only the verified scorelines, the site was rebuilt (`9 High, links ok`) and redeployed under PR #69. Recorded because it is exactly the class of unverified detail the brief forbids, and it was caught only on a post-deploy read-back.
