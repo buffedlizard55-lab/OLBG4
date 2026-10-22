@@ -216,7 +216,7 @@
   },
   {
     "id": "nhl_skater_leaders",
-    "url": "https://api-web.nhle.com/v1/skater-stats-leaders/current?categories=goals,points&limit=15",
+    "url": "https://api-web.nhle.com/v1/skater-stats-leaders/current?categories=goals,points&limit=100",
     "delay": 0.45
   },
   {
@@ -576,6 +576,36 @@
   {
     "id": "icc_fixtures",
     "url": "https://www.icc-cricket.com/matches",
+    "delay": 0.5
+  },
+  {
+    "id": "nhl_score_2026_10_18",
+    "url": "https://api-web.nhle.com/v1/score/2026-10-18",
+    "delay": 0.5
+  },
+  {
+    "id": "nhl_score_2026_10_19",
+    "url": "https://api-web.nhle.com/v1/score/2026-10-19",
+    "delay": 0.5
+  },
+  {
+    "id": "euroleague_stats",
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/stats/",
+    "delay": 0.5
+  },
+  {
+    "id": "euroleague_roster_panathinaikos",
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/teams/panathinaikos-aktor-athens/roster/pan/",
+    "delay": 0.5
+  },
+  {
+    "id": "euroleague_roster_fenerbahce",
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/teams/fenerbahce-tarfin-istanbul/roster/ulk/",
+    "delay": 0.5
+  },
+  {
+    "id": "euroleague_roster_olympiacos",
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/teams/olympiacos-piraeus/roster/oly/",
     "delay": 0.5
   }
 ]
