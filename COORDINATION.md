@@ -2,7 +2,7 @@
 
 Four sessions worked this repo in parallel. This file is the merged board: Boards A/B are kept verbatim, Boards C/D appended, cross-session conflicts logged.
 
-Last board update: 2026-10-22 · current session: `arena/fca9d738-olbg4` (Board S2, high-confidence odds-window focus + Oct-22 freshness verification, in progress) · prior: `arena/4e9d03cf-olbg4` (Board S1, done) · integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard)
+Last board update: 2026-10-22 · current session: `arena/fca9d738-olbg4` (Board S2, high-confidence odds-window focus + Oct-22 freshness verification, done) · prior: `arena/4e9d03cf-olbg4` (Board S1, done) · integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard)
 
 
 ## Board S2 — session `arena/fca9d738-olbg4` (2026-10-22 high-confidence odds-window focus + freshness verification)
@@ -11,12 +11,23 @@ Session: `arena/fca9d738-olbg4` | Branch: `arena/fca9d738-olbg4` | Claimed: 2026
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| S2 | Re-verify every current (≥2026-10-22) in-scope canonical fixture line by line; recompute the American-odds window (-250 to +10000) for all High picks; live re-check High fixtures against official league/tour/federation pages; author replacement written predictions (≥30 words, unique, human, team+form+history+obvious selection) only for High rows whose canonical text is templated, citing only facts read on official pages; publish session-scoped tables + flagged register with source links. No changes to other boards' data or root navigation. | in progress | arena/fca9d738-olbg4 | `session-fca9d738/`, `data/session-fca9d738/`, `COORDINATION.md` |
+| S2 | Re-verify every current (≥2026-10-22) in-scope canonical fixture line by line; recompute the American-odds window (-250 to +10000) for all High picks; live re-check High fixtures against official league/tour/federation pages; author replacement written predictions (≥30 words, unique, human, team+form+history+obvious selection) only for High rows whose canonical text is templated, citing only facts read on official pages; publish session-scoped tables + flagged register with source links. No changes to other boards' data or root navigation. | done | arena/fca9d738-olbg4 | `session-fca9d738/`, `data/session-fca9d738/`, `COORDINATION.md` |
 
 **Claim boundary.** New, non-overlapping deliverable. `data/master.json`, `board/`, root `*.html`, `data/matches.json`, `data/rows.json`, `data/board.json`, every other `session-*/` and `data/session-*/` folder, and all generators/workflows are read-only for S2. Findings needing another owner's file are logged here as integration requests, not applied.
 
 ### S2 working log
 - 2026-10-22 UTC — `fca9d738` — board claimed; scope `session-fca9d738/` + `data/session-fca9d738/`; claim committed and pushed before any other work.
+- 2026-10-22 UTC — `fca9d738` — live verification complete: 16 official pages read (NHL API 22–27 Oct slates, PDC draw + schedule, NRL R2 late mail + R1 wrap, URC R4 centre, PAO/EuroLeague/LNR/Stade Toulousain officials); deliverable built, verified, committed and pushed.
+
+### S2 completion record (2026-10-22 UTC)
+
+- **Published output:** [`session-fca9d738/index.html`](session-fca9d738/index.html) is the focus desk (19-pick focus list with full prediction text + filterable 164-row table); [`session-fca9d738/flagged.html`](session-fca9d738/flagged.html) carries 15 source-linked findings; [`data/session-fca9d738/review.json`](data/session-fca9d738/review.json) and [`data/session-fca9d738/predictions.json`](data/session-fca9d738/predictions.json) are the deterministic machine-readable outputs. No fixture invented, no price re-originated, no grade changed.
+- **Line-by-line result:** 164 current in-scope fixtures checked; 154 carried-current, 4 held-source, 6 held-verification, 0 held-copy (S1's 4 current held-copy rows resolved by S2 replacements). All 30 current High fixtures live-confirmed (28 confirmed + 2 corroborated: M0205/M0206 via secondary excerpts against the official LNR J8 calendar). 70/164 rows live-confirmed overall, 6 corroborated; NBA/MLB/cricket/handball/volleyball/golf/women's-RL/PREM/November rows carried from build-verified data and disclosed as not live re-read.
+- **Odds-window result:** 19 High picks sit inside -250/+10000 (-244 to -171; none shorter than -250, none above 70.9% raw implied); 11 High picks held from focus (7 Build-G moneyline picks with no published moneyline — M0129/M0163/M0197/M0203/M0205/M0206/M0248; 4 Build-E totals/handicap picks whose line has no matching published price — M0162/M0231/M0232/M0301).
+- **New predictions:** 4 replacements (M0139 Price 84 words, M0240 Samoa 89, M0246 Leinster 72, M0274 NZ 93), each unique, each naming team/player, form, recent history and an obvious selection; every factual claim cites its official source URL. M0071 (historical, 21 Oct) intentionally has no replacement.
+- **Verification performed:** `python3 session-fca9d738/verify_review.py` → PASS (byte-identical rebuild, length/uniqueness/selection checks, official-domain fact sources, window maths re-derived, no held promotion, local links, scope gate); `BOARD_DIR=board python3 tools/verify_master.py` → OK; `python3 scripts/audit_publication.py --check` → 10,309 targets, 0 broken, 0 stale; `python3 -m pipeline.selftest` → pass; all 4 new artefacts HTTP 200 locally.
+- **Irregularities published (S2-F01…F15, needs review, non-blocking):** NRL.com's Tonga +12 vs own 30-12 scoreline (+18) plus 'win over Tonga' typo; canonical M0240 wrong city (Perth → Sydney, corrected here); 4 Build-E line mismatches; 7 Build-G missing moneylines; M0071 held; NHL UTC-date convention documented; thin 27-Oct+ NHL coverage; possible WS duplication; possible ATL-HOU duplicate; M0147 pseudo-fixture; M0124 no-source; M0266 generic link; coverage disclosure; M0178 6¢ from window edge; URC timezone note.
+- **Integration requests (not applied — other owners' files):** Build E/pipeline: publish matching prices for M0162/M0231/M0232/M0301 pick lines; Build G: originate moneylines for M0129/M0163/M0197/M0203/M0205/M0206/M0248; final integration: re-type M0147, reconcile M0210/M0252/M0282/M0293 + M0211/M0253, extend window past 27 Oct.
 
 ---
 
