@@ -2639,6 +2639,37 @@ All 9 predictions are 72–89 words, each quoting the verified form (standings, 
 
 ---
 
+## Board T — session `arena/4ec1fc72-olbg4` (fresh 22–28 Oct verified desk, odds-window high picks)
+
+Session: `arena/4ec1fc72-olbg4` | Branch: `arena/4ec1fc72-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Claim + audit prior boards/freshness | in progress | arena/4ec1fc72-olbg4 | `COORDINATION.md` (append only) |
+| T2 | Fresh official-source fixture/form collection 22–28 Oct 2026 for in-scope sports (excl. soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials) | unclaimed→in progress (T) | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `data/session-4ec1fc72/` |
+| T3 | Originate own win/handicap/total lines, confidence, ≥30-word unique predictions for High picks inside −250…+10000 | in progress | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `data/session-4ec1fc72/` |
+| T4 | Clean GitHub Pages sub-site (dashboard + per-sport + flagged + sources + verification), link check, PR→merge→Pages confirm | in progress | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `COORDINATION.md` |
+
+**Claim boundary.** Non-overlapping: only `session-4ec1fc72/`, `data/session-4ec1fc72/` and appends to this file. No other board's data, root `index.html`, `data/master.json`, `data/rows.json` or generated root pages are edited. Integration request (root nav link to `session-4ec1fc72/`) is logged here for a final integration owner, not applied.
+**Method boundary.** Sandbox curl egress to sports domains fails (SSL_ERROR_SYSCALL, re-confirmed 2026-10-22); official pages/APIs are read with the agent web-fetch tool and the exact URL read is stored per row. No OLBG price/tip is copied — OLBG is taxonomy reference only (see `docs/olbg-reverse-engineering.md`). Unconfirmable values stay blank and are flagged.
+
+### Board T completion record (2026-10-22, session arena/4ec1fc72-olbg4)
+
+- **Published output:** `session-4ec1fc72/` (dashboard, High picks, markets, flagged, sources, methodology, verification, coverage + 4 sport pages) and `data/session-4ec1fc72/data.json`. 97 rows: NHL 49, NBA 29, MLB World Series G1-3, PDC darts 16 (fixture-verified, unpriced). 81 priced with own win/handicap/total lines (NBA totals and all darts markets investigated but deliberately unpriced — reasons flagged).
+- **Sources read 2026-10-22 (official only, exact URL per row):** NHL.com schedule 22-28 Oct + standings 21 Oct + api-web.nhle.com score feeds (team leaders); NBA.com Week-1 schedule + standings; MLB Stats API World Series schedule + 2026 standings (Rays 98-64 RS736/RA650, Brewers 103-59 RS832/RA618); pdc.tv European Championship schedule (Westfalenhalle, 22-25 Oct); wst.tv matches (coverage attempt). Sandbox curl to sports domains fails (SSL_ERROR_SYSCALL); pages were read with the agent web-fetch tool. No OLBG/bookmaker price copied — OLBG is taxonomy reference only.
+- **High-confidence result:** definition published on the methodology page — model p >=0.66 AND originated price in -250..+10000. Exactly 2 qualify: Edmonton Oilers ML vs Detroit 26 Oct (p 0.670, 1.436/-229, 118-word prediction: Draisaitl 8 goals, McDavid 20 assists, Oilers 7-1-1 GF41/GA27 vs Red Wings 3-3-3) and Minnesota Wild ML at Vancouver 25 Oct (p 0.664, 1.449/-223, 111 words: Kaprizov 11 goals, Hughes 11 assists, Wallstedt 6 wins vs Canucks 2-8-1 GF33/GA51). Two stronger model picks priced outside the window (NY Rangers 0.689 at -253; Edmonton 0.768 at -397 on 28 Oct) were capped at Medium and flagged, not promoted.
+- **Verification performed:** `python3 session-4ec1fc72/build.py` deterministic; `python3 session-4ec1fc72/verify.py` PASS (97 rows, 2 High, 24 flagged, 0 errors — official domains only, no excluded sport, High window/probability/prediction gates, pairwise prediction similarity, local links); `python3 scripts/audit_publication.py --check` PASS (10,470 local targets, 0 broken/stale); `python3 -m pipeline.selftest` PASS; all Board T pages + data.json returned HTTP 200 from a local static server.
+- **Irregularities published (Flagged for Review, `session-4ec1fc72/flagged.html`):** 2 outside-window downgrades; neutral-site MTL@WPG 25 Oct (Princess Auto Stadium, no home-ice term); NBA totals unpriced (no pace data) and all-NBA Low cap (0-1 games per club); MLB probable pitchers absent from schedule payload (no MLB High); 16 darts ties unpriced (no ranking for both players); snooker later-round pairings not on the WST page read; 15 in-scope sports not refreshed this session (listed on Coverage page, not re-badged); earlier boards' 21-Oct fixtures now completed/stale.
+- **Integration request (not applied):** add a root-nav link to `session-4ec1fc72/` in the master-board generator (`tools/build_master_site.py`) at the next integration session. Root pages, `data/master.json` and other boards' files were not edited.
+- **PR / merge / Pages:** recorded below after merge.
+
+**Merge note (2026-10-22).** Two sessions independently claimed the same board letter within nine
+minutes of each other — `arena/4ec1fc72-olbg4` (merged first, commit `e6ab504`) and
+`arena/cdf25c13-olbg4`. Both are preserved here in full. Their file scopes do not overlap
+(`session-4ec1fc72/` vs `session-cdf25c13/`), neither edited the other's data, and only
+`arena/cdf25c13-olbg4` took the additive root-landing and README edits, which are recorded in its
+own block below. Nothing was discarded in this merge.
+
 ## Board T — session `arena/cdf25c13-olbg4` (2026-10-22: live-refreshed desk, 22–28 Oct window)
 
 Session: `arena/cdf25c13-olbg4` · Branch: `arena/cdf25c13-olbg4` · Claimed: 2026-10-22T02:47Z UTC · **status: active**
