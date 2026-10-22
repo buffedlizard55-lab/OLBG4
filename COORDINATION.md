@@ -3455,3 +3455,10 @@ Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026
 
 
 AD integration log: concurrent main merge caused an append-only COORDINATION.md conflict. Resolved by preserving both complete session records; no peer data or pages discarded.
+
+### arena/7bbc825b-olbg4 PR and deployment record
+- PR https://github.com/buffedlizard55-lab/OLBG4/pull/108 **MERGED** at 2026-10-22T12:10:03Z; merge commit `3e2e4919c09297decb2c3fe9c97f8779eb01cd01`. PR checks `audit`, `build-and-validate`, `verify` passed after integration with concurrent main work.
+- Legacy Pages deployment succeeded in run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39776191913 (`build`, `deploy`, `report-build-status` all success). Deployed main commit `da9aabc4f92defe63cac62ff394ba903a94cb850` includes the PR merge (GitHub compare: ahead 2, behind 0).
+- Published URL: https://buffedlizard55-lab.github.io/OLBG4/session-7bbc825b/ ; flags: https://buffedlizard55-lab.github.io/OLBG4/session-7bbc825b/flagged.html . Deployment is confirmed through GitHub Actions; direct browser/HTTP read-back is not claimed (github.io outside sandbox egress allowlist).
+- Existing custom `Deploy OLBG4 to GitHub Pages` workflow failed its pre-existing master-dashboard staleness gate; the actual configured legacy Pages publication above succeeded. Integration request to master-board owner: reconcile its generator output; these shared owned files were not changed by this session. First legacy run was canceled by newer concurrent main publication; verified replacement run succeeded.
+- AD2 **done** for this session. AD1 source and model gaps remain **needs review**, published non-blocking. No live fixture completeness, independently verified form/history, or calibrated High picks are claimed.
