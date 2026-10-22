@@ -3820,3 +3820,22 @@ traceability, every internal link, manifest re-hash, scope). `python3 scripts/au
 
 **Integration request (not applied, outside AF scope):** add a pointer to `/session-2d25cf78/index.html` from the
 root `index.html` / `README.md` navigation so the dashboard is reachable from the site front door.
+
+### AF merge and deploy record (2026-10-22T21:20Z UTC)
+
+- **Pull request:** https://github.com/buffedlizard55-lab/OLBG4/pull/120 — **MERGED** to `main` at 2026-10-22T21:13Z
+  (merge commit `17bc4e17a217a579f2cbec3165f1c1feaf3b7124`) with all three PR checks green (`audit`,
+  `build-and-validate`, `verify`).
+- **Merge conflict encountered and resolved:** `main` advanced while Board AF was open (PR #119 from session
+  `0d3b826c`, which also uses the label "Board AF"). Only `COORDINATION.md` conflicted; resolved by keeping every
+  incoming block verbatim and appending Board AF's two blocks (claim + completion) after it. A separate session had
+  already added a root-dashboard pointer for `0d3b826c`; Board AF's pointer was added additively in the follow-up PR
+  and touches nothing else in `index.html`.
+- **Post-merge re-verification:** `scripts/session-2d25cf78/verify.py` 19/19 PASS on the merged tree;
+  `scripts/audit_publication.py --check` 24,530 local targets, 0 broken, 0 stale; `pipeline.selftest` pass.
+- **GitHub Pages:** `Deploy OLBG4 to GitHub Pages` run `39855634736` **success**; Pages API latest build `built`
+  with no error; the live dashboard was read back over HTTPS at
+  https://buffedlizard55-lab.github.io/OLBG4/session-2d25cf78/ and renders the 126-fixture desk, the 30 predictions
+  and the coverage table.
+- **Label collision:** two sessions published under "Board AF" tonight. This section is identified by its session id
+  `arena/2d25cf78-olbg4`; the other desk is `session-0d3b826c/`. No files overlap.
