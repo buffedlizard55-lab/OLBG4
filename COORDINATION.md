@@ -3292,3 +3292,57 @@ Session: `arena/19b8e377-olbg4` · Branch: `arena/19b8e377-olbg4` · Claimed: 20
 
 **Claim boundary.** All earlier `session-*/` and `data/session-*/` folders remain strictly read-only. Primary deliverables live in `session-19b8e377/`, `data/session-19b8e377/`, and `scripts/session-19b8e377/`. Shared integration artifacts (`index.html`, `README.md`, `board/**`, `data/master*.json`, `audit/**`) are updated additively and deterministically in Z5 once Z1–Z4 are complete.
 
+### Board Z completion record (2026-10-22 UTC)
+
+**Deliverable.** [`session-19b8e377/index.html`](session-19b8e377/index.html) — a ten-page dashboard (Dashboard, All matches, Picks,
+Our lines, High-confidence write-ups, Analysis, Verification register, Sources, Method, Flagged for review) plus five sport pages,
+all written by `scripts/session-19b8e377/build.py`. Machine-readable: `data/session-19b8e377/{desk,lines,predictions,sources,flagged}.json`.
+
+| Metric | Value |
+|---|---|
+| Fixtures | **91** across 5 sports — Handball 37 (EHF Champions League 22 & 28–29 Oct, Danish Herreligaen, French StarLigue J08, Liga ASOBAL, Swedish Handbollsligan), Basketball 18 (EuroLeague Round 7, Liga Endesa Jornada 5), Volleyball 17 (ČEZ Extraliga, SuperLega), Tennis 11 (ATP Almaty/Brussels/Lyon round of 16), Snooker 8 (WST Northern Ireland Open round 3) |
+| Priced | **78**; 13 published with every price cell blank and a stated reason |
+| Own lines | **1,876 prices** — money line, handicap ladder and match total per priced fixture, all at 1 ÷ model probability with no margin added |
+| Confidence | 1 High · 64 Medium · 13 Low primary match-winner picks |
+| High selections inside −250…+10,000 | **14** (decimal 1.40–1.43, model probability 70.0–71.4%) across handball 6, basketball 6, tennis 1, volleyball 1 |
+| Write-ups | **14**, 40–70 words, all unique (max trigram Jaccard well under the 0.25 gate), each naming the selection, quoting its line and using only numbers printed on the official page |
+| Official sources | **38** registered, each with publisher, URL, status, what was read and retrieval time; two recorded as unreadable (German HBL behind reCAPTCHA, GAA national fixtures endpoint carrying no club matches) |
+| Gates | `python3 scripts/session-19b8e377/verify.py` → **4,367 checks, 0 failed**, 256 internal links scanned, deterministic rebuild confirmed; `python3 scripts/audit_publication.py --check` → 12,493 local targets, 0 broken, 0 stale; `BOARD_DIR=board python3 tools/verify_master.py` → OK; `python3 -m pipeline.selftest` → pass; `python3 -m session-cdf25c13.verify` → pass; `bash scripts/session-74f9613e/build_all.sh` → clean (no diff) |
+
+**What was actually read live on 22 October 2026** (not carried from another board): wst.tv match list and rankings; the EHF Champions
+League standings/calendar and the EHF women's World Championship qualification article; Tophaandbold's Herreligaen programme and
+table; the LNH StarLigue calendar and classement; Liga ASOBAL's calendar, table and 2026/27 calendar PDF; the Swedish
+Handbollsligan table and schedule; ČVS Extraliga; Lega Pallavolo Serie A calendar/table and the PlusLiga official schedule PDF;
+the ATP order of play for Almaty (9410), Brussels (7485) and Lyon (496) plus the 19 October PIF rankings and the ATP scores page;
+the WTA scores page; the EuroLeague game centre and standings; acb.com standings and Jornada 5 fixture list; the NBL schedule and
+ladder; MLB StatsAPI World Series window; the NRL men's and women's RLWC round 2 late mail (both timestamped 22 October);
+top14.lnr.fr classement and J7 calendar; premrugby.com standings; NZR Provincial Rugby's NPC final preview; Cricket South Africa's
+upcoming fixtures; the ECB ODI tri-series article; Cricket Ireland's match centre; and the GAA national fixtures page.
+
+**Irregularities published (Z-F-01…Z-F-09 on `flagged.html`, needs review, non-blocking).**
+(1) the −250 floor and the >70% rule can only both hold between 70.0% and 71.4%, so 13 stronger picks are graded Medium with the
+reason printed on the row; (2) 13 fixtures are unpriced because a two-sided official input was absent; (3) two EuroLeague fixtures
+give a home side that does not match the hall printed beside it (Efes at the Turkcell Development Center, Olympiacos at SUNEL
+ARENA); (4) acb.com, wst.tv and the EHF print clock times without naming a timezone and were not converted; (5) the live OLBG
+listings contradict the governing bodies on more than twenty fixtures for this week — four Top 14 pairings that are not the LNR's
+J7 card, a Hilux NPC "Bay of Plenty v Wellington" final when NZR's final is Canterbury v Northland on 26 October, NBL
+"Melbourne v Sydney" and "Adelaide v Brisbane" when the NBL schedule has Illawarra v Sydney and Perth v Melbourne, MLB League
+Championship Series rows when the World Series is Dodgers v Blue Jays, an "England Women v India Women" ODI the ECB does not have,
+and a South Africa v Australia "3rd ODI" on a day CSA lists the 2nd Test; (6) two official feeds could not be read at all;
+(7) ČVS and SuperLega have one round of results, so no volleyball match-winner pick reaches High; (8) model constants are disclosed
+rather than fitted; (9) the full price ladder is an expression of our own opinion, not a market.
+
+**Integration applied in Z5.** Root `index.html` gained one navlink and one landing banner pointing at this board (additive, no
+other board's link removed). `README.md`'s master-board headline counts were reconciled to the freshly rebuilt `data/master.json`
+(**336 rows / 331 in scope / 19 sport labels**; 288 with a pick, 268 official-sourced, 65 written predictions, 8 templated,
+16 cross-build conflicts) — the Board X handoff. `board/**`, `data/master*.json`, `data/master_conflicts.json` and
+`data/source_registry.json` were regenerated with `tools/build_master.py` + `tools/build_master_site.py` because `main` carried
+stale copies after the `21d3f75` scheduled snapshot commit; `audit/index.html` and `audit/report.json` were regenerated for the same
+reason. No earlier board's `session-*/` or `data/session-*/` file was edited.
+
+**Deliberately not run.** `scripts/session-83451f65/build_site.py` regenerates the root `index.html` from its own hard-coded NAV
+list and would drop the Board T/V/W/Y/Z links that the root has accumulated; the repository's `verify-integrated` workflow runs it
+only to re-derive `data/integrated/`, which is unchanged here. Recorded as a coordination note for the next integrator: root
+`index.html` is no longer reproducible from that generator without losing the session pointers.
+
+
