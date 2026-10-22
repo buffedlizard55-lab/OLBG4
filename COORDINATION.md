@@ -11,7 +11,7 @@ Session: `arena/e1161e0e-olbg4` | Branch: `arena/e1161e0e-olbg4` | Claimed: 2026
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
 | X1 | Fresh fixture capture 23 Oct–5 Nov 2026 for in-scope sports (all OLBG sports except soccer, boxing, UFC/MMA, football/American football, hurling, horse racing, cycling, specials) from official league/tour/federation sources only; OLBG used only for taxonomy cross-check | in progress | arena/e1161e0e-olbg4 | `session-e1161e0e/`, `data/session-e1161e0e/`, `COORDINATION.md` |
-| X2 | Originate own lines (match winner, handicap/spread, totals where verified inputs exist); pick winner + confidence low/medium/high per match; investigate every available market | unclaimed→in progress | arena/e1161e0e-olbg4 | same |
+| X2 | Originate own lines (match winner, handicap/spread, totals where verified inputs exist); pick winner + confidence low/medium/high per match; investigate every available market | done | arena/e1161e0e-olbg4 | same |
 | X3 | High-confidence focus: picks ≥70% model probability AND inside −250…+10,000 American-odds window; unique human written predictions ≥30 words with verified form/history + obvious selection, source under each | in progress | arena/e1161e0e-olbg4 | same |
 | X4 | GitHub Pages dashboard: landing + per-sport subpages + all-entries table + markets/coverage + Flagged-for-Review; every row carries official source link; unverified values blank + flagged | in progress | arena/e1161e0e-olbg4 | same |
 | X5 | Final integration: line-by-line re-verification, link check, PR to `main`, merge without waiting, confirm Pages deploy, record result here | in progress | arena/e1161e0e-olbg4 | same + PR only |
@@ -19,6 +19,19 @@ Session: `arena/e1161e0e-olbg4` | Branch: `arena/e1161e0e-olbg4` | Claimed: 2026
 **Claim boundary.** New non-overlapping deliverable. All existing data, boards, session folders, root `*.html`, generators and workflows are read-only for Board X. Findings needing another owner's file are logged here as integration requests, not applied.
 
 ### X working log
+
+### X completion record (2026-10-22 UTC)
+
+- **Published output:** [`session-e1161e0e/index.html`](session-e1161e0e/index.html) dashboard + entries/picks/markets/coverage/methodology/sources/flagged/verification + 7 per-sport pages; machine-readable [`data/session-e1161e0e/board.json`](data/session-e1161e0e/board.json) (98 rows) and `flagged.json`. Build: `python3 session-e1161e0e/build.py && python3 session-e1161e0e/render.py && python3 session-e1161e0e/verify.py`.
+- **Line-by-line result:** 98 fixtures dated 23 Oct–4 Nov 2026 across 7 priced sports (NHL 26, NBA 27, MLB World Series 7, PDC darts 8, URC 8, RLWC 17, cricket 5 incl. 1 unpriced ODI); 97 priced with own fair lines (match winner + handicap + totals wherever verified inputs exist); every row carries its official source URL; unverified values blank. Confidence: 8 High / 51 Medium / 38 Low. One-game RLWC and 3-round URC samples capped at Medium.
+- **Odds-window result:** 1 High pick inside −250…+10,000 (Toronto Raptors @ Washington, p=0.708, fair −242); 7 Highs shorter than −250 (−253…−537) published labelled on picks.html — at fair odds ≥70% and ≥−250 overlap only at p 0.700–0.714 (X-F01).
+- **Written predictions:** 8 unique hand-written texts, 88–92 words, each naming the teams/players, verified form/history and an explicit selection, with inputs + source URL under every card.
+- **Sources read live 2026-10-22:** NHL.com standings (current Oct 22 03:24 EDT) + schedule releases; NBA.com schedule release (+ 2025-26 records via Basketball-Reference archive cross-checked to NBA.com figures, X-F02); MLB.com World Series schedule/FAQ (MIL 103-59, TB 98-64); PDC.tv European Championship preview; URC Match Centre table (post-R3) + unitedrugby.com R5 fixtures; NRL.com RLWC R2 team lists (men/women) + R1 margins; ICC.com NZ summer schedule + T20I rankings (IND 267, NZ 247, 21 Oct); ATP calendar + Riot Worlds primer (coverage only).
+- **Verification performed:** `verify.py` PASS (98 rows, 8 predictions, 0 errors — dates, source URLs, decimal=1/p and American maths re-derived, confidence rule incl. caps, prediction ≥30 words/uniqueness/selection, unpriced-row purity, internal links); byte-identical rebuild PASS; `scripts/audit_publication.py --check` exit 0 (12,496 targets, 0 broken; 2 pre-existing stale root artefacts untouched); `BOARD_DIR=board tools/verify_master.py` OK; all Board X pages HTTP 200 locally.
+- **Irregularities published (X-F01…X-F14, needs review, non-blocking):** on `session-e1161e0e/flagged.html` — window arithmetic, NBA records source tier, NHL timestamp/slate completeness, 3 PDC ties at 50/50 (seeds unconfirmed), URC R4 staleness, RLWC 1-game samples + unconfirmed 4th women's R3 fixture not listed, cricket series state/unpriced ODI, tennis/snooker/esports pairings nonexistent at capture, if-necessary World Series games, Gaelic scope call, un-originated markets, blank NBA venues, root-README integration request.
+- **Integration request (not applied):** add a Board X pointer to root `README.md` / board archive when a future integration owner next claims the root (X-F14).
+- **Pull request / merge result:** recorded below on merge.
+
 - 2026-10-22 UTC — `e1161e0e` — board claimed; scope `session-e1161e0e/` + `data/session-e1161e0e/`; claim committed and pushed before any other work. Repo audit: canonical `data/master.json` = 317 rows / 312 in-scope / 19 sport labels (cut-off 2026-10-21); newest desks Board W (226 matches, 22 Oct–2 Nov) and Board T (91 rows, 22–28 Oct). Board X refreshes the 23 Oct–5 Nov window so no row published here is already played.
 
 
