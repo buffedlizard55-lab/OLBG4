@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · OLBG4 verified desk (Board U)</title>
+<meta name="description" content="Freshly verified fixtures for 22-27 October 2026, our own originated lines, and High-confidence picks with one official source on every row.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap bar">
+<a class="brand" href="index.html"><span class="mark">O4</span><span>OLBG4 <small>verified desk &middot; Board U</small></span></a>
+<nav class="nav"><a class="navlink" href="index.html">Dashboard</a><a class="navlink" href="fixtures.html">All fixtures</a><a class="navlink" href="picks.html">High-confidence picks</a><a class="navlink" href="markets.html">Markets</a><a class="navlink" href="coverage.html">Coverage</a><a class="navlink" href="verification.html">Verification register</a><a class="navlink" href="flagged.html">Flagged for review</a><a class="navlink" href="analysis.html">Analysis</a><a class="navlink active" href="methodology.html">Method</a><a class="navlink" href="sources.html">Sources</a></nav>
+</div></header>
+<main class="wrap">
+
+<section class="hero small"><h1>Method</h1>
+<p class="lede">The whole model, in the open, including the assumptions. Nothing here is presented as a verified fact.</p></section>
+<section class="panel"><h2>1. Inputs are read, never remembered</h2>
+<p>Each fixture and each model input was read from the competition's own domain or official API on 22 October 2026:
+nhl.com for fixtures, records and standings; statsapi.mlb.com for the World Series schedule and season records; stats.unitedrugby.com for URC
+Round 4 fixtures and Round 3 results; rlwc2026.com for World Cup results and Round 2 fixtures; nba.com for the two opening-week games.
+No aggregator, no bookmaker, no OLBG price.</p></section>
+<section class="panel"><h2>2. Originating a line</h2>
+<pre class="code">Ice hockey   lambda_home = 1.03 * (GF_h/GP_h + GA_a/GP_a)/2
+             lambda_away = 0.97 * (GF_a/GP_a + GA_h/GP_h)/2
+             Poisson scoreline matrix; moneyline = P(home win) + 0.5*P(tie)
+             total line  = nearest half goal to lambda_home + lambda_away
+             puck line   = P(home win by 2+)
+
+Baseball     log5 on verified win percentages + 0.02 home field
+             total from Poisson on mean(runs scored, runs allowed per game)
+
+Rugby        rating = last verified margin, capped at +/-40 points
+             P(home) = Phi((rating_home - rating_away + home)/30)
+             URC home advantage 3 points; RLWC none (neutral-listed venues)
+             handicap = fair line rounded to the nearest 0.5 (Union) or 1 (League)
+             total = blank (one match is not a scoring level)
+
+Basketball   opening week: no form, home prior 0.55, graded Low, no spread, no total</pre>
+<p class="tiny">Two rows use a documented fallback (log5-style logistic on points percentage) because NHL.com published those clubs' records but not their goals for/against.</p></section>
+<section class="panel"><h2>3. Turning a probability into a price</h2>
+<p>The line is the no-vig decimal, 1/p, rounded to two places. The desk then applies two quoting rules:
+never shorter than <strong>1.40 (&minus;250)</strong> and never longer than <strong>101.00 (+10,000)</strong>. The floor is why every High pick sits inside the
+window the brief asks for: a 92% selection would otherwise be quoted at 1.09 and fall outside it. Where the floor bites, the row says so and prints the fair price.</p></section>
+<section class="panel"><h2>4. Grading</h2>
+<table><thead><tr><th>Grade</th><th>Rule</th><th>This cycle</th></tr></thead><tbody>
+<tr><td><span class="pill high">High</span></td><td>model probability &ge; 70% for the named selection <em>and</em> our price inside &minus;250 to +10,000 <em>and</em> no unresolved source conflict</td><td>9</td></tr>
+<tr><td><span class="pill medium">Medium</span></td><td>probability 60&ndash;70%, or &ge;70% with an unresolved official-source conflict</td><td>7</td></tr>
+<tr><td><span class="pill low">Low</span></td><td>under 60%, or no verified form at all</td><td>14</td></tr>
+</tbody></table></section>
+<section class="panel"><h2>5. Assumptions, stated as assumptions</h2>
+<ul class="findings">
+<li>The 30-point standard deviation on one-match rugby ratings, and the 2.0 / 0.15 parameters in the NHL fallback, are desk choices. They are not verified facts and they are not fitted to any market.</li>
+<li>Half of a tie is awarded to the home side in hockey because the moneyline includes overtime and the shootout, whose winner is close to a coin flip on the evidence available here.</li>
+<li>No adjustment is made for injuries, rest, travel, weather, referees or team news: none of those were verified on an official page in this cycle.</li>
+</ul></section>
+<section class="panel"><h2>6. What would make this better next cycle</h2>
+<ul class="findings">
+<li>A second official source per rugby fixture (line-ups or match previews) would move several Medium rows to High with evidence rather than assertion.</li>
+<li>Reaching tennis, cricket, darts and handball from a page this sandbox can actually read; the URLs tried are on the coverage page.</li>
+<li>Retiring the stale rows in the older builds so the root dashboard stops presenting 19&ndash;21 October fixtures as current.</li>
+</ul></section>
+
+</main>
+<footer class="wrap foot">
+<p><strong>Board U</strong> &middot; session <code>arena/c92c927c-olbg4</code> &middot; data read 2026-10-22 &middot;
+every fixture carries a link to the official page it came from. Where an official page is silent the value is blank and the row is listed on
+<a href="flagged.html">Flagged for review</a>. No bookmaker price is used anywhere in this desk.</p>
+<p><a href="../index.html">&larr; Repository dashboard</a> &middot; <a href="../board/index.html">Board P master board</a></p>
+</footer>
+</body>
+</html>
