@@ -118,6 +118,41 @@ TARGETS: list[tuple[str, str, dict]] = [
     # ---- The site being reverse-engineered (listing source only) ---------
     ("olbg_home", "https://www.olbg.com/", {}),
     ("olbg_betting_tips", "https://www.olbg.com/betting-tips", {}),
+    *[(f"olbg_sport_{slug}", f"https://www.olbg.com/betting-tips/{slug}/{sid}", {})
+      for slug, sid in [("Tennis", 3), ("Basketball", 4), ("Golf", 5), ("Cricket", 7),
+                        ("Snooker", 8), ("Rugby_Union", 9), ("Rugby_League", 10),
+                        ("Baseball", 12), ("Ice_Hockey", 13), ("Darts", 15),
+                        ("Handball", 20), ("Volleyball", 21), ("Greyhounds", 28)]],
+
+    # ---- Round 2: alternate official endpoints for sources that 403/404'd --
+    ("nba_schedule_page", "https://www.nba.com/schedule?date=2026-10-23", NBA_HEADERS),
+    ("nba_schedule_v2_1", "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json", NBA_HEADERS),
+    ("nba_stats_scoreboard", "https://stats.nba.com/stats/scoreboardv3?GameDate=2026-10-23&LeagueID=00",
+     {**NBA_HEADERS, "x-nba-stats-origin": "stats", "x-nba-stats-token": "true"}),
+    ("nba_stats_schedule", "https://stats.nba.com/stats/scheduleleaguev2?LeagueID=00&Season=2026-27",
+     {**NBA_HEADERS, "x-nba-stats-origin": "stats", "x-nba-stats-token": "true"}),
+    ("nba_data_full_schedule", "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2027/league/00_full_schedule.json", NBA_HEADERS),
+    ("urc_match_centre", "https://www.unitedrugby.com/match-centre", {}),
+    ("urc_competition_fixtures", "https://www.unitedrugby.com/competitions/united-rugby-championship/fixtures", {}),
+    ("urc_stats_fixtures", "https://stats.unitedrugby.com/fixtures", {}),
+    ("ehf_world_matches", "https://www.eurohandball.com/en/matches/", {}),
+    ("ehf_cl_men", "https://ehfcl.eurohandball.com/men/matches/", {}),
+    ("ehf_cl_competitions", "https://ehfcl.eurohandball.com/en/competitions/", {}),
+    ("icc_fixtures_results", "https://www.icc-cricket.com/fixtures-results", {}),
+    ("icc_wc_fixtures", "https://www.icc-cricket.com/tournaments/cricketworldcup/fixtures", {}),
+    ("ecb_england_fixtures", "https://www.ecb.co.uk/england/fixtures", {}),
+    ("gbgb_home", "https://www.gbgb.org.uk/", {}),
+    ("gbgb_racecards_alt", "https://www.gbgb.org.uk/racecards", {}),
+    ("afl_api_fixtures", "https://api.afl.com.au/cfs/afl/fixturesAndResults", {}),
+    ("afl_api_season", "https://api.afl.com.au/cfs/afl/fixturesAndResults?seasonId=2026", {}),
+    ("wta_scores", "https://www.wtatennis.com/scores", {}),
+    ("pdc_matches", "https://www.pdc.tv/matches", {}),
+    ("wst_matches", "https://www.wst.tv/matches", {}),
+    ("volleyball_vnl", "https://en.volleyballworld.com/volleyball/competitions/volleyball-national-leagues/calendar/", {}),
+    ("wtt_events_alt", "https://worldtabletennis.com/events", {}),
+    ("bwf_match_centre", "https://bwfbadminton.com/match-centre/", {}),
+    ("rlwc_matches", "https://www.rlwc2026.com/matches", {}),
+    ("nrl_api_draw", "https://www.nrl.com/api/v1/draw?round=2&season=2026", {}),
 ]
 
 
