@@ -2587,7 +2587,7 @@ Scope is non-overlapping: claim covers remediation of high-confidence odds-range
 | S4 | Generate well-written unique human predictions (≥30 words) for every High pick: team, player where relevant, current form, recent match history, obvious selection, verified facts + official links | done | arena/77af9500-olbg4 | `data/rows.json`, `data/rows.csv`, `data/predictions.json`, `tools/build_master.py` |
 | S5 | Investigate every available market (win, handicap, totals) per sport; document blanks with reason on Flagged page | done | arena/77af9500-olbg4 | `build_site.py`, `data/rows.json`, `docs/methodology.html`, `flagged.html` |
 | S6 | Rebuild GH Pages site: clean landing + subpages by category, simple dashboard tables, analysis & findings, no broken links | done | arena/77af9500-olbg4 | `index.html`, `docs/**`, `board/**`, `sports/**`, `picks.html`, `markets.html`, `flagged.html`, `sources.html`, `methodology.html`, `audit.html`, `assets/**`, `.nojekyll`, `_config.yml`, `.github/workflows/pages.yml` |
-| S7 | Final integration: run all gates, PR to main, merge, confirm Pages deploy, record result | in progress | arena/77af9500-olbg4 | `COORDINATION.md` |
+| S7 | Final integration: run all gates, PR to main, merge, confirm Pages deploy, record result | done | arena/77af9500-olbg4 | `COORDINATION.md` |
 
 **Shared-file claim (final integration per brief):** this session claims `index.html`, `README.md`, `COORDINATION.md`, `.github/workflows/pages.yml`, `data/rows.json`, `data/rows.csv`, `build_site.py` for the above remediation. Other sessions' `session-*/`, `data/board_k/*`, `docs/desk/*`, `board/*` generative outputs are not hand-edited; they are regenerated via their owners' scripts.
 
