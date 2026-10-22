@@ -2,7 +2,23 @@
 
 Four sessions worked this repo in parallel. This file is the merged board: Boards A/B are kept verbatim, Boards C/D appended, cross-session conflicts logged.
 
-Last board update: 2026-10-21 · current integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard) — see the Board H section at the end of this file · earlier hub owner `arena/290a9dba-olbg4` (Board D)
+Last board update: 2026-10-22 · current session: `arena/fca9d738-olbg4` (Board S2, high-confidence odds-window focus + Oct-22 freshness verification, in progress) · prior: `arena/4e9d03cf-olbg4` (Board S1, done) · integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard)
+
+
+## Board S2 — session `arena/fca9d738-olbg4` (2026-10-22 high-confidence odds-window focus + freshness verification)
+
+Session: `arena/fca9d738-olbg4` | Branch: `arena/fca9d738-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| S2 | Re-verify every current (≥2026-10-22) in-scope canonical fixture line by line; recompute the American-odds window (-250 to +10000) for all High picks; live re-check High fixtures against official league/tour/federation pages; author replacement written predictions (≥30 words, unique, human, team+form+history+obvious selection) only for High rows whose canonical text is templated, citing only facts read on official pages; publish session-scoped tables + flagged register with source links. No changes to other boards' data or root navigation. | in progress | arena/fca9d738-olbg4 | `session-fca9d738/`, `data/session-fca9d738/`, `COORDINATION.md` |
+
+**Claim boundary.** New, non-overlapping deliverable. `data/master.json`, `board/`, root `*.html`, `data/matches.json`, `data/rows.json`, `data/board.json`, every other `session-*/` and `data/session-*/` folder, and all generators/workflows are read-only for S2. Findings needing another owner's file are logged here as integration requests, not applied.
+
+### S2 working log
+- 2026-10-22 UTC — `fca9d738` — board claimed; scope `session-fca9d738/` + `data/session-fca9d738/`; claim committed and pushed before any other work.
+
+---
 
 
 ## Board S1 — session `arena/4e9d03cf-olbg4` (2026-10-22 freshness & publication review)
