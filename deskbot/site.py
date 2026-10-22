@@ -186,7 +186,7 @@ def page_dashboard(d: dict) -> str:
     sport_rows = "".join(
         f"<tr><td><strong>{escape(s)}</strong></td><td class='num'>{len(rs)}</td>"
         f"<td class='num'>{sum(len(r['markets']) for r in rs)}</td>"
-        f"<td class='num'>{sum(1 for r in rs if r['winner_pick']['confidence']=='High')}</td>"
+        f"<td class='num'>{sum(1 for r in rs for m in r['markets'] if m['confidence']=='High')}</td>"
         f"<td class='num'>{sum(1 for p in picks if p['sport']==s)}</td>"
         f"<td>{link('sports/' + rs[0]['sport_slug'] + '.html', 'open ' + s.lower() + ' page')}</td></tr>"
         for s, rs in sorted(by_sport.items())
@@ -221,7 +221,7 @@ def page_dashboard(d: dict) -> str:
 </div>
 <h2>What is on the desk</h2>
 <div class="tablewrap"><table>
-<tr><th>Sport</th><th class="num">Fixtures</th><th class="num">Selections</th><th class="num">Winner picks graded High</th><th class="num">Published high picks</th><th>Page</th></tr>
+<tr><th>Sport</th><th class="num">Fixtures</th><th class="num">Selections</th><th class="num">Selections graded High</th><th class="num">Published high picks</th><th>Page</th></tr>
 {sport_rows}
 </table></div>
 <h2>{min(3, n_pub)} of the {n_pub} high-confidence picks</h2>
@@ -270,6 +270,7 @@ UTC from the official MLB API. Blank venues are listed on <a href="flagged.html"
 
 
 def page_picks(d: dict) -> str:
+    n_out_band = d['board']['counts']['high_out_of_band_selections']
     b = d["board"]
     picks = b["published_high_picks"]
     rows = {r["id"]: r for r in b["rows"]}
@@ -279,8 +280,9 @@ def page_picks(d: dict) -> str:
 <section class="hero" style="padding:22px 26px">
   <div class="kicker">High-confidence picks</div>
   <h1 style="font-size:30px">{len(picks)} picks, each inside -250..+10000</h1>
-  <p class="lede" style="font-size:16px">Every pick below clears 70% on our model, is priced at -250 or longer, has both clubs on
-  seven games or more, and is confirmed by the independent win-rate model. Each carries a unique hand-written prediction of
+  <p class="lede" style="font-size:16px">Every pick below clears 70% on our model, is priced at -250 or longer, sits on a fixture with a full
+  sample on both sides (seven games for the team sports, ten matches for snooker), and is confirmed by the independent
+  second model — the win-rate model for teams, the points-per-match check for snooker. Each carries a unique hand-written prediction of
   {min(wc)}-{max(wc)} words, with its facts and sources printed underneath.</p>
 </section>
 <div class="note"><strong>No template is reused.</strong> The build measures a six-word-shingle overlap between every pair of
@@ -289,7 +291,7 @@ predictions and fails above 0.25; the highest observed overlap in this set is pr
 which is also a build gate.</div>
 {cards}
 <h2>What is not here</h2>
-<p>Seventy-eight selections that clear 70% price shorter than -250 and are therefore outside the requested band. They are
+<p>{n_out_band} selections that clear 70% price shorter than -250 and are therefore outside the requested band. They are
 published with their grade, without a prediction, on <a href="strong-picks.html">Strong picks</a> — see
 <a href="flagged.html">S-02</a> for the arithmetic.</p>
 """
