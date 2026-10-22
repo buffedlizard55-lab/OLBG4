@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Board T source capture — session arena/e5f2dad3-olbg4.
+"""Board W source capture — session arena/e5f2dad3-olbg4.
 
 The interactive sandbox has no general HTTPS egress (only github.com, codeload,
 api.github.com, registry.npmjs.org, pypi.org, files.pythonhosted.org).  Official

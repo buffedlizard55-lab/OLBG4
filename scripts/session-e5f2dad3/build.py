@@ -636,7 +636,7 @@ def main() -> None:
 
     doc = {
         "schema": "olbg4.board-w.board/1",
-        "board": "U",
+        "board": "W",
         "session": "arena/e5f2dad3-olbg4",
         "generated_at_utc": iso_now(),
         "window": {"from": WINDOW_FROM, "to": WINDOW_TO},
