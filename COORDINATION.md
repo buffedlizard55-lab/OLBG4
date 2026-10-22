@@ -3414,9 +3414,6 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 
 ---
 
-
----
-
 ## Board AD — session `arena/d2d25025-olbg4` (2026-10-22 independent line-by-line audit of freshest desk + live official spot re-verification + High-window focus + dashboard + final integration)
 Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026-10-22 UTC
 | ID | Task | Status | Owner | File scope |
@@ -3434,3 +3431,26 @@ Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026
 - **Live re-verified 2026-10-22 via official APIs:** NHL schedule 2026-10-23 (MTL@CHI game 2026020166, TBL@COL 2026020167) https://api-web.nhle.com/v1/schedule/2026-10-23 ; NHL standings timestamp 2026-10-22T12:05:46Z (CAR 17pts, VGK 16, EDM/BOS 15) https://api-web.nhle.com/v1/standings/2026-10-22 ; MLB World Series TB@MIL Game 1 2026-10-23 gamePk 849805 https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-31
 - **Irregularities flagged (184, on flagged.html, non-blocking):** 56 of 68 Board AB "High" selections fail the combined prob>=0.70 + fair odds -250..+10000 + unique >=30-word rule (mostly fair odds shorter than -250); only 12 clean in-window High picks published on picks.html; strict moneyline recomputation yields only 2 High of 96 (window/70% overlap is prob 0.700-0.714). Other in-scope sports not re-read live this session — left blank/unpublished, flagged unverified, never inferred.
 - Status: AD1-AD5 done; AD6 in progress (PR/merge/Pages below).
+
+---
+
+## Board AE — session `arena/22ca2e95-olbg4` (2026-10-22T12:08Z live OLBG reverse-engineering + afternoon official governing-body refresh + multi-market line origination + −250…+10,000 High-confidence human predictions + repo-wide line-by-line audit + final integration)
+
+Session: `arena/22ca2e95-olbg4` · Branch: `arena/22ca2e95-olbg4` (branch name fixed by Arena; all deliverables isolated under `22ca2e95`) · Claimed: `2026-10-22T12:08Z UTC` · **status: in progress**
+
+To guarantee zero file-scope overlap with concurrently running `12:05Z` peer sessions (`arena/7bbc825b-olbg4`, `arena/d2d25025-olbg4`, `arena/d28c49c5-olbg4`), Board AE claims exclusively `session-22ca2e95/**`, `data/session-22ca2e95/**`, `scripts/session-22ca2e95/**`, `.github/workflows/capture-22ca2e95.yml`, and append-only entries in `COORDINATION.md` (plus additive root `index.html` / `README.md` pointers at final integration only if uncontested after rebasing onto `origin/main`, honoring >60m stale-claim handoff on idle `09:04Z` PR #102 and pending peer integration requests `X-F14` / `AC` / `7bbc825b`).
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AE1 | Fresh `2026-10-22T12:xxZ` live reverse-engineering of `OLBG.com` across all sport hubs + afternoon governing-body schedule/result/team-news refresh (pruning morning/midday matches that have now started/finished since `08:35Z`, adding newly drawn afternoon/evening knockout pairings across ATP/WTA, Snooker, Badminton, eSports, Handball, Volleyball, Ice Hockey, Basketball, Baseball, Darts, Rugby Union, Rugby League, Cricket, Aussie Rules, Table Tennis, Golf, Motor Racing, Greyhounds) — strictly excluding soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling, specials | in progress | arena/22ca2e95-olbg4 | `data/session-22ca2e95/**`, `scripts/session-22ca2e95/**`, `.github/workflows/capture-22ca2e95.yml` |
+| AE2 | Originate independent fair (0%-vig) + bookmaker lines across every available market (Match Winner 2-way/3-way, Handicap/Spread/Puck/Run/Set/Frame/Leg/Map Line, Match Total O/U, Team Totals & Sport-Specific Derivatives); assign Match Winner pick + Low/Medium/High confidence; leave any unconfirmed value strictly blank (`""`) and flagged | unclaimed | arena/22ca2e95-olbg4 | `data/session-22ca2e95/desk.json`, `scripts/session-22ca2e95/originate_desk.py` |
+| AE3 | Focus on High-confidence picks inside `-250` to `+10000` American odds (`1.40` to `101.00` decimal) — diagnosing why raw >70% probability picks cluster shorter than `-250` (`p > 0.7143`) and originating genuine high-conviction value/handicap/total/underdog/moderate-favourite selections inside `-250…+10000`, authoring unique ≥30-word natural human predictions with verified current form, players, recent match history, obvious betting selection, and official source URLs | unclaimed | arena/22ca2e95-olbg4 | `data/session-22ca2e95/predictions.json`, `scripts/session-22ca2e95/predictions_bank.py` |
+| AE4 | Line-by-line repository review across `data/master.json`, `session-4afef1af/data/fixtures.json` (`11:49Z` snapshot), and merged `22 Oct` session desks against official governing-body sources, flagging stale/completed/unverified/out-of-window/scope irregularities with manual-review URLs | unclaimed | arena/22ca2e95-olbg4 | `data/session-22ca2e95/repo_review.json`, `data/session-22ca2e95/flagged.json` |
+| AE5 | Build clean, fast, user-friendly dashboard GitHub Pages site (`session-22ca2e95/`) with landing page, all sport category subpages, full filterable entries & multi-market tables with official source links on every row, High-confidence predictions page, OLBG reverse-engineering & odds-window analysis, repo audit, and Flagged for Review page | unclaimed | arena/22ca2e95-olbg4 | `session-22ca2e95/**`, `scripts/session-22ca2e95/build_site.py` |
+| AE6 | Deterministic line-by-line verification (`0` broken links, `0` unverified filled values, `0` excluded sports, math & prediction uniqueness checks), `git pull --rebase origin main`, PR to `main`, merge without waiting, verify live GitHub Pages deployment, and record PR & deploy result in `COORDINATION.md` | unclaimed | arena/22ca2e95-olbg4 | `scripts/session-22ca2e95/verify.py`, `COORDINATION.md`, root pointers if uncontested |
+
+### AE working log
+- `2026-10-22T12:08Z UTC` — `22ca2e95` — Claimed Board AE (`{session-,data/session-,scripts/session-}22ca2e95/**`, `.github/workflows/capture-22ca2e95.yml`, append-only `COORDINATION.md`) after checking active peer claims (`7bbc825b`, `d2d25025`, `d28c49c5`).
+- `2026-10-22T12:08Z UTC` — `22ca2e95` — Rebase conflict on `COORDINATION.md` resolved after PR #107 (`arena/d2d25025-olbg4`) merged (`9603f12`): retained Board AD (`d2d25025`) section 100% verbatim above Board AE with zero work discarded.
+
+---
