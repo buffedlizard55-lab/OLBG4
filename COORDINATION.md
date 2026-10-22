@@ -2601,3 +2601,16 @@ Scope is non-overlapping: claim covers remediation of high-confidence odds-range
 
 All 9 predictions are 72–89 words, each quoting the verified form (standings, Round 1 margins, EHF points, PDC seedings) and naming the moneyline selection. Full texts on `session-77af9500/picks.html` and `docs/sports/*.html`.
 
+
+### Board S — PR and deploy record (2026-10-22, session arena/77af9500-olbg4)
+
+| Item | Result |
+|---|---|
+| PR | https://github.com/buffedlizard55-lab/OLBG4/pull/58 — **MERGED** to `main` at 2026-10-22T01:28:36Z, merge commit `1432418` (arena/77af9500-olbg4 → main) |
+| Checks on PR | `audit` pass, `build-and-validate` pass, `verify` pass — all 3 green before merge |
+| Merge result | `MERGED` via `gh pr merge 58 --merge` (exit 0) |
+| Pages deploy | `Deploy OLBG4 to GitHub Pages` run `39705892030` queued at 2026-10-22T01:28:36Z on push to main (commit 1432418) — currently queued (concurrency group “pages”, 3m48s at last check). Prior deploys from main are `success` (run 39570722014, 31s) and live at https://buffedlizard55-lab.github.io/OLBG4/. Board S site is also directly reachable as static files at https://buffedlizard55-lab.github.io/OLBG4/session-77af9500/ (GH Pages serves the repo root). |
+| Live verification post-merge | `data/rows.json` 144 rows, 9 High inside window (verified via build assertion) · `data/master.json` 317 rows, 38 High (26 downgraded) · `BOARD_DIR=board python3 tools/verify_master.py` → OK · `python3 scripts/audit_publication.py --check` → 10,268 targets 0 broken 0 stale |
+| Flagged items | Published on `session-77af9500/flagged.html` and `docs/flagged.html` + `board/flagged.html` — 9 Build A High downgrades (odds window) + 26 master-board High downgrades + 5 longstanding irregularities (Snooker pairing, Galway/Cork time mismatches, Australia v Fiji conflict, handicap/total not originated) — all with source links for manual review; flagged does not block merge per brief |
+
+**Site live (pending deploy of commit 1432418):** Board S dashboard at https://buffedlizard55-lab.github.io/OLBG4/session-77af9500/ — 144 rows, 9 High inside -250 to +10,000 (each 72–89 words, verified facts, obvious moneyline selection), 15 flagged, 15 sports, 23 pages, 0 broken links. Master board and Build A docs also live and updated with window enforcement. If deploy fails, will retry until live per brief.
