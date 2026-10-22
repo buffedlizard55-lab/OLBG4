@@ -40,4 +40,10 @@ def originate(fixtures,standings):
   markets=[('Match winner incl. OT / shootout (50% tie allocation)',f['side_a'],win,f['side_b'],1-win),('Regulation goals total 6.5 (proxy)','Under 6.5',under,'Over 6.5',1-under),('Regulation goal handicap (proxy)',f['side_a']+' -1.5',cover,f['side_b']+' +1.5',1-cover)]
   for name,sa,p,sb,q in markets:
    result.append(dict(fixture_id=f['id'],matchup=f['side_a']+' at '+f['side_b'],start_utc=f['start_utc'],market=name,selection_a=sa,p_a=p,fair_decimal_a=1/p,fair_american_a=american(p),selection_b=sb,p_b=q,fair_decimal_b=1/q,fair_american_b=american(q),winner_pick=(sa if p>=q else sb),confidence='Low',status='Exploratory / uncalibrated; not a betting recommendation',official_url='https://api-web.nhle.com/v1/standings/2026-10-22',fixture_source=f['official_url'],input_a={k:a[k] for k in ['teamName','gamesPlayed','goalFor','goalAgainst']},input_b={k:b[k] for k in ['teamName','gamesPlayed','goalFor','goalAgainst']},expected_goals_a=la,expected_goals_b=lb))
- return result
+ # Stable publication precision across Python minor versions/libm implementations.
+ def stable(value):
+  if isinstance(value,float): return round(value,10)
+  if isinstance(value,dict): return {k:stable(v) for k,v in value.items()}
+  if isinstance(value,list): return [stable(v) for v in value]
+  return value
+ return stable(result)
