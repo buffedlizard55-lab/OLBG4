@@ -26,7 +26,7 @@ th{background:#eef2f7;font-size:12.5px;text-transform:uppercase;letter-spacing:.
 tr:last-child td{border-bottom:none}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .small{font-size:12.5px;color:var(--muted)}.muted{color:var(--muted)}
-.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:20px;border:1px solid var(--line);background:#f1f4f8;color:#33475b;white-space:nowrap}
+.tag + .tag{margin-left:6px}.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:20px;border:1px solid var(--line);background:#f1f4f8;color:#33475b;white-space:nowrap}
 .tag.high{background:#e7f6ec;border-color:#bfe5cb;color:var(--green)}
 .tag.medium{background:#fff4e5;border-color:#f3d6ab;color:var(--amber)}
 .tag.low{background:#f1f4f8;color:#475a70}
