@@ -17,7 +17,7 @@ import os
 import re
 from pathlib import Path
 
-from . import model
+from . import model, snooker
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "desk" / "data"
@@ -188,6 +188,73 @@ def build() -> dict:
             }
         )
 
+    snk = _load("snooker_fixtures.json")
+    mean_ppm = snooker.mean_points_per_match(snk["fixtures"])
+    for fx in snk["fixtures"]:
+        hs = snooker.player_strength(fx["home_stats"], mean_ppm)
+        as_ = snooker.player_strength(fx["away_stats"], mean_ppm)
+        proj = snooker.projection(fx, hs, as_)
+        sample_min = min(hs["matches"], as_["matches"])
+        graded = []
+        for sel in snooker.markets(fx, proj):
+            g = snooker.grade(sel, sample_min, proj["scoring_agrees"], proj["available"])
+            graded.append({**sel, **g})
+        winner = max([g for g in graded if g["market"] == "moneyline"], key=lambda g: g["prob"])
+        flags = []
+        if not proj["available"]:
+            flags.append("no season stats captured on the WST Match Centre for either player: "
+                         "inputs are blank and the line is a 50/50 baseline")
+        if not hs["available"] or not as_["available"]:
+            flags.append("one player has no published ranking position on the WST top-36 table")
+        rows.append(
+            {
+                "id": fx["id"], "sport": "Snooker", "sport_slug": "snooker", "league": "WST",
+                "competition": fx["competition"], "round": fx["round"],
+                "date": fx["date"], "time": fx["time"], "time_label": fx["time_label"],
+                "home": fx["home"], "away": fx["away"], "home_abbr": "", "away_abbr": "",
+                "neutral_site": False, "venue": fx["venue"], "best_of": fx["best_of"],
+                "source_url": fx["source_url"], "source_label": fx["source_label"],
+                "extra_sources": [snk["source_url"], snk["rankings_url"]],
+                "source_note": "Fixture date, start time, round and both players read on the official "
+                               "WST matches page; the per-row link is that match's official Match Centre, "
+                               "which also carries the season stats used as model input.",
+                "inputs": {
+                    "home": {k: hs.get(k) for k in ("matches", "win_pct", "points", "fifties",
+                                                    "hundreds", "ast", "rank", "prize")},
+                    "away": {k: as_.get(k) for k in ("matches", "win_pct", "points", "fifties",
+                                                     "hundreds", "ast", "rank", "prize")},
+                    "rankings_source": snk["rankings_url"],
+                    "note": "match win rate, points, 50+ and 100+ breaks, average shot time and matches "
+                            "played are the season figures printed on each player's Match Centre page; "
+                            "ranking position and prize money come from the WST world rankings table, "
+                            "which publishes only the top 36.",
+                },
+                "projection": {
+                    "p_home_winrate_model": round(proj["p_home"], 4),
+                    "p_frame": round(proj["p_frame"], 4),
+                    "expected_frames": round(proj["expected_frames"], 2),
+                    "scoring_check_agrees": proj["scoring_agrees"],
+                    "mean_points_per_match": round(mean_ppm, 1),
+                    "models_agree_home": proj["scoring_agrees"],
+                },
+                "winner_pick": winner, "markets": graded,
+                "high_picks": [g for g in graded if g["confidence"] == "High"],
+                "sample_games_min": sample_min,
+                "verification": {
+                    "status": "official",
+                    "checked_utc": "2026-10-22T02:30:00Z",
+                    "fixture_source": snk["source_url"],
+                    "rating_source": snk["rankings_url"],
+                    "player_source": fx["source_url"],
+                    "note": "Date, time, round and both players read on the WST matches page; season form "
+                            "read on that match's official Match Centre; ranking and prize money read on "
+                            "the official WST world rankings table, which lists only the top 36 players, so "
+                            "unlisted players are left blank rather than inferred.",
+                },
+                "flags": flags,
+            }
+        )
+
     # ---- publication rule ------------------------------------------------
     # One headline high-confidence pick per fixture: the strongest in-band High
     # selection on a primary (non-alternate) market. Everything else that graded High
@@ -248,7 +315,9 @@ def build() -> dict:
         "generated_utc": "2026-10-22T02:05:00Z",
         "data_window": "2026-10-22 to 2026-10-28",
         "fixture_window_note": "NHL fixtures cover the four matchdays 22-25 October 2026 as published on NHL.com; "
-                               "MLB covers World Series games 1-5, 23-28 October 2026.",
+                               "MLB covers World Series games 1-5, 23-28 October 2026; snooker covers every "
+                               "Round 3 match of the BetVictor Northern Ireland Open scheduled on 22 October 2026 "
+                               "on the official WST matches page.",
         "constants": model.CONSTANTS,
         "price_band": model.PRICE_BAND,
         "rows": rows,

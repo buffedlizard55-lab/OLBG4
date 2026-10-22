@@ -2557,13 +2557,21 @@ Claimed 2026-10-22T01:30Z, branch `arena/f8feb803-olbg4`. At claim time `git bra
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| S1 | Re-verify the live fixture universe for the publishing window (22–28 Oct 2026) against official league endpoints; one official source per row | in progress | arena/f8feb803-olbg4 | `session-f8feb803/data/**`, `desk/**` |
-| S2 | Originate own lines (moneyline / handicap / match total) and grade confidence, with the owner's requested high-confidence price band (-250 … +10000) enforced as a hard rule | in progress | arena/f8feb803-olbg4 | `session-f8feb803/data/**`, `desk/model/**` |
-| S3 | Hand-written, non-templated predictions for every in-band high-confidence pick (≥30 words, team + player + form + recent history + explicit selection) | in progress | arena/f8feb803-olbg4 | `desk/data/authored_predictions.json` |
-| S4 | Clean dashboard site (landing + category pages + Flagged for Review), whole-repo link check | in progress | arena/f8feb803-olbg4 | `desk/**`, `index.html` (integration-only) |
-| S5 | PR → merge → Pages deploy confirmation, recorded here | blocked (see environment note) | arena/f8feb803-olbg4 | `COORDINATION.md` |
+| S1 | Re-verify the live fixture universe for the publishing window (22–28 Oct 2026) against official league endpoints; one official source per row | done — 44 fixtures (31 NHL, 5 MLB, 8 WST) all with an official per-row link; other in-scope sports flagged S-07 | arena/f8feb803-olbg4 | `session-f8feb803/data/**`, `desk/**` |
+| S2 | Originate own lines (moneyline / handicap / match total) and grade confidence, with the owner's requested high-confidence price band (-250 … +10000) enforced as a hard rule | done — 512 selections; 121 graded High; 5 published in band (3 NHL, 2 WST) | arena/f8feb803-olbg4 | `session-f8feb803/data/**`, `desk/model/**` |
+| S3 | Hand-written, non-templated predictions for every in-band high-confidence pick (≥30 words, team + player + form + recent history + explicit selection) | done — 5/5 covered, 75–105 words, max pairwise 6-gram similarity 0.032 | arena/f8feb803-olbg4 | `desk/data/authored_predictions.json` |
+| S4 | Clean dashboard site (landing + category pages + Flagged for Review), whole-repo link check | done — 14 pages, `python3 -m deskbot.linkcheck` 286 local targets, 0 broken, 0 markup issues | arena/f8feb803-olbg4 | `desk/**`, `index.html` (integration-only) |
+| S5 | PR → merge → Pages deploy confirmation, recorded here | attempted — git push to the session branch succeeds; PR/merge API still 403 (S-01) | arena/f8feb803-olbg4 | `COORDINATION.md` |
 
 ### Environment notes (recorded, 2026-10-22T01:25Z)
 - **GitHub automation is degraded in this session.** `gh auth status` reports the `GH_TOKEN` is invalid; every `api.github.com` call returns **403 rate-limited** (unauthenticated). Consequences: no `workflow_dispatch`, no PR creation, no PR merge, no Actions run. `git ls-remote` and `git push --dry-run` **do** work, so commits are pushed to this branch only.
 - **Sandbox egress is still allowlisted** (github/pypi/npm only). Direct `curl` to `nhl.com`, `api-web.nhle.com`, `statsapi.mlb.com` and `cdn.nba.com` fails with `SSL_ERROR_SYSCALL`. Official data is therefore read with the agent's page-fetch tool, which returns the endpoints' raw JSON; every value stored carries the exact URL it was read from, and the raw endpoint is recorded per row.
 - The pipeline in `pipeline/` (Board E, `session-4afef1af`) is **not re-run**: its snapshot job only runs in GitHub Actions, which is unavailable to this session. Its committed snapshot (generated 2026-10-21T21:39Z) is left untouched and is cited as prior work, not as this board's data.
+
+### Board S progress log
+
+- 2026-10-22T02:55Z — all five tasks closed except S5. `python3 -m deskbot.verify` = **25/25 gates passed**; `python3 -m deskbot.linkcheck` = 14 pages, 286 local targets, 0 broken, 0 markup issues; `python3 -m deskbot.site` renders the landing page plus ten desk pages and three sport pages.
+- Data actually read this session for the desk (all via the page-fetch tool, raw JSON where the endpoint returns JSON):
+  `nhl.com/schedule`, `nhl.com/standings/2026-10-21/wildcard`, `api-web.nhle.com/v1/standings/2026-10-21`, `api-web.nhle.com/v1/score/<date>` (club leaders), `statsapi.mlb.com/api/v1/standings` and `/api/v1/schedule` (World Series), `wst.tv/matches`, the eight `wst.tv/match-centre/<id>` pages for Round 3, `wst.tv/rankings`.
+- Sports covered: ice hockey (NHL, 31 fixtures 22–25 Oct), baseball (MLB World Series, 5 games 23–28 Oct), snooker (WST Northern Ireland Open Round 3, 8 matches 22 Oct). The remaining in-scope sports are listed on the Flagged page as S-07 with the reason, and nothing is listed for them.
+- The one hard constraint worth writing down: with fair opening lines, the owner's -250 floor is exactly a 71.43% implied probability, so "high confidence and priced between -250 and +10000" can only be met in the 70.00%–71.43% slice. Selections above that are graded High but published on `desk/strong-picks.html` instead of as picks (S-02).

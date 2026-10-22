@@ -1,10 +1,10 @@
 {
- "generated_utc": "2026-10-22T02:35:00Z",
+ "generated_utc": "2026-10-22T02:50:00Z",
  "counts": {
-  "total": 13,
+  "total": 16,
   "high": 2,
-  "medium": 6,
-  "low": 5
+  "medium": 7,
+  "low": 7
  },
  "items": [
   {
@@ -91,7 +91,7 @@
    "id": "S-07",
    "severity": "medium",
    "title": "Coverage: 14 in-scope sports were not captured in this session",
-   "detail": "This desk covers ice hockey (NHL, 31 fixtures, 22-25 October) and baseball (MLB World Series, 5 games, 23-28 October). The other in-scope OLBG sports (tennis, cricket, rugby union, rugby league, darts, snooker, handball, volleyball, badminton, table tennis, golf, greyhound racing, motor racing, esports, Aussie rules) publish fixtures as HTML or require a browser session and no official machine-readable feed was captured here; the NBA also failed (its CDN scoreboard endpoint returned HTTP 500 through the page-fetch tool and stats.nba.com did not respond). Earlier sessions' datasets for those sports remain in the repository at their own 21 October cut-off and were not re-verified or overwritten by this session.",
+   "detail": "Three of the in-scope sports are covered in this build (ice hockey, baseball, snooker). The other in-scope sports are not captured: basketball, tennis, golf, cricket, rugby union, rugby league, handball, volleyball, table tennis, badminton, darts, esports and anything else outside the excluded list. They are absent because no official fixture page for 22-28 October 2026 could be read end to end from this sandbox in the time available, not because they were judged out of scope. Nothing is listed for them, rather than listed with invented values.",
    "sources": [
     {
      "label": "Earlier boards (archive)",
@@ -176,6 +176,50 @@
     {
      "label": "Earlier verification register",
      "url": "../verification.html"
+    }
+   ]
+  },
+  {
+   "id": "S-14",
+   "severity": "medium",
+   "title": "Snooker match format is recorded from observed frame scores, not a printed format line",
+   "detail": "Every completed match on the official WST matches page for the BetVictor Northern Ireland Open 2026 (rounds 1-2, 18-21 October) ends with the winner on exactly four frames (4-0, 4-1, 4-2 or 4-3), which is why the eight Round 3 matches are priced as first to four / best of seven. The page itself does not print a 'best of seven' line, so the format is an observation from the official frame scores rather than a quoted rule. If a later round changes format, the frame handicap and total-frames prices on that round would be wrong.",
+   "sources": [
+    {
+     "url": "https://www.wst.tv/matches",
+     "label": "https://www.wst.tv/matches"
+    },
+    {
+     "url": "https://www.wst.tv/match-centre/48c22dd7-97a3-48c3-ab9a-02f81c99d40c",
+     "label": "https://www.wst.tv/match-centre/48c22dd7-97a3-48c3-ab9a-02f81c99d40c"
+    }
+   ]
+  },
+  {
+   "id": "S-15",
+   "severity": "low",
+   "title": "Six earlier high-confidence write-ups were retired when the standings snapshot was re-read",
+   "detail": "The first standings snapshot of this session produced seven in-band high-confidence picks. Re-reading the official NHL wildcard standings into desk/data/nhl_standings.json moved six of them outside the 70.00%-71.43% publishable window, so their write-ups moved to desk/data/retired_predictions.json rather than being deleted or left attached to picks that no longer exist. Five picks remain published (three NHL, two snooker) and every one has a hand-written prediction.",
+   "sources": [
+    {
+     "url": "https://www.nhl.com/standings/2026-10-21/wildcard",
+     "label": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "url": "https://www.wst.tv/matches",
+     "label": "https://www.wst.tv/matches"
+    }
+   ]
+  },
+  {
+   "id": "S-16",
+   "severity": "low",
+   "title": "One snooker match is priced on a 50/50 baseline because no player statistics could be captured",
+   "detail": "Jordan Brown v Scott Donaldson (Round 3, 15:00, 22 October 2026) is listed on the official WST matches page but the Match Centre season statistics for both players were not captured before this build. The row therefore carries blank inputs, a 50/50 baseline, no High grade and an explicit flag; no value was inferred for either player.",
+   "sources": [
+    {
+     "url": "https://www.wst.tv/match-centre/a9ceb4e5-ac12-4aea-94cb-c85b70fbe8ea",
+     "label": "https://www.wst.tv/match-centre/a9ceb4e5-ac12-4aea-94cb-c85b70fbe8ea"
     }
    ]
   }

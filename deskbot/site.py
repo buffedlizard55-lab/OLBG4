@@ -177,6 +177,7 @@ def pick_card(p: dict, pred: dict, row: dict) -> str:
 # --------------------------------------------------------------------------- pages
 def page_dashboard(d: dict) -> str:
     b = d["board"]
+    n_pub = len(b["published_high_picks"])
     rows = b["rows"]
     picks = b["published_high_picks"]
     by_sport = defaultdict(list)
@@ -200,9 +201,9 @@ def page_dashboard(d: dict) -> str:
     body = f"""
 <section class="hero">
   <div class="kicker">Board S · refreshed 22 October 2026</div>
-  <h1>Updated fixtures, our own lines, and seven high-confidence picks inside the price band you asked for.</h1>
-  <p class="lede">Thirty-six fixtures across two sports, every one read on an official league page, {b['counts']['markets_originated']}
-  market selections priced by our own model, and a hand-written prediction on each of the seven high-confidence picks that
+  <h1>Updated fixtures, our own lines, and {n_pub} high-confidence picks inside the price band you asked for.</h1>
+  <p class="lede">{b['counts']['fixtures']} fixtures across {len(b['counts']['by_sport'])} sports, every one read on an official league page, {b['counts']['markets_originated']}
+  market selections priced by our own model, and a hand-written prediction on each of the {n_pub} high-confidence picks that
   lands between -250 and +10000. Nothing is filled in when the official page is silent.</p>
   <div class="cta">
     <a class="btn primary" href="picks.html">Read the {len(picks)} predictions</a>
@@ -223,7 +224,7 @@ def page_dashboard(d: dict) -> str:
 <tr><th>Sport</th><th class="num">Fixtures</th><th class="num">Selections</th><th class="num">Winner picks graded High</th><th class="num">Published high picks</th><th>Page</th></tr>
 {sport_rows}
 </table></div>
-<h2>Three of the seven high-confidence picks</h2>
+<h2>{min(3, n_pub)} of the {n_pub} high-confidence picks</h2>
 <div class="grid cards">{featured}</div>
 <h2>How a row is built</h2>
 <div class="grid cards">
@@ -296,6 +297,7 @@ published with their grade, without a prediction, on <a href="strong-picks.html"
 
 
 def page_strong(d: dict) -> str:
+    n_pub = len(d["board"]["published_high_picks"])
     rows = d["board"]["rows"]
     out = []
     for r in rows:
@@ -324,7 +326,7 @@ def page_strong(d: dict) -> str:
 {body_rows}
 </table></div>
 <p class="small muted">Sorted by probability. The same selections appear inside each fixture's row in
-<a href="verification.html">the verification register</a>; none of them is counted in the seven published picks.</p>
+<a href="verification.html">the verification register</a>; none of them is counted in the {n_pub} published picks.</p>
 """
     return layout("Strong picks outside the band — Board S · OLBG4", body, active="Strong picks (out of band)", depth=1)
 
@@ -386,14 +388,27 @@ def page_analysis(d: dict) -> str:
     n_high = sum(len(r["high_picks"]) for r in rows)
     n_in = b["counts"]["high_in_band_selections"]
     n_out = n_high - n_in
+    def _proj_cells(r: dict) -> str:
+        pr = r["projection"]
+        if "expected_margin" in pr:
+            m1 = f"{pr['expected_margin']:+.2f}"
+            m2 = f"{pr['p_home_margin_model'] * 100:.1f}%"
+            m3 = f"{pr.get('expected_total', 0):.2f}"
+        elif "expected_frames" in pr:
+            m1 = f"frames {pr['expected_frames']:.2f}"
+            m2 = f"{pr.get('p_frame', 0) * 100:.1f}% frame"
+            m3 = f"{pr.get('p_home_winrate_model', 0) * 100:.1f}% match"
+        else:
+            m1 = m2 = m3 = ""
+        agree = "agree" if pr.get("models_agree_home", pr.get("scoring_check_agrees", True)) else "split"
+        return (f"<td class='num'>{m1}</td><td class='num'>{m2}</td>"
+                f"<td class='num'>{pr.get('p_home_winrate_model', 0) * 100:.1f}%</td>"
+                f"<td class='num'>{m3}</td><td class='num'>{r['sample_games_min']}</td>"
+                f"<td>{agree}</td>")
+
     proj_rows = "".join(
         f"<tr><td class='num'>{escape(r['date'])}</td><td>{escape(r['away'])} at {escape(r['home'])}</td>"
-        f"<td class='num'>{r['projection']['expected_margin']:+.2f}</td>"
-        f"<td class='num'>{r['projection']['p_home_margin_model']*100:.1f}%</td>"
-        f"<td class='num'>{r['projection'].get('p_home_winrate_model',0)*100:.1f}%</td>"
-        f"<td class='num'>{r['projection']['expected_total']:.2f}</td>"
-        f"<td class='num'>{r['sample_games_min']}</td>"
-        f"<td>{'agree' if r['projection'].get('models_agree_home', True) else 'split'}</td></tr>"
+        + _proj_cells(r) + "</tr>"
         for r in rows
     )
     body = f"""
@@ -418,7 +433,7 @@ pick in that slice on this card is a total or a puck line for exactly that reaso
 above 71.43%.</p>
 <h2>Projections, fixture by fixture</h2>
 <div class="tablewrap"><table>
-<tr><th>Date</th><th>Match</th><th class="num">Proj. margin</th><th class="num">Margin model (home)</th><th class="num">Win-rate model (home)</th><th class="num">Proj. total</th><th class="num">Min games</th><th>Models</th></tr>
+<tr><th>Date</th><th>Match</th><th class="num">Proj. margin / frames</th><th class="num">Margin or frame model (home)</th><th class="num">Win-rate model (home)</th><th class="num">Proj. total / frame p</th><th class="num">Min games</th><th>Models</th></tr>
 {proj_rows}
 </table></div>
 <h2>How the two estimates are built</h2>
@@ -626,6 +641,30 @@ def page_sport(d: dict, slug: str) -> str:
             )
             + "</table></div>"
         )
+    if slug == "snooker":
+        players = []
+        for r in rows:
+            for side in ("home", "away"):
+                st = r["inputs"][side]
+                if st.get("matches"):
+                    players.append((r[side], st))
+        players.sort(key=lambda x: (-(x[1].get("win_pct") or 0), x[0]))
+        standings = (
+            "<h2>Official season form used as model input</h2>"
+            f"<p class='small muted'>Season matches, match win rate, points, 50+ breaks and centuries from each player's "
+            f"{link('https://www.wst.tv/matches', 'official WST Match Centre')}. Ranking positions come from the "
+            f"{link('https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false', 'official WST world rankings')}, "
+            "which publishes only the top 36 players — a blank rank means the player is outside that published table, not that the rank is zero.</p>"
+            "<div class='tablewrap'><table><tr><th>Player</th><th class='num'>Matches</th><th class='num'>Win %</th>"
+            "<th class='num'>Points</th><th class='num'>50+</th><th class='num'>100+</th><th class='num'>AST</th><th class='num'>Rank</th></tr>"
+            + "".join(
+                f"<tr><td>{escape(name)}</td><td class='num'>{st['matches']}</td><td class='num'>{st['win_pct']}%</td>"
+                f"<td class='num'>{st['points']}</td><td class='num'>{st['fifties']}</td><td class='num'>{st['hundreds']}</td>"
+                f"<td class='num'>{st['ast']}</td><td class='num'>{st.get('rank') or ''}</td></tr>"
+                for name, st in players
+            )
+            + "</table></div>"
+        )
     if slug == "baseball":
         teams = d["mlb_standings"]["teams"]
         standings = (
@@ -662,6 +701,7 @@ def page_sport(d: dict, slug: str) -> str:
 
 def page_root_landing(d: dict) -> str:
     b = d["board"]
+    n_pub = len(b["published_high_picks"])
     picks = b["published_high_picks"]
     wc = [len(d["authored"]["predictions"][p["pick_id"]]["text"].split()) for p in picks]
     featured = "".join(
@@ -707,7 +747,7 @@ data, gates, pages — is finished and reproducible from the repository.</div>
   <a class="card" href="desk/flagged.html" style="display:block;color:inherit"><h3>Flagged for review</h3>
   <p class="meta">{d['flagged']['counts']['total']} items that are unconfirmed or structurally awkward, each with sources.</p></a>
 </div>
-<h2>Three of the seven picks</h2>
+<h2>{min(3, n_pub)} of the {n_pub} picks</h2>
 <div class="grid cards">{featured}</div>
 <h2>Earlier builds in this repository</h2>
 <p class="small">This session did not touch them; each carries its own 21 October cut-off and its own verification register.</p>
@@ -740,6 +780,7 @@ def render(d: dict) -> list[Path]:
         DESK / "methodology.html": page_method(d),
         DESK / "sports" / "ice-hockey.html": page_sport(d, "ice-hockey"),
         DESK / "sports" / "baseball.html": page_sport(d, "baseball"),
+        DESK / "sports" / "snooker.html": page_sport(d, "snooker"),
         ROOT / "index.html": page_root_landing(d),
     }
     written = []

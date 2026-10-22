@@ -23,7 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "desk" / "data"
 
-OFFICIAL_DOMAINS = ("nhl.com", "mlb.com", "statsapi.mlb.com")
+OFFICIAL_DOMAINS = ("nhl.com", "mlb.com", "statsapi.mlb.com", "wst.tv")
 EXCLUDED = {
     "soccer", "football", "american football", "boxing", "ufc", "mma", "hurling",
     "horse racing", "cycling", "specials",
@@ -138,14 +138,18 @@ def run() -> Gate:
         if home_token not in text or away_token not in text:
             missing_team.append(key)
         names = []
-        for abbr in (row.get("home_abbr"), row.get("away_abbr")):
-            for cat in ("goals", "assists", "wins"):
-                if abbr in leaders and cat in leaders[abbr]:
-                    names.append(leaders[abbr][cat][0])
+        if row.get("sport") == "Snooker":
+            # individual sport: the two named players are themselves the official people
+            names = [row["home"], row["away"]]
+        else:
+            for abbr in (row.get("home_abbr"), row.get("away_abbr")):
+                for cat in ("goals", "assists", "wins"):
+                    if abbr in leaders and cat in leaders[abbr]:
+                        names.append(leaders[abbr][cat][0])
         if not any(n.split()[-1].lower() in text for n in names):
             missing_player.append(key)
     g.check("every prediction names both clubs", not missing_team, f"offenders: {missing_team}" if missing_team else "all name both clubs")
-    g.check("every prediction names at least one player from the official team-leaders data", not missing_player,
+    g.check("every prediction names at least one individual player from the official data", not missing_player,
             f"offenders: {missing_player}" if missing_player else "all name a player")
 
     unverified_numbers = {}
@@ -186,6 +190,20 @@ def run() -> Gate:
 
     # ---- 9. blank cells are declared ------------------------------------
     blank_venues = [r["id"] for r in rows if not r.get("venue")]
+    snk_rows = [r for r in rows if r["sport"] == "Snooker"]
+    g.check("every snooker row cites its own official WST Match Centre page",
+            all("wst.tv/match-centre/" in r["source_url"] for r in snk_rows),
+            f"{len(snk_rows)} snooker rows checked")
+    g.check("every snooker row declares the match format it was priced on",
+            all(r.get("best_of") == 7 for r in snk_rows),
+            "all snooker rows carry best_of=7")
+    g.check("every snooker row quotes a moneyline, a frame handicap and a total-frames market",
+            all({"moneyline", "handicap", "total"} <= {m["market"] for m in r["markets"]} for r in snk_rows),
+            f"{len(snk_rows)} rows checked")
+    no_stats = [r["id"] for r in snk_rows if not r["inputs"]["home"]["matches"] or not r["inputs"]["away"]["matches"]]
+    g.check("every snooker row without published player stats is disclosed in its own flags",
+            all(any("no season stats" in f for f in r["flags"]) for r in snk_rows if r["id"] in no_stats),
+            f"{len(no_stats)} rows have blank inputs and are flagged: {no_stats}")
     g.check("every blank venue is disclosed on the flagged page", True,
             f"{len(blank_venues)} rows have no venue captured and are listed on Flagged")
 

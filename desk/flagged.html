@@ -16,7 +16,7 @@
 
 <section class="hero" style="padding:22px 26px">
   <div class="kicker">Flagged for review</div>
-  <h1 style="font-size:30px">13 items, with sources</h1>
+  <h1 style="font-size:30px">16 items, with sources</h1>
   <p class="lede" style="font-size:16px">Everything unconfirmed, structurally awkward or incomplete is here rather than buried.
   Nothing on this page blocks publication: the site states the limitation instead of filling the gap with a guess.</p>
 </section>
@@ -75,7 +75,7 @@ publishable probability at 71.43%, which is why the strongest picks sit outside 
   <div class="top"><div><h3>Coverage: 14 in-scope sports were not captured in this session</h3>
   <div class="meta">S-07 · severity medium</div></div>
   <div><span class="badge b-warn">medium</span></div></div>
-  <p class="body">This desk covers ice hockey (NHL, 31 fixtures, 22-25 October) and baseball (MLB World Series, 5 games, 23-28 October). The other in-scope OLBG sports (tennis, cricket, rugby union, rugby league, darts, snooker, handball, volleyball, badminton, table tennis, golf, greyhound racing, motor racing, esports, Aussie rules) publish fixtures as HTML or require a browser session and no official machine-readable feed was captured here; the NBA also failed (its CDN scoreboard endpoint returned HTTP 500 through the page-fetch tool and stats.nba.com did not respond). Earlier sessions&#x27; datasets for those sports remain in the repository at their own 21 October cut-off and were not re-verified or overwritten by this session.</p>
+  <p class="body">Three of the in-scope sports are covered in this build (ice hockey, baseball, snooker). The other in-scope sports are not captured: basketball, tennis, golf, cricket, rugby union, rugby league, handball, volleyball, table tennis, badminton, darts, esports and anything else outside the excluded list. They are absent because no official fixture page for 22-28 October 2026 could be read end to end from this sandbox in the time available, not because they were judged out of scope. Nothing is listed for them, rather than listed with invented values.</p>
   <details><summary>Sources for this item</summary><ul>
   <li><span class="muted">Earlier boards (archive)</span></li><li><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/arena/f8feb803-olbg4/COORDINATION.md" rel="noopener">Coverage notes in the repo</a></li>
   </ul></details>
@@ -126,6 +126,30 @@ publishable probability at 71.43%, which is why the strongest picks sit outside 
   <p class="body">The repository carries a 317-row master board and a dozen earlier dashboards, all cut off on 21 October. They were left byte-identical. This session&#x27;s verification register covers its own 36 rows and 7 predictions; it does not re-open the earlier boards, whose own registers, flags and sources remain the authority for their rows. Readers should treat those pages as dated snapshots.</p>
   <details><summary>Sources for this item</summary><ul>
   <li><span class="muted">Master board (earlier cut-off)</span></li><li><span class="muted">Earlier verification register</span></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>Snooker match format is recorded from observed frame scores, not a printed format line</h3>
+  <div class="meta">S-14 · severity medium</div></div>
+  <div><span class="badge b-warn">medium</span></div></div>
+  <p class="body">Every completed match on the official WST matches page for the BetVictor Northern Ireland Open 2026 (rounds 1-2, 18-21 October) ends with the winner on exactly four frames (4-0, 4-1, 4-2 or 4-3), which is why the eight Round 3 matches are priced as first to four / best of seven. The page itself does not print a &#x27;best of seven&#x27; line, so the format is an observation from the official frame scores rather than a quoted rule. If a later round changes format, the frame handicap and total-frames prices on that round would be wrong.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://www.wst.tv/matches" rel="noopener">https://www.wst.tv/matches</a></li><li><a href="https://www.wst.tv/match-centre/48c22dd7-97a3-48c3-ab9a-02f81c99d40c" rel="noopener">https://www.wst.tv/match-centre/48c22dd7-97a3-48c3-ab9a-02f81c99d40c</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>Six earlier high-confidence write-ups were retired when the standings snapshot was re-read</h3>
+  <div class="meta">S-15 · severity low</div></div>
+  <div><span class="badge b-low">low</span></div></div>
+  <p class="body">The first standings snapshot of this session produced seven in-band high-confidence picks. Re-reading the official NHL wildcard standings into desk/data/nhl_standings.json moved six of them outside the 70.00%-71.43% publishable window, so their write-ups moved to desk/data/retired_predictions.json rather than being deleted or left attached to picks that no longer exist. Five picks remain published (three NHL, two snooker) and every one has a hand-written prediction.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://www.nhl.com/standings/2026-10-21/wildcard" rel="noopener">https://www.nhl.com/standings/2026-10-21/wildcard</a></li><li><a href="https://www.wst.tv/matches" rel="noopener">https://www.wst.tv/matches</a></li>
+  </ul></details>
+</article><article class="pick">
+  <div class="top"><div><h3>One snooker match is priced on a 50/50 baseline because no player statistics could be captured</h3>
+  <div class="meta">S-16 · severity low</div></div>
+  <div><span class="badge b-low">low</span></div></div>
+  <p class="body">Jordan Brown v Scott Donaldson (Round 3, 15:00, 22 October 2026) is listed on the official WST matches page but the Match Centre season statistics for both players were not captured before this build. The row therefore carries blank inputs, a 50/50 baseline, no High grade and an explicit flag; no value was inferred for either player.</p>
+  <details><summary>Sources for this item</summary><ul>
+  <li><a href="https://www.wst.tv/match-centre/a9ceb4e5-ac12-4aea-94cb-c85b70fbe8ea" rel="noopener">https://www.wst.tv/match-centre/a9ceb4e5-ac12-4aea-94cb-c85b70fbe8ea</a></li>
   </ul></details>
 </article>
 

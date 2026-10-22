@@ -1,0 +1,192 @@
+{
+ "generated_utc": "2026-10-22T02:40:00Z",
+ "reason": "These write-ups were published against the first standings snapshot of this session. Re-reading the official standings page into desk/data/nhl_standings.json moved their model probabilities out of the 70.00%-71.43% publishable window, so they are retained here for transparency instead of being silently deleted.",
+ "retired": {
+  "nhl-2026020159:handicap:Los Angeles Kings +2.5": {
+   "text": "Los Angeles are 1-4-2 and have scored only 17 goals in seven games, so backing them to win at +345 is not the play; backing them to stay within two goals is. The Kings are 1-1-2 on the road and their seven games have produced a minus-10 goal difference, which reads like a bad team losing narrowly rather than being blown out. New York are 5-3-1 and 4-1-0 at home, with Bo Horvat on five goals and Matthew Schaefer already at eight assists, but 27 goals in nine games does not point to a rout. Selection: Los Angeles Kings +2.5 at -248, a 71.2% probability.",
+   "facts": [
+    {
+     "fact": "Los Angeles Kings 2026-27 record 1-4-2, 17 goals for, 27 goals against in 7 games, away record 1-1-2, last ten 1-4-2, goal difference -10",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "New York Islanders 2026-27 record 5-3-1, 27 goals for, 20 goals against in 9 games, home record 4-1-0, last ten 5-3-1",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Bo Horvat leads the Islanders with five goals; Matthew Schaefer leads them with eight assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+    },
+    {
+     "fact": "Artemi Panarin leads the Kings with four goals; Brandt Clarke leads them with four assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+    },
+    {
+     "fact": "Fixture: Los Angeles Kings at New York Islanders, UBS Arena, 22 October 2026, 7:30 PM ET",
+     "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
+    },
+    {
+     "fact": "Our moneyline prices the Islanders at -345 (77.5%) and the Kings at +345 (22.5%); the Kings +2.5 puck line is quoted at -248, a 71.2% model probability",
+     "source": "derived: deskbot/model.py applied to the official standings above"
+    }
+   ]
+  },
+  "nhl-2026020160:total:Over 5.5": {
+   "text": "Vegas have scored 44 goals in 11 games, four per night, and Mark Stone has eight of them with Jack Eichel already on 13 assists. They are 8-3-0 and 3-1-0 on the road, and a meeting with a St. Louis side that has both scored and conceded 29 in nine games points to an open night rather than a tight one. The Blues are 4-4-1 and 2-0-1 at home, with Mason McTavish on five goals and Dylan Holloway on six assists. Our model projects 6.41 goals, so Over 5.5 at -243, a 70.9% probability, is the pick.",
+   "facts": [
+    {
+     "fact": "Vegas Golden Knights 2026-27 record 8-3-0, 44 goals for, 30 goals against in 11 games, away record 3-1-0, last ten 7-3-0",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "44 goals in 11 games is four goals per game (computed from the official goals-for and games-played columns)",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "St. Louis Blues 2026-27 record 4-4-1, 29 goals for, 29 goals against in 9 games, home record 2-0-1, last ten 4-4-1",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Mark Stone leads Vegas with eight goals; Jack Eichel leads Vegas with 13 assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+    },
+    {
+     "fact": "Mason McTavish leads St. Louis with five goals; Dylan Holloway leads St. Louis with six assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+    },
+    {
+     "fact": "Fixture: Vegas Golden Knights at St. Louis Blues, Enterprise Center, 22 October 2026, 8:00 PM ET",
+     "source": "https://www.nhl.com/gamecenter/vgk-vs-stl/2026/10/22/2026020160"
+    },
+    {
+     "fact": "Our projected total is 6.41 goals; Over 5.5 is quoted at -243, a 70.9% model probability",
+     "source": "derived: deskbot/model.py applied to the official standings above"
+    }
+   ]
+  },
+  "nhl-2026020161:total:Over 4.5": {
+   "text": "Dallas have allowed only 15 goals in nine games, so taking an over here needs a reason, and Winnipeg supply it: Kyle Connor has eight goals and the Jets have scored 24 times in nine matches. Dallas themselves are 5-3-1 with 23 goals, Mikko Rantanen on five and Jason Robertson on six assists, and they have won three in a row. Our projection of 5.37 goals sits 0.87 above this 4.5 alternate line, which is why the value is there. Selection: Over 4.5 at -235, a 70.2% probability, on the alternate total.",
+   "facts": [
+    {
+     "fact": "Dallas Stars 2026-27 record 5-3-1, 23 goals for, 15 goals against in 9 games, home record 2-2-0, last ten 5-3-1, current streak three straight wins",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Winnipeg Jets 2026-27 record 4-3-2, 24 goals for, 26 goals against in 9 games, away record 2-1-1, last ten 4-3-2",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Kyle Connor leads Winnipeg with eight goals; Mark Scheifele leads Winnipeg with six assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+    },
+    {
+     "fact": "Mikko Rantanen leads Dallas with five goals; Jason Robertson leads Dallas with six assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+    },
+    {
+     "fact": "Fixture: Winnipeg Jets at Dallas Stars, American Airlines Center, 22 October 2026, 8:00 PM ET",
+     "source": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161"
+    },
+    {
+     "fact": "Our projected total is 5.37 goals, which is 0.87 goals above the 4.5 alternate line; Over 4.5 is quoted at -235, a 70.2% model probability",
+     "source": "derived: deskbot/model.py applied to the official standings above"
+    }
+   ]
+  },
+  "nhl-2026020163:total:Under 7.5": {
+   "text": "Carolina and Edmonton both score freely, and the individual numbers are loud: Connor McDavid has 20 assists, Leon Draisaitl eight goals, Andrei Svechnikov six goals and Jackson Blake 10 assists. Yet 7.5 is a high bar even for this pair, because both clubs have conceded only 27 goals. Carolina are 8-2-0 in their last ten and 6-1-0 on the road; Edmonton are 7-1-1. Our projection is 6.59 goals, more than a goal below the line. On a standard 6.5 total we would pass; on this alternate line, Under 7.5 at -243, a 70.9% probability, is the selection.",
+   "facts": [
+    {
+     "fact": "Carolina Hurricanes 2026-27 record 8-2-1, 42 goals for, 27 goals against in 11 games, away record 6-1-0, last ten 8-2-0",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Edmonton Oilers 2026-27 record 7-1-1, 41 goals for, 27 goals against in 9 games, home record 2-1-1, last ten 7-1-1",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Connor McDavid leads Edmonton with 20 assists; Leon Draisaitl leads Edmonton with eight goals",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+    },
+    {
+     "fact": "Andrei Svechnikov leads Carolina with six goals; Jackson Blake leads Carolina with 10 assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-22"
+    },
+    {
+     "fact": "Fixture: Carolina Hurricanes at Edmonton Oilers, Rogers Place, 22 October 2026, 9:00 PM ET",
+     "source": "https://www.nhl.com/gamecenter/car-vs-edm/2026/10/22/2026020163"
+    },
+    {
+     "fact": "The standard total for this game is 6.5 goals; 7.5 is quoted as the alternate line, and our projection of 6.59 goals sits above the standard 6.5 line",
+     "source": "derived: deskbot/model.py projected total 6.59; alternate line grid is documented in deskbot/model.py"
+    },
+    {
+     "fact": "Our projected total is 6.59 goals; Under 7.5 is quoted at -243, a 70.9% model probability",
+     "source": "derived: deskbot/model.py applied to the official standings above"
+    }
+   ]
+  },
+  "nhl-2026020167:total:Over 5.5": {
+   "text": "Colorado's games have been anything but quiet: 41 goals scored and 31 conceded in 10 matches, with Artturi Lehkonen on eight and Nathan MacKinnon on 10 assists. Tampa Bay are the better defensive side but still 7-2-0 and scoring, Brandon Hagel on seven goals and Nikita Kucherov on nine assists. Both teams arrive with real finishing and both have won three of their last four or better, so the 5.5 line looks low against our 6.41 projection. Over 5.5 at -245, a 71.0% probability, is the selection; the risk is an Avalanche side that has lost two straight tightening up at home.",
+   "facts": [
+    {
+     "fact": "Colorado Avalanche 2026-27 record 5-4-1, 41 goals for, 31 goals against in 10 games, home record 3-1-1, last ten 5-4-1, current streak two straight losses",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Tampa Bay Lightning 2026-27 record 7-2-0, 31 goals for, 23 goals against in 9 games, away record 2-2-0, last ten 7-2-0, current streak three straight wins",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Artturi Lehkonen leads Colorado with eight goals; Nathan MacKinnon leads Colorado with 10 assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-23"
+    },
+    {
+     "fact": "Brandon Hagel leads Tampa Bay with seven goals; Nikita Kucherov leads Tampa Bay with nine assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-23"
+    },
+    {
+     "fact": "Fixture: Tampa Bay Lightning at Colorado Avalanche, Ball Arena, 23 October 2026, 9:00 PM ET",
+     "source": "https://www.nhl.com/gamecenter/tbl-vs-col/2026/10/23/2026020167"
+    },
+    {
+     "fact": "Our projected total is 6.41 goals; Over 5.5 is quoted at -245, a 71.0% model probability",
+     "source": "derived: deskbot/model.py applied to the official standings above"
+    }
+   ]
+  },
+  "nhl-2026020183:total:Over 5.5": {
+   "text": "Nashville's eight games have produced 47 goals, 23 for and 24 against, and Ryan O'Reilly has four of them with Roman Josi on eight assists. A team that is 3-2-3 and conceding almost three a night is not the sort of opponent that keeps a game under five and a half. Colorado bring 41 goals in 10 games and a 5-4-1 record, Artturi Lehkonen on eight and Nathan MacKinnon on 10 assists. Our 6.38-goal projection is 0.88 above the line, so Over 5.5 at -236, a 70.3% probability, is the pick.",
+   "facts": [
+    {
+     "fact": "Nashville Predators 2026-27 record 3-2-3, 23 goals for, 24 goals against in 8 games, home record 2-2-1, last ten 3-2-3",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "23 goals for plus 24 goals against is 47 goals in Nashville's eight games (computed from the official columns); 24 goals against in 8 games is three per game",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Colorado Avalanche 2026-27 record 5-4-1, 41 goals for, 31 goals against in 10 games, away record 2-3-0, last ten 5-4-1",
+     "source": "https://www.nhl.com/standings/2026-10-21/wildcard"
+    },
+    {
+     "fact": "Ryan O'Reilly leads Nashville with four goals; Roman Josi leads Nashville with eight assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-25"
+    },
+    {
+     "fact": "Artturi Lehkonen leads Colorado with eight goals; Nathan MacKinnon leads Colorado with 10 assists",
+     "source": "https://api-web.nhle.com/v1/score/2026-10-25"
+    },
+    {
+     "fact": "Fixture: Colorado Avalanche at Nashville Predators, Bridgestone Arena, 25 October 2026, 8:00 PM ET",
+     "source": "https://www.nhl.com/gamecenter/col-vs-nsh/2026/10/25/2026020183"
+    },
+    {
+     "fact": "Our projected total is 6.38 goals, which is 0.88 goals above the 5.5 line; Over 5.5 is quoted at -236, a 70.3% model probability",
+     "source": "derived: deskbot/model.py applied to the official standings above"
+    }
+   ]
+  }
+ }
+}
