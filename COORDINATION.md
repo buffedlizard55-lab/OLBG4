@@ -3057,6 +3057,24 @@ URC (404), EHF (404), GBGB (no response), AFL API (401), WTT and BWF match pages
 - **Nothing was blocked by flags:** the 137 flagged items (103 listing-only rows, 8 unpriced sports, the −250/70% tension, OLBG timezone rendering) remain published on the desk's Flagged page and did not gate the merge, per the brief.
 - **Post-merge state:** `data/master*.json`, `data/rows.json`, `docs/**` and every other `session-*/` are byte-identical to the pre-merge `main`; the only shared-file deltas are the root pointer, the data-driven `board/index.html` callout, one `README.md` section and this record.
 
+**Follow-up PRs on the same branch (all self-merged, all gates green):**
+
+| PR | Purpose | Merge commit | Pages |
+|---|---|---|---|
+| [#84](https://github.com/buffedlizard55-lab/OLBG4/pull/84) | Docs-only: put this completion record on `main` | `da94395e7a8cf1f85f8881f604e5768d6ddc6659` | deploy run `39716096628` success |
+| [#85](https://github.com/buffedlizard55-lab/OLBG4/pull/85) | Line-by-line fix: Bruins write-up 71.3% → 71.2% (p = 0.7125) and OT-streak wording matched to `streakCode: OT` | `9ae7407ff510b244e4530d475e16a0f0a54c43d6` | deploy run `39716444958` success |
+| [#86](https://github.com/buffedlizard55-lab/OLBG4/pull/86) | Finish the renumber in data/workflow: `board: "U"` → `"W"`, collector docstring, workflow name/concurrency/bot/message; rebuild against the 03:31Z capture | `ba4ce4f42f091c372ff290349b6b85203c17a44b` | deploy run `39717481708` success |
+
+Each follow-up re-ran `scripts/session-e5f2dad3/verify.py` (9,104 assertions), `scripts/audit_publication.py --check`
+(11,811 targets, 0 broken, 0 stale) and the repository PR checks (`audit`, `build-and-validate`, `verify`) before merging.
+The rebuild after the final collector snapshot (`2026-10-22T03:31Z`, 88 targets, 59 HTTP 2xx) changed only provenance
+timestamps and the corrected Bruins sentence — row count (226), priced count (90), High-in-window count (3) and every
+price are unchanged.
+
+**Repo-level inconsistency observed but left to its owner:** `README.md` billed `session-c92c927c/` as "Board T" even
+though that session's own record (and this file) renames it Board U after the T collision; corrected here to Board U,
+with no change to that session's files.
+
 ---
 
 ## Board X — session `arena/27462ea7-olbg4` (README freshness handoff)
