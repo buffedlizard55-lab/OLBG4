@@ -1,0 +1,44 @@
+name: Board AF evidence capture (0d3b826c)
+
+on:
+  push:
+    branches: [arena/0d3b826c-olbg4]
+    paths:
+      - .github/workflows/af-0d3b826c.yml
+      - scripts/session-0d3b826c/capture.py
+      - scripts/session-0d3b826c/targets.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: af-0d3b826c-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/0d3b826c-olbg4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture public OLBG hubs and official sports sources
+        run: |
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-0d3b826c/capture.py scripts/session-0d3b826c/targets.json "data/session-0d3b826c/capture/$STAMP"
+      - name: Commit byte-exact evidence to the session branch
+        run: |
+          git config user.name "board-af-capture[bot]"
+          git config user.email "board-af-capture@users.noreply.github.com"
+          git add "data/session-0d3b826c/capture/$STAMP"
+          git commit -m "Board AF: official evidence capture $STAMP [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin arena/0d3b826c-olbg4 && git push origin HEAD:arena/0d3b826c-olbg4 && break
+            sleep 4
+          done
