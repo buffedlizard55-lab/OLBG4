@@ -1,0 +1,40 @@
+name: Board Z capture (9359e596)
+
+# Board Z (session arena/9359e596-olbg4). Captures live OLBG in-scope sport hub pages
+# and official governing-body feeds listed in scripts/session-9359e596/targets.json,
+# committing gzip-compressed raw bytes + SHA-256 manifest to data/session-9359e596/capture/.
+# Strictly scoped to arena/9359e596-olbg4 and targets.json changes or manual dispatch.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: z-9359e596-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG + official feeds
+        run: |
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-9359e596/fetch.py scripts/session-9359e596/targets.json "data/session-9359e596/capture/$STAMP"
+      - name: Commit capture to arena/9359e596-olbg4
+        run: |
+          git config user.name "board-z-capture[bot]"
+          git config user.email "board-z-capture@users.noreply.github.com"
+          git add "data/session-9359e596/capture/$STAMP"
+          git commit -m "Board Z (9359e596): runner capture $STAMP [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin arena/9359e596-olbg4 && git push origin HEAD:arena/9359e596-olbg4 && break
+            sleep 5
+          done

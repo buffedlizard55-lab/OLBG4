@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology — OLBG4 Board Z (2026-10-22 UTC)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">OLBG4 Sports Desk <span>Board Z · 2026-10-22T07:50Z</span></a>
+      <nav class="nav"><a href="index.html" class="">Overview</a><a href="predictions.html" class="">High Picks (-250..+10000)</a><a href="matches.html" class="">All Matches (280)</a><a href="markets.html" class="">Originated Markets</a><a href="olbg.html" class="">OLBG Reconciliation</a><a href="flagged.html" class="">Flagged & Repo Review</a><a href="sources.html" class="">Official Sources</a><a href="methodology.html" class="active">Methodology</a><a href="../index.html" class="">Repo Home ↗</a></nav>
+    </div>
+  </header>
+  <main class="container">
+    
+    <section class="hero">
+      <h1>Line-Origination Methodology &amp; Confidence Grading Rules</h1>
+      <p>Deterministic, zero-vig mathematical models converting official governing-body performance metrics into independent Moneyline / 1X2, Handicap / Spread, and Over/Under Total lines.</p>
+    </section>
+    <div class="card-box">
+      <h3>1. Sport-Specific Origination Models (<code>scripts/session-9359e596/model.py</code>)</h3>
+      <ul>
+        <li><strong>Discrete Race-to-N Sports (Tennis sets N=2, Snooker frames N=4, Darts legs N=6, Volleyball sets N=3, Badminton games N=2):</strong> Match win probability <code>p = a^α / (a^α + b^α)</code> is derived strictly from official ATP/WTA/BWF ranking points, WST rank + 2026/27 match win rate &amp; century rate, PDC Order of Merit rank, or official volleyball rally-point quotients (<code>PW/PL</code>). Negative-binomial inversion recovers exact per-unit win probability <code>q</code>, generating exact scoreline distributions, <code>±1.5 / ±2.5</code> unit handicaps, and Over/Under unit totals.</li>
+        <li><strong>Ice Hockey (NHL, Swedish SHL, Finnish Liiga):</strong> Bivariate-independent Poisson model using official team <code>GF/GP</code> and <code>GA/GP</code> (with 3-game Bayesian shrinkage to league mean in early-season NHL) plus home-ice goal adjustment, pricing 2-way Moneyline (incl. OT/SO), 60-minute 1X2, <code>±1.5</code> Puck Line, and Over/Under 5.5 or 6.5 Goals.</li>
+        <li><strong>Goal &amp; Point Margin Sports (Handball, Basketball, Rugby Union, Rugby League, Aussie Rules AFLW):</strong> Normal margin &amp; total distribution parameterized from official league <code>GF/GA</code>, <code>PF/PA</code>, or AFLW ladder percentage, incorporating <code>draw_band = 0.5</code> for 3-way 1X2 in Handball and Rugby Union, neutral-venue zeroing (Belgrade &amp; Austin), and verified injury adjustments (<code>-4.5 pts</code> for Isaiya Katoa's ankle injury in Tonga vs Lebanon).</li>
+        <li><strong>Baseball &amp; Cricket:</strong> MLB World Series priced via Pythagorean expectation (<code>exp = 1.83</code>) on 162-game official MLB StatsAPI <code>RS/RA</code> combined through Log5 + home ballpark edge; International ODIs/T20Is priced via power-law ratio on official ICC Team Ratings (venue run totals withheld where ICC rating tables print no ground run averages).</li>
+      </ul>
+    </div>
+    <div class="card-box">
+      <h3>2. Confidence Grading &amp; the <code>-250</code> to <code>+10000</code> Focus Window</h3>
+      <ul>
+        <li><strong>High Confidence:</strong> Restricted strictly to selections whose originated fair American price sits between <code>-250</code> and <code>+10000</code> (<code>1.40</code> to <code>101.00</code> decimal; implied win probability <code>≤ 71.43%</code>), backed by convergent official form, recent match scorelines, and named player availability. Heavy chalk shorter than <code>-250</code> is automatically capped at <strong>Medium</strong>.</li>
+        <li><strong>Medium Confidence:</strong> Clear statistical edge from verified multi-game official tables/rankings, or heavy favourites shorter than <code>-250</code>.</li>
+        <li><strong>Low Confidence:</strong> Coin-flip projections (<code>&lt; 54.5%</code>) or early-season 1-game domestic tables.</li>
+        <li><strong>Blank / Unverified:</strong> Wherever official numerical inputs cannot be confirmed from a governing-body source, all line columns remain <code>null</code> (<code>—</code>) and the row is flagged on <a href="flagged.html">Flagged for Review</a>.</li>
+      </ul>
+    </div>
+    
+    <footer class="footer">
+      <div>Session <code>arena/9359e596-olbg4</code> (Board Z) · Live OLBG capture <code>2026-10-22T07:33:46Z</code> · Analytical research only — <strong>not betting advice</strong>.</div>
+      <div><a href="../board/index.html">Master Board</a> · <a href="../audit/index.html">Publication Audit</a> · <a href="flagged.html">Flagged for Review</a></div>
+    </footer>
+  </main>
+</body>
+</html>
