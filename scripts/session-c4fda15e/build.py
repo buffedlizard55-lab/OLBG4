@@ -108,9 +108,12 @@ for key, label in (("wta_osaka", "WTA Osaka"), ("wta_ningbo", "WTA Ningbo")):
             basis = f"In progress on the official feed at capture (state {m['state']})"
         elif m["state"] == "F":
             basis = f"Completed: {m['result']}"
-        add(sport="Tennis", competition=f"{label} — round id {m['round_id']}", a=m["a"], b=m["b"], seed_a=m["seed_a"], seed_b=m["seed_b"],
+        rnd = " — Round of 16 (official order of play, Day 4)" if m["state"] in ("U", "P", "M") else ""
+        add(sport="Tennis", competition=f"{label}{rnd}", a=m["a"], b=m["b"], seed_a=m["seed_a"], seed_b=m["seed_b"],
             utc=fixed, utc_basis=basis, date=(t[:10] if t else None), state=m["state"], result=m["result"],
-            url=T["page_url"], source_name=f"{label} official match feed (api.wtatennis.com)", capture=T["source"]["capture"])
+            url=(T["page_url"].replace("/scores", "/order-of-play") if m["state"] in ("U", "P", "M") else T["page_url"]),
+            source_name=(f"{label} official order of play + match feed" if m["state"] in ("U", "P", "M") else f"{label} official match feed (api.wtatennis.com)"),
+            capture=T["source"]["capture"])
 
 osk = MAN["wta_osaka_oop_d4"]
 add(sport="Tennis", competition="WTA Osaka — QF", a="Talia Gibson", b="Ashlyn Krueger", seed_a="4", seed_b="", utc=None,
