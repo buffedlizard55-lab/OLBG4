@@ -1,0 +1,239 @@
+{
+  "schema": "olbg4.board-ab.coverage/1",
+  "board": "AB",
+  "rows": [
+    {
+      "sport": "Ice Hockey",
+      "status": "covered",
+      "note": "NHL",
+      "listed_on_olbg": 6,
+      "fixtures": 82,
+      "priced": 82,
+      "high_in_window": 12
+    },
+    {
+      "sport": "Baseball",
+      "status": "covered",
+      "note": "MLB",
+      "listed_on_olbg": 1,
+      "fixtures": 5,
+      "priced": 5,
+      "high_in_window": 0
+    },
+    {
+      "sport": "Basketball",
+      "status": "listed only, not priced",
+      "note": "NBA",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 16,
+      "listed_outrights": 0
+    },
+    {
+      "sport": "Cricket",
+      "status": "listed only, not priced",
+      "note": "international and franchise",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 7,
+      "listed_outrights": 5
+    },
+    {
+      "sport": "Darts",
+      "status": "listed only, not priced",
+      "note": "PDC",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 16,
+      "listed_outrights": 2
+    },
+    {
+      "sport": "Esports",
+      "status": "covered",
+      "note": "LoL Esports",
+      "listed_on_olbg": 0,
+      "fixtures": 9,
+      "priced": 9,
+      "high_in_window": 0
+    },
+    {
+      "sport": "Golf",
+      "status": "outrights only, no match rows",
+      "note": "PGA/LPGA",
+      "reason": "OLBG's live listing carried only outright/futures cards for this sport at capture time, so there is no match to price. The outrights are published on the all-fixtures page with a blank price and a flag.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 0,
+      "listed_outrights": 4
+    },
+    {
+      "sport": "Greyhound Racing",
+      "status": "not covered this session",
+      "note": "GBGB",
+      "reason": "No official source for this sport could be read from this sandbox (the shell reaches GitHub/npm/PyPI only, and the league endpoints that were attempted returned 403, 404, a timeout or a JavaScript shell), and OLBG's live listing carried no event for it at capture time. Left blank rather than estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 0
+    },
+    {
+      "sport": "Handball",
+      "status": "listed only, not priced",
+      "note": "EHF",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 33,
+      "listed_outrights": 0
+    },
+    {
+      "sport": "Rugby League",
+      "status": "outrights only, no match rows",
+      "note": "NRL/RLWC",
+      "reason": "OLBG's live listing carried only outright/futures cards for this sport at capture time, so there is no match to price. The outrights are published on the all-fixtures page with a blank price and a flag.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 0,
+      "listed_outrights": 3
+    },
+    {
+      "sport": "Rugby Union",
+      "status": "listed only, not priced",
+      "note": "URC/Premiership/Top 14",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 15,
+      "listed_outrights": 1
+    },
+    {
+      "sport": "Snooker",
+      "status": "listed only, not priced",
+      "note": "WST",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 2,
+      "listed_outrights": 0
+    },
+    {
+      "sport": "Tennis",
+      "status": "listed only, not priced",
+      "note": "ATP/WTA",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 22,
+      "listed_outrights": 0
+    },
+    {
+      "sport": "Volleyball",
+      "status": "listed only, not priced",
+      "note": "VNL and club",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 15,
+      "listed_outrights": 0
+    },
+    {
+      "sport": "Aussie Rules",
+      "status": "not covered this session",
+      "note": "AFL",
+      "reason": "No official source for this sport could be read from this sandbox (the shell reaches GitHub/npm/PyPI only, and the league endpoints that were attempted returned 403, 404, a timeout or a JavaScript shell), and OLBG's live listing carried no event for it at capture time. Left blank rather than estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 0
+    },
+    {
+      "sport": "Badminton",
+      "status": "not covered this session",
+      "note": "BWF",
+      "reason": "No official source for this sport could be read from this sandbox (the shell reaches GitHub/npm/PyPI only, and the league endpoints that were attempted returned 403, 404, a timeout or a JavaScript shell), and OLBG's live listing carried no event for it at capture time. Left blank rather than estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 0
+    },
+    {
+      "sport": "Table Tennis",
+      "status": "not covered this session",
+      "note": "WTT",
+      "reason": "No official source for this sport could be read from this sandbox (the shell reaches GitHub/npm/PyPI only, and the league endpoints that were attempted returned 403, 404, a timeout or a JavaScript shell), and OLBG's live listing carried no event for it at capture time. Left blank rather than estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 0
+    },
+    {
+      "sport": "Gaelic Football",
+      "status": "listed only, not priced",
+      "note": "GAA — scope ambiguity, see the Flagged for Review page",
+      "reason": "OLBG lists in-scope events for this sport, but no official payload that carries the numeric inputs needed to originate a line was captured in this sandbox. The listing is carried with a blank official source, a blank price and a flag; no value is estimated.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 5,
+      "listed_outrights": 1
+    },
+    {
+      "sport": "Motor Racing",
+      "status": "outrights only, no match rows",
+      "note": "not in the brief's exclusion list, but not covered here",
+      "reason": "OLBG's live listing carried only outright/futures cards for this sport at capture time, so there is no match to price. The outrights are published on the all-fixtures page with a blank price and a flag.",
+      "fixtures": 0,
+      "priced": 0,
+      "high_in_window": 0,
+      "listed_on_olbg": 0,
+      "listed_outrights": 3
+    }
+  ],
+  "excluded_by_brief": [
+    {
+      "sport": "Soccer / Football",
+      "status": "excluded by the brief"
+    },
+    {
+      "sport": "Boxing",
+      "status": "excluded by the brief"
+    },
+    {
+      "sport": "UFC / MMA",
+      "status": "excluded by the brief"
+    },
+    {
+      "sport": "American Football",
+      "status": "excluded by the brief"
+    },
+    {
+      "sport": "Hurling",
+      "status": "excluded by the brief"
+    },
+    {
+      "sport": "Horse Racing",
+      "status": "excluded by the brief"
+    },
+    {
+      "sport": "Cycling",
+      "status": "excluded by the brief"
+    },
+    {
+      "sport": "Specials",
+      "status": "excluded by the brief"
+    }
+  ]
+}

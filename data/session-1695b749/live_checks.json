@@ -1,0 +1,61 @@
+{
+  "schema": "olbg4.board-ab.live-checks/1",
+  "board": "AB",
+  "session": "arena/1695b749-olbg4",
+  "note": "Every live read performed by this session with the agent page-fetch tool. The shell in this sandbox reaches GitHub/npm/PyPI only, so these are the only pages this board read over HTTP itself; everything else is re-derived from the committed official payloads listed in data/session-1695b749/sources.json after re-checking their SHA-256. A quote is the exact excerpt observed in the fetched response.",
+  "checks": [
+    {
+      "id": "L01",
+      "purpose": "Spot-check the committed NHL 22 Oct schedule payload against the live NHL API; confirm participants and start times for a sample of the 22 Oct slate",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+      "http_status": 200,
+      "fetched_at_utc": "2026-10-22T07:24Z",
+      "quote": "\"numberOfGames\":12 ... {\"id\":2026020154,...\"startTimeUTC\":\"2026-10-22T23:00:00Z\",\"venue\":{\"default\":\"TD Garden\"}...\"awayTeam\":{...\"abbrev\":\"NSH\"...},\"homeTeam\":{...\"abbrev\":\"BOS\"...}} ... {\"id\":2026020155 ... \"abbrev\":\"NYR\" ... \"abbrev\":\"TOR\"} ... {\"id\":2026020156 ... \"abbrev\":\"SJS\" ... \"abbrev\":\"OTT\"} ... {\"id\":2026020157 ... \"abbrev\":\"ANA\" ... \"abbrev\":\"NJD\"}",
+      "observed": "12 games on 2026-10-22; NSH@BOS, NYR@TOR, SJS@OTT and ANA@NJD all listed at 23:00Z",
+      "compared_with": "data/session-e5f2dad3/raw/nhl_schedule_2026-10-22.json (SHA-256 re-checked)",
+      "result": "match"
+    },
+    {
+      "id": "L02",
+      "purpose": "Spot-check the committed NHL standings payload against the live standings endpoint (used for every NHL team input)",
+      "url": "https://api-web.nhle.com/v1/standings/now",
+      "http_status": 200,
+      "fetched_at_utc": "2026-10-22T07:22Z",
+      "quote": "\"standingsDateTimeUtc\":\"2026-10-22T07:22:15Z\" ... {\"conferenceAbbrev\":\"E\",...\"gamesPlayed\":11,...\"goalFor\":42,\"goalAgainst\":27,...\"l10Wins\":8,\"l10Losses\":2,\"pointPctg\":0.772727,\"points\":17,...\"teamAbbrev\":{\"default\":\"CAR\"}...}",
+      "observed": "Carolina 8-2-1, 17 points, .772727 points percentage, 42 goals for / 27 against after 11 games",
+      "compared_with": "data/session-e5f2dad3/raw/nhl_standings_2026-10-22.json (SHA-256 re-checked)",
+      "result": "match"
+    },
+    {
+      "id": "L03",
+      "purpose": "Establish the World Series fixtures inside the 22-28 Oct window and their start times, live",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-29&gameTypes=W&fields=dates,date,games,gamePk,gameDate,officialDate,status,detailedState,teams,away,home,team,id,name,score,isWinner,venue,name,dayNight",
+      "http_status": 200,
+      "fetched_at_utc": "2026-10-22T07:31Z",
+      "quote": "{\"date\":\"2026-10-23\",\"games\":[{\"gamePk\":849805,...\"teams\":{\"away\":{\"team\":{\"name\":\"Tampa Bay Rays\"}},\"home\":{\"team\":{\"name\":\"Milwaukee Brewers\"}}},\"venue\":{\"name\":\"American Family Field\"}}]} ... 2026-10-26 G3 Rays home at Tropicana Field ... 2026-10-28 G5",
+      "observed": "5 World Series games on official dates 23, 24, 26, 27 and 28 October 2026 between Tampa Bay and Milwaukee",
+      "compared_with": "data/session-e5f2dad3/raw/mlb_schedule.json (SHA-256 re-checked)",
+      "result": "match"
+    },
+    {
+      "id": "L04",
+      "purpose": "Runs scored per team, season 2026 (input for every MLB total and run line)",
+      "url": "https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=hitting&season=2026&sportIds=1&fields=stats,splits,team,id,name,stat,gamesPlayed,runs",
+      "http_status": 200,
+      "fetched_at_utc": "2026-10-22T07:33Z",
+      "quote": "{\"stat\":{\"gamesPlayed\":162,\"runs\":832},\"team\":{\"id\":158,\"name\":\"Milwaukee Brewers\"}} ... {\"stat\":{\"gamesPlayed\":162,\"runs\":736},\"team\":{\"id\":139,\"name\":\"Tampa Bay Rays\"}}",
+      "observed": "Milwaukee 832 runs in 162 games; Tampa Bay 736 runs in 162 games",
+      "stored_as": "data/session-1695b749/live/mlb_hitting_runs.json"
+    },
+    {
+      "id": "L05",
+      "purpose": "Runs allowed per team, season 2026 (input for every MLB total and run line)",
+      "url": "https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=pitching&season=2026&sportIds=1&fields=stats,splits,team,id,name,stat,gamesPlayed,runs",
+      "http_status": 200,
+      "fetched_at_utc": "2026-10-22T07:34Z",
+      "quote": "{\"stat\":{\"gamesPlayed\":162,\"runs\":618},\"team\":{\"id\":158,\"name\":\"Milwaukee Brewers\"}} ... {\"stat\":{\"gamesPlayed\":162,\"runs\":650},\"team\":{\"id\":139,\"name\":\"Tampa Bay Rays\"}}",
+      "observed": "Milwaukee 618 runs allowed in 162 games; Tampa Bay 650 in 162",
+      "stored_as": "data/session-1695b749/live/mlb_pitching_runs.json"
+    }
+  ]
+}
