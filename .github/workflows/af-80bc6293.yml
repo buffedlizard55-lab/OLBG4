@@ -14,6 +14,8 @@ on:
     paths:
       - "scripts/session-80bc6293/fetch.py"
       - "scripts/session-80bc6293/targets.json"
+      - "scripts/session-80bc6293/targets_pass2.json"
+      - "scripts/session-80bc6293/targets_pass3.json"
       - "data/session-80bc6293/.next_pass"
       - ".github/workflows/af-80bc6293.yml"
 
@@ -43,6 +45,16 @@ jobs:
           python3 scripts/session-80bc6293/fetch.py \
             scripts/session-80bc6293/targets.json \
             "data/session-80bc6293/capture/$STAMP"
+          if [ -f scripts/session-80bc6293/targets_pass2.json ]; then
+            python3 scripts/session-80bc6293/fetch.py \
+              scripts/session-80bc6293/targets_pass2.json \
+              "data/session-80bc6293/capture/$STAMP/pass2" || true
+          fi
+          if [ -f scripts/session-80bc6293/targets_pass3.json ]; then
+            python3 scripts/session-80bc6293/fetch.py \
+              scripts/session-80bc6293/targets_pass3.json \
+              "data/session-80bc6293/capture/$STAMP/pass3" || true
+          fi
       - name: Commit capture to arena/80bc6293-olbg4
         run: |
           git config user.name "board-af-capture[bot]"
