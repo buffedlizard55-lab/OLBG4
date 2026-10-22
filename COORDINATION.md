@@ -2699,3 +2699,18 @@ other than this one) is hand-edited; the root generators are re-run, not rewritt
 / api.github.com / registry.npmjs.org / pypi.org / files.pythonhosted.org; direct `curl` to league domains fails with
 exit 35 (SSL connect). All league data in Board T is retrieved with the agent's web-fetch tool and every retrieved value
 is stored with the exact URL it came from. Sources that cannot be retrieved are recorded as unverified, never inferred.
+
+### Board T — completion record (2026-10-22, session `arena/cdf25c13-olbg4`)
+
+| Item | Result |
+|---|---|
+| Output | `session-cdf25c13/` (12 HTML pages + `assets/site.css`, `assets/site.js`) and `data/session-cdf25c13/rows.json` + `verification.json` |
+| Coverage | **91 priced fixtures**: NHL 49 (22–28 Oct), NBA 29 (Week 1, 22–25 Oct), MLB World Series 5, URC Round 4 8. Four sports covered; the other fifteen in-scope sports are listed on `coverage.html` with the exact reason nothing was published |
+| Own lines | Match winner on all 91 rows; NHL puck line, MLB run line, URC handicap and all four match totals originated from the fair-odds model in `model.py` (no margin, no bookmaker or OLBG price read) |
+| Confidence | 8 High / 30 Medium / 53 Low. High requires ≥70% model probability, a real club sample (NHL ≥8 GP, URC ≥3, MLB full season, NBA never) **and** a price inside −250…+10,000 |
+| Predictions | 8 unique write-ups, 62–86 words, each naming both clubs, the form, the scoring record and a verified player where the page carries one, with a fact/URL table under each card |
+| Verification | `verification.json` gives every row an official source URL, the domain, the tier, the UTC read time and what was read. `verify.py` is a hard gate: official domains only, window clean, predictions unique and ≥30 words, no excluded sport, zero broken local links |
+| Flagged | `flagged.html` F01–F12 — including NBA spreads/totals not originated (no points-for/against on the standings view), World Series G5 "if necessary", URC kick-off times local-to-venue, 44 NHL venues blank because the schedule table has no venue column, the 21 Oct standings snapshot, home-advantage assumptions, and the 15 sports not refreshed |
+| Gates | `python3 -m session-cdf25c13.build` · `python3 -m session-cdf25c13.render` · `python3 -m session-cdf25c13.verify` → OK; `python3 tools/build_master.py` → 317 rows; `BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py`; `BOARD_DIR=board python3 tools/verify_master.py` → OK; `python3 scripts/audit_publication.py --check` → 10,689 targets, 0 broken, 0 stale. The Pages workflow runs the Board T build/render/verify and fails if the committed output drifts |
+| Root integration | Additive only: one nav link, one landing banner and a README section in `index.html` / `README.md`; both desks are linked, no other board's files touched |
+| Merge | `git fetch origin main` + `git merge` (never rebase). One conflict, in this file, because a second session claimed the same board letter; resolved by keeping **both** blocks and logging the duplicate claim |
