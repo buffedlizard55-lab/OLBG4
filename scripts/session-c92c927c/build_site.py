@@ -130,6 +130,16 @@ every fixture carries a link to the official page it came from. Where an officia
 """
 
 
+
+def _time(value):
+    """Render the official time verbatim, but make an ISO-8601 UTC stamp readable."""
+    if not value:
+        return "&mdash;"
+    if re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$", value):
+        return value.replace("T", " ").replace(":00Z", " UTC").replace("Z", " UTC")
+    return esc(value)
+
+
 def table(headers, rows, cls=""):
     head = "".join(f"<th>{h}</th>" for h in headers)
     body = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
@@ -343,7 +353,7 @@ for(const id of ['fsport','fgrade','fdate'])document.getElementById(id).addEvent
     body_rows = []
     for r in high_rows(rows):
         body_rows.append([
-            r["date"], esc(r["time"] or "&mdash;"), esc(r["sport"]),
+            r["date"], _time(r["time"]), esc(r["sport"]),
             f'{esc(r["home"])} v {esc(r["away"])}<br><span class="tiny">{esc(r["venue"] or "venue not published")}</span>',
             esc(r["competition"]),
             f'{r["line_home"]:.2f} / {r["line_away"]:.2f}' if r["line_home"] else "blank",
