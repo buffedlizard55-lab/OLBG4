@@ -1,0 +1,106 @@
+{
+ "schema": "olbg4.board-af-verification/v1",
+ "session": "arena/2d25cf78-olbg4",
+ "generated_utc": "2026-10-22T21:22:45Z",
+ "rows": 126,
+ "predictions": 30,
+ "checks": [
+  {
+   "name": "every row carries an https official source",
+   "ok": true,
+   "detail": "126 rows; bad: []"
+  },
+  {
+   "name": "every row carries at least three official inputs",
+   "ok": true,
+   "detail": "bad: []"
+  },
+  {
+   "name": "every row carries originated markets",
+   "ok": true,
+   "detail": "bad: []"
+  },
+  {
+   "name": "every fixture starts after the cut-off and inside the horizon",
+   "ok": true,
+   "detail": "bad: []"
+  },
+  {
+   "name": "fair price equals 1 / probability on every selection",
+   "ok": true,
+   "detail": "0 issues []"
+  },
+  {
+   "name": "American odds re-derived from the decimal price",
+   "ok": true,
+   "detail": "0 issues []"
+  },
+  {
+   "name": "book line never longer than the fair line",
+   "ok": true,
+   "detail": "0 issues []"
+  },
+  {
+   "name": "confidence follows the published rule and the sample cap",
+   "ok": true,
+   "detail": "0 issues"
+  },
+  {
+   "name": "match-winner pick is the model favourite",
+   "ok": true,
+   "detail": "bad: []"
+  },
+  {
+   "name": "the -250 ... +10,000 window flag matches the arithmetic",
+   "ok": true,
+   "detail": "bad: []"
+  },
+  {
+   "name": "every high candidate sits inside the 0.7000-0.7143 band",
+   "ok": true,
+   "detail": "bad: []"
+  },
+  {
+   "name": "predictions are >=30 words, name their selection and quote only traceable figures",
+   "ok": true,
+   "detail": "0 issues []"
+  },
+  {
+   "name": "predictions are unique (max pairwise 3-gram Jaccard < 0.25)",
+   "ok": true,
+   "detail": "max 0.0682"
+  },
+  {
+   "name": "five written predictions for every covered sport",
+   "ok": true,
+   "detail": "{'Ice Hockey': 5, 'Basketball': 5, 'Baseball': 5, 'Rugby Union': 5, 'Volleyball': 5, 'Handball': 5}"
+  },
+  {
+   "name": "every internal site link resolves",
+   "ok": true,
+   "detail": "413 links; missing []"
+  },
+  {
+   "name": "sport pages render their fixture rows",
+   "ok": true,
+   "detail": "126 rows rendered"
+  },
+  {
+   "name": "every captured file exists and re-hashes to the manifest",
+   "ok": true,
+   "detail": "110 files; []"
+  },
+  {
+   "name": "no excluded sport appears in the desk",
+   "ok": true,
+   "detail": "sports: ['Baseball', 'Basketball', 'Handball', 'Ice Hockey', 'Rugby Union', 'Volleyball']"
+  },
+  {
+   "name": "coverage gaps are enumerated and flagged",
+   "ok": true,
+   "detail": "13 sports without rows: Aussie Rules, Badminton, Cricket, Darts, Gaelic Football, Golf, Greyhounds, Motor Racing, Rugby League, Snooker, Table Tennis, Tennis, eSports"
+  }
+ ],
+ "passed": 19,
+ "failed": 0
+}

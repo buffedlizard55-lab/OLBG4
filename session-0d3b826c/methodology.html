@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Transparent model, confidence and verification rules."><title>Methodology · OLBG Evidence Desk</title>
+<link rel="stylesheet" href="assets/style.css"><script defer src="assets/app.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><span class="brand-mark">O4</span><span>OLBG <b>Evidence Desk</b></span></a>
+<div class="capture"><span class="live-dot"></span> Capture <strong>20261022T210227Z</strong></div></div>
+<nav class="main-nav" aria-label="Main navigation"><a href="index.html">Overview</a><a href="entries.html">Fixtures</a><a href="markets.html">Our lines</a><a href="predictions.html">Predictions</a><a href="coverage.html">Coverage</a><a href="verification.html">Verification</a><a href="review.html">Repo review</a><a href="flagged.html">Flagged</a></nav></header>
+<main id="main"><section class="page-heading"><div><p class="kicker">Reproducible calculations</p><h1>Methodology</h1><p class="lede">No bookmaker or OLBG price enters the models. Fair decimal is 1/p; fair American is derived from that decimal without adding margin.</p></div></section><section class="method-grid"><article><h2>NHL & Liiga</h2><p>Official GF/GA rates shrink toward the league mean over eight pseudo-games. Independent Poisson score grids price the winner, regulation −1.5/+1.5 line and total. Regulation ties split equally for the including-overtime winner. Home multiplier: 1.04. High requires at least eight games per club and p≥70%.</p></article>
+<article><h2>EuroLeague & EuroCup</h2><p>Played-game PF/PA rates shrink over five pseudo-games. Captured results estimate home-court margin, margin sigma and total sigma. Normal approximations price moneyline, spread and total. High requires six games per club and p≥70%.</p></article>
+<article><h2>MLB</h2><p>Regular-season winning percentages enter log5 with +1.5 percentage points for home field. Runs scored/allowed produce independent-Poisson run and total lines. Probable pitchers are reported only when MLB lists them; no individual adjustment is invented.</p></article>
+<article><h2>WTA</h2><p>Each player’s weight is the square root of official ranking points, normalised against the opponent. This is our transformation, not a WTA probability. High also requires a current-tournament match for both players. Handicap and totals stay blank without game-level inputs.</p></article>
+<article><h2>LoL Esports</h2><p>At least three completed series per team are required for any price. Shrunk series records enter log5. The current Worlds teams do not meet that threshold in the captured feed, so all eight fixtures are officially listed but unpriced.</p></article>
+<article><h2>Confidence & focus</h2><p>Primary winner: High at p≥70% with the sport’s evidence threshold; Medium at p≥58%; otherwise Low. High picks shorter than −250 remain High but outside focus. A focus market pick must additionally have fair American odds in −250…−100 or +100…+10,000 and decimal 1.40…101.00.</p></article>
+<article><h2>Prediction gate</h2><p>Every High candidate needs unique prose of at least 30 words, an explicit selection, selected-side current form and recent result, and relevant player evidence. Facts link to official pages. Numeric tokens are cross-checked against the evidence bundle.</p></article>
+<article><h2>Blank means unverified</h2><p>Unsupported start times, venues, prices and confidence labels are blank. Unmatched OLBG rows stay out of the official fixture table. The site does not claim five picks per sport when the rules produce fewer.</p></article></section><section class="section"><h2>Rebuild</h2><pre><code>PYTHONPATH=scripts/session-0d3b826c python3 scripts/session-0d3b826c/build.py
+PYTHONPATH=scripts/session-0d3b826c python3 scripts/session-0d3b826c/review.py
+PYTHONPATH=scripts/session-0d3b826c python3 scripts/session-0d3b826c/author.py
+PYTHONPATH=scripts/session-0d3b826c python3 scripts/session-0d3b826c/build.py
+PYTHONPATH=scripts/session-0d3b826c python3 scripts/session-0d3b826c/render.py
+PYTHONPATH=scripts/session-0d3b826c python3 scripts/session-0d3b826c/verify.py</code></pre></section></main>
+<footer><div><strong>OLBG Evidence Desk · Board AF</strong><br>Independent fair-line estimates, not bookmaker prices or guarantees.</div>
+<div class="footer-links"><a href="olbg.html">OLBG structure</a><a href="sources.html">Sources</a><a href="methodology.html">Method</a><a href="analysis.html">Analysis</a></div><p>Raw evidence: <a href="../data/session-0d3b826c/capture/20261022T210227Z/manifest.json">capture manifest</a>. Every unconfirmed value is blank and routed to review.</p></footer>
+</body></html>
