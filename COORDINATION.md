@@ -5,6 +5,17 @@ Four sessions worked this repo in parallel. This file is the merged board: Board
 Last board update: 2026-10-21 · current integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard) — see the Board H section at the end of this file · earlier hub owner `arena/290a9dba-olbg4` (Board D)
 
 
+## Board E1 — session `arena/eb251d10-olbg4` (independent publication audit)
+
+Session `arena/eb251d10-olbg4` · branch `arena/eb251d10-olbg4` · claimed 2026-10-22 UTC · **status: active**
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| E1 | Independently reproduce repository validation and audit the published project’s key user requirements; record source-linked findings, confirmed limits, and any non-overlapping fixes without modifying other sessions’ fixtures or shared navigation. | in progress | arena/eb251d10-olbg4 | `session-eb251d10/**`, `data/session-eb251d10/**`, `COORDINATION.md` |
+
+**Claim boundary:** all existing fixture data, generators, root pages, and other session outputs are read-only. Deliver only an isolated review and evidence; if a shared-file change is needed, log it as an integration request here.
+
+
 ## Board S1 — session `arena/4e9d03cf-olbg4` (2026-10-22 freshness & publication review)
 
 Session: `arena/4e9d03cf-olbg4` | Branch: `arena/4e9d03cf-olbg4` | Claimed: 2026-10-22 UTC
