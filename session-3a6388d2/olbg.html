@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OLBG reverse engineering · OLBG4 Board AD</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="top"><h1>OLBG4 · Board AD <span class="small" style="color:#94a3b8">(arena/3a6388d2-olbg4)</span></h1>
+<nav><a href="index.html">Dashboard</a><a href="matches.html">All entries</a><a href="picks.html">High-confidence picks</a><a href="markets.html">Markets</a><a href="coverage.html">Coverage</a><a href="olbg.html">OLBG reverse engineering</a><a href="review.html">Repo review</a><a href="flagged.html">Flagged for review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></header>
+<div class="wrap">
+<h2>OLBG reverse engineering</h2>
+<p class="lede">How OLBG.com is put together — sport ids, URL patterns, market taxonomy, SSR behaviour.</p>
+
+<p class="lede">OLBG.com is used here only as the taxonomy index — the list of sports and markets the site
+offers. Every fixture on this desk is verified against the sport's own governing body, not against OLBG.</p>
+<h3>URL structure (observed live 2026-10-22)</h3>
+<pre>https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Sport_ID&gt;
+https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Category&gt;/&lt;Competition&gt;/&lt;Sport_ID&gt;
+https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Category&gt;/&lt;Competition&gt;/&lt;Event&gt;/&lt;Sport_ID&gt;?event_id=&lt;event_id&gt;
+https://www.olbg.com/best-tipsters/&lt;Sport&gt;/&lt;Sport_ID&gt;</pre>
+<p class="small">The trailing integer on every betting-tips URL is the <strong>sport id</strong>, not a
+market id. Sitemap: <a href="https://www.olbg.com/sitemap-betting-tips.xml" target="_blank" rel="noopener">/sitemap-betting-tips.xml</a>
+(committed raw copy: <a href="../data/session-3a6388d2/raw/olbg_sitemap.txt">olbg_sitemap.txt</a>).</p>
+<h3>Sport ids enumerated from the live sitemap (2026-10-22)</h3>
+<table><thead><tr><th>ID</th><th>Sport</th><th>Our classification</th><th>Landing page</th></tr></thead>
+<tbody><tr><td>1</td><td>Football</td><td>excluded</td><td><a href="https://www.olbg.com/betting-tips/Football/1" target="_blank" rel="noopener">/betting-tips/Football/1</a></td></tr><tr><td>2</td><td>Horse Racing</td><td>excluded</td><td><a href="https://www.olbg.com/betting-tips/Horse_Racing/2" target="_blank" rel="noopener">/betting-tips/Horse_Racing/2</a></td></tr><tr><td>3</td><td>Tennis</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener">/betting-tips/Tennis/3</a></td></tr><tr><td>4</td><td>Basketball</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Basketball/4" target="_blank" rel="noopener">/betting-tips/Basketball/4</a></td></tr><tr><td>5</td><td>Golf</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Golf/5" target="_blank" rel="noopener">/betting-tips/Golf/5</a></td></tr><tr><td>6</td><td>Specials</td><td>excluded</td><td><a href="https://www.olbg.com/betting-tips/Specials/6" target="_blank" rel="noopener">/betting-tips/Specials/6</a></td></tr><tr><td>7</td><td>Cricket</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Cricket/7" target="_blank" rel="noopener">/betting-tips/Cricket/7</a></td></tr><tr><td>8</td><td>Snooker</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Snooker/8" target="_blank" rel="noopener">/betting-tips/Snooker/8</a></td></tr><tr><td>9</td><td>Rugby Union</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Rugby_Union/9" target="_blank" rel="noopener">/betting-tips/Rugby_Union/9</a></td></tr><tr><td>10</td><td>Rugby League</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Rugby_League/10" target="_blank" rel="noopener">/betting-tips/Rugby_League/10</a></td></tr><tr><td>11</td><td>American Football</td><td>excluded</td><td><a href="https://www.olbg.com/betting-tips/American_Football/11" target="_blank" rel="noopener">/betting-tips/American_Football/11</a></td></tr><tr><td>12</td><td>Baseball</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Baseball/12" target="_blank" rel="noopener">/betting-tips/Baseball/12</a></td></tr><tr><td>13</td><td>Ice Hockey</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/13" target="_blank" rel="noopener">/betting-tips/Ice_Hockey/13</a></td></tr><tr><td>14</td><td>Motor Racing</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Motor_Racing/14" target="_blank" rel="noopener">/betting-tips/Motor_Racing/14</a></td></tr><tr><td>15</td><td>Darts</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Darts/15" target="_blank" rel="noopener">/betting-tips/Darts/15</a></td></tr><tr><td>16</td><td>Boxing</td><td>excluded</td><td><a href="https://www.olbg.com/betting-tips/Boxing/16" target="_blank" rel="noopener">/betting-tips/Boxing/16</a></td></tr><tr><td>17</td><td>Cycling</td><td>excluded</td><td><a href="https://www.olbg.com/betting-tips/Cycling/17" target="_blank" rel="noopener">/betting-tips/Cycling/17</a></td></tr><tr><td>20</td><td>Handball</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Handball/20" target="_blank" rel="noopener">/betting-tips/Handball/20</a></td></tr><tr><td>21</td><td>Volleyball</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Volleyball/21" target="_blank" rel="noopener">/betting-tips/Volleyball/21</a></td></tr><tr><td>22</td><td>Aussie Rules</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Aussie_Rules/22" target="_blank" rel="noopener">/betting-tips/Aussie_Rules/22</a></td></tr><tr><td>23</td><td>eSports</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/eSports/23" target="_blank" rel="noopener">/betting-tips/eSports/23</a></td></tr><tr><td>25</td><td>Gaelic Football</td><td>scope-call</td><td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/25" target="_blank" rel="noopener">/betting-tips/Gaelic_Football/25</a></td></tr><tr><td>28</td><td>Greyhounds</td><td>in-scope</td><td><a href="https://www.olbg.com/betting-tips/Greyhounds/28" target="_blank" rel="noopener">/betting-tips/Greyhounds/28</a></td></tr></tbody></table>
+<h3>Market taxonomy observed on an event page</h3>
+<p class="small">Read live on
+<a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Rob_Cross/15?event_id=32325" target="_blank" rel="noopener">a darts event page</a>:
+<strong>Win Match 2-way</strong>, <strong>Handicap 2-way</strong> (±1.50 legs) and <strong>Total Legs</strong>
+(Over/Under 9.50) — the same three families (winner, handicap, total) that this desk originates for every
+priced sport. Football events show Full Time Result, horse racing shows a Daily Racing win market, rugby
+union shows To Win.</p>
+<h3>Behaviour that matters for anyone re-scraping</h3>
+<ul class="small">
+<li>Event start times render in the requesting edge node's local timezone; the SSR markup carries the
+UTC value in <code>&lt;time itemprop="startDate" datetime="…Z"&gt;</code>.</li>
+<li>Prices are shipped in data attributes (<code>data-decimal</code>, <code>data-american</code>,
+<code>data-fractional</code>) and only filled in after client-side hydration, so a text reader sees an
+empty price.</li>
+<li>OLBG only lists events that already have at least one tip, so an untipped fixture is not enumerable
+from the site — which is why this desk builds its fixture list from official league feeds instead.</li>
+<li>Tipster consensus is shown as "n/m Win Tips" plus a percentage; it is a community sentiment figure,
+not a probability, and is not used anywhere in our numbers.</li>
+</ul>
+
+</div>
+<footer>Board AD · session arena/3a6388d2-olbg4 · generated 2026-10-22 12:58 UTC · every row links to the official source it was verified from.</footer>
+<script src="assets/app.js"></script>
+</body></html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology · OLBG4 Board AD</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="top"><h1>OLBG4 · Board AD <span class="small" style="color:#94a3b8">(arena/3a6388d2-olbg4)</span></h1>
+<nav><a href="index.html">Dashboard</a><a href="matches.html">All entries</a><a href="picks.html">High-confidence picks</a><a href="markets.html">Markets</a><a href="coverage.html">Coverage</a><a href="olbg.html">OLBG reverse engineering</a><a href="review.html">Repo review</a><a href="flagged.html">Flagged for review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></header>
+<div class="wrap">
+<h2>Methodology</h2>
+<p class="lede">Where the data comes from, how the lines are built, and what we refuse to guess.</p>
+
+<h3>How the data was captured</h3>
+<p>The interactive sandbox has no general HTTPS egress, so the raw bytes of every official request are
+fetched by a GitHub Actions runner (<code>.github/workflows/ad-3a6388d2.yml</code>) and committed with the
+URL, HTTP status, byte count, UTC timestamp and SHA-256 of the response. Parsing, line origination,
+verification and site building then happen locally against those committed bytes, so any published value can
+be re-derived by a reviewer. Capture manifests:
+<a href="../data/session-3a6388d2/manifest.json">pass 1</a>,
+<a href="../data/session-3a6388d2/manifest_rankings.json">rankings</a>,
+<a href="../data/session-3a6388d2/manifest3.json">pass 3</a>,
+<a href="../data/session-3a6388d2/manifest4.json">pass 4</a>,
+<a href="../data/session-3a6388d2/manifest5.json">pass 5</a>.</p>
+<h3>Models</h3>
+<ul>
+<li><strong>Ice hockey (NHL)</strong> — independent Poisson goal model. Each team's goals-for and
+goals-against per game are read from the official NHL standings and shrunk towards the league mean
+(weight = GP/(GP+14)); the home-ice advantage is measured from the official home/road splits rather than
+assumed. Ties after 60 minutes are split 52/48 to the home side for the moneyline, which is how overtime
+and shootouts actually behave. Puck-line prices use the regulation margin (an OT win is still a one-goal
+game).</li>
+<li><strong>Baseball (MLB)</strong> — Pythagorean win expectancy (exponent 1.83) from official runs
+scored/allowed, combined with a Poisson runs model for totals and a normal margin model (sd 4.35) for the
+run line; a 1.08 home-field multiplier is applied. The World Series outright is a binomial first-to-four
+simulation built from those same per-game probabilities.</li>
+<li><strong>Rugby union (URC)</strong> — attack/defence points model fitted to the official URC table
+(points for/against per game, shrunk towards the league mean), a normal margin model (sd 15.5) for the
+handicap, and a normal total model (sd 15.0). Home advantage and the 2% draw rate are stated assumptions,
+not verified figures.</li>
+</ul>
+<h3>Confidence and the odds window</h3>
+<p><strong>High</strong> = model probability ≥ 0.700 · <strong>Medium</strong> = 0.600–0.700 ·
+<strong>Low</strong> = below 0.600. A row is capped at Medium when the official sample is thin (fewer than
+five team-games at capture time), which is why the URC — three rounds played — cannot grade High.</p>
+<p>The −250 … +10000 window is applied to our own fair American price for the selection. −250 is a 71.43%
+chance, so the overlap between "≥70%" and "no shorter than −250" is narrow: it only exists between 70.0%
+and 71.4%. Picks above that band are published and explicitly labelled
+<em>shorter than −250</em> rather than dropped.</p>
+<h3>Publishing our own lines</h3>
+<p>Fair price = 1 / model probability. Our book price applies a 4.2% over-round on two-way markets and
+5.2% on three-way markets, distributed in proportion to the fair probability.</p>
+<h3>Predictions</h3>
+<p>One hand-written prediction per High-confidence selection, each naming the teams, their current form and
+recent record, and the selection itself. Every statistic quoted is taken from that row's verified official
+inputs and is re-checked by <code>scripts/session-3a6388d2/verify.py</code>.</p>
+<h3>Rules we never break</h3>
+<ul>
+<li>No bookmaker price, tipster percentage or third-party rating is used as an input.</li>
+<li>If a value cannot be read from an official source, it is left blank and the row is flagged.</li>
+<li>Every row links to the official page it came from; captures are hashed so a reviewer can re-check them.</li>
+</ul>
+
+</div>
+<footer>Board AD · session arena/3a6388d2-olbg4 · generated 2026-10-22 12:58 UTC · every row links to the official source it was verified from.</footer>
+<script src="assets/app.js"></script>
+</body></html>

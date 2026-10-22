@@ -359,7 +359,8 @@ def build_mlb():
             add_row(
                 sport="Baseball",
                 competition="MLB World Series 2026 — Outright",
-                date=WINDOW_START, time_utc="", home="", away="", venue="",
+                date=WINDOW_START, time_utc="",
+                home=team_names[t1], away=team_names[t2], venue="",
                 neutral=True,
                 source_url="https://www.mlb.com/postseason/2026/world-series",
                 source_name="MLB.com official World Series schedule",

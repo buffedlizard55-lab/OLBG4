@@ -46,7 +46,7 @@ def price(p: float, margin: float = 0.042):
     fd = 1.0 / p
     pb = apply_margin(p, margin)
     bd = 1.0 / pb
-    return round(fd, 4), prob_to_american(p), round(bd, 4), prob_to_american(pb)
+    return round(fd, 6), prob_to_american(p), round(bd, 6), prob_to_american(pb)
 
 
 # --------------------------------------------------------------------------- distributions
