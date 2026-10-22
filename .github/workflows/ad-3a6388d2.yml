@@ -42,6 +42,9 @@ jobs:
       - name: Fetch corrected URLs with SPA payloads preserved
         run: python3 scripts/session-3a6388d2/collect3.py
 
+      - name: Fetch official standings and results used as rating inputs
+        run: python3 scripts/session-3a6388d2/collect4.py
+
       - name: Commit the snapshot
         run: |
           set -uo pipefail
