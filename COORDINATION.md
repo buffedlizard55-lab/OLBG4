@@ -3863,3 +3863,4 @@ root `index.html` / `README.md` navigation so the dashboard is reachable from th
   Modena 3-0, 75-61), an incorrect "trailing only Toulouse and Pau" ordering (af_0045), and four qualitative
   "competition-best / highest / champions" superlatives that the captured data does not establish (af_0046, af_0058,
   af_0090, af_0039), plus the af_0034 duplicate sentence. Re-verified: 19/19 checks, audit 0 broken / 0 stale.
+- **Correction PR:** https://github.com/buffedlizard55-lab/OLBG4/pull/124 — **MERGED** to `main` (`Deploy OLBG4 to GitHub Pages` run `39856935299` success, Pages build `built`); the live dashboard https://buffedlizard55-lab.github.io/OLBG4/session-2d25cf78/picks.html was read back over HTTPS after the deploy and shows the corrected prediction texts.
