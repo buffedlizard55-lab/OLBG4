@@ -80,7 +80,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -164,7 +164,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -266,7 +266,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -368,7 +368,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -470,7 +470,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -572,7 +572,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -674,7 +674,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -776,7 +776,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -878,7 +878,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -980,7 +980,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1082,7 +1082,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1099,7 +1099,7 @@
         "id": "1610612744",
         "name": "Golden State Warriors",
         "abbr": "GSW",
-        "record": "0-0",
+        "record": "0-1",
         "score": null
       },
       "away": {
@@ -1121,7 +1121,7 @@
         "home_record_label": "Regular-season record",
         "away_record_label": "Regular-season record",
         "home_wins": 0,
-        "home_losses": 0,
+        "home_losses": 1,
         "away_wins": 1,
         "away_losses": 0
       },
@@ -1132,7 +1132,25 @@
       "primary_source": "https://www.nba.com/games?date=2026-10-24"
     },
     "form": {
-      "home": null,
+      "home": {
+        "last5": [
+          {
+            "won": false,
+            "team_score": 105,
+            "opp_score": 127,
+            "date": "2026-10-22",
+            "venue": "away",
+            "opponent": "Los Angeles Lakers"
+          }
+        ],
+        "wins_last5": 0,
+        "losses_last5": 1,
+        "streak": -1,
+        "record": "0-1",
+        "avg_scored_last5": 105.0,
+        "avg_allowed_last5": 127.0,
+        "games_in_sample": 1
+      },
       "away": {
         "last5": [
           {
@@ -1156,8 +1174,8 @@
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 1); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -1166,7 +1184,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1183,14 +1201,14 @@
         "id": "1610612747",
         "name": "Los Angeles Lakers",
         "abbr": "LAL",
-        "record": "0-0",
+        "record": "1-0",
         "score": null
       },
       "away": {
         "id": "1610612746",
         "name": "LA Clippers",
         "abbr": "LAC",
-        "record": "0-0",
+        "record": "1-0",
         "score": null
       },
       "venue": "Crypto.com Arena",
@@ -1204,9 +1222,9 @@
         "season": "2026-27",
         "home_record_label": "Regular-season record",
         "away_record_label": "Regular-season record",
-        "home_wins": 0,
+        "home_wins": 1,
         "home_losses": 0,
-        "away_wins": 0,
+        "away_wins": 1,
         "away_losses": 0
       },
       "official_source_urls": [
@@ -1216,14 +1234,50 @@
       "primary_source": "https://www.nba.com/games?date=2026-10-24"
     },
     "form": {
-      "home": null,
-      "away": null
+      "home": {
+        "last5": [
+          {
+            "won": true,
+            "team_score": 127,
+            "opp_score": 105,
+            "date": "2026-10-22",
+            "venue": "home",
+            "opponent": "Golden State Warriors"
+          }
+        ],
+        "wins_last5": 1,
+        "losses_last5": 0,
+        "streak": 1,
+        "record": "1-0",
+        "avg_scored_last5": 127.0,
+        "avg_allowed_last5": 105.0,
+        "games_in_sample": 1
+      },
+      "away": {
+        "last5": [
+          {
+            "won": true,
+            "team_score": 121,
+            "opp_score": 96,
+            "date": "2026-10-22",
+            "venue": "home",
+            "opponent": "Sacramento Kings"
+          }
+        ],
+        "wins_last5": 1,
+        "losses_last5": 0,
+        "streak": 1,
+        "record": "1-0",
+        "avg_scored_last5": 121.0,
+        "avg_allowed_last5": 96.0,
+        "games_in_sample": 1
+      }
     },
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 0); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -1232,7 +1286,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1249,7 +1303,7 @@
         "id": "1610612758",
         "name": "Sacramento Kings",
         "abbr": "SAC",
-        "record": "0-0",
+        "record": "0-1",
         "score": null
       },
       "away": {
@@ -1271,7 +1325,7 @@
         "home_record_label": "Regular-season record",
         "away_record_label": "Regular-season record",
         "home_wins": 0,
-        "home_losses": 0,
+        "home_losses": 1,
         "away_wins": 1,
         "away_losses": 0
       },
@@ -1282,7 +1336,25 @@
       "primary_source": "https://www.nba.com/games?date=2026-10-24"
     },
     "form": {
-      "home": null,
+      "home": {
+        "last5": [
+          {
+            "won": false,
+            "team_score": 96,
+            "opp_score": 121,
+            "date": "2026-10-22",
+            "venue": "away",
+            "opponent": "LA Clippers"
+          }
+        ],
+        "wins_last5": 0,
+        "losses_last5": 1,
+        "streak": -1,
+        "record": "0-1",
+        "avg_scored_last5": 96.0,
+        "avg_allowed_last5": 121.0,
+        "games_in_sample": 1
+      },
       "away": {
         "last5": [
           {
@@ -1306,8 +1378,8 @@
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 1); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -1316,7 +1388,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1418,7 +1490,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1502,7 +1574,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1604,7 +1676,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1706,7 +1778,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1808,7 +1880,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1910,7 +1982,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -1994,7 +2066,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2018,7 +2090,7 @@
         "id": "1610612744",
         "name": "Golden State Warriors",
         "abbr": "GSW",
-        "record": "0-0",
+        "record": "0-1",
         "score": null
       },
       "venue": "Mortgage Matchup Center",
@@ -2035,7 +2107,7 @@
         "home_wins": 0,
         "home_losses": 1,
         "away_wins": 0,
-        "away_losses": 0
+        "away_losses": 1
       },
       "official_source_urls": [
         "https://www.nba.com/games?date=2026-10-25",
@@ -2063,13 +2135,31 @@
         "avg_allowed_last5": 124.0,
         "games_in_sample": 1
       },
-      "away": null
+      "away": {
+        "last5": [
+          {
+            "won": false,
+            "team_score": 105,
+            "opp_score": 127,
+            "date": "2026-10-22",
+            "venue": "away",
+            "opponent": "Los Angeles Lakers"
+          }
+        ],
+        "wins_last5": 0,
+        "losses_last5": 1,
+        "streak": -1,
+        "record": "0-1",
+        "avg_scored_last5": 105.0,
+        "avg_allowed_last5": 127.0,
+        "games_in_sample": 1
+      }
     },
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 1, away 0); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -2078,7 +2168,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2102,7 +2192,7 @@
         "id": "1610612747",
         "name": "Los Angeles Lakers",
         "abbr": "LAL",
-        "record": "0-0",
+        "record": "1-0",
         "score": null
       },
       "venue": "Delta Center",
@@ -2118,7 +2208,7 @@
         "away_record_label": "Regular-season record",
         "home_wins": 0,
         "home_losses": 1,
-        "away_wins": 0,
+        "away_wins": 1,
         "away_losses": 0
       },
       "official_source_urls": [
@@ -2147,13 +2237,31 @@
         "avg_allowed_last5": 123.0,
         "games_in_sample": 1
       },
-      "away": null
+      "away": {
+        "last5": [
+          {
+            "won": true,
+            "team_score": 127,
+            "opp_score": 105,
+            "date": "2026-10-22",
+            "venue": "home",
+            "opponent": "Golden State Warriors"
+          }
+        ],
+        "wins_last5": 1,
+        "losses_last5": 0,
+        "streak": 1,
+        "record": "1-0",
+        "avg_scored_last5": 127.0,
+        "avg_allowed_last5": 105.0,
+        "games_in_sample": 1
+      }
     },
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 1, away 0); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -2162,7 +2270,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2264,7 +2372,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2366,7 +2474,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2468,7 +2576,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2492,7 +2600,7 @@
         "id": "1610612746",
         "name": "LA Clippers",
         "abbr": "LAC",
-        "record": "0-0",
+        "record": "1-0",
         "score": null
       },
       "venue": "Paycom Center",
@@ -2508,7 +2616,7 @@
         "away_record_label": "Regular-season record",
         "home_wins": 1,
         "home_losses": 0,
-        "away_wins": 0,
+        "away_wins": 1,
         "away_losses": 0
       },
       "official_source_urls": [
@@ -2537,13 +2645,31 @@
         "avg_allowed_last5": 104.0,
         "games_in_sample": 1
       },
-      "away": null
+      "away": {
+        "last5": [
+          {
+            "won": true,
+            "team_score": 121,
+            "opp_score": 96,
+            "date": "2026-10-22",
+            "venue": "home",
+            "opponent": "Sacramento Kings"
+          }
+        ],
+        "wins_last5": 1,
+        "losses_last5": 0,
+        "streak": 1,
+        "record": "1-0",
+        "avg_scored_last5": 121.0,
+        "avg_allowed_last5": 96.0,
+        "games_in_sample": 1
+      }
     },
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 1, away 0); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -2552,7 +2678,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2654,7 +2780,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2671,7 +2797,7 @@
         "id": "1610612758",
         "name": "Sacramento Kings",
         "abbr": "SAC",
-        "record": "0-0",
+        "record": "0-1",
         "score": null
       },
       "away": {
@@ -2693,7 +2819,7 @@
         "home_record_label": "Regular-season record",
         "away_record_label": "Regular-season record",
         "home_wins": 0,
-        "home_losses": 0,
+        "home_losses": 1,
         "away_wins": 1,
         "away_losses": 0
       },
@@ -2704,7 +2830,25 @@
       "primary_source": "https://www.nba.com/games?date=2026-10-26"
     },
     "form": {
-      "home": null,
+      "home": {
+        "last5": [
+          {
+            "won": false,
+            "team_score": 96,
+            "opp_score": 121,
+            "date": "2026-10-22",
+            "venue": "away",
+            "opponent": "LA Clippers"
+          }
+        ],
+        "wins_last5": 0,
+        "losses_last5": 1,
+        "streak": -1,
+        "record": "0-1",
+        "avg_scored_last5": 96.0,
+        "avg_allowed_last5": 121.0,
+        "games_in_sample": 1
+      },
       "away": {
         "last5": [
           {
@@ -2728,8 +2872,8 @@
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 1); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -2738,7 +2882,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2840,7 +2984,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -2924,7 +3068,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3026,7 +3170,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3128,7 +3272,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3230,7 +3374,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3332,7 +3476,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3434,7 +3578,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3545,7 +3689,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3569,7 +3713,7 @@
         "id": "1610612744",
         "name": "Golden State Warriors",
         "abbr": "GSW",
-        "record": "0-0",
+        "record": "0-1",
         "score": null
       },
       "venue": "Ball Arena",
@@ -3586,7 +3730,7 @@
         "home_wins": 0,
         "home_losses": 0,
         "away_wins": 0,
-        "away_losses": 0
+        "away_losses": 1
       },
       "official_source_urls": [
         "https://www.nba.com/games?date=2026-10-27",
@@ -3596,12 +3740,30 @@
     },
     "form": {
       "home": null,
-      "away": null
+      "away": {
+        "last5": [
+          {
+            "won": false,
+            "team_score": 105,
+            "opp_score": 127,
+            "date": "2026-10-22",
+            "venue": "away",
+            "opponent": "Los Angeles Lakers"
+          }
+        ],
+        "wins_last5": 0,
+        "losses_last5": 1,
+        "streak": -1,
+        "record": "0-1",
+        "avg_scored_last5": 105.0,
+        "avg_allowed_last5": 127.0,
+        "games_in_sample": 1
+      }
     },
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 0); 20 are required to originate a price.",
+      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 1); 20 are required to originate a price.",
       "sample_min": 0,
       "markets": {},
       "winner_pick": null,
@@ -3611,7 +3773,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3713,7 +3875,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3815,7 +3977,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3839,7 +4001,7 @@
         "id": "1610612758",
         "name": "Sacramento Kings",
         "abbr": "SAC",
-        "record": "0-0",
+        "record": "0-1",
         "score": null
       },
       "venue": "Frost Bank Center",
@@ -3856,7 +4018,7 @@
         "home_wins": 0,
         "home_losses": 1,
         "away_wins": 0,
-        "away_losses": 0
+        "away_losses": 1
       },
       "official_source_urls": [
         "https://www.nba.com/games?date=2026-10-28",
@@ -3884,13 +4046,31 @@
         "avg_allowed_last5": 116.0,
         "games_in_sample": 1
       },
-      "away": null
+      "away": {
+        "last5": [
+          {
+            "won": false,
+            "team_score": 96,
+            "opp_score": 121,
+            "date": "2026-10-22",
+            "venue": "away",
+            "opponent": "LA Clippers"
+          }
+        ],
+        "wins_last5": 0,
+        "losses_last5": 1,
+        "streak": -1,
+        "record": "0-1",
+        "avg_scored_last5": 96.0,
+        "avg_allowed_last5": 121.0,
+        "games_in_sample": 1
+      }
     },
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 1, away 0); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -3899,7 +4079,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -3916,7 +4096,7 @@
         "id": "1610612747",
         "name": "Los Angeles Lakers",
         "abbr": "LAL",
-        "record": "0-0",
+        "record": "1-0",
         "score": null
       },
       "away": {
@@ -3937,7 +4117,7 @@
         "season": "2026-27",
         "home_record_label": "Regular-season record",
         "away_record_label": "Regular-season record",
-        "home_wins": 0,
+        "home_wins": 1,
         "home_losses": 0,
         "away_wins": 1,
         "away_losses": 0
@@ -3949,7 +4129,25 @@
       "primary_source": "https://www.nba.com/games?date=2026-10-28"
     },
     "form": {
-      "home": null,
+      "home": {
+        "last5": [
+          {
+            "won": true,
+            "team_score": 127,
+            "opp_score": 105,
+            "date": "2026-10-22",
+            "venue": "home",
+            "opponent": "Golden State Warriors"
+          }
+        ],
+        "wins_last5": 1,
+        "losses_last5": 0,
+        "streak": 1,
+        "record": "1-0",
+        "avg_scored_last5": 127.0,
+        "avg_allowed_last5": 105.0,
+        "games_in_sample": 1
+      },
       "away": {
         "last5": [
           {
@@ -3973,8 +4171,8 @@
     "h2h": [],
     "analysis": {
       "market_status": "withheld",
-      "market_note": "Markets withheld: the smallest per-team sample is 0 completed games (home 0, away 1); 20 are required to originate a price.",
-      "sample_min": 0,
+      "market_note": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price.",
+      "sample_min": 1,
       "markets": {},
       "winner_pick": null,
       "market_picks": [],
@@ -3983,7 +4181,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -4085,7 +4283,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -4169,7 +4367,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -4271,7 +4469,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -4373,7 +4571,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
@@ -4475,7 +4673,7 @@
       "se": null,
       "edge": null,
       "predictions": [],
-      "rationale": "NBA ratings rest on 12 completed games, so no line is originated for this fixture."
+      "rationale": "NBA ratings rest on 14 completed games, so no line is originated for this fixture."
     }
   },
   {
