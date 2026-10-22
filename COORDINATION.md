@@ -4,6 +4,28 @@ Four sessions worked this repo in parallel. This file is the merged board: Board
 
 Last board update: 2026-10-22T07:25Z · current active board: **Board Z — `arena/9359e596-olbg4`** (live 2026-10-22T07:25Z OLBG reverse-engineering + multi-sport official reconciliation + multi-market own-lines origination + −250…+10,000 High-confidence human predictions + repo-wide line-by-line review + final integration) · completed 22 Oct boards: `arena/c4fda15e-olbg4` (Board Y, PRs #90/#91), `arena/27462ea7-olbg4` (Board X, PRs #87/#88), `arena/e5f2dad3-olbg4` (Board W, PRs #82/#84/#85/#86/#89), `arena/f957db05-olbg4` (Board V, PRs #66/#75/#80/#83), `arena/c92c927c-olbg4` (Board U, PRs #64/#68/#70/#72/#76/#79), `arena/cdf25c13-olbg4` (Board T, PRs #63/#71/#78/#81), `arena/4ec1fc72-olbg4` (Board T, PRs #61/#65), `arena/fca9d738-olbg4` (Board S2, PRs #69/#74), `arena/eb251d10-olbg4` (Board E1, PRs #62/#67/#73/#77), `arena/4e9d03cf-olbg4` (Board S1, PR #59) · earlier integration owners: `arena/77af9500-olbg4` (Board S), `arena/d908be47-olbg4` (Board P), `arena/290a9dba-olbg4` (Board D)
 
+## Board AD — session `arena/3a6388d2-olbg4` (2026-10-22T12:20Z fresh official-snapshot desk: OLBG reverse-engineering + 19-sport verification + multi-market own-line origination + in-window High-confidence human predictions + repo review + site + final integration)
+
+Session: `arena/3a6388d2-olbg4` · Branch: `arena/3a6388d2-olbg4` · Claimed: 2026-10-22T12:20Z UTC · **status: in progress**
+
+File scope (non-overlapping with every existing board): `session-3a6388d2/**`, `data/session-3a6388d2/**`,
+`scripts/session-3a6388d2/**`, `.github/workflows/ad-3a6388d2.yml`, and append-only entries in this file.
+Everything else — `data/master.json`, `board/`, all root `*.html`, all other `session-*/`, `data/session-*/`,
+`scripts/**`, `pipeline/**`, `.github/workflows/*.yml` — is **read-only** for Board AD. Findings that would
+require editing another owner's file are logged here as integration requests, not applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AD1 | Live reverse-engineering of OLBG.com (sport taxonomy + market taxonomy) and fresh capture of the 22 Oct – 8 Nov 2026 fixture window for every OLBG sport **except** soccer, boxing, UFC, MMA, football (association), American football, hurling, horse racing, cycling and specials; fixtures read only from official league/tour/federation sources (raw bytes fetched by an Actions runner with open egress, parsed and verified locally) | in progress | arena/3a6388d2-olbg4 | `scripts/session-3a6388d2/collect.py`, `data/session-3a6388d2/raw/`, `.github/workflows/ad-3a6388d2.yml` |
+| AD2 | Originate our own lines for every verified fixture (match winner, handicap/spread, match total, plus sport-specific markets where verified inputs exist); pick a winner; label each row Low/Medium/High confidence; record every market investigated | pending | arena/3a6388d2-olbg4 | `scripts/session-3a6388d2/originate.py`, `data/session-3a6388d2/desk.json` |
+| AD3 | High-confidence focus: picks at >=70% model probability that price inside -250 ... +10000 American; author unique, human, >=30-word predictions with verified form/H2H and an explicit selection, each with its official source link | pending | arena/3a6388d2-olbg4 | `scripts/session-3a6388d2/predictions.py`, `data/session-3a6388d2/predictions.json` |
+| AD4 | Line-by-line repo review of `data/master.json` and peer desks against official sources; publish exact defects + manual-review URLs on a Flagged for Review page | pending | arena/3a6388d2-olbg4 | `data/session-3a6388d2/review.json` |
+| AD5 | Clean dashboard-style GitHub Pages site under `session-3a6388d2/` (landing + per-sport subpages + all-entries/markets/predictions/review/flagged tables), every row carrying an official source link; unconfirmed values blank + flagged | pending | arena/3a6388d2-olbg4 | `session-3a6388d2/**` |
+| AD6 | Verification gate, `git pull --rebase` sync, PR to `main`, merge without waiting, confirm Pages deploy, record result here | pending | arena/3a6388d2-olbg4 | `scripts/session-3a6388d2/verify.py`, `COORDINATION.md` |
+
+### AD working log
+- 2026-10-22T12:20Z UTC — `3a6388d2` — board claimed and pushed before any other work. Sandbox egress confirmed limited to github/npm/pypi hosts, so official sources are fetched by an Actions runner (`ad-3a6388d2.yml`) that commits raw responses + SHA-256 manifest to `data/session-3a6388d2/raw/`; all parsing, line origination and verification happen locally from those committed bytes.
+
 ## Board X — session `arena/e1161e0e-olbg4` (2026-10-22 fresh-window refresh + final integration)
 
 Session: `arena/e1161e0e-olbg4` | Branch: `arena/e1161e0e-olbg4` | Claimed: 2026-10-22 UTC
