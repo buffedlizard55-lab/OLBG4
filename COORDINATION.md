@@ -3713,3 +3713,33 @@ merge.
 3. Do **not** merge Board AD rows into `data/master.json`; keep Board AD's desk as its own
    published dataset so each row keeps its own official source and its own verification trail.
    Board AD's review findings on `master.json` are advisory findings, not edits.
+
+---
+
+## Board AG — session `arena/4885d641-olbg4` (2026-10-22T20:55Z evening fresh capture: live OLBG reverse-engineering + 18-sport official governing-body verification + multi-market own-line origination + 5-per-sport & in-window `[-250, +10000]` High-confidence human predictions + repo-wide line-by-line review + clean GitHub Pages dashboard + final integration)
+
+Session: `arena/4885d641-olbg4` · Branch: `arena/4885d641-olbg4` (fixed Arena session branch) · Claimed: `2026-10-22T20:55Z UTC` · **status: in progress**
+
+**Parallel coordination check (read before claiming):**
+- `main` sits at `6551226` (`chore(snapshot): refresh official-data snapshot 2026-10-22T17:10Z`).
+- Open PR `#102` (`arena/1695b749-olbg4`) has been idle for >11 hours (`09:04Z`), well past the 60-minute stale threshold; its own `session-1695b749/` files are left completely untouched.
+- Four live sibling sessions (`arena/0d3b826c-olbg4`, `arena/2d25cf78-olbg4`, `arena/80bc6293-olbg4`, `arena/ddbcc895-olbg4`) pushed claims at `20:53–20:55Z` under label `Board AF` on strictly session-scoped folders. To avoid board-letter ambiguity and achieve **zero file overlap**, this session claims **Board AG (`session-4885d641`)** exclusively over:
+  - `session-4885d641/**`
+  - `data/session-4885d641/**`
+  - `scripts/session-4885d641/**`
+  - `.github/workflows/ag-4885d641.yml`
+  - append-only entries in `COORDINATION.md` (plus additive pointer wiring on root `index.html` / `README.md` at final integration only after `git pull --rebase origin main`, preserving all merged peer content verbatim).
+- All peer session directories, `data/master.json`, `board/`, `docs/`, `pipeline/`, and peer workflows are **strictly read-only** during build; cross-file recommendations are logged here as integration notes.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AG1 | Live evening (`2026-10-22T21:00Z+` UTC) reverse-engineering of `OLBG.com` (complete sport menu, sub-hubs, market taxonomy, excluded-sport filter excluding `soccer`, `boxing`, `ufc`, `mma`, `football`, `american football`, `hurling`, `horse racing`, `cycling`, `specials`) + fresh SHA-256 hashed capture of official governing-body/league/tour schedules, live/completed Oct 22 results, standings & player stats | in progress | arena/4885d641-olbg4 | `scripts/session-4885d641/fetch.py`, `scripts/session-4885d641/targets.json`, `.github/workflows/ag-4885d641.yml`, `data/session-4885d641/capture/**` |
+| AG2 | Line-by-line official verification & transparent independent own-line origination across every covered sport and market (`Match Winner / 1X2`, `Handicap / Spread`, `Match Total O/U`, `Sport-Specific Derivative`); select match winner + assign `Low` / `Medium` / `High` confidence; leave any unconfirmed value strictly blank and flag `unverified` | pending | arena/4885d641-olbg4 | `scripts/session-4885d641/originate.py`, `data/session-4885d641/desk.json` |
+| AG3 | High-confidence & Top-5-per-sport human predictions: originate and select both strict `High` picks inside `[-250, +10000]` American odds AND the top 5 highest-confidence upcoming picks per covered sport (disclosing exact probability, fair/book American odds, and whether fewer than 5 fixtures exist in an official draw); author unique, natural, non-repetitive ≥30-word human write-ups citing verified team/player, current form, recent match history, explicit selection, and official source URLs | pending | arena/4885d641-olbg4 | `scripts/session-4885d641/predictions.py`, `data/session-4885d641/predictions.json` |
+| AG4 | Line-by-line repository audit across canonical `data/master.json` and peer desks (including afternoon `12:15Z` & `13:33Z` matches that have now completed or gone in-play by `21:00Z` UTC!), documenting exact row discrepancies, stale completed fixtures, and manual-review source links | pending | arena/4885d641-olbg4 | `scripts/session-4885d641/audit_repo.py`, `data/session-4885d641/repo_review.json`, `data/session-4885d641/flagged.json` |
+| AG5 | Clean, responsive, user-friendly GitHub Pages dashboard (`session-4885d641/`) with landing overview, per-sport category subpages, filterable all-entries table, multi-market explorer, High-confidence & Top-5-per-sport predictions page, OLBG reverse-engineering & market audit, repository review, verification ledger, methodology, sources, and Flagged for Review page | pending | arena/4885d641-olbg4 | `session-4885d641/**`, `scripts/session-4885d641/build_site.py` |
+| AG6 | Full verification suite (`scripts/session-4885d641/verify.py`) + all repository CI gates, `git pull --rebase origin main`, additive root integration pointer, PR to `main`, immediate merge, GitHub Pages live deployment verification, and completion log in `COORDINATION.md` | pending | arena/4885d641-olbg4 | `scripts/session-4885d641/verify.py`, `COORDINATION.md`, `index.html`, `README.md` |
+
+### AG working log
+- `2026-10-22T20:55Z UTC` — `4885d641` — Read `COORDINATION.md`, checked all active peer branches (`0d3b826c`, `2d25cf78`, `80bc6293`, `ddbcc895`) and open PR `#102`, claimed non-overlapping **Board AG (`session-4885d641`)** scope, committed and pushed before starting collection or build work.
+
