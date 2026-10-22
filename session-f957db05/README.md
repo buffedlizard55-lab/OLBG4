@@ -1,6 +1,6 @@
 # Board V — verified fixtures, own lines, confidence-graded picks
 
-**Live:** https://buffedlizard55-lab.github.io/OLBG4/session-f957db05/
+**Live:** https://buffedlizard55-lab.github.io/OLBG4/session-f957db05/ · **Desk audit of the merged Board T desk:** `audit.html`
 **Session:** `arena/f957db05-olbg4` · **Data cut-off:** 2026-10-22 (UTC)
 
 This folder is a self-contained dashboard. It is generated, never hand-edited:
@@ -18,20 +18,21 @@ python3 session-f957db05/verify.py              # 19 gates, all must pass
 
 | Page | Content |
 |---|---|
-| `index.html` | 98 priced fixtures, filterable, one official source link per row |
+| `index.html` | 98 fixtures (90 priced), filterable, one official source link per row |
 | `picks.html` | 8 High-confidence picks, each with a written prediction (48–56 words) and generated evidence bullets |
 | `markets.html` | moneyline / handicap / total coverage per sport, with the formulas |
 | `coverage.html` | all 21 sports on the live OLBG menu: in-scope or excluded, the official source attempted, the HTTP status it returned, fixtures priced |
 | `verification.html` | one line per published fixture with the verified inputs and the exact official URL |
 | `sources.html` | domains, endpoints, byte counts and SHA-256 of every captured document |
 | `methodology.html` | the formulas, the price rule, the −250 arithmetic, and the limitations |
-| `flagged.html` | nine irregularities, each with evidence, published rather than smoothed over |
+| `flagged.html` | ten irregularities, each with evidence, published rather than smoothed over |
 | `sports/*.html` | the same data per sport |
 
 ## The three numbers that matter
 
 - **98 fixtures** across ice hockey (82), baseball (7) and esports (9) — each confirmed against an official
-  league feed (`api-web.nhle.com`, `statsapi.mlb.com`, `esports-api.lolesports.com`).
+  league feed (`api-web.nhle.com`, `statsapi.mlb.com`, `esports-api.lolesports.com`). **90 are priced**; the 8
+  esports rows without a result for one of the teams are published with no pick rather than a coin-flip (V-F03).
 - **8 High picks**, all inside the requested −250 … +10,000 window, each with a written prediction.
 - **11 in-scope sports unpriced** — named on `coverage.html` with the official URL and HTTP status that stopped
   them, and logged as V-F01/V-F09. No fixture, price or pick was borrowed from a tipster site to fill the gap.

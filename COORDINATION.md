@@ -67,14 +67,14 @@ markets, coverage, verification, sources, methodology, desk audit, flagged, thre
 
 | Metric | Value |
 |---|---|
-| Fixtures priced | **98** — Ice Hockey 82 (NHL regular season 22 Oct–2 Nov), Baseball 7 (MLB post-season), Esports 9 (LoL Worlds Swiss + EMEA Masters final) |
+| Fixtures | **98** listed — Ice Hockey 82 (NHL regular season 22 Oct–2 Nov), Baseball 7 (MLB post-season), Esports 9 (LoL Worlds Swiss + EMEA Masters final). **90 priced**; 8 esports rows are published with no pick because at least one team has no result in the captured official window (V-F03, V-F10) |
 | Official sources | `api-web.nhle.com` (13 captures), `statsapi.mlb.com` (2), `esports-api.lolesports.com` (1) — 100% of rows, no row without an official URL |
-| Own lines | moneyline for all 98; handicap and total for 89 (all NHL + MLB); blank for esports, where the feed carries no scoring line |
-| Confidence | 8 High · 61 Medium · 29 Low |
+| Own lines | moneyline for all 90 priced rows; handicap and total for 89 (all NHL + MLB); blank for esports, where the feed carries no scoring line |
+| Confidence | 8 High · 59 Medium · 23 Low · 8 Unrated (no verified form) |
 | High picks inside −250…+10,000 | **8 / 8** (prices 1.40–1.43 = −250…−233); 6 of the 8 are capped at the −250 floor with the fair price printed beside them (V-F05) |
 | Written predictions | **8**, 48–56 words each, trigram Jaccard max 0.065 ("not repetitive" enforced as a gate), each naming its selection; evidence bullets generated from the verified inputs by `facts.py`, never typed |
 | Coverage | live OLBG menu = 21 sports (14 in scope, 7 excluded by the brief); 3 sports priced; the other 11 named with official URL + HTTP status |
-| Gates | `python3 session-f957db05/verify.py` → 19/19 PASS (official source per row, no excluded sport, window compliance, confidence rule, prediction length/uniqueness/selection-naming, every quoted fact number present in the verified inputs, no broken internal link, no unapproved domain, deterministic rebuild) |
+| Gates | `python3 session-f957db05/verify.py` → 21/21 PASS (official source per row, no excluded sport, window compliance, confidence rule, prediction length/uniqueness/selection-naming, every quoted fact number present in the verified inputs, no broken internal link, no unapproved domain, deterministic rebuild) |
 | Repo gates | `python3 scripts/audit_publication.py --check` → 10,904 local targets, 0 broken, 0 stale · `BOARD_DIR=board python3 tools/verify_master.py` → OK · `python3 -m pipeline.selftest` → all self-tests passed |
 
 **Independent audit of the merged Board T desk (V1).** `data/session-f957db05/audit.json` re-checks all 97 rows of
@@ -87,14 +87,17 @@ fixture, date or start time in their desk contradicts the official record. Publi
 official feed writes "Montréal" and the desk "Montreal"; the matcher was corrected before publication and no false
 finding shipped.
 
-**Irregularities published (V-F01…V-F09 on `flagged.html`).** (1) eleven in-scope sports have no readable official
+**Irregularities published (V-F01…V-F10 on `flagged.html`).** (1) eleven in-scope sports have no readable official
 fixture feed this cycle; (2) OLBG's live menu no longer lists esports, badminton, table tennis or Aussie rules, which
-earlier boards carried; (3) esports confidence capped at Medium (13-day result window); (4) NHL samples are 7–11 games
-and shrunk by GP/(GP+8); (5) seven of eight High picks sit at the −250 floor because a >71.4% favourite is fairly priced
-shorter than the brief's short end; (6) MLB totals/run line use season-long rates against a post-season series;
-(7) no head-to-head history is captured, so no prediction claims a previous meeting; (8) the raw official bytes were
-captured by the Board U collector on a GitHub Actions runner (this sandbox reaches GitHub only) and are reproduced with
-SHA-256; (9) the desk prices three sports, not fourteen. None blocks publication.
+earlier boards carried; (3) six of nine esports fixtures carry no pick because a team has no result in the captured
+window; (4) NHL samples are 7–11 games and shrunk by GP/(GP+8); (5) seven of eight High picks sit at the −250 floor
+because a >71.4% favourite is fairly priced shorter than the brief's short end; (6) MLB totals/run line use season-long
+rates against a post-season series; (7) no head-to-head history is captured, so no prediction claims a previous meeting;
+(8) the raw official bytes were captured by the Board U collector on a GitHub Actions runner (this sandbox reaches GitHub
+only) and are reproduced with SHA-256; (9) the desk prices three sports, not fourteen; (10) the rule that a pick needs
+verified form on both sides, adopted after a first build priced six Worlds fixtures at even money on a 50/50 prior and
+LOS v T1 at −250 with no T1 data at all — those rows were pulled back to no-pick and the site rebuilt. Corrected figures
+after that rebuild: 98 fixtures listed, 90 priced, 21/21 gates.
 
 **Coordination.** A merge of `origin/main` conflicted in this file. Both blocks were kept; the Board E1 record
 (`arena/eb251d10-olbg4`) was accidentally dropped during the first resolution and restored in commit `d65d39d`
