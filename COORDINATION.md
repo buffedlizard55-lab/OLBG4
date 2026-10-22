@@ -3713,3 +3713,23 @@ merge.
 3. Do **not** merge Board AD rows into `data/master.json`; keep Board AD's desk as its own
    published dataset so each row keeps its own official source and its own verification trail.
    Board AD's review findings on `master.json` are advisory findings, not edits.
+
+---
+
+## Board AF — session `arena/0d3b826c-olbg4` (fresh evidence-first OLBG reconciliation, own lines, verified High predictions, clean dashboard and integration)
+
+Session: `arena/0d3b826c-olbg4` · Branch: `arena/0d3b826c-olbg4` (fixed Arena branch) · Claimed: 2026-10-22 UTC · **status: in progress**
+
+Exclusive working scope: `session-0d3b826c/**`, `data/session-0d3b826c/**`, `scripts/session-0d3b826c/**`, `.github/workflows/af-0d3b826c.yml`, and append-only entries in this file. At final integration only, an additive root `index.html` pointer may be added after re-checking ownership; the stale (>60 minute) PR #102 root claim will be handed off explicitly rather than silently overwritten. Every other session's files, shared master data, generators and workflows are read-only.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AF1 | Capture and reverse-engineer the current public OLBG in-scope listing without using robots-disallowed endpoints; reconcile fixtures line by line to official league/tour/federation sources. Exclude soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling and specials. Preserve HTTP status, timestamps, bytes and SHA-256; blank and flag unresolved fields. | in progress | arena/0d3b826c-olbg4 | `scripts/session-0d3b826c/`, `data/session-0d3b826c/`, `.github/workflows/af-0d3b826c.yml` |
+| AF2 | Originate transparent, independent fair lines for every fixture with adequate official numeric evidence (match winner, handicap, total and explicitly investigated sport-specific markets); select a match winner and assign Low/Medium/High. Never manufacture prices for unsupported events. | pending | arena/0d3b826c-olbg4 | same |
+| AF3 | Select the strongest qualifying High picks inside −250…+10,000 American odds; write unique natural ≥30-word predictions only from verified facts, with team/player, current form, recent history, explicit selection and official links. Target up to five per sport, but publish fewer and flag the shortfall rather than force weak picks. | pending | arena/0d3b826c-olbg4 | same |
+| AF4 | Audit the freshest peer desks and shared canonical records mechanically and against available official evidence; publish exact irregularities and manual-review links without editing peer data. | pending | arena/0d3b826c-olbg4 | same |
+| AF5 | Build a clean static GitHub Pages dashboard with landing, per-sport pages, all entries, markets, predictions, verification, methodology, sources and Flagged for Review. Every displayed data row gets an official source or blank/unverified treatment. | pending | arena/0d3b826c-olbg4 | `session-0d3b826c/**` |
+| AF6 | Run deterministic schema/math/provenance/prediction/link checks plus repository gates, integrate additively, open PR to `main`, merge only with a healthy build, confirm Pages, and record sources, verification, irregularities, PR and deployment here. | pending | arena/0d3b826c-olbg4 | `scripts/session-0d3b826c/verify.py`, `COORDINATION.md`, additive root pointer if uncontested |
+
+### AF working log
+- 2026-10-22 UTC — Read the full coordination board structure and current open-PR state. PR #102 (`arena/1695b749-olbg4`) has been idle since 09:18Z and is not mergeable; its files remain untouched. No active task is taken over. Claim scoped to new `0d3b826c` paths and pushed before data/site work.
