@@ -1,0 +1,37 @@
+name: Board W capture (c4fda15e)
+
+# Board W (session arena/c4fda15e-olbg4). Fetches the OLBG hub pages and official
+# league pages/APIs listed in scripts/session-c4fda15e/targets.json on a runner with
+# open egress and uploads the exact bytes + a SHA-256 manifest as an artifact.
+# Runs only for pushes to this board's branch that change its target list.
+on:
+  push:
+    branches: ["arena/c4fda15e-olbg4"]
+    paths:
+      - "scripts/session-c4fda15e/targets.json"
+      - "scripts/session-c4fda15e/fetch.py"
+      - ".github/workflows/w-c4fda15e.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: w-c4fda15e-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture targets
+        run: python3 scripts/session-c4fda15e/fetch.py scripts/session-c4fda15e/targets.json capture
+      - uses: actions/upload-artifact@v4
+        with:
+          name: w-capture
+          path: capture/
+          retention-days: 14
