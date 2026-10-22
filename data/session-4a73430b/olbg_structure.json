@@ -1,0 +1,201 @@
+{
+ "site": "OLBG.com (Online Betting Guide)",
+ "reverse_engineered_on": "2026-10-21",
+ "evidence": [
+  "https://www.olbg.com/sitemap.xml (sitemap index, fetched 2026-10-21)",
+  "https://www.olbg.com/sitemap-betting-tips.xml (lists every sport landing page with its numeric sport ID, lastmod 2026-10-21)",
+  "https://www.olbg.com/tipster-competition (lists the sports that have tipster competitions)",
+  "Individual sport pages fetched 2026-10-21 (markets described in each page's guide text)"
+ ],
+ "url_patterns": {
+  "sport_landing": "https://www.olbg.com/betting-tips/<Sport>/<sport_id>",
+  "competition": "https://www.olbg.com/betting-tips/<Sport>/<Category>/<Competition>/<sport_id>",
+  "event": "https://www.olbg.com/betting-tips/<Sport>/<Category>/<Competition>/<Event_Name>/<sport_id>?event_id=<event_id>",
+  "best_tipsters_by_sport": "https://www.olbg.com/best-tipsters/<Sport>/<sport_id>",
+  "notes": [
+   "The trailing number on every betting-tips URL is the OLBG sport ID, not a market ID.",
+   "Each sport landing page shows a server-rendered feed of the most-tipped upcoming events (20 entries observed for tennis and basketball), with further tips behind a JavaScript 'Load More Tips' control.",
+   "OLBG only surfaces events that have received at least one tip. Its Boxing page states: 'If a bout has no tips yet, it will appear once a tipster adds one.' Untipped fixtures are therefore not publicly enumerable on OLBG.",
+   "Event start times on OLBG pages render in the visitor's local timezone (observed as US Eastern during collection)."
+  ]
+ },
+ "sports_enumerated": [
+  {
+   "id": 1,
+   "name": "Football",
+   "slug": "Football",
+   "in_scope": false,
+   "reason": "Excluded in brief (soccer/football)"
+  },
+  {
+   "id": 2,
+   "name": "Horse Racing",
+   "slug": "Horse_Racing",
+   "in_scope": false,
+   "reason": "Excluded in brief (horse racing)"
+  },
+  {
+   "id": 3,
+   "name": "Tennis",
+   "slug": "Tennis",
+   "in_scope": true
+  },
+  {
+   "id": 4,
+   "name": "Basketball",
+   "slug": "Basketball",
+   "in_scope": true
+  },
+  {
+   "id": 5,
+   "name": "Golf",
+   "slug": "Golf",
+   "in_scope": true
+  },
+  {
+   "id": 6,
+   "name": "Specials",
+   "slug": "Specials",
+   "in_scope": false,
+   "reason": "Excluded in brief (specials — TV/Politics/Awards)"
+  },
+  {
+   "id": 7,
+   "name": "Cricket",
+   "slug": "Cricket",
+   "in_scope": true
+  },
+  {
+   "id": 8,
+   "name": "Snooker",
+   "slug": "Snooker",
+   "in_scope": true
+  },
+  {
+   "id": 9,
+   "name": "Rugby Union",
+   "slug": "Rugby_Union",
+   "in_scope": true
+  },
+  {
+   "id": 10,
+   "name": "Rugby League",
+   "slug": "Rugby_League",
+   "in_scope": true
+  },
+  {
+   "id": 11,
+   "name": "American Football",
+   "slug": "American_Football",
+   "in_scope": false,
+   "reason": "Excluded in brief (American football)"
+  },
+  {
+   "id": 12,
+   "name": "Baseball",
+   "slug": "Baseball",
+   "in_scope": true
+  },
+  {
+   "id": 13,
+   "name": "Ice Hockey",
+   "slug": "Ice_Hockey",
+   "in_scope": true
+  },
+  {
+   "id": 14,
+   "name": "Motor Racing",
+   "slug": "Motor_Racing",
+   "in_scope": true
+  },
+  {
+   "id": 15,
+   "name": "Darts",
+   "slug": "Darts",
+   "in_scope": true
+  },
+  {
+   "id": 16,
+   "name": "Boxing (incl. UFC & MMA)",
+   "slug": "Boxing",
+   "in_scope": false,
+   "reason": "Excluded in brief (boxing, UFC, MMA — OLBG groups all three under this one sport ID; page title 'Free Boxing Tips, UFC Predictions & MMA Betting Tips')"
+  },
+  {
+   "id": 17,
+   "name": "Cycling",
+   "slug": "Cycling",
+   "in_scope": false,
+   "reason": "Excluded in brief (cycling)"
+  },
+  {
+   "id": 20,
+   "name": "Handball",
+   "slug": "Handball",
+   "in_scope": true
+  },
+  {
+   "id": 21,
+   "name": "Volleyball",
+   "slug": "Volleyball",
+   "in_scope": true
+  },
+  {
+   "id": 22,
+   "name": "Aussie Rules",
+   "slug": "Aussie_Rules",
+   "in_scope": true
+  },
+  {
+   "id": 23,
+   "name": "eSports",
+   "slug": "eSports",
+   "in_scope": true
+  },
+  {
+   "id": 25,
+   "name": "Gaelic Football",
+   "slug": "Gaelic_Football",
+   "in_scope": true,
+   "note": "Distinct GAA sport. The brief excludes 'football' (OLBG sport 1, soccer) and hurling explicitly; Gaelic football is neither, so it is included. Interpretation flagged for review."
+  },
+  {
+   "id": 26,
+   "name": "Hurling",
+   "slug": "Hurling",
+   "in_scope": false,
+   "reason": "Excluded in brief (hurling)"
+  },
+  {
+   "id": 28,
+   "name": "Greyhounds",
+   "slug": "Greyhounds",
+   "in_scope": true
+  }
+ ],
+ "sport_ids_not_found": {
+  "ids": [
+   18,
+   19,
+   24,
+   27
+  ],
+  "finding": "No active sport landing page exists at these IDs in sitemap-betting-tips.xml (fetched 2026-10-21) and no corresponding sport appears in OLBG's tipster-competition sport list. Treated as retired/unused IDs. Flagged for review."
+ },
+ "scope_definition": {
+  "match_list": "Every distinct upcoming event shown in the server-rendered feed of each in-scope OLBG sport landing page on 2026-10-21 (20 events per sport page where the feed is full). This is the complete set of matches OLBG publicly lists with tipster coverage for those sports at collection time.",
+  "known_limitation": "OLBG paginates additional tipped events behind a JavaScript 'Load More Tips' button and never lists untipped fixtures, so events beyond the first feed page cannot be enumerated from OLBG's public pages. Recorded here and on the site Methodology page rather than filled in from unofficial sources."
+ },
+ "session_4a73430b_live_evidence": {
+  "read_on": "2026-10-22",
+  "pages_read": [
+   "https://www.olbg.com/betting-tips",
+   "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+  ],
+  "observed": [
+   "Event cards carry: event link with trailing sport ID + ?event_id=, selection name, market label (e.g. 'Win Match 2-way', 'Money Line', 'Puck Line'), x/y Win Tips with %, comment and expert counts, local start time, venue where OLBG holds it.",
+   "Excluded per brief even though prominent on OLBG today feed: Horse Racing (id 2), Football (id 1), American Football/NFL (id 11).",
+   "In-scope examples read live 2026-10-22: Gerwyn Price vs Rob Cross (Darts id 15, Win Match 2-way), England vs Sri Lanka ODI (Cricket id 7, Win Match), TB Rays @ MIL Brewers (Baseball id 12, Money Line), SHL/Liiga/NHL ice hockey (id 13, Money Line / Puck Line)."
+  ]
+ }
+}
