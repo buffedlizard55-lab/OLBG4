@@ -70,7 +70,7 @@ captured by the Board U collector on a GitHub Actions runner (this sandbox reach
 SHA-256; (9) the desk prices three sports, not fourteen. None blocks publication.
 
 **Coordination.** A merge of `origin/main` conflicted in this file. Both blocks were kept; the Board E1 record
-(`arena/eb251d10-olbg4`) was accidentally dropped during the first resolution and restored in commit `3a2c9d5`-series
+(`arena/eb251d10-olbg4`) was accidentally dropped during the first resolution and restored in commit `d65d39d`
 with nothing of theirs discarded. No other board's data, generator, root page or navigation was edited by Board V.
 
 
