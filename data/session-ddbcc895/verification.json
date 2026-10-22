@@ -1,0 +1,138 @@
+{
+ "schema": "olbg4.board-af.verification/1",
+ "generated_utc": "2026-10-22T21:23:14Z",
+ "passed": true,
+ "checks_run": 25,
+ "failures": 0,
+ "rows_checked": 336,
+ "predictions_checked": 50,
+ "links_checked": 654,
+ "checks": [
+  {
+   "name": "desk schema",
+   "ok": true,
+   "detail": "olbg4.board-af.desk/1 board=AF row(s)=336"
+  },
+  {
+   "name": "row count",
+   "ok": true,
+   "detail": "336 rows"
+  },
+  {
+   "name": "unique ids",
+   "ok": true,
+   "detail": "336/336 unique"
+  },
+  {
+   "name": "unique row keys",
+   "ok": true,
+   "detail": "336/336 unique"
+  },
+  {
+   "name": "in-scope sports only",
+   "ok": true,
+   "detail": "0 out-of-scope row(s)"
+  },
+  {
+   "name": "start times inside the cutoff window",
+   "ok": true,
+   "detail": "0 bad start time(s)"
+  },
+  {
+   "name": "every row carries an official source URL",
+   "ok": true,
+   "detail": "0 row(s) without an allowed official host"
+  },
+  {
+   "name": "fair/book price arithmetic",
+   "ok": true,
+   "detail": "0 arithmetic error(s)"
+  },
+  {
+   "name": "market probability sums",
+   "ok": true,
+   "detail": "0 market-sum error(s)"
+  },
+  {
+   "name": "pick matches its market selection",
+   "ok": true,
+   "detail": "0 pick error(s)"
+  },
+  {
+   "name": "confidence follows the printed rule",
+   "ok": true,
+   "detail": "0 confidence error(s)"
+  },
+  {
+   "name": "esports publishes only the match-winner market (best-of-one, no official map data)",
+   "ok": true,
+   "detail": "map handicap/total intentionally not originated"
+  },
+  {
+   "name": "−250…+10,000 band flag matches the price",
+   "ok": true,
+   "detail": "0 band error(s)"
+  },
+  {
+   "name": "predictions are at least 30 words, named and priced",
+   "ok": true,
+   "detail": "0 prediction error(s)"
+  },
+  {
+   "name": "five predictions for every covered sport",
+   "ok": true,
+   "detail": "missing/extra: []"
+  },
+  {
+   "name": "prediction phrasing is not duplicated",
+   "ok": true,
+   "detail": "0 pair(s) above 0.25 3-gram Jaccard"
+  },
+  {
+   "name": "prediction count",
+   "ok": true,
+   "detail": "50"
+  },
+  {
+   "name": "all 18 in-scope sports on the coverage page",
+   "ok": true,
+   "detail": "18 sports"
+  },
+  {
+   "name": "every priced sport has predictions",
+   "ok": true,
+   "detail": "missing: []"
+  },
+  {
+   "name": "every sport without a fixture is flagged",
+   "ok": true,
+   "detail": "unflagged: set()"
+  },
+  {
+   "name": "captured bytes match their SHA-256 manifest",
+   "ok": true,
+   "detail": "614 files hashed, 0 mismatch(es)"
+  },
+  {
+   "name": "capture target ids are unique",
+   "ok": true,
+   "detail": "collisions: []"
+  },
+  {
+   "name": "every internal link resolves",
+   "ok": true,
+   "detail": "654 links checked, 0 broken"
+  },
+  {
+   "name": "repo review covers every shared desk",
+   "ok": true,
+   "detail": "5 datasets / 1144 rows"
+  },
+  {
+   "name": "flagged page has items",
+   "ok": true,
+   "detail": "23 items"
+  }
+ ],
+ "failure_detail": []
+}

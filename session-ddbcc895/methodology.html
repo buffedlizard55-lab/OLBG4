@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology · OLBG4 Board AF</title>
+<meta name="description" content="Methodology">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="top"><div class="wrap"><div class="topbar">
+<a class="brand" href="index.html"><span class="dot"></span>OLBG4 · Board AF</a>
+<button class="menu-btn" aria-label="Menu">Menu</button>
+<nav class="main"><a class="" href="index.html">Overview</a><a class="" href="entries.html">All entries</a><a class="" href="picks.html">Picks</a><a class="" href="predictions.html">Predictions</a><a class="" href="markets.html">Markets</a><a class="" href="coverage.html">Coverage</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged</a><a class="" href="olbg.html">OLBG</a><a class="on" href="methodology.html">Methodology</a><a class="" href="sources.html">Sources</a><a class="" href="verification.html">Verification</a></nav>
+</div></div></header>
+<main class="wrap">
+<section class="hero"><h1>Methodology</h1>
+<p class="lede">The rules below are the ones the code actually enforces. Any row that fails a rule is labelled with
+the failing gate, and any value that could not be read is left blank.</p></section>
+<section class="section"><div class="grid">
+<div class="card"><h2>1 · Fixtures from official pages only</h2><p>Each fixture is read from the league, tour or
+federation that runs it: the NHL and Liiga APIs, the EuroLeague games API, the MLB Stats API, the WTA matches API,
+ATP order-of-play PDFs, LNR calendars and tables, Tophåndbold, PlusLiga, the URC fixtures article, the RLWC draw,
+Cricket Australia's match list, the PDC Europe draw, the lolesports schedule and the ICC/IRL rating tables. OLBG is
+used for the sport taxonomy and, where noted, the session time of a PDC match.</p></div>
+<div class="card"><h2>2 · Strength from official numbers</h2><p>Team sports use each side's official points or win
+percentage, shrunk towards .500 in proportion to games played. Tennis uses official ranking points. Cricket uses ICC
+team ratings. Rugby league uses IRL ranking points. Darts uses PDC European Tour seeds. Esports uses Riot's team GPR
+Elo. Home advantage is a fixed logit per sport, printed on the row.</p></div>
+<div class="card"><h2>3 · Margin and totals</h2><p>The winning margin is Normal(μ, σ) with μ set so that the
+match-winner probability is exactly the model's probability. The handicap is the same distribution read at a line;
+the total is a separate Normal whose mean is the two teams' combined goals/runs/points for and against per game
+where the official table prints it. Where it does not (cricket and rugby league), the total is a stated assumption
+and the row says so.</p></div>
+<div class="card"><h2>4 · Prices</h2><p>Fair decimal = 1 ÷ probability. Published decimal = (1 + over-round) ÷
+probability. The over-round is 3.8%–5.2% by sport and is printed in the desk JSON. Every two-way market sums to
+1 + over-round on the published prices and to 1.000 on the fair prices.</p></div>
+<div class="card"><h2>5 · Confidence</h2><p><b>High</b>: probability ≥ 70.0%, both sides verified, sample gate met.
+<b>Medium</b>: probability ≥ 60.0%, or a High-grade probability that fails the sample gate. <b>Low</b>: below 60%.
+The −250…+10,000 band is a separate flag. Because 70% is fair −233, only probabilities between .700 and .714 can
+be both High and in band; the desk reports both counts rather than pretending otherwise.</p></div>
+<div class="card"><h2>6 · Predictions</h2><p>Each text is written for one row, names the teams/players, quotes the
+official record or ranking, states the selection and the price, and runs to at least 30 words. A 3-gram overlap
+check rejects near-duplicates. Facts under each card list the exact values used and the official URL.</p></div>
+<div class="card"><h2>7 · Verification</h2><p><code>python3 scripts/session-ddbcc895/verify.py</code> re-checks every
+row: probability ↔ decimal ↔ American arithmetic, market sums, confidence rule, band flag, prediction length,
+selection naming, uniqueness, internal links and capture hashes. The result is on the
+<a href="verification.html">Verification</a> page.</p></div>
+<div class="card"><h2>8 · Cutoff</h2><p>Cutoff is 2026-10-22T22:00:00Z. Anything earlier is excluded. The window ends
+2026-11-02T00:00:00Z. Every start time is UTC.</p></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">
+Board AF · session <code>arena/ddbcc895-olbg4</code> · desk built 2026-10-22T21:23 UTC ·
+<a href="../data/session-ddbcc895/desk.json">desk.json</a> ·
+<a href="../data/session-ddbcc895/predictions.json">predictions.json</a> ·
+<a href="../data/session-ddbcc895/review.json">review.json</a> ·
+<a href="../data/session-ddbcc895/flagged.json">flagged.json</a>
+</div></footer>
+<script src="assets/app.js"></script>
+</body></html>

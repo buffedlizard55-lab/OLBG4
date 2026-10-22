@@ -20,7 +20,8 @@ from predictions_bank import PREDICTIONS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "session-ddbcc895"
-SPORTS = ["Ice Hockey", "Basketball", "Baseball", "Tennis", "Rugby Union", "Handball", "Darts", "eSports"]
+SPORTS = ["Ice Hockey", "Basketball", "Baseball", "Tennis", "Rugby Union", "Handball",
+          "Darts", "eSports", "Cricket", "Rugby League"]
 
 
 def words(text: str) -> list[str]:

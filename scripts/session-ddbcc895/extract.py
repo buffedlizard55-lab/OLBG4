@@ -171,7 +171,7 @@ def liiga(cap: Capture) -> list[dict]:
                 "side_a": a["teamName"],
                 "side_b": b["teamName"],
                 "start_utc": start,
-                "venue": g.get("iceRink") or "",
+                "venue": ((g.get("iceRink") or {}).get("name") if isinstance(g.get("iceRink"), dict) else (g.get("iceRink") or "")),
                 "kind": "match",
                 "source_name": "Liiga official games API",
                 "source_url": cap.url("liiga_games_2027"),

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification · OLBG4 Board AF</title>
+<meta name="description" content="Verification">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="top"><div class="wrap"><div class="topbar">
+<a class="brand" href="index.html"><span class="dot"></span>OLBG4 · Board AF</a>
+<button class="menu-btn" aria-label="Menu">Menu</button>
+<nav class="main"><a class="" href="index.html">Overview</a><a class="" href="entries.html">All entries</a><a class="" href="picks.html">Picks</a><a class="" href="predictions.html">Predictions</a><a class="" href="markets.html">Markets</a><a class="" href="coverage.html">Coverage</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged</a><a class="" href="olbg.html">OLBG</a><a class="" href="methodology.html">Methodology</a><a class="" href="sources.html">Sources</a><a class="on" href="verification.html">Verification</a></nav>
+</div></div></header>
+<main class="wrap">
+<section class="hero"><h1>Verification</h1>
+<p class="lede">The gate is deterministic and re-runnable. It re-derives every price, checks the confidence rule,
+verifies every prediction against the row it belongs to, checks every internal link, and re-hashes every captured
+file it reads.</p></section>
+<div class="kpis">
+  <div class="kpi"><div class="n">25</div><div class="l">checks run</div></div>
+  <div class="kpi"><div class="n">0</div><div class="l">failures</div></div>
+  <div class="kpi"><div class="n">336</div><div class="l">rows checked</div></div>
+  <div class="kpi"><div class="n">50</div><div class="l">predictions checked</div></div>
+  <div class="kpi"><div class="n">654</div><div class="l">internal links checked</div></div>
+</div>
+<div class="note" style="margin:14px 0">Run <code>python3 scripts/session-ddbcc895/verify.py</code> from the repository
+root. The command exits non-zero on any failure and writes <code>data/session-ddbcc895/verification.json</code>.</div>
+<section class="section"><div class="note">All checks passed.</div>
+<div class="tablewrap"><table id="data"><thead><tr><th>Check</th><th>Detail</th><th>Result</th></tr></thead><tbody><tr><td>desk schema</td><td>olbg4.board-af.desk/1 board=AF row(s)=336</td><td><span class=badge ok>pass</span></td></tr><tr><td>row count</td><td>336 rows</td><td><span class=badge ok>pass</span></td></tr><tr><td>unique ids</td><td>336/336 unique</td><td><span class=badge ok>pass</span></td></tr><tr><td>unique row keys</td><td>336/336 unique</td><td><span class=badge ok>pass</span></td></tr><tr><td>in-scope sports only</td><td>0 out-of-scope row(s)</td><td><span class=badge ok>pass</span></td></tr><tr><td>start times inside the cutoff window</td><td>0 bad start time(s)</td><td><span class=badge ok>pass</span></td></tr><tr><td>every row carries an official source URL</td><td>0 row(s) without an allowed official host</td><td><span class=badge ok>pass</span></td></tr><tr><td>fair/book price arithmetic</td><td>0 arithmetic error(s)</td><td><span class=badge ok>pass</span></td></tr><tr><td>market probability sums</td><td>0 market-sum error(s)</td><td><span class=badge ok>pass</span></td></tr><tr><td>pick matches its market selection</td><td>0 pick error(s)</td><td><span class=badge ok>pass</span></td></tr><tr><td>confidence follows the printed rule</td><td>0 confidence error(s)</td><td><span class=badge ok>pass</span></td></tr><tr><td>esports publishes only the match-winner market (best-of-one, no official map data)</td><td>map handicap/total intentionally not originated</td><td><span class=badge ok>pass</span></td></tr><tr><td>−250…+10,000 band flag matches the price</td><td>0 band error(s)</td><td><span class=badge ok>pass</span></td></tr><tr><td>predictions are at least 30 words, named and priced</td><td>0 prediction error(s)</td><td><span class=badge ok>pass</span></td></tr><tr><td>five predictions for every covered sport</td><td>missing/extra: []</td><td><span class=badge ok>pass</span></td></tr><tr><td>prediction phrasing is not duplicated</td><td>0 pair(s) above 0.25 3-gram Jaccard</td><td><span class=badge ok>pass</span></td></tr><tr><td>prediction count</td><td>50</td><td><span class=badge ok>pass</span></td></tr><tr><td>all 18 in-scope sports on the coverage page</td><td>18 sports</td><td><span class=badge ok>pass</span></td></tr><tr><td>every priced sport has predictions</td><td>missing: []</td><td><span class=badge ok>pass</span></td></tr><tr><td>every sport without a fixture is flagged</td><td>unflagged: set()</td><td><span class=badge ok>pass</span></td></tr><tr><td>captured bytes match their SHA-256 manifest</td><td>614 files hashed, 0 mismatch(es)</td><td><span class=badge ok>pass</span></td></tr><tr><td>capture target ids are unique</td><td>collisions: []</td><td><span class=badge ok>pass</span></td></tr><tr><td>every internal link resolves</td><td>654 links checked, 0 broken</td><td><span class=badge ok>pass</span></td></tr><tr><td>repo review covers every shared desk</td><td>5 datasets / 1144 rows</td><td><span class=badge ok>pass</span></td></tr><tr><td>flagged page has items</td><td>23 items</td><td><span class=badge ok>pass</span></td></tr></tbody></table></div></section>
+</main>
+<footer class="footer"><div class="wrap">
+Board AF · session <code>arena/ddbcc895-olbg4</code> · desk built 2026-10-22T21:23 UTC ·
+<a href="../data/session-ddbcc895/desk.json">desk.json</a> ·
+<a href="../data/session-ddbcc895/predictions.json">predictions.json</a> ·
+<a href="../data/session-ddbcc895/review.json">review.json</a> ·
+<a href="../data/session-ddbcc895/flagged.json">flagged.json</a>
+</div></footer>
+<script src="assets/app.js"></script>
+</body></html>

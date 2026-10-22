@@ -86,6 +86,9 @@ PARAMS = {
     "Cricket": dict(sigma=42.0, sigma_total=45.0, total=268.5, hstep=0.5, tstep=0.5,
                     hladder=[-40.5, -25.5, -10.5, 10.5, 25.5, 40.5], tladder=[238.5, 253.5, 268.5, 283.5, 298.5],
                     unit="Runs", hname="Run Handicap", tname="Total Runs"),
+    "CricketT20": dict(sigma=28.0, sigma_total=26.0, total=165.5, hstep=0.5, tstep=0.5,
+                       hladder=[-30.5, -20.5, -10.5, 10.5, 20.5, 30.5], tladder=[139.5, 152.5, 165.5, 178.5, 191.5],
+                       unit="Runs", hname="Run Handicap", tname="Total Runs"),
 }
 VIG = {
     "Ice Hockey": 0.042, "Basketball": 0.040, "Baseball": 0.038, "Tennis": 0.041,
@@ -126,6 +129,8 @@ def comp_key(f: dict) -> str:
         return "RLWC"
     if "Worlds" in c or "LoL" in c:
         return "Esports"
+    if "Cricket" in f["sport"] and "T20" in (c + " " + str(f.get("stage", ""))):
+        return "CricketT20"
     if c.startswith("PDC"):
         return "Darts"
     return "Cricket"
@@ -248,11 +253,11 @@ def _evidence(f: dict, key: str) -> dict | None:
         s = (fa["rating"] - fb["rating"]) / 12.0
         return {"s": s, "n": 999, "note": f'World Rugby rating {fa["rating"]} vs {fb["rating"]}'}
     if key == "RLWC":
-        if not fa.get("rank") or not fb.get("rank"):
+        if fa.get("rating") is None or fb.get("rating") is None:
             return None
-        s = (fb["rank"] - fa["rank"]) * 0.13
-        return {"s": s, "n": 999, "note": f'IRL rank #{fa["rank"]} vs #{fb["rank"]}'}
-    if key == "Cricket":
+        s = (fa["rating"] - fb["rating"]) / 40.0
+        return {"s": s, "n": 999, "note": f'IRL world-ranking points {fa["rating"]} vs {fb["rating"]}'}
+    if key in ("Cricket", "CricketT20"):
         if not fa.get("rating") or not fb.get("rating"):
             return None
         s = (fa["rating"] - fb["rating"]) / 18.0
@@ -354,7 +359,7 @@ def build_markets(f: dict, key: str, p_win: float) -> dict:
 
 
 def sample_ok(key: str, f: dict, n: int) -> bool:
-    if key in ("WTA", "ATP", "Cricket", "URC", "RLWC", "Darts"):
+    if key in ("WTA", "ATP", "Cricket", "CricketT20", "URC", "RLWC", "Darts"):
         return True
     if key == "Esports":
         return True
@@ -445,10 +450,11 @@ def main() -> int:
     p = DATA / "world_rugby.json"
     if p.exists():
         wr = json.loads(p.read_text(encoding="utf-8"))
-    irl = {}
-    p = DATA / "irl_rankings.json"
+    ratings = {}
+    p = DATA / "ratings.json"
     if p.exists():
-        irl = json.loads(p.read_text(encoding="utf-8"))
+        ratings = json.loads(p.read_text(encoding="utf-8"))
+    irl = ratings.get("irl_men", {})
 
     rows = []
     for i, f in enumerate(raw["fixtures"], start=1):
@@ -461,15 +467,23 @@ def main() -> int:
                 if team:
                     f["form"][side] = dict(f["form"].get(side) or {}, **team)
         if key == "RLWC":
+            alias = {"Tonga XIII": "Tonga", "PNG": "PNG", "Papua New Guinea": "PNG",
+                     "Fetu Samoa": "Samoa", "Cook Islands": "Cook Islands", "France": "France",
+                     "England": "England", "Lebanon": "Lebanon", "Fiji": "Fiji",
+                     "Australia": "Australia", "New Zealand": "New Zealand"}
+            womens = f.get("competition", "").endswith("(Women)")
             for side in ("a", "b"):
                 name = f["side_" + side]
-                team = irl.get(name) or irl.get(name.replace(" XIII", "").replace(" Orchids", ""))
-                if team:
+                team = irl.get(alias.get(name, name))
+                if team and not womens:
                     f["form"][side] = dict(f["form"].get(side) or {}, **team)
-        if key == "Cricket":
+        if key in ("Cricket", "CricketT20"):
             gender = f.get("gender", "Men")
-            table = icc.get("men_odi" if "ODI" in f["competition"] and "T20" not in f["competition"] else
-                            ("women_t20i" if gender == "Women" else "men_t20i"), {})
+            comp = f["competition"] + " " + str(f.get("stage", ""))
+            is_t20 = "T20" in comp
+            table = (ratings.get("icc_women_t20i", {}) if gender == "Women" and is_t20 else
+                     ratings.get("icc_men_t20i", {}) if is_t20 else
+                     ratings.get("icc_men_odi", {}) if gender == "Men" else {})
             for side in ("a", "b"):
                 nm = f["side_" + side].replace(" Women", "").replace(" Men", "")
                 team = table.get(nm) or table.get(f["side_" + side])
@@ -478,7 +492,8 @@ def main() -> int:
         stats, recs = selection_records(f, key)
         row = {
             "id": f"AF{i:04d}",
-            "key": f'{SLUG.get(f["sport"], "other")}|{f["side_a"]}|{f["side_b"]}|{f["start_utc"][:10]}',
+            "key": (f'{SLUG.get(f["sport"], "other")}|{f["side_a"]}|{f["side_b"]}|{f["start_utc"][:10]}'
+                    + (f'|T{f["start_utc"][11:16]}' if "TBD" in (f["side_a"], f["side_b"]) else "")),
             "sport": f["sport"], "sport_slug": SLUG.get(f["sport"], "other"),
             "competition": f["competition"], "stage": f.get("stage", ""),
             "side_a": f["side_a"], "side_b": f["side_b"],

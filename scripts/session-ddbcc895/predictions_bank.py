@@ -369,4 +369,89 @@ PREDICTIONS: dict[str, dict] = {
             "Selection: G2 Esports at -170."
         ),
     },
+
+    # ------------------------------------------------------------------ Cricket
+    "cricket|Afghanistan Men|Zimbabwe Men|2026-10-23": {
+        "sport": "Cricket",
+        "text": (
+            "Afghanistan carry 93 ICC ODI rating points into the tri-series final in Sharjah; "
+            "Zimbabwe have 53. Afghanistan are ranked seventh in the annual-update table and "
+            "Zimbabwe 12th. Our total model sets the game at 268.5 runs, which puts the 243.5 line "
+            "in play. Selection: Over 243.5 runs at -213."
+        ),
+    },
+    "cricket|New Zealand Men|India Men|2026-10-24": {
+        "sport": "Cricket",
+        "text": (
+            "India top the ICC Men's T20I rankings on 275 points, while New Zealand are fourth on "
+            "247. The 28-point gap, plus India's top-ranked status, makes a 10.5-run handicap the "
+            "play at Hagley Oval. Selection: India Men -10.5 runs at -215."
+        ),
+    },
+    "cricket|Pakistan Men|England Men|2026-10-25": {
+        "sport": "Cricket",
+        "text": (
+            "Pakistan are fifth on 98 ODI rating points and England eighth on 89, a nine-point gap "
+            "in the ICC table. Gaddafi Stadium has a reputation for good batting conditions, and "
+            "our total of 268.5 sits comfortably above the 243.5 line. Selection: Over 243.5 runs "
+            "at -213."
+        ),
+    },
+    "cricket|Pakistan Men|Sri Lanka Men|2026-10-27": {
+        "sport": "Cricket",
+        "text": (
+            "Pakistan (98) and Sri Lanka (96) are separated by just two rating points in the ICC "
+            "ODI table. With the match in Lahore, our model expects a total near 268.5 and makes "
+            "Over 243.5 a 71.1% selection. Selection: Over 243.5 runs at -213."
+        ),
+    },
+    "cricket|Afghanistan Men|Zimbabwe Men|2026-10-27": {
+        "sport": "Cricket",
+        "text": (
+            "Afghanistan are 10th on 220 T20I rating points; Zimbabwe are 11th on 202. The 18-point "
+            "gap is modest, but the model still gives Afghanistan a 1.5-run handicap at 71.3% for "
+            "the 27 October T20I. Selection: Afghanistan Men -1.5 runs at -215."
+        ),
+    },
+    # ------------------------------------------------------------------ Rugby League
+    "rugby-league|Tonga XIII|Lebanon|2026-10-23": {
+        "sport": "Rugby League",
+        "text": (
+            "Tonga are fifth in the IRL world rankings on 54 points; Lebanon are 23rd on seven. The "
+            "47-point gap in ranking points points to a comfortable Tonga win, and our margin model "
+            "makes a three-point winning margin 71.2%. Selection: Tonga XIII by 3+ at -213."
+        ),
+    },
+    "rugby-league|Papua New Guinea|Samoa|2026-10-24": {
+        "sport": "Rugby League",
+        "text": (
+            "Papua New Guinea are sixth on 47 IRL points and Samoa fourth on 56. Samoa are the "
+            "higher-ranked side even though the match is in Port Moresby, and a 6.5-point start "
+            "covers that ranking gap. Selection: Samoa +6.5 at -215."
+        ),
+    },
+    "rugby-league|England|France|2026-10-24": {
+        "sport": "Rugby League",
+        "text": (
+            "England are third on 70 IRL points; France are 11th on 21. The 49-point gap is one of "
+            "the largest of Round 2, and our model gives England a 3.5-point handicap at 70.8%. "
+            "Selection: England -3.5 at -210."
+        ),
+    },
+    "rugby-league|New Zealand|Cook Islands|2026-10-25": {
+        "sport": "Rugby League",
+        "text": (
+            "New Zealand are second on 82 IRL points and Cook Islands eighth on 24. The Kiwis are "
+            "heavy favourites, so the value sits at the other end: Cook Islands +19.5 covers in "
+            "71.0% of our simulations. Selection: Cook Islands +19.5 at -212."
+        ),
+    },
+    "rugby-league|Australia|Fiji|2026-10-25": {
+        "sport": "Rugby League",
+        "text": (
+            "Australia top the IRL rankings on 100 points; Fiji are seventh on 34. The Kangaroos' "
+            "66-point edge is the widest in the round, and our model makes Australia -6.5 a 71.1% "
+            "selection. Selection: Australia -6.5 at -212."
+        ),
+    },
 }

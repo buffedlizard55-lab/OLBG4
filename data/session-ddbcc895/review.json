@@ -1,0 +1,375 @@
+{
+ "schema": "olbg4.board-af.review/1",
+ "reviewed_utc": "2026-10-22T21:18:46Z",
+ "cutoff_utc": "2026-10-22T22:00:00Z",
+ "datasets": {
+  "data/master.json": {
+   "label": "Canonical merged board (master.json)",
+   "path": "data/master.json",
+   "rows": 336,
+   "excluded_sport_rows": 0,
+   "stale_rows": 123,
+   "no_source": 39,
+   "no_pick": 43,
+   "no_price": 143,
+   "duplicates": 0,
+   "short_predictions": 0,
+   "high_out_of_window": 0,
+   "placeholder_rows": 18,
+   "confirmed_by_evening_capture": 113,
+   "not_found_in_evening_capture": 42,
+   "date_conflicts": 0
+  },
+  "data/session-22ca2e95/desk.json": {
+   "label": "Board AE desk (22ca2e95)",
+   "path": "data/session-22ca2e95/desk.json",
+   "rows": 246,
+   "excluded_sport_rows": 0,
+   "stale_rows": 0,
+   "no_source": 0,
+   "no_pick": 0,
+   "no_price": 0,
+   "duplicates": 1,
+   "short_predictions": 0,
+   "high_out_of_window": 17,
+   "placeholder_rows": 6,
+   "confirmed_by_evening_capture": 115,
+   "not_found_in_evening_capture": 60,
+   "date_conflicts": 0
+  },
+  "data/session-3a6388d2/desk.json": {
+   "label": "Board AD desk (3a6388d2)",
+   "path": "data/session-3a6388d2/desk.json",
+   "rows": 184,
+   "excluded_sport_rows": 0,
+   "stale_rows": 0,
+   "no_source": 0,
+   "no_pick": 31,
+   "no_price": 0,
+   "duplicates": 0,
+   "short_predictions": 0,
+   "high_out_of_window": 5,
+   "placeholder_rows": 0,
+   "confirmed_by_evening_capture": 101,
+   "not_found_in_evening_capture": 63,
+   "date_conflicts": 7
+  },
+  "data/session-e1161e0e/board.json": {
+   "label": "Board X desk (e1161e0e)",
+   "path": "data/session-e1161e0e/board.json",
+   "rows": 98,
+   "excluded_sport_rows": 0,
+   "stale_rows": 0,
+   "no_source": 0,
+   "no_pick": 1,
+   "no_price": 0,
+   "duplicates": 0,
+   "short_predictions": 0,
+   "high_out_of_window": 7,
+   "placeholder_rows": 0,
+   "confirmed_by_evening_capture": 76,
+   "not_found_in_evening_capture": 22,
+   "date_conflicts": 0
+  },
+  "data/session-9359e596/desk.json": {
+   "label": "Board Z desk (9359e596)",
+   "path": "data/session-9359e596/desk.json",
+   "rows": 280,
+   "excluded_sport_rows": 0,
+   "stale_rows": 2,
+   "no_source": 17,
+   "no_pick": 38,
+   "no_price": 0,
+   "duplicates": 6,
+   "short_predictions": 0,
+   "high_out_of_window": 2,
+   "placeholder_rows": 0,
+   "confirmed_by_evening_capture": 97,
+   "not_found_in_evening_capture": 61,
+   "date_conflicts": 0
+  }
+ },
+ "findings": [
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0001",
+   "sport": "aussie rules",
+   "category": "row has no official source URL",
+   "detail": "No fixture vs No fixture on 2026-09-27",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0002",
+   "sport": "volleyball",
+   "category": "row has no official source URL",
+   "detail": "24 national U17 teams vs Field on 2026-09-30",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0003",
+   "sport": "basketball",
+   "category": "row has no official source URL",
+   "detail": "Crvena Zvezda Belgrade vs Anadolu Efes Istanbul on 2026-10-01",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0004",
+   "sport": "tennis",
+   "category": "row has no official source URL",
+   "detail": "Alejandro Davidovich Fokina (ESP) Champion vs Rafael Jódar (ESP) Runner-up on 2026-10-07",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0001",
+   "sport": "aussie rules",
+   "category": "row dated before the 22 Oct 2026 evening cutoff",
+   "detail": "No fixture vs No fixture on 2026-09-27",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0002",
+   "sport": "volleyball",
+   "category": "row dated before the 22 Oct 2026 evening cutoff",
+   "detail": "24 national U17 teams vs Field on 2026-09-30",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0003",
+   "sport": "basketball",
+   "category": "row dated before the 22 Oct 2026 evening cutoff",
+   "detail": "Crvena Zvezda Belgrade vs Anadolu Efes Istanbul on 2026-10-01",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0004",
+   "sport": "tennis",
+   "category": "row dated before the 22 Oct 2026 evening cutoff",
+   "detail": "Alejandro Davidovich Fokina (ESP) Champion vs Rafael Jódar (ESP) Runner-up on 2026-10-07",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0001",
+   "sport": "aussie rules",
+   "category": "placeholder row rather than a fixture",
+   "detail": "No fixture vs No fixture on 2026-09-27",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0002",
+   "sport": "volleyball",
+   "category": "placeholder row rather than a fixture",
+   "detail": "24 national U17 teams vs Field on 2026-09-30",
+   "source": ""
+  },
+  {
+   "dataset": "Canonical merged board (master.json)",
+   "row": "M0005",
+   "sport": "esports",
+   "category": "placeholder row rather than a fixture",
+   "detail": "16 teams vs Field on 2026-10-08",
+   "source": ""
+  },
+  {
+   "dataset": "Board AE desk (22ca2e95)",
+   "row": "ae_039",
+   "sport": "Baseball",
+   "category": "duplicate fixture",
+   "detail": "Milwaukee Brewers vs Tampa Bay Rays appears more than once on 2026-10-24.",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-02&hydrate=team,probablePitcher,linescore"
+  },
+  {
+   "dataset": "Board AE desk (22ca2e95)",
+   "row": "ae_117",
+   "sport": "darts",
+   "category": "placeholder row rather than a fixture",
+   "detail": "PDC European Championship 2026 Outright Winner (Dortmund) vs Field on 2026-10-25",
+   "source": ""
+  },
+  {
+   "dataset": "Board AE desk (22ca2e95)",
+   "row": "ae_242",
+   "sport": "golf",
+   "category": "placeholder row rather than a fixture",
+   "detail": "Butterfield Bermuda Championship Outright (Port Royal GC) vs Field on 2026-10-25",
+   "source": ""
+  },
+  {
+   "dataset": "Board AE desk (22ca2e95)",
+   "row": "ae_243",
+   "sport": "golf",
+   "category": "placeholder row rather than a fixture",
+   "detail": "Stifel Charity Classic Outright (Norwood Hills CC) vs Field on 2026-10-25",
+   "source": ""
+  },
+  {
+   "dataset": "Board AD desk (3a6388d2)",
+   "row": "AD0084",
+   "sport": "Ice Hockey",
+   "category": "date conflict with 22 Oct official capture",
+   "detail": "Montréal Canadiens vs Winnipeg Jets is dated 2026-11-04 here; the same pairing is dated 2026-10-25 on the official page captured 22 Oct 2026.",
+   "source": "https://www.nhl.com/gamecenter/wpg-vs-mtl/2026/11/03/2026020237"
+  },
+  {
+   "dataset": "Board AD desk (3a6388d2)",
+   "row": "AD0093",
+   "sport": "Ice Hockey",
+   "category": "date conflict with 22 Oct official capture",
+   "detail": "Vancouver Canucks vs Anaheim Ducks is dated 2026-11-04 here; the same pairing is dated 2026-10-28 on the official page captured 22 Oct 2026.",
+   "source": "https://www.nhl.com/gamecenter/ana-vs-van/2026/11/03/2026020246"
+  },
+  {
+   "dataset": "Board AD desk (3a6388d2)",
+   "row": "AD0095",
+   "sport": "Ice Hockey",
+   "category": "date conflict with 22 Oct official capture",
+   "detail": "Florida Panthers vs Chicago Blackhawks is dated 2026-11-05 here; the same pairing is dated 2026-10-25 on the official page captured 22 Oct 2026.",
+   "source": "https://www.nhl.com/gamecenter/chi-vs-fla/2026/11/04/2026020248"
+  },
+  {
+   "dataset": "Board AD desk (3a6388d2)",
+   "row": "AD0097",
+   "sport": "Ice Hockey",
+   "category": "date conflict with 22 Oct official capture",
+   "detail": "Seattle Kraken vs Calgary Flames is dated 2026-11-05 here; the same pairing is dated 2026-10-31 on the official page captured 22 Oct 2026.",
+   "source": "https://www.nhl.com/gamecenter/cgy-vs-sea/2026/11/04/2026020250"
+  },
+  {
+   "dataset": "Board AD desk (3a6388d2)",
+   "row": "AD0105",
+   "sport": "Ice Hockey",
+   "category": "date conflict with 22 Oct official capture",
+   "detail": "Columbus Blue Jackets vs Dallas Stars is dated 2026-11-06 here; the same pairing is dated 2026-11-01 on the official page captured 22 Oct 2026.",
+   "source": "https://www.nhl.com/gamecenter/dal-vs-cbj/2026/11/05/2026020258"
+  },
+  {
+   "dataset": "Board AD desk (3a6388d2)",
+   "row": "AD0108",
+   "sport": "Ice Hockey",
+   "category": "date conflict with 22 Oct official capture",
+   "detail": "Colorado Avalanche vs Nashville Predators is dated 2026-11-06 here; the same pairing is dated 2026-10-26 on the official page captured 22 Oct 2026.",
+   "source": "https://www.nhl.com/gamecenter/nsh-vs-col/2026/11/05/2026020261"
+  },
+  {
+   "dataset": "Board AD desk (3a6388d2)",
+   "row": "AD0126",
+   "sport": "Ice Hockey",
+   "category": "date conflict with 22 Oct official capture",
+   "detail": "Winnipeg Jets vs Tampa Bay Lightning is dated 2026-11-08 here; the same pairing is dated 2026-10-29 on the official page captured 22 Oct 2026.",
+   "source": "https://www.nhl.com/gamecenter/tbl-vs-wpg/2026/11/08/2026020280"
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "esp-lol-lol-esports-worlds-swiss-2026-10-23T18",
+   "sport": "Esports",
+   "category": "duplicate fixture",
+   "detail": "TBD (Swiss Bracket Draw Pending) vs TBD appears more than once on 2026-10-23.",
+   "source": "https://lolesports.com/schedule"
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "esp-lol-lol-esports-worlds-swiss-2026-10-23T19",
+   "sport": "Esports",
+   "category": "duplicate fixture",
+   "detail": "TBD (Swiss Bracket Draw Pending) vs TBD appears more than once on 2026-10-23.",
+   "source": "https://lolesports.com/schedule"
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "esp-lol-lol-esports-worlds-swiss-2026-10-23T20",
+   "sport": "Esports",
+   "category": "duplicate fixture",
+   "detail": "TBD (Swiss Bracket Draw Pending) vs TBD appears more than once on 2026-10-23.",
+   "source": "https://lolesports.com/schedule"
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "esp-lol-lol-esports-worlds-swiss-2026-10-23T21",
+   "sport": "Esports",
+   "category": "duplicate fixture",
+   "detail": "TBD (Swiss Bracket Draw Pending) vs TBD appears more than once on 2026-10-23.",
+   "source": "https://lolesports.com/schedule"
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "esp-lol-lol-esports-worlds-swiss-2026-10-23T22",
+   "sport": "Esports",
+   "category": "duplicate fixture",
+   "detail": "TBD (Swiss Bracket Draw Pending) vs TBD appears more than once on 2026-10-23.",
+   "source": "https://lolesports.com/schedule"
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "esp-lol-lol-esports-worlds-swiss-2026-10-23T23",
+   "sport": "Esports",
+   "category": "duplicate fixture",
+   "detail": "TBD (Swiss Bracket Draw Pending) vs TBD appears more than once on 2026-10-23.",
+   "source": "https://lolesports.com/schedule"
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "olbg-4-536021",
+   "sport": "basketball",
+   "category": "row has no official source URL",
+   "detail": "Mobis Phoebus vs Changwon Sakers on 2026-10-22",
+   "source": ""
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "olbg-7-188825",
+   "sport": "cricket",
+   "category": "row has no official source URL",
+   "detail": "Mpumalanga Rhinos vs South Africa Emerging T20 on 2026-10-22",
+   "source": ""
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "olbg-21-36988",
+   "sport": "volleyball",
+   "category": "row has no official source URL",
+   "detail": "Radomka Radom W vs Mielec W on 2026-10-22",
+   "source": ""
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "olbg-7-188811",
+   "sport": "cricket",
+   "category": "row has no official source URL",
+   "detail": "Eastern Storm vs Tuskers T20 on 2026-10-22",
+   "source": ""
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "olbg-13-199896",
+   "sport": "ice hockey",
+   "category": "row dated before the 22 Oct 2026 evening cutoff",
+   "detail": "FLA Panthers vs OTT Senators on 2026-10-21",
+   "source": ""
+  },
+  {
+   "dataset": "Board Z desk (9359e596)",
+   "row": "olbg-13-199897",
+   "sport": "ice hockey",
+   "category": "row dated before the 22 Oct 2026 evening cutoff",
+   "detail": "PHI Flyers vs BUF Sabres on 2026-10-21",
+   "source": ""
+  }
+ ],
+ "totals": {
+  "rows": 1144,
+  "stale_rows": 125,
+  "no_source": 56,
+  "no_pick": 113,
+  "excluded_sport_rows": 0,
+  "duplicates": 7,
+  "short_predictions": 0
+ }
+}
