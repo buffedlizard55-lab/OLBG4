@@ -15,7 +15,7 @@
     {
       "id": "AB-F02",
       "severity": "coverage",
-      "title": "16 in-scope sports carry no originated line",
+      "title": "16 of the 19 sport labels considered carry no originated line",
       "detail": "Lines are originated only where official numeric inputs were captured: NHL (82 fixtures), MLB World Series (5) and LoL Esports (9). Basketball, cricket, darts, golf, greyhound racing, handball, rugby league, rugby union, snooker, tennis, volleyball, Aussie rules and badminton (plus table tennis) are listed on the coverage page as not covered this session, with the reason, and no value is filled in.",
       "sources": [
         "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
@@ -25,8 +25,8 @@
     {
       "id": "AB-F03",
       "severity": "data",
-      "title": "NHL venue listed as Princess Auto Stadium for Montréal at Winnipeg on 25 October",
-      "detail": "The NHL schedule payload returns venue \"Princess Auto Stadium\" for game 2026020182. That is Winnipeg's outdoor Canadian Football League ground, not the Canada Life Centre the Jets normally use. The value is copied verbatim from the official payload and not corrected; it is flagged for manual review.",
+      "title": "NHL payload lists one Winnipeg home game at Princess Auto Stadium, not Canada Life Centre",
+      "detail": "For game 2026020182 (Montréal at Winnipeg, 25 October) the NHL schedule payload returns venue \"Princess Auto Stadium\". Every other Winnipeg home game in the captured payloads (17 October vs Carolina, 28 October vs Florida, 6 November vs Vancouver, 8 November vs Tampa Bay) returns \"Canada Life Centre\". The value is copied verbatim from the official payload and not corrected or explained; it is flagged for manual review as either a special-venue game or a feed anomaly.",
       "sources": [
         "https://api-web.nhle.com/v1/schedule/2026-10-25"
       ]
@@ -89,7 +89,7 @@
       "id": "AB-F11",
       "severity": "scope",
       "title": "OLBG lists Gaelic Football and Motor Racing events the brief does not name",
-      "detail": "The brief excludes soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials. OLBG's live listing carried 5 Gaelic Football match rows and 6 Motor Racing outright rows (plus 1 Gaelic Football outright). Gaelic Football is not soccer and Motor Racing is not cycling, but neither is explicitly in scope. Both are carried on the all-fixtures page with a blank official source and a blank price, and are flagged here rather than priced or dropped.",
+      "detail": "The brief excludes soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials. OLBG's live listing carried 5 Gaelic Football match rows plus 1 Gaelic Football outright, and 3 Motor Racing outright cards with no match rows. Gaelic Football is not soccer and Motor Racing is not cycling, but neither is explicitly in scope. Both are carried on the all-fixtures page with a blank official source and a blank price, and are flagged here rather than priced or dropped.",
       "sources": [
         "https://www.olbg.com/betting-tips/Gaelic_Football/11",
         "https://www.olbg.com/betting-tips/Motor_Racing/7"

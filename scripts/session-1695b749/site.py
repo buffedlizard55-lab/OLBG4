@@ -188,7 +188,7 @@ automatically shorter than the floor, so only {counts['high_in_window']} sit ins
 <div class="grid k3">
   <div class="card"><h3>All fixtures</h3><p class="small">{len(fixtures)} priced fixtures with our moneyline, handicap, match total and team totals, plus {len(listing['matches'])} OLBG listing rows that carry no official source and no price. <a href="entries.html">Open the table →</a></p></div>
   <div class="card"><h3>Verification register</h3><p class="small">{len(ver['rows'])} rows, {sum(1 for r in ver['rows'] if r['status']=='verified')} hash-verified against the capture manifest, each with the exact field values read and the official URL. <a href="verification.html">Open the register →</a></p></div>
-  <div class="card"><h3>Coverage</h3><p class="small">All {len(cov['rows'])} in-scope sports and the {len(cov['excluded_by_brief'])} sports the brief excludes, with the reason any sport is unpriced. <a href="coverage.html">Open coverage →</a></p></div>
+  <div class="card"><h3>Coverage</h3><p class="small">All {len(cov['rows'])} sport labels considered (17 clearly in scope plus 2 ambiguous) and the {len(cov['excluded_by_brief'])} categories the brief excludes, with the reason any sport is unpriced. <a href="coverage.html">Open coverage →</a></p></div>
   <div class="card"><h3>Flagged for review</h3><p class="small">{len(flagged['items'])} published irregularities with source links — the window arithmetic, a stadium anomaly, correlated picks and the sports this session could not price. <a href="flagged.html">Open flags →</a></p></div>
 </div>
 """
@@ -487,7 +487,7 @@ Endpoints that failed during the repository's collection runs are recorded with 
       <h3>{e(i['id'])} · {e(i['title'])}</h3>
       <div class="meta">severity: {e(i['severity'])}</div>
       <p>{e(i['detail'])}</p>
-      <p class="small">Sources: {' · '.join(f"<a href='{e(u)}'>{e(u)}</a>" for u in i['sources'])}</p></div>""" for i in flagged["items"])
+      <p class="small">Sources: {' · '.join(f"<a href='{e(u)}'>{e(u)}</a>" for u in i['sources'])}</p></div>""" for i in sorted(flagged["items"], key=lambda x: x["id"]))
     body = f"""
 <h1>Flagged for review</h1>
 <p class="lede">Every irregularity this session found, published with its source links. None of these blocked publication; each one is here so it can be
