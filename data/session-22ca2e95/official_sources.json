@@ -1,0 +1,239 @@
+{
+  "schema": "board_ae_official_sources_v1",
+  "board": "AE",
+  "session": "22ca2e95",
+  "verified_at_utc": "2026-10-22T12:15:00Z",
+  "source_count": 23,
+  "sources": [
+    {
+      "id": "wta_api",
+      "sport": "Tennis",
+      "authority": "WTA Tour Official API (wtatennis.com)",
+      "url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+      "secondary_url": "https://www.wtatennis.com/tournaments",
+      "sha256": "6f1ad5c9d04434aea9ec7ed114f19b9cfdbd2e2ebc7aea7515338fb8e0b52c1e",
+      "verified_utc": "2026-10-22T12:13:09Z",
+      "scope": "WTA 500 Ningbo (2092) & WTA 250 Osaka (405) full live R16 final scores + all 8 newly formed Oct 23 Quarter-Finals + Oct 22 live Top-100 rankings."
+    },
+    {
+      "id": "atp_ptl",
+      "sport": "Tennis",
+      "authority": "ATP Tour / ProTennisLive Official Draws & Daily Orders of Play",
+      "url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "secondary_url": "https://www.atptour.com/en/scores/current",
+      "sha256": "2fadcbf5120ac188bdd203f60f1f801039a5dd0b97a32d4d0f115c77b89c3fd4",
+      "verified_utc": "2026-10-22T12:13:08Z",
+      "scope": "Official PDF main draws & Oct 22/23 OOPs for Almaty (9410), Brussels (7485), and Lyon (496) \u2014 midday completed/started R16s pruned and 6 new Oct 23 ties priced."
+    },
+    {
+      "id": "nba_official",
+      "sport": "Basketball",
+      "authority": "National Basketball Association (nba.com)",
+      "url": "https://www.nba.com/games?date=2026-10-22",
+      "secondary_url": "https://www.nba.com/standings",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:13:18Z",
+      "scope": "2026-27 NBA Opening Week Oct 22-25 schedule, game IDs, arenas (Xfinity Mobile Arena, Paycom Center), opening-night 1-0/0-1 records, and full 82-game baseline efficiency."
+    },
+    {
+      "id": "euroleague_api",
+      "sport": "Basketball",
+      "authority": "EuroLeague Basketball Official Feeds (incrowdsports)",
+      "url": "https://feeds.incrowdsports.com/provider/euroleague-feeds/v2/competitions/E/seasons/E2026/games",
+      "secondary_url": "https://www.euroleaguebasketball.net/euroleague/game-center/",
+      "sha256": "48d4bee3eb05518363acc80ddea248b30186c16f66671be2430f838efa31e509",
+      "verified_utc": "2026-10-22T12:13:19Z",
+      "scope": "All 57 completed 2026-27 EuroLeague Rounds 1-6 games + all 9 Round 7 fixtures (Oct 22 17:00Z - Oct 23 18:45Z)."
+    },
+    {
+      "id": "nbb_brazil",
+      "sport": "Basketball",
+      "authority": "Liga Nacional de Basquete (lnb.com.br)",
+      "url": "https://lnb.com.br/nbb/tabela-de-jogos/",
+      "secondary_url": "https://lnb.com.br/nbb/",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:13:20Z",
+      "scope": "2026-27 NBB CAIXA Opening Week schedule, tip-off times, and club standings."
+    },
+    {
+      "id": "mlb_statsapi",
+      "sport": "Baseball",
+      "authority": "Major League Baseball StatsAPI (statsapi.mlb.com)",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-02&hydrate=team,probablePitcher,linescore",
+      "secondary_url": "https://www.mlb.com/postseason",
+      "sha256": "b4bfaa8ce830b27dc778bb58e3542b420ad799250598967f08d1f2a338374f35",
+      "verified_utc": "2026-10-22T12:13:16Z",
+      "scope": "2026 World Series Tampa Bay Rays (98-64) @ Milwaukee Brewers (103-59), Game 1 probable pitcher Jacob Misiorowski, full 2026 team hitting & pitching tables."
+    },
+    {
+      "id": "nhl_api",
+      "sport": "Ice Hockey",
+      "authority": "National Hockey League Web API (api-web.nhle.com)",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+      "secondary_url": "https://www.nhl.com/standings",
+      "sha256": "ec84415cc306e1793afcd374cf12557d4977f238d857e8ce19e04eb8f0bee704",
+      "verified_utc": "2026-10-22T12:13:13Z",
+      "scope": "Live 2026-27 NHL Oct 22-26 schedule, club standings, and live skater leaders (McDavid 26 pts, Kaprizov 11 G, Matthews 8 G / 18 pts, Eichel 18 pts)."
+    },
+    {
+      "id": "liiga_api",
+      "sport": "Ice Hockey",
+      "authority": "Finnish Liiga Official API (liiga.fi)",
+      "url": "https://liiga.fi/api/v2/games?tournament=runkosarja&season=2027",
+      "secondary_url": "https://liiga.fi/fi/ottelut",
+      "sha256": "70a2c8b507b98825f39e95717e6cabeb8d3ff1993782bcd36e69b8adfeeab854",
+      "verified_utc": "2026-10-22T12:13:23Z",
+      "scope": "All 544 2026-27 Liiga games & standings \u2014 Oct 22-24 upcoming slate verified."
+    },
+    {
+      "id": "shl_swehockey",
+      "sport": "Ice Hockey",
+      "authority": "Swedish Ice Hockey Association (stats.swehockey.se)",
+      "url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+      "secondary_url": "https://www.shl.se/game-center",
+      "sha256": "705f654104503a7eed511b7f89d9223a02e70accf4b5d05da027f9337bef31a8",
+      "verified_utc": "2026-10-22T12:13:22Z",
+      "scope": "2026-27 SHL standings (F\u00e4rjestad #1, 40 GF / 11 GA, 27 pts) & all 6 Oct 22 17:00Z fixtures."
+    },
+    {
+      "id": "pdc_official",
+      "sport": "Darts",
+      "authority": "Professional Darts Corporation (pdc.tv)",
+      "url": "https://www.pdc.tv/tournament/machineseeker-european-championship-1",
+      "secondary_url": "https://www.pdc.tv/pdc-order-merit",
+      "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+      "verified_utc": "2026-10-22T12:13:25Z",
+      "scope": "2026 Machineseeker European Championship Dortmund draw (all 16 Round 1 ties, Oct 22-23) & PDC Order of Merit."
+    },
+    {
+      "id": "wst_snooker",
+      "sport": "Snooker",
+      "authority": "World Snooker Tour (wst.tv) & snooker.org (#2548)",
+      "url": "https://www.wst.tv/matches/",
+      "secondary_url": "https://www.snooker.org/res/index.asp?event=2548",
+      "sha256": "40b5ee2c26c8acc97a80d132709dd3d65599adfefbac047af93ef42d1fe6ffdd",
+      "verified_utc": "2026-10-22T12:14:10Z",
+      "scope": "2026 BetVictor Northern Ireland Open Last 16 in Belfast \u2014 two 12:00Z ties quarantined live; 6 unstarted afternoon/evening ties verified with UUID match centres."
+    },
+    {
+      "id": "ehf_handball",
+      "sport": "Handball",
+      "authority": "European Handball Federation & National Leagues (eurohandball.com, lnh.fr, daikin-hbl.de, asobal.es, tophaandbold.dk, handbollsligan.se)",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/",
+      "secondary_url": "https://www.lnh.fr/daikin-starligue/calendrier",
+      "sha256": "3da60546ed70c80fd42a44badc9fa06199b7f5c79231e6675fda6b9737280e72",
+      "verified_utc": "2026-10-22T12:13:28Z",
+      "scope": "EHF Champions League Round 6 + German HBL, French StarLigue, Spanish ASOBAL, Danish Herreligaen & Swedish Handbollsligan fixtures and standings."
+    },
+    {
+      "id": "volleyball_leagues",
+      "sport": "Volleyball",
+      "authority": "Lega Pallavolo Serie A, PlusLiga, Czech CVF & French LNV (lnv.fr)",
+      "url": "https://www.legavolley.it/calendario/?idCampionato=999",
+      "secondary_url": "https://www.lnv.fr/msm/calendrier",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:14:25Z",
+      "scope": "Italian SuperLega, Polish PlusLiga/TauronLiga, Czech Extraliga, plus newly surfaced French Marmara SpikeLigue Arago de S\u00e8te vs Chaumont VB 52."
+    },
+    {
+      "id": "rugby_union_bodies",
+      "sport": "Rugby Union",
+      "authority": "United Rugby Championship, LNR Top 14 / Pro D2 & Six Nations Rugby",
+      "url": "https://www.unitedrugby.com/fixtures-and-results",
+      "secondary_url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:13:34Z",
+      "scope": "URC Round 4 (including newly surfaced unbeaten 3-0 Edinburgh vs Lions), Top 14 Round 8, Pro D2 Round 8, and 2027 Six Nations Outright."
+    },
+    {
+      "id": "rlwc_official",
+      "sport": "Rugby League",
+      "authority": "Rugby League World Cup 2026 & NRL (rlwc2026.com / nrl.com)",
+      "url": "https://www.nrl.com/draw/?competition=121&round=2&season=2026",
+      "secondary_url": "https://www.rlwc2026.com/",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:13:36Z",
+      "scope": "RLWC 2026 Men's Round 1 results (Australia 26-10 NZ, England 32-12 Tonga) & all 5 Round 2 fixtures (Oct 23-25)."
+    },
+    {
+      "id": "cricket_bcci_icc",
+      "sport": "Cricket",
+      "authority": "BCCI (bcci.tv), ICC (icc-cricket.com) & Cricket South Africa (cricket.co.za)",
+      "url": "https://www.bcci.tv/matches/023cf7d3-6571-4932-997b-cac801ed0b4a/india-women-vs-zimbabwe-women",
+      "secondary_url": "https://www.icc-cricket.com/matches",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:14:40Z",
+      "scope": "India Women vs Zimbabwe Women 1st & 2nd ODIs at BCA Stadium Vadodara (Oct 23 & 25 08:30Z after 3-0 T20I sweep), AFG vs ZIM Tri-Series Final (Oct 23 11:30Z), CSA T20 & 2027 CWC Outright."
+    },
+    {
+      "id": "lolesports_riot",
+      "sport": "eSports",
+      "authority": "Riot Games LoL Esports Official API (esports-api.lolesports.com)",
+      "url": "https://lolesports.com/en-GB/schedule?leagues=worlds,emea_masters",
+      "secondary_url": "https://lolesports.com/en-GB",
+      "sha256": "1e3eb825ad2b6f3184f94f6382eb7d469ec6ee809337e83249421471e79366c6",
+      "verified_utc": "2026-10-22T12:13:39Z",
+      "scope": "Confirmed EMEA Masters Grand Final (Galions vs Solary) inProgress at 12:00Z -> quarantined; all 8 LoL Worlds 2026 Swiss Round 1 BO1s (Oct 23 17:00Z - Oct 24 00:00Z) priced."
+    },
+    {
+      "id": "bwf_worldtour",
+      "sport": "Badminton",
+      "authority": "Badminton World Federation (bwfworldtour.bwfbadminton.com)",
+      "url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22",
+      "secondary_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-23",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:14:15Z",
+      "scope": "2026 YONEX French Open (Super 750): pruned 7 finished morning R16s + 4 live 12:12Z matches; verified 10 unstarted afternoon/evening Singles R16s + 2 newly confirmed Oct 23 Mixed Doubles QFs."
+    },
+    {
+      "id": "ittf_wtt",
+      "sport": "Table Tennis",
+      "authority": "International Table Tennis Federation & WTT (ittf.com / worldtabletennis.com)",
+      "url": "https://www.ittf.com/wp-content/uploads/2026/10/2026_42_SEN_MS.html",
+      "secondary_url": "https://www.ittf.com/wp-content/uploads/2026/10/2026_42_SEN_WS.html",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:18:10Z",
+      "scope": "2026 Week #42 Official ITTF Senior Men's (#1 Matsushima 8550, #2 F\u00e9lix Lebrun 6659, #3 T. Harimoto 6363, #4 M\u00f6reg\u00e5rdh 6180) & Women's (#1 Wang Manyu 9265, #2 Sun Yingsha 7675, #3 M. Harimoto 7009, #4 Wang Yidi 5810) rankings pricing WTT Champions Montpellier (Oct 27-Nov 1) Outrights; un-drawn H2H slots held blank."
+    },
+    {
+      "id": "aflw_official",
+      "sport": "Aussie Rules",
+      "authority": "Australian Football League \u2014 NAB AFLW (afl.com.au)",
+      "url": "https://www.afl.com.au/aflw/matches",
+      "secondary_url": "https://www.afl.com.au/aflw/ladder",
+      "sha256": "a91f3ea79d0762eb7ab508b9842e53647bee7a6c08b5aec6ae0fc121b2367d82",
+      "verified_utc": "2026-10-22T12:13:41Z",
+      "scope": "2026 NAB AFLW Round 10 official ladder (#1 North Melbourne 36 pts / 251.9%) & all 9 Round 11 fixtures (Oct 23-25)."
+    },
+    {
+      "id": "golf_tours",
+      "sport": "Golf",
+      "authority": "PGA Tour & DP World Tour (pgatour.com / europeantour.com)",
+      "url": "https://www.pgatour.com/schedule",
+      "secondary_url": "https://www.europeantour.com/dpworld-tour/schedule/",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:13:43Z",
+      "scope": "PGA Tour Butterfield Bermuda Championship, PGA Tour Champions Stifel Charity Classic & DP World Tour Genesis Championship tournament outright & Top-10 markets."
+    },
+    {
+      "id": "f1_official",
+      "sport": "Motor Racing",
+      "authority": "Formula 1 Official Website (formula1.com)",
+      "url": "https://www.formula1.com/en/racing/2026/united-states",
+      "secondary_url": "https://www.formula1.com/en/results/2026/drivers",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:13:45Z",
+      "scope": "2026 Formula 1 United States Grand Prix (Circuit of the Americas, Oct 25 20:00Z) & World Championship standings (Antonelli 340, Russell 238, Hamilton 229, Verstappen 221)."
+    },
+    {
+      "id": "gbgb_waf",
+      "sport": "Greyhounds",
+      "authority": "Greyhound Board of Great Britain (gbgb.org.uk \u2014 HTTP 403 WAF)",
+      "url": "https://www.gbgb.org.uk/racing/results/",
+      "secondary_url": "https://www.gbgb.org.uk/",
+      "sha256": "",
+      "verified_utc": "2026-10-22T12:13:48Z",
+      "scope": "HTTP 403 Cloudflare WAF blocks automated trap/form retrieval; all 11 UK afternoon/evening meetings routed strictly blank to Flagged for Review."
+    }
+  ]
+}

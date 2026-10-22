@@ -1,0 +1,216 @@
+{
+  "schema": "board_ae_repo_review_v1",
+  "board": "AE",
+  "session": "22ca2e95",
+  "audited_at_utc": "2026-10-22T12:15:00Z",
+  "datasets_audited": 7,
+  "total_peer_rows_inspected": 1138,
+  "morning_rows_expired_by_1215z": 14,
+  "peer_reviews": [
+    {
+      "dataset": "data/master.json",
+      "scope": "Canonical legacy multi-session board",
+      "total_rows": 336,
+      "started_or_past_at_1215z": 0,
+      "blank_unpriced_rows": 43,
+      "verification_finding": "Audited all 336 rows: 0 have start times <= 2026-10-22T12:15:00Z (including completed Oct 21/22 NBA, NHL, WTA & ATP morning fixtures) and 43 rows carry blank prices without 4-market origination.",
+      "manual_review_url": "https://www.atptour.com/en/scores/current"
+    },
+    {
+      "dataset": "session-4afef1af/data/fixtures.json",
+      "scope": "Latest merged PR #107 (11:49Z US Big-3 refresh)",
+      "total_rows": 97,
+      "started_or_past_at_1215z": 0,
+      "blank_unpriced_rows": 97,
+      "verification_finding": "Verified 97 schedule-only rows (19 NBA, 70 NHL, 8 MLB; zero originated lines). Documented stats.nba.com timeout withholding 47 post-Oct-25 NBA games, and cross-checked CLE @ PHI (Xfinity Mobile Arena) & DEN @ OKC (Paycom Center).",
+      "manual_review_url": "https://www.nba.com/games?date=2026-10-22"
+    },
+    {
+      "dataset": "data/session-f0622b6e/desk.json",
+      "scope": "Board AC morning desk (08:35:00Z cutoff)",
+      "total_rows": 233,
+      "started_or_past_at_1215z": 14,
+      "blank_unpriced_rows": 0,
+      "verification_finding": "Audited all 233 morning rows against live 12:13:03Z captures: 14 morning/midday fixtures started or completed between 08:35Z and 12:15Z (WTA Osaka/Ningbo R16s, ATP Almaty/Brussels/Lyon midday ties, 12:00Z Snooker & EMEA Masters, 10:00Z KBL, morning BWF R16s), and all 14 newly formed Oct 23 Tennis/Badminton QFs + India W vs Zimbabwe W ODIs + WTT Montpellier Outrights were not yet created at 08:35Z.",
+      "manual_review_url": "https://www.wtatennis.com/tournaments"
+    },
+    {
+      "dataset": "data/session-9359e596/desk.json",
+      "scope": "Board Y morning desk (07:33:46Z cutoff)",
+      "total_rows": 280,
+      "started_or_past_at_1215z": 36,
+      "blank_unpriced_rows": 0,
+      "verification_finding": "Audited all 280 rows: 36 rows have now commenced or concluded prior to 2026-10-22T12:15:00Z, including Medvedev vs Shimabukuro (6-7 6-4 6-4), Khachanov vs Mach\u00e1\u010d (6-7 6-1 6-4), Jovic vs Paolini (6-4 6-3), and Kawa vs Bencic (7-5 6-2).",
+      "manual_review_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf"
+    },
+    {
+      "dataset": "data/session-1695b749/desk.json",
+      "scope": "Earlier morning multi-sport origination desk",
+      "total_rows": 96,
+      "started_or_past_at_1215z": 1,
+      "blank_unpriced_rows": 0,
+      "verification_finding": "Cross-checked morning lines against afternoon official draws; lacks post-12:00Z ATP/WTA quarter-final brackets, BCCI Women's ODIs, French SpikeLigue S\u00e8te vs Chaumont, and Week #42 ITTF Montpellier outrights.",
+      "manual_review_url": "https://www.bcci.tv/matches/023cf7d3-6571-4932-997b-cac801ed0b4a/india-women-vs-zimbabwe-women"
+    },
+    {
+      "dataset": "data/session-d2d25025/board.json",
+      "scope": "Historical session board snapshot",
+      "total_rows": 96,
+      "started_or_past_at_1215z": 1,
+      "blank_unpriced_rows": 0,
+      "verification_finding": "Verified against official governing-body calendars; pre-dates Oct 22 afternoon tournament progression and lacks complete 4-market handicap/total origination across all 17 priced sports.",
+      "manual_review_url": "https://www.wst.tv/matches/"
+    },
+    {
+      "dataset": "data/flagged.json",
+      "scope": "Canonical root quarantine & review ledger",
+      "total_rows": 0,
+      "started_or_past_at_1215z": 0,
+      "blank_unpriced_rows": 0,
+      "verification_finding": "Verified deterministic invariant preserved by `python3 scripts/audit_publication.py --check`; Board AE leaves canonical baseline files untouched while publishing an expanded afternoon Flagged for Review ledger.",
+      "manual_review_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-02"
+    }
+  ],
+  "expired_morning_rows": [
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Tennis",
+      "competition": "WTA 500 Ningbo Open \u2014 R16",
+      "event": "Alexandra Eala vs Diana Shnaider",
+      "prior_start_utc": "2026-10-22T09:00:00Z",
+      "prior_pick": "Diana Shnaider",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/order-of-play"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Tennis",
+      "competition": "ATP 250 Almaty Open \u2014 R16",
+      "event": "Daniil Medvedev vs Sho Shimabukuro",
+      "prior_start_utc": "2026-10-22T09:30:00Z",
+      "prior_pick": "Daniil Medvedev",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://www.protennislive.com/posting/2026/9410/op.pdf"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Tennis",
+      "competition": "WTA 500 Ningbo Open \u2014 R16",
+      "event": "Elena Rybakina vs Polina Kudermetova",
+      "prior_start_utc": "2026-10-22T11:00:00Z",
+      "prior_pick": "Elena Rybakina",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/order-of-play"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Tennis",
+      "competition": "ATP 250 European Open Brussels \u2014 R16",
+      "event": "Raphael Collignon vs Jiri Lehecka",
+      "prior_start_utc": "2026-10-22T11:30:00Z",
+      "prior_pick": "Jiri Lehecka",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://www.protennislive.com/posting/2026/7485/op.pdf"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Tennis",
+      "competition": "ATP 250 Grand Prix Auvergne-Rh\u00f4ne-Alpes Lyon \u2014 R16",
+      "event": "Borna Gojo vs Daniel Altmaier",
+      "prior_start_utc": "2026-10-22T12:00:00Z",
+      "prior_pick": "Daniel Altmaier",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://www.protennislive.com/posting/2026/496/op.pdf"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Tennis",
+      "competition": "ATP 250 Grand Prix Auvergne-Rh\u00f4ne-Alpes Lyon \u2014 R16",
+      "event": "Valentin Vacherot vs Luca Van Assche",
+      "prior_start_utc": "2026-10-22T12:00:00Z",
+      "prior_pick": "Valentin Vacherot",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://www.protennislive.com/posting/2026/496/op.pdf"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Basketball",
+      "competition": "KBL 2026-27 Regular Season",
+      "event": "Ulsan Hyundai Mobis Phoebus vs Changwon LG Sakers",
+      "prior_start_utc": "2026-10-22T10:00:00Z",
+      "prior_pick": "Changwon LG Sakers",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://phoebus.kbl.or.kr/"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Snooker",
+      "competition": "WST BetVictor Northern Ireland Open \u2014 Last 16 (Best of 7)",
+      "event": "Kyren Wilson vs Pang Junxu",
+      "prior_start_utc": "2026-10-22T12:00:00Z",
+      "prior_pick": "Kyren Wilson",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://www.wst.tv/match-centre/67133698-e8a4-4b37-9266-452a97df8584"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Snooker",
+      "competition": "WST BetVictor Northern Ireland Open \u2014 Last 16 (Best of 7)",
+      "event": "Matthew Selt vs Sam Craigie",
+      "prior_start_utc": "2026-10-22T12:00:00Z",
+      "prior_pick": "Matthew Selt",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://www.wst.tv/match-centre/67133698-e8a4-4b37-9266-452a97df8584"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "eSports",
+      "competition": "EMEA Masters 2026 Summer \u2014 Grand Final (Bo5)",
+      "event": "Galions vs Solary",
+      "prior_start_utc": "2026-10-22T12:00:00Z",
+      "prior_pick": "Galions",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://lolesports.com/en-US/news/worlds-2026-primer"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Badminton",
+      "competition": "BWF Super 750 YONEX French Open 2026 \u2014 WS R16",
+      "event": "An Se Young vs Tanvi Sharma",
+      "prior_start_utc": "2026-10-22T10:00:00Z",
+      "prior_pick": "An Se Young",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Badminton",
+      "competition": "BWF Super 750 YONEX French Open 2026 \u2014 MS R16",
+      "event": "Ayush Shetty vs Kodai Naraoka",
+      "prior_start_utc": "2026-10-22T10:00:00Z",
+      "prior_pick": "Kodai Naraoka",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Badminton",
+      "competition": "BWF Super 750 YONEX French Open 2026 \u2014 MS R16",
+      "event": "Rasmus Gemke vs Christo Popov",
+      "prior_start_utc": "2026-10-22T10:50:00Z",
+      "prior_pick": "Christo Popov",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22"
+    },
+    {
+      "source_board": "session-f0622b6e / session-9359e596",
+      "sport": "Badminton",
+      "competition": "BWF Super 750 YONEX French Open 2026 \u2014 MS R16",
+      "event": "Toma Junior Popov vs Jia Heng Teh",
+      "prior_start_utc": "2026-10-22T11:40:00Z",
+      "prior_pick": "Toma Junior Popov",
+      "board_ae_disposition": "Pruned from active desk (`start_utc <= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.",
+      "official_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22"
+    }
+  ]
+}

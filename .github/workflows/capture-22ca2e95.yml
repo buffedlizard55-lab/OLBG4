@@ -1,0 +1,38 @@
+name: Board AE live capture (22ca2e95)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ae-22ca2e95-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/22ca2e95-olbg4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG + official feeds with SHA-256 manifest
+        run: |
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-22ca2e95/fetch.py scripts/session-22ca2e95/targets.json "data/session-22ca2e95/capture/$STAMP"
+      - name: Commit capture to arena/22ca2e95-olbg4
+        run: |
+          git config user.name "board-ae-capture[bot]"
+          git config user.email "board-ae-capture@users.noreply.github.com"
+          git add "data/session-22ca2e95/capture/$STAMP"
+          git commit -m "Board AE (22ca2e95): live capture $STAMP [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin arena/22ca2e95-olbg4 && git push origin HEAD:arena/22ca2e95-olbg4 && break
+            sleep 4
+          done
