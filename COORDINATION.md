@@ -3244,3 +3244,24 @@ Session: `arena/4a73430b-olbg4` | Branch: `arena/4a73430b-olbg4` | Claimed: 2026
 - 2026-10-22 UTC — `4a73430b` — merge note: `main` advanced during this board (PR #92, Board AB `arena/1695b749-olbg4`). Merged `origin/main` into `arena/4a73430b-olbg4`; only `COORDINATION.md` conflicted. Resolved by keeping both boards' sections verbatim, no work discarded either side. Board AB (96 priced fixtures, root pointer) and this board (164-fixture canonical re-verification) are different scopes/inputs; count differences reflect that, not a conflict.
 
 - 2026-10-22 UTC — `4a73430b` — second merge note: `main` advanced again (PRs #93/#94, Board X + master-board rebuild to 336 rows) while PR #95 checks ran. Merged `origin/main` again; only `COORDINATION.md` conflicted, resolved keeping all boards' sections verbatim. This desk remains the 2026-10-22 snapshot built from the master as of its build commit; the integration rebuild on main is a separate scope and was not edited here.
+
+---
+
+## Board AC — session `arena/a7d8da0c-olbg4` (2026-10-22 live OLBG reverse-engineering, multi-sport official line-by-line verification, independent multi-market line origination, in-window High predictions, and dashboard)
+
+Session: `arena/a7d8da0c-olbg4` | Branch: `arena/a7d8da0c-olbg4` (Arena fixes the session branch name; all files for this board are scoped to `a7d8da0c`) | Claimed: 2026-10-22T08:27Z UTC | Status: **in progress**
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AC1 | Reverse-engineer OLBG.com sport taxonomy, hub URLs, market types, and event listings; verify all in-scope sports (excluding soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling, specials) and line-by-line audit of repo datasets against official governing-body sources | in progress | arena/a7d8da0c-olbg4 | `data/session-a7d8da0c/`, `scripts/session-a7d8da0c/` |
+| AC2 | Line-by-line official verification of current/upcoming fixtures (>= 2026-10-22) across in-scope sports from official league/tour/federation sources (with live page/API verification and byte-hashed official captures); leave unconfirmed fields blank and flagged | unclaimed | arena/a7d8da0c-olbg4 | `data/session-a7d8da0c/` |
+| AC3 | Originate independent lines for every verified match across available markets (Match Winner / Moneyline, Handicap / Puck Line / Run Line / Spread, Match Total Over/Under, Team Totals / Set & Frame Handicaps where official numerical inputs exist); assign pick and confidence (Low / Medium / High) | unclaimed | arena/a7d8da0c-olbg4 | `data/session-a7d8da0c/`, `scripts/session-a7d8da0c/` |
+| AC4 | High-confidence focus desk: resolve the >70% probability vs. [-250, +10000] odds window across all investigated markets (moneyline, handicap, totals) and author unique, non-repetitive, human-written predictions (>=30 words each) citing verified team/player, current form, recent match history, and explicit betting selection with official source links | unclaimed | arena/a7d8da0c-olbg4 | `data/session-a7d8da0c/predictions.json`, `session-a7d8da0c/` |
+| AC5 | Build clean GitHub Pages dashboard (`session-a7d8da0c/index.html` + category/sport subpages + all-entries table + high-confidence picks + markets analysis + repo audit + Flagged for Review page) with official source links on every row | unclaimed | arena/a7d8da0c-olbg4 | `session-a7d8da0c/`, `scripts/session-a7d8da0c/` |
+| AC6 | Final integration: line-by-line verification gate, repository-wide link & staleness checks, rebase on `main`, open PR to `main`, merge without waiting, confirm GitHub Pages deployment, and record results in `COORDINATION.md` | unclaimed | arena/a7d8da0c-olbg4 | `COORDINATION.md`, additive pointer in `index.html` at final integration |
+
+**Claim boundary.** Strictly non-overlapping scope: `session-a7d8da0c/**`, `data/session-a7d8da0c/**`, `scripts/session-a7d8da0c/**`, and `COORDINATION.md` (plus an additive pointer in `index.html` only at final integration if non-conflicting). All other `session-*/`, `data/session-*/`, `data/master*.json`, `board/**`, `docs/**`, and shared generators are read-only for Board AC. Any findings touching another session's files are logged here and published on `session-a7d8da0c/flagged.html`.
+
+### AC working log
+- 2026-10-22T08:27Z — `a7d8da0c` — Claimed Board AC (`session-a7d8da0c/`, `data/session-a7d8da0c/`, `scripts/session-a7d8da0c/`). Checked active PRs (#97 `arena/9359e596-olbg4`, #98 `arena/19b8e377-olbg4`, #99 `arena/e1161e0e-olbg4`) to ensure zero board-name or file-scope overlap.
+
