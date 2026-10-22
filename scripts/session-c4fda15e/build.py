@@ -31,7 +31,7 @@ INV = json.load(open(os.path.join(DATA, "olbg_inventory.json"), encoding="utf-8"
 OFF = json.load(open(os.path.join(DATA, "official.json"), encoding="utf-8"))
 MAN = {b["id"]: b for b in json.load(open(os.path.join(DATA, "official_manual.json"), encoding="utf-8"))["blocks"]}
 CAPTURE_UTC = INV["manifest_generated_utc"]  # OLBG capture time
-AS_OF = "2026-10-22T04:10:00Z"               # desk build reference time (rows starting before this are 'started')
+AS_OF = "2026-10-22T03:55:00Z"               # desk build reference time (rows starting before this are 'started')
 
 
 def norm(s: str) -> str:

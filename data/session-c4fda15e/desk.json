@@ -1,5 +1,5 @@
 {
- "built_utc": "2026-10-22T04:10:00Z",
+ "built_utc": "2026-10-22T03:55:00Z",
  "olbg_capture_utc": "2026-10-22T03:06:16Z",
  "rows": [
   {
@@ -25,7 +25,7 @@
    "flags": [
     "Official schedule gives no fixed start (Scheduled 22 Oct, no fixed time on the official feed); OLBG time is an estimate"
    ],
-   "started_before_desk": true,
+   "started_before_desk": false,
    "verification": "verified",
    "official": {
     "competition": "WTA Osaka — Round of 16 (official order of play, Day 4)",
@@ -45,8 +45,59 @@
     "result": "",
     "extra": {}
    },
-   "line": null,
-   "pick": null
+   "line": {
+    "model": "ranking-points power model (alpha 0.9) on official rankings of 19 Oct 2026; set markets from an i.i.d. set model",
+    "p_a": 0.522,
+    "p_b": 0.478,
+    "inputs": {
+     "Mary Stoiana": {
+      "rank": 114,
+      "points": 666,
+      "nat": "USA",
+      "ranked_at": "2026-10-19T00:00:00Z"
+     },
+     "Moyuka Uchijima": {
+      "rank": 121,
+      "points": 604,
+      "nat": "JPN",
+      "ranked_at": "2026-10-19T00:00:00Z"
+     }
+    },
+    "markets": {
+     "first_set_a": 0.5147,
+     "set_betting": {
+      "2-0": 0.2649,
+      "2-1": 0.2571,
+      "1-2": 0.2425,
+      "0-2": 0.2356
+     },
+     "set_handicap": {
+      "A -1.5": 0.2649,
+      "B +1.5": 0.7351
+     },
+     "total_sets": {
+      "Over 2.5": 0.4996,
+      "Under 2.5": 0.5004
+     }
+    },
+    "data_complete": true,
+    "reliability_note": "",
+    "reliable": true,
+    "inputs_url": "https://api.wtatennis.com/tennis/players/ranked?page=0&pageSize=500&type=rankSingles&sort=asc&metric=SINGLES"
+   },
+   "pick": {
+    "selection": "Mary Stoiana",
+    "opponent": "Moyuka Uchijima",
+    "p": 0.522,
+    "fair_american": -109,
+    "fair_decimal": 1.92,
+    "confidence": "Low",
+    "confidence_reason": "close contest",
+    "market_reference": -161,
+    "market_note": "market price shown on OLBG for Mary Stoiana: -161",
+    "in_window_fair": true,
+    "in_window_market": true
+   }
   },
   {
    "sport": "Tennis",
