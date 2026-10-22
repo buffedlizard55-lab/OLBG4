@@ -102,7 +102,9 @@ def when(r):
     if o.get("utc"):
         return E(o["utc"].replace("T", " ").replace(":00Z", "Z"))
     if o:
-        return f'<span class="mut">{E(o.get("date") or "")} {E(o.get("utc_basis") or "")}</span>'
+        basis = o.get("utc_basis") or ""
+        d = o.get("date") or ""
+        return f'<span class="mut">{E(basis if (d and basis.startswith(d)) else (d + " " + basis).strip())}</span>'
     return ""
 
 
