@@ -2,7 +2,35 @@
 
 Four sessions worked this repo in parallel. This file is the merged board: Boards A/B are kept verbatim, Boards C/D appended, cross-session conflicts logged.
 
-Last board update: 2026-10-21 · current integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard) — see the Board H section at the end of this file · earlier hub owner `arena/290a9dba-olbg4` (Board D)
+Last board update: 2026-10-22 · current active board: **Board T — `arena/f957db05-olbg4`** (live OLBG refresh + own lines + predictions + new dashboard + final integration) · earlier integration owners: `arena/4e9d03cf-olbg4` (Board S1), `arena/77af9500-olbg4` (Board S), `arena/d908be47-olbg4` (Board P), `arena/290a9dba-olbg4` (Board D)
+
+
+## Board T — session `arena/f957db05-olbg4` (LIVE research refresh: OLBG taxonomy, own lines, high-confidence predictions, new dashboard, final integration)
+
+Session `arena/f957db05-olbg4` · branch `arena/f957db05-olbg4` · claimed **2026-10-22 (UTC)** · status: **in progress**
+
+**Claim boundary.** Non-overlapping with every earlier board. New files only under `session-f957db05/` and
+`data/session-f957db05/` while researching; no other board's `session-*/`, `data/board_*`, `docs/`, `board/`,
+`data/master*.json` or generator is edited by T1. Root `index.html`, `assets/` and `README.md` are claimed only for
+T2 (final integration) once T1 is done and verified.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Live reverse-engineer of OLBG.com sport/sport-page taxonomy on 2026-10-22, producing the exclusion-compliant full fixture list (every sport except soccer, boxing, UFC/MMA, football incl. American football and Gaelic football, hurling, horse racing, cycling, specials) | in progress | arena/f957db05-olbg4 | `data/session-f957db05/`, `session-f957db05/` |
+| T2 | Originate our own lines (moneyline, handicap, total) for every collected fixture from a transparent published model; pick a winner; grade confidence Low/Medium/High | unclaimed | arena/f957db05-olbg4 | `data/session-f957db05/`, `session-f957db05/` |
+| T3 | High-confidence (≥70%) picks restricted to the -250 … +10,000 American window; unique ≥30-word human predictions naming the selection, with verified form/history and official links | unclaimed | arena/f957db05-olbg4 | `data/session-f957db05/` |
+| T4 | Line-by-line verification register: every row an official source URL or blank + `unverified`; irregularities published on a Flagged for Review page | unclaimed | arena/f957db05-olbg4 | `session-f957db05/`, `data/session-f957db05/` |
+| T5 | New clean dashboard site: landing + category/sport subpages + picks, markets, sources, methodology, verification, flagged | unclaimed | arena/f957db05-olbg4 | `session-f957db05/`, `index.html`, `assets/` |
+| T6 | Final integration: regression gates, PR to `main`, merge, confirm GitHub Pages deploy, record result here | unclaimed | arena/f957db05-olbg4 | `COORDINATION.md`, `index.html` |
+
+**Why a new board.** The committed data cut off on 2026-10-21 and earlier boards recorded that their execution sandbox
+could reach only GitHub. This session's research tools **do** reach `olbg.com` and official league domains, so the brief
+can be executed with live 2026-10-22 evidence rather than carried-forward rows. Nothing from an earlier board is deleted;
+their dashboards and datasets stay exactly where they are.
+
+**Coordination check at claim time (2026-10-22):** `git ls-remote --heads origin` shows no branch newer than the
+`main` merge of PR #60 (`17a3728`); no board holds an `in progress` claim. If another session starts, it must not edit
+`session-f957db05/` or `data/session-f957db05/`; log a request here instead.
 
 
 ## Board S1 — session `arena/4e9d03cf-olbg4` (2026-10-22 freshness & publication review)
