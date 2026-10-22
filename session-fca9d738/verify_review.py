@@ -123,13 +123,28 @@ def main() -> int:
             if not target.exists():
                 errors.append(f"{page.name}: broken local link {href}")
 
-    # 8. scope: only our files may differ from HEAD (plus COORDINATION.md claim,
-    # which is the sanctioned shared board)
-    proc = subprocess.run(["git", "status", "--porcelain"], capture_output=True,
-                          text=True, cwd=ROOT)
+    # 8. scope: files introduced by this session's own (non-merge) commits since
+    # the branch diverged from origin/main, plus untracked files, must stay
+    # inside the claimed scope. (Upstream files arriving via a merge are other
+    # sessions' work, not ours, so `git status` is the wrong oracle here.)
     allowed_prefixes = ("session-fca9d738/", "data/session-fca9d738/", "COORDINATION.md")
-    for line in proc.stdout.splitlines():
-        path = line[3:].strip().strip('"')
+    try:
+        base = subprocess.run(["git", "merge-base", "HEAD", "origin/main"],
+                              capture_output=True, text=True, cwd=ROOT,
+                              check=True).stdout.strip()
+        mine = subprocess.run(["git", "log", "--no-merges", "--pretty=format:",
+                               "--name-only", f"{base}..HEAD"],
+                              capture_output=True, text=True, cwd=ROOT,
+                              check=True).stdout.splitlines()
+        untracked = subprocess.run(["git", "ls-files", "--others", "--exclude-standard"],
+                                   capture_output=True, text=True, cwd=ROOT,
+                                   check=True).stdout.splitlines()
+        candidates = [p.strip() for p in mine + untracked if p.strip()]
+    except subprocess.CalledProcessError:
+        proc = subprocess.run(["git", "status", "--porcelain"], capture_output=True,
+                              text=True, cwd=ROOT)
+        candidates = [line[3:].strip().strip('"') for line in proc.stdout.splitlines()]
+    for path in candidates:
         if not path.startswith(allowed_prefixes):
             errors.append(f"out-of-scope change: {path}")
 

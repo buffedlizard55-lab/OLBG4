@@ -1,0 +1,392 @@
+{
+ "schema": "olbg4.board-v.coverage/1",
+ "captured_at_utc": "2026-10-22T02:47:25Z",
+ "taxonomy_source": {
+  "url": "https://www.olbg.com/betting-tips",
+  "note": "Sport menu and numeric ids read from the captured live page bytes."
+ },
+ "sports": [
+  {
+   "olbg_id": 1,
+   "olbg_name": "Football (soccer)",
+   "olbg_url": "https://www.olbg.com/betting-tips/Football/1",
+   "in_scope": false,
+   "scope_reason": "excluded by the brief",
+   "official_attempts": [],
+   "fixtures_verified": 0,
+   "status": "excluded"
+  },
+  {
+   "olbg_id": 2,
+   "olbg_name": "Horse Racing",
+   "olbg_url": "https://www.olbg.com/betting-tips/Horse_Racing/2",
+   "in_scope": false,
+   "scope_reason": "excluded by the brief",
+   "official_attempts": [],
+   "fixtures_verified": 0,
+   "status": "excluded"
+  },
+  {
+   "olbg_id": 3,
+   "olbg_name": "Tennis",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.atptour.com/en/tournaments",
+     "http_status": 403,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://www.wtatennis.com/tournaments",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 4,
+   "olbg_name": "Basketball",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+     "http_status": 403,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27",
+     "http_status": 0,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 5,
+   "olbg_name": "Golf",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.pgatour.com/schedule",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://www.lpga.com/tournaments",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 7,
+   "olbg_name": "Cricket",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/7",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.icc-cricket.com/tournaments",
+     "http_status": 404,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://www.ecb.co.uk/matches",
+     "http_status": 404,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://www.cricket.com.au/matches",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 8,
+   "olbg_name": "Snooker",
+   "olbg_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.wst.tv/tournaments",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 9,
+   "olbg_name": "Rugby Union",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.unitedrugby.com/fixtures",
+     "http_status": 404,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://www.premiershiprugby.com/fixtures",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://top14.lnr.fr/calendrier",
+     "http_status": 404,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 10,
+   "olbg_name": "Rugby League",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.nrl.com/draw/",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://www.rlwc2026.com/draw/mens/2026/round-2",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 11,
+   "olbg_name": "American Football",
+   "olbg_url": "https://www.olbg.com/betting-tips/American_Football/11",
+   "in_scope": false,
+   "scope_reason": "excluded by the brief",
+   "official_attempts": [],
+   "fixtures_verified": 0,
+   "status": "excluded"
+  },
+  {
+   "olbg_id": 12,
+   "olbg_name": "Baseball",
+   "olbg_url": "https://www.olbg.com/betting-tips/Baseball/12",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-05",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 7,
+   "status": "verified-and-priced",
+   "note": "7 MLB post-season fixtures priced"
+  },
+  {
+   "olbg_id": 13,
+   "olbg_name": "Ice Hockey",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    },
+    {
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 82,
+   "status": "verified-and-priced",
+   "note": "82 NHL regular-season fixtures priced"
+  },
+  {
+   "olbg_id": 14,
+   "olbg_name": "Motor Racing",
+   "olbg_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.formula1.com/en/racing/2026",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 15,
+   "olbg_name": "Darts",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/15",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.pdc.tv/tournaments",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 16,
+   "olbg_name": "Boxing / UFC / MMA",
+   "olbg_url": "https://www.olbg.com/betting-tips/Boxing/16",
+   "in_scope": false,
+   "scope_reason": "excluded by the brief",
+   "official_attempts": [],
+   "fixtures_verified": 0,
+   "status": "excluded"
+  },
+  {
+   "olbg_id": 17,
+   "olbg_name": "Cycling",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cycling/17",
+   "in_scope": false,
+   "scope_reason": "excluded by the brief",
+   "official_attempts": [],
+   "fixtures_verified": 0,
+   "status": "excluded"
+  },
+  {
+   "olbg_id": 20,
+   "olbg_name": "Handball",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://ehfcl.eurohandball.com/en/matches/",
+     "http_status": 404,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 21,
+   "olbg_name": "Volleyball",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://en.volleyballworld.com/volleyball/competitions/",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": 25,
+   "olbg_name": "Gaelic Football",
+   "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+   "in_scope": false,
+   "scope_reason": "excluded by the brief",
+   "official_attempts": [],
+   "fixtures_verified": 0,
+   "status": "excluded"
+  },
+  {
+   "olbg_id": 26,
+   "olbg_name": "Hurling",
+   "olbg_url": "https://www.olbg.com/betting-tips/Hurling/26",
+   "in_scope": false,
+   "scope_reason": "excluded by the brief",
+   "official_attempts": [],
+   "fixtures_verified": 0,
+   "status": "excluded"
+  },
+  {
+   "olbg_id": 28,
+   "olbg_name": "Greyhounds",
+   "olbg_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://www.gbgb.org.uk/race-card/",
+     "http_status": 0,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 0,
+   "status": "no-readable-official-feed-this-cycle",
+   "note": "Official page returned the recorded HTTP status and rendered no machine-readable fixture list (JavaScript shell) in the capture window, so no row is published rather than a fixture being copied from a tipster site."
+  },
+  {
+   "olbg_id": null,
+   "olbg_name": "Esports (not in the live OLBG menu)",
+   "olbg_url": "https://www.olbg.com/betting-tips",
+   "in_scope": true,
+   "scope_reason": "",
+   "official_attempts": [
+    {
+     "url": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+     "http_status": 200,
+     "captured_at_utc": "2026-10-22T02:47:25Z"
+    }
+   ],
+   "fixtures_verified": 9,
+   "status": "verified-and-priced",
+   "note": "Riot Games official schedule API. OLBG no longer lists an esports page in its menu."
+  }
+ ],
+ "totals": {
+  "menu_sports": 21,
+  "in_scope": 14,
+  "excluded": 7,
+  "verified_and_priced": 3,
+  "no_readable_feed": 12
+ }
+}
