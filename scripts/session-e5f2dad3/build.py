@@ -85,8 +85,13 @@ def in_window(dec: float) -> bool:
 
 
 def band(p: float, dec: float, gp_home: int = 99, gp_away: int = 99) -> str:
-    """Confidence band.  Evidence rules, restated on the methodology page."""
-    if p >= 0.68 and in_window(dec) and min(gp_home, gp_away) >= 6:
+    """Confidence band — a probability/sample rule, independent of the price window.
+
+    The price window is a separate publication filter (`window_ok`), so a very
+    strong favourite that is shorter than -250 keeps its High confidence but is
+    excluded from the High picks list and published on Flagged instead.
+    """
+    if p >= 0.68 and min(gp_home, gp_away) >= 6:
         return "High"
     if p >= 0.60 and min(gp_home, gp_away) >= 3:
         return "Medium"
@@ -133,6 +138,7 @@ def source(name: str, label: str) -> dict:
 SOURCES: dict[str, dict] = {}
 FIXTURES: list[dict] = []
 FLAGGED: list[dict] = []
+OUTRIGHTS: list[dict] = []
 
 
 def add_source(key: str, name: str, label: str) -> dict:
@@ -271,7 +277,13 @@ def build_nhl() -> None:
         rec["pick_house"] = house_dec(pick_p)
         rec["pick_american"] = american(pick_dec)
         rec["confidence"] = conf
-        rec["prediction_id"] = f"P-{rec['id']}" if conf == "High" else ""
+        rec["window_ok"] = in_window(pick_dec)
+        rec["prediction_id"] = f"P-{rec['id']}" if (conf == "High" and rec["window_ok"]) else ""
+        if conf == "High" and not rec["window_ok"]:
+            flag(rec["id"], "Ice Hockey", "window-excluded",
+                 f"High confidence at {rnd(pick_p,4)*100:.1f}% but the fair price {pick_dec:.2f} is shorter than "
+                 f"-250 (1.40), so the pick is excluded from the published High list per the brief's focus window.",
+                 src["url"])
         FIXTURES.append(rec)
 
 
@@ -363,7 +375,12 @@ def build_mlb() -> None:
             rec["pick_house"] = house_dec(pick_p)
             rec["pick_american"] = american(pick_dec)
             rec["confidence"] = conf
-            rec["prediction_id"] = f"P-{rec['id']}" if conf == "High" else ""
+            rec["window_ok"] = in_window(pick_dec)
+            rec["prediction_id"] = f"P-{rec['id']}" if (conf == "High" and rec["window_ok"]) else ""
+            if conf == "High" and not rec["window_ok"]:
+                flag(rec["id"], "Baseball", "window-excluded",
+                     f"High confidence at {rnd(pick_p,4)*100:.1f}% but the fair price {pick_dec:.2f} is shorter than "
+                     f"-250 (1.40); excluded from the published High list per the brief's focus window.", src["url"])
             FIXTURES.append(rec)
 
 
@@ -429,7 +446,13 @@ def build_esports() -> None:
         rec["pick_house"] = house_dec(pick_p)
         rec["pick_american"] = american(pick_dec)
         rec["confidence"] = conf
-        rec["prediction_id"] = f"P-{rec['id']}" if conf == "High" else ""
+        rec["window_ok"] = in_window(pick_dec)
+        rec["prediction_id"] = f"P-{rec['id']}" if (conf == "High" and rec["window_ok"]) else ""
+        if conf == "High" and not rec["window_ok"]:
+            flag(rec["id"], "Ice Hockey", "window-excluded",
+                 f"High confidence at {rnd(pick_p,4)*100:.1f}% but the fair price {pick_dec:.2f} is shorter than "
+                 f"-250 (1.40), so the pick is excluded from the published High list per the brief's focus window.",
+                 src["url"])
         FIXTURES.append(rec)
 
 
@@ -476,11 +499,16 @@ def attach_olbg() -> None:
                       "Ice Hockey": "ice-hockey", "Darts": "darts", "Handball": "handball",
                       "Volleyball": "volleyball", "Greyhounds": "greyhounds"}[ev["sport"]]
         day = ev["start_utc"][:10]
-        if not ev.get("home") and " vs " in ev["name"]:
+        if ev.get("home"):
+            ev["_a"], ev["_b"] = ev["home"], ev["away"]
+        elif " vs " in ev["name"]:
             a, b = ev["name"].split(" vs ", 1)
             ev["_a"], ev["_b"] = a.strip(), b.strip()
+        elif " v " in ev["name"]:
+            a, b = ev["name"].split(" v ", 1)
+            ev["_a"], ev["_b"] = a.strip(), b.strip()
         else:
-            ev["_a"], ev["_b"] = ev.get("home", ""), ev.get("away", "")
+            ev["_a"], ev["_b"] = ev["name"], ""
         hit = None
         for delta in (0, -1, 1):
             if delta:
@@ -513,6 +541,22 @@ def attach_olbg() -> None:
     official_dates = {r["date"] for r in FIXTURES if r.get("verification") == "official"}
     for ev, payload in unmatched:
         day = ev["start_utc"][:10]
+        if not ev.get("_b"):
+            # A card with a competition name and a single selection is an outright/futures
+            # market (tournament winner, league winner), not a two-participant match.
+            OUTRIGHTS.append({
+                "sport": ev["sport"],
+                "competition": ev["name"],
+                "selection": ev["selection"],
+                "market": ev["market"],
+                "tips": ev["tips"],
+                "tip_pct": ev["tip_pct"],
+                "start_utc": ev["start_utc"],
+                "url": ev["url"],
+                "listed_at_utc": ev["listed_by_olbg_at_utc"],
+                "note": "Outright/futures market listed by OLBG. No official price was originated.",
+            })
+            continue
         base = {
             "id": f"OLBG{ev['event_id']}",
             "sport": ev["sport"],
@@ -526,8 +570,9 @@ def attach_olbg() -> None:
             "start_utc": ev["start_utc"],
             "venue": "",
             "neutral": None,
-            "home": ev.get("home") or ev.get("_a", ""),
-            "away": ev.get("away") or ev.get("_b", ""),
+            "home": ev.get("_a", ""),
+            "away": ev.get("_b", ""),
+            "home_away_designated": bool(ev.get("home")),
             "source": {
                 "id": "olbg_listing",
                 "label": "OLBG live listing (reverse-engineered; listing source only, not a fact source)",
@@ -567,10 +612,10 @@ def main() -> None:
     preds = json.load(open(pred_path))["predictions"] if os.path.exists(pred_path) else []
     by_id = {p["fixture_id"]: p for p in preds}
     for r in FIXTURES:
-        if r["confidence"] == "High" and r["id"] in by_id:
+        if r["confidence"] == "High" and r.get("window_ok") and r["id"] in by_id:
             r["prediction_id"] = by_id[r["id"]]["id"]
             r["prediction"] = by_id[r["id"]]["text"]
-        elif r["confidence"] == "High":
+        elif r["confidence"] == "High" and r.get("window_ok"):
             r["prediction_id"] = ""
             r["prediction"] = ""
             flag(r["id"], r["sport"], "prediction-missing",
@@ -604,6 +649,7 @@ def main() -> None:
                                 "Horse Racing", "Cycling", "Specials", "Gaelic Football"],
         },
         "fixtures": FIXTURES,
+        "outrights": OUTRIGHTS,
         "counts": counts,
         "sources": list(SOURCES.values()),
         "flagged": FLAGGED,
@@ -611,6 +657,7 @@ def main() -> None:
     with open(os.path.join(DATA, "board.json"), "w") as f:
         json.dump(doc, f, indent=1)
         f.write("\n")
+    print(f"outrights {len(OUTRIGHTS)}")
     print(f"fixtures {len(FIXTURES)} · priced {sum(1 for r in FIXTURES if r['markets'])} · "
           f"High {sum(1 for r in FIXTURES if r['confidence'] == 'High')} · "
           f"Medium {sum(1 for r in FIXTURES if r['confidence'] == 'Medium')} · "

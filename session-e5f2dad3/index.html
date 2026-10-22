@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · OLBG4 Board U</title>
+<meta name="description" content="Board U: official-source verified fixtures for the sports OLBG covers, our own originated lines, graded picks and a source link on every row.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark">OLBG4</span><span class="brandsub">Board U · 22 Oct 2026 refresh</span></a>
+    <nav class="nav"><a class="navlink active" href="index.html">Dashboard</a><a class="navlink" href="fixtures.html">All matches</a><a class="navlink" href="picks.html">Our lines &amp; picks</a><a class="navlink" href="predictions.html">High-confidence write-ups</a><a class="navlink" href="markets.html">Markets</a><a class="navlink" href="verification.html">Verification register</a><a class="navlink" href="analysis.html">Analysis</a><a class="navlink" href="flagged.html">Flagged for review</a><a class="navlink" href="sources.html">Sources</a><a class="navlink" href="methodology.html">Method</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<section class="hero">
+  <div class="kicker">Reverse-engineered from OLBG · verified on official league sources · 22 Oct 2026</div>
+  <h1>A current match list, our own prices, and one source link on every row.</h1>
+  <p class="lede">This board covers every sport the brief keeps in scope — all of OLBG's sports except soccer/football,
+  boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials and Gaelic football. Fixtures whose
+  participants, kick-off time and venue were read from an official league endpoint are marked <strong>official</strong>;
+  everything else is published as an <strong>OLBG listing</strong>, left unverified and flagged, exactly as the brief requires.</p>
+  <div class="cta"><a class="btn primary" href="fixtures.html">Open all 226 matches</a>
+  <a class="btn" href="predictions.html">Read the 3 high-confidence write-ups</a>
+  <a class="btn" href="flagged.html">Flagged for review (103)</a></div>
+</section>
+
+<section class="kpis">
+  <div class="kpi"><div class="kval">226</div><div class="klab">matches on the board</div><div class="knote">13 sports, 22 Oct – 2 Nov 2026</div></div>
+  <div class="kpi"><div class="kval">123</div><div class="klab">officially verified</div><div class="knote">NHL, MLB and LoL Esports league APIs</div></div>
+  <div class="kpi"><div class="kval">90</div><div class="klab">with our own prices</div><div class="knote">moneyline, puck/run line and totals</div></div>
+  <div class="kpi"><div class="kval">3</div><div class="klab">high confidence</div><div class="knote">inside −250 to +10,000, written up</div></div>
+  <div class="kpi"><div class="kval">103</div><div class="klab">listed-only, flagged</div><div class="knote">OLBG listing, no official capture</div></div>
+</section>
+
+<section class="grid2">
+  <div>
+    <h2>What is verified, and how</h2>
+    <p>Each <strong>official</strong> row is parsed from a committed payload whose SHA-256 is recorded in the
+    <a href="sources.html">source register</a>. The build re-hashes every file it reads and refuses to publish a row
+    whose hash does not match. Only participants, date, UTC start time and venue are taken from the official payload;
+    every price is computed by our model from the official season table.</p>
+    <p>Where no official capture exists, the row is published as an OLBG listing with blank venue, no price, no pick and
+    a flag on the <a href="flagged.html">Flagged for review</a> page. Nothing is inferred, and no value is copied from a
+    previous session's dataset.</p>
+    <h2>Markets investigated</h2>
+    <ul class="clean">
+      <li><strong>Match winner</strong> — originated for all 90 priced matches.</li>
+      <li><strong>Handicap</strong> — puck line ±1.5 (NHL), run line ±1.5 (MLB); map handicap and totals are left blank
+      for esports because the official schedule carries no map-score input.</li>
+      <li><strong>Match total</strong> — originated for NHL and MLB from official goals/runs for and against.</li>
+    </ul>
+    <p class="tiny">Full formulas: <a href="methodology.html">Method</a>. Every market we did not originate is named
+    with its missing input on <a href="markets.html">Markets</a> and <a href="flagged.html">Flagged</a>.</p>
+  </div>
+  <div>
+    <h2>Highest model probabilities</h2>
+    <ul class="tops"><li><a href="fixtures.html#U0182"><strong>Edmonton Oilers (moneyline)</strong></a> <span class="tiny">Calgary Flames @ Edmonton Oilers · 2026-10-28 · our fair line 1.30 (-333) · High</span></li><li><a href="fixtures.html#U0205"><strong>Boston Bruins (moneyline)</strong></a> <span class="tiny">Chicago Blackhawks @ Boston Bruins · 2026-10-31 · our fair line 1.40 (-250) · High</span></li><li><a href="fixtures.html#U0189"><strong>Carolina Hurricanes (moneyline)</strong></a> <span class="tiny">Columbus Blue Jackets @ Carolina Hurricanes · 2026-10-29 · our fair line 1.42 (-238) · High</span></li><li><a href="fixtures.html#U0162"><strong>New York Rangers (moneyline)</strong></a> <span class="tiny">Los Angeles Kings @ New York Rangers · 2026-10-26 · our fair line 1.45 (-222) · High</span></li><li><a href="fixtures.html#U0165"><strong>Edmonton Oilers (moneyline)</strong></a> <span class="tiny">Detroit Red Wings @ Edmonton Oilers · 2026-10-26 · our fair line 1.49 (-204) · Medium</span></li><li><a href="fixtures.html#U0217"><strong>Colorado Avalanche (moneyline)</strong></a> <span class="tiny">Calgary Flames @ Colorado Avalanche · 2026-10-31 · our fair line 1.50 (-200) · Medium</span></li><li><a href="fixtures.html#U0197"><strong>San Jose Sharks (moneyline)</strong></a> <span class="tiny">Vancouver Canucks @ San Jose Sharks · 2026-10-29 · our fair line 1.50 (-200) · Medium</span></li><li><a href="fixtures.html#U0157"><strong>Minnesota Wild (moneyline)</strong></a> <span class="tiny">Minnesota Wild @ Vancouver Canucks · 2026-10-25 · our fair line 1.51 (-196) · Medium</span></li></ul>
+    <div class="notebox"><strong>The odds-window tension, stated plainly.</strong> At fair odds a 70% chance is
+    1.43 (−233) and a 71.4% chance is exactly −250. A pick can therefore only be both “over 70%” and
+    “no shorter than −250” inside the 70.0–71.4% band. We publish the 3 high-confidence picks that fall inside
+    the requested −250…+10,000 window (68.0–71.4% model probability) and report the stronger-but-shorter prices
+    separately on <a href="flagged.html">Flagged</a> rather than moving the goalposts.
+    <a href="methodology.html">See the rule →</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>High-confidence picks with written analysis</h2>
+  <div class="pickgrid"><article class="pickcard"><div class="pickhead"><span class="badge high">High</span><span class="tiny">2026-10-26 · NHL — 2026-27 regular season</span></div><h3>New York Rangers (moneyline)</h3><p class="tiny">Los Angeles Kings @ New York Rangers · our fair line <strong>1.45</strong> (-222) · model probability <strong>68.9%</strong></p><p>Madison Square Garden has been a fortress: New York is 6-0-0 at home and 7-3-1 overall, with 33 goals for and only 24 against in 11 starts. The last ten games read 7-2-1 and the New York Rangers head in off a win. Los Angeles, by contrast, is 1-4-2 and has managed 17 goals in seven games, going 1-1-2 on the road. With an 11-point cushion in the standings, the New York Rangers moneyline at our fair 1.45 (-222), a 68.9% probability, is the pick.</p><p class="tiny"><a href="https://api-web.nhle.com/v1/schedule/2026-10-26" rel="noopener">official source ↗</a></p></article><article class="pickcard"><div class="pickhead"><span class="badge high">High</span><span class="tiny">2026-10-29 · NHL — 2026-27 regular season</span></div><h3>Carolina Hurricanes (moneyline)</h3><p class="tiny">Columbus Blue Jackets @ Carolina Hurricanes · our fair line <strong>1.42</strong> (-238) · model probability <strong>70.3%</strong></p><p>Carolina&#x27;s 42 goals are the standout number here: 8-2-1 for 17 points, with a last-ten line of 8-2-0. Oddly for a team this strong, the Hurricanes have done more damage away (6-1-0) than at home (2-1-1), though they arrive off a win. Columbus has 20 goals in eight games, a 3-5-0 record, an 0-2-0 road mark and two straight defeats. That points to the Carolina Hurricanes moneyline at 1.42 (-238), which we price at 70.3%.</p><p class="tiny"><a href="https://api-web.nhle.com/v1/schedule/2026-10-29" rel="noopener">official source ↗</a></p></article><article class="pickcard"><div class="pickhead"><span class="badge high">High</span><span class="tiny">2026-10-31 · NHL — 2026-27 regular season</span></div><h3>Boston Bruins (moneyline)</h3><p class="tiny">Chicago Blackhawks @ Boston Bruins · our fair line <strong>1.40</strong> (-250) · model probability <strong>71.2%</strong></p><p>Boston has scored 36 and conceded 22 in building a 7-2-1 record, and its 3-1-0 home mark includes a last outing that needed overtime. Chicago&#x27;s numbers go the other way: 21 goals for, 36 against, 3-6-0 overall, 0-4-0 on the road and a one-game losing streak. The plus-14 versus minus-15 goal difference is the clearest split on the card, so the Boston Bruins moneyline is the selection at our fair 1.40 (-250), a 71.3% probability.</p><p class="tiny"><a href="https://api-web.nhle.com/v1/schedule/2026-10-31" rel="noopener">official source ↗</a></p></article></div>
+</section>
+
+<section>
+  <h2>By category</h2>
+  <div class="cats"><a class="cat" href="sports/ice-hockey.html"><div class="catname">Ice Hockey</div><div class="catnum">86</div><div class="tiny">matches listed</div><div class="catmeta"><span>82 official</span><span>82 priced</span><span>4 high</span></div></a><a class="cat" href="sports/baseball.html"><div class="catname">Baseball</div><div class="catnum">7</div><div class="tiny">matches listed</div><div class="catmeta"><span>7 official</span><span>7 priced</span><span>0 high</span></div></a><a class="cat" href="sports/basketball.html"><div class="catname">Basketball</div><div class="catnum">11</div><div class="tiny">matches listed</div><div class="catmeta"><span>0 official</span><span>0 priced</span><span>0 high</span></div></a><a class="cat" href="sports/cricket.html"><div class="catname">Cricket</div><div class="catnum">7</div><div class="tiny">matches listed</div><div class="catmeta"><span>0 official</span><span>0 priced</span><span>0 high</span></div></a><a class="cat" href="sports/tennis.html"><div class="catname">Tennis</div><div class="catnum">19</div><div class="tiny">matches listed</div><div class="catmeta"><span>0 official</span><span>0 priced</span><span>0 high</span></div></a><a class="cat" href="sports/darts.html"><div class="catname">Darts</div><div class="catnum">16</div><div class="tiny">matches listed</div><div class="catmeta"><span>0 official</span><span>0 priced</span><span>0 high</span></div></a><a class="cat" href="sports/snooker.html"><div class="catname">Snooker</div><div class="catnum">2</div><div class="tiny">matches listed</div><div class="catmeta"><span>0 official</span><span>0 priced</span><span>0 high</span></div></a><a class="cat" href="sports/rugby-union.html"><div class="catname">Rugby Union</div><div class="catnum">15</div><div class="tiny">matches listed</div><div class="catmeta"><span>0 official</span><span>0 priced</span><span>0 high</span></div></a><a class="cat" href="sports/handball.html"><div class="catname">Handball</div><div class="catnum">20</div><div class="tiny">matches listed</div><div class="catmeta"><span>0 official</span><span>0 priced</span><span>0 high</span></div></a><a class="cat" href="sports/volleyball.html"><div class="catname">Volleyball</div><div class="catnum">9</div><div class="tiny">matches listed</div><div class="catmeta"><span>0 official</span><span>0 priced</span><span>0 high</span></div></a><a class="cat" href="sports/esports.html"><div class="catname">Esports</div><div class="catnum">34</div><div class="tiny">matches listed</div><div class="catmeta"><span>34 official</span><span>1 priced</span><span>0 high</span></div></a></div>
+</section>
+
+<section>
+  <h2>What changed in this refresh</h2>
+  <table class="plain">
+    <tr><th>Item</th><th>Result</th></tr>
+    <tr><td>Official-source capture</td><td>14 official payloads hashed and committed, plus 13 OLBG sport pages; 29 endpoints returned 4xx/5xx or timed out and are published as blocked, not worked around.</td></tr>
+    <tr><td>Fixture freshness</td><td>Window 22 Oct – 2 Nov 2026; every official row is a future or same-day fixture at capture time.</td></tr>
+    <tr><td>Own lines</td><td>90 money lines, 82 puck lines and totals, 7 run lines and totals.</td></tr>
+    <tr><td>Predictions</td><td>3 unique high-confidence write-ups, each ≥30 words with the facts and official links underneath.</td></tr>
+    <tr><td>Flagged</td><td>137 row-level flags; grouped on <a href="flagged.html">Flagged for review</a>.</td></tr>
+  </table>
+</section>
+
+</main>
+<footer class="wrap footer">
+  <p>Board U · session <code>arena/e5f2dad3-olbg4</code> · dataset generated 2026-10-22T03:09:04Z.
+  Sports excluded by the brief (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials)
+  are absent from every table. Every published price is our own fair-odds estimate; no bookmaker price is read anywhere.</p>
+  <p></p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

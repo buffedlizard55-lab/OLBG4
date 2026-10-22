@@ -1,0 +1,93 @@
+{
+ "schema": "olbg4.board-u.predictions/1",
+ "note": "Authored for Board U. Every fact is drawn from the committed NHL standings or schedule payload; the URL beside each claim is the exact official endpoint it came from. No fact is reused from another session's dataset.",
+ "predictions": [
+  {
+   "id": "P-NHL2026020185",
+   "fixture_id": "NHL2026020185",
+   "headline": "Rangers' perfect home start points to a Madison Square Garden moneyline",
+   "selection": "New York Rangers (moneyline)",
+   "text": "Madison Square Garden has been a fortress: New York is 6-0-0 at home and 7-3-1 overall, with 33 goals for and only 24 against in 11 starts. The last ten games read 7-2-1 and the New York Rangers head in off a win. Los Angeles, by contrast, is 1-4-2 and has managed 17 goals in seven games, going 1-1-2 on the road. With an 11-point cushion in the standings, the New York Rangers moneyline at our fair 1.45 (-222), a 68.9% probability, is the pick.",
+   "facts": [
+    {
+     "claim": "Rangers are 7-3-1 with 15 points, 33 goals for and 24 against in 11 games",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Rangers are 6-0-0 at home and 7-2-1 over their last ten",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Kings are 1-4-2 with 17 goals for and 27 against, and 1-1-2 on the road",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Fixture: Los Angeles Kings at New York Rangers, 26 Oct 2026, Madison Square Garden",
+     "source": "NHL official schedule API",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+    }
+   ]
+  },
+  {
+   "id": "P-NHL2026020206",
+   "fixture_id": "NHL2026020206",
+   "headline": "Carolina's 42-goal attack meets a Columbus side without a road win",
+   "selection": "Carolina Hurricanes (moneyline)",
+   "text": "Carolina's 42 goals are the standout number here: 8-2-1 for 17 points, with a last-ten line of 8-2-0. Oddly for a team this strong, the Hurricanes have done more damage away (6-1-0) than at home (2-1-1), though they arrive off a win. Columbus has 20 goals in eight games, a 3-5-0 record, an 0-2-0 road mark and two straight defeats. That points to the Carolina Hurricanes moneyline at 1.42 (-238), which we price at 70.3%.",
+   "facts": [
+    {
+     "claim": "Hurricanes are 8-2-1 with 17 points, 42 goals for and 27 against",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Hurricanes are 2-1-1 at home and 6-1-0 on the road; last ten 8-2-0",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Blue Jackets are 3-5-0 with 20 goals for and 29 against, 0-2-0 on the road, L2",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Fixture: Columbus Blue Jackets at Carolina Hurricanes, 29 Oct 2026, Lenovo Center",
+     "source": "NHL official schedule API",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-29"
+    }
+   ]
+  },
+  {
+   "id": "P-NHL2026020217",
+   "fixture_id": "NHL2026020217",
+   "headline": "Boston's plus-14 goal difference is the edge against a winless road team",
+   "selection": "Boston Bruins (moneyline)",
+   "text": "Boston has scored 36 and conceded 22 in building a 7-2-1 record, and its 3-1-0 home mark includes a last outing that needed overtime. Chicago's numbers go the other way: 21 goals for, 36 against, 3-6-0 overall, 0-4-0 on the road and a one-game losing streak. The plus-14 versus minus-15 goal difference is the clearest split on the card, so the Boston Bruins moneyline is the selection at our fair 1.40 (-250), a 71.3% probability.",
+   "facts": [
+    {
+     "claim": "Bruins are 7-2-1 with 15 points, 36 goals for and 22 against, plus-14 goal difference",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Bruins are 3-1-0 at home; last ten 7-2-1; most recent game decided beyond regulation",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Blackhawks are 3-6-0 with 21 goals for and 36 against, minus-15, 0-4-0 on the road, L1",
+     "source": "NHL official standings, 22 Oct 2026",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+    },
+    {
+     "claim": "Fixture: Chicago Blackhawks at Boston Bruins, 31 Oct 2026, TD Garden",
+     "source": "NHL official schedule API",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-31"
+    }
+   ]
+  }
+ ]
+}
