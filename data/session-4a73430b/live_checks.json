@@ -1,0 +1,106 @@
+{
+ "schema": "olbg4.session-4a73430b.live_checks/1",
+ "read_on": "2026-10-22",
+ "checks": [
+  {
+   "id": "XLC-01",
+   "source": "NHL official API schedule",
+   "url": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+   "read": "2026-10-22",
+   "confirmed": [
+    {
+     "match": "Nashville Predators at Boston Bruins",
+     "date": "2026-10-22",
+     "start_utc": "2026-10-22T23:00:00Z",
+     "venue": "TD Garden",
+     "canonical_id": "M0156"
+    },
+    {
+     "match": "New York Rangers at Toronto Maple Leafs",
+     "date": "2026-10-22",
+     "start_utc": "2026-10-22T23:00:00Z",
+     "venue": "Scotiabank Arena",
+     "canonical_id": "M0162"
+    },
+    {
+     "match": "San Jose Sharks at Ottawa Senators",
+     "date": "2026-10-22",
+     "start_utc": "2026-10-22T23:00:00Z",
+     "venue": "Canadian Tire Centre",
+     "canonical_id": "M0159"
+    },
+    {
+     "match": "Anaheim Ducks at New Jersey Devils",
+     "date": "2026-10-22",
+     "start_utc": "2026-10-22T23:00:00Z",
+     "venue": "Prudential Center",
+     "canonical_id": "M0157"
+    }
+   ]
+  },
+  {
+   "id": "XLC-02",
+   "source": "NHL official standings (standingsDateTimeUtc 2026-10-22T07:22:15Z; date 2026-10-21)",
+   "url": "https://api-web.nhle.com/v1/standings/now",
+   "read": "2026-10-22",
+   "confirmed": [
+    {
+     "match": "Boston Bruins record 7-2-1, 15 pts, GF 36 GA 22, L10 7-2-1 (form context for M0156)",
+     "canonical_id": "M0156"
+    },
+    {
+     "match": "Edmonton Oilers 7-1-1, 15 pts, GF 41 GA 27 (form context for Edmonton rows)",
+     "canonical_id": "M0230"
+    },
+    {
+     "match": "Carolina Hurricanes leagueSequence 1: 8-2-1, 17 pts, GF 42 GA 27",
+     "canonical_id": ""
+    }
+   ]
+  },
+  {
+   "id": "XLC-03",
+   "source": "MLB Stats API schedule (official)",
+   "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-30",
+   "read": "2026-10-22",
+   "confirmed": [
+    {
+     "match": "World Series Game 1: Tampa Bay Rays at Milwaukee Brewers, officialDate 2026-10-23, American Family Field",
+     "canonical_id": "M0164"
+    },
+    {
+     "match": "World Series Game 2: Tampa Bay Rays at Milwaukee Brewers, officialDate 2026-10-24, American Family Field",
+     "canonical_id": "M0210"
+    },
+    {
+     "match": "World Series Game 3: Milwaukee Brewers at Tampa Bay Rays, officialDate 2026-10-26, Tropicana Field",
+     "canonical_id": "M0282"
+    },
+    {
+     "match": "World Series Game 4: Milwaukee Brewers at Tampa Bay Rays, officialDate 2026-10-27, Tropicana Field",
+     "canonical_id": "M0293"
+    },
+    {
+     "match": "World Series Game 5 (if necessary): 2026-10-28, Tropicana Field; Game 6: 2026-10-30 at Milwaukee",
+     "canonical_id": ""
+    }
+   ]
+  },
+  {
+   "id": "XLC-04",
+   "source": "OLBG.com live pages (structure only, not a fact source)",
+   "url": "https://www.olbg.com/betting-tips",
+   "read": "2026-10-22",
+   "confirmed": [
+    {
+     "match": "OLBG today feed lists in-scope events incl. Gerwyn Price vs Rob Cross (Darts, Win Match 2-way, 16/20 Win Tips 80%) and TB Rays @ MIL Brewers (Baseball Money Line)",
+     "canonical_id": "M0139"
+    },
+    {
+     "match": "OLBG Ice Hockey page (sport id 13) markets observed live: Money Line, Puck Line (e.g. +1.50), with x/y Win Tips % and expert counts",
+     "canonical_id": ""
+    }
+   ]
+  }
+ ]
+}
