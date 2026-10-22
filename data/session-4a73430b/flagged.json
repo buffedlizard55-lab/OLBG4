@@ -1,0 +1,153 @@
+{
+ "schema": "olbg4.session-4a73430b.flagged/1",
+ "generated_on": "2026-10-22",
+ "flagged": [
+  {
+   "id": "X-F01",
+   "kind": "contradicted-date",
+   "row": "M0252",
+   "text": "Canonical row M0252 lists Milwaukee Brewers vs Tampa Bay Rays on 2026-10-25 at American Family Field. The official MLB Stats API schedule read 2026-10-22 has no game on 2026-10-25 (Game 2 is 2026-10-24 at Milwaukee; Game 3 is 2026-10-26 at Tampa Bay). Row held as contradicted; pick not promoted.",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-30"
+  },
+  {
+   "id": "X-F02",
+   "kind": "home-away-swap",
+   "row": "M0164/M0210",
+   "text": "Canonical M0164/M0210 record Tampa Bay/Milwaukee home-away designation opposite to the MLB API (official: Tampa Bay Rays at Milwaukee Brewers for Games 1-2). Venues and dates agree; designation flagged for the owning build to correct — not edited here (read-only canonical).",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-30"
+  },
+  {
+   "id": "X-F03",
+   "kind": "odds-window-tension",
+   "row": "all High",
+   "text": "A >70% fair probability implies American odds shorter than -233, and -250 equals 71.4% implied: the brief's >70% guide and -250..+10000 window intersect only in the narrow -250..-233 band. This desk therefore defines Focus High transparently (canonical High + published pick price inside the window) and prints each pick's raw implied %; it never claims >70% where the published price implies less.",
+   "source": ""
+  },
+  {
+   "id": "X-F04",
+   "kind": "held-high-no-price",
+   "row": "M0129,M0163,M0197,M0203,M0205,M0206,M0248 + totals/handicap picks",
+   "text": "Canonical High rows whose pick has no matching published moneyline price (empty win.odds, or pick is a total/handicap without a parseable matching price) are held from the Focus list and listed on Flagged with the reason. No price was invented to fill them.",
+   "source": ""
+  },
+  {
+   "id": "X-F05",
+   "kind": "live-coverage-limit",
+   "row": "all",
+   "text": "Live re-reading on 2026-10-22 reached NHL (schedule+standings APIs), MLB Stats API and OLBG pages. The PDC draw URL returned a consent wall to the fetcher, so darts facts are carried from the build-verified canonical notes citing that same official URL, disclosed as not live re-read today. All other sports are carried-current from build-verified canonical data, not claimed as live re-checked today.",
+   "source": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+  },
+  {
+   "id": "X-F06",
+   "kind": "markets-blank",
+   "row": "see desk.json",
+   "text": "Where the originating build published no handicap or total (official inputs missing at pricing time), the cell is left blank on this desk and counted on the Markets page. Markets investigated per sport are listed; blank never means zero — it means not originated.",
+   "source": ""
+  },
+  {
+   "id": "X-S-M0124",
+   "kind": "no-source",
+   "row": "M0124",
+   "text": "No source URL recorded by originating build (Anadolu Efes Istanbul vs Beşiktaş Istanbul); row shown unverified with blank source.",
+   "source": ""
+  },
+  {
+   "id": "X-H-M0129",
+   "kind": "held-high",
+   "row": "M0129",
+   "text": "High held: no published matching moneyline price for the pick (Panathinaikos AKTOR Athens vs Kosner Baskonia Vitoria-Gasteiz, 2026-10-22).",
+   "source": "https://www.euroleaguebasketball.net/en/euroleague/game-center/"
+  },
+  {
+   "id": "X-S-M0130",
+   "kind": "no-source",
+   "row": "M0130",
+   "text": "No source URL recorded by originating build (Partizan Belgrade vs Crvena Zvezda Belgrade); row shown unverified with blank source.",
+   "source": ""
+  },
+  {
+   "id": "X-S-M0147",
+   "kind": "no-source",
+   "row": "M0147",
+   "text": "No source URL recorded by originating build (FedEx Fall vs winning score typically -15 to -18); row shown unverified with blank source.",
+   "source": ""
+  },
+  {
+   "id": "X-H-M0162",
+   "kind": "held-high",
+   "row": "M0162",
+   "text": "High held: no published matching moneyline price for the pick (Toronto Maple Leafs vs New York Rangers, 2026-10-22).",
+   "source": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155"
+  },
+  {
+   "id": "X-H-M0163",
+   "kind": "held-high",
+   "row": "M0163",
+   "text": "High held: no published matching moneyline price for the pick (Montauban vs Oyonnax, 2026-10-22).",
+   "source": "https://prod2.lnr.fr/classement"
+  },
+  {
+   "id": "X-H-M0197",
+   "kind": "held-high",
+   "row": "M0197",
+   "text": "High held: no published matching moneyline price for the pick (Aurillac vs Nevers, 2026-10-23).",
+   "source": "https://prod2.lnr.fr/classement"
+  },
+  {
+   "id": "X-H-M0203",
+   "kind": "held-high",
+   "row": "M0203",
+   "text": "High held: no published matching moneyline price for the pick (Narbonne vs Brive, 2026-10-23).",
+   "source": "https://prod2.lnr.fr/classement"
+  },
+  {
+   "id": "X-H-M0205",
+   "kind": "held-high",
+   "row": "M0205",
+   "text": "High held: no published matching moneyline price for the pick (Provence Rugby vs Beziers, 2026-10-23).",
+   "source": "https://prod2.lnr.fr/classement"
+  },
+  {
+   "id": "X-H-M0206",
+   "kind": "held-high",
+   "row": "M0206",
+   "text": "High held: no published matching moneyline price for the pick (Soyaux Angouleme vs Dax, 2026-10-23).",
+   "source": "https://prod2.lnr.fr/classement"
+  },
+  {
+   "id": "X-H-M0231",
+   "kind": "held-high",
+   "row": "M0231",
+   "text": "High held: no published matching moneyline price for the pick (New Jersey Devils vs Los Angeles Kings, 2026-10-24).",
+   "source": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169"
+  },
+  {
+   "id": "X-H-M0232",
+   "kind": "held-high",
+   "row": "M0232",
+   "text": "High held: no published matching moneyline price for the pick (Ottawa Senators vs New York Rangers, 2026-10-24).",
+   "source": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171"
+  },
+  {
+   "id": "X-H-M0248",
+   "kind": "held-high",
+   "row": "M0248",
+   "text": "High held: no published matching moneyline price for the pick (Toulouse vs Perpignan, 2026-10-24).",
+   "source": "https://top14.lnr.fr/classement"
+  },
+  {
+   "id": "X-S-M0300",
+   "kind": "no-source",
+   "row": "M0300",
+   "text": "No source URL recorded by originating build (South Africa vs Australia); row shown unverified with blank source.",
+   "source": ""
+  },
+  {
+   "id": "X-H-M0301",
+   "kind": "held-high",
+   "row": "M0301",
+   "text": "High held: no published matching moneyline price for the pick (Calgary Flames vs Toronto Maple Leafs, 2026-10-27).",
+   "source": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186"
+  }
+ ]
+}
