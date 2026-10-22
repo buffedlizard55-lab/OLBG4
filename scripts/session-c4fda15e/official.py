@@ -108,7 +108,7 @@ def pdc_participants():
             a = x["attributes"]
             nm = f"{a['firstName']} {a['lastName']}".strip()
             out[nm] = {"oom_rank": a.get("ranking"), "prize_money_gbp": a.get("prizeMoney"), "country": a.get("countryCode")}
-    return {"players": out, "sources": srcs, "source_name": "PDC participants service used by pdc.tv (Order of Merit rank + prize money)"}
+    return {"players": out, "sources": srcs, "source_name": "PDC participants service used by pdc.tv (ranking = PDC Order of Merit position; prizeMoney field is undefined on the feed and is NOT used)"}
 
 
 # ----------------------------------------------------------------------------- euroleague
