@@ -24,13 +24,13 @@ returns it, and the discrepancy is described here.</div>
       <div class="meta">severity: structural</div>
       <p>−250 is an implied probability of 71.43%; a selection with p &gt; 0.70 therefore prices shorter than the floor once p passes 0.7143. This desk grades 68 selections High, of which 12 sit inside −250…+10,000 and 56 are shorter than −250. The out-of-window High selections are published in full on the picks page with their prices; none is relabelled and none is dropped.</p>
       <p class="small">Sources: <a href='https://api-web.nhle.com/v1/standings/now'>https://api-web.nhle.com/v1/standings/now</a></p></div><div class="pick">
-      <h3>AB-F02 · 16 in-scope sports carry no originated line</h3>
+      <h3>AB-F02 · 16 of the 19 sport labels considered carry no originated line</h3>
       <div class="meta">severity: coverage</div>
       <p>Lines are originated only where official numeric inputs were captured: NHL (82 fixtures), MLB World Series (5) and LoL Esports (9). Basketball, cricket, darts, golf, greyhound racing, handball, rugby league, rugby union, snooker, tennis, volleyball, Aussie rules and badminton (plus table tennis) are listed on the coverage page as not covered this session, with the reason, and no value is filled in.</p>
       <p class="small">Sources: <a href='https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json'>https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json</a> · <a href='https://www.atptour.com/en/scores/current'>https://www.atptour.com/en/scores/current</a></p></div><div class="pick">
-      <h3>AB-F03 · NHL venue listed as Princess Auto Stadium for Montréal at Winnipeg on 25 October</h3>
+      <h3>AB-F03 · NHL payload lists one Winnipeg home game at Princess Auto Stadium, not Canada Life Centre</h3>
       <div class="meta">severity: data</div>
-      <p>The NHL schedule payload returns venue &quot;Princess Auto Stadium&quot; for game 2026020182. That is Winnipeg&#x27;s outdoor Canadian Football League ground, not the Canada Life Centre the Jets normally use. The value is copied verbatim from the official payload and not corrected; it is flagged for manual review.</p>
+      <p>For game 2026020182 (Montréal at Winnipeg, 25 October) the NHL schedule payload returns venue &quot;Princess Auto Stadium&quot;. Every other Winnipeg home game in the captured payloads (17 October vs Carolina, 28 October vs Florida, 6 November vs Vancouver, 8 November vs Tampa Bay) returns &quot;Canada Life Centre&quot;. The value is copied verbatim from the official payload and not corrected or explained; it is flagged for manual review as either a special-venue game or a feed anomaly.</p>
       <p class="small">Sources: <a href='https://api-web.nhle.com/v1/schedule/2026-10-25'>https://api-web.nhle.com/v1/schedule/2026-10-25</a></p></div><div class="pick">
       <h3>AB-F04 · Only 4 of 96 fixtures reach a 70% match-winner probability</h3>
       <div class="meta">severity: model</div>
@@ -56,18 +56,18 @@ returns it, and the discrepancy is described here.</div>
       <div class="meta">severity: verification</div>
       <p>The verification register covers participants, date, start time, venue, records and scoring inputs only. Team news, injuries, suspensions, weather and line movement are named as not checked on every row rather than implied to be clear.</p>
       <p class="small">Sources: <a href='https://api-web.nhle.com/v1/schedule/2026-10-22'>https://api-web.nhle.com/v1/schedule/2026-10-22</a></p></div><div class="pick">
+      <h3>AB-F10 · World Series schedule extends beyond the published window</h3>
+      <div class="meta">severity: data</div>
+      <p>The live MLB read returned seven World Series games (23, 24, 26, 27, 28, 30 and 31 October). Only the five inside 22 October – 2 November are published; games 6 and 7 fall outside the window and are deliberately omitted rather than truncated silently.</p>
+      <p class="small">Sources: <a href='https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-10-29&amp;gameTypes=W'>https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-10-29&amp;gameTypes=W</a></p></div><div class="pick">
       <h3>AB-F11 · OLBG lists Gaelic Football and Motor Racing events the brief does not name</h3>
       <div class="meta">severity: scope</div>
-      <p>The brief excludes soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials. OLBG&#x27;s live listing carried 5 Gaelic Football match rows and 6 Motor Racing outright rows (plus 1 Gaelic Football outright). Gaelic Football is not soccer and Motor Racing is not cycling, but neither is explicitly in scope. Both are carried on the all-fixtures page with a blank official source and a blank price, and are flagged here rather than priced or dropped.</p>
+      <p>The brief excludes soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials. OLBG&#x27;s live listing carried 5 Gaelic Football match rows plus 1 Gaelic Football outright, and 3 Motor Racing outright cards with no match rows. Gaelic Football is not soccer and Motor Racing is not cycling, but neither is explicitly in scope. Both are carried on the all-fixtures page with a blank official source and a blank price, and are flagged here rather than priced or dropped.</p>
       <p class="small">Sources: <a href='https://www.olbg.com/betting-tips/Gaelic_Football/11'>https://www.olbg.com/betting-tips/Gaelic_Football/11</a> · <a href='https://www.olbg.com/betting-tips/Motor_Racing/7'>https://www.olbg.com/betting-tips/Motor_Racing/7</a></p></div><div class="pick">
       <h3>AB-F12 · Three generators write the repository root, so the root navigation can be silently overwritten</h3>
       <div class="meta">severity: repo</div>
       <p>While validating this board&#x27;s pointer on the root dashboard, two existing generators rewrote index.html and 27 other root pages: tools/build_master_site.py (master-board style, 28 pages) and scripts/session-83451f65/build_site.py (integrated style). No CI gate diffs the root against either generator, so a later run of either would drop this board&#x27;s pointer without failing a check. This board restored the committed root pages and kept its change additive; the overlap is recorded here rather than fixed inside another board&#x27;s generator.</p>
-      <p class="small">Sources: <a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/index.html'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/index.html</a> · <a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py</a></p></div><div class="pick">
-      <h3>AB-F10 · World Series schedule extends beyond the published window</h3>
-      <div class="meta">severity: data</div>
-      <p>The live MLB read returned seven World Series games (23, 24, 26, 27, 28, 30 and 31 October). Only the five inside 22 October – 2 November are published; games 6 and 7 fall outside the window and are deliberately omitted rather than truncated silently.</p>
-      <p class="small">Sources: <a href='https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-10-29&amp;gameTypes=W'>https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-10-29&amp;gameTypes=W</a></p></div>
+      <p class="small">Sources: <a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/index.html'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/index.html</a> · <a href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py</a></p></div>
 
 </main>
 <footer class="wrap">
