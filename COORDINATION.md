@@ -3713,3 +3713,34 @@ merge.
 3. Do **not** merge Board AD rows into `data/master.json`; keep Board AD's desk as its own
    published dataset so each row keeps its own official source and its own verification trail.
    Board AD's review findings on `master.json` are advisory findings, not edits.
+
+---
+
+## Board AF — session `arena/0d3b826c-olbg4` (fresh evidence-first OLBG reconciliation, own lines, verified High predictions, clean dashboard and integration)
+
+Session: `arena/0d3b826c-olbg4` · Branch: `arena/0d3b826c-olbg4` (fixed Arena branch) · Claimed: 2026-10-22 UTC · **status: in progress**
+
+Exclusive working scope: `session-0d3b826c/**`, `data/session-0d3b826c/**`, `scripts/session-0d3b826c/**`, `.github/workflows/af-0d3b826c.yml`, and append-only entries in this file. At final integration only, an additive root `index.html` pointer may be added after re-checking ownership; the stale (>60 minute) PR #102 root claim will be handed off explicitly rather than silently overwritten. Every other session's files, shared master data, generators and workflows are read-only.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AF1 | Capture and reverse-engineer the current public OLBG in-scope listing without using robots-disallowed endpoints; reconcile fixtures line by line to official league/tour/federation sources. Exclude soccer, boxing, UFC, MMA, football, American football, hurling, horse racing, cycling and specials. Preserve HTTP status, timestamps, bytes and SHA-256; blank and flag unresolved fields. | done | arena/0d3b826c-olbg4 | `scripts/session-0d3b826c/`, `data/session-0d3b826c/`, `.github/workflows/af-0d3b826c.yml` |
+| AF2 | Originate transparent, independent fair lines for every fixture with adequate official numeric evidence (match winner, handicap, total and explicitly investigated sport-specific markets); select a match winner and assign Low/Medium/High. Never manufacture prices for unsupported events. | done | arena/0d3b826c-olbg4 | same |
+| AF3 | Select the strongest qualifying High picks inside −250…+10,000 American odds; write unique natural ≥30-word predictions only from verified facts, with team/player, current form, recent history, explicit selection and official links. Target up to five per sport, but publish fewer and flag the shortfall rather than force weak picks. | done | arena/0d3b826c-olbg4 | same |
+| AF4 | Audit the freshest peer desks and shared canonical records mechanically and against available official evidence; publish exact irregularities and manual-review links without editing peer data. | done | arena/0d3b826c-olbg4 | same |
+| AF5 | Build a clean static GitHub Pages dashboard with landing, per-sport pages, all entries, markets, predictions, verification, methodology, sources and Flagged for Review. Every displayed data row gets an official source or blank/unverified treatment. | done | arena/0d3b826c-olbg4 | `session-0d3b826c/**` |
+| AF6 | Run deterministic schema/math/provenance/prediction/link checks plus repository gates, integrate additively, open PR to `main`, merge only with a healthy build, confirm Pages, and record sources, verification, irregularities, PR and deployment here. | in progress | arena/0d3b826c-olbg4 | `scripts/session-0d3b826c/verify.py`, `COORDINATION.md`, additive root pointer if uncontested |
+
+### AF working log
+- 2026-10-22 UTC — Read the full coordination board structure and current open-PR state. PR #102 (`arena/1695b749-olbg4`) has been idle since 09:18Z and is not mergeable; its files remain untouched. No active task is taken over. Claim scoped to new `0d3b826c` paths and pushed before data/site work.
+
+### AF implementation checkpoint — 2026-10-22T21:10Z
+- Fresh capture `20261022T210227Z` committed by Actions run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39853924185 — 101/112 HTTP 200 targets; 112/112 raw responses hash-verified during every build. NBA sources returned 403, two ICC routes 404, and four EuroLeague page requests returned 429 on the runner. The 429 pages were subsequently read on official domains through the page tool; exact excerpts are stored in `data/session-0d3b826c/live_checks.json`.
+- Desk: 220 official fixtures / 212 priced / 8 confirmed-but-unpriced LoL matches; 19 High selections with unique 50–58-word write-ups. Seven qualifying focus picks are +1.5 hockey handicaps (−237 to −244); 12 stronger moneylines remain High but outside focus. Only ice hockey meets the five-focus-match target; 16 other sport shortfalls are published, not padded.
+- Official numeric inputs: NHL, Liiga, EuroLeague/EuroCup, MLB Stats API and WTA. Riot confirms eight fixtures but lacks the required three-series sample. OLBG is structural only: 135 upcoming SSR listing rows, 111 unmatched and quarantined. Gaelic remains scope-ambiguous and unpriced.
+- Verification: `bash scripts/session-0d3b826c/build_all.sh` PASS — 15,185 checks, 29 pages, 19 predictions, 40 outputs byte-identical after rebuild. `scripts/audit_publication.py --check` PASS — 24,046 targets, 0 broken/stale. `pipeline.selftest`, `tools/verify_master.py`, and 4 audit unit tests PASS. Static preview returned HTTP 200 for all sampled pages.
+- Peer review: 815 rows checked in `data/master.json` and the freshest AE/AC desks; 558 findings published. Direct example: `ae_038` calls 59.2% High. No peer file edited.
+
+### AF root-integration handoff (2026-10-22T21:12Z)
+- Re-checked open PRs before touching root navigation. PR #102 (`arena/1695b749-olbg4`) remains idle since 09:18Z, beyond the 60-minute handoff threshold. Board AF therefore takes over only the additive root-pointer step. PR #102 and all `session-1695b749/**` files remain untouched for their owner. Root `index.html` received one navlink and one callout; every prior link and section is preserved verbatim.
+- AF6 scope addendum: added `.github/workflows/af-0d3b826c-verify.yml` as a new, non-overlapping offline CI gate for this desk. It performs no sports-network requests and edits no existing workflow.
