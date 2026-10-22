@@ -3417,6 +3417,24 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 
 ---
 
+
+## Board AD — arena/7bbc825b-olbg4 — evidence-integrity integration
+
+Claimed 2026-10-22 UTC. Fixed Arena branch used instead of the requested alternate branch name.
+
+| Task | Status | Owner | File scope |
+|---|---|---|---|
+| AD1 Evidence-integrity review, source-access probes, fail-closed dashboard and tests | in progress | arena/7bbc825b-olbg4 | `session-7bbc825b/**`, `scripts/session-7bbc825b/**`, `data/session-7bbc825b/**`, append-only `COORDINATION.md` |
+| AD2 PR, merge, Pages confirmation | in progress | arena/7bbc825b-olbg4 | same scope |
+
+Other session outputs, root navigation, data and workflows are read-only. No historical claims of official verification are inherited. Root navigation integration request: add a link to `session-7bbc825b/index.html` when its owner is available. Existing open PR #102 owns root navigation.
+
+### AD evidence review completion
+- Reviewed 1,242 records structurally from `data/master.json` plus `data/session-*/desk.json` (exact eight-file inventory and SHA-256 hashes in `data/session-7bbc825b/review.json`). This is **not** a repo-wide factual certification or a unique upcoming-fixture count.
+- Published 24 standalone dashboard pages under `session-7bbc825b/`, including category pages, all reviewed rows, methodology and Flagged for Review. No edits to another session's outputs.
+- Actual live probes: `curl -I --max-time 15 https://www.olbg.com/` and `https://api-web.nhle.com/v1/schedule/2026-10-22` both failed with exit 35 / SSL_ERROR_SYSCALL. No current sports values independently confirmed. Every confirmed fixture/time/line/pick/confidence/prediction field is blank; historical source candidates remain linked for manual review, missing links explicitly flagged.
+- Verification: `python scripts/session-7bbc825b/verify.py` passes pointer, count, hash, blank-field, ID and local-link checks. These are structural checks, not source verification. `python -m unittest discover -s audit -p 'test_*.py' -q` passes; repository publication audit check passes.
+- AD1 **needs review**: source-access and provenance gaps are published on `session-7bbc825b/flagged.html` and do not block merge. Complete current collection and calibrated origination remain unfulfilled; no fabricated replacements published.
 ## Board AD — session `arena/d2d25025-olbg4` (2026-10-22 independent line-by-line audit of freshest desk + live official spot re-verification + High-window focus + dashboard + final integration)
 Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026-10-22 UTC
 | ID | Task | Status | Owner | File scope |
@@ -3434,3 +3452,6 @@ Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026
 - **Live re-verified 2026-10-22 via official APIs:** NHL schedule 2026-10-23 (MTL@CHI game 2026020166, TBL@COL 2026020167) https://api-web.nhle.com/v1/schedule/2026-10-23 ; NHL standings timestamp 2026-10-22T12:05:46Z (CAR 17pts, VGK 16, EDM/BOS 15) https://api-web.nhle.com/v1/standings/2026-10-22 ; MLB World Series TB@MIL Game 1 2026-10-23 gamePk 849805 https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-31
 - **Irregularities flagged (184, on flagged.html, non-blocking):** 56 of 68 Board AB "High" selections fail the combined prob>=0.70 + fair odds -250..+10000 + unique >=30-word rule (mostly fair odds shorter than -250); only 12 clean in-window High picks published on picks.html; strict moneyline recomputation yields only 2 High of 96 (window/70% overlap is prob 0.700-0.714). Other in-scope sports not re-read live this session — left blank/unpublished, flagged unverified, never inferred.
 - Status: AD1-AD5 done; AD6 in progress (PR/merge/Pages below).
+
+
+AD integration log: concurrent main merge caused an append-only COORDINATION.md conflict. Resolved by preserving both complete session records; no peer data or pages discarded.
