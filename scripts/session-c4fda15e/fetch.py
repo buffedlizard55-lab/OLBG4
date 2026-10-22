@@ -54,7 +54,7 @@ def fetch(url: str, headers: dict) -> tuple[int, str, str, bytes, str]:
     h.update(headers or {})
     req = urllib.request.Request(url, headers=h)
     try:
-        with urllib.request.urlopen(req, timeout=45) as r:
+        with urllib.request.urlopen(req, timeout=25) as r:
             body = r.read()
             if r.headers.get("Content-Encoding", "") == "gzip":
                 body = gzip.decompress(body)

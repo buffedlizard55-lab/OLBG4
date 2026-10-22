@@ -1,288 +1,177 @@
 [
  {
-  "id": "atp_scores_current",
-  "url": "https://www.atptour.com/en/scores/current",
-  "delay": 1.5
- },
- {
-  "id": "atp_rankings_singles_1_500",
-  "url": "https://www.atptour.com/en/rankings/singles?rankRange=1-500",
-  "delay": 1.5
- },
- {
-  "id": "wta_rankings_api",
-  "url": "https://api.wtatennis.com/tennis/players/ranked?page=0&pageSize=500&type=rankSingles&sort=asc&metric=SINGLES",
+  "id": "wta_rankings_api_p1",
+  "url": "https://api.wtatennis.com/tennis/players/ranked?page=1&pageSize=100&type=rankSingles&sort=asc&metric=SINGLES",
   "headers": {
    "Origin": "https://www.wtatennis.com",
-   "Referer": "https://www.wtatennis.com/"
+   "Referer": "https://www.wtatennis.com/",
+   "Accept": "application/json"
   },
   "delay": 1.5
  },
  {
-  "id": "wta_scores",
-  "url": "https://www.wtatennis.com/scores",
+  "id": "wta_rankings_api_p2",
+  "url": "https://api.wtatennis.com/tennis/players/ranked?page=2&pageSize=100&type=rankSingles&sort=asc&metric=SINGLES",
+  "headers": {
+   "Origin": "https://www.wtatennis.com",
+   "Referer": "https://www.wtatennis.com/",
+   "Accept": "application/json"
+  },
   "delay": 1.5
  },
  {
-  "id": "pdc_european_championship",
-  "url": "https://www.pdc.tv/tournaments/european-championship",
+  "id": "wta_rankings_api_p3",
+  "url": "https://api.wtatennis.com/tennis/players/ranked?page=3&pageSize=100&type=rankSingles&sort=asc&metric=SINGLES",
+  "headers": {
+   "Origin": "https://www.wtatennis.com",
+   "Referer": "https://www.wtatennis.com/",
+   "Accept": "application/json"
+  },
   "delay": 1.5
  },
  {
-  "id": "pdc_order_of_merit",
-  "url": "https://www.pdc.tv/order-merit/pdc-order-merit",
+  "id": "wta_tournaments_week",
+  "url": "https://api.wtatennis.com/tennis/tournaments/?page=0&pageSize=30&excludeLevels=ITF&from=2026-10-19&to=2026-10-26",
+  "headers": {
+   "Origin": "https://www.wtatennis.com",
+   "Referer": "https://www.wtatennis.com/",
+   "Accept": "application/json"
+  },
   "delay": 1.5
  },
  {
-  "id": "wst_rankings",
-  "url": "https://www.wst.tv/rankings",
+  "id": "wta_405_matches",
+  "url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches",
+  "headers": {
+   "Origin": "https://www.wtatennis.com",
+   "Referer": "https://www.wtatennis.com/",
+   "Accept": "application/json"
+  },
   "delay": 1.5
  },
  {
-  "id": "wst_match_centre",
-  "url": "https://www.wst.tv/match-centre",
+  "id": "wta_405_matches_states",
+  "url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches?states=U%2CL%2CC",
+  "headers": {
+   "Origin": "https://www.wtatennis.com",
+   "Referer": "https://www.wtatennis.com/",
+   "Accept": "application/json"
+  },
   "delay": 1.5
  },
  {
-  "id": "nba_schedule_league_v2_b",
-  "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+  "id": "wta_405_order_of_play",
+  "url": "https://www.wtatennis.com/tournaments/405/osaka/2026/order-of-play",
+  "delay": 1.5
+ },
+ {
+  "id": "wta_405_draws",
+  "url": "https://www.wtatennis.com/tournaments/405/osaka/2026/draws",
+  "delay": 1.5
+ },
+ {
+  "id": "pdc_api_competitions",
+  "url": "https://matches.darts.admin.gc.pdcservices.co.uk/v2/competitions",
+  "headers": {
+   "Origin": "https://www.pdc.tv",
+   "Referer": "https://www.pdc.tv/",
+   "Accept": "application/json"
+  },
+  "delay": 1.5
+ },
+ {
+  "id": "pdc_api_matches",
+  "url": "https://matches.darts.admin.gc.pdcservices.co.uk/v2/matches?page.size=100",
+  "headers": {
+   "Origin": "https://www.pdc.tv",
+   "Referer": "https://www.pdc.tv/",
+   "Accept": "application/json"
+  },
+  "delay": 1.5
+ },
+ {
+  "id": "pdc_api_fixtures",
+  "url": "https://matches.darts.admin.gc.pdcservices.co.uk/v2/fixtures",
+  "headers": {
+   "Origin": "https://www.pdc.tv",
+   "Referer": "https://www.pdc.tv/",
+   "Accept": "application/json"
+  },
+  "delay": 1.5
+ },
+ {
+  "id": "pdc_api_root",
+  "url": "https://matches.darts.admin.gc.pdcservices.co.uk/v2/",
+  "headers": {
+   "Origin": "https://www.pdc.tv",
+   "Referer": "https://www.pdc.tv/",
+   "Accept": "application/json"
+  },
+  "delay": 1.5
+ },
+ {
+  "id": "pdc_participants",
+  "url": "https://participants.darts.web.gc.pdcservices.co.uk/v2/?page.size=100",
+  "headers": {
+   "Origin": "https://www.pdc.tv",
+   "Referer": "https://www.pdc.tv/",
+   "Accept": "application/json"
+  },
+  "delay": 1.5
+ },
+ {
+  "id": "euroleague_games_E2025",
+  "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2025/games",
+  "delay": 1.5
+ },
+ {
+  "id": "nba_games_page_1022",
+  "url": "https://www.nba.com/games?date=2026-10-22",
   "headers": {
    "Referer": "https://www.nba.com/",
-   "Origin": "https://www.nba.com",
-   "Accept": "application/json, text/plain, */*",
+   "Accept": "text/html,application/xhtml+xml",
    "Accept-Language": "en-US,en;q=0.9"
   },
   "delay": 1.5
  },
  {
-  "id": "nba_standings_2025_26",
-  "url": "https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2025-26&SeasonType=Regular%20Season",
+  "id": "nba_games_page_1023",
+  "url": "https://www.nba.com/games?date=2026-10-23",
   "headers": {
    "Referer": "https://www.nba.com/",
-   "Origin": "https://www.nba.com",
-   "Accept": "application/json, text/plain, */*",
-   "Accept-Language": "en-US,en;q=0.9",
-   "x-nba-stats-origin": "stats",
-   "x-nba-stats-token": "true"
+   "Accept": "text/html,application/xhtml+xml",
+   "Accept-Language": "en-US,en;q=0.9"
   },
   "delay": 1.5
  },
  {
-  "id": "nba_standings_2026_27",
-  "url": "https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27&SeasonType=Regular%20Season",
+  "id": "nba_standings_page",
+  "url": "https://www.nba.com/standings?Season=2025-26",
   "headers": {
    "Referer": "https://www.nba.com/",
-   "Origin": "https://www.nba.com",
-   "Accept": "application/json, text/plain, */*",
-   "Accept-Language": "en-US,en;q=0.9",
-   "x-nba-stats-origin": "stats",
-   "x-nba-stats-token": "true"
+   "Accept": "text/html,application/xhtml+xml",
+   "Accept-Language": "en-US,en;q=0.9"
   },
   "delay": 1.5
  },
  {
-  "id": "euroleague_games_E2026",
-  "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games",
+  "id": "plusliga_table_b",
+  "url": "https://www.plusliga.pl/table/tour/2026.html",
   "delay": 1.5
  },
  {
-  "id": "euroleague_feed_games_E2026",
-  "url": "https://feeds.incrowdsports.com/provider/euroleague-feeds/v2/competitions/E/seasons/E2026/games?teamCode=&phaseTypeCode=RS",
+  "id": "plusliga_games_b",
+  "url": "https://www.plusliga.pl/games/tour/2026.html",
   "delay": 1.5
  },
  {
-  "id": "euroleague_standings_page",
-  "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/",
+  "id": "tauronliga_games_b",
+  "url": "https://www.tauronliga.pl/games/tour/2026.html",
   "delay": 1.5
  },
  {
-  "id": "euroleague_game_center",
-  "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/",
-  "delay": 1.5
- },
- {
-  "id": "mlb_standings_2026",
-  "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason&hydrate=team",
-  "delay": 1.5
- },
- {
-  "id": "mlb_ws_schedule",
-  "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-20&endDate=2026-11-05&gameType=W&hydrate=team,probablePitcher,venue,seriesStatus,linescore",
-  "delay": 1.5
- },
- {
-  "id": "liiga_games_2027",
-  "url": "https://liiga.fi/api/v2/games?tournament=runkosarja&season=2027",
-  "delay": 1.5
- },
- {
-  "id": "liiga_standings_2027",
-  "url": "https://liiga.fi/api/v2/standings/?season=2027",
-  "delay": 1.5
- },
- {
-  "id": "shl_schedule_page",
-  "url": "https://www.shl.se/game-schedule",
-  "delay": 1.5
- },
- {
-  "id": "shl_standings_page",
-  "url": "https://www.shl.se/standings",
-  "delay": 1.5
- },
- {
-  "id": "top14_calendar",
-  "url": "https://top14.lnr.fr/calendrier-et-resultats",
-  "delay": 1.5
- },
- {
-  "id": "top14_table",
-  "url": "https://top14.lnr.fr/classement",
-  "delay": 1.5
- },
- {
-  "id": "prod2_calendar",
-  "url": "https://prod2.lnr.fr/calendrier-et-resultats",
-  "delay": 1.5
- },
- {
-  "id": "prod2_table",
-  "url": "https://prod2.lnr.fr/classement",
-  "delay": 1.5
- },
- {
-  "id": "urc_fixtures",
-  "url": "https://www.unitedrugby.com/fixtures-results",
-  "delay": 1.5
- },
- {
-  "id": "urc_table",
-  "url": "https://www.unitedrugby.com/standings",
-  "delay": 1.5
- },
- {
-  "id": "plusliga_games",
-  "url": "https://www.plusliga.pl/games.html",
-  "delay": 1.5
- },
- {
-  "id": "plusliga_table",
-  "url": "https://www.plusliga.pl/table.html",
-  "delay": 1.5
- },
- {
-  "id": "tauronliga_games",
-  "url": "https://www.tauronliga.pl/games.html",
-  "delay": 1.5
- },
- {
-  "id": "tauronliga_table",
-  "url": "https://www.tauronliga.pl/table.html",
-  "delay": 1.5
- },
- {
-  "id": "legavolley_calendar",
-  "url": "https://www.legavolley.it/calendario/",
-  "delay": 1.5
- },
- {
-  "id": "legavolley_table",
-  "url": "https://www.legavolley.it/classifica/",
-  "delay": 1.5
- },
- {
-  "id": "cvf_extraliga",
-  "url": "https://www.cvf.cz/extraliga-muzu/",
-  "delay": 1.5
- },
- {
-  "id": "hbl_spielplan",
-  "url": "https://www.liquimoly-hbl.de/de/s/spielplan/",
-  "delay": 1.5
- },
- {
-  "id": "hbl_tabelle",
-  "url": "https://www.liquimoly-hbl.de/de/s/tabelle/",
-  "delay": 1.5
- },
- {
-  "id": "lnh_starligue_calendar",
-  "url": "https://www.lnh.fr/liquimoly-starligue/calendrier",
-  "delay": 1.5
- },
- {
-  "id": "lnh_starligue_table",
-  "url": "https://www.lnh.fr/liquimoly-starligue/classement",
-  "delay": 1.5
- },
- {
-  "id": "lnh_proligue_calendar",
-  "url": "https://www.lnh.fr/proligue/calendrier",
-  "delay": 1.5
- },
- {
-  "id": "asobal_calendar",
-  "url": "https://www.asobal.es/calendario",
-  "delay": 1.5
- },
- {
-  "id": "ehf_cl_men",
-  "url": "https://www.eurohandball.com/en/competitions/ehf-champions-league-men/",
-  "delay": 1.5
- },
- {
-  "id": "herrehandboldligaen",
-  "url": "https://www.hbold.dk/",
-  "delay": 1.5
- },
- {
-  "id": "handbollsligan",
-  "url": "https://www.handbollsligan.se/",
-  "delay": 1.5
- },
- {
-  "id": "icc_rank_t20i_men",
-  "url": "https://www.icc-cricket.com/rankings/team-rankings/mens/t20i",
-  "delay": 1.5
- },
- {
-  "id": "icc_rank_odi_men",
-  "url": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi",
-  "delay": 1.5
- },
- {
-  "id": "icc_rank_t20i_women",
-  "url": "https://www.icc-cricket.com/rankings/team-rankings/womens/t20i",
-  "delay": 1.5
- },
- {
-  "id": "gaa_cork_fixtures",
-  "url": "https://gaacork.ie/fixtures-results/",
-  "delay": 1.5
- },
- {
-  "id": "gaa_galway_fixtures",
-  "url": "https://www.galwaygaa.ie/fixtures-results/",
-  "delay": 1.5
- },
- {
-  "id": "gaa_waterford_fixtures",
-  "url": "https://waterfordgaa.ie/fixtures-results/",
-  "delay": 1.5
- },
- {
-  "id": "gaa_limerick_fixtures",
-  "url": "https://limerickgaa.ie/fixtures-results/",
-  "delay": 1.5
- },
- {
-  "id": "kbl_schedule",
-  "url": "https://www.kbl.or.kr/match/schedule",
-  "delay": 1.5
- },
- {
-  "id": "nbb_tabela",
-  "url": "https://lnb.com.br/nbb/tabela-de-jogos/",
+  "id": "tauronliga_table_b",
+  "url": "https://www.tauronliga.pl/table/tour/2026.html",
   "delay": 1.5
  },
  {
