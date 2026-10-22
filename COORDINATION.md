@@ -2548,3 +2548,24 @@ commit **flattens the merge** and replays every merged commit individually — i
 of `main`'s commits onto this branch and had to be aborted with `git rebase --abort`. Use
 `git fetch origin main` + `git merge origin/main` (or `--ff-only` where possible) instead. The push
 had already carried the correct merge commit, so nothing was lost.
+
+---
+
+## Board S — session `arena/77af9500-olbg4` (odds-range compliance, human predictions, line-by-line verification & site rebuild)
+
+Session `arena/77af9500-olbg4` · branch `arena/77af9500-olbg4` · claimed 2026-10-22 (UTC) · **status: active**
+
+Scope is non-overlapping: claim covers remediation of high-confidence odds-range compliance, generation of unique human predictions, line-by-line verification, and GH Pages site rebuild. No other session's `session-*/` or `data/board_k/*`, `data/master*.json` generative files are overwritten without merging; shared files claimed explicitly.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| S1 | Audit OLBG reverse-engineering & excluded/included sports; verify sport taxonomy vs OLBG live pages | unclaimed | arena/77af9500-olbg4 | `data/sports.json`, `data/olbg-structure.json`, `COORDINATION.md` |
+| S2 | Line-by-line verification of every table row vs official source; provide source link per row, blank unverified, flag irregularities | unclaimed | arena/77af9500-olbg4 | `data/rows.json`, `data/rows.csv`, `data/matches.json`, `verification.html`, `data/board_s/verification.json` |
+| S3 | Remediate high-confidence picks to odds window –250 to +10,000 (decimal 1.40–101.00); downgrade violations, originate new High picks only inside window | unclaimed | arena/77af9500-olbg4 | `data/rows.json`, `build_site.py`, `data/rows.csv`, `tools/build_master.py`, `data/master.json` |
+| S4 | Generate well-written unique human predictions (≥30 words) for every High pick: team, player where relevant, current form, recent match history, obvious selection, verified facts + official links | unclaimed | arena/77af9500-olbg4 | `data/rows.json`, `data/rows.csv`, `data/predictions.json`, `tools/build_master.py` |
+| S5 | Investigate every available market (win, handicap, totals) per sport; document blanks with reason on Flagged page | unclaimed | arena/77af9500-olbg4 | `build_site.py`, `data/rows.json`, `docs/methodology.html`, `flagged.html` |
+| S6 | Rebuild GH Pages site: clean landing + subpages by category, simple dashboard tables, analysis & findings, no broken links | unclaimed | arena/77af9500-olbg4 | `index.html`, `docs/**`, `board/**`, `sports/**`, `picks.html`, `markets.html`, `flagged.html`, `sources.html`, `methodology.html`, `audit.html`, `assets/**`, `.nojekyll`, `_config.yml`, `.github/workflows/pages.yml` |
+| S7 | Final integration: run all gates, PR to main, merge, confirm Pages deploy, record result | unclaimed | arena/77af9500-olbg4 | `COORDINATION.md` |
+
+**Shared-file claim (final integration per brief):** this session claims `index.html`, `README.md`, `COORDINATION.md`, `.github/workflows/pages.yml`, `data/rows.json`, `data/rows.csv`, `build_site.py` for the above remediation. Other sessions' `session-*/`, `data/board_k/*`, `docs/desk/*`, `board/*` generative outputs are not hand-edited; they are regenerated via their owners' scripts.
+
