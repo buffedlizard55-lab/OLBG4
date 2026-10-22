@@ -3132,6 +3132,39 @@ Session `arena/c4fda15e-olbg4` · branch `arena/c4fda15e-olbg4` (Arena fixes the
 - **Integration request (not applied — root files belong to the integration boards):** add a root-nav link to `session-c4fda15e/index.html` ("OLBG live listing, reconciled") at the next integration.
 - **PR / merge / Pages:** https://github.com/buffedlizard55-lab/OLBG4/pull/90 — **MERGED** `arena/c4fda15e-olbg4` → `main` at 2026-10-22T03:51:47Z (merge commit `f6e1204`). PR checks `audit`, `build-and-validate`, `verify` all passed before merge; post-merge on `main`: Validate ✓, Verify integrated dashboard ✓, Repository-wide publication audit ✓, "Deploy OLBG4 to GitHub Pages" ✓ and "pages build and deployment" ✓ (Pages API: `built`, commit `f6e1204`, 03:52:18Z). Live read-back over HTTPS: https://buffedlizard55-lab.github.io/OLBG4/session-c4fda15e/high.html served the merged High-picks page. Follow-up PR records this result (and a cosmetic date-label fix).
 
+---
+
+## Board AB — session `arena/1695b749-olbg4` (fresh 22–28 Oct verified desk, own lines, in-window High write-ups, clean dashboard, final integration)
+
+Session `arena/1695b749-olbg4` · branch `arena/1695b749-olbg4` (Arena fixes the branch name, so files are keyed to the session id instead of a `session-<id>/<task>` branch) · claimed **2026-10-22T07:25Z** UTC · **status: in progress**
+
+**Why this board.** At claim time `main` carried 24 session desks (Boards A–Y) but the root landing page had grown into a link list, and
+the most recent desks each priced only one or two leagues. No active board was doing a *single* integration pass that (a) rebuilds a
+current verified desk for the 22–28 Oct window from byte-verified official payloads, (b) originates all three markets from those payloads,
+(c) writes the ≥30-word High predictions that actually sit inside the requested −250…+10,000 band, and (d) republishes the root
+navigation as a clean dashboard. This board does exactly that and edits nothing owned by another board.
+
+| ID | Task | Status | Owner | File scope (mine only) |
+|---|---|---|---|---|
+| AB1 | Rebuild a verified 22–28 Oct fixture desk (NHL + MLB + LoL Esports) by re-parsing the committed official payloads, re-checking every SHA-256 against the capture manifest, and live spot-checking a sample of rows against the official endpoints | in progress | arena/1695b749-olbg4 | `scripts/session-1695b749/`, `data/session-1695b749/` |
+| AB2 | Originate moneyline, handicap and total for every fixture whose official numeric inputs were captured; publish the model and the input URL per row; leave unpriced sports blank and flagged | unclaimed | arena/1695b749-olbg4 | `data/session-1695b749/` |
+| AB3 | Grade every selection Low/Medium/High and write unique ≥30-word human predictions for every High pick whose originated fair price sits inside −250…+10,000 | unclaimed | arena/1695b749-olbg4 | `data/session-1695b749/` |
+| AB4 | Publish a clean dashboard: landing page, per-sport pages, all-fixtures table, picks, markets, verification register, coverage, sources, methodology, Flagged for Review | unclaimed | arena/1695b749-olbg4 | `session-1695b749/**` |
+| AB5 | Final integration: add the desk to root navigation, keep every existing board link, run every repository gate, PR to `main`, merge, confirm Pages, record the result here | unclaimed | arena/1695b749-olbg4 | `index.html` (additive nav/pointer), `COORDINATION.md` |
+
+**Claim boundary.** This board writes only `session-1695b749/**`, `data/session-1695b749/**`, `scripts/session-1695b749/**`, an additive
+pointer in root `index.html`, and appends to this file. Every other `session-*/`, `data/session-*/`, `data/master*.json`, `board/**`,
+`docs/**`, `README.md` and all generators are read-only. Findings that need another owner's file are logged here as requests.
+
+**Evidence base and access constraint.** The sandbox shell reaches only GitHub/npm/PyPI hosts, so official pages are read with the
+agent's page-fetch tool and stored with URL + UTC timestamp + SHA-256. For the bulk of the data this board re-parses the committed
+official payloads already in the repo (`data/session-e5f2dad3/raw/**`, captured 2026-10-22T02:59–04:41Z, SHA-256 manifest) and re-derives
+every published value from those bytes in this session, so the desk is reproducible offline and each row's provenance chain is checkable.
+OLBG is used as the listing/taxonomy source only; no OLBG tip, percentage or comment is reproduced.
+
+### AB working log
+- 2026-10-22T07:25Z — board claimed; scope pinned; claim committed and pushed before any other work.
+
 ## Board 4a73430b — session `arena/4a73430b-olbg4` (2026-10-22 fresh OLBG reverse-engineering + own lines + focus-window High picks)
 
 Session: `arena/4a73430b-olbg4` | Branch: `arena/4a73430b-olbg4` | Claimed: 2026-10-22 UTC
@@ -3161,3 +3194,5 @@ Session: `arena/4a73430b-olbg4` | Branch: `arena/4a73430b-olbg4` | Claimed: 2026
 - **Verification performed:** `scripts/session-4a73430b/verify.py` PASS (window maths re-derived, >=30w unique predictions with obvious selection, no invented fixture IDs vs master, scope, local links); `BOARD_DIR=board tools/verify_master.py` OK; `scripts/audit_publication.py --check` 0 broken / 0 stale (audit artifacts regenerated — generated files only, required by audit workflow); `python3 -m unittest discover -s audit` OK; `pipeline.selftest` pass; all session pages HTTP 200 locally.
 - **Integration request (not applied — root files belong to integration generator):** add root-nav/README pointer to `session-4a73430b/index.html` ("Board 4a73430b fresh desk, 22 Oct") at next integration.
 - **Status:** X1-X6 done. PR/merge/Pages record appended below after merge.
+
+- 2026-10-22 UTC — `4a73430b` — merge note: `main` advanced during this board (PR #92, Board AB `arena/1695b749-olbg4`). Merged `origin/main` into `arena/4a73430b-olbg4`; only `COORDINATION.md` conflicted. Resolved by keeping both boards' sections verbatim, no work discarded either side. Board AB (96 priced fixtures, root pointer) and this board (164-fixture canonical re-verification) are different scopes/inputs; count differences reflect that, not a conflict.

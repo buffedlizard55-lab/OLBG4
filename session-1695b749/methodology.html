@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · OLBG4 Board AB</title>
+<meta name="description" content="Verified fixtures, originated lines and high-confidence picks for Method — every row carries an official source link.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><b>OLBG4</b><span>Board AB · verified line desk · 22 Oct – 2 Nov 2026</span></a>
+  <nav class="main"><a class="" href="index.html">Dashboard</a><a class="" href="picks.html">High-confidence picks</a><a class="" href="entries.html">All fixtures</a><a class="" href="markets.html">Markets &amp; prices</a><a class="" href="verification.html">Verification register</a><a class="" href="coverage.html">Coverage</a><a class="active" href="methodology.html">Method</a><a class="" href="sources.html">Sources</a><a class="" href="flagged.html">Flagged for review</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Method</h1>
+<p class="lede">A short, checkable description of how every number on this site was produced. If a step is not described here, it was not done.</p>
+<h2>The sequence</h2>
+<ol>
+<li><strong>Fixture list.</strong> The 22 October – 2 November 2026 window was read from the official league payloads (NHL schedule API for each day,
+MLB Stats API for the World Series, Riot's LoL Esports schedule). OLBG's live listing supplies the wider in-scope fixture list and is carried as listing only.</li>
+<li><strong>Provenance.</strong> Every payload is committed byte-for-byte with its URL, HTTP status, capture timestamp and SHA-256. The build recomputes
+each hash and refuses to run on a mismatch. Five additional pages were read live by this session and are listed on <a href="sources.html">Sources</a>.</li>
+<li><strong>Inputs.</strong> Only official fields: points, games played, wins/losses, goals or runs for and against, home/road splits, last-ten and streak.
+Those exact field values are printed in the <a href="verification.html">verification register</a> for every fixture.</li>
+<li><strong>Model.</strong> Strengths come from shrunk official win/points percentages with a goal-difference term; the moneyline is a logistic function of
+the strength difference plus a fixed home edge; totals are a blend of official scoring rates with the league average, priced as a Poisson sum; the handicap
+is the probability of a two-goal (or two-run) margin from a Skellam distribution. Parameters are listed on <a href="markets.html">Markets</a>.</li>
+<li><strong>Prices.</strong> Fair price = 1 / p. Offered price = fair × (1 − 4%). Two-way books only; the two sides sum to 1 before the margin.</li>
+<li><strong>Grades.</strong> High = p ≥ 0.70 with complete inputs; Medium = 0.60–0.70; Low = below 0.60. A roster-thin side (fewer than 6 NHL games, fewer
+than 3 LoL series) cannot be graded above Low.</li>
+<li><strong>Window.</strong> A pick is "in window" when its <em>fair</em> price is between −250 and +10,000. Because our offered price carries a margin it is
+always shorter than the fair price, so the window is judged on the fair price and both are printed.</li>
+<li><strong>Write-ups.</strong> Only for in-window High selections: one hand-written prediction each, at least 30 words, naming the selection, the clubs, the
+form line, at least one recent result and (where the official leaderboard supports it) a player, with the facts listed underneath.</li>
+</ol>
+<h2>What the model does not do</h2>
+<div class="grid k3">
+  <div class="card"><h3>It does not read prices</h3><p class="small">No bookmaker, exchange or OLBG price enters any calculation. There is therefore no
+  market-calibration step and no "value" claim — these are independent numbers.</p></div>
+  <div class="card"><h3>It does not know team news</h3><p class="small">No injury, suspension, line-up or weather feed was captured. A goaltender or
+  starting-pitcher change is not reflected.</p></div>
+  <div class="card"><h3>It does not extrapolate</h3><p class="small">If an official field is missing, the market is left blank with a reason. Nine LoL fixtures
+  have no map handicap or map total for exactly that reason.</p></div>
+</div>
+<h2>Known limitations</h2>
+<p class="lede">Early season samples are small (8–11 NHL games), so probabilities are deliberately compressed toward 50% and only
+4 of 96 fixtures clear a 70% match-winner grade. MLB strength uses the full 162-game record with no
+starting-pitcher adjustment. LoL series records come from the completed matches in the same schedule payload and use a four-series prior.</p>
+
+</main>
+<footer class="wrap">
+  Board AB · session <code>arena/1695b749-olbg4</code> · every price on this site is our own model output, not a bookmaker quote ·
+  every fixture row links to the official payload it was read from · <a href="flagged.html">Flagged for review</a>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
