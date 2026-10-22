@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quantitative Methodology — Board AE (2026-10-22 12:15 UTC)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-pill">BOARD AE</span>
+        <span>Afternoon Multi-Sport Origination Desk</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary"><a href="index.html" class="">Overview</a><a href="picks.html" class="">High Picks (46)</a><a href="entries.html" class="">All 246 Entries</a><a href="markets.html" class="">4-Market Lines</a><a href="olbg.html" class="">OLBG Analysis</a><a href="review.html" class="">Repo Review</a><a href="verification.html" class="">Verification</a><a href="flagged.html" class="">Flagged (78)</a><a href="methodology.html" class="active">Methodology</a><a href="../index.html" class="">All Boards Hub</a></nav>
+      <div class="odds-toggle" role="group" aria-label="Odds format">
+        <button type="button" data-fmt="both" class="active">Am + Dec</button>
+        <button type="button" data-fmt="am">American</button>
+        <button type="button" data-fmt="dec">Decimal</button>
+      </div>
+    </div>
+    <div class="sport-strip">
+      <div class="sport-strip-inner"><a href="sports/tennis.html" class="sport-chip">Tennis (22)</a><a href="sports/basketball.html" class="sport-chip">Basketball (15)</a><a href="sports/baseball.html" class="sport-chip">Baseball (5)</a><a href="sports/ice-hockey.html" class="sport-chip">Ice Hockey (58)</a><a href="sports/darts.html" class="sport-chip">Darts (17)</a><a href="sports/snooker.html" class="sport-chip">Snooker (6)</a><a href="sports/handball.html" class="sport-chip">Handball (39)</a><a href="sports/volleyball.html" class="sport-chip">Volleyball (16)</a><a href="sports/rugby-union.html" class="sport-chip">Rugby Union (23)</a><a href="sports/rugby-league.html" class="sport-chip">Rugby League (4)</a><a href="sports/cricket.html" class="sport-chip">Cricket (5)</a><a href="sports/esports.html" class="sport-chip">eSports (8)</a><a href="sports/badminton.html" class="sport-chip">Badminton (12)</a><a href="sports/table-tennis.html" class="sport-chip">Table Tennis (2)</a><a href="sports/aussie-rules.html" class="sport-chip">Aussie Rules (9)</a><a href="sports/golf.html" class="sport-chip">Golf (2)</a><a href="sports/motor-racing.html" class="sport-chip">Motor Racing (3)</a><a href="sports/greyhounds.html" class="sport-chip">Greyhounds (11)</a></div>
+    </div>
+  </header>
+  <main class="container">
+    
+    <section class="hero">
+      <div class="eyebrow">Quantitative Origination Specification</div>
+      <h1>Model Architecture, Overround Calibration &amp; Confidence Rules</h1>
+      <p class="lead">
+        Board AE originates independent zero-vig probabilities (<code>&Sigma;p = 1.000000</code>) across Match Winner / 1X2,
+        Handicap / Spread, Match Total Over/Under, and Sport-Specific Derivatives using sport-matched rating, pace, and margin models,
+        enforcing a strict <code>[-250, +10000]</code> American odds ceiling and floor on every High-confidence recommendation.
+      </p>
+    </section>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Sport</th><th>Count</th><th>Pricing Regime</th><th>Governing Source</th></tr></thead>
+        <tbody>
+        <tr>
+          <td><a href="sports/tennis.html"><strong>Tennis</strong></a></td>
+          <td class="mono">22</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.atptour.com/en/scores/current" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/basketball.html"><strong>Basketball</strong></a></td>
+          <td class="mono">15</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.nba.com/games?date=2026-10-22" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/baseball.html"><strong>Baseball</strong></a></td>
+          <td class="mono">5</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.mlb.com/postseason" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/ice-hockey.html"><strong>Ice Hockey</strong></a></td>
+          <td class="mono">58</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/darts.html"><strong>Darts</strong></a></td>
+          <td class="mono">17</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.pdc.tv/tournament/machineseeker-european-championship-1" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/snooker.html"><strong>Snooker</strong></a></td>
+          <td class="mono">6</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.wst.tv/matches/" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/handball.html"><strong>Handball</strong></a></td>
+          <td class="mono">39</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://ehfcl.eurohandball.com/men/2026-27/matches/" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/volleyball.html"><strong>Volleyball</strong></a></td>
+          <td class="mono">16</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.legavolley.it/calendario/?idCampionato=999" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/rugby-union.html"><strong>Rugby Union</strong></a></td>
+          <td class="mono">23</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.unitedrugby.com/fixtures-and-results" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/rugby-league.html"><strong>Rugby League</strong></a></td>
+          <td class="mono">4</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.nrl.com/draw/?competition=121&amp;round=2&amp;season=2026" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/cricket.html"><strong>Cricket</strong></a></td>
+          <td class="mono">5</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.bcci.tv/matches/023cf7d3-6571-4932-997b-cac801ed0b4a/india-women-vs-zimbabwe-women" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/esports.html"><strong>eSports</strong></a></td>
+          <td class="mono">8</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://lolesports.com/en-GB/schedule?leagues=worlds,emea_masters" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/badminton.html"><strong>Badminton</strong></a></td>
+          <td class="mono">12</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/table-tennis.html"><strong>Table Tennis</strong></a></td>
+          <td class="mono">2</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.ittf.com/wp-content/uploads/2026/10/2026_42_SEN_MS.html" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/aussie-rules.html"><strong>Aussie Rules</strong></a></td>
+          <td class="mono">9</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/golf.html"><strong>Golf</strong></a></td>
+          <td class="mono">2</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.pgatour.com/schedule" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/motor-racing.html"><strong>Motor Racing</strong></a></td>
+          <td class="mono">3</td>
+          <td>Zero-Vig Fair + Multiplicative Overround (4 Markets)</td>
+          <td><a href="https://www.formula1.com/en/racing/2026/united-states" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><a href="sports/greyhounds.html"><strong>Greyhounds</strong></a></td>
+          <td class="mono">11</td>
+          <td>WAF Quarantine (Blank)</td>
+          <td><a href="https://www.gbgb.org.uk/racing/results/" target="_blank" rel="noopener">Official Authority ↗</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </main>
+  <footer class="footer">
+    <div>Board AE · Session <code>22ca2e95</code> · Strict Pre-Match Cutoff <code>2026-10-22T12:15:00Z</code> · Capture <code>20261022T121303Z</code> (87 SHA-256 verified files)</div>
+    <div>Zero excluded sports · Every row backed by an official governing-body link · Unconfirmed values kept blank on <a href="flagged.html">Flagged for Review</a></div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

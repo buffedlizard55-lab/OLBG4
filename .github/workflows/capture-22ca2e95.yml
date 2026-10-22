@@ -2,10 +2,6 @@ name: Board AE live capture (22ca2e95)
 
 on:
   workflow_dispatch:
-  push:
-    branches: ["arena/22ca2e95-olbg4"]
-    paths:
-      - "scripts/session-22ca2e95/targets.json"
 
 permissions:
   contents: write
