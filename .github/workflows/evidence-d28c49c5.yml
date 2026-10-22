@@ -5,7 +5,7 @@ on:
     branches: [arena/d28c49c5-olbg4]
     paths: ['scripts/session-d28c49c5/collect.py', '.github/workflows/evidence-d28c49c5.yml']
 permissions:
-  contents: read
+  contents: write
 jobs:
   capture:
     runs-on: ubuntu-latest
@@ -20,3 +20,13 @@ jobs:
         with:
           name: official-evidence-ad
           path: data/session-d28c49c5/
+      - name: Preserve evidence on this session branch only
+        if: github.ref == 'refs/heads/arena/d28c49c5-olbg4'
+        run: |
+          git config user.name "Evidence capture AD"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/session-d28c49c5
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Preserve official AD response bytes [skip ci]"
+          git pull --rebase origin arena/d28c49c5-olbg4
+          git push origin arena/d28c49c5-olbg4
