@@ -101,8 +101,9 @@ def main() -> int:
                 break
             time.sleep(3 + 3 * attempt)
         fname = f"{tid}.{ext_for(ctype, url)}.gz"
-        with gzip.open(os.path.join(out, "raw", fname), "wb", mtime=0) as fh:
-            fh.write(body)
+        with open(os.path.join(out, "raw", fname), "wb") as raw_fh:
+            with gzip.GzipFile(fileobj=raw_fh, mode="wb", mtime=0) as fh:
+                fh.write(body)
         rec.update(final_url=final, status=status, content_type=ctype, bytes=len(body),
                    sha256=hashlib.sha256(body).hexdigest(), file=f"raw/{fname}",
                    fetched_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
