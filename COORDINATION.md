@@ -4,6 +4,24 @@ Four sessions worked this repo in parallel. This file is the merged board: Board
 
 Last board update: 2026-10-22 · Board S2 (`arena/fca9d738-olbg4`, done — 19-pick focus desk, PR #69) · current active boards: **Board V — `arena/f957db05-olbg4`** (verification + high-confidence expansion + integration); **Board U — `arena/e5f2dad3-olbg4`**; **Board T — `arena/4ec1fc72-olbg4`** (live OLBG refresh + own lines + predictions + new dashboard + final integration) · earlier integration owners: `arena/4e9d03cf-olbg4` (Board S1), `arena/77af9500-olbg4` (Board S), `arena/d908be47-olbg4` (Board P), `arena/290a9dba-olbg4` (Board D)
 
+## Board X — session `arena/e1161e0e-olbg4` (2026-10-22 fresh-window refresh + final integration)
+
+Session: `arena/e1161e0e-olbg4` | Branch: `arena/e1161e0e-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| X1 | Fresh fixture capture 23 Oct–5 Nov 2026 for in-scope sports (all OLBG sports except soccer, boxing, UFC/MMA, football/American football, hurling, horse racing, cycling, specials) from official league/tour/federation sources only; OLBG used only for taxonomy cross-check | in progress | arena/e1161e0e-olbg4 | `session-e1161e0e/`, `data/session-e1161e0e/`, `COORDINATION.md` |
+| X2 | Originate own lines (match winner, handicap/spread, totals where verified inputs exist); pick winner + confidence low/medium/high per match; investigate every available market | unclaimed→in progress | arena/e1161e0e-olbg4 | same |
+| X3 | High-confidence focus: picks ≥70% model probability AND inside −250…+10,000 American-odds window; unique human written predictions ≥30 words with verified form/history + obvious selection, source under each | in progress | arena/e1161e0e-olbg4 | same |
+| X4 | GitHub Pages dashboard: landing + per-sport subpages + all-entries table + markets/coverage + Flagged-for-Review; every row carries official source link; unverified values blank + flagged | in progress | arena/e1161e0e-olbg4 | same |
+| X5 | Final integration: line-by-line re-verification, link check, PR to `main`, merge without waiting, confirm Pages deploy, record result here | in progress | arena/e1161e0e-olbg4 | same + PR only |
+
+**Claim boundary.** New non-overlapping deliverable. All existing data, boards, session folders, root `*.html`, generators and workflows are read-only for Board X. Findings needing another owner's file are logged here as integration requests, not applied.
+
+### X working log
+- 2026-10-22 UTC — `e1161e0e` — board claimed; scope `session-e1161e0e/` + `data/session-e1161e0e/`; claim committed and pushed before any other work. Repo audit: canonical `data/master.json` = 317 rows / 312 in-scope / 19 sport labels (cut-off 2026-10-21); newest desks Board W (226 matches, 22 Oct–2 Nov) and Board T (91 rows, 22–28 Oct). Board X refreshes the 23 Oct–5 Nov window so no row published here is already played.
+
+
 
 ## Board S2 — session `arena/fca9d738-olbg4` (2026-10-22 high-confidence odds-window focus + freshness verification)
 
