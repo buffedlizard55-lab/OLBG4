@@ -1,0 +1,1068 @@
+{
+ "schema": "olbg4.board-v.desk-audit/1",
+ "audited": "data/session-4ec1fc72/data.json (Board T desk, merged to main in PR #61)",
+ "auditor": "arena/f957db05-olbg4",
+ "method": "fixture, date and start time compared with this board's official NHL/MLB extracts; rule checks applied to every row; sports without a machine-readable official capture are listed as not independently verifiable rather than assumed correct",
+ "summary": {
+  "rows": 97,
+  "fixtures_confirmed": 52,
+  "not_independently_verifiable": 45,
+  "findings": 51,
+  "high": 2,
+  "priced": 81,
+  "findings_by_kind": {
+   "blank-venue": 49,
+   "outside-window": 2
+  }
+ },
+ "findings": [
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-01",
+   "detail": "venue blank while the official feed publishes it: TD Garden",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-02",
+   "detail": "venue blank while the official feed publishes it: Scotiabank Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-03",
+   "detail": "venue blank while the official feed publishes it: Canadian Tire Centre",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-04",
+   "detail": "venue blank while the official feed publishes it: Prudential Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-05",
+   "detail": "venue blank while the official feed publishes it: PPG Paints Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-06",
+   "detail": "venue blank while the official feed publishes it: UBS Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-07",
+   "detail": "venue blank while the official feed publishes it: Enterprise Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-08",
+   "detail": "venue blank while the official feed publishes it: American Airlines Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-09",
+   "detail": "venue blank while the official feed publishes it: Scotiabank Saddledome",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-10",
+   "detail": "venue blank while the official feed publishes it: Rogers Place",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-11",
+   "detail": "venue blank while the official feed publishes it: Climate Pledge Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-12",
+   "detail": "venue blank while the official feed publishes it: Rogers Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-13",
+   "detail": "venue blank while the official feed publishes it: United Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-23"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-14",
+   "detail": "venue blank while the official feed publishes it: Ball Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-23"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-15",
+   "detail": "venue blank while the official feed publishes it: Xfinity Mobile Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-16",
+   "detail": "venue blank while the official feed publishes it: Prudential Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-17",
+   "detail": "venue blank while the official feed publishes it: TD Garden",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-18",
+   "detail": "venue blank while the official feed publishes it: Canadian Tire Centre",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-19",
+   "detail": "venue blank while the official feed publishes it: PPG Paints Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-20",
+   "detail": "venue blank while the official feed publishes it: Capital One Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-21",
+   "detail": "venue blank while the official feed publishes it: Nationwide Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-22",
+   "detail": "venue blank while the official feed publishes it: Enterprise Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-23",
+   "detail": "venue blank while the official feed publishes it: Rogers Place",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-24",
+   "detail": "venue blank while the official feed publishes it: Delta Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-25",
+   "detail": "venue blank while the official feed publishes it: Scotiabank Saddledome",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-26",
+   "detail": "venue blank while the official feed publishes it: Climate Pledge Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-27",
+   "detail": "venue blank while the official feed publishes it: United Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-28",
+   "detail": "venue blank while the official feed publishes it: American Airlines Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-29",
+   "detail": "venue blank while the official feed publishes it: Princess Auto Stadium",
+   "evidence": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-30",
+   "detail": "venue blank while the official feed publishes it: Bridgestone Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-31",
+   "detail": "venue blank while the official feed publishes it: Rogers Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "kind": "outside-window",
+   "row": "T-NHL-32",
+   "detail": "published price 1.395 (-253) is outside the requested -250..+10,000 window",
+   "evidence": "https://www.nhl.com/schedule/2026-10-26"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-32",
+   "detail": "venue blank while the official feed publishes it: Madison Square Garden",
+   "evidence": "https://www.nhl.com/schedule/2026-10-26"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-33",
+   "detail": "venue blank while the official feed publishes it: Scotiabank Saddledome",
+   "evidence": "https://www.nhl.com/schedule/2026-10-26"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-34",
+   "detail": "venue blank while the official feed publishes it: Rogers Place",
+   "evidence": "https://www.nhl.com/schedule/2026-10-26"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-35",
+   "detail": "venue blank while the official feed publishes it: Xfinity Mobile Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-36",
+   "detail": "venue blank while the official feed publishes it: Lenovo Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-37",
+   "detail": "venue blank while the official feed publishes it: United Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-38",
+   "detail": "venue blank while the official feed publishes it: Enterprise Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-39",
+   "detail": "venue blank while the official feed publishes it: Bridgestone Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-40",
+   "detail": "venue blank while the official feed publishes it: American Airlines Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-41",
+   "detail": "venue blank while the official feed publishes it: Canada Life Centre",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-42",
+   "detail": "venue blank while the official feed publishes it: Delta Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-43",
+   "detail": "venue blank while the official feed publishes it: T-Mobile Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-44",
+   "detail": "venue blank while the official feed publishes it: Honda Center",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-45",
+   "detail": "venue blank while the official feed publishes it: SAP Center at San Jose",
+   "evidence": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-46",
+   "detail": "venue blank while the official feed publishes it: Capital One Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-28"
+  },
+  {
+   "kind": "outside-window",
+   "row": "T-NHL-47",
+   "detail": "published price 1.252 (-397) is outside the requested -250..+10,000 window",
+   "evidence": "https://www.nhl.com/schedule/2026-10-28"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-47",
+   "detail": "venue blank while the official feed publishes it: Rogers Place",
+   "evidence": "https://www.nhl.com/schedule/2026-10-28"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-48",
+   "detail": "venue blank while the official feed publishes it: Ball Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-28"
+  },
+  {
+   "kind": "blank-venue",
+   "row": "T-NHL-49",
+   "detail": "venue blank while the official feed publishes it: Climate Pledge Arena",
+   "evidence": "https://www.nhl.com/schedule/2026-10-28"
+  }
+ ],
+ "verified": [
+  {
+   "row": "T-NHL-01",
+   "fixture": "Boston Bruins v Nashville Predators",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-22T23:00:00Z",
+   "venue_official": "TD Garden",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-02",
+   "fixture": "Toronto Maple Leafs v New York Rangers",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-22T23:00:00Z",
+   "venue_official": "Scotiabank Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-03",
+   "fixture": "Ottawa Senators v San Jose Sharks",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-22T23:00:00Z",
+   "venue_official": "Canadian Tire Centre",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-04",
+   "fixture": "New Jersey Devils v Anaheim Ducks",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-22T23:00:00Z",
+   "venue_official": "Prudential Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-05",
+   "fixture": "Pittsburgh Penguins v Florida Panthers",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-22T23:00:00Z",
+   "venue_official": "PPG Paints Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-06",
+   "fixture": "New York Islanders v Los Angeles Kings",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-22T23:30:00Z",
+   "venue_official": "UBS Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-07",
+   "fixture": "St. Louis Blues v Vegas Golden Knights",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-23T00:00:00Z",
+   "venue_official": "Enterprise Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-08",
+   "fixture": "Dallas Stars v Winnipeg Jets",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-23T00:00:00Z",
+   "venue_official": "American Airlines Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-09",
+   "fixture": "Calgary Flames v Minnesota Wild",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-23T01:00:00Z",
+   "venue_official": "Scotiabank Saddledome",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-10",
+   "fixture": "Edmonton Oilers v Carolina Hurricanes",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-23T01:00:00Z",
+   "venue_official": "Rogers Place",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-11",
+   "fixture": "Seattle Kraken v Utah Mammoth",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-23T02:00:00Z",
+   "venue_official": "Climate Pledge Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-12",
+   "fixture": "Vancouver Canucks v Detroit Red Wings",
+   "date": "2026-10-22",
+   "official_start_utc": "2026-10-23T02:00:00Z",
+   "venue_official": "Rogers Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-22"
+  },
+  {
+   "row": "T-NHL-13",
+   "fixture": "Chicago Blackhawks v Montreal Canadiens",
+   "date": "2026-10-23",
+   "official_start_utc": "2026-10-24T00:00:00Z",
+   "venue_official": "United Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-23"
+  },
+  {
+   "row": "T-NHL-14",
+   "fixture": "Colorado Avalanche v Tampa Bay Lightning",
+   "date": "2026-10-23",
+   "official_start_utc": "2026-10-24T01:00:00Z",
+   "venue_official": "Ball Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-23"
+  },
+  {
+   "row": "T-NHL-15",
+   "fixture": "Philadelphia Flyers v Anaheim Ducks",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T17:00:00Z",
+   "venue_official": "Xfinity Mobile Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-16",
+   "fixture": "New Jersey Devils v Los Angeles Kings",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T19:30:00Z",
+   "venue_official": "Prudential Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-17",
+   "fixture": "Boston Bruins v San Jose Sharks",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T23:00:00Z",
+   "venue_official": "TD Garden",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-18",
+   "fixture": "Ottawa Senators v New York Rangers",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T23:00:00Z",
+   "venue_official": "Canadian Tire Centre",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-19",
+   "fixture": "Pittsburgh Penguins v Nashville Predators",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T23:00:00Z",
+   "venue_official": "PPG Paints Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-20",
+   "fixture": "Washington Capitals v Buffalo Sabres",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T23:00:00Z",
+   "venue_official": "Capital One Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-21",
+   "fixture": "Columbus Blue Jackets v Vegas Golden Knights",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T23:00:00Z",
+   "venue_official": "Nationwide Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-22",
+   "fixture": "St. Louis Blues v Carolina Hurricanes",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T23:00:00Z",
+   "venue_official": "Enterprise Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-23",
+   "fixture": "Edmonton Oilers v Toronto Maple Leafs",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-24T23:00:00Z",
+   "venue_official": "Rogers Place",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-24",
+   "fixture": "Utah Mammoth v Tampa Bay Lightning",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-25T01:00:00Z",
+   "venue_official": "Delta Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-25",
+   "fixture": "Calgary Flames v Detroit Red Wings",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-25T02:00:00Z",
+   "venue_official": "Scotiabank Saddledome",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-26",
+   "fixture": "Seattle Kraken v Minnesota Wild",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-25T02:00:00Z",
+   "venue_official": "Climate Pledge Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-24"
+  },
+  {
+   "row": "T-NHL-27",
+   "fixture": "Chicago Blackhawks v Florida Panthers",
+   "date": "2026-10-25",
+   "official_start_utc": "2026-10-25T19:00:00Z",
+   "venue_official": "United Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "row": "T-NHL-28",
+   "fixture": "Dallas Stars v New York Islanders",
+   "date": "2026-10-25",
+   "official_start_utc": "2026-10-25T22:00:00Z",
+   "venue_official": "American Airlines Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "row": "T-NHL-29",
+   "fixture": "Winnipeg Jets v Montreal Canadiens",
+   "date": "2026-10-25",
+   "official_start_utc": "2026-10-25T23:00:00Z",
+   "venue_official": "Princess Auto Stadium",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "row": "T-NHL-30",
+   "fixture": "Nashville Predators v Colorado Avalanche",
+   "date": "2026-10-25",
+   "official_start_utc": "2026-10-26T00:00:00Z",
+   "venue_official": "Bridgestone Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "row": "T-NHL-31",
+   "fixture": "Vancouver Canucks v Minnesota Wild",
+   "date": "2026-10-25",
+   "official_start_utc": "2026-10-26T02:00:00Z",
+   "venue_official": "Rogers Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-25"
+  },
+  {
+   "row": "T-NHL-32",
+   "fixture": "New York Rangers v Los Angeles Kings",
+   "date": "2026-10-26",
+   "official_start_utc": "2026-10-26T23:00:00Z",
+   "venue_official": "Madison Square Garden",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-26"
+  },
+  {
+   "row": "T-NHL-33",
+   "fixture": "Calgary Flames v Toronto Maple Leafs",
+   "date": "2026-10-26",
+   "official_start_utc": "2026-10-27T00:30:00Z",
+   "venue_official": "Scotiabank Saddledome",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-26"
+  },
+  {
+   "row": "T-NHL-34",
+   "fixture": "Edmonton Oilers v Detroit Red Wings",
+   "date": "2026-10-26",
+   "official_start_utc": "2026-10-27T01:30:00Z",
+   "venue_official": "Rogers Place",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-26"
+  },
+  {
+   "row": "T-NHL-35",
+   "fixture": "Philadelphia Flyers v Columbus Blue Jackets",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-27T23:00:00Z",
+   "venue_official": "Xfinity Mobile Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-36",
+   "fixture": "Carolina Hurricanes v Boston Bruins",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T00:00:00Z",
+   "venue_official": "Lenovo Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-37",
+   "fixture": "Chicago Blackhawks v Los Angeles Kings",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T00:00:00Z",
+   "venue_official": "United Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-38",
+   "fixture": "St. Louis Blues v Montreal Canadiens",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T00:00:00Z",
+   "venue_official": "Enterprise Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-39",
+   "fixture": "Nashville Predators v New York Islanders",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T00:00:00Z",
+   "venue_official": "Bridgestone Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-40",
+   "fixture": "Dallas Stars v New Jersey Devils",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T00:00:00Z",
+   "venue_official": "American Airlines Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-41",
+   "fixture": "Winnipeg Jets v Florida Panthers",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T00:00:00Z",
+   "venue_official": "Canada Life Centre",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-42",
+   "fixture": "Utah Mammoth v Minnesota Wild",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T01:00:00Z",
+   "venue_official": "Delta Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-43",
+   "fixture": "Vegas Golden Knights v Ottawa Senators",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T02:00:00Z",
+   "venue_official": "T-Mobile Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-44",
+   "fixture": "Anaheim Ducks v Vancouver Canucks",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T02:00:00Z",
+   "venue_official": "Honda Center",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-45",
+   "fixture": "San Jose Sharks v Buffalo Sabres",
+   "date": "2026-10-27",
+   "official_start_utc": "2026-10-28T02:30:00Z",
+   "venue_official": "SAP Center at San Jose",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-27"
+  },
+  {
+   "row": "T-NHL-46",
+   "fixture": "Washington Capitals v Philadelphia Flyers",
+   "date": "2026-10-28",
+   "official_start_utc": "2026-10-28T23:30:00Z",
+   "venue_official": "Capital One Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-28"
+  },
+  {
+   "row": "T-NHL-47",
+   "fixture": "Edmonton Oilers v Calgary Flames",
+   "date": "2026-10-28",
+   "official_start_utc": "2026-10-29T00:30:00Z",
+   "venue_official": "Rogers Place",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-28"
+  },
+  {
+   "row": "T-NHL-48",
+   "fixture": "Colorado Avalanche v New Jersey Devils",
+   "date": "2026-10-28",
+   "official_start_utc": "2026-10-29T01:00:00Z",
+   "venue_official": "Ball Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-28"
+  },
+  {
+   "row": "T-NHL-49",
+   "fixture": "Seattle Kraken v Toronto Maple Leafs",
+   "date": "2026-10-28",
+   "official_start_utc": "2026-10-29T02:00:00Z",
+   "venue_official": "Climate Pledge Arena",
+   "desk_venue": "",
+   "source": "https://www.nhl.com/schedule/2026-10-28"
+  },
+  {
+   "row": "T-MLB-1",
+   "fixture": "Milwaukee Brewers v Tampa Bay Rays",
+   "date": "2026-10-23",
+   "official_start_utc": "2026-10-24T00:00:00Z",
+   "venue_official": "American Family Field",
+   "desk_venue": "American Family Field, Milwaukee",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-04&gameType=F,W&hydrate=team,venue"
+  },
+  {
+   "row": "T-MLB-2",
+   "fixture": "Milwaukee Brewers v Tampa Bay Rays",
+   "date": "2026-10-24",
+   "official_start_utc": "2026-10-25T00:00:00Z",
+   "venue_official": "American Family Field",
+   "desk_venue": "American Family Field, Milwaukee",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-04&gameType=F,W&hydrate=team,venue"
+  },
+  {
+   "row": "T-MLB-3",
+   "fixture": "Tampa Bay Rays v Milwaukee Brewers",
+   "date": "2026-10-26",
+   "official_start_utc": "2026-10-27T00:00:00Z",
+   "venue_official": "Tropicana Field",
+   "desk_venue": "Tropicana Field, St. Petersburg",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-04&gameType=F,W&hydrate=team,venue"
+  }
+ ],
+ "unverifiable": [
+  {
+   "row": "T-NBA-01",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-02",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-03",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-04",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-05",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-06",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-07",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-08",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-09",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-10",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-11",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-12",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-13",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-14",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-15",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-16",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-17",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-18",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-19",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-20",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-21",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-22",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-23",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-24",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-25",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-26",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-27",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-28",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-NBA-29",
+   "sport": "Basketball",
+   "why": "no machine-readable official capture for this sport in this session",
+   "source": "https://www.nba.com/schedule?date=2026-10-23"
+  },
+  {
+   "row": "T-DARTS-01",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-02",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-03",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-04",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-05",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-06",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-07",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-08",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-09",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-10",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-11",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-12",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-13",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-14",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-15",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  },
+  {
+   "row": "T-DARTS-16",
+   "sport": "Darts",
+   "why": "official PDC page is not a fixture table; only the published schedule article was used",
+   "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+  }
+ ]
+}
