@@ -2667,3 +2667,46 @@ brief: on a collision, log it rather than silently discarding another session's 
 
 **Access constraint (unchanged from Boards B/R):** the interactive sandbox has no general HTTPS egress. Official pages are therefore captured by `scripts/session-e5f2dad3/collect.py` running on a GitHub Actions runner (open egress), which writes the exact bytes plus the URL, HTTP status, byte count, fetch timestamp and SHA-256 into the repository. Parsing happens only against those committed bytes, so every published value is reproducible from the manifest.
 
+
+### Board U completion record (2026-10-22, session `arena/e5f2dad3-olbg4`)
+
+**Published output:** [`session-e5f2dad3/index.html`](session-e5f2dad3/index.html) — a dashboard with 10 top-level pages
+(Dashboard, All matches, Our lines & picks, High-confidence write-ups, Markets, Verification register, Analysis,
+Flagged for review, Sources, Method) plus 11 per-sport pages. Machine-readable data lives in `data/session-e5f2dad3/`:
+`board.json` (fixtures, markets, picks, flags), `olbg_listing.json` (reverse-engineered OLBG feed),
+`predictions.json`, and `manifest.json` (every captured URL with HTTP status, byte count, timestamp and SHA-256).
+
+| Metric | Result |
+|---|---|
+| Matches published | **226** (22 Oct – 2 Nov 2026) across **11 sports** |
+| Officially confirmed | **123** — 82 NHL, 7 MLB, 34 LoL Esports; participants, date, UTC start time and venue read from the league's own endpoint |
+| Reverse-engineered listing | **119 OLBG events** across 12 sports (63 on 22 Oct); **103** published as listing-only rows, blank venue/market/pick and flagged |
+| Outright/futures separated | **15** OLBG outright cards kept out of the match table |
+| Own lines originated | **90** matches: moneyline for all; puck line ±1.5 + total for the 82 NHL rows; run line ±1.5 + total for the 7 MLB rows; series moneyline for the one priced esports match |
+| Confidence | **4 High / 26 Medium / 60 Low**; High = p ≥ 0.68 and both sides ≥ 6 verified games |
+| High picks inside −250…+10,000 | **3** (1.45 / −222, 1.42 / −238, 1.40 / −250); the fourth High row is 0.768 at 1.30, shorter than −250, so it is excluded and flagged |
+| Predictions | **3** unique write-ups, 75–81 words, each naming the selection, quoting official form (record, points, goals for/against, L10, home/road splits, streak) and listing every fact URL |
+| Verification | `python3 scripts/session-e5f2dad3/verify.py` → **9,104 assertions, all passed**; includes hash re-check of every source file, two-way book sums, pick/band rules, prediction uniqueness (3-gram Jaccard < 0.25), broken-link scan and table row counts |
+| Repo gates | `python3 scripts/audit_publication.py --check` → 10,701 local targets, **0 broken, 0 stale**; `python3 tools/build_master.py` + `BOARD_DIR=board python3 tools/verify_master.py` → OK; `python3 -m pipeline.selftest` → all passed |
+| Root pointer | Root `index.html` and the generated `board/index.html` carry an additive Board U callout; the callout in `board/` is produced by `tools/build_master_site.py` from the committed Board U data, so the Pages staleness gate stays deterministic |
+
+**Sources (official only, committed byte-for-byte):** `api-web.nhle.com` schedule (22 Oct – 2 Nov) and standings
+(20–22 Oct); `statsapi.mlb.com` schedule and standings; Riot `esports-api.lolesports.com` schedule;
+`www.olbg.com` sport pages for the reverse-engineering listing only. Blocked endpoints are recorded with their exact URL
+and status: NBA CDN/Stats API (403 / connection reset), ATP Tour (403), ICC fixtures route (404), ECB (404),
+URC (404), EHF (404), GBGB (no response), AFL API (401), WTT and BWF match pages (JavaScript shells).
+
+**Irregularities published on [`session-e5f2dad3/flagged.html`](session-e5f2dad3/flagged.html):**
+1. The −250 floor and the “over 70%” rule can only both hold in the 68.0–71.4% band; the board states this explicitly,
+   publishes High only inside the window, and lists the stronger-but-shorter 0.768 pick as excluded rather than
+   relabelling it.
+2. Eight sports have no originated market because no official numeric input could be captured. The matches are still
+   listed, priced nowhere, and flagged — never filled with estimates.
+3. OLBG renders kick-off times in the visitor's timezone; the parser publishes the schema.org `startDate` UTC value and
+   keeps the visible text verbatim.
+4. OLBG lists only events with at least one tip, so absence from the listing is not evidence a fixture is absent.
+5. Board-name collision with `arena/cdf25c13-olbg4` (also "Board T"), logged above; this board renumbered to U and kept
+   its files separate.
+6. The 123 officially confirmed rows are a subset of the 226 published matches; the other 103 are explicitly unverified.
+
+**PR / merge:** recorded below once the pull request is merged and Pages is confirmed.
