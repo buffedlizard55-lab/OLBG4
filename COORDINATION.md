@@ -2922,7 +2922,18 @@ is stored with the exact URL it came from. Sources that cannot be retrieved are 
 
 **Copy correction after first deploy (2026-10-22).** Five write-ups carried details the official pages do not print — a coach's name, "eight tries", "five tries", "conceded a single try" and "Swansea" for St Helen's. All five were rewritten to quote only the verified scorelines, the site was rebuilt (`9 High, links ok`) and redeployed under PR #69. Recorded because it is exactly the class of unverified detail the brief forbids, and it was caught only on a post-deploy read-back.
 
-**Pull request and deploy (recorded after merge).**
+**Final state (recorded 2026-10-22T03:10Z).**
+
+| Item | Result |
+|---|---|
+| PR #64 | merged 2026-10-22T02:59:30Z, merge commit `9ab0472`, checks audit / build-and-validate / verify all pass |
+| PR #68 | merged 2026-10-22T03:03:15Z, merge commit `bddc150` — record-keeping only |
+| PR #70 | merged 2026-10-22T03:05:57Z — unverified detail removed from five write-ups |
+| Pages deploy | run `39714986585` (merge of #70) completed **success**; the run for #68 was cancelled by Pages concurrency behind another session's merge, and #70's run deployed the combined `main` |
+| Live read-back | `https://buffedlizard55-lab.github.io/OLBG4/session-c92c927c/picks.html` served the corrected write-ups after deploy (verified with a cache-busting query) — "Edinburgh therefore arrive with a seventeen-point road win behind them…", no coach name, no try counts |
+| Branch state | `arena/c92c927c-olbg4` merged; no unmerged commits left behind |
+
+**Pull request and deploy (first merge record).**
 
 | Item | Result |
 |---|---|
