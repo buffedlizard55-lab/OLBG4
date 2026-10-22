@@ -607,7 +607,7 @@ OLBG appears in this repo only as the source of the sport list the brief defines
 <p class="lede">{len(srows)} verified fixtures &middot; {len(hi)} graded High &middot; every price originated by this desk, every row linked to its official page.</p></section>
 {table(["Date", "Fixture", "Competition", "Our line", "American", "Pick", "Grade", "Source"], trows, "tight")}
 <section class="panel"><h2>Notes for this sport</h2>
-<p class="tiny">{esc({ 'Ice Hockey': 'Moneyline includes overtime. Totals and puck lines come from a Poisson goals model on each club points percentage and goals-for/against rate; two rows use the documented points-percentage fallback because goals data was not published.',
+<p class="tiny">{esc({ 'Ice Hockey': 'Moneyline includes overtime. Totals and puck lines come from a Poisson goals model on the goals-for and goals-against rate of each club; two rows use the documented points-percentage fallback because goals data was not published.',
     'Baseball': 'World Series Games 1-3 only: the official MLB API lists no other major-league fixtures in the window. Log5 on 162-game win percentages gives a near coin-flip, which is why nothing here is graded High.',
     'Rugby Union': 'Round 4 fixtures with Round 3 results as the only verified form. Match totals are blank by rule; the handicap is originated and labelled.',
     'Rugby League': 'World Cup Round 2 with Round 1 results as the only verified form. Kick-off times are reproduced exactly; the official page states no timezone.',

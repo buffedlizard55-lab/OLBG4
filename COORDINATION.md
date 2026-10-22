@@ -2796,7 +2796,7 @@ Machine-readable output: `data/session-c92c927c/{fixtures,team_stats,lines,predi
 | Match-winner picks | 30 of 30 rows priced and picked |
 | Confidence | 9 High / 8 Medium / 13 Low |
 | High picks inside −250…+10,000 | **9 of 9** (asserted in the build; all quoted at 1.40–1.42) |
-| High write-ups | 9 original, 96–124 words each, max 3-gram Jaccard 0.18 (asserted ≤ 0.35) |
+| High write-ups | 9 original, 66–84 words each, max 3-gram Jaccard 0.18 (asserted ≤ 0.35) |
 | Markets | moneyline 30 originated; handicap 26 originated / 4 blank; totals 13 originated / 17 blank — every blank carries a reason on the row and on the flagged page |
 | Values filled without a source | 0 |
 
@@ -2919,6 +2919,8 @@ is stored with the exact URL it came from. Sources that cannot be retrieved are 
 | Root integration | Additive only: one nav link, one landing banner and a README section in `index.html` / `README.md`; both desks are linked, no other board's files touched |
 | Merge | `git fetch origin main` + `git merge` (never rebase). One conflict, in this file, because a second session claimed the same board letter; resolved by keeping **both** blocks and logging the duplicate claim |
 - **PR / merge / Pages (Board T final):** PR https://github.com/buffedlizard55-lab/OLBG4/pull/61 — checks `audit`, `build-and-validate`, `verify` all PASS; **MERGED** to `main` 2026-10-22T02:54:51Z, merge commit `e6ab5043b54098abf9ecd3d822cda6fab21c4263`. GitHub Pages: `Deploy OLBG4 to GitHub Pages` run `39713967508` completed **success**; Pages API reports `status: built` from `main`. Live verification 2026-10-22: https://buffedlizard55-lab.github.io/OLBG4/session-4ec1fc72/picks.html returned the 2 High picks (Minnesota -223, Edmonton -229) with 111/118-word predictions. Board T tasks T1-T4: **done** (flagged items are `needs review`, non-blocking per brief).
+
+**Copy correction after first deploy (2026-10-22).** Five write-ups carried details the official pages do not print — a coach's name, "eight tries", "five tries", "conceded a single try" and "Swansea" for St Helen's. All five were rewritten to quote only the verified scorelines, the site was rebuilt (`9 High, links ok`) and redeployed under PR #69. Recorded because it is exactly the class of unverified detail the brief forbids, and it was caught only on a post-deploy read-back.
 
 **Pull request and deploy (recorded after merge).**
 
