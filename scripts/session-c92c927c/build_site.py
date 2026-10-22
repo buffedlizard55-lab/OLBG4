@@ -136,6 +136,17 @@ def table(headers, rows, cls=""):
     return f'<div class="tablewrap"><table class="{cls}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
 
 
+
+def _src(value):
+    """Link helper: official URLs stay absolute; repo paths (with a slash) go up one level;
+    sibling site pages stay in the same directory."""
+    if value.startswith("http") or value.startswith("../"):
+        return value
+    if "/" in value or value in ("README.md", "COORDINATION.md"):
+        return "../" + value
+    return value
+
+
 # ------------------------------------------------------------------ validation
 def jaccard_3gram(a, b):
     def grams(t):
@@ -467,7 +478,7 @@ This is the line-by-line check: if a row is not here, it is not published.</p></
     # ---------------- flagged
     items_html = []
     for f in flags:
-        links = "".join(f'<a href="{s if s.startswith("http") else "../" + s}">{esc(s)}</a> ' for s in f["sources"])
+        links = "".join(f'<a href="{_src(s)}">{esc(s)}</a> ' for s in f["sources"])
         items_html.append(f"""<article class="flag {esc(f['severity'])}" id="{f['id'].lower()}">
 <h3>{f['id']} &middot; {esc(f['title'])} <span class="pill low">{esc(f['severity'])}</span></h3>
 <p>{esc(f['what'])}</p><p class="tiny">Sources: {links}</p></article>""")
@@ -485,7 +496,7 @@ but they are never hidden either: each one names what is missing and links the p
     pages["flagged.html"] = page("Flagged for review", body, "flagged.html")
 
     # ---------------- analysis
-    rrows = [[r["id"], esc(r["claim"]), esc(r["detail"]), f'<a href="{r["source"] if r["source"].startswith("http") else "../" + r["source"]}">link</a>',
+    rrows = [[r["id"], esc(r["claim"]), esc(r["detail"]), f'<a href="{_src(r["source"])}">link</a>',
               f'<span class="pill {("high" if r["status"] == "confirmed" else "low")}">{esc(r["status"])}</span>'] for r in review]
     dist = Counter(r["confidence"] for r in rows)
     body = f"""

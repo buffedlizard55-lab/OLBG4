@@ -2946,3 +2946,7 @@ is stored with the exact URL it came from. Sources that cannot be retrieved are 
 | Live verification | `https://buffedlizard55-lab.github.io/OLBG4/session-c92c927c/index.html` read back over HTTPS after the deploy: title "Dashboard · OLBG4 verified desk (Board U)", 30 fixtures, 9 High picks with their official source links, KPI row intact |
 | Flagged items | 10 editorial/blank items plus the unverifiable and contradicted review rows, all on `session-c92c927c/flagged.html` with source links; flagged does not block the merge per brief |
 
+**Link-fix follow-up (2026-10-22T03:15Z).** Two flagged-review source links pointed at the repository root instead of this desk
+(`coverage.html`, `methodology.html` rendered as `/OLBG4/coverage.html`), and the README citation rendered inside the desk folder.
+Fixed with a single link helper (`_src`) in the builder; rebuilt (`9 High, links ok`), audit re-run (0 broken / 0 stale). A follow-up
+fix like this is recorded rather than silently amended because the first deploy already served the wrong target.
