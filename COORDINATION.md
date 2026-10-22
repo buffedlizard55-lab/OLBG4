@@ -2,8 +2,37 @@
 
 Four sessions worked this repo in parallel. This file is the merged board: Boards A/B are kept verbatim, Boards C/D appended, cross-session conflicts logged.
 
-Last board update: 2026-10-22 · current active boards: **Board V — `arena/f957db05-olbg4`** (verification + high-confidence expansion + integration); **Board U — `arena/e5f2dad3-olbg4`**; **Board T — `arena/4ec1fc72-olbg4`** (live OLBG refresh + own lines + predictions + new dashboard + final integration) · earlier integration owners: `arena/4e9d03cf-olbg4` (Board S1), `arena/77af9500-olbg4` (Board S), `arena/d908be47-olbg4` (Board P), `arena/290a9dba-olbg4` (Board D)
+Last board update: 2026-10-22 · Board S2 (`arena/fca9d738-olbg4`, done — 19-pick focus desk, PR #69) · current active boards: **Board V — `arena/f957db05-olbg4`** (verification + high-confidence expansion + integration); **Board U — `arena/e5f2dad3-olbg4`**; **Board T — `arena/4ec1fc72-olbg4`** (live OLBG refresh + own lines + predictions + new dashboard + final integration) · earlier integration owners: `arena/4e9d03cf-olbg4` (Board S1), `arena/77af9500-olbg4` (Board S), `arena/d908be47-olbg4` (Board P), `arena/290a9dba-olbg4` (Board D)
 
+
+## Board S2 — session `arena/fca9d738-olbg4` (2026-10-22 high-confidence odds-window focus + freshness verification)
+
+Session: `arena/fca9d738-olbg4` | Branch: `arena/fca9d738-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| S2 | Re-verify every current (≥2026-10-22) in-scope canonical fixture line by line; recompute the American-odds window (-250 to +10000) for all High picks; live re-check High fixtures against official league/tour/federation pages; author replacement written predictions (≥30 words, unique, human, team+form+history+obvious selection) only for High rows whose canonical text is templated, citing only facts read on official pages; publish session-scoped tables + flagged register with source links. No changes to other boards' data or root navigation. | done | arena/fca9d738-olbg4 | `session-fca9d738/`, `data/session-fca9d738/`, `COORDINATION.md` |
+
+**Claim boundary.** New, non-overlapping deliverable. `data/master.json`, `board/`, root `*.html`, `data/matches.json`, `data/rows.json`, `data/board.json`, every other `session-*/` and `data/session-*/` folder, and all generators/workflows are read-only for S2. Findings needing another owner's file are logged here as integration requests, not applied.
+
+### S2 working log
+- 2026-10-22 UTC — `fca9d738` — board claimed; scope `session-fca9d738/` + `data/session-fca9d738/`; claim committed and pushed before any other work.
+- 2026-10-22 UTC — `fca9d738` — live verification complete: 16 official pages read (NHL API 22–27 Oct slates, PDC draw + schedule, NRL R2 late mail + R1 wrap, URC R4 centre, PAO/EuroLeague/LNR/Stade Toulousain officials); deliverable built, verified, committed and pushed.
+- 2026-10-22 UTC — `fca9d738` — merge conflict on PR #69: `main` had advanced (PRs #64/#65/#66, Boards T/U/V). Merged `origin/main` into the session branch; only `COORDINATION.md` conflicted (header line). Kept the upstream header + Board V/U/T records verbatim, retained the full Board S2 section, no work discarded either side. Cross-note: Boards T/U/V build fresh 22-Oct desks from new snapshots while S2 audits the canonical `data/master.json` — different inputs/scopes, no overlap; count differences (e.g. focus-window tallies) reflect the different datasets, not a conflict.
+
+### S2 completion record (2026-10-22 UTC)
+
+- **Published output:** [`session-fca9d738/index.html`](session-fca9d738/index.html) is the focus desk (19-pick focus list with full prediction text + filterable 164-row table); [`session-fca9d738/flagged.html`](session-fca9d738/flagged.html) carries 15 source-linked findings; [`data/session-fca9d738/review.json`](data/session-fca9d738/review.json) and [`data/session-fca9d738/predictions.json`](data/session-fca9d738/predictions.json) are the deterministic machine-readable outputs. No fixture invented, no price re-originated, no grade changed.
+- **Line-by-line result:** 164 current in-scope fixtures checked; 154 carried-current, 4 held-source, 6 held-verification, 0 held-copy (S1's 4 current held-copy rows resolved by S2 replacements). All 30 current High fixtures live-confirmed (28 confirmed + 2 corroborated: M0205/M0206 via secondary excerpts against the official LNR J8 calendar). 70/164 rows live-confirmed overall, 6 corroborated; NBA/MLB/cricket/handball/volleyball/golf/women's-RL/PREM/November rows carried from build-verified data and disclosed as not live re-read.
+- **Odds-window result:** 19 High picks sit inside -250/+10000 (-244 to -171; none shorter than -250, none above 70.9% raw implied); 11 High picks held from focus (7 Build-G moneyline picks with no published moneyline — M0129/M0163/M0197/M0203/M0205/M0206/M0248; 4 Build-E totals/handicap picks whose line has no matching published price — M0162/M0231/M0232/M0301).
+- **New predictions:** 4 replacements (M0139 Price 84 words, M0240 Samoa 89, M0246 Leinster 72, M0274 NZ 93), each unique, each naming team/player, form, recent history and an obvious selection; every factual claim cites its official source URL. M0071 (historical, 21 Oct) intentionally has no replacement.
+- **Verification performed:** `python3 session-fca9d738/verify_review.py` → PASS (byte-identical rebuild, length/uniqueness/selection checks, official-domain fact sources, window maths re-derived, no held promotion, local links, scope gate); `BOARD_DIR=board python3 tools/verify_master.py` → OK; `python3 scripts/audit_publication.py --check` → 10,309 targets, 0 broken, 0 stale; `python3 -m pipeline.selftest` → pass; all 4 new artefacts HTTP 200 locally.
+- **Irregularities published (S2-F01…F15, needs review, non-blocking):** NRL.com's Tonga +12 vs own 30-12 scoreline (+18) plus 'win over Tonga' typo; canonical M0240 wrong city (Perth → Sydney, corrected here); 4 Build-E line mismatches; 7 Build-G missing moneylines; M0071 held; NHL UTC-date convention documented; thin 27-Oct+ NHL coverage; possible WS duplication; possible ATL-HOU duplicate; M0147 pseudo-fixture; M0124 no-source; M0266 generic link; coverage disclosure; M0178 6¢ from window edge; URC timezone note.
+- **Integration requests (not applied — other owners' files):** Build E/pipeline: publish matching prices for M0162/M0231/M0232/M0301 pick lines; Build G: originate moneylines for M0129/M0163/M0197/M0203/M0205/M0206/M0248; final integration: re-type M0147, reconcile M0210/M0252/M0282/M0293 + M0211/M0253, extend window past 27 Oct.
+- **Pull request / merge result:** https://github.com/buffedlizard55-lab/OLBG4/pull/69 — **MERGED** to `main` at `2026-10-22T03:05:37Z` (merge commit `bb1e18b`); all 6 checks green (audit, build-and-validate, verify ×2 runs). One merge conflict on the way (header line; upstream Boards T/U/V kept verbatim, S2 retained, nothing discarded). **GitHub Pages confirmed:** deploy run `39714956306` success; Pages API `built`; live desk fetched over HTTPS and renders the 19-pick focus list with predictions and source links at https://buffedlizard55-lab.github.io/OLBG4/session-fca9d738/.
+- **Post-merge observation (no file change; for the next refresh owner):** while reading the live site back, S2 noted the carried canonical M0195 (Tonga) text says 'Isaiya Katoa keeps the halfback role' while the current NRL.com late mail rules Katoa out (ankle, Fainu starts). The canonical copy predates the team news; S2's mandate covered templated-row replacements only, so the carried text stands as-is and this is logged, not edited.
+
+---
 
 ## Board V — session `arena/f957db05-olbg4` (independent verification of the 22 Oct desks + high-confidence expansion + final integration)
 
@@ -100,10 +129,11 @@ Session `arena/eb251d10-olbg4` · branch `arena/eb251d10-olbg4` · claimed 2026-
 ### E1 completion record (2026-10-22 UTC)
 
 - **Deliverable:** [`session-eb251d10/index.html`](session-eb251d10/index.html) is an independent, source-linked publication audit with market coverage summary; [`session-eb251d10/flagged.html`](session-eb251d10/flagged.html) lists 10 open/held findings; [`data/session-eb251d10/audit.json`](data/session-eb251d10/audit.json) is the machine-readable audit; `session-eb251d10/build_audit.py` deterministically regenerates all three. It changes no fixture, line, pick, prediction, shared navigation or existing page.
-- **Reproduced metrics:** 317 canonical rows (312 in scope; 19 sport labels); 164 in-scope head-to-head fixtures dated 22 Oct or later, 150 strict carried / 14 held; 244 in-scope officially sourced and build-verified per master metadata; 40 rows lack a classified official source; a further 27 in-scope rows have an official-domain link but no original build-verification flag; 38 High rows, of which 33 are marked written and 5 templated; 66 of 68 unverified rows currently render at least one match/pick/market value in the board; 43 unverified rows render non-empty market text. The existing automated-pipeline review reports zero current predictions that meet both >=70% and American -250 to +10,000.
-- **Findings / integration requests (not applied outside scope):** README counts and route descriptions are stale; `data/olbg-structure.json` says Gaelic Football is in scope while `data/sports.json` excludes it and all five master rows are out of scope; the full canonical master is a 21 Oct snapshot rather than a live all-sport feed; the public generator displays values for unverified rows despite the brief requiring blanks; the committed OLBG scrape record says fixture visibility is limited by a tipped-event feed/Load More control and excludes untipped fixtures; both `Greyhound Racing` and `Greyhounds` appear in master sport labels; five High predictions are templated; and no current automated pick meets both requested focus filters. These are published on the audit's Flagged for Review page. Requested the integration owner to correct root README metadata, resolve Gaelic scope explicitly, gate public values on verification, and avoid describing the captured OLBG feed as exhaustive until complete schedule comparison is evidenced.
+- **Reproduced metrics:** 317 canonical rows (312 in scope; 19 sport labels); 164 in-scope head-to-head fixtures dated 22 Oct or later, 150 strict carried / 14 held; 244 in-scope officially sourced and build-verified per master metadata; 40 rows lack a classified official source; a further 27 in-scope rows have an official-domain link but no original build-verification flag; one row is contradicted; 38 High rows, of which 33 are marked written and 5 templated; 66 of 68 unverified rows currently render at least one match/pick/market value in the board; 43 unverified rows render non-empty market text. The older automated-pipeline review reports zero current picks meeting both >=70% and American -250 to +10,000; a subsequently merged independent Board T desk has 91 fresh rows in four sports and 8 High selections meeting both filters, while explicitly leaving 15 in-scope sports unrefreshed.
+- **Findings / integration requests (not applied outside scope):** README counts and route descriptions are stale; `data/olbg-structure.json` says Gaelic Football is in scope while `data/sports.json` excludes it and all five master rows are out of scope; the canonical master remains a 21 Oct snapshot, while the newer Board T refresh covers only four sports; the public master generator displays values for unverified rows despite the brief requiring blanks; the committed OLBG scrape record says fixture visibility is limited by a tipped-event feed/Load More control and excludes untipped fixtures; both `Greyhound Racing` and `Greyhounds` appear in master sport labels; and five canonical High predictions are templated. The old pipeline's zero-focus result is now explicitly labeled pipeline-specific because the newer Board T dataset has eight qualifying High selections. These are published on the audit's Flagged for Review page. Requested the integration owner to correct root README metadata, resolve Gaelic scope explicitly, gate public values on verification, and avoid describing the captured OLBG feed as exhaustive until complete schedule comparison is evidenced.
 - **Sources:** OLBG official sitemap and sport URLs; official row-source examples already present in the canonical record (including NHL.com API and EHF standings); source taxonomy and data files in this repository; latest GitHub Actions Pages run [39707686122](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39707686122). The audit did not make fresh sports-provider requests and does not claim new live verification; recorded URLs are provided for manual review.
-- **Verification:** `BOARD_DIR=board python3 tools/verify_master.py` passed; `python3 scripts/audit_publication.py --check` passed with 10,332 local targets, zero broken / stale; `python3 -m pipeline.selftest` passed; `python3 session-4e9d03cf/verify_review.py` passed; two consecutive `python3 session-eb251d10/build_audit.py` builds were deterministic; HTML parser checked both new pages and the JSON consistency assertions passed. GitHub Pages API reports latest `main` build `status=built`; Actions run 39707686122 concluded success. No provider pages were read in this session.
+- **Verification:** `BOARD_DIR=board python3 tools/verify_master.py` passed; `python3 scripts/audit_publication.py --check` passed with 11,405 local targets, zero broken / stale; `python3 -m pipeline.selftest` passed; `python3 session-4e9d03cf/verify_review.py` passed; `python3 -m session-cdf25c13.verify` passed (91 rows, 8 High predictions, all official source URLs and no odds-window violations); two consecutive `python3 session-eb251d10/build_audit.py` builds were byte-identical; HTML parser and JSON consistency checks passed. No sports-provider pages were fetched by this audit session.
+- **Pull request / publication:** PR [#62](https://github.com/buffedlizard55-lab/OLBG4/pull/62) merged to `main` at 2026-10-22T02:55:51Z (merge commit `bc12bb47b4ab2780520c8e75cccf0543c8517986`); `audit`, `build-and-validate`, and `verify` all passed. GitHub Pages workflow run [39714059522](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39714059522) completed successfully (both build and deploy). The Pages API subsequently reported `status=built` at commit `9ab0472707c65cbf4e6455fa28fab5db42650bbb`; the later Actions deployment [39714384083](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39714384083) also completed successfully. The audit page is present in `main` at [`session-eb251d10/index.html`](https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-eb251d10/index.html). A transient Pages API legacy-build error on an overlapping earlier commit was superseded by the successful Actions deploys; no failed deploy remains current. The audit freshness update was merged in follow-up PR [#73](https://github.com/buffedlizard55-lab/OLBG4/pull/73) at 2026-10-22T03:08:38Z (merge commit `af7cdb2d39d43a8ab2b3ea30e14b91312034df42`); all three PR checks passed and Pages run [39715225170](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39715225170) succeeded. The Pages API reports `status=built` at that commit; the deployed audit includes the eight current Board T focus picks.
 
 ## Board S1 — session `arena/4e9d03cf-olbg4` (2026-10-22 freshness & publication review)
 
@@ -2738,6 +2768,95 @@ All 9 predictions are 72–89 words, each quoting the verified form (standings, 
 **Site live (pending deploy of commit 1432418):** Board S dashboard at https://buffedlizard55-lab.github.io/OLBG4/session-77af9500/ — 144 rows, 9 High inside -250 to +10,000 (each 72–89 words, verified facts, obvious moneyline selection), 15 flagged, 15 sports, 23 pages, 0 broken links. Master board and Build A docs also live and updated with window enforcement. If deploy fails, will retry until live per brief.
 
 ---
+---
+
+## Board U — session `arena/c92c927c-olbg4`
+> **Board letter collision — resolved, nothing discarded.** This section claimed **T** at 2026-10-22 02:5xZ, when `main` was at `17a3728`
+> and Boards A–S plus S1 were the only records in this file. While it worked, session `arena/4ec1fc72-olbg4` independently claimed **T** as well
+> and merged first. Following the precedent set for the earlier K/L and K/R collisions, this board's record is **renamed U** —
+> the next free letter — and the other Board T record is kept verbatim below. The published directory stays `session-c92c927c/`
+> because it is keyed to the session id. No work was discarded on either side.
+
+## Board U — session `arena/c92c927c-olbg4` (fresh 22–27 Oct 2026 desk, re-verification, site rebuild, integration)
+
+Session `arena/c92c927c-olbg4` · branch `arena/c92c927c-olbg4` · claimed 2026-10-22 (UTC) · **status: done — merged (record below)**
+
+Scope is a new, non-overlapping session deliverable. Prior boards' directories (`session-*/`, `docs/**`,
+`board/**`, `data/master*.json`, `data/rows.json`, `tools/*`) are **read-only** for this board; nothing another
+session produced is hand-edited or deleted. The only shared file this board writes is `COORDINATION.md` (its own
+section) plus, at final integration, the root navigation entry for its own desk.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Re-verify prior published rows line-by-line against the official page each row cites; record pass / mismatch / unreadable with the evidence quoted and the source URL | done | arena/c92c927c-olbg4 | `session-c92c927c/`, `data/session-c92c927c/`, `scripts/session-c92c927c/` |
+| T2 | Collect the current fixture list (22–27 Oct 2026) for every in-scope sport from official governing-body / league sources; blank + flag anything the official page does not confirm | done | arena/c92c927c-olbg4 | `data/session-c92c927c/fixtures.json` |
+| T3 | Originate our own lines (moneyline, handicap, total) from verified inputs only, with the model documented; no bookmaker price is read | done | arena/c92c927c-olbg4 | `data/session-c92c927c/lines.json`, `session-c92c927c/methodology.html` |
+| T4 | Pick a winner per match with Low/Medium/High confidence; enforce the High-confidence odds window −250…+10,000 American (1.40–101.00 decimal) | done | arena/c92c927c-olbg4 | `data/session-c92c927c/lines.json` |
+| T5 | Write unique, human, ≥30-word High-confidence predictions with verified form / recent results and an obvious selection | done | arena/c92c927c-olbg4 | `data/session-c92c927c/predictions.json` |
+| T6 | Build the GitHub Pages dashboard for this desk: landing KPI page, per-category subpages, full table, markets, verification register, analysis, sources, Flagged-for-Review page | done | arena/c92c927c-olbg4 | `session-c92c927c/**` |
+| T7 | Gates: deterministic rebuild, JSON validity, link check, official-source-per-row check, word-count/uniqueness check | done | arena/c92c927c-olbg4 | `scripts/session-c92c927c/**` |
+| T8 | Final integration: root navigation entry, PR → `main`, merge, confirm GitHub Pages deploy, record result here | done | arena/c92c927c-olbg4 | `COORDINATION.md`, root nav only |
+
+### Board U completion record (2026-10-22, session arena/c92c927c-olbg4)
+
+**Deliverable.** `session-c92c927c/` — a fresh desk for 22–27 October 2026, generated by
+`python3 scripts/session-c92c927c/build_site.py` from `data/session-c92c927c/`. 15 pages: dashboard, all-fixtures table with
+filters, High-confidence picks, markets, coverage, verification register, flagged, analysis, method, sources, five sport pages.
+Machine-readable output: `data/session-c92c927c/{fixtures,team_stats,lines,predictions,coverage,flagged,review}.json` and `rows.csv`.
+
+| Metric | Value |
+|---|---|
+| Fixtures published | **30** across 5 sports, every one read on the official domain in this session |
+| Sports with verified fixtures | Ice Hockey 12 (nhl.com), Rugby Union 8 (stats.unitedrugby.com R4), Rugby League 5 (rlwc2026.com R2), Baseball 3 (statsapi.mlb.com World Series G1–G3), Basketball 2 (nba.com) |
+| Match-winner picks | 30 of 30 rows priced and picked |
+| Confidence | 9 High / 8 Medium / 13 Low |
+| High picks inside −250…+10,000 | **9 of 9** (asserted in the build; all quoted at 1.40–1.42) |
+| High write-ups | 9 original, 66–84 words each, max 3-gram Jaccard 0.18 (asserted ≤ 0.35) |
+| Markets | moneyline 30 originated; handicap 26 originated / 4 blank; totals 13 originated / 17 blank — every blank carries a reason on the row and on the flagged page |
+| Values filled without a source | 0 |
+
+**Sources (all official, all read 2026-10-22).** nhl.com/scores/2026-10-22 and nhl.com/standings/2026-10-21/wildcard;
+statsapi.mlb.com schedule (`sportId=1`, 22–27 Oct) and standings (`leagueId=103,104`, season 2026);
+stats.unitedrugby.com/match-centre/2026-27/4 (Round 4 fixtures + Round 3 results); rlwc2026.com/draws-and-pools
+(Round 1 results + Round 2 fixtures); nba.com/games?date=2026-10-22.
+
+**Verification performed.**
+- Every fixture row carries the exact wording the official page prints (`evidence` field) next to the URL, on `session-c92c927c/verification.html`.
+- The build refuses to publish if a row lacks a source, if the source host is not on the official list, if a High pick lacks a
+  ≥30-word unique write-up, if a High pick's price leaves the −250…+10,000 window, if an excluded-sport token appears, or if any
+  internal link or anchor does not resolve (`python3 scripts/session-c92c927c/build_site.py --check` → `validated: 30 rows … links=ok`).
+- **Line-by-line review of prior output:** 22 sampled claims from earlier boards re-checked against the official page —
+  18 confirmed (all eight URC Round 3 scorelines, all five RLWC Round 1 scorelines and the Round 2 fixtures, the NHL fixture, the
+  World Series fixture set, and two internal recomputations of `data/master.json` and `data/rows.json`), 2 contradicted
+  (README counts 308/312/18 sports vs 317/312/19; the duplicate "Greyhounds" / "Greyhound Racing" sport labels), and 2 unverifiable
+  (EHF fixture path 404; pdc.tv returned only a cookie shell). Register: `data/session-c92c927c/review.json`, rendered on
+  `session-c92c927c/analysis.html`.
+- Repository gates re-run green after the change: `bash scripts/session-74f9613e/build_all.sh` (OK), `python3 scripts/audit_publication.py --check`
+  (10,576 local targets, 0 broken, 0 stale), `python3 tools/build_master.py` + `BOARD_DIR=board python3 tools/verify_master.py` (OK),
+  `python3 -m pipeline.selftest` (all self-tests passed).
+
+**Irregularities published on `session-c92c927c/flagged.html` (do not block publication).**
+1. NHL.com prints Ottawa as 6-3-0 on the 22 Oct scores page and 7-3-0 on the 21 Oct standings page — the standings figure is used and the row is Medium.
+2. NHL.com published Los Angeles' and Calgary's records but not their goals for/against, so those two rows use the disclosed points-percentage fallback and have blank goals markets.
+3. RLWC kick-off times are printed with no timezone; they are reproduced verbatim, never converted.
+4. The one-match rating puts Fiji above Australia (0.81); the desk refuses to grade it High and holds the row at Medium for manual review.
+5. NBA venues are not on the games page; blank.
+6. Opening-week NBA has no form — home prior only, Low, no spread or total.
+7. Rugby totals are blank by rule: one verified match per club is not a scoring level.
+8. Thirteen in-scope sports have no verified fixture in this cycle, each with the URL tried and the failure mode (tennis returned an archived January draw; cricket 404 on both nzc.nz and icc-cricket.com; pdc.tv served a cookie shell; EHF fixtures 404; seven sports not reached within this session's budget; esports has no single governing body).
+9. High picks quote at the desk's −250 floor because their fair prices are shorter; every capped row prints its fair price.
+10. Prior EHF and PDC rows could not be re-opened from this sandbox, so they are neither confirmed nor refuted.
+11. README lines 15/25/48 still say 308 in-scope rows across 18 sports / 312 rows while `data/master.json` holds 317 rows, 312 in scope, 19 sports (Board S1's S1-F06, still open).
+12. The master board carries both "Greyhounds" and "Greyhound Racing" as separate sports (6 + 2 rows).
+
+**Integration note.** The root hub `index.html` is not generated by `tools/build_master_site.py` in this repository
+(it holds a different, hand-maintained dashboard), so this session added a single banner linking the new desk and did **not**
+regenerate the root pages. A `session-c92c927c/index.html` entry was briefly added to the generator's NAV and reverted:
+the generator renders NAV paths relative to each output directory, so a path that leaves `board/` resolves to `./session-…`
+and breaks 10,576-target link checks. Recorded here so no later board repeats it.
+
+---
+---
 
 ## Board T — session `arena/4ec1fc72-olbg4` (fresh 22–28 Oct verified desk, odds-window high picks)
 
@@ -2762,3 +2881,97 @@ Session: `arena/4ec1fc72-olbg4` | Branch: `arena/4ec1fc72-olbg4` | Claimed: 2026
 - **Irregularities published (Flagged for Review, `session-4ec1fc72/flagged.html`):** 2 outside-window downgrades; neutral-site MTL@WPG 25 Oct (Princess Auto Stadium, no home-ice term); NBA totals unpriced (no pace data) and all-NBA Low cap (0-1 games per club); MLB probable pitchers absent from schedule payload (no MLB High); 16 darts ties unpriced (no ranking for both players); snooker later-round pairings not on the WST page read; 15 in-scope sports not refreshed this session (listed on Coverage page, not re-badged); earlier boards' 21-Oct fixtures now completed/stale.
 - **Integration request (not applied):** add a root-nav link to `session-4ec1fc72/` in the master-board generator (`tools/build_master_site.py`) at the next integration session. Root pages, `data/master.json` and other boards' files were not edited.
 - **PR / merge / Pages:** recorded below after merge.
+
+**Merge note (2026-10-22).** Two sessions independently claimed the same board letter within nine
+minutes of each other — `arena/4ec1fc72-olbg4` (merged first, commit `e6ab504`) and
+`arena/cdf25c13-olbg4`. Both are preserved here in full. Their file scopes do not overlap
+(`session-4ec1fc72/` vs `session-cdf25c13/`), neither edited the other's data, and only
+`arena/cdf25c13-olbg4` took the additive root-landing and README edits, which are recorded in its
+own block below. Nothing was discarded in this merge.
+
+## Board T — session `arena/cdf25c13-olbg4` (2026-10-22: live-refreshed desk, 22–28 Oct window)
+
+Session: `arena/cdf25c13-olbg4` · Branch: `arena/cdf25c13-olbg4` · Claimed: 2026-10-22T02:47Z UTC · **status: active**
+
+Scope is new and non-overlapping. Board T does not hand-edit any earlier board's generative data. It reads
+`data/master.json` (as a reference index only) and produces its own dated, independently re-verified dataset for the
+22–28 October 2026 fixture window, because every existing dataset in this repo carries a 2026-10-21 cut-off and a
+majority of its rows were already played by the time this session started.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Re-read official league/tour feeds live for the 22–28 Oct 2026 window; build an updated in-scope fixture list (excluded sports: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials) | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/fixtures.json`, `session-cdf25c13/` |
+| T2 | Originate own lines (moneyline, handicap, match total) per fixture from official numeric inputs; document the model | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/markets.json`, `session-cdf25c13/build.py` |
+| T3 | Pick a winner per priced fixture + confidence Low/Medium/High from evidence rules | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/picks.json` |
+| T4 | High-confidence written predictions (≥30 words, unique, verified facts, explicit selection) restricted to the −250…+10,000 American-price window | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/predictions.json` |
+| T5 | Line-by-line verification register with an official source URL per row; blanks + flags for anything unconfirmed | **done** | arena/cdf25c13-olbg4 | `data/session-cdf25c13/verification.json` |
+| T6 | Dashboard: landing + per-category subpages + analysis + Flagged for Review, no broken links | **done** | arena/cdf25c13-olbg4 | `session-cdf25c13/**` |
+| T7 | Root integration: root landing pointer/nav + README + COORDINATION records; run every existing gate | **done** | arena/cdf25c13-olbg4 | `index.html`, `README.md`, `COORDINATION.md` |
+| T8 | PR from `arena/cdf25c13-olbg4` → `main`, merge without waiting, confirm the Pages deploy, record the result | **done** | arena/cdf25c13-olbg4 | `COORDINATION.md` |
+
+**Claim boundary.** Board T owns `session-cdf25c13/` and `data/session-cdf25c13/`. Shared root files (`index.html`,
+`README.md`, `COORDINATION.md`) are claimed only for additive edits: a pointer block to the new dashboard, a README
+section, and this board. No file owned by another board (`board/**`, `docs/**`, `data/master*.json`, any `session-*/`
+other than this one) is hand-edited; the root generators are re-run, not rewritten.
+
+**Access constraint (re-confirmed 2026-10-22T02:46Z).** Sandbox egress is restricted to github.com / codeload.github.com
+/ api.github.com / registry.npmjs.org / pypi.org / files.pythonhosted.org; direct `curl` to league domains fails with
+exit 35 (SSL connect). All league data in Board T is retrieved with the agent's web-fetch tool and every retrieved value
+is stored with the exact URL it came from. Sources that cannot be retrieved are recorded as unverified, never inferred.
+
+### Board T — completion record (2026-10-22, session `arena/cdf25c13-olbg4`)
+
+| Item | Result |
+|---|---|
+| Output | `session-cdf25c13/` (12 HTML pages + `assets/site.css`, `assets/site.js`) and `data/session-cdf25c13/rows.json` + `verification.json` |
+| Coverage | **91 priced fixtures**: NHL 49 (22–28 Oct), NBA 29 (Week 1, 22–25 Oct), MLB World Series 5, URC Round 4 8. Four sports covered; the other fifteen in-scope sports are listed on `coverage.html` with the exact reason nothing was published |
+| Own lines | Match winner on all 91 rows; NHL puck line, MLB run line, URC handicap and all four match totals originated from the fair-odds model in `model.py` (no margin, no bookmaker or OLBG price read) |
+| Confidence | 8 High / 30 Medium / 53 Low. High requires ≥70% model probability, a real club sample (NHL ≥8 GP, URC ≥3, MLB full season, NBA never) **and** a price inside −250…+10,000 |
+| Predictions | 8 unique write-ups, 62–86 words, each naming both clubs, the form, the scoring record and a verified player where the page carries one, with a fact/URL table under each card |
+| Verification | `verification.json` gives every row an official source URL, the domain, the tier, the UTC read time and what was read. `verify.py` is a hard gate: official domains only, window clean, predictions unique and ≥30 words, no excluded sport, zero broken local links |
+| Flagged | `flagged.html` F01–F12 — including NBA spreads/totals not originated (no points-for/against on the standings view), World Series G5 "if necessary", URC kick-off times local-to-venue, 44 NHL venues blank because the schedule table has no venue column, the 21 Oct standings snapshot, home-advantage assumptions, and the 15 sports not refreshed |
+| Gates | `python3 -m session-cdf25c13.build` · `python3 -m session-cdf25c13.render` · `python3 -m session-cdf25c13.verify` → OK; `python3 tools/build_master.py` → 317 rows; `BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py`; `BOARD_DIR=board python3 tools/verify_master.py` → OK; `python3 scripts/audit_publication.py --check` → 10,689 targets, 0 broken, 0 stale. The Pages workflow runs the Board T build/render/verify and fails if the committed output drifts |
+| Root integration | Additive only: one nav link, one landing banner and a README section in `index.html` / `README.md`; both desks are linked, no other board's files touched |
+| Merge | `git fetch origin main` + `git merge` (never rebase). One conflict, in this file, because a second session claimed the same board letter; resolved by keeping **both** blocks and logging the duplicate claim |
+
+### Board T — PR, merge and deploy record (session `arena/cdf25c13-olbg4`)
+
+| Item | Result |
+|---|---|
+| PR #63 (main delivery) | https://github.com/buffedlizard55-lab/OLBG4/pull/63 — checks `audit`, `build-and-validate`, `verify` all **pass**; **MERGED** 2026-10-22T03:03:03Z, merge commit `2123e65263e8810b2933e3762294aa4232ccbbb4`; Pages deploy run `39714744860` **success** |
+| PR #71 (claim corrections) | https://github.com/buffedlizard55-lab/OLBG4/pull/71 — MERGED 2026-10-22T03:07:16Z, merge commit `98d9adf16c82e09e444c5030984aed070a2130e4`; deploy run `39715225170` **success**. Removed the false "weakest defence in the West" superlative, the "at home" reading of an overall record, and two opinion-as-fact defensive descriptions; gate extended to reject that class of claim |
+| PR #78 (second claim sweep) | https://github.com/buffedlizard55-lab/OLBG4/pull/78 — MERGED 2026-10-22T03:11:03Z, merge commit `a39c9b7eeb09e912097fa75cabe45b235d203e07`; deploy run `39715463930` **success**. Removed a "beaten by Seattle earlier in the week" line about a fixture that had not been played at the cutoff, and an unverified arena name |
+| Live check | https://buffedlizard55-lab.github.io/OLBG4/session-cdf25c13/ returns the desk; the picks page carries the 8 High cards with the corrected prose and the fact/URL table under each |
+| Remaining status | T1–T8 **done**. The flagged items (`session-cdf25c13/flagged.html` F01–F12) are published as *needs review* and do not block merge, per the brief |
+| Known limitation | Four sports priced of nineteen in scope. The other fifteen are listed with reasons rather than filled in; the sandbox can only reach league domains through the page-fetch tool, and several pages (PDC consent wall, partial EHF standings, ATP scores without tournament names) returned nothing safe to price |
+
+
+- **PR / merge / Pages (Board T final):** PR https://github.com/buffedlizard55-lab/OLBG4/pull/61 — checks `audit`, `build-and-validate`, `verify` all PASS; **MERGED** to `main` 2026-10-22T02:54:51Z, merge commit `e6ab5043b54098abf9ecd3d822cda6fab21c4263`. GitHub Pages: `Deploy OLBG4 to GitHub Pages` run `39713967508` completed **success**; Pages API reports `status: built` from `main`. Live verification 2026-10-22: https://buffedlizard55-lab.github.io/OLBG4/session-4ec1fc72/picks.html returned the 2 High picks (Minnesota -223, Edmonton -229) with 111/118-word predictions. Board T tasks T1-T4: **done** (flagged items are `needs review`, non-blocking per brief).
+
+**Copy correction after first deploy (2026-10-22).** Five write-ups carried details the official pages do not print — a coach's name, "eight tries", "five tries", "conceded a single try" and "Swansea" for St Helen's. All five were rewritten to quote only the verified scorelines, the site was rebuilt (`9 High, links ok`) and redeployed under PR #69. Recorded because it is exactly the class of unverified detail the brief forbids, and it was caught only on a post-deploy read-back.
+
+**Final state (recorded 2026-10-22T03:10Z).**
+
+| Item | Result |
+|---|---|
+| PR #64 | merged 2026-10-22T02:59:30Z, merge commit `9ab0472`, checks audit / build-and-validate / verify all pass |
+| PR #68 | merged 2026-10-22T03:03:15Z, merge commit `bddc150` — record-keeping only |
+| PR #70 | merged 2026-10-22T03:05:57Z — unverified detail removed from five write-ups |
+| Pages deploy | run `39714986585` (merge of #70) completed **success**; the run for #68 was cancelled by Pages concurrency behind another session's merge, and #70's run deployed the combined `main` |
+| Live read-back | `https://buffedlizard55-lab.github.io/OLBG4/session-c92c927c/picks.html` served the corrected write-ups after deploy (verified with a cache-busting query) — "Edinburgh therefore arrive with a seventeen-point road win behind them…", no coach name, no try counts |
+| Branch state | `arena/c92c927c-olbg4` merged; no unmerged commits left behind |
+
+**Pull request and deploy (first merge record).**
+
+| Item | Result |
+|---|---|
+| PR | https://github.com/buffedlizard55-lab/OLBG4/pull/64 — **MERGED** `arena/c92c927c-olbg4` → `main` at 2026-10-22T02:59:30Z, merge commit `9ab0472` |
+| Checks | `audit` pass, `build-and-validate` pass, `verify` pass — all three green before merge |
+| Pages deploy | `Deploy OLBG4 to GitHub Pages` run `39714384083` **success** (build + deploy) on the merge commit |
+| Live verification | `https://buffedlizard55-lab.github.io/OLBG4/session-c92c927c/index.html` read back over HTTPS after the deploy: title "Dashboard · OLBG4 verified desk (Board U)", 30 fixtures, 9 High picks with their official source links, KPI row intact |
+| Flagged items | 10 editorial/blank items plus the unverifiable and contradicted review rows, all on `session-c92c927c/flagged.html` with source links; flagged does not block the merge per brief |
+
+**Link-fix follow-up (2026-10-22T03:15Z).** Two flagged-review source links pointed at the repository root instead of this desk
+(`coverage.html`, `methodology.html` rendered as `/OLBG4/coverage.html`), and the README citation rendered inside the desk folder.
+Fixed with a single link helper (`_src`) in the builder; rebuilt (`9 High, links ok`), audit re-run (0 broken / 0 stale). A follow-up
+fix like this is recorded rather than silently amended because the first deploy already served the wrong target.
