@@ -3740,3 +3740,6 @@ Exclusive working scope: `session-0d3b826c/**`, `data/session-0d3b826c/**`, `scr
 - Official numeric inputs: NHL, Liiga, EuroLeague/EuroCup, MLB Stats API and WTA. Riot confirms eight fixtures but lacks the required three-series sample. OLBG is structural only: 135 upcoming SSR listing rows, 111 unmatched and quarantined. Gaelic remains scope-ambiguous and unpriced.
 - Verification: `bash scripts/session-0d3b826c/build_all.sh` PASS — 15,185 checks, 29 pages, 19 predictions, 40 outputs byte-identical after rebuild. `scripts/audit_publication.py --check` PASS — 24,046 targets, 0 broken/stale. `pipeline.selftest`, `tools/verify_master.py`, and 4 audit unit tests PASS. Static preview returned HTTP 200 for all sampled pages.
 - Peer review: 815 rows checked in `data/master.json` and the freshest AE/AC desks; 558 findings published. Direct example: `ae_038` calls 59.2% High. No peer file edited.
+
+### AF root-integration handoff (2026-10-22T21:12Z)
+- Re-checked open PRs before touching root navigation. PR #102 (`arena/1695b749-olbg4`) remains idle since 09:18Z, beyond the 60-minute handoff threshold. Board AF therefore takes over only the additive root-pointer step. PR #102 and all `session-1695b749/**` files remain untouched for their owner. Root `index.html` received one navlink and one callout; every prior link and section is preserved verbatim.
