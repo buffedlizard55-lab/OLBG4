@@ -75,7 +75,7 @@ Gates for this board: `python3 scripts/session-e5f2dad3/build.py`, `python3 scri
 
 | Page | What it shows |
 |---|---|
-| `/` | 308 in-scope rows across 18 sports, filterable by sport, confidence, market and verification, each row with its source link |
+| `/` | 312 in-scope rows across 19 stored sport labels (Greyhound Racing and Greyhounds are separate labels), filterable by sport, confidence, market and verification, each row with its source link — `data/master.json`, 21 Oct snapshot |
 | `/picks.html` | 62 high-confidence picks, every one with a written prediction (≥30 words, 38–92 words, source under each) |
 | `/markets.html` | Match winner / handicap / total coverage per sport, plus 23 outright markets |
 | `/flagged.html` | Everything unconfirmed: 1 contradicted row, 64 unverified rows, 15 cross-build model conflicts, 30 date discrepancies, 14 templated write-ups, 4 out-of-scope rows |
@@ -108,7 +108,7 @@ marked unverified, and listed on the Flagged page. One row contradicts an offici
 
 ### Headline numbers
 
-- 312 rows total, 308 in scope, 18 sports (soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials excluded).
+- 317 rows total, 312 in scope, 19 stored sport labels (soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials excluded; Greyhound Racing and Greyhounds remain distinct labels). Counts verified against `data/master.json` on 2026-10-22 — this is the 21 Oct snapshot, not a 22 Oct live re-read.
 - 267 genuine fixtures; 31 market notes and 10 incomplete rows are kept, flagged and hidden from the fixture view.
 - 277 rows carry an originated pick; 244 are official-sourced *and* build-verified; 34 were re-opened and re-checked on 2026-10-21.
 - 63 non-templated written predictions. Every one of the 62 high-confidence fixtures carries one, and five of those were
