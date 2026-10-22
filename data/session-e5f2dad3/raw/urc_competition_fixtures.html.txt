@@ -1,0 +1,1161 @@
+
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name='robots' content='max-image-preview:large' />
+<script>window.wpApiSettings=window.wpApiSettings||{};window.wpApiSettings.root=window.wpApiSettings.root||"https://www.unitedrugby.com/wp-json";window.wpApiSettings.nonce=window.wpApiSettings.nonce||"578e36c01a";</script><script>
+        function OptanonWrapper() {
+            if (typeof window.__spConsentOnOptanonWrapper === 'function') {
+                window.__spConsentOnOptanonWrapper();
+            }
+            document.dispatchEvent(new CustomEvent('SPOptanonWrapperCalled'));
+        }
+    </script><link rel='dns-prefetch' href='//cdn-ukwest.onetrust.com' />
+<link rel='dns-prefetch' href='//sdk.mvp.fan' />
+    <script>
+        (function () {
+            if (window.__SP_CONSENT_GATE__) return;
+            window.__SP_CONSENT_GATE__ = true;
+
+            const consentCategoryMap = Object.assign({
+                analytics: ['C0002'],
+                advertising: ['C0004'],
+                // GTM may carry both analytics and ad tags; allow when either C0002 or C0004 is active.
+                gtm: ['C0002', 'C0004']
+            }, window.__SP_CONSENT_CATEGORY_MAP__ || {});
+
+            const blockedHostRules = [
+                { matcher: 'googletagmanager.com', categories: ['gtm'] },
+                { matcher: 'googletagservices.com', categories: ['advertising'] },
+                { matcher: 'doubleclick.net', categories: ['advertising'] },
+                { matcher: 'googlesyndication.com', categories: ['advertising'] },
+                { matcher: 'google-analytics.com', categories: ['analytics'] },
+                { matcher: 'analytics.google.com', categories: ['analytics'] },
+                { matcher: 'imasdk.googleapis.com', categories: ['advertising'] },
+                { matcher: 'partnerpixels', categories: ['advertising'] },
+                { matcher: 'sdk.mvp.fan', categories: ['advertising'] }
+            ];
+
+            const queuedNodes = [];
+            const gtmContainerId = (window.__SP_GTM_CONTAINER_ID__ || 'GTM-PM6PK4FK').toString().trim();
+            /** GTM must not run until OneTrust invokes OptanonWrapper (initial load or consent change). */
+            let spOptanonWrapperHasRun = false;
+
+            function debugLog(action, payload) {
+                if (!window.__SP_CONSENT_DEBUG__) return;
+                try {
+                    console.log('[SP Consent Gate]', action, payload || {});
+                } catch (e) {}
+            }
+
+            function getConsentGroups() {
+                const raw = (window.OnetrustActiveGroups || '').toString();
+                return raw.split(',').map(function (g) { return g.trim(); }).filter(Boolean);
+            }
+
+            function hasConsentForCategoryKey(categoryKey, activeGroups) {
+                const mappedGroups = consentCategoryMap[categoryKey] || [];
+                if (!mappedGroups.length) return false;
+                return mappedGroups.some(function (groupId) {
+                    return activeGroups.indexOf(groupId) !== -1;
+                });
+            }
+
+            function hasConsentForCategories(categoryKeys) {
+                const activeGroups = getConsentGroups();
+                if (!activeGroups.length) return false;
+                return categoryKeys.every(function (categoryKey) {
+                    return hasConsentForCategoryKey(categoryKey, activeGroups);
+                });
+            }
+
+            function hasConsentForAnyCategory(categoryKeys) {
+                const activeGroups = getConsentGroups();
+                if (!activeGroups.length) return false;
+                return categoryKeys.some(function (categoryKey) {
+                    return hasConsentForCategoryKey(categoryKey, activeGroups);
+                });
+            }
+
+            function normalizeUrl(value) {
+                if (!value || typeof value !== 'string') return '';
+                try {
+                    return new URL(value, window.location.origin).href;
+                } catch (e) {
+                    return value;
+                }
+            }
+
+            function getBlockedRule(url) {
+                const normalized = normalizeUrl(url).toLowerCase();
+                if (!normalized) return null;
+                return blockedHostRules.find(function (rule) {
+                    return normalized.indexOf(rule.matcher) !== -1;
+                });
+            }
+
+            function rememberNode(node, src, categories) {
+                queuedNodes.push({
+                    tag: node.tagName,
+                    src: src,
+                    categories: categories || [],
+                    type: node.type || '',
+                    async: !!node.async,
+                    defer: !!node.defer,
+                    crossOrigin: node.crossOrigin || '',
+                    referrerPolicy: node.referrerPolicy || ''
+                });
+            }
+
+            function replayQueuedNodes() {
+                if (!queuedNodes.length) return;
+                const stillBlocked = [];
+                while (queuedNodes.length) {
+                    const item = queuedNodes.shift();
+                    if (!hasConsentForCategories(item.categories)) {
+                        stillBlocked.push(item);
+                        continue;
+                    }
+
+                    const el = document.createElement(item.tag);
+                    if (item.tag === 'SCRIPT' && item.type) el.type = item.type;
+                    if (item.tag === 'SCRIPT') {
+                        el.async = item.async;
+                        el.defer = item.defer;
+                    }
+                    if (item.crossOrigin) el.crossOrigin = item.crossOrigin;
+                    if (item.referrerPolicy) el.referrerPolicy = item.referrerPolicy;
+                    el.src = item.src;
+                    (document.head || document.documentElement).appendChild(el);
+                    debugLog('replayed', { tag: item.tag, src: item.src, categories: item.categories });
+                }
+
+                if (stillBlocked.length) {
+                    stillBlocked.forEach(function (item) { queuedNodes.push(item); });
+                }
+            }
+
+            function activateConsentIframes() {
+                const iframes = document.querySelectorAll('iframe[data-sp-consent-src][data-sp-consent-category]');
+                if (!iframes.length) return;
+
+                iframes.forEach(function (iframe) {
+                    const category = (iframe.getAttribute('data-sp-consent-category') || '').trim();
+                    if (!category) return;
+                    if (!hasConsentForCategories([category])) return;
+
+                    const realSrc = iframe.getAttribute('data-sp-consent-src');
+                    if (!realSrc) return;
+                    if (iframe.getAttribute('src') === realSrc) return;
+
+                    iframe.setAttribute('src', realSrc);
+                    debugLog('iframe-activated', { src: realSrc, category: category });
+                });
+            }
+
+            function activateConsentScripts() {
+                const scripts = document.querySelectorAll('script[data-sp-consent-src][data-sp-consent-category]');
+                if (!scripts.length) return;
+
+                scripts.forEach(function (scriptEl) {
+                    const category = (scriptEl.getAttribute('data-sp-consent-category') || '').trim();
+                    if (!category) return;
+                    if (!hasConsentForCategories([category])) return;
+
+                    const realSrc = scriptEl.getAttribute('data-sp-consent-src');
+                    if (!realSrc) return;
+                    if (scriptEl.dataset.spConsentLoaded === '1') return;
+
+                    const s = document.createElement('script');
+                    s.src = realSrc;
+                    s.async = true;
+                    (document.head || document.documentElement).appendChild(s);
+                    scriptEl.dataset.spConsentLoaded = '1';
+                    debugLog('script-activated', { src: realSrc, category: category });
+                });
+            }
+
+            function loadGtmIfConsented() {
+                if (!gtmContainerId) return;
+                if (!spOptanonWrapperHasRun) return;
+                if (!hasConsentForCategories(['gtm'])) return;
+                if (window.__SP_GTM_LOADED__) return;
+                if (document.querySelector('script[src*="googletagmanager.com/gtm.js?id=' + gtmContainerId + '"]')) {
+                    window.__SP_GTM_LOADED__ = true;
+                    return;
+                }
+
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+                const gtmScript = document.createElement('script');
+                gtmScript.async = true;
+                gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(gtmContainerId);
+                const head = document.head || document.documentElement;
+                // Bypass patched appendChild so gtm.js is not re-queued under legacy dual-category rules.
+                appendChildNative.call(head, gtmScript);
+                window.__SP_GTM_LOADED__ = true;
+                debugLog('gtm-loaded', { containerId: gtmContainerId, activeGroups: getConsentGroups() });
+            }
+
+            function shouldBlockNode(node) {
+                if (!node || !node.tagName) return false;
+                const tag = node.tagName.toUpperCase();
+                if (tag !== 'SCRIPT' && tag !== 'IFRAME' && tag !== 'IMG') return false;
+                const src = node.src || node.getAttribute && node.getAttribute('src') || '';
+                const rule = getBlockedRule(src);
+                if (!rule) return false;
+                return !hasConsentForCategories(rule.categories);
+            }
+
+            const appendChildNative = Element.prototype.appendChild;
+            const insertBeforeNative = Element.prototype.insertBefore;
+
+            Element.prototype.appendChild = function (node) {
+                if (shouldBlockNode(node)) {
+                    const src = node.src || node.getAttribute('src') || '';
+                    const rule = getBlockedRule(src);
+                    const categories = rule ? rule.categories : [];
+                    rememberNode(node, src, categories);
+                    debugLog('blocked', { method: 'appendChild', tag: node.tagName, src: src, categories: categories });
+                    return node;
+                }
+                return appendChildNative.call(this, node);
+            };
+
+            Element.prototype.insertBefore = function (newNode, referenceNode) {
+                if (shouldBlockNode(newNode)) {
+                    const src = newNode.src || newNode.getAttribute('src') || '';
+                    const rule = getBlockedRule(src);
+                    const categories = rule ? rule.categories : [];
+                    rememberNode(newNode, src, categories);
+                    debugLog('blocked', { method: 'insertBefore', tag: newNode.tagName, src: src, categories: categories });
+                    return newNode;
+                }
+                return insertBeforeNative.call(this, newNode, referenceNode);
+            };
+
+            document.addEventListener('OneTrustGroupsUpdated', function () {
+                debugLog('consent-updated', { activeGroups: getConsentGroups() });
+                replayQueuedNodes();
+                activateConsentIframes();
+                activateConsentScripts();
+                loadGtmIfConsented();
+            });
+
+            window.addEventListener('load', function () {
+                debugLog('page-load', { activeGroups: getConsentGroups() });
+                replayQueuedNodes();
+                activateConsentIframes();
+                activateConsentScripts();
+                // Do not load GTM here: OneTrust must run OptanonWrapper / fire OneTrustGroupsUpdated first
+                // so consent reflects banner interaction and saved preferences.
+            });
+
+            document.addEventListener('SPOptanonWrapperCalled', function () {
+                debugLog('optanon-wrapper-called', { activeGroups: getConsentGroups() });
+                replayQueuedNodes();
+                activateConsentIframes();
+                activateConsentScripts();
+                loadGtmIfConsented();
+            });
+
+            window.__spConsentOnOptanonWrapper = function () {
+                spOptanonWrapperHasRun = true;
+                replayQueuedNodes();
+                activateConsentIframes();
+                activateConsentScripts();
+                loadGtmIfConsented();
+            };
+
+            debugLog('initialized', { categoryMap: consentCategoryMap });
+        })();
+    </script>
+    <style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel="stylesheet"href="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/app-eef98476.css?ver=6.9.10" media="screen">
+<link rel="stylesheet"href="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/loyalty-b12877f3.css" media="screen">
+<script src="https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="df6c17dc-2525-47db-a584-277beb1da79f-test"></script><script id="auth-js-extra">
+var urcAuth0 = {"domain":"identity.unitedrugby.com","clientId":"nyWW0S3Rot4AVIsZZzXM8841XNyy74Ey","audience":"https://api.urc.anything-loyalty.3halves-labs.com","homeUrl":"https://www.unitedrugby.com/","callbackUrl":"https://www.unitedrugby.com/auth/callback","loginUrl":"https://www.unitedrugby.com/auth/login","logoutUrl":"https://www.unitedrugby.com/auth/logout","cacheLocation":"memory","useRefreshTokens":""};
+//# sourceURL=auth-js-extra
+</script>
+<script type="module" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/auth-6a15baf1.js"></script><script data-sp-consent-src="https://sdk.mvp.fan/web-sdk/0.3.13/index.js" data-sp-consent-category="advertising"></script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4ML4ED32YE"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4ML4ED32YE');
+</script>
+
+<meta name="apple-itunes-app" content="app-id=1436694463"><link rel="icon" href="https://www.unitedrugby.com/wp-content/uploads/2025/09/cropped-site-icon-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.unitedrugby.com/wp-content/uploads/2025/09/cropped-site-icon-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.unitedrugby.com/wp-content/uploads/2025/09/cropped-site-icon-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.unitedrugby.com/wp-content/uploads/2025/09/cropped-site-icon-1-270x270.png" />
+		<style id="wp-custom-css">
+			/* .page-id-39292{
+    background-color: rgb(20, 40, 55);
+    background-image: linear-gradient(rgba(20, 40, 55, 0.6), rgba(20, 40, 55, 0.6)), url(https://www.unitedrugby.com/wp-content/uploads/2026/05/playoff-brackets-background.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+	background-attachment: fixed;} */
+
+.page-id-39292 {
+    position: relative;
+    background-color: rgb(20, 40, 55);
+    overflow-x: hidden;
+}
+
+.page-id-39292::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(
+            rgba(20, 40, 55, 0.6),
+            rgba(20, 40, 55, 0.6)
+        ),
+        url('https://www.unitedrugby.com/wp-content/uploads/2026/05/playoff-brackets-background.jpg');
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}		</style>
+		<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--inherit: inherit;--wp--preset--color--current: currentcolor;--wp--preset--color--transparent: transparent;--wp--preset--color--slate-50: #f8fafc;--wp--preset--color--slate-100: #f1f5f9;--wp--preset--color--slate-200: #e2e8f0;--wp--preset--color--slate-300: #cbd5e1;--wp--preset--color--slate-400: #94a3b8;--wp--preset--color--slate-500: #64748b;--wp--preset--color--slate-600: #475569;--wp--preset--color--slate-700: #334155;--wp--preset--color--slate-800: #1e293b;--wp--preset--color--slate-900: #0f172a;--wp--preset--color--slate-950: #020617;--wp--preset--color--gray-50: #f9fafb;--wp--preset--color--gray-100: #f3f4f6;--wp--preset--color--gray-200: #e5e7eb;--wp--preset--color--gray-300: #d1d5db;--wp--preset--color--gray-400: #9ca3af;--wp--preset--color--gray-500: #6b7280;--wp--preset--color--gray-600: #4b5563;--wp--preset--color--gray-700: #374151;--wp--preset--color--gray-800: #1f2937;--wp--preset--color--gray-900: #111827;--wp--preset--color--gray-950: #030712;--wp--preset--color--zinc-50: #fafafa;--wp--preset--color--zinc-100: #f4f4f5;--wp--preset--color--zinc-200: #e4e4e7;--wp--preset--color--zinc-300: #d4d4d8;--wp--preset--color--zinc-400: #a1a1aa;--wp--preset--color--zinc-500: #71717a;--wp--preset--color--zinc-600: #52525b;--wp--preset--color--zinc-700: #3f3f46;--wp--preset--color--zinc-800: #27272a;--wp--preset--color--zinc-900: #18181b;--wp--preset--color--zinc-950: #09090b;--wp--preset--color--neutral-50: #fafafa;--wp--preset--color--neutral-100: #f5f5f5;--wp--preset--color--neutral-200: #e5e5e5;--wp--preset--color--neutral-300: #d4d4d4;--wp--preset--color--neutral-400: #a3a3a3;--wp--preset--color--neutral-500: #737373;--wp--preset--color--neutral-600: #525252;--wp--preset--color--neutral-700: #404040;--wp--preset--color--neutral-800: #262626;--wp--preset--color--neutral-900: #171717;--wp--preset--color--neutral-950: #0a0a0a;--wp--preset--color--stone-50: #fafaf9;--wp--preset--color--stone-100: #f5f5f4;--wp--preset--color--stone-200: #e7e5e4;--wp--preset--color--stone-300: #d6d3d1;--wp--preset--color--stone-400: #a8a29e;--wp--preset--color--stone-500: #78716c;--wp--preset--color--stone-600: #57534e;--wp--preset--color--stone-700: #44403c;--wp--preset--color--stone-800: #292524;--wp--preset--color--stone-900: #1c1917;--wp--preset--color--stone-950: #0c0a09;--wp--preset--color--red-50: #fef2f2;--wp--preset--color--red-100: #fee2e2;--wp--preset--color--red-200: #fecaca;--wp--preset--color--red-300: #fca5a5;--wp--preset--color--red-400: #f87171;--wp--preset--color--red-500: #ef4444;--wp--preset--color--red-600: #dc2626;--wp--preset--color--red-700: #b91c1c;--wp--preset--color--red-800: #991b1b;--wp--preset--color--red-900: #7f1d1d;--wp--preset--color--red-950: #450a0a;--wp--preset--color--orange-50: #fff7ed;--wp--preset--color--orange-100: #ffedd5;--wp--preset--color--orange-200: #fed7aa;--wp--preset--color--orange-300: #fdba74;--wp--preset--color--orange-400: #fb923c;--wp--preset--color--orange-500: #f97316;--wp--preset--color--orange-600: #ea580c;--wp--preset--color--orange-700: #c2410c;--wp--preset--color--orange-800: #9a3412;--wp--preset--color--orange-900: #7c2d12;--wp--preset--color--orange-950: #431407;--wp--preset--color--amber-50: #fffbeb;--wp--preset--color--amber-100: #fef3c7;--wp--preset--color--amber-200: #fde68a;--wp--preset--color--amber-300: #fcd34d;--wp--preset--color--amber-400: #fbbf24;--wp--preset--color--amber-500: #f59e0b;--wp--preset--color--amber-600: #d97706;--wp--preset--color--amber-700: #b45309;--wp--preset--color--amber-800: #92400e;--wp--preset--color--amber-900: #78350f;--wp--preset--color--amber-950: #451a03;--wp--preset--color--yellow-50: #fefce8;--wp--preset--color--yellow-100: #fef9c3;--wp--preset--color--yellow-200: #fef08a;--wp--preset--color--yellow-300: #fde047;--wp--preset--color--yellow-400: #facc15;--wp--preset--color--yellow-500: #eab308;--wp--preset--color--yellow-600: #ca8a04;--wp--preset--color--yellow-700: #a16207;--wp--preset--color--yellow-800: #854d0e;--wp--preset--color--yellow-900: #713f12;--wp--preset--color--yellow-950: #422006;--wp--preset--color--lime-50: #f7fee7;--wp--preset--color--lime-100: #ecfccb;--wp--preset--color--lime-200: #d9f99d;--wp--preset--color--lime-300: #bef264;--wp--preset--color--lime-400: #a3e635;--wp--preset--color--lime-500: #84cc16;--wp--preset--color--lime-600: #65a30d;--wp--preset--color--lime-700: #4d7c0f;--wp--preset--color--lime-800: #3f6212;--wp--preset--color--lime-900: #365314;--wp--preset--color--lime-950: #1a2e05;--wp--preset--color--green-50: #f0fdf4;--wp--preset--color--green-100: #dcfce7;--wp--preset--color--green-200: #bbf7d0;--wp--preset--color--green-300: #86efac;--wp--preset--color--green-400: #4ade80;--wp--preset--color--green-500: #22c55e;--wp--preset--color--green-600: #16a34a;--wp--preset--color--green-700: #15803d;--wp--preset--color--green-800: #166534;--wp--preset--color--green-900: #14532d;--wp--preset--color--green-950: #052e16;--wp--preset--color--emerald-50: #ecfdf5;--wp--preset--color--emerald-100: #d1fae5;--wp--preset--color--emerald-200: #a7f3d0;--wp--preset--color--emerald-300: #6ee7b7;--wp--preset--color--emerald-400: #34d399;--wp--preset--color--emerald-500: #10b981;--wp--preset--color--emerald-600: #059669;--wp--preset--color--emerald-700: #047857;--wp--preset--color--emerald-800: #065f46;--wp--preset--color--emerald-900: #064e3b;--wp--preset--color--emerald-950: #022c22;--wp--preset--color--teal-50: #f0fdfa;--wp--preset--color--teal-100: #ccfbf1;--wp--preset--color--teal-200: #99f6e4;--wp--preset--color--teal-300: #5eead4;--wp--preset--color--teal-400: #2dd4bf;--wp--preset--color--teal-500: #14b8a6;--wp--preset--color--teal-600: #0d9488;--wp--preset--color--teal-700: #0f766e;--wp--preset--color--teal-800: #115e59;--wp--preset--color--teal-900: #134e4a;--wp--preset--color--teal-950: #042f2e;--wp--preset--color--cyan-50: #ecfeff;--wp--preset--color--cyan-100: #cffafe;--wp--preset--color--cyan-200: #a5f3fc;--wp--preset--color--cyan-300: #67e8f9;--wp--preset--color--cyan-400: #22d3ee;--wp--preset--color--cyan-500: #06b6d4;--wp--preset--color--cyan-600: #0891b2;--wp--preset--color--cyan-700: #0e7490;--wp--preset--color--cyan-800: #155e75;--wp--preset--color--cyan-900: #164e63;--wp--preset--color--cyan-950: #083344;--wp--preset--color--sky-50: #f0f9ff;--wp--preset--color--sky-100: #e0f2fe;--wp--preset--color--sky-200: #bae6fd;--wp--preset--color--sky-300: #7dd3fc;--wp--preset--color--sky-400: #38bdf8;--wp--preset--color--sky-500: #0ea5e9;--wp--preset--color--sky-600: #0284c7;--wp--preset--color--sky-700: #0369a1;--wp--preset--color--sky-800: #075985;--wp--preset--color--sky-900: #0c4a6e;--wp--preset--color--sky-950: #082f49;--wp--preset--color--blue-50: #eff6ff;--wp--preset--color--blue-100: #dbeafe;--wp--preset--color--blue-200: #bfdbfe;--wp--preset--color--blue-300: #93c5fd;--wp--preset--color--blue-400: #60a5fa;--wp--preset--color--blue-500: #3b82f6;--wp--preset--color--blue-600: #2563eb;--wp--preset--color--blue-700: #1d4ed8;--wp--preset--color--blue-800: #1e40af;--wp--preset--color--blue-900: #1e3a8a;--wp--preset--color--blue-950: #172554;--wp--preset--color--indigo-50: #eef2ff;--wp--preset--color--indigo-100: #e0e7ff;--wp--preset--color--indigo-200: #c7d2fe;--wp--preset--color--indigo-300: #a5b4fc;--wp--preset--color--indigo-400: #818cf8;--wp--preset--color--indigo-500: #6366f1;--wp--preset--color--indigo-600: #4f46e5;--wp--preset--color--indigo-700: #4338ca;--wp--preset--color--indigo-800: #3730a3;--wp--preset--color--indigo-900: #312e81;--wp--preset--color--indigo-950: #1e1b4b;--wp--preset--color--violet-50: #f5f3ff;--wp--preset--color--violet-100: #ede9fe;--wp--preset--color--violet-200: #ddd6fe;--wp--preset--color--violet-300: #c4b5fd;--wp--preset--color--violet-400: #a78bfa;--wp--preset--color--violet-500: #8b5cf6;--wp--preset--color--violet-600: #7c3aed;--wp--preset--color--violet-700: #6d28d9;--wp--preset--color--violet-800: #5b21b6;--wp--preset--color--violet-900: #4c1d95;--wp--preset--color--violet-950: #2e1065;--wp--preset--color--purple-50: #faf5ff;--wp--preset--color--purple-100: #f3e8ff;--wp--preset--color--purple-200: #e9d5ff;--wp--preset--color--purple-300: #d8b4fe;--wp--preset--color--purple-400: #c084fc;--wp--preset--color--purple-500: #a855f7;--wp--preset--color--purple-600: #9333ea;--wp--preset--color--purple-700: #7e22ce;--wp--preset--color--purple-800: #6b21a8;--wp--preset--color--purple-900: #581c87;--wp--preset--color--purple-950: #3b0764;--wp--preset--color--fuchsia-50: #fdf4ff;--wp--preset--color--fuchsia-100: #fae8ff;--wp--preset--color--fuchsia-200: #f5d0fe;--wp--preset--color--fuchsia-300: #f0abfc;--wp--preset--color--fuchsia-400: #e879f9;--wp--preset--color--fuchsia-500: #d946ef;--wp--preset--color--fuchsia-600: #c026d3;--wp--preset--color--fuchsia-700: #a21caf;--wp--preset--color--fuchsia-800: #86198f;--wp--preset--color--fuchsia-900: #701a75;--wp--preset--color--fuchsia-950: #4a044e;--wp--preset--color--pink-50: #fdf2f8;--wp--preset--color--pink-100: #fce7f3;--wp--preset--color--pink-200: #fbcfe8;--wp--preset--color--pink-300: #f9a8d4;--wp--preset--color--pink-400: #f472b6;--wp--preset--color--pink-500: #ec4899;--wp--preset--color--pink-600: #db2777;--wp--preset--color--pink-700: #be185d;--wp--preset--color--pink-800: #9d174d;--wp--preset--color--pink-900: #831843;--wp--preset--color--pink-950: #500724;--wp--preset--color--rose-50: #fff1f2;--wp--preset--color--rose-100: #ffe4e6;--wp--preset--color--rose-200: #fecdd3;--wp--preset--color--rose-300: #fda4af;--wp--preset--color--rose-400: #fb7185;--wp--preset--color--rose-500: #f43f5e;--wp--preset--color--rose-600: #e11d48;--wp--preset--color--rose-700: #be123c;--wp--preset--color--rose-800: #9f1239;--wp--preset--color--rose-900: #881337;--wp--preset--color--rose-950: #4c0519;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--xs: 0.75rem;--wp--preset--font-size--sm: 0.875rem;--wp--preset--font-size--base: 1rem;--wp--preset--font-size--lg: 1.125rem;--wp--preset--font-size--xl: 1.25rem;--wp--preset--font-size--2-xl: 1.5rem;--wp--preset--font-size--3-xl: 1.875rem;--wp--preset--font-size--4-xl: 2.25rem;--wp--preset--font-size--5-xl: 3rem;--wp--preset--font-size--6-xl: 3.75rem;--wp--preset--font-size--7-xl: 4.5rem;--wp--preset--font-size--8-xl: 6rem;--wp--preset--font-size--9-xl: 8rem;--wp--preset--font-family--sans: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--wp--preset--font-family--serif: ui-serif,Georgia,Cambria,"Times New Roman",Times,serif;--wp--preset--font-family--mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){margin-left: auto !important;margin-right: auto !important;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-inherit-color{color: var(--wp--preset--color--inherit) !important;}.has-current-color{color: var(--wp--preset--color--current) !important;}.has-transparent-color{color: var(--wp--preset--color--transparent) !important;}.has-slate-50-color{color: var(--wp--preset--color--slate-50) !important;}.has-slate-100-color{color: var(--wp--preset--color--slate-100) !important;}.has-slate-200-color{color: var(--wp--preset--color--slate-200) !important;}.has-slate-300-color{color: var(--wp--preset--color--slate-300) !important;}.has-slate-400-color{color: var(--wp--preset--color--slate-400) !important;}.has-slate-500-color{color: var(--wp--preset--color--slate-500) !important;}.has-slate-600-color{color: var(--wp--preset--color--slate-600) !important;}.has-slate-700-color{color: var(--wp--preset--color--slate-700) !important;}.has-slate-800-color{color: var(--wp--preset--color--slate-800) !important;}.has-slate-900-color{color: var(--wp--preset--color--slate-900) !important;}.has-slate-950-color{color: var(--wp--preset--color--slate-950) !important;}.has-gray-50-color{color: var(--wp--preset--color--gray-50) !important;}.has-gray-100-color{color: var(--wp--preset--color--gray-100) !important;}.has-gray-200-color{color: var(--wp--preset--color--gray-200) !important;}.has-gray-300-color{color: var(--wp--preset--color--gray-300) !important;}.has-gray-400-color{color: var(--wp--preset--color--gray-400) !important;}.has-gray-500-color{color: var(--wp--preset--color--gray-500) !important;}.has-gray-600-color{color: var(--wp--preset--color--gray-600) !important;}.has-gray-700-color{color: var(--wp--preset--color--gray-700) !important;}.has-gray-800-color{color: var(--wp--preset--color--gray-800) !important;}.has-gray-900-color{color: var(--wp--preset--color--gray-900) !important;}.has-gray-950-color{color: var(--wp--preset--color--gray-950) !important;}.has-zinc-50-color{color: var(--wp--preset--color--zinc-50) !important;}.has-zinc-100-color{color: var(--wp--preset--color--zinc-100) !important;}.has-zinc-200-color{color: var(--wp--preset--color--zinc-200) !important;}.has-zinc-300-color{color: var(--wp--preset--color--zinc-300) !important;}.has-zinc-400-color{color: var(--wp--preset--color--zinc-400) !important;}.has-zinc-500-color{color: var(--wp--preset--color--zinc-500) !important;}.has-zinc-600-color{color: var(--wp--preset--color--zinc-600) !important;}.has-zinc-700-color{color: var(--wp--preset--color--zinc-700) !important;}.has-zinc-800-color{color: var(--wp--preset--color--zinc-800) !important;}.has-zinc-900-color{color: var(--wp--preset--color--zinc-900) !important;}.has-zinc-950-color{color: var(--wp--preset--color--zinc-950) !important;}.has-neutral-50-color{color: var(--wp--preset--color--neutral-50) !important;}.has-neutral-100-color{color: var(--wp--preset--color--neutral-100) !important;}.has-neutral-200-color{color: var(--wp--preset--color--neutral-200) !important;}.has-neutral-300-color{color: var(--wp--preset--color--neutral-300) !important;}.has-neutral-400-color{color: var(--wp--preset--color--neutral-400) !important;}.has-neutral-500-color{color: var(--wp--preset--color--neutral-500) !important;}.has-neutral-600-color{color: var(--wp--preset--color--neutral-600) !important;}.has-neutral-700-color{color: var(--wp--preset--color--neutral-700) !important;}.has-neutral-800-color{color: var(--wp--preset--color--neutral-800) !important;}.has-neutral-900-color{color: var(--wp--preset--color--neutral-900) !important;}.has-neutral-950-color{color: var(--wp--preset--color--neutral-950) !important;}.has-stone-50-color{color: var(--wp--preset--color--stone-50) !important;}.has-stone-100-color{color: var(--wp--preset--color--stone-100) !important;}.has-stone-200-color{color: var(--wp--preset--color--stone-200) !important;}.has-stone-300-color{color: var(--wp--preset--color--stone-300) !important;}.has-stone-400-color{color: var(--wp--preset--color--stone-400) !important;}.has-stone-500-color{color: var(--wp--preset--color--stone-500) !important;}.has-stone-600-color{color: var(--wp--preset--color--stone-600) !important;}.has-stone-700-color{color: var(--wp--preset--color--stone-700) !important;}.has-stone-800-color{color: var(--wp--preset--color--stone-800) !important;}.has-stone-900-color{color: var(--wp--preset--color--stone-900) !important;}.has-stone-950-color{color: var(--wp--preset--color--stone-950) !important;}.has-red-50-color{color: var(--wp--preset--color--red-50) !important;}.has-red-100-color{color: var(--wp--preset--color--red-100) !important;}.has-red-200-color{color: var(--wp--preset--color--red-200) !important;}.has-red-300-color{color: var(--wp--preset--color--red-300) !important;}.has-red-400-color{color: var(--wp--preset--color--red-400) !important;}.has-red-500-color{color: var(--wp--preset--color--red-500) !important;}.has-red-600-color{color: var(--wp--preset--color--red-600) !important;}.has-red-700-color{color: var(--wp--preset--color--red-700) !important;}.has-red-800-color{color: var(--wp--preset--color--red-800) !important;}.has-red-900-color{color: var(--wp--preset--color--red-900) !important;}.has-red-950-color{color: var(--wp--preset--color--red-950) !important;}.has-orange-50-color{color: var(--wp--preset--color--orange-50) !important;}.has-orange-100-color{color: var(--wp--preset--color--orange-100) !important;}.has-orange-200-color{color: var(--wp--preset--color--orange-200) !important;}.has-orange-300-color{color: var(--wp--preset--color--orange-300) !important;}.has-orange-400-color{color: var(--wp--preset--color--orange-400) !important;}.has-orange-500-color{color: var(--wp--preset--color--orange-500) !important;}.has-orange-600-color{color: var(--wp--preset--color--orange-600) !important;}.has-orange-700-color{color: var(--wp--preset--color--orange-700) !important;}.has-orange-800-color{color: var(--wp--preset--color--orange-800) !important;}.has-orange-900-color{color: var(--wp--preset--color--orange-900) !important;}.has-orange-950-color{color: var(--wp--preset--color--orange-950) !important;}.has-amber-50-color{color: var(--wp--preset--color--amber-50) !important;}.has-amber-100-color{color: var(--wp--preset--color--amber-100) !important;}.has-amber-200-color{color: var(--wp--preset--color--amber-200) !important;}.has-amber-300-color{color: var(--wp--preset--color--amber-300) !important;}.has-amber-400-color{color: var(--wp--preset--color--amber-400) !important;}.has-amber-500-color{color: var(--wp--preset--color--amber-500) !important;}.has-amber-600-color{color: var(--wp--preset--color--amber-600) !important;}.has-amber-700-color{color: var(--wp--preset--color--amber-700) !important;}.has-amber-800-color{color: var(--wp--preset--color--amber-800) !important;}.has-amber-900-color{color: var(--wp--preset--color--amber-900) !important;}.has-amber-950-color{color: var(--wp--preset--color--amber-950) !important;}.has-yellow-50-color{color: var(--wp--preset--color--yellow-50) !important;}.has-yellow-100-color{color: var(--wp--preset--color--yellow-100) !important;}.has-yellow-200-color{color: var(--wp--preset--color--yellow-200) !important;}.has-yellow-300-color{color: var(--wp--preset--color--yellow-300) !important;}.has-yellow-400-color{color: var(--wp--preset--color--yellow-400) !important;}.has-yellow-500-color{color: var(--wp--preset--color--yellow-500) !important;}.has-yellow-600-color{color: var(--wp--preset--color--yellow-600) !important;}.has-yellow-700-color{color: var(--wp--preset--color--yellow-700) !important;}.has-yellow-800-color{color: var(--wp--preset--color--yellow-800) !important;}.has-yellow-900-color{color: var(--wp--preset--color--yellow-900) !important;}.has-yellow-950-color{color: var(--wp--preset--color--yellow-950) !important;}.has-lime-50-color{color: var(--wp--preset--color--lime-50) !important;}.has-lime-100-color{color: var(--wp--preset--color--lime-100) !important;}.has-lime-200-color{color: var(--wp--preset--color--lime-200) !important;}.has-lime-300-color{color: var(--wp--preset--color--lime-300) !important;}.has-lime-400-color{color: var(--wp--preset--color--lime-400) !important;}.has-lime-500-color{color: var(--wp--preset--color--lime-500) !important;}.has-lime-600-color{color: var(--wp--preset--color--lime-600) !important;}.has-lime-700-color{color: var(--wp--preset--color--lime-700) !important;}.has-lime-800-color{color: var(--wp--preset--color--lime-800) !important;}.has-lime-900-color{color: var(--wp--preset--color--lime-900) !important;}.has-lime-950-color{color: var(--wp--preset--color--lime-950) !important;}.has-green-50-color{color: var(--wp--preset--color--green-50) !important;}.has-green-100-color{color: var(--wp--preset--color--green-100) !important;}.has-green-200-color{color: var(--wp--preset--color--green-200) !important;}.has-green-300-color{color: var(--wp--preset--color--green-300) !important;}.has-green-400-color{color: var(--wp--preset--color--green-400) !important;}.has-green-500-color{color: var(--wp--preset--color--green-500) !important;}.has-green-600-color{color: var(--wp--preset--color--green-600) !important;}.has-green-700-color{color: var(--wp--preset--color--green-700) !important;}.has-green-800-color{color: var(--wp--preset--color--green-800) !important;}.has-green-900-color{color: var(--wp--preset--color--green-900) !important;}.has-green-950-color{color: var(--wp--preset--color--green-950) !important;}.has-emerald-50-color{color: var(--wp--preset--color--emerald-50) !important;}.has-emerald-100-color{color: var(--wp--preset--color--emerald-100) !important;}.has-emerald-200-color{color: var(--wp--preset--color--emerald-200) !important;}.has-emerald-300-color{color: var(--wp--preset--color--emerald-300) !important;}.has-emerald-400-color{color: var(--wp--preset--color--emerald-400) !important;}.has-emerald-500-color{color: var(--wp--preset--color--emerald-500) !important;}.has-emerald-600-color{color: var(--wp--preset--color--emerald-600) !important;}.has-emerald-700-color{color: var(--wp--preset--color--emerald-700) !important;}.has-emerald-800-color{color: var(--wp--preset--color--emerald-800) !important;}.has-emerald-900-color{color: var(--wp--preset--color--emerald-900) !important;}.has-emerald-950-color{color: var(--wp--preset--color--emerald-950) !important;}.has-teal-50-color{color: var(--wp--preset--color--teal-50) !important;}.has-teal-100-color{color: var(--wp--preset--color--teal-100) !important;}.has-teal-200-color{color: var(--wp--preset--color--teal-200) !important;}.has-teal-300-color{color: var(--wp--preset--color--teal-300) !important;}.has-teal-400-color{color: var(--wp--preset--color--teal-400) !important;}.has-teal-500-color{color: var(--wp--preset--color--teal-500) !important;}.has-teal-600-color{color: var(--wp--preset--color--teal-600) !important;}.has-teal-700-color{color: var(--wp--preset--color--teal-700) !important;}.has-teal-800-color{color: var(--wp--preset--color--teal-800) !important;}.has-teal-900-color{color: var(--wp--preset--color--teal-900) !important;}.has-teal-950-color{color: var(--wp--preset--color--teal-950) !important;}.has-cyan-50-color{color: var(--wp--preset--color--cyan-50) !important;}.has-cyan-100-color{color: var(--wp--preset--color--cyan-100) !important;}.has-cyan-200-color{color: var(--wp--preset--color--cyan-200) !important;}.has-cyan-300-color{color: var(--wp--preset--color--cyan-300) !important;}.has-cyan-400-color{color: var(--wp--preset--color--cyan-400) !important;}.has-cyan-500-color{color: var(--wp--preset--color--cyan-500) !important;}.has-cyan-600-color{color: var(--wp--preset--color--cyan-600) !important;}.has-cyan-700-color{color: var(--wp--preset--color--cyan-700) !important;}.has-cyan-800-color{color: var(--wp--preset--color--cyan-800) !important;}.has-cyan-900-color{color: var(--wp--preset--color--cyan-900) !important;}.has-cyan-950-color{color: var(--wp--preset--color--cyan-950) !important;}.has-sky-50-color{color: var(--wp--preset--color--sky-50) !important;}.has-sky-100-color{color: var(--wp--preset--color--sky-100) !important;}.has-sky-200-color{color: var(--wp--preset--color--sky-200) !important;}.has-sky-300-color{color: var(--wp--preset--color--sky-300) !important;}.has-sky-400-color{color: var(--wp--preset--color--sky-400) !important;}.has-sky-500-color{color: var(--wp--preset--color--sky-500) !important;}.has-sky-600-color{color: var(--wp--preset--color--sky-600) !important;}.has-sky-700-color{color: var(--wp--preset--color--sky-700) !important;}.has-sky-800-color{color: var(--wp--preset--color--sky-800) !important;}.has-sky-900-color{color: var(--wp--preset--color--sky-900) !important;}.has-sky-950-color{color: var(--wp--preset--color--sky-950) !important;}.has-blue-50-color{color: var(--wp--preset--color--blue-50) !important;}.has-blue-100-color{color: var(--wp--preset--color--blue-100) !important;}.has-blue-200-color{color: var(--wp--preset--color--blue-200) !important;}.has-blue-300-color{color: var(--wp--preset--color--blue-300) !important;}.has-blue-400-color{color: var(--wp--preset--color--blue-400) !important;}.has-blue-500-color{color: var(--wp--preset--color--blue-500) !important;}.has-blue-600-color{color: var(--wp--preset--color--blue-600) !important;}.has-blue-700-color{color: var(--wp--preset--color--blue-700) !important;}.has-blue-800-color{color: var(--wp--preset--color--blue-800) !important;}.has-blue-900-color{color: var(--wp--preset--color--blue-900) !important;}.has-blue-950-color{color: var(--wp--preset--color--blue-950) !important;}.has-indigo-50-color{color: var(--wp--preset--color--indigo-50) !important;}.has-indigo-100-color{color: var(--wp--preset--color--indigo-100) !important;}.has-indigo-200-color{color: var(--wp--preset--color--indigo-200) !important;}.has-indigo-300-color{color: var(--wp--preset--color--indigo-300) !important;}.has-indigo-400-color{color: var(--wp--preset--color--indigo-400) !important;}.has-indigo-500-color{color: var(--wp--preset--color--indigo-500) !important;}.has-indigo-600-color{color: var(--wp--preset--color--indigo-600) !important;}.has-indigo-700-color{color: var(--wp--preset--color--indigo-700) !important;}.has-indigo-800-color{color: var(--wp--preset--color--indigo-800) !important;}.has-indigo-900-color{color: var(--wp--preset--color--indigo-900) !important;}.has-indigo-950-color{color: var(--wp--preset--color--indigo-950) !important;}.has-violet-50-color{color: var(--wp--preset--color--violet-50) !important;}.has-violet-100-color{color: var(--wp--preset--color--violet-100) !important;}.has-violet-200-color{color: var(--wp--preset--color--violet-200) !important;}.has-violet-300-color{color: var(--wp--preset--color--violet-300) !important;}.has-violet-400-color{color: var(--wp--preset--color--violet-400) !important;}.has-violet-500-color{color: var(--wp--preset--color--violet-500) !important;}.has-violet-600-color{color: var(--wp--preset--color--violet-600) !important;}.has-violet-700-color{color: var(--wp--preset--color--violet-700) !important;}.has-violet-800-color{color: var(--wp--preset--color--violet-800) !important;}.has-violet-900-color{color: var(--wp--preset--color--violet-900) !important;}.has-violet-950-color{color: var(--wp--preset--color--violet-950) !important;}.has-purple-50-color{color: var(--wp--preset--color--purple-50) !important;}.has-purple-100-color{color: var(--wp--preset--color--purple-100) !important;}.has-purple-200-color{color: var(--wp--preset--color--purple-200) !important;}.has-purple-300-color{color: var(--wp--preset--color--purple-300) !important;}.has-purple-400-color{color: var(--wp--preset--color--purple-400) !important;}.has-purple-500-color{color: var(--wp--preset--color--purple-500) !important;}.has-purple-600-color{color: var(--wp--preset--color--purple-600) !important;}.has-purple-700-color{color: var(--wp--preset--color--purple-700) !important;}.has-purple-800-color{color: var(--wp--preset--color--purple-800) !important;}.has-purple-900-color{color: var(--wp--preset--color--purple-900) !important;}.has-purple-950-color{color: var(--wp--preset--color--purple-950) !important;}.has-fuchsia-50-color{color: var(--wp--preset--color--fuchsia-50) !important;}.has-fuchsia-100-color{color: var(--wp--preset--color--fuchsia-100) !important;}.has-fuchsia-200-color{color: var(--wp--preset--color--fuchsia-200) !important;}.has-fuchsia-300-color{color: var(--wp--preset--color--fuchsia-300) !important;}.has-fuchsia-400-color{color: var(--wp--preset--color--fuchsia-400) !important;}.has-fuchsia-500-color{color: var(--wp--preset--color--fuchsia-500) !important;}.has-fuchsia-600-color{color: var(--wp--preset--color--fuchsia-600) !important;}.has-fuchsia-700-color{color: var(--wp--preset--color--fuchsia-700) !important;}.has-fuchsia-800-color{color: var(--wp--preset--color--fuchsia-800) !important;}.has-fuchsia-900-color{color: var(--wp--preset--color--fuchsia-900) !important;}.has-fuchsia-950-color{color: var(--wp--preset--color--fuchsia-950) !important;}.has-pink-50-color{color: var(--wp--preset--color--pink-50) !important;}.has-pink-100-color{color: var(--wp--preset--color--pink-100) !important;}.has-pink-200-color{color: var(--wp--preset--color--pink-200) !important;}.has-pink-300-color{color: var(--wp--preset--color--pink-300) !important;}.has-pink-400-color{color: var(--wp--preset--color--pink-400) !important;}.has-pink-500-color{color: var(--wp--preset--color--pink-500) !important;}.has-pink-600-color{color: var(--wp--preset--color--pink-600) !important;}.has-pink-700-color{color: var(--wp--preset--color--pink-700) !important;}.has-pink-800-color{color: var(--wp--preset--color--pink-800) !important;}.has-pink-900-color{color: var(--wp--preset--color--pink-900) !important;}.has-pink-950-color{color: var(--wp--preset--color--pink-950) !important;}.has-rose-50-color{color: var(--wp--preset--color--rose-50) !important;}.has-rose-100-color{color: var(--wp--preset--color--rose-100) !important;}.has-rose-200-color{color: var(--wp--preset--color--rose-200) !important;}.has-rose-300-color{color: var(--wp--preset--color--rose-300) !important;}.has-rose-400-color{color: var(--wp--preset--color--rose-400) !important;}.has-rose-500-color{color: var(--wp--preset--color--rose-500) !important;}.has-rose-600-color{color: var(--wp--preset--color--rose-600) !important;}.has-rose-700-color{color: var(--wp--preset--color--rose-700) !important;}.has-rose-800-color{color: var(--wp--preset--color--rose-800) !important;}.has-rose-900-color{color: var(--wp--preset--color--rose-900) !important;}.has-rose-950-color{color: var(--wp--preset--color--rose-950) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-inherit-background-color{background-color: var(--wp--preset--color--inherit) !important;}.has-current-background-color{background-color: var(--wp--preset--color--current) !important;}.has-transparent-background-color{background-color: var(--wp--preset--color--transparent) !important;}.has-slate-50-background-color{background-color: var(--wp--preset--color--slate-50) !important;}.has-slate-100-background-color{background-color: var(--wp--preset--color--slate-100) !important;}.has-slate-200-background-color{background-color: var(--wp--preset--color--slate-200) !important;}.has-slate-300-background-color{background-color: var(--wp--preset--color--slate-300) !important;}.has-slate-400-background-color{background-color: var(--wp--preset--color--slate-400) !important;}.has-slate-500-background-color{background-color: var(--wp--preset--color--slate-500) !important;}.has-slate-600-background-color{background-color: var(--wp--preset--color--slate-600) !important;}.has-slate-700-background-color{background-color: var(--wp--preset--color--slate-700) !important;}.has-slate-800-background-color{background-color: var(--wp--preset--color--slate-800) !important;}.has-slate-900-background-color{background-color: var(--wp--preset--color--slate-900) !important;}.has-slate-950-background-color{background-color: var(--wp--preset--color--slate-950) !important;}.has-gray-50-background-color{background-color: var(--wp--preset--color--gray-50) !important;}.has-gray-100-background-color{background-color: var(--wp--preset--color--gray-100) !important;}.has-gray-200-background-color{background-color: var(--wp--preset--color--gray-200) !important;}.has-gray-300-background-color{background-color: var(--wp--preset--color--gray-300) !important;}.has-gray-400-background-color{background-color: var(--wp--preset--color--gray-400) !important;}.has-gray-500-background-color{background-color: var(--wp--preset--color--gray-500) !important;}.has-gray-600-background-color{background-color: var(--wp--preset--color--gray-600) !important;}.has-gray-700-background-color{background-color: var(--wp--preset--color--gray-700) !important;}.has-gray-800-background-color{background-color: var(--wp--preset--color--gray-800) !important;}.has-gray-900-background-color{background-color: var(--wp--preset--color--gray-900) !important;}.has-gray-950-background-color{background-color: var(--wp--preset--color--gray-950) !important;}.has-zinc-50-background-color{background-color: var(--wp--preset--color--zinc-50) !important;}.has-zinc-100-background-color{background-color: var(--wp--preset--color--zinc-100) !important;}.has-zinc-200-background-color{background-color: var(--wp--preset--color--zinc-200) !important;}.has-zinc-300-background-color{background-color: var(--wp--preset--color--zinc-300) !important;}.has-zinc-400-background-color{background-color: var(--wp--preset--color--zinc-400) !important;}.has-zinc-500-background-color{background-color: var(--wp--preset--color--zinc-500) !important;}.has-zinc-600-background-color{background-color: var(--wp--preset--color--zinc-600) !important;}.has-zinc-700-background-color{background-color: var(--wp--preset--color--zinc-700) !important;}.has-zinc-800-background-color{background-color: var(--wp--preset--color--zinc-800) !important;}.has-zinc-900-background-color{background-color: var(--wp--preset--color--zinc-900) !important;}.has-zinc-950-background-color{background-color: var(--wp--preset--color--zinc-950) !important;}.has-neutral-50-background-color{background-color: var(--wp--preset--color--neutral-50) !important;}.has-neutral-100-background-color{background-color: var(--wp--preset--color--neutral-100) !important;}.has-neutral-200-background-color{background-color: var(--wp--preset--color--neutral-200) !important;}.has-neutral-300-background-color{background-color: var(--wp--preset--color--neutral-300) !important;}.has-neutral-400-background-color{background-color: var(--wp--preset--color--neutral-400) !important;}.has-neutral-500-background-color{background-color: var(--wp--preset--color--neutral-500) !important;}.has-neutral-600-background-color{background-color: var(--wp--preset--color--neutral-600) !important;}.has-neutral-700-background-color{background-color: var(--wp--preset--color--neutral-700) !important;}.has-neutral-800-background-color{background-color: var(--wp--preset--color--neutral-800) !important;}.has-neutral-900-background-color{background-color: var(--wp--preset--color--neutral-900) !important;}.has-neutral-950-background-color{background-color: var(--wp--preset--color--neutral-950) !important;}.has-stone-50-background-color{background-color: var(--wp--preset--color--stone-50) !important;}.has-stone-100-background-color{background-color: var(--wp--preset--color--stone-100) !important;}.has-stone-200-background-color{background-color: var(--wp--preset--color--stone-200) !important;}.has-stone-300-background-color{background-color: var(--wp--preset--color--stone-300) !important;}.has-stone-400-background-color{background-color: var(--wp--preset--color--stone-400) !important;}.has-stone-500-background-color{background-color: var(--wp--preset--color--stone-500) !important;}.has-stone-600-background-color{background-color: var(--wp--preset--color--stone-600) !important;}.has-stone-700-background-color{background-color: var(--wp--preset--color--stone-700) !important;}.has-stone-800-background-color{background-color: var(--wp--preset--color--stone-800) !important;}.has-stone-900-background-color{background-color: var(--wp--preset--color--stone-900) !important;}.has-stone-950-background-color{background-color: var(--wp--preset--color--stone-950) !important;}.has-red-50-background-color{background-color: var(--wp--preset--color--red-50) !important;}.has-red-100-background-color{background-color: var(--wp--preset--color--red-100) !important;}.has-red-200-background-color{background-color: var(--wp--preset--color--red-200) !important;}.has-red-300-background-color{background-color: var(--wp--preset--color--red-300) !important;}.has-red-400-background-color{background-color: var(--wp--preset--color--red-400) !important;}.has-red-500-background-color{background-color: var(--wp--preset--color--red-500) !important;}.has-red-600-background-color{background-color: var(--wp--preset--color--red-600) !important;}.has-red-700-background-color{background-color: var(--wp--preset--color--red-700) !important;}.has-red-800-background-color{background-color: var(--wp--preset--color--red-800) !important;}.has-red-900-background-color{background-color: var(--wp--preset--color--red-900) !important;}.has-red-950-background-color{background-color: var(--wp--preset--color--red-950) !important;}.has-orange-50-background-color{background-color: var(--wp--preset--color--orange-50) !important;}.has-orange-100-background-color{background-color: var(--wp--preset--color--orange-100) !important;}.has-orange-200-background-color{background-color: var(--wp--preset--color--orange-200) !important;}.has-orange-300-background-color{background-color: var(--wp--preset--color--orange-300) !important;}.has-orange-400-background-color{background-color: var(--wp--preset--color--orange-400) !important;}.has-orange-500-background-color{background-color: var(--wp--preset--color--orange-500) !important;}.has-orange-600-background-color{background-color: var(--wp--preset--color--orange-600) !important;}.has-orange-700-background-color{background-color: var(--wp--preset--color--orange-700) !important;}.has-orange-800-background-color{background-color: var(--wp--preset--color--orange-800) !important;}.has-orange-900-background-color{background-color: var(--wp--preset--color--orange-900) !important;}.has-orange-950-background-color{background-color: var(--wp--preset--color--orange-950) !important;}.has-amber-50-background-color{background-color: var(--wp--preset--color--amber-50) !important;}.has-amber-100-background-color{background-color: var(--wp--preset--color--amber-100) !important;}.has-amber-200-background-color{background-color: var(--wp--preset--color--amber-200) !important;}.has-amber-300-background-color{background-color: var(--wp--preset--color--amber-300) !important;}.has-amber-400-background-color{background-color: var(--wp--preset--color--amber-400) !important;}.has-amber-500-background-color{background-color: var(--wp--preset--color--amber-500) !important;}.has-amber-600-background-color{background-color: var(--wp--preset--color--amber-600) !important;}.has-amber-700-background-color{background-color: var(--wp--preset--color--amber-700) !important;}.has-amber-800-background-color{background-color: var(--wp--preset--color--amber-800) !important;}.has-amber-900-background-color{background-color: var(--wp--preset--color--amber-900) !important;}.has-amber-950-background-color{background-color: var(--wp--preset--color--amber-950) !important;}.has-yellow-50-background-color{background-color: var(--wp--preset--color--yellow-50) !important;}.has-yellow-100-background-color{background-color: var(--wp--preset--color--yellow-100) !important;}.has-yellow-200-background-color{background-color: var(--wp--preset--color--yellow-200) !important;}.has-yellow-300-background-color{background-color: var(--wp--preset--color--yellow-300) !important;}.has-yellow-400-background-color{background-color: var(--wp--preset--color--yellow-400) !important;}.has-yellow-500-background-color{background-color: var(--wp--preset--color--yellow-500) !important;}.has-yellow-600-background-color{background-color: var(--wp--preset--color--yellow-600) !important;}.has-yellow-700-background-color{background-color: var(--wp--preset--color--yellow-700) !important;}.has-yellow-800-background-color{background-color: var(--wp--preset--color--yellow-800) !important;}.has-yellow-900-background-color{background-color: var(--wp--preset--color--yellow-900) !important;}.has-yellow-950-background-color{background-color: var(--wp--preset--color--yellow-950) !important;}.has-lime-50-background-color{background-color: var(--wp--preset--color--lime-50) !important;}.has-lime-100-background-color{background-color: var(--wp--preset--color--lime-100) !important;}.has-lime-200-background-color{background-color: var(--wp--preset--color--lime-200) !important;}.has-lime-300-background-color{background-color: var(--wp--preset--color--lime-300) !important;}.has-lime-400-background-color{background-color: var(--wp--preset--color--lime-400) !important;}.has-lime-500-background-color{background-color: var(--wp--preset--color--lime-500) !important;}.has-lime-600-background-color{background-color: var(--wp--preset--color--lime-600) !important;}.has-lime-700-background-color{background-color: var(--wp--preset--color--lime-700) !important;}.has-lime-800-background-color{background-color: var(--wp--preset--color--lime-800) !important;}.has-lime-900-background-color{background-color: var(--wp--preset--color--lime-900) !important;}.has-lime-950-background-color{background-color: var(--wp--preset--color--lime-950) !important;}.has-green-50-background-color{background-color: var(--wp--preset--color--green-50) !important;}.has-green-100-background-color{background-color: var(--wp--preset--color--green-100) !important;}.has-green-200-background-color{background-color: var(--wp--preset--color--green-200) !important;}.has-green-300-background-color{background-color: var(--wp--preset--color--green-300) !important;}.has-green-400-background-color{background-color: var(--wp--preset--color--green-400) !important;}.has-green-500-background-color{background-color: var(--wp--preset--color--green-500) !important;}.has-green-600-background-color{background-color: var(--wp--preset--color--green-600) !important;}.has-green-700-background-color{background-color: var(--wp--preset--color--green-700) !important;}.has-green-800-background-color{background-color: var(--wp--preset--color--green-800) !important;}.has-green-900-background-color{background-color: var(--wp--preset--color--green-900) !important;}.has-green-950-background-color{background-color: var(--wp--preset--color--green-950) !important;}.has-emerald-50-background-color{background-color: var(--wp--preset--color--emerald-50) !important;}.has-emerald-100-background-color{background-color: var(--wp--preset--color--emerald-100) !important;}.has-emerald-200-background-color{background-color: var(--wp--preset--color--emerald-200) !important;}.has-emerald-300-background-color{background-color: var(--wp--preset--color--emerald-300) !important;}.has-emerald-400-background-color{background-color: var(--wp--preset--color--emerald-400) !important;}.has-emerald-500-background-color{background-color: var(--wp--preset--color--emerald-500) !important;}.has-emerald-600-background-color{background-color: var(--wp--preset--color--emerald-600) !important;}.has-emerald-700-background-color{background-color: var(--wp--preset--color--emerald-700) !important;}.has-emerald-800-background-color{background-color: var(--wp--preset--color--emerald-800) !important;}.has-emerald-900-background-color{background-color: var(--wp--preset--color--emerald-900) !important;}.has-emerald-950-background-color{background-color: var(--wp--preset--color--emerald-950) !important;}.has-teal-50-background-color{background-color: var(--wp--preset--color--teal-50) !important;}.has-teal-100-background-color{background-color: var(--wp--preset--color--teal-100) !important;}.has-teal-200-background-color{background-color: var(--wp--preset--color--teal-200) !important;}.has-teal-300-background-color{background-color: var(--wp--preset--color--teal-300) !important;}.has-teal-400-background-color{background-color: var(--wp--preset--color--teal-400) !important;}.has-teal-500-background-color{background-color: var(--wp--preset--color--teal-500) !important;}.has-teal-600-background-color{background-color: var(--wp--preset--color--teal-600) !important;}.has-teal-700-background-color{background-color: var(--wp--preset--color--teal-700) !important;}.has-teal-800-background-color{background-color: var(--wp--preset--color--teal-800) !important;}.has-teal-900-background-color{background-color: var(--wp--preset--color--teal-900) !important;}.has-teal-950-background-color{background-color: var(--wp--preset--color--teal-950) !important;}.has-cyan-50-background-color{background-color: var(--wp--preset--color--cyan-50) !important;}.has-cyan-100-background-color{background-color: var(--wp--preset--color--cyan-100) !important;}.has-cyan-200-background-color{background-color: var(--wp--preset--color--cyan-200) !important;}.has-cyan-300-background-color{background-color: var(--wp--preset--color--cyan-300) !important;}.has-cyan-400-background-color{background-color: var(--wp--preset--color--cyan-400) !important;}.has-cyan-500-background-color{background-color: var(--wp--preset--color--cyan-500) !important;}.has-cyan-600-background-color{background-color: var(--wp--preset--color--cyan-600) !important;}.has-cyan-700-background-color{background-color: var(--wp--preset--color--cyan-700) !important;}.has-cyan-800-background-color{background-color: var(--wp--preset--color--cyan-800) !important;}.has-cyan-900-background-color{background-color: var(--wp--preset--color--cyan-900) !important;}.has-cyan-950-background-color{background-color: var(--wp--preset--color--cyan-950) !important;}.has-sky-50-background-color{background-color: var(--wp--preset--color--sky-50) !important;}.has-sky-100-background-color{background-color: var(--wp--preset--color--sky-100) !important;}.has-sky-200-background-color{background-color: var(--wp--preset--color--sky-200) !important;}.has-sky-300-background-color{background-color: var(--wp--preset--color--sky-300) !important;}.has-sky-400-background-color{background-color: var(--wp--preset--color--sky-400) !important;}.has-sky-500-background-color{background-color: var(--wp--preset--color--sky-500) !important;}.has-sky-600-background-color{background-color: var(--wp--preset--color--sky-600) !important;}.has-sky-700-background-color{background-color: var(--wp--preset--color--sky-700) !important;}.has-sky-800-background-color{background-color: var(--wp--preset--color--sky-800) !important;}.has-sky-900-background-color{background-color: var(--wp--preset--color--sky-900) !important;}.has-sky-950-background-color{background-color: var(--wp--preset--color--sky-950) !important;}.has-blue-50-background-color{background-color: var(--wp--preset--color--blue-50) !important;}.has-blue-100-background-color{background-color: var(--wp--preset--color--blue-100) !important;}.has-blue-200-background-color{background-color: var(--wp--preset--color--blue-200) !important;}.has-blue-300-background-color{background-color: var(--wp--preset--color--blue-300) !important;}.has-blue-400-background-color{background-color: var(--wp--preset--color--blue-400) !important;}.has-blue-500-background-color{background-color: var(--wp--preset--color--blue-500) !important;}.has-blue-600-background-color{background-color: var(--wp--preset--color--blue-600) !important;}.has-blue-700-background-color{background-color: var(--wp--preset--color--blue-700) !important;}.has-blue-800-background-color{background-color: var(--wp--preset--color--blue-800) !important;}.has-blue-900-background-color{background-color: var(--wp--preset--color--blue-900) !important;}.has-blue-950-background-color{background-color: var(--wp--preset--color--blue-950) !important;}.has-indigo-50-background-color{background-color: var(--wp--preset--color--indigo-50) !important;}.has-indigo-100-background-color{background-color: var(--wp--preset--color--indigo-100) !important;}.has-indigo-200-background-color{background-color: var(--wp--preset--color--indigo-200) !important;}.has-indigo-300-background-color{background-color: var(--wp--preset--color--indigo-300) !important;}.has-indigo-400-background-color{background-color: var(--wp--preset--color--indigo-400) !important;}.has-indigo-500-background-color{background-color: var(--wp--preset--color--indigo-500) !important;}.has-indigo-600-background-color{background-color: var(--wp--preset--color--indigo-600) !important;}.has-indigo-700-background-color{background-color: var(--wp--preset--color--indigo-700) !important;}.has-indigo-800-background-color{background-color: var(--wp--preset--color--indigo-800) !important;}.has-indigo-900-background-color{background-color: var(--wp--preset--color--indigo-900) !important;}.has-indigo-950-background-color{background-color: var(--wp--preset--color--indigo-950) !important;}.has-violet-50-background-color{background-color: var(--wp--preset--color--violet-50) !important;}.has-violet-100-background-color{background-color: var(--wp--preset--color--violet-100) !important;}.has-violet-200-background-color{background-color: var(--wp--preset--color--violet-200) !important;}.has-violet-300-background-color{background-color: var(--wp--preset--color--violet-300) !important;}.has-violet-400-background-color{background-color: var(--wp--preset--color--violet-400) !important;}.has-violet-500-background-color{background-color: var(--wp--preset--color--violet-500) !important;}.has-violet-600-background-color{background-color: var(--wp--preset--color--violet-600) !important;}.has-violet-700-background-color{background-color: var(--wp--preset--color--violet-700) !important;}.has-violet-800-background-color{background-color: var(--wp--preset--color--violet-800) !important;}.has-violet-900-background-color{background-color: var(--wp--preset--color--violet-900) !important;}.has-violet-950-background-color{background-color: var(--wp--preset--color--violet-950) !important;}.has-purple-50-background-color{background-color: var(--wp--preset--color--purple-50) !important;}.has-purple-100-background-color{background-color: var(--wp--preset--color--purple-100) !important;}.has-purple-200-background-color{background-color: var(--wp--preset--color--purple-200) !important;}.has-purple-300-background-color{background-color: var(--wp--preset--color--purple-300) !important;}.has-purple-400-background-color{background-color: var(--wp--preset--color--purple-400) !important;}.has-purple-500-background-color{background-color: var(--wp--preset--color--purple-500) !important;}.has-purple-600-background-color{background-color: var(--wp--preset--color--purple-600) !important;}.has-purple-700-background-color{background-color: var(--wp--preset--color--purple-700) !important;}.has-purple-800-background-color{background-color: var(--wp--preset--color--purple-800) !important;}.has-purple-900-background-color{background-color: var(--wp--preset--color--purple-900) !important;}.has-purple-950-background-color{background-color: var(--wp--preset--color--purple-950) !important;}.has-fuchsia-50-background-color{background-color: var(--wp--preset--color--fuchsia-50) !important;}.has-fuchsia-100-background-color{background-color: var(--wp--preset--color--fuchsia-100) !important;}.has-fuchsia-200-background-color{background-color: var(--wp--preset--color--fuchsia-200) !important;}.has-fuchsia-300-background-color{background-color: var(--wp--preset--color--fuchsia-300) !important;}.has-fuchsia-400-background-color{background-color: var(--wp--preset--color--fuchsia-400) !important;}.has-fuchsia-500-background-color{background-color: var(--wp--preset--color--fuchsia-500) !important;}.has-fuchsia-600-background-color{background-color: var(--wp--preset--color--fuchsia-600) !important;}.has-fuchsia-700-background-color{background-color: var(--wp--preset--color--fuchsia-700) !important;}.has-fuchsia-800-background-color{background-color: var(--wp--preset--color--fuchsia-800) !important;}.has-fuchsia-900-background-color{background-color: var(--wp--preset--color--fuchsia-900) !important;}.has-fuchsia-950-background-color{background-color: var(--wp--preset--color--fuchsia-950) !important;}.has-pink-50-background-color{background-color: var(--wp--preset--color--pink-50) !important;}.has-pink-100-background-color{background-color: var(--wp--preset--color--pink-100) !important;}.has-pink-200-background-color{background-color: var(--wp--preset--color--pink-200) !important;}.has-pink-300-background-color{background-color: var(--wp--preset--color--pink-300) !important;}.has-pink-400-background-color{background-color: var(--wp--preset--color--pink-400) !important;}.has-pink-500-background-color{background-color: var(--wp--preset--color--pink-500) !important;}.has-pink-600-background-color{background-color: var(--wp--preset--color--pink-600) !important;}.has-pink-700-background-color{background-color: var(--wp--preset--color--pink-700) !important;}.has-pink-800-background-color{background-color: var(--wp--preset--color--pink-800) !important;}.has-pink-900-background-color{background-color: var(--wp--preset--color--pink-900) !important;}.has-pink-950-background-color{background-color: var(--wp--preset--color--pink-950) !important;}.has-rose-50-background-color{background-color: var(--wp--preset--color--rose-50) !important;}.has-rose-100-background-color{background-color: var(--wp--preset--color--rose-100) !important;}.has-rose-200-background-color{background-color: var(--wp--preset--color--rose-200) !important;}.has-rose-300-background-color{background-color: var(--wp--preset--color--rose-300) !important;}.has-rose-400-background-color{background-color: var(--wp--preset--color--rose-400) !important;}.has-rose-500-background-color{background-color: var(--wp--preset--color--rose-500) !important;}.has-rose-600-background-color{background-color: var(--wp--preset--color--rose-600) !important;}.has-rose-700-background-color{background-color: var(--wp--preset--color--rose-700) !important;}.has-rose-800-background-color{background-color: var(--wp--preset--color--rose-800) !important;}.has-rose-900-background-color{background-color: var(--wp--preset--color--rose-900) !important;}.has-rose-950-background-color{background-color: var(--wp--preset--color--rose-950) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-inherit-border-color{border-color: var(--wp--preset--color--inherit) !important;}.has-current-border-color{border-color: var(--wp--preset--color--current) !important;}.has-transparent-border-color{border-color: var(--wp--preset--color--transparent) !important;}.has-slate-50-border-color{border-color: var(--wp--preset--color--slate-50) !important;}.has-slate-100-border-color{border-color: var(--wp--preset--color--slate-100) !important;}.has-slate-200-border-color{border-color: var(--wp--preset--color--slate-200) !important;}.has-slate-300-border-color{border-color: var(--wp--preset--color--slate-300) !important;}.has-slate-400-border-color{border-color: var(--wp--preset--color--slate-400) !important;}.has-slate-500-border-color{border-color: var(--wp--preset--color--slate-500) !important;}.has-slate-600-border-color{border-color: var(--wp--preset--color--slate-600) !important;}.has-slate-700-border-color{border-color: var(--wp--preset--color--slate-700) !important;}.has-slate-800-border-color{border-color: var(--wp--preset--color--slate-800) !important;}.has-slate-900-border-color{border-color: var(--wp--preset--color--slate-900) !important;}.has-slate-950-border-color{border-color: var(--wp--preset--color--slate-950) !important;}.has-gray-50-border-color{border-color: var(--wp--preset--color--gray-50) !important;}.has-gray-100-border-color{border-color: var(--wp--preset--color--gray-100) !important;}.has-gray-200-border-color{border-color: var(--wp--preset--color--gray-200) !important;}.has-gray-300-border-color{border-color: var(--wp--preset--color--gray-300) !important;}.has-gray-400-border-color{border-color: var(--wp--preset--color--gray-400) !important;}.has-gray-500-border-color{border-color: var(--wp--preset--color--gray-500) !important;}.has-gray-600-border-color{border-color: var(--wp--preset--color--gray-600) !important;}.has-gray-700-border-color{border-color: var(--wp--preset--color--gray-700) !important;}.has-gray-800-border-color{border-color: var(--wp--preset--color--gray-800) !important;}.has-gray-900-border-color{border-color: var(--wp--preset--color--gray-900) !important;}.has-gray-950-border-color{border-color: var(--wp--preset--color--gray-950) !important;}.has-zinc-50-border-color{border-color: var(--wp--preset--color--zinc-50) !important;}.has-zinc-100-border-color{border-color: var(--wp--preset--color--zinc-100) !important;}.has-zinc-200-border-color{border-color: var(--wp--preset--color--zinc-200) !important;}.has-zinc-300-border-color{border-color: var(--wp--preset--color--zinc-300) !important;}.has-zinc-400-border-color{border-color: var(--wp--preset--color--zinc-400) !important;}.has-zinc-500-border-color{border-color: var(--wp--preset--color--zinc-500) !important;}.has-zinc-600-border-color{border-color: var(--wp--preset--color--zinc-600) !important;}.has-zinc-700-border-color{border-color: var(--wp--preset--color--zinc-700) !important;}.has-zinc-800-border-color{border-color: var(--wp--preset--color--zinc-800) !important;}.has-zinc-900-border-color{border-color: var(--wp--preset--color--zinc-900) !important;}.has-zinc-950-border-color{border-color: var(--wp--preset--color--zinc-950) !important;}.has-neutral-50-border-color{border-color: var(--wp--preset--color--neutral-50) !important;}.has-neutral-100-border-color{border-color: var(--wp--preset--color--neutral-100) !important;}.has-neutral-200-border-color{border-color: var(--wp--preset--color--neutral-200) !important;}.has-neutral-300-border-color{border-color: var(--wp--preset--color--neutral-300) !important;}.has-neutral-400-border-color{border-color: var(--wp--preset--color--neutral-400) !important;}.has-neutral-500-border-color{border-color: var(--wp--preset--color--neutral-500) !important;}.has-neutral-600-border-color{border-color: var(--wp--preset--color--neutral-600) !important;}.has-neutral-700-border-color{border-color: var(--wp--preset--color--neutral-700) !important;}.has-neutral-800-border-color{border-color: var(--wp--preset--color--neutral-800) !important;}.has-neutral-900-border-color{border-color: var(--wp--preset--color--neutral-900) !important;}.has-neutral-950-border-color{border-color: var(--wp--preset--color--neutral-950) !important;}.has-stone-50-border-color{border-color: var(--wp--preset--color--stone-50) !important;}.has-stone-100-border-color{border-color: var(--wp--preset--color--stone-100) !important;}.has-stone-200-border-color{border-color: var(--wp--preset--color--stone-200) !important;}.has-stone-300-border-color{border-color: var(--wp--preset--color--stone-300) !important;}.has-stone-400-border-color{border-color: var(--wp--preset--color--stone-400) !important;}.has-stone-500-border-color{border-color: var(--wp--preset--color--stone-500) !important;}.has-stone-600-border-color{border-color: var(--wp--preset--color--stone-600) !important;}.has-stone-700-border-color{border-color: var(--wp--preset--color--stone-700) !important;}.has-stone-800-border-color{border-color: var(--wp--preset--color--stone-800) !important;}.has-stone-900-border-color{border-color: var(--wp--preset--color--stone-900) !important;}.has-stone-950-border-color{border-color: var(--wp--preset--color--stone-950) !important;}.has-red-50-border-color{border-color: var(--wp--preset--color--red-50) !important;}.has-red-100-border-color{border-color: var(--wp--preset--color--red-100) !important;}.has-red-200-border-color{border-color: var(--wp--preset--color--red-200) !important;}.has-red-300-border-color{border-color: var(--wp--preset--color--red-300) !important;}.has-red-400-border-color{border-color: var(--wp--preset--color--red-400) !important;}.has-red-500-border-color{border-color: var(--wp--preset--color--red-500) !important;}.has-red-600-border-color{border-color: var(--wp--preset--color--red-600) !important;}.has-red-700-border-color{border-color: var(--wp--preset--color--red-700) !important;}.has-red-800-border-color{border-color: var(--wp--preset--color--red-800) !important;}.has-red-900-border-color{border-color: var(--wp--preset--color--red-900) !important;}.has-red-950-border-color{border-color: var(--wp--preset--color--red-950) !important;}.has-orange-50-border-color{border-color: var(--wp--preset--color--orange-50) !important;}.has-orange-100-border-color{border-color: var(--wp--preset--color--orange-100) !important;}.has-orange-200-border-color{border-color: var(--wp--preset--color--orange-200) !important;}.has-orange-300-border-color{border-color: var(--wp--preset--color--orange-300) !important;}.has-orange-400-border-color{border-color: var(--wp--preset--color--orange-400) !important;}.has-orange-500-border-color{border-color: var(--wp--preset--color--orange-500) !important;}.has-orange-600-border-color{border-color: var(--wp--preset--color--orange-600) !important;}.has-orange-700-border-color{border-color: var(--wp--preset--color--orange-700) !important;}.has-orange-800-border-color{border-color: var(--wp--preset--color--orange-800) !important;}.has-orange-900-border-color{border-color: var(--wp--preset--color--orange-900) !important;}.has-orange-950-border-color{border-color: var(--wp--preset--color--orange-950) !important;}.has-amber-50-border-color{border-color: var(--wp--preset--color--amber-50) !important;}.has-amber-100-border-color{border-color: var(--wp--preset--color--amber-100) !important;}.has-amber-200-border-color{border-color: var(--wp--preset--color--amber-200) !important;}.has-amber-300-border-color{border-color: var(--wp--preset--color--amber-300) !important;}.has-amber-400-border-color{border-color: var(--wp--preset--color--amber-400) !important;}.has-amber-500-border-color{border-color: var(--wp--preset--color--amber-500) !important;}.has-amber-600-border-color{border-color: var(--wp--preset--color--amber-600) !important;}.has-amber-700-border-color{border-color: var(--wp--preset--color--amber-700) !important;}.has-amber-800-border-color{border-color: var(--wp--preset--color--amber-800) !important;}.has-amber-900-border-color{border-color: var(--wp--preset--color--amber-900) !important;}.has-amber-950-border-color{border-color: var(--wp--preset--color--amber-950) !important;}.has-yellow-50-border-color{border-color: var(--wp--preset--color--yellow-50) !important;}.has-yellow-100-border-color{border-color: var(--wp--preset--color--yellow-100) !important;}.has-yellow-200-border-color{border-color: var(--wp--preset--color--yellow-200) !important;}.has-yellow-300-border-color{border-color: var(--wp--preset--color--yellow-300) !important;}.has-yellow-400-border-color{border-color: var(--wp--preset--color--yellow-400) !important;}.has-yellow-500-border-color{border-color: var(--wp--preset--color--yellow-500) !important;}.has-yellow-600-border-color{border-color: var(--wp--preset--color--yellow-600) !important;}.has-yellow-700-border-color{border-color: var(--wp--preset--color--yellow-700) !important;}.has-yellow-800-border-color{border-color: var(--wp--preset--color--yellow-800) !important;}.has-yellow-900-border-color{border-color: var(--wp--preset--color--yellow-900) !important;}.has-yellow-950-border-color{border-color: var(--wp--preset--color--yellow-950) !important;}.has-lime-50-border-color{border-color: var(--wp--preset--color--lime-50) !important;}.has-lime-100-border-color{border-color: var(--wp--preset--color--lime-100) !important;}.has-lime-200-border-color{border-color: var(--wp--preset--color--lime-200) !important;}.has-lime-300-border-color{border-color: var(--wp--preset--color--lime-300) !important;}.has-lime-400-border-color{border-color: var(--wp--preset--color--lime-400) !important;}.has-lime-500-border-color{border-color: var(--wp--preset--color--lime-500) !important;}.has-lime-600-border-color{border-color: var(--wp--preset--color--lime-600) !important;}.has-lime-700-border-color{border-color: var(--wp--preset--color--lime-700) !important;}.has-lime-800-border-color{border-color: var(--wp--preset--color--lime-800) !important;}.has-lime-900-border-color{border-color: var(--wp--preset--color--lime-900) !important;}.has-lime-950-border-color{border-color: var(--wp--preset--color--lime-950) !important;}.has-green-50-border-color{border-color: var(--wp--preset--color--green-50) !important;}.has-green-100-border-color{border-color: var(--wp--preset--color--green-100) !important;}.has-green-200-border-color{border-color: var(--wp--preset--color--green-200) !important;}.has-green-300-border-color{border-color: var(--wp--preset--color--green-300) !important;}.has-green-400-border-color{border-color: var(--wp--preset--color--green-400) !important;}.has-green-500-border-color{border-color: var(--wp--preset--color--green-500) !important;}.has-green-600-border-color{border-color: var(--wp--preset--color--green-600) !important;}.has-green-700-border-color{border-color: var(--wp--preset--color--green-700) !important;}.has-green-800-border-color{border-color: var(--wp--preset--color--green-800) !important;}.has-green-900-border-color{border-color: var(--wp--preset--color--green-900) !important;}.has-green-950-border-color{border-color: var(--wp--preset--color--green-950) !important;}.has-emerald-50-border-color{border-color: var(--wp--preset--color--emerald-50) !important;}.has-emerald-100-border-color{border-color: var(--wp--preset--color--emerald-100) !important;}.has-emerald-200-border-color{border-color: var(--wp--preset--color--emerald-200) !important;}.has-emerald-300-border-color{border-color: var(--wp--preset--color--emerald-300) !important;}.has-emerald-400-border-color{border-color: var(--wp--preset--color--emerald-400) !important;}.has-emerald-500-border-color{border-color: var(--wp--preset--color--emerald-500) !important;}.has-emerald-600-border-color{border-color: var(--wp--preset--color--emerald-600) !important;}.has-emerald-700-border-color{border-color: var(--wp--preset--color--emerald-700) !important;}.has-emerald-800-border-color{border-color: var(--wp--preset--color--emerald-800) !important;}.has-emerald-900-border-color{border-color: var(--wp--preset--color--emerald-900) !important;}.has-emerald-950-border-color{border-color: var(--wp--preset--color--emerald-950) !important;}.has-teal-50-border-color{border-color: var(--wp--preset--color--teal-50) !important;}.has-teal-100-border-color{border-color: var(--wp--preset--color--teal-100) !important;}.has-teal-200-border-color{border-color: var(--wp--preset--color--teal-200) !important;}.has-teal-300-border-color{border-color: var(--wp--preset--color--teal-300) !important;}.has-teal-400-border-color{border-color: var(--wp--preset--color--teal-400) !important;}.has-teal-500-border-color{border-color: var(--wp--preset--color--teal-500) !important;}.has-teal-600-border-color{border-color: var(--wp--preset--color--teal-600) !important;}.has-teal-700-border-color{border-color: var(--wp--preset--color--teal-700) !important;}.has-teal-800-border-color{border-color: var(--wp--preset--color--teal-800) !important;}.has-teal-900-border-color{border-color: var(--wp--preset--color--teal-900) !important;}.has-teal-950-border-color{border-color: var(--wp--preset--color--teal-950) !important;}.has-cyan-50-border-color{border-color: var(--wp--preset--color--cyan-50) !important;}.has-cyan-100-border-color{border-color: var(--wp--preset--color--cyan-100) !important;}.has-cyan-200-border-color{border-color: var(--wp--preset--color--cyan-200) !important;}.has-cyan-300-border-color{border-color: var(--wp--preset--color--cyan-300) !important;}.has-cyan-400-border-color{border-color: var(--wp--preset--color--cyan-400) !important;}.has-cyan-500-border-color{border-color: var(--wp--preset--color--cyan-500) !important;}.has-cyan-600-border-color{border-color: var(--wp--preset--color--cyan-600) !important;}.has-cyan-700-border-color{border-color: var(--wp--preset--color--cyan-700) !important;}.has-cyan-800-border-color{border-color: var(--wp--preset--color--cyan-800) !important;}.has-cyan-900-border-color{border-color: var(--wp--preset--color--cyan-900) !important;}.has-cyan-950-border-color{border-color: var(--wp--preset--color--cyan-950) !important;}.has-sky-50-border-color{border-color: var(--wp--preset--color--sky-50) !important;}.has-sky-100-border-color{border-color: var(--wp--preset--color--sky-100) !important;}.has-sky-200-border-color{border-color: var(--wp--preset--color--sky-200) !important;}.has-sky-300-border-color{border-color: var(--wp--preset--color--sky-300) !important;}.has-sky-400-border-color{border-color: var(--wp--preset--color--sky-400) !important;}.has-sky-500-border-color{border-color: var(--wp--preset--color--sky-500) !important;}.has-sky-600-border-color{border-color: var(--wp--preset--color--sky-600) !important;}.has-sky-700-border-color{border-color: var(--wp--preset--color--sky-700) !important;}.has-sky-800-border-color{border-color: var(--wp--preset--color--sky-800) !important;}.has-sky-900-border-color{border-color: var(--wp--preset--color--sky-900) !important;}.has-sky-950-border-color{border-color: var(--wp--preset--color--sky-950) !important;}.has-blue-50-border-color{border-color: var(--wp--preset--color--blue-50) !important;}.has-blue-100-border-color{border-color: var(--wp--preset--color--blue-100) !important;}.has-blue-200-border-color{border-color: var(--wp--preset--color--blue-200) !important;}.has-blue-300-border-color{border-color: var(--wp--preset--color--blue-300) !important;}.has-blue-400-border-color{border-color: var(--wp--preset--color--blue-400) !important;}.has-blue-500-border-color{border-color: var(--wp--preset--color--blue-500) !important;}.has-blue-600-border-color{border-color: var(--wp--preset--color--blue-600) !important;}.has-blue-700-border-color{border-color: var(--wp--preset--color--blue-700) !important;}.has-blue-800-border-color{border-color: var(--wp--preset--color--blue-800) !important;}.has-blue-900-border-color{border-color: var(--wp--preset--color--blue-900) !important;}.has-blue-950-border-color{border-color: var(--wp--preset--color--blue-950) !important;}.has-indigo-50-border-color{border-color: var(--wp--preset--color--indigo-50) !important;}.has-indigo-100-border-color{border-color: var(--wp--preset--color--indigo-100) !important;}.has-indigo-200-border-color{border-color: var(--wp--preset--color--indigo-200) !important;}.has-indigo-300-border-color{border-color: var(--wp--preset--color--indigo-300) !important;}.has-indigo-400-border-color{border-color: var(--wp--preset--color--indigo-400) !important;}.has-indigo-500-border-color{border-color: var(--wp--preset--color--indigo-500) !important;}.has-indigo-600-border-color{border-color: var(--wp--preset--color--indigo-600) !important;}.has-indigo-700-border-color{border-color: var(--wp--preset--color--indigo-700) !important;}.has-indigo-800-border-color{border-color: var(--wp--preset--color--indigo-800) !important;}.has-indigo-900-border-color{border-color: var(--wp--preset--color--indigo-900) !important;}.has-indigo-950-border-color{border-color: var(--wp--preset--color--indigo-950) !important;}.has-violet-50-border-color{border-color: var(--wp--preset--color--violet-50) !important;}.has-violet-100-border-color{border-color: var(--wp--preset--color--violet-100) !important;}.has-violet-200-border-color{border-color: var(--wp--preset--color--violet-200) !important;}.has-violet-300-border-color{border-color: var(--wp--preset--color--violet-300) !important;}.has-violet-400-border-color{border-color: var(--wp--preset--color--violet-400) !important;}.has-violet-500-border-color{border-color: var(--wp--preset--color--violet-500) !important;}.has-violet-600-border-color{border-color: var(--wp--preset--color--violet-600) !important;}.has-violet-700-border-color{border-color: var(--wp--preset--color--violet-700) !important;}.has-violet-800-border-color{border-color: var(--wp--preset--color--violet-800) !important;}.has-violet-900-border-color{border-color: var(--wp--preset--color--violet-900) !important;}.has-violet-950-border-color{border-color: var(--wp--preset--color--violet-950) !important;}.has-purple-50-border-color{border-color: var(--wp--preset--color--purple-50) !important;}.has-purple-100-border-color{border-color: var(--wp--preset--color--purple-100) !important;}.has-purple-200-border-color{border-color: var(--wp--preset--color--purple-200) !important;}.has-purple-300-border-color{border-color: var(--wp--preset--color--purple-300) !important;}.has-purple-400-border-color{border-color: var(--wp--preset--color--purple-400) !important;}.has-purple-500-border-color{border-color: var(--wp--preset--color--purple-500) !important;}.has-purple-600-border-color{border-color: var(--wp--preset--color--purple-600) !important;}.has-purple-700-border-color{border-color: var(--wp--preset--color--purple-700) !important;}.has-purple-800-border-color{border-color: var(--wp--preset--color--purple-800) !important;}.has-purple-900-border-color{border-color: var(--wp--preset--color--purple-900) !important;}.has-purple-950-border-color{border-color: var(--wp--preset--color--purple-950) !important;}.has-fuchsia-50-border-color{border-color: var(--wp--preset--color--fuchsia-50) !important;}.has-fuchsia-100-border-color{border-color: var(--wp--preset--color--fuchsia-100) !important;}.has-fuchsia-200-border-color{border-color: var(--wp--preset--color--fuchsia-200) !important;}.has-fuchsia-300-border-color{border-color: var(--wp--preset--color--fuchsia-300) !important;}.has-fuchsia-400-border-color{border-color: var(--wp--preset--color--fuchsia-400) !important;}.has-fuchsia-500-border-color{border-color: var(--wp--preset--color--fuchsia-500) !important;}.has-fuchsia-600-border-color{border-color: var(--wp--preset--color--fuchsia-600) !important;}.has-fuchsia-700-border-color{border-color: var(--wp--preset--color--fuchsia-700) !important;}.has-fuchsia-800-border-color{border-color: var(--wp--preset--color--fuchsia-800) !important;}.has-fuchsia-900-border-color{border-color: var(--wp--preset--color--fuchsia-900) !important;}.has-fuchsia-950-border-color{border-color: var(--wp--preset--color--fuchsia-950) !important;}.has-pink-50-border-color{border-color: var(--wp--preset--color--pink-50) !important;}.has-pink-100-border-color{border-color: var(--wp--preset--color--pink-100) !important;}.has-pink-200-border-color{border-color: var(--wp--preset--color--pink-200) !important;}.has-pink-300-border-color{border-color: var(--wp--preset--color--pink-300) !important;}.has-pink-400-border-color{border-color: var(--wp--preset--color--pink-400) !important;}.has-pink-500-border-color{border-color: var(--wp--preset--color--pink-500) !important;}.has-pink-600-border-color{border-color: var(--wp--preset--color--pink-600) !important;}.has-pink-700-border-color{border-color: var(--wp--preset--color--pink-700) !important;}.has-pink-800-border-color{border-color: var(--wp--preset--color--pink-800) !important;}.has-pink-900-border-color{border-color: var(--wp--preset--color--pink-900) !important;}.has-pink-950-border-color{border-color: var(--wp--preset--color--pink-950) !important;}.has-rose-50-border-color{border-color: var(--wp--preset--color--rose-50) !important;}.has-rose-100-border-color{border-color: var(--wp--preset--color--rose-100) !important;}.has-rose-200-border-color{border-color: var(--wp--preset--color--rose-200) !important;}.has-rose-300-border-color{border-color: var(--wp--preset--color--rose-300) !important;}.has-rose-400-border-color{border-color: var(--wp--preset--color--rose-400) !important;}.has-rose-500-border-color{border-color: var(--wp--preset--color--rose-500) !important;}.has-rose-600-border-color{border-color: var(--wp--preset--color--rose-600) !important;}.has-rose-700-border-color{border-color: var(--wp--preset--color--rose-700) !important;}.has-rose-800-border-color{border-color: var(--wp--preset--color--rose-800) !important;}.has-rose-900-border-color{border-color: var(--wp--preset--color--rose-900) !important;}.has-rose-950-border-color{border-color: var(--wp--preset--color--rose-950) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-xs-font-size{font-size: var(--wp--preset--font-size--xs) !important;}.has-sm-font-size{font-size: var(--wp--preset--font-size--sm) !important;}.has-base-font-size{font-size: var(--wp--preset--font-size--base) !important;}.has-lg-font-size{font-size: var(--wp--preset--font-size--lg) !important;}.has-xl-font-size{font-size: var(--wp--preset--font-size--xl) !important;}.has-2-xl-font-size{font-size: var(--wp--preset--font-size--2-xl) !important;}.has-3-xl-font-size{font-size: var(--wp--preset--font-size--3-xl) !important;}.has-4-xl-font-size{font-size: var(--wp--preset--font-size--4-xl) !important;}.has-5-xl-font-size{font-size: var(--wp--preset--font-size--5-xl) !important;}.has-6-xl-font-size{font-size: var(--wp--preset--font-size--6-xl) !important;}.has-7-xl-font-size{font-size: var(--wp--preset--font-size--7-xl) !important;}.has-8-xl-font-size{font-size: var(--wp--preset--font-size--8-xl) !important;}.has-9-xl-font-size{font-size: var(--wp--preset--font-size--9-xl) !important;}.has-sans-font-family{font-family: var(--wp--preset--font-family--sans) !important;}.has-serif-font-family{font-family: var(--wp--preset--font-family--serif) !important;}.has-mono-font-family{font-family: var(--wp--preset--font-family--mono) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+</head>
+
+<body class="error404 wp-embed-responsive wp-theme-sp-starter-theme">
+    
+    <!-- Page Loader -->
+    <!-- <div id="page-loader">
+        <img class="loader-image" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/resources/images/URC-Load-Emblem_Mock.gif" alt="Loading...">
+    </div> -->
+
+    <div id="app">
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"> -->
+<script>
+function loadLocalizedImages(countryCode) {
+  var localizedImageElements = document.querySelectorAll('[data-localized-image]');
+  var code = (countryCode || '').toLowerCase();
+  var i;
+
+  for (i = 0; i < localizedImageElements.length; i++) {
+    var element = localizedImageElements[i];
+    var srcFallback = element.getAttribute('data-src-fallback');
+    var altFallback = element.getAttribute('data-alt-fallback');
+    var src = element.getAttribute('data-src-' + code);
+    var alt = element.getAttribute('data-alt-' + code);
+
+    if (src || srcFallback) {
+      element.src = src || srcFallback;
+    }
+    if (alt || altFallback) {
+      element.alt = alt || altFallback;
+    }
+
+    element.setAttribute('data-localized-image', 'loaded');
+  }
+}
+
+(function () {
+  fetch('/wp-json/custom/v1/geolocation')
+    .then(function (response) { return response.json(); })
+    .then(function (data) { loadLocalizedImages(data.country_code); })
+    .catch(function (error) {
+      console.error('Error fetching geolocation:', error);
+      loadLocalizedImages(null);
+    });
+})();
+</script>
+
+<div class="site-header">
+    <!-- TOP HEADER -->
+    <header id="site-top-header" class="top-header bg-black text-white w-full" role="region" aria-label="Top bar">
+        <div class="container">
+            <div class="top-theme">
+            <nav id="top-navigation" class="top-navigation" role="navigation" aria-label="Top utility links">
+                                    <ul id="menu-top-navigation" class="nav-menu flex gap-4 text-sm"><li id="menu-item-40" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40"><a href="https://www.unitedrugby.com/about">ABOUT URC</a></li>
+<li id="menu-item-33" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33"><a href="https://www.unitedrugby.com/where-to-watch/">WHERE TO WATCH</a></li>
+<li id="menu-item-38911" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38911"><a href="https://www.unitedrugby.com/awards/hall-of-fame/">URC Awards</a></li>
+<li id="menu-item-38" class="icon-external-link menu-item menu-item-type-custom menu-item-object-custom menu-item-38"><a target="_blank" href="https://www.superbru.com/urc">FANTASY/PREDICTOR</a></li>
+</ul>
+                            </nav>
+            <div class="theme-toggle">
+                <span class="mode-text">DARK</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" class="theme-toggle-switch" />
+                    <span class="slider">
+                        <span class="icon">
+                            <img class="icon-moon" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/images/darkmode.svg" alt="moon icon">
+                            <img class="icon-sun" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/images/lightmode.svg" alt="sun icon">
+                        </span>
+                    </span>
+                </label>
+            </div>
+            </div>
+            
+            <a class="header-logo" href="https://www.unitedrugby.com/">
+                <div class="header-logo-div">
+                    <img
+                      data-localized-image
+                      data-src-fallback="https://www.unitedrugby.com/wp-content/uploads/2025/06/urc-logo.png"
+                      data-alt-fallback="United Rugby Championship"
+                      data-src-za="https://www.unitedrugby.com/wp-content/uploads/2025/06/URC_SA_Logo.png"
+                      data-alt-za="United Rugby Championship South Africa"
+                    >
+                </div>
+
+            </a>
+        </div>
+
+
+    </header>
+
+    <header id="site-banner" class="banner" role="banner" aria-label="Main site banner">
+        
+        <nav id="main-navigation" class="navbar container" role="navigation" aria-label="Primary site navigation">
+            
+            <button class="menu-btn lg:hidden" aria-label="Menu">
+                <!-- Hamburger Icon -->
+                <span class="hamburger-icon"></span>
+
+                <!-- Close Icon -->
+                <span class="close-icon"></span>
+            </button>
+            <!-- Center Logo -->
+            <a class="header-logo-mobile lg:hidden" href="https://www.unitedrugby.com/">
+                <img
+                  data-localized-image
+                  data-src-fallback="https://www.unitedrugby.com/wp-content/uploads/2025/06/urc-logo.png"
+                  data-alt-fallback="United Rugby Championship"
+                  data-src-za="https://www.unitedrugby.com/wp-content/uploads/2025/06/URC_SA_Logo.png"
+                  data-alt-za="United Rugby Championship South Africa"
+                >
+            </a>
+
+            <!-- Mobile Sign In/Register Button (icon only on mobile - no "Sign in / Register" text) -->
+            <div class="mobile-signin lg:hidden">
+                <div class="mobile-auth-btn">
+                    
+                    <div class="my-urc-btn auth0-menu-item">
+                        <a href="https://www.unitedrugby.com/auth/login">
+                            <span class="header-sign-in">Sign in / Register</span>
+                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/09/URC_LOGO_EMBLEM_GENERIC_WHITE_NEG_RGB-1.svg" alt="URC Logo" class="auth0-generic-emblem" style="width: 27px; height: 27px; background-color: #00cde6; padding: 4px; border-radius: 8px 0;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
+                            <div class="navbar-nav">
+                    <div></div>
+                    <ul id="menu-primary-navigation" class="nav-menu nav-menu-primary"><li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="https://www.unitedrugby.com/latest">Latest</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36"><a>Match Centre</a>
+<ul class="sub-menu">
+	<li id="menu-item-36411" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36411"><a href="https://stats.unitedrugby.com/match-centre">Rounds</a></li>
+	<li id="menu-item-36412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36412"><a href="https://stats.unitedrugby.com/match-centre/table/2026-27">Table</a></li>
+	<li id="menu-item-36413" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36413"><a href="https://stats.unitedrugby.com/match-centre/shields/2026-27">Shields</a></li>
+</ul>
+</li>
+<li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-46"><a href="https://stats.unitedrugby.com/statistics">Stats</a></li>
+<li id="menu-item-45" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45"><a href="https://stats.unitedrugby.com/clubs">Clubs</a></li>
+<li id="menu-item-48" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-48"><a href="https://urc.tv">URC TV</a></li>
+</ul>
+
+                    
+                                            
+                        <a
+                            class="nav-loyalty-btn"
+                            href="https://www.unitedrugby.com/loyalty-join/"
+                            data-loyalty-nav="join"
+                            data-profile-url="https://www.unitedrugby.com/loyalty-profile/"
+                        >
+                            <span class="nav-loyalty-label">Loyalty</span>
+                            <img class="nav-loyalty-icon" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/images/loyalty-shield.svg" alt="" width="24" height="24">
+                        </a>
+                    
+                    
+                    
+                    <div class="my-urc-btn auth0-menu-item">
+                        <a href="https://www.unitedrugby.com/auth/login">
+                            <span class="header-sign-in">Sign in/Register</span>
+                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/09/URC_LOGO_EMBLEM_GENERIC_WHITE_NEG_RGB-1.svg" alt="URC Logo" class="auth0-generic-emblem" style="width: 27px; height: 27px; background-color: #00cde6; padding: 4px; border-radius: 8px 0;">
+                        </a>
+                    </div>
+                </div>
+            
+            
+            <script>
+            (function () {
+                var signInUrl = "https:\/\/www.unitedrugby.com\/auth\/login";
+                var myAccountUrl = "https:\/\/myaccount.unitedrugby.com\/";
+                var emblem = "https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/09\/URC_LOGO_EMBLEM_GENERIC_WHITE_NEG_RGB-1.svg";
+                var crests = {"5092":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2026\/09\/Lions.svg","2019":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Benetton-Rugby.svg","4471":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Cardiff-Rugby.svg","5483":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Connacht-1.svg","3994":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/08\/Stormers-Light.svg","3533":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Dragons.svg","1641":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Edinburgh.svg","3098":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Glasgow-Warriors.svg","1527":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2026\/09\/HollywoodbetsSharks_Light-1.svg","5356":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Leinster-1.svg","4377":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Munster-Rugby-1.svg","5057":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Ospreys.svg","3514":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Scarlets.svg","2129":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Ulster.svg","5586":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Vodacom-1.svg","4474":"https:\/\/www.unitedrugby.com\/wp-content\/uploads\/2025\/05\/Zebre-Parma.svg"};
+
+                var isAuth = false;
+                var teamLogo = '';
+                var teamId = '';
+
+                /**
+                 * Read the fan off the contract, if it is there and has settled.
+                 *
+                 * `state()` answers null until the SDK settles, and null is NOT signed out -- so an
+                 * unsettled read leaves the skeleton alone rather than asserting anything.
+                 */
+                function readFan() {
+                    var api = window.urcAuth;
+                    var state = api && typeof api.state === 'function' ? api.state() : null;
+
+                    isAuth = !!(state && state.signedIn);
+                    teamId = isAuth && state.clubId ? String(state.clubId) : '';
+                    teamLogo = teamId && crests[teamId] ? crests[teamId] : '';
+                }
+
+                /*
+                 * The emblem's inline style, which has to be written by JS because
+                 * `.auth0-generic-emblem` in _header.scss carries only a border-radius -- the
+                 * sizing, padding and cyan tile are all inline. **The same declaration is in the
+                 * Blade markup for both buttons above**; if you change one, change all three.
+                 */
+                var EMBLEM_STYLE = 'width: 27px; height: 27px; background-color: #00cde6; padding: 4px; border-radius: 8px 0;';
+
+                /*
+                 * The crest's, which is the emblem's WITHOUT a background. The club colour comes
+                 * from `_header.scss`'s `$team-logo-bg-colors` map keyed on `data-team-id`, and an
+                 * inline `background-color` beats that wherever the map's `!important` does not
+                 * reach -- everything in that file compiles under `.banner .navbar`, and one of
+                 * these two buttons sits outside it. The sizing still has to be inline, because
+                 * `.auth0-team-logo` sets no width or height either.
+                 */
+                var CREST_STYLE = 'width: 27px; height: 27px; padding: 4px; border-radius: 8px 0;';
+
+                /**
+                 * Turn one `img` into the generic emblem, completely.
+                 *
+                 * Both branches go through this so the two directions cannot drift apart, which is
+                 * exactly what had happened: the signed-in branch wrote a crest and had no way
+                 * back, so a fan with no club kept the PREVIOUS fan's crest.
+                 */
+                function writeEmblem(img) {
+                    img.src = emblem;
+                    img.alt = 'URC Logo';
+                    img.className = 'auth0-generic-emblem';
+                    img.removeAttribute('data-team-id');
+                    img.setAttribute('style', EMBLEM_STYLE);
+                }
+
+                /**
+                 * Turn one `img` into this fan's club crest.
+                 *
+                 * `data-team-id` is what selects the club's tile colour. applyAccountRow() has set
+                 * it since the crest row was added; this half did not, so the button crest always
+                 * fell through to the default slate.
+                 */
+                function writeCrest(img) {
+                    img.src = teamLogo;
+                    img.alt = 'Team Logo';
+                    img.className = 'auth0-team-logo';
+                    img.setAttribute('data-team-id', teamId);
+                    img.setAttribute('style', CREST_STYLE);
+                }
+
+                function applyMenuItems() {
+                document.querySelectorAll('.auth0-menu-item a').forEach(function (link) {
+                    var span = link.querySelector('.header-sign-in');
+                    var isMobile = !!link.closest('.mobile-signin');
+                    if (isAuth) {
+                        link.href = myAccountUrl;
+                        link.classList.add('auth0-authenticated');
+                        if (span) {
+                            span.textContent = 'My Account';
+                        } else if (!link.querySelector('img.auth0-team-logo')) {
+                            span = document.createElement('span');
+                            span.className = 'header-sign-in';
+                            span.textContent = 'My Account';
+                            link.insertBefore(span, link.firstChild);
+                        }
+                        /*
+                         * A COMPLETE state, both ways. `teamLogo` is empty for a fan who has
+                         * selected no club -- `team_name` is the empty string on a real dev-tenant
+                         * fan -- and this used to be `if (teamLogo) { … }` with no else, so the
+                         * crest branch could not undo itself. A fan with no club then kept
+                         * whichever club crest the document had already been shown, under a
+                         * `My URC` label, with no navigation needed: the auth bundle re-resolves on
+                         * focus, visibilitychange, pageshow and the cross-tab broadcast.
+                         */
+                        var logoImg = link.querySelector('img');
+                        if (logoImg) {
+                            if (teamLogo) {
+                                writeCrest(logoImg);
+                            } else {
+                                writeEmblem(logoImg);
+                            }
+                        }
+                    } else {
+                        link.href = signInUrl;
+                        link.classList.remove('auth0-authenticated');
+                        if (!span) {
+                            span = document.createElement('span');
+                            span.className = 'header-sign-in';
+                            link.insertBefore(span, link.firstChild);
+                        }
+                        span.textContent = isMobile ? 'Sign in / Register' : 'Sign in/Register';
+                        var imgs = link.querySelectorAll('img');
+                        if (imgs.length === 0) {
+                            var img = document.createElement('img');
+                            writeEmblem(img);
+                            link.appendChild(img);
+                        } else {
+                            imgs.forEach(writeEmblem);
+                        }
+                    }
+                });
+                }
+
+                /*
+                 * The mobile menu's account row. It carries the same state as the button above and
+                 * is reached by none of the selectors that correct it: `.account-link` deliberately
+                 * contains neither `auth0`, `sign-in` nor `signin`, so this loop selects the
+                 * attribute instead and rebuilds the icon under this row's own class names. Keeping
+                 * those class names clear of those three substrings is still the rule -- see the
+                 * block comment further down the file.
+                 *
+                 * **The ordering argument this comment used to make is retired.** It explained why
+                 * this half waited for DOMContentLoaded while the button loop above ran during
+                 * parse: the row sits ~8KB below this script and does not exist yet, and deferring
+                 * the button loop as well would have put the view's rewrite after
+                 * `auth0-login.php`'s two `wp_footer` rewriters, reversing an order three scripts
+                 * depended on. Both of those rewriters are deleted, and this whole reconcile is
+                 * asynchronous now -- it waits for the SDK either way -- so there is no ordering
+                 * left to protect. The row still has to exist before it can be written to, which is
+                 * what the readyState branch at the bottom is for.
+                 */
+                function applyAccountRow() {
+                    document.querySelectorAll('[data-account-row="identity"]').forEach(function (link) {
+                        var label = link.querySelector('.account-link-label');
+                        var icon = link.querySelector('.account-link-icon');
+                        var crest = isAuth && teamLogo;
+                        if (icon) {
+                            icon.src = crest ? teamLogo : emblem;
+                            icon.className = 'account-link-icon ' + (crest ? 'account-link-crest' : 'account-link-emblem');
+                            /*
+                             * The per-club crest background in _header.scss is an attribute selector,
+                             * so a crest with no data-team-id reads as the default slate rather than
+                             * the club colour.
+                             */
+                            if (crest && teamId) {
+                                icon.setAttribute('data-team-id', teamId);
+                            } else {
+                                icon.removeAttribute('data-team-id');
+                            }
+                        }
+                        if (label) {
+                            label.textContent = isAuth ? 'My Account' : 'Sign in / Register';
+                        }
+                        link.href = isAuth ? myAccountUrl : signInUrl;
+                    });
+                }
+                /**
+                 * Write the whole state, both halves, from whatever `readFan()` last established.
+                 *
+                 * Both loops are idempotent and both write a COMPLETE state in either direction, so
+                 * calling this on every announcement is what makes a sign-out landing while the page
+                 * is open correct itself rather than needing its own path.
+                 */
+                function apply() {
+                    readFan();
+                    applyMenuItems();
+
+                    // The row is ~8KB further down this document and a classic inline script runs
+                    // while the parser is still there, so it may not exist on the first call. Both
+                    // calls are made: this one, so it still works if the markup ever moves up, and
+                    // one on DOMContentLoaded, which is what actually finds it today.
+                    applyAccountRow();
+                }
+
+                apply();
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', apply);
+                }
+
+                /*
+                 * Wait for the contract, then follow it.
+                 *
+                 * `window.urcAuth` is published by a deferred module and this script runs during
+                 * parse, so it is reliably absent on the first call above. Two ways in, and both are
+                 * needed:
+                 *
+                 * - `urc-auth:changed`, dispatched on `window` by the auth bundle from inside its
+                 *   own `store.subscribe`. This is the path that fires on an ordinary page, and the
+                 *   bundle dispatches it for exactly this kind of consumer -- one that must not
+                 *   import from it (D-055).
+                 * - a direct `subscribe()` if the contract happens to already be there, which is
+                 *   the bfcache-restore case and anything that re-runs this block.
+                 *
+                 * The event carries the state in `detail`, and this deliberately ignores it and
+                 * re-reads through `state()` instead: one source, so the two cannot disagree, and no
+                 * dependence on an event shape a listener does not own.
+                 */
+                window.addEventListener('urc-auth:changed', apply);
+
+                if (window.urcAuth && typeof window.urcAuth.subscribe === 'function') {
+                    window.urcAuth.subscribe(apply);
+                }
+            })();
+            </script>
+
+            
+            <div class="mobile-menu">
+
+                <div class="mobile-menu-content">
+                    
+                    <nav id="mobile-primary-nav" class="primary-navigation" role="navigation" aria-label="Primary navigation (mobile menu)">
+                        <div class="menu-primary-navigation-container"><ul id="menu-primary-navigation-1" class="menu primary-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="https://www.unitedrugby.com/latest">Latest</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36"><a>Match Centre</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36411"><a href="https://stats.unitedrugby.com/match-centre">Rounds</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36412"><a href="https://stats.unitedrugby.com/match-centre/table/2026-27">Table</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36413"><a href="https://stats.unitedrugby.com/match-centre/shields/2026-27">Shields</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-46"><a href="https://stats.unitedrugby.com/statistics">Stats</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45"><a href="https://stats.unitedrugby.com/clubs">Clubs</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-48"><a href="https://urc.tv">URC TV</a></li>
+</ul></div>
+                    </nav>
+                    <hr class = "mobile-hr-line">
+
+                    
+                    <nav id="mobile-account-nav" class="account-management" role="navigation" aria-label="Account and loyalty links">
+                                                    
+                            <a
+                                class="account-link"
+                                href="https://www.unitedrugby.com/loyalty-join/"
+                                data-loyalty-nav="join"
+                                data-profile-url="https://www.unitedrugby.com/loyalty-profile/"
+                            >
+                                <img class="account-link-icon account-link-shield" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/images/loyalty-shield.svg" alt="" width="24" height="23">
+                                <span class="account-link-label">Loyalty</span>
+                            </a>
+                        
+                        
+                        
+                        <a class="account-link" data-account-row="identity" href="https://www.unitedrugby.com/auth/login">
+                            <img class="account-link-icon account-link-emblem" src="https://www.unitedrugby.com/wp-content/uploads/2025/09/URC_LOGO_EMBLEM_GENERIC_WHITE_NEG_RGB-1.svg" alt="" width="24" height="24">
+                            <span class="account-link-label">Sign in / Register</span>
+                        </a>
+                    </nav>
+
+                    <hr class = "mobile-hr-line">
+                    <nav id="mobile-top-nav" class="top-navigation" role="navigation" aria-label="Utility links (mobile menu)">
+                        <div class="menu-top-navigation-container"><ul id="menu-top-navigation-1" class="menu top-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40"><a href="https://www.unitedrugby.com/about">ABOUT URC</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33"><a href="https://www.unitedrugby.com/where-to-watch/">WHERE TO WATCH</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38911"><a href="https://www.unitedrugby.com/awards/hall-of-fame/">URC Awards</a></li>
+<li class="icon-external-link menu-item menu-item-type-custom menu-item-object-custom menu-item-38"><a target="_blank" href="https://www.superbru.com/urc">FANTASY/PREDICTOR</a></li>
+</ul></div>
+                    </nav>
+                    <div class="theme-toggle">
+                        <span class="mode-text">DARK</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" class="theme-toggle-switch" />
+                            <span class="slider">
+                                <span class="icon">
+                                    <img class="icon-moon" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/images/darkmode.svg" alt="moon icon">
+                                    <img class="icon-sun" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/images/lightmode.svg" alt="sun icon">
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                    <hr class = "mobile-hr-line">
+                </div>
+
+
+            </div>
+
+        </nav>
+    </header>
+</div>         <!-- Smart App Banner -->
+<div id="app-banner" class="app-banner">
+  <div class="app-banner-icon">
+    <img src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/images/app-banner-logo.svg" alt="App Logo">
+  </div>
+
+  <div class="app-banner-info">
+    <div class="app-banner-title">United Rugby Championship App</div>
+    <div id="app-banner-subtitle" class="app-banner-subtitle"></div>
+  </div>
+
+  <div class="app-banner-action">
+    <a id="app-link" href="#" target="_blank" class="app-banner-button">VIEW</a>
+    <button id="close-banner" class="app-banner-close">✕</button>
+  </div>
+</div>
+
+        <main id="main" class="main">
+              <div class="error-404-page">
+    <!-- Hero Section -->
+    <section class="error-404-hero">
+      <div class="container">
+        <div class="error-404-content">
+          <div class="error-404-number">404</div>
+          <h1 class="error-404-title">Page Not Found</h1>
+          <p class="error-404-description">
+            The page you are looking for doesn&#039;t exist or has been moved.
+          </p>
+          <!-- Only Go to Homepage Button -->
+          <div class="error-404-navigation">
+            <div class="error-404-links">
+              <a href="https://www.unitedrugby.com" class="cta-button primary">
+                Go to Homepage
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+        </main>
+
+        <footer id="site-footer" class="footer-wrapper" role="contentinfo" aria-label="Site footer">
+    <div class="site-footer container">
+        <div class="inner-container">
+            
+                            <div class="footer-logo">
+                    <img src="https://www.unitedrugby.com/wp-content/uploads/2025/03/Group-32.svg" alt="Footer Logo">
+                </div>
+            
+                            <div class="footer-partners">
+                    
+                                            <div class="partners-group">
+                            <h3>Title Partners</h3>
+                            <div class="title-partners-list">
+                                                                                                                                                    <a href="https://www.bkt-tires.com/gb/en/?utm_source=URC&amp;utm_medium=Banner&amp;utm_campaign=BKT+URC" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit bkt-tires.com (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2026/09/LOGO_BKT-TYRES_RGB.png"
+                                                alt="Title Partner Logo">
+                                        </a>
+                                                                                                                                                                                        <a href="https://www.vodacom.co.za/" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit vodacom.co.za (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/04/9e2de440-67ba-4f1a-bce4-cea0ecfd6331.png"
+                                                alt="Title Partner Logo">
+                                        </a>
+                                                                                                </div>
+                        </div>
+                                        <!-- adding code -->
+                    
+                                            <div class="partners-group">
+                            <h3>OFFICIAL PARTNERS & SUPPLIERS</h3>
+                            <div class="official-partners-list">
+                                                                                                                                                    <a href="https://www.castlelager.co.za/" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit castlelager.co.za (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2026/02/3-Castle-Lager-Logo-optimized.png"
+                                                alt="Official Partner Logo">
+                                        </a>
+                                                                                                                                                                                        <a href="https://destinationsport.com/?utm_source=URC&amp;utm_medium=Website&amp;utm_campaign=partner+logo" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit destinationsport.com (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/04/Destination-Sport-White.png"
+                                                alt="Official Partner Logo">
+                                        </a>
+                                                                                                                                                                                        <a href="https://www.engen.co.za/" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit engen.co.za (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/10/Engen-Logo-107x48-1.svg"
+                                                alt="Official Partner Logo">
+                                        </a>
+                                                                                                                                                                                        <a href="https://www.gilbertrugby.com/?utm_source=URC&amp;utm_medium=Website&amp;utm_campaign=partner+logo" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit gilbertrugby.com (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/06/6b33ef3e-d7a3-432f-ae8c-d63dba46e556-1.png"
+                                                alt="Official Partner Logo">
+                                        </a>
+                                                                                                                                                                                        <a href="https://about.macron.com/en/macron-world/" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit Macron Logo (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/09/macron-logo.png"
+                                                alt="Macron Logo">
+                                        </a>
+                                                                                                                                                                                        <a href="https://nomadicwatches.com/?utm_source=URC&amp;utm_medium=website&amp;utm_campaign=urc_website_outbound" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit Nomadic Watches - Official Timing Partner (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2026/05/LogoStrapline_white.png"
+                                                alt="Nomadic Watches - Official Timing Partner">
+                                        </a>
+                                                                                                                                                                                        <a href="https://www.ofx.com/p/bkt-urc/?pid=14428&amp;cid=2314&amp;utm_source=urc&amp;utm_medium=display&amp;utm_campaign=urc|gl|branding|consumer_alliance&amp;utm_content=logo" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit ofx.com (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/04/20c5a5f0-c5d6-4208-864e-8a3111daf671.png"
+                                                alt="Official Partner Logo">
+                                        </a>
+                                                                                                                                                                                        <a href="https://www.outsurance.co.za/" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit outsurance.co.za (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/09/OUTLogoBall_white_noBG.png"
+                                                alt="Official Partner Logo">
+                                        </a>
+                                                                                                                                                                                        <a href="https://www.samsung.com/za/" target="_blank"
+                                            rel="noopener noreferrer" class="partner-item"
+                                            aria-label="Visit samsung.com (opens in a new tab)">
+                                            <img src="https://www.unitedrugby.com/wp-content/uploads/2025/12/Samsung_Orig_Wordmark_WHITE_RGB-e1765259477862.png"
+                                                alt="Official Partner Logo">
+                                        </a>
+                                                                                                </div>
+                        </div>
+                                    </div>
+            
+
+
+            
+            <div class="footer-links-wrapper">
+                <div class="footer-links">
+                    <span>FOLLOW THE URC</span>
+                    <div class="social-icons-wrapper">
+                        <a class="social-icon twitter-footer" target="_blank"
+                            href="https://x.com/URCOfficial"
+                            rel="noopener"
+                            aria-label="Follow URC on Twitter"
+                            data-icon="twitter"></a>
+                        <a class="social-icon instagram-footer" target="_blank"
+                            href="https://www.instagram.com/urc/"
+                            rel="noopener"
+                            aria-label="Follow URC on Instagram"
+                            data-icon="instagram"></a>
+
+                        <a class="social-icon fb-footer" target="_blank"
+                            href="https://www.facebook.com/urc"
+                            rel="noopener"
+                            aria-label="Follow URC on Facebook"
+                            data-icon="facebook"></a>
+                        <a class="social-icon youtube-footer" target="_blank"
+                            href="https://www.youtube.com/channel/UC-S6cXyil4qbIPfb2hrcH4w"
+                            rel="noopener"
+                            aria-label="Follow URC on YouTube"
+                            data-icon="youtube"></a>
+                        <a class="social-icon tiktok-footer" target="_blank"
+                            href="https://www.tiktok.com/@urc"
+                            rel="noopener"
+                            aria-label="Follow URC on TikTok"
+                            data-icon="tiktok"></a>
+                    </div>
+                </div>
+
+                                    <div class="footer-download-app">
+                        <span>Download The App</span>
+                        <div class="download-app-icons-wrapper">
+                                                            <a href="https://play.google.com/store/apps/details?id=org.pro14rugby.app&amp;hl=en&amp;pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&amp;pli=1"
+                                   target="_blank"
+                                   rel="noopener"
+                                   aria-label="Download the URC app on Google Play">
+                                    <img src="https://www.unitedrugby.com/wp-content/uploads/2025/03/54fcdb28-a5b7-4578-b60b-49cd08c49701.svg"
+                                        alt="">
+                                </a>
+                                                                                        <a href="https://apps.apple.com/us/app/united-rugby-championship/id1436694463?mt=8"
+                                   target="_blank"
+                                   rel="noopener"
+                                   aria-label="Download the URC app on the Apple App Store">
+                                    <img src="https://www.unitedrugby.com/wp-content/uploads/2025/03/0eb342be-1eb5-425f-a21a-41a65cdd7331.svg"
+                                        alt="">
+                                </a>
+                                                    </div>
+                    </div>
+                            </div>
+
+            
+                            <nav class="footer-navigation" role="navigation" aria-label="Footer navigation">
+                    <ul class="footer-nav"><li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="https://www.unitedrugby.com/about">About URC</a></li>
+<li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="https://www.unitedrugby.com/about/contact-us/">CONTACT</a></li>
+<li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="https://mediacentre.unitedrugby.com/">MEDIA CENTRE</a></li>
+<li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="https://www.unitedrugby.com/terms-cons/">T&#038;CS</a></li>
+<li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="https://www.unitedrugby.com/privacy-policy/">PRIVACY POLICY</a></li>
+<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="https://www.unitedrugby.com/cookie-policy">COOKIE POLICY</a></li>
+<li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a href="https://www.unitedrugby.com/press-releases/">PRESS RELEASE</a></li>
+</ul>
+                </nav>
+                    </div>
+        <div class="footer-bottom-line"></div>
+        <!-- New copyright section -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>2026 United Rugby Championship Photography © www.inpho.ie</p>
+                <span>Site by URC</span>
+            </div>
+        </div>
+
+        
+                    <div class="footer-clubs">
+                <div class="club-container">
+                    <ul>
+                                                    
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/10bet-lions" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2026/09/Lions.svg" alt="10bet Lions">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/benetton" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Benetton-Rugby-1.svg" alt="Benetton">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/cardiff-rugby" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Cardiff-Rugby-1.svg" alt="Cardiff Rugby">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/connacht" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Connacht.svg" alt="Connacht">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/dhl-stormers" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/08/Stormers.svg" alt="DHL Stormers">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/dragons-rfc" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Dragons-1.svg" alt="Dragons RFC">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/edinburgh" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Edinburgh-1.svg" alt="Edinburgh">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/glasgow-warriors" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Glasgow-Warriors-1.svg" alt="Glasgow Warriors">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/hollywoodbets-sharks" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2026/09/HollywoodbetsSharks_Dark-1.svg" alt="Hollywoodbets Sharks">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/leinster" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Leinster.svg" alt="Leinster">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/munster" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Munster-Rugby.svg" alt="Munster">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/ospreys" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Ospreys-1.svg" alt="Ospreys">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/scarlets" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Scarlets-1.svg" alt="Scarlets">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/ulster" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Ulster-1.svg" alt="Ulster">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/vodacom-bulls" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Vodacom.svg" alt="Vodacom Bulls">
+                                    </a>
+                                </li>
+                                                                                
+                                                            <li>
+                                    <a href="https://stats.unitedrugby.com/clubs/zebre-parma" target="_blank"
+                                        rel="noopener">
+                                        <img src="https://www.unitedrugby.com/wp-content/uploads/2025/05/Zebre-Parma-1.svg" alt="Zebre Parma">
+                                    </a>
+                                </li>
+                                                                        </ul>
+                </div>
+            </div>
+            </div>
+</footer>
+    </div>
+
+        <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/sp-starter-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.cookie.split(";").forEach(function (c) {
+        const cookieName = c.replace(/^ +/, "").split("=")[0];
+        // Only clear cookies that start with 'auth0'
+        if (cookieName && cookieName.startsWith('auth0')) {
+            document.cookie = cookieName + "=;expires=" + new Date(0).toUTCString() + ";path=/";
+            // Also try with domain variations to ensure it's cleared
+            const domain = window.location.hostname;
+            document.cookie = cookieName + "=;expires=" + new Date(0).toUTCString() + ";path=/;domain=" + domain;
+            document.cookie = cookieName + "=;expires=" + new Date(0).toUTCString() + ";path=/;domain=." + domain;
+        }
+    });
+});
+</script><script id="blaze-stories-js-extra">
+var blazeStoriesData = {"wscTags":{"wsc-featured-stories":{"wsc_widget_title":"MUST SEE MOMENTS \ud83d\udc40","tag_label":"home-top","themeType":"rectangle","contentType":"story","height":"auto"},"wsc-featured":{"wsc_widget_title":"Best of URC \ud83d\udd25","tag_label":"best-of-urc","themeType":"rectangle","contentType":"story","height":"auto"},"wsc-featured-small":{"wsc_widget_title":"URC Superstars\ud83d\udcab","tag_label":"player-moments","themeType":"rectangle-secondary","contentType":"story","height":"auto"},"wsc-latest-stories":{"wsc_widget_title":"Match Highlights","tag_label":"home-top","themeType":"circle","contentType":"story","height":"auto"}},"apiVersion":"0.3.13","wscKey":"fd28785942d24341891dd60fd6acd93c"};
+//# sourceURL=blaze-stories-js-extra
+</script>
+<script src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/resources/scripts/providers/blaze-stories.js?ver=1792408340" id="blaze-stories-js"></script>
+<script id="app-js-extra">
+var liveScoreData = {"ajaxurl":"https://www.unitedrugby.com/wp-admin/admin-ajax.php","nonce":"32698c7f4a","updateInterval":"30000"};
+var urcScoreTracker = {"publishableKey":"pk_903ee1189c734b16932daf072fc1ff59","siteId":"www.unitedrugby.com-1c8d45","endpoint":"https://api.urc.anything-loyalty.3halves-labs.com/api/tracking/website","consentGroup":"C0002","debug":"","requireLoyaltyConsent":"1"};
+//# sourceURL=app-js-extra
+</script>
+<script type="module" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/app-be5a61a3.js?ver=6.9.10"></script><script id="loyalty-js-extra">
+var urcLoyalty = {"baseUrl":"https://api.urc.anything-loyalty.3halves-labs.com","teams":[{"teamId":"5092","teamName":"10bet Lions","primaryColor":"#fe0000","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/LIONS_PATTERN_DARK-RED_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2026/09/Lions.svg"},{"teamId":"2019","teamName":"Benetton","primaryColor":"#479672","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/BENETTON_PATTERN_DARK-GREEN_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Benetton-Rugby.svg"},{"teamId":"4471","teamName":"Cardiff Rugby","primaryColor":"#569ed9","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/CARDIFF_PATTERN_BLACK_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Cardiff-Rugby.svg"},{"teamId":"5483","teamName":"Connacht","primaryColor":"#00863d","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/CONNACHT_PATTERN_LIGHT-GREEN_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Connacht-1.svg"},{"teamId":"3994","teamName":"DHL Stormers","primaryColor":"#3258a9","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/STORMERS_PATTERN_BLUE_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/Stormers-Light.svg"},{"teamId":"3533","teamName":"Dragons RFC","primaryColor":"#000001","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/DRAGONS_PATTERN_YELLOW_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Dragons.svg"},{"teamId":"1641","teamName":"Edinburgh","primaryColor":"#1e1a45","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/EDINBURGH_PATTERN_BLUE_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Edinburgh.svg"},{"teamId":"3098","teamName":"Glasgow Warriors","primaryColor":"#000001","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/GLASGOW_PATTERN_-DARK-BLUE_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Glasgow-Warriors.svg"},{"teamId":"1527","teamName":"Hollywoodbets Sharks","primaryColor":"#000001","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/SHARKS_PATTERN_BLACK_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2026/09/HollywoodbetsSharks_Light-1.svg"},{"teamId":"5356","teamName":"Leinster","primaryColor":"#005daa","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/LEINSTER_PATTERN_DARK-BLUE_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Leinster-1.svg"},{"teamId":"4377","teamName":"Munster","primaryColor":"#fc0d26","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/MUNSTER_PATTERN_-RED_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Munster-Rugby-1.svg"},{"teamId":"5057","teamName":"Ospreys","primaryColor":"#000001","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/OSPREYS_PATTERN_-BLACK_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Ospreys.svg"},{"teamId":"3514","teamName":"Scarlets","primaryColor":"#cc0000","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/SCARLETS_PATTERN_DARK-RED_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Scarlets.svg"},{"teamId":"2129","teamName":"Ulster","primaryColor":"#ffffff","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/ULSTER_PATTERN_BLACK_RGB_PNG-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Ulster.svg"},{"teamId":"5586","teamName":"Vodacom Bulls","primaryColor":"#5fc1eb","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/BULLS_PATTERN_DARK-BLUE_RGB-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Vodacom-1.svg"},{"teamId":"4474","teamName":"Zebre Parma","primaryColor":"#263065","patternImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/08/URC_Pattern_Zebre_Pattern_Yellow-Logo_RGB-compressed-new.jpeg","crestImageUrl":"https://www.unitedrugby.com/wp-content/uploads/2025/05/Zebre-Parma.svg"}],"loginUrl":"https://www.unitedrugby.com/auth/login","consent":{"enabled":true,"statusUrl":"/wp-json/custom/v1/loyalty-consent/status","setUrl":"/wp-json/custom/v1/loyalty-consent/set","membershipUrl":"/wp-json/custom/v1/loyalty-consent/membership","advanceUrl":"/wp-json/custom/v1/loyalty-consent/membership/advance","clientTtl":900,"readFrom":"endpoint","claimKey":"loyaltyoptin","eraseData":true,"writeDeadlineMs":20000,"joinDeadlineMs":60000}};
+//# sourceURL=loyalty-js-extra
+</script>
+<script type="module" src="https://www.unitedrugby.com/wp-content/themes/sp-starter-theme/public/loyalty-3b77c2b0.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4e569d74c5be7cf',t:'MTc5MjYzOTcyMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</html>

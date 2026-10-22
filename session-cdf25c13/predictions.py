@@ -77,7 +77,7 @@ PREDICTIONS = {
             "three in a row; the Islanders arrive on a two-game run having allowed 20 in nine. "
             "Both clubs are 5-3-1, both have conceded under 2.5 goals a game, and our model puts the expected "
             "total at 4.5 goals. With that projection the number to take is Under 5.5 on the match "
-            "total at -238 for the Sunday evening game at American Airlines Center."
+            "total at -238 for the Sunday evening game."
         ),
         "selection": "Under 5.5",
         "price": "-238",
@@ -159,11 +159,11 @@ PREDICTIONS = {
     },
     "NHL-2026020195": {
         "text": (
-            "Minnesota's 6-2-2 start has been built on defence, with only 25 goals conceded in ten "
-            "games, and Kirill Kaprizov has 11 goals at the other end. Utah are 7-3-0 but have "
-            "allowed 31 goals in the same number of games and were beaten by Seattle earlier in the "
-            "week. Our line makes this a one-goal game, so the selection is Minnesota Wild +1.5 on "
-            "the puck line at -233 for Tuesday night in Salt Lake City."
+            "Minnesota's 6-2-2 start includes only 25 goals conceded in ten games, a shade over two "
+            "and a half a night, and Kirill Kaprizov has 11 goals at the other end. Utah are 7-3-0 "
+            "but have allowed 31 goals in the same number of games. Our line makes this a one-goal "
+            "game, so the selection is Minnesota Wild +1.5 on the puck line at -233 for Tuesday "
+            "night."
         ),
         "selection": "Minnesota Wild +1.5",
         "price": "-233",

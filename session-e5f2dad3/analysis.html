@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analysis · OLBG4 Board W</title>
+<meta name="description" content="Board W: official-source verified fixtures for the sports OLBG covers, our own originated lines, graded picks and a source link on every row.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark">OLBG4</span><span class="brandsub">Board W · 22 Oct 2026 refresh</span></a>
+    <nav class="nav"><a class="navlink" href="index.html">Dashboard</a><a class="navlink" href="fixtures.html">All matches</a><a class="navlink" href="picks.html">Our lines &amp; picks</a><a class="navlink" href="predictions.html">High-confidence write-ups</a><a class="navlink" href="markets.html">Markets</a><a class="navlink" href="verification.html">Verification register</a><a class="navlink active" href="analysis.html">Analysis</a><a class="navlink" href="flagged.html">Flagged for review</a><a class="navlink" href="sources.html">Sources</a><a class="navlink" href="methodology.html">Method</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<section class="hero small"><div class="kicker">Analysis</div>
+<h1>What the refresh shows</h1>
+<p class="lede">Board W is a measurement of what can actually be verified on 22 October 2026, not a projection. The
+findings below are computed from the committed dataset; the numbers can be reproduced by rerunning the build.</p></section>
+
+<section class="kpis">
+  <div class="kpi"><div class="kval">54%</div><div class="klab">of rows officially confirmed</div><div class="knote">123 of 226</div></div>
+  <div class="kpi"><div class="kval">90</div><div class="klab">matches priced</div><div class="knote">3 sports: Baseball, Esports, Ice Hockey</div></div>
+  <div class="kpi"><div class="kval">3</div><div class="klab">high confidence</div><div class="knote">all inside the requested price window</div></div>
+  <div class="kpi"><div class="kval">103</div><div class="klab">listing-only</div><div class="knote">cannot be priced without official inputs</div></div>
+</section>
+
+<section class="grid2">
+  <div>
+    <h2>Finding 1 — coverage is limited by official data, not by the fixture list</h2>
+    <p>OLBG lists 119 events across 12 sports at capture time. Only the NHL,
+    MLB and Riot's LoL Esports schedule expose a machine-readable official endpoint that this runner could read. That is
+    why 90 matches are priced and 103 are not: the ceiling is the availability of an official
+    numeric input, and the brief forbids filling that gap with estimates.</p>
+    <p>The blocked endpoints are listed with their exact URLs on <a href="flagged.html">Flagged</a>. A reviewer with open
+    network access can retry them; repeating the capture is a one-command job (<code>scripts/session-e5f2dad3/collect.py</code>).</p>
+  </div>
+  <div>
+    <h2>Finding 2 — the −250 floor binds harder than the 70% rule</h2>
+    <p>Only 2 High picks clear 70%, because a 70% chance at fair odds is
+    1.43 and −250 is 71.43%. The strongest single pick on the board,
+    Edmonton Oilers (moneyline), is a 76.8% chance
+    priced at 1.30 — stronger than the model's High picks but
+    <em>shorter</em> than −250, so it is excluded from the High list and published on Flagged instead of being relabelled.</p>
+    <p>This is the same tension Board S1 reported on 22 October; Board W resolves it explicitly instead of silently
+    downgrading or silently ignoring the price window.</p>
+  </div>
+</section>
+
+<section class="grid2">
+  <div>
+    <h2>Finding 3 — the price distribution is compressed early in the season</h2>
+    <p>The NHL season is 11 games old for the busiest clubs, so the shrinkage term <code>GP/(GP+12)</code> pulls every
+    rating toward .500. The consequence is visible: 26 Medium and 60 Low picks against 3 High.
+    That is a property of the evidence available, not a shortage of matches.</p>
+    <div class="tablewrap"><table class="data"><thead><tr><th>Model probability</th><th>Matches</th></tr></thead>
+    <tbody><tr><td>0.7–0.8</td><td>3</td></tr><tr><td>0.6–0.7</td><td>27</td></tr><tr><td>0.5–0.6</td><td>60</td></tr></tbody></table></div>
+  </div>
+  <div>
+    <h2>Finding 4 — OLBG's feed is a tip feed, not a fixture feed</h2>
+    <p>OLBG lists an event only once a tipster has tipped it. The captured pages therefore contain 119
+    events rather than a full schedule, and 63 of them fall on the capture day itself. Any “complete list” built only
+    from OLBG would be both incomplete and stale within hours — which is exactly why this board pairs the listing with an
+    official capture and timestamps both.</p>
+    <h2>Recommendation for the next refresh</h2>
+    <ul class="clean">
+      <li>Run <code>collect.py</code> again and rebuild; the window and model constants are parameters, not rewrites.</li>
+      <li>Add official league endpoints for the nine missing sports (NBA, ATP, URC, EHF, PDC, WST, ICC, Volleyball World, GBGB).</li>
+      <li>Keep the ≥70% subset visible; do not widen the High band to manufacture picks.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer class="wrap footer">
+  <p>Board W · session <code>arena/e5f2dad3-olbg4</code> · dataset generated 2026-10-22T03:32:16Z.
+  Sports excluded by the brief (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials)
+  are absent from every table. Every published price is our own fair-odds estimate; no bookmaker price is read anywhere.</p>
+  <p></p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

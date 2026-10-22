@@ -85,13 +85,18 @@ def main() -> int:
     # claims guard: the standings feed holds record, goals for/against, last ten and streak only,
     # so any league-wide superlative or home/road split in the prose would be unverified.
     banned = ("weakest", "strongest", "at home", "on the road", "top-six", "league's best",
-              "best defensive", "worst defensive", "unbeaten", "record-breaking")
+              "best defensive", "worst defensive", "unbeaten", "record-breaking",
+              "earlier in the week", "earlier this week", "last week", "last night",
+              "salt lake city", "built on defence")
+    venue_words = re.compile(r"\b(center|centre|arena|stadium|gardens?)\b", re.I)
     for r in high:
         pred = PREDICTIONS.get(r["id"])
         low = pred["text"].lower() if pred else ""
         for phrase in banned:
             if phrase in low:
                 FAILS.append(f"{r['id']} contains unverifiable claim '{phrase}'")
+        if pred and not r.get("venue") and venue_words.search(pred["text"]):
+            FAILS.append(f"{r['id']} names a venue but the row has no verified venue")
 
     check(len(texts) == len(set(texts)), "two predictions are byte-identical")
     # crude near-duplicate guard: share of 3-grams
