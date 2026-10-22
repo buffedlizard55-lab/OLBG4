@@ -3857,3 +3857,27 @@ root `index.html` / `README.md` navigation so the dashboard is reachable from th
 - **Label collision:** two sessions published under "Board AF" tonight. This section is identified by its session id
   `arena/2d25cf78-olbg4`; the other desk is `session-0d3b826c/`. No files overlap.
 - **Follow-up PR:** https://github.com/buffedlizard55-lab/OLBG4/pull/122 — **MERGED** to `main` (adds the root-dashboard navigation pointer to `session-2d25cf78/index.html` and the deploy record above; `Deploy OLBG4 to GitHub Pages` run `39856197034` success, Pages build `built`).
+
+
+## Board AF — session `arena/ddbcc895-olbg4` (2026-10-22T20:55Z evening desk: fresh official capture, full in-scope sport list, own multi-market lines, High-confidence human predictions, repo audit, dashboard, final integration)
+
+Session: `arena/ddbcc895-olbg4` · Branch: `arena/ddbcc895-olbg4` (this session's fixed branch) · Claimed: 2026-10-22T20:55Z UTC · **status: in progress**
+
+File scope (non-overlapping with every existing board): `session-ddbcc895/**`, `data/session-ddbcc895/**`,
+`scripts/session-ddbcc895/**`, `.github/workflows/af-ddbcc895.yml`, and append-only entries in this file.
+Everything else — `data/master.json`, `board/`, all root `*.html`, all other `session-*/`, `data/session-*/`,
+`scripts/**` (outside my folder), `pipeline/**`, `.github/workflows/*.yml` (other than mine) — is **read-only**
+for Board AF. Findings that would require editing another owner's file are logged here as integration requests.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AF1 | Fresh live capture (evening, 2026-10-22T21Z window) of official governing-body / league endpoints for every OLBG sport except soccer, boxing, UFC, MMA, football (association), American football, hurling, horse racing, cycling and specials; raw bytes + SHA-256 manifest committed by an Actions runner with open egress | in progress | arena/ddbcc895-olbg4 | `scripts/session-ddbcc895/fetch.py`, `scripts/session-ddbcc895/targets.json`, `data/session-ddbcc895/capture/`, `.github/workflows/af-ddbcc895.yml` |
+| AF2 | Verify, parse and publish the full upcoming fixture list for every in-scope sport from those captures only; values that cannot be confirmed from an official page stay blank and are flagged | pending | arena/ddbcc895-olbg4 | `scripts/session-ddbcc895/build_desk.py`, `data/session-ddbcc895/desk.json` |
+| AF3 | Originate our own lines for every verified fixture — match winner / 1X2, handicap or spread, match total, plus a sport-specific derivative — with a pick and a Low/Medium/High confidence label per row; every market investigated is recorded | pending | arena/ddbcc895-olbg4 | `scripts/session-ddbcc895/originate.py`, `data/session-ddbcc895/desk.json` |
+| AF4 | Pick the five highest-confidence selections per covered sport for the next fixtures and author unique human predictions (>= 30 words, verified form / recent history / players, explicit selection, official source link); track the −250…+10,000 American window explicitly | pending | arena/ddbcc895-olbg4 | `scripts/session-ddbcc895/predictions.py`, `data/session-ddbcc895/predictions.json` |
+| AF5 | Line-by-line review of the shared canonical datasets (`data/master.json`, peer desks) against this evening's official captures; publish exact defects with manual-review URLs on the Flagged for Review page | pending | arena/ddbcc895-olbg4 | `data/session-ddbcc895/review.json` |
+| AF6 | Clean dashboard-style GitHub Pages site under `session-ddbcc895/` (landing, per-sport subpages, all entries, markets, picks, coverage, methodology, sources, verification, flagged), every row carrying an official source link | pending | arena/ddbcc895-olbg4 | `session-ddbcc895/**` |
+| AF7 | Verification gate, `git pull --rebase`, PR to `main`, merge without waiting, confirm GitHub Pages deploy, record PR link and result here | pending | arena/ddbcc895-olbg4 | `scripts/session-ddbcc895/verify.py`, `COORDINATION.md` |
+
+### AF working log
+- 2026-10-22T20:55Z UTC — `ddbcc895` — Board AF claimed and pushed before any other work. Sandbox egress is limited to github/npm/pypi, so official pages are fetched by an Actions runner (`.github/workflows/af-ddbcc895.yml`) which commits raw bytes plus a SHA-256 manifest into `data/session-ddbcc895/capture/`; every parse, price and prediction is derived locally from those committed bytes and each row links the URL that produced it.
