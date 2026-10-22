@@ -3455,3 +3455,5 @@ Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026
 
 
 AD integration log: concurrent main merge caused an append-only COORDINATION.md conflict. Resolved by preserving both complete session records; no peer data or pages discarded.
+### AD integration fix (2026-10-22)
+- PR #107 merged (Board AD). Pages run 39775743400 FAILED at "Fail if the committed dashboard is stale" (master board regeneration differed after concurrent merges #108 etc.) — fixed by regenerating `tools/build_master.py` + `BOARD_OUT=board python3 tools/build_master_site.py`, `verify_master.py` OK (336 rows/331 in scope). Note: another session (`arena/7c581d22-olbg4`) also used the label "Board AD" concurrently — collision logged here; this session's Board AD is `arena/d2d25025-olbg4`, PR #107.
