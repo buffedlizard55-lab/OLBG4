@@ -4,6 +4,17 @@ Four sessions worked this repo in parallel. This file is the merged board: Board
 
 Last board update: 2026-10-21 · current integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard) — see the Board H section at the end of this file · earlier hub owner `arena/290a9dba-olbg4` (Board D)
 
+
+## Board S — session `arena/4e9d03cf-olbg4` (2026-10-22 freshness & publication review)
+
+Session: `arena/4e9d03cf-olbg4` | Branch: `arena/4e9d03cf-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| S1 | Independently audit the committed public dataset for freshness, official-source traceability, excluded-sport handling, and deterministic build health; publish a session-scoped, source-linked review with no changes to other boards’ data or root navigation. | in progress | arena/4e9d03cf-olbg4 | `session-4e9d03cf/`, `data/session-4e9d03cf/`, `COORDINATION.md` |
+
+**Claim boundary.** This is a new, non-overlapping review deliverable. Existing shared/root generators, tables, navigation, and prior boards’ data are read-only for S1. Any integration request discovered by the review will be logged here rather than applied to another owner’s files.
+
 ---
 
 ## Board A — session `arena/f0402305-olbg4`
