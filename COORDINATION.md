@@ -3482,3 +3482,6 @@ AD integration log: concurrent main merge caused an append-only COORDINATION.md 
 - PR #107 merged (Board AD). Pages run 39775743400 FAILED at "Fail if the committed dashboard is stale" (master board regeneration differed after concurrent merges #108 etc.) — fixed by regenerating `tools/build_master.py` + `BOARD_OUT=board python3 tools/build_master_site.py`, `verify_master.py` OK (336 rows/331 in scope). Note: another session (`arena/7c581d22-olbg4`) also used the label "Board AD" concurrently — collision logged here; this session's Board AD is `arena/d2d25025-olbg4`, PR #107.
 
 - d28c49c5 integration: concurrent main changes conflicted only in append-only coordination entries. Stopped rebase, retained published session history using a merge of origin/main; preserved both appended boards verbatim, no peer data discarded. Board AD name collision exists; identify this board by session ID d28c49c5. Re-ran tests and link audit on the combined tree before merging PR #110.
+
+### AD final record
+- PRs: #107 (Board AD dashboard/audit) MERGED; #109 (master-board regeneration fix) MERGED. Pages run 39776192643 SUCCESS, Pages status=built: https://buffedlizard55-lab.github.io/OLBG4/session-d2d25025/ — AD6 done. All AD1-AD6 done.
