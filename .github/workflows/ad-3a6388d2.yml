@@ -6,11 +6,6 @@ name: Board AD official-source capture (3a6388d2)
 
 on:
   workflow_dispatch:
-    inputs:
-      passes:
-        description: "Which collector to run (all, 1, rankings, 3, 4, 5)"
-        required: false
-        default: "all"
   push:
     branches:
       - arena/3a6388d2-olbg4
@@ -38,24 +33,31 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Choose collector pass
+        id: which
+        run: |
+          P=$(cat data/session-3a6388d2/.next_pass 2>/dev/null || echo all)
+          echo "pass=$P" >> "$GITHUB_OUTPUT"
+          echo "running pass: $P"
+
       - name: Fetch official sources (fixtures + calendars)
-        if: ${{ github.event.inputs.passes == 'all' || github.event.inputs.passes == '' || github.event.inputs.passes == '1' }}
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == '1' }}
         run: python3 scripts/session-3a6388d2/collect.py
 
       - name: Fetch official rankings and standings
-        if: ${{ github.event.inputs.passes == 'all' || github.event.inputs.passes == '' || github.event.inputs.passes == 'rankings' }}
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == 'rankings' }}
         run: python3 scripts/session-3a6388d2/collect_rankings.py
 
       - name: Fetch corrected URLs with SPA payloads preserved
-        if: ${{ github.event.inputs.passes == 'all' || github.event.inputs.passes == '' || github.event.inputs.passes == '3' }}
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == '3' }}
         run: python3 scripts/session-3a6388d2/collect3.py
 
       - name: Fetch official standings and results used as rating inputs
-        if: ${{ github.event.inputs.passes == 'all' || github.event.inputs.passes == '' || github.event.inputs.passes == '4' }}
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == '4' }}
         run: python3 scripts/session-3a6388d2/collect4.py
 
       - name: Fetch OLBG per-sport cards and remaining official event pages
-        if: ${{ github.event.inputs.passes == 'all' || github.event.inputs.passes == '' || github.event.inputs.passes == '5' }}
+        if: ${{ steps.which.outputs.pass == 'all' || steps.which.outputs.pass == '5' }}
         run: python3 scripts/session-3a6388d2/collect5.py
 
       - name: Commit the snapshot
