@@ -1,3 +1,4 @@
+-----HTML-TEXT-----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3993,3 +3994,1634 @@
 </section>
 </body>
 </html>
+
+-----SCRIPT-PAYLOADS-----
+
+        window.RESOURCES_VERSION = 'v7.53.14'
+
+        // Brightcove Config
+        window.BRIGHTCOVE_CONFIG = {
+            ACCOUNT: '6041795521001',
+            PLAYERS: {
+                STANDARD: 'te01Hqw71',
+                BACKGROUND: 'TtPsC0wGn',
+                LIVE_STREAM: '2oS8GZtfj',
+                ARTICLE_HERO: 'rUvFPrPCdI',
+                ARTICLE_EMBED: 'HpPMwIMgR',
+                PROMO: '${BCP_PROMO$}'
+            }
+        }
+
+        // Component Level Config
+        window.TOURNAMENT_YEAR_DATA_STOP = '2015'
+
+        // TODO: Remove this global variable once live stream processing handling is fully implemented on the BE
+        window.CHECK_LIVE_STREAM_PROCESSING_STATE = 'true'
+
+        window.LIVELIKE_CLIENT_ID = '0pTAsYrS8m6by5nzd1lZVgiUs4saA1GvVx5Q7HoC'
+        window.LIVELIKE_API_URL = 'https://wta-api-prod.livelikeapp.com'
+        window.LIVELIKE_APP_URL = 'https://wta.livelikeapp.com'
+
+        console.info( '%c ' + window.RESOURCES_VERSION + ' ', "background-color: #2D0046; color: #ffffff;" )
+    
+    window.dataLayer = window.dataLayer || [];
+
+    try {
+        const plGpRaw = localStorage.getItem('pl_gp');
+        const plGp = plGpRaw ? JSON.parse(plGpRaw) : null;
+
+        if (plGp && typeof plGp === 'object' && !Array.isArray(plGp)) {
+            window.dataLayer.push(plGp);
+        }
+    } catch (error) {
+        console.warn('[wtatennis] Failed to parse localStorage pl_gp for dataLayer bootstrap', error);
+    }
+
+// Generic consent-ready gate: invokes `callback` once, as soon as OneTrust consent
+// is established - immediately if it was already decided on a previous visit,
+// as soon as the user acts on the banner (OnConsentChanged), or via onetrustLoaded
+// as a fallback. Pass fallbackMs to also fire after a fixed delay in case OneTrust
+// never calls back at all (e.g. blocked by network or an adblocker). Shared by any
+// widget that must defer initialisation until consent is established (Google
+// Publisher Tag: Init, Google Tag Manager: Init, etc).
+function onConsentReady(callback, fallbackMs) {
+    var called = false;
+    function fire() {
+        if (called) return;
+        called = true;
+        callback();
+    }
+
+    if (window.OneTrust?.IsAlertBoxClosed?.()) {
+        fire();
+        return;
+    }
+
+    if (window.OneTrust?.OnConsentChanged) {
+        window.OneTrust.OnConsentChanged(fire);
+    }
+
+    document.addEventListener('onetrustLoaded', fire, { once: true });
+
+    if (typeof fallbackMs === 'number') {
+        setTimeout(fire, fallbackMs);
+    }
+}
+
+function OptanonWrapper() {
+    document.dispatchEvent(new Event('onetrustLoaded'));
+}
+
+  window.googletag = window.googletag || { cmd: [] };
+  googletag.cmd.push(function() {
+      const hasAdvertisingConsent = window.OnetrustActiveGroups?.includes('C0004');
+      googletag.pubads().setPrivacySettings({
+        nonPersonalizedAds: !hasAdvertisingConsent
+      });
+      console.info('[GPT] Advertising consent: ' + (hasAdvertisingConsent ? 'granted' : 'denied') + ' (NPA: ' + !hasAdvertisingConsent + ')');
+
+      googletag.setConfig({ collapseDiv: 'ON_NO_FILL' });
+      googletag.setConfig({ disableInitialLoad: true });
+      googletag.enableServices();
+  });
+
+  var gptLoaded = false;
+  function loadGPT() {
+    if (gptLoaded) return;
+    gptLoaded = true;
+    const s = document.createElement('script');
+    s.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js?abpl=true';
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    document.head.appendChild(s);
+  }
+
+  // Provided by the OneTrust: Init widget. Fires immediately if consent was already
+  // decided, as soon as the user acts on the banner, or after the fallback delay if
+  // OneTrust never calls back (e.g. blocked by network or adblocker).
+  onConsentReady(loadGPT, 500);
+
+
+    // Ensure a shared event queue exists before any consent or tag events are pushed.
+    window.dataLayer = window.dataLayer || [];
+
+    // Lightweight gtag shim that forwards all calls into the shared dataLayer queue.
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    // Set restrictive Consent Mode defaults before GTM loads; consent updates are applied via OneTrust/GTM integration.
+    gtag('consent', 'default', {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        'wait_for_update': 500
+    });
+
+    // Record gtag bootstrap timestamp.
+    gtag('js', new Date());
+
+    // Configure Google Ads tag; this remains consent-gated by the defaults above.
+    gtag('config', 'AW-798297754');
+
+var gtmLoaded = false;
+function loadGTM() {
+  if (gtmLoaded) return;
+  gtmLoaded = true;
+  (function(w,d,s,l,i){
+  w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  j.onload=function(){console.info('[wtatennis] ' + new Date().toISOString() + ' GTM loaded');};
+  f.parentNode.insertBefore(j,f);
+  console.info('[wtatennis] ' + new Date().toISOString() + ' GTM script injection started');
+  })(window,document,'script','dataLayer','GTM-5R3J55B');
+}
+
+// Provided by the OneTrust: Init widget. Fires immediately if consent was already
+// decided, as soon as the user acts on the banner, or after the fallback delay if
+// OneTrust never calls back (e.g. blocked by network or adblocker). Consent Mode
+// defaults above still apply once GTM loads, so firing this before consent is
+// fully resolved still respects denied/granted state.
+onConsentReady(loadGTM, 500);
+
+    gtag('event', 'conversion', {
+        'send_to': 'AW-798297754/9a8ZCJ-W8egBEJqd1PwC',
+        'aw_remarketing_only': true
+    });
+
+    window.PULSE_ENV_PATHS = {"label":"production","domain":["web.wtarebrand.pulselive.com","www.wtatennis.com","exp.wta.pulselive.com"],"cdn":"https://www.wtatennis.com/resources/v7.53.14/","api":"https://api.wtatennis.com","tennisApi":"//api.wtatennis.com/tennis","sso":{"id":"wta-web","auth":"https://sso.wtatennis.com/auth/","realm":"wta"},"trackingAPI":"https://jkulhg7io5.execute-api.us-east-1.amazonaws.com/prod/interactions","wscApiKey":"9e821d4e7fcc40d7bcb0a20ac9344fe8"};
+
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsOrganization",
+        "@id": "https://www.wtatennis.com#organization",
+        "name": "Women's Tennis Association",
+        "alternateName": "WTA",
+        "url": "https://www.wtatennis.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.wtatennis.com/resources/v7.53.14/i/elements/wta-publisher-logo.png",
+            "width": 512,
+            "height": 512
+        },
+        "sameAs": [
+            "https://www.facebook.com/WTA",
+            "https://x.com/WTA",
+            "https://www.instagram.com/wta",
+            "https://www.youtube.com/user/WTA",
+            "https://www.tiktok.com/@wta"
+        ],
+        "sport": "Tennis",
+        "description": "The Women's Tennis Association (WTA) is the principal organizing body of women's professional tennis.",
+        "foundingDate": "1973",
+        "memberOf": {
+            "@type": "SportsOrganization",
+            "name": "International Tennis Federation"
+        }
+    }
+
+{
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "@id": "https://www.wtatennis.com/id/season/2026",
+    "name": "WTA Tour 2026",
+    "description": "Women's Tennis Association professional tennis tour 2026 season",
+    "startDate": "2026-01-01",
+    "endDate": "2026-12-31",
+    "eventStatus": "http://schema.org/EventScheduled",
+    "sport": "Tennis",
+    "organizer": {
+        "@id": "https://www.wtatennis.com#organization"
+    },
+    "location": {
+        "@type": "Place",
+        "name": "Worldwide"
+    }
+}
+
+        {
+            "@context": "schema.org",
+            "@type": "WebPage",
+            "name": "WTA Tournament Schedule",
+            "url": "https://www.wtatennis.com/tournaments",
+            "description": "Complete schedule of WTA tournaments",
+            "isPartOf": {
+                "@id": "https://www.wtatennis.com#website"
+            },
+            "publisher": {
+                "@id": "https://www.wtatennis.com#organization"
+            },
+            "mainEntity": {
+                "@type": "ItemList",
+                "name": "2026 WTA Tournament Schedule",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/united-cup",
+                            "name": "United Cup",
+                            "startDate": "2026-01-02",
+                            "endDate": "2026-01-11",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/800/brisbane/2026",
+                            "name": "Brisbane International",
+                            "startDate": "2026-01-04",
+                            "endDate": "2026-01-11",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1049/auckland/2026",
+                            "name": "ASB Classic",
+                            "startDate": "2026-01-05",
+                            "endDate": "2026-01-11",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2096/canberra-125/2026",
+                            "name": "Workday Canberra International",
+                            "startDate": "2026-01-05",
+                            "endDate": "2026-01-10",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 5,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1050/hobart/2026",
+                            "name": "Hobart International",
+                            "startDate": "2026-01-12",
+                            "endDate": "2026-01-17",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 6,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2014/adelaide/2026",
+                            "name": "Adelaide International",
+                            "startDate": "2026-01-12",
+                            "endDate": "2026-01-17",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 7,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/australian-open",
+                            "name": "Australian Open",
+                            "startDate": "2026-01-18",
+                            "endDate": "2026-02-01",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 8,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1153/manila-125/2026",
+                            "name": "Philippine Women's Open",
+                            "startDate": "2026-01-26",
+                            "endDate": "2026-01-31",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 9,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1154/ostrava/2026",
+                            "name": "Ostrava Open",
+                            "startDate": "2026-02-01",
+                            "endDate": "2026-02-07",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 10,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2050/cluj-napoca/2026",
+                            "name": "Transylvania Open powered by Kaufland",
+                            "startDate": "2026-02-01",
+                            "endDate": "2026-02-07",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 11,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2088/abu-dhabi/2026",
+                            "name": "Mubadala Abu Dhabi Open presented by Abu Dhabi Sports Council",
+                            "startDate": "2026-02-01",
+                            "endDate": "2026-02-07",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 12,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1100/mumbai-125/2026",
+                            "name": "L&T Mumbai Open",
+                            "startDate": "2026-02-02",
+                            "endDate": "2026-02-08",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 13,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/doha",
+                            "name": "Qatar TotalEnergies Open 2026",
+                            "startDate": "2026-02-08",
+                            "endDate": "2026-02-14",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 14,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1155/oeiras-125-indoor-1/2026",
+                            "name": "Oeiras 1 Jamor Indoor",
+                            "startDate": "2026-02-09",
+                            "endDate": "2026-02-15",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 15,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/dubai",
+                            "name": "Dubai Duty Free Tennis Championships",
+                            "startDate": "2026-02-15",
+                            "endDate": "2026-02-21",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 16,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1156/oeiras-125-indoor-2/2026",
+                            "name": "Oeiras 2 Jamor Indoor",
+                            "startDate": "2026-02-16",
+                            "endDate": "2026-02-22",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 17,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1157/les-sables-d-olonne-125/2026",
+                            "name": "Open Arena Les Sables d'Olonne",
+                            "startDate": "2026-02-16",
+                            "endDate": "2026-02-22",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 18,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2051/midland-125/2026",
+                            "name": "Dow Tennis Classic",
+                            "startDate": "2026-02-16",
+                            "endDate": "2026-02-22",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 19,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2082/austin/2026",
+                            "name": "ATX Open",
+                            "startDate": "2026-02-23",
+                            "endDate": "2026-03-01",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 20,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2085/merida/2026",
+                            "name": "MÉRIDA OPEN",
+                            "startDate": "2026-02-23",
+                            "endDate": "2026-03-01",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 21,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1124/antalya-125-1/2026",
+                            "name": "Megasaray Hotels Open",
+                            "startDate": "2026-02-24",
+                            "endDate": "2026-03-01",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 22,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1107/antalya-125-2/2026",
+                            "name": "Megasaray Hotels Open",
+                            "startDate": "2026-03-03",
+                            "endDate": "2026-03-08",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 23,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/indian-wells",
+                            "name": "BNP Paribas Open",
+                            "startDate": "2026-03-04",
+                            "endDate": "2026-03-15",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 24,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1161/austin-125-1/2026",
+                            "name": "Austin 125",
+                            "startDate": "2026-03-09",
+                            "endDate": "2026-03-14",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 25,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1125/antalya-125-3/2026",
+                            "name": "Megasaray Hotels Open",
+                            "startDate": "2026-03-10",
+                            "endDate": "2026-03-15",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 26,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/miami-open",
+                            "name": "Miami Open presented by Itaú",
+                            "startDate": "2026-03-17",
+                            "endDate": "2026-03-29",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 27,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1158/dubrovnik-125/2026",
+                            "name": "Dubrovnik Open",
+                            "startDate": "2026-03-23",
+                            "endDate": "2026-03-29",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 28,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/804/charleston/2026",
+                            "name": "Credit One Charleston Open",
+                            "startDate": "2026-03-30",
+                            "endDate": "2026-04-05",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 29,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/894/bogota/2026",
+                            "name": "Copa Colsanitas Colsubsidio",
+                            "startDate": "2026-03-30",
+                            "endDate": "2026-04-05",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 30,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/528/linz/2026",
+                            "name": "Upper Austria Ladies Linz",
+                            "startDate": "2026-04-06",
+                            "endDate": "2026-04-12",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 31,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1164/madrid-125/2026",
+                            "name": "Grand Prix Open Villa de Madrid by Silverway",
+                            "startDate": "2026-04-06",
+                            "endDate": "2026-04-12",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 32,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1051/stuttgart/2026",
+                            "name": "Porsche Tennis Grand Prix",
+                            "startDate": "2026-04-13",
+                            "endDate": "2026-04-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 33,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1106/oeiras-125/2026",
+                            "name": "Oeiras Jamor Ladies Open",
+                            "startDate": "2026-04-13",
+                            "endDate": "2026-04-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 34,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2066/rouen/2026",
+                            "name": "Open Capfinances Rouen Métropole",
+                            "startDate": "2026-04-13",
+                            "endDate": "2026-04-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 35,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1159/oeiras-125-outdoor-2/2026",
+                            "name": "Oeiras Open CETO",
+                            "startDate": "2026-04-20",
+                            "endDate": "2026-04-26",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 36,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/madrid-open",
+                            "name": "Mutua Madrid Open",
+                            "startDate": "2026-04-21",
+                            "endDate": "2026-05-03",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 37,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1142/huzhou-125/2026",
+                            "name": "2026 Huzhou Open · HuzhouWuxing",
+                            "startDate": "2026-04-27",
+                            "endDate": "2026-05-03",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 38,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2034/saint-malo-125/2026",
+                            "name": "L'Open 35 de Saint Malo",
+                            "startDate": "2026-04-27",
+                            "endDate": "2026-05-03",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 39,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2081/vic-125/2026",
+                            "name": "Catalonia Open Solgironès",
+                            "startDate": "2026-04-27",
+                            "endDate": "2026-05-03",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 40,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1160/istanbul-125/2026",
+                            "name": "Istanbul Open",
+                            "startDate": "2026-05-04",
+                            "endDate": "2026-05-10",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 41,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1165/jiujiang-125/2026",
+                            "name": "Jiangxi Open",
+                            "startDate": "2026-05-04",
+                            "endDate": "2026-05-10",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 42,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/rome",
+                            "name": "Internazionali BNL d'Italia",
+                            "startDate": "2026-05-05",
+                            "endDate": "2026-05-17",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 43,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2041/parma-125/2026",
+                            "name": "Parma Ladies Open presented by Iren",
+                            "startDate": "2026-05-11",
+                            "endDate": "2026-05-16",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 44,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2057/paris-125/2026",
+                            "name": "Trophée Clarins ",
+                            "startDate": "2026-05-11",
+                            "endDate": "2026-05-17",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 45,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/406/strasbourg/2026",
+                            "name": "Internationaux de Strasbourg presented by Mammotion",
+                            "startDate": "2026-05-17",
+                            "endDate": "2026-05-23",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 46,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1005/rabat/2026",
+                            "name": "Grand Prix Son Altesse Royale La Princesse Lalla Meryem",
+                            "startDate": "2026-05-18",
+                            "endDate": "2026-05-23",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 47,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/roland-garros",
+                            "name": "Roland Garros",
+                            "startDate": "2026-05-24",
+                            "endDate": "2026-06-07",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 48,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1126/birmingham-125/2026",
+                            "name": "Lexus Birmingham Open",
+                            "startDate": "2026-06-01",
+                            "endDate": "2026-06-07",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 49,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2077/bari-125/2026",
+                            "name": "Open delle Puglie Trofeo",
+                            "startDate": "2026-06-01",
+                            "endDate": "2026-06-07",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 50,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1090/makarska-125/2026",
+                            "name": "Makarska Open",
+                            "startDate": "2026-06-02",
+                            "endDate": "2026-06-07",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 51,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/822/-s-hertogenbosch/2026",
+                            "name": "Libéma Open",
+                            "startDate": "2026-06-08",
+                            "endDate": "2026-06-14",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 52,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1111/queens/2026",
+                            "name": "The HSBC Championships",
+                            "startDate": "2026-06-08",
+                            "endDate": "2026-06-14",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 53,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1127/ilkley-125/2026",
+                            "name": "Lexus Ilkley Open",
+                            "startDate": "2026-06-08",
+                            "endDate": "2026-06-14",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 54,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1171/modena-125/2026",
+                            "name": "Memorial Eugenio Fontana",
+                            "startDate": "2026-06-08",
+                            "endDate": "2026-06-14",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 55,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1080/nottingham/2026",
+                            "name": "Lexus Nottingham Open",
+                            "startDate": "2026-06-15",
+                            "endDate": "2026-06-21",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 56,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1170/brescia-125/2026",
+                            "name": "Internazionali Femminili Di Brescia",
+                            "startDate": "2026-06-15",
+                            "endDate": "2026-06-21",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 57,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1177/figueira-da-foz-125/2026",
+                            "name": "Figueira Da Foz Ladies Open",
+                            "startDate": "2026-06-15",
+                            "endDate": "2026-06-21",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 58,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2012/berlin/2026",
+                            "name": "VANDA Pharmaceuticals Berlin Tennis Open",
+                            "startDate": "2026-06-15",
+                            "endDate": "2026-06-21",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 59,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2017/bad-homburg/2026",
+                            "name": "Bad Homburg Open powered by Solarwatt ",
+                            "startDate": "2026-06-21",
+                            "endDate": "2026-06-27",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 60,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/710/eastbourne/2026",
+                            "name": "Lexus Eastbourne Open",
+                            "startDate": "2026-06-22",
+                            "endDate": "2026-06-27",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 61,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/wimbledon",
+                            "name": "The Championships, Wimbledon",
+                            "startDate": "2026-06-29",
+                            "endDate": "2026-07-12",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 62,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1123/newport-125/2026",
+                            "name": "Cerity Partners Hall of Fame Open presented by the Margaret Fund",
+                            "startDate": "2026-07-06",
+                            "endDate": "2026-07-12",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 63,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2003/bastad-125/2026",
+                            "name": "Nordea Open",
+                            "startDate": "2026-07-06",
+                            "endDate": "2026-07-11",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 64,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2071/contrexeville-125/2026",
+                            "name": "Grand Est Open 88",
+                            "startDate": "2026-07-06",
+                            "endDate": "2026-07-12",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 65,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1130/rome-125/2026",
+                            "name": "ATV BANCOMAT TENNIS OPEN",
+                            "startDate": "2026-07-13",
+                            "endDate": "2026-07-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 66,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1162/kitzbhuel-125/2026",
+                            "name": "Generali Open Ladies Kitzbühel",
+                            "startDate": "2026-07-13",
+                            "endDate": "2026-07-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 67,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1172/istanbul-125-2/2026",
+                            "name": "Enka Open",
+                            "startDate": "2026-07-13",
+                            "endDate": "2026-07-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 68,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1175/athens/2026",
+                            "name": "Vanda Pharmaceuticals Athens Open",
+                            "startDate": "2026-07-13",
+                            "endDate": "2026-07-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 69,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2063/iasi/2026",
+                            "name": "UniCredit Iasi Open ",
+                            "startDate": "2026-07-13",
+                            "endDate": "2026-07-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 70,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1082/prague/2026",
+                            "name": "Livesport Prague Open 2026",
+                            "startDate": "2026-07-20",
+                            "endDate": "2026-07-26",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 71,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1131/palermo-125/2026",
+                            "name": "37° Palermo Ladies Open",
+                            "startDate": "2026-07-20",
+                            "endDate": "2026-07-26",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 72,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2042/hamburg/2026",
+                            "name": "MSC Hamburg Ladies Open",
+                            "startDate": "2026-07-20",
+                            "endDate": "2026-07-26",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 73,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2064/vancouver-125/2026",
+                            "name": "Odlum Brown VanOpen",
+                            "startDate": "2026-07-26",
+                            "endDate": "2026-08-01",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 74,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1045/washington-dc/2026",
+                            "name": "Mubadala DC Open",
+                            "startDate": "2026-07-27",
+                            "endDate": "2026-08-02",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 75,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1163/targu-mures-125/2026",
+                            "name": "AXERIA Open 2026 powered by INTARO Sport",
+                            "startDate": "2026-07-27",
+                            "endDate": "2026-08-02",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 76,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1167/memphis/2026",
+                            "name": "The Memphis Classic",
+                            "startDate": "2026-07-27",
+                            "endDate": "2026-08-02",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 77,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/canadian-open",
+                            "name": "National Bank Open presented by Rogers",
+                            "startDate": "2026-08-02",
+                            "endDate": "2026-08-13",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 78,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2087/warsaw-125/2026",
+                            "name": "Warsaw T-Mobile Polish Open",
+                            "startDate": "2026-08-03",
+                            "endDate": "2026-08-08",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 79,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/cincinnati-open",
+                            "name": "Cincinnati Open",
+                            "startDate": "2026-08-13",
+                            "endDate": "2026-08-23",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 80,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1039/monterrey/2026",
+                            "name": "Abierto GNP Seguros",
+                            "startDate": "2026-08-23",
+                            "endDate": "2026-08-29",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 81,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1166/philadelphia-125/2026",
+                            "name": "Ennoble Care Philly Open",
+                            "startDate": "2026-08-23",
+                            "endDate": "2026-08-29",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 82,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/us-open",
+                            "name": "US Open",
+                            "startDate": "2026-08-30",
+                            "endDate": "2026-09-13",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 83,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1112/montreux-125/2026",
+                            "name": "Montreux Nestlé Open",
+                            "startDate": "2026-09-07",
+                            "endDate": "2026-09-13",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 84,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1173/antalya-125-atik-/2026",
+                            "name": "ATIK Antalya Open",
+                            "startDate": "2026-09-07",
+                            "endDate": "2026-09-13",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 85,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2093/barranquilla-125/2026",
+                            "name": "Kia Open",
+                            "startDate": "2026-09-07",
+                            "endDate": "2026-09-13",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 86,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2075/guadalajara-500/2026",
+                            "name": "Guadalajara Open presentado por Santander",
+                            "startDate": "2026-09-13",
+                            "endDate": "2026-09-19",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 87,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1136/caldas-da-rainha-125/2026",
+                            "name": "Caldas da Rainha Ladies Open",
+                            "startDate": "2026-09-14",
+                            "endDate": "2026-09-20",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 88,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1139/sao-paulo/2026",
+                            "name": "SP Open",
+                            "startDate": "2026-09-14",
+                            "endDate": "2026-09-20",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 89,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2044/ljubljana-125/2026",
+                            "name": "Zavarovalnica Triglav Ljubljana",
+                            "startDate": "2026-09-14",
+                            "endDate": "2026-09-20",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 90,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/2061/valencia-125/2026",
+                            "name": "BBVA Open Internacional de Valencia",
+                            "startDate": "2026-09-14",
+                            "endDate": "2026-09-20",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 91,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1024/seoul/2026",
+                            "name": "Korea Open",
+                            "startDate": "2026-09-21",
+                            "endDate": "2026-09-27",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 92,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1133/tolentino-125/2026",
+                            "name": "Delta Motors Tolentino Open",
+                            "startDate": "2026-09-21",
+                            "endDate": "2026-09-27",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 93,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1135/porto-125/2026",
+                            "name": "Eupago Porto Open",
+                            "startDate": "2026-09-21",
+                            "endDate": "2026-09-27",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 94,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1152/singapore/2026",
+                            "name": "Singapore Tennis Open presented by BNP Paribas",
+                            "startDate": "2026-09-21",
+                            "endDate": "2026-09-27",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 95,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1178/ankara-125/2026",
+                            "name": "Turk Telekom Ankara Open",
+                            "startDate": "2026-09-21",
+                            "endDate": "2026-09-27",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 96,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1143/jingshan-125/2026",
+                            "name": "Jingshan Tennis Open",
+                            "startDate": "2026-09-28",
+                            "endDate": "2026-10-04",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 97,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1179/adana-125/2026",
+                            "name": "Adana Open",
+                            "startDate": "2026-09-28",
+                            "endDate": "2026-10-04",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 98,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/china-open",
+                            "name": "China Open",
+                            "startDate": "2026-09-30",
+                            "endDate": "2026-10-11",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 99,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1147/suzhou-125/2026",
+                            "name": "Suzhou Open",
+                            "startDate": "2026-10-05",
+                            "endDate": "2026-10-11",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 100,
+                        "item": {
+                            "@type": "SportsEvent",
+                            "@id": "https://www.wtatennis.com/tournaments/1149/samsun-125/2026",
+                            "name": "Samsun Open",
+                            "startDate": "2026-10-05",
+                            "endDate": "2026-10-11",
+                            "superEvent": {
+                                "@id": "https://www.wtatennis.com/id/season/2026"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    "serviceWorker"in navigator&&window.addEventListener("load",function(){navigator.serviceWorker.register("/service-worker.js").then(function(e){console.log("ServiceWorker successfully registered with scope: ",e.scope)},function(e){console.error("ServiceWorker registration failed: ",e)})});

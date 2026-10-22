@@ -1,3 +1,4 @@
+-----HTML-TEXT-----
 <!DOCTYPE html>
 <html lang="en-US" class="bwf-main">
 <head>
@@ -1135,5 +1136,773 @@
  </nav> 
  </footer> 
 </div> 
-</body> 
+ </body> 
 </html> 
+
+-----SCRIPT-PAYLOADS-----
+
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent','default',{
+            ad_storage:'denied',
+            ad_user_data:'denied',
+            ad_personalization:'denied',
+            analytics_storage:'denied',
+            functionality_storage:'granted',
+            security_storage:'granted',
+            wait_for_update:1500
+        });
+        gtag('js', new Date());
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-T2FKQFC');
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/bwfbadminton.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=1717160f66b565489b11f0a0e460e849"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		
+
+    var $j = jQuery.noConflict();
+
+    $j(document).ready(function () {
+
+        // Get max partner logos.
+        let partnersCount = 8;
+        let logoCount = 0;
+        let logoCountMid = 0;
+
+        if (partnersCount >= 4) {
+            logoCount = 4;
+            logoCountMid = 3;
+        } else {
+            logoCount = partnersCount;
+            logoCountMid = 2;
+        }
+
+        $j(".owl-partners").owlCarousel({
+            loop: true,
+            dots: false,
+            nav: false,
+            responsiveClass: true,
+            responsiveRefreshRate: "50ms",
+            responsive: {
+                0: {
+                    items: 1,
+                    loop: true,
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    autoplayTimeout: 7e3
+                },
+                600: {
+                    items: logoCountMid,
+                    loop: true,
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    autoplayTimeout: 7e3
+                },
+                980: {
+                    items: logoCount,
+                    loop: true,
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    autoplayTimeout: 7e3
+                }
+            }
+        });
+    });
+
+
+    var bwffs_url = '';
+
+    function get_bwffs_url() {
+        return bwffs_url;
+    }
+
+( 'fetch' in window ) || document.write( '<script src="https://bwfbadminton.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://bwfbadminton.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="https://bwfbadminton.com/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min.js?ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="https://bwfbadminton.com/wp-includes/js/dist/vendor/wp-polyfill-url.min.js?ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://bwfbadminton.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://bwfbadminton.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?ver=2.0.2"></scr' + 'ipt>' );( 'objectFit' in document.documentElement.style ) || document.write( '<script src="https://bwfbadminton.com/wp-includes/js/dist/vendor/wp-polyfill-object-fit.min.js?ver=2.3.4"></scr' + 'ipt>' );
+
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", { "locale_data": { "messages": { "": {} } } } );
+
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+/* ]]> */
+(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4e871dcf9a1a162',t:'MTc5MjY3MTUwOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+
+    var $j = jQuery.noConflict();
+
+    $j(document).ready(function () {
+
+        // Add link to mobile menu logo.
+        var home_url = 'https://bwfbadminton.com';
+		$j('#responsive-menu-title-image img').wrap("<a href=" + home_url + "></a>");
+
+        // Set active menu item.
+        function setactivemenu() {
+            var siteLanguage = 'en_US';
+
+            // English create active menu link.
+            if (siteLanguage == 'en_US') {
+                var pathArray = window.location.pathname.split('/');
+
+                if (pathArray[1] == "news" || pathArray[1] == "news-single" || pathArray[1] == "news-tag") {
+                    $j("li#menu-news, li.menu-news").addClass("current-menu-item");
+                } else if (pathArray[1] == "live") {
+                    $j("li#menu-item-111, li.menu-item-111").addClass("current-menu-item");
+                } else if (pathArray[1] == "tournament") {
+                    $j("li#menu-calendar, li.menu-calendar").addClass("current-menu-item");
+                } else if (pathArray[1] == "results") {
+                    $j("li#menu-item-335, li.menu-item-335").addClass("current-menu-item");
+                } else if (pathArray[1] == "player" || pathArray[1] == "player-titles" || pathArray[1] == "h2h") {
+                    $j("li#menu-item-8, li.menu-item-8").addClass("current-menu-item");
+                }
+            }
+
+            // Chinese create active menu link.
+            if (siteLanguage == 'zh_CN') {
+                var pathArray = window.location.pathname.split('/');
+
+                if (pathArray[2] == "news" || pathArray[2] == "news-single" || pathArray[2] == "news-tag") {
+                    $j("li#menu-news, li.menu-news").addClass("current-menu-item");
+                } else if (pathArray[2] == "live") {
+                    $j("li#menu-item-182, li.menu-item-182").addClass("current-menu-item");
+                } else if (pathArray[2] == "tournament") {
+                    $j("li#menu-calendar, li.menu-calendar").addClass("current-menu-item");
+                } else if (pathArray[2] == "player" || pathArray[2] == "player-titles" || pathArray[2] == "h2h") {
+                    $j("li#menu-item-181, li.menu-item-181").addClass("current-menu-item");
+                }
+            }
+
+        }
+
+        // Display main nav menu only when page is loaded.
+        $j("#navigation").fadeIn('slow');
+
+        // Menu language link.
+        function setmenulink() {
+            var siteLanguage = 'en_US';
+
+            // English create menu link.
+            if (siteLanguage == 'en_US') {
+                var pathArray = window.location.pathname.split('/');
+                // console.log(pathArray);
+
+                // Redirect single news item to main news page.
+                if (pathArray[1] == 'news-single') {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/zh-cn/news';
+
+                // Redirect Guangzhou page.
+                } else if (pathArray[1] == 'guangzhou-en') {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/zh-cn/guangzhou-cn';
+
+                // Redirect tickets page.
+                } else if (pathArray[1] == 'tickets-en') {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/zh-cn/tickets-cn';
+
+                // Redirect history page.
+                } else if (pathArray[1] == 'history-en') {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/zh-cn/history-cn';
+
+                // Standard redirect.
+                } else {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/zh-cn' + window.location.pathname + window.location.search;
+                }
+            }
+
+            // Chinese create menu link.
+            if (siteLanguage == 'zh_CN') {
+                var pathArray = window.location.pathname.split('/');
+                // console.log(pathArray);
+
+                // Redirect single news item to main news page.
+                if (pathArray[2] == 'news-single') {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/news';
+
+                // Redirect Guangzhou page.
+                } else if (pathArray[2] == 'guangzhou-cn') {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/guangzhou-en';
+
+                // Redirect tickets page.
+                } else if (pathArray[2] == 'tickets-cn') {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/tickets-en';
+
+                // Redirect history page.
+                } else if (pathArray[2] == 'history-cn') {
+                    var newUrl = window.location.protocol + '//' + window.location.host + '/history-en';
+
+                // Standard redirect.
+                } else {
+                    var newPath = "";
+                    for (i = 2; i < pathArray.length; i++) {
+                        newPath += "/";
+                        newPath += pathArray[i];
+                    }
+                    var newUrl = window.location.protocol + '//' + window.location.host + newPath + window.location.search;
+                }
+            }
+
+            // Set a href link.
+            $j("li.menu-language a").attr("href", newUrl);
+            // console.log("New URL: " + newUrl);
+        }
+
+        // Set active menu link.
+        setactivemenu();
+        // Set language menu link.
+        setmenulink();
+
+    });  
+
+
+    <div class="tmt-card-wrapper">
+        <a v-if="tmtItem.is_etihad && showEtihad && etihadLeft" href="http://etihad.com/" target="_blank" class="etihad-logo">
+            <img src="https://bwfbadminton.com/wp-content/themes/fansite-2020/../badminton-components/assets/images/tournament/etihad_left.png" alt="Etihad">
+        </a>
+        <div :class="['card','tmt-card', showAddToCalendar? 'show-add-to-calendar' : '']">
+            <component :is="isAirBadminton ? 'div' : 'a'" :href="!isAirBadminton ? tmtItem.url : null" @click="logVisitTournament">
+                <div :class="['card-body', mirrored? 'mirrored' : '']">
+                    <div class="logo-wrapper">
+                        <img v-if="tmtItem.logo" class="logo"
+                             v-bind:src="tmtItem.logo"  loading="lazy"
+                             @error="onImgError(event, 'https://img.bwfbadminton.com/image/upload/v1/assets/tournaments/logo/shuttle-placeholder.svg')"
+                             alt="Tournament Logo">
+                    </div>
+
+                    <div class="tmt-details">
+                        <div :class="['date', liveStatusClass]">
+                            <img class="pulse img-icon"  src="https://bwfbadminton.com/wp-content/themes/fansite-2020/../badminton-components/assets/images/tournament/live-status.svg" alt="live status"> <span>{{tmtItem.date}}</span>
+                        </div>
+                        <div class="text-info">
+                            <div class="labels">
+                                <span v-if="showLiveLabel" class="label label-alert">{{$t('LIVE SCORES')}}</span>
+                                <span v-if="showStatusLabel" :class="['label', 'label-'+ tmtItem.status.code]">{{tmtItem.status.label}}</span>
+                            </div>
+                            <span class="name truncate-2-line">{{tmtItem.name}}</span>
+
+                            <div class="country"><img v-if="tmtItem.flag_url" v-bind:src="tmtItem.flag_url" v-bind:alt="tmtItem.country">
+                                {{tmtItem.location}}
+                            </div>
+
+                            <div class="labels" style="margin-top: 8px;">
+                                <div class="label label-category truncate-1-line" v-if="tmtItem.category">{{tmtItem.category}}</div>
+                                <div class="label prize-money" v-if="tmtItem.prize_money">US $
+                                    {{tmtItem.prize_money}}
+                                </div>
+                            </div>
+
+                            <div v-if="tmtItem.cat_logo" class="category-logo">
+                                <img v-bind:src="tmtItem.cat_logo" alt="Category logo">
+                            </div>
+                        </div>
+
+                        <div class="header-img">
+                            <img class="header-img-desktop" v-bind:src="tmtItem.header_url" alt="Tournament Header" loading="lazy"
+                                 @error="onImgError(event, 'https://img.bwfbadminton.com/image/upload/v1/assets/tournaments/header/B4U-Header-Placeholder.jpg')" >
+                            <img class="header-img-mobile" v-bind:src="tmtItem.header_url_mobile" alt="Tournament Header" loading="lazy"
+                                 @error="onImgError(event, 'https://img.bwfbadminton.com/image/upload/v1/assets/tournaments/header/B4U-Header-Placeholder.jpg')" >
+                        </div>
+                    </div>
+                </div>
+            </component>
+            <div :class="['card-footer']" v-show="showAddToCalendar">
+                <button v-ripple class="add-to-calendar-btn p-1"
+                        @click="openAddToCalendarDialog(tmtItem)"
+                        type="button"><img class="img-icon" src="https://bwfbadminton.com/wp-content/themes/fansite-2020/../badminton-components/assets/images/tournament/calendar_add_on.svg" alt="add to calendar"> {{ $t('ADD TO CALENDAR') }}</button>
+            </div>
+
+            <!-- Dialog component -->
+            <v-dialog content-class="add-to-calendar-dialog" v-model="addToCalendarDialog" max-width="300px">
+                <v-list class="add-to-calendar-list" dense>
+                    <v-subheader><img class="img-icon" src="https://bwfbadminton.com/wp-content/themes/fansite-2020/../badminton-components/assets/images/tournament/calendar_add_on.svg" alt="add to calendar">&nbsp;&nbsp;{{ $t('ADD TO CALENDAR') }}</v-subheader>
+                    <v-list-item-group
+                            color="primary"
+                    >
+                        <v-list-item @click="addToGoogleCalendar(tmtItem)">
+                            <v-list-item-title>Google Calendar</v-list-item-title>
+                        </v-list-item>
+                        <v-list-item @click="addToAppleCalendar(tmtItem)">
+                            <v-list-item-title>Apple Calendar</v-list-item-title>
+                        </v-list-item>
+                        <v-list-item @click="addToOutlook(tmtItem)">
+                            <v-list-item-title>Outlook.com</v-list-item-title>
+                        </v-list-item>
+                        <v-list-item @click="addToIcal(tmtItem)">
+                            <v-list-item-title>iCal</v-list-item-title>
+                        </v-list-item>
+                    </v-list-item-group>
+                </v-list>
+            </v-dialog>
+        </div>
+        <a v-if="tmtItem.is_etihad && showEtihad && !etihadLeft" href="http://etihad.com/" target="_blank" class="etihad-logo">
+            <img src="https://bwfbadminton.com/wp-content/themes/fansite-2020/../badminton-components/assets/images/tournament/etihad.png" alt="Etihad">
+        </a>
+    </div>
+
+    Vue.component('tournament-card', {
+        template: '#tournament-card-template',
+        props: {
+            tmtItem: {
+                type: Object,
+                required: true
+            },
+            showEtihad: {
+                type: Boolean,
+                default: false
+            },
+            mirrored: {
+                type: Boolean,
+                default: false
+            },
+            etihadLeft: {
+                type: Boolean,
+                default: false
+            },
+        },
+        data() {
+            return {
+                addToCalendarDialog : false,
+            };
+        },
+        computed: {
+            liveStatusClass(){
+                return 'date-' + this.tmtItem.live_status;
+            },
+            showStatusLabel() {
+                if (!this.tmtItem || !this.tmtItem.status){
+                    return;
+                }
+                var status = this.tmtItem.status;
+                var isSpecialStatus = status.code !== 'finished' && status.code !== 'normal' ;
+                return isSpecialStatus &&  status.label !== null;
+            },
+            showLiveLabel() {
+                return this.tmtItem.has_live_scores && ['cancelled', 'postponed'].indexOf(this.tmtItem.status.code) === -1;
+            },
+            showAddToCalendar(){
+                return this.tmtItem.live_status !== 'post';
+            },
+            isAirBadminton(){
+                // return this.tmtItem.category === "AirBadminton Team";
+                return false;
+            }
+        },
+        methods: {
+            formatDateForGoogleCalendar(dateString, addDay, joinStr = '') {
+                var date = new Date(dateString);
+                if (addDay) {
+                    date.setDate(date.getDate() + 1); // Add one day to the date
+                }
+
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based, so we add 1
+                const day = String(date.getDate()).padStart(2, '0');
+
+                return `${year}${joinStr}${month}${joinStr}${day}`;
+            },
+            formatCalendarDescription(tmtItem){
+                return `Follow BWF Tournament Live Scores: ${tmtItem.url}`;
+            },
+            addToGoogleCalendar(tmtItem) {
+                const startDate = this.formatDateForGoogleCalendar(tmtItem.start_date);
+                const endDate = this.formatDateForGoogleCalendar(tmtItem.end_date, true); // The day after the intended end date
+
+
+                const baseUrl = 'https://www.google.com/calendar/render';
+                const queryParams = new URLSearchParams({
+                    action: 'TEMPLATE',
+                    text: tmtItem.name,
+                    dates: `${startDate}/${endDate}`,
+                    details: this.formatCalendarDescription(tmtItem),
+                    location: tmtItem.location,
+                    sf: 'true',
+                    output: 'xml'
+                });
+                const url = `${baseUrl}?${queryParams.toString()}`;
+
+                window.open(url, '_blank');
+
+                this.closeAddToCalendarDialog();
+            },
+            addToOutlook(tmtItem) {
+                const startDate = this.formatDateForGoogleCalendar(tmtItem.start_date, false, '-');
+                const endDate = this.formatDateForGoogleCalendar(tmtItem.end_date, true, '-'); // The day after the intended end date
+
+                const baseUrl = 'https://outlook.live.com/calendar/action/compose';
+                const queryParams = new URLSearchParams({
+                    rru: 'addevent',
+                    subject: tmtItem.name,
+                    startdt: `${startDate}`,
+                    enddt: `${endDate}`,
+                    allday: true,
+                    body: this.formatCalendarDescription(tmtItem),
+                    location: tmtItem.location,
+                });
+                const url = `${baseUrl}?${queryParams.toString()}`;
+
+                window.open(url, '_blank');
+
+                this.closeAddToCalendarDialog();
+            },
+            openAddToCalendarDialog(tmtItem) {
+                this.addToCalendarDialog = true;
+                this.addToCalendarItem = tmtItem;
+            },
+            closeAddToCalendarDialog() {
+                this.addToCalendarDialog = false;
+                this.addToCalendarItem = null;
+            },
+            addToAppleCalendar(tmtItem) {
+                this.addToIcal(tmtItem);
+            },
+            addToIcal(tmtItem) {
+                const startDate = this.formatDateForGoogleCalendar(tmtItem.start_date);
+                const endDate =  this.formatDateForGoogleCalendar(tmtItem.end_date, true);
+                const url = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${tmtItem.name}
+DESCRIPTION:${this.formatCalendarDescription(tmtItem)}
+LOCATION:${tmtItem.location}
+DTSTART:${startDate}
+DTEND:${endDate}
+END:VEVENT
+END:VCALENDAR`;
+                this.downloadIcsFile(url, 'bwf_calendar_event.ics');
+                this.closeAddToCalendarDialog();
+            },
+            downloadIcsFile(icsData, fileName) {
+                const blob = new Blob([icsData], { type: 'text/calendar' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+
+            },
+            onImgError(event, fallbackUrl) {
+                event.target.src = fallbackUrl;
+            },
+            logVisitTournament(event) {
+                function storeVisitedId(id) {
+                    let visitedIds = JSON.parse(localStorage.getItem('visitedTournamentIds')) || [];
+                    visitedIds = visitedIds.filter(existingId => existingId !== id);
+                    visitedIds.unshift(id);
+
+                    if (visitedIds.length > 5) {
+                        visitedIds.pop();
+                    }
+
+                    localStorage.setItem('visitedTournamentIds', JSON.stringify(visitedIds));
+                }
+
+                try {
+                    storeVisitedId(this.tmtItem.id);
+                } catch (e){}
+            }
+        }
+    });
+
+
+    // Ready translated locale messages
+    const messages = {
+        en: {},
+        cn: {
+            "BWF World Rankings": "世界羽联官方排名",
+            "Latest Stories": "最新故事",
+            "Schedule": "时间表",
+            "All Tournaments": "所有比赛",
+            "BWF World Rankings": "BWF世界排名",
+            "Video Highlights": "视频集锦",
+            "View Results": "查看结果",
+            "Live Scores!": "现场比分！",
+            "View Draws": "查看抽奖",
+            "View Tournament": "查看比赛",
+            "Badminton": "羽毛球",
+            "Para Badminton": "残奥会羽毛球",
+            "Player": "播放器",
+            "Spotlight": "聚光灯",
+            "Featured": "精选",
+            "days": "天",
+            "hrs": "小时",
+            "min": "分钟",
+            "sec": "秒",
+        }
+    }
+
+    // Create VueI18n instance with options
+    const i18n = new VueI18n({
+        locale: 'en', // set locale
+        messages, // set locale messages
+    })
+
+    var app = new Vue({
+        el: '#app',
+        i18n,
+        vuetify: new Vuetify({
+            theme: {
+                themes: {
+                    light: {
+                        primary: '#333',
+                        secondary: '#b0bec5',
+                        accent: '#8c9eff',
+                        error: '#b71c1c',
+                    },
+                },
+            },
+        }),
+        data: {
+            extranetUrl: 'https://extranet.bwf.sport',
+            extranetLvUrl: 'https://extranet-lv.bwfbadminton.com',
+            siteUrl: 'https://bwfbadminton.com',
+            activeTab: 1,
+            loading: false,
+            loadingRanking: false,
+            drawCount: '',
+            tmtNextLive: [],
+            tmtNext: [],
+            tmtPrevious: [],
+            rankAbleData: [],
+            rankParaData: [],
+            playerHighlightAble: [],
+            playerHighlightPara: [],
+            liveScores: { addToCalendarDialog: false, addToCalendarItem: null, activeTab: 'thisWeek', thisWeek: [], nextWeek: [], lastVisited: []},
+            loadingLiveScores: false,
+            loadingLiveScoresFavourite: false
+        },
+        methods: {
+            getLiveScores() {
+                this.loadingLiveScores = true;
+
+                axios({
+                    url: this.extranetLvUrl + '/api/vue-tmt-live-scores',
+                    method: 'get',
+                })
+                    .then(response => {
+                        this.liveScores.thisWeek = response.data.thisWeek;
+                        this.liveScores.nextWeek = response.data.nextWeek;
+
+                        this.loadingLiveScores = false;
+
+                        this.refreshCarousel();
+                    })
+                    .catch(errors => {
+                        console.log('Tmt Schedule errors: ', errors);
+                    });
+
+
+                var visitedIds = JSON.parse(localStorage.getItem('visitedTournamentIds')) || [];
+                if (visitedIds.length > 0){
+                    var originalOrder = [...visitedIds];
+                    visitedIds.sort();
+
+                    this.loadingLiveScoresFavourite = true;
+
+                    axios({
+                        url: this.extranetLvUrl + '/api/vue-tmt-last-visited',
+                        method: 'get',
+                        params: {
+                            ids: visitedIds.join(',') // Convert the array to a comma-separated string
+                        }
+                    })
+                    .then(response => {
+                        var lastVisited = response.data.lastVisited;
+                        lastVisited.sort((a, b) => {
+                            return originalOrder.indexOf(a.id) - originalOrder.indexOf(b.id);
+                        });
+
+                        this.liveScores.lastVisited = lastVisited;
+                        this.loadingLiveScoresFavourite = false;
+                        this.refreshCarousel();
+                    })
+                    .catch(errors => {
+                        console.log('Tmt Schedule errors: ', errors);
+                    });
+                }
+            },
+            getTmtSchedule() {
+                this.loading = true;
+                this.drawCount++;
+                axios({
+                        url: this.extranetLvUrl + '/api/vue-tmt-schedule',
+                        method: 'get',
+                        params: {
+                            drawCount: this.drawCount,
+                        }
+                    })
+                    .then(response => {
+                        this.tmtNextLive = response.data.nextLive;
+                        this.tmtPrevious = response.data.previousTmt;
+                        this.tmtNext = response.data.nextTmt;
+                        this.loading = false;
+                    })
+                    .catch(errors => {
+                        console.log('Tmt Schedule errors: ', errors);
+                    });
+            },
+            getRanking() {
+                this.loadingRanking = true;
+                this.drawCount++;
+                axios({
+                        url: this.extranetLvUrl + '/api/vue-home-ranking',
+                        method: 'get',
+                        params: {
+                            drawCount: this.drawCount,
+                        }
+                    })
+                    .then(response => {
+                        this.rankAbleData = response.data.ableData;
+                        this.rankParaData = response.data.paraData;
+                        this.playerHighlightAble = response.data.ablePlayer;
+                        this.playerHighlightPara = response.data.paraPlayer;
+                        this.loadingRanking = false;
+                    })
+                    .catch(errors => {
+                        console.log('Rank data errors: ', errors);
+                    });
+            },
+            setLanguage() {
+                var siteLanguage = 'en_US';
+                if (siteLanguage == "zh_CN") {
+                    i18n.locale = 'cn';
+                }
+            },
+            refreshCarousel() {
+                if (!this.carouselUpdateQueued) {
+                    if (!this.mobile){
+                        this.carouselUpdateQueued = true;
+
+                        setTimeout(() => {
+                            this.carouselUpdateQueued = false;
+
+                            this.destroyCarousel();
+                            this.initializeCarousel();
+                        }, 0);
+                    }
+                }
+
+            },
+            destroyCarousel() {
+                var htmlElements = $j(".owl-livescores");
+                htmlElements.trigger('destroy.owl.carousel').removeClass('owl-loaded');
+            },
+            initializeCarousel() {
+                var htmlElements = $j(".owl-livescores");
+
+                htmlElements.each(function() {
+
+                    // Get the current carousel element
+                    var $carousel = $j(this);
+
+                    // Count the number of child items in this specific carousel
+                    var itemCount = $carousel.children().length;
+
+                    // Calculate the number of items to display (adjust the maximum value as needed)
+                    var itemsToShow = Math.min(itemCount, 3); // Show up to 3 items, or less if fewer items are available
+
+                    $carousel.owlCarousel({
+                        stagePadding: 40,
+                        dots: false,
+                        loop: false,
+                        nav: true,
+                        margin: 20,
+                        rewind:true,
+                        items: itemsToShow,
+                        itemsScaleUp: false,
+                        center: false,
+                        mouseDrag: false,
+                        navText: [
+                            '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M15 8H1M1 8L8 15M1 8L8 1" stroke="#212121" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                            '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="#212121" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                        ],
+                        autoWidth: false,
+                        autoHeight: false,
+                        responsive:{
+                            0:{
+                                stagePadding: 0,
+                                margin: 10,
+                                items:Math.min(itemCount, 1)
+                            },
+                            1000:{
+                                items: Math.min(itemCount, 2),
+                                stagePadding: 40,
+                            },
+
+                            1500:{
+                                items: Math.min(itemCount, 3),
+                                stagePadding: 60,
+                            }
+                        }
+                    });
+                });
+            }
+        },
+        computed: {
+            mobile() {
+                return this.$vuetify.breakpoint.width < 1000;
+            },
+        },
+        watch: {
+            mobile(isMobile) {
+                if (isMobile) {
+                    this.destroyCarousel();
+                } else {
+                    this.$nextTick(() => {
+                        this.initializeCarousel();
+                    });
+                }
+            },
+        },
+        created() {
+            this.setLanguage();
+            this.getTmtSchedule();
+            this.getRanking();
+        },
+        mounted() {
+            this.getLiveScores();
+        },
+        beforeDestroy() {
+            this.destroyCarousel();
+        },
+    });
+
+    var $j = jQuery.noConflict();
+
+    $j(document).ready(function() {
+        var startDate = '';
+
+        // Countdown script.
+        $j('#counter-day-value').countdown(startDate, function(event) {
+            $j(this).html(event.strftime('%D'));
+        });
+        $j('#counter-hour-value').countdown(startDate, function(event) {
+            $j(this).html(event.strftime('%H'));
+        });
+        $j('#counter-minute-value').countdown(startDate, function(event) {
+            $j(this).html(event.strftime('%M'));
+        });
+        $j('#counter-second-value').countdown(startDate, function(event) {
+            $j(this).html(event.strftime('%S'));
+        });
+
+        setTimeout(() => {
+            $j(".owl-schedule").owlCarousel({
+                stagePadding: 0,
+                dots: false,
+                nav: false,
+                items: 1,
+                rewind:true,
+                margin:19,
+                autoplay: true,
+                autoplayHoverPause: true,
+                autoplayTimeout: 7e3
+            });
+        }, 100);
+
+     });

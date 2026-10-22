@@ -1,3 +1,4 @@
+-----HTML-TEXT-----
  
 <!DOCTYPE html> 
 <html class="no-outline" lang="en"> 
@@ -1114,7 +1115,7 @@ EHF EURO </span>
  </div> 
 </a> 
  </div> 
- <div class="carousel-item" data-filter-cat="EHF_Channel (Inside The Ehf)"> 
+ <div class="carousel-item" data-filter-cat="EHF_Channel (Beach Handball)"> 
 <a class="teaser-card" href="/en/news/en/a-look-at-the-beach-handball-commission-what-is-it-who-is-on-it-and-what-are-the-tasks/"> 
  <div class="teaser-card-image"> 
  <img class="teaser-card-img" data-loading="lazy" 
@@ -1123,8 +1124,8 @@ EHF EURO </span>
  alt="EHF Congress 25 Beach Handball Commision UH28560 UH"/> 
  </div> 
  <div class="teaser-card-info editor-output"> 
- <span class="tag theme--blue"> 
-Inside the EHF </span> 
+ <span class="tag theme--yellow"> 
+Beach Handball </span> 
  <h3>A look at the Beach Handball Commission — what is it, who is&hellip;</h3> 
  <p>How the EHF's principal body for beach handball ensures coherent growth of the sport across Europe</p> 
  <div class="teaser-card-footer"> 
@@ -9144,3 +9145,516 @@ Her Playground </span>
  </footer> 
 </body> 
 </html> 
+
+-----SCRIPT-PAYLOADS-----
+
+  perfMetrics.onFirstInputDelay(function (delay, evt) {
+    console.log('First Input Delay', delay);
+    console.log('Event details', evt);
+  });
+
+
+  const showConsentInfo = (purposes) => {
+    const content = document.querySelectorAll(`.js-consent-content[data-purposes="${purposes}"]`);
+    const info = document.querySelectorAll(`.js-consent-info[data-purposes="${purposes}"]`);
+
+    content.forEach((element) => element.style.display = 'none');
+    info.forEach((element) => element.style.display = 'block');
+  }
+
+  const hideConsentInfo = (purposes) => {
+    const content = document.querySelectorAll(`.js-consent-content[data-purposes="${purposes}"]`);
+    const info = document.querySelectorAll(`.js-consent-info[data-purposes="${purposes}"]`);
+
+    content.forEach((element) => element.style.display = 'block');
+    info.forEach((element) => element.style.display = 'none');
+  }
+
+  const handleConsentWidget = () => {
+    const scripts = document.querySelectorAll('.js-consent-script');
+
+    scripts.forEach((script) => {
+      const purposes = script.dataset.iubPurposes;
+
+      if (_iub.cs.consent && _iub.cs.consent.purposes) {
+        // if consent is given, but not for this purpose
+        if (!_iub.cs.consent.purposes[purposes]) {
+          showConsentInfo(purposes);
+        } else {
+          hideConsentInfo(purposes);
+        }
+      } else {
+        // if consent is not given
+        showConsentInfo(purposes);
+      }
+    });
+  };
+
+  var _iub = _iub || [];
+  _iub.csConfiguration = {
+    "askConsentIfCMPNotFound": false,
+    "consentOnContinuedBrowsing": false,
+    "enableRemoteConsent": true,
+    "enableTcf": true,
+    "googleAdditionalConsentMode": true,
+    "invalidateConsentWithoutLog": true,
+    "lang": "en",
+    "promptToAcceptOnBlockedElements": true,
+    "floatingPreferencesButtonDisplay": false,
+    "perPurposeConsent": true,
+    "reloadOnConsent": true,
+    "siteId": 1733145,
+    "cookiePolicyId": 30710801,
+    "banner": {
+      "acceptButtonCaptionColor": "white",
+      "acceptButtonColor": "#0073CE",
+      "acceptButtonDisplay": true,
+      "backgroundColor": "#001f4d",
+      "brandBackgroundColor": "#001F4D",
+      "closeButtonRejects": true,
+      "customizeButtonCaptionColor": "white",
+      "customizeButtonColor": "#212121",
+      "customizeButtonDisplay": true,
+      "explicitWithdrawal": true,
+      "logo": "https://www.eurohandball.com/media/aq1dt0yi/ehf-primary.svg?mode=pad&height=120&rnd=132369686379970000",
+      "position": "float-bottom-right",
+      "rejectButtonCaptionColor": "white",
+      "rejectButtonColor": "#0073CE",
+      "rejectButtonDisplay": true,
+      "textColor": "white",
+      "customizeButtonCaption": "Learn more"
+    },
+    "i18n": {
+      "en": {
+        "blocked_overlay": {
+          "paragraph": 'You said no to using cookies or similar tools that help improve your experience. To see this content, you would need to update your <a href="javascript:void(0);" class="iubenda-cs-preferences-link" style="color: #fff;" data-iub-enabled="1">Privacy Preferences</a>.',
+          "title": "This content is blocked"
+        }
+      }
+    },
+    "callback": {
+      onReady: function () {
+        handleConsentWidget();
+        window.safeInitAllWSC();
+      },
+      onPreferenceExpressed: function () {
+        handleConsentWidget();
+        window.safeInitAllWSC();
+      },
+      onPreferenceExpressedOrNotNeeded: function (preference) {
+        dataLayer.push({
+          iubenda_ccpa_opted_out: _iub.cs.api.isCcpaOptedOut()
+        });
+        if (!preference) {
+          dataLayer.push({
+            event: "iubenda_preference_not_needed"
+          });
+        } else {
+          if (preference.consent === true) {
+            dataLayer.push({
+              event: "iubenda_consent_given"
+            });
+          } else if (preference.consent === false) {
+            dataLayer.push({
+              event: "iubenda_consent_rejected"
+            });
+          } else if (preference.purposes) {
+            for (var purposeId in preference.purposes) {
+              if (preference.purposes[purposeId]) {
+                dataLayer.push({
+                  event: "iubenda_consent_given_purpose_" + purposeId
+                });
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="rkGQBllnui8Z9Vv5iu6Sdetn5IwSDZlC";analytics.SNIPPET_VERSION="4.15.2";
+      analytics.load("rkGQBllnui8Z9Vv5iu6Sdetn5IwSDZlC");
+    }}();
+  
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("consent", "default", {
+    ad_storage: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 2000 // milliseconds
+    });
+
+    gtag('set', 'url_passthrough', true);
+
+    gtag("set", "ads_data_redaction", true);
+
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TDFG88N');
+
+    console.log("TM loaded");
+  
+  <div class="js-lt-scrollbooster scrollbooster-carousel carousel-wrapper boundry--left">
+    <button class="flickity-button flickity-prev-next-button js-lt-scrollbooster--left previous" type="button" aria-label="Previous">
+      <svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg>
+    </button>
+    <button class="flickity-button flickity-prev-next-button js-lt-scrollbooster--right next" type="button" aria-label="Next">
+      <svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg>
+    </button>
+    <div class="lt-viewport js-viewport">
+      <div class="lt-content js-content">
+        <div v-for="(dayitem, index) in days" v-bind:key="index" class="lt-item">
+          <a class="lt-day" :href="dayitem.calendarUrl">
+            <span class="lt-month">{{dayitem.monthFormatted}}</span>
+            <span class="lt-date">{{dayitem.dayFormatted}}</span>
+          </a>
+          <a v-for="(item, index) in dayitem.liveScoreMatches"
+            :class="['livescore', item.match.cssClass, item.matchStats.isLive == true ? 'is--live' : '']"
+            :key="index"
+            :item="item"
+            :href="item.match.url"
+            :target="item.match.linkTarget"
+            :title="item.match.competitionType">
+            <div class="l-header">
+              <span class="l-league">{{item.match.competitionShortName}}</span>
+              <span v-if="item.matchStats.isLive" class="l-icon-live">
+                <span class="sr-only">Match is live</span>
+              </span>
+              <span class="l-time">{{item.matchStats.time != null && item.matchStats.time != "-" ? item.matchStats.time + "'" : item.matchStats.startTime}}</span>
+            </div>
+            <div class="l-team">
+              <img v-if="item.match.homeTeam.logoSmall != null || item.match.homeTeam.nationAbbreviation != null"
+                   class="l-flag"
+                   :src="(item.match.homeTeam.logoSmall != null ? item.match.homeTeam.logoSmall : '/frontend.kw/dist/assets/img/flags/' + item.match.homeTeam.nationAbbreviation + '.svg')"
+                   style="font-size: 0.5em;"
+                   :alt="item.match.homeTeam.name"/>
+
+              <span class="l-name">{{item.match.homeTeam.name}}</span>
+              <span class="l-score">{{item.homeStats.totalGoals}}</span>
+            </div>
+            <div class="l-team">
+              <img v-if="item.match.guestTeam.logoSmall != null || item.match.guestTeam.nationAbbreviation != null"
+                   class="l-flag"
+                   :src="(item.match.guestTeam.logoSmall != null ? item.match.guestTeam.logoSmall : '/frontend.kw/dist/assets/img/flags/' + item.match.guestTeam.nationAbbreviation + '.svg')"
+                   style="font-size: 0.5em;"
+                   :alt="item.match.guestTeam.name"/>
+
+              <span class="l-name">{{item.match.guestTeam.name}}</span>
+              <span class="l-score">{{item.guestStats.totalGoals}}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="js-lt-scrollbooster scrollbooster-carousel carousel-wrapper boundry--left">
+    <button class="flickity-button flickity-prev-next-button js-lt-scrollbooster--left previous" type="button" aria-label="Previous">
+      <svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg>
+    </button>
+    <button class="flickity-button flickity-prev-next-button js-lt-scrollbooster--right next" type="button" aria-label="Next">
+      <svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg>
+    </button>
+    <div class="lt-viewport js-viewport">
+      <div class="lt-content js-content">
+        <div style="display:flex;">
+
+          <div v-for="(competition, index) in competitions" v-bind:class="['tournament', competition.cssClass]">
+            <div class="t-header">
+              <span class="t-league">{{competition.shortName}}</span>
+              <span class="t-date" v-if="competition.dateFrom != null && competition.dateTo != null">{{competition.dateFrom.formattedTournamentDate}} - {{competition.dateTo.formattedTournamentDate}}</span>
+            </div>
+            <a :href="competition.websiteUrl" class="t-title">{{competition.name}}</a>
+            <div class="t-link-wrapper">
+              <a :href="competition.scheduleUrl" class="t-link">
+                <span class="icon ehf-calendar"></span>Schedule
+              </a>
+              <a class="t-link"
+                 :href="competition.linkToTv"
+                 :title="competition.competitionName"
+                 target="_blank">
+                <span class="icon ehf-modern-tv-curvy"></span>Watch Games
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  (function (w, d) {
+    var loader = function () {
+      var s = d.createElement("script"),
+        tag = d.getElementsByTagName("script")[0];
+      s.src = "https://cdn.iubenda.com/iubenda.js";
+      tag
+        .parentNode
+        .insertBefore(s, tag);
+    };
+    if (w.addEventListener) {
+      w.addEventListener("load", loader, false);
+    } else if (w.attachEvent) {
+      w.attachEvent("onload", loader);
+    } else {
+      w.onload = loader;
+    }
+  })(window, document);
+
+  loadjs = function () {
+    function e(e, n) {
+      e = e.push
+        ? e
+        : [e];
+      var t,
+        r,
+        i,
+        c,
+        o = [],
+        f = e.length,
+        a = f;
+      for (t = function (e, t) {
+        t.length && o.push(e),
+          --a || n(o)
+      }; f--;)
+        r = e[f],
+          i = s[r],
+          i
+            ? t(r, i)
+            : (c = u[r] = u[r] || [], c.push(t))
+    }
+    function n(e, n) {
+      if (e) {
+        var t = u[e];
+        if (s[e] = n, t)
+          for (; t.length;)
+            t[0](e, n),
+              t.splice(0, 1)
+      }
+    }
+    function t(e, n, r, i) {
+      var o,
+        s,
+        u = document,
+        f = r.async,
+        a = (r.numRetries || 0) + 1,
+        h = r.before || c;
+      i = i || 0,
+        /(^css!|\.css$)/.test(e)
+          ? (o = !0, s = u.createElement("link"), s.rel = "stylesheet", s.href = e.replace(/^css!/, ""))
+          : (s = u.createElement("script"), s.src = e, s.async = void 0 === f || f),
+        s.onload = s.onerror = s.onbeforeload = function (c) {
+          var u = c.type[0];
+          if (o && "hideFocus" in s)
+            try {
+              s.sheet.cssText.length || (u = "e")
+            } catch (e) {
+              u = "e"
+            }
+          if ("e" == u && (i += 1) < a)
+            return t(e, n, r, i);
+          n(e, u, c.defaultPrevented)
+        },
+        h(e, s) !== !1 && u
+          .head
+          .appendChild(s)
+    }
+    function r(e, n, r) {
+      e = e.push
+        ? e
+        : [e];
+      var i,
+        c,
+        o = e.length,
+        s = o,
+        u = [];
+      for (i = function (e, t, r) {
+        if ("e" == t && u.push(e), "b" == t) {
+          if (!r)
+            return;
+          u.push(e)
+        }
+        --o || n(u)
+      }, c = 0; c < s; c++)
+        t(e[c], i, r)
+    }
+    function i(e, t, i) {
+      var s,
+        u;
+      if (t && t.trim && (s = t), u = (
+        s
+          ? i
+          : t) || {}, s) {
+        if (s in o)
+          throw "LoadJS";
+        o[s] = !0
+      }
+      r(e, function (e) {
+        e.length
+          ? (u.error || c)(e)
+          : (u.success || c)(),
+          n(s, e)
+      }, u)
+    }
+    var c = function () { },
+      o = {},
+      s = {},
+      u = {};
+    return i.ready = function (n, t) {
+      return e(n, function (e) {
+        e.length
+          ? (t.error || c)(e)
+          : (t.success || c)()
+      }),
+        i
+    },
+      i.done = function (e) {
+        n(e, [])
+      },
+      i.reset = function () {
+        o = {},
+          s = {},
+          u = {}
+      },
+      i.isDefined = function (e) {
+        return e in o
+      },
+      i
+  }();
+
+  var scriptsToLoad = [
+    '/frontend.kw/dist/assets/js/plugin.min.js?v=DXe0FBfLFLhFFSCsbO3phjOEt5JUBgmtc-TxQaZOgKo',
+    '/frontend.kw/dist/assets/js/common.min.js?v=ObAbUrBcy68qWLW1nv5WLUh2i3fVyLFSeCA3gQbppfI',
+    '/assets/js/axios.min.js',
+    '/assets/js/vue.min.js',
+    '/assets/js/ados.js',
+    '/assets/js/vue-lazyload.js',
+    '/assets/js/vue-observe-visibility.min.js',
+    '/assets/js/lodash.min.js'];
+
+  // TODO: minification
+  var bundlePaths = {
+    validation: '/frontend.kw/dist/assets/js/validation.min.js?v=F1uf0dmtwbOYanYdMw1EbhujgkKx-v4brLzZL_e8iDc',
+    jquery: '/frontend.kw/dist/assets/js/jquery.min.js?v=IVYjOt3C0gabXb0L2xHJxToUos0xjt_q7c6BMxap7G0',
+    flickity: '/frontend.kw/dist/assets/js/flickity.min.js?v=iZAbock1nGlq5BbGvdRbvGRLutq7Qhc3_keSQlkO_gs',
+    fullcalendar: '/frontend.kw/dist/assets/js/fullcalendar.min.js?v=xIksqYufQQpPaVa8I9W41CyJnWUbdY92Xs-O6UeFf7Q',
+    datepicker: '/frontend.kw/dist/assets/js/datepicker.min.js?v=niKVtp_dFZ9aIxGgNLVu-Y_kUm9QHmCddQp_2mglk0s',
+    lightgallery: '/frontend.kw/dist/assets/js/lightgallery.min.js?v=6APPf1ao9htSh77Ogk6d_XlRz11QaAz6ED3Wl2VJwK8',
+    tooltip: '/frontend.kw/dist/assets/js/tooltip.min.js?v=7wDBQ5-RL9r8pdPoD49vavotlA9k9VGfLcfaO2ZbvWo',
+    eventcountdown: '/frontend.kw/dist/assets/js/eventcountdown.min.js?v=np13fJnKCHLDqBla4VVzYhYpQpoKbSv8omgbT_Qunpk',
+    seotext: '/frontend.kw/dist/assets/js/seotext.min.js?v=Ho7pPmOKTrMzEWPOpZMUSE5aVZvkrfq-KY-1ER39SY0',
+    head2head: '/frontend.kw/dist/assets/js/head2head.js?v=ck3CotXhh-SEvvZwuQKwO7UPpw4O8AqVGFRXiLRQdiw',
+    livescores: '/assets/js/livescores_vue.js?v=r0JK-Ft8xuO4mTpSUsvihOOPe4rSWCQgMk-m1W4MLjU',
+    searchdetails: '/assets/js/searchdetails_vue.js?v=IxFYktc4OOBWl3RXdvZf0QxH2cFieE0ZovS-xXIp224',
+    homeofhandball: '/assets/js/homeofhandball_vue.js?v=ypenD_iJsapjxH8bZyOhBAN28c4NaXRhF9uYAtIoRyA',
+    calendarOverview: '/assets/js/calendarOverview_vue.js?v=tl4jYI1bz6y-7Y0s0_D6V-AOxcWhMuwH0TSCh0Qi9bw',
+    matches: '/assets/js/matches_vue.js?v=-59DTSySxEE_e4WtNKAimrFkkpI0F_0jdpLT72Awa2Q',
+    federations: '/assets/js/federations_vue.js?v=N526ker8Rj6zL95z0k5cG60OSaguu5oaJVnyLqOSXiU',
+    matchdetails: '/assets/js/matchdetails_vue.js?v=eCSCjeS0L4Pvp1q23iA3bxwH1N3a4Wav694B3Gv-dOg',
+    newsletter: '/assets/js/newsletter.js?v=NeC6FgPcOnSFOEYBi6ZgfL0vVit9e4eFZDp_jj6E188',
+    tvGuide: '/assets/js/tvGuide.js?v=FgTftmtIkV1eAMorlfN6ZpAXaiMoRzjWVOYz9Y9NbrI',
+    standings: '/assets/js/standings_vue.js?v=R8rZA_Nj0A81MUBpCgAl9eMA4UzlQoemMNjm349RVR8',
+    newsOverview: '/assets/js/newsOverview_vue.js?v=Kw1VtKt2JK4OD2jE9HxW5GvoskSR-DU_LFm1oReTlXo',
+    playerDetails: '/assets/js/playerDetails_vue.js?v=2OEwlr06_kMDKHmhDd7aDJkPBpt5_myh5gR-6Ms0XGw',
+    vueRouter: '/assets/js/vue-router.min.js',
+    statisticsDetails: '/assets/js/statisticsDetails.js?v=ZFj0hRyZW08VldVI2gn8gEieWBR5u5QB_iv4rI1kWf8',
+    liveBlog: '/assets/js/liveBlog.js?v=EhGtVEJNpBymYV1ykkbAGeQ0xYPLq82xpvYopY5SR4s',
+    recaptcha: '//www.google.com/recaptcha/api.js',
+    typeForm: '//embed.typeform.com/next/embed.js',
+    clubDetails: '/assets/js/clubDetails.js?v=Hr_cwWYvPuClpCg92tVGqgAXJZZSvuNnnmDzYXmNTFQ',
+    clubDetailsEuro: '/assets/js/clubDetailsEuro.js?v=kphBmRc7QZlrbir3xH_GBJopXaoQfKWSQz0tOzkFqJA',
+    ebtItems: '/assets/js/ebtItems_vue.js?v=gpzMTiL_49J5k7EVt06pOYsQMzPbf2nZSM_zKac1_3w',
+    ebtOfficials: '/assets/js/ebtOfficials_vue.js?v=rusz8MFGIc3eOmY52FCZ701W2XUcVMIJSVrOPSKFdqQ',
+    ebtEventDetails: '/assets/js/ebtEventDetails_vue.js?v=Bs77QTVBQn2XD1pl24IYJ_52GJy27B8PioEahlvcrjA',
+    tablelabels: '/frontend.kw/dist/assets/js/tablelabels.min.js?v=myNdCtxc99DgWwLQQotOkSBYsYXL-8JDnvEVdjepaNA',
+    wsc: '/frontend.kw/dist/assets/js/wsc.min.js?v=tcbRHjQS0lo7XAIQwSPg3Vc557T6TBAN_b1ewT6lhak',
+    topStatistics: '/assets/js/topStatistics_vue.js?v=wkaeKuJjRw05Uf1nXrrKkB0AikH8_xrMzv30ufiQ8oE',
+    commissionMembers: '/assets/js/commissionMembers_vue.js?v=qFkTFEGzniCDaGO3xtuIHp0R47JbUvIRrz-7Ry-J8bo',
+    officials: '/assets/js/officials_vue.js?v=Giq2X1Zb6X1LkIiA25gC9LM1xycntEiKGa5-grS2CCs',
+    numbers: '/frontend.kw/dist/assets/js/numbers.min.js?v=1af8Exk5K-rsPtyzpBJ-as-G72M6yS-j_ioaAzwDmKg',
+    milestones: '/frontend.kw/dist/assets/js/milestones.min.js?v=wADwkwwXzdlS4TGuR8kONPLWbDa-CJN0RCPiFAExVbk',
+	  dynamicmedia: '/frontend.kw/dist/assets/js/dynamicmedia.min.js?v=rfbonSeWSWCtk69vc5UNhAdqKIbFrvKF7evs7Df8L4Y',
+	  peopleofhandball: '/frontend.kw/dist/assets/js/peopleofhandball.js?v=u_wmWqU5sCSQC8wL_ePY1c1o_juxJBww4cx1poKVRm8'
+  };
+
+  var modules = document.querySelectorAll('[data-js-requires]');
+
+  for (var i = 0; i < modules.length; i++) {
+    var pluginList = modules[i]
+      .getAttribute('data-js-requires')
+      .split(",");
+
+    for (var j = 0; j < pluginList.length; j++) {
+      var pluginId = pluginList[j].trim();
+      var path = bundlePaths[pluginId];
+
+      if (scriptsToLoad.indexOf(path) === -1) {
+        scriptsToLoad.push(path);
+      }
+    }
+  }
+
+  // load the scripts
+  loadjs(scriptsToLoad, {
+    success: function () { },
+    async: false
+  });
+
+    window._refinerQueue = window._refinerQueue || [];
+    function _refiner() { _refinerQueue.push(arguments); }
+    _refiner('setProject', '595f2db0-887a-11ee-8315-f7c8b38a0b9e');
+    (function () {
+      var a = document.createElement("script");
+      a.type = "text/javascript"; a.async = !0;
+      a.src = "https://js.refiner.io/v001/client.js";
+      var b = document.getElementsByTagName("script")[0];
+      b.parentNode.insertBefore(a, b)
+    })();
+  
+{
+  "name":"",
+  "@type":"SportsOrganization",
+  "@id":"http://www.eurohandball.com/en/",
+  "@context":"http://schema.org",
+  "url":"http://www.eurohandball.com/en/",
+  "description":"",
+  "legalName":"",
+  "telephone":"",
+  "foundingDate":"",
+  "foundingLocation":"",
+  "sport":"Handball",
+  "logo":
+  {
+  "@type":"ImageObject",
+  "url":"/media/tignzxwg/ehf-primary.svg",
+  "width":"80",
+  "height":"120"
+  },
+  "location":
+  {
+  "@type":"Place",
+  "address":
+  {
+  "@type":"PostalAddress",
+  "addressCountry":"",
+  "addressLocality":"",
+  "streetAddress":""
+  },
+  "sameAs":
+  [
+       "https://www.linkedin.com/company/european-handball-federation/",
+       "https://facebook.com/homeofhandball/",
+       "https://twitter.com/HomeofHandball",
+       "https://www.youtube.com/c/thehomeofhandball",
+       "https://www.tiktok.com/@homeofhandball",
+       "https://www.instagram.com/thehomeofhandball/"
+  ]}}

@@ -1,3 +1,4 @@
+-----HTML-TEXT-----
 <html>
 <head>
 <meta charset="utf-8"/>
@@ -2305,3 +2306,436 @@
 </div>
 </body>
 </html>
+
+-----SCRIPT-PAYLOADS-----
+
+  // Setup callback queue
+  var adition = adition || {};
+  adition.srq = adition.srq || [];
+  // Load |srp|
+  (function() {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = (document.location.protocol === "https:" ?
+  "https:" : "http:") + "//imagesrv.adition.com/js/srp.js";
+  script.charset = "utf-8";
+  script.async = true;
+  var firstScript = document.getElementsByTagName("script")[0];
+  firstScript.parentNode.insertBefore(script, firstScript);
+  })()
+  adition.srq.push(function(api) {
+  // Configure single request ...
+  var screenWidth = window.top.innerWidth ||
+  window.top.document.documentElement.clientWidth || window.top.document.body.clientWidth;
+  api.registerAdfarm("ad1.adfarm1.adition.com")
+  .setProfile("screenwidth", '' + screenWidth)
+  .setProfile("device", (screenWidth <= 640 ? "mobile" : (screenWidth <= 1024 ? "tablet" : "desktop")));
+  if (screenWidth <= 640 ? ('billboard' == 'medium_rectangle' || 'billboard' == 'billboard') : true) {
+  api.configureRenderSlot('billboard').setContentunitId(3231540);
+  }
+  if (screenWidth <= 640 ? ('medium_rectangle' == 'medium_rectangle' || 'medium_rectangle' == 'billboard') : true) {
+  api.configureRenderSlot('medium_rectangle').setContentunitId(3231538);
+  }
+  if (screenWidth <= 640 ? ('skyscraper' == 'medium_rectangle' || 'skyscraper' == 'billboard') : true) {
+  api.configureRenderSlot('skyscraper').setContentunitId(3231541);
+  }
+  if (screenWidth <= 640 ? ('sponsor_superbanner' == 'medium_rectangle' || 'sponsor_superbanner' == 'billboard') : true) {
+  api.configureRenderSlot('sponsor_superbanner').setContentunitId(3691850 );
+  }
+  if (screenWidth <= 640 ? ('superbanner_below' == 'medium_rectangle' || 'superbanner_below' == 'billboard') : true) {
+  api.configureRenderSlot('superbanner_below').setContentunitId(3231539);
+  }
+  // Load external profiles, then the ads and allow rendering as soon as the ..
+  api.load().completeRendering();
+  })
+  
+  window.Language = 'de';
+  
+        adition.srq.push(function(api) {
+        api.renderSlot('billboard');
+        })
+        
+            adition.srq.push(function(api) {
+            api.renderSlot('superbanner_below');
+            })
+            
+        (function () {
+        DataHandler.add(new VueConfig({
+        config: {"year": "2017","teamId": "undefined", "activeLeague": "1.Liga", "isRootPage": "true", "isTeamPage": "false", "1.Liga":{"tournamentId": 149, "phaseId":41816},"2.Liga":{"tournamentId": 921, "phaseId":42024}, "Cup":{"tournamentId": 57, "phaseId":41782}},
+        dataUrls: {"dataUrl-0":"https:\/\/hbl.fmp.sportradar.com\/feeds\/en\/Europe:Berlin\/gismo\/fixtures\/[tournamentId]\/[phaseId]"},
+        domSelector: '#schedule1x21350470',
+        prepareUrlFunction: function () {
+        var url = this.dataUrls['dataUrl-0'];
+        if (typeof(this.config.activeLeague) === 'undefined') {
+        this.config.activeLeague = '1.Liga';
+        }
+        if (typeof(this.config.isRootPage) === 'undefined') {
+        this.config.isRootPage = 'false';
+        }
+        url = url.replace("[tournamentId]", this.config[this.config.activeLeague]['tournamentId']);
+        url = url.replace("[phaseId]", this.config[this.config.activeLeague]['phaseId']);
+        return [url];
+        },
+        prepareDataFunction: function (data, self) {
+        var matchesToShow = 10;
+        var allMatches = [];
+        $.each(data[0]['doc'][0]['data']['tournament']['phases'][0]['matchdays'], function (index, matchday) {
+        $.each(matchday.matches, function (index, match) {
+        if (self.config.teamId == 'undefined' || (self.config.teamId == match.home_team._sid || self.config.teamId == match.away_team._sid)) {
+        allMatches.push(match);
+        }
+        });
+        });
+        allMatches.sort(function (a, b) {
+        return parseFloat(a.play_date.uts) - parseFloat(b.play_date.uts);
+        });
+        var allMatchesByStatus = {
+        "matchStatus": {
+        "confirmed_result": { "matches": [] },
+        "in_progress": { "matches": [] },
+        "scheduled": { "matches": [] }
+        }
+        };
+        $.each(allMatches, function (index, match) {
+        var matchStatus = match["status"];
+        if (typeof allMatchesByStatus["matchStatus"][matchStatus] === 'undefined') {
+        allMatchesByStatus["matchStatus"][matchStatus] = {
+        "status": matchStatus,
+        "matches": []
+        };
+        }
+        if (matchStatus == 'postponed') {
+        allMatchesByStatus["matchStatus"]["scheduled"]["matches"].push(match);
+        } else if (matchStatus == 'played' || matchStatus == 'confirmed_by_scout' || matchStatus == 'abandoned' || matchStatus == 'forfeit') {
+        allMatchesByStatus["matchStatus"]["confirmed_result"]["matches"].push(match);
+        } else {
+        allMatchesByStatus["matchStatus"][matchStatus]["matches"].push(match);
+        }
+        });
+        var countMatchesPre = allMatchesByStatus["matchStatus"]["scheduled"]["matches"].length;
+        var countMatchesLive = allMatchesByStatus["matchStatus"]["in_progress"]["matches"].length;
+        var countMatchesPost = allMatchesByStatus["matchStatus"]["confirmed_result"]["matches"].length;
+        if (countMatchesLive >= matchesToShow) {
+        allMatchesByStatus["matchStatus"]["scheduled"]["matches"].length = 0;
+        allMatchesByStatus["matchStatus"]['in_progress']['matches'].length = matchesToShow;
+        allMatchesByStatus["matchStatus"]["confirmed_result"]["matches"].length = 0;
+        } else {
+        if (countMatchesLive > 0) {
+        var matchesNeeded = matchesToShow - countMatchesLive;
+        } else {
+        var matchesNeeded = matchesToShow;
+        }
+        if (countMatchesPre >= (matchesNeeded / 2) && countMatchesPost >= (matchesNeeded / 2)) {
+        if ((matchesNeeded / 2) % 1 != 0) {
+        var correction = 1;
+        } else {
+        var correction = 0;
+        }
+        allMatchesByStatus["matchStatus"]['confirmed_result']['matches'] =
+        allMatchesByStatus["matchStatus"]['confirmed_result']['matches'].slice(
+        Math.floor((matchesNeeded / 2) + correction) * (-1)
+        );
+        allMatchesByStatus["matchStatus"]['scheduled']['matches'] =
+        allMatchesByStatus["matchStatus"]['scheduled']['matches'].slice(
+        0, Math.floor(matchesNeeded / 2)
+        );
+        } else if (countMatchesPost < (matchesNeeded / 2)) {
+        allMatchesByStatus["matchStatus"]['scheduled']['matches'] =
+        allMatchesByStatus["matchStatus"]['scheduled']['matches'].slice(
+        0, matchesNeeded - allMatchesByStatus["matchStatus"]['confirmed_result']['matches'].length
+        );
+        } else {
+        allMatchesByStatus["matchStatus"]['confirmed_result']['matches'] =
+        allMatchesByStatus["matchStatus"]['confirmed_result']['matches'].slice(
+        (matchesNeeded - allMatchesByStatus["matchStatus"]['scheduled']['matches'].length) * (-1)
+        );
+        }
+        }
+        var allMatchesFinal = { "matches": [] };
+        $.each(allMatchesByStatus["matchStatus"]['confirmed_result']['matches'], function (index, match) {
+        allMatchesFinal['matches'].push(match);
+        });
+        $.each(allMatchesByStatus["matchStatus"]['in_progress']['matches'], function (index, match) {
+        allMatchesFinal['matches'].push(match);
+        });
+        $.each(allMatchesByStatus["matchStatus"]['scheduled']['matches'], function (index, match) {
+        allMatchesFinal['matches'].push(match);
+        });
+        return allMatchesFinal;
+        },
+        methods: {
+        formatDateShort: function (date) {
+        return date.substring(0, 2) + "." + date.substring(3, 5) + ".";
+        },
+        getStaticUrl: function (league) {
+        var lang = window.Language || 'de';
+        if (lang === 'en') {
+        if (league === '2Liga') {
+        return "https://dkb-handball-bundesliga.de/en/division-2/schedule/seasons/scheduele/season-17-18/schedule-by-matchday/";
+        } else if (league === 'Pokal') {
+        return "https://dkb-handball-bundesliga.de/en/dhb-pokal/schedule/seasons/schedule/season-17-18/all-rounds/";
+        } else {
+        return "https://dkb-handball-bundesliga.de/en/dkb-hbl/schedule/seasons/schedule/season-17-18/schedule-by-matchday/";
+        }
+        } else {
+        if (league === '2Liga') {
+        return "https://dkb-handball-bundesliga.de/de/2--liga/spielplan/saisonen/spielplan/saison-17-18/spielplan-nach-spieltagen/";
+        } else if (league === 'Pokal') {
+        return "https://dkb-handball-bundesliga.de/de/dhb-pokal/spielplan/saisonen/spielplan/saison-17-18/alle-runden/";
+        } else {
+        return "https://dkb-handball-bundesliga.de/de/dkb-hbl/spielplan/saisonen/spielplan/saison-17-18/spielplan-nach-spieltagen/";
+        }
+        }
+        }
+        },
+        postRenderingFunction: function () {
+        var activeLeague = this._data.vueConfig.config.activeLeague;
+        var domSelector = this._data.vueConfig.domSelector;
+        if (activeLeague === '2.Liga') {
+        $(domSelector).find('#switchLeague1').parent().removeClass('active');
+        $(domSelector).find('#switchLeague2').parent().addClass('active');
+        $(domSelector).find('#switchCup').parent().removeClass('active');
+        $(domSelector).find('#league1more').hide();
+        $(domSelector).find('#league2more').show();
+        $(domSelector).find('#cupmore').hide();
+        } else if (activeLeague === 'Cup') {
+        $(domSelector).find('#switchLeague1').parent().removeClass('active');
+        $(domSelector).find('#switchLeague2').parent().removeClass('active');
+        $(domSelector).find('#switchCup').parent().addClass('active');
+        $(domSelector).find('#league1more').hide();
+        $(domSelector).find('#league2more').hide();
+        $(domSelector).find('#cupmore').show();
+        } else {
+        $(domSelector).find('#switchLeague1').parent().addClass('active');
+        $(domSelector).find('#switchLeague2').parent().removeClass('active');
+        $(domSelector).find('#switchCup').parent().removeClass('active');
+        $(domSelector).find('#league1more').show();
+        $(domSelector).find('#league2more').hide();
+        $(domSelector).find('#cupmore').hide();
+        }
+        $('#schedule1x21350470').show();
+        },
+        setBindingsFunction: function (self) {
+        $(document).off('click', '#schedule1x21350470 .dyndata-navi#switchLeague1');
+        $(document).off('click', '#schedule1x21350470 .dyndata-navi#switchLeague2');
+        $(document).off('click', '#schedule1x21350470 .dyndata-navi#switchCup');
+        $(document).on('click', '#schedule1x21350470 .dyndata-navi#switchLeague1', function () {
+        self.config.activeLeague = '1.Liga';
+        $('#schedule1x21350470').hide();
+        DataHandler.initVueObject(self);
+        });
+        $(document).on('click', '#schedule1x21350470 .dyndata-navi#switchLeague2', function () {
+        self.config.activeLeague = '2.Liga';
+        $('#schedule1x21350470').hide();
+        DataHandler.initVueObject(self);
+        });
+        $(document).on('click', '#schedule1x21350470 .dyndata-navi#switchCup', function () {
+        self.config.activeLeague = 'Cup';
+        $('#schedule1x21350470').hide();
+        DataHandler.initVueObject(self);
+        });
+        }
+        }));
+        }());
+        
+      (function () {
+      DataHandler.add(new VueConfig({
+      config: {"year": "2017", "isRootPage":"true", "1.Liga":{"seasonId":41816},"2.Liga":{"seasonId":42024}},
+      dataUrls: {"dataUrl-0":"https:\/\/ls.betradar.com\/ls\/feeds\/?\/laola\/de\/Europe:Berlin\/gismo\/stats_season_tophbl\/[seasonId]\/goals","dataUrl-1":"https:\/\/ls.betradar.com\/ls\/feeds\/?\/laola\/de\/Europe:Berlin\/gismo\/stats_season_tophbl\/[seasonId]\/misses","dataUrl-2":"https:\/\/ls.betradar.com\/ls\/feeds\/?\/laola\/de\/Europe:Berlin\/gismo\/stats_season_tophbl\/[seasonId]\/gk_saves","dataUrl-3":"https:\/\/ls.betradar.com\/ls\/feeds\/?\/laola\/de\/Europe:Berlin\/gismo\/stats_season_tophbl\/[seasonId]\/assists"},
+      domSelector: '#topplayer1362592',
+      prepareUrlFunction: function () {
+      var url0 = this.dataUrls['dataUrl-0'];
+      var url1 = this.dataUrls['dataUrl-1'];
+      var url2 = this.dataUrls['dataUrl-2'];
+      var url3 = this.dataUrls['dataUrl-3'];
+      if (typeof(this.config.activeLeague) === 'undefined') {
+      this.config.activeLeague = '1.Liga';
+      }
+      url0 = url0.replace("[seasonId]", this.config[this.config.activeLeague]['seasonId']);
+      url1 = url1.replace("[seasonId]", this.config[this.config.activeLeague]['seasonId']);
+      url2 = url2.replace("[seasonId]", this.config[this.config.activeLeague]['seasonId']);
+      url3 = url3.replace("[seasonId]", this.config[this.config.activeLeague]['seasonId']);
+      return [url0, url1, url2, url3];
+      },
+      prepareDataFunction: function (data) {
+      var returnData = { };
+      returnData['goals'] = data[0]['doc'][0]['data'];
+      returnData['misses'] = data[1]['doc'][0]['data'];
+      returnData['gk_saves'] = data[2]['doc'][0]['data'];
+      returnData['assists'] = data[3]['doc'][0]['data'];
+      return returnData;
+      },
+      postRenderingFunction: function () {
+      var activeLeague = this._data.vueConfig.config.activeLeague;
+      var domSelector = this._data.vueConfig.domSelector;
+      $('#topplayer1362592').show();
+      $('#topplayerAccordionGoals').accordion( { header: '.heading' } );
+      if (activeLeague === '2.Liga') {
+      $(domSelector).find('#switchLeague1').parent().removeClass('active');
+      $(domSelector).find('#switchLeague2').parent().addClass('active');
+      $(domSelector).find('#league1more').hide();
+      $(domSelector).find('#league2more').show();
+      } else {
+      $(domSelector).find('#switchLeague1').parent().addClass('active');
+      $(domSelector).find('#switchLeague2').parent().removeClass('active');
+      $(domSelector).find('#league1more').show();
+      $(domSelector).find('#league2more').hide();
+      }
+      },
+      setBindingsFunction: function (self) {
+      $(document).off('click', '#topplayer1362592 .dyndata-navi#switchLeague1');
+      $(document).off('click', '#topplayer1362592 .dyndata-navi#switchLeague2');
+      $(document).off('click', '#topplayer1362592 .paging.prev a');
+      $(document).off('click', '#topplayer1362592 .paging.next a');
+      $(document).on('click', '#topplayerGoals1362592 .paging.prev a', function () {
+      $('#topplayer1362592').find('#topplayerGoals1362592').hide();
+      $('#topplayer1362592').find('#topplayerAssists1362592').show();
+      });
+      $(document).on('click', '#topplayerGoals1362592 .paging.next a', function () {
+      $('#topplayer1362592').find('#topplayerGoals1362592').hide();
+      $('#topplayer1362592').find('#topplayerMisses1362592').show();
+      });
+      $(document).on('click', '#topplayerMisses1362592 .paging.prev a', function () {
+      $('#topplayer1362592').find('#topplayerMisses1362592').hide();
+      $('#topplayer1362592').find('#topplayerGoals1362592').show();
+      });
+      $(document).on('click', '#topplayerMisses1362592 .paging.next a', function () {
+      $('#topplayer1362592').find('#topplayerMisses1362592').hide();
+      $('#topplayer1362592').find('#topplayerGkSaves1362592').show();
+      });
+      $(document).on('click', '#topplayerGkSaves1362592 .paging.prev a', function () {
+      $('#topplayer1362592').find('#topplayerGkSaves1362592').hide();
+      $('#topplayer1362592').find('#topplayerMisses1362592').show();
+      });
+      $(document).on('click', '#topplayerGkSaves1362592 .paging.next a', function () {
+      $('#topplayer1362592').find('#topplayerGkSaves1362592').hide();
+      $('#topplayer1362592').find('#topplayerAssists1362592').show();
+      });
+      $(document).on('click', '#topplayerAssists1362592 .paging.prev a', function () {
+      $('#topplayer1362592').find('#topplayerAssists1362592').hide();
+      $('#topplayer1362592').find('#topplayerGkSaves1362592').show();
+      });
+      $(document).on('click', '#topplayerAssists1362592 .paging.next a', function () {
+      $('#topplayer1362592').find('#topplayerAssists1362592').hide();
+      $('#topplayer1362592').find('#topplayerGoals1362592').show();
+      });
+      $(document).on('click', '#topplayer1362592 .dyndata-navi#switchLeague1', function () {
+      self.config.activeLeague = '1.Liga';
+      DataHandler.initVueObject(self);
+      });
+      $(document).on('click', '#topplayer1362592 .dyndata-navi#switchLeague2', function () {
+      self.config.activeLeague = '2.Liga';
+      DataHandler.initVueObject(self);
+      });
+      },
+      methods: {
+      getStaticUrl: function (league) {
+      var lang = window.Language || 'de';
+      if (lang === 'en') {
+      if (league === '2Liga') {
+      return "https://dkb-handball-bundesliga.de/en/division-2/statistics/seasons/statistics/season-17-18/overview/";
+      } else {
+      return "https://dkb-handball-bundesliga.de/en/dkb-hbl/statistics/statistics/statistics/season-17-18/overview/";
+      }
+      } else {
+      if (league === '2Liga') {
+      return "https://dkb-handball-bundesliga.de/de/2--liga/statistiken/saisonen/statistiken/saison-17-18/uebersicht/";
+      } else {
+      return "https://dkb-handball-bundesliga.de/de/dkb-hbl/statistiken/saisonen/statistiken/saison-17-18/uebersicht/";
+      }
+      }
+      }
+      }
+      }));
+      }());
+      
+      (function () {
+      DataHandler.add(new VueConfig({
+      config: {"year":"2017","isRootPage":"true","activeLeague":"1.Liga","1.Liga":{"phaseId":4181695},"2.Liga":{"phaseId":4202416956}},
+      dataUrls: {"dataUrl-0":"https:\/\/hbl.fmp.sportradar.com\/feeds\/en\/Europe:Berlin\/gismo\/standings\/[phaseId]\/"},
+      domSelector: '#standings1x21362603',
+      prepareUrlFunction: function () {
+      var url = this.dataUrls['dataUrl-0'];
+      if (typeof(this.config.activeLeague) === 'undefined') {
+      this.config.activeLeague = '1.Liga';
+      }
+      url = url.replace("[phaseId]", this.config[this.config.activeLeague]['phaseId']);
+      return [url];
+      },
+      prepareDataFunction: function (data) {
+      return data[0]['doc'][0]['data'];
+      },
+      postRenderingFunction: function () {
+      var activeLeague = this._data.vueConfig.config.activeLeague;
+      var domSelector = this._data.vueConfig.domSelector;
+      if (activeLeague === '2.Liga') {
+      $(domSelector).find('#switchLeague1').parent().removeClass('active');
+      $(domSelector).find('#switchLeague2').parent().addClass('active');
+      $(domSelector).find('#league1more').hide();
+      $(domSelector).find('#league2more').show();
+      } else {
+      $(domSelector).find('#switchLeague1').parent().addClass('active');
+      $(domSelector).find('#switchLeague2').parent().removeClass('active');
+      $(domSelector).find('#league1more').show();
+      $(domSelector).find('#league2more').hide();
+      }
+      },
+      setBindingsFunction: function (self) {
+      $(document).off('click', '#standings1x21362603 .dyndata-navi#switchLeague1');
+      $(document).off('click', '#standings1x21362603 .dyndata-navi#switchLeague2');
+      $(document).on('click', '#standings1x21362603 .dyndata-navi#switchLeague1', function () {
+      self.config.activeLeague = '1.Liga';
+      DataHandler.initVueObject(self);
+      });
+      $(document).on('click', '#standings1x21362603 .dyndata-navi#switchLeague2', function () {
+      self.config.activeLeague = '2.Liga';
+      DataHandler.initVueObject(self);
+      });
+      },
+      methods: {
+      getStaticUrl: function (league) {
+      var lang = window.Language || 'de';
+      if (lang === 'en') {
+      if (league === '2Liga') {
+      return "https://dkb-handball-bundesliga.de/en/division-2/standings/seasons/standings/season-17-18/overall-standings/";
+      } else {
+      return "https://dkb-handball-bundesliga.de/en/dkb-hbl/standings/seasons/standings/season-17-18/overall-standings/";
+      }
+      } else {
+      if (league === '2Liga') {
+      return "https://dkb-handball-bundesliga.de/de/2--liga/tabelle/saisonen/tabelle/saison-17-18/gesamt-tabelle/";
+      } else {
+      return "https://dkb-handball-bundesliga.de/de/dkb-hbl/tabelle/saisonen/tabelle/saison-17-18/gesamt-tabelle/";
+      }
+      }
+      }
+      }
+      }));
+      }());
+      
+            adition.srq.push(function(api) {
+            api.renderSlot('sponsor_superbanner');
+            })
+            
+              adition.srq.push(function(api) {
+              api.renderSlot('medium_rectangle');
+              })
+              
+          adition.srq.push(function(api) {
+          api.renderSlot('skyscraper');
+          })
+          
+  var SpecialPixelObject = {"SPORTART":"hb","WETTBEWERB":"1","HVEREIN":"","AVEREIN":"","FORMAT":"bild/text"};
+  var iam_data = {
+  "st" : "laola",
+  "cp" : "hbl-de/de/",
+  "sv" : "ke",
+  "co" : "kommentar",
+  "sp" : JSON.stringify(SpecialPixelObject)
+  }
+  iom.c(iam_data);
+  
+
+
+  var rootLineIds=[1];
+  

@@ -1,3 +1,4 @@
+-----HTML-TEXT-----
 <!doctype html>
 <html lang="en">
 <head>
@@ -3503,3 +3504,42 @@
 </footer>
 </body>
 </html>
+-----SCRIPT-PAYLOADS-----
+
+        window.RESOURCES_VERSION = 'v8.28.8';
+		console.info( '%c Version: ' + window.RESOURCES_VERSION + ' ', "background-color: #C80502; color: #ffffff;")
+		window.SSO_CLIENT_ID = 'b4b18243-76dd-4d76-a58e-458cff85dba3';
+		window.SD_DOMAIN = 'https://api.pulselive.motogp.com';
+		window.LIVE_STREAM_ON = 'NO';
+		window.HELP_CENTRE_LINK = '{$HELP_CENTRE_LINK$}';
+		window.TIMING_PASS_DOMAIN = 'https://timingpass.motogp.com';
+		window.LOGO_PATH = 'https://static.dorna.com/assets/logos';
+		window.VIDEO_PLAYER_VERSION = 'v2';
+		window.RIDER_COMPARE_PATH = 'stats/rider-comparison';
+		window.RIDER_STATS_PATH = 'stats/rider-stats';
+		window.CHAMPIONSHIP_HISTORY_PATH = 'stats/championship-history'
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KN327K7');
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+    });
+
+        googletag.cmd.push(function() {});
+    
+		import("/resources/v8.28.8/scripts/bundle-es.min.js");
+		window.supportsDynamicImport = true;
+	
+		if (!window.supportsDynamicImport) {
+			const systemJsLoaderTag = document.createElement('script');
+			systemJsLoaderTag.src = 'https://unpkg.com/systemjs@2.0.0/dist/s.min.js';
+			systemJsLoaderTag.addEventListener('load', function () {
+				System.import('/resources/v8.28.8/scripts/nomodule/bundle-system.min.js');
+			});
+			document.head.appendChild(systemJsLoaderTag);
+		}
+	

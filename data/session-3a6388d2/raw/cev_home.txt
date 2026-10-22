@@ -1,3 +1,4 @@
+-----HTML-TEXT-----
  
 <!DOCTYPE html> 
 <html lang="en-US"> 
@@ -1222,3 +1223,236 @@ News </p>
  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" /> 
 </body> 
 </html> 
+
+-----SCRIPT-PAYLOADS-----
+
+  $('#searchBtn').click(function (e) {
+                e.preventDefault();
+                var formData = $('#searchBar').serialize();
+              
+                $.ajax({
+                    url: '/Search',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        $('#searchContainer').html(response);
+                        $("#searchContainer").css("display", "block");
+                        window.scrollTo({top:0, behavior:"smooth"});
+                    },
+                    error: function (xhr, status, error) {
+                       
+                    }
+                });
+            });
+
+            function applyMobileStyles() {
+                var screenWidth = window.innerWidth;
+
+                const pw = document.querySelector('.partners-wrapper');
+                const ps_1 = document.querySelectorAll('.partners-logos')[0];
+                const ps_2 = document.querySelectorAll('.partners-logos')[1];
+                const ps_3 = document.querySelectorAll('.partners-logos')[3];
+                const nicollin = ps_2.querySelectorAll('.primary-footer__logo')[2];
+                const asseco = ps_2.querySelectorAll('.primary-footer__logo')[1];
+
+                if (screenWidth < 767) {
+
+                    if (pw) {
+                        pw.style.gap = '0';
+                    }
+
+                    if (ps_1) {
+                        ps_1.style.paddingTop = '15px';
+                        ps_1.style.paddingBottom = '15px';
+                    }
+
+                    if (ps_2) {
+                        ps_2.style.paddingTop = '15px';
+                        ps_2.style.gap = '0';
+                    }
+
+                    if (nicollin) {
+                        nicollin.style.marginTop = '-10px';
+                        nicollin.style.marginBottom = '35px';
+                    }
+
+                    if (asseco) {
+                        asseco.style.marginTop = '-3px';
+                    }
+
+                    if (ps_3) {
+                        ps_3.style.gap = '0';
+                    }
+
+                } else {
+
+                    // Reset styles when screen is >= 767
+                    if (pw) {
+                        pw.style.gap = '40px';
+                    }
+
+                    if (ps_1) {
+                        ps_1.style.paddingTop = '0px';
+                        ps_1.style.paddingBottom = '0px';
+                    }
+
+                    if (ps_2) {
+                        ps_2.style.paddingTop = '0px';
+                        ps_2.style.gap = '23px';
+                    }
+
+                    if (nicollin) {
+                        nicollin.style.marginTop = '8px';
+                        nicollin.style.marginBottom = '8px';
+                    }
+
+                    if (asseco) {
+                        asseco.style.marginTop = '8px';
+                    }
+
+                    if (ps_3) {
+                        ps_3.style.gap = '23px';
+                    }
+                }
+            }
+
+            window.addEventListener('load', applyMobileStyles);
+            window.addEventListener('resize', applyMobileStyles);
+            
+            window.addEventListener("load", function () {
+              const allowedUrls = [
+                "https://eurovolley.cev.eu/en/2026/men",
+                "https://eurovolley.cev.eu/en/2026/women",
+              ];
+            
+              if (allowedUrls.some(url => window.location.href.includes(url))) {
+                const ticketsLabel = document.getElementById("tickets-label");
+                if (ticketsLabel) {
+                  ticketsLabel.addEventListener("click", function () {
+                    const maxAttempts = 300; // ~5s at 60fps
+                    let attempts = 0;
+            
+                    function waitForCheckbox() {
+                      attempts++;
+                      const formEl = document.getElementById("653787000bb3807d4f214a56");
+                      const shadow = formEl?.shadowRoot;
+            
+                      if (shadow) {
+                        const checkbox = shadow.querySelector(
+                          '[id^="7a1e7542-f766-4add-a7ee-1b05ed292c8b-0-CEV"]'
+                        );
+            
+                        if (checkbox) {
+                          // add classes safely
+                          checkbox.classList.add(
+                            "accent-selected",
+                            "h-8",
+                            "w-8",
+                            "cursor-pointer",
+                            "bg-white"
+                          );
+            
+                          if (!checkbox.checked) {
+                            checkbox.checked = true;
+                            checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+                          }
+                          return; // success, stop polling
+                        }
+                      }
+            
+                      if (attempts < maxAttempts) {
+                        requestAnimationFrame(waitForCheckbox);
+                      } else {
+                        console.warn("Checkbox not found after waiting.");
+                      }
+                    }
+            
+                    waitForCheckbox();
+                  });
+                }
+              }
+            });
+            
+        window.cookies = {
+            allow: function () {
+                if (!this.GoogleTagManager.isAdded) {
+                    this.GoogleTagManager.add();
+                }
+            },
+
+            block: function () {
+                //console.log("cookies NOT OKAY");
+            },
+
+            GoogleTagManager: {
+                isAdded: false,
+                script: {},
+                add: function () {
+
+                            this.script = document.createElement("script");
+                            this.script.onload = function() {
+                                window.cookies.GoogleTagManager.isAdded = true;
+
+                                window.dataLayer = window.dataLayer || [];
+                                function gtag() { dataLayer.push(arguments); }
+                                gtag("js", new Date());
+                                gtag("config", "G-S8R4C2Y14X");
+                            };
+                            this.script.src = "https://www.googletagmanager.com/gtag/js?id=G-S8R4C2Y14X";
+                            document.head.appendChild(this.script);
+			
+                            <!-- Google Tag Manager -->
+                            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                            })(window,document,'script','dataLayer','GTM-NL4TNZ9K');
+                            <!-- End Google Tag Manager -->
+                                            }
+            }
+        }
+
+        window.cookieconsent.initialise({
+            palette: {
+                popup: {
+                    background: "#00002d",
+                    text: "#ffffff"
+                },
+                button: {
+                    background: "#00002d",
+                    text: "#ffffff"
+                }
+            },
+            position: "bottom-left",
+            type: "opt-in",
+            content: {
+                header: "Cookie Management on CEV sites",
+                message: "We use cookies to help make our sites function properly. We would also like to use cookies to continually improve our sites, offer you a better experience and deliver personalised content to you.",
+                allow: "Accept",
+                deny: "Reject",
+                link: "Learn more in our Privacy Policy",
+                href: "http://inside.cev.eu/privacy-policy/",
+                policy: "Cookie settings",
+                target: "_blank"
+            },
+            revokable: true,
+            cookie: {
+                domain: ".cev.eu"
+            },
+            onStatusChange: function (status) {
+                //var type = this.options.type;
+                if (this.hasConsented()) {
+                    window.cookies.allow();
+                } else {
+                    window.cookies.block();
+                }
+            },
+            onInitialise: function (status) {
+                if (status === "allow") {
+                    window.setTimeout(window.cookies.allow(), 10);
+                } else {
+                    window.setTimeout(window.cookies.block(), 10);
+                }
+            },
+        });
+    

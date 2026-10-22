@@ -1,3 +1,4 @@
+-----HTML-TEXT-----
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
@@ -66,7 +67,7 @@
  <li><a href="https://www.pls.pl/siatkarskieligi" title="Aplikacja Siatkarskie Ligi" data-toggle="tooltip" data-placement="bottom"><em class="fas fa-volleyball-ball" aria-hidden="true"><span class="sr-only">Aplikacja Siatkarskie Ligi</span></em></a></li> <li><a href="https://www.facebook.com/tauronligam" title="Facebook" data-toggle="tooltip" data-placement="bottom"><em class="fab fa-facebook" aria-hidden="true"><span class="sr-only">Facebook</span></em></a></li> <li><a href="https://www.instagram.com/tauronligam/" title="Instagram" data-toggle="tooltip" data-placement="bottom"><em class="fab fa-instagram" aria-hidden="true"><span class="sr-only">Instagram</span></em></a></li> <li><a href="https://x.com/TAURONLiga" title="Twitter" data-toggle="tooltip" data-placement="bottom"><em class="fab fa-twitter" aria-hidden="true"><span class="sr-only">Twitter</span></em></a></li> <li><a href="https://www.youtube.com/@siatkarskieligi/featured" title="Youtube" data-toggle="tooltip" data-placement="bottom"><em class="fab fa-youtube" aria-hidden="true"><span class="sr-only">Youtube</span></em></a></li> <li><a href="https://www.tiktok.com/@siatkarskie_ligi" title="TikTok" data-toggle="tooltip" data-placement="bottom"><em class="fab fa-tiktok" aria-hidden="true"><span class="sr-only">TikTok</span></em></a></li> </ul> 
 <ul class="top-menu profile-menu">
  <li><a rel="nofollow" href="https://profil.siatkarskaliga.pl/profile/action/register.html">Rejestracja</a></li>
- <li><a rel="nofollow" href="https://www.tauronliga.pl/profile/action/preLogin/pageUrl/GvsriQPfDKNLOobefG8FJ7byu9uJOEtyYZQoo6RbFyHBYlMqGtVuemR4hnJMWsC6NqF5OXmkGQxg3tQT2JykwCcauPQdszmB3gqk6v5WeUZJA0feZ3fqf7pJzBW2yipzUeYyQt00bLwpRkueDn29owZzGq8nXANTBKzviIG43LsA.html">Logowanie</a></li>
+ <li><a rel="nofollow" href="https://www.tauronliga.pl/profile/action/preLogin/pageUrl/iZYXgbcWw23f729yXXYTyIWhAxbuJBRK7FA6jztShScl5Xs66XyZkpEw6rvwC7mqqCRa19LTqbSwTwwd42nHLsllrs2NqxkSEJnTDI1VKQpzIPCKwnBqvVt8TT5eea3cKK1KXYCeeffhWLCgizOaPMjpwWnjd1j4fwGJ7ZLDpMno.html">Logowanie</a></li>
 </ul>
  <ul class="top-menu ico-menu">
  <li><a href="#" class="theme-change" title="Przełącznik ciemnego / jasnego motywu"><span><span class="day"></span><span class="night"></span></span></a></li>
@@ -7133,3 +7134,375 @@ Gościem Przemysława Iwańczyka jest Daniel Pliński, trener Energa Indykpol AZ
 </div>
  </body>
 </html>
+
+-----SCRIPT-PAYLOADS-----
+$(document).on("cookieManager:consentChange", function(e, categoryData) {if(categoryData[3].enabled) {location.reload();}});
+    import { Url } from '/js/modules/Url.module.js';
+
+    // Niedestrukcyjnie tworzymy przestrzeń nazw;
+    window.JMC = window.JMC || {};
+
+    // Informacje o Account;
+    window.JMC.accountId = 1;
+
+    // Informacje o zalogowanym użytkowniku;
+    window.JMC.loggedUser = {
+        logged: false,
+        webUserId: null,
+        webUserLogin: '',
+    };
+
+    // Zmienne GET;
+    var GetParams = {};
+            GetParams['lang'] = JSON.parse('"pl"');
+            GetParams['usedModule'] = JSON.parse('"home"');
+            GetParams['nocookies'] = JSON.parse('"1"');
+    
+    let urlApiAjaxUrl = "/ajax/urlApi?lang=pl";
+
+    // Udostępniamy i inicjujemy moduły;
+    window.JMC.Url = new Url(GetParams, urlApiAjaxUrl);
+
+		(function() {
+			let gamesListAjaxUrl = "/ajax/gameList";
+
+			function fetchAjaxSyncedElements() {
+				let syncedElements = $('.ajax-synced-games');
+
+				// Przygotowujemy dane do wysyłki;
+				let gamesList = [];
+				syncedElements.each(function() {
+					let gameId = $(this).data('game-id');
+					let gameSource = $(this).data('game-source');
+					
+					gamesList.push({
+						'i': gameId,
+						's': gameSource
+					});
+				});
+
+				$.ajax({
+					url: gamesListAjaxUrl,
+					type: 'GET',
+					dataType: 'json',
+					success: function(response) {
+						// Domyślnie powtarzamy zapytanie co minutę;
+						let nextAjaxInterval = 60000;
+
+						syncedElements.each(function() {
+							let gameId = $(this).data('game-id');
+							let gameSource = $(this).data('game-source');
+							let gameIdx = gameSource + '-' + gameId;
+							let gameData = response[gameIdx];
+
+							if(!gameData) {
+								// Nie wszystkie mecze muszą być synchronizowane;
+								return;
+							}
+
+							if(!!gameData.flags.live) {
+								// Jeśli chociaż jeden mecz trwa, powtórzymy zapytanie AJAX po 10 sekundach;
+								nextAjaxInterval = 10000;
+							}
+
+							if(!gameData) {
+								console.error('Sync error: Game not synced!', gameIdx);
+								return;
+							}
+
+							// Podmiana zawartości;
+							// Atrybut data-synced-games-content powinien zawierać nazwę pola tablicy content;
+							$(this).find('[data-synced-games-content]').each(function() {
+								let contentFieldName = $(this).data('synced-games-content');
+								if(contentFieldName in gameData.content) {
+									let contentFieldValue = gameData.content[contentFieldName];
+									if(contentFieldValue === '') {
+										let contentDefaultValue = $(this).data('synced-games-content-default');
+										$(this).text(contentDefaultValue);
+									} else {
+										$(this).text(contentFieldValue);
+									}
+								} else {
+									console.error('Sync Error: Field not found in response!', contentFieldName);
+									return;
+								}
+							});
+
+							// Zmiana klasy;
+							// Atrybut data-synced-games-class powinien zawierać nazwę pola tablicy classes;
+							$(this).find('[data-synced-games-class]').each(function() {
+								// Usuwamy aktualne klasy;
+								let possibleValues = $(this).data('synced-games-class-list');
+								if(!possibleValues) {
+									console.error('Sync Error: No possible values list!');
+									return;
+								}
+								let possibleValuesList = possibleValues.split(',');
+								for(let possibleClassValue of possibleValuesList) {
+									$(this).removeClass(possibleClassValue);
+								}
+								// Ustawiamy nową klasę;
+								let syncedClassField = $(this).data('synced-games-class');
+								let syncedClassValue = gameData.classes[syncedClassField];
+								if(syncedClassValue && possibleValues.includes(syncedClassValue)) {
+									$(this).addClass(syncedClassValue);
+								}
+							});
+
+							// Ukrywanie i pokazywanie zawartości;
+							$(this).find('[data-synced-games-show-if]').each(function() {
+								let requiredFlag = $(this).data('synced-games-show-if');
+								// Zmieniamy na bool;
+								let flagValue = !!gameData.flags[requiredFlag];
+								if(flagValue) {
+									$(this).show();
+								} else {
+									$(this).hide();
+								}
+							});
+							$(this).find('[data-synced-games-hide-if]').each(function() {
+								let requiredFlag = $(this).data('synced-games-hide-if');
+								// Zmieniamy na bool;
+								let flagValue = !!gameData.flags[requiredFlag];
+								if(flagValue) {
+									$(this).hide();
+								} else {
+									$(this).show();
+								}
+							});
+
+							// Modyfikacja atrybutów (w tym href);
+							$(this).find('[data-synced-games-attr]').each(function() {
+								let attributeName = $(this).data('synced-games-attr'); // np. 'href', 'src', 'title'
+								let attributeField = $(this).data('synced-games-attr-field'); // Nazwa pola w obiekcie gameData.content
+
+								if(attributeField in gameData.content) {
+									let newValue = gameData.content[attributeField];
+									if(newValue !== undefined && newValue !== null) {
+										$(this).attr(attributeName, newValue);
+									}
+								} else {
+									console.error('Sync Error: Attribute field not found in response!', attributeField);
+								}
+							});
+
+						});
+
+
+						// Rejestrujemy kolejne żądanie AJAX;
+						setTimeout(fetchAjaxSyncedElements, nextAjaxInterval);
+						console.log('next interval', nextAjaxInterval);
+					},
+					error: function(error) {
+						// Obsługa błędów
+						console.error('Błąd podczas wysyłania zapytania:', error);
+						setTimeout(fetchAjaxSyncedElements, 10000);
+					}
+				});
+			}
+
+			// Uruchamiamy synchronizację co 10 sekund;
+			setTimeout(fetchAjaxSyncedElements, 1000);
+		})();
+	
+			$(document).ready(function() {
+				$(".rankingSwitchLink").click(function(e) {
+					e.preventDefault();
+
+					var listName = $(this).attr("data-categoryName");
+					var statsLink = $(this).attr("data-statsLink");
+					var linkName = $(this).text();
+
+					$('.rankingTable').hide().filter('[data-categoryName="' + listName + '"]').show();
+					//$('#classificationMoreList').attr('href', statsLink);
+					$(this).closest('.drop-down').find('span[data-bind]').text(linkName);
+
+				});
+			});
+		
+    $(document).ready(function() {
+        let cookieName = "cookie_manager";
+        
+        let loadedCookiePreferences = null;
+        let cookieSettingsModule = true;
+    
+        $cookieManager = $(".cokie-manager-dialog");
+        
+        function showCookieManager() {
+            loadCookiePreferences();
+        
+            showCookieManagerTab("consent");
+            $cookieManager.show();
+        }
+        
+        function hideCookieManager() {
+            $cookieManager.hide();
+        }
+        
+        function getChosenCategories() {
+            let categoryList = [];
+            $cookieManager.find(".cokie-manager-category-checkbox:checked").each(function() {
+                let categoryName = $(this).data("category");
+                categoryList.push(categoryName);
+            });
+            return categoryList;
+        }
+        
+        function getAllCategories() {
+            let categoryList = {};
+            $cookieManager.find(".cokie-manager-category-checkbox").each(function() {
+                let categoryData = Object.create(null);
+                categoryData.name = $(this).data("category");
+                categoryData.enabled = $(this).is(":checked")
+                let categoryId = $(this).data("category-id");
+                categoryList[categoryId] = categoryData;
+            });
+            return categoryList;
+        }
+        
+        function showCookieManagerTab(chosenTabName) {
+            // Usuwamy zaznaczenie ze wszystkich zakładek i zaznaczamy zakładkę kliknięta;
+            $cookieManager.find(".cokie-manager-tab-item").removeClass("active");
+            $cookieManager.find(".cokie-manager-tab-link").filter(function() {
+                let tabName = $(this).data("tab");
+                return tabName == chosenTabName;
+            }).closest(".cokie-manager-tab-item").addClass("active");
+            
+            // Chowamy zawartość wszystkich zakładek i wyswietlamy zawartość aktywnej zakładki;
+            $cookieManager.find(".cokie-manager-tab-content").hide().filter(function() {
+                let tabName = $(this).data("tab");
+                return tabName == chosenTabName;
+            }).show();
+            
+            // Chowamy niepotrzebne przyciski i wyświetlamy te, które są powiązane z aktywną zakładką;
+            $cookieManager.find(".cokie-manager-button").hide().filter(function() {
+                let tabList = $(this).data("tabs").split(",");
+                return tabList.includes(chosenTabName);
+            }).show();
+        }
+        
+        function saveCookiePreferences(consentType) {
+            let categoryList = getChosenCategories();
+        
+            let cookieContent = Object.create(null);
+            cookieContent.consentType = consentType;
+            cookieContent.categoryList = categoryList;
+            
+            let cookieContentRaw = JSON.stringify(cookieContent);
+            let date = new Date();
+            // W milisekundach;
+            date.setTime(date.getTime() + 24 * 60 * 60 * 1000 * 365);
+            let domainArray = location.hostname.split('.');
+            let cookieDomainArr = (domainArray[0] == 'www') ? domainArray.slice(1) : domainArray.slice(0);
+            let cookieDomain = cookieDomainArr.join(".");
+            $.cookie(cookieName, cookieContentRaw, { path: '/', expires: date, domain: cookieDomain });
+            
+            loadedCookiePreferences = Object.create(null);
+            loadedCookiePreferences.consentType = consentType;
+            loadedCookiePreferences.categoryList = categoryList;
+        }
+        
+        function loadCookiePreferences() {
+            let cookieLoaded = false;
+            let cookieContentRaw = $.cookie(cookieName);
+            if(cookieContentRaw) {
+                // Ciasteczko istnieje;
+                let cookieContent = JSON.parse(cookieContentRaw);
+                if(cookieContent && cookieContent.consentType && ('categoryList' in cookieContent)) {
+                    // JSON prawidłowy i wszystkie wymagana pola obecne;
+                    let consentType = cookieContent.consentType;
+                    if(['deny', 'allow-selection', 'allow-all'].includes(consentType)) {
+                        // Prawidłowa zgoda;
+                        let categoryList = cookieContent.categoryList;
+                        
+                        // Zaznaczamy odpowiednie checkboxy;
+                        $cookieManager.find(".cokie-manager-category-checkbox").filter(function() {
+                            let categoryName = $(this).data("category");
+                            return categoryList.includes(categoryName);
+                        }).prop("checked", true);
+                        
+                        loadedCookiePreferences = Object.create(null);
+                        loadedCookiePreferences.consentType = consentType;
+                        loadedCookiePreferences.categoryList = categoryList;
+                        
+                        cookieLoaded = true;
+                    }
+                }
+            } 
+            if(!cookieLoaded) {
+                // Brak ciasteczka lub ciasteczko uszkodzone;
+                loadedCookiePreferences = Object.create(null);
+                loadedCookiePreferences.consentType = 'deny';
+                loadedCookiePreferences.categoryList = [];
+            }
+            
+            return cookieLoaded;
+        }
+        
+        function broadcastConsent() {
+            let categoryInfo = getAllCategories(); 
+            $(document).trigger("cookieManager:consentChange", categoryInfo);
+        }
+        
+        // Obsługa zakładek;
+        $cookieManager.find(".cokie-manager-tab-link").click(function(e) {
+            e.preventDefault();
+        
+            // Nazwa klikniętej zakładki;
+            let tabName = $(this).data("tab");
+            // Wyświetlamy klikniętą zakładkę;
+            showCookieManagerTab(tabName);
+            
+            return false;
+        });
+        
+        // Obsługa przycisków;
+        $cookieManager.find(".button-deny").click(function() {
+            hideCookieManager();
+            $cookieManager.find(".cokie-manager-category-checkbox").prop("checked", false);
+            saveCookiePreferences('deny');
+            broadcastConsent();
+        });
+        
+        $cookieManager.find(".button-customize").click(function() {
+            showCookieManagerTab("details");
+        });
+        
+        $cookieManager.find(".button-allow-selection").click(function() {
+            hideCookieManager();
+            saveCookiePreferences('allow-selection');
+            broadcastConsent();
+        });
+        
+        $cookieManager.find(".button-allow-all").click(function() {
+            hideCookieManager();
+            $cookieManager.find(".cokie-manager-category-checkbox").prop("checked", true);
+            saveCookiePreferences('allow-all');
+            broadcastConsent();
+        });
+        
+        $(".openCookieManagerButton").click(function(e) {
+            e.preventDefault();
+            showCookieManager();
+        });
+        
+        let cookieLoaded = loadCookiePreferences();
+        if(!cookieLoaded && cookieSettingsModule) {
+            showCookieManager();
+        } else {
+            broadcastConsent();
+        }
+        
+    });
+    
+    /***** Przykłady *****
+    
+    $(document).on("cookieManager:consent", function(e, category) {
+        console.log("common callback", category);
+    });
+    
+    $(document).on("cookieManager:consent:Statistics", function(e) {
+        console.log("Statistics callback");
+    });
+    
+    *****/

@@ -1,3 +1,4 @@
+-----HTML-TEXT-----
  
 <!DOCTYPE html> 
 <html lang="en" class="no-js-keyboard-focus"> 
@@ -1049,3 +1050,35 @@
  </div> 
  </body> 
 </html> 
+
+-----SCRIPT-PAYLOADS-----
+document.documentElement.classList.remove('no-js');
+  window["adrum-start-time"] = new Date().getTime();
+  (function(config){
+      config.appKey = "SY-AAB-NTB";
+      config.adrumExtUrlHttp = "http://cdn.appdynamics.com";
+      config.adrumExtUrlHttps = "https://cdn.appdynamics.com";
+      config.beaconUrlHttp = "http://syd-col.eum-appdynamics.com";
+      config.beaconUrlHttps = "https://syd-col.eum-appdynamics.com";
+      config.useHTTPSAlways = true;
+      config.resTiming = {"bufSize":200,"clearResTimingOnBeaconSend":true};
+      config.maxUrlLength = 512;
+  })(window["adrum-config"] || (window["adrum-config"] = {}));
+  
+    window.NRL_SITE_THEME = {"key":"nrl","logos":{"badge.png":"202610220518","badge.svg":"202610220518","silhouette.svg":"202610220518","text.svg":"202610220518"}};
+      window.NRL_PAGE_DATA = {"name":"Draw","pageId":48,"pageType":"draw","path":"78756360/nrl.web/draw","published":"2017-09-17T04:32:02+00:00","siteName":"NRL","age":"unknown","gen":"unknown","birthYear":"unknown"};
+      window.dataLayer = [window.NRL_PAGE_DATA];
+          window.NRL_RECAPTCHA_DATA = { key: "6Lerp2kUAAAAABYscFaWwboSP3DaaFwY9TjZOR26"};
+    window.NRL_SITE_CONFIG = {watchingThatEnabled: true, };
+  
+<!-- Google Tag Manager -->
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PV42QSK');
+<!-- End Google Tag Manager -->
+googletag.setConfig({
+  adsenseAttributes: { page_url: "https://www.nrl.com" },
+});
+var appInsights=window.appInsights||function(config){function t(config){i[config]=function(){var t=arguments;i.queue.push(function(){i[config].apply(i,t)})}}var i={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",r,f;setTimeout(function(){var t=u.createElement(o);t.src=config.url||"https://js.monitor.azure.com/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(t)});try{i.cookie=u.cookie}catch(y){}for(i.queue=[],r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)t("track"+r.pop());return t("set"+s),t("clear"+s),t(h+a),t(c+a),t(h+v),t(c+v),t("flush"),config.disableExceptionTracking||(r="onerror",t("_"+r),f=e[r],e[r]=function(config,t,u,e,o){var s=f&&f(config,t,u,e,o);return s!==!0&&i["_"+r](config,t,u,e,o),s}),i}({instrumentationKey:"99674c5f-2498-4937-9d82-c813969c23da",sdkExtension:"a"});window.appInsights=appInsights;appInsights.queue&&appInsights.queue.length===0&&appInsights.trackPageView();!function () { function o(o, e, n) { var i = o + "-svg", t = new XMLHttpRequest, s = document.body, d = document.createElement("div"), a = n || window.location.protocol + "//" + window.location.hostname + (window.location.port ? ":" + window.location.port : ""), c = a + e, l = " no-svg"; if (d.id = i, s.insertBefore(d, s.childNodes[0]), "withCredentials" in t) t.withCredentials, t.open("GET", c, !0); else { if ("undefined" == typeof XDomainRequest) return void (s.className += l); t = new XDomainRequest, t.open("GET", c) } t.onload = function () { d.className = "u-visually-hidden", d.innerHTML = t.responseText }, t.onerror = function () { s.className += l }, setTimeout(function () { t.send() }, 0) } o("icons", "/Client/dist/svg/icons-sprite.52320184.svg")}()
