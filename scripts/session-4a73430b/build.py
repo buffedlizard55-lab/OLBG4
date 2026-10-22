@@ -227,7 +227,8 @@ def render(desk, preds, flagged, counts, struct):
     for p in preds:
         facts = "".join(f'<li>{esc(f["fact"])} — <a href="{esc(f["source"])}">source</a></li>' for f in p["facts"] if f.get("source"))
         live = " · live-checked 22 Oct (" + ", ".join(p["live_checks"]) + ")" if p["live_checks"] else " · carried from build-verified canonical data (not live re-read 22 Oct)"
-        cards += f'<div class=card><h3>{esc(p["fixture"])} — {esc(p["date"])}</h3><p><b>Selection: {esc(p["pick"])}</b> · {esc(p["market"])} · our {esc(p["price_dec"])} = {p["price_us"]:+d} US (raw implied {p["implied_pct"]}%){live}</p><p>{esc(p["text"])}</p><p class=muted>{p["words"]} words · {esc(p["id"])} · <a href="{esc(p["source_url"])}">official source</a></p><ul>{facts}</ul></div>'
+        badge = " · <b>≥70% raw implied</b>" if p["implied_pct"] >= 70 else ""
+        cards += f'<div class=card><h3>{esc(p["fixture"])} — {esc(p["date"])}</h3><p><b>Selection: {esc(p["pick"])}</b> · {esc(p["market"])} · our {esc(p["price_dec"])} = {p["price_us"]:+d} US (raw implied {p["implied_pct"]}%){badge}{live}</p><p>{esc(p["text"])}</p><p class=muted>{p["words"]} words · {esc(p["id"])} · <a href="{esc(p["source_url"])}">official source</a></p><ul>{facts}</ul></div>'
     (OUT_S/"picks.html").write_text(page("Focus High picks", f"<h2>★ Focus High-confidence picks ({len(preds)}) — all inside −250…+10,000</h2><p>Each prediction is unique, ≥30 words, names the team/player, current form and recent match history, and states the selection plainly. Facts are listed under every card with their official URL. Four texts (M0139, M0240, M0246, M0274) were newly written this session to replace templated canonical copy, using only facts in the build-verified canonical notes.</p>{cards}"))
     # sports
     for slug in sorted(set(d["sport_slug"] for d in desk)):
