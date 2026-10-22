@@ -868,26 +868,26 @@
     },
     "backtest": {
       "available": true,
-      "train_games": 4824,
-      "holdout_games": 122,
+      "train_games": 4825,
+      "holdout_games": 121,
       "holdout_days": 30,
-      "accuracy": 0.5656,
-      "brier": 0.2425,
-      "log_loss": 0.678,
+      "accuracy": 0.562,
+      "brier": 0.2429,
+      "log_loss": 0.6788,
       "calibration": {
         "50-55%": {
-          "n": 62,
-          "predicted": 0.5251,
-          "observed": 0.5323
+          "n": 64,
+          "predicted": 0.5262,
+          "observed": 0.5156
         },
         "55-60%": {
-          "n": 42,
-          "predicted": 0.5666,
-          "observed": 0.5476
+          "n": 39,
+          "predicted": 0.5679,
+          "observed": 0.5641
         },
         "60-65%": {
           "n": 18,
-          "predicted": 0.6268,
+          "predicted": 0.627,
           "observed": 0.7222
         },
         "65-70%": {
