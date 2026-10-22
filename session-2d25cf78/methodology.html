@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Method · OLBG4 Board AF</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><header class="top"><div class="wrap"><b>OLBG4 · Board AF</b><nav><a href="index.html">Dashboard</a><a href="entries.html">All fixtures</a><a href="picks.html">Predictions</a><a href="markets.html">Markets</a><a href="coverage.html">Coverage</a><a href="olbg.html">OLBG</a><a href="review.html">Repo review</a><a href="flagged.html">Flagged</a><a href="methodology.html" style='color:#fff;font-weight:700'>Method</a><a href="sources.html">Sources</a><a href="verification.html">Verification</a></nav></div></header>
+<main>
+<h1>Method</h1>
+<p class="lead">The desk is reproducible end to end from committed bytes: capture → model → lines → picks → predictions →
+verification. No price from OLBG or any bookmaker is an input.</p>
+<h2>1 · Capture</h2>
+<p>Official pages are fetched by an open-egress GitHub Actions runner (<code>.github/workflows/capture-2d25cf78.yml</code>)
+and committed gzip-compressed with a SHA-256 manifest. <code>scripts/session-2d25cf78/fetch.py</code> enforces polite
+spacing per host and never requests a robots.txt-disallowed OLBG path. 93 of
+111 requests returned content.</p>
+<h2>2 · Model</h2>
+<ul class="tight">
+<li><b>Team sports:</b> attack and defence rates from the official season scoring columns, shrunk toward the league
+average with an empirical-Bayes weight k (8 for NHL, 30 for MLB, 6 for EuroLeague, 4 for Top 14 and the EHF).</li>
+<li><b>Blend:</b> Top 14 and EHF also use the official win-percentage record (log5, home odds edge 1.10), averaged 50/50
+with the scoring model, so a 0-6 team cannot be made favourite by heavy shrinkage alone.</li>
+<li><b>Distributions:</b> Poisson for goals/runs (NHL, MLB, EHF totals); normal margin for basketball and rugby; a
+set-based model for volleyball.</li>
+<li><b>Home advantage:</b> a disclosed model parameter (+3% goals NHL, +2% runs MLB, +2% points EuroLeague, +3 points
+margin Top 14, +2% EHF), not a data value.</li>
+<li><b>Rankings-based sports</b> (none published today) would use official ranking points; no ranking feed verified in
+this run, so no such lines are published.</li>
+</ul>
+<h2>3 · Lines and confidence</h2>
+<p>Our published line is the fair price, 1 ÷ model probability. Our book line adds a 2% overround carried on the opposing
+selection, so the side we put up keeps its fair price. Confidence: <b>High</b> at ≥70.0%, <b>Medium</b> at 55.0–69.9%,
+<b>Low</b> below 55.0%; a side with fewer than the sport’s required official games cannot be labelled High.</p>
+<h2>4 · The −250 … +10,000 window</h2>
+<p>−250 is decimal 1.400 (71.43%). +10,000 is decimal 101.0 (0.99%). A selection that is both “&gt;70% to win” and “no
+shorter than −250” must therefore have a model probability of 0.7000–0.7143. Board AF does not hide the arithmetic: it
+publishes every 70%+ match-winner pick (including those shorter than −250, labelled as such) and builds the five
+predictions per sport from the highest-probability selections that do sit inside the window.</p>
+<h2>5 · Predictions</h2>
+<p>Each prediction is written for one selection, is ≥30 words, names the teams/players, quotes only figures printed in the
+row’s official inputs, states the selection plainly, and carries the official source link. Word counts, uniqueness and
+figure traceability are re-checked by <code>verify.py</code>.</p>
+<h2>6 · What is deliberately blank</h2>
+<p>No value is inferred. Where an official input does not exist — a probable pitcher not yet published, a start time not
+confirmed, a fixture only available on a client-rendered page — the row is either unpriced or published with a flag on the
+<a href="flagged.html">Flagged for Review</a> page.</p>
+</main>
+<footer>Board AF (session <code>arena/2d25cf78-olbg4</code>) · built 2026-10-22 21:22 UTC ·
+every row links to the official page it was read from · <a href="index.html">Board AF dashboard</a> ·
+<a href="https://github.com/buffedlizard55-lab/OLBG4">repository</a></footer>
+</body></html>

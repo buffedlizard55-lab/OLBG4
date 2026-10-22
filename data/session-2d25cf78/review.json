@@ -1,0 +1,4797 @@
+{
+ "schema": "olbg4.board-af-review/v1",
+ "session": "arena/2d25cf78-olbg4",
+ "board": "AF",
+ "generated_utc": "2026-10-22T21:09:50Z",
+ "reviewed_dataset": "data/master.json",
+ "rows_reviewed": 336,
+ "category_counts": {
+  "stale-date": 123,
+  "missing-source": 39,
+  "no-pick": 50,
+  "placeholder-row": 16,
+  "priced-unverified": 40
+ },
+ "cross_check": [
+  {
+   "fixtures_compared": 55,
+   "skipped_outside_capture_window": 174,
+   "mismatches": 0
+  }
+ ],
+ "peer_desks": [
+  {
+   "file": "data/session-7bbc825b/review.json",
+   "rows": 1242,
+   "rows_without_source": 1242,
+   "schema_hint": [
+    "audit_id",
+    "category_as_recorded",
+    "confidence",
+    "file",
+    "legacy_id",
+    "legacy_verification_claim",
+    "originated_lines",
+    "pointer",
+    "prediction",
+    "reason",
+    "recorded_source_url",
+    "status"
+   ]
+  },
+  {
+   "file": "data/session-4e9d03cf/review.json",
+   "rows": 317,
+   "rows_without_source": 317,
+   "schema_hint": [
+    "away",
+    "build",
+    "competition",
+    "confidence",
+    "date",
+    "flags",
+    "home",
+    "id",
+    "in_scope",
+    "markets",
+    "official_source_url",
+    "original_build_verified"
+   ]
+  },
+  {
+   "file": "data/session-9359e596/desk.json",
+   "rows": 280,
+   "rows_without_source": 17,
+   "schema_hint": [
+    "competition",
+    "confidence",
+    "confidence_note",
+    "extra_official_urls",
+    "flagged",
+    "flags",
+    "headline_fair_american",
+    "headline_fair_decimal",
+    "headline_market",
+    "headline_prob",
+    "headline_selection",
+    "home_side"
+   ]
+  },
+  {
+   "file": "data/session-22ca2e95/desk.json",
+   "rows": 246,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "competition",
+    "confidence",
+    "featured_book_american",
+    "featured_book_decimal",
+    "featured_fair_american",
+    "featured_fair_decimal",
+    "featured_market",
+    "featured_pick",
+    "fresh_afternoon_addition",
+    "id",
+    "inputs_summary",
+    "markets"
+   ]
+  },
+  {
+   "file": "data/session-f0622b6e/desk.json",
+   "rows": 233,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "competition",
+    "confidence",
+    "featured_book_american",
+    "featured_book_decimal",
+    "featured_fair_american",
+    "featured_fair_decimal",
+    "featured_market",
+    "featured_pick",
+    "flags",
+    "id",
+    "inputs_summary",
+    "markets"
+   ]
+  },
+  {
+   "file": "data/session-e5f2dad3/board.json",
+   "rows": 226,
+   "rows_without_source": 226,
+   "schema_hint": [
+    "away",
+    "competition",
+    "confidence",
+    "date",
+    "home",
+    "home_away_designated",
+    "id",
+    "inputs",
+    "markets",
+    "neutral",
+    "note",
+    "olbg"
+   ]
+  },
+  {
+   "file": "data/session-3a6388d2/desk.json",
+   "rows": 184,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "away",
+    "competition",
+    "confidence",
+    "confidence_rule",
+    "date",
+    "flags",
+    "home",
+    "id",
+    "in_odds_window",
+    "markets",
+    "model",
+    "model_inputs"
+   ]
+  },
+  {
+   "file": "data/session-e62da3b5/matches.json",
+   "rows": 172,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "away",
+    "competition",
+    "confidence",
+    "date",
+    "event_id",
+    "expected_score",
+    "flags",
+    "form_context",
+    "handicap_market_summary",
+    "home",
+    "id",
+    "inputs_summary"
+   ]
+  },
+  {
+   "file": "data/session-4a73430b/desk.json",
+   "rows": 164,
+   "rows_without_source": 4,
+   "schema_hint": [
+    "away",
+    "build",
+    "competition",
+    "confidence",
+    "date",
+    "flags",
+    "focus_high",
+    "handicap",
+    "held_reason",
+    "home",
+    "id",
+    "in_focus_window"
+   ]
+  },
+  {
+   "file": "data/session-fca9d738/review.json",
+   "rows": 164,
+   "rows_without_source": 164,
+   "schema_hint": [
+    "away",
+    "build",
+    "competition",
+    "confidence",
+    "date",
+    "has_s2_replacement",
+    "home",
+    "id",
+    "in_window",
+    "live",
+    "markets",
+    "original_build_verified"
+   ]
+  },
+  {
+   "file": "data/session-7c581d22/board.json",
+   "rows": 152,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "competition",
+    "date",
+    "fixture",
+    "id",
+    "inputs",
+    "markets",
+    "pick",
+    "side_a",
+    "side_b",
+    "source_name",
+    "source_url",
+    "sport"
+   ]
+  },
+  {
+   "file": "data/session-8cbd0cb9/desk.json",
+   "rows": 152,
+   "rows_without_source": 150,
+   "schema_hint": [
+    "competition",
+    "competition_olbg",
+    "confidence",
+    "feed_market",
+    "flags",
+    "high_confidence",
+    "id",
+    "markets",
+    "match",
+    "match_winner_pick",
+    "official_source_name",
+    "official_url"
+   ]
+  },
+  {
+   "file": "data/session-1695b749/listing.json",
+   "rows": 138,
+   "rows_without_source": 138,
+   "schema_hint": [
+    "captured_at_utc",
+    "competition",
+    "event_name",
+    "hub_sha256",
+    "hub_url",
+    "id",
+    "in_scope_on_olbg",
+    "market_label_on_listing",
+    "official_source",
+    "official_source_status",
+    "olbg_url",
+    "pick"
+   ]
+  },
+  {
+   "file": "data/session-c4fda15e/desk.json",
+   "rows": 138,
+   "rows_without_source": 138,
+   "schema_hint": [
+    "captured_utc",
+    "event_id",
+    "event_name",
+    "expired_flag",
+    "featured_price_american",
+    "featured_price_decimal",
+    "featured_selection",
+    "flags",
+    "hub_sha256",
+    "in_scope",
+    "line",
+    "market_label"
+   ]
+  },
+  {
+   "file": "data/session-2d25cf78/desk.json",
+   "rows": 126,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "best_high",
+    "competition",
+    "data_status",
+    "high_candidates",
+    "id",
+    "markets",
+    "min_games",
+    "notes",
+    "official_inputs",
+    "official_source_name",
+    "official_url",
+    "pick"
+   ]
+  },
+  {
+   "file": "data/session-8070bc18/desk.json",
+   "rows": 108,
+   "rows_without_source": 108,
+   "schema_hint": [
+    "away",
+    "confidence",
+    "confidence_note",
+    "date",
+    "edge",
+    "evidence",
+    "expected_margin",
+    "expected_total",
+    "flags",
+    "handicap",
+    "home",
+    "id"
+   ]
+  },
+  {
+   "file": "data/session-e1161e0e/board.json",
+   "rows": 98,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "away",
+    "competition",
+    "confidence",
+    "date",
+    "exp_away",
+    "exp_home",
+    "fixture_url",
+    "focus_play",
+    "form_away",
+    "form_home",
+    "home",
+    "id"
+   ]
+  },
+  {
+   "file": "data/session-f957db05/lines.json",
+   "rows": 98,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "away",
+    "best_of",
+    "competition",
+    "confidence",
+    "date",
+    "game_id",
+    "home",
+    "id",
+    "markets",
+    "model",
+    "pick",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/session-4ec1fc72/data.json",
+   "rows": 97,
+   "rows_without_source": 0,
+   "schema_hint": [
+    " markets_note",
+    "american",
+    "away",
+    "basis",
+    "competition",
+    "confidence",
+    "date",
+    "form_source_label",
+    "form_source_url",
+    "home",
+    "id",
+    "markets"
+   ]
+  },
+  {
+   "file": "data/session-1695b749/desk.json",
+   "rows": 96,
+   "rows_without_source": 96,
+   "schema_hint": [
+    "away",
+    "away_code",
+    "competition",
+    "date",
+    "high_selections",
+    "home",
+    "home_code",
+    "id",
+    "inputs",
+    "league",
+    "market_picks",
+    "markets"
+   ]
+  },
+  {
+   "file": "data/session-1695b749/verification.json",
+   "rows": 96,
+   "rows_without_source": 96,
+   "schema_hint": [
+    "competition",
+    "date",
+    "fields",
+    "id",
+    "match",
+    "not_checked",
+    "sport",
+    "start_utc",
+    "status",
+    "venue"
+   ]
+  },
+  {
+   "file": "data/session-d2d25025/board.json",
+   "rows": 96,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "audit_issues",
+    "away",
+    "competition",
+    "confidence",
+    "confidence_by_prob",
+    "date",
+    "handicap",
+    "home",
+    "id",
+    "markets",
+    "moneyline",
+    "p_home"
+   ]
+  },
+  {
+   "file": "data/session-19b8e377/desk.json",
+   "rows": 91,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "away",
+    "competition",
+    "date",
+    "facts",
+    "home",
+    "id",
+    "in_window_high",
+    "inputs",
+    "markets",
+    "model",
+    "note",
+    "pick"
+   ]
+  },
+  {
+   "file": "data/session-19b8e377/lines.json",
+   "rows": 91,
+   "rows_without_source": 91,
+   "schema_hint": [
+    "away",
+    "competition",
+    "date",
+    "home",
+    "id",
+    "in_window_high",
+    "markets",
+    "pick",
+    "sport",
+    "time"
+   ]
+  },
+  {
+   "file": "data/session-cdf25c13/rows.json",
+   "rows": 91,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "alternates",
+    "away",
+    "blank_reason",
+    "competition",
+    "confidence",
+    "confidence_note",
+    "date",
+    "excluded_by_window",
+    "exp_total",
+    "facts",
+    "home",
+    "id"
+   ]
+  },
+  {
+   "file": "data/session-3a6388d2/manifest.json",
+   "rows": 79,
+   "rows_without_source": 79,
+   "schema_hint": [
+    "bytes",
+    "chars_saved",
+    "error",
+    "fetched_at_utc",
+    "final_url",
+    "http_status",
+    "id",
+    "kind",
+    "note",
+    "saved_as",
+    "sha256_raw",
+    "sport"
+   ]
+  },
+  {
+   "file": "data/session-d28c49c5/report.json",
+   "rows": 56,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "captured_at",
+    "competition",
+    "confidence",
+    "evidence",
+    "fair_odds",
+    "id",
+    "official_url",
+    "pick",
+    "pointer",
+    "prediction",
+    "side_a",
+    "side_b"
+   ]
+  },
+  {
+   "file": "data/session-3a6388d2/manifest3.json",
+   "rows": 55,
+   "rows_without_source": 55,
+   "schema_hint": [
+    "bytes",
+    "chars_saved",
+    "error",
+    "fetched_at_utc",
+    "http_status",
+    "id",
+    "kind",
+    "note",
+    "saved_as",
+    "sha256_raw",
+    "sport",
+    "url"
+   ]
+  },
+  {
+   "file": "data/session-74f9613e/olbg_inventory.json",
+   "rows": 53,
+   "rows_without_source": 53,
+   "schema_hint": [
+    "away",
+    "competition",
+    "home",
+    "official_source",
+    "official_source_id",
+    "olbg_market_example",
+    "olbg_url",
+    "sport",
+    "sport_slug",
+    "start",
+    "status",
+    "status_reason"
+   ]
+  },
+  {
+   "file": "data/session-22ca2e95/predictions.json",
+   "rows": 46,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "book_american",
+    "book_decimal",
+    "competition",
+    "fair_american",
+    "fair_decimal",
+    "fair_prob",
+    "fresh_afternoon_addition",
+    "inputs_summary",
+    "market",
+    "matchup",
+    "official_source_name",
+    "official_url"
+   ]
+  },
+  {
+   "file": "data/session-74f9613e/inputs.json",
+   "rows": 43,
+   "rows_without_source": 43,
+   "schema_hint": [
+    "away",
+    "competition",
+    "fixture_sources",
+    "home",
+    "id",
+    "input_sources",
+    "inputs",
+    "inputs_verified",
+    "league",
+    "model",
+    "notes",
+    "sport"
+   ]
+  },
+  {
+   "file": "data/session-74f9613e/matches.json",
+   "rows": 43,
+   "rows_without_source": 43,
+   "schema_hint": [
+    "away",
+    "competition",
+    "confidence",
+    "fixture_sources",
+    "home",
+    "id",
+    "input_sources",
+    "inputs",
+    "inputs_verified",
+    "league",
+    "market_status",
+    "model"
+   ]
+  },
+  {
+   "file": "data/session-f0622b6e/predictions.json",
+   "rows": 40,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "book_american",
+    "book_decimal",
+    "competition",
+    "fair_american",
+    "fair_decimal",
+    "id",
+    "market_type",
+    "match_winner_pick",
+    "matchup",
+    "official_source_name",
+    "official_url",
+    "olbg_featured_decimal"
+   ]
+  },
+  {
+   "file": "data/session-2d25cf78/predictions.json",
+   "rows": 30,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "book_american",
+    "book_decimal",
+    "competition",
+    "confidence",
+    "fair_american",
+    "fair_decimal",
+    "in_band",
+    "market",
+    "matchup",
+    "official_inputs",
+    "official_source_name",
+    "official_url"
+   ]
+  },
+  {
+   "file": "data/session-c92c927c/fixtures.json",
+   "rows": 30,
+   "rows_without_source": 30,
+   "schema_hint": [
+    "away",
+    "away_code",
+    "competition",
+    "date",
+    "evidence",
+    "home",
+    "home_code",
+    "id",
+    "source",
+    "sport",
+    "time",
+    "time_tz_stated"
+   ]
+  },
+  {
+   "file": "data/session-c92c927c/lines.json",
+   "rows": 30,
+   "rows_without_source": 30,
+   "schema_hint": [
+    "american",
+    "away",
+    "away_code",
+    "competition",
+    "confidence",
+    "date",
+    "evidence",
+    "evidence_depth",
+    "handicap_line",
+    "home",
+    "home_code",
+    "id"
+   ]
+  },
+  {
+   "file": "data/session-3a6388d2/manifest5.json",
+   "rows": 24,
+   "rows_without_source": 24,
+   "schema_hint": [
+    "bytes",
+    "chars_saved",
+    "error",
+    "fetched_at_utc",
+    "final_url",
+    "http_status",
+    "id",
+    "kind",
+    "note",
+    "saved_as",
+    "sha256_raw",
+    "sport"
+   ]
+  },
+  {
+   "file": "data/session-3a6388d2/manifest_rankings.json",
+   "rows": 23,
+   "rows_without_source": 23,
+   "schema_hint": [
+    "bytes",
+    "chars_saved",
+    "error",
+    "fetched_at_utc",
+    "final_url",
+    "http_status",
+    "id",
+    "kind",
+    "note",
+    "saved_as",
+    "sha256_raw",
+    "sport"
+   ]
+  },
+  {
+   "file": "data/session-9359e596/predictions.json",
+   "rows": 22,
+   "rows_without_source": 0,
+   "schema_hint": [
+    "competition",
+    "confidence",
+    "extra_official_urls",
+    "fair_american",
+    "fair_decimal",
+    "id",
+    "market",
+    "matchup",
+    "official_source_name",
+    "official_url",
+    "olbg_featured_selection",
+    "olbg_price_american"
+   ]
+  },
+  {
+   "file": "data/session-1695b749/coverage.json",
+   "rows": 19,
+   "rows_without_source": 19,
+   "schema_hint": [
+    "fixtures",
+    "high_in_window",
+    "listed_on_olbg",
+    "note",
+    "priced",
+    "sport",
+    "status"
+   ]
+  }
+ ],
+ "findings": [
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Aussie Rules",
+    "competition": "AFL — Australian Football League — Off-Season 2026",
+    "date": "2026-09-27",
+    "home": "No fixture",
+    "away": "No fixture"
+   },
+   "detail": "Fixture dated 2026-09-27, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Aussie Rules",
+    "competition": "AFL — Australian Football League — Off-Season 2026",
+    "date": "2026-09-27",
+    "home": "No fixture",
+    "away": "No fixture"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Aussie Rules",
+    "competition": "AFL — Australian Football League — Off-Season 2026",
+    "date": "2026-09-27",
+    "home": "No fixture",
+    "away": "No fixture"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Aussie Rules",
+    "competition": "AFL — Australian Football League — Off-Season 2026",
+    "date": "2026-09-27",
+    "home": "No fixture",
+    "away": "No fixture"
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Volleyball",
+    "competition": "FIVB Volleyball Girls' U17 World Championship Chile 2026",
+    "date": "2026-09-30",
+    "home": "24 national U17 teams",
+    "away": "Field"
+   },
+   "detail": "Fixture dated 2026-09-30, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Volleyball",
+    "competition": "FIVB Volleyball Girls' U17 World Championship Chile 2026",
+    "date": "2026-09-30",
+    "home": "24 national U17 teams",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Volleyball",
+    "competition": "FIVB Volleyball Girls' U17 World Championship Chile 2026",
+    "date": "2026-09-30",
+    "home": "24 national U17 teams",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "EuroLeague 2026-27 — Regular Season Round 1 (Recent Result)",
+    "date": "2026-10-01",
+    "home": "Crvena Zvezda Belgrade",
+    "away": "Anadolu Efes Istanbul"
+   },
+   "detail": "Fixture dated 2026-10-01, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "EuroLeague 2026-27 — Regular Season Round 1 (Recent Result)",
+    "date": "2026-10-01",
+    "home": "Crvena Zvezda Belgrade",
+    "away": "Anadolu Efes Istanbul"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "EuroLeague 2026-27 — Regular Season Round 1 (Recent Result)",
+    "date": "2026-10-01",
+    "home": "Crvena Zvezda Belgrade",
+    "away": "Anadolu Efes Istanbul"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Masters 1000 — Rolex Shanghai Masters (Recently Completed)",
+    "date": "2026-10-07",
+    "home": "Alejandro Davidovich Fokina (ESP) Champion",
+    "away": "Rafael Jódar (ESP) Runner-up"
+   },
+   "detail": "Fixture dated 2026-10-07, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Masters 1000 — Rolex Shanghai Masters (Recently Completed)",
+    "date": "2026-10-07",
+    "home": "Alejandro Davidovich Fokina (ESP) Champion",
+    "away": "Rafael Jódar (ESP) Runner-up"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Masters 1000 — Rolex Shanghai Masters (Recently Completed)",
+    "date": "2026-10-07",
+    "home": "Alejandro Davidovich Fokina (ESP) Champion",
+    "away": "Rafael Jódar (ESP) Runner-up"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Esports",
+    "competition": "Valorant Champions 2026 — Paris",
+    "date": "2026-10-08",
+    "home": "16 teams",
+    "away": "Field"
+   },
+   "detail": "Fixture dated 2026-10-08, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Esports",
+    "competition": "Valorant Champions 2026 — Paris",
+    "date": "2026-10-08",
+    "home": "16 teams",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Esports",
+    "competition": "Valorant Champions 2026 — Paris",
+    "date": "2026-10-08",
+    "home": "16 teams",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "PGA TOUR FedExCup Fall — Baycurrent Classic 2026",
+    "date": "2026-10-08",
+    "home": "FedEx Fall field",
+    "away": "Verification note: PGATour live leaderboard shows Final"
+   },
+   "detail": "Fixture dated 2026-10-08, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "PGA TOUR FedExCup Fall — Baycurrent Classic 2026",
+    "date": "2026-10-08",
+    "home": "FedEx Fall field",
+    "away": "Verification note: PGATour live leaderboard shows Final"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "PGA TOUR FedExCup Fall — Baycurrent Classic 2026",
+    "date": "2026-10-08",
+    "home": "FedEx Fall field",
+    "away": "Verification note: PGATour live leaderboard shows Final"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Australia Women vs Bangladesh Women — ODI Series",
+    "date": "2026-10-09",
+    "home": "Australia Women",
+    "away": "Bangladesh Women"
+   },
+   "detail": "Fixture dated 2026-10-09, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Australia Women vs Bangladesh Women — ODI Series",
+    "date": "2026-10-09",
+    "home": "Australia Women",
+    "away": "Bangladesh Women"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Australia Women vs Bangladesh Women — ODI Series",
+    "date": "2026-10-09",
+    "home": "Australia Women",
+    "away": "Bangladesh Women"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Table Tennis",
+    "competition": "European Individual Championships 2026",
+    "date": "2026-10-11",
+    "home": "Winners to be verified via ETTU",
+    "away": "Field Europe top-32"
+   },
+   "detail": "Fixture dated 2026-10-11, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Table Tennis",
+    "competition": "European Individual Championships 2026",
+    "date": "2026-10-11",
+    "home": "Winners to be verified via ETTU",
+    "away": "Field Europe top-32"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Table Tennis",
+    "competition": "European Individual Championships 2026",
+    "date": "2026-10-11",
+    "home": "Winners to be verified via ETTU",
+    "away": "Field Europe top-32"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour 2026 — VICTOR Denmark Open (Super 750) $950,000",
+    "date": "2026-10-13",
+    "home": "Winners: FRA Alex Lanier, KOR An Se-young, INA Alfian/Fikri, MAS Tan/Muralitharan, CHN Jiang/Wei",
+    "away": "TBD per BWF results page"
+   },
+   "detail": "Fixture dated 2026-10-13, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour 2026 — VICTOR Denmark Open (Super 750) $950,000",
+    "date": "2026-10-13",
+    "home": "Winners: FRA Alex Lanier, KOR An Se-young, INA Alfian/Fikri, MAS Tan/Muralitharan, CHN Jiang/Wei",
+    "away": "TBD per BWF results page"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour 2026 — VICTOR Denmark Open (Super 750) $950,000",
+    "date": "2026-10-13",
+    "home": "Winners: FRA Alex Lanier, KOR An Se-young, INA Alfian/Fikri, MAS Tan/Muralitharan, CHN Jiang/Wei",
+    "away": "TBD per BWF results page"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Esports",
+    "competition": "League of Legends — Worlds 2026 (World Championship) — Knockout Stage",
+    "date": "2026-10-14",
+    "home": "LCK/LPL/LEC/LCS",
+    "away": "Bo5 knockout"
+   },
+   "detail": "Fixture dated 2026-10-14, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Esports",
+    "competition": "League of Legends — Worlds 2026 (World Championship) — Knockout Stage",
+    "date": "2026-10-14",
+    "home": "LCK/LPL/LEC/LCS",
+    "away": "Bo5 knockout"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Esports",
+    "competition": "League of Legends — Worlds 2026 (World Championship) — Knockout Stage",
+    "date": "2026-10-14",
+    "home": "LCK/LPL/LEC/LCS",
+    "away": "Bo5 knockout"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Volleyball",
+    "competition": "2026 FIVB Men's Volleyball Club World Championship — Qualifiers Complete",
+    "date": "2026-10-15",
+    "home": "via FIVB Oct 15 announcement",
+    "away": "Pools of 4 (round-robin) per 2026 regs"
+   },
+   "detail": "Fixture dated 2026-10-15, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Volleyball",
+    "competition": "2026 FIVB Men's Volleyball Club World Championship — Qualifiers Complete",
+    "date": "2026-10-15",
+    "home": "via FIVB Oct 15 announcement",
+    "away": "Pools of 4 (round-robin) per 2026 regs"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Volleyball",
+    "competition": "2026 FIVB Men's Volleyball Club World Championship — Qualifiers Complete",
+    "date": "2026-10-15",
+    "home": "via FIVB Oct 15 announcement",
+    "away": "Pools of 4 (round-robin) per 2026 regs"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Volleyball",
+    "competition": "2026 FIVB Men's Volleyball Club World Championship — Qualifiers Complete",
+    "date": "2026-10-15",
+    "home": "via FIVB Oct 15 announcement",
+    "away": "Pools of 4 (round-robin) per 2026 regs"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Australia Tour of South Africa 2026 — 2nd Test",
+    "date": "2026-10-18",
+    "home": "South Africa",
+    "away": "Australia"
+   },
+   "detail": "Fixture dated 2026-10-18, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Australia Tour of South Africa 2026 — 2nd Test",
+    "date": "2026-10-18",
+    "home": "South Africa",
+    "away": "Australia"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Australia Tour of South Africa 2026 — 2nd Test",
+    "date": "2026-10-18",
+    "home": "South Africa",
+    "away": "Australia"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Rugby League",
+    "competition": "Rugby League — Pacific Championships 2026 (International)",
+    "date": "2026-10-18",
+    "home": "Australia",
+    "away": "New Zealand"
+   },
+   "detail": "Fixture dated 2026-10-18, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Rugby League",
+    "competition": "Rugby League — Pacific Championships 2026 (International)",
+    "date": "2026-10-18",
+    "home": "Australia",
+    "away": "New Zealand"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Rugby League",
+    "competition": "Rugby League — Pacific Championships 2026 (International)",
+    "date": "2026-10-18",
+    "home": "Australia",
+    "away": "New Zealand"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 — Ranking Event (Home Nations)",
+    "date": "2026-10-18",
+    "home": "Top 16 + Qualifiers",
+    "away": "Defending Champion: Jack Lisowski"
+   },
+   "detail": "Fixture dated 2026-10-18, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/matches/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 — Ranking Event (Home Nations)",
+    "date": "2026-10-18",
+    "home": "Top 16 + Qualifiers",
+    "away": "Defending Champion: Jack Lisowski"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.wst.tv/matches/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 — Ranking Event (Home Nations)",
+    "date": "2026-10-18",
+    "home": "Top 16 + Qualifiers",
+    "away": "Defending Champion: Jack Lisowski"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "https://www.wst.tv/matches/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Tennis",
+    "competition": "BNP Paribas Fortis European Open, Brussels (ATP 250)",
+    "date": "2026-10-19",
+    "home": "",
+    "away": ""
+   },
+   "detail": "Fixture dated 2026-10-19, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Tennis",
+    "competition": "BNP Paribas Fortis European Open, Brussels (ATP 250)",
+    "date": "2026-10-19",
+    "home": "",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Tennis",
+    "competition": "BNP Paribas Fortis European Open, Brussels (ATP 250)",
+    "date": "2026-10-19",
+    "home": "",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — Almaty Open (ATP 250, Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "Daniil Medvedev",
+    "away": "28S/16Q/16D"
+   },
+   "detail": "Fixture dated 2026-10-19, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — Almaty Open (ATP 250, Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "Daniil Medvedev",
+    "away": "28S/16Q/16D"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — Almaty Open (ATP 250, Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "Daniil Medvedev",
+    "away": "28S/16Q/16D"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — Grand Prix Auvergne-Rhône-Alpes (Lyon, ATP 250 Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "French indoor specialists",
+    "away": "Field"
+   },
+   "detail": "Fixture dated 2026-10-19, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — Grand Prix Auvergne-Rhône-Alpes (Lyon, ATP 250 Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "French indoor specialists",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — Grand Prix Auvergne-Rhône-Alpes (Lyon, ATP 250 Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "French indoor specialists",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — BNP Paribas Fortis European Open (ATP 250 Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "Spread favourites by round",
+    "away": "28 players"
+   },
+   "detail": "Fixture dated 2026-10-19, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — BNP Paribas Fortis European Open (ATP 250 Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "Spread favourites by round",
+    "away": "28 players"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — BNP Paribas Fortis European Open (ATP 250 Hard Indoor)",
+    "date": "2026-10-19",
+    "home": "Spread favourites by round",
+    "away": "28 players"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour Super 750 — YONEX French Open 2026",
+    "date": "2026-10-20",
+    "home": "Super 750 world-ranked top-32 per category",
+    "away": "Defending? To be confirmed from Denmark form"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour Super 750 — YONEX French Open 2026",
+    "date": "2026-10-20",
+    "home": "Super 750 world-ranked top-32 per category",
+    "away": "Defending? To be confirmed from Denmark form"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour Super 750 — YONEX French Open 2026",
+    "date": "2026-10-20",
+    "home": "Super 750 world-ranked top-32 per category",
+    "away": "Defending? To be confirmed from Denmark form"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "NBA Regular Season 2026-27 — Tip-Off",
+    "date": "2026-10-20",
+    "home": "Boston Celtics",
+    "away": "Detroit Pistons"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "NBA Regular Season 2026-27 — Tip-Off",
+    "date": "2026-10-20",
+    "home": "Oklahoma City Thunder",
+    "away": "San Antonio Spurs"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "NBA Regular Season 2026-27 — Tip-Off",
+    "date": "2026-10-20",
+    "home": "Philadelphia 76ers",
+    "away": "Banner Night)"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "ODI tri-series (Pakistan, Sri Lanka, England) — match 2 of 6",
+    "date": "2026-10-20",
+    "home": "Pakistan",
+    "away": "England"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "Anaheim Ducks",
+    "away": "New York Islanders"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "Anaheim Ducks",
+    "away": "New York Islanders"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "Anaheim Ducks",
+    "away": "New York Islanders"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "Boston Bruins",
+    "away": "Dallas Stars"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "Colorado Avalanche",
+    "away": "New Jersey Devils"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "https://api-web.nhle.com/v1/gamecenter/2026020142/right-rail",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "San Jose Sharks",
+    "away": "Montreal Canadiens"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "https://api-web.nhle.com/v1/score/2026-10-20",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "Toronto Maple Leafs",
+    "away": "Columbus Blue Jackets"
+   },
+   "detail": "Fixture dated 2026-10-20, before the 2026-10-22 review cut-off.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "Toronto Maple Leafs",
+    "away": "Columbus Blue Jackets"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-20",
+    "home": "Toronto Maple Leafs",
+    "away": "Columbus Blue Jackets"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "Basketball Champions League Group C",
+    "date": "2026-10-21",
+    "home": "AEK",
+    "away": "Windrose Giants Antwerp"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.championsleague.basketball/en/games",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "Basketball Champions League Group H",
+    "date": "2026-10-21",
+    "home": "Asisa Joventut",
+    "away": "Telekom Baskets Bonn"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.championsleague.basketball/en/games",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "BKT EuroCup Group D",
+    "date": "2026-10-21",
+    "home": "BOSNA BH Telekom Sarajevo",
+    "away": "Bahcesehir College Istanbul"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "BKT EuroCup Group A",
+    "date": "2026-10-21",
+    "home": "Baglietto Derthona Tortona",
+    "away": "Recoletas Salud San Pablo Burgos"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "Basketball Champions League Group H",
+    "date": "2026-10-21",
+    "home": "Bnei Herzliya",
+    "away": "FC Porto"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.championsleague.basketball/en/games",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Basketball",
+    "competition": "NBA regular season",
+    "date": "2026-10-21",
+    "home": "Brooklyn Nets",
+    "away": "Charlotte Hornets"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/standings?Season=2025-26",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "BKT EuroCup Group C",
+    "date": "2026-10-21",
+    "home": "Cosea JL Bourg-en-Bresse",
+    "away": "Dolomiti Energia Trento"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "EuroLeague (Round 7)",
+    "date": "2026-10-21",
+    "home": "Hapoel IBI Tel Aviv",
+    "away": "Virtus Bologna"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "BKT EuroCup Group A",
+    "date": "2026-10-21",
+    "home": "Hapoel Midtown Jerusalem",
+    "away": "Riga Zelli"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-21",
+    "home": "LA Clippers",
+    "away": "Sacramento Kings"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/games?date=2026-10-21",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-21",
+    "home": "Memphis Grizzlies",
+    "away": "Utah Jazz"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/games?date=2026-10-21",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Basketball",
+    "competition": "NBA regular season",
+    "date": "2026-10-21",
+    "home": "Miami Heat",
+    "away": "Minnesota Timberwolves"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/standings?Season=2025-26",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "BKT EuroCup Group C",
+    "date": "2026-10-21",
+    "home": "NINERS Chemnitz",
+    "away": "Slask Wroclaw"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "NBA (2026-27 regular season)",
+    "date": "2026-10-21",
+    "home": "New Orleans Pelicans",
+    "away": "Indiana Pacers"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/schedule",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "NBA (2026-27 regular season)",
+    "date": "2026-10-21",
+    "home": "Orlando Magic",
+    "away": "Atlanta Hawks"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/schedule",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "BKT EuroCup Group D",
+    "date": "2026-10-21",
+    "home": "PAOK Thessaloniki",
+    "away": "ratiopharm ulm"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "NBA (2026-27 regular season)",
+    "date": "2026-10-21",
+    "home": "Portland Trail Blazers",
+    "away": "Phoenix Suns"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/schedule",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "Korean Basketball League (KBL)",
+    "date": "2026-10-21",
+    "home": "Seoul Samsung Thunders",
+    "away": "Busan KCC Egis"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.kbl.or.kr/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "BKT EuroCup Group B",
+    "date": "2026-10-21",
+    "home": "Skyliners Frankfurt",
+    "away": "La Laguna Tenerife"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Basketball",
+    "competition": "NBA regular season",
+    "date": "2026-10-21",
+    "home": "Toronto Raptors",
+    "away": "Chicago Bulls"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/standings?Season=2025-26",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "BKT EuroCup Group B",
+    "date": "2026-10-21",
+    "home": "U-BT Cluj-Napoca",
+    "away": "London Lions"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Basketball",
+    "competition": "NBA (2026-27 regular season)",
+    "date": "2026-10-21",
+    "home": "Washington Wizards",
+    "away": "Milwaukee Bucks"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nba.com/schedule",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Cricket",
+    "competition": "UAE ODI Tri-Series 2026/27 (Afghanistan, Bangladesh, Zimbabwe) - 3rd ODI",
+    "date": "2026-10-21",
+    "home": "Afghanistan",
+    "away": "Bangladesh"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Cricket",
+    "competition": "CSA Pro20 Cup 2026/2027 (South Africa domestic T20)",
+    "date": "2026-10-21",
+    "home": "North West Dragons",
+    "away": "Limpopo Impalas"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.cricket.co.za/upcoming/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Cricket",
+    "competition": "CSA Pro20 Cup 2026/2027 (South Africa domestic T20)",
+    "date": "2026-10-21",
+    "home": "Northern Cape Heat",
+    "away": "Garden Route Badgers"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.cricket.co.za/upcoming/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 10:32 Harlow",
+    "date": "2026-10-21",
+    "home": "10:32 Harlow",
+    "away": ""
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 10:32 Harlow",
+    "date": "2026-10-21",
+    "home": "10:32 Harlow",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 10:32 Harlow",
+    "date": "2026-10-21",
+    "home": "10:32 Harlow",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 10:48 Harlow",
+    "date": "2026-10-21",
+    "home": "10:48 Harlow",
+    "away": ""
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 10:48 Harlow",
+    "date": "2026-10-21",
+    "home": "10:48 Harlow",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 10:48 Harlow",
+    "date": "2026-10-21",
+    "home": "10:48 Harlow",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:03 Monmore",
+    "date": "2026-10-21",
+    "home": "11:03 Monmore",
+    "away": ""
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:03 Monmore",
+    "date": "2026-10-21",
+    "home": "11:03 Monmore",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:03 Monmore",
+    "date": "2026-10-21",
+    "home": "11:03 Monmore",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:04 Harlow",
+    "date": "2026-10-21",
+    "home": "11:04 Harlow",
+    "away": ""
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:04 Harlow",
+    "date": "2026-10-21",
+    "home": "11:04 Harlow",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:04 Harlow",
+    "date": "2026-10-21",
+    "home": "11:04 Harlow",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:09 Nottingham",
+    "date": "2026-10-21",
+    "home": "11:09 Nottingham",
+    "away": ""
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.nottingham-greyhounds.co.uk/racing",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:09 Nottingham",
+    "date": "2026-10-21",
+    "home": "11:09 Nottingham",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nottingham-greyhounds.co.uk/racing",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:09 Nottingham",
+    "date": "2026-10-21",
+    "home": "11:09 Nottingham",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.nottingham-greyhounds.co.uk/racing",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:14 Kinsley",
+    "date": "2026-10-21",
+    "home": "11:14 Kinsley",
+    "away": ""
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:14 Kinsley",
+    "date": "2026-10-21",
+    "home": "11:14 Kinsley",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Greyhounds",
+    "competition": "GBGB graded race - 11:14 Kinsley",
+    "date": "2026-10-21",
+    "home": "11:14 Kinsley",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.gbgb.org.uk/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Handball",
+    "competition": "EHF Champions League Men — Group Phase",
+    "date": "2026-10-21",
+    "home": "Aalborg Handbold",
+    "away": "RK Celje Pivovarna Lasko"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "2027 IHF Women's World Championship Qualification Europe, Phase 1 (first leg)",
+    "date": "2026-10-21",
+    "home": "Belgium Women",
+    "away": "Lithuania Women"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.eurohandball.com/en/competitions/national-team-competitions/women/2027-ihf-womens-world-championship-qualification-europe/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "EHF Champions League Men, Group E",
+    "date": "2026-10-21",
+    "home": "Dinamo Bucuresti",
+    "away": "SAH - Aarhus"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "EHF Champions League Men, Group B",
+    "date": "2026-10-21",
+    "home": "HBC Nantes",
+    "away": "HC Vardar 1961"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "EHF Champions League Men, Group F",
+    "date": "2026-10-21",
+    "home": "HC Kriens-Luzern",
+    "away": "Industria Kielce"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Handball",
+    "competition": "EHF Champions League Men — Group Phase",
+    "date": "2026-10-21",
+    "home": "HC Zagreb",
+    "away": "Paris Saint-Germain"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "Swedish Handbollsligan (men)",
+    "date": "2026-10-21",
+    "home": "HK Malmo",
+    "away": "Lugi HF"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://handbollsligan.se/herr/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "Swedish Handbollsligan (men)",
+    "date": "2026-10-21",
+    "home": "Hammarby IF HF",
+    "away": "Alingsas HK"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://handbollsligan.se/herr/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "Swedish Handbollsligan (men)",
+    "date": "2026-10-21",
+    "home": "IF Hallby HK",
+    "away": "IK Savehof"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://handbollsligan.se/herr/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "Danish Herreligaen (Betoro Herreligaen)",
+    "date": "2026-10-21",
+    "home": "Mors-Thy Handbold",
+    "away": "Bjerringbro-Silkeborg"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://tophaandbold.dk/stillinger/herreligaen",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "EHF Champions League Men, Group A",
+    "date": "2026-10-21",
+    "home": "One Veszprem HC",
+    "away": "Fuchse Berlin"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Handball",
+    "competition": "EHF Champions League Men — Group Phase",
+    "date": "2026-10-21",
+    "home": "RK Partizan AdmiralBet",
+    "away": "FC Porto"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Handball",
+    "competition": "Norwegian REMA 1000-ligaen (men)",
+    "date": "2026-10-21",
+    "home": "Sandefjord Handball",
+    "away": "Runar Sandefjord"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.handball.no/nyheter/2026/04/dette-er-lagene-i-eliteserien-og-1.-divisjon-for-menn-202627/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Ice Hockey",
+    "competition": "ICE Hockey League (OLBG: \"Austria EHL\")",
+    "date": "2026-10-21",
+    "home": "EC-KAC",
+    "away": "Hydro Fehervar AV19"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.ice.hockey/en/season/standings",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-21",
+    "home": "Florida Panthers",
+    "away": "Ottawa Senators"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Ice Hockey",
+    "competition": "ICE Hockey League (OLBG: \"Austria EHL\")",
+    "date": "2026-10-21",
+    "home": "HC Falkensteiner Pustertal",
+    "away": "Pioneers Vorarlberg"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.ice.hockey/en/season/standings",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Ice Hockey",
+    "competition": "ICE Hockey League (OLBG: \"Austria EHL\")",
+    "date": "2026-10-21",
+    "home": "HCB Südtirol Alperia",
+    "away": "HC TIWAG Innsbruck"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.ice.hockey/en/season/standings",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Ice Hockey",
+    "competition": "ICE Hockey League (OLBG: \"Austria EHL\")",
+    "date": "2026-10-21",
+    "home": "Moser Medical Graz99ers",
+    "away": "Milano HC"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.ice.hockey/en/season/standings",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Ice Hockey",
+    "competition": "NHL 2026-27 Regular Season",
+    "date": "2026-10-21",
+    "home": "Philadelphia Flyers",
+    "away": "Buffalo Sabres"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Round 2",
+    "date": "2026-10-21",
+    "home": "Cheung Ka Wai",
+    "away": ""
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/northernirelandopen/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Round 2",
+    "date": "2026-10-21",
+    "home": "Cheung Ka Wai",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.wst.tv/northernirelandopen/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Round 2",
+    "date": "2026-10-21",
+    "home": "Cheung Ka Wai",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.wst.tv/northernirelandopen/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event) - Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Cheung Ka Wai",
+    "away": "Stuart Bingham"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/match-centre",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Daniel Wells",
+    "away": "Ryan Day"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Daniel Wells",
+    "away": "Ryan Day"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event) - Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Elliot Slessor",
+    "away": "Jamie Jones"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/match-centre",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Gao Yang",
+    "away": "David Gilbert"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Gao Yang",
+    "away": "David Gilbert"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event) - Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "John Higgins",
+    "away": "Jak Jones"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/match-centre",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Ka Wai Cheung",
+    "away": "Stuart Bingham"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Ka Wai Cheung",
+    "away": "Stuart Bingham"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event) - Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Luca Brecel",
+    "away": "Martin O'Donnell"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/match-centre",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Michael Holt",
+    "away": "Jordan Brown"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Michael Holt",
+    "away": "Jordan Brown"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Noppon Saengkham",
+    "away": "Scott Donaldson"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Noppon Saengkham",
+    "away": "Scott Donaldson"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event) - Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Pang Junxu",
+    "away": "Liam Davies"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/match-centre",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event) - Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Sam Craigie",
+    "away": "Xu Si"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/match-centre",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "C",
+    "sport": "Snooker",
+    "competition": "BetVictor Northern Ireland Open 2026, Round 2 (best of 7)",
+    "date": "2026-10-21",
+    "home": "Zhang Anda",
+    "away": "Mark Williams"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Almaty - Round of 16",
+    "date": "2026-10-21",
+    "home": "Adrian Mannarino",
+    "away": "Andrey Rublev"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Lyon - Round of 16",
+    "date": "2026-10-21",
+    "home": "Benjamin Bonzi",
+    "away": "Tommy Paul"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Brussels - Round of 16",
+    "date": "2026-10-21",
+    "home": "Clement Chidekh",
+    "away": "Jacob Fearnley"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Lyon - Round of 16",
+    "date": "2026-10-21",
+    "home": "Corentin Moutet",
+    "away": "Felix Balshaw"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Brussels - Round of 32",
+    "date": "2026-10-21",
+    "home": "David Goffin",
+    "away": "Remy Bertola"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Brussels - Round of 32",
+    "date": "2026-10-21",
+    "home": "Dino Prizmic",
+    "away": "Damir Dzumhur"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "BNB Ningbo Open (WTA 500), Ningbo - Round of 16",
+    "date": "2026-10-21",
+    "home": "Ekaterina Alexandrova",
+    "away": "Marta Kostyuk"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Almaty - Round of 16",
+    "date": "2026-10-21",
+    "home": "Facundo Diaz Acosta",
+    "away": "Nikoloz Basilashvili"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Almaty - Round of 16",
+    "date": "2026-10-21",
+    "home": "James Duckworth",
+    "away": "Luciano Darderi"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "BNB Ningbo Open (WTA 500), Ningbo - Round of 16",
+    "date": "2026-10-21",
+    "home": "Katarzyna Kawa",
+    "away": "Belinda Bencic"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "Kinoshita Group Japan Open (WTA 250), Osaka - Round of 16",
+    "date": "2026-10-21",
+    "home": "Katie Boulter",
+    "away": "Viktorija Golubic"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "BNB Ningbo Open (WTA 500), Ningbo - Round of 16",
+    "date": "2026-10-21",
+    "home": "Leylah Fernandez",
+    "away": "Aliaksandra Sasnovich"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Brussels - Round of 16",
+    "date": "2026-10-21",
+    "home": "Mariano Navone",
+    "away": "Tallon Griekspoor"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Brussels - Round of 16",
+    "date": "2026-10-21",
+    "home": "Martin Damm",
+    "away": "Francisco Cerundolo"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Almaty - Round of 32",
+    "date": "2026-10-21",
+    "home": "Mattia Bellucci",
+    "away": "Tomas Martin Etcheverry"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Lyon - Round of 16",
+    "date": "2026-10-21",
+    "home": "Moise Kouame",
+    "away": "Lorenzo Musetti"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "BNB Ningbo Open (WTA 500), Ningbo - Round of 16",
+    "date": "2026-10-21",
+    "home": "Sorana Cirstea",
+    "away": "Sara Bejlek"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Lyon - Round of 32",
+    "date": "2026-10-21",
+    "home": "Stan Wawrinka",
+    "away": "Martin Landaluce"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Almaty - Round of 16",
+    "date": "2026-10-21",
+    "home": "Stefanos Tsitsipas",
+    "away": "Mikhail Kukushkin"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Tennis",
+    "competition": "ATP 250, Almaty - Round of 32",
+    "date": "2026-10-21",
+    "home": "Zangar Nurlanuly",
+    "away": "Tomas Machac"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "Italian Serie A1 Women, Round 4",
+    "date": "2026-10-21",
+    "home": "Bergamo",
+    "away": "Milano"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.legavolleyfemminile.it/classifica/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "Dutch Eredivisie Women, Round 3",
+    "date": "2026-10-21",
+    "home": "Friso Sneek",
+    "away": "Meerdervoort VV Utrecht"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.volleybal.nl/nieuws/eerste-doordeweekse-speelronde-bij-eredivisie-volleybal-vrouwen",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "Polish TAURON 1. Liga (men, 2nd tier)",
+    "date": "2026-10-21",
+    "home": "Jelcz Laskowice",
+    "away": "Stal Nysa"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.tauron1liga.pl/table.html",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "Polish PlusLiga (men), Round 2",
+    "date": "2026-10-21",
+    "home": "LUK Lublin",
+    "away": "Trefl Gdansk"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.plusliga.pl/table.html",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "German Bundesliga Men, Round 1",
+    "date": "2026-10-21",
+    "home": "Netzhoppers KW",
+    "away": "Giesen"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle.xhtml",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "Italian Serie A1 Women, Round 4",
+    "date": "2026-10-21",
+    "home": "Novara",
+    "away": "Marignano"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.legavolleyfemminile.it/classifica/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "Finnish Mestaruusliiga Women",
+    "date": "2026-10-21",
+    "home": "Puijo Wolley",
+    "away": "Oriveden Ponnistus"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://mestaruusliiga.fi/uutiset/keskiviikon-ottelussa-voiitoputkessa-oleva-puijo-kohtaa-orpon/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "German Bundesliga Men, Round 1",
+    "date": "2026-10-21",
+    "home": "SSC Karlsruhe",
+    "away": "SVG Luneburg"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle.xhtml",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "German Bundesliga Women (DEKRA 1. Bundesliga Frauen)",
+    "date": "2026-10-21",
+    "home": "Schwerin",
+    "away": "Erfurt"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_frauen/statistik/hauptrunde.xhtml",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "Italian Serie A1 Women, Round 4",
+    "date": "2026-10-21",
+    "home": "Vallefoglia",
+    "away": "Cuneo"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.legavolleyfemminile.it/classifica/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "German Bundesliga Men, Round 1",
+    "date": "2026-10-21",
+    "home": "WWK Volleys Munchen",
+    "away": "VfB Friedrichshafen"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle.xhtml",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "stale-date",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Volleyball",
+    "competition": "Polish PlusLiga (men), Round 2",
+    "date": "2026-10-21",
+    "home": "Warta Zawiercie",
+    "away": "ZAKSA Kedzierzyn-Kozle"
+   },
+   "detail": "Fixture dated 2026-10-21, before the 2026-10-22 review cut-off.",
+   "source_url": "https://www.plusliga.pl/table.html",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "EuroLeague 2026-27 — Regular Season Round 7",
+    "date": "2026-10-22",
+    "home": "Anadolu Efes Istanbul",
+    "away": "Beşiktaş Istanbul"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "EuroLeague 2026-27 — Regular Season Round 7",
+    "date": "2026-10-22",
+    "home": "Anadolu Efes Istanbul",
+    "away": "Beşiktaş Istanbul"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "EuroLeague 2026-27 — Regular Season Round 7",
+    "date": "2026-10-22",
+    "home": "Partizan Belgrade",
+    "away": "Crvena Zvezda Belgrade"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Basketball",
+    "competition": "EuroLeague 2026-27 — Regular Season Round 7",
+    "date": "2026-10-22",
+    "home": "Partizan Belgrade",
+    "away": "Crvena Zvezda Belgrade"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Darts",
+    "competition": "PDC European Championship 2026 — Major (£750k prize, £150k winner)",
+    "date": "2026-10-22",
+    "home": "Top 32 European Tour Order of Merit",
+    "away": "Field includes Luke Littler, Luke Humphries (World Grand Prix champion Sep 28-Oct 4), Gerwyn Price"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Darts",
+    "competition": "PDC European Championship 2026 — Major (£750k prize, £150k winner)",
+    "date": "2026-10-22",
+    "home": "Top 32 European Tour Order of Merit",
+    "away": "Field includes Luke Littler, Luke Humphries (World Grand Prix champion Sep 28-Oct 4), Gerwyn Price"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "PGA TOUR FedExCup Fall — Butterfield Bermuda Championship 2026",
+    "date": "2026-10-22",
+    "home": "FedEx Fall",
+    "away": "winning score typically -15 to -18"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "PGA TOUR FedExCup Fall — Butterfield Bermuda Championship 2026",
+    "date": "2026-10-22",
+    "home": "FedEx Fall",
+    "away": "winning score typically -15 to -18"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "LPGA Tour 2026 — BMW Ladies Championship",
+    "date": "2026-10-22",
+    "home": "LPGA Asian swing",
+    "away": "winning score typically -18 to -21"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "LPGA Tour 2026 — BMW Ladies Championship",
+    "date": "2026-10-22",
+    "home": "LPGA Asian swing",
+    "away": "winning score typically -18 to -21"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "LPGA Tour 2026 — BMW Ladies Championship",
+    "date": "2026-10-22",
+    "home": "LPGA Asian swing",
+    "away": "winning score typically -18 to -21"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Golf",
+    "competition": "Genesis Championship (DP World Tour / KPGA), Woo Jeong Hills CC, Cheonan",
+    "date": "2026-10-22",
+    "home": "Tournament field",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Golf",
+    "competition": "Genesis Championship (DP World Tour / KPGA), Woo Jeong Hills CC, Cheonan",
+    "date": "2026-10-22",
+    "home": "Tournament field",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Handball",
+    "competition": "EHF Champions League 2026-27 — Group Phase Round 7",
+    "date": "2026-10-22",
+    "home": "Top 16 clubs",
+    "away": "Field 16"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Handball",
+    "competition": "EHF Champions League 2026-27 — Group Phase Round 7",
+    "date": "2026-10-22",
+    "home": "Top 16 clubs",
+    "away": "Field 16"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Darts",
+    "competition": "PDC European Championship — Round 1 Day 2",
+    "date": "2026-10-23",
+    "home": "Field",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Greyhound Racing",
+    "competition": "Premier Greyhound Racing Champion Stakes — Romford (575m Flat)",
+    "date": "2026-10-23",
+    "home": "Declared runners not verified",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Greyhound Racing",
+    "competition": "Premier Greyhound Racing Champion Stakes — Romford (575m Flat)",
+    "date": "2026-10-23",
+    "home": "Declared runners not verified",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Quarter-Finals",
+    "date": "2026-10-23",
+    "home": "TBD from Last 16 Oct 22",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Quarter-Finals",
+    "date": "2026-10-23",
+    "home": "TBD from Last 16 Oct 22",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Cricket",
+    "competition": "International fixtures",
+    "date": "2026-10-24",
+    "home": "Namibia",
+    "away": "Ireland"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.icc-cricket.com/fixtures-results/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Darts",
+    "competition": "PDC European Championship — Knockout Weekend",
+    "date": "2026-10-24",
+    "home": "Round 2 field TBD",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Darts",
+    "competition": "PDC European Championship — Knockout Weekend",
+    "date": "2026-10-24",
+    "home": "Round 2 field TBD",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Greyhound Racing",
+    "competition": "Arena Racing Company Scurry Gold Cup — Dunstall Park (270m Flat)",
+    "date": "2026-10-24",
+    "home": "Declared runners not verified",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Greyhound Racing",
+    "competition": "Arena Racing Company Scurry Gold Cup — Dunstall Park (270m Flat)",
+    "date": "2026-10-24",
+    "home": "Declared runners not verified",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Semi-Finals",
+    "date": "2026-10-24",
+    "home": "TBD",
+    "away": "TBD"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Semi-Finals",
+    "date": "2026-10-24",
+    "home": "TBD",
+    "away": "TBD"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-25",
+    "home": "Atlanta Hawks",
+    "away": "Houston Rockets"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-25",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Cricket",
+    "competition": "International fixtures",
+    "date": "2026-10-25",
+    "home": "Pakistan",
+    "away": "England"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.icc-cricket.com/fixtures-results/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Darts",
+    "competition": "PDC European Championship — Finals Day",
+    "date": "2026-10-25",
+    "home": "QF/SF/Finalists TBD",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Darts",
+    "competition": "PDC European Championship — Finals Day",
+    "date": "2026-10-25",
+    "home": "QF/SF/Finalists TBD",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Motor Racing",
+    "competition": "Formula 1 United States Grand Prix, Circuit of The Americas, Austin",
+    "date": "2026-10-25",
+    "home": "Grand Prix race",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.formula1.com/en/racing/2026/united-states",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Motor Racing",
+    "competition": "Formula 1 United States Grand Prix, Circuit of The Americas, Austin",
+    "date": "2026-10-25",
+    "home": "Grand Prix race",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.formula1.com/en/racing/2026/united-states",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "G",
+    "sport": "Motor Racing",
+    "competition": "Formula 1 United States Grand Prix 2026 - Win Race",
+    "date": "2026-10-25",
+    "home": "Race winner",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.formula1.com/en/results/2026/races",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Rugby League",
+    "competition": "Men's Rugby League World Cup — Round 2",
+    "date": "2026-10-25",
+    "home": "Australia",
+    "away": "Fiji"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Final",
+    "date": "2026-10-25",
+    "home": "Finalist A TBD",
+    "away": "Finalist B TBD"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Snooker",
+    "competition": "Northern Ireland Open — Final",
+    "date": "2026-10-25",
+    "home": "Finalist A TBD",
+    "away": "Finalist B TBD"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-26",
+    "home": "Boston Celtics",
+    "away": "Chicago Bulls"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-26",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-26",
+    "home": "Charlotte Hornets",
+    "away": "Washington Wizards"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-26",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-26",
+    "home": "Cleveland Cavaliers",
+    "away": "Minnesota Timberwolves"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-26",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-26",
+    "home": "Miami Heat",
+    "away": "Dallas Mavericks"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-26",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "A",
+    "sport": "Tennis",
+    "competition": "Swiss Indoors Basel (ATP 500) — qualifying 24-25 Oct, main draw from 26 Oct",
+    "date": "2026-10-26",
+    "home": "",
+    "away": ""
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.atptour.com/en/tournaments/basel/868/overview",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "A",
+    "sport": "Tennis",
+    "competition": "Swiss Indoors Basel (ATP 500) — qualifying 24-25 Oct, main draw from 26 Oct",
+    "date": "2026-10-26",
+    "home": "",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "https://www.atptour.com/en/tournaments/basel/868/overview",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — Upcoming Week",
+    "date": "2026-10-26",
+    "home": "Top 10 expected",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "ATP Tour 2026 — Upcoming Week",
+    "date": "2026-10-26",
+    "home": "Top 10 expected",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour — HYLO Open 2026 (Super 500)",
+    "date": "2026-10-27",
+    "home": "Super 500",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour — HYLO Open 2026 (Super 500)",
+    "date": "2026-10-27",
+    "home": "Super 500",
+    "away": "Field"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Badminton",
+    "competition": "BWF World Tour — HYLO Open 2026 (Super 500)",
+    "date": "2026-10-27",
+    "home": "Super 500",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-27",
+    "home": "Boston Celtics",
+    "away": "Brooklyn Nets"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-27",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-27",
+    "home": "Denver Nuggets",
+    "away": "Golden State Warriors"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-27",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-27",
+    "home": "Houston Rockets",
+    "away": "Atlanta Hawks"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-27",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-27",
+    "home": "Milwaukee Bucks",
+    "away": "Indiana Pacers"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-27",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-27",
+    "home": "Oklahoma City Thunder",
+    "away": "Phoenix Suns"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-27",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-27",
+    "home": "Utah Jazz",
+    "away": "Memphis Grizzlies"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-27",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Australia Tour of South Africa 2026 — 3rd Test",
+    "date": "2026-10-27",
+    "home": "South Africa",
+    "away": "Australia"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Australia Tour of South Africa 2026 — 3rd Test",
+    "date": "2026-10-27",
+    "home": "South Africa",
+    "away": "Australia"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Table Tennis",
+    "competition": "WTT Champions Montpellier 2026 — WTT Series (32 players, $500k)",
+    "date": "2026-10-27",
+    "home": "French stars: Félix Lebrun (WR #2), Alexis Lebrun (WR #9), Flavien Coton (WR #19), Thibault Poret (WR #21 women: Prithika Pavade WR #40, Jia Nan Yuan WR #34)",
+    "away": "World top 32 per WTT rankings"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Table Tennis",
+    "competition": "WTT Champions Montpellier 2026 — WTT Series (32 players, $500k)",
+    "date": "2026-10-27",
+    "home": "French stars: Félix Lebrun (WR #2), Alexis Lebrun (WR #9), Flavien Coton (WR #19), Thibault Poret (WR #21 women: Prithika Pavade WR #40, Jia Nan Yuan WR #34)",
+    "away": "World top 32 per WTT rankings"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-28",
+    "home": "Atlanta Hawks",
+    "away": "Miami Heat"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-28",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-28",
+    "home": "Cleveland Cavaliers",
+    "away": "Washington Wizards"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-28",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-28",
+    "home": "Detroit Pistons",
+    "away": "Charlotte Hornets"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-28",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-28",
+    "home": "Indiana Pacers",
+    "away": "Philadelphia 76ers"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-28",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-28",
+    "home": "Los Angeles Lakers",
+    "away": "Portland Trail Blazers"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-28",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-28",
+    "home": "New York Knicks",
+    "away": "Detroit Pistons"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-28",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-28",
+    "home": "San Antonio Spurs",
+    "away": "Sacramento Kings"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-28",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "E",
+    "sport": "Basketball",
+    "competition": "NBA",
+    "date": "2026-10-28",
+    "home": "Toronto Raptors",
+    "away": "Orlando Magic"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.nba.com/games?date=2026-10-28",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Handball",
+    "competition": "IHF World Championship 2027 Qualifiers (Europe)",
+    "date": "2026-10-28",
+    "home": "Europe",
+    "away": "IHF 32-team WC 2027"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Handball",
+    "competition": "IHF World Championship 2027 Qualifiers (Europe)",
+    "date": "2026-10-28",
+    "home": "Europe",
+    "away": "IHF 32-team WC 2027"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Handball",
+    "competition": "IHF World Championship 2027 Qualifiers (Europe)",
+    "date": "2026-10-28",
+    "home": "Europe",
+    "away": "IHF 32-team WC 2027"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Table Tennis",
+    "competition": "",
+    "date": "2026-10-28",
+    "home": "outside top-32",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Table Tennis",
+    "competition": "",
+    "date": "2026-10-28",
+    "home": "outside top-32",
+    "away": "Field"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Table Tennis",
+    "competition": "",
+    "date": "2026-10-28",
+    "home": "outside top-32",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "PGA TOUR FedExCup Fall — VidantaWorld Mexico Open 2026",
+    "date": "2026-10-29",
+    "home": "Fall bubble players",
+    "away": ""
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "PGA TOUR FedExCup Fall — VidantaWorld Mexico Open 2026",
+    "date": "2026-10-29",
+    "home": "Fall bubble players",
+    "away": ""
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "placeholder-row",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "PGA TOUR FedExCup Fall — VidantaWorld Mexico Open 2026",
+    "date": "2026-10-29",
+    "home": "Fall bubble players",
+    "away": ""
+   },
+   "detail": "Row is an off-season placeholder, not a fixture.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "LPGA Tour 2026 — Maybank Championship",
+    "date": "2026-10-29",
+    "home": "LPGA Asian swing continues",
+    "away": "After BMW, before TOTO Japan Classic Nov 5-8"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "LPGA Tour 2026 — Maybank Championship",
+    "date": "2026-10-29",
+    "home": "LPGA Asian swing continues",
+    "away": "After BMW, before TOTO Japan Classic Nov 5-8"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Golf",
+    "competition": "LPGA Tour 2026 — Maybank Championship",
+    "date": "2026-10-29",
+    "home": "LPGA Asian swing continues",
+    "away": "After BMW, before TOTO Japan Classic Nov 5-8"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Cricket",
+    "competition": "Pakistan ODI Tri-Series 2026 — Final",
+    "date": "2026-10-31",
+    "home": "TBD",
+    "away": "TBD"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "missing-source",
+   "severity": "error",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "WTA Finals 2026 — WTA Finals Indian Wells",
+    "date": "2026-11-08",
+    "home": "Top 8 WTA Race",
+    "away": "Field"
+   },
+   "detail": "No official source_url recorded for this row.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "no-pick",
+   "severity": "info",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "WTA Finals 2026 — WTA Finals Indian Wells",
+    "date": "2026-11-08",
+    "home": "Top 8 WTA Race",
+    "away": "Field"
+   },
+   "detail": "Row carries no selection.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  },
+  {
+   "category": "priced-unverified",
+   "severity": "warning",
+   "row": {
+    "build": "D",
+    "sport": "Tennis",
+    "competition": "WTA Finals 2026 — WTA Finals Indian Wells",
+    "date": "2026-11-08",
+    "home": "Top 8 WTA Race",
+    "away": "Field"
+   },
+   "detail": "Row publishes a price while build_verified is false.",
+   "source_url": "",
+   "dataset": "data/master.json"
+  }
+ ]
+}

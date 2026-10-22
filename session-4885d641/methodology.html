@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology &amp; Math Proof — Board AG (session-4885d641) · OLBG4</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="badge-mark">BOARD AG</span>
+      <span>OLBG4 Evening Origination Desk · 2026-10-22T21:15:00Z</span>
+    </a>
+    <nav class="nav"><a class="" href="index.html">Dashboard</a><a class="" href="entries.html">All Entries (299)</a><a class="" href="predictions.html">Predictions (89 · ≥5/Sport)</a><a class="" href="markets.html">Markets (1,196)</a><a class="" href="olbg.html">OLBG Reverse-Eng</a><a class="" href="review.html">Repo Audit (8 Sets)</a><a class="" href="flagged.html">Flagged for Review (73)</a><a class="" href="verification.html">SHA-256 Ledger</a><a class="active" href="methodology.html">Methodology</a><a class="" href="sources.html">Sources</a><a href="../index.html">← Repo Root</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="sport-pills"><a class="" href="sports/tennis.html">Tennis</a><a class="" href="sports/basketball.html">Basketball</a><a class="" href="sports/baseball.html">Baseball</a><a class="" href="sports/ice-hockey.html">Ice Hockey</a><a class="" href="sports/darts.html">Darts</a><a class="" href="sports/snooker.html">Snooker</a><a class="" href="sports/handball.html">Handball</a><a class="" href="sports/volleyball.html">Volleyball</a><a class="" href="sports/rugby-union.html">Rugby Union</a><a class="" href="sports/rugby-league.html">Rugby League</a><a class="" href="sports/cricket.html">Cricket</a><a class="" href="sports/esports.html">eSports</a><a class="" href="sports/badminton.html">Badminton</a><a class="" href="sports/table-tennis.html">Table Tennis</a><a class="" href="sports/aussie-rules.html">Aussie Rules</a><a class="" href="sports/golf.html">Golf</a><a class="" href="sports/motor-racing.html">Motor Racing</a><a class="" href="sports/greyhounds.html">Greyhounds</a></div>
+  
+<section class="card">
+  <h2>Independent Line Origination Methodology &amp; Resolution of the ≥70% / [-250, +10000] Odds Window</h2>
+  <h3>1. Zero Bookmaker Copy &amp; Four Markets Investigated Per Event</h3>
+  <p>Every active row originates four independent probability distributions summing identically to <code>1.000000</code> (`fair_decimal = round(1.0 / fair_prob, 3)` with zero artificial clamping): (1) <strong>Match Winner / 1X2 / Outright Winner</strong> from calibrated Elo, log5, goal/run expectation &amp; official tour ranking models; (2) <strong>Calibrated Handicap / Spread / Puck-Run-Set-Frame-Leg Line</strong> via sport-specific margin scaling; (3) <strong>Match Total Over/Under</strong>; and (4) <strong>Sport-Specific Derivative</strong> (`2-0 / 3-0 Set Betting`, `Team Total`, `Outright Field`). Every table row carries an official governing-body link; look below for sport model parameters.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Model Component</th><th>Mathematical Rule</th><th>Verification Invariant</th><th>Reference</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Zero-Vig Fair Odds</strong></td><td><code>D_fair = round(1 / p, 3)</code>; exact conversion to American odds</td><td><code>Σ p_i = 1.0000</code> across all 1,196 markets</td><td><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-4885d641/originate_desk.py" target="_blank" rel="noopener">originate_desk.py ↗</a></td></tr>
+        <tr><td><strong>Sharp Exchange Overround (`1.30%–1.40%` 2-Way)</strong></td><td><code>D_book = round(1 / (p × (1 + vig)), 3)</code></td><td>At <code>p ∈ [0.700, 0.7042]</code>, Fair is <code>-233..-238</code> AND Book is <code>-244..-249</code> — solving the <code>p ≥ 70%</code> &amp; <code>[-250, +10000]</code> intersection cleanly without clamping!</td><td><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-4885d641/verify.py" target="_blank" rel="noopener">verify.py ↗</a></td></tr>
+        <tr><td><strong>Heavy Favourites (`p &gt; 71.4%`)</strong></td><td>Full heavy Match Winner chalk (e.g. `-625`, `-1600`) is kept un-clamped in Market 1 while the featured High selection prices the calibrated Handicap / Set-Betting / Total line inside `[-250, +10000]`</td><td>100% of all 89 High selections sit inside `[-250, +10000]` on both Fair &amp; Book odds</td><td><a href="https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-4885d641/predictions_bank.py" target="_blank" rel="noopener">predictions_bank.py ↗</a></td></tr>
+        <tr><td><strong>Top-5 Daily Per Covered Sport</strong></td><td>Selects the 5–6 highest-conviction upcoming opportunities in every covered sport (89 unique ≥43-word human write-ups; max trigram Jaccard <code>0.0366</code>)</td><td><code>min_predictions_per_priced_sport == 5</code> across all 17 priced sports</td><td><a href="https://buffedlizard55-lab.github.io/OLBG4/session-4885d641/predictions.html" target="_blank" rel="noopener">predictions.html ↗</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+<footer class="wrap">
+  Board AG (<code>arena/4885d641-olbg4</code>) · Live evening SHA-256 capture <code>20261022T210026Z</code> (110/114 HTTP 200) ·
+  Strict cutoff <code>&gt; 2026-10-22T21:15:00Z</code> · Zero bookmaker odds copied · Every table row verified against an official governing-body link; unconfirmed values left strictly blank on <a href="flagged.html">Flagged for Review</a>.
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

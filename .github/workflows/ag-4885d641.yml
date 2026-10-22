@@ -1,0 +1,73 @@
+name: Board AG live evening capture & gate (4885d641)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "session-4885d641/**"
+      - "data/session-4885d641/**"
+      - "scripts/session-4885d641/**"
+      - ".github/workflows/ag-4885d641.yml"
+  push:
+    branches:
+      - main
+      - arena/4885d641-olbg4
+    paths:
+      - "session-4885d641/**"
+      - "data/session-4885d641/**"
+      - "scripts/session-4885d641/**"
+      - ".github/workflows/ag-4885d641.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ag-4885d641-${{ github.event_name }}-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/4885d641-olbg4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live evening OLBG + official governing-body feeds with SHA-256 manifest
+        run: |
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-4885d641/fetch.py scripts/session-4885d641/targets.json "data/session-4885d641/capture/$STAMP"
+      - name: Commit evening capture to arena/4885d641-olbg4
+        run: |
+          git config user.name "board-ag-capture[bot]"
+          git config user.email "board-ag-capture@users.noreply.github.com"
+          git add "data/session-4885d641/capture/$STAMP"
+          git commit -m "Board AG (4885d641): live evening capture $STAMP [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin arena/4885d641-olbg4 && git push origin HEAD:arena/4885d641-olbg4 && break
+            sleep 4
+          done
+
+  verify-board-ag:
+    if: github.event_name != 'workflow_dispatch'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild Board AG deterministically and run full verification gate
+        run: |
+          bash scripts/session-4885d641/build_all.sh
+          if ! git diff --quiet -- session-4885d641 data/session-4885d641; then
+            echo "Board AG rebuild produced non-identical output!"
+            git diff --stat -- session-4885d641 data/session-4885d641
+            exit 1
+          fi
