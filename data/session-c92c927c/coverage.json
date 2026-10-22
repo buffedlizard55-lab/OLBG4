@@ -1,0 +1,157 @@
+{
+ "schema": "session-c92c927c/coverage-v1",
+ "sports": [
+  {
+   "sport": "Ice Hockey",
+   "status": "Published",
+   "fixtures": 12,
+   "rows_in_dataset": 12,
+   "evidence": "NHL.com scores page for 22 October 2026 plus the 21 October standings page",
+   "source": "https://www.nhl.com/scores/2026-10-22"
+  },
+  {
+   "sport": "Baseball",
+   "status": "Published",
+   "fixtures": 3,
+   "rows_in_dataset": 3,
+   "evidence": "MLB Stats API schedule (official MLB) — World Series Games 1–3",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-27"
+  },
+  {
+   "sport": "Rugby Union",
+   "status": "Published",
+   "fixtures": 8,
+   "rows_in_dataset": 8,
+   "evidence": "United Rugby Championship official match centre, Round 4",
+   "source": "https://stats.unitedrugby.com/match-centre/2026-27/4"
+  },
+  {
+   "sport": "Rugby League",
+   "status": "Published",
+   "fixtures": 5,
+   "rows_in_dataset": 5,
+   "evidence": "Rugby League World Cup 2026 official draw page, men's Round 2",
+   "source": "https://rlwc2026.com/draws-and-pools"
+  },
+  {
+   "sport": "Basketball",
+   "status": "Published — no form",
+   "fixtures": 2,
+   "rows_in_dataset": 2,
+   "evidence": "NBA.com games page for 22 October 2026",
+   "source": "https://www.nba.com/games?date=2026-10-22"
+  },
+  {
+   "sport": "Tennis",
+   "status": "Not published",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "atptour.com daily-schedule path resolved to the archived January 2026 Hong Kong results, not a current draw; no current fixture could be read",
+   "source": "https://www.atptour.com/en/scores/current/vienna/336/daily-schedule"
+  },
+  {
+   "sport": "Cricket",
+   "status": "Not published",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "nzc.nz/fixtures returned 404 and icc-cricket.com/fixtures returned 404 on this date",
+   "source": "https://www.icc-cricket.com/fixtures"
+  },
+  {
+   "sport": "Darts",
+   "status": "Not published",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "pdc.tv tournament and news pages returned only a cookie-consent shell (11 chunks, no fixture text) in this sandbox",
+   "source": "https://www.pdc.tv/tournaments/machineseeker-european-championship"
+  },
+  {
+   "sport": "Handball",
+   "status": "Not published",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "ehfcl.eurohandball.com/men/2026-27/fixtures/ returned a 404 page",
+   "source": "https://ehfcl.eurohandball.com/men/2026-27/fixtures/"
+  },
+  {
+   "sport": "Snooker",
+   "status": "Not read this cycle",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "WST calendar not read within this session's budget; no fixture claimed",
+   "source": "https://wst.tv/"
+  },
+  {
+   "sport": "Badminton",
+   "status": "Not read this cycle",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "BWF tournament page not read; no fixture claimed",
+   "source": "https://bwfbadminton.com/"
+  },
+  {
+   "sport": "Table Tennis",
+   "status": "Not read this cycle",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "WTT events page not read; no fixture claimed",
+   "source": "https://worldtabletennis.com/"
+  },
+  {
+   "sport": "Volleyball",
+   "status": "Not read this cycle",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "Volleyball World page not read; no fixture claimed",
+   "source": "https://en.volleyballworld.com/"
+  },
+  {
+   "sport": "Golf",
+   "status": "Not read this cycle",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "DP World Tour schedule not read; no fixture claimed",
+   "source": "https://www.europeantour.com/"
+  },
+  {
+   "sport": "Motor Racing",
+   "status": "Not read this cycle",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "Formula 1 calendar not read; no fixture claimed",
+   "source": "https://www.formula1.com/"
+  },
+  {
+   "sport": "Greyhound Racing",
+   "status": "Not read this cycle",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "GBGB fixture list not read; no fixture claimed",
+   "source": "https://www.gbgb.org.uk/"
+  },
+  {
+   "sport": "Aussie Rules",
+   "status": "Not read this cycle",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "AFL fixture page not read; no fixture claimed",
+   "source": "https://www.afl.com.au/"
+  },
+  {
+   "sport": "Esports",
+   "status": "No official governing body",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "No single governing body publishes an authoritative fixture list for the events OLBG lists, so nothing can be labelled verified",
+   "source": "https://www.olbg.com/"
+  },
+  {
+   "sport": "Gaelic Football",
+   "status": "Out of scope (flagged)",
+   "fixtures": 0,
+   "rows_in_dataset": 0,
+   "evidence": "Excluded under a conservative reading of “football”; the ambiguity is flagged for review rather than resolved silently",
+   "source": "https://www.gaa.ie/"
+  }
+ ]
+}

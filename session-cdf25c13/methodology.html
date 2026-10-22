@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology &middot; OLBG4 Board T</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <strong>OLBG4 &mdash; Board T</strong>
+        <span class="sub">Live desk, 22&ndash;28 October 2026 &middot; our own lines</span>
+      </div>
+    </div>
+    <nav class="nav"><a class="navlink" href="index.html">Overview</a><a class="navlink" href="picks.html">Picks</a><a class="navlink" href="markets.html">Markets</a><a class="navlink" href="verification.html">Verification</a><a class="navlink" href="coverage.html">Coverage</a><a class="navlink" href="flagged.html">Flagged for Review</a><a class="navlink active" href="methodology.html">Methodology</a><a class="navlink" href="sources.html">Sources</a></nav>
+  </div>
+  <div class="wrap sportsnav"><a class="navlink small" href="sport-ice-hockey.html">Ice Hockey</a><a class="navlink small" href="sport-basketball.html">Basketball</a><a class="navlink small" href="sport-baseball.html">Baseball</a><a class="navlink small" href="sport-rugby-union.html">Rugby Union</a></div>
+</header>
+<main class="wrap">
+  <div class="pagehead">
+    <h1>Methodology</h1>
+    <p class="lede">How every line on this desk was originated, how confidence was graded, and where the model stops.</p>
+  </div>
+  
+
+<div class="kpis">
+  <div class="kpi"><span class="n">91</span><span class="l">fixtures priced</span></div>
+  <div class="kpi"><span class="n">4</span><span class="l">sports covered</span></div>
+  <div class="kpi green"><span class="n">8</span><span class="l">high confidence</span></div>
+  <div class="kpi"><span class="n">30</span><span class="l">medium</span></div>
+  <div class="kpi"><span class="n">53</span><span class="l">low</span></div>
+  <div class="kpi"><span class="n">0</span><span class="l">outside &minus;250&hellip;+10,000</span></div>
+</div>
+<section class="panel">
+  <h2>1. What we price, and from what</h2>
+  <p>Only official league numbers enter the model: goals or runs scored and conceded, games played, and
+  win-loss records, all read on 22 October 2026. No bookmaker price and no OLBG price is read at any point.
+  The publisher of each input is listed on <a href="verification.html">Verification</a>.</p>
+</section>
+<section class="panel">
+  <h2>2. The formulas</h2>
+  <table class="grid"><thead><tr><th>Sport</th><th>Expected score</th><th>Distribution</th><th>Markets</th></tr></thead>
+  <tbody>
+  <tr><td>NHL</td><td>League goals per club-game, adjusted by each club's shrunk attack and defence rate
+  (six-game prior), with a 3.5% home multiplier.</td><td>Joint Poisson on the two goal counts.</td>
+  <td>Moneyline splits the regulation draw 50/50 for overtime; puck line &plusmn;1.5; total at 4.5/5.5/6.5/7.5.</td></tr>
+  <tr><td>NBA</td><td>Log5 on shrunk win percentages (ten-game prior to .500), plus three percentage points
+  for home court.</td><td>Closed form, no distribution needed.</td><td>Moneyline only.</td></tr>
+  <tr><td>MLB</td><td>Each offence averaged with the opposing defence's runs allowed, &plusmn;2% for home
+  field.</td><td>Normal, sd 3.3 runs on the margin and 4.2 on the total.</td>
+  <td>Moneyline, run line &plusmn;1.5, total at the nearest half run.</td></tr>
+  <tr><td>URC</td><td>League points per club-game, adjusted by shrunk attack and defence (three-round prior)
+  with a 3% home multiplier.</td><td>Normal, sd 13 points on the margin and 12 on the total.</td>
+  <td>Three-way moneyline, handicap at the nearest half point, total at the nearest half point.</td></tr>
+  </tbody></table>
+</section>
+<section class="panel">
+  <h2>3. The odds window &mdash; why only a handful of picks clear it</h2>
+  <div class="twocol">
+    <div>
+      <p>The brief asks for High picks above a 70% chance and inside &minus;250 to +10,000. Those two
+      conditions intersect in a narrow band, and it is worth showing why.</p>
+      <ul class="small">
+        <li>70.0% fair odds = <strong>&minus;233</strong>.</li>
+        <li>71.43% = 1.40 decimal = <strong>&minus;250</strong>, the shortest price the brief allows.</li>
+        <li>So a High pick must land between &minus;233 and &minus;250, or be a handicap/total selection at
+        the same probability.</li>
+        <li>A 90% favourite prices near &minus;900. It is a fine opinion but it is outside the requested
+        range, and this desk does not relabel it as High.</li>
+      </ul>
+    </div>
+    <div class="callout">
+      <h4>Selection rule</h4>
+      <p class="small">For each fixture the builder lists every selection in every originated market, keeps
+      the ones whose fair price is inside &minus;250&hellip;+10,000, and publishes the highest-probability one.
+      Alternate lines are shown but never used to pick, so a line cannot be moved to manufacture a 70%
+      price.</p>
+    </div>
+  </div>
+</section>
+<section class="panel">
+  <h2>4. Confidence rules</h2>
+  <table class="grid"><thead><tr><th>Grade</th><th>Probability</th><th>Sample</th><th>Other</th></tr></thead>
+  <tbody>
+  <tr><td><span class="badge b-high">High</span></td><td>&ge; 70%</td><td>NHL 8+ games, URC 3+ rounds,
+  MLB 100+ games</td><td>Price inside the window; written prediction required.</td></tr>
+  <tr><td><span class="badge b-med">Medium</span></td><td>&ge; 60%</td><td>At least a third of the High
+  threshold</td><td>No written prediction.</td></tr>
+  <tr><td><span class="badge b-low">Low</span></td><td>below 60%</td><td>any</td><td>Includes every NBA row.</td></tr>
+  </tbody></table>
+  <p class="small muted">Grades describe the strength of the model's probability, not a guarantee. A 70%
+  selection loses three times in ten.</p>
+</section>
+<section class="panel">
+  <h2>5. Limitations</h2>
+  <ul class="small">
+    <li>Sample sizes are small: the NHL season is two weeks old and the NBA season is three days old.</li>
+    <li>No injury, lineup, rest or travel information is included, because none was verified from an
+    official source this session.</li>
+    <li>Home advantage is an assumption, not a fitted parameter (see <a href="flagged.html">F08</a>).</li>
+    <li>Park factors, bullpen usage and starting pitchers are not modelled for MLB; the World Series rows
+    use full-season team runs only.</li>
+    <li>Prices are fair odds with no margin, so they are not directly comparable to a sportsbook card
+    (<a href="flagged.html">F11</a>).</li>
+  </ul>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Board T</strong> &mdash; session <code>arena/cdf25c13-olbg4</code>. Data read from official league
+    pages on 2026-10-22 (UTC). Prices are our own fair-odds model output, not bookmaker prices.
+    This is an analytical exercise, not betting advice.</p>
+    <p class="muted">Every row links to the official page it was read from. Values that could not be
+    confirmed are blank and listed on <a href="flagged.html">Flagged for Review</a>.</p>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
