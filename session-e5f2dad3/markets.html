@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markets · OLBG4 Board W</title>
+<meta name="description" content="Board W: official-source verified fixtures for the sports OLBG covers, our own originated lines, graded picks and a source link on every row.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><span class="mark">OLBG4</span><span class="brandsub">Board W · 22 Oct 2026 refresh</span></a>
+    <nav class="nav"><a class="navlink" href="index.html">Dashboard</a><a class="navlink" href="fixtures.html">All matches</a><a class="navlink" href="picks.html">Our lines &amp; picks</a><a class="navlink" href="predictions.html">High-confidence write-ups</a><a class="navlink active" href="markets.html">Markets</a><a class="navlink" href="verification.html">Verification register</a><a class="navlink" href="analysis.html">Analysis</a><a class="navlink" href="flagged.html">Flagged for review</a><a class="navlink" href="sources.html">Sources</a><a class="navlink" href="methodology.html">Method</a></nav>
+  </div>
+</header>
+<main class="wrap">
+
+<section class="hero small"><div class="kicker">Markets investigated</div>
+<h1>What we could originate — and exactly what is missing where we could not</h1>
+<p class="lede">The brief asks for win match, handicap and match total on every match. We originate a market only when
+the official source supplies every numeric input the formula needs. Blank cells below are missing <em>inputs</em>, not
+missing effort; each reason is repeated on the sport page and on <a href="flagged.html">Flagged for review</a>.</p></section>
+<div class="tablewrap"><table class="data" id="markets">
+<thead><tr><th>Sport</th><th>Matches</th><th>Priced (moneyline)</th><th>Handicap</th><th>Total</th><th>Reason for any blank</th></tr></thead><tbody><tr data-sport="Ice Hockey"><td><a href="sports/ice-hockey.html">Ice Hockey</a></td><td>86</td><td>82</td><td>82</td><td>82</td><td>No official numeric input captured for this competition.</td></tr><tr data-sport="Baseball"><td><a href="sports/baseball.html">Baseball</a></td><td>7</td><td>7</td><td>7</td><td>7</td><td>No official numeric input captured for this competition.</td></tr><tr data-sport="Basketball"><td><a href="sports/basketball.html">Basketball</a></td><td>11</td><td>0</td><td>0</td><td>0</td><td>No official NBA/Europe schedule or standings payload could be captured (NBA CDN/Stats API returned 403 and connection resets). No verified strength input exists for the OLBG-listed games.</td></tr><tr data-sport="Cricket"><td><a href="sports/cricket.html">Cricket</a></td><td>7</td><td>0</td><td>0</td><td>0</td><td>OLBG lists the fixtures, but no official fixture/score feed was captured (ICC pages are a JavaScript shell; the ICC fixtures route returned 404).</td></tr><tr data-sport="Tennis"><td><a href="sports/tennis.html">Tennis</a></td><td>19</td><td>0</td><td>0</td><td>0</td><td>ATP pages returned 403 to the capture runner. WTA pages were captured but the match list is client-rendered, so no verified ranking or match input exists.</td></tr><tr data-sport="Darts"><td><a href="sports/darts.html">Darts</a></td><td>16</td><td>0</td><td>0</td><td>0</td><td>The PDC site is a client-rendered Nuxt shell; no official draw or Order of Merit table was captured.</td></tr><tr data-sport="Snooker"><td><a href="sports/snooker.html">Snooker</a></td><td>2</td><td>0</td><td>0</td><td>0</td><td>The WST site is a client-rendered Nuxt shell; no official draw or ranking table was captured.</td></tr><tr data-sport="Rugby Union"><td><a href="sports/rugby-union.html">Rugby Union</a></td><td>15</td><td>0</td><td>0</td><td>0</td><td>The URC/EPCR fixture and standings routes captured are JavaScript shells; no official table was read.</td></tr><tr data-sport="Handball"><td><a href="sports/handball.html">Handball</a></td><td>20</td><td>0</td><td>0</td><td>0</td><td>EHF Champions League routes returned 404; no official table was captured.</td></tr><tr data-sport="Volleyball"><td><a href="sports/volleyball.html">Volleyball</a></td><td>9</td><td>0</td><td>0</td><td>0</td><td>Volleyball World calendar page is a JavaScript shell; no official standings were captured.</td></tr><tr data-sport="Esports"><td><a href="sports/esports.html">Esports</a></td><td>34</td><td>1</td><td>0</td><td>0</td><td>Moneyline originated where the official schedule supplies each team&#x27;s event record. Map handicap and total are blank because the payload has no map-score input.</td></tr></tbody></table></div>
+<section class="grid2">
+  <div><h2>Market definitions used</h2>
+  <ul class="clean">
+    <li><strong>Match winner</strong> (moneyline): two-way in ice hockey including overtime and shootout; two-way in
+    baseball; two-way series winner in esports.</li>
+    <li><strong>Handicap</strong>: NHL puck line ±1.5, MLB run line ±1.5, priced from a normal model of the expected
+    margin. Esports map handicap is not originated.</li>
+    <li><strong>Match total</strong>: NHL goals (line to the nearest 0.5), MLB runs, priced from the expected total with
+    a sport-specific standard deviation. NBA totals are not originated because no official pace/efficiency table was
+    captured.</li>
+  </ul></div>
+  <div><h2>What the numbers mean</h2>
+  <p>Our fair line is <code>1 / p</code>. The house column is <code>1 / (p × 1.04)</code>, i.e. a 4% two-way
+  overround, and is shown only so the book can be read like a real market. The pick is always the higher-probability
+  side. Confidence is a rule on probability, price window and sample size — never a judgement call.</p>
+  <p><a class="btn" href="methodology.html">Read the formulas</a></p></div>
+</section>
+
+</main>
+<footer class="wrap footer">
+  <p>Board W · session <code>arena/e5f2dad3-olbg4</code> · dataset generated 2026-10-22T03:09:24Z.
+  Sports excluded by the brief (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials)
+  are absent from every table. Every published price is our own fair-odds estimate; no bookmaker price is read anywhere.</p>
+  <p></p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

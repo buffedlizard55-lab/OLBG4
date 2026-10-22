@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <meta name="csrf-token" content="" />
+
+    <title>Top 14 - Rugby | Ligue Nationale de Rugby - Site Officiel</title>
+    <meta name="title" content="Top 14 - Rugby | Ligue Nationale de Rugby - Site Officiel" />
+    <meta name="description" content="Retrouvez toute l&#039;actualité, statistiques, calendrier et classements : TOP 14 et PRO D2. Site officiel de la Ligue Nationale de Rugby." />
+            <meta property="og:type" content="website" />
+            <meta property="og:site_name" content="Ligue Nationale de Rugby" />
+            <meta property="og:locale" content="fr" />
+            <meta property="og:url" content="https://top14.lnr.fr/calendrier" />
+            <meta property="og:title" content="Top 14 - Rugby | Ligue Nationale de Rugby - Site Officiel" />
+            <meta property="og:description" content="Retrouvez toute l&#039;actualité, statistiques, calendrier et classements : TOP 14 et PRO D2. Site officiel de la Ligue Nationale de Rugby." />
+            <meta property="fb:app_id" content="488329855239332" />
+            <meta property="twitter:card" content="summary_large_image" />
+            <meta property="twitter:site" content="@top14rugby" />
+            <meta property="twitter:creator" content="@top14rugby" />
+            <meta property="twitter:url" content="https://top14.lnr.fr/calendrier" />
+            <meta property="twitter:title" content="Top 14 - Rugby | Ligue Nationale de Rugby - Site Officiel" />
+            <meta property="twitter:description" content="Retrouvez toute l&#039;actualité, statistiques, calendrier et classements : TOP 14 et PRO D2. Site officiel de la Ligue Nationale de Rugby." />
+    
+    <link rel="icon" type="image/x-icon" href="/build/assets/favicon.12ffd4d2.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/assets/favicon-32x32.09a38ca0.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/assets/favicon-16x16.18274bc7.png" />
+
+            <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+        
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+        
+                    <link rel="preload" as="style" href="https://cdn.lnr.fr/build/assets/maintop14.0df860ab.css" /><link rel="stylesheet" href="https://cdn.lnr.fr/build/assets/maintop14.0df860ab.css" />    </head>
+<body
+    id="body"
+    class="app app-- theme--top14"
+>
+                    <header class="header header--default">
+    <div class="header__wrapper">
+        <sticky-header></sticky-header>
+        <div class="header__logo">
+            <a href="https://top14.lnr.fr" title="Retourner à l&#039;accueil">
+    <img class="header__logo-img" src="https://assets.lnr.fr/1/1/1/8/0/7/conversions/logo-top14.e32e7e9a-logo.webp" alt="TOP 14" height="146" />
+</a>
+        </div>
+        <div class="header__content">
+            <div class="header-menu">
+    <div class="header-menu__part">
+                                        <div class="main-menu">
+    <main-menu :items='[{"type":"ticketing","name":"Billetterie","mobile_icon":null,"mobile_name":null,"device_type":"desktop","isExternal":true,"link":"https:\/\/billetterie.lnr.fr\/fr?utm_source=sitetop14&utm_medium=CTA&utm_campaign=organic","children":[]},{"type":"item","name":"Calendrier et r\u00e9sultats","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/calendrier-et-resultats","children":[]},{"type":"item","name":"Classement","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/videos","children":[{"type":"item","name":"Championnat","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/classement","children":[]},{"type":"item","name":"Joueurs","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/classement\/joueurs\/meilleurs-realisateurs","children":[]}]},{"type":"item","name":"Vid\u00e9os","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/videos","children":[]},{"type":"item","name":"Clubs et joueurs","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":null,"children":[{"type":"item","name":"Clubs","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/clubs","children":[]},{"type":"item","name":"Joueurs","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/joueurs","children":[]}]},{"type":"item","name":"Actualit\u00e9s","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/actualites","children":[]},{"type":"item","name":"Statistiques","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/statistiques\/clubs","children":[{"type":"item","name":"G\u00e9n\u00e9rales","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"\/statistiques","children":[]},{"type":"item","name":"Clubs","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"\/statistiques\/clubs","children":[]},{"type":"item","name":"Joueurs","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"\/statistiques\/joueurs","children":[]}]},{"type":"item","name":"Les awards","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/awards","children":[]},{"type":"item","name":"Le TOP 14","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":null,"children":[{"type":"item","name":"Pr\u00e9sentation","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/page\/le-top-14","children":[]},{"type":"item","name":"Palmar\u00e8s","mobile_icon":null,"mobile_name":"Palmar\u00e8s","device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/actualite\/palmares-top-14-tous-les-champions-du-championnat-de-france-de-rugby","children":[]},{"type":"item","name":"Les arbitres TOP 14","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/arbitres","children":[]},{"type":"item","name":"Les diffuseurs","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/page\/les-diffuseurs","children":[]},{"type":"item","name":"Les partenaires","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/partenaires","children":[]},{"type":"item","name":"Les licenci\u00e9s","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":false,"link":"https:\/\/top14.lnr.fr\/licencies","children":[]}]},{"type":"item","name":"MyRugby","mobile_icon":null,"mobile_name":null,"device_type":"desktop","isExternal":false,"link":"\/my-rugby","children":[]},{"type":"item","name":"Tous les sites LNR","mobile_icon":null,"mobile_name":null,"device_type":"mobile","isExternal":false,"link":"https:\/\/top14.lnr.fr\/videos","children":[{"type":"item","name":"TOP 14","mobile_icon":null,"mobile_name":null,"device_type":"mobile","isExternal":true,"link":"https:\/\/top14.lnr.fr","children":[],"website":{"id":1,"slug":"top14","name":"TOP 14","url":"https:\/\/top14.lnr.fr","ticket_office_url":null,"logo":"\/build\/assets\/logo-top14.e32e7e9a.webp","competition":{"id":1,"slug":"top-14"},"active":true}},{"type":"item","name":"PRO D2","mobile_icon":null,"mobile_name":null,"device_type":"mobile","isExternal":true,"link":"https:\/\/prod2.lnr.fr","children":[],"website":{"id":2,"slug":"prod2","name":"PRO D2","url":"https:\/\/prod2.lnr.fr","ticket_office_url":null,"logo":"\/build\/assets\/logo-prod2.45ecca2c.webp","competition":{"id":2,"slug":"pro-d2"},"active":false}},{"type":"main","name":"Ligue Nationale de rugby","mobile_icon":null,"mobile_name":null,"device_type":"mobile","isExternal":true,"link":"https:\/\/www.lnr.fr","children":[],"website":{"id":3,"slug":"lnr","name":"LNR","url":"https:\/\/www.lnr.fr","ticket_office_url":null,"logo":"\/build\/assets\/logo-lnr.53b7e41a.webp","active":false}},{"type":"item","name":"In Extenso Supersevens","mobile_icon":null,"mobile_name":null,"device_type":"mobile","isExternal":true,"link":"https:\/\/supersevens.lnr.fr","children":[],"website":{"id":4,"slug":"ies7","name":"Supersevens","url":"https:\/\/supersevens.lnr.fr","ticket_office_url":null,"logo":"\/build\/assets\/logo-ies7.0b2990a5.webp","competition":{"id":3,"slug":"supersevens"},"active":false}}]}]' :action='"https:\/\/top14.lnr.fr\/recherche"' :method='"GET"'>
+        <span class="base-btn__text"> Menu </span>
+    </main-menu>
+</div>
+                                                            <div class="item-menu item-menu--desktop">
+    <a
+        class="base-btn base-btn--item-menu"
+        href="https://top14.lnr.fr/calendrier-et-resultats"
+        title="Calendrier et résultats"
+            >
+        <i class="item-menu__icon icon icon--calendar"></i>
+        <span class="item-menu__text item-menu__text--tablet-only base-btn__text"> Calendrier </span>
+    <span class="item-menu__text item-menu__text--desktop-only base-btn__text base-btn__text">
+        Calendrier et résultats
+    </span>
+    </a>
+</div>
+                                                            <div class="item-menu item-menu--desktop">
+    <a
+        class="base-btn base-btn--item-menu"
+        href="https://top14.lnr.fr/classement"
+        title="Classement"
+            >
+        <i class="item-menu__icon icon icon--podium"></i>
+        <span class="base-btn__text"> Classement </span>
+    </a>
+</div>
+                                                            <div class="item-menu item-menu--desktop">
+    <a
+        class="base-btn base-btn--item-menu"
+        href="/my-rugby"
+        title="MyRugby"
+            >
+        <i class="item-menu__icon icon icon--trophy"></i>
+        <span class="base-btn__text"> MyRugby </span>
+    </a>
+</div>
+                                                            <div class="all-websites-menu">
+    <all-websites-menu :items='[{"type":"item","name":"TOP 14","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":true,"link":"https:\/\/top14.lnr.fr","children":[],"website":{"id":1,"slug":"top14","name":"TOP 14","url":"https:\/\/top14.lnr.fr","ticket_office_url":null,"logo":"\/build\/assets\/logo-top14.e32e7e9a.webp","competition":{"id":1,"slug":"top-14"},"active":true}},{"type":"item","name":"PRO D2","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":true,"link":"https:\/\/prod2.lnr.fr","children":[],"website":{"id":2,"slug":"prod2","name":"PRO D2","url":"https:\/\/prod2.lnr.fr","ticket_office_url":null,"logo":"\/build\/assets\/logo-prod2.45ecca2c.webp","competition":{"id":2,"slug":"pro-d2"},"active":false}},{"type":"item","name":"Ligue Nationale de Rugby","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":true,"link":"https:\/\/www.lnr.fr","children":[],"website":{"id":3,"slug":"lnr","name":"LNR","url":"https:\/\/www.lnr.fr","ticket_office_url":null,"logo":"\/build\/assets\/logo-lnr.53b7e41a.webp","active":false}},{"type":"item","name":"In Extenso Supersevens","mobile_icon":null,"mobile_name":null,"device_type":"mobile-and-desktop","isExternal":true,"link":"https:\/\/supersevens.lnr.fr\/","children":[],"website":{"id":4,"slug":"ies7","name":"Supersevens","url":"https:\/\/supersevens.lnr.fr","ticket_office_url":null,"logo":"\/build\/assets\/logo-ies7.0b2990a5.webp","competition":{"id":3,"slug":"supersevens"},"active":false}}]' :action='"https:\/\/top14.lnr.fr\/recherche"'>
+        <span class="base-btn__text"> Tous les sites LNR </span>
+    </all-websites-menu>
+</div>
+                                                            <span class="header-menu__mobile-only">
+                        <div class="notifications-menu notifications-menu--wisepops">
+    <button type="button" tabindex="0" role="button" aria-label="Notifications" class="notifications-menu__button wisp">
+        <i class="icon icon--megaphone"></i>
+        <span class="notifications-menu__label">Infos</span>
+    </button>
+</div>
+                    </span>
+                    <div class="login-menu  login-menu--mobile-only ">
+    <login-menu
+        :logged-in='false'        account-route="https://top14.lnr.fr/mon-compte"
+        csrf-token=""
+        facebook-route="https://top14.lnr.fr/social/facebook?action=register"
+        google-route="https://top14.lnr.fr/social/google?action=register"
+        login-route="https://top14.lnr.fr/connexion?redirect_url=https%3A%2F%2Ftop14.lnr.fr%2Fcalendrier"
+        logout-route="https://top14.lnr.fr/logout?redirect_url=https%3A%2F%2Ftop14.lnr.fr%2Fcalendrier"
+        register-route="https://top14.lnr.fr/inscription"
+         mobile-only     >
+                    <i class="login-menu__icon icon icon--profil">
+                <span class="login-menu__badge" aria-hidden="true"></span>
+            </i>
+                <span class="login-menu__text login-menu__text--tablet-only base-btn__text"> Compte </span>
+    <span class="login-menu__text login-menu__text--desktop-only base-btn__text base-btn__text">
+        Connexion
+    </span>
+    </login-menu>
+</div>
+                                                                </div>
+    <div class="header-menu__part header-menu__part--tablet-only">
+        <search-input action="https://top14.lnr.fr/recherche"></search-input>
+        <div class="notifications-menu notifications-menu--wisepops">
+    <button type="button" tabindex="0" role="button" aria-label="Notifications" class="notifications-menu__button wisp">
+        <i class="icon icon--megaphone"></i>
+        <span class="notifications-menu__label">Infos</span>
+    </button>
+</div>
+
+                                                                                                                                                                                                        <div class="login-menu ">
+    <login-menu
+        :logged-in='false'        account-route="https://top14.lnr.fr/mon-compte"
+        csrf-token=""
+        facebook-route="https://top14.lnr.fr/social/facebook?action=register"
+        google-route="https://top14.lnr.fr/social/google?action=register"
+        login-route="https://top14.lnr.fr/connexion?redirect_url=https%3A%2F%2Ftop14.lnr.fr%2Fcalendrier"
+        logout-route="https://top14.lnr.fr/logout?redirect_url=https%3A%2F%2Ftop14.lnr.fr%2Fcalendrier"
+        register-route="https://top14.lnr.fr/inscription"
+            >
+                    <i class="login-menu__icon icon icon--profil">
+                <span class="login-menu__badge" aria-hidden="true"></span>
+            </i>
+                <span class="login-menu__text login-menu__text--tablet-only base-btn__text"> Compte </span>
+    <span class="login-menu__text login-menu__text--desktop-only base-btn__text base-btn__text">
+        Connexion
+    </span>
+    </login-menu>
+</div>
+                                                            <a
+    class="ticketing-menu tracking--btn-tickets base-btn base-btn--secondary"
+    href="https://billetterie.lnr.fr/fr?utm_source=sitetop14&amp;utm_medium=CTA&amp;utm_campaign=organic"
+     target="_blank">
+    <i class="icon icon--note"></i>
+    <span class="base-btn__text"> Billetterie </span>
+</a>
+                                </div>
+</div>
+                            <div class="header-score-slider">
+        <score-slider
+            :weeks='[{"id":1847,"name":"J7","slug":"j7","number":7}]' :matches='[{"id":11862,"week_id":1847,"hosting_club":{"id":84,"name":"RC Vannes","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/vannes\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/vannes\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/vannes\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/vannes","acronym":"RCV"},"visiting_club":{"id":20,"name":"ASM Clermont","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/clermont\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/clermont\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/clermont\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/clermont","acronym":"ASM"},"date":"24\/10","time":"14h30","broadcasters":[{"name":"Canal + Sport","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/1\/7\/3\/2\/0\/6\/conversions\/C%2B_Sport_%282023%29-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/1\/7\/3\/2\/0\/6\/conversions\/C%2B_Sport_%282023%29-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/1\/7\/3\/2\/0\/6\/C%2B_Sport_%282023%29.png"}}],"status":"not-started","link":"https:\/\/top14.lnr.fr\/feuille-de-match\/2026-2027\/j7\/11862-vannes-clermont","score":[0,0],"timer":{"firstPeriodStartDate":"2026-10-24T14:30:00+02:00","firstPeriodEndDate":null,"secondPeriodStartDate":null,"secondPeriodEndDate":null},"is_postponed":false},{"id":11865,"week_id":1847,"hosting_club":{"id":65,"name":"Racing 92","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/racing-92\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/racing-92\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/racing-92\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/racing-92","acronym":"R92"},"visiting_club":{"id":49,"name":"Montpellier H\u00e9rault Rugby","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/montpellier\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/montpellier\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/montpellier\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/montpellier","acronym":"MHR"},"date":"24\/10","time":"16h35","broadcasters":[{"name":"Canal +","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/canal_.png"}},{"name":"Canal + Live","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/conversions\/Canal%2B_Live.svg-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/conversions\/Canal%2B_Live.svg-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/Canal%2B_Live.svg.png"}}],"status":"not-started","link":"https:\/\/top14.lnr.fr\/feuille-de-match\/2026-2027\/j7\/11865-racing-92-montpellier","score":[0,0],"timer":{"firstPeriodStartDate":"2026-10-24T16:35:00+02:00","firstPeriodEndDate":null,"secondPeriodStartDate":null,"secondPeriodEndDate":null},"is_postponed":false},{"id":11867,"week_id":1847,"hosting_club":{"id":78,"name":"Stade Toulousain","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/toulouse\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/toulouse\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/toulouse\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/toulouse","acronym":"ST"},"visiting_club":{"id":63,"name":"USA Perpignan","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/perpignan\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/perpignan\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/perpignan\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/perpignan","acronym":"USAP"},"date":"24\/10","time":"16h35","broadcasters":[{"name":"Canal +","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/canal_.png"}},{"name":"Canal + Live","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/conversions\/Canal%2B_Live.svg-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/conversions\/Canal%2B_Live.svg-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/Canal%2B_Live.svg.png"}}],"status":"not-started","link":"https:\/\/top14.lnr.fr\/feuille-de-match\/2026-2027\/j7\/11867-toulouse-perpignan","score":[0,0],"timer":{"firstPeriodStartDate":"2026-10-24T16:35:00+02:00","firstPeriodEndDate":null,"secondPeriodStartDate":null,"secondPeriodEndDate":null},"is_postponed":false},{"id":11861,"week_id":1847,"hosting_club":{"id":89,"name":"Aviron Bayonnais","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/bayonne\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/bayonne\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/bayonne\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/bayonne","acronym":"AB"},"visiting_club":{"id":42,"name":"LOU Rugby","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/lyon\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/lyon\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/lyon\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/lyon","acronym":"LOU"},"date":"24\/10","time":"16h35","broadcasters":[{"name":"Canal +","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/canal_.png"}},{"name":"Canal + Sport","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/1\/7\/3\/2\/0\/6\/conversions\/C%2B_Sport_%282023%29-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/1\/7\/3\/2\/0\/6\/conversions\/C%2B_Sport_%282023%29-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/1\/7\/3\/2\/0\/6\/C%2B_Sport_%282023%29.png"}}],"status":"not-started","link":"https:\/\/top14.lnr.fr\/feuille-de-match\/2026-2027\/j7\/11861-bayonne-lyon","score":[0,0],"timer":{"firstPeriodStartDate":"2026-10-24T16:35:00+02:00","firstPeriodEndDate":null,"secondPeriodStartDate":null,"secondPeriodEndDate":null},"is_postponed":false},{"id":11863,"week_id":1847,"hosting_club":{"id":18,"name":"Castres Olympique","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/castres\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/castres\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/castres\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/castres","acronym":"CO"},"visiting_club":{"id":60,"name":"Stade Fran\u00e7ais Paris","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/paris\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/paris\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/paris\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/paris","acronym":"SFP"},"date":"24\/10","time":"16h35","broadcasters":[{"name":"Canal + Live","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/conversions\/Canal%2B_Live.svg-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/conversions\/Canal%2B_Live.svg-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/1\/7\/2\/9\/4\/4\/Canal%2B_Live.svg.png"}},{"name":"Canal +","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/canal_.png"}}],"status":"not-started","link":"https:\/\/top14.lnr.fr\/feuille-de-match\/2026-2027\/j7\/11863-castres-paris","score":[0,0],"timer":{"firstPeriodStartDate":"2026-10-24T16:35:00+02:00","firstPeriodEndDate":null,"secondPeriodStartDate":null,"secondPeriodEndDate":null},"is_postponed":false},{"id":11866,"week_id":1847,"hosting_club":{"id":77,"name":"RC Toulon","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/toulon\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/toulon\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/toulon\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/toulon","acronym":"RCT"},"visiting_club":{"id":61,"name":"Section Paloise","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/pau\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/pau\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/pau\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/pau","acronym":"SP"},"date":"24\/10","time":"21h00","broadcasters":[{"name":"Canal +","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/canal_.png"}}],"status":"not-started","link":"https:\/\/top14.lnr.fr\/feuille-de-match\/2026-2027\/j7\/11866-toulon-pau","score":[0,0],"timer":{"firstPeriodStartDate":"2026-10-24T21:00:00+02:00","firstPeriodEndDate":null,"secondPeriodStartDate":null,"secondPeriodEndDate":null},"is_postponed":false},{"id":11864,"week_id":1847,"hosting_club":{"id":34,"name":"Stade Rochelais","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/la-rochelle\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/la-rochelle\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/la-rochelle\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/la-rochelle","acronym":"SR"},"visiting_club":{"id":7,"name":"Union Bordeaux-B\u00e8gles","logo":{"original":"https:\/\/cdn.lnr.fr\/club\/bordeaux-begles\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-1x":"https:\/\/cdn.lnr.fr\/club\/bordeaux-begles\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21","thumbnail-2x":"https:\/\/cdn.lnr.fr\/club\/bordeaux-begles\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21"},"url":"https:\/\/top14.lnr.fr\/club\/bordeaux-begles","acronym":"UBB"},"date":"25\/10","time":"21h05","broadcasters":[{"name":"Canal +","logo":{"logo-1x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-1x.webp","logo-2x":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/conversions\/canal_-logo-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/2\/2\/3\/7\/canal_.png"}}],"status":"not-started","link":"https:\/\/top14.lnr.fr\/feuille-de-match\/2026-2027\/j7\/11864-la-rochelle-bordeaux-begles","score":[0,0],"timer":{"firstPeriodStartDate":"2026-10-25T21:05:00+01:00","firstPeriodEndDate":null,"secondPeriodStartDate":null,"secondPeriodEndDate":null},"is_postponed":false}]'        ></score-slider>
+    </div>
+                    </div>
+    </div>
+    <div class="header__banner">
+  <div class="header__banner-marquee">
+    <header-banner><p><a data-name="profitez-un-weed-end-inoubliable-tour-des-stades-2026" class="tracking--banner-promotion" href="https://top14.lnr.fr/bon-plan/profitez-un-weed-end-inoublibale-tour-des-stades-2026"><strong>Tour des stades : 1 week-end, 3 matchs, tentez de gagner un week-end inoubliable !</strong></a></p></header-banner>
+  </div>
+</div>
+</header>
+        <div class="app__container ">
+                <main class="app__body ">
+                <div class="page-not-found page-not-found--third page-not-found--col-layout">
+    <div class="page-not-found__container">
+        <div class="page-not-found__image-container">
+            <img
+    alt="Erreur 404"
+    src="https://cdn.lnr.fr/build/assets/third-block.caee544e.png"
+            srcset=""
+        class="page-not-found__image"
+    loading="lazy"
+/>
+        </div>
+        <div class="page-not-found__text-container">
+            <h1 class="title title--medium page-not-found__title">Erreur 404</h1>
+            <h2 class="title title--xlarge title--textured page-not-found__subtitle">Hop, Hop Hop, reviens ici !</h2>
+                            <p class="page-not-found__text">La page que vous cherchez semble introuvable</p>
+                <a
+                    href="https://top14.lnr.fr"
+                    class="base-btn base-btn--primary tracking--btn-primary base-btn--large"
+                >
+                    Revenir à l'accueil                </a>
+                    </div>
+    </div>
+</div>
+        </main>
+        <div class="mobile-sticky-footer">
+                            <div class="item-menu item-menu--mobile">
+    <a
+        class="base-btn base-btn--item-menu"
+        href="https://top14.lnr.fr"
+        title="Accueil"
+            >
+        <i class="item-menu__icon icon icon--home"></i>
+        <span class="item-menu__text item-menu__text--tablet-only base-btn__text"> Accueil </span>
+    <span class="item-menu__text item-menu__text--desktop-only base-btn__text base-btn__text">
+        Accueil
+    </span>
+    </a>
+</div>
+                                            <div class="item-menu item-menu--mobile">
+    <a
+        class="base-btn base-btn--item-menu"
+        href="https://top14.lnr.fr/calendrier-et-resultats"
+        title="Calendrier"
+            >
+        <i class="item-menu__icon icon icon--calendar"></i>
+        <span class="item-menu__text item-menu__text--tablet-only base-btn__text"> Calendrier </span>
+    <span class="item-menu__text item-menu__text--desktop-only base-btn__text base-btn__text">
+        Calendrier
+    </span>
+    </a>
+</div>
+                                            <div class="item-menu item-menu--mobile">
+    <a
+        class="base-btn base-btn--item-menu"
+        href="https://top14.lnr.fr/classement"
+        title="Classement"
+            >
+        <i class="item-menu__icon icon icon--podium"></i>
+        <span class="item-menu__text item-menu__text--tablet-only base-btn__text"> Classement </span>
+    <span class="item-menu__text item-menu__text--desktop-only base-btn__text base-btn__text">
+        Classement
+    </span>
+    </a>
+</div>
+                                            <div class="item-menu item-menu--mobile">
+    <a
+        class="base-btn base-btn--item-menu"
+        href="https://top14.lnr.fr/videos"
+        title="Vidéos"
+            >
+        <i class="item-menu__icon icon icon--circledplay"></i>
+        <span class="item-menu__text item-menu__text--tablet-only base-btn__text"> Vidéos </span>
+    <span class="item-menu__text item-menu__text--desktop-only base-btn__text base-btn__text">
+        Vidéos
+    </span>
+    </a>
+</div>
+                                            <div class="item-menu item-menu--mobile">
+    <a
+        class="base-btn base-btn--item-menu"
+        href="/my-rugby"
+        title="MyRugby"
+            >
+        <i class="item-menu__icon icon icon--gift"></i>
+        <span class="item-menu__text item-menu__text--tablet-only base-btn__text"> MyRugby </span>
+    <span class="item-menu__text item-menu__text--desktop-only base-btn__text base-btn__text">
+        MyRugby
+    </span>
+    </a>
+</div>
+                    </div>
+                    <div class="footer-partners">
+    <partners-index
+        :partners-by-category='[{"id":37,"name":"PARTENAIRES MEDIAS","partners":[]},{"id":1,"name":"PARTENAIRES MAJEURS","partners":[{"name":"Societe generale","url":"https:\/\/www.societegenerale.com\/fr\/groupe\/presentation\/philanthropie-sponsoring\/rugby","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/1\/7\/5\/0\/7\/6\/conversions\/SIGNSOCGEN102-fond-blanc-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/1\/7\/5\/0\/7\/6\/conversions\/SIGNSOCGEN102-fond-blanc-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/1\/7\/5\/0\/7\/6\/SIGNSOCGEN102-fond-blanc.jpg"}},{"name":"GMF","url":"https:\/\/www.gmf.fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/5\/6\/8\/7\/6\/conversions\/GMF-%281%29-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/5\/6\/8\/7\/6\/conversions\/GMF-%281%29-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/5\/6\/8\/7\/6\/GMF-%281%29.jpg"}}]},{"id":2,"name":"PARTENAIRES OFFICIELS","partners":[{"name":"Intermarch\u00e9","url":"https:\/\/www.intermarche.com\/accueil?gclsrc=aw.ds&gclid=EAIaIQobChMIm7ubitSL_wIVRe3VCh0NOwJ4EAAYASAAEgL6PPD_BwE&gclsrc=aw.ds","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/9\/7\/0\/6\/8\/conversions\/logo_22_lignes-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/9\/7\/0\/6\/8\/conversions\/logo_22_lignes-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/7\/0\/6\/8\/logo_22_lignes.jpg"}},{"name":"TotalEnergies","url":"https:\/\/www.totalenergies.fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/1\/2\/3\/9\/5\/8\/conversions\/TotalEnergies_Logo_Vertical_Fond_Blanc_Angles_Arrondis_RGB-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/1\/2\/3\/9\/5\/8\/conversions\/TotalEnergies_Logo_Vertical_Fond_Blanc_Angles_Arrondis_RGB-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/1\/2\/3\/9\/5\/8\/TotalEnergies_Logo_Vertical_Fond_Blanc_Angles_Arrondis_RGB.png"}},{"name":"Pennylane","url":"https:\/\/www.pennylane.com\/fr","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/2\/4\/4\/9\/6\/2\/conversions\/Design-sans-titre-%2811%29-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/2\/4\/4\/9\/6\/2\/conversions\/Design-sans-titre-%2811%29-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/2\/4\/4\/9\/6\/2\/Design-sans-titre-%2811%29.png"}},{"name":"Canal+","url":"https:\/\/www.canalplus.com\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/5\/6\/8\/8\/5\/conversions\/LogoC%2B-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/5\/6\/8\/8\/5\/conversions\/LogoC%2B-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/5\/6\/8\/8\/5\/LogoC%2B.jpg"}}]},{"id":16,"name":"FOURNISSEURS OFFICIELS","partners":[{"name":"De Dietrich","url":"https:\/\/www.dedietrich-thermique.fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/1\/2\/3\/9\/5\/7\/conversions\/De-Dietrich-logo-Bleu_hauteur-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/1\/2\/3\/9\/5\/7\/conversions\/De-Dietrich-logo-Bleu_hauteur-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/1\/2\/3\/9\/5\/7\/De-Dietrich-logo-Bleu_hauteur.jpg"}},{"name":"IAD FRANCE","url":"https:\/\/www.iadfrance.fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/2\/7\/3\/6\/3\/6\/conversions\/IAD_LOGOS_IAD_IMMOBILIER_RVB-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/2\/7\/3\/6\/3\/6\/conversions\/IAD_LOGOS_IAD_IMMOBILIER_RVB-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/2\/7\/3\/6\/3\/6\/IAD_LOGOS_IAD_IMMOBILIER_RVB.png"}},{"name":"Alain Afflelou","url":"https:\/\/www.afflelou.com\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/6\/4\/6\/0\/8\/conversions\/LOGO_AAOA_NOIR_ROuge_Bold_2-lignes-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/6\/4\/6\/0\/8\/conversions\/LOGO_AAOA_NOIR_ROuge_Bold_2-lignes-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/6\/4\/6\/0\/8\/LOGO_AAOA_NOIR_ROuge_Bold_2-lignes.png"}},{"name":"XPENG","url":"https:\/\/www.xpeng.com\/fr","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/2\/8\/1\/5\/4\/0\/conversions\/LOGO-XPENG-BLACK-POUR-MEDIA2---A-PRIORISER-1-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/2\/8\/1\/5\/4\/0\/conversions\/LOGO-XPENG-BLACK-POUR-MEDIA2---A-PRIORISER-1-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/2\/8\/1\/5\/4\/0\/LOGO-XPENG-BLACK-POUR-MEDIA2---A-PRIORISER-1.png"}}]},{"id":45,"name":"ROBOT TONDEUSE OFFICIEL","partners":[{"name":"NAVIMOW","url":"https:\/\/fr.navimow.com\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/2\/9\/7\/3\/8\/0\/conversions\/Navimow-Logo-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/2\/9\/7\/3\/8\/0\/conversions\/Navimow-Logo-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/2\/9\/7\/3\/8\/0\/Navimow-Logo.png"}}]},{"id":39,"name":"CHRONOM\u00c9TREUR OFFICIEL","partners":[{"name":"Tissot","url":"https:\/\/www.tissotwatches.com\/fr-fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/2\/conversions\/Tissot_Logo_Official_rgb_FR-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/2\/conversions\/Tissot_Logo_Official_rgb_FR-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/2\/Tissot_Logo_Official_rgb_FR.jpg"}}]},{"id":41,"name":"PARTENAIRE DES ARBITRES","partners":[{"name":"La Poste","url":"https:\/\/www.laposte.fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/0\/conversions\/lap_22_00027_logo_la_poste_jaune_vertical_rvb-6396fdaf21b64-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/0\/conversions\/lap_22_00027_logo_la_poste_jaune_vertical_rvb-6396fdaf21b64-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/0\/lap_22_00027_logo_la_poste_jaune_vertical_rvb-6396fdaf21b64.jpg"}}]},{"id":42,"name":"PARTENAIRE PARIS SPORTIFS","partners":[{"name":"Betclic","url":"https:\/\/www.betclic.fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/5\/6\/8\/8\/6\/conversions\/thumbnail-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/5\/6\/8\/8\/6\/conversions\/thumbnail-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/5\/6\/8\/8\/6\/thumbnail.png"}}]},{"id":35,"name":"SUPPORTERS OFFICIELS","partners":[{"name":"Andros","url":"https:\/\/www.andros.fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/4\/conversions\/LOGO-FINAL-VALIDE-ANDROS-2022-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/4\/conversions\/LOGO-FINAL-VALIDE-ANDROS-2022-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/9\/5\/9\/6\/4\/LOGO-FINAL-VALIDE-ANDROS-2022.png"}},{"name":"BR UNITS","url":"https:\/\/www.br-agency.fr\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/2\/7\/8\/7\/5\/0\/conversions\/BR-LOGO-CMJN_secondaire-signature-vertical-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/2\/7\/8\/7\/5\/0\/conversions\/BR-LOGO-CMJN_secondaire-signature-vertical-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/2\/7\/8\/7\/5\/0\/BR-LOGO-CMJN_secondaire-signature-vertical.png"}},{"name":"VOGO","url":"https:\/\/www.vogo-group.com\/","logo":{"thumbnail-1x":"https:\/\/assets.lnr.fr\/2\/9\/5\/0\/3\/4\/conversions\/Design-sans-titre-%285%29-thumbnail-1x.webp","thumbnail-2x":"https:\/\/assets.lnr.fr\/2\/9\/5\/0\/3\/4\/conversions\/Design-sans-titre-%285%29-thumbnail-2x.webp","original":"https:\/\/assets.lnr.fr\/2\/9\/5\/0\/3\/4\/Design-sans-titre-%285%29.png"}}]}]'        partners-route="https://top14.lnr.fr/partenaires"
+        title="Nos partenaires"
+    ></partners-index>
+</div>
+            <footer class="footer" id="footer">
+    <div class="footer__breadcrumbs">
+        <div class="footer__breadcrumbs-container">
+            <ul class="breadcrumbs breadcrumbs--footer">
+    </ul>
+
+        </div>
+    </div>
+    <div class="footer__main">
+        <div class="footer__newsletter-block">
+            <img
+    alt="Bons plans, contenus exclusifs, "
+    src="https://cdn.lnr.fr/build/assets/footer-newsletter-bg.d10975ba.webp"
+        class="footer__newsletter-img"
+    loading="lazy"
+/>
+
+            <div class="footer__newsletter-block-content">
+                <h2 class="footer__title title title--medium title--white">
+                    Bons plans, contenus exclusifs,  <br />
+                    Inscrivez-vous au programme MyRugby !
+                </h2>
+                <a
+                    href="https://top14.lnr.fr/inscription"
+                    class="base-btn base-btn--primary tracking--btn-primary"
+                >S&#039;inscrire</a>
+
+                <p class="footer__newsletter-label paragraph--grey">
+                    En souscrivant vous acceptez notre <a href="/page/politique-de-confidentialite" class="base-link base-link--grey base-link--underlined">politique de confidentialité</a>.
+                </p>
+            </div>
+        </div>
+        <div class="footer__socials-block">
+            <img
+    alt="Suivez le championnat"
+    src="https://cdn.lnr.fr/build/assets/footer-socials-bg.df7f9010.webp"
+        class="footer__socials-img"
+    loading="lazy"
+/>
+            <div class="footer__socials-container">
+                <h2 class="footer__title title title--medium title--white">Suivez le championnat</h2>
+                <div class="footer__socials">
+                    <p class="footer__label paragraph">Restez connectés :</p>
+                    <div class="footer__socials-list">
+                                                    <a
+                                href="https://www.facebook.com/top14rugby"
+                                target="_blank"
+                                rel="nofollow"
+                                class="footer__social-btn base-btn base-btn--small-circle"
+                            >
+                                <i class="icon icon--textured icon--facebook footer__btn-icon"></i>
+                            </a>
+                                                    <a
+                                href="https://twitter.com/top14rugby"
+                                target="_blank"
+                                rel="nofollow"
+                                class="footer__social-btn base-btn base-btn--small-circle"
+                            >
+                                <i class="icon icon--textured icon--twitter footer__btn-icon"></i>
+                            </a>
+                                                    <a
+                                href="https://www.instagram.com/top14rugby/"
+                                target="_blank"
+                                rel="nofollow"
+                                class="footer__social-btn base-btn base-btn--small-circle"
+                            >
+                                <i class="icon icon--textured icon--instagram footer__btn-icon"></i>
+                            </a>
+                                                    <a
+                                href="https://www.youtube.com/@top14"
+                                target="_blank"
+                                rel="nofollow"
+                                class="footer__social-btn base-btn base-btn--small-circle"
+                            >
+                                <i class="icon icon--textured icon--youtube footer__btn-icon"></i>
+                            </a>
+                                                    <a
+                                href="https://www.tiktok.com/@top14rugby?lang=fr"
+                                target="_blank"
+                                rel="nofollow"
+                                class="footer__social-btn base-btn base-btn--small-circle"
+                            >
+                                <i class="icon icon--textured icon--tiktok footer__btn-icon"></i>
+                            </a>
+                                            </div>
+                </div>
+                <div class="footer__sites">
+                    <p class="footer__label paragraph">Les autres sites :</p>
+                    <div class="footer__sites-list">
+                                                    <a href="https://prod2.lnr.fr" class="footer__site">
+                                <img
+                                    src="https://cdn.lnr.fr/build/assets/logo-prod2-footer.2f431b27.webp"
+                                    alt="PRO D2 logo"
+                                    title="PRO D2"
+                                    class="footer__site-img"
+                                    loading="lazy"
+                                />
+                            </a>
+                                                    <a href="https://supersevens.lnr.fr" class="footer__site">
+                                <img
+                                    src="https://cdn.lnr.fr/build/assets/logo-ies7-footer.167ee465.webp"
+                                    alt="Supersevens logo"
+                                    title="Supersevens"
+                                    class="footer__site-img"
+                                    loading="lazy"
+                                />
+                            </a>
+                                                    <a href="https://www.lnr.fr" class="footer__site">
+                                <img
+                                    src="https://cdn.lnr.fr/build/assets/logo-lnr-footer.637deb2d.webp"
+                                    alt="LNR logo"
+                                    title="LNR"
+                                    class="footer__site-img"
+                                    loading="lazy"
+                                />
+                            </a>
+                                            </div>
+                </div>
+            </div>
+            <div class="footer__goto-container">
+                <button
+                    class="footer__goto-up base-btn base-btn--primary tracking--btn-primary base-btn--big-circle"
+                    aria-label="Remonter en haut de page"
+                >
+                    <i class="icon icon--angle-up"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="footer__clubs">
+        <div class="footer__clubs-container">
+            <p class="footer__clubs-label paragraph">Suivez nos clubs</p>
+            <footer-clubs :competitions="[{&quot;name&quot;:&quot;TOP 14&quot;,&quot;logo&quot;:&quot;https:\/\/cdn.lnr.fr\/build\/assets\/logo-top14.e32e7e9a.webp&quot;,&quot;clubs&quot;:[{&quot;name&quot;:&quot;ASM Clermont&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/clermont\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/clermont\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/clermont\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/clermont&quot;},{&quot;name&quot;:&quot;Aviron Bayonnais&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/bayonne\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/bayonne\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/bayonne\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/bayonne&quot;},{&quot;name&quot;:&quot;Castres Olympique&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/castres\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/castres\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/castres\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/castres&quot;},{&quot;name&quot;:&quot;LOU Rugby&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/lyon\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/lyon\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/lyon\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/lyon&quot;},{&quot;name&quot;:&quot;Montpellier H\u00e9rault Rugby&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/montpellier\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/montpellier\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/montpellier\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/montpellier&quot;},{&quot;name&quot;:&quot;RC Toulon&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/toulon\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/toulon\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/toulon\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/toulon&quot;},{&quot;name&quot;:&quot;RC Vannes&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/vannes\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/vannes\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/vannes\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/vannes&quot;},{&quot;name&quot;:&quot;Racing 92&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/racing-92\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/racing-92\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/racing-92\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/racing-92&quot;},{&quot;name&quot;:&quot;Section Paloise&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/pau\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/pau\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/pau\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/pau&quot;},{&quot;name&quot;:&quot;Stade Fran\u00e7ais Paris&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/paris\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/paris\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/paris\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/paris&quot;},{&quot;name&quot;:&quot;Stade Rochelais&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/la-rochelle\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/la-rochelle\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/la-rochelle\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/la-rochelle&quot;},{&quot;name&quot;:&quot;Stade Toulousain&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/toulouse\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/toulouse\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/toulouse\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/toulouse&quot;},{&quot;name&quot;:&quot;USA Perpignan&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/perpignan\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/perpignan\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/perpignan\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/perpignan&quot;},{&quot;name&quot;:&quot;Union Bordeaux-B\u00e8gles&quot;,&quot;logo&quot;:{&quot;original&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/bordeaux-begles\/photo\/logo.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-1x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/bordeaux-begles\/photo\/logo-thumbnail-1x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;,&quot;thumbnail-2x&quot;:&quot;https:\/\/cdn.lnr.fr\/club\/bordeaux-begles\/photo\/logo-thumbnail-2x.5a6347b859d03c06b7b88fcd45a23beb7ea28e21&quot;},&quot;url&quot;:&quot;https:\/\/top14.lnr.fr\/club\/bordeaux-begles&quot;}]}]"></footer-clubs>
+        </div>
+    </div>
+            <div class="footer__menu">
+            <ul class="footer__links">
+                                    <li class="footer__link">
+                                                    <a
+                                href="https://top14.lnr.fr/page/cgu"
+                                class="base-link base-link--grey"
+                                                            >Mentions légales &amp; CGU</a>
+                                            </li>
+                                    <li class="footer__link">
+                                                    <a
+                                href="https://top14.lnr.fr/page/cgu-myrugby"
+                                class="base-link base-link--grey"
+                                                            >CGU MyRugby</a>
+                                            </li>
+                                    <li class="footer__link">
+                                                    <a
+                                href="https://top14.lnr.fr/page/politique-de-confidentialite"
+                                class="base-link base-link--grey"
+                                                            >Politique de confidentialité</a>
+                                            </li>
+                                    <li class="footer__link">
+                                                    <a
+                                href="https://top14.lnr.fr/page/politique-de-cookies"
+                                class="base-link base-link--grey"
+                                                            >Politique de cookies</a>
+                                            </li>
+                                    <li class="footer__link">
+                                                    <a
+                                href="https://assets.lnr.fr/2/5/8/7/5/4/250618_D%C3%A9claration-Accessibilit%C3%A9---Top-14-LNR-(1)_d973bf5002172d19d5a73a69a9331d2d.pdf"
+                                class="base-link base-link--grey"
+                                 target="_blank"                            >Audit RGAA</a>
+                                            </li>
+                                    <li class="footer__link">
+                                                    <a
+                                href="/contact"
+                                class="base-link base-link--grey"
+                                                            >Contact</a>
+                                            </li>
+                                    <li class="footer__link">
+                                                    <button
+                                id="js-didomi-consent"
+                                type="button"
+                                class="base-link base-link--button base-link--grey"
+                            >
+                                Gestion du consentement
+                            </button>
+                                            </li>
+                            </ul>
+            <a
+                href="https://www.webqam.fr"
+                class="base-link base-link--grey"
+                target="_blank"
+            >Création de site : Webqam</a>
+        </div>
+    </footer>
+            </div>
+    <div id="modal-target"></div>
+            <link rel="preload" as="style" href="https://cdn.lnr.fr/build/assets/app.fe93106e.css" /><link rel="modulepreload" as="script" href="https://cdn.lnr.fr/build/assets/app.8cd51ecd.js" /><link rel="modulepreload" as="script" href="https://cdn.lnr.fr/build/assets/vendor.164a246d.js" /><link rel="stylesheet" href="https://cdn.lnr.fr/build/assets/app.fe93106e.css" /><script type="module" src="https://cdn.lnr.fr/build/assets/app.8cd51ecd.js"></script>
+<script nonce="BWfG3mjJ29PS6UIyAc0p3qdD0eglvckoCDLxWs5D">
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js',
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        var n = d.querySelector('[nonce]');
+        n && j.setAttribute('nonce', n.nonce || n.getAttribute('nonce'));
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MP7XH3');
+</script>
+
+<script type="text/javascript" data-nonce="BWfG3mjJ29PS6UIyAc0p3qdD0eglvckoCDLxWs5D" nonce="BWfG3mjJ29PS6UIyAc0p3qdD0eglvckoCDLxWs5D">
+    window.isLogged = false;
+    window.website = JSON.parse('{\u0022id\u0022:1,\u0022slug\u0022:\u0022top14\u0022,\u0022name\u0022:\u0022TOP 14\u0022,\u0022url\u0022:\u0022https:\\\/\\\/top14.lnr.fr\u0022,\u0022ticket_office_url\u0022:null,\u0022logo\u0022:\u0022https:\\\/\\\/cdn.lnr.fr\\\/build\\\/assets\\\/logo-top14.e32e7e9a.webp\u0022,\u0022competition\u0022:{\u0022id\u0022:1,\u0022slug\u0022:\u0022top-14\u0022},\u0022active\u0022:true}');
+    window.loginModal = JSON.parse('{\u0022background_image_url\u0022:\u0022https:\\\/\\\/assets.lnr.fr\\\/9\\\/5\\\/7\\\/9\\\/6\\\/445ce4.png\u0022,\u0022content\u0022:\u0022Connectez vous ou créez un compte MyRugby et accédez gratuitement à votre contenu et tous les avantages MyRugby.\u0022}');
+    window.myRugbyLogo = "https:\/\/cdn.lnr.fr\/build\/assets\/logo-myrugby-top14.91b1e4c0.webp";
+        </script>
+
+<script type="text/javascript" nonce="BWfG3mjJ29PS6UIyAc0p3qdD0eglvckoCDLxWs5D">
+    window.gdprAppliesGlobally = true;
+    (function () {
+        function a(e) {
+            if (!window.frames[e]) {
+                if (document.body && document.body.firstChild) {
+                    var t = document.body;
+                    var n = document.createElement('iframe');
+                    n.style.display = 'none';
+                    n.name = e;
+                    n.title = e;
+                    t.insertBefore(n, t.firstChild);
+                } else {
+                    setTimeout(function () {
+                        a(e);
+                    }, 5);
+                }
+            }
+        }
+
+        function e(n, r, o, c, s) {
+            function e(e, t, n, a) {
+                if (typeof n !== 'function') {
+                    return;
+                }
+                if (!window[r]) {
+                    window[r] = [];
+                }
+                var i = false;
+                if (s) {
+                    i = s(e, t, n);
+                }
+                if (!i) {
+                    window[r].push({ command: e, parameter: t, callback: n, version: a });
+                }
+            }
+
+            e.stub = true;
+
+            function t(a) {
+                if (!window[n] || window[n].stub !== true) {
+                    return;
+                }
+                if (!a.data) {
+                    return;
+                }
+                var i = typeof a.data === 'string';
+                var e;
+                try {
+                    e = i ? JSON.parse(a.data) : a.data;
+                } catch (t) {
+                    return;
+                }
+                if (e[o]) {
+                    var r = e[o];
+                    window[n](
+                        r.command,
+                        r.parameter,
+                        function (e, t) {
+                            var n = {};
+                            n[c] = { returnValue: e, success: t, callId: r.callId };
+                            a.source.postMessage(i ? JSON.stringify(n) : n, '*');
+                        },
+                        r.version,
+                    );
+                }
+            }
+
+            if (typeof window[n] !== 'function') {
+                window[n] = e;
+                if (window.addEventListener) {
+                    window.addEventListener('message', t, false);
+                } else {
+                    window.attachEvent('onmessage', t);
+                }
+            }
+        }
+
+        e('__tcfapi', '__tcfapiBuffer', '__tcfapiCall', '__tcfapiReturn');
+        a('__tcfapiLocator');
+        (function (e, tgt) {
+            var t = document.createElement('script');
+            t.id = 'spcloader';
+            t.type = 'text/javascript';
+            t.async = true;
+            t.src = 'https://sdk.privacy-center.org/' + e + '/loader.js?target_type=notice&target=' + tgt;
+            t.charset = 'utf-8';
+            var n = document.getElementsByTagName('script')[0];
+            n.parentNode.insertBefore(t, n);
+        })("2fb30098-c80d-451a-86c7-1618de8f306a", "ctqDdCYh");
+    })();
+</script>
+                <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[]}
+    </script>
+    <script type="text/javascript" nonce="BWfG3mjJ29PS6UIyAc0p3qdD0eglvckoCDLxWs5D">
+    window.trackingVars = {
+        trackingTrans: {"empty":"empty","page_name":"Page : :name","tab_name":"tab-:name","event_position":":slug:::name","search_term":"Recherche: :name","form_name":"Formulaire: :name","page_name_videos":"Vid\u00e9o cat\u00e9gorie ","page_name_search":"R\u00e9sultats de recherche","user_connected":"connect\u00e9","user_not_connected":"non-connect\u00e9","error_404":"Erreur 404","supersevens_before":"Avant tounoi","supersevens_during":"Pendant tournoi","form_my_rugby":"Formulaire: MyRugby","page_template":{"classement":"Page Classement","categorie":"Page Categorie","landing":"Page LP","player":"Page joueur","club":"Page club","article":"Page article","articles":"Page articles","home":"Page Homepage","match":"Page match","login":"Page connexion","doc":"Page documentation","categ":"Page cat\u00e9gorie","contact":"Page contact","compte":"Page compte","videos":"Page vid\u00e9os","error":"Page erreur","content":"Page contenu","faceToFace":"Page face \u00e0 face"},"page_category":{"home":"Accueil","deals":"MyRugby","landing":"Landing page","page-builder":"Informations","match":"Calendrier et r\u00e9sultats","club":"Clubs","player":"les-joueurs","login":"Compte","advantages":"Bons plans","doc":"Documentation","popin":"Popin","supersevens_experience":"Experience","supersevens_clubs":"Equipes","supersevens_steps":"Etapes","supersevens_step_detail":"Etapes"},"page_subCategory":{"match":"Match","club":"Fiche de club","forgot_password":"Mot de passe oubli\u00e9","reset_password":"R\u00e9initialisation du mot de passe","player":"Fiche joueur","register":"Inscription","login":"Connexion","advantage":"Bon plan","supersevens_step_detail":"Details","survey":"Sondages"},"event_default":"gtm_event","event_tabs":"tab_page","event_forms":"gtm_form","event_category_buttons":"Engagement","event_action_buttons":"Clic - CTA","event_action_primary_buttons":"Primaires","event_action_ticketing_buttons":"Billeterie","event_category_tabs":"Tabs","event_action_tabs":"Tabulation - Click","event_category_outlinks":"Outlink","event_action_outlinks":"Sortie du site","event_category_navigation":"Navigation","event_action_underlined_links":"Click - Liens","event_action_news":"Click - Actualites","event_action_deals":"Click - Bons plans","event_category_forms":"Formulaires","event_action_myRugby":"MyRugby","event_popin":"popin_displayed","event_landing":"landing-campaign-registration-success","id_form_registration":"form-inscription-my-rugby","event_label_form_registration":"Envoie du formulaire - MyRugby","event_position_form_registration":"form-EnvoieDuFormulaire-MyRugby","event_action_form_lost_password":"Mot de passe oubli\u00e9","id_form_lost_password":"form-mot-de-passe-oublie","event_label_form_lost_password":"Envoie du formulaire - Mot de passe oubli\u00e9","event_position_form_lost_password":"form-EnvoieDuFormulaire-MotDePasseOublie","event_action_form_deals":"Bons plans","id_form_deals":"form-bon-plan-","modal_name_login":"popin-login","modal_name_logout":"popin-logout","modal_name_video":"popin-video","empty_face_to_face":"vide","complete_face_to_face":"remplit"},
+        pageName: "Erreur 404",
+        pageCategory: "Erreur 404",
+        pageSubCategory: "empty",
+        pageTemplate: "Page erreur",
+        tab: "empty",
+        searchTerm: "empty",
+        sessionID: "Bv23UlEYBRw4w0l0B9yuTnT44a8tDSQUcGK67w2R",
+        user: null,
+        supersevensStatus: "empty",
+        formName: "empty",
+        hasRegisterSuccess: "",
+        verifiedEmail: null,
+        hasSuccessPassword: "",
+        validatedDeal: null,
+        faceToFaceState: "empty",
+    };
+</script>
+    </body>
+</html>

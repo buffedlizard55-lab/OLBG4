@@ -2975,3 +2975,74 @@ is stored with the exact URL it came from. Sources that cannot be retrieved are 
 (`coverage.html`, `methodology.html` rendered as `/OLBG4/coverage.html`), and the README citation rendered inside the desk folder.
 Fixed with a single link helper (`_src`) in the builder; rebuilt (`9 High, links ok`), audit re-run (0 broken / 0 stale). A follow-up
 fix like this is recorded rather than silently amended because the first deploy already served the wrong target.
+
+## Board W — session `arena/e5f2dad3-olbg4` (22 Oct 2026 official-source refresh, own lines, high-confidence write-ups, new dashboard)
+
+Session `arena/e5f2dad3-olbg4` · branch `arena/e5f2dad3-olbg4` · claimed 2026-10-22 (UTC) · **status: done — merged (see PR record below)**
+
+**Coordination note — two board-letter collisions, both resolved additively (logged, nothing discarded).**
+(1) Session `arena/cdf25c13-olbg4` claimed a different "Board T" at 02:46:55Z, about two minutes after this claim
+landed, so this board moved to U. (2) While it was building, session `arena/c92c927c-olbg4` published its own
+**Board U** and merged first, so this board moved again — to the next free letter, **W** — before its pull request.
+Neither collision overwrote a file: this session's work lives entirely in `session-e5f2dad3/`,
+`data/session-e5f2dad3/` and `scripts/session-e5f2dad3/`, and its root pointer is added additively after re-reading
+`main`. The published directory stays keyed to the session id.
+
+**Why a new board.** Board S1's 22 Oct review (PR #60) reported that the canonical master is dated 21 Oct, that only NBA/NHL/MLB are covered by an automated current feed, and that zero High rows meet both the >=70% probability and the -250..+10,000 focus window. This board therefore (a) captures a new, timestamped official-source snapshot for every in-scope sport it can reach, (b) originates its own lines from verified inputs only, and (c) publishes a fresh dashboard at `/session-e5f2dad3/` without overwriting another board's files.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Raw official-source capture with per-URL status + SHA-256 manifest | in progress | arena/e5f2dad3-olbg4 | `data/session-e5f2dad3/raw/`, `scripts/session-e5f2dad3/collect.py`, `.github/workflows/collect-e5f2dad3.yml` |
+| T2 | Fixture verification line by line (official page/API only; blank + flag when silent) | unclaimed | arena/e5f2dad3-olbg4 | `data/session-e5f2dad3/fixtures.json`, `data/session-e5f2dad3/verification.json` |
+| T3 | Own-lines model (moneyline, handicap, total) + pick + confidence | unclaimed | arena/e5f2dad3-olbg4 | `data/session-e5f2dad3/markets.json`, `scripts/session-e5f2dad3/model.py` |
+| T4 | High-confidence write-ups >=30 words inside -250..+10,000 | unclaimed | arena/e5f2dad3-olbg4 | `data/session-e5f2dad3/predictions.json` |
+| T5 | Dashboard (landing + sport subpages + tables + analysis + Flagged for Review) | unclaimed | arena/e5f2dad3-olbg4 | `session-e5f2dad3/**` |
+| T6 | Independent verification gate (sources, prices, predictions, links) | unclaimed | arena/e5f2dad3-olbg4 | `scripts/session-e5f2dad3/verify.py` |
+| T7 | Final integration: root nav pointer, PR to `main`, merge, Pages deploy confirmation | unclaimed | arena/e5f2dad3-olbg4 | `index.html`, `README.md`, `tools/build_master_site.py`, `COORDINATION.md` |
+
+**Claim boundary.** Existing `session-*/`, `data/board_k/*`, `data/master*.json`, `data/rows.json`, `docs/**` and `board/**` are read-only for this board unless the final integration step (T7) needs a root pointer; that pointer is added through the generator that owns the root so the Pages staleness gate stays green. T2–T7 are listed as unclaimed only because they were not started when this claim was pushed; this session is the sole owner and starts them immediately after the claim commit.
+
+**Access constraint (unchanged from Boards B/R):** the interactive sandbox has no general HTTPS egress. Official pages are therefore captured by `scripts/session-e5f2dad3/collect.py` running on a GitHub Actions runner (open egress), which writes the exact bytes plus the URL, HTTP status, byte count, fetch timestamp and SHA-256 into the repository. Parsing happens only against those committed bytes, so every published value is reproducible from the manifest.
+
+
+### Board W completion record (2026-10-22, session `arena/e5f2dad3-olbg4`)
+
+**Published output:** [`session-e5f2dad3/index.html`](session-e5f2dad3/index.html) — a dashboard with 10 top-level pages
+(Dashboard, All matches, Our lines & picks, High-confidence write-ups, Markets, Verification register, Analysis,
+Flagged for review, Sources, Method) plus 11 per-sport pages. Machine-readable data lives in `data/session-e5f2dad3/`:
+`board.json` (fixtures, markets, picks, flags), `olbg_listing.json` (reverse-engineered OLBG feed),
+`predictions.json`, and `manifest.json` (every captured URL with HTTP status, byte count, timestamp and SHA-256).
+
+| Metric | Result |
+|---|---|
+| Matches published | **226** (22 Oct – 2 Nov 2026) across **11 sports** |
+| Officially confirmed | **123** — 82 NHL, 7 MLB, 34 LoL Esports; participants, date, UTC start time and venue read from the league's own endpoint |
+| Reverse-engineered listing | **119 OLBG events** across 12 sports (63 on 22 Oct); **103** published as listing-only rows, blank venue/market/pick and flagged |
+| Outright/futures separated | **15** OLBG outright cards kept out of the match table |
+| Own lines originated | **90** matches: moneyline for all; puck line ±1.5 + total for the 82 NHL rows; run line ±1.5 + total for the 7 MLB rows; series moneyline for the one priced esports match |
+| Confidence | **4 High / 26 Medium / 60 Low**; High = p ≥ 0.68 and both sides ≥ 6 verified games |
+| High picks inside −250…+10,000 | **3** (1.45 / −222, 1.42 / −238, 1.40 / −250); the fourth High row is 0.768 at 1.30, shorter than −250, so it is excluded and flagged |
+| Predictions | **3** unique write-ups, 75–81 words, each naming the selection, quoting official form (record, points, goals for/against, L10, home/road splits, streak) and listing every fact URL |
+| Verification | `python3 scripts/session-e5f2dad3/verify.py` → **9,104 assertions, all passed**; includes hash re-check of every source file, two-way book sums, pick/band rules, prediction uniqueness (3-gram Jaccard < 0.25), broken-link scan and table row counts |
+| Repo gates | `python3 scripts/audit_publication.py --check` → 10,701 local targets, **0 broken, 0 stale**; `python3 tools/build_master.py` + `BOARD_DIR=board python3 tools/verify_master.py` → OK; `python3 -m pipeline.selftest` → all passed |
+| Root pointer | Root `index.html` and the generated `board/index.html` carry an additive Board U callout; the callout in `board/` is produced by `tools/build_master_site.py` from the committed Board U data, so the Pages staleness gate stays deterministic |
+
+**Sources (official only, committed byte-for-byte):** `api-web.nhle.com` schedule (22 Oct – 2 Nov) and standings
+(20–22 Oct); `statsapi.mlb.com` schedule and standings; Riot `esports-api.lolesports.com` schedule;
+`www.olbg.com` sport pages for the reverse-engineering listing only. Blocked endpoints are recorded with their exact URL
+and status: NBA CDN/Stats API (403 / connection reset), ATP Tour (403), ICC fixtures route (404), ECB (404),
+URC (404), EHF (404), GBGB (no response), AFL API (401), WTT and BWF match pages (JavaScript shells).
+
+**Irregularities published on [`session-e5f2dad3/flagged.html`](session-e5f2dad3/flagged.html):**
+1. The −250 floor and the “over 70%” rule can only both hold in the 68.0–71.4% band; the board states this explicitly,
+   publishes High only inside the window, and lists the stronger-but-shorter 0.768 pick as excluded rather than
+   relabelling it.
+2. Eight sports have no originated market because no official numeric input could be captured. The matches are still
+   listed, priced nowhere, and flagged — never filled with estimates.
+3. OLBG renders kick-off times in the visitor's timezone; the parser publishes the schema.org `startDate` UTC value and
+   keeps the visible text verbatim.
+4. OLBG lists only events with at least one tip, so absence from the listing is not evidence a fixture is absent.
+5. Two board-name collisions (`arena/cdf25c13-olbg4` took "T"; `arena/c92c927c-olbg4` took "U"), logged above; this board renumbered to W and kept its files separate.
+6. The 123 officially confirmed rows are a subset of the 226 published matches; the other 103 are explicitly unverified.
+
+**PR / merge:** recorded below once the pull request is merged and Pages is confirmed.

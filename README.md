@@ -40,6 +40,31 @@ rebuilt the desk from scratch:
 
 ---
 
+## Newest refresh — Board W (22 October 2026)
+
+**[Open the Board W desk →](session-e5f2dad3/index.html)**
+
+A fresh, independently captured refresh for the 22 Oct – 2 Nov 2026 window, built by session
+`arena/e5f2dad3-olbg4` without touching any earlier board's data:
+
+- **226 matches across 11 sports**, every row with a source link. **123** were confirmed on an official league
+  endpoint (NHL, MLB, Riot LoL Esports) — participants, date, UTC start time and venue — and **103** are published
+  as OLBG-listing-only rows with their venue, market and pick deliberately blank and flagged.
+- **90 matches priced by our own model**: moneyline for all, puck line ±1.5 and total for the 82 NHL rows, run line
+  ±1.5 and total for the 7 MLB rows, series moneyline for the priced esports match. No bookmaker price is read.
+- **4 High-confidence picks, 3 inside the requested −250…+10,000 window**, each with a unique 75–81-word write-up,
+  official form (record, points, goals for/against, last ten, home/road, streak) and every fact URL listed underneath.
+  The fourth High row (0.768, fair 1.30) is shorter than −250, so it is excluded from the High list and published on
+  the Flagged page instead of being relabelled.
+- **Every captured payload is hashed**: `data/session-e5f2dad3/manifest.json` records the URL, HTTP status, byte
+  count, timestamp and SHA-256 of each source; the build re-hashes every file it reads and fails on a mismatch.
+- **Flagged for review:** 137 items, including the 103 listing-only rows, the eight sports with no official numeric
+  input (NBA, ATP, URC, EHF, PDC, WST, ICC, Volleyball World and GBGB endpoints returned 403/404 or are JS shells),
+  and the price-window/70% tension.
+
+Gates for this board: `python3 scripts/session-e5f2dad3/build.py`, `python3 scripts/session-e5f2dad3/site.py`,
+`python3 scripts/session-e5f2dad3/verify.py` (9,104 assertions), plus the repository-wide audit and master-board gates.
+
 ## Start here — the merged master board
 
 `/board/` is a single dashboard built from every earlier build in this repository:
