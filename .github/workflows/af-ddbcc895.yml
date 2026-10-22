@@ -43,16 +43,7 @@ jobs:
           STAMP=$(date -u +%Y%m%dT%H%M%SZ)
           echo "STAMP=$STAMP" >> "$GITHUB_ENV"
           python3 scripts/session-ddbcc895/fetch.py scripts/session-ddbcc895/targets.json "data/session-ddbcc895/capture/$STAMP"
-          python3 - <<'PY'
-          import json, os
-          stamp = os.environ["STAMP"]
-          path = f"data/session-ddbcc895/capture/{stamp}/manifest.json"
-          m = json.load(open(path))
-          print(f"capture {stamp}: {m['http_200_nonempty_count']}/{m['target_count']} HTTP 200")
-          for it in m["items"]:
-              if it.get("status") != 200:
-                  print(f"  {it.get('status')} {it['id']} {it['url']} {it.get('error','')[:60]}")
-          PY
+          python3 scripts/session-ddbcc895/summarize_capture.py "data/session-ddbcc895/capture/$STAMP/manifest.json"
       - name: Commit capture to arena/ddbcc895-olbg4
         run: |
           set -euo pipefail
