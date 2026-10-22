@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Freshness review · OLBG4 review</title>
+  <meta name="description" content="A conservative freshness and official-source traceability review of the committed OLBG4 data.">
+  <link rel="stylesheet" href="assets/review.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="shell navwrap"><a class="brand" href="index.html"><span class="brand-mark">O4</span><span>OLBG4 <small>freshness review</small></span></a><nav><a href="index.html" class="active">Review desk</a><a href="flagged.html" class="">Flagged for review</a><a href="../board/index.html" class="">Canonical board</a><a href="../session-4afef1af/index.html" class="">Automated desk</a></nav></div>
+</header>
+<main class="shell">
+<section class="hero">
+  <p class="eyebrow">Independent session S1 · 22 October 2026 (UTC date boundary)</p>
+  <h1>Current-match freshness review</h1>
+  <p class="lede">A conservative, source-first overlay for the committed OLBG4 inventory. It does not make new fixture claims, odds, or predictions. A row is carried into the strict current view only when it is in scope, a head-to-head fixture, dated today or later, and the canonical record has an official-source URL plus its original build-verified flag. High-confidence rows also need a unique written prediction.</p>
+  <div class="callout"><strong>Important:</strong> the canonical master is dated <code>2026-10-21</code>, not 22 October. “Carried current” means a prior build recorded official evidence; it does <em>not</em> mean S1 re-opened that external page today. Use the official link in each row for manual review.</div>
+</section>
+
+<section class="cards" aria-label="Review summary">
+  <article><span>Canonical rows</span><strong>317</strong><small>all retained audit rows</small></article>
+  <article><span>Current/upcoming fixtures</span><strong>164</strong><small>in-scope · 2026-10-22 onward</small></article>
+  <article><span>Strict carried rows</span><strong>152</strong><small>official URL + original verification</small></article>
+  <article class="warn-card"><span>Held current rows</span><strong>12</strong><small>source, verification, or copy gap</small></article>
+  <article><span>Unique high write-ups</span><strong>60</strong><small>canonical written predictions</small></article>
+</section>
+
+<section class="panel" id="method">
+  <div class="section-heading"><div><p class="eyebrow">How this review works</p><h2>Rules that prevent silent promotion</h2></div></div>
+  <ol class="rules">
+    <li><b>Official source link:</b> shown only if the canonical master classifies the source as official. A blank means blank; S1 does not substitute a guess.</li>
+    <li><b>Current view:</b> only in-scope head-to-head fixtures dated 2026-10-22 or later are candidates. Historical, market-note, incomplete and excluded rows remain visible in the full audit table.</li>
+    <li><b>High confidence:</b> templated high-confidence copy is held. The original official link remains available on the Flagged page, but the prediction is not treated as compliant unique writing.</li>
+    <li><b>Focus range:</b> the pipeline’s 70%+ / −250 to +10000 American-odds subset is reported exactly as supplied; no artificial pick is added if it is empty.</li>
+  </ol>
+</section>
+
+<section class="panel" id="review-table">
+  <div class="section-heading">
+    <div><p class="eyebrow">Line-by-line audit</p><h2>All canonical entries</h2><p class="muted">Filtering changes visibility only; the downloaded review data retains all 317 rows. “Markets” are carried values from the canonical record, not S1-originated lines.</p></div>
+    <a class="button secondary" href="../data/session-4e9d03cf/review.json">Download review JSON</a>
+  </div>
+  <div class="filters" aria-label="Table filters">
+    <label>View <select id="f-view"><option value="all">All rows (317)</option><option value="current">Current/upcoming fixtures (164)</option><option value="strict">Strict carried current (152)</option><option value="held">Held / flagged rows</option></select></label>
+    <label>Sport <select id="f-sport"><option value="">All sports</option><option value="Aussie Rules">Aussie Rules</option><option value="Badminton">Badminton</option><option value="Baseball">Baseball</option><option value="Basketball">Basketball</option><option value="Cricket">Cricket</option><option value="Darts">Darts</option><option value="Esports">Esports</option><option value="Gaelic Football">Gaelic Football</option><option value="Golf">Golf</option><option value="Greyhound Racing">Greyhound Racing</option><option value="Greyhounds">Greyhounds</option><option value="Handball">Handball</option><option value="Ice Hockey">Ice Hockey</option><option value="Motor Racing">Motor Racing</option><option value="Rugby League">Rugby League</option><option value="Rugby Union">Rugby Union</option><option value="Snooker">Snooker</option><option value="Table Tennis">Table Tennis</option><option value="Tennis">Tennis</option><option value="Volleyball">Volleyball</option></select></label>
+    <label>Search <input id="f-query" type="search" placeholder="team, event, selection"></label>
+    <p id="shown" aria-live="polite"></p>
+  </div>
+  <div class="table-scroll"><table id="rows"><thead><tr><th>Date</th><th>Sport</th><th>Match / competition</th><th>Carried selection</th><th>Markets</th><th>Official source</th><th>Review state</th></tr></thead><tbody><tr><td colspan="7">Loading committed review data…</td></tr></tbody></table></div>
+</section>
+
+<section class="split-grid">
+  <article class="panel"><p class="eyebrow">What can be used today</p><h2>Strict view</h2><p><strong>152</strong> current/upcoming fixture rows pass the review’s structural gate. Their selection and market text are still historical model output; use each official link to validate live changes before publication.</p><a class="text-link" href="#review-table" data-set-view="strict">Open strict rows →</a></article>
+  <article class="panel"><p class="eyebrow">What is intentionally held</p><h2>No source? No promotion.</h2><p><strong>12</strong> current/upcoming rows are held for missing/insufficient source verification or templated high-confidence text. They are not erased, so the evidence gap remains reviewable.</p><a class="text-link" href="flagged.html">See flagged findings →</a></article>
+  <article class="panel"><p class="eyebrow">Fresh automated feed</p><h2>NBA · NHL · MLB only</h2><p>The latest committed pipeline snapshot is from <code>2026-10-21T21:39:44+00:00</code>. It has its own source-linked market and prediction pages; it does not refresh every in-scope sport.</p><a class="text-link" href="../session-4afef1af/index.html">Open automated desk →</a></article>
+</section>
+</main>
+<footer class="shell footer"><p>Prepared from committed repository data only. This is not betting advice. Values without eligible official evidence are held rather than inferred.</p></footer>
+<script src="assets/review.js"></script>
+</body>
+</html>
