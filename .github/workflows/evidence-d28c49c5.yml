@@ -1,0 +1,42 @@
+name: Official evidence capture AD
+on:
+  workflow_dispatch:
+  push:
+    branches: [arena/d28c49c5-olbg4]
+    paths: ['scripts/session-d28c49c5/**', 'session-d28c49c5/**', 'data/session-d28c49c5/**', '.github/workflows/evidence-d28c49c5.yml']
+permissions:
+  contents: write
+jobs:
+  capture:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/session-d28c49c5/collect.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-evidence-ad
+          path: data/session-d28c49c5/
+      - name: Preserve evidence on this session branch only
+        if: github.ref == 'refs/heads/arena/d28c49c5-olbg4'
+        run: |
+          git config user.name "Evidence capture AD"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/session-d28c49c5
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Preserve official AD response bytes [skip ci]"
+          git pull --rebase origin arena/d28c49c5-olbg4
+          git push origin arena/d28c49c5-olbg4
+  verify-evidence-desk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/session-d28c49c5/test_build.py
+      - run: git diff --exit-code -- session-d28c49c5 data/session-d28c49c5

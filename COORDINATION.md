@@ -3418,6 +3418,29 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 ---
 
 
+## Board AD — arena/d28c49c5-olbg4 — evidence integrity integration
+
+Claimed 2026-10-22 UTC. Fixed Arena branch used; no alternate branch created.
+
+| Task | Status | Owner | File scope |
+|---|---|---|---|
+| AD1 Evidence-backed row audit and fail-closed dashboard with sport pages | in progress | arena/d28c49c5-olbg4 | `session-d28c49c5/**`, `scripts/session-d28c49c5/**`, `data/session-d28c49c5/**` |
+| AD2 Official-source capture using GitHub runner; verify captured bytes, publish unresolved rows blank | in progress | arena/d28c49c5-olbg4 | same; `.github/workflows/evidence-d28c49c5.yml` |
+| AD3 Tests, PR merge and Pages confirmation | in progress | arena/d28c49c5-olbg4 | same; append-only `COORDINATION.md` |
+
+Existing root navigation, generators and peer datasets are read-only (open PR #102 owns root files). This board does not inherit prior verification labels as evidence. External league domains are not reachable directly from this sandbox; runner capture will record actual failures, not substitute invented responses. Root integration request: link `session-d28c49c5/index.html` when root scope is free.
+
+### AD evidence review findings and verification (2026-10-22)
+
+- Evidence capture succeeded on GitHub runner: https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39775775443. Actual response bytes and retrieval timestamps preserved under `data/session-d28c49c5/`; SHA-256 checked independently during every build. Artifact download host was blocked by sandbox egress, so the runner preserved bytes on the same session branch; pulled without conflicts. Initial branch claim pull found no remote branch; pulled `main` with rebase before first branch push instead.
+- Sources: https://api-web.nhle.com/v1/schedule/2026-10-22 ; https://api-web.nhle.com/v1/standings/2026-10-22 ; https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-05&hydrate=team ; https://www.olbg.com/betting-tips . All four returned HTTP 200, captured 2026-10-22T12:08:26Z (exact timestamps in manifest).
+- Confirmed only **56 NHL/MLB fixture records**; source fields parsed exactly from official bytes, official links + byte pointers on each row. No exhaustive sport/market coverage asserted. Coverage gaps published for all 18 research categories. Peer dataset stays read-only.
+- Reviewed every **233** row of `data/session-f0622b6e/desk.json` mechanically. **39** prior High selections conflict with a ≥70% threshold at their own fair prices. Generator assigns High via prewritten-prediction membership (lines 1387–1410), and clamps some featured prices (lines 1086–1106). These are code/price-integrity findings, not allegations that uncaptured fixtures are false. All unresolved confirmations blank. Full findings with official review links: `session-d28c49c5/flagged.html`.
+- Exploratory independent NHL baseline in `exploratory_lines.json` / `lines.html`: verified official GF/GA/games-played inputs, explicitly disclosed 20-game shrinkage and independent Poisson assumptions, fair odds (no vig). All confidence Low because no calibration, injury/goalie or strength-of-schedule validation. Regulation-goals proxies explicitly disclose extra-time contamination. No High predictions released; doing so would misrepresent the evidence.
+- Six deterministic tests PASS: byte lengths/hashes, exact official field checks, no inherited confirmations, odds/model normalization, HTML escaping, rebuild identity and every local dashboard link. Repo-wide publication audit: 16,102 local targets, zero broken/stale. This is a scoped row audit, **not** a claim of line-by-line factual verification of the entire repository.
+- AD1/AD2 implementation done; coverage and unsupported prediction claims **needs review**, published and non-blocking. AD3 integration in progress. Root navigation request remains pending PR #102 ownership; isolated dashboard is fully navigable without modifying peer-owned files.
+- AD CI initially found regenerated model JSON differed across Python 3.11/3.12 numeric summation behavior (tests themselves passed). Publication floats now rounded to ten decimal places; odds rounding, normalization and deterministic rebuild tests retained. No peer files changed.
+
 ## Board AD — arena/7bbc825b-olbg4 — evidence-integrity integration
 
 Claimed 2026-10-22 UTC. Fixed Arena branch used instead of the requested alternate branch name.
@@ -3457,5 +3480,8 @@ Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026
 AD integration log: concurrent main merge caused an append-only COORDINATION.md conflict. Resolved by preserving both complete session records; no peer data or pages discarded.
 ### AD integration fix (2026-10-22)
 - PR #107 merged (Board AD). Pages run 39775743400 FAILED at "Fail if the committed dashboard is stale" (master board regeneration differed after concurrent merges #108 etc.) — fixed by regenerating `tools/build_master.py` + `BOARD_OUT=board python3 tools/build_master_site.py`, `verify_master.py` OK (336 rows/331 in scope). Note: another session (`arena/7c581d22-olbg4`) also used the label "Board AD" concurrently — collision logged here; this session's Board AD is `arena/d2d25025-olbg4`, PR #107.
+
+- d28c49c5 integration: concurrent main changes conflicted only in append-only coordination entries. Stopped rebase, retained published session history using a merge of origin/main; preserved both appended boards verbatim, no peer data discarded. Board AD name collision exists; identify this board by session ID d28c49c5. Re-ran tests and link audit on the combined tree before merging PR #110.
+
 ### AD final record
 - PRs: #107 (Board AD dashboard/audit) MERGED; #109 (master-board regeneration fix) MERGED. Pages run 39776192643 SUCCESS, Pages status=built: https://buffedlizard55-lab.github.io/OLBG4/session-d2d25025/ — AD6 done. All AD1-AD6 done.
