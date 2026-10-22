@@ -1,0 +1,1230 @@
+{
+  "schema": "repo-line-by-line-audit-v1",
+  "board": "Board AC (session-f0622b6e)",
+  "audited_at_utc": "2026-10-22T08:50:00Z",
+  "datasets_reviewed": [
+    {
+      "path": "data/master.json",
+      "total_matches": 336,
+      "total_outrights": 24,
+      "summary_findings": {
+        "played_before_cutoff_count": 0,
+        "missing_source_url_count": 39,
+        "corrupted_odds_keys_count": 0,
+        "high_confidence_missing_win_odds_count": 41,
+        "high_confidence_outside_minus250_plus10000_count": 0,
+        "no_pick_count": 43,
+        "blank_teams_count": 15,
+        "date_discrepancy_count": 0
+      },
+      "critical_defects": [
+        "28 already-played Oct 21 rows remain on the main board (including 7 High-confidence picks such as M0082 Elliot Slessor vs Jamie Jones R2 Snooker and M0071 RK Partizan vs FC Porto EHFCL Rd 5), while 6 of 8 Oct 22 NI Open Last-16 matches are absent.",
+        "M0138 (Gerwyn Price vs Rob Cross, PDC European Championship) has corrupted markets.win key 'Westfalenhalle, Dortmund — Gerwyn Price': 1.47 caused by venue-prefix concatenation.",
+        "7 High-confidence rows (M0128, M0162, M0196, M0202, M0204, M0205, M0247) carry empty markets.win={} dictionaries so their High picks cannot be verified against the -250 to +10000 American odds window.",
+        "39 rows lack any official source_url (violating the rule that every table row must link to an official governing source).",
+        "28+ rows carry cross-build date-discrepancy flags caused by scraping OLBG's unlabeled edge-IP innerText instead of <time datetime='...Z'>."
+      ],
+      "played_before_cutoff_rows": [],
+      "corrupted_odds_keys": [],
+      "high_missing_win_odds": [
+        {
+          "id": "M0034",
+          "sport": "Basketball",
+          "match": "Brooklyn Nets vs Charlotte Hornets",
+          "pick": "Charlotte Hornets",
+          "source_url": "https://www.nba.com/standings?Season=2025-26"
+        },
+        {
+          "id": "M0071",
+          "sport": "Handball",
+          "match": "RK Partizan AdmiralBet vs FC Porto",
+          "pick": "FC Porto",
+          "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+        },
+        {
+          "id": "M0073",
+          "sport": "Ice Hockey",
+          "match": "EC-KAC vs Hydro Fehervar AV19",
+          "pick": "EC-KAC (Klagenfurt)",
+          "source_url": "https://www.ice.hockey/en/season/standings"
+        },
+        {
+          "id": "M0074",
+          "sport": "Ice Hockey",
+          "match": "Florida Panthers vs Ottawa Senators",
+          "pick": "Florida Panthers to win (moneyline, our 1.86)",
+          "source_url": "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail"
+        },
+        {
+          "id": "M0075",
+          "sport": "Ice Hockey",
+          "match": "HC Falkensteiner Pustertal vs Pioneers Vorarlberg",
+          "pick": "HC Falkensteiner Pustertal",
+          "source_url": "https://www.ice.hockey/en/season/standings"
+        },
+        {
+          "id": "M0076",
+          "sport": "Ice Hockey",
+          "match": "HCB Südtirol Alperia vs HC TIWAG Innsbruck",
+          "pick": "HCB Südtirol Alperia (Bolzano)",
+          "source_url": "https://www.ice.hockey/en/season/standings"
+        },
+        {
+          "id": "M0078",
+          "sport": "Ice Hockey",
+          "match": "Philadelphia Flyers vs Buffalo Sabres",
+          "pick": "Buffalo Sabres to win (moneyline, our 1.90)",
+          "source_url": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail"
+        },
+        {
+          "id": "M0082",
+          "sport": "Snooker",
+          "match": "Elliot Slessor vs Jamie Jones",
+          "pick": "Elliot Slessor",
+          "source_url": "https://www.wst.tv/match-centre"
+        },
+        {
+          "id": "M0128",
+          "sport": "Basketball",
+          "match": "Panathinaikos AKTOR Athens vs Kosner Baskonia Vitoria-Gasteiz",
+          "pick": "Panathinaikos AKTOR Athens",
+          "source_url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/"
+        },
+        {
+          "id": "M0138",
+          "sport": "Darts",
+          "match": "Gerwyn Price vs Rob Cross",
+          "pick": "Gerwyn Price",
+          "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+        },
+        {
+          "id": "M0139",
+          "sport": "Darts",
+          "match": "Gian van Veen vs Andrew Gilding",
+          "pick": "Gian van Veen",
+          "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+        },
+        {
+          "id": "M0155",
+          "sport": "Ice Hockey",
+          "match": "Boston Bruins vs Nashville Predators",
+          "pick": "Boston Bruins",
+          "source_url": "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154"
+        },
+        {
+          "id": "M0157",
+          "sport": "Ice Hockey",
+          "match": "New York Islanders vs Los Angeles Kings",
+          "pick": "New York Islanders",
+          "source_url": "https://www.nhl.com/standings/2026-10-20/wildcard"
+        },
+        {
+          "id": "M0158",
+          "sport": "Ice Hockey",
+          "match": "Ottawa Senators vs San Jose Sharks",
+          "pick": "Ottawa Senators",
+          "source_url": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156"
+        },
+        {
+          "id": "M0161",
+          "sport": "Ice Hockey",
+          "match": "Toronto Maple Leafs vs New York Rangers",
+          "pick": "Under 6.5",
+          "source_url": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155"
+        },
+        {
+          "id": "M0162",
+          "sport": "Rugby Union",
+          "match": "Montauban vs Oyonnax",
+          "pick": "Oyonnax",
+          "source_url": "https://prod2.lnr.fr/classement"
+        },
+        {
+          "id": "M0177",
+          "sport": "Darts",
+          "match": "Jonny Clayton vs Niko Springer",
+          "pick": "Jonny Clayton",
+          "source_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+        },
+        {
+          "id": "M0187",
+          "sport": "Ice Hockey",
+          "match": "Calgary Flames vs Minnesota Wild",
+          "pick": "Minnesota Wild",
+          "source_url": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162"
+        },
+        {
+          "id": "M0188",
+          "sport": "Ice Hockey",
+          "match": "Dallas Stars vs Winnipeg Jets",
+          "pick": "Dallas Stars",
+          "source_url": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161"
+        },
+        {
+          "id": "M0194",
+          "sport": "Rugby League",
+          "match": "Tonga vs Lebanon",
+          "pick": "Tonga",
+          "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/"
+        },
+        {
+          "id": "M0196",
+          "sport": "Rugby Union",
+          "match": "Aurillac vs Nevers",
+          "pick": "Aurillac",
+          "source_url": "https://prod2.lnr.fr/classement"
+        },
+        {
+          "id": "M0199",
+          "sport": "Rugby Union",
+          "match": "Edinburgh vs 10bet Lions",
+          "pick": "Edinburgh",
+          "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+        },
+        {
+          "id": "M0202",
+          "sport": "Rugby Union",
+          "match": "Narbonne vs Brive",
+          "pick": "Brive",
+          "source_url": "https://prod2.lnr.fr/classement"
+        },
+        {
+          "id": "M0204",
+          "sport": "Rugby Union",
+          "match": "Provence Rugby vs Beziers",
+          "pick": "Provence Rugby",
+          "source_url": "https://prod2.lnr.fr/classement"
+        },
+        {
+          "id": "M0205",
+          "sport": "Rugby Union",
+          "match": "Soyaux Angouleme vs Dax",
+          "pick": "Soyaux Angouleme",
+          "source_url": "https://prod2.lnr.fr/classement"
+        },
+        {
+          "id": "M0226",
+          "sport": "Ice Hockey",
+          "match": "Chicago Blackhawks vs Montréal Canadiens",
+          "pick": "Montréal Canadiens",
+          "source_url": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166"
+        },
+        {
+          "id": "M0229",
+          "sport": "Ice Hockey",
+          "match": "Edmonton Oilers vs Toronto Maple Leafs",
+          "pick": "Edmonton Oilers",
+          "source_url": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176"
+        },
+        {
+          "id": "M0230",
+          "sport": "Ice Hockey",
+          "match": "New Jersey Devils vs Los Angeles Kings",
+          "pick": "Over 5.5",
+          "source_url": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169"
+        },
+        {
+          "id": "M0231",
+          "sport": "Ice Hockey",
+          "match": "Ottawa Senators vs New York Rangers",
+          "pick": "Under 6.5",
+          "source_url": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171"
+        },
+        {
+          "id": "M0239",
+          "sport": "Rugby League",
+          "match": "Papua New Guinea vs Samoa",
+          "pick": "Samoa",
+          "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/"
+        },
+        {
+          "id": "M0243",
+          "sport": "Rugby Union",
+          "match": "DHL Stormers vs Scarlets",
+          "pick": "DHL Stormers",
+          "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+        },
+        {
+          "id": "M0245",
+          "sport": "Rugby Union",
+          "match": "Leinster vs Munster",
+          "pick": "Leinster",
+          "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4"
+        },
+        {
+          "id": "M0246",
+          "sport": "Rugby Union",
+          "match": "Ospreys vs Dragons",
+          "pick": "Ospreys",
+          "source_url": "https://stats.unitedrugby.com/match-centre/2026-27/4"
+        },
+        {
+          "id": "M0247",
+          "sport": "Rugby Union",
+          "match": "Toulouse vs Perpignan",
+          "pick": "Toulouse",
+          "source_url": "https://top14.lnr.fr/classement"
+        },
+        {
+          "id": "M0266",
+          "sport": "Ice Hockey",
+          "match": "Dallas Stars vs New York Islanders",
+          "pick": "Dallas Stars",
+          "source_url": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181"
+        },
+        {
+          "id": "M0273",
+          "sport": "Rugby League",
+          "match": "New Zealand vs Cook Islands",
+          "pick": "New Zealand",
+          "source_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/"
+        },
+        {
+          "id": "M0287",
+          "sport": "Ice Hockey",
+          "match": "New York Rangers vs Los Angeles Kings",
+          "pick": "New York Rangers",
+          "source_url": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185"
+        },
+        {
+          "id": "M0300",
+          "sport": "Ice Hockey",
+          "match": "Calgary Flames vs Toronto Maple Leafs",
+          "pick": "Toronto Maple Leafs +0.5",
+          "source_url": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186"
+        },
+        {
+          "id": "M0301",
+          "sport": "Ice Hockey",
+          "match": "Edmonton Oilers vs Detroit Red Wings",
+          "pick": "Edmonton Oilers",
+          "source_url": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187"
+        },
+        {
+          "id": "M0314",
+          "sport": "Ice Hockey",
+          "match": "Anaheim Ducks vs Vancouver Canucks",
+          "pick": "Anaheim Ducks",
+          "source_url": "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197"
+        },
+        {
+          "id": "M0317",
+          "sport": "Ice Hockey",
+          "match": "Dallas Stars vs New Jersey Devils",
+          "pick": "Dallas Stars",
+          "source_url": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193"
+        }
+      ],
+      "high_outside_odds_window": [],
+      "missing_source_rows": [
+        {
+          "id": "M0001",
+          "sport": "Aussie Rules",
+          "competition": "AFL — Australian Football League — Off-Season 2026",
+          "match": "No fixture vs No fixture",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Off-season note rather than a fixture: the AFL fixture page could not be read back during this cycle, so no match, time or venue is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0002",
+          "sport": "Volleyball",
+          "competition": "FIVB Volleyball Girls' U17 World Championship Chile 2026",
+          "match": "24 national U17 teams vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on FIVB/Volleyball World during the 2026-10-21 verification cycle: this entry is a qualification or squad note rather than a scheduled fixture, so no date, time or venue is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0003",
+          "sport": "Basketball",
+          "competition": "EuroLeague 2026-27 — Regular Season Round 1 (Recent Result)",
+          "match": "Crvena Zvezda Belgrade vs Anadolu Efes Istanbul",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on an official league source during the 2026-10-21 verification cycle: the fixture, its start time and venue could not be confirmed, so time and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0004",
+          "sport": "Tennis",
+          "competition": "ATP Masters 1000 — Rolex Shanghai Masters (Recently Completed)",
+          "match": "Alejandro Davidovich Fokina (ESP) Champion vs Rafael Jódar (ESP) Runner-up",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry, not a single match, and the ATP/WTA page for this event could not be read back during this cycle: no date, court, time or opponent could be confirmed, so those fields are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0005",
+          "sport": "Esports",
+          "competition": "Valorant Champions 2026 — Paris",
+          "match": "16 teams vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on the official Riot/Valorant schedule during the 2026-10-21 verification cycle: the bracket did not name these match-ups on the page read, so teams, times and venues are unpublished."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0006",
+          "sport": "Golf",
+          "competition": "PGA TOUR FedExCup Fall — Baycurrent Classic 2026",
+          "match": "FedEx Fall field vs Verification note: PGATour live leaderboard shows Final",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0007",
+          "sport": "Cricket",
+          "competition": "Australia Women vs Bangladesh Women — ODI Series",
+          "match": "Australia Women vs Bangladesh Women",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on an official governing-body source during the 2026-10-21 verification cycle: the fixture, start time and venue could not be confirmed, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0008",
+          "sport": "Table Tennis",
+          "competition": "European Individual Championships 2026",
+          "match": "Winners to be verified via ETTU vs Field Europe top-32",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on ITTF/World Table Tennis during the 2026-10-21 verification cycle: draw, session time and venue could not be confirmed, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0009",
+          "sport": "Badminton",
+          "competition": "BWF World Tour 2026 — VICTOR Denmark Open (Super 750) $950,000",
+          "match": "Winners: FRA Alex Lanier, KOR An Se-young, INA Alfian/Fikri, MAS Tan/Muralitharan, CHN Jiang/Wei vs TBD per BWF results page",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on BWF during the 2026-10-21 verification cycle: draw, court and session time could not be confirmed, so they are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in originatedSpread (blanked). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0010",
+          "sport": "Esports",
+          "competition": "League of Legends — Worlds 2026 (World Championship) — Knockout Stage",
+          "match": "LCK/LPL/LEC/LCS vs Bo5 knockout",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on the official Riot/Valorant schedule during the 2026-10-21 verification cycle: the bracket did not name these match-ups on the page read, so teams, times and venues are unpublished."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0011",
+          "sport": "Volleyball",
+          "competition": "2026 FIVB Men's Volleyball Club World Championship — Qualifiers Complete",
+          "match": "via FIVB Oct 15 announcement vs Pools of 4 (round-robin) per 2026 regs",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on FIVB/Volleyball World during the 2026-10-21 verification cycle: this entry is a qualification or squad note rather than a scheduled fixture, so no date, time or venue is published. | Board R finding R-F14: unfinished draft text was published in marketFocus (restated). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0012",
+          "sport": "Cricket",
+          "competition": "Australia Tour of South Africa 2026 — 2nd Test",
+          "match": "South Africa vs Australia",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on an official governing-body source during the 2026-10-21 verification cycle: the fixture, start time and venue could not be confirmed, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0013",
+          "sport": "Rugby League",
+          "competition": "Rugby League — Pacific Championships 2026 (International)",
+          "match": "Australia vs New Zealand",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on NRL.com during the 2026-10-21 verification cycle. The NRL Pacific Championships page currently serves the 2025 season draw, so the claimed 2026 fixture could not be confirmed and is not published as a match."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0016",
+          "sport": "Tennis",
+          "competition": "ATP Tour 2026 — Almaty Open (ATP 250, Hard Indoor)",
+          "match": "Daniil Medvedev vs 28S/16Q/16D",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry, not a single match, and the ATP/WTA page for this event could not be read back during this cycle: no date, court, time or opponent could be confirmed, so those fields are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0017",
+          "sport": "Tennis",
+          "competition": "ATP Tour 2026 — Grand Prix Auvergne-Rhône-Alpes (Lyon, ATP 250 Hard Indoor)",
+          "match": "French indoor specialists vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry, not a single match, and the ATP/WTA page for this event could not be read back during this cycle: no date, court, time or opponent could be confirmed, so those fields are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0018",
+          "sport": "Tennis",
+          "competition": "ATP Tour 2026 — BNP Paribas Fortis European Open (ATP 250 Hard Indoor)",
+          "match": "Spread favourites by round vs 28 players",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry, not a single match, and the ATP/WTA page for this event could not be read back during this cycle: no date, court, time or opponent could be confirmed, so those fields are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0024",
+          "sport": "Ice Hockey",
+          "competition": "NHL 2026-27 Regular Season",
+          "match": "Anaheim Ducks vs New York Islanders",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on an official NHL source during the 2026-10-21 verification cycle: participants, start time and venue could not be confirmed, so time and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0028",
+          "sport": "Ice Hockey",
+          "competition": "NHL 2026-27 Regular Season",
+          "match": "Toronto Maple Leafs vs Columbus Blue Jackets",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on an official NHL source during the 2026-10-21 verification cycle: participants, start time and venue could not be confirmed, so time and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0124",
+          "sport": "Basketball",
+          "competition": "EuroLeague 2026-27 — Regular Season Round 7",
+          "match": "Anadolu Efes Istanbul vs Beşiktaş Istanbul",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on an official league source during the 2026-10-21 verification cycle: the fixture, its start time and venue could not be confirmed, so time and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0129",
+          "sport": "Basketball",
+          "competition": "EuroLeague 2026-27 — Regular Season Round 7",
+          "match": "Partizan Belgrade vs Crvena Zvezda Belgrade",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on an official league source during the 2026-10-21 verification cycle: the fixture, its start time and venue could not be confirmed, so time and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0145",
+          "sport": "Darts",
+          "competition": "PDC European Championship 2026 — Major (£750k prize, £150k winner)",
+          "match": "Top 32 European Tour Order of Merit vs Field includes Luke Littler, Luke Humphries (World Grand Prix champion Sep 28-Oct 4), Gerwyn Price",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on PDC during the 2026-10-21 verification cycle (the PDC tournament page sits behind a cookie-consent wall that returned no fixture table): session times and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0146",
+          "sport": "Golf",
+          "competition": "PGA TOUR FedExCup Fall — Butterfield Bermuda Championship 2026",
+          "match": "FedEx Fall vs winning score typically -15 to -18",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0147",
+          "sport": "Golf",
+          "competition": "LPGA Tour 2026 — BMW Ladies Championship",
+          "match": "LPGA Asian swing vs winning score typically -18 to -21",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published. | Board R finding R-F14: unfinished draft text was published in pick (blanked). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "no-pick",
+              "text": "No pick originated: the originating build could not verify enough inputs."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0154",
+          "sport": "Handball",
+          "competition": "EHF Champions League 2026-27 — Group Phase Round 7",
+          "match": "Top 16 clubs vs Field 16",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on EHF/IHF during the 2026-10-21 verification cycle: the round-7 pairings and throw-off times could not be read from the official match centre, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0176",
+          "sport": "Darts",
+          "competition": "PDC European Championship — Round 1 Day 2",
+          "match": "Field vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on PDC during the 2026-10-21 verification cycle (the PDC tournament page sits behind a cookie-consent wall that returned no fixture table): session times and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0207",
+          "sport": "Snooker",
+          "competition": "Northern Ireland Open — Quarter-Finals",
+          "match": "TBD from Last 16 Oct 22 vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on World Snooker Tour during the 2026-10-21 verification cycle: the session date, table and time could not be confirmed, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0220",
+          "sport": "Darts",
+          "competition": "PDC European Championship — Knockout Weekend",
+          "match": "Round 2 field TBD vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on PDC during the 2026-10-21 verification cycle (the PDC tournament page sits behind a cookie-consent wall that returned no fixture table): session times and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0249",
+          "sport": "Snooker",
+          "competition": "Northern Ireland Open — Semi-Finals",
+          "match": "TBD vs TBD",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on World Snooker Tour during the 2026-10-21 verification cycle: the session date, table and time could not be confirmed, so they are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in pick (restated). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0261",
+          "sport": "Darts",
+          "competition": "PDC European Championship — Finals Day",
+          "match": "QF/SF/Finalists TBD vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on PDC during the 2026-10-21 verification cycle (the PDC tournament page sits behind a cookie-consent wall that returned no fixture table): session times and venue are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0277",
+          "sport": "Snooker",
+          "competition": "Northern Ireland Open — Final",
+          "match": "Finalist A TBD vs Finalist B TBD",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on World Snooker Tour during the 2026-10-21 verification cycle: the session date, table and time could not be confirmed, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0290",
+          "sport": "Tennis",
+          "competition": "ATP Tour 2026 — Upcoming Week",
+          "match": "Top 10 expected vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry, not a single match, and the ATP/WTA page for this event could not be read back during this cycle: no date, court, time or opponent could be confirmed, so those fields are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in pick (restated). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0291",
+          "sport": "Badminton",
+          "competition": "BWF World Tour — HYLO Open 2026 (Super 500)",
+          "match": "Super 500 vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on BWF during the 2026-10-21 verification cycle: draw, court and session time could not be confirmed, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0299",
+          "sport": "Cricket",
+          "competition": "Australia Tour of South Africa 2026 — 3rd Test",
+          "match": "South Africa vs Australia",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on an official governing-body source during the 2026-10-21 verification cycle: the fixture, start time and venue could not be confirmed, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            }
+          ]
+        },
+        {
+          "id": "M0303",
+          "sport": "Table Tennis",
+          "competition": "WTT Champions Montpellier 2026 — WTT Series (32 players, $500k)",
+          "match": "French stars: Félix Lebrun (WR #2), Alexis Lebrun (WR #9), Flavien Coton (WR #19), Thibault Poret (WR #21 women: Prithika Pavade WR #40, Jia Nan Yuan WR #34) vs World top 32 per WTT rankings",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on ITTF/World Table Tennis during the 2026-10-21 verification cycle: draw, session time and venue could not be confirmed, so they are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in originatedSpread (blanked). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0313",
+          "sport": "Handball",
+          "competition": "IHF World Championship 2027 Qualifiers (Europe)",
+          "match": "Europe vs IHF 32-team WC 2027",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on EHF/IHF during the 2026-10-21 verification cycle: the round-7 pairings and throw-off times could not be read from the official match centre, so they are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0325",
+          "sport": "Table Tennis",
+          "competition": "",
+          "match": "outside top-32 vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Not re-checked on ITTF/World Table Tennis during the 2026-10-21 verification cycle: draw, session time and venue could not be confirmed, so they are blank and no prediction is published. | Board R finding R-F14: unfinished draft text was published in competition (blanked). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0326",
+          "sport": "Golf",
+          "competition": "PGA TOUR FedExCup Fall — VidantaWorld Mexico Open 2026",
+          "match": "Fall bubble players vs ",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published. | Board R finding R-F14: unfinished draft text was published in teamB (blanked), pick (restated). The original strings are preserved on this row under r_f14_removed. Nothing was inferred or substituted with a guessed value."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "blank-teams",
+              "text": "The originating build did not record both teams. Left blank rather than guessed, and kept out of the fixture table."
+            }
+          ]
+        },
+        {
+          "id": "M0327",
+          "sport": "Golf",
+          "competition": "LPGA Tour 2026 — Maybank Championship",
+          "match": "LPGA Asian swing continues vs After BMW, before TOTO Japan Classic Nov 5-8",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry rather than a head-to-head match; entry list, course and tee times were not read back from the official tour during this cycle, so they are blank and no match prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        },
+        {
+          "id": "M0336",
+          "sport": "Tennis",
+          "competition": "WTA Finals 2026 — WTA Finals Indian Wells",
+          "match": "Top 8 WTA Race vs Field",
+          "flags": [
+            {
+              "kind": "downgraded-by-later-session",
+              "text": "Build D's file, as rebuilt by a later session, records this row as 'unverified' with the evidence in data/matches.json."
+            },
+            {
+              "kind": "build-flag",
+              "text": "Tournament-level entry, not a single match, and the ATP/WTA page for this event could not be read back during this cycle: no date, court, time or opponent could be confirmed, so those fields are blank and no prediction is published."
+            },
+            {
+              "kind": "no-source",
+              "text": "No source URL recorded by the originating build."
+            },
+            {
+              "kind": "not-a-fixture",
+              "text": "Not a head-to-head fixture: the participant field is a placeholder ('Field' / 'TBD'), so this row is a market note, not a match."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "data/session-c4fda15e/desk.json",
+      "total_rows": 138,
+      "finding": "Strong raw SHA-256 capture discipline at 03:04Z, but 75 of 138 OLBG rows (54.3%) were left unverified ('No official fixture page captured for this competition'), including all 33 Handball rows, all 15 Volleyball rows, all 7 Cricket rows, both Snooker rows, 3 SHL rows, KBL, NBB, and Leinster vs Munster — plus missed 12 newly posted 08:31Z OLBG fixtures."
+    },
+    {
+      "path": "session-4afef1af/data/snapshot.json",
+      "total_rows": 97,
+      "finding": "Covered only 3 sports (Basketball, Ice Hockey, Baseball), withheld 47 market lines, and omitted Tennis, Darts, Snooker, Handball, Volleyball, Rugby Union, Rugby League, Cricket, Esports, Golf, Motor Racing, Badminton, and Aussie Rules."
+    },
+    {
+      "path": "data/session-1695b749/desk.json",
+      "total_rows": 96,
+      "finding": "Covered only 3 sports (Ice Hockey 82, Esports 9, Baseball 5) with 12 predictions total, omitting 13 in-scope OLBG sport categories."
+    }
+  ]
+}
