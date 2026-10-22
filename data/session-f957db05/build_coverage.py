@@ -69,7 +69,7 @@ ATTEMPTS = {
 
 BUILT = {'Ice Hockey': '82 NHL regular-season fixtures priced',
          'Baseball': '7 MLB post-season fixtures priced',
-         'Esports': '9 League of Legends fixtures priced (Riot official schedule API)'}
+         'Esports': '9 League of Legends fixtures listed from the Riot official schedule API; 1 priced, because the other 8 have no result for at least one team inside the captured window (V-F03)'}
 
 
 def main():
@@ -128,10 +128,19 @@ def main():
                    'from the live menu and publishes esports only because Riot Games serves an official schedule API.',
          'evidence': OLBG, 'status': 'needs-review'},
         {'id': 'V-F03', 'severity': 'sample', 'sport': 'Esports',
-         'title': 'Esports confidence is capped at Medium',
-         'detail': 'The only verified inputs available are match results inside a 13-day official feed window '
-                   '(2026-10-06 to 2026-10-18), which is too thin to publish a High pick.',
+         'title': 'Six of nine esports fixtures carry no pick, because one or both teams have no captured result',
+         'detail': 'The Riot feed captured here holds results for 2026-10-06 to 2026-10-18 only. Seven of the eight '
+                   'Worlds Swiss teams on 23 October do not appear in that window at all, so rating them would be a '
+                   'guess. Those rows are published with the fixture, the official link and an explicit "no pick - no '
+                   'verified form" instead of a coin-flip price. The one esports fixture with form on both sides '
+                   '(Galions v Solary, 22 Oct) is priced and graded Medium.',
          'evidence': 'https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US', 'status': 'verified'},
+        {'id': 'V-F10', 'severity': 'coverage', 'sport': 'Esports',
+         'title': 'A pick is published only when both teams have at least one verified result',
+         'detail': 'This rule was applied after a first build priced six Worlds fixtures at even money on a 50/50 '
+                   'prior and priced LOS v T1 at -250 with no data for T1 at all. Those rows were pulled back to '
+                   'no-pick before publication; the rebuild is in this branch history.',
+         'evidence': 'verification.html', 'status': 'verified'},
         {'id': 'V-F04', 'severity': 'sample', 'sport': 'Ice Hockey',
          'title': 'NHL clubs have played only 7-11 games, so team strength is shrunk toward the mean',
          'detail': 'The model multiplies each club rating by GP/(GP+8) so that a 9-game start cannot dominate the '
