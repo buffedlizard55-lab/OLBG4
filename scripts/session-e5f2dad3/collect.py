@@ -206,7 +206,10 @@ def main() -> int:
             "fetched_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "file": "",
         }
-        ext = "json" if "json" in ctype.lower() or body[:1] in (b"{", b"[") else "html"
+        # HTML captures are stored as .html.txt on purpose: they are third-party pages whose
+        # relative URLs must never be mistaken for links in this site (the repo-wide audit
+        # scans *.html).  The real content type is kept in the manifest.
+        ext = "json" if "json" in ctype.lower() or body[:1] in (b"{", b"[") else "html.txt"
         if 0 < len(body) <= 4_000_000:
             fn = f"{name}.{ext}"
             with open(os.path.join(OUT, fn), "wb") as f:

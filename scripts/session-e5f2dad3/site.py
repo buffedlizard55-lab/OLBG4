@@ -211,8 +211,8 @@ def index() -> str:
 <section class="hero">
   <div class="kicker">Reverse-engineered from OLBG · verified on official league sources · 22 Oct 2026</div>
   <h1>A current match list, our own prices, and one source link on every row.</h1>
-  <p class="lede">This board covers every sport the brief keeps in scope — all of OLBG's sports except soccer/football,
-  boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials and Gaelic football. Fixtures whose
+  <p class="lede">This board covers OLBG's in-scope sports, with soccer/football, boxing, UFC/MMA, American football, hurling,
+  horse racing, cycling, specials and Gaelic football excluded everywhere as the brief requires. Fixtures whose
   participants, kick-off time and venue were read from an official league endpoint are marked <strong>official</strong>;
   everything else is published as an <strong>OLBG listing</strong>, left unverified and flagged, exactly as the brief requires.</p>
   <div class="cta"><a class="btn primary" href="fixtures.html">Open all {len(FIX)} matches</a>
@@ -221,7 +221,7 @@ def index() -> str:
 </section>
 
 <section class="kpis">
-  {kpi(len(FIX), "matches on the board", "13 sports, 22 Oct – 2 Nov 2026")}
+  {kpi(len(FIX), "matches on the board", f"{len(SUMM)} sports, 22 Oct – 2 Nov 2026")}
   {kpi(len(OFFICIAL), "officially verified", "NHL, MLB and LoL Esports league APIs")}
   {kpi(len(PRICED), "with our own prices", "moneyline, puck/run line and totals")}
   {kpi(len(HIGH), "high confidence", "inside −250 to +10,000, written up")}
@@ -401,7 +401,7 @@ form taken from the official table, the most recent results, and the exact price
 listed underneath. None is templated: the build rejects duplicate bodies and any text under 30 words.</p></section>
 {''.join(cards) if cards else '<p>No predictions were generated.</p>'}
 <section><h2>Why only {len(PREDS)}?</h2>
-<p>Nine of the thirteen sports on the board have no official numeric strength input in this capture, so they cannot be
+<p>{len([s for s in SUMM if not SUMM[s]["priced"]])} of the {len(SUMM)} sports on the board have no official numeric strength input in this capture, so they cannot be
 priced at all. Of the {len(PRICED)} matches we could price, only {len(HIGH)} reach 68% while still being no shorter than
 −250. Publishing more “High” picks would mean either ignoring the price window or inventing inputs; both are ruled out
 by the brief and by <a href="methodology.html">our method</a>.</p></section>
@@ -544,7 +544,7 @@ checked manually.</p></section>
   At fair odds 70% is 1.428 (−233) and −250 is 71.43%. A pick with a 75% model probability is 1.33, which is
   <em>shorter</em> than −250. We therefore publish High only inside the window and list the excluded stronger picks
   below, rather than relabelling them.</div>
-  <div class="notebox"><strong>2. Nine sports have no originated market.</strong> The OLBG listing gives the matches,
+  <div class="notebox"><strong>2. {len([s for s in SUMM if not SUMM[s]["priced"]])} sports have no originated market.</strong> The OLBG listing gives the matches,
   but the official sites for those competitions are JavaScript shells or returned 403/404 to this capture runner.
   Without an official numeric input, any price would be invented — so the market is blank and flagged.</div>
 </section>
@@ -689,7 +689,7 @@ fact URL that is not in the capture manifest.</p>
 <li>No injury, suspension, team-news, weather, travel or rest-days modelling.</li>
 <li>Early-season shrinkage compresses probabilities toward 50%; that is deliberate but it does under-price strong teams.</li>
 <li>The model is not fitted to market prices and cannot identify value against a bookmaker; it only states our own price.</li>
-<li>Nine sports could not be priced because their official sites were unreachable or client-rendered in this capture.
+<li>{len([s for s in SUMM if not SUMM[s]["priced"]])} sports could not be priced because their official sites were unreachable or client-rendered in this capture.
 They are published as listings and flagged, never padded with invented inputs.</li>
 <li>The capture is a snapshot at the timestamp on <a href="sources.html">Sources</a>; fixtures, times and venues can change.</li>
 </ul>
