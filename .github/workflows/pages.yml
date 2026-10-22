@@ -55,6 +55,17 @@ jobs:
             exit 1
           fi
 
+      - name: Verify Board T live desk (22-28 Oct window)
+        run: |
+          python3 -m session-cdf25c13.build > /dev/null
+          python3 -m session-cdf25c13.render > /dev/null
+          python3 -m session-cdf25c13.verify
+          if ! git diff --quiet -- data/session-cdf25c13 session-cdf25c13; then
+            echo "Board T rebuild produced different output - commit the regenerated files."
+            git diff --stat
+            exit 1
+          fi
+
       - name: Check no TODO placeholders
         run: |
           ! grep -R "TODO" --include="*.html" --include="*.json" . || (echo "TODO found" && exit 1)
