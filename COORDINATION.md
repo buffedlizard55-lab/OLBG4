@@ -3500,3 +3500,23 @@ AD integration log: concurrent main merge caused an append-only COORDINATION.md 
 | Status | AD1–AD3 **done for scoped evidence desk**; broader user goals remain partial as explicitly published. Root pointer remains a request to root-file owner, not an unauthorized edit. |
 
 Deployment success above is verified through GitHub API/Actions; direct public-site HTTP read-back is not claimed from the restricted sandbox. Both append conflicts were resolved preserving the other sessions' text. `git pull --rebase=merges` preserves the integration graph without rewriting published session commits.
+
+## Board AD — session `arena/8cbd0cb9-olbg4` (independent OLBG reverse-engineering re-verification + originated-line desk + high-confidence human predictions + GitHub Pages dashboard)
+
+Session: `arena/8cbd0cb9-olbg4` | Branch: `arena/8cbd0cb9-olbg4` | Claimed: 2026-10-22 UTC | **status: in progress**
+
+Scope (exclusive, zero overlap with active boards): `session-8cbd0cb9/**`, `data/session-8cbd0cb9/**`, `scripts/session-8cbd0cb9/**`, and append-only entries in `COORDINATION.md`. All peer session files are read-only for this session; integration requests are logged here, not applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AD1 | Re-verify the committed OLBG reverse-engineering snapshot (`data/raw/*.json`, collected 2026-10-21) line by line against recorded official-source URLs in `data/source_registry.json`; confirm every in-scope sport's event list, market list and URL pattern; flag mismatches | in progress | arena/8cbd0cb9-olbg4 | `data/session-8cbd0cb9/`, `scripts/session-8cbd0cb9/` |
+| AD2 | Build independent fixture desk for all in-scope sports (OLBG sport IDs 3,4,5,7,8,9,10,12,13,14,15,20,21,22,23,25,28; excludes soccer/football, boxing/UFC/MMA, American football, hurling, horse racing, cycling, specials): originate own zero-vig fair lines (disclosed neutral-prior model) + 4.2%/5.2% vig book lines for Match Winner, Handicap and Match Total where verified inputs exist, else blank + flagged; assign match-winner pick + Low/Medium/High confidence | in progress | arena/8cbd0cb9-olbg4 | `data/session-8cbd0cb9/desk.json`, `scripts/session-8cbd0cb9/build_desk.py` |
+| AD3 | High-confidence focus: model probability ≥70% AND originated book American odds inside −250…+10000; author unique human-written predictions ≥30 words each (team/player, verified form & recent history, explicit selection) with official source links; overlay verified peer-session rows (attributed) that meet the same rule | in progress | arena/8cbd0cb9-olbg4 | `data/session-8cbd0cb9/predictions.json`, `scripts/session-8cbd0cb9/predictions_bank.py` |
+| AD4 | Line-by-line repo review of `data/master.json` and peer desks against cached official-source data, logging exact row defects and manual-review URLs; `flagged.json` leaves unverified picks/confidence/odds blank | in progress | arena/8cbd0cb9-olbg4 | `data/session-8cbd0cb9/repo_review.json`, `data/session-8cbd0cb9/flagged.json` |
+| AD5 | Build clean, simple dashboard-style GitHub Pages site (`session-8cbd0cb9/`) with landing page, per-sport category subpages, filterable all-entries tables with official source links on every row, markets/coverage, high-confidence predictions, methodology with model disclosure, and Flagged-for-Review page | in progress | arena/8cbd0cb9-olbg4 | `session-8cbd0cb9/**`, `scripts/session-8cbd0cb9/build_site.py` |
+| AD6 | Deterministic verification gate, local CI simulation (`scripts/session-8cbd0cb9/verify.py`), `git pull --rebase` sync, PR from `arena/8cbd0cb9-olbg4` to `main`, merge without waiting, confirm GitHub Pages deployment, record PR & deploy result here | unclaimed | arena/8cbd0cb9-olbg4 | `scripts/session-8cbd0cb9/verify.py`, `COORDINATION.md` |
+
+### AD working log
+- 2026-10-22 — `8cbd0cb9` — claimed Board AD (`{session-,data/session-,scripts/session-}8cbd0cb9/**`) and pushing this claim now.
+
+---
