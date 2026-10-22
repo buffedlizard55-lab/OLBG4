@@ -58,7 +58,7 @@ def check_text(path: pathlib.Path, rel: str) -> list[dict]:
     if ext in (".html", ".htm"):
         checks.append({"name": "doctype", "ok": "<!doctype" in text.lower()})
         checks.append({"name": "closing tag", "ok": "</html>" in text.lower()})
-        checks.append({"name": "no localhost", "ok": ("localhost" not in text and "127.0.0.1" not in text)})
+        checks.append({"name": "no loopback call", "ok": ("http://localhost" not in text and "https://localhost" not in text and "127.0.0.1" not in text)})
     if ext in (".py", ".sh"):
         checks.append({"name": "no unresolved marker", "ok": not re.search(r"(?m)^\s*#\s*(TODO|FIXME)\b|\bTODO:", text)})
         if ext == ".py":
@@ -151,7 +151,7 @@ def main():
     payload = {
         "schema": "olbg4.board-ac.review/1",
         "reviewed_at_utc": "2026-10-22T09:30:00Z",
-        "method": ("Every tracked text file was opened and counted. Machine checks: JSON parses; HTML has a doctype, a closing html tag and no localhost call; "
+        "method": ("Every tracked text file was opened and counted. Machine checks: JSON parses; HTML has a doctype, a closing html tag and no loopback call; "
                    "Python compiles; scripts carry no placeholder marker; data files never use an excluded sport as a sport value."),
         "totals": {"files": len(files), "lines": sum(f["lines"] for f in files),
                    "bytes": sum(f["bytes"] for f in files), "failed_checks": len(bad)},

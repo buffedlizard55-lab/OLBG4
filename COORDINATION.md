@@ -3385,7 +3385,7 @@ generators or workflows were touched.
 - **Sources:** NHL inputs come from `api-web.nhle.com` schedule and standings payloads captured at 03:24Z and re-hashed before parsing;
   MLB prices use three payloads re-read live this session (team hitting runs, team pitching runs, World Series schedule) whose bodies and
   SHA-256 are committed under `data/session-1695b749/live/`; LoL uses `esports-api.lolesports.com`. No bookmaker price is read anywhere.
-- **Verification:** `scripts/session-1695b749/ac_`ac_verify.py` → **14,903 assertions, 0 failures** (counts, price↔probability arithmetic, grade
+- **Verification:** `scripts/session-1695b749/ac_`ac_verify.py` → **14,905, 0 failures** (counts, price↔probability arithmetic, grade
   thresholds, window flags, hash of every source file, prediction length and 8-gram uniqueness, link and fragment targets, byte-identical rebuild).
   `python3 scripts/audit_publication.py --check` → 15,043 local targets, **0 broken, 0 stale**. `BOARD_DIR=board python3 tools/verify_master.py` → OK.
   `python3 -m pipeline.selftest` → pass. `bash scripts/session-74f9613e/build_all.sh` → no diff.
