@@ -2636,3 +2636,35 @@ All 9 predictions are 72–89 words, each quoting the verified form (standings, 
 | Flagged items | Published on `session-77af9500/flagged.html` and `docs/flagged.html` + `board/flagged.html` — 9 Build A High downgrades (odds window) + 26 master-board High downgrades + 5 longstanding irregularities (Snooker pairing, Galway/Cork time mismatches, Australia v Fiji conflict, handicap/total not originated) — all with source links for manual review; flagged does not block merge per brief |
 
 **Site live (pending deploy of commit 1432418):** Board S dashboard at https://buffedlizard55-lab.github.io/OLBG4/session-77af9500/ — 144 rows, 9 High inside -250 to +10,000 (each 72–89 words, verified facts, obvious moneyline selection), 15 flagged, 15 sports, 23 pages, 0 broken links. Master board and Build A docs also live and updated with window enforcement. If deploy fails, will retry until live per brief.
+
+---
+
+## Board T — session `arena/cdf25c13-olbg4` (2026-10-22: live-refreshed desk, 22–28 Oct window)
+
+Session: `arena/cdf25c13-olbg4` · Branch: `arena/cdf25c13-olbg4` · Claimed: 2026-10-22T02:47Z UTC · **status: active**
+
+Scope is new and non-overlapping. Board T does not hand-edit any earlier board's generative data. It reads
+`data/master.json` (as a reference index only) and produces its own dated, independently re-verified dataset for the
+22–28 October 2026 fixture window, because every existing dataset in this repo carries a 2026-10-21 cut-off and a
+majority of its rows were already played by the time this session started.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Re-read official league/tour feeds live for the 22–28 Oct 2026 window; build an updated in-scope fixture list (excluded sports: soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials) | in progress | arena/cdf25c13-olbg4 | `data/session-cdf25c13/fixtures.json`, `session-cdf25c13/` |
+| T2 | Originate own lines (moneyline, handicap, match total) per fixture from official numeric inputs; document the model | unclaimed→ | arena/cdf25c13-olbg4 | `data/session-cdf25c13/markets.json`, `session-cdf25c13/build.py` |
+| T3 | Pick a winner per priced fixture + confidence Low/Medium/High from evidence rules | — | arena/cdf25c13-olbg4 | `data/session-cdf25c13/picks.json` |
+| T4 | High-confidence written predictions (≥30 words, unique, verified facts, explicit selection) restricted to the −250…+10,000 American-price window | — | arena/cdf25c13-olbg4 | `data/session-cdf25c13/predictions.json` |
+| T5 | Line-by-line verification register with an official source URL per row; blanks + flags for anything unconfirmed | — | arena/cdf25c13-olbg4 | `data/session-cdf25c13/verification.json` |
+| T6 | Dashboard: landing + per-category subpages + analysis + Flagged for Review, no broken links | — | arena/cdf25c13-olbg4 | `session-cdf25c13/**` |
+| T7 | Root integration: root landing pointer/nav + README + COORDINATION records; run every existing gate | — | arena/cdf25c13-olbg4 | `index.html`, `README.md`, `COORDINATION.md` |
+| T8 | PR from `arena/cdf25c13-olbg4` → `main`, merge without waiting, confirm the Pages deploy, record the result | — | arena/cdf25c13-olbg4 | `COORDINATION.md` |
+
+**Claim boundary.** Board T owns `session-cdf25c13/` and `data/session-cdf25c13/`. Shared root files (`index.html`,
+`README.md`, `COORDINATION.md`) are claimed only for additive edits: a pointer block to the new dashboard, a README
+section, and this board. No file owned by another board (`board/**`, `docs/**`, `data/master*.json`, any `session-*/`
+other than this one) is hand-edited; the root generators are re-run, not rewritten.
+
+**Access constraint (re-confirmed 2026-10-22T02:46Z).** Sandbox egress is restricted to github.com / codeload.github.com
+/ api.github.com / registry.npmjs.org / pypi.org / files.pythonhosted.org; direct `curl` to league domains fails with
+exit 35 (SSL connect). All league data in Board T is retrieved with the agent's web-fetch tool and every retrieved value
+is stored with the exact URL it came from. Sources that cannot be retrieved are recorded as unverified, never inferred.
