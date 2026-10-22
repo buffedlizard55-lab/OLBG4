@@ -27,7 +27,7 @@
 </div></header>
 <main>
 <p class="crumbs"><a href="index.html">Overview</a> · Flagged</p>
-<h1>15 irregularities, published rather than smoothed over.</h1>
+<h1>16 irregularities, published rather than smoothed over.</h1>
 <p class="lede">Each item names what was found, what was done about it, and the official page it relates to. Nothing on this page is a corrected value: where a payload looked wrong it is reproduced as returned and the discrepancy is described.</p>
 <article class="card" id="AF-01">
 <h3>AF-01 · The -250 floor and the over-70% requirement can only overlap between 70.0% and 71.4%</h3>
@@ -89,6 +89,11 @@
 <p class="small"><span class="tag no">repo</span></p>
 <p>data/session-e5f2dad3/raw/afl_api_fixtures.json and afl_api_season.json begin with the gzip magic bytes rather than JSON, and the capture manifest records both as HTTP 401. Any tool that globs data/**/*.json and parses blindly will fail on them; this board&#x27;s review flags them rather than repairing another session&#x27;s capture. They are not used as inputs here.</p>
 <p class="small"><a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/raw/afl_api_fixtures.json'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/raw/afl_api_fixtures.json</a> <a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/manifest.json'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/manifest.json</a> </p>
+</article><article class="card" id="AF-16">
+<h3>AF-16 · Three generators target the repository root, and running two of them deletes this board&#x27;s pointer</h3>
+<p class="small"><span class="tag no">repo</span></p>
+<p>scripts/session-83451f65/build_site.py and tools/build_master_site.py both write index.html at the repository root, while scripts/session-74f9613e/build_site.py writes only its own directory. Running either root generator while preparing this board replaced the committed dashboard, removed this board&#x27;s nav link and callout, and produced a 35-line diff; the committed file was restored from HEAD and the pointer re-applied. No CI gate diffs the root against either generator, so the same thing can happen to any board&#x27;s pointer without a failing check. This is recorded, not fixed, because both generators belong to other scopes.</p>
+<p class="small"><a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-83451f65/build_site.py'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-83451f65/build_site.py</a> <a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py</a> </p>
 </article><article class="card" id="AF-15">
 <h3>AF-15 · Sixteen archived pages under session-4a73430b/ are missing closing html tags</h3>
 <p class="small"><span class="tag no">repo</span></p>

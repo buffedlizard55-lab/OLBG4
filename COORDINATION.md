@@ -3392,7 +3392,7 @@ generators or workflows were touched.
 - **Line-by-line review:** `session-1695b749/ac/review.html` — 924 tracked text files opened, counted, hashed and machine-checked, with 12
   hand-written findings on the files that decide publication. Exactly three machine checks fail and all three are published as flags:
   AF-13 (two AFL captures are gzip bytes stored as `.json`) and AF-14 (`session-07a080b9/index.html` has no closing tag).
-- **Irregularities (AF-01…AF-15, non-blocking):** window arithmetic (−250 is 71.43%, so >70% and ≥−250 only overlap at 70.0–71.4%),
+- **Irregularities (AF-01…AF-16, non-blocking):** window arithmetic (−250 is 71.43%, so >70% and ≥−250 only overlap at 70.0–71.4%),
   16 unpriced sport labels, World Series priced without pitchers, split draw in the NHL model, independent maps in LoL, the published window
   ends 9 November, OLBG listings carried blank, one standings snapshot for November games, no team news checked, two correlated picks on one game,
   capture-limited recent results, the root-generator collision, and the three repository defects above (gzip captures stored as .json, and truncated markup in two archived boards).

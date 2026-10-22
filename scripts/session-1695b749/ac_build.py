@@ -652,6 +652,13 @@ def build_flags(fixtures, picks_in_window, coverage):
                     "Any tool that globs data/**/*.json and parses blindly will fail on them; this board's review flags them rather than repairing another session's capture. They are not used as inputs here."),
          "sources": ["https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/raw/afl_api_fixtures.json",
                      "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/manifest.json"]},
+        {"id": "AF-16", "severity": "repo",
+         "title": "Three generators target the repository root, and running two of them deletes this board's pointer",
+         "detail": ("scripts/session-83451f65/build_site.py and tools/build_master_site.py both write index.html at the repository root, while scripts/session-74f9613e/build_site.py writes only its own directory. "
+                    "Running either root generator while preparing this board replaced the committed dashboard, removed this board's nav link and callout, and produced a 35-line diff; the committed file was restored from HEAD and the pointer re-applied. "
+                    "No CI gate diffs the root against either generator, so the same thing can happen to any board's pointer without a failing check. This is recorded, not fixed, because both generators belong to other scopes."),
+         "sources": ["https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-83451f65/build_site.py",
+                     "https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py"]},
         {"id": "AF-15", "severity": "repo",
          "title": "Sixteen archived pages under session-4a73430b/ are missing closing html tags",
          "detail": ("The review's well-formedness check fails on every page in session-4a73430b/ (index, picks, markets, olbg, methodology, flagged and ten sport pages): each file ends without </body> or </html>. "

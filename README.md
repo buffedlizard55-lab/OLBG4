@@ -6,7 +6,7 @@
 > (NHL 129, MLB World Series 7, LoL Esports 34), 145 priced from official payloads whose SHA-256 is re-checked against the capture
 > manifest before parsing, 2,266 originated selections and 435 graded picks. 20 High picks sit inside −250 to +10,000 and each carries an
 > original written prediction; the register has 170 rows, all 119 in-scope OLBG listing rows are carried with a blank official source,
-> and 15 irregularities are published. Gates: `bash scripts/session-1695b749/ac_all.sh` (14,903 assertions).
+> and 16 irregularities are published. Gates: `bash scripts/session-1695b749/ac_all.sh` (14,903 assertions).
 
 > **Latest desk — Board U (read 22 October 2026):** [`session-c92c927c/`](session-c92c927c/index.html) — 30 verified fixtures across 5 sports,
 > originated lines for every market the verified inputs support, 9 High-confidence picks inside −250 to +10,000, a line-by-line

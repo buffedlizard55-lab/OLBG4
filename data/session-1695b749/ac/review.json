@@ -3,10 +3,10 @@
  "reviewed_at_utc": "2026-10-22T09:30:00Z",
  "method": "Every tracked text file was opened and counted. Machine checks: JSON parses; HTML has a doctype, a closing html tag and no localhost call; Python compiles; scripts carry no placeholder marker; data files never use an excluded sport as a sport value.",
  "totals": {
-  "files": 1019,
-  "lines": 732974,
-  "bytes": 56715249,
-  "failed_checks": 19
+  "files": 1052,
+  "lines": 842453,
+  "bytes": 60821014,
+  "failed_checks": 20
  },
  "findings": [
   {
@@ -222,8 +222,8 @@
   {
    "path": "COORDINATION.md",
    "lines": 3401,
-   "bytes": 479424,
-   "sha256": "c6d8c2970ba39b0597da36f46f6cfa769629911325c89ab391a9417d2da5edcf",
+   "bytes": 479507,
+   "sha256": "127d03531d8591db008c1bdce1fff00ae38c188aef486bbdf0fc03306016768a",
    "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md",
    "checks": [
     {
@@ -249,7 +249,7 @@
    "path": "README.md",
    "lines": 521,
    "bytes": 42532,
-   "sha256": "f81a7c0a3d3abd8eeb3353aa7d8318216a2bcbf38901c149f46881326d8b55ee",
+   "sha256": "31bd5a38e644f9dd3caee81bca3e1edac1f737b62a317d07ead83e589db40205",
    "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/README.md",
    "checks": [
     {
@@ -3728,6 +3728,195 @@
    ]
   },
   {
+   "path": "data/session-1695b749/ac/authored_predictions.json",
+   "lines": 166,
+   "bytes": 8682,
+   "sha256": "7743f6a62ae538f1da8d98f1802910f5d68d55c05ffc3596d9ad285f87c5a7eb",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/authored_predictions.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/ac/coverage.json",
+   "lines": 155,
+   "bytes": 4433,
+   "sha256": "73cc7230d8aee68889521dde0a6adcd0d1c44139c62b4d9f4cc42f91187f79f7",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/coverage.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/ac/desk.json",
+   "lines": 69021,
+   "bytes": 1714900,
+   "sha256": "23eddb534b618d5781f6d0469ffd8ae0e513ab098cbb72e492c19fad7254d828",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/desk.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/ac/flagged.json",
+   "lines": 151,
+   "bytes": 9684,
+   "sha256": "8cec32b2b87e6b865880687de25980f2267dc09778c07c57f80e8d6c0f8a9d5f",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/flagged.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/ac/listing.json",
+   "lines": 1674,
+   "bytes": 54768,
+   "sha256": "80b3e88cc818be9f5709a48dadb2076a2b13c76fbdfd2c39b187be42953f517d",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/listing.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/ac/model_spec.json",
+   "lines": 69,
+   "bytes": 2259,
+   "sha256": "acf6212d2e06bff12ba4acebdbab0af758a0537314b3a7569d492a2d75384266",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/model_spec.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/ac/review.json",
+   "lines": 22394,
+   "bytes": 496524,
+   "sha256": "61188a2064682d365f5ca879ca793fc0f515e79db6f4548be64374080741818b",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/review.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/ac/sources.json",
+   "lines": 116,
+   "bytes": 4672,
+   "sha256": "ef75dee808856a42d9bb77559e61ff5cb326c1c26f571d72ec0a8f6793131805",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/sources.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/ac/verification.json",
+   "lines": 10167,
+   "bytes": 351337,
+   "sha256": "c0379e23d2988f497747ff47e329da36c162756321a426df5d29f825e74ad117",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/ac/verification.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
    "path": "data/session-1695b749/authored_predictions.json",
    "lines": 130,
    "bytes": 11553,
@@ -3854,6 +4043,27 @@
    ]
   },
   {
+   "path": "data/session-1695b749/live/mlb_hitting_runs_2026.json",
+   "lines": 1,
+   "bytes": 2549,
+   "sha256": "74eba6868950c48cfd5cebe9169293b3c9418591fa51832e32b446588db043aa",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/live/mlb_hitting_runs_2026.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
    "path": "data/session-1695b749/live/mlb_pitching_runs.json",
    "lines": 1,
    "bytes": 2549,
@@ -3875,11 +4085,53 @@
    ]
   },
   {
+   "path": "data/session-1695b749/live/mlb_pitching_runs_2026.json",
+   "lines": 1,
+   "bytes": 2549,
+   "sha256": "e3a0560f5c33eb5dee4fc9df97334ef0814743ec759a2026d1c523ae2896127f",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/live/mlb_pitching_runs_2026.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
    "path": "data/session-1695b749/live/mlb_ws_schedule_live.json",
    "lines": 1,
    "bytes": 1664,
    "sha256": "92eb264e3aa334806af1768d56be3191145c7c4cf312ffc702d1e6d87a4d2932",
    "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/live/mlb_ws_schedule_live.json",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "json parses",
+     "ok": true
+    },
+    {
+     "name": "no excluded sport priced",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "data/session-1695b749/live/mlb_ws_schedule_live_2026-10-22.json",
+   "lines": 1,
+   "bytes": 1730,
+   "sha256": "cb68954ecb7eaeebf7db54911a9da8ea17941442d920a5bc05b27b1ee1395426",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-1695b749/live/mlb_ws_schedule_live_2026-10-22.json",
    "checks": [
     {
      "name": "utf-8 text",
@@ -9055,7 +9307,7 @@
    "path": "index.html",
    "lines": 142,
    "bytes": 30251,
-   "sha256": "9b141afc2469326f27253eafa20ea3b1ca2d4006f41988967e4ae988d8c83353",
+   "sha256": "3e1f254459aee373b663de974d683fd9f927b410db7dc129765e23f52ce27fc2",
    "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/index.html",
    "checks": [
     {
@@ -9733,6 +9985,128 @@
    "bytes": 26532,
    "sha256": "f854c3d7c5eb632d8de346a5ea4ed2d841bc8496f14037faff957ccb00088075",
    "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/build_site.py",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "no unresolved marker",
+     "ok": true
+    },
+    {
+     "name": "compiles",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "scripts/session-1695b749/ac_all.sh",
+   "lines": 8,
+   "bytes": 322,
+   "sha256": "0f32b2586aa426aa66a9071e39833827d2bdc2aa330f398402d91e88b8ef0b2d",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-1695b749/ac_all.sh",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "no unresolved marker",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "scripts/session-1695b749/ac_build.py",
+   "lines": 842,
+   "bytes": 46698,
+   "sha256": "d80982a645b3f7f216cfd4b4a4837b2c8f9297917ba36134c4ec415e1feac1f1",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-1695b749/ac_build.py",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "no unresolved marker",
+     "ok": true
+    },
+    {
+     "name": "compiles",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "scripts/session-1695b749/ac_model.py",
+   "lines": 133,
+   "bytes": 4889,
+   "sha256": "1aa6b29ce31bc4e7f36fad483d33a5854272633fb58d799944030354aa28e389",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-1695b749/ac_model.py",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "no unresolved marker",
+     "ok": true
+    },
+    {
+     "name": "compiles",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "scripts/session-1695b749/ac_review.py",
+   "lines": 172,
+   "bytes": 11826,
+   "sha256": "677267dbc7fa89ccf0c27c7979893e35dd88145ff85b86bdfa329501fec1fa5b",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-1695b749/ac_review.py",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "no unresolved marker",
+     "ok": true
+    },
+    {
+     "name": "compiles",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "scripts/session-1695b749/ac_site.py",
+   "lines": 458,
+   "bytes": 33760,
+   "sha256": "f3d5855deb107cbf78d720c85f18e2a4fc6dc4594d858d7d9f2a063b813f2767",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-1695b749/ac_site.py",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "no unresolved marker",
+     "ok": true
+    },
+    {
+     "name": "compiles",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "scripts/session-1695b749/ac_verify.py",
+   "lines": 218,
+   "bytes": 11592,
+   "sha256": "e836bbcb461a9d083ade934c1830bd212986604d9122cb20b7bec666aeb0c5ce",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/session-1695b749/ac_verify.py",
    "checks": [
     {
      "name": "utf-8 text",
@@ -11425,6 +11799,357 @@
    "bytes": 41424,
    "sha256": "9154833d677c3dc93558fe6ebb71fef805fcaf097d20f220b15d77a0642930bb",
    "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-093bfd5e/index.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/app.js",
+   "lines": 13,
+   "bytes": 559,
+   "sha256": "d7381a26d030afb6e9a2ecfa2e04d9cf188f39e52f1fe70116e9f8d37cb5a16a",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/app.js",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/coverage.html",
+   "lines": 50,
+   "bytes": 8303,
+   "sha256": "aea4a0882e82cc48e3b1792fc3327d50b041e63905ef044edd794dd8b04227a5",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/coverage.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/flagged.html",
+   "lines": 116,
+   "bytes": 12854,
+   "sha256": "69a1627b2afb54f3e813f0345b1a8eead0af83a19c0836967129359d86f50c91",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/flagged.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/index.html",
+   "lines": 261,
+   "bytes": 12001,
+   "sha256": "472bb11881cd8720cb0cc3b75ce2375f6154282bbf7912ad18b4675ce65a0fd9",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/index.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/listing.html",
+   "lines": 285,
+   "bytes": 52773,
+   "sha256": "7ac694c9c02575a68b5b357f22bac595df5e65165a1a4c1311de0b8820de5e2a",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/listing.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/markets.html",
+   "lines": 333,
+   "bytes": 436563,
+   "sha256": "61bb0d540163ce8670abac402f5182f1c36d691148d158c786b6622932deceac",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/markets.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/methodology.html",
+   "lines": 58,
+   "bytes": 4023,
+   "sha256": "e6b7f116df8d76fad1304cb4f9081bf51ca5131b1bc67b0cd7bb1e3107b8ed26",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/methodology.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/picks.html",
+   "lines": 189,
+   "bytes": 41726,
+   "sha256": "7d8e25a4fbceb4b292eefcc1072466f79a11130b582dcb1a98a3af340e836f4d",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/picks.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/review.html",
+   "lines": 50,
+   "bytes": 391960,
+   "sha256": "d58a33f4e9e459b74dc05374934ba357b09d0d54bd2241ac0a88ee8df0d8e0bc",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/review.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": false
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/sources.html",
+   "lines": 45,
+   "bytes": 9861,
+   "sha256": "d367f0a60a17cf9d17f680e08a7205a5016a50c48a5d62f6c62a8d39a007bd77",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/sources.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/sports/baseball.html",
+   "lines": 99,
+   "bytes": 8461,
+   "sha256": "3ee088a87b029f1d24fe1bd2ad110d54bf32bea0b9fdc4a151343ee0381895a5",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/sports/baseball.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/sports/esports.html",
+   "lines": 163,
+   "bytes": 21295,
+   "sha256": "5196fe8100b270d16d7e797866377581709385dde24d6a738581fa2bf4364da7",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/sports/esports.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/sports/ice-hockey.html",
+   "lines": 953,
+   "bytes": 86667,
+   "sha256": "0382cd57e0ee68e3b083995079cff3caa6e01a0c14c2b0065e721de854a7cbee",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/sports/ice-hockey.html",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    },
+    {
+     "name": "doctype",
+     "ok": true
+    },
+    {
+     "name": "closing tag",
+     "ok": true
+    },
+    {
+     "name": "no localhost",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/style.css",
+   "lines": 51,
+   "bytes": 3557,
+   "sha256": "7f2211a680c0a3fdb92b68cf26a720c15650b5baa0ce96d91a51686e379f15d7",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/style.css",
+   "checks": [
+    {
+     "name": "utf-8 text",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "path": "session-1695b749/ac/verification.html",
+   "lines": 1066,
+   "bytes": 251905,
+   "sha256": "835c2a49b6a3feb240f4e23014bdfee4aa31c015acc422fc284953d01d8acfe7",
+   "link": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-1695b749/ac/verification.html",
    "checks": [
     {
      "name": "utf-8 text",
