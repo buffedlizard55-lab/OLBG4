@@ -3435,3 +3435,23 @@ Other session outputs, root navigation, data and workflows are read-only. No his
 - Actual live probes: `curl -I --max-time 15 https://www.olbg.com/` and `https://api-web.nhle.com/v1/schedule/2026-10-22` both failed with exit 35 / SSL_ERROR_SYSCALL. No current sports values independently confirmed. Every confirmed fixture/time/line/pick/confidence/prediction field is blank; historical source candidates remain linked for manual review, missing links explicitly flagged.
 - Verification: `python scripts/session-7bbc825b/verify.py` passes pointer, count, hash, blank-field, ID and local-link checks. These are structural checks, not source verification. `python -m unittest discover -s audit -p 'test_*.py' -q` passes; repository publication audit check passes.
 - AD1 **needs review**: source-access and provenance gaps are published on `session-7bbc825b/flagged.html` and do not block merge. Complete current collection and calibrated origination remain unfulfilled; no fabricated replacements published.
+## Board AD — session `arena/d2d25025-olbg4` (2026-10-22 independent line-by-line audit of freshest desk + live official spot re-verification + High-window focus + dashboard + final integration)
+Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026-10-22 UTC
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AD1 | Claim + OLBG taxonomy/exclusion check (no soccer, boxing, UFC/MMA, football/American football, hurling, horse racing, cycling, specials) | in progress | arena/d2d25025-olbg4 | `session-d2d25025/`, `data/session-d2d25025/`, `COORDINATION.md` |
+| AD2 | Line-by-line audit of freshest desk (Board AB `data/session-1695b749/desk.json`): source official-domain, odds math, markets, confidence rules | in progress | arena/d2d25025-olbg4 | same |
+| AD3 | Live official spot re-verification 2026-10-22 (NHL API schedule/standings, MLB Stats API World Series) recorded with URLs/timestamps | in progress | arena/d2d25025-olbg4 | same |
+| AD4 | High picks: prob>=0.70 AND fair American -250..+10000, unique predictions >=30 words, flagged otherwise | in progress | arena/d2d25025-olbg4 | same |
+| AD5 | Dashboard landing + per-sport + entries/picks/markets/coverage/methodology/sources/flagged/verification; every row source link, unverified blank+flagged | in progress | arena/d2d25025-olbg4 | same |
+| AD6 | Final integration: verify script, link check, PR to main, merge, confirm Pages, record here | in progress | arena/d2d25025-olbg4 | same + PR only |
+**Claim boundary.** All existing boards/data/root HTML read-only; findings logged here, not edited in other owners' files.
+### AD completion record (2026-10-22 UTC)
+- **Published:** `session-d2d25025/index.html` dashboard + entries/picks/markets/coverage/methodology/sources/flagged/verification + 3 per-sport pages; data `data/session-d2d25025/board.json` (96 rows) + `flagged.json` (184). Build: `python3 session-d2d25025/build.py && python3 session-d2d25025/render.py && python3 session-d2d25025/verify.py` → VERIFY OK.
+- **Audited:** Board AB desk line-by-line — official-domain source on every row (api-web.nhle.com 82, statsapi.mlb.com 5, esports-api.lolesports.com 9), fair-odds math recomputed, excluded sports absent, markets: moneyline/handicap/total (+team totals NHL/MLB).
+- **Live re-verified 2026-10-22 via official APIs:** NHL schedule 2026-10-23 (MTL@CHI game 2026020166, TBL@COL 2026020167) https://api-web.nhle.com/v1/schedule/2026-10-23 ; NHL standings timestamp 2026-10-22T12:05:46Z (CAR 17pts, VGK 16, EDM/BOS 15) https://api-web.nhle.com/v1/standings/2026-10-22 ; MLB World Series TB@MIL Game 1 2026-10-23 gamePk 849805 https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-31
+- **Irregularities flagged (184, on flagged.html, non-blocking):** 56 of 68 Board AB "High" selections fail the combined prob>=0.70 + fair odds -250..+10000 + unique >=30-word rule (mostly fair odds shorter than -250); only 12 clean in-window High picks published on picks.html; strict moneyline recomputation yields only 2 High of 96 (window/70% overlap is prob 0.700-0.714). Other in-scope sports not re-read live this session — left blank/unpublished, flagged unverified, never inferred.
+- Status: AD1-AD5 done; AD6 in progress (PR/merge/Pages below).
+
+
+AD integration log: concurrent main merge caused an append-only COORDINATION.md conflict. Resolved by preserving both complete session records; no peer data or pages discarded.
