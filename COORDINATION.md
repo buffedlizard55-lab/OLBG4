@@ -2715,9 +2715,12 @@ stats.unitedrugby.com/match-centre/2026-27/4 (Round 4 fixtures + Round 3 results
 - The build refuses to publish if a row lacks a source, if the source host is not on the official list, if a High pick lacks a
   ≥30-word unique write-up, if a High pick's price leaves the −250…+10,000 window, if an excluded-sport token appears, or if any
   internal link or anchor does not resolve (`python3 scripts/session-c92c927c/build_site.py --check` → `validated: 30 rows … links=ok`).
-- **Line-by-line review of prior output:** 23 sampled claims from earlier boards re-checked against the official page —
-  19 confirmed, 1 contradicted (README counts), 1 contradicted (duplicate Greyhounds / Greyhound Racing labels), 2 unverifiable
-  (EHF 404, PDC cookie shell). Register: `data/session-c92c927c/review.json`, rendered on `session-c92c927c/analysis.html`.
+- **Line-by-line review of prior output:** 22 sampled claims from earlier boards re-checked against the official page —
+  18 confirmed (all eight URC Round 3 scorelines, all five RLWC Round 1 scorelines and the Round 2 fixtures, the NHL fixture, the
+  World Series fixture set, and two internal recomputations of `data/master.json` and `data/rows.json`), 2 contradicted
+  (README counts 308/312/18 sports vs 317/312/19; the duplicate "Greyhounds" / "Greyhound Racing" sport labels), and 2 unverifiable
+  (EHF fixture path 404; pdc.tv returned only a cookie shell). Register: `data/session-c92c927c/review.json`, rendered on
+  `session-c92c927c/analysis.html`.
 - Repository gates re-run green after the change: `bash scripts/session-74f9613e/build_all.sh` (OK), `python3 scripts/audit_publication.py --check`
   (10,576 local targets, 0 broken, 0 stale), `python3 tools/build_master.py` + `BOARD_DIR=board python3 tools/verify_master.py` (OK),
   `python3 -m pipeline.selftest` (all self-tests passed).
@@ -2768,3 +2771,13 @@ Session: `arena/4ec1fc72-olbg4` | Branch: `arena/4ec1fc72-olbg4` | Claimed: 2026
 - **Irregularities published (Flagged for Review, `session-4ec1fc72/flagged.html`):** 2 outside-window downgrades; neutral-site MTL@WPG 25 Oct (Princess Auto Stadium, no home-ice term); NBA totals unpriced (no pace data) and all-NBA Low cap (0-1 games per club); MLB probable pitchers absent from schedule payload (no MLB High); 16 darts ties unpriced (no ranking for both players); snooker later-round pairings not on the WST page read; 15 in-scope sports not refreshed this session (listed on Coverage page, not re-badged); earlier boards' 21-Oct fixtures now completed/stale.
 - **Integration request (not applied):** add a root-nav link to `session-4ec1fc72/` in the master-board generator (`tools/build_master_site.py`) at the next integration session. Root pages, `data/master.json` and other boards' files were not edited.
 - **PR / merge / Pages:** recorded below after merge.
+
+**Pull request and deploy (recorded after merge).**
+
+| Item | Result |
+|---|---|
+| PR | https://github.com/buffedlizard55-lab/OLBG4/pull/64 — **MERGED** `arena/c92c927c-olbg4` → `main` at 2026-10-22T02:59:30Z, merge commit `9ab0472` |
+| Checks | `audit` pass, `build-and-validate` pass, `verify` pass — all three green before merge |
+| Pages deploy | `Deploy OLBG4 to GitHub Pages` run `39714384083` **success** (build + deploy) on the merge commit |
+| Live verification | `https://buffedlizard55-lab.github.io/OLBG4/session-c92c927c/index.html` read back over HTTPS after the deploy: title "Dashboard · OLBG4 verified desk (Board U)", 30 fixtures, 9 High picks with their official source links, KPI row intact |
+| Flagged items | 10 editorial/blank items plus the unverifiable and contradicted review rows, all on `session-c92c927c/flagged.html` with source links; flagged does not block the merge per brief |
