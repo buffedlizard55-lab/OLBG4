@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repo Audit · Board AC Betting Desk (f0622b6e)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <a href="index.html" class="brand-title">OLBG4 · Board AC Verified Betting Desk</a>
+        <span class="brand-sub">Session <code>f0622b6e</code> · Cutoff <code>2026-10-22T08:35Z</code> · <a href="../index.html" class="portal-link">← Repo Portal</a></span>
+      </div>
+      <nav class="topnav" aria-label="Primary"><a href="index.html" class="nav-link">Dashboard</a><a href="predictions.html" class="nav-link">High Picks (40)</a><a href="matches.html" class="nav-link">All Matches (233)</a><a href="markets.html" class="nav-link">4-Market Lines</a><a href="olbg.html" class="nav-link">OLBG Reverse-Eng</a><a href="review.html" class="nav-link active">Repo Audit</a><a href="flagged.html" class="nav-link">Flagged for Review</a><a href="methodology.html" class="nav-link">Methodology &amp; Sources</a></nav>
+    </div>
+  </header>
+  <div class="scope-bar">
+    <div class="container">
+      <strong>Scope Mandate Enforced:</strong> 0 rows from excluded sports (<code>soccer</code>, <code>boxing</code>, <code>ufc</code>, <code>mma</code>, <code>football</code>, <code>american football</code>, <code>hurling</code>, <code>horse racing</code>, <code>cycling</code>, <code>specials</code>). Unconfirmed inputs are strictly left blank and routed to <a href="flagged.html">Flagged for Review</a>.
+    </div>
+  </div>
+  <main class="container main-content">
+    
+    <h1>Line-by-Line Repository &amp; Canonical <code>data/master.json</code> Audit</h1>
+    <p class="lead">
+      Programmatic row-by-row inspection of all <strong>336</strong> match rows and <strong>24</strong> outrights in <code>data/master.json</code> plus four peer session snapshots against official governing-body sources at <code>2026-10-22T08:35Z</code>.
+    </p>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-val">116</div><div class="kpi-lbl">Completed / Pre-Cutoff Rows in master.json</div></div>
+      <div class="kpi-card"><div class="kpi-val">39</div><div class="kpi-lbl">Rows Missing Official source_url</div></div>
+      <div class="kpi-card"><div class="kpi-val">38</div><div class="kpi-lbl">Venue-Corrupted win.odds Keys</div></div>
+      <div class="kpi-card"><div class="kpi-val">10</div><div class="kpi-lbl">High Picks Missing win.odds</div></div>
+      <div class="kpi-card"><div class="kpi-val">50</div><div class="kpi-lbl">Rows Without Any Winner Pick</div></div>
+      <div class="kpi-card"><div class="kpi-val">31</div><div class="kpi-lbl">Cross-Build Date Discrepancies</div></div>
+    </div>
+
+    <div class="notice-box">
+      <h3>Critical Structural Defects Found in <code>data/master.json</code></h3>
+      <ul><li>116 pre-22-Oct rows remain on the canonical master board (including completed Oct 21 Snooker R32, NHL PHI@BUF / FLA@OTT, and EHFCL Wednesday ties), while 6 of 8 Oct 22 NI Open Last-16 matches and newly posted NHL #199937 NYR@TOR are absent.</li><li>38 corrupted odds key(s) found (e.g., M0138 &#x27;Westfalenhalle, Dortmund — Gerwyn Price&#x27;: 1.47 caused by venue-prefix concatenation).</li><li>10 High-confidence rows carry empty win.odds dicts and 0 High-confidence moneyline picks sit outside the -250 to +10000 American odds window.</li><li>39 rows lack any official source_url (violating the per-row official source link rule).</li><li>31 rows carry cross-build date-discrepancy flags caused by scraping OLBG&#x27;s unlabeled edge-IP innerText instead of &lt;time datetime=&#x27;...Z&#x27;&gt;.</li></ul>
+    </div>
+
+    <h2>Peer Session Desk Comparison</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Dataset Path</th><th>Rows</th><th>Audit Finding</th></tr></thead>
+        <tbody><tr>
+          <td class="mono">data/session-c4fda15e/desk.json</td>
+          <td class="mono">138</td>
+          <td>75 of 138 OLBG rows (54.3%) were left unverified (&#x27;No official fixture page captured for this competition&#x27;), including all 33 Handball rows, all 15 Volleyball rows, all 7 Cricket rows, both Snooker rows, 3 SHL rows, KBL, NBB, and Leinster vs Munster.</td>
+        </tr><tr>
+          <td class="mono">session-4afef1af/data/snapshot.json</td>
+          <td class="mono">97</td>
+          <td>Covered only 3 sports (Basketball, Ice Hockey, Baseball), withheld 47 NBA market lines, and omitted 13 other in-scope OLBG sport categories.</td>
+        </tr><tr>
+          <td class="mono">data/session-1695b749/desk.json</td>
+          <td class="mono">96</td>
+          <td>Covered only 3 sports (Ice Hockey 82, Esports 9, Baseball 5) with 12 predictions total, omitting 13 in-scope OLBG sport categories.</td>
+        </tr><tr>
+          <td class="mono">data/session-9359e596/olbg_inventory.json</td>
+          <td class="mono">177</td>
+          <td>Captured OLBG at 07:33Z; our 08:31Z live sweep identifies newly posted NHL #199937 (NY Rangers @ TOR Maple Leafs), 2 new evening UK Greyhound cards (#689575, #689583), consensus flips on Snooker #9945 (Gilbert) and NBB #536020 (Minas -5.50), and 14 early-morning fixtures that started between 07:33Z and 08:35Z.</td>
+        </tr></tbody>
+      </table>
+    </div>
+
+    <h2>All 39 Canonical Rows Missing <code>source_url</code> (With Official Manual-Review Links)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Master ID</th><th>Sport</th><th>Historical Match Label</th><th>Date</th><th>Official Manual-Review Link</th></tr></thead>
+        <tbody><tr>
+          <td class="mono">M0001</td>
+          <td>Aussie Rules</td>
+          <td>No fixture vs No fixture</td>
+          <td>AFL — Australian Football League — Off-Season 2026</td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0002</td>
+          <td>Volleyball</td>
+          <td>24 national U17 teams vs Field</td>
+          <td>FIVB Volleyball Girls&#x27; U17 World Championship Chile 2026</td>
+          <td><a href="https://www.legavolley.it/calendario/?Anno=2026&amp;IdCampionato=991" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0003</td>
+          <td>Basketball</td>
+          <td>Crvena Zvezda Belgrade vs Anadolu Efes Istanbul</td>
+          <td>EuroLeague 2026-27 — Regular Season Round 1 (Recent Result)</td>
+          <td><a href="https://phoebus.kbl.or.kr/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0004</td>
+          <td>Tennis</td>
+          <td>Alejandro Davidovich Fokina (ESP) Champion vs Rafael Jódar (ESP) Runner-up</td>
+          <td>ATP Masters 1000 — Rolex Shanghai Masters (Recently Completed)</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0005</td>
+          <td>Esports</td>
+          <td>16 teams vs Field</td>
+          <td>Valorant Champions 2026 — Paris</td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0006</td>
+          <td>Golf</td>
+          <td>FedEx Fall field vs Verification note: PGATour live leaderboard shows Final</td>
+          <td>PGA TOUR FedExCup Fall — Baycurrent Classic 2026</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0007</td>
+          <td>Cricket</td>
+          <td>Australia Women vs Bangladesh Women</td>
+          <td>Australia Women vs Bangladesh Women — ODI Series</td>
+          <td><a href="https://www.icc-cricket.com/tournaments/uae-mens-odi-tri-series-2026/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0008</td>
+          <td>Table Tennis</td>
+          <td>Winners to be verified via ETTU vs Field Europe top-32</td>
+          <td>European Individual Championships 2026</td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0009</td>
+          <td>Badminton</td>
+          <td>Winners: FRA Alex Lanier, KOR An Se-young, INA Alfian/Fikri, MAS Tan/Muralitharan, CHN Jiang/Wei vs TBD per BWF results page</td>
+          <td>BWF World Tour 2026 — VICTOR Denmark Open (Super 750) $950,000</td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0010</td>
+          <td>Esports</td>
+          <td>LCK/LPL/LEC/LCS vs Bo5 knockout</td>
+          <td>League of Legends — Worlds 2026 (World Championship) — Knockout Stage</td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0011</td>
+          <td>Volleyball</td>
+          <td>via FIVB Oct 15 announcement vs Pools of 4 (round-robin) per 2026 regs</td>
+          <td>2026 FIVB Men&#x27;s Volleyball Club World Championship — Qualifiers Complete</td>
+          <td><a href="https://www.legavolley.it/calendario/?Anno=2026&amp;IdCampionato=991" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0012</td>
+          <td>Cricket</td>
+          <td>South Africa vs Australia</td>
+          <td>Australia Tour of South Africa 2026 — 2nd Test</td>
+          <td><a href="https://www.icc-cricket.com/tournaments/uae-mens-odi-tri-series-2026/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0013</td>
+          <td>Rugby League</td>
+          <td>Australia vs New Zealand</td>
+          <td>Rugby League — Pacific Championships 2026 (International)</td>
+          <td><a href="https://www.rlwc2026.com/draws-and-pools" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0016</td>
+          <td>Tennis</td>
+          <td>Daniil Medvedev vs 28S/16Q/16D</td>
+          <td>ATP Tour 2026 — Almaty Open (ATP 250, Hard Indoor)</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0017</td>
+          <td>Tennis</td>
+          <td>French indoor specialists vs Field</td>
+          <td>ATP Tour 2026 — Grand Prix Auvergne-Rhône-Alpes (Lyon, ATP 250 Hard Indoor)</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0018</td>
+          <td>Tennis</td>
+          <td>Spread favourites by round vs 28 players</td>
+          <td>ATP Tour 2026 — BNP Paribas Fortis European Open (ATP 250 Hard Indoor)</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0024</td>
+          <td>Ice Hockey</td>
+          <td>Anaheim Ducks vs New York Islanders</td>
+          <td>NHL 2026-27 Regular Season</td>
+          <td><a href="https://liiga.fi/fi/ohjelma" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0028</td>
+          <td>Ice Hockey</td>
+          <td>Toronto Maple Leafs vs Columbus Blue Jackets</td>
+          <td>NHL 2026-27 Regular Season</td>
+          <td><a href="https://liiga.fi/fi/ohjelma" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0124</td>
+          <td>Basketball</td>
+          <td>Anadolu Efes Istanbul vs Beşiktaş Istanbul</td>
+          <td>EuroLeague 2026-27 — Regular Season Round 7</td>
+          <td><a href="https://phoebus.kbl.or.kr/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0129</td>
+          <td>Basketball</td>
+          <td>Partizan Belgrade vs Crvena Zvezda Belgrade</td>
+          <td>EuroLeague 2026-27 — Regular Season Round 7</td>
+          <td><a href="https://phoebus.kbl.or.kr/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0145</td>
+          <td>Darts</td>
+          <td>Top 32 European Tour Order of Merit vs Field includes Luke Littler, Luke Humphries (World Grand Prix champion Sep 28-Oct 4), Gerwyn Price</td>
+          <td>PDC European Championship 2026 — Major (£750k prize, £150k winner)</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0146</td>
+          <td>Golf</td>
+          <td>FedEx Fall vs winning score typically -15 to -18</td>
+          <td>PGA TOUR FedExCup Fall — Butterfield Bermuda Championship 2026</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0147</td>
+          <td>Golf</td>
+          <td>LPGA Asian swing vs winning score typically -18 to -21</td>
+          <td>LPGA Tour 2026 — BMW Ladies Championship</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0154</td>
+          <td>Handball</td>
+          <td>Top 16 clubs vs Field 16</td>
+          <td>EHF Champions League 2026-27 — Group Phase Round 7</td>
+          <td><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0176</td>
+          <td>Darts</td>
+          <td>Field vs Field</td>
+          <td>PDC European Championship — Round 1 Day 2</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0207</td>
+          <td>Snooker</td>
+          <td>TBD from Last 16 Oct 22 vs Field</td>
+          <td>Northern Ireland Open — Quarter-Finals</td>
+          <td><a href="https://www.wst.tv/tournaments/northern-ireland-open-2026/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0220</td>
+          <td>Darts</td>
+          <td>Round 2 field TBD vs Field</td>
+          <td>PDC European Championship — Knockout Weekend</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0249</td>
+          <td>Snooker</td>
+          <td>TBD vs TBD</td>
+          <td>Northern Ireland Open — Semi-Finals</td>
+          <td><a href="https://www.wst.tv/tournaments/northern-ireland-open-2026/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0261</td>
+          <td>Darts</td>
+          <td>QF/SF/Finalists TBD vs Field</td>
+          <td>PDC European Championship — Finals Day</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0277</td>
+          <td>Snooker</td>
+          <td>Finalist A TBD vs Finalist B TBD</td>
+          <td>Northern Ireland Open — Final</td>
+          <td><a href="https://www.wst.tv/tournaments/northern-ireland-open-2026/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0290</td>
+          <td>Tennis</td>
+          <td>Top 10 expected vs Field</td>
+          <td>ATP Tour 2026 — Upcoming Week</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0291</td>
+          <td>Badminton</td>
+          <td>Super 500 vs Field</td>
+          <td>BWF World Tour — HYLO Open 2026 (Super 500)</td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0299</td>
+          <td>Cricket</td>
+          <td>South Africa vs Australia</td>
+          <td>Australia Tour of South Africa 2026 — 3rd Test</td>
+          <td><a href="https://www.icc-cricket.com/tournaments/uae-mens-odi-tri-series-2026/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0303</td>
+          <td>Table Tennis</td>
+          <td>French stars: Félix Lebrun (WR #2), Alexis Lebrun (WR #9), Flavien Coton (WR #19), Thibault Poret (WR #21 women: Prithika Pavade WR #40, Jia Nan Yuan WR #34) vs World top 32 per WTT rankings</td>
+          <td>WTT Champions Montpellier 2026 — WTT Series (32 players, $500k)</td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0313</td>
+          <td>Handball</td>
+          <td>Europe vs IHF 32-team WC 2027</td>
+          <td>IHF World Championship 2027 Qualifiers (Europe)</td>
+          <td><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0325</td>
+          <td>Table Tennis</td>
+          <td>outside top-32 vs Field</td>
+          <td></td>
+          <td><a href="https://www.afl.com.au/aflw/matches" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0326</td>
+          <td>Golf</td>
+          <td>Fall bubble players vs </td>
+          <td>PGA TOUR FedExCup Fall — VidantaWorld Mexico Open 2026</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0327</td>
+          <td>Golf</td>
+          <td>LPGA Asian swing continues vs After BMW, before TOTO Japan Classic Nov 5-8</td>
+          <td>LPGA Tour 2026 — Maybank Championship</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0336</td>
+          <td>Tennis</td>
+          <td>Top 8 WTA Race vs Field</td>
+          <td>WTA Finals 2026 — WTA Finals Indian Wells</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr></tbody>
+      </table>
+    </div>
+
+    <h2>All 38 Canonical Rows With Venue-Prefixed Corrupted <code>win.odds</code> Keys</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Master ID</th><th>Sport</th><th>Match</th><th>Corrupted Odds Dictionary Keys</th><th>Official Verification Link</th></tr></thead>
+        <tbody><tr>
+          <td class="mono">M0002</td>
+          <td>Volleyball</td>
+          <td class="mono">U17 Field — 24 national U17 teams</td>
+          <td>Youth event — no senior lines</td>
+          <td><a href="https://www.legavolley.it/calendario/?Anno=2026&amp;IdCampionato=991" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0005</td>
+          <td>Esports</td>
+          <td class="mono">Top VCT 2026 — 16 teams (Masters winners auto-qualified)</td>
+          <td>Grand Final fav 1.60-1.85</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0006</td>
+          <td>Golf</td>
+          <td class="mono">Field 72 — FedEx Fall field (JPN co-sanction)</td>
+          <td>Pre-event fave Schauffele 8.00</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0006</td>
+          <td>Golf</td>
+          <td class="mono">Winner: Michael Brennan (per Wikipedia/ESPN leaderboard) — Verification note: PGATour live leaderboard shows Final</td>
+          <td>Brennan 34.00 (post-win verification)</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0009</td>
+          <td>Badminton</td>
+          <td class="mono">Winners: FRA Alex Lanier, KOR An Se-young, INA Alfian/Fikri, MAS Tan/Muralitharan, CHN Jiang/Wei</td>
+          <td>MS Final: Lanier 2.20 vs field</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0009</td>
+          <td>Badminton</td>
+          <td class="mono">Runners-up — TBD per BWF results page</td>
+          <td>WS: An Se-young 1.85 favourite</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0010</td>
+          <td>Esports</td>
+          <td class="mono">TBD after Swiss — LCK/LPL/LEC/LCS</td>
+          <td>Match favourites 1.55-2.00 (Bo5)</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0010</td>
+          <td>Esports</td>
+          <td class="mono">Field 8 — Bo5 knockout</td>
+          <td>Outright: T1 3.50, Gen.G 4.00</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0011</td>
+          <td>Volleyball</td>
+          <td class="mono">Confirmed clubs — via FIVB Oct 15 announcement</td>
+          <td>N/A — Outright 2.50-4.00 when draw released</td>
+          <td><a href="https://www.legavolley.it/calendario/?Anno=2026&amp;IdCampionato=991" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0014</td>
+          <td>Snooker</td>
+          <td class="mono">Field — Top 16 + Qualifiers (Sept 13-16 Leicester)</td>
+          <td>Outright: Judd Trump 5.00</td>
+          <td><a href="https://www.wst.tv/tournaments/northern-ireland-open-2026/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0016</td>
+          <td>Tennis</td>
+          <td class="mono">Field — Daniil Medvedev (27% fav)</td>
+          <td>Event — outright: Medvedev 3.70</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0016</td>
+          <td>Tennis</td>
+          <td class="mono">Field — 28S/16Q/16D</td>
+          <td>Next fav 6.00-8.00 range</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0017</td>
+          <td>Tennis</td>
+          <td class="mono">Field — French indoor specialists</td>
+          <td>Outright field 3.00-15.00</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0018</td>
+          <td>Tennis</td>
+          <td class="mono">Field — Spread favourites by round</td>
+          <td>Outright — Dzumhur 17.00</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0018</td>
+          <td>Tennis</td>
+          <td class="mono">Field — 28 players</td>
+          <td>Field 2.50-12.00</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0019</td>
+          <td>Badminton</td>
+          <td class="mono">Field — Super 750 world-ranked top-32 per category</td>
+          <td>MS: Lanier 5.50, Top CHN/INA 6.00-9.00</td>
+          <td><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0019</td>
+          <td>Badminton</td>
+          <td class="mono">Defending? To be confirmed from Denmark form</td>
+          <td>WS: An Se-young 1.90 favourite</td>
+          <td><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0022</td>
+          <td>Basketball</td>
+          <td class="mono">New York Knicks (Champions — Banner Night)</td>
+          <td>1.52</td>
+          <td><a href="https://phoebus.kbl.or.kr/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0074</td>
+          <td>Ice Hockey</td>
+          <td class="mono">Florida Panthers (Stanley Cup Finalists 2026)</td>
+          <td>1.80</td>
+          <td><a href="https://liiga.fi/fi/ohjelma" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0138</td>
+          <td>Darts</td>
+          <td class="mono">Westfalenhalle, Dortmund — Gerwyn Price</td>
+          <td>1.47</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0141</td>
+          <td>Darts</td>
+          <td class="mono">Westfalenhalle, Dortmund — Luke Humphries</td>
+          <td>1.38</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0145</td>
+          <td>Darts</td>
+          <td class="mono">Field includes Luke Littler, Luke Humphries (World Grand Prix champion Sep 28-Oct 4), Gerwyn Price</td>
+          <td>Outright: Littler 4.50, Humphries 6.00</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0146</td>
+          <td>Golf</td>
+          <td class="mono">Field — FedEx Fall (players ranked 60+ bubble)</td>
+          <td>Favourites 16.00-22.00 (open field)</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0146</td>
+          <td>Golf</td>
+          <td class="mono">Conditions: 20-30mph winds forecast — winning score typically -15 to -18</td>
+          <td>Longshots 50.00+</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0147</td>
+          <td>Golf</td>
+          <td class="mono">Field — LPGA Asian swing (post Buick LPGA Shanghai Oct 15-18)</td>
+          <td>Favourites: KOR stars 7.00-9.00 (Kim, Jeeno Thitikul)</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0147</td>
+          <td>Golf</td>
+          <td class="mono">Course: Pine Beach links-style — winning score typically -18 to -21</td>
+          <td>US/EU 12.00-20.00</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0154</td>
+          <td>Handball</td>
+          <td class="mono">Group A/B — Top 16 clubs (Barça, Kiel, PSG, Veszprém, Aalborg, etc.)</td>
+          <td>Home favourites 1.40-1.65 typical for EHF CL group</td>
+          <td><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0207</td>
+          <td>Snooker</td>
+          <td class="mono">QF1-4 — TBD from Last 16 Oct 22</td>
+          <td>Match prices set after R3</td>
+          <td><a href="https://www.wst.tv/tournaments/northern-ireland-open-2026/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0249</td>
+          <td>Snooker</td>
+          <td class="mono">SF1 — TBD</td>
+          <td>To Be Priced after QF</td>
+          <td><a href="https://www.wst.tv/tournaments/northern-ireland-open-2026/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0290</td>
+          <td>Tennis</td>
+          <td class="mono">Field — Top 10 expected</td>
+          <td>Outlook — Basel/Vienna outrights 4.00-9.00 for top seeds</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0291</td>
+          <td>Badminton</td>
+          <td class="mono">Field — Super 500</td>
+          <td>To Be Priced post-French</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0303</td>
+          <td>Table Tennis</td>
+          <td class="mono">French stars: Félix Lebrun (WR #2), Alexis Lebrun (WR #9), Flavien Coton (WR #19), Thibault Poret (WR #21 women: Prithika Pavade WR #40, Jia Nan Yuan WR #34)</td>
+          <td>MS Fav: Félix Lebrun 3.00 (home), Chinese seeds 3.50-5.00</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0313</td>
+          <td>Handball</td>
+          <td class="mono">National teams — Europe</td>
+          <td>N/A — Pre-draw</td>
+          <td><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0325</td>
+          <td>Table Tennis</td>
+          <td class="mono">Feeder field — outside top-32</td>
+          <td>N/A small field</td>
+          <td><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0326</td>
+          <td>Golf</td>
+          <td class="mono">Field — Fall bubble players</td>
+          <td>Outright 18.00-25.00 co-favourites</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0327</td>
+          <td>Golf</td>
+          <td class="mono">Field — LPGA Asian swing continues</td>
+          <td>Outright 9.00-16.00</td>
+          <td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0332</td>
+          <td>Rugby Union</td>
+          <td class="mono">South Africa (Springboks — World Champions)</td>
+          <td>1.12</td>
+          <td><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr><tr>
+          <td class="mono">M0336</td>
+          <td>Tennis</td>
+          <td class="mono">Field — Top 8 WTA Race</td>
+          <td>Outright — top seeds 3.50-6.00 range</td>
+          <td><a href="https://www.wtatennis.com/rankings/singles" target="_blank" rel="noopener">Official Federation Review ↗</a></td>
+        </tr></tbody>
+      </table>
+    </div>
+    
+  </main>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>Board AC (<code>arena/f0622b6e-olbg4</code>) · Zero-vig fair + 4.2% book origination · Every table row verified against official governing bodies.</div>
+      <div>Data exports: <a href="../data/session-f0622b6e/desk.json">desk.json</a> · <a href="../data/session-f0622b6e/predictions.json">predictions.json</a> · <a href="../data/session-f0622b6e/flagged.json">flagged.json</a> · <a href="../data/session-f0622b6e/olbg_inventory.json">olbg_inventory.json</a> · <a href="../data/session-f0622b6e/repo_review.json">repo_review.json</a></div>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
