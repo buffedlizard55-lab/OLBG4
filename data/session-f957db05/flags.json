@@ -1,0 +1,86 @@
+{
+ "schema": "olbg4.board-v.flags/1",
+ "flags": [
+  {
+   "id": "V-F01",
+   "severity": "scope",
+   "sport": "11 in-scope sports",
+   "title": "Eleven in-scope sports have no readable official fixture feed in this cycle",
+   "detail": "For those sports the official pages returned the HTTP statuses listed on the Coverage page and served a JavaScript shell with no fixture table. No fixture, price or pick is published for them rather than copying one from a tipster or aggregator site.",
+   "evidence": "https://www.olbg.com/betting-tips",
+   "status": "unverified"
+  },
+  {
+   "id": "V-F02",
+   "severity": "taxonomy",
+   "sport": "Esports",
+   "title": "OLBG no longer lists esports, badminton, table tennis or Aussie rules in its live menu",
+   "detail": "The live menu captured on 2026-10-22 has 21 entries: the 14 in-scope sports above plus the seven the brief excludes. Earlier boards in this repo carried Badminton, Table Tennis, Aussie Rules, Esports and \"Greyhound Racing\" as separate OLBG sports. Board V therefore takes its in-scope list from the live menu and publishes esports only because Riot Games serves an official schedule API.",
+   "evidence": "https://www.olbg.com/betting-tips",
+   "status": "needs-review"
+  },
+  {
+   "id": "V-F03",
+   "severity": "sample",
+   "sport": "Esports",
+   "title": "Esports confidence is capped at Medium",
+   "detail": "The only verified inputs available are match results inside a 13-day official feed window (2026-10-06 to 2026-10-18), which is too thin to publish a High pick.",
+   "evidence": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+   "status": "verified"
+  },
+  {
+   "id": "V-F04",
+   "severity": "sample",
+   "sport": "Ice Hockey",
+   "title": "NHL clubs have played only 7-11 games, so team strength is shrunk toward the mean",
+   "detail": "The model multiplies each club rating by GP/(GP+8) so that a 9-game start cannot dominate the price. Ratings will sharpen as the season progresses; they are recomputed from each new capture.",
+   "evidence": "https://api-web.nhle.com/v1/standings/2026-10-22",
+   "status": "verified"
+  },
+  {
+   "id": "V-F05",
+   "severity": "pricing",
+   "sport": "Ice Hockey",
+   "title": "Seven of the eight High picks are published at the -250 floor",
+   "detail": "The brief restricts our published prices to -250..+10,000. A fair price for a 71.5%-plus favourite is shorter than -250, so the desk publishes the floor price and prints the fair price in the row. This is a pricing rule, not an error: the fair prices are 1.23-1.39.",
+   "evidence": "methodology.html",
+   "status": "needs-review"
+  },
+  {
+   "id": "V-F06",
+   "severity": "model",
+   "sport": "Baseball",
+   "title": "MLB run totals and run line use season-long rates against a post-season series",
+   "detail": "Expected runs are the average of each club's season runs scored and conceded per game from the final 2026 regular-season table. Post-season run environments differ; the totals are marked as model output, not as a claim about the actual game.",
+   "evidence": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+   "status": "verified"
+  },
+  {
+   "id": "V-F07",
+   "severity": "evidence",
+   "sport": "All",
+   "title": "No head-to-head history is captured, so no prediction claims a previous meeting",
+   "detail": "The verified inputs are season-to-date standings and the fixture list. Predictions therefore cite records, goals and last-ten form only. Any site claiming a specific prior meeting would be inferring a value this desk cannot confirm.",
+   "evidence": "verification.html",
+   "status": "verified"
+  },
+  {
+   "id": "V-F08",
+   "severity": "provenance",
+   "sport": "All",
+   "title": "Raw official bytes were captured by the Board U collector, not by this session",
+   "detail": "The GitHub Actions runner can reach official domains; this sandbox reaches GitHub only. Board V therefore parses the committed snapshot data/session-e5f2dad3/raw/** (copied to data/session-f957db05/raw/**, SHA-256 recorded per file) and re-derives every published value.",
+   "evidence": "https://github.com/buffedlizard55-lab/OLBG4/blob/arena/f957db05-olbg4/data/session-f957db05/raw/peer-manifest.json",
+   "status": "verified"
+  },
+  {
+   "id": "V-F09",
+   "severity": "coverage",
+   "sport": "All",
+   "title": "This desk prices 3 sports, not the full 14-sport in-scope menu",
+   "detail": "The Board V table is a verified subset, not a padded one: 98 fixtures across ice hockey, baseball and esports. The Coverage page names each missing sport with its official URL and the HTTP status that stopped it, so the gap is auditable rather than silent.",
+   "evidence": "coverage.html",
+   "status": "needs-review"
+  }
+ ]
+}

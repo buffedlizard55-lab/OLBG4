@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology · OLBG4 Board V</title>
+<meta name="description" content="Board V: verified fixtures, our own originated lines and confidence-graded picks, published with an official source per row.">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="top"><div class="wrap">
+<div class="brand"><span class="dot"></span><a href="index.html">OLBG4 · Board V</a>
+<small>verified fixtures · our own lines · 22 October 2026</small></div>
+<nav><a href="index.html">All fixtures</a><a href="picks.html">Picks &amp; predictions</a><a href="markets.html">Markets</a><a href="coverage.html">Coverage</a><a href="verification.html">Verification</a><a href="sources.html">Sources</a><a href="methodology.html" class="on">Methodology</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main class="wrap">
+<h1>Methodology</h1>
+<p class="lede">Three steps, each of which can be re-run: read the official feed, turn verified inputs into a probability
+with a published formula, then turn that probability into a price and a confidence grade.</p>
+<h2>1. Verified inputs</h2>
+<ul class="prose">
+<li><strong>Ice Hockey.</strong> The NHL schedule API for each date 2026-10-22 … 2026-11-02 (games of type 2, the regular
+season) and the NHL standings for 2026-10-22: games played, wins, losses, overtime losses, points, points percentage,
+goals for, goals against, last ten and current streak, per club.</li>
+<li><strong>Baseball.</strong> The MLB schedule API for 2026-10-22 … 2026-11-05 and the final 2026 regular-season
+standings (wins, losses, runs scored, runs allowed).</li>
+<li><strong>Esports.</strong> Riot Games' official schedule API, 80 events from 2026-10-06 to 2026-11-08, of which 40
+carry results and 40 are still to be played.</li>
+</ul>
+<h2>2. Probability</h2>
+<pre class="formula">NHL   pythag    = GF² / (GF² + GA²)
+      strength  = ½·logit(points%) + ½·logit(pythag)
+      shrunk    = strength × GP / (GP + 8)              # early-season guard
+      p(home)   = logistic(shrunk_home − shrunk_away + 0.18)
+
+MLB   strength  = logit(RS² / (RS² + RA²))              # season runs
+      p(home)   = logistic(0.5·(strength_home − strength_away) + 0.10)
+
+LoL   rate(t)   = (wins + 1) / (wins + losses + 2)      # Laplace, official results
+      p(team1)  = logistic(logit(rate₁) − logit(rate₂))</pre>
+<ul class="prose">
+<li>0.18 is the home-ice term: it prices home advantage at roughly 54% between two equal NHL clubs, which is the
+long-run league figure. 0.10 is the baseball equivalent.</li>
+<li>The divisor <code>GP + 8</code> means a club with nine games played keeps 53% of its raw rating; the term is the same
+for every club, so it compresses the spread rather than favouring anyone.</li>
+</ul>
+<h2>3. Price and confidence</h2>
+<pre class="formula">fair price      = 1 / p
+desk price      = max(1.40, fair price)        # never laid shorter than −250
+american(dec)   = (dec − 1) × 100 if dec ≥ 2 else −100 / (dec − 1)
+window          = −250 … +10,000  ⇔  decimal 1.40 … 101.0
+confidence      = High if p ≥ 0.70 · Medium if 0.55 ≤ p &lt; 0.70 · Low otherwise</pre>
+<div class="note"><strong>The arithmetic that shapes the picks page.</strong> A price of −250 implies a 71.4% chance.
+So the brief's two rules — "at least 70% confidence" and "priced between −250 and +10,000" — only overlap for
+probabilities between 70.0% and 71.4%. On this card 8 fixtures clear
+70%, and 6 of them are stronger
+than 71.4% and are therefore published at the −250 floor with their fair price printed next to them. Nothing is
+re-graded to make the numbers look tidier.</div>
+<h2>Handicap and totals</h2>
+<pre class="formula">NHL  lam_home = 1.02·mean(GF_home/GP, GA_away/GP)
+     lam_away = 0.98·mean(GF_away/GP, GA_home/GP)
+     total    = nearest ½ to lam_home + lam_away
+     over     = 1 − Φ((total − (lam_home+lam_away)) / (1.15·√(lam_home+lam_away)))
+     −1.5     = Σ P(home − away ≥ 2) over the joint Poisson grid
+
+MLB  lam_home = 0.99·mean(RS_home/GP, RA_away/GP)
+     lam_away = 1.01·mean(RS_away/GP, RA_home/GP)
+     run line and total use a normal approximation to the margin, sd = 1.05·√total</pre>
+<h2>What this model does not do</h2>
+<ul class="prose">
+<li>It does not read bookmaker prices, so it cannot tell you whether a price on the market is value.</li>
+<li>It does not know about injuries, suspensions, rest days, back-to-backs or line combinations; the official feeds
+captured here carry none of those fields.</li>
+<li>It uses no head-to-head history, because none was captured (<strong>V-F07</strong>).</li>
+<li>It prices only what the feed supports. Esports gets a moneyline and nothing else; no sport gets a total invented from
+a convention.</li>
+</ul>
+<h2>Reproduce it</h2>
+<pre class="formula">python3 data/session-f957db05/extract.py          # official bytes → compact extracts
+python3 data/session-f957db05/model.py            # extracts → probabilities, prices, picks
+python3 data/session-f957db05/build_coverage.py   # taxonomy + irregularity register
+python3 session-f957db05/build.py                 # render this site
+python3 session-f957db05/verify.py                # gates</pre>
+</main>
+<footer class="wrap foot">
+<p><strong>Board V</strong> · session <code>arena/f957db05-olbg4</code> · data cut-off 2026-10-22.
+Every fixture, price and pick is regenerated by <code>data/session-f957db05/model.py</code> from the official bytes
+listed on the <a href="sources.html">Sources</a> page. OLBG.com is used only to reconstruct the sport universe, never as a fact source.</p>
+<p><a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG4">repository</a></p>
+</footer>
+<script src="app.js"></script>
+</body></html>
