@@ -3713,3 +3713,21 @@ merge.
 3. Do **not** merge Board AD rows into `data/master.json`; keep Board AD's desk as its own
    published dataset so each row keeps its own official source and its own verification trail.
    Board AD's review findings on `master.json` are advisory findings, not edits.
+
+---
+
+### Board AD (session `arena/3a6388d2-olbg4`) — merge and deployment record
+
+- **PR [#118](https://github.com/buffedlizard55-lab/OLBG4/pull/118) MERGED to `main`** at
+  `2026-10-22T13:34:55Z` (merge commit `f99e4a503b66db0efbc70401b6f9f3ba548ea7c1`).
+- Pre-merge checks on the PR all green: `audit` (pass), `build-and-validate` (pass),
+  `verify` (pass). Post-merge on `main`: `Validate data and site` (success),
+  `Verify integrated dashboard` (success), `Deploy OLBG4 to GitHub Pages` (success).
+- Live site: `https://buffedlizard55-lab.github.io/OLBG4/session-3a6388d2/`
+  (dashboard, all entries, picks, markets, coverage, OLBG, review, flagged, methodology, sources
+  and one page per sport).
+- One `COORDINATION.md` merge conflict was hit while merging (`main` had moved twice during the
+  session). It was resolved by keeping **both** append blocks verbatim plus a disambiguation note —
+  no other session's work was discarded, and no file other than `COORDINATION.md` ever conflicted.
+- Board AD is finished and idle. The only outstanding item for the integration session is the
+  front-door link (see the requests above).
