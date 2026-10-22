@@ -199,6 +199,8 @@ def lol_lines():
         row['model'] = dict(kind='lol-laplace-winrate', p_home=round(p1, 4), p_away=round(1 - p1, 4),
                             inputs={'team1_record': list(rec.get(e['team1'], (0, 0))),
                                     'team2_record': list(rec.get(e['team2'], (0, 0))),
+                                    'form_games': sum(rec.get(t, (0, 0))[0] + rec.get(t, (0, 0))[1]
+                                                      for t in (e['team1'], e['team2'])),
                                     'window': 'official schedule results 2026-10-06..2026-10-18'})
         row['markets'] = dict(moneyline={'home': {'label': e['team1'], 'p': round(p1, 4)},
                                          'away': {'label': e['team2'], 'p': round(1 - p1, 4)}},
@@ -207,8 +209,27 @@ def lol_lines():
     return rows
 
 
+def both_sides_have_form(r):
+    i = r['model']['inputs']
+    t1, t2 = i['team1_record'], i['team2_record']
+    return (t1[0] + t1[1]) > 0 and (t2[0] + t2[1]) > 0
+
+
 def finalise(rows):
     for r in rows:
+        if r['sport'] == 'Esports' and not both_sides_have_form(r):
+            # At least one side has no captured result. A neutral 50/50 prior is a
+            # convention, not verified form, so the row gets no pick and no price.
+            r['pick'] = {'market': '', 'selection': 'No pick — no verified form', 'side': None,
+                         'p': None, 'fair_price': None, 'fair_american': None, 'price': None,
+                         'american': None, 'price_capped_at_floor': False, 'window': 'no-line'}
+            r['confidence'] = 'Unrated'
+            r['markets']['moneyline']['home']['p'] = None
+            r['markets']['moneyline']['away']['p'] = None
+            r.setdefault('flags', []).append({'kind': 'no-verified-form',
+                'text': 'At least one team has no result inside the captured official window, so a rating would '
+                        'be a guess. No pick and no price are published.'})
+            continue
         ml = r['markets']['moneyline']
         side = 'home' if ml['home']['p'] >= ml['away']['p'] else 'away'
         p = ml[side]['p']
@@ -223,10 +244,19 @@ def finalise(rows):
                      'price_capped_at_floor': capped,
                      'window': window(desk)}
         r['confidence'] = grade(p)
-        if r['sport'] == 'Esports' and r['confidence'] == 'High':
-            r['confidence'] = 'Medium'          # small-sample cap, documented
-            r['flags'] = r.get('flags', []) + [{'kind': 'confidence-cap',
-                'text': 'Capped at Medium: the only verified inputs are match results inside a 13-day feed window.'}]
+        if r['sport'] == 'Esports':
+            n = r['model']['inputs'].get('form_games', 0)
+            t1 = r['model']['inputs']['team1_record']
+            t2 = r['model']['inputs']['team2_record']
+            if 0 in (t1[0] + t1[1], t2[0] + t2[1]):
+                r['confidence'] = 'Low'
+                r.setdefault('flags', []).append({'kind': 'one-sided-form',
+                    'text': 'Only one side has a captured result in the official window; the other is a neutral '
+                            'prior. Confidence capped at Low.'})
+            elif r['confidence'] == 'High':
+                r['confidence'] = 'Medium'      # small-sample cap, documented
+                r.setdefault('flags', []).append({'kind': 'confidence-cap',
+                    'text': 'Capped at Medium: the only verified inputs are match results inside a 13-day feed window.'})
         # price the other two markets at fair odds as well
         for mk in ('handicap', 'total'):
             m = r['markets'].get(mk)

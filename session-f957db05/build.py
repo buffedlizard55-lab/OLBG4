@@ -55,7 +55,8 @@ listed on the <a href="{up}sources.html">Sources</a> page. OLBG.com is used only
 def kpis():
     hi = [r for r in ROWS if r['confidence'] == 'High']
     inw = [r for r in hi if r['pick']['window'] == 'in-window']
-    return [('Fixtures priced', len(ROWS)), ('Sports', len({r['sport'] for r in ROWS})),
+    priced = sum(1 for r in ROWS if r['pick']['price'])
+    return [('Fixtures priced', priced), ('Fixtures listed', len(ROWS)), ('Sports', len({r['sport'] for r in ROWS})),
             ('High confidence', len(hi)), ('High inside −250…+10,000', len(inw)),
             ('Written predictions', len(PRED)), ('In-scope sports on OLBG today', COV['totals']['in_scope'])]
 
@@ -66,7 +67,7 @@ def kpi_html():
 
 
 def usd(am):
-    if am is None: return ''
+    if am is None: return '—'
     return f'+{am}' if am > 0 else str(am)
 
 
@@ -94,8 +95,9 @@ def fixture_table(rows, tid='fx', up=''):
             f'<td><a href="{up}sports/{E(r["sport_slug"])}.html">{E(r["home"])} v {E(r["away"])}</a>'
             f'<br><small>{E(r["competition"])}</small></td>'
             f'<td><small>{E(r["venue"] or "—")}</small></td>'
-            f'<td class="num">{p["fair_price"]} <small>({usd(p["fair_american"])})</small></td>'
-            f'<td class="num">{p["price"]} <small>({usd(p["american"])})</small></td>'
+            f'<td class="num">{p["fair_price"] if p["fair_price"] else "—"}'
+            f' <small>({usd(p["fair_american"])})</small></td>'
+            f'<td class="num">{p["price"] if p["price"] else "—"} <small>({usd(p["american"])})</small></td>'
             f'<td>{E(p["selection"])}</td>'
             f'<td>{conf_chip(r["confidence"])}</td>'
             f'<td>{win_chip(p["window"])}</td>'
@@ -592,6 +594,7 @@ small{color:var(--mut)}
 .chip.high{background:#dcfce7;color:#166534}
 .chip.medium{background:#e0f2fe;color:#075985}
 .chip.low{background:#f1f5f9;color:#475569}
+.chip.unrated{background:#fef2f2;color:#991b1b}
 .chip.ok{background:#dcfce7;color:#166534}
 .chip.warn{background:#fef3c7;color:#92400e}
 .chip.muted{background:#f3f4f6;color:#6b7280}

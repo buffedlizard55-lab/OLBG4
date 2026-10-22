@@ -46,11 +46,18 @@ check('home/away/date/start present on every row', not inc, str(inc[:5]))
 
 # 4. window + confidence
 offw = [(r['id'], r['pick']['price']) for r in rows
-        if not (r['pick']['price'] is not None and 1.40 <= r['pick']['price'] <= 101.0)]
+        if r['pick']['price'] is not None and not (1.40 <= r['pick']['price'] <= 101.0)]
 check('every published price inside -250..+10,000', not offw, str(offw[:5]))
+unp = [r['id'] for r in rows if r['pick']['price'] is None and r['confidence'] != 'Unrated']
+check('a row without a price is graded Unrated', not unp, str(unp[:5]))
+nopick = [r['id'] for r in rows if r['pick']['price'] is None and
+          not r['pick']['selection'].startswith('No pick')]
+check('an unpriced row says why instead of carrying a pick', not nopick, str(nopick[:5]))
 
 
 def grade(p, sport):
+    if p is None:
+        return 'Unrated'
     g = 'High' if p >= .70 else ('Medium' if p >= .55 else 'Low')
     return 'Medium' if (sport == 'Esports' and g == 'High') else g   # documented small-sample cap
 
