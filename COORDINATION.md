@@ -3857,3 +3857,9 @@ root `index.html` / `README.md` navigation so the dashboard is reachable from th
 - **Label collision:** two sessions published under "Board AF" tonight. This section is identified by its session id
   `arena/2d25cf78-olbg4`; the other desk is `session-0d3b826c/`. No files overlap.
 - **Follow-up PR:** https://github.com/buffedlizard55-lab/OLBG4/pull/122 — **MERGED** to `main` (adds the root-dashboard navigation pointer to `session-2d25cf78/index.html` and the deploy record above; `Deploy OLBG4 to GitHub Pages` run `39856197034` success, Pages build `built`).
+- **Fact-check corrections applied after the first publication (PR #124):** eight prediction sentences were
+  tightened so every claim is directly supported by the row's official inputs — removed an unverified
+  "built largely at home" inference (af_0061), an incorrect "3-1 over Vero Volley Monza" (af_0038; Trentino swept
+  Modena 3-0, 75-61), an incorrect "trailing only Toulouse and Pau" ordering (af_0045), and four qualitative
+  "competition-best / highest / champions" superlatives that the captured data does not establish (af_0046, af_0058,
+  af_0090, af_0039), plus the af_0034 duplicate sentence. Re-verified: 19/19 checks, audit 0 broken / 0 stale.

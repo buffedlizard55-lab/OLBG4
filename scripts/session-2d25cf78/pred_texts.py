@@ -27,8 +27,8 @@ TEXTS = {
     ),
     ("af_0046", "Under 6.5"): (
         "Dallas have conceded just 15 goals in nine games and sit 5-3-1 on 11 points. The Islanders are also "
-        "5-3-1 and have allowed only 20 while scoring 27, and both clubs won their last outing. Two of the "
-        "tightest defensive records in the league meet at American Airlines Center: Under 6.5 goals at 1.429."
+        "5-3-1 and have allowed only 20 while scoring 27, and both clubs won their last outing. The defensive "
+        "numbers point down at American Airlines Center: Under 6.5 goals at 1.429."
     ),
     ("af_0085", "Edmonton Oilers"): (
         "Edmonton are 7-1-1 with 41 goals in nine games, 15 points and a win in their latest outing. Calgary "
@@ -43,9 +43,9 @@ TEXTS = {
         "on the glass and at the defensive end should cover the small line: Crvena Zvezda -2.5 at 1.40."
     ),
     ("af_0058", "Valencia Basket +4.5"): (
-        "Fenerbahce are 5-1 and allow a competition-best 74.5 points per game, so this is no formality. "
-        "Valencia, though, are 4-2 and pour in 98.3 a night at home. A 4.5-point cushion for the fastest "
-        "offence in the sample is too generous to pass: Valencia Basket +4.5 at 1.401."
+        "Fenerbahce are 5-1 and allow only 74.5 points per game, so this is no formality. Valencia, though, are "
+        "4-2 and pour in 98.3 a night at home. A 4.5-point cushion for the fastest offence in the sample is too "
+        "generous to pass: Valencia Basket +4.5 at 1.401."
     ),
     ("af_0105", "LDLC ASVEL Villeurbanne +1.5"): (
         "Both clubs are struggling, but Baskonia are 1-6 and concede 92.7 points a game while scoring 83.3. "
@@ -58,9 +58,9 @@ TEXTS = {
         "point one way. Back Hapoel IBI Tel Aviv to win at 1.414."
     ),
     ("af_0090", "Over 163.0"): (
-        "Real Madrid are putting up 95.3 points a game and conceding 90.0, the highest combined rate in this "
-        "group of fixtures. Fenerbahce's defence is the stingiest in the sample at 74.5, yet 163 points is a "
-        "low bar when Madrid are involved. Over 163.0 at 1.414 is the call."
+        "Real Madrid are putting up 95.3 points a game and conceding 90.0, the highest scoring rate in this "
+        "matchup. Fenerbahce's defence is the stingiest in the sample at 74.5, yet 163 points is a low bar when "
+        "Madrid are involved. Over 163.0 at 1.414 is the call."
     ),
 
     # ---------------------------------------------------------------- Baseball
@@ -71,8 +71,8 @@ TEXTS = {
     ),
     ("af_0061", "Tampa Bay Rays +1.5"): (
         "Game two of the series and the same logic holds. Tampa Bay's 55-26 home record and 650 runs allowed "
-        "are the strongest defensive markers here, while Milwaukee's 8-2 last ten was built largely at "
-        "American Family Field. We stay with Tampa Bay Rays +1.5 at 1.471."
+        "are the strongest defensive markers here, while Milwaukee bring the best last-ten record in the series "
+        "at 8-2. We stay with Tampa Bay Rays +1.5 at 1.471."
     ),
     ("af_0016", "Over 7.5"): (
         "Milwaukee scored 832 runs this season and Tampa Bay added 736, two of the deeper line-ups in the "
@@ -80,9 +80,9 @@ TEXTS = {
         "for game one at American Family Field. Over 7.5 runs at 1.546."
     ),
     ("af_0034", "Over 7.5"): (
-        "Game two at American Family Field with the same 832-run Milwaukee offence and a Tampa Bay side that "
-        "scored 736 across 162 games. Both bullpens are live and neither manager will want to lose the "
-        "series' momentum early. Seven and a half runs is a low line for these bats: Over 7.5 at 1.546."
+        "Game two at American Family Field pits the 832-run Milwaukee offence against a Tampa Bay side that "
+        "scored 736 across 162 games. Milwaukee allowed 618 runs and Tampa Bay 650, so runs may be harder to "
+        "find than the raw totals suggest, but seven and a half is still a low line for these bats: Over 7.5 at 1.546."
     ),
     ("af_0084", "Under 9.5"): (
         "By game four the hitters have seen each staff twice. Milwaukee allowed 618 runs in 162 games and "
@@ -93,8 +93,8 @@ TEXTS = {
     # ---------------------------------------------------------------- Rugby Union
     ("af_0045", "Union Bordeaux-Bègles +6.5"): (
         "Bordeaux-Bègles have scored 215 points in six games with a +64 differential and three bonus points, "
-        "trailing only Toulouse and Pau. La Rochelle are 4-0-2 but have managed just 144 points and a +9 "
-        "differential. Giving UBB 6.5 at Stade Marcel-Deflandre is the play at 1.406."
+        "the best points difference in this fixture. La Rochelle are 4-0-2 but have managed just 144 points and "
+        "a +9 differential. Giving UBB 6.5 at Stade Marcel-Deflandre is the play at 1.406."
     ),
     ("af_0022", "Racing 92 +7.5"): (
         "Montpellier's +41 differential is among the best in the Top 14, but they travel to La Défense Arena "
@@ -146,8 +146,8 @@ TEXTS = {
 
     # ---------------------------------------------------------------- Volleyball
     ("af_0038", "Cisterna Volley +1.5 sets"): (
-        "Cisterna opened the season with a 3-0 sweep of Milano, winning 79 points to 56, while Trentino took "
-        "a 3-1 win over Vero Volley Monza. On one round of official data this is close, and the 1.5-set "
+        "Cisterna opened the season with a 3-0 sweep of Milano, winning 79 points to 56, while Trentino swept "
+        "Modena 3-0, 75 points to 61. On one round of official data this is close, and the 1.5-set "
         "cushion is the safer side. Cisterna Volley +1.5 sets at 1.422."
     ),
     ("af_0043", "Acqua Sant'Anna Cuneo +1.5 sets"): (
@@ -167,7 +167,7 @@ TEXTS = {
     ),
     ("af_0039", "Cucine Lube Civitanova"): (
         "Civitanova swept Verona 3-0 in round one, 78 points to 65, while Padova were swept by Piacenza and "
-        "scored just 56. The champions' serving and block should tell at the Eurosuole Forum. Cucine Lube "
+        "scored just 56. Civitanova's serving and block should tell at the Eurosuole Forum. Cucine Lube "
         "Civitanova to win at 1.812."
     ),
 }
