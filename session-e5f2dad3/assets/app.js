@@ -1,4 +1,4 @@
-/* Board U table filters. The tables are fully rendered server-side, so this only
+/* Board W table filters. The tables are fully rendered server-side, so this only
    hides rows and updates a counter — no data is fetched and nothing is tracked. */
 (function () {
   function apply(box) {

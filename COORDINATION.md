@@ -2639,14 +2639,14 @@ All 9 predictions are 72–89 words, each quoting the verified form (standings, 
 
 ---
 
-## Board U — session `arena/e5f2dad3-olbg4` (22 Oct 2026 official-source refresh, own lines, high-confidence write-ups, new dashboard)
+## Board W — session `arena/e5f2dad3-olbg4` (22 Oct 2026 official-source refresh, own lines, high-confidence write-ups, new dashboard)
 
 Session `arena/e5f2dad3-olbg4` · branch `arena/e5f2dad3-olbg4` · claimed 2026-10-22 (UTC) · **status: in progress**
 
 **Coordination note (2026-10-22T02:55Z): board-name collision, resolved additively.** Session `arena/cdf25c13-olbg4`
 pushed a claim for a *different* board also numbered T at 02:46:55Z, about two minutes after this claim landed. Neither
 claim overwrote the other's files, and both cover the same 22–28 Oct refresh need. This session therefore renumbers
-itself **Board U** and keeps the non-overlapping scope below; it will not hand-edit `index.html` or `README.md` while
+itself **Board W** and keeps the non-overlapping scope below; it will not hand-edit `index.html` or `README.md` while
 `arena/cdf25c13-olbg4` holds that scope, and will instead add its root pointer through `tools/build_master_site.py`
 (the generator that owns the root) at integration time, after re-reading `main`. The convention here follows the
 brief: on a collision, log it rather than silently discarding another session's claim.
@@ -2668,7 +2668,7 @@ brief: on a collision, log it rather than silently discarding another session's 
 **Access constraint (unchanged from Boards B/R):** the interactive sandbox has no general HTTPS egress. Official pages are therefore captured by `scripts/session-e5f2dad3/collect.py` running on a GitHub Actions runner (open egress), which writes the exact bytes plus the URL, HTTP status, byte count, fetch timestamp and SHA-256 into the repository. Parsing happens only against those committed bytes, so every published value is reproducible from the manifest.
 
 
-### Board U completion record (2026-10-22, session `arena/e5f2dad3-olbg4`)
+### Board W completion record (2026-10-22, session `arena/e5f2dad3-olbg4`)
 
 **Published output:** [`session-e5f2dad3/index.html`](session-e5f2dad3/index.html) — a dashboard with 10 top-level pages
 (Dashboard, All matches, Our lines & picks, High-confidence write-ups, Markets, Verification register, Analysis,

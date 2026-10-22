@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Board U — build the verified fixture + originated-market dataset.
+"""Board W — build the verified fixture + originated-market dataset.
 
 Every input is read from `data/session-e5f2dad3/raw/`, which holds the exact
 bytes captured by `collect.py` from an official league endpoint.  The manifest
@@ -635,7 +635,7 @@ def main() -> None:
         c[r["confidence"] or "Low"] = c.get(r["confidence"] or "Low", 0) + 1
 
     doc = {
-        "schema": "olbg4.board-u.board/1",
+        "schema": "olbg4.board-w.board/1",
         "board": "U",
         "session": "arena/e5f2dad3-olbg4",
         "generated_at_utc": iso_now(),

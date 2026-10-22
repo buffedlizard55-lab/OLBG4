@@ -50,7 +50,7 @@ def main() -> None:
     man = json.load(open(os.path.join(DATA, "manifest.json")))
     by_name = {t["name"]: t for t in man["targets"]}
     out = {
-        "schema": "olbg4.board-u.olbg-listing/1",
+        "schema": "olbg4.board-w.olbg-listing/1",
         "captured_at_utc": man["captured_at_utc"],
         "note": ("OLBG is the site being reverse-engineered. These rows record what its server-rendered "
                  "listing displayed; they are not official confirmations. Times are the UTC value from "

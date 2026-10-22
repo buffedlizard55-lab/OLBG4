@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Board U verification gate. Exits non-zero on the first failed invariant.
+"""Board W verification gate. Exits non-zero on the first failed invariant.
 
 Checks, in order:
   1. dataset integrity: unique ids, required fields, excluded sports absent

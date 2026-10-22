@@ -191,7 +191,7 @@ def build_index() -> str:
         u_off = sum(1 for r in BOARD_U["fixtures"] if r.get("verification") == "official")
         u_priced = sum(1 for r in BOARD_U["fixtures"] if r.get("markets"))
         board_u_html = (
-            '<div class="callout"><strong>Newest refresh — Board U (22 Oct 2026).</strong> '
+            '<div class="callout"><strong>Newest refresh — Board W (22 Oct 2026).</strong> '
             f'A fresh, independently captured desk for the 22 Oct – 2 Nov window is published at '
             f'<a href="{EXT}session-e5f2dad3/index.html">/session-e5f2dad3/</a>: '
             f'{len(BOARD_U["fixtures"])} matches across {len(BOARD_U["counts"])} sports, of which '

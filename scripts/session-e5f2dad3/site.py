@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the Board U dashboard from data/session-e5f2dad3/board.json.
+"""Render the Board W dashboard from data/session-e5f2dad3/board.json.
 
 Static HTML only: no external fonts, no analytics, no JavaScript requests.  The
 single script file filters tables that are already fully rendered in the page, so
@@ -93,14 +93,14 @@ def page(title: str, active: str, body: str, subtitle: str = "", up: str = "") -
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{e(title)} · OLBG4 Board U</title>
-<meta name="description" content="Board U: official-source verified fixtures for the sports OLBG covers, our own originated lines, graded picks and a source link on every row.">
+<title>{e(title)} · OLBG4 Board W</title>
+<meta name="description" content="Board W: official-source verified fixtures for the sports OLBG covers, our own originated lines, graded picks and a source link on every row.">
 <link rel="stylesheet" href="{up}assets/site.css">
 </head>
 <body>
 <header class="topbar">
   <div class="wrap bar">
-    <a class="brand" href="{up}index.html"><span class="mark">OLBG4</span><span class="brandsub">Board U · 22 Oct 2026 refresh</span></a>
+    <a class="brand" href="{up}index.html"><span class="mark">OLBG4</span><span class="brandsub">Board W · 22 Oct 2026 refresh</span></a>
     <nav class="nav">{nav}</nav>
   </div>
 </header>
@@ -108,7 +108,7 @@ def page(title: str, active: str, body: str, subtitle: str = "", up: str = "") -
 {body}
 </main>
 <footer class="wrap footer">
-  <p>Board U · session <code>arena/e5f2dad3-olbg4</code> · dataset generated {e(BOARD["generated_at_utc"])}.
+  <p>Board W · session <code>arena/e5f2dad3-olbg4</code> · dataset generated {e(BOARD["generated_at_utc"])}.
   Sports excluded by the brief (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials)
   are absent from every table. Every published price is our own fair-odds estimate; no bookmaker price is read anywhere.</p>
   <p>{subtitle}</p>
@@ -707,7 +707,7 @@ def analysis_page() -> str:
     body = f"""
 <section class="hero small"><div class="kicker">Analysis</div>
 <h1>What the refresh shows</h1>
-<p class="lede">Board U is a measurement of what can actually be verified on 22 October 2026, not a projection. The
+<p class="lede">Board W is a measurement of what can actually be verified on 22 October 2026, not a projection. The
 findings below are computed from the committed dataset; the numbers can be reproduced by rerunning the build.</p></section>
 
 <section class="kpis">
@@ -734,7 +734,7 @@ findings below are computed from the committed dataset; the numbers can be repro
     {e(max(PRICED, key=lambda r: r['pick_prob'])['pick'])}, is a {max(r['pick_prob'] for r in PRICED)*100:.1f}% chance
     priced at {max(PRICED, key=lambda r: r['pick_prob'])['pick_fair']:.2f} — stronger than the model's High picks but
     <em>shorter</em> than −250, so it is excluded from the High list and published on Flagged instead of being relabelled.</p>
-    <p>This is the same tension Board S1 reported on 22 October; Board U resolves it explicitly instead of silently
+    <p>This is the same tension Board S1 reported on 22 October; Board W resolves it explicitly instead of silently
     downgrading or silently ignoring the price window.</p>
   </div>
 </section>
