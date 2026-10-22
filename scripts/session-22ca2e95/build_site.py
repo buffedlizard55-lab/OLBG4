@@ -69,7 +69,7 @@ def fmt_odds_span(dec: float, am: int, cls: str = "") -> str:
 def fmt_utc(iso: str) -> str:
     if not iso:
         return "Pre-draw / TBD"
-    return iso.replace("2026-", "").replace(":00Z", " UTC").replace("T", " ")
+    return iso.replace("2026-", "").replace("T", " ").replace(":00Z", " UTC")
 
 
 def conf_badge(conf: str) -> str:
