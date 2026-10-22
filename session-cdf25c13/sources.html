@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources &middot; OLBG4 Board T</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <strong>OLBG4 &mdash; Board T</strong>
+        <span class="sub">Live desk, 22&ndash;28 October 2026 &middot; our own lines</span>
+      </div>
+    </div>
+    <nav class="nav"><a class="navlink" href="index.html">Overview</a><a class="navlink" href="picks.html">Picks</a><a class="navlink" href="markets.html">Markets</a><a class="navlink" href="verification.html">Verification</a><a class="navlink" href="coverage.html">Coverage</a><a class="navlink" href="flagged.html">Flagged for Review</a><a class="navlink" href="methodology.html">Methodology</a><a class="navlink active" href="sources.html">Sources</a></nav>
+  </div>
+  <div class="wrap sportsnav"><a class="navlink small" href="sport-ice-hockey.html">Ice Hockey</a><a class="navlink small" href="sport-basketball.html">Basketball</a><a class="navlink small" href="sport-baseball.html">Baseball</a><a class="navlink small" href="sport-rugby-union.html">Rugby Union</a></div>
+</header>
+<main class="wrap">
+  <div class="pagehead">
+    <h1>Sources</h1>
+    <p class="lede">The eight official domains this desk used, what each was used for, and what happened when a page would not load.</p>
+  </div>
+  
+
+<div class="kpis">
+  <div class="kpi"><span class="n">91</span><span class="l">fixtures priced</span></div>
+  <div class="kpi"><span class="n">4</span><span class="l">sports covered</span></div>
+  <div class="kpi green"><span class="n">8</span><span class="l">high confidence</span></div>
+  <div class="kpi"><span class="n">30</span><span class="l">medium</span></div>
+  <div class="kpi"><span class="n">53</span><span class="l">low</span></div>
+  <div class="kpi"><span class="n">0</span><span class="l">outside &minus;250&hellip;+10,000</span></div>
+</div>
+<section class="panel">
+  <h2>Domain register</h2>
+  <p>Only league, tour or governing-body domains are used. There are no aggregators, no tipster sites and no
+  bookmaker feeds on this desk.</p>
+  <div class="tablewrap"><table class="grid"><thead><tr><th>Domain</th><th>Tier</th><th>Used for</th>
+  <th>Link</th></tr></thead><tbody><tr><td><strong>nhl.com</strong></td><td><span class="badge b-ok">Official</span></td><td>NHL schedule and standings</td><td><a href="https://www.nhl.com/schedule/2026-10-22" target="_blank" rel="noopener">open</a></td></tr><tr><td><strong>api-web.nhle.com</strong></td><td><span class="badge b-ok">Official (league API)</span></td><td>NHL game payloads and scoring leaders</td><td><a href="https://api-web.nhle.com/v1/skater-stats-leaders/current?categories=goals&amp;limit=10" target="_blank" rel="noopener">open</a></td></tr><tr><td><strong>nba.com</strong></td><td><span class="badge b-ok">Official</span></td><td>NBA schedule and standings</td><td><a href="https://www.nba.com/schedule?date=2026-10-22" target="_blank" rel="noopener">open</a></td></tr><tr><td><strong>statsapi.mlb.com</strong></td><td><span class="badge b-ok">Official (league API)</span></td><td>MLB schedule and season splits</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-10-28" target="_blank" rel="noopener">open</a></td></tr><tr><td><strong>unitedrugby.com / stats.unitedrugby.com</strong></td><td><span class="badge b-ok">Official</span></td><td>URC Match Centre, fixtures and table</td><td><a href="https://stats.unitedrugby.com/match-centre/2026-27/4" target="_blank" rel="noopener">open</a></td></tr><tr><td><strong>ehfcl.eurohandball.com</strong></td><td><span class="badge b-ok">Official</span></td><td>EHF Champions League fixtures (read, not priced)</td><td><a href="https://ehfcl.eurohandball.com/men/2026-27/matches/" target="_blank" rel="noopener">open</a></td></tr><tr><td><strong>atptour.com</strong></td><td><span class="badge b-ok">Official</span></td><td>ATP scores page (read, not used)</td><td><a href="https://www.atptour.com/en/scores/current" target="_blank" rel="noopener">open</a></td></tr><tr><td><strong>pdc.tv</strong></td><td><span class="badge b-ok">Official</span></td><td>PDC tournament page (blocked by consent wall)</td><td><a href="https://www.pdc.tv/tournament/european-championship" target="_blank" rel="noopener">open</a></td></tr></tbody></table></div>
+</section>
+<section class="panel">
+  <h2>Access note</h2>
+  <p class="small">This session's sandbox can only open the domains above through the agent's page-fetch
+  tool; direct command-line requests to league domains fail. Every value published here was read through
+  that tool and is stored with the URL it came from. Where a page returned a consent wall or a partial
+  table, the sport was left unpriced and the fact is recorded on
+  <a href="flagged.html">Flagged for Review</a> rather than worked around.</p>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Board T</strong> &mdash; session <code>arena/cdf25c13-olbg4</code>. Data read from official league
+    pages on 2026-10-22 (UTC). Prices are our own fair-odds model output, not bookmaker prices.
+    This is an analytical exercise, not betting advice.</p>
+    <p class="muted">Every row links to the official page it was read from. Values that could not be
+    confirmed are blank and listed on <a href="flagged.html">Flagged for Review</a>.</p>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
