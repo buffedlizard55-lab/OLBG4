@@ -3718,7 +3718,7 @@ merge.
 
 ## Board AF — session `arena/0d3b826c-olbg4` (fresh evidence-first OLBG reconciliation, own lines, verified High predictions, clean dashboard and integration)
 
-Session: `arena/0d3b826c-olbg4` · Branch: `arena/0d3b826c-olbg4` (fixed Arena branch) · Claimed: 2026-10-22 UTC · **status: in progress**
+Session: `arena/0d3b826c-olbg4` · Branch: `arena/0d3b826c-olbg4` (fixed Arena branch) · Claimed: 2026-10-22 UTC · **status: done**
 
 Exclusive working scope: `session-0d3b826c/**`, `data/session-0d3b826c/**`, `scripts/session-0d3b826c/**`, `.github/workflows/af-0d3b826c.yml`, and append-only entries in this file. At final integration only, an additive root `index.html` pointer may be added after re-checking ownership; the stale (>60 minute) PR #102 root claim will be handed off explicitly rather than silently overwritten. Every other session's files, shared master data, generators and workflows are read-only.
 
@@ -3729,7 +3729,7 @@ Exclusive working scope: `session-0d3b826c/**`, `data/session-0d3b826c/**`, `scr
 | AF3 | Select the strongest qualifying High picks inside −250…+10,000 American odds; write unique natural ≥30-word predictions only from verified facts, with team/player, current form, recent history, explicit selection and official links. Target up to five per sport, but publish fewer and flag the shortfall rather than force weak picks. | done | arena/0d3b826c-olbg4 | same |
 | AF4 | Audit the freshest peer desks and shared canonical records mechanically and against available official evidence; publish exact irregularities and manual-review links without editing peer data. | done | arena/0d3b826c-olbg4 | same |
 | AF5 | Build a clean static GitHub Pages dashboard with landing, per-sport pages, all entries, markets, predictions, verification, methodology, sources and Flagged for Review. Every displayed data row gets an official source or blank/unverified treatment. | done | arena/0d3b826c-olbg4 | `session-0d3b826c/**` |
-| AF6 | Run deterministic schema/math/provenance/prediction/link checks plus repository gates, integrate additively, open PR to `main`, merge only with a healthy build, confirm Pages, and record sources, verification, irregularities, PR and deployment here. | in progress | arena/0d3b826c-olbg4 | `scripts/session-0d3b826c/verify.py`, `COORDINATION.md`, additive root pointer if uncontested |
+| AF6 | Run deterministic schema/math/provenance/prediction/link checks plus repository gates, integrate additively, open PR to `main`, merge only with a healthy build, confirm Pages, and record sources, verification, irregularities, PR and deployment here. | done | arena/0d3b826c-olbg4 | `scripts/session-0d3b826c/verify.py`, `COORDINATION.md`, additive root pointer if uncontested |
 
 ### AF working log
 - 2026-10-22 UTC — Read the full coordination board structure and current open-PR state. PR #102 (`arena/1695b749-olbg4`) has been idle since 09:18Z and is not mergeable; its files remain untouched. No active task is taken over. Claim scoped to new `0d3b826c` paths and pushed before data/site work.
@@ -3744,3 +3744,15 @@ Exclusive working scope: `session-0d3b826c/**`, `data/session-0d3b826c/**`, `scr
 ### AF root-integration handoff (2026-10-22T21:12Z)
 - Re-checked open PRs before touching root navigation. PR #102 (`arena/1695b749-olbg4`) remains idle since 09:18Z, beyond the 60-minute handoff threshold. Board AF therefore takes over only the additive root-pointer step. PR #102 and all `session-1695b749/**` files remain untouched for their owner. Root `index.html` received one navlink and one callout; every prior link and section is preserved verbatim.
 - AF6 scope addendum: added `.github/workflows/af-0d3b826c-verify.yml` as a new, non-overlapping offline CI gate for this desk. It performs no sports-network requests and edits no existing workflow.
+
+### AF final publication record — 2026-10-22T21:14Z
+
+| Item | Confirmed result |
+|---|---|
+| Pull request | https://github.com/buffedlizard55-lab/OLBG4/pull/119 — **MERGED** to `main` at 2026-10-22T21:12:41Z; merge commit `4e2abbad212dfcfdf3b18520f680d042b77cc783` |
+| PR checks | `audit`, `build-and-validate`, integrated `verify`, and Board AF `verify` all **SUCCESS** before merge |
+| Custom Pages deployment | `Deploy OLBG4 to GitHub Pages` run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39855377720 — build and deploy **SUCCESS** |
+| Legacy Pages deployment | `pages build and deployment` run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39855375525 — build and deploy **SUCCESS**; Pages build `1306462234` reports `built`, `error: null`, at `4e2abba` |
+| Post-merge validation | `Verify integrated dashboard` run https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39855377893 — **SUCCESS** |
+| Live read-back | https://buffedlizard55-lab.github.io/OLBG4/ shows the Board AF callout; https://buffedlizard55-lab.github.io/OLBG4/session-0d3b826c/index.html serves the 220/212/7/19 dashboard; `predictions.html` serves all 19 write-ups and official fact panels; `flagged.html` serves all 181 review items. All fetched successfully over HTTPS after deployment. |
+| Final status | **AF1–AF6 done.** Flagged irregularities and per-sport shortfalls remain published as `needs review` and did not block the healthy merge/deploy. |

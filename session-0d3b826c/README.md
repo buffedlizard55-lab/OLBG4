@@ -23,3 +23,9 @@ The final verifier re-hashes every raw response, recomputes every price and conf
 Official pricing inputs: NHL API, Liiga API, EuroLeague/EuroCup official games feeds, MLB Stats API, WTA tournament/rankings APIs and Riot's official schedule. OLBG is used only for public listing structure. NBA responses were HTTP 403; two ICC routes were 404. EuroLeague roster/statistics pages were read through the page reader after runner HTTP 429 responses; exact excerpts are in `data/session-0d3b826c/live_checks.json`.
 
 No bookmaker or OLBG price enters a model. All displayed prices are margin-free model estimates, not observed market quotes or guarantees. Unsupported values remain blank and flagged.
+
+## Publication
+
+- PR: https://github.com/buffedlizard55-lab/OLBG4/pull/119 (merged 2026-10-22T21:12:41Z, merge commit `4e2abbad212dfcfdf3b18520f680d042b77cc783`).
+- Live dashboard: https://buffedlizard55-lab.github.io/OLBG4/session-0d3b826c/
+- Pages runs `39855377720` and `39855375525` both completed successfully; public read-back confirmed.
