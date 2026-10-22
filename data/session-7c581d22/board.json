@@ -12,7 +12,7 @@
   "prices": "Our own originated fair prices: decimal = 1/p, no margin. No bookmaker or OLBG price is read.",
   "confidence": "High: model p>=0.70 (plus sample-size caps); Medium: 0.58<=p<0.70; Low: p<0.58.",
   "focus_rule": "Focus predictions are written for originated selections graded High whose fair American price sits inside -250..+10,000.",
-  "nhl": "Poisson goals from shrinkage-adjusted GF/GA rates (k=8 games toward league mean), home x1.05 / away x0.95; moneyline includes OT (tie split by expected-goals share); puck line from the same score matrix; total line = nearest .5 to expected final total incl. the OT goal.",
+  "nhl": "Poisson goals from shrinkage-adjusted GF/GA rates (k=8 games toward league mean), home x1.05 / away x0.95; moneyline includes OT (tie split by expected-goals share); puck line from the same score matrix; total line = nearest .5 to expected final total incl. the OT goal. A High grade additionally requires both teams to have >=8 games in the standings snapshot (one row is capped by this: Los Angeles, 7 GP).",
   "euroleague": "Expected points from shrinkage-adjusted PF/PA per game (k=6), derived from the 61 played scores in the official feed; Normal margin sigma 12.0 / total sigma 19.0; flat +2.2 home edge. High capped unless both teams have >=7 games in the derived sample.",
   "mlb": "Moneyline: log5 on 2026 home/away split win percentages. Run line/total: expected runs from RS/RA rates with a disclosed Normal approximation (diff sigma 4.1, total sigma 4.6). Probable pitchers not read.",
   "pdc": "Logistic on European Tour Order of Merit seed difference (k=0.035 per seed place), best-of-11 legs; confidence capped at Medium because seeding is not world ranking.",
@@ -2147,13 +2147,13 @@
      "fav_side": "a",
      "fav_minus": {
       "p": 0.2628,
-      "decimal": 3.8,
-      "american": 280
+      "decimal": 3.81,
+      "american": 281
      },
      "dog_plus": {
       "p": 0.7372,
       "decimal": 1.36,
-      "american": -280
+      "american": -281
      }
     },
     "total": {
@@ -2993,13 +2993,13 @@
      "fav_side": "b",
      "fav_minus": {
       "p": 0.432,
-      "decimal": 2.32,
-      "american": 132
+      "decimal": 2.31,
+      "american": 131
      },
      "dog_plus": {
       "p": 0.568,
       "decimal": 1.76,
-      "american": -132
+      "american": -131
      }
     },
     "total": {
@@ -3289,13 +3289,13 @@
      "line": 7.5,
      "over": {
       "p": 0.4751,
-      "decimal": 2.11,
-      "american": 111
+      "decimal": 2.1,
+      "american": 110
      },
      "under": {
       "p": 0.5249,
-      "decimal": 1.9,
-      "american": -111
+      "decimal": 1.91,
+      "american": -110
      }
     }
    },
@@ -3731,13 +3731,13 @@
      "label": "Moneyline (incl. OT/shootout)",
      "a": {
       "p": 0.2401,
-      "decimal": 4.17,
-      "american": 317
+      "decimal": 4.16,
+      "american": 316
      },
      "b": {
       "p": 0.7599,
       "decimal": 1.32,
-      "american": -317
+      "american": -316
      }
     },
     "puck_line": {
@@ -3774,7 +3774,7 @@
     "selection": "Carolina Hurricanes (moneyline)",
     "p": 0.7599,
     "decimal": 1.32,
-    "american": -317,
+    "american": -316,
     "confidence": "High",
     "in_focus_window": false
    }
@@ -4766,12 +4766,12 @@
      "a": {
       "p": 0.6974,
       "decimal": 1.43,
-      "american": -231
+      "american": -230
      },
      "b": {
       "p": 0.3026,
-      "decimal": 3.31,
-      "american": 231
+      "decimal": 3.3,
+      "american": 230
      }
     },
     "puck_line": {
@@ -4808,7 +4808,7 @@
     "selection": "Seattle Kraken (moneyline)",
     "p": 0.6974,
     "decimal": 1.43,
-    "american": -231,
+    "american": -230,
     "confidence": "Medium",
     "in_focus_window": true
    }
@@ -6946,7 +6946,7 @@
      },
      "dog_plus": {
       "p": 0.627,
-      "decimal": 1.6,
+      "decimal": 1.59,
       "american": -168
      }
     },
@@ -6955,13 +6955,13 @@
      "line": 6.5,
      "over": {
       "p": 0.4008,
-      "decimal": 2.49,
-      "american": 149
+      "decimal": 2.5,
+      "american": 150
      },
      "under": {
       "p": 0.5992,
       "decimal": 1.67,
-      "american": -149
+      "american": -150
      }
     }
    },
@@ -11428,13 +11428,13 @@
      "label": "Match winner (incl. OT)",
      "a": {
       "p": 0.1682,
-      "decimal": 5.94,
-      "american": 494
+      "decimal": 5.95,
+      "american": 495
      },
      "b": {
       "p": 0.8318,
       "decimal": 1.2,
-      "american": -494
+      "american": -495
      }
     },
     "spread": {
@@ -11471,7 +11471,7 @@
     "selection": "Fenerbahce Tarfin Istanbul (match winner)",
     "p": 0.8318,
     "decimal": 1.2,
-    "american": -494,
+    "american": -495,
     "confidence": "Medium",
     "in_focus_window": false
    }
@@ -13696,7 +13696,7 @@
    "date": "2026-10-29",
    "selection": "Carolina Hurricanes (moneyline)",
    "p": 0.7599,
-   "american": -317,
+   "american": -316,
    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-23"
   },
   {
@@ -14036,7 +14036,7 @@
   },
   {
    "id": "L10",
-   "url": "repo manifests",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/manifest.json",
    "fetched": "2026-10-22 (this session)",
    "observed": "build.py re-hashed every payload it parsed and asserted equality with data/session-e5f2dad3/manifest.json and data/session-9359e596/capture/20261022T083834Z/manifest.json before use (see sources.json).",
    "compared_with": "Manifest SHA-256 values recorded at capture on 2026-10-22.",

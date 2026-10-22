@@ -39,7 +39,9 @@ def amer_odds(p):
     d = 1.0 / p
     return int(round(-100 / (d - 1))) if d < 2 else int(round((d - 1) * 100))
 def rhalf(x): return math.floor(x * 2 + 0.5) / 2
-def price(p): return {"p": round(p, 4), "decimal": dec_odds(p), "american": amer_odds(p)}
+def price(p):
+    p = round(p, 4)  # publish a self-consistent triple: odds derived from the rounded p
+    return {"p": p, "decimal": dec_odds(p), "american": amer_odds(p)}
 def in_window(am): return -250 <= am <= 10000
 
 def grade(p, cap="High"):
@@ -608,7 +610,7 @@ live_checks = [
  {"id": "L09", "url": "https://www.wtatennis.com/rankings/singles", "fetched": "2026-10-22 (this session)",
   "observed": "Page returned site chrome/notifications only — no ranking rows. https://api.wtatennis.com/tennis/players/326096 returned {\"id\":326096,\"fullName\":\"Ann Li\",...} with no ranking field.",
   "compared_with": "—", "result": "rankings unreadable — WTA listed unpriced (AD-F05)"},
- {"id": "L10", "url": "repo manifests", "fetched": "2026-10-22 (this session)",
+ {"id": "L10", "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/manifest.json", "fetched": "2026-10-22 (this session)",
   "observed": "build.py re-hashed every payload it parsed and asserted equality with data/session-e5f2dad3/manifest.json and data/session-9359e596/capture/20261022T083834Z/manifest.json before use (see sources.json).",
   "compared_with": "Manifest SHA-256 values recorded at capture on 2026-10-22.", "result": "match (asserted in code)"},
 ]
@@ -621,7 +623,7 @@ board = {
         "prices": "Our own originated fair prices: decimal = 1/p, no margin. No bookmaker or OLBG price is read.",
         "confidence": "High: model p>=0.70 (plus sample-size caps); Medium: 0.58<=p<0.70; Low: p<0.58.",
         "focus_rule": "Focus predictions are written for originated selections graded High whose fair American price sits inside -250..+10,000.",
-        "nhl": "Poisson goals from shrinkage-adjusted GF/GA rates (k=8 games toward league mean), home x1.05 / away x0.95; moneyline includes OT (tie split by expected-goals share); puck line from the same score matrix; total line = nearest .5 to expected final total incl. the OT goal.",
+        "nhl": "Poisson goals from shrinkage-adjusted GF/GA rates (k=8 games toward league mean), home x1.05 / away x0.95; moneyline includes OT (tie split by expected-goals share); puck line from the same score matrix; total line = nearest .5 to expected final total incl. the OT goal. A High grade additionally requires both teams to have >=8 games in the standings snapshot (one row is capped by this: Los Angeles, 7 GP).",
         "euroleague": "Expected points from shrinkage-adjusted PF/PA per game (k=6), derived from the 61 played scores in the official feed; Normal margin sigma 12.0 / total sigma 19.0; flat +2.2 home edge. High capped unless both teams have >=7 games in the derived sample.",
         "mlb": "Moneyline: log5 on 2026 home/away split win percentages. Run line/total: expected runs from RS/RA rates with a disclosed Normal approximation (diff sigma 4.1, total sigma 4.6). Probable pitchers not read.",
         "pdc": "Logistic on European Tour Order of Merit seed difference (k=0.035 per seed place), best-of-11 legs; confidence capped at Medium because seeding is not world ranking.",

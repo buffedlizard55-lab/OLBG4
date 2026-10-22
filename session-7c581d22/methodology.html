@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology — OLBG4 Board AD</title><link rel="stylesheet" href="style.css"></head>
+<body><header><div class="wrap"><h1>OLBG4 — Board AD</h1>
+<p class="sub">Fresh-window desk, 23 Oct – 5 Nov 2026 · fixtures read 22 Oct 2026 from official league sources ·
+all prices are our own originated fair prices (no bookmaker or OLBG price read)</p>
+<nav><a href="index.html">Dashboard</a><a href="entries.html">All entries</a><a href="picks.html">Focus picks</a><a href="markets.html">Markets</a><a href="coverage.html">Coverage</a><a href="methodology.html" class=active>Methodology</a><a href="sources.html">Sources</a><a href="verification.html">Verification</a><a href="flagged.html">Flagged for Review</a></nav><nav class="sports"><a href="sport-ice-hockey.html">Ice Hockey</a><a href="sport-basketball.html">Basketball</a><a href="sport-baseball.html">Baseball</a><a href="sport-darts.html">Darts</a><a href="sport-tennis.html">Tennis</a><a href="sport-esports.html">eSports</a></nav></div></header>
+<main class="wrap"><h2>Methodology</h2>
+<h3>How the list was built</h3><ol>
+<li>OLBG's sport taxonomy was taken from the repo's reverse-engineering (<code>data/olbg-structure.json</code>) and the brief's exclusions applied.</li>
+<li>Fixtures and form were read <b>only</b> from official league/tour/federation payloads or pages on 22 Oct 2026 (see <a href="sources.html">Sources</a> and <a href="verification.html">live checks</a>). OLBG was never used as a fixture or price source.</li>
+<li>Each payload parsed by the build is SHA-256-pinned against the capturing session's manifest before use; the build fails on any mismatch.</li>
+<li>Window: official local fixture dates 23 Oct – 5 Nov 2026, so nothing published here had already been played at capture.</li></ol>
+<h3>Prices</h3><p>Our own originated fair prices: decimal = 1/p, no margin. No bookmaker or OLBG price is read.</p><p>High: model p&gt;=0.70 (plus sample-size caps); Medium: 0.58&lt;=p&lt;0.70; Low: p&lt;0.58. Focus predictions are written for originated selections graded High whose fair American price sits inside -250..+10,000.</p>
+<h3>Models (all constants disclosed)</h3><ul>
+<li><b>NHL:</b> Poisson goals from shrinkage-adjusted GF/GA rates (k=8 games toward league mean), home x1.05 / away x0.95; moneyline includes OT (tie split by expected-goals share); puck line from the same score matrix; total line = nearest .5 to expected final total incl. the OT goal. A High grade additionally requires both teams to have &gt;=8 games in the standings snapshot (one row is capped by this: Los Angeles, 7 GP).</li><li><b>EuroLeague:</b> Expected points from shrinkage-adjusted PF/PA per game (k=6), derived from the 61 played scores in the official feed; Normal margin sigma 12.0 / total sigma 19.0; flat +2.2 home edge. High capped unless both teams have &gt;=7 games in the derived sample.</li>
+<li><b>MLB:</b> Moneyline: log5 on 2026 home/away split win percentages. Run line/total: expected runs from RS/RA rates with a disclosed Normal approximation (diff sigma 4.1, total sigma 4.6). Probable pitchers not read.</li><li><b>PDC darts:</b> Logistic on European Tour Order of Merit seed difference (k=0.035 per seed place), best-of-11 legs; confidence capped at Medium because seeding is not world ranking.</li><li><b>Unpriced rows:</b> Fixtures verified on an official source but lacking a verified strength input are published with blank prices and a stated reason. Unverified values are never inferred.</li></ul>
+<h3>Limitations</h3><p>Early-season samples are small (NHL 8–12 games, EuroLeague 6–7 derived games per team) and are
+shrunk toward league means for exactly that reason. Injuries, line-ups, goaltenders, pitchers, rest, weather and
+head-to-heads beyond the printed inputs were <b>not</b> checked (AD-F13). A High grade means the documented model
+rates the selection &ge;70% on the verified inputs — it is not a promise about any real-world market.</p></main>
+<footer><div class="wrap"><p>Board AD · session <code>arena/7c581d22-olbg4</code> · data:
+<code>data/session-7c581d22/board.json</code> · rebuild:
+<code>python3 scripts/session-7c581d22/build.py &amp;&amp; python3 scripts/session-7c581d22/render.py &amp;&amp; python3 scripts/session-7c581d22/verify.py</code></p>
+<p>18+ · Originated fair prices for research only — not betting advice. If you gamble, gamble responsibly.</p></div></footer>
+</body></html>
