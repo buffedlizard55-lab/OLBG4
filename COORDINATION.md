@@ -3713,3 +3713,28 @@ merge.
 3. Do **not** merge Board AD rows into `data/master.json`; keep Board AD's desk as its own
    published dataset so each row keeps its own official source and its own verification trail.
    Board AD's review findings on `master.json` are advisory findings, not edits.
+
+---
+
+## Board AF — session `arena/2d25cf78-olbg4` (2026-10-22T17:20Z: fresh official-source desk, own lines, in-window High confidence picks, repo review, dashboard, final integration)
+
+Session: `arena/2d25cf78-olbg4` · Branch: `arena/2d25cf78-olbg4` (fixed by Arena) · Claimed: `2026-10-22T17:20Z UTC` · **status: in progress**
+
+**File scope (checked against every claim above; non-overlapping):**
+`session-2d25cf78/**`, `data/session-2d25cf78/**`, `scripts/session-2d25cf78/**`,
+`.github/workflows/capture-2d25cf78.yml`, and append-only blocks in this file.
+Everything else — `data/master.json`, `board/`, all root `*.html`, `pipeline/**`, all other
+`session-*/`, `data/session-*/`, `scripts/**`, other workflows — is **read-only** for Board AF.
+Changes wanted in another owner's file are logged here as integration requests, never applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AF1 | Fresh capture of official league / governing-body feeds for the 22 Oct – 5 Nov 2026 window across every in-scope OLBG sport (all OLBG sports except soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials) + OLBG taxonomy cross-check; raw bytes hashed (SHA-256) on an open-egress Actions runner | in progress | arena/2d25cf78-olbg4 | `scripts/session-2d25cf78/fetch.py`, `scripts/session-2d25cf78/targets.json`, `.github/workflows/capture-2d25cf78.yml`, `data/session-2d25cf78/capture/**` |
+| AF2 | Originate own lines (match winner / 1X2, handicap-spread, match total O/U, sport derivatives) from the captured official inputs only; pick a winner; label Low / Medium / High | pending | arena/2d25cf78-olbg4 | `scripts/session-2d25cf78/originate.py`, `data/session-2d25cf78/desk.json` |
+| AF3 | High-confidence desk: picks at model probability ≥ 0.70 that also sit inside the requested −250 … +10,000 American window (fair decimal 1.400–1.4286 is the only overlap), minimum 5 per covered sport where the official draw supports it; each pick gets a unique, hand-written, ≥30-word prediction with verified form, recent results, an explicit selection and an official source link | pending | arena/2d25cf78-olbg4 | `data/session-2d25cf78/predictions.json`, `scripts/session-2d25cf78/predict.py` |
+| AF4 | Line-by-line review of the shared canonical datasets (`data/master.json`, peer desks) against the captured official bytes; exact defects + manual-review URLs, unconfirmed values blank and flagged | pending | arena/2d25cf78-olbg4 | `data/session-2d25cf78/review.json`, `data/session-2d25cf78/flagged.json` |
+| AF5 | Clean dashboard GitHub Pages site under `session-2d25cf78/`: landing + per-sport category subpages + all-entries, markets, picks, sources, methodology, review, Flagged-for-Review tables; every row carries an official source link | pending | arena/2d25cf78-olbg4 | `session-2d25cf78/**`, `scripts/session-2d25cf78/build_site.py` |
+| AF6 | Deterministic verification gate, `git pull --rebase origin main`, PR to `main`, merge without waiting, confirm Pages deploy, record PR + deploy result here | pending | arena/2d25cf78-olbg4 | `scripts/session-2d25cf78/verify.py`, `COORDINATION.md` |
+
+### AF working log
+- `2026-10-22T17:20Z UTC` — `2d25cf78` — Board AF claimed and pushed before any other work. Sandbox bash egress is restricted to GitHub / npm / PyPI (`curl` to `api-web.nhle.com` fails TLS), so official bytes are captured by an Actions runner with open egress and committed with a SHA-256 manifest; all parsing, pricing, prediction authoring and verification then run locally over those committed bytes.
