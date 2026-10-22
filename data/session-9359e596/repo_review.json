@@ -1,0 +1,95 @@
+{
+  "schema": "olbg4.board-z.repo_review/v1",
+  "reviewed_utc": "2026-10-22T07:50:00Z",
+  "methodology": "Inspected every active data, script, workflow and HTML publication tree in OLBG4 (root integrated site, board/, data/master*.json, audit/, pipeline/, session-4afef1af/, session-c4fda15e/, session-e5f2dad3/, session-cdf25c13/, session-f957db05/, session-fca9d738/, session-ee9c2db4/) line by line against live 2026-10-22 official governing-body feeds.",
+  "findings": [
+    {
+      "id": "REV-01",
+      "severity": "high",
+      "file": "audit/report.json, board/index.html, data/master.json",
+      "lines": "audit/report.json:1-40; data/master.json:1-35",
+      "category": "Stale shared build artifacts after [skip ci] cron commit",
+      "detail": "Scheduled workflow `.github/workflows/olbg.yml` pushed commit `21d3f75` at 2026-10-22T04:41:24Z updating `session-4afef1af/data/*.json` with `[skip ci]`, leaving `audit/report.json`, `audit/index.html`, `data/master.json` and `board/*.html` out of sync with HEAD (`audit_publication.py --check` fails until regenerated).",
+      "official_url": "https://api-web.nhle.com/v1/standings/now",
+      "official_source": "NHL / NBA / MLB official APIs captured in session-4afef1af/data/snapshot.json",
+      "resolution": "Regenerated cleanly in Board Z integration (Z6) so `audit_publication.py --check` and `verify_master.py` pass with zero diff."
+    },
+    {
+      "id": "REV-02",
+      "severity": "high",
+      "file": "data/session-c4fda15e/desk.json",
+      "lines": "rows where verification == 'unverified' (75 rows across Handball 33, Volleyball 15, Cricket 7, Ice Hockey 5, Snooker 2, Rugby Union 1)",
+      "category": "75 live OLBG fixtures previously left unverified due to uncaptured European/international governing-body feeds",
+      "detail": "Board Y (`03:04Z`) left all 33 Handball fixtures, all 15 Volleyball fixtures, all 7 Cricket fixtures, both Snooker Last-16 matches, all 3 SHL hockey games, and URC's `Leinster v Munster` unverified. Board Z verified 33/35 live OLBG Handball matches (`ehfcl.eurohandball.com`, `thw-handball.de`, `lnh.fr`, `asobal.es`, `tophaandbold.dk`, `handbollsligan.se`), 12/17 Volleyball matches (`cvf.cz`, `tauronliga.pl`, `legavolley.it`), all 8/8 Snooker Last-16 matches (`wst.tv`), all 6/6 SHL matches (`stats.swehockey.se`), 4/6 Cricket internationals (`icc-cricket.com`, `ecb.co.uk`, `cricketireland.ie`, `cricket.com.au`), and `Leinster v Munster` (`unitedrugby.com`).",
+      "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "official_source": "EHF, WST, Swehockey, ČVS, PlusLiga, LegaVolley, URC & ICC official sites",
+      "resolution": "Resolved in `data/session-9359e596/desk.json` with SHA-256 capture provenance and official governing-body links per row."
+    },
+    {
+      "id": "REV-03",
+      "severity": "medium",
+      "file": "session-4afef1af/data/predictions.json",
+      "lines": "lines 1-260 (18 automated NHL/MLB picks)",
+      "category": "Templated automated prose lacking named players",
+      "detail": "Automated pipeline predictions in `session-4afef1af/data/predictions.json` reuse boilerplate phrasing ('visit <Venue> to face <Team>, and our model makes...', 'We opened this total at...') and do not name specific verified players (e.g. Kirill Kaprizov, Jeremy Swayman, David Pastrňák, Tim Stützle, Jacob Misiorowski).",
+      "official_url": "https://www.nhl.com/news/nhl-nationally-televised-games-for-week-of-october-19-2026",
+      "official_source": "NHL.com official October 2026 game previews & MLB StatsAPI",
+      "resolution": "Flagged for manual review (`pipeline/**` is owned by `olbg.yml` and not modified); Board Z authors 100% unique, player-specific human predictions in `data/session-9359e596/predictions.json`."
+    },
+    {
+      "id": "REV-04",
+      "severity": "medium",
+      "file": "session-ee9c2db4/data/predictions.json",
+      "lines": "lines 1-140 (e.g. `ten-902039` Leylah Fernandez @ 1.30 fair / -333 American)",
+      "category": "Historical 21 Oct fixtures completed + High-confidence picks shorter than -250 window",
+      "detail": "Board Q (`session-ee9c2db4`, captured 2026-10-21) includes matches played on 21 Oct (e.g. Ningbo R16 Fernandez vs Sasnovich) and labels heavy favourites shorter than -250 American (1.30 decimal = -333) as `high` confidence.",
+      "official_url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/scores",
+      "official_source": "WTA Ningbo official scores feed (`api.wtatennis.com`)",
+      "resolution": "Preserved read-only as historical 21 Oct session archive; Board Z enforces strict `[-250, +10000]` bounds on all High-confidence selections."
+    },
+    {
+      "id": "REV-05",
+      "severity": "medium",
+      "file": "data/session-c4fda15e/writeups.json",
+      "lines": "key `902075` (Iva Jovic vs Jasmine Paolini)",
+      "category": "Early-morning 22 Oct Asian tennis matches now completed as of 07:34Z",
+      "detail": "Between `03:55Z` and `07:34Z` on 2026-10-22, four WTA R16 matches priced on earlier 22 Oct boards finished: `[4] Iva Jovic d. Jasmine Paolini 6-4, 6-3` (Ningbo), `[1] Ann Li d. Zeynep Sonmez 6-3, 6-1` (Osaka), `Mary Stoiana d. Moyuka Uchijima 6-2, 2-6, 6-3` (Osaka), and `Antonia Ruzic d. Kayla Day 6-4, 0-0 Ret'd` (Osaka), while `Katarzyna Kawa vs Belinda Bencic` and `Terence Atmane vs Mattia Bellucci` moved in-play.",
+      "official_url": "https://www.wtatennis.com/tournaments/405/osaka/2026/scores",
+      "official_source": "WTA official live tournament match feeds (`wta_2092_matches.json.gz`, `wta_405_matches.json.gz`)",
+      "resolution": "Marked `completed` / `in_progress` with verified official scorelines in Board Z and replaced on the live upcoming card by newly confirmed Osaka & Lyon/Almaty quarter-finals."
+    },
+    {
+      "id": "REV-06",
+      "severity": "medium",
+      "file": "data/master_conflicts.json, session-cdf25c13/data/board.json",
+      "lines": "fixture `M0195` / Tonga v Lebanon (RLWC 2026 Round 2)",
+      "category": "Material late-mail halfback injury: Isaiya Katoa ruled out for Tonga vs Lebanon",
+      "detail": "Official NRL.com / RLWC2026 Round 2 team lists confirm star Tonga halfback Isaiya Katoa is ruled out of Friday's clash with Lebanon at CommBank Stadium due to an ankle injury, with Latu Fainu starting at No. 7 alongside Tuimoala Lolohea and Tyson Frizell rested.",
+      "official_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
+      "official_source": "NRL.com official RLWC 2026 Men's Round 2 Team Lists",
+      "resolution": "Explicitly incorporated `-4.5 pt` playmaking adjustment and flagged on Tonga v Lebanon in `data/session-9359e596/desk.json`."
+    },
+    {
+      "id": "REV-07",
+      "severity": "low",
+      "file": "data/session-c4fda15e/olbg_inventory.json, data/session-9359e596/olbg_inventory.json",
+      "lines": "NBA & EuroLeague rows (`534845`, `534843`, `534841`, `535921`)",
+      "category": "OLBG vs official league start-time & neutral-venue discrepancies",
+      "detail": "OLBG lists NBA tip-offs 10 minutes after official `nba.com` schedule times (`CLE@PHI` 23:10Z vs 23:00Z, `DEN@OKC` 01:40Z vs 01:30Z, `HOU@SAS` 01:40Z vs 01:30Z — approximate national TV tip vs scheduled tip). Additionally, `HOU Rockets @ SA Spurs` is played at neutral Moody Center (Austin, TX) and `Maccabi Tel Aviv vs Real Madrid` is played at neutral Aleksandar Nikolic Hall (Belgrade), where OLBG provides no neutral-court flag.",
+      "official_url": "https://www.nba.com/game/hou-vs-sas-0022600022",
+      "official_source": "NBA.com official game page & EuroLeague API (`api-live.euroleague.net`)",
+      "resolution": "Anchored `start_utc` to official league timestamps and applied 0-pt neutral-court home advantage on both fixtures."
+    },
+    {
+      "id": "REV-08",
+      "severity": "low",
+      "file": "README.md, index.html, data/master.json",
+      "lines": "README.md:10-95; index.html:18-45; tools/build_master.py",
+      "category": "Cross-board integration pointers & taxonomy harmonization (`Greyhounds` vs `Greyhound Racing`, `Gaelic Football`)",
+      "detail": "Open integration notes in `COORDINATION.md` flag: (1) `README.md` top summary cites 325/320 rows vs `data/master.json`'s updated count; (2) root `index.html` navigation omits links to newly merged 22 Oct desks (`session-c4fda15e/`, `session-fca9d738/`, `session-eb251d10/`, `session-9359e596/`); (3) `data/master.json` split `Greyhounds` and `Greyhound Racing` into separate sport strings; and (4) `Gaelic Football` requires explicit scope-ambiguity quarantine.",
+      "official_url": "https://www.gbgb.org.uk/category-one-glory-beckons-in-coral-100-champion-stakes-final/",
+      "official_source": "GBGB official site & repository `COORDINATION.md` audit trail",
+      "resolution": "Quarantined `Gaelic Football` on `flagged.html` and scheduled root `README.md` / `index.html` / `board/` synchronization in Task Z6."
+    }
+  ]
+}
