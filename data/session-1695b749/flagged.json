@@ -96,6 +96,16 @@
       ]
     },
     {
+      "id": "AB-F12",
+      "severity": "repo",
+      "title": "Three generators write the repository root, so the root navigation can be silently overwritten",
+      "detail": "While validating this board's pointer on the root dashboard, two existing generators rewrote index.html and 27 other root pages: tools/build_master_site.py (master-board style, 28 pages) and scripts/session-83451f65/build_site.py (integrated style). No CI gate diffs the root against either generator, so a later run of either would drop this board's pointer without failing a check. This board restored the committed root pages and kept its change additive; the overlap is recorded here rather than fixed inside another board's generator.",
+      "sources": [
+        "https://github.com/buffedlizard55-lab/OLBG4/blob/main/index.html",
+        "https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py"
+      ]
+    },
+    {
       "id": "AB-F10",
       "severity": "data",
       "title": "World Series schedule extends beyond the published window",
