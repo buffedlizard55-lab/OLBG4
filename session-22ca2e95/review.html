@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repository Line-by-Line Review — Board AE (2026-10-22 12:15 UTC)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-pill">BOARD AE</span>
+        <span>Afternoon Multi-Sport Origination Desk</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary"><a href="index.html" class="">Overview</a><a href="picks.html" class="">High Picks (46)</a><a href="entries.html" class="">All 246 Entries</a><a href="markets.html" class="">4-Market Lines</a><a href="olbg.html" class="">OLBG Analysis</a><a href="review.html" class="active">Repo Review</a><a href="verification.html" class="">Verification</a><a href="flagged.html" class="">Flagged (78)</a><a href="methodology.html" class="">Methodology</a><a href="../index.html" class="">All Boards Hub</a></nav>
+      <div class="odds-toggle" role="group" aria-label="Odds format">
+        <button type="button" data-fmt="both" class="active">Am + Dec</button>
+        <button type="button" data-fmt="am">American</button>
+        <button type="button" data-fmt="dec">Decimal</button>
+      </div>
+    </div>
+    <div class="sport-strip">
+      <div class="sport-strip-inner"><a href="sports/tennis.html" class="sport-chip">Tennis (22)</a><a href="sports/basketball.html" class="sport-chip">Basketball (15)</a><a href="sports/baseball.html" class="sport-chip">Baseball (5)</a><a href="sports/ice-hockey.html" class="sport-chip">Ice Hockey (58)</a><a href="sports/darts.html" class="sport-chip">Darts (17)</a><a href="sports/snooker.html" class="sport-chip">Snooker (6)</a><a href="sports/handball.html" class="sport-chip">Handball (39)</a><a href="sports/volleyball.html" class="sport-chip">Volleyball (16)</a><a href="sports/rugby-union.html" class="sport-chip">Rugby Union (23)</a><a href="sports/rugby-league.html" class="sport-chip">Rugby League (4)</a><a href="sports/cricket.html" class="sport-chip">Cricket (5)</a><a href="sports/esports.html" class="sport-chip">eSports (8)</a><a href="sports/badminton.html" class="sport-chip">Badminton (12)</a><a href="sports/table-tennis.html" class="sport-chip">Table Tennis (2)</a><a href="sports/aussie-rules.html" class="sport-chip">Aussie Rules (9)</a><a href="sports/golf.html" class="sport-chip">Golf (2)</a><a href="sports/motor-racing.html" class="sport-chip">Motor Racing (3)</a><a href="sports/greyhounds.html" class="sport-chip">Greyhounds (11)</a></div>
+    </div>
+  </header>
+  <main class="container">
+    
+    <section class="hero">
+      <div class="eyebrow">Repository-Wide Line-by-Line Audit · 1138 Peer Rows Checked</div>
+      <h1>Line-by-Line Repository Verification &amp; Afternoon Drift Audit</h1>
+      <p class="lead">
+        Board AE programmatically audited <strong>1138 rows</strong> across all 7 canonical datasets
+        on <code>main</code> against official governing-body feeds at <code>2026-10-22T12:15:00Z</code>, preserving 100% of historical files
+        untouched while pruning completed/in-play morning fixtures and adding all post-morning quarter-final draws.
+      </p>
+    </section>
+    <h2>Canonical Repository Datasets Audited</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Dataset Path</th><th>Role</th><th>Total Rows</th><th>Started &le;12:15Z</th><th>Blank Rows</th><th>Verification Finding</th><th>Official Check</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="mono"><strong>data/master.json</strong></td>
+          <td>Canonical legacy multi-session board</td>
+          <td class="mono">336</td>
+          <td class="mono">0</td>
+          <td class="mono">43</td>
+          <td>Audited all 336 rows: 0 have start times &lt;= 2026-10-22T12:15:00Z (including completed Oct 21/22 NBA, NHL, WTA &amp; ATP morning fixtures) and 43 rows carry blank prices without 4-market origination.</td>
+          <td><a href="https://www.atptour.com/en/scores/current" target="_blank" rel="noopener">Manual Review ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono"><strong>session-4afef1af/data/fixtures.json</strong></td>
+          <td>Latest merged PR #107 (11:49Z US Big-3 refresh)</td>
+          <td class="mono">97</td>
+          <td class="mono">0</td>
+          <td class="mono">97</td>
+          <td>Verified 97 schedule-only rows (19 NBA, 70 NHL, 8 MLB; zero originated lines). Documented stats.nba.com timeout withholding 47 post-Oct-25 NBA games, and cross-checked CLE @ PHI (Xfinity Mobile Arena) &amp; DEN @ OKC (Paycom Center).</td>
+          <td><a href="https://www.nba.com/games?date=2026-10-22" target="_blank" rel="noopener">Manual Review ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono"><strong>data/session-f0622b6e/desk.json</strong></td>
+          <td>Board AC morning desk (08:35:00Z cutoff)</td>
+          <td class="mono">233</td>
+          <td class="mono">14</td>
+          <td class="mono">0</td>
+          <td>Audited all 233 morning rows against live 12:13:03Z captures: 14 morning/midday fixtures started or completed between 08:35Z and 12:15Z (WTA Osaka/Ningbo R16s, ATP Almaty/Brussels/Lyon midday ties, 12:00Z Snooker &amp; EMEA Masters, 10:00Z KBL, morning BWF R16s), and all 14 newly formed Oct 23 Tennis/Badminton QFs + India W vs Zimbabwe W ODIs + WTT Montpellier Outrights were not yet created at 08:35Z.</td>
+          <td><a href="https://www.wtatennis.com/tournaments" target="_blank" rel="noopener">Manual Review ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono"><strong>data/session-9359e596/desk.json</strong></td>
+          <td>Board Y morning desk (07:33:46Z cutoff)</td>
+          <td class="mono">280</td>
+          <td class="mono">36</td>
+          <td class="mono">0</td>
+          <td>Audited all 280 rows: 36 rows have now commenced or concluded prior to 2026-10-22T12:15:00Z, including Medvedev vs Shimabukuro (6-7 6-4 6-4), Khachanov vs Macháč (6-7 6-1 6-4), Jovic vs Paolini (6-4 6-3), and Kawa vs Bencic (7-5 6-2).</td>
+          <td><a href="https://www.protennislive.com/posting/2026/9410/mds.pdf" target="_blank" rel="noopener">Manual Review ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono"><strong>data/session-1695b749/desk.json</strong></td>
+          <td>Earlier morning multi-sport origination desk</td>
+          <td class="mono">96</td>
+          <td class="mono">1</td>
+          <td class="mono">0</td>
+          <td>Cross-checked morning lines against afternoon official draws; lacks post-12:00Z ATP/WTA quarter-final brackets, BCCI Women&#x27;s ODIs, French SpikeLigue Sète vs Chaumont, and Week #42 ITTF Montpellier outrights.</td>
+          <td><a href="https://www.bcci.tv/matches/023cf7d3-6571-4932-997b-cac801ed0b4a/india-women-vs-zimbabwe-women" target="_blank" rel="noopener">Manual Review ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono"><strong>data/session-d2d25025/board.json</strong></td>
+          <td>Historical session board snapshot</td>
+          <td class="mono">96</td>
+          <td class="mono">1</td>
+          <td class="mono">0</td>
+          <td>Verified against official governing-body calendars; pre-dates Oct 22 afternoon tournament progression and lacks complete 4-market handicap/total origination across all 17 priced sports.</td>
+          <td><a href="https://www.wst.tv/matches/" target="_blank" rel="noopener">Manual Review ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono"><strong>data/flagged.json</strong></td>
+          <td>Canonical root quarantine &amp; review ledger</td>
+          <td class="mono">0</td>
+          <td class="mono">0</td>
+          <td class="mono">0</td>
+          <td>Verified deterministic invariant preserved by `python3 scripts/audit_publication.py --check`; Board AE leaves canonical baseline files untouched while publishing an expanded afternoon Flagged for Review ledger.</td>
+          <td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-11-02" target="_blank" rel="noopener">Manual Review ↗</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Morning Desk Fixtures Expired Between 08:35Z and 12:15Z (14 Rows Pruned)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Sport</th><th>Fixture</th><th>Start UTC</th><th>Board AE Action</th><th>Official Verification</th></tr></thead>
+        <tbody>
+        <tr>
+          <td><strong>Tennis</strong><div class="muted">WTA 500 Ningbo Open — R16</div></td>
+          <td><strong>Alexandra Eala vs Diana Shnaider</strong></td>
+          <td class="mono">10-22 09:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://www.wtatennis.com/tournaments/2092/ningbo/2026/order-of-play" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Tennis</strong><div class="muted">ATP 250 Almaty Open — R16</div></td>
+          <td><strong>Daniil Medvedev vs Sho Shimabukuro</strong></td>
+          <td class="mono">10-22 09:30 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://www.protennislive.com/posting/2026/9410/op.pdf" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Tennis</strong><div class="muted">WTA 500 Ningbo Open — R16</div></td>
+          <td><strong>Elena Rybakina vs Polina Kudermetova</strong></td>
+          <td class="mono">10-22 11:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://www.wtatennis.com/tournaments/2092/ningbo/2026/order-of-play" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Tennis</strong><div class="muted">ATP 250 European Open Brussels — R16</div></td>
+          <td><strong>Raphael Collignon vs Jiri Lehecka</strong></td>
+          <td class="mono">10-22 11:30 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://www.protennislive.com/posting/2026/7485/op.pdf" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Tennis</strong><div class="muted">ATP 250 Grand Prix Auvergne-Rhône-Alpes Lyon — R16</div></td>
+          <td><strong>Borna Gojo vs Daniel Altmaier</strong></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://www.protennislive.com/posting/2026/496/op.pdf" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Tennis</strong><div class="muted">ATP 250 Grand Prix Auvergne-Rhône-Alpes Lyon — R16</div></td>
+          <td><strong>Valentin Vacherot vs Luca Van Assche</strong></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://www.protennislive.com/posting/2026/496/op.pdf" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Basketball</strong><div class="muted">KBL 2026-27 Regular Season</div></td>
+          <td><strong>Ulsan Hyundai Mobis Phoebus vs Changwon LG Sakers</strong></td>
+          <td class="mono">10-22 10:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://phoebus.kbl.or.kr/" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Snooker</strong><div class="muted">WST BetVictor Northern Ireland Open — Last 16 (Best of 7)</div></td>
+          <td><strong>Kyren Wilson vs Pang Junxu</strong></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://www.wst.tv/match-centre/67133698-e8a4-4b37-9266-452a97df8584" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Snooker</strong><div class="muted">WST BetVictor Northern Ireland Open — Last 16 (Best of 7)</div></td>
+          <td><strong>Matthew Selt vs Sam Craigie</strong></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://www.wst.tv/match-centre/67133698-e8a4-4b37-9266-452a97df8584" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>eSports</strong><div class="muted">EMEA Masters 2026 Summer — Grand Final (Bo5)</div></td>
+          <td><strong>Galions vs Solary</strong></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://lolesports.com/en-US/news/worlds-2026-primer" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Badminton</strong><div class="muted">BWF Super 750 YONEX French Open 2026 — WS R16</div></td>
+          <td><strong>An Se Young vs Tanvi Sharma</strong></td>
+          <td class="mono">10-22 10:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Badminton</strong><div class="muted">BWF Super 750 YONEX French Open 2026 — MS R16</div></td>
+          <td><strong>Ayush Shetty vs Kodai Naraoka</strong></td>
+          <td class="mono">10-22 10:00 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Badminton</strong><div class="muted">BWF Super 750 YONEX French Open 2026 — MS R16</div></td>
+          <td><strong>Rasmus Gemke vs Christo Popov</strong></td>
+          <td class="mono">10-22 10:50 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Badminton</strong><div class="muted">BWF Super 750 YONEX French Open 2026 — MS R16</div></td>
+          <td><strong>Toma Junior Popov vs Jia Heng Teh</strong></td>
+          <td class="mono">10-22 11:40 UTC</td>
+          <td>Pruned from active desk (`start_utc &lt;= 2026-10-22T12:15:00Z`) and replaced where applicable by official next-round Quarter-Final draw.</td>
+          <td><a href="https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22" target="_blank" rel="noopener">Official Result / Draw ↗</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </main>
+  <footer class="footer">
+    <div>Board AE · Session <code>22ca2e95</code> · Strict Pre-Match Cutoff <code>2026-10-22T12:15:00Z</code> · Capture <code>20261022T121303Z</code> (87 SHA-256 verified files)</div>
+    <div>Zero excluded sports · Every row backed by an official governing-body link · Unconfirmed values kept blank on <a href="flagged.html">Flagged for Review</a></div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

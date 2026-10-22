@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OLBG Reverse Engineering — Board AE (2026-10-22 12:15 UTC)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-pill">BOARD AE</span>
+        <span>Afternoon Multi-Sport Origination Desk</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary"><a href="index.html" class="">Overview</a><a href="picks.html" class="">High Picks (46)</a><a href="entries.html" class="">All 246 Entries</a><a href="markets.html" class="">4-Market Lines</a><a href="olbg.html" class="active">OLBG Analysis</a><a href="review.html" class="">Repo Review</a><a href="verification.html" class="">Verification</a><a href="flagged.html" class="">Flagged (78)</a><a href="methodology.html" class="">Methodology</a><a href="../index.html" class="">All Boards Hub</a></nav>
+      <div class="odds-toggle" role="group" aria-label="Odds format">
+        <button type="button" data-fmt="both" class="active">Am + Dec</button>
+        <button type="button" data-fmt="am">American</button>
+        <button type="button" data-fmt="dec">Decimal</button>
+      </div>
+    </div>
+    <div class="sport-strip">
+      <div class="sport-strip-inner"><a href="sports/tennis.html" class="sport-chip">Tennis (22)</a><a href="sports/basketball.html" class="sport-chip">Basketball (15)</a><a href="sports/baseball.html" class="sport-chip">Baseball (5)</a><a href="sports/ice-hockey.html" class="sport-chip">Ice Hockey (58)</a><a href="sports/darts.html" class="sport-chip">Darts (17)</a><a href="sports/snooker.html" class="sport-chip">Snooker (6)</a><a href="sports/handball.html" class="sport-chip">Handball (39)</a><a href="sports/volleyball.html" class="sport-chip">Volleyball (16)</a><a href="sports/rugby-union.html" class="sport-chip">Rugby Union (23)</a><a href="sports/rugby-league.html" class="sport-chip">Rugby League (4)</a><a href="sports/cricket.html" class="sport-chip">Cricket (5)</a><a href="sports/esports.html" class="sport-chip">eSports (8)</a><a href="sports/badminton.html" class="sport-chip">Badminton (12)</a><a href="sports/table-tennis.html" class="sport-chip">Table Tennis (2)</a><a href="sports/aussie-rules.html" class="sport-chip">Aussie Rules (9)</a><a href="sports/golf.html" class="sport-chip">Golf (2)</a><a href="sports/motor-racing.html" class="sport-chip">Motor Racing (3)</a><a href="sports/greyhounds.html" class="sport-chip">Greyhounds (11)</a></div>
+    </div>
+  </header>
+  <main class="container">
+    
+    <section class="hero">
+      <div class="eyebrow">Reverse Engineering Report · Capture 20261022T121303Z</div>
+      <h1>OLBG.com Architecture, Robots Boundary &amp; 242 Live SSR Events</h1>
+      <p class="lead">
+        OLBG renders server-side SvelteKit hydration blocks containing inline JavaScript arrays <code>tips:[...]</code> (match markets)
+        and <code>tournaments:[...]</code> (outrights plus UK Greyhound daily race cards). Notably, <code>tips[i].id</code> is an alphanumeric
+        selection hash whereas the canonical numeric primary key lives inside <code>eventUrl</code>'s <code>?event_id=&lt;int&gt;</code> query parameter,
+        and <code>event_start_unix_timestamp</code> encodes exact UTC epoch seconds. All disallowed internal endpoints in <code>robots.txt</code>
+        (<code>/api/svelte</code>, <code>/sports/*/top_tips</code>, <code>/events.php</code>, <code>/tipster/</code>) were strictly respected.
+      </p>
+    </section>
+    <h2>Complete 28-Slot OLBG Sport ID Catalog (Slots 1–28)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>OLBG Route</th><th>Scope Gate</th><th>12:13Z Top-Hub Count</th><th>Board AE Disposition</th><th>Reference</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="mono">1</td>
+          <td><strong>Football (Soccer)</strong> (<code>/betting-tips/Football/1</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded by explicit user prompt (&#x27;soccer&#x27;, &#x27;football&#x27;).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">2</td>
+          <td><strong>Horse Racing</strong> (<code>/betting-tips/Horse_Racing/2</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded by explicit user prompt (&#x27;horse racing&#x27;).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">3</td>
+          <td><strong>Tennis</strong> (<code>/betting-tips/Tennis/3</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">24</td>
+          <td>In scope — ATP 250 Almaty/Brussels/Lyon &amp; WTA Ningbo/Osaka verified via official draws/JSON; midday started/completed R16s pruned and 14 new Oct 23 QFs/R16s priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">4</td>
+          <td><strong>Basketball</strong> (<code>/betting-tips/Basketball/4</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">21</td>
+          <td>In scope — NBA, EuroLeague Round 7 &amp; NBB Brazil verified (sub-hubs NBA/4, Euroleague/4, Other/4 also captured).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">5</td>
+          <td><strong>Golf</strong> (<code>/betting-tips/Golf/5</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">1</td>
+          <td>In scope — PGA Tour Bermuda, Champions Stifel &amp; DP World Tour Genesis tournament outrights priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">6</td>
+          <td><strong>Unassigned / Legacy Slot 6</strong> (<code>/betting-tips/Greyhounds_Legacy/6</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Unassigned OLBG slot (redirects to /betting-tips).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">7</td>
+          <td><strong>Cricket</strong> (<code>/betting-tips/Cricket/7</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">8</td>
+          <td>In scope — India W vs Zimbabwe W ODIs (bcci.tv), AFG vs ZIM Final, CSA T20 &amp; CWC 2027 priced; live/completed morning matches quarantined.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">8</td>
+          <td><strong>Snooker</strong> (<code>/betting-tips/Snooker/8</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">8</td>
+          <td>In scope — Northern Ireland Open Last 16: two 12:00Z live ties quarantined; 6 unstarted afternoon/evening ties priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">9</td>
+          <td><strong>Rugby Union</strong> (<code>/betting-tips/Rugby_Union/9</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">17</td>
+          <td>In scope — URC Round 4 (incl. newly surfaced unbeaten 3-0 Edinburgh vs Lions), Top 14 Round 8, Pro D2 Round 8 &amp; Six Nations 2027 priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">10</td>
+          <td><strong>Rugby League</strong> (<code>/betting-tips/Rugby_League/10</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">3</td>
+          <td>In scope — RLWC 2026 Men&#x27;s Round 2 fixtures verified and priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">11</td>
+          <td><strong>American Football</strong> (<code>/betting-tips/American_Football/11</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded by explicit user prompt (&#x27;american football&#x27;, &#x27;football&#x27;).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">12</td>
+          <td><strong>Baseball</strong> (<code>/betting-tips/Baseball/12</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">1</td>
+          <td>In scope — 2026 World Series Games 1-4 (Tampa Bay Rays @ Milwaukee Brewers, G1 SP Misiorowski) &amp; Trophy Outright priced; conditional G5-G7 flagged.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">13</td>
+          <td><strong>Ice Hockey</strong> (<code>/betting-tips/Ice_Hockey/13</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">21</td>
+          <td>In scope — All 12 newly surfaced Oct 22 NHL games + Oct 23-26 NHL, SHL &amp; Finnish Liiga slates verified and priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">14</td>
+          <td><strong>Motor Racing</strong> (<code>/betting-tips/Motor_Racing/14</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">3</td>
+          <td>In scope — Formula 1 US Grand Prix (COTA) &amp; 2026 Drivers&#x27;/Constructors&#x27; Championship markets priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">15</td>
+          <td><strong>Darts</strong> (<code>/betting-tips/Darts/15</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">17</td>
+          <td>In scope — All 16 PDC European Championship Round 1 ties in Dortmund + 2 Outrights priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">16</td>
+          <td><strong>Boxing</strong> (<code>/betting-tips/Boxing/16</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded by explicit user prompt (&#x27;boxing&#x27;).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">17</td>
+          <td><strong>Cycling</strong> (<code>/betting-tips/Cycling/17</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded by explicit user prompt (&#x27;cycling&#x27;).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">18</td>
+          <td><strong>Unassigned Slot 18</strong> (<code>/betting-tips/Netball_Slot18/18</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>No active hub on 2026-10-22.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">19</td>
+          <td><strong>Athletics / Specials</strong> (<code>/betting-tips/Athletics/19</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded / dormant hub on 2026-10-22.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">20</td>
+          <td><strong>Handball</strong> (<code>/betting-tips/Handball/20</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">35</td>
+          <td>In scope — 35 fixtures across EHF Champions League, HBL, StarLigue, ASOBAL, Herreligaen &amp; Handbollsligan priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">21</td>
+          <td><strong>Volleyball</strong> (<code>/betting-tips/Volleyball/21</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">19</td>
+          <td>In scope — Italian SuperLega, Polish PlusLiga, Czech Extraliga + newly surfaced French LNV Sète vs Chaumont priced; lower-tier rows without boxscore feeds quarantined blank.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">22</td>
+          <td><strong>Aussie Rules</strong> (<code>/betting-tips/Aussie_Rules/22</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">0</td>
+          <td>In scope — All 9 NAB AFLW Round 11 fixtures verified on afl.com.au and priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">23</td>
+          <td><strong>eSports</strong> (<code>/betting-tips/eSports/23</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">0</td>
+          <td>In scope — 12:00Z EMEA Masters Grand Final (Galions vs Solary) quarantined in-play; all 8 unstarted LoL Worlds 2026 Swiss R1 BO1s priced.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">24</td>
+          <td><strong>UFC / MMA</strong> (<code>/betting-tips/UFC_MMA/24</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded by explicit user prompt (&#x27;ufc&#x27;, &#x27;mma&#x27;).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">25</td>
+          <td><strong>Gaelic Football</strong> (<code>/betting-tips/Gaelic_Football/25</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">6</td>
+          <td>Conservatively quarantined on Flagged for Review under &#x27;football&#x27;/&#x27;hurling&#x27; exclusion ambiguity.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">26</td>
+          <td><strong>Hurling</strong> (<code>/betting-tips/Hurling/26</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded by explicit user prompt (&#x27;hurling&#x27;).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">27</td>
+          <td><strong>Specials</strong> (<code>/betting-tips/Specials_Slot27/27</code>)</td>
+          <td><span class="badge badge-flag">Excluded</span></td>
+          <td class="mono">—</td>
+          <td>Excluded by explicit user prompt (&#x27;specials&#x27;).</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        
+        <tr>
+          <td class="mono">28</td>
+          <td><strong>Greyhounds</strong> (<code>/betting-tips/Greyhounds/28</code>)</td>
+          <td><span class="badge badge-high">In Scope</span></td>
+          <td class="mono">11</td>
+          <td>In scope — 11 UK afternoon/evening race cards inventoried; gbgb.org.uk HTTP 403 WAF prevents independent trap/sectional verification, so all 11 route to Flagged for Review with blank odds.</td>
+          <td><a href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">OLBG Hub ↗</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>All 242 Unique Live In-Scope Events Extracted at 12:13:03Z (-12 Morning Dropped, +77 Newly Surfaced vs 07:33Z)</h2>
+    <div class="toolbar">
+      <input type="search" id="ae-search" placeholder="Search all 242 live OLBG events…">
+      <span class="count-pill" id="ae-visible-count">242 shown</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Event ID</th><th>Sport</th><th>SSR Array Kind</th><th>Event / Competition</th><th>UTC Start</th><th>OLBG Listing</th></tr></thead>
+        <tbody>
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535965</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>GS Valkyries @ ATL Dream</strong><div class="muted">WNBA</div></td>
+          <td class="mono">10-22 00:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/WNBA/WNBA/GS_Valkyries_@_ATL_Dream/4?event_id=535965" target="_blank" rel="noopener">OLBG Event #535965 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">536003</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Argentino Junin vs Boca Juniors</strong><div class="muted">Argentina Liga Nacional</div></td>
+          <td class="mono">10-22 00:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/Other/Argentina_Liga_Nacional/Argentino_Junin_vs_Boca_Juniors/4?event_id=536003" target="_blank" rel="noopener">OLBG Event #536003 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">534891</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>DAL Mavericks @ HOU Rockets</strong><div class="muted">NBA</div></td>
+          <td class="mono">10-22 00:40 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DAL_Mavericks_@_HOU_Rockets/4?event_id=534891" target="_blank" rel="noopener">OLBG Event #534891 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">534839</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>GS Warriors @ LA Lakers</strong><div class="muted">NBA</div></td>
+          <td class="mono">10-22 02:10 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/GS_Warriors_@_LA_Lakers/4?event_id=534839" target="_blank" rel="noopener">OLBG Event #534839 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">534893</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>PHX Suns @ POR Trail Blazers</strong><div class="muted">NBA</div></td>
+          <td class="mono">10-22 02:10 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/PHX_Suns_@_POR_Trail_Blazers/4?event_id=534893" target="_blank" rel="noopener">OLBG Event #534893 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">536021</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Mobis Phoebus vs Changwon Sakers</strong><div class="muted">Korea KBL</div></td>
+          <td class="mono">10-22 10:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Mobis_Phoebus_vs_Changwon_Sakers/4?event_id=536021" target="_blank" rel="noopener">OLBG Event #536021 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535918</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Anadolu Efes vs Besiktas</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-22 17:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Anadolu_Efes_vs_Besiktas/4?event_id=535918" target="_blank" rel="noopener">OLBG Event #535918 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535920</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Bayern Munich vs BC Dubai</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-22 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Bayern_Munich_vs_BC_Dubai/4?event_id=535920" target="_blank" rel="noopener">OLBG Event #535920 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535921</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Maccabi Tel Aviv vs Real Madrid</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-22 18:05 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Maccabi_Tel_Aviv_vs_Real_Madrid/4?event_id=535921" target="_blank" rel="noopener">OLBG Event #535921 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535923</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Panathinaikos vs Baskonia</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-22 18:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Panathinaikos_vs_Baskonia/4?event_id=535923" target="_blank" rel="noopener">OLBG Event #535923 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535922</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Milano vs Barcelona</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-22 18:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Milano_vs_Barcelona/4?event_id=535922" target="_blank" rel="noopener">OLBG Event #535922 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535924</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Partizan vs Crvena Zvezda</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-22 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Partizan_vs_Crvena_Zvezda/4?event_id=535924" target="_blank" rel="noopener">OLBG Event #535924 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">536019</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Fortaleza BC vs Pinheiros</strong><div class="muted">Brazil NBB</div></td>
+          <td class="mono">10-22 22:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/Other/Brazil_NBB/Fortaleza_BC_vs_Pinheiros/4?event_id=536019" target="_blank" rel="noopener">OLBG Event #536019 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">536020</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Uniao Corinthians vs Minas</strong><div class="muted">Brazil NBB</div></td>
+          <td class="mono">10-22 22:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/Other/Brazil_NBB/Uniao_Corinthians_vs_Minas/4?event_id=536020" target="_blank" rel="noopener">OLBG Event #536020 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">534845</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>CLE Cavaliers @ PHI 76ers</strong><div class="muted">NBA</div></td>
+          <td class="mono">10-22 23:10 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/CLE_Cavaliers_@_PHI_76ers/4?event_id=534845" target="_blank" rel="noopener">OLBG Event #534845 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535928</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Zalgiris vs Asvel Lyon Villeurbanne</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-23 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Zalgiris_vs_Asvel_Lyon_Villeurbanne/4?event_id=535928" target="_blank" rel="noopener">OLBG Event #535928 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535925</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Olympiacos vs Fenerbahce</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-23 18:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Olympiacos_vs_Fenerbahce/4?event_id=535925" target="_blank" rel="noopener">OLBG Event #535925 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">535926</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>Paris vs Valencia</strong><div class="muted">Euroleague</div></td>
+          <td class="mono">10-23 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Paris_vs_Valencia/4?event_id=535926" target="_blank" rel="noopener">OLBG Event #535926 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">534842</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>NY Knicks @ BOS Celtics</strong><div class="muted">NBA</div></td>
+          <td class="mono">10-23 23:10 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/NY_Knicks_@_BOS_Celtics/4?event_id=534842" target="_blank" rel="noopener">OLBG Event #534842 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Basketball" data-conf="all" data-fresh="0">
+          <td class="mono">534841</td>
+          <td><strong>Basketball</strong></td>
+          <td>match</td>
+          <td><strong>HOU Rockets @ SA Spurs</strong><div class="muted">NBA</div></td>
+          <td class="mono">10-24 01:40 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/HOU_Rockets_@_SA_Spurs/4?event_id=534841" target="_blank" rel="noopener">OLBG Event #534841 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Cricket" data-conf="all" data-fresh="0">
+          <td class="mono">188830</td>
+          <td><strong>Cricket</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>India W vs Zimbabwe W 1st ODI</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 08:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/India_W_vs_Zimbabwe_W_1st_ODI/7?event_id=188830" target="_blank" rel="noopener">OLBG Event #188830 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Cricket" data-conf="all" data-fresh="0">
+          <td class="mono">188831</td>
+          <td><strong>Cricket</strong></td>
+          <td>match</td>
+          <td><strong>Afghanistan vs Zimbabwe One Day Match</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 11:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Afghanistan_vs_Zimbabwe_One_Day_Match/7?event_id=188831" target="_blank" rel="noopener">OLBG Event #188831 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Cricket" data-conf="all" data-fresh="0">
+          <td class="mono">187184</td>
+          <td><strong>Cricket</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>Big Bash Women 2026</strong><div class="muted">All Events</div></td>
+          <td class="mono">12-05 08:10 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Big_Bash_Women_2026/7?event_id=187184" target="_blank" rel="noopener">OLBG Event #187184 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Cricket" data-conf="all" data-fresh="0">
+          <td class="mono">187503</td>
+          <td><strong>Cricket</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>T20 Big Bash 2026-27</strong><div class="muted">All Events</div></td>
+          <td class="mono">12-12 08:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/T20_Big_Bash_2026-27/7?event_id=187503" target="_blank" rel="noopener">OLBG Event #187503 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Cricket" data-conf="all" data-fresh="0">
+          <td class="mono">187504</td>
+          <td><strong>Cricket</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>SA20 2026-27</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-01-24 16:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/SA20_2026-27/7?event_id=187504" target="_blank" rel="noopener">OLBG Event #187504 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Cricket" data-conf="all" data-fresh="0">
+          <td class="mono">188350</td>
+          <td><strong>Cricket</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>T20 Blast 2027</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-07-18 15:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/T20_Blast_2027/7?event_id=188350" target="_blank" rel="noopener">OLBG Event #188350 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Cricket" data-conf="all" data-fresh="0">
+          <td class="mono">182606</td>
+          <td><strong>Cricket</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>World Cup 2027</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-11-21 10:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/World_Cup_2027/7?event_id=182606" target="_blank" rel="noopener">OLBG Event #182606 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Darts" data-conf="all" data-fresh="0">
+          <td class="mono">32333</td>
+          <td><strong>Darts</strong></td>
+          <td>match</td>
+          <td><strong>Krzysztof Ratajski vs Dave Chisnall</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 17:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Krzysztof_Ratajski_vs_Dave_Chisnall/15?event_id=32333" target="_blank" rel="noopener">OLBG Event #32333 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Darts" data-conf="all" data-fresh="0">
+          <td class="mono">32327</td>
+          <td><strong>Darts</strong></td>
+          <td>match</td>
+          <td><strong>Nathan Aspinall vs Cristo Reyes</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Nathan_Aspinall_vs_Cristo_Reyes/15?event_id=32327" target="_blank" rel="noopener">OLBG Event #32327 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Darts" data-conf="all" data-fresh="0">
+          <td class="mono">32328</td>
+          <td><strong>Darts</strong></td>
+          <td>match</td>
+          <td><strong>Luke Littler vs William OConnor</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 19:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Littler_vs_William_OConnor/15?event_id=32328" target="_blank" rel="noopener">OLBG Event #32328 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Darts" data-conf="all" data-fresh="0">
+          <td class="mono">32326</td>
+          <td><strong>Darts</strong></td>
+          <td>match</td>
+          <td><strong>Wessel Nijman vs Martin Schindler</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 19:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Wessel_Nijman_vs_Martin_Schindler/15?event_id=32326" target="_blank" rel="noopener">OLBG Event #32326 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Darts" data-conf="all" data-fresh="0">
+          <td class="mono">32331</td>
+          <td><strong>Darts</strong></td>
+          <td>match</td>
+          <td><strong>Kevin Doets vs Michael van Gerwen</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 20:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Kevin_Doets_vs_Michael_van_Gerwen/15?event_id=32331" target="_blank" rel="noopener">OLBG Event #32331 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Darts" data-conf="all" data-fresh="0">
+          <td class="mono">32336</td>
+          <td><strong>Darts</strong></td>
+          <td>match</td>
+          <td><strong>Josh Rock vs Chris Dobey</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 20:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Josh_Rock_vs_Chris_Dobey/15?event_id=32336" target="_blank" rel="noopener">OLBG Event #32336 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Darts" data-conf="all" data-fresh="0">
+          <td class="mono">32338</td>
+          <td><strong>Darts</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>European Championship</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338" target="_blank" rel="noopener">OLBG Event #32338 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Darts" data-conf="all" data-fresh="0">
+          <td class="mono">26023</td>
+          <td><strong>Darts</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>PDC World Championship 2027</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-01-03 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/PDC_World_Championship_2027/15?event_id=26023" target="_blank" rel="noopener">OLBG Event #26023 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Gaelic Football" data-conf="all" data-fresh="0">
+          <td class="mono">3531</td>
+          <td><strong>Gaelic Football</strong></td>
+          <td>match</td>
+          <td><strong>Kanturk v Eire Og Cor</strong><div class="muted">All Events</div></td>
+          <td class="mono">11-01 14:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Kanturk_v_Eire_Og_Cor/25?event_id=3531" target="_blank" rel="noopener">OLBG Event #3531 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Gaelic Football" data-conf="all" data-fresh="0">
+          <td class="mono">3536</td>
+          <td><strong>Gaelic Football</strong></td>
+          <td>match</td>
+          <td><strong>Rathgormack v The Nire</strong><div class="muted">All Events</div></td>
+          <td class="mono">11-01 15:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Rathgormack_v_The_Nire/25?event_id=3536" target="_blank" rel="noopener">OLBG Event #3536 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Gaelic Football" data-conf="all" data-fresh="0">
+          <td class="mono">3537</td>
+          <td><strong>Gaelic Football</strong></td>
+          <td>match</td>
+          <td><strong>Fr Caseys v Kildimo Pallaskenry</strong><div class="muted">All Events</div></td>
+          <td class="mono">11-01 15:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Fr_Caseys_v_Kildimo_Pallaskenry/25?event_id=3537" target="_blank" rel="noopener">OLBG Event #3537 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Gaelic Football" data-conf="all" data-fresh="0">
+          <td class="mono">3327</td>
+          <td><strong>Gaelic Football</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>All Ireland Football Championship 2027</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-07-25 14:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/All_Ireland_Football_Championship_2027/25?event_id=3327" target="_blank" rel="noopener">OLBG Event #3327 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Golf" data-conf="all" data-fresh="0">
+          <td class="mono">101903</td>
+          <td><strong>Golf</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>Stifel Charity Classic</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 21:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903" target="_blank" rel="noopener">OLBG Event #101903 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689604</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>1:31 Sheffield</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 12:31 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/1:31_Sheffield/28?event_id=689604" target="_blank" rel="noopener">OLBG Event #689604 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689614</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>2:41 Central Park</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 13:41 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/2:41_Central_Park/28?event_id=689614" target="_blank" rel="noopener">OLBG Event #689614 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689623</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>3:19 Central Park</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 14:19 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/3:19_Central_Park/28?event_id=689623" target="_blank" rel="noopener">OLBG Event #689623 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689627</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>3:38 Central Park</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 14:38 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/3:38_Central_Park/28?event_id=689627" target="_blank" rel="noopener">OLBG Event #689627 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689632</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>3:57 Central Park</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 14:57 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/3:57_Central_Park/28?event_id=689632" target="_blank" rel="noopener">OLBG Event #689632 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689636</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>4:16 Central Park</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 15:16 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/4:16_Central_Park/28?event_id=689636" target="_blank" rel="noopener">OLBG Event #689636 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689637</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>4:34 Central Park</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 15:34 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/4:34_Central_Park/28?event_id=689637" target="_blank" rel="noopener">OLBG Event #689637 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689643</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>4:53 Central Park</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 15:53 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/4:53_Central_Park/28?event_id=689643" target="_blank" rel="noopener">OLBG Event #689643 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689650</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>5:24 Towcester</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:24 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/5:24_Towcester/28?event_id=689650" target="_blank" rel="noopener">OLBG Event #689650 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689656</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>5:31 Central Park</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:31 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/5:31_Central_Park/28?event_id=689656" target="_blank" rel="noopener">OLBG Event #689656 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Greyhounds" data-conf="all" data-fresh="0">
+          <td class="mono">689696</td>
+          <td><strong>Greyhounds</strong></td>
+          <td>daily_race</td>
+          <td><strong>8:19 Newcastle</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 19:19 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/8:19_Newcastle/28?event_id=689696" target="_blank" rel="noopener">OLBG Event #689696 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12117</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Skanela IF vs HIF Karlskrona</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Skanela_IF_vs_HIF_Karlskrona/20?event_id=12117" target="_blank" rel="noopener">OLBG Event #12117 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12049</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>MT Melsungen vs Wisla Plock</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/MT_Melsungen_vs_Wisla_Plock/20?event_id=12049" target="_blank" rel="noopener">OLBG Event #12049 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12051</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Pick Szeged vs GOG</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Pick_Szeged_vs_GOG/20?event_id=12051" target="_blank" rel="noopener">OLBG Event #12051 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12116</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Onnereds HK vs Ystads IF HF</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Onnereds_HK_vs_Ystads_IF_HF/20?event_id=12116" target="_blank" rel="noopener">OLBG Event #12116 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12073</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>SonderjyskE vs Nordsjaelland Handbold</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 17:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SonderjyskE_vs_Nordsjaelland_Handbold/20?event_id=12073" target="_blank" rel="noopener">OLBG Event #12073 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12074</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>KIF Kolding vs Fredericia HK</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/KIF_Kolding_vs_Fredericia_HK/20?event_id=12074" target="_blank" rel="noopener">OLBG Event #12074 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12100</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>BM Granollers vs Ciudad Encantada</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Granollers_vs_Ciudad_Encantada/20?event_id=12100" target="_blank" rel="noopener">OLBG Event #12100 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12048</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Kolstad vs SC Magdeburg</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Kolstad_vs_SC_Magdeburg/20?event_id=12048" target="_blank" rel="noopener">OLBG Event #12048 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12101</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Bidasoa Irun vs Caserio Ciudad Real</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bidasoa_Irun_vs_Caserio_Ciudad_Real/20?event_id=12101" target="_blank" rel="noopener">OLBG Event #12101 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12079</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Chartres vs USAM Nimes</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Chartres_vs_USAM_Nimes/20?event_id=12079" target="_blank" rel="noopener">OLBG Event #12079 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12080</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Limoges 87 vs Dunkerque</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Limoges_87_vs_Dunkerque/20?event_id=12080" target="_blank" rel="noopener">OLBG Event #12080 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12083</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Pays dAix UC vs Toulouse</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Pays_dAix_UC_vs_Toulouse/20?event_id=12083" target="_blank" rel="noopener">OLBG Event #12083 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12088</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Frisch Auf Goppingen vs ThSV Eisenach</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Frisch_Auf_Goppingen_vs_ThSV_Eisenach/20?event_id=12088" target="_blank" rel="noopener">OLBG Event #12088 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12093</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>TSV Hannover Burgdorf vs TBV Lemgo Lippe</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/TSV_Hannover_Burgdorf_vs_TBV_Lemgo_Lippe/20?event_id=12093" target="_blank" rel="noopener">OLBG Event #12093 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12110</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Estonia W vs Kosovo W</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Estonia_W_vs_Kosovo_W/20?event_id=12110" target="_blank" rel="noopener">OLBG Event #12110 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12085</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Selestat Alsace vs Caen</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Selestat_Alsace_vs_Caen/20?event_id=12085" target="_blank" rel="noopener">OLBG Event #12085 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12086</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Tremblay vs Cesson Rennes</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Tremblay_vs_Cesson_Rennes/20?event_id=12086" target="_blank" rel="noopener">OLBG Event #12086 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12076</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Skive FH vs Aalborg Handbold</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 13:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Skive_FH_vs_Aalborg_Handbold/20?event_id=12076" target="_blank" rel="noopener">OLBG Event #12076 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12077</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Skjern Handbold vs Ribe Esbjerg HH</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 14:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Skjern_Handbold_vs_Ribe_Esbjerg_HH/20?event_id=12077" target="_blank" rel="noopener">OLBG Event #12077 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12091</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>HC Erlangen vs THW Kiel</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Erlangen_vs_THW_Kiel/20?event_id=12091" target="_blank" rel="noopener">OLBG Event #12091 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12082</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Nantes vs Chambery Savoie</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Nantes_vs_Chambery_Savoie/20?event_id=12082" target="_blank" rel="noopener">OLBG Event #12082 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12104</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>BM Nava vs Atletico Valladolid</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Nava_vs_Atletico_Valladolid/20?event_id=12104" target="_blank" rel="noopener">OLBG Event #12104 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12107</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Villa De Aranda vs Puerto Sagunto</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Villa_De_Aranda_vs_Puerto_Sagunto/20?event_id=12107" target="_blank" rel="noopener">OLBG Event #12107 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12103</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>BM Logrono La Rioja vs BM Cangas</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 17:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Logrono_La_Rioja_vs_BM_Cangas/20?event_id=12103" target="_blank" rel="noopener">OLBG Event #12103 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12090</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>HBW Balingen Weilstetten vs MT Melsungen</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HBW_Balingen_Weilstetten_vs_MT_Melsungen/20?event_id=12090" target="_blank" rel="noopener">OLBG Event #12090 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12106</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>CBM Sporting Alicante vs Ademar Leon</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 11:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/CBM_Sporting_Alicante_vs_Ademar_Leon/20?event_id=12106" target="_blank" rel="noopener">OLBG Event #12106 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12102</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>BM Granollers vs Angel Ximenez Puente Genil</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 11:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Granollers_vs_Angel_Ximenez_Puente_Genil/20?event_id=12102" target="_blank" rel="noopener">OLBG Event #12102 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12092</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Rhein Neckar Lowen vs SC Magdeburg</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 14:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Rhein_Neckar_Lowen_vs_SC_Magdeburg/20?event_id=12092" target="_blank" rel="noopener">OLBG Event #12092 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12084</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Saint Raphael vs PSG Handball</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 15:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Saint_Raphael_vs_PSG_Handball/20?event_id=12084" target="_blank" rel="noopener">OLBG Event #12084 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12089</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>Fuchse Berlin vs HSG Wetzlar</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 15:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Fuchse_Berlin_vs_HSG_Wetzlar/20?event_id=12089" target="_blank" rel="noopener">OLBG Event #12089 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Handball" data-conf="all" data-fresh="0">
+          <td class="mono">12105</td>
+          <td><strong>Handball</strong></td>
+          <td>match</td>
+          <td><strong>BM Torrelavega vs BM Proin</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Torrelavega_vs_BM_Proin/20?event_id=12105" target="_blank" rel="noopener">OLBG Event #12105 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199896</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>FLA Panthers @ OTT Senators</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-21 23:37 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/FLA_Panthers_@_OTT_Senators/13?event_id=199896" target="_blank" rel="noopener">OLBG Event #199896 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199897</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>PHI Flyers @ BUF Sabres</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-21 23:37 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/PHI_Flyers_@_BUF_Sabres/13?event_id=199897" target="_blank" rel="noopener">OLBG Event #199897 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199912</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>Jyp vs HPK</strong><div class="muted">Finland SM Liiga</div></td>
+          <td class="mono">10-22 15:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/Other/Finland_SM_Liiga/Jyp_vs_HPK/13?event_id=199912" target="_blank" rel="noopener">OLBG Event #199912 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199899</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>IF Bjorkloven vs IF Malmo Redhawks</strong><div class="muted">Swedish Hockey League</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/IF_Bjorkloven_vs_IF_Malmo_Redhawks/13?event_id=199899" target="_blank" rel="noopener">OLBG Event #199899 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199900</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>Orebro HK vs Brynas IF</strong><div class="muted">Swedish Hockey League</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Orebro_HK_vs_Brynas_IF/13?event_id=199900" target="_blank" rel="noopener">OLBG Event #199900 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199901</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>Timra IK vs Farjestad BK</strong><div class="muted">Swedish Hockey League</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Timra_IK_vs_Farjestad_BK/13?event_id=199901" target="_blank" rel="noopener">OLBG Event #199901 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199902</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>Vaxjo Lakers HC vs Lulea HF</strong><div class="muted">Swedish Hockey League</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Vaxjo_Lakers_HC_vs_Lulea_HF/13?event_id=199902" target="_blank" rel="noopener">OLBG Event #199902 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199906</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>Rogle BK vs Frolunda HC</strong><div class="muted">Swedish Hockey League</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Rogle_BK_vs_Frolunda_HC/13?event_id=199906" target="_blank" rel="noopener">OLBG Event #199906 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199932</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>ANA Ducks @ NJ Devils</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-22 23:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/ANA_Ducks_@_NJ_Devils/13?event_id=199932" target="_blank" rel="noopener">OLBG Event #199932 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199934</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>FLA Panthers @ PIT Penguins</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-22 23:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/FLA_Panthers_@_PIT_Penguins/13?event_id=199934" target="_blank" rel="noopener">OLBG Event #199934 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199936</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>NSH Predators @ BOS Bruins</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-22 23:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/NSH_Predators_@_BOS_Bruins/13?event_id=199936" target="_blank" rel="noopener">OLBG Event #199936 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199937</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>NY Rangers @ TOR Maple Leafs</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-22 23:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/NY_Rangers_@_TOR_Maple_Leafs/13?event_id=199937" target="_blank" rel="noopener">OLBG Event #199937 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199942</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>SJ Sharks @ OTT Senators</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-22 23:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/SJ_Sharks_@_OTT_Senators/13?event_id=199942" target="_blank" rel="noopener">OLBG Event #199942 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199938</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>LA Kings @ NY Islanders</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-22 23:37 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/LA_Kings_@_NY_Islanders/13?event_id=199938" target="_blank" rel="noopener">OLBG Event #199938 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199940</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>VGS Golden Knights @ STL Blues</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-23 00:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/VGS_Golden_Knights_@_STL_Blues/13?event_id=199940" target="_blank" rel="noopener">OLBG Event #199940 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199941</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>WPG Jets @ DAL Stars</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-23 00:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/WPG_Jets_@_DAL_Stars/13?event_id=199941" target="_blank" rel="noopener">OLBG Event #199941 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199931</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>CAR Hurricanes @ EDM Oilers</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-23 01:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/CAR_Hurricanes_@_EDM_Oilers/13?event_id=199931" target="_blank" rel="noopener">OLBG Event #199931 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199935</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>MIN Wild @ CGY Flames</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-23 01:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/MIN_Wild_@_CGY_Flames/13?event_id=199935" target="_blank" rel="noopener">OLBG Event #199935 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199933</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>DET Red Wings @ VAN Canucks</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-23 02:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/DET_Red_Wings_@_VAN_Canucks/13?event_id=199933" target="_blank" rel="noopener">OLBG Event #199933 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Ice Hockey" data-conf="all" data-fresh="0">
+          <td class="mono">199939</td>
+          <td><strong>Ice Hockey</strong></td>
+          <td>match</td>
+          <td><strong>UTA Mammoth @ SEA Kraken</strong><div class="muted">NHL</div></td>
+          <td class="mono">10-23 02:07 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/UTA_Mammoth_@_SEA_Kraken/13?event_id=199939" target="_blank" rel="noopener">OLBG Event #199939 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Motor Racing" data-conf="all" data-fresh="0">
+          <td class="mono">828</td>
+          <td><strong>Motor Racing</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>Formula 1 Drivers Championship 2026</strong><div class="muted">All Events</div></td>
+          <td class="mono">12-06 13:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026/14?event_id=828" target="_blank" rel="noopener">OLBG Event #828 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Motor Racing" data-conf="all" data-fresh="0">
+          <td class="mono">912</td>
+          <td><strong>Motor Racing</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>Formula 1 Drivers Championship 2026 Without Kimi Antonelli</strong><div class="muted">All Events</div></td>
+          <td class="mono">12-06 13:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli/14?event_id=912" target="_blank" rel="noopener">OLBG Event #912 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby League" data-conf="all" data-fresh="0">
+          <td class="mono">2695857</td>
+          <td><strong>Rugby League</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>State of Origin 2027</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-05-27 10:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/State_of_Origin_2027/10?event_id=2695857" target="_blank" rel="noopener">OLBG Event #2695857 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby League" data-conf="all" data-fresh="0">
+          <td class="mono">2801554</td>
+          <td><strong>Rugby League</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>Super League 2027</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-10-02 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Super_League_2027/10?event_id=2801554" target="_blank" rel="noopener">OLBG Event #2801554 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby League" data-conf="all" data-fresh="0">
+          <td class="mono">2801600</td>
+          <td><strong>Rugby League</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>NRL 2027</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-10-03 08:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/NRL_2027/10?event_id=2801600" target="_blank" rel="noopener">OLBG Event #2801600 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609557</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Narbonne v Brive</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Narbonne_v_Brive/9?event_id=609557" target="_blank" rel="noopener">OLBG Event #609557 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609558</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Agen v Nissa</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 17:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Agen_v_Nissa/9?event_id=609558" target="_blank" rel="noopener">OLBG Event #609558 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609559</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Valence Romans v Colomiers</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 17:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Valence_Romans_v_Colomiers/9?event_id=609559" target="_blank" rel="noopener">OLBG Event #609559 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609560</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Aurillac v Nevers</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 17:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Aurillac_v_Nevers/9?event_id=609560" target="_blank" rel="noopener">OLBG Event #609560 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609563</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Soyaux Angouleme v Dax</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 17:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Soyaux_Angouleme_v_Dax/9?event_id=609563" target="_blank" rel="noopener">OLBG Event #609563 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609577</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Connacht v Zebre Parma</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Connacht_v_Zebre_Parma/9?event_id=609577" target="_blank" rel="noopener">OLBG Event #609577 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609579</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Edinburgh v Lions</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Edinburgh_v_Lions/9?event_id=609579" target="_blank" rel="noopener">OLBG Event #609579 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609561</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Grenoble v Biarritz</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Grenoble_v_Biarritz/9?event_id=609561" target="_blank" rel="noopener">OLBG Event #609561 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609562</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Provence v Beziers</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Provence_v_Beziers/9?event_id=609562" target="_blank" rel="noopener">OLBG Event #609562 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609576</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Bulls v Ulster</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 11:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Bulls_v_Ulster/9?event_id=609576" target="_blank" rel="noopener">OLBG Event #609576 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609580</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Stormers v Scarlets</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 14:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Stormers_v_Scarlets/9?event_id=609580" target="_blank" rel="noopener">OLBG Event #609580 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609564</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Bayonne v Lyon</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 14:35 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Bayonne_v_Lyon/9?event_id=609564" target="_blank" rel="noopener">OLBG Event #609564 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609567</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Toulouse v Perpignan</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 14:35 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Toulouse_v_Perpignan/9?event_id=609567" target="_blank" rel="noopener">OLBG Event #609567 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609578</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>Leinster v Munster</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Leinster_v_Munster/9?event_id=609578" target="_blank" rel="noopener">OLBG Event #609578 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609554</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>match</td>
+          <td><strong>La Rochelle v Bordeaux</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 20:05 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/La_Rochelle_v_Bordeaux/9?event_id=609554" target="_blank" rel="noopener">OLBG Event #609554 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Rugby Union" data-conf="all" data-fresh="0">
+          <td class="mono">609013</td>
+          <td><strong>Rugby Union</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>Six Nations 2027</strong><div class="muted">All Events</div></td>
+          <td class="mono">2027-03-14 20:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Six_Nations_2027/9?event_id=609013" target="_blank" rel="noopener">OLBG Event #609013 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Snooker" data-conf="all" data-fresh="0">
+          <td class="mono">9940</td>
+          <td><strong>Snooker</strong></td>
+          <td>match</td>
+          <td><strong>Kyren Wilson v Pang Junxu</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Kyren_Wilson_v_Pang_Junxu/8?event_id=9940" target="_blank" rel="noopener">OLBG Event #9940 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Snooker" data-conf="all" data-fresh="0">
+          <td class="mono">9942</td>
+          <td><strong>Snooker</strong></td>
+          <td>match</td>
+          <td><strong>Matthew Selt v Sam Craigie</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Matthew_Selt_v_Sam_Craigie/8?event_id=9942" target="_blank" rel="noopener">OLBG Event #9942 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Snooker" data-conf="all" data-fresh="0">
+          <td class="mono">9943</td>
+          <td><strong>Snooker</strong></td>
+          <td>match</td>
+          <td><strong>Mark Williams v Martin O Donnell</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Mark_Williams_v_Martin_O_Donnell/8?event_id=9943" target="_blank" rel="noopener">OLBG Event #9943 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Snooker" data-conf="all" data-fresh="0">
+          <td class="mono">9945</td>
+          <td><strong>Snooker</strong></td>
+          <td>match</td>
+          <td><strong>David Gilbert v Cheung Ka Wai</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/David_Gilbert_v_Cheung_Ka_Wai/8?event_id=9945" target="_blank" rel="noopener">OLBG Event #9945 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Snooker" data-conf="all" data-fresh="0">
+          <td class="mono">9941</td>
+          <td><strong>Snooker</strong></td>
+          <td>match</td>
+          <td><strong>Jak Jones v Daniel Wells</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Jak_Jones_v_Daniel_Wells/8?event_id=9941" target="_blank" rel="noopener">OLBG Event #9941 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Snooker" data-conf="all" data-fresh="0">
+          <td class="mono">9944</td>
+          <td><strong>Snooker</strong></td>
+          <td>match</td>
+          <td><strong>Jordan Brown v Scott Donaldson</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Jordan_Brown_v_Scott_Donaldson/8?event_id=9944" target="_blank" rel="noopener">OLBG Event #9944 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902063</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Ann Li vs Zeynep Sonmez</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 02:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ann_Li_vs_Zeynep_Sonmez/3?event_id=902063" target="_blank" rel="noopener">OLBG Event #902063 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902066</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Antonia Ruzic vs Kayla Day</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 02:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Antonia_Ruzic_vs_Kayla_Day/3?event_id=902066" target="_blank" rel="noopener">OLBG Event #902066 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902067</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Mary Stoiana vs Moyuka Uchijima</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 04:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mary_Stoiana_vs_Moyuka_Uchijima/3?event_id=902067" target="_blank" rel="noopener">OLBG Event #902067 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902075</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Iva Jovic vs Jasmine Paolini</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 05:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Iva_Jovic_vs_Jasmine_Paolini/3?event_id=902075" target="_blank" rel="noopener">OLBG Event #902075 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902093</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Katarzyna Kawa vs Belinda Bencic</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 06:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katarzyna_Kawa_vs_Belinda_Bencic/3?event_id=902093" target="_blank" rel="noopener">OLBG Event #902093 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902109</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Terence Atmane vs Mattia Bellucci</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 06:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Terence_Atmane_vs_Mattia_Bellucci/3?event_id=902109" target="_blank" rel="noopener">OLBG Event #902109 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902072</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Alexandra Eala vs Diana Shnaider</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 08:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexandra_Eala_vs_Diana_Shnaider/3?event_id=902072" target="_blank" rel="noopener">OLBG Event #902072 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902110</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Tomas Machac vs Karen Khachanov</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 08:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Tomas_Machac_vs_Karen_Khachanov/3?event_id=902110" target="_blank" rel="noopener">OLBG Event #902110 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902073</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Elena Rybakina vs Polina Kudermetova</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 11:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Polina_Kudermetova/3?event_id=902073" target="_blank" rel="noopener">OLBG Event #902073 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902104</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Raphael Collignon vs Jiri Lehecka</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 11:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Raphael_Collignon_vs_Jiri_Lehecka/3?event_id=902104" target="_blank" rel="noopener">OLBG Event #902104 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902100</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Borna Gojo vs Daniel Altmaier</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Borna_Gojo_vs_Daniel_Altmaier/3?event_id=902100" target="_blank" rel="noopener">OLBG Event #902100 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902103</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Valentin Vacherot vs Luca Van Assche</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 12:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Valentin_Vacherot_vs_Luca_Van_Assche/3?event_id=902103" target="_blank" rel="noopener">OLBG Event #902103 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902131</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>David Goffin vs Alex Michelsen</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 13:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/David_Goffin_vs_Alex_Michelsen/3?event_id=902131" target="_blank" rel="noopener">OLBG Event #902131 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902082</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Alexander Bublik vs Fabian Marozsan</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 14:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexander_Bublik_vs_Fabian_Marozsan/3?event_id=902082" target="_blank" rel="noopener">OLBG Event #902082 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902120</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Damir Dzumhur vs Zizou Bergs</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 15:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Damir_Dzumhur_vs_Zizou_Bergs/3?event_id=902120" target="_blank" rel="noopener">OLBG Event #902120 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902126</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Flavio Cobolli vs Stan Wawrinka</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Flavio_Cobolli_vs_Stan_Wawrinka/3?event_id=902126" target="_blank" rel="noopener">OLBG Event #902126 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902105</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Kyrian Jacquet vs Brandon Nakashima</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Kyrian_Jacquet_vs_Brandon_Nakashima/3?event_id=902105" target="_blank" rel="noopener">OLBG Event #902105 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902135</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Ann Li vs Lilli Tagger</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 02:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ann_Li_vs_Lilli_Tagger/3?event_id=902135" target="_blank" rel="noopener">OLBG Event #902135 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902107</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Talia Gibson vs Ashlyn Krueger</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 04:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107" target="_blank" rel="noopener">OLBG Event #902107 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902117</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Sara Bejlek vs Marie Bouzkova</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 05:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Sara_Bejlek_vs_Marie_Bouzkova/3?event_id=902117" target="_blank" rel="noopener">OLBG Event #902117 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902134</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Katie Boulter vs Antonia Ruzic</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 07:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katie_Boulter_vs_Antonia_Ruzic/3?event_id=902134" target="_blank" rel="noopener">OLBG Event #902134 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902129</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Stefanos Tsitsipas vs James Duckworth</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 08:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Stefanos_Tsitsipas_vs_James_Duckworth/3?event_id=902129" target="_blank" rel="noopener">OLBG Event #902129 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Tennis" data-conf="all" data-fresh="0">
+          <td class="mono">902133</td>
+          <td><strong>Tennis</strong></td>
+          <td>match</td>
+          <td><strong>Corentin Moutet vs Tommy Paul</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 09:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Corentin_Moutet_vs_Tommy_Paul/3?event_id=902133" target="_blank" rel="noopener">OLBG Event #902133 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36990</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Ceske Budejovice vs Beskydy</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Ceske_Budejovice_vs_Beskydy/21?event_id=36990" target="_blank" rel="noopener">OLBG Event #36990 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36991</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Liberec vs Benatky nad Jizerou</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Liberec_vs_Benatky_nad_Jizerou/21?event_id=36991" target="_blank" rel="noopener">OLBG Event #36991 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36992</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Ostrava vs Kladno</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Ostrava_vs_Kladno/21?event_id=36992" target="_blank" rel="noopener">OLBG Event #36992 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36993</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Usti Nad Labem vs Zlin</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Usti_Nad_Labem_vs_Zlin/21?event_id=36993" target="_blank" rel="noopener">OLBG Event #36993 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">37008</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>VC Deya Sport vs Neftohimic 2010</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/VC_Deya_Sport_vs_Neftohimic_2010/21?event_id=37008" target="_blank" rel="noopener">OLBG Event #37008 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">37005</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Sete vs Chaumont</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Sete_vs_Chaumont/21?event_id=37005" target="_blank" rel="noopener">OLBG Event #37005 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36963</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Slepsk Suwalki vs GKS Katowice</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 15:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Slepsk_Suwalki_vs_GKS_Katowice/21?event_id=36963" target="_blank" rel="noopener">OLBG Event #36963 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">37000</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Paulistano-Barueri W vs Minas W</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 21:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Paulistano-Barueri_W_vs_Minas_W/21?event_id=37000" target="_blank" rel="noopener">OLBG Event #37000 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">37001</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Brasilia W vs Sesc RJ Flamengo W</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 21:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brasilia_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37001" target="_blank" rel="noopener">OLBG Event #37001 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36964</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>PGE Skra Belchatow vs Projekt Warszawa</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/PGE_Skra_Belchatow_vs_Projekt_Warszawa/21?event_id=36964" target="_blank" rel="noopener">OLBG Event #36964 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">37002</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Mackenzie W vs Osasco W</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Mackenzie_W_vs_Osasco_W/21?event_id=37002" target="_blank" rel="noopener">OLBG Event #37002 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">37003</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Abel-Moda Brusque W vs Praia Clube W</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 00:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Abel-Moda_Brusque_W_vs_Praia_Clube_W/21?event_id=37003" target="_blank" rel="noopener">OLBG Event #37003 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36994</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Trentino vs Cisterna</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Trentino_vs_Cisterna/21?event_id=36994" target="_blank" rel="noopener">OLBG Event #36994 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36965</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>CHKS Chelm vs Resovia Rzeszow</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965" target="_blank" rel="noopener">OLBG Event #36965 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36995</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Civitanova vs Padova</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995" target="_blank" rel="noopener">OLBG Event #36995 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36996</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Monza vs Verona</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Monza_vs_Verona/21?event_id=36996" target="_blank" rel="noopener">OLBG Event #36996 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="Volleyball" data-conf="all" data-fresh="0">
+          <td class="mono">36997</td>
+          <td><strong>Volleyball</strong></td>
+          <td>match</td>
+          <td><strong>Perugia vs Pordenone</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Perugia_vs_Pordenone/21?event_id=36997" target="_blank" rel="noopener">OLBG Event #36997 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134856</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>1:17 Carlisle</strong><div class="muted">Carlisle</div></td>
+          <td class="mono">10-22 12:17 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Carlisle/1:17_Carlisle/2?event_id=1134856" target="_blank" rel="noopener">OLBG Event #1134856 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134878</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>1:26 Ffos Las</strong><div class="muted">Ffos Las</div></td>
+          <td class="mono">10-22 12:26 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Ffos_Las/1:26_Ffos_Las/2?event_id=1134878" target="_blank" rel="noopener">OLBG Event #1134878 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134869</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>1:35 Clonmel</strong><div class="muted">Clonmel</div></td>
+          <td class="mono">10-22 12:35 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/IE/Clonmel/1:35_Clonmel/2?event_id=1134869" target="_blank" rel="noopener">OLBG Event #1134869 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134863</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>1:45 Newmarket</strong><div class="muted">Newmarket</div></td>
+          <td class="mono">10-22 12:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Newmarket/1:45_Newmarket/2?event_id=1134863" target="_blank" rel="noopener">OLBG Event #1134863 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134854</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>1:52 Carlisle</strong><div class="muted">Carlisle</div></td>
+          <td class="mono">10-22 12:52 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Carlisle/1:52_Carlisle/2?event_id=1134854" target="_blank" rel="noopener">OLBG Event #1134854 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">9946</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Anthony McGill v Mateusz Baranowski</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 13:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Anthony_McGill_v_Mateusz_Baranowski/8?event_id=9946" target="_blank" rel="noopener">OLBG Event #9946 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">9947</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Elliot Slessor v Ricky Walden</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 13:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Elliot_Slessor_v_Ricky_Walden/8?event_id=9947" target="_blank" rel="noopener">OLBG Event #9947 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134879</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>2:01 Ffos Las</strong><div class="muted">Ffos Las</div></td>
+          <td class="mono">10-22 13:01 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Ffos_Las/2:01_Ffos_Las/2?event_id=1134879" target="_blank" rel="noopener">OLBG Event #1134879 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134855</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>2:27 Carlisle</strong><div class="muted">Carlisle</div></td>
+          <td class="mono">10-22 13:27 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Carlisle/2:27_Carlisle/2?event_id=1134855" target="_blank" rel="noopener">OLBG Event #1134855 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">902087</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Pierre Hugues Herbert vs Taylor Fritz</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 13:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Pierre_Hugues_Herbert_vs_Taylor_Fritz/3?event_id=902087" target="_blank" rel="noopener">OLBG Event #902087 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134880</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>2:36 Ffos Las</strong><div class="muted">Ffos Las</div></td>
+          <td class="mono">10-22 13:36 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Ffos_Las/2:36_Ffos_Las/2?event_id=1134880" target="_blank" rel="noopener">OLBG Event #1134880 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134872</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>2:46 Clonmel</strong><div class="muted">Clonmel</div></td>
+          <td class="mono">10-22 13:46 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/IE/Clonmel/2:46_Clonmel/2?event_id=1134872" target="_blank" rel="noopener">OLBG Event #1134872 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134881</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>3:11 Ffos Las</strong><div class="muted">Ffos Las</div></td>
+          <td class="mono">10-22 14:11 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Ffos_Las/3:11_Ffos_Las/2?event_id=1134881" target="_blank" rel="noopener">OLBG Event #1134881 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134866</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>3:30 Newmarket</strong><div class="muted">Newmarket</div></td>
+          <td class="mono">10-22 14:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Newmarket/3:30_Newmarket/2?event_id=1134866" target="_blank" rel="noopener">OLBG Event #1134866 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044561</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Kairat Almaty v Panathinaikos</strong><div class="muted">UEFA Europa Conference League</div></td>
+          <td class="mono">10-22 14:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/UEFA_Europa_Conference_League/Kairat_Almaty_v_Panathinaikos/1?event_id=2044561" target="_blank" rel="noopener">OLBG Event #2044561 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134882</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>3:46 Ffos Las</strong><div class="muted">Ffos Las</div></td>
+          <td class="mono">10-22 14:46 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Ffos_Las/3:46_Ffos_Las/2?event_id=1134882" target="_blank" rel="noopener">OLBG Event #1134882 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134874</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>3:56 Clonmel</strong><div class="muted">Clonmel</div></td>
+          <td class="mono">10-22 14:56 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/IE/Clonmel/3:56_Clonmel/2?event_id=1134874" target="_blank" rel="noopener">OLBG Event #1134874 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134867</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>4:05 Newmarket</strong><div class="muted">Newmarket</div></td>
+          <td class="mono">10-22 15:05 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Newmarket/4:05_Newmarket/2?event_id=1134867" target="_blank" rel="noopener">OLBG Event #1134867 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134860</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>4:12 Carlisle</strong><div class="muted">Carlisle</div></td>
+          <td class="mono">10-22 15:12 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Carlisle/4:12_Carlisle/2?event_id=1134860" target="_blank" rel="noopener">OLBG Event #1134860 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">36988</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Radomka Radom W vs Mielec W</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 15:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Radomka_Radom_W_vs_Mielec_W/21?event_id=36988" target="_blank" rel="noopener">OLBG Event #36988 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134868</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>4:40 Newmarket</strong><div class="muted">Newmarket</div></td>
+          <td class="mono">10-22 15:40 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Newmarket/4:40_Newmarket/2?event_id=1134868" target="_blank" rel="noopener">OLBG Event #1134868 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134883</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>4:53 Ffos Las</strong><div class="muted">Ffos Las</div></td>
+          <td class="mono">10-22 15:53 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Ffos_Las/4:53_Ffos_Las/2?event_id=1134883" target="_blank" rel="noopener">OLBG Event #1134883 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">12109</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Bulgaria W vs Italy W</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bulgaria_W_vs_Italy_W/20?event_id=12109" target="_blank" rel="noopener">OLBG Event #12109 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">36989</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Brno vs Odolena Voda</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brno_vs_Odolena_Voda/21?event_id=36989" target="_blank" rel="noopener">OLBG Event #36989 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">188811</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Eastern Storm vs Tuskers T20</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Eastern_Storm_vs_Tuskers_T20/7?event_id=188811" target="_blank" rel="noopener">OLBG Event #188811 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134859</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>5:20 Carlisle</strong><div class="muted">Carlisle</div></td>
+          <td class="mono">10-22 16:20 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Carlisle/5:20_Carlisle/2?event_id=1134859" target="_blank" rel="noopener">OLBG Event #1134859 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044362</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Ararat Armenia v AZ</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Ararat_Armenia_v_AZ/1?event_id=2044362" target="_blank" rel="noopener">OLBG Event #2044362 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044363</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Juventus v Rennes</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Juventus_v_Rennes/1?event_id=2044363" target="_blank" rel="noopener">OLBG Event #2044363 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044364</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Dinamo Zagreb v NEC</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Dinamo_Zagreb_v_NEC/1?event_id=2044364" target="_blank" rel="noopener">OLBG Event #2044364 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044365</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Ferencvarosi TC v Torreense</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Ferencvarosi_TC_v_Torreense/1?event_id=2044365" target="_blank" rel="noopener">OLBG Event #2044365 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044366</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Lech Poznan v Sunderland</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Lech_Poznan_v_Sunderland/1?event_id=2044366" target="_blank" rel="noopener">OLBG Event #2044366 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044367</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>SK Sturm Graz v Marseille</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/SK_Sturm_Graz_v_Marseille/1?event_id=2044367" target="_blank" rel="noopener">OLBG Event #2044367 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044368</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>OFI Crete v Bayer Leverkusen</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/OFI_Crete_v_Bayer_Leverkusen/1?event_id=2044368" target="_blank" rel="noopener">OLBG Event #2044368 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044369</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Union Saint Gilloise v Hapoel Beer Sheva</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Union_Saint_Gilloise_v_Hapoel_Beer_Sheva/1?event_id=2044369" target="_blank" rel="noopener">OLBG Event #2044369 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044522</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Trabzonspor v Hearts</strong><div class="muted">UEFA Europa Conference League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/UEFA_Europa_Conference_League/Trabzonspor_v_Hearts/1?event_id=2044522" target="_blank" rel="noopener">OLBG Event #2044522 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044523</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Pafos FC v Riga FC</strong><div class="muted">UEFA Europa Conference League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/UEFA_Europa_Conference_League/Pafos_FC_v_Riga_FC/1?event_id=2044523" target="_blank" rel="noopener">OLBG Event #2044523 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044527</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>FK Jablonec v Brighton</strong><div class="muted">UEFA Europa Conference League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/UEFA_Europa_Conference_League/FK_Jablonec_v_Brighton/1?event_id=2044527" target="_blank" rel="noopener">OLBG Event #2044527 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044562</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Getafe v Lugano</strong><div class="muted">UEFA Europa Conference League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/UEFA_Europa_Conference_League/Getafe_v_Lugano/1?event_id=2044562" target="_blank" rel="noopener">OLBG Event #2044562 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044564</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Inter Club dEscaldes v CS U Craiova</strong><div class="muted">UEFA Europa Conference League</div></td>
+          <td class="mono">10-22 16:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/UEFA_Europa_Conference_League/Inter_Club_dEscaldes_v_CS_U_Craiova/1?event_id=2044564" target="_blank" rel="noopener">OLBG Event #2044564 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">12094</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>TVB Stuttgart vs SG BBM Bietigheim</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/TVB_Stuttgart_vs_SG_BBM_Bietigheim/20?event_id=12094" target="_blank" rel="noopener">OLBG Event #12094 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">199905</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Skelleftea AIK vs Djurgardens IF</strong><div class="muted">Swedish Hockey League</div></td>
+          <td class="mono">10-22 17:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Skelleftea_AIK_vs_Djurgardens_IF/13?event_id=199905" target="_blank" rel="noopener">OLBG Event #199905 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32324</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Luke Woodhouse vs Dirk van Duijvenbode</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 17:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Woodhouse_vs_Dirk_van_Duijvenbode/15?event_id=32324" target="_blank" rel="noopener">OLBG Event #32324 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32330</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Danny Noppert vs Stephen Bunting</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 17:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Danny_Noppert_vs_Stephen_Bunting/15?event_id=32330" target="_blank" rel="noopener">OLBG Event #32330 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">1134890</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>7:00 Southwell</strong><div class="muted">Southwell</div></td>
+          <td class="mono">10-22 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Horse_Racing/UK/Southwell/7:00_Southwell/2?event_id=1134890" target="_blank" rel="noopener">OLBG Event #1134890 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32334</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Niels Zonneveld vs Cameron Menzies</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Niels_Zonneveld_vs_Cameron_Menzies/15?event_id=32334" target="_blank" rel="noopener">OLBG Event #32334 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">12046</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>FC Barcelona vs Montpellier</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Barcelona_vs_Montpellier/20?event_id=12046" target="_blank" rel="noopener">OLBG Event #12046 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">12054</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Sporting CP vs IFK Kristianstad</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Sporting_CP_vs_IFK_Kristianstad/20?event_id=12054" target="_blank" rel="noopener">OLBG Event #12054 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32325</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Gerwyn Price vs Rob Cross</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Rob_Cross/15?event_id=32325" target="_blank" rel="noopener">OLBG Event #32325 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">609556</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Montauban v Oyonnax</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Montauban_v_Oyonnax/9?event_id=609556" target="_blank" rel="noopener">OLBG Event #609556 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044372</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Bournemouth v AC Milan</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Bournemouth_v_AC_Milan/1?event_id=2044372" target="_blank" rel="noopener">OLBG Event #2044372 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044373</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Omonia Nicosia v Benfica</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Omonia_Nicosia_v_Benfica/1?event_id=2044373" target="_blank" rel="noopener">OLBG Event #2044373 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044374</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>NK Celje v FC Salzburg</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/NK_Celje_v_FC_Salzburg/1?event_id=2044374" target="_blank" rel="noopener">OLBG Event #2044374 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044376</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Celtic v Celta Vigo</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Celtic_v_Celta_Vigo/1?event_id=2044376" target="_blank" rel="noopener">OLBG Event #2044376 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044378</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Besiktas v Crystal Palace</strong><div class="muted">Europa League</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/Europa_League/Besiktas_v_Crystal_Palace/1?event_id=2044378" target="_blank" rel="noopener">OLBG Event #2044378 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044567</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Lincoln Red Imps FC v FC Twente</strong><div class="muted">UEFA Europa Conference League</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/UEFA_Europa_Conference_League/Lincoln_Red_Imps_FC_v_FC_Twente/1?event_id=2044567" target="_blank" rel="noopener">OLBG Event #2044567 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2044568</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Midtjylland v Sint Truidense</strong><div class="muted">UEFA Europa Conference League</div></td>
+          <td class="mono">10-22 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UEFA_Competitions/UEFA_Europa_Conference_League/Midtjylland_v_Sint_Truidense/1?event_id=2044568" target="_blank" rel="noopener">OLBG Event #2044568 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32322</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>James Wade vs Damon Heta</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 19:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/James_Wade_vs_Damon_Heta/15?event_id=32322" target="_blank" rel="noopener">OLBG Event #32322 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32323</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Gian van Veen vs Andrew Gilding</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 20:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gian_van_Veen_vs_Andrew_Gilding/15?event_id=32323" target="_blank" rel="noopener">OLBG Event #32323 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32329</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Ross Smith vs Karel Sedlacek</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-22 20:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Ross_Smith_vs_Karel_Sedlacek/15?event_id=32329" target="_blank" rel="noopener">OLBG Event #32329 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">29736</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>NE Patriots @ CHI Bears</strong><div class="muted">NFL</div></td>
+          <td class="mono">10-23 00:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/American_Football/NFL/NFL/NE_Patriots_@_CHI_Bears/11?event_id=29736" target="_blank" rel="noopener">OLBG Event #29736 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">534843</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>DEN Nuggets @ OKC Thunder</strong><div class="muted">NBA</div></td>
+          <td class="mono">10-23 01:40 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DEN_Nuggets_@_OKC_Thunder/4?event_id=534843" target="_blank" rel="noopener">OLBG Event #534843 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32332</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Ryan Joyce vs Jermaine Wattimena</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 17:15 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Ryan_Joyce_vs_Jermaine_Wattimena/15?event_id=32332" target="_blank" rel="noopener">OLBG Event #32332 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">32335</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Jonny Clayton vs Niko Springer</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-23 18:45 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Jonny_Clayton_vs_Niko_Springer/15?event_id=32335" target="_blank" rel="noopener">OLBG Event #32335 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2043408</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Ipswich v Nottm Forest</strong><div class="muted">England Premier League</div></td>
+          <td class="mono">10-23 19:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UK/England_Premier_League/Ipswich_v_Nottm_Forest/1?event_id=2043408" target="_blank" rel="noopener">OLBG Event #2043408 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">160789</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>TB Rays @ MIL Brewers</strong><div class="muted">MLB</div></td>
+          <td class="mono">10-24 00:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789" target="_blank" rel="noopener">OLBG Event #160789 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2043410</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Aston Villa v Man City</strong><div class="muted">England Premier League</div></td>
+          <td class="mono">10-24 11:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UK/England_Premier_League/Aston_Villa_v_Man_City/1?event_id=2043410" target="_blank" rel="noopener">OLBG Event #2043410 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2043409</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Arsenal v Everton</strong><div class="muted">England Premier League</div></td>
+          <td class="mono">10-24 14:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UK/England_Premier_League/Arsenal_v_Everton/1?event_id=2043409" target="_blank" rel="noopener">OLBG Event #2043409 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">2043412</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Chelsea v Tottenham</strong><div class="muted">England Premier League</div></td>
+          <td class="mono">10-24 16:30 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Football/UK/England_Premier_League/Chelsea_v_Tottenham/1?event_id=2043412" target="_blank" rel="noopener">OLBG Event #2043412 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">144462</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Nikita Krylov v Abdul Rakhman Yakhyaev</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 17:10 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Boxing/All_Boxing/All_Events/Nikita_Krylov_v_Abdul_Rakhman_Yakhyaev/16?event_id=144462" target="_blank" rel="noopener">OLBG Event #144462 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">144463</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Azamat Murzakanov v Dominick Reyes</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 17:40 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Boxing/All_Boxing/All_Events/Azamat_Murzakanov_v_Dominick_Reyes/16?event_id=144463" target="_blank" rel="noopener">OLBG Event #144463 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">3532</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>Moycullen v Salthill-Knocknacarra</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-24 18:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Moycullen_v_Salthill-Knocknacarra/25?event_id=3532" target="_blank" rel="noopener">OLBG Event #3532 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">3530</td>
+          <td><strong>olbg_all</strong></td>
+          <td>match</td>
+          <td><strong>St Finbarrs v Nemo Rangers</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 16:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Finbarrs_v_Nemo_Rangers/25?event_id=3530" target="_blank" rel="noopener">OLBG Event #3530 ↗</a></td>
+        </tr>
+        
+        <tr class="filterable-item" data-sport="olbg_all" data-conf="all" data-fresh="0">
+          <td class="mono">913</td>
+          <td><strong>olbg_all</strong></td>
+          <td>outright_or_meeting</td>
+          <td><strong>USA Grand Prix</strong><div class="muted">All Events</div></td>
+          <td class="mono">10-25 20:00 UTC</td>
+          <td><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913" target="_blank" rel="noopener">OLBG Event #913 ↗</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </main>
+  <footer class="footer">
+    <div>Board AE · Session <code>22ca2e95</code> · Strict Pre-Match Cutoff <code>2026-10-22T12:15:00Z</code> · Capture <code>20261022T121303Z</code> (87 SHA-256 verified files)</div>
+    <div>Zero excluded sports · Every row backed by an official governing-body link · Unconfirmed values kept blank on <a href="flagged.html">Flagged for Review</a></div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
