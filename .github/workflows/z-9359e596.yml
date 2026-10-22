@@ -6,10 +6,6 @@ name: Board Z capture (9359e596)
 # Strictly scoped to arena/9359e596-olbg4 and targets.json changes or manual dispatch.
 on:
   workflow_dispatch:
-  push:
-    branches: ["arena/9359e596-olbg4"]
-    paths:
-      - "scripts/session-9359e596/targets.json"
 
 permissions:
   contents: write
