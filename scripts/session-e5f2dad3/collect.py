@@ -124,6 +124,12 @@ TARGETS: list[tuple[str, str, dict]] = [
                         ("Baseball", 12), ("Ice_Hockey", 13), ("Darts", 15),
                         ("Handball", 20), ("Volleyball", 21), ("Greyhounds", 28)]],
 
+    # ---- Round 3: the seven days before the window, for recent-result evidence --
+    *[(f"nhl_schedule_{d}", f"https://api-web.nhle.com/v1/schedule/{d}", {})
+      for d in ["2026-10-15", "2026-10-16", "2026-10-17", "2026-10-18",
+                "2026-10-19", "2026-10-20", "2026-10-21"]],
+    ("nhl_standings_2026-10-20", "https://api-web.nhle.com/v1/standings/2026-10-20", {}),
+
     # ---- Round 2: alternate official endpoints for sources that 403/404'd --
     ("nba_schedule_page", "https://www.nba.com/schedule?date=2026-10-23", NBA_HEADERS),
     ("nba_schedule_v2_1", "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json", NBA_HEADERS),

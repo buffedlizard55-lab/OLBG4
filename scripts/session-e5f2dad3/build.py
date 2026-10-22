@@ -28,6 +28,7 @@ import hashlib
 import json
 import math
 import os
+import re
 from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -172,6 +173,7 @@ def build_nhl() -> None:
         name = f"nhl_schedule_{day}"
         src = add_source(name, name, "NHL official schedule API (api-web.nhle.com)")
         rec = {
+            "verification": "official",
             "id": f"NHL{gid}",
             "sport": "Ice Hockey",
             "slug": "ice-hockey",
@@ -302,6 +304,7 @@ def build_mlb() -> None:
             h = g["teams"]["home"]; a = g["teams"]["away"]
             hid, aid = h["team"]["id"], a["team"]["id"]
             rec = {
+                "verification": "official",
                 "id": f"MLB{g['gamePk']}",
                 "sport": "Baseball",
                 "slug": "baseball",
@@ -383,6 +386,7 @@ def build_esports() -> None:
         w1, l1 = r1.get("wins", 0), r1.get("losses", 0)
         w2, l2 = r2.get("wins", 0), r2.get("losses", 0)
         rec = {
+            "verification": "official",
             "id": f"LOL{ev['match']['id']}",
             "sport": "Esports",
             "slug": "esports",
@@ -429,6 +433,124 @@ def build_esports() -> None:
         FIXTURES.append(rec)
 
 
+# ----------------------------------------------------------------- OLBG merge
+import unicodedata
+
+
+def norm_name(x: str) -> str:
+    x = unicodedata.normalize("NFKD", x).encode("ascii", "ignore").decode()
+    x = x.lower().replace("&", " and ")
+    x = re.sub(r"[^a-z0-9 ]", " ", x)
+    drop = {"fc", "afc", "cf", "the", "rugby", "club", "bc", "bk", "if", "ik", "hk", "aik"}
+    return " ".join(t for t in x.split() if t not in drop)
+
+
+def name_match(a: str, b: str) -> bool:
+    na, nb = norm_name(a), norm_name(b)
+    if not na or not nb:
+        return False
+    if na == nb or na in nb or nb in na:
+        return True
+    ta, tb = set(na.split()), set(nb.split())
+    common = {t for t in ta & tb if len(t) > 3}
+    return bool(common)
+
+
+def attach_olbg() -> None:
+    import re as _re  # local alias, keeps module namespace tidy
+    path = os.path.join(DATA, "olbg_listing.json")
+    if not os.path.exists(path):
+        return
+    listing = json.load(open(path))
+    by_date: dict[tuple[str, str], list[dict]] = {}
+    for r in FIXTURES:
+        if r.get("verification") == "official":
+            by_date.setdefault((r["slug"], r["date"]), []).append(r)
+            by_date.setdefault((r["slug"], ""), []).append(r)  # allows +/- 1 day matching below
+
+    unmatched = []
+    for ev in listing["events"]:
+        sport_slug = {"Tennis": "tennis", "Basketball": "basketball", "Golf": "golf",
+                      "Cricket": "cricket", "Snooker": "snooker", "Rugby Union": "rugby-union",
+                      "Rugby League": "rugby-league", "Baseball": "baseball",
+                      "Ice Hockey": "ice-hockey", "Darts": "darts", "Handball": "handball",
+                      "Volleyball": "volleyball", "Greyhounds": "greyhounds"}[ev["sport"]]
+        day = ev["start_utc"][:10]
+        if not ev.get("home") and " vs " in ev["name"]:
+            a, b = ev["name"].split(" vs ", 1)
+            ev["_a"], ev["_b"] = a.strip(), b.strip()
+        else:
+            ev["_a"], ev["_b"] = ev.get("home", ""), ev.get("away", "")
+        hit = None
+        for delta in (0, -1, 1):
+            if delta:
+                from datetime import date as _d, timedelta as _td
+                y, m, dd = map(int, day.split("-"))
+                day2 = (_d(y, m, dd) + _td(days=delta)).isoformat()
+            else:
+                day2 = day
+            for r in by_date.get((sport_slug, day2), []):
+                if name_match(ev["_a"], r["home"]) and name_match(ev["_b"], r["away"]):
+                    hit = r
+                    break
+                if name_match(ev["_a"], r["away"]) and name_match(ev["_b"], r["home"]):
+                    hit = r
+                    break
+            if hit:
+                break
+        payload = {
+            "name": ev["name"], "url": ev["url"], "start_utc": ev["start_utc"],
+            "selection": ev["selection"], "market": ev["market"], "tips": ev["tips"],
+            "tip_pct": ev["tip_pct"], "displayed_local": ev["displayed_local"],
+            "source_page": f"https://www.olbg.com/betting-tips/{ev['sport'].replace(' ', '_')}/{ev['olbg_sport_id']}",
+            "listed_at_utc": ev["listed_by_olbg_at_utc"],
+        }
+        if hit:
+            hit["olbg"] = payload
+        else:
+            unmatched.append((ev, payload))
+
+    official_dates = {r["date"] for r in FIXTURES if r.get("verification") == "official"}
+    for ev, payload in unmatched:
+        day = ev["start_utc"][:10]
+        base = {
+            "id": f"OLBG{ev['event_id']}",
+            "sport": ev["sport"],
+            "slug": {"Tennis": "tennis", "Basketball": "basketball", "Golf": "golf", "Cricket": "cricket",
+                     "Snooker": "snooker", "Rugby Union": "rugby-union", "Rugby League": "rugby-league",
+                     "Baseball": "baseball", "Ice Hockey": "ice-hockey", "Darts": "darts",
+                     "Handball": "handball", "Volleyball": "volleyball",
+                     "Greyhounds": "greyhounds"}[ev["sport"]],
+            "competition": "OLBG listing (competition not stated on the listing card)",
+            "date": day,
+            "start_utc": ev["start_utc"],
+            "venue": "",
+            "neutral": None,
+            "home": ev.get("home") or ev.get("_a", ""),
+            "away": ev.get("away") or ev.get("_b", ""),
+            "source": {
+                "id": "olbg_listing",
+                "label": "OLBG live listing (reverse-engineered; listing source only, not a fact source)",
+                "url": ev["url"],
+                "official": False,
+                "http_status": 200,
+                "captured_at_utc": ev["listed_by_olbg_at_utc"],
+            },
+            "verified_fields": [],
+            "verification": "olbg-listing",
+            "inputs": {}, "markets": {}, "pick": None, "confidence": "", "prediction_id": "",
+            "note": ("Listed on OLBG with a tip at capture time. No official source for this fixture was "
+                     "captured in this session, so date/time/venue/markets are left blank or marked "
+                     "unverified rather than inferred."),
+            "olbg": payload,
+        }
+        base["start_utc"] = ev["start_utc"]
+        flag(base["id"], ev["sport"], "listing-only",
+             "Fixture appears on the OLBG listing but was not confirmed on an official source in this "
+             "capture; no market, pick or confidence is published for it.", ev["url"])
+        FIXTURES.append(base)
+
+
 # ----------------------------------------------------------------- main
 def main() -> None:
     bad = [s for s in [source(n, n) for n in BY_NAME] if s["file"] and not s["hash_ok"]]
@@ -438,6 +560,7 @@ def main() -> None:
     build_nhl()
     build_mlb()
     build_esports()
+    attach_olbg()
 
     # attach authored predictions where present
     pred_path = os.path.join(DATA, "predictions.json")
