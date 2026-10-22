@@ -3752,8 +3752,8 @@ calendar + classement, EHF Champions League standings/matches, Lega Pallavolo ca
 ATP draw/order-of-play PDFs, WST rankings, BWF, ICC, RLWC, LoL Esports, F1, MotoGP, PGA/DP World, GBGB and OLBG's
 sitemap + sport landing pages.
 
-**Desk.** `data/session-2d25cf78/desk.json` — **126 verified fixtures** (22 Oct 21:30Z → 31 Oct 2026), **4,936
-originated markets** and **9,872 priced selections** across six sports: Ice Hockey (NHL 76), Basketball (EuroLeague
+**Desk.** `data/session-2d25cf78/desk.json` — **126 verified fixtures** (22 Oct 21:30Z → 31 Oct 2026), **3,460
+originated markets** and **6,920 priced selections** across six sports: Ice Hockey (NHL 76), Basketball (EuroLeague
 23), Baseball (MLB World Series 7), Rugby Union (Top 14 7), Handball (EHF CL 7), Volleyball (SuperLega 6). Every
 fixture carries a match-winner pick with a Low/Medium/High label, our fair line and our book line, and every
 selection whose probability lands in the 0.7000–0.7143 band.

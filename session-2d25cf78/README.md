@@ -18,7 +18,7 @@ A desk built only from official league / governing-body pages captured on 22 Oct
 ## Rebuild
 
 ```bash
-python3 scripts/session-2d25cf78/originate.py      # capture -> desk.json (126 rows, ~4k markets)
+python3 scripts/session-2d25cf78/originate.py      # capture -> desk.json (126 rows, 3,460 markets)
 python3 scripts/session-2d25cf78/predict.py        # five picks per sport -> predictions.json
 python3 scripts/session-2d25cf78/olbg.py           # OLBG inventory cross-check -> olbg.json
 python3 scripts/session-2d25cf78/review.py         # master.json review + our flagged list
