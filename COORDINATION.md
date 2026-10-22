@@ -3856,3 +3856,4 @@ root `index.html` / `README.md` navigation so the dashboard is reachable from th
   and the coverage table.
 - **Label collision:** two sessions published under "Board AF" tonight. This section is identified by its session id
   `arena/2d25cf78-olbg4`; the other desk is `session-0d3b826c/`. No files overlap.
+- **Follow-up PR:** https://github.com/buffedlizard55-lab/OLBG4/pull/122 — **MERGED** to `main` (adds the root-dashboard navigation pointer to `session-2d25cf78/index.html` and the deploy record above; `Deploy OLBG4 to GitHub Pages` run `39856197034` success, Pages build `built`).
