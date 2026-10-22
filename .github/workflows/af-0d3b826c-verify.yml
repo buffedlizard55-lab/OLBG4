@@ -1,0 +1,33 @@
+name: Verify Board AF evidence desk
+
+on:
+  push:
+    branches: [arena/0d3b826c-olbg4]
+    paths:
+      - scripts/session-0d3b826c/**
+      - data/session-0d3b826c/**
+      - session-0d3b826c/**
+      - .github/workflows/af-0d3b826c-verify.yml
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild, verify and prove deterministic output
+        run: bash scripts/session-0d3b826c/build_all.sh
+      - name: Fail if committed Board AF output is stale
+        run: |
+          if ! git diff --quiet; then
+            echo "Board AF generated output changed during verification."
+            git diff --stat
+            exit 1
+          fi
