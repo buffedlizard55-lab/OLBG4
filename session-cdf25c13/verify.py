@@ -82,6 +82,17 @@ def main() -> int:
         check(len(pred["facts"]) >= 4, f"{r['id']} has fewer than four cited facts")
         for _, _, url in pred["facts"]:
             check(url.startswith("https://"), f"{r['id']} fact URL is not https")
+    # claims guard: the standings feed holds record, goals for/against, last ten and streak only,
+    # so any league-wide superlative or home/road split in the prose would be unverified.
+    banned = ("weakest", "strongest", "at home", "on the road", "top-six", "league's best",
+              "best defensive", "worst defensive", "unbeaten", "record-breaking")
+    for r in high:
+        pred = PREDICTIONS.get(r["id"])
+        low = pred["text"].lower() if pred else ""
+        for phrase in banned:
+            if phrase in low:
+                FAILS.append(f"{r['id']} contains unverifiable claim '{phrase}'")
+
     check(len(texts) == len(set(texts)), "two predictions are byte-identical")
     # crude near-duplicate guard: share of 3-grams
     def grams(t):

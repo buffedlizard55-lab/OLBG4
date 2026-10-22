@@ -339,7 +339,7 @@ def page_picks(rows):
   <h2>The {len(hs)} high-confidence picks</h2>
   <p>Every selection below cleared three tests at once: a model probability of at least 70%, a price
   between &minus;250 and +10,000, and a club sample of at least eight games. Each carries a written
-  prediction of 62&ndash;86 words and the verified facts behind it.</p>
+  prediction of 62&ndash;87 words and the verified facts behind it.</p>
   <div class="tablewrap"><table class="grid"><thead><tr><th>Date</th><th>Fixture</th><th>Selection</th>
   <th>Price</th><th>Model p</th><th>Source</th></tr></thead><tbody>{table}</tbody></table></div>
 </section>

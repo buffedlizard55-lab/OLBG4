@@ -13,7 +13,7 @@ PREDICTIONS = {
             "with a win carrying into Seattle. The Kraken are a respectable 6-3-1 but have "
             "already shipped 34 goals in ten outings, and this projects as a one-goal game "
             "either way. That is why the play is Utah Mammoth +1.5 on the puck line at -233, "
-            "with Nick Schmaltz, who has seven goals already, leading the offence."
+            "with Nick Schmaltz, who already has seven goals, in the lineup."
         ),
         "selection": "Utah Mammoth +1.5",
         "price": "-233",
@@ -53,7 +53,7 @@ PREDICTIONS = {
         "text": (
             "Minnesota have lost only twice in regulation all season, sitting 6-2-2 with 31 goals "
             "for and 25 against, and they bring the league's leading scorer in Kirill Kaprizov, "
-            "who already has 11 goals. Seattle are 6-3-1 at home but have conceded 34 goals in ten "
+            "who already has 11 goals. Seattle are 6-3-1 but have conceded 34 goals in ten "
             "games, and our numbers make this a one-goal contest. The selection is Minnesota Wild "
             "+1.5 on the puck line at -250, which wins if the Wild lose by a single goal or better."
         ),
@@ -75,7 +75,7 @@ PREDICTIONS = {
         "text": (
             "Dallas have conceded just 15 goals in nine games, an average of 1.67, and have won "
             "three in a row; the Islanders arrive on a two-game run having allowed 20 in nine. "
-            "Both clubs are 5-3-1, both are built to defend first, and our model puts the expected "
+            "Both clubs are 5-3-1, both have conceded under 2.5 goals a game, and our model puts the expected "
             "total at 4.5 goals. With that projection the number to take is Under 5.5 on the match "
             "total at -238 for the Sunday evening game at American Airlines Center."
         ),
@@ -93,8 +93,8 @@ PREDICTIONS = {
     },
     "NHL-2026020186": {
         "text": (
-            "Calgary are 2-6-0 with 17 goals for and 37 against, the weakest defensive record in "
-            "the Western Conference through eight games, and their last ten reads 2-6-0. Toronto "
+            "Calgary are 2-6-0 with 17 goals for and 37 against through eight games, and their last ten "
+            "reads 2-6-0. Toronto "
             "are nothing special at 5-4-2 but have won two straight and carry Auston Matthews, who "
             "has eight goals. Our moneyline makes the Maple Leafs a 70.7% favourite, so the pick is "
             "Toronto Maple Leafs to win at -244 on Monday night."
@@ -116,8 +116,8 @@ PREDICTIONS = {
     },
     "NHL-2026020187": {
         "text": (
-            "Edmonton are 7-1-1 with 41 goals already, a seven-game run of form that includes a "
-            "two-game winning streak, and Leon Draisaitl has eight goals. Detroit have scraped to "
+            "Edmonton are 7-1-1 with 41 goals already and arrive on a two-game winning streak, and Leon "
+            "Draisaitl has eight goals. Detroit have scraped to "
             "3-3-3, scoring only 23 times in nine games, and they arrive on the back of an overtime "
             "loss. The model gives the Oilers a 71.4% chance, which is the top of our requested "
             "price window, so the selection is Edmonton Oilers to win at -250."
@@ -139,9 +139,10 @@ PREDICTIONS = {
     "NHL-2026020189": {
         "text": (
             "Carolina lead the Eastern Conference at 8-2-1 with 42 goals scored, but Boston are "
-            "right behind them at 7-2-1 having conceded only 22 goals in ten games. Our model has "
+            "close behind at 7-2-1 having conceded 22 goals in ten games. Our model has "
             "this at roughly 53-47 on the moneyline, and "
-            "when two top-six defences meet the one-goal margin is the likeliest outcome. The pick "
+            "with both sides allowing under 2.5 goals a game, the one-goal margin is the likeliest "
+            "outcome. The pick "
             "is Boston Bruins +1.5 on the puck line at -250."
         ),
         "selection": "Boston Bruins +1.5",
