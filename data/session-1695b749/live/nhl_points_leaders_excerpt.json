@@ -1,0 +1,28 @@
+{
+  "schema": "olbg4.board-ab.nhl-points-leaders-excerpt/1",
+  "note": "Excerpt of the NHL's own skater points leaders endpoint, read live by this session on 2026-10-22. Only the players quoted in this board's write-ups are listed, in the order the endpoint returned them (rank order, 2026-27 regular season). Points are the endpoint's `value` field for the points category.",
+  "source_url": "https://api-web.nhle.com/v1/skater-stats-leaders/20262027/2?categories=points&limit=40",
+  "fetched_at_utc": "2026-10-22T07:41Z",
+  "http_status": 200,
+  "players": [
+    {"rank": 1, "name": "Connor McDavid", "team": "EDM", "position": "C", "points": 26},
+    {"rank": 2, "name": "Auston Matthews", "team": "TOR", "position": "C", "points": 18},
+    {"rank": 3, "name": "Evan Bouchard", "team": "EDM", "position": "D", "points": 18},
+    {"rank": 4, "name": "Jack Eichel", "team": "VGK", "position": "C", "points": 18},
+    {"rank": 5, "name": "Kirill Kaprizov", "team": "MIN", "position": "L", "points": 17},
+    {"rank": 6, "name": "Leon Draisaitl", "team": "EDM", "position": "C", "points": 16},
+    {"rank": 7, "name": "Nathan MacKinnon", "team": "COL", "position": "C", "points": 16},
+    {"rank": 8, "name": "Mark Stone", "team": "VGK", "position": "R", "points": 15},
+    {"rank": 10, "name": "Matthew Tkachuk", "team": "FLA", "position": "L", "points": 15},
+    {"rank": 12, "name": "Sebastian Aho", "team": "CAR", "position": "C", "points": 14},
+    {"rank": 13, "name": "Macklin Celebrini", "team": "SJS", "position": "C", "points": 14},
+    {"rank": 16, "name": "Nick Suzuki", "team": "MTL", "position": "C", "points": 12},
+    {"rank": 21, "name": "David Pastrnak", "team": "BOS", "position": "R", "points": 12},
+    {"rank": 24, "name": "Kyle Connor", "team": "WPG", "position": "L", "points": 11},
+    {"rank": 28, "name": "Brady Tkachuk", "team": "FLA", "position": "L", "points": 11},
+    {"rank": 32, "name": "Cale Makar", "team": "COL", "position": "D", "points": 11},
+    {"rank": 35, "name": "Leo Carlsson", "team": "ANA", "position": "C", "points": 11},
+    {"rank": 37, "name": "Erik Karlsson", "team": "PIT", "position": "D", "points": 11},
+    {"rank": 40, "name": "Jack Quinn", "team": "BUF", "position": "R", "points": 10}
+  ]
+}

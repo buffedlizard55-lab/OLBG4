@@ -1,0 +1,118 @@
+{
+  "schema": "olbg4.board-ab.flagged/1",
+  "board": "AB",
+  "note": "Flagged for Review. Every item is published on the site so it can be reviewed after the merge; nothing here blocks publication and no value has been silently corrected.",
+  "items": [
+    {
+      "id": "AB-F01",
+      "severity": "structural",
+      "title": "The −250 floor and the >70% rule can only overlap between 70.0% and 71.4%",
+      "detail": "−250 is an implied probability of 71.43%; a selection with p > 0.70 therefore prices shorter than the floor once p passes 0.7143. This desk grades 68 selections High, of which 12 sit inside −250…+10,000 and 56 are shorter than −250. The out-of-window High selections are published in full on the picks page with their prices; none is relabelled and none is dropped.",
+      "sources": [
+        "https://api-web.nhle.com/v1/standings/now"
+      ]
+    },
+    {
+      "id": "AB-F02",
+      "severity": "coverage",
+      "title": "16 in-scope sports carry no originated line",
+      "detail": "Lines are originated only where official numeric inputs were captured: NHL (82 fixtures), MLB World Series (5) and LoL Esports (9). Basketball, cricket, darts, golf, greyhound racing, handball, rugby league, rugby union, snooker, tennis, volleyball, Aussie rules and badminton (plus table tennis) are listed on the coverage page as not covered this session, with the reason, and no value is filled in.",
+      "sources": [
+        "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+        "https://www.atptour.com/en/scores/current"
+      ]
+    },
+    {
+      "id": "AB-F03",
+      "severity": "data",
+      "title": "NHL venue listed as Princess Auto Stadium for Montréal at Winnipeg on 25 October",
+      "detail": "The NHL schedule payload returns venue \"Princess Auto Stadium\" for game 2026020182. That is Winnipeg's outdoor Canadian Football League ground, not the Canada Life Centre the Jets normally use. The value is copied verbatim from the official payload and not corrected; it is flagged for manual review.",
+      "sources": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-25"
+      ]
+    },
+    {
+      "id": "AB-F04",
+      "severity": "model",
+      "title": "Only 4 of 96 fixtures reach a 70% match-winner probability",
+      "detail": "Every NHL club has played 8–11 games, so the model shrinks points percentage hard toward .500 (K=10) and adds only a quarter-weight goal-differential term. The result is deliberately conservative: 4 fixtures clear 70% on the moneyline, 24 are Medium and 68 are Low. The High-confidence selections therefore come mostly from puck-line and team-total markets, which are published alongside the match-winner price rather than replacing it.",
+      "sources": [
+        "https://api-web.nhle.com/v1/standings/now"
+      ]
+    },
+    {
+      "id": "AB-F05",
+      "severity": "data",
+      "title": "Two in-window High selections on one fixture are correlated",
+      "detail": "Carolina's moneyline (−245) and Carolina over 2.5 team goals (−234) both sit inside the window for Columbus at Carolina on 29 October. They are related bets: a big Carolina win tends to settle both. Both are published with separate write-ups and the correlation is disclosed here.",
+      "sources": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-29"
+      ]
+    },
+    {
+      "id": "AB-F06",
+      "severity": "coverage",
+      "title": "Recent-results evidence is limited to the games present in the captured 15–21 October payloads",
+      "detail": "The NHL daily payloads returned for 15–21 October contain only the games the API listed for those days, so a few clubs show one or two completed games rather than three. Write-ups cite only the games that are present; no result is inferred from a standings total.",
+      "sources": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-21"
+      ]
+    },
+    {
+      "id": "AB-F07",
+      "severity": "scope",
+      "title": "OLBG is used for taxonomy only; no OLBG tip, percentage or comment is reproduced",
+      "detail": "This desk's priced fixture list comes from the official league payloads, not from OLBG. OLBG's hub capture (03:04Z today, 17 hubs, all hash-verified) is used only for the listing of in-scope events this board could not price: each of those 138 match rows and 19 outrights shows the event name and listing start time exactly as OLBG published them, carries no price and no pick, names OLBG as a listing rather than an official source, and is flagged unverified. No OLBG tip, percentage, comment or price is reproduced anywhere on the site.",
+      "sources": [
+        "https://www.olbg.com/"
+      ]
+    },
+    {
+      "id": "AB-F08",
+      "severity": "model",
+      "title": "LoL Esports fixtures are graded Low where the sample is under three completed series",
+      "detail": "Series records come from the completed matches in the same official schedule payload. Teams whose Swiss-stage record is 0-0 carry almost no signal, so those fixtures are priced but held at Low confidence and their map handicap and map total are left blank because the payload has no map-score input.",
+      "sources": [
+        "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US"
+      ]
+    },
+    {
+      "id": "AB-F09",
+      "severity": "verification",
+      "title": "No injury, suspension, weather or line-up check was performed",
+      "detail": "The verification register covers participants, date, start time, venue, records and scoring inputs only. Team news, injuries, suspensions, weather and line movement are named as not checked on every row rather than implied to be clear.",
+      "sources": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-22"
+      ]
+    },
+    {
+      "id": "AB-F11",
+      "severity": "scope",
+      "title": "OLBG lists Gaelic Football and Motor Racing events the brief does not name",
+      "detail": "The brief excludes soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling and specials. OLBG's live listing carried 5 Gaelic Football match rows and 6 Motor Racing outright rows (plus 1 Gaelic Football outright). Gaelic Football is not soccer and Motor Racing is not cycling, but neither is explicitly in scope. Both are carried on the all-fixtures page with a blank official source and a blank price, and are flagged here rather than priced or dropped.",
+      "sources": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/11",
+        "https://www.olbg.com/betting-tips/Motor_Racing/7"
+      ]
+    },
+    {
+      "id": "AB-F12",
+      "severity": "repo",
+      "title": "Three generators write the repository root, so the root navigation can be silently overwritten",
+      "detail": "While validating this board's pointer on the root dashboard, two existing generators rewrote index.html and 27 other root pages: tools/build_master_site.py (master-board style, 28 pages) and scripts/session-83451f65/build_site.py (integrated style). No CI gate diffs the root against either generator, so a later run of either would drop this board's pointer without failing a check. This board restored the committed root pages and kept its change additive; the overlap is recorded here rather than fixed inside another board's generator.",
+      "sources": [
+        "https://github.com/buffedlizard55-lab/OLBG4/blob/main/index.html",
+        "https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py"
+      ]
+    },
+    {
+      "id": "AB-F10",
+      "severity": "data",
+      "title": "World Series schedule extends beyond the published window",
+      "detail": "The live MLB read returned seven World Series games (23, 24, 26, 27, 28, 30 and 31 October). Only the five inside 22 October – 2 November are published; games 6 and 7 fall outside the window and are deliberately omitted rather than truncated silently.",
+      "sources": [
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-29&gameTypes=W"
+      ]
+    }
+  ]
+}

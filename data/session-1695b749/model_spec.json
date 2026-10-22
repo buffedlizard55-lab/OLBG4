@@ -1,0 +1,39 @@
+{
+  "schema": "olbg4.board-ab.model/1",
+  "board": "AB",
+  "session": "arena/1695b749-olbg4",
+  "margin_two_way": 0.04,
+  "confidence": {
+    "high": "p >= 0.70 (the brief's >70% rule) with complete official inputs and both sides at or above the minimum sample",
+    "medium": "0.60 <= p < 0.70",
+    "low": "p < 0.60"
+  },
+  "window": {
+    "american_min": -250,
+    "american_max": 10000,
+    "applied_to": "the fair (margin-free) price implied by the model probability; the offered price carries our 4% overround and is therefore always shorter than the fair price",
+    "note": "A pick priced shorter than -250 (p > 0.7143) is graded High but listed as outside the focus window, not relabelled."
+  },
+  "nhl": {
+    "inputs": "NHL standings 2026-10-22: points, games played, home/road split points, goals for/against, home/road goals, L10, streak",
+    "strength": "rating = logit(points percentage shrunk to a .500 prior with K=10 games) + 0.25 * goal differential per game",
+    "moneyline": "p_home = sigmoid(0.50*(rating_home - rating_away) + 0.18); the 0.18 logit term is the league-wide home edge",
+    "total": "lambda = 3.05 * (0.70 * goals-for-per-game / 3.05 + 0.30) * (0.70 * goals-against-per-game / 3.05 + 0.30) with a 1.03 / 0.97 home factor, blended 50/50 with the 3.05 league average and clamped to [1.8, 4.4]; the line is 5.5 when the two lambdas sum below 6.0, otherwise 6.5, and over/under comes from a Poisson sum",
+    "handicap": "puck line -1.5 / +1.5 from the Skellam distribution of the goal difference (P(home wins by 2+))"
+  },
+  "mlb": {
+    "inputs": "MLB standings records (W-L, home/away splits, L10, streak) plus season runs scored (hitting) and runs allowed (pitching)",
+    "strength": "win percentage shrunk to a .500 prior with K=25 games (both clubs played the full 162-game season)",
+    "moneyline": "p_home = sigmoid(1.20*(logit(strength_home) - logit(strength_away)) + 0.16)",
+    "total": "lambda = ((runs scored/game for one side + runs allowed/game for the other)/2) * 0.98 park-neutral factor, plus 0.10 for the home side; line is the half-run line nearest the two-lambda sum; over/under from a Poisson sum",
+    "handicap": "run line -1.5 / +1.5 from the Skellam distribution of the run difference"
+  },
+  "esports": {
+    "inputs": "Riot official schedule payload: every completed series in the payload gives one win/loss per team",
+    "strength": "series win rate shrunk to .500 with a 4-series prior (w+2)/(w+l+4)",
+    "moneyline": "p_home = sigmoid(1.80*(logit(strength_home) - logit(strength_away))), no home term (tournament play on neutral servers)",
+    "total_handicap": "not originated: the official payload carries no map-score input, so both are left blank and flagged",
+    "minimum_sample": "3 completed series for both teams; otherwise the fixture is listed and left unpriced"
+  },
+  "pick_rule": "the headline pick of every fixture is the match winner (the stronger moneyline side); handicap, match total and both team totals are published alongside it as secondary market picks, and the High-confidence set is every selection in any of those markets whose model probability is at least 0.70"
+}
