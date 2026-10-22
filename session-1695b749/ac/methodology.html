@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · Board AC · OLBG4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="brand" href="index.html">Board AC · OLBG4</a>
+  <nav>
+      <a href="index.html">Overview</a>
+      <a href="sports/ice-hockey.html">Ice Hockey</a>
+      <a href="sports/baseball.html">Baseball</a>
+      <a href="sports/esports.html">Esports</a>
+      <a href="picks.html">High picks</a>
+      <a href="markets.html">Markets</a>
+      <a href="verification.html">Verification</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="listing.html">All matches</a>
+      <a href="sources.html">Sources</a>
+      <a href="methodology.html" aria-current="page">Method</a>
+      <a href="review.html">Repo review</a>
+      <a href="flagged.html">Flagged</a>
+  </nav>
+</div></header>
+<main>
+<p class="crumbs"><a href="index.html">Overview</a> · Method</p>
+<h1>How a number gets on this site.</h1>
+<p class="lede">Three steps, in this order: read an official payload, convert it into our own probability, then quote a fair price. Nothing else enters.</p>
+<h2>1 · Inputs</h2>
+<p>Every model input is a number returned by an official endpoint: 3.1176 goals per team per game for the NHL, 4.4811 runs per team per game for MLB, and series records for LoL.
+Attack and defence are shrunken per-game rates, so a club with eight games played cannot look like a 60-goal team on the strength of one blowout.</p>
+<h2>2 · Probability</h2>
+<ul class="plain">
+<li><strong>NHL:</strong> independent Poisson goals per side, 1.6 to 5.2 expected goals, home lambda × 1.06 and away × the.</li>
+<li><strong>MLB:</strong> independent Poisson runs per side, 2.4 to 7.5 expected runs, park and pitcher effects deliberately absent because the payload has none.</li>
+<li><strong>LoL:</strong> a Bradley-Terry style map probability from smoothed series records, then an exact best-of-n distribution assuming independent maps.</li>
+</ul>
+<h2>3 · Price and grade</h2>
+<p>Fair American odds: p &gt;= 0.5 -&gt; round(-100p/(1-p)); p &lt; 0.5 -&gt; round(100(1-p)/p). No margin is added, so the price is the model's own view rather than a bookmaker's.
+Grades: High at p &gt;= 0.70, Medium at 0.62 &lt;= p &lt; 0.70, Low below that. The window test is price between -250 and +10,000 inclusive, evaluated on the price we quote.</p>
+<h2>What the model does not do</h2>
+<p>It does not read injuries, line-ups, travel, back-to-backs, referee or weather, and it does not adjust for a short series. Those omissions are named on every register row and again in the flags.
+It also does not blend in a bookmaker price to calibrate itself, which means the probabilities are honest but uncalibrated; the 20 High picks inside the window are the subset where that uncalibrated view is both strong and priceable.</p>
+<h2>Assumptions, declared</h2>
+<p>The draw split in hockey, the independent-maps assumption in esports and the season-rate approach to the World Series are all flagged: AF-01, AF-03, AF-04, AF-05, AF-08.
+Assumptions are declared where they change a price, rather than buried inside a formula.</p>
+</main>
+<footer class="site">
+  <p><strong>Board AC</strong> · session arena/1695b749-olbg4 · built 2026-10-22T09:30:00Z · window 22 October – 21 November 2026, fixtures published 2026-10-22 to 2026-11-09.</p>
+  <p>Every fixture row names the official payload it came from. Where an official page was silent, the value is blank and the gap is on the <a href="flagged.html">Flagged for review</a> page. Sports excluded by the brief (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials) are absent from this dataset.</p>
+  <p><a href="../index.html">Repository dashboard</a> · <a href="verification.html">Verification register</a> · <a href="sources.html">Sources</a></p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

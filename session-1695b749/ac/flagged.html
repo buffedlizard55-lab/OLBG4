@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for review · Board AC · OLBG4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="brand" href="index.html">Board AC · OLBG4</a>
+  <nav>
+      <a href="index.html">Overview</a>
+      <a href="sports/ice-hockey.html">Ice Hockey</a>
+      <a href="sports/baseball.html">Baseball</a>
+      <a href="sports/esports.html">Esports</a>
+      <a href="picks.html">High picks</a>
+      <a href="markets.html">Markets</a>
+      <a href="verification.html">Verification</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="listing.html">All matches</a>
+      <a href="sources.html">Sources</a>
+      <a href="methodology.html">Method</a>
+      <a href="review.html">Repo review</a>
+      <a href="flagged.html" aria-current="page">Flagged</a>
+  </nav>
+</div></header>
+<main>
+<p class="crumbs"><a href="index.html">Overview</a> · Flagged</p>
+<h1>15 irregularities, published rather than smoothed over.</h1>
+<p class="lede">Each item names what was found, what was done about it, and the official page it relates to. Nothing on this page is a corrected value: where a payload looked wrong it is reproduced as returned and the discrepancy is described.</p>
+<article class="card" id="AF-01">
+<h3>AF-01 · The -250 floor and the over-70% requirement can only overlap between 70.0% and 71.4%</h3>
+<p class="small"><span class="tag no">structural</span></p>
+<p>-250 is an implied probability of 71.43%, so any selection the model rates above 71.43% prices shorter than the floor. This desk grades 120 of its 435 picks High; 20 of those sit inside -250 to +10,000 and carry a written prediction, while 100 are shorter than -250. Both sets are published with their prices and neither is relabelled. No price was bent to fit the window.</p>
+<p class="small"><a class='mono' href='https://api-web.nhle.com/v1/standings/now'>https://api-web.nhle.com/v1/standings/now</a> </p>
+</article><article class="card" id="AF-02">
+<h3>AF-02 · Lines were originated for 3 of the 19 sport labels considered; the other 16 are blank and reasoned</h3>
+<p class="small"><span class="tag no">coverage</span></p>
+<p>Only NHL, MLB and LoL Esports had official numeric inputs in reach this session, so only those carry prices. 10 further labels appear as OLBG listing rows with the official source left blank, and 6 had no in-window fixture on any official page captured here. Nothing is estimated to fill the gap.</p>
+<p class="small"><a class='mono' href='https://www.olbg.com/betting-tips'>https://www.olbg.com/betting-tips</a> </p>
+</article><article class="card" id="AF-03">
+<h3>AF-03 · World Series prices use season-long run rates, with no starting pitcher, bullpen or park adjustment</h3>
+<p class="small"><span class="tag no">model</span></p>
+<p>The MLB payload used here returns team runs scored and allowed over 162 games plus home/away splits, and nothing about probable starters, bullpen usage or park factors. The seven World Series games are therefore priced from team-level run rates only, which is a real limitation in a short series. No pitcher data is invented and the gap is recorded rather than filled.</p>
+<p class="small"><a class='mono' href='https://statsapi.mlb.com/api/v1/teams/stats?stats=season&amp;group=hitting&amp;season=2026&amp;sportIds=1&amp;fields=stats,splits,team,id,name,runs,gamesPlayed,stat'>https://statsapi.mlb.com/api/v1/teams/stats?stats=season&amp;group=hitting&amp;season=2026&amp;sportIds=1&amp;fields=stats,splits,team,id,name,runs,gamesPlayed,stat</a> </p>
+</article><article class="card" id="AF-04">
+<h3>AF-04 · A regulation draw is split 50/50 in the NHL model because no shootout model is defensible from the payload</h3>
+<p class="small"><span class="tag no">model</span></p>
+<p>The two-way NHL price has to do something with a tied score after regulation. This desk gives each side half of the draw probability, which leaves the moneyline slightly conservative for strong teams. The assumption is named in model_spec.json and is not presented as an observed value.</p>
+<p class="small"><a class='mono' href='https://api-web.nhle.com/v1/schedule/2026-10-22'>https://api-web.nhle.com/v1/schedule/2026-10-22</a> </p>
+</article><article class="card" id="AF-05">
+<h3>AF-05 · LoL map handicaps and map totals assume independent, identical maps</h3>
+<p class="small"><span class="tag no">model</span></p>
+<p>The LoL schedule payload gives series records and best-of length but no map-level scores, so the map markets are derived from a per-map probability under an independent-maps assumption. That flattens real draft and side effects. 25 listed series carry no price at all because the payload returns no record for at least one team.</p>
+<p class="small"><a class='mono' href='https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US'>https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US</a> </p>
+</article><article class="card" id="AF-06">
+<h3>AF-06 · Window published as 2026-10-22 to 2026-11-09, not the full 22 October to 21 November range</h3>
+<p class="small"><span class="tag no">coverage</span></p>
+<p>The captured daily payloads run to 2 November and the last fixture they contain falls on 2026-11-09. No official page was read for 10-21 November, so that part of the requested window is empty rather than guessed. A fresh capture of those dates would extend the desk.</p>
+<p class="small"><a class='mono' href='https://api-web.nhle.com/v1/schedule/2026-11-02'>https://api-web.nhle.com/v1/schedule/2026-11-02</a> </p>
+</article><article class="card" id="AF-07">
+<h3>AF-07 · OLBG&#x27;s listing is carried as a listing, never as an official source</h3>
+<p class="small"><span class="tag no">verification</span></p>
+<p>119 in-scope match rows are reproduced with their event name, start time and OLBG link so the in-scope universe is visible. Each of them has a blank official source, a blank price and a blank pick, and none of OLBG&#x27;s tips, percentages, prices or comments is copied. Only rows with a governing-body payload behind them are marked verified.</p>
+<p class="small"><a class='mono' href='https://www.olbg.com/betting-tips'>https://www.olbg.com/betting-tips</a> </p>
+</article><article class="card" id="AF-08">
+<h3>AF-08 · NHL strength inputs come from one standings snapshot and are not re-read per match date</h3>
+<p class="small"><span class="tag no">data</span></p>
+<p>Every NHL price uses the 2026-10-22 standings snapshot, so fixtures in November are priced with October form. The snapshot is hash-checked and its capture time is printed on every row; it is not silently blended with later results.</p>
+<p class="small"><a class='mono' href='https://api-web.nhle.com/v1/standings/now'>https://api-web.nhle.com/v1/standings/now</a> </p>
+</article><article class="card" id="AF-09">
+<h3>AF-09 · No injury, suspension, line-up, weather or line-movement check was performed</h3>
+<p class="small"><span class="tag no">verification</span></p>
+<p>The register covers participants, date, start time, venue and the numeric scoring inputs only. Team news and market movement are named as unchecked on every row rather than implied to be clear.</p>
+<p class="small"><a class='mono' href='https://api-web.nhle.com/v1/schedule/2026-10-22'>https://api-web.nhle.com/v1/schedule/2026-10-22</a> </p>
+</article><article class="card" id="AF-10">
+<h3>AF-10 · Two High picks land on the same Islanders-Wild fixture and are correlated</h3>
+<p class="small"><span class="tag no">data</span></p>
+<p>The Islanders +1.5 puck line and the under 6.5 goals both qualify on 30 October in Minnesota. A tight, low-scoring game settles both, so they should be treated as one view, not two independent bets. Both are published with separate write-ups and the correlation is disclosed here.</p>
+<p class="small"><a class='mono' href='https://api-web.nhle.com/v1/schedule/2026-10-30'>https://api-web.nhle.com/v1/schedule/2026-10-30</a> </p>
+</article><article class="card" id="AF-11">
+<h3>AF-11 · Recent-results evidence is limited to the games present in the captured 15-21 October payloads</h3>
+<p class="small"><span class="tag no">coverage</span></p>
+<p>Those daily files list only the games the NHL feed returned for each date, so a few clubs show two completed games rather than three. Write-ups cite only games present in the payloads; no result is inferred from a standings total.</p>
+<p class="small"><a class='mono' href='https://api-web.nhle.com/v1/schedule/2026-10-21'>https://api-web.nhle.com/v1/schedule/2026-10-21</a> </p>
+</article><article class="card" id="AF-13">
+<h3>AF-13 · Two captured AFL payloads are gzip bytes stored with a .json extension</h3>
+<p class="small"><span class="tag no">repo</span></p>
+<p>data/session-e5f2dad3/raw/afl_api_fixtures.json and afl_api_season.json begin with the gzip magic bytes rather than JSON, and the capture manifest records both as HTTP 401. Any tool that globs data/**/*.json and parses blindly will fail on them; this board&#x27;s review flags them rather than repairing another session&#x27;s capture. They are not used as inputs here.</p>
+<p class="small"><a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/raw/afl_api_fixtures.json'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/raw/afl_api_fixtures.json</a> <a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/manifest.json'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-e5f2dad3/manifest.json</a> </p>
+</article><article class="card" id="AF-15">
+<h3>AF-15 · Sixteen archived pages under session-4a73430b/ are missing closing html tags</h3>
+<p class="small"><span class="tag no">repo</span></p>
+<p>The review&#x27;s well-formedness check fails on every page in session-4a73430b/ (index, picks, markets, olbg, methodology, flagged and ten sport pages): each file ends without &lt;/body&gt; or &lt;/html&gt;. Browsers render them and the local link audit passes, so nothing published is broken, but the markup is truncated and any strict parser will reject it. The files belong to another board&#x27;s scope, so they are reported here and left untouched.</p>
+<p class="small"><a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/tree/main/session-4a73430b'>https://github.com/buffedlizard55-lab/OLBG4/tree/main/session-4a73430b</a> </p>
+</article><article class="card" id="AF-14">
+<h3>AF-14 · One archived board page is missing its closing html tag</h3>
+<p class="small"><span class="tag no">repo</span></p>
+<p>session-07a080b9/index.html ends after its last paragraph with no &lt;/body&gt; or &lt;/html&gt;, so the file is truncated markup rather than a complete document. Browsers render it and the local link audit passes, but it is not well-formed HTML. The file belongs to another board&#x27;s scope, so it is reported here and left untouched.</p>
+<p class="small"><a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-07a080b9/index.html'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-07a080b9/index.html</a> </p>
+</article><article class="card" id="AF-12">
+<h3>AF-12 · Two existing generators rewrite the repository root, so a root pointer can be overwritten silently</h3>
+<p class="small"><span class="tag no">repo</span></p>
+<p>tools/build_master_site.py and scripts/session-83451f65/build_site.py both write index.html and the root pages. No CI gate diffs the root against either generator. This board kept its root change additive and restored the committed pages after testing, and the collision is recorded here rather than fixed inside another board&#x27;s generator.</p>
+<p class="small"><a class='mono' href='https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py'>https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master_site.py</a> </p>
+</article>
+</main>
+<footer class="site">
+  <p><strong>Board AC</strong> · session arena/1695b749-olbg4 · built 2026-10-22T09:30:00Z · window 22 October – 21 November 2026, fixtures published 2026-10-22 to 2026-11-09.</p>
+  <p>Every fixture row names the official payload it came from. Where an official page was silent, the value is blank and the gap is on the <a href="flagged.html">Flagged for review</a> page. Sports excluded by the brief (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials) are absent from this dataset.</p>
+  <p><a href="../index.html">Repository dashboard</a> · <a href="verification.html">Verification register</a> · <a href="sources.html">Sources</a></p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
