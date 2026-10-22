@@ -3,6 +3,10 @@
   "audit_date": "2026-10-22",
   "scope": "Read-only reproduction of committed master metadata, taxonomy and site checks; no sports-provider page fetched and no fixture/pick/prediction changed.",
   "input_sha256": "ac83844b9187466638f02fdb43c8642493bee95ed34de7a92c20153784dccd23",
+  "input_hashes": {
+    "data/master.json": "ac83844b9187466638f02fdb43c8642493bee95ed34de7a92c20153784dccd23",
+    "data/session-cdf25c13/rows.json": "3251972e4bc32b271d15215b05e54663a522eb0a3f9280e1143e784f074f08b6"
+  },
   "metrics": {
     "total_rows": 317,
     "in_scope_rows": 312,
@@ -22,9 +26,111 @@
     "high_written": 33,
     "high_templated": 5,
     "all_written_predictions": 63,
-    "prediction_focus_qualifiers": 0,
+    "older_pipeline_focus_qualifiers": 0,
+    "fresh_board_rows": 91,
+    "fresh_board_sports": 4,
+    "fresh_board_high_focus_qualifiers": 8,
+    "fresh_board_cutoff": "2026-10-22T03:40:00Z",
     "rows_with_pick": 276
   },
+  "focus_picks": [
+    {
+      "id": "NHL-2026020164",
+      "date": "2026-10-22",
+      "sport": "Ice Hockey",
+      "home": "Seattle Kraken",
+      "away": "Utah Mammoth",
+      "selection": "Utah Mammoth +1.5",
+      "probability": 0.7015,
+      "american": "-233",
+      "source_url": "https://www.nhl.com/gamecenter/uta-vs-sea/2026/10/22/2026020164",
+      "source_tier": "official"
+    },
+    {
+      "id": "NHL-2026020177",
+      "date": "2026-10-24",
+      "sport": "Ice Hockey",
+      "home": "Utah Mammoth",
+      "away": "Tampa Bay Lightning",
+      "selection": "Tampa Bay Lightning +1.5",
+      "probability": 0.7168,
+      "american": "-250",
+      "source_url": "https://www.nhl.com/gamecenter/tbl-vs-uta/2026/10/24/2026020177",
+      "source_tier": "official"
+    },
+    {
+      "id": "NHL-2026020179",
+      "date": "2026-10-24",
+      "sport": "Ice Hockey",
+      "home": "Seattle Kraken",
+      "away": "Minnesota Wild",
+      "selection": "Minnesota Wild +1.5",
+      "probability": 0.7147,
+      "american": "-250",
+      "source_url": "https://www.nhl.com/gamecenter/min-vs-sea/2026/10/24/2026020179",
+      "source_tier": "official"
+    },
+    {
+      "id": "NHL-2026020181",
+      "date": "2026-10-25",
+      "sport": "Ice Hockey",
+      "home": "Dallas Stars",
+      "away": "New York Islanders",
+      "selection": "Under 5.5",
+      "probability": 0.7023,
+      "american": "-238",
+      "source_url": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
+      "source_tier": "official"
+    },
+    {
+      "id": "NHL-2026020186",
+      "date": "2026-10-26",
+      "sport": "Ice Hockey",
+      "home": "Calgary Flames",
+      "away": "Toronto Maple Leafs",
+      "selection": "Toronto Maple Leafs (ML)",
+      "probability": 0.7069,
+      "american": "-244",
+      "source_url": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
+      "source_tier": "official"
+    },
+    {
+      "id": "NHL-2026020187",
+      "date": "2026-10-26",
+      "sport": "Ice Hockey",
+      "home": "Edmonton Oilers",
+      "away": "Detroit Red Wings",
+      "selection": "Edmonton Oilers (ML)",
+      "probability": 0.7142,
+      "american": "-250",
+      "source_url": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
+      "source_tier": "official"
+    },
+    {
+      "id": "NHL-2026020189",
+      "date": "2026-10-27",
+      "sport": "Ice Hockey",
+      "home": "Carolina Hurricanes",
+      "away": "Boston Bruins",
+      "selection": "Boston Bruins +1.5",
+      "probability": 0.7149,
+      "american": "-250",
+      "source_url": "https://www.nhl.com/gamecenter/bos-vs-car/2026/10/27/2026020189",
+      "source_tier": "official"
+    },
+    {
+      "id": "NHL-2026020195",
+      "date": "2026-10-27",
+      "sport": "Ice Hockey",
+      "home": "Utah Mammoth",
+      "away": "Minnesota Wild",
+      "selection": "Minnesota Wild +1.5",
+      "probability": 0.7015,
+      "american": "-233",
+      "source_url": "https://www.nhl.com/gamecenter/min-vs-uta/2026/10/27/2026020195",
+      "source_tier": "official"
+    }
+  ],
   "market_coverage_by_sport": [
     {
       "sport": "Aussie Rules",
@@ -289,7 +395,7 @@
       "id": "E1-03",
       "severity": "held",
       "title": "The canonical list is a dated snapshot, not a live all-sport feed",
-      "detail": "The master metadata says generated_on=2026-10-21 and explicitly says values are copied from prior committed builds without refresh. The row-level freshness review counts 164 in-scope fixture rows dated on/after 2026-10-22: 150 are carried as strict rows and 14 are held for source, verification, or copy gaps. This is not proof that the 312-row dataset reflects the live fixture universe today.",
+      "detail": "The master metadata says generated_on=2026-10-21 and explicitly says values are copied from prior committed builds without refresh. The row-level freshness review counts 164 in-scope fixture rows dated on/after 2026-10-22: 150 are carried as strict rows and 14 are held for source, verification, or copy gaps. A separate fresh Board T desk adds 91 official-source fixtures for 22–28 Oct across four sports; it explicitly leaves 15 in-scope sports unrefreshed. Together these do not establish a full live fixture universe for all sports.",
       "action": "Keep the cutoff visible; refresh only from official governing-body feeds, and leave unconfirmed values blank until a new source check is recorded.",
       "evidence": [
         {
@@ -305,6 +411,11 @@
         {
           "label": "Row-level freshness review",
           "url": "../session-4e9d03cf/index.html",
+          "kind": "local"
+        },
+        {
+          "label": "Fresh 22–28 Oct Board T desk and coverage gaps",
+          "url": "../session-cdf25c13/index.html",
           "kind": "local"
         }
       ]
@@ -446,24 +557,29 @@
     {
       "id": "E1-10",
       "severity": "needs review",
-      "title": "No current automated pick meets both high-focus filters",
-      "detail": "The committed freshness review reports 17 automated high-confidence prediction records dated on/after 2026-10-22, but zero meet both a model probability of at least 70% and the requested American-price window of -250 to +10,000. This does not justify manufacturing a qualifying prediction; the pick list should remain empty for that intersection until supported model output exists.",
-      "action": "Do not add or upgrade a pick to satisfy a quota. Re-evaluate only after a fresh official input/model run yields a qualifying price and probability, and attach source-linked prediction facts.",
+      "title": "High-focus result is now board-specific: a fresh desk has eight qualifiers",
+      "detail": "The earlier automated-feed review reported zero picks meeting both >=70% model probability and American odds -250 to +10,000. That result is not a repository-wide current statement: the newer standalone Board T dataset contains 8 High selections satisfying both filters in its 91-row, four-sport 22–28 Oct desk. All eight have official source URLs recorded and predictions on its picks page. The desk is separate from the 317-row canonical master and explicitly does not refresh 15 in-scope sports, so it is not yet a combined all-sport list.",
+      "action": "Use the fresh desk's eight qualifying selections as that board's output; preserve the earlier zero result as pipeline-specific history. Do not combine or overwrite boards until the integration owner independently re-verifies the rows and source facts.",
       "evidence": [
         {
-          "label": "Freshness review focus-filter finding",
-          "url": "../session-4e9d03cf/flagged.html",
+          "label": "Fresh Board T high-confidence picks",
+          "url": "../session-cdf25c13/picks.html",
           "kind": "local"
         },
         {
-          "label": "Committed automated predictions",
-          "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-4afef1af/data/predictions.json",
-          "kind": "repo"
+          "label": "Board T official-source verification register",
+          "url": "../session-cdf25c13/verification.html",
+          "kind": "local"
         },
         {
-          "label": "Official NHL feed used in automated snapshot",
-          "url": "https://api-web.nhle.com/v1/score/2026-10-22",
+          "label": "Official NHL source for one qualifying selection",
+          "url": "https://www.nhl.com/gamecenter/uta-vs-sea/2026/10/22/2026020164",
           "kind": "official"
+        },
+        {
+          "label": "Earlier pipeline-specific zero result",
+          "url": "../session-4e9d03cf/flagged.html",
+          "kind": "local"
         }
       ]
     }
@@ -473,6 +589,7 @@
     "in_scope_total_matches_metadata": true,
     "gaelic_scope_conflict_reproduced": true,
     "current_freshness_counts_match_s1_review": true,
-    "high_prediction_style_counts_match_rows": true
+    "high_prediction_style_counts_match_rows": true,
+    "fresh_board_focus_picks_within_probability_and_price_window": true
   }
 }
