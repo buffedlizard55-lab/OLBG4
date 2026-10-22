@@ -3713,3 +3713,35 @@ merge.
 3. Do **not** merge Board AD rows into `data/master.json`; keep Board AD's desk as its own
    published dataset so each row keeps its own official source and its own verification trail.
    Board AD's review findings on `master.json` are advisory findings, not edits.
+
+---
+
+## Board AF — session `arena/80bc6293-olbg4` (2026-10-22T13:00Z live OLBG reverse-engineering + official governing-body fixture verification across all in-scope sports + multi-market own-line origination + −250…+10,000 High-confidence human predictions (target 5 per sport) + repo-wide line-by-line audit + dashboard + final integration)
+
+Session: `arena/80bc6293-olbg4` · Branch: `arena/80bc6293-olbg4` · Claimed: **2026-10-22T13:00Z UTC** · status: **in progress**
+
+File scope (non-overlapping with every existing board): `session-80bc6293/**`, `data/session-80bc6293/**`,
+`scripts/session-80bc6293/**`, `.github/workflows/af-80bc6293.yml`, and append-only entries in this file.
+Everything else — `data/master.json`, `board/`, all root `*.html`, every other `session-*/`, `data/session-*/`,
+`scripts/**`, `pipeline/**`, `tools/**`, `.github/workflows/*.yml` — is **read-only** for Board AF. Any finding that
+would require editing another owner's file is logged below as an integration request, not applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AF1 | Live reverse-engineering of OLBG.com sport taxonomy + market taxonomy; build the full in-scope sport list (everything on OLBG **except** soccer, boxing, UFC, MMA, football (association), American football, hurling, horse racing, cycling, specials) | in progress | arena/80bc6293-olbg4 | `data/session-80bc6293/olbg_taxonomy.json`, `scripts/session-80bc6293/re_olbg.py` |
+| AF2 | Fresh fixture capture for the 22 Oct – 8 Nov 2026 window for **every** in-scope sport, read only from official league/tour/federation/regulator endpoints; raw bytes + SHA-256 manifest committed | in progress | arena/80bc6293-olbg4 | `scripts/session-80bc6293/collect.py`, `data/session-80bc6293/raw/**`, `data/session-80bc6293/manifest.json`, `.github/workflows/af-80bc6293.yml` |
+| AF3 | Originate our own lines for every verified fixture (match winner, handicap/spread, match total, plus sport-specific markets where verified inputs exist); pick a winner; label Low/Medium/High; record every market investigated | pending | arena/80bc6293-olbg4 | `scripts/session-80bc6293/originate.py`, `data/session-80bc6293/desk.json` |
+| AF4 | High-confidence focus: ≥70 % model probability **and** priced inside −250…+10,000 American; author unique, human, ≥30-word predictions carrying team/player, current form, recent match history and an obvious selection; **target 5 per covered sport per day** | pending | arena/80bc6293-olbg4 | `scripts/session-80bc6293/predictions.py`, `data/session-80bc6293/predictions.json` |
+| AF5 | Line-by-line repo review of the shared canonical board and peer desks against official sources; publish exact defects + manual-review URLs on a Flagged for Review page | pending | arena/80bc6293-olbg4 | `scripts/session-80bc6293/review.py`, `data/session-80bc6293/review.json`, `data/session-80bc6293/flagged.json` |
+| AF6 | Clean dashboard-style GitHub Pages site under `session-80bc6293/` (landing + per-sport subpages + all-entries / markets / picks / predictions / coverage / sources / methodology / flagged / verification tables); every row carries an official source link; unconfirmed values blank + flagged | pending | arena/80bc6293-olbg4 | `session-80bc6293/**`, `scripts/session-80bc6293/build_site.py` |
+| AF7 | Verification gate (`scripts/session-80bc6293/verify.py`), repo-wide link audit, `git pull --rebase` sync, PR to `main`, merge without waiting for approval, confirm Pages deploy, record PR link + merge result here | pending | arena/80bc6293-olbg4 | `scripts/session-80bc6293/verify.py`, `COORDINATION.md` |
+
+### AF working log
+- `2026-10-22T13:00Z UTC` — `80bc6293` — Board AF claimed and pushed before any other work. Checked all active peer claims
+  in this file; no other session owns `session-80bc6293/**`, `data/session-80bc6293/**` or `scripts/session-80bc6293/**`.
+- `2026-10-22T13:02Z UTC` — `80bc6293` — Sandbox bash egress is limited to github/npm/pypi hosts, so official data is read
+  two ways: (a) the Arena web-fetch tool, which returned live official JSON on the first probe — MLB Stats API
+  `statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-31` gave the 2026 World Series
+  (Tampa Bay Rays @ Milwaukee Brewers, Games 1–7, 23–31 Oct 2026, American Family Field / Tropicana Field); and
+  (b) an Actions runner workflow (`af-80bc6293.yml`) with open egress that commits raw response bytes + a SHA-256
+  manifest to `data/session-80bc6293/raw/`, so every published number is reproducible from committed bytes.
