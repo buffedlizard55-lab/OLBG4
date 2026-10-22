@@ -3432,7 +3432,7 @@ Session: `arena/7c581d22-olbg4` | Branch: `arena/7c581d22-olbg4` | Claimed: 2026
 | AD2 | Originate own lines (match winner, handicap/spread, totals where verified inputs exist); pick winner + confidence low/medium/high per match; investigate every available market | done | arena/7c581d22-olbg4 | same |
 | AD3 | High-confidence focus: picks ≥70% model probability AND inside −250…+10,000 American-odds window; unique human written predictions ≥30 words with verified form/history + obvious selection, source under each | done | arena/7c581d22-olbg4 | same |
 | AD4 | GitHub Pages dashboard: landing + per-sport subpages + all-entries table + markets/coverage + Flagged-for-Review; every row carries official source link; unverified values blank + flagged | done | arena/7c581d22-olbg4 | same |
-| AD5 | Final integration: line-by-line re-verification, link check, PR to `main`, merge without waiting, confirm Pages deploy, record result here | in progress (PR next) | arena/7c581d22-olbg4 | same + PR only |
+| AD5 | Final integration: line-by-line re-verification, link check, PR to `main`, merge without waiting, confirm Pages deploy, record result here | done | arena/7c581d22-olbg4 | same + PR only |
 
 **Claim boundary.** New non-overlapping deliverable. All existing data, boards, session folders, root `*.html`, generators and workflows are read-only for Board AD. Open parallel PR #102 (Board AC, `arena/1695b749-olbg4`) touches `session-1695b749/**`, `data/session-1695b749/**`, `scripts/session-1695b749/**`, `index.html`, `README.md`, `COORDINATION.md` — Board AD edits none of those except append-only entries here. Findings needing another owner's file are logged here as integration requests, not applied.
 
@@ -3564,6 +3564,13 @@ Scope (exclusive, zero overlap with active boards): `session-8cbd0cb9/**`, `data
 - Board AD complete (AD1–AD6 done). All deliverables under session-8cbd0cb9/*, data/session-8cbd0cb9/*, scripts/session-8cbd0cb9/*; no peer session files edited; flagged/unverified items published on session-8cbd0cb9/flagged.html for manual review (non-blocking).
 
 ---
+
+### Board AD (`arena/7c581d22-olbg4`) — merge & deploy record (2026-10-22 UTC)
+
+- **Pull request:** https://github.com/buffedlizard55-lab/OLBG4/pull/114 — **MERGED** to `main` at 2026-10-22T12:46:26Z, merge commit `40623757144ed44184787f100efacdc3e6f7a910`. All PR checks green (audit, build-and-validate, verify).
+- **Merge conflict encountered & resolved:** `main` advanced during the session (PRs #107–#113). Only `COORDINATION.md` conflicted (competing appends). Resolved by keeping every appended board section verbatim — five parallel sessions had independently claimed the letter "Board AD"; each is identified by session ID/scope (collision note added at the head of the `7c581d22` section). Nothing from any session was discarded; post-merge `verify.py` PASS, byte-identical rebuild, repo audit exit 0 (20,483 targets, 0 broken) on the combined tree before merging.
+- **GitHub Pages:** deploy run `39781129644` (Deploy OLBG4 to GitHub Pages) **success**; `pages-build-deployment` run `39781128898` **success**; Pages API latest build status `built` (2026-10-22T12:47:05Z, no error). Live desk read back over HTTPS and confirmed rendering: https://buffedlizard55-lab.github.io/OLBG4/session-7c581d22/
+- **Status:** AD1–AD5 all **done**. AD-F01…AD-F14 remain `needs review` (non-blocking) on the live Flagged for Review page. PR #102 (Board AC) still awaits a rebase on its own branch — see the parallel-session note in the AD completion record.
 
 ---
 
