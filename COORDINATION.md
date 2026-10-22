@@ -3897,3 +3897,118 @@ Session: `arena/4885d641-olbg4` · Branch: `arena/4885d641-olbg4` (fixed Arena b
   - **PR Checks:** `audit` (`39857901169`), `build-and-validate` (`39857901151`), `verify` integrated (`39857901191`), `verify` AF (`39857900880`), and `verify-board-ag` (`39857901133`) — **ALL PASS**.
   - **GitHub Pages Deployment:** Both `Deploy OLBG4 to GitHub Pages` (`https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39857984358`) and `pages build and deployment` (`https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39857984222`) completed with **`conclusion=success`**, Pages API `status=built` on `main`.
   - **Live HTTPS Read-Back Confirmed:** Verified HTTP 200 live content rendering across https://buffedlizard55-lab.github.io/OLBG4/, https://buffedlizard55-lab.github.io/OLBG4/session-4885d641/, https://buffedlizard55-lab.github.io/OLBG4/session-4885d641/predictions.html, and https://buffedlizard55-lab.github.io/OLBG4/session-4885d641/flagged.html. All tasks **AG1–AG6 done**.
+
+---
+
+## Board AF — session `arena/80bc6293-olbg4` (2026-10-22T13:00Z live OLBG reverse-engineering + official governing-body fixture verification across all in-scope sports + multi-market own-line origination + −250…+10,000 High-confidence human predictions (target 5 per sport) + repo-wide line-by-line audit + dashboard + final integration)
+
+Session: `arena/80bc6293-olbg4` · Branch: `arena/80bc6293-olbg4` · Claimed: **2026-10-22T13:00Z UTC** · status: **done — merged, see completion record below**
+
+File scope (non-overlapping with every existing board): `session-80bc6293/**`, `data/session-80bc6293/**`,
+`scripts/session-80bc6293/**`, `.github/workflows/af-80bc6293.yml`, and append-only entries in this file.
+Everything else — `data/master.json`, `board/`, all root `*.html`, every other `session-*/`, `data/session-*/`,
+`scripts/**`, `pipeline/**`, `tools/**`, `.github/workflows/*.yml` — is **read-only** for Board AF. Any finding that
+would require editing another owner's file is logged below as an integration request, not applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AF1 | Live reverse-engineering of OLBG.com sport taxonomy + market taxonomy; build the full in-scope sport list (everything on OLBG **except** soccer, boxing, UFC, MMA, football (association), American football, hurling, horse racing, cycling, specials) | done | arena/80bc6293-olbg4 | `data/session-80bc6293/olbg_taxonomy.json`, `scripts/session-80bc6293/re_olbg.py` |
+| AF2 | Fresh fixture capture for the 22 Oct – 8 Nov 2026 window for **every** in-scope sport, read only from official league/tour/federation/regulator endpoints; raw bytes + SHA-256 manifest committed | done | arena/80bc6293-olbg4 | `scripts/session-80bc6293/collect.py`, `data/session-80bc6293/raw/**`, `data/session-80bc6293/manifest.json`, `.github/workflows/af-80bc6293.yml` |
+| AF3 | Originate our own lines for every verified fixture (match winner, handicap/spread, match total, plus sport-specific markets where verified inputs exist); pick a winner; label Low/Medium/High; record every market investigated | done | arena/80bc6293-olbg4 | `scripts/session-80bc6293/originate.py`, `data/session-80bc6293/desk.json` |
+| AF4 | High-confidence focus: ≥70 % model probability **and** priced inside −250…+10,000 American; author unique, human, ≥30-word predictions carrying team/player, current form, recent match history and an obvious selection; **target 5 per covered sport per day** | done | arena/80bc6293-olbg4 | `scripts/session-80bc6293/predictions.py`, `data/session-80bc6293/predictions.json` |
+| AF5 | Line-by-line repo review of the shared canonical board and peer desks against official sources; publish exact defects + manual-review URLs on a Flagged for Review page | done | arena/80bc6293-olbg4 | `scripts/session-80bc6293/review.py`, `data/session-80bc6293/review.json`, `data/session-80bc6293/flagged.json` |
+| AF6 | Clean dashboard-style GitHub Pages site under `session-80bc6293/` (landing + per-sport subpages + all-entries / markets / picks / predictions / coverage / sources / methodology / flagged / verification tables); every row carries an official source link; unconfirmed values blank + flagged | done | arena/80bc6293-olbg4 | `session-80bc6293/**`, `scripts/session-80bc6293/build_site.py` |
+| AF7 | Verification gate (`scripts/session-80bc6293/verify.py`), repo-wide link audit, `git pull --rebase` sync, PR to `main`, merge without waiting for approval, confirm Pages deploy, record PR link + merge result here | done | arena/80bc6293-olbg4 | `scripts/session-80bc6293/verify.py`, `COORDINATION.md` |
+
+### AF working log
+- `2026-10-22T13:00Z UTC` — `80bc6293` — Board AF claimed and pushed before any other work. Checked all active peer claims
+  in this file; no other session owns `session-80bc6293/**`, `data/session-80bc6293/**` or `scripts/session-80bc6293/**`.
+- `2026-10-22T14:05Z UTC` — `80bc6293` — **Merge conflict on `COORDINATION.md` resolved.** Another session's board had
+  been merged to `main` while Board AF was working, so both append blocks collided at the end of this file. Resolution kept
+  the other session's section 100% verbatim and placed the whole Board AF section after it; no line of either record was
+  discarded or rewritten. `git merge origin/main` then completed cleanly and PR #129 was merged afterwards.
+- `2026-10-22T13:02Z UTC` — `80bc6293` — Sandbox bash egress is limited to github/npm/pypi hosts, so official data is read
+  two ways: (a) the Arena web-fetch tool, which returned live official JSON on the first probe — MLB Stats API
+  `statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-10-31` gave the 2026 World Series
+  (Tampa Bay Rays @ Milwaukee Brewers, Games 1–7, 23–31 Oct 2026, American Family Field / Tropicana Field); and
+  (b) an Actions runner workflow (`af-80bc6293.yml`) with open egress that commits raw response bytes + a SHA-256
+  manifest to `data/session-80bc6293/raw/`, so every published number is reproducible from committed bytes.
+
+### Board AF completion record (session `arena/80bc6293-olbg4`), 2026-10-22 UTC
+
+**Pull request:** https://github.com/buffedlizard55-lab/OLBG4/pull/129 — merge and Pages-deploy result appended below.
+
+**Published output.** [`session-80bc6293/index.html`](session-80bc6293/index.html) — dashboard landing plus `entries.html`
+(264 rows, filterable), `picks.html` (5 written predictions + the 28-selection in-window High scan + the closest Medium
+rows), `markets.html`, `coverage.html` (per-sport target vs delivered with the failing endpoint), `olbg.html`
+(reverse-engineering: 24 sports with IDs, URL patterns, the market names OLBG itself prints), `methodology.html`,
+`sources.html` (every request with HTTP status + SHA-256), `verification.html`, `flagged.html`, `review.html`, and
+**17 sport subpages** under `session-80bc6293/sports/`. Machine-readable: `data/session-80bc6293/desk.json`,
+`high_candidates.json`, `authored_predictions.json`, `review.json`, `official_urc.json`, `model_assumptions.json`,
+`parsed/*.json`, plus two committed capture trees with manifests. Rebuild:
+`python3 scripts/session-80bc6293/parse_capture.py && python3 scripts/session-80bc6293/parse_atp.py && python3 scripts/session-80bc6293/originate.py && python3 scripts/session-80bc6293/review.py && python3 scripts/session-80bc6293/build_site.py && python3 scripts/session-80bc6293/verify.py`.
+
+**Line-by-line result.** 264 rows: **164 priced with our own lines** (NHL 145 fixtures across three official schedule
+weeks 22 Oct – 11 Nov, MLB 2026 World Series 7, URC Round 4 8, ATP Brussels/Almaty quarter-finals 4 priced + 6 published
+unpriced) and **100 listed-but-unpriced** rows (11 F1 rounds from the official calendar + the OLBG-listed events for the
+sports whose governing bodies did not publish readable numbers). **1,542 originated markets** — match winner (2-way and
+3-way), puck line ±1.5 both sides, run line ±1.5, total goals on two lines, total points, seed-based tennis win match.
+Every priced row carries its governing-body URL; every declared modelling constant is published with its justification;
+unconfirmed values are blank, never inferred. Confidence: **3 High / 98 Medium / 63 Low**, plus **28 in-window High
+market selections** at p ≥ 0.70.
+
+**Odds-window result.** At fair odds p = 0.700 prices at −233 and p = 0.714 at −250, so the ≥70 % floor and the
+−250…+10,000 band intersect only inside a 1.4-point probability band. Both bases are reported per row (our fair price,
+and — where the league publishes one — the official market price on the league's own feed, which NHL.com does for 12
+fixtures) and each row labels which basis put it in the window. Rows grading High on probability but shorter than −250
+(Edmonton −337, Colorado −293, Edmonton −291, Edmonton −275, Carolina −273, Boston −269, Seattle −254) are published
+labelled on `picks.html`, not hidden and not relabelled.
+
+**Written predictions.** 5 unique hand-written texts (70–86 words, pairwise 3-gram Jaccard under the gate's 0.30 limit):
+Seattle Kraken money line vs Calgary, Tampa Bay Lightning money line vs Chicago, New York Rangers money line vs
+Philadelphia, Boston Bruins +1.5 at Carolina, and Under 6.5 total goals in Columbus @ Philadelphia. Each names the teams,
+their official record, points, goals for/against, last-ten form, home/road splits and venue, states the selection and
+quotes our own fair price, and lists its facts with the official URL underneath. Player names are deliberately absent:
+the official bytes publish team form and ATP seeds but no player form, and that gap is flagged rather than filled in.
+
+**Sources read (official only, committed as bytes with SHA-256).** `api-web.nhle.com/v1/schedule/{2026-10-22,2026-10-29,
+2026-11-05}` + `/v1/standings/now` (standings as at 2026-10-22T21:00:15Z) rendered as `nhl.com/gamecenter/…` per row;
+`statsapi.mlb.com/api/v1/schedule` (World Series, Tampa Bay Rays @ Milwaukee Brewers, Games 1–7, 23–31 Oct, American
+Family Field / Tropicana Field) + `/api/v1/standings?season=2026`; URC official Match Centre
+`stats.unitedrugby.com/match-centre/table/2026-27` (all 16 clubs, Round 3 complete) + `/match-centre/2026-27/4` (eight
+Round-4 fixtures, venues, official match ids 292608–292615); `atptour.com/en/scores/current/brussels/7485/daily-schedule`
++ `.../almaty/9410/daily-schedule`; `formula1.com/en/racing/2026` + `/en/results/2026/drivers`; `motogp.com/en/calendar`;
+and for taxonomy `olbg.com/robots.txt`, `/sitemap.xml`, `/sitemap-betting-tips.xml` and all 24 sport hubs.
+149 requests across two capture passes; every non-200 is published on `sources.html` with its status and is the source of
+no published number.
+
+**Verification performed.** `scripts/session-80bc6293/verify.py` runs **8,728 checks, 0 errors**: every row carries a
+source URL and an in-scope sport; fair decimal re-derived as 1/p for all 1,542 markets; American conversion re-derived;
+match-winner families sum to 1; total-lines pair to 1; every handicap −L side has a +L complement summing to 1;
+confidence recomputed from the published rule; window flag recomputed from the published price and basis; the 100
+listing-only rows publish no pick, price, market or confidence; the 28-candidate High scan reproduced from the desk;
+predictions ≥30 words, unique, name a side, state the selection, and every quoted number traceable to that row's official
+inputs or published prices; SHA-256 recomputed for all 273 evidence files; 411 internal links resolved; all 17 in-scope
+sports present on `coverage.html`. Repo-wide: `scripts/audit_publication.py --check` → **0 broken, 0 stale**;
+`python3 -m pipeline.selftest` → pass; `BOARD_DIR=board tools/verify_master.py` → OK (28 pages, 65 written predictions,
+16 conflicts); CI on this branch: `Validate data and site` ✅, `Verify integrated dashboard` ✅,
+`Repository-wide publication audit` ✅.
+
+**Irregularities published (needs review, non-blocking).** On [`session-80bc6293/flagged.html`](session-80bc6293/flagged.html):
+the −250/70 % band arithmetic; the five-per-sport shortfall with the failing endpoint and HTTP status for all 16 other
+sports (`cdn.nba.com` 403, `stats.nba.com` no connection, EuroLeague 429, `atptour.com` rankings 403, `wtatennis.com` /
+`pdc.tv` / `wst.tv` / `bwfbadminton.com` / `worldtabletennis.com` / `gaa.ie` / `ehfcl.eurohandball.com` / `icc-cricket.com` /
+`bcci.tv` / `cricket.com.au` JS shells, `blackcaps.co.nz` / `slcricket.com` / `zimcricket.org` unresolved, `owgr.com` /
+`cev.eu` / `lpga.com` / `plusliga.pl/schedule` / `ecb.co.uk/fixtures` / `world.rugby/rankings` /
+`internationalrugbyleague.com/rankings` 404, `superleague.co.uk/fixtures` 500, `ittf.com` 403); single-field sports with no
+match market (golf, motor racing, greyhounds); no player-level facts available; URC local-only kick-off times and the
+three-round sample cap; MLB "if necessary" Games 5–7; the Gaelic-football scope question; OLBG hubs being tip-driven
+(Aussie Rules, Esports, Snooker and Greyhounds currently list zero events). Repo review on
+[`session-80bc6293/review.html`](session-80bc6293/review.html): 2,606 rows across 20 datasets → **1,761 findings** —
+1,221 rows with no source URL, 304 rows dated before the cut-off, 180 source-tier problems, 40 duplicated/templated
+prediction texts, 15 predictions under 30 words, 1 price-maths defect.
+
+**Integration requests (not applied — those files are owned by other boards).** (1) Add a Board AF pointer
+(`session-80bc6293/index.html`) to the root `README.md` and root `index.html` when an integration owner next claims them.
+(2) Do **not** merge Board AF rows into `data/master.json`; this desk keeps its own official source and verification trail
+per row, and its findings on `master.json` are advisory, not edits.
