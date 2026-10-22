@@ -39,6 +39,9 @@ jobs:
       - name: Fetch official rankings and standings
         run: python3 scripts/session-3a6388d2/collect_rankings.py
 
+      - name: Fetch corrected URLs with SPA payloads preserved
+        run: python3 scripts/session-3a6388d2/collect3.py
+
       - name: Commit the snapshot
         run: |
           set -uo pipefail
