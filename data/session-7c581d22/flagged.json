@@ -1,0 +1,86 @@
+[
+ {
+  "id": "AD-F01",
+  "title": "70% rule vs -250 window arithmetic",
+  "detail": "At fair odds, a selection with p>=0.70 prices at -233 or shorter; it sits inside the brief's -250..+10,000 focus window only while p<=0.7143 (fair -250). Genuine high-confidence selections stronger than that are therefore published separately as 'High — shorter than -250' instead of being relabelled or dropped.",
+  "source_url": "https://buffedlizard55-lab.github.io/OLBG4/session-7c581d22/methodology.html"
+ },
+ {
+  "id": "AD-F02",
+  "title": "NHL standings are through 21 Oct games",
+  "detail": "The official standings payload (standingsDateTimeUtc 2026-10-22T12:00:45Z, standings date 2026-10-21) does not include the 22 Oct slate, which had not been played at capture. Form inputs lag one matchday for teams playing on 22 Oct.",
+  "source_url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+ },
+ {
+  "id": "AD-F03",
+  "title": "pdc.tv direct fetch blocked by consent wall in this environment",
+  "detail": "Fetching the official PDC schedule article returned only cookie-consent text. The Friday 23 Oct schedule was read from the search-index excerpt of that same pdc.tv page and the seeded bracket cross-checked against two verbatim republications of the official draw; every PDC row links the official pdc.tv article for manual review. Ties should be re-confirmed on pdc.tv before use.",
+  "source_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+ },
+ {
+  "id": "AD-F04",
+  "title": "Darts prices use European Tour OOM seeding, not world ranking",
+  "detail": "Seeding reflects 2026 European Tour earnings only. pdc.tv itself notes world number one Luke Littler is seeded 11 and Luke Humphries (world number two, seeded 12) withdrew on 22 Oct through illness (gastroenteritis). Darts confidence is capped at Medium; no leg handicap/total originated.",
+  "source_url": "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship"
+ },
+ {
+  "id": "AD-F05",
+  "title": "WTA Osaka quarter-finals unpriced — rankings not officially readable here",
+  "detail": "wtatennis.com/rankings/singles returned no ranking table in this environment and the WTA player API object for Ann Li (326096) carries no ranking field. The four verified QFs are listed with seeds and last results only; prices blank.",
+  "source_url": "https://www.wtatennis.com/rankings/singles"
+ },
+ {
+  "id": "AD-F06",
+  "title": "LoL Worlds Swiss openers unpriced — feed records are 0-0",
+  "detail": "Riot's official schedule feed lists every Swiss round-one team at 0 wins / 0 losses and later Swiss slots as TBD v TBD. No strength input was invented; the eight named series are listed unpriced.",
+  "source_url": "https://lolesports.com/en-US/leagues/worlds"
+ },
+ {
+  "id": "AD-F07",
+  "title": "EuroLeague: derived standings + Israeli home games staged abroad",
+  "detail": "Records/PPG were computed by this build from the 61 played scores inside the official games feed (not copied from an official table). Per the feed's venue fields, Maccabi Rapyd Tel Aviv's listed home venue is Aleksandar Nikolic Hall and Hapoel IBI Tel Aviv's are in Botevgrad/Sofia — outside Israel; the flat +2.2 home edge is still applied and may overstate their edge.",
+  "source_url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/"
+ },
+ {
+  "id": "AD-F08",
+  "title": "NBA fixtures not officially readable in this environment",
+  "detail": "Attempts 2026-10-22: nba.com/schedule and nba.com/games returned shells/calendar-counts only (23 Oct = 12 games per the calendar), cdn.nba.com todaysScoreboard returned HTTP 500, stats.nba.com fetch failed; committed captures show scheduleLeagueV2 at HTTP 403. No NBA pairing is published rather than risk an unverified one.",
+  "source_url": "https://www.nba.com/schedule"
+ },
+ {
+  "id": "AD-F09",
+  "title": "Tennis (ATP) and snooker pairings for 23 Oct did not exist at capture",
+  "detail": "atptour.com showed Almaty/Brussels/Lyon round-of-16 matches still live on 22 Oct, so Friday quarter-final pairings were incomplete; wst.tv listed Northern Ireland Open Round 3 on 22 Oct with quarter-finals to follow. Neither sport's 23 Oct pairings are guessed.",
+  "source_url": "https://www.atptour.com/en/scores/current"
+ },
+ {
+  "id": "AD-F10",
+  "title": "MLB Games 5-7 are if-necessary; run line uses a Normal approximation",
+  "detail": "The official schedule flags World Series Games 5, 6 and 7 as if-necessary. Moneylines use log5 on verified 2026 home/away win percentages; run-line and total prices use a disclosed Normal run-differential approximation (sigma 4.1 / 4.6) rather than a full run-distribution model. Probable pitchers were not read and are not reflected.",
+  "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-11-05"
+ },
+ {
+  "id": "AD-F11",
+  "title": "Markets not originated",
+  "detail": "Period/quarter lines, player props, correct score, outrights, 180s/most-180s (darts), set betting (tennis), map handicaps (LoL) and team totals were investigated, but no verified official input for them was read this session, so they are absent rather than invented. Originated: moneyline/match winner everywhere priced, plus puck/run lines, spreads and match totals where the model supports them.",
+  "source_url": "https://buffedlizard55-lab.github.io/OLBG4/session-7c581d22/markets.html"
+ },
+ {
+  "id": "AD-F12",
+  "title": "Gaelic Football scope interpretation",
+  "detail": "The brief excludes 'football' and hurling. Following the repo taxonomy (data/olbg-structure.json), OLBG 'Football' (id 1) is soccer and is excluded; Gaelic Football (id 25) is a distinct GAA sport and is carried as in-scope coverage-only. Flagged for the owner's confirmation; no row depends on this call.",
+  "source_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+ },
+ {
+  "id": "AD-F13",
+  "title": "What was not checked on any row",
+  "detail": "Injuries, line-ups/starting goaltenders and pitchers, rest/travel beyond the published schedule, weather, referees, head-to-head history beyond the form fields printed per row, and any market/line movement. Confidence grades reflect the documented model + sample size only.",
+  "source_url": "https://buffedlizard55-lab.github.io/OLBG4/session-7c581d22/methodology.html"
+ },
+ {
+  "id": "AD-F14",
+  "title": "Integration request (not applied by Board AD)",
+  "detail": "Root README.md / index.html are another claim's files while PR #102 (Board AC) is open. Request: when a future integration owner next claims the root, add a Board AD pointer (session-7c581d22/) alongside Boards X/W/Z/AC.",
+  "source_url": "https://github.com/buffedlizard55-lab/OLBG4/pull/102"
+ }
+]
