@@ -107,20 +107,20 @@ def page(title, body, active, prefix=""):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)} · OLBG4 verified desk (Board T)</title>
+<title>{esc(title)} · OLBG4 verified desk (Board U)</title>
 <meta name="description" content="Freshly verified fixtures for 22-27 October 2026, our own originated lines, and High-confidence picks with one official source on every row.">
 <link rel="stylesheet" href="{prefix}assets/style.css">
 </head>
 <body>
 <header class="topbar"><div class="wrap bar">
-<a class="brand" href="{prefix}index.html"><span class="mark">O4</span><span>OLBG4 <small>verified desk &middot; Board T</small></span></a>
+<a class="brand" href="{prefix}index.html"><span class="mark">O4</span><span>OLBG4 <small>verified desk &middot; Board U</small></span></a>
 <nav class="nav">{links}</nav>
 </div></header>
 <main class="wrap">
 {body}
 </main>
 <footer class="wrap foot">
-<p><strong>Board T</strong> &middot; session <code>arena/c92c927c-olbg4</code> &middot; data read 2026-10-22 &middot;
+<p><strong>Board U</strong> &middot; session <code>arena/c92c927c-olbg4</code> &middot; data read 2026-10-22 &middot;
 every fixture carries a link to the official page it came from. Where an official page is silent the value is blank and the row is listed on
 <a href="{prefix}flagged.html">Flagged for review</a>. No bookmaker price is used anywhere in this desk.</p>
 <p><a href="{prefix}../index.html">&larr; Repository dashboard</a> &middot; <a href="{prefix}../board/index.html">Board P master board</a></p>
@@ -281,7 +281,7 @@ def build_pages(rows, preds, review, coverage, flags):
         for r in sorted(highs, key=lambda r: (r["date"], r["id"])))
     body = f"""
 <section class="hero">
-<p class="kicker">Board T &middot; fresh read 22 October 2026 &middot; window 22&ndash;27 October</p>
+<p class="kicker">Board U &middot; fresh read 22 October 2026 &middot; window 22&ndash;27 October</p>
 <h1>Every fixture re-read on the governing body's own site, priced by our model, one link per row.</h1>
 <p class="lede">This desk replaces guesswork with a short, checkable list. Each of the {len(rows)} fixtures below was opened on the
 official league page or official league API on 22 October 2026; the model then originated its own moneyline, handicap and total where the
@@ -664,7 +664,7 @@ def link_check(pages):
     return problems
 
 
-CSS = """/* Board T desk - single stylesheet, no external requests */
+CSS = """/* Board U desk - single stylesheet, no external requests */
 :root{--ink:#0f172a;--muted:#5b6779;--line:#e3e8ef;--bg:#f7f9fc;--card:#fff;--accent:#0b5cad;--high:#0b7a3b;--med:#9a5b00;--low:#8a2f2f}
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}

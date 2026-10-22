@@ -5,6 +5,26 @@ Four sessions worked this repo in parallel. This file is the merged board: Board
 Last board update: 2026-10-21 · current integration owners: `arena/d908be47-olbg4` (Board H, merged master board + new dashboard) — see the Board H section at the end of this file · earlier hub owner `arena/290a9dba-olbg4` (Board D)
 
 
+## Board E1 — session `arena/eb251d10-olbg4` (independent publication audit)
+
+Session `arena/eb251d10-olbg4` · branch `arena/eb251d10-olbg4` · claimed 2026-10-22 UTC · **status: active**
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| E1 | Independently reproduce repository validation and audit the published project’s key user requirements; record source-linked findings, confirmed limits, and any non-overlapping fixes without modifying other sessions’ fixtures or shared navigation. | done | arena/eb251d10-olbg4 | `session-eb251d10/**`, `data/session-eb251d10/**`, `COORDINATION.md` |
+
+**Claim boundary:** all existing fixture data, generators, root pages, and other session outputs are read-only. Deliver only an isolated review and evidence; if a shared-file change is needed, log it as an integration request here.
+
+### E1 completion record (2026-10-22 UTC)
+
+- **Deliverable:** [`session-eb251d10/index.html`](session-eb251d10/index.html) is an independent, source-linked publication audit with market coverage summary; [`session-eb251d10/flagged.html`](session-eb251d10/flagged.html) lists 10 open/held findings; [`data/session-eb251d10/audit.json`](data/session-eb251d10/audit.json) is the machine-readable audit; `session-eb251d10/build_audit.py` deterministically regenerates all three. It changes no fixture, line, pick, prediction, shared navigation or existing page.
+- **Reproduced metrics:** 317 canonical rows (312 in scope; 19 sport labels); 164 in-scope head-to-head fixtures dated 22 Oct or later, 150 strict carried / 14 held; 244 in-scope officially sourced and build-verified per master metadata; 40 rows lack a classified official source; a further 27 in-scope rows have an official-domain link but no original build-verification flag; 38 High rows, of which 33 are marked written and 5 templated; 66 of 68 unverified rows currently render at least one match/pick/market value in the board; 43 unverified rows render non-empty market text. The existing automated-pipeline review reports zero current predictions that meet both >=70% and American -250 to +10,000.
+- **Findings / integration requests (not applied outside scope):** README counts and route descriptions are stale; `data/olbg-structure.json` says Gaelic Football is in scope while `data/sports.json` excludes it and all five master rows are out of scope; the full canonical master is a 21 Oct snapshot rather than a live all-sport feed; the public generator displays values for unverified rows despite the brief requiring blanks; the committed OLBG scrape record says fixture visibility is limited by a tipped-event feed/Load More control and excludes untipped fixtures; both `Greyhound Racing` and `Greyhounds` appear in master sport labels; five High predictions are templated; and no current automated pick meets both requested focus filters. These are published on the audit's Flagged for Review page. Requested the integration owner to correct root README metadata, resolve Gaelic scope explicitly, gate public values on verification, and avoid describing the captured OLBG feed as exhaustive until complete schedule comparison is evidenced.
+- **Sources:** OLBG official sitemap and sport URLs; official row-source examples already present in the canonical record (including NHL.com API and EHF standings); source taxonomy and data files in this repository; latest GitHub Actions Pages run [39707686122](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39707686122). The audit did not make fresh sports-provider requests and does not claim new live verification; recorded URLs are provided for manual review.
+- **Verification:** `BOARD_DIR=board python3 tools/verify_master.py` passed; `python3 scripts/audit_publication.py --check` passed with 10,332 local targets, zero broken / stale; `python3 -m pipeline.selftest` passed; `python3 session-4e9d03cf/verify_review.py` passed; two consecutive `python3 session-eb251d10/build_audit.py` builds were deterministic; HTML parser checked both new pages and the JSON consistency assertions passed. GitHub Pages API reports latest `main` build `status=built`; Actions run 39707686122 concluded success. No provider pages were read in this session.
+
+
+
 ## Board S1 — session `arena/4e9d03cf-olbg4` (2026-10-22 freshness & publication review)
 
 Session: `arena/4e9d03cf-olbg4` | Branch: `arena/4e9d03cf-olbg4` | Claimed: 2026-10-22 UTC
@@ -2637,10 +2657,17 @@ All 9 predictions are 72–89 words, each quoting the verified form (standings, 
 
 **Site live (pending deploy of commit 1432418):** Board S dashboard at https://buffedlizard55-lab.github.io/OLBG4/session-77af9500/ — 144 rows, 9 High inside -250 to +10,000 (each 72–89 words, verified facts, obvious moneyline selection), 15 flagged, 15 sports, 23 pages, 0 broken links. Master board and Build A docs also live and updated with window enforcement. If deploy fails, will retry until live per brief.
 
-
+---
 ---
 
-## Board T — session `arena/c92c927c-olbg4` (fresh 22–27 Oct 2026 desk, re-verification, site rebuild, integration)
+## Board U — session `arena/c92c927c-olbg4`
+> **Board letter collision — resolved, nothing discarded.** This section claimed **T** at 2026-10-22 02:5xZ, when `main` was at `17a3728`
+> and Boards A–S plus S1 were the only records in this file. While it worked, session `arena/4ec1fc72-olbg4` independently claimed **T** as well
+> and merged first. Following the precedent set for the earlier K/L and K/R collisions, this board's record is **renamed U** —
+> the next free letter — and the other Board T record is kept verbatim below. The published directory stays `session-c92c927c/`
+> because it is keyed to the session id. No work was discarded on either side.
+
+## Board U — session `arena/c92c927c-olbg4` (fresh 22–27 Oct 2026 desk, re-verification, site rebuild, integration)
 
 Session `arena/c92c927c-olbg4` · branch `arena/c92c927c-olbg4` · claimed 2026-10-22 (UTC) · **status: done — merged (record below)**
 
@@ -2660,7 +2687,7 @@ section) plus, at final integration, the root navigation entry for its own desk.
 | T7 | Gates: deterministic rebuild, JSON validity, link check, official-source-per-row check, word-count/uniqueness check | done | arena/c92c927c-olbg4 | `scripts/session-c92c927c/**` |
 | T8 | Final integration: root navigation entry, PR → `main`, merge, confirm GitHub Pages deploy, record result here | done | arena/c92c927c-olbg4 | `COORDINATION.md`, root nav only |
 
-### Board T completion record (2026-10-22, session arena/c92c927c-olbg4)
+### Board U completion record (2026-10-22, session arena/c92c927c-olbg4)
 
 **Deliverable.** `session-c92c927c/` — a fresh desk for 22–27 October 2026, generated by
 `python3 scripts/session-c92c927c/build_site.py` from `data/session-c92c927c/`. 15 pages: dashboard, all-fixtures table with
@@ -2714,3 +2741,30 @@ stats.unitedrugby.com/match-centre/2026-27/4 (Round 4 fixtures + Round 3 results
 regenerate the root pages. A `session-c92c927c/index.html` entry was briefly added to the generator's NAV and reverted:
 the generator renders NAV paths relative to each output directory, so a path that leaves `board/` resolves to `./session-…`
 and breaks 10,576-target link checks. Recorded here so no later board repeats it.
+
+---
+---
+
+## Board T — session `arena/4ec1fc72-olbg4` (fresh 22–28 Oct verified desk, odds-window high picks)
+
+Session: `arena/4ec1fc72-olbg4` | Branch: `arena/4ec1fc72-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| T1 | Claim + audit prior boards/freshness | in progress | arena/4ec1fc72-olbg4 | `COORDINATION.md` (append only) |
+| T2 | Fresh official-source fixture/form collection 22–28 Oct 2026 for in-scope sports (excl. soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials) | unclaimed→in progress (T) | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `data/session-4ec1fc72/` |
+| T3 | Originate own win/handicap/total lines, confidence, ≥30-word unique predictions for High picks inside −250…+10000 | in progress | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `data/session-4ec1fc72/` |
+| T4 | Clean GitHub Pages sub-site (dashboard + per-sport + flagged + sources + verification), link check, PR→merge→Pages confirm | in progress | arena/4ec1fc72-olbg4 | `session-4ec1fc72/`, `COORDINATION.md` |
+
+**Claim boundary.** Non-overlapping: only `session-4ec1fc72/`, `data/session-4ec1fc72/` and appends to this file. No other board's data, root `index.html`, `data/master.json`, `data/rows.json` or generated root pages are edited. Integration request (root nav link to `session-4ec1fc72/`) is logged here for a final integration owner, not applied.
+**Method boundary.** Sandbox curl egress to sports domains fails (SSL_ERROR_SYSCALL, re-confirmed 2026-10-22); official pages/APIs are read with the agent web-fetch tool and the exact URL read is stored per row. No OLBG price/tip is copied — OLBG is taxonomy reference only (see `docs/olbg-reverse-engineering.md`). Unconfirmable values stay blank and are flagged.
+
+### Board T completion record (2026-10-22, session arena/4ec1fc72-olbg4)
+
+- **Published output:** `session-4ec1fc72/` (dashboard, High picks, markets, flagged, sources, methodology, verification, coverage + 4 sport pages) and `data/session-4ec1fc72/data.json`. 97 rows: NHL 49, NBA 29, MLB World Series G1-3, PDC darts 16 (fixture-verified, unpriced). 81 priced with own win/handicap/total lines (NBA totals and all darts markets investigated but deliberately unpriced — reasons flagged).
+- **Sources read 2026-10-22 (official only, exact URL per row):** NHL.com schedule 22-28 Oct + standings 21 Oct + api-web.nhle.com score feeds (team leaders); NBA.com Week-1 schedule + standings; MLB Stats API World Series schedule + 2026 standings (Rays 98-64 RS736/RA650, Brewers 103-59 RS832/RA618); pdc.tv European Championship schedule (Westfalenhalle, 22-25 Oct); wst.tv matches (coverage attempt). Sandbox curl to sports domains fails (SSL_ERROR_SYSCALL); pages were read with the agent web-fetch tool. No OLBG/bookmaker price copied — OLBG is taxonomy reference only.
+- **High-confidence result:** definition published on the methodology page — model p >=0.66 AND originated price in -250..+10000. Exactly 2 qualify: Edmonton Oilers ML vs Detroit 26 Oct (p 0.670, 1.436/-229, 118-word prediction: Draisaitl 8 goals, McDavid 20 assists, Oilers 7-1-1 GF41/GA27 vs Red Wings 3-3-3) and Minnesota Wild ML at Vancouver 25 Oct (p 0.664, 1.449/-223, 111 words: Kaprizov 11 goals, Hughes 11 assists, Wallstedt 6 wins vs Canucks 2-8-1 GF33/GA51). Two stronger model picks priced outside the window (NY Rangers 0.689 at -253; Edmonton 0.768 at -397 on 28 Oct) were capped at Medium and flagged, not promoted.
+- **Verification performed:** `python3 session-4ec1fc72/build.py` deterministic; `python3 session-4ec1fc72/verify.py` PASS (97 rows, 2 High, 24 flagged, 0 errors — official domains only, no excluded sport, High window/probability/prediction gates, pairwise prediction similarity, local links); `python3 scripts/audit_publication.py --check` PASS (10,470 local targets, 0 broken/stale); `python3 -m pipeline.selftest` PASS; all Board T pages + data.json returned HTTP 200 from a local static server.
+- **Irregularities published (Flagged for Review, `session-4ec1fc72/flagged.html`):** 2 outside-window downgrades; neutral-site MTL@WPG 25 Oct (Princess Auto Stadium, no home-ice term); NBA totals unpriced (no pace data) and all-NBA Low cap (0-1 games per club); MLB probable pitchers absent from schedule payload (no MLB High); 16 darts ties unpriced (no ranking for both players); snooker later-round pairings not on the WST page read; 15 in-scope sports not refreshed this session (listed on Coverage page, not re-badged); earlier boards' 21-Oct fixtures now completed/stale.
+- **Integration request (not applied):** add a root-nav link to `session-4ec1fc72/` in the master-board generator (`tools/build_master_site.py`) at the next integration session. Root pages, `data/master.json` and other boards' files were not edited.
+- **PR / merge / Pages:** recorded below after merge.
