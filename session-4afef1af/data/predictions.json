@@ -1,61 +1,7 @@
 [
   {
-    "text": "Philadelphia Flyers visit KeyBank Center to face Buffalo Sabres, and our model makes Buffalo Sabres a 60.4% favourite. Buffalo Sabres have won two of their last five. They most recently lost 3-4 to Montréal Canadiens on the road. We price that at -172, inclusive of our 4.5% two-way margin. Selection: Buffalo Sabres at -172.",
+    "text": "Nashville Predators visit TD Garden to face Boston Bruins, and our model makes Boston Bruins a 62.8% favourite. Boston Bruins have won four of their last five. They most recently lost 2-3 to Dallas Stars on the road. We price that at -191, inclusive of our 4.5% two-way margin. Selection: Boston Bruins at -191.",
     "word_count": 54,
-    "facts": [
-      {
-        "fact": "Buffalo Sabres vs Philadelphia Flyers, scheduled 2026-10-21T23:30:00Z",
-        "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152"
-      },
-      {
-        "fact": "Venue: KeyBank Center",
-        "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152"
-      },
-      {
-        "fact": "Buffalo Sabres record: 4-3-2",
-        "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152"
-      },
-      {
-        "fact": "Buffalo Sabres last five completed games: L 3-4, W 5-4, L 3-4, W 5-3, L 1-4",
-        "source": "https://www.nhl.com/gamecenter/buf-vs-mtl/2026/10/17/2026020126"
-      },
-      {
-        "fact": "Philadelphia Flyers record: 2-6-3",
-        "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152"
-      },
-      {
-        "fact": "Philadelphia Flyers last five completed games: W 3-2, W 3-1, L 1-2, L 2-3, L 1-4",
-        "source": "https://www.nhl.com/gamecenter/col-vs-phi/2026/10/19/2026020138"
-      },
-      {
-        "fact": "3 previous meeting(s) in the verified sample; most recent 2026-01-15 ended 2-5 (away-home)",
-        "source": "https://www.nhl.com/gamecenter/phi-vs-buf/2026/01/14/2025020736"
-      },
-      {
-        "fact": "Model win probability 60.4% priced at -172",
-        "source": "derived: pipeline/model.py + pipeline/markets.py"
-      }
-    ],
-    "variant": 0,
-    "market": "moneyline",
-    "selection": "Buffalo Sabres",
-    "fixture_id": "nhl-2026020152",
-    "sport": "ice_hockey",
-    "league": "NHL",
-    "match": "Philadelphia Flyers at Buffalo Sabres",
-    "start_utc": "2026-10-21T23:30:00Z",
-    "confidence": "high",
-    "price_decimal": 1.583,
-    "american": "-172",
-    "prob_pct": 60.4,
-    "source_urls": [
-      "https://www.nhl.com/gamecenter/phi-vs-buf/2026/10/21/2026020152",
-      "https://api-web.nhle.com/v1/schedule/2026-10-21"
-    ]
-  },
-  {
-    "text": "At TD Garden, the model splits this 62.6% in favour of Boston Bruins. Across their last five, Boston Bruins have averaged 4.2 goals scored and 2.0 conceded. They most recently lost 2-3 to Dallas Stars on the road. The model probability is 62.6%, and we quote -189. Selection: Boston Bruins at -189.",
-    "word_count": 52,
     "facts": [
       {
         "fact": "Boston Bruins vs Nashville Predators, scheduled 2026-10-22T23:00:00Z",
@@ -86,11 +32,11 @@
         "source": "https://www.nhl.com/gamecenter/bos-vs-nsh/2026/03/05/2025020979"
       },
       {
-        "fact": "Model win probability 62.6% priced at -189",
+        "fact": "Model win probability 62.8% priced at -191",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 1,
+    "variant": 0,
     "market": "moneyline",
     "selection": "Boston Bruins",
     "fixture_id": "nhl-2026020154",
@@ -99,17 +45,17 @@
     "match": "Nashville Predators at Boston Bruins",
     "start_utc": "2026-10-22T23:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.528,
-    "american": "-189",
-    "prob_pct": 62.6,
+    "price_decimal": 1.524,
+    "american": "-191",
+    "prob_pct": 62.8,
     "source_urls": [
       "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154",
       "https://api-web.nhle.com/v1/schedule/2026-10-22"
     ]
   },
   {
-    "text": "We make the total 5.5, against 6.5 at the open. The recent scoring profile is 3.2 for New York Rangers and 3.6 for Toronto Maple Leafs. At -244 the implied probability is 67.9%. We are taking Under 6.5 at -244.",
-    "word_count": 40,
+    "text": "This total has been re-rated from 6.5 to 5.5 on the recent scoring data. The recent scoring profile is 3.2 for New York Rangers and 3.6 for Toronto Maple Leafs. At -246 the implied probability is 68%. We are taking Under 6.5 at -246.",
+    "word_count": 44,
     "facts": [
       {
         "fact": "Toronto Maple Leafs vs New York Rangers, scheduled 2026-10-22T23:00:00Z",
@@ -140,11 +86,11 @@
         "source": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/03/25/2025021136"
       },
       {
-        "fact": "Model win probability 67.9% priced at -244",
+        "fact": "Model win probability 68.0% priced at -246",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 2,
+    "variant": 1,
     "market": "total",
     "selection": "Under 6.5",
     "fixture_id": "nhl-2026020155",
@@ -153,17 +99,17 @@
     "match": "New York Rangers at Toronto Maple Leafs",
     "start_utc": "2026-10-22T23:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.41,
-    "american": "-244",
-    "prob_pct": 67.9,
+    "price_decimal": 1.407,
+    "american": "-246",
+    "prob_pct": 68.0,
     "source_urls": [
       "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155",
       "https://api-web.nhle.com/v1/schedule/2026-10-22"
     ]
   },
   {
-    "text": "Our model has Ottawa Senators 1.1 goals clear in this one, a 64.8% win probability. Across their last five, Ottawa Senators have averaged 2.4 goals scored and 2.8 conceded. They most recently lost 1-3 to Philadelphia Flyers on the road. The model probability is 64.8%, and we quote -210. We are backing Ottawa Senators at -210.",
-    "word_count": 56,
+    "text": "Our ratings have Ottawa Senators 1.2 goals clear of San Jose Sharks going into this one. Across their last five, Ottawa Senators have averaged 2.8 goals scored and 2.6 conceded. They most recently beat Florida Panthers 5-1 at home. Our price of -226 reflects a 66.3% win probability. Selection: Ottawa Senators at -226.",
+    "word_count": 53,
     "facts": [
       {
         "fact": "Ottawa Senators vs San Jose Sharks, scheduled 2026-10-22T23:00:00Z",
@@ -174,12 +120,12 @@
         "source": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156"
       },
       {
-        "fact": "Ottawa Senators record: 6-3-0",
+        "fact": "Ottawa Senators record: 7-3-0",
         "source": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156"
       },
       {
-        "fact": "Ottawa Senators last five completed games: L 1-3, W 2-1, L 2-7, W 4-1, W 3-2",
-        "source": "https://www.nhl.com/gamecenter/ott-vs-phi/2026/10/17/2026020128"
+        "fact": "Ottawa Senators last five completed games: W 5-1, L 1-3, W 2-1, L 2-7, W 4-1",
+        "source": "https://www.nhl.com/gamecenter/fla-vs-ott/2026/10/21/2026020153"
       },
       {
         "fact": "San Jose Sharks record: 5-4-1",
@@ -194,11 +140,11 @@
         "source": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/03/15/2025021058"
       },
       {
-        "fact": "Model win probability 64.8% priced at -210",
+        "fact": "Model win probability 66.3% priced at -226",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 3,
+    "variant": 2,
     "market": "moneyline",
     "selection": "Ottawa Senators",
     "fixture_id": "nhl-2026020156",
@@ -207,70 +153,16 @@
     "match": "San Jose Sharks at Ottawa Senators",
     "start_utc": "2026-10-22T23:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.476,
-    "american": "-210",
-    "prob_pct": 64.8,
+    "price_decimal": 1.442,
+    "american": "-226",
+    "prob_pct": 66.3,
     "source_urls": [
       "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
       "https://api-web.nhle.com/v1/schedule/2026-10-22"
     ]
   },
   {
-    "text": "New York Islanders rate 0.7 goals stronger than Los Angeles Kings in our model, a 60.4% win probability. Across their last five, New York Islanders have averaged 2.8 goals scored and 2.4 conceded. They most recently beat Anaheim Ducks 3-2 at home. Our price of -171 reflects a 60.4% win probability. We are backing New York Islanders at -171.",
-    "word_count": 59,
-    "facts": [
-      {
-        "fact": "New York Islanders vs Los Angeles Kings, scheduled 2026-10-22T23:30:00Z",
-        "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
-      },
-      {
-        "fact": "Venue: UBS Arena",
-        "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
-      },
-      {
-        "fact": "New York Islanders record: 5-3-1",
-        "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
-      },
-      {
-        "fact": "New York Islanders last five completed games: W 3-2, W 4-1, L 1-2, W 3-2, L 3-5",
-        "source": "https://www.nhl.com/gamecenter/ana-vs-nyi/2026/10/20/2026020143"
-      },
-      {
-        "fact": "Los Angeles Kings record: 1-4-2",
-        "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159"
-      },
-      {
-        "fact": "Los Angeles Kings last five completed games: W 5-2, L 1-4, L 1-4, L 1-2, L 1-2",
-        "source": "https://www.nhl.com/gamecenter/lak-vs-wsh/2026/10/20/2026020144"
-      },
-      {
-        "fact": "2 previous meeting(s) in the verified sample; most recent 2026-03-13 ended 3-2 (away-home)",
-        "source": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/03/13/2025021041"
-      },
-      {
-        "fact": "Model win probability 60.4% priced at -171",
-        "source": "derived: pipeline/model.py + pipeline/markets.py"
-      }
-    ],
-    "variant": 4,
-    "market": "moneyline",
-    "selection": "New York Islanders",
-    "fixture_id": "nhl-2026020159",
-    "sport": "ice_hockey",
-    "league": "NHL",
-    "match": "Los Angeles Kings at New York Islanders",
-    "start_utc": "2026-10-22T23:30:00Z",
-    "confidence": "high",
-    "price_decimal": 1.585,
-    "american": "-171",
-    "prob_pct": 60.4,
-    "source_urls": [
-      "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159",
-      "https://api-web.nhle.com/v1/schedule/2026-10-22"
-    ]
-  },
-  {
-    "text": "We make Dallas Stars a 66.1% chance to beat Winnipeg Jets at American Airlines Center. Across their last five, Dallas Stars have averaged 2.6 goals scored and 1.8 conceded. They most recently beat Boston Bruins 3-2 at home. The model probability is 66.1%, and we quote -223. The pick is Dallas Stars at -223.",
+    "text": "Our model has Dallas Stars 1.2 goals clear in this one, a 66.1% win probability. Across their last five, Dallas Stars have averaged 2.6 goals scored and 1.8 conceded. They most recently beat Boston Bruins 3-2 at home. The model probability is 66.1%, and we quote -223. We are backing Dallas Stars at -223.",
     "word_count": 54,
     "facts": [
       {
@@ -306,7 +198,7 @@
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 5,
+    "variant": 3,
     "market": "moneyline",
     "selection": "Dallas Stars",
     "fixture_id": "nhl-2026020161",
@@ -315,7 +207,7 @@
     "match": "Winnipeg Jets at Dallas Stars",
     "start_utc": "2026-10-23T00:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.449,
+    "price_decimal": 1.448,
     "american": "-223",
     "prob_pct": 66.1,
     "source_urls": [
@@ -324,8 +216,8 @@
     ]
   },
   {
-    "text": "Minnesota Wild visit Scotiabank Saddledome to face Calgary Flames, and our model makes Minnesota Wild a 68.4% favourite. Across their last five, Minnesota Wild have averaged 3.2 goals scored and 3.2 conceded. They most recently lost 3-4 to Edmonton Oilers on the road. Our price of -250 reflects a 68.4% win probability. The pick is Minnesota Wild at -250.",
-    "word_count": 59,
+    "text": "Minnesota Wild rate 1.4 goals stronger than Calgary Flames in our model, a 68.1% win probability. Across their last five, Minnesota Wild have averaged 3.2 goals scored and 3.2 conceded. They most recently lost 3-4 to Edmonton Oilers on the road. Our price of -246 reflects a 68.1% win probability. We are backing Minnesota Wild at -246.",
+    "word_count": 57,
     "facts": [
       {
         "fact": "Calgary Flames vs Minnesota Wild, scheduled 2026-10-23T01:00:00Z",
@@ -356,11 +248,11 @@
         "source": "https://www.nhl.com/gamecenter/cgy-vs-min/2026/01/29/2025020853"
       },
       {
-        "fact": "Model win probability 68.4% priced at -250",
+        "fact": "Model win probability 68.1% priced at -246",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 6,
+    "variant": 4,
     "market": "moneyline",
     "selection": "Minnesota Wild",
     "fixture_id": "nhl-2026020162",
@@ -369,17 +261,17 @@
     "match": "Minnesota Wild at Calgary Flames",
     "start_utc": "2026-10-23T01:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.4,
-    "american": "-250",
-    "prob_pct": 68.4,
+    "price_decimal": 1.406,
+    "american": "-246",
+    "prob_pct": 68.1,
     "source_urls": [
       "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
       "https://api-web.nhle.com/v1/schedule/2026-10-22"
     ]
   },
   {
-    "text": "Minnesota Wild sit 0.5 goals clear of Calgary Flames on our board; the opener had it at 0.5. Recent form favors Minnesota Wild, who have won three of their last five, while Calgary Flames have won two of their last five. We price the cover at -171, a 60.4% probability. We are taking Minnesota Wild -0.5 at -171.",
-    "word_count": 58,
+    "text": "We opened this Puck line at +0.5 and now make it -0.5, a move of 0.65 goals. Minnesota Wild have won three of their last five. We price the cover at -172, a 60.5% probability. We are taking Minnesota Wild -0.5 at -172.",
+    "word_count": 43,
     "facts": [
       {
         "fact": "Calgary Flames vs Minnesota Wild, scheduled 2026-10-23T01:00:00Z",
@@ -410,11 +302,11 @@
         "source": "https://www.nhl.com/gamecenter/cgy-vs-min/2026/01/29/2025020853"
       },
       {
-        "fact": "Model win probability 60.4% priced at -171",
+        "fact": "Model win probability 60.5% priced at -172",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 7,
+    "variant": 5,
     "market": "handicap",
     "selection": "Minnesota Wild -0.5",
     "fixture_id": "nhl-2026020162",
@@ -423,17 +315,17 @@
     "match": "Minnesota Wild at Calgary Flames",
     "start_utc": "2026-10-23T01:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.585,
-    "american": "-171",
-    "prob_pct": 60.4,
+    "price_decimal": 1.582,
+    "american": "-172",
+    "prob_pct": 60.5,
     "source_urls": [
       "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
       "https://api-web.nhle.com/v1/schedule/2026-10-22"
     ]
   },
   {
-    "text": "Our ratings have Montréal Canadiens 1.0 goals clear of Chicago Blackhawks going into this one. Montréal Canadiens have won three of their last five. They most recently lost 3-4 to San Jose Sharks at home. Our price of -180 reflects a 61.4% win probability. We are taking Montréal Canadiens at -180.",
-    "word_count": 51,
+    "text": "Montréal Canadiens visit United Center to face Chicago Blackhawks, and our model makes Montréal Canadiens a 61.2% favourite. Across their last five, Montréal Canadiens have averaged 3.2 goals scored and 3.0 conceded. They most recently lost 3-4 to San Jose Sharks at home. Our price of -177 reflects a 61.2% win probability. The pick is Montréal Canadiens at -177.",
+    "word_count": 59,
     "facts": [
       {
         "fact": "Chicago Blackhawks vs Montréal Canadiens, scheduled 2026-10-24T00:00:00Z",
@@ -464,11 +356,11 @@
         "source": "https://www.nhl.com/gamecenter/chi-vs-mtl/2025/12/18/2025020536"
       },
       {
-        "fact": "Model win probability 61.4% priced at -180",
+        "fact": "Model win probability 61.2% priced at -177",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 8,
+    "variant": 6,
     "market": "moneyline",
     "selection": "Montréal Canadiens",
     "fixture_id": "nhl-2026020166",
@@ -477,17 +369,17 @@
     "match": "Montréal Canadiens at Chicago Blackhawks",
     "start_utc": "2026-10-24T00:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.557,
-    "american": "-180",
-    "prob_pct": 61.4,
+    "price_decimal": 1.565,
+    "american": "-177",
+    "prob_pct": 61.2,
     "source_urls": [
       "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
       "https://api-web.nhle.com/v1/schedule/2026-10-23"
     ]
   },
   {
-    "text": "We opened this total at 5.5; the current model projects 6.5. New Jersey Devils are averaging 3.8 goals; Los Angeles Kings are averaging 1.8. At -177 the implied probability is 61.1%. We are taking Over 5.5 at -177.",
-    "word_count": 38,
+    "text": "We make the total 6.5, against 5.5 at the open. New Jersey Devils are averaging 3.8 goals; Los Angeles Kings are averaging 1.8. At -178 the implied probability is 61.2%. We are taking Over 5.5 at -178.",
+    "word_count": 37,
     "facts": [
       {
         "fact": "New Jersey Devils vs Los Angeles Kings, scheduled 2026-10-24T19:30:00Z",
@@ -518,11 +410,11 @@
         "source": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/03/14/2025021050"
       },
       {
-        "fact": "Model win probability 61.1% priced at -177",
+        "fact": "Model win probability 61.2% priced at -178",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 9,
+    "variant": 7,
     "market": "total",
     "selection": "Over 5.5",
     "fixture_id": "nhl-2026020169",
@@ -531,17 +423,17 @@
     "match": "Los Angeles Kings at New Jersey Devils",
     "start_utc": "2026-10-24T19:30:00Z",
     "confidence": "high",
-    "price_decimal": 1.565,
-    "american": "-177",
-    "prob_pct": 61.1,
+    "price_decimal": 1.563,
+    "american": "-178",
+    "prob_pct": 61.2,
     "source_urls": [
       "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169",
       "https://api-web.nhle.com/v1/schedule/2026-10-24"
     ]
   },
   {
-    "text": "Boston Bruins rate 1.5 goals stronger than San Jose Sharks in our model, a 69.2% win probability. Boston Bruins have won four of their last five. They most recently lost 2-3 to Dallas Stars on the road. Our price of -262 reflects a 69.2% win probability. Selection: Boston Bruins at -262.",
-    "word_count": 51,
+    "text": "Our ratings have Boston Bruins 1.5 goals clear of San Jose Sharks going into this one. Boston Bruins have won four of their last five. They most recently lost 2-3 to Dallas Stars on the road. Our price of -260 reflects a 69.1% win probability. We are taking Boston Bruins at -260.",
+    "word_count": 52,
     "facts": [
       {
         "fact": "Boston Bruins vs San Jose Sharks, scheduled 2026-10-24T23:00:00Z",
@@ -572,11 +464,11 @@
         "source": "https://www.nhl.com/gamecenter/bos-vs-sjs/2026/10/13/2026020105"
       },
       {
-        "fact": "Model win probability 69.2% priced at -262",
+        "fact": "Model win probability 69.1% priced at -260",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 10,
+    "variant": 8,
     "market": "moneyline",
     "selection": "Boston Bruins",
     "fixture_id": "nhl-2026020170",
@@ -585,17 +477,17 @@
     "match": "San Jose Sharks at Boston Bruins",
     "start_utc": "2026-10-24T23:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.382,
-    "american": "-262",
-    "prob_pct": 69.2,
+    "price_decimal": 1.384,
+    "american": "-260",
+    "prob_pct": 69.1,
     "source_urls": [
       "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
       "https://api-web.nhle.com/v1/schedule/2026-10-24"
     ]
   },
   {
-    "text": "This total has been re-rated from 6.5 to 5.5 on the recent scoring data. Across their last five, Ottawa Senators have scored 2.4 and conceded 2.8 goals per game. At -375 the implied probability is 75.5%. We are taking Under 6.5 at -375.",
-    "word_count": 43,
+    "text": "We opened this total at 6.5; the current model projects 5.5. Ottawa Senators are averaging 2.8 goals; New York Rangers are averaging 3.2. At -365 the implied probability is 75.1%. We are taking Under 6.5 at -365.",
+    "word_count": 37,
     "facts": [
       {
         "fact": "Ottawa Senators vs New York Rangers, scheduled 2026-10-24T23:00:00Z",
@@ -606,12 +498,12 @@
         "source": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171"
       },
       {
-        "fact": "Ottawa Senators record: 6-3-0",
+        "fact": "Ottawa Senators record: 7-3-0",
         "source": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171"
       },
       {
-        "fact": "Ottawa Senators last five completed games: L 1-3, W 2-1, L 2-7, W 4-1, W 3-2",
-        "source": "https://www.nhl.com/gamecenter/ott-vs-phi/2026/10/17/2026020128"
+        "fact": "Ottawa Senators last five completed games: W 5-1, L 1-3, W 2-1, L 2-7, W 4-1",
+        "source": "https://www.nhl.com/gamecenter/fla-vs-ott/2026/10/21/2026020153"
       },
       {
         "fact": "New York Rangers record: 7-3-1",
@@ -626,11 +518,11 @@
         "source": "https://www.nhl.com/gamecenter/ott-vs-nyr/2026/03/23/2025021119"
       },
       {
-        "fact": "Model win probability 75.5% priced at -375",
+        "fact": "Model win probability 75.1% priced at -365",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 11,
+    "variant": 9,
     "market": "total",
     "selection": "Under 6.5",
     "fixture_id": "nhl-2026020171",
@@ -639,17 +531,17 @@
     "match": "New York Rangers at Ottawa Senators",
     "start_utc": "2026-10-24T23:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.267,
-    "american": "-375",
-    "prob_pct": 75.5,
+    "price_decimal": 1.274,
+    "american": "-365",
+    "prob_pct": 75.1,
     "source_urls": [
       "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
       "https://api-web.nhle.com/v1/schedule/2026-10-24"
     ]
   },
   {
-    "text": "Toronto Maple Leafs visit Rogers Place to face Edmonton Oilers, and our model makes Edmonton Oilers a 62.1% favourite. Edmonton Oilers are on a 2-game winning run. They most recently beat Minnesota Wild 4-3 at home. Our price of -185 reflects a 62.1% win probability. We are backing Edmonton Oilers at -185.",
-    "word_count": 52,
+    "text": "Edmonton Oilers rate 0.9 goals stronger than Toronto Maple Leafs in our model, a 62.2% win probability. Edmonton Oilers are on a 2-game winning run. They most recently beat Minnesota Wild 4-3 at home. Our price of -186 reflects a 62.2% win probability. Selection: Edmonton Oilers at -186.",
+    "word_count": 48,
     "facts": [
       {
         "fact": "Edmonton Oilers vs Toronto Maple Leafs, scheduled 2026-10-24T23:00:00Z",
@@ -680,11 +572,11 @@
         "source": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/02/03/2025020891"
       },
       {
-        "fact": "Model win probability 62.1% priced at -185",
+        "fact": "Model win probability 62.2% priced at -186",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 12,
+    "variant": 10,
     "market": "moneyline",
     "selection": "Edmonton Oilers",
     "fixture_id": "nhl-2026020176",
@@ -693,17 +585,17 @@
     "match": "Toronto Maple Leafs at Edmonton Oilers",
     "start_utc": "2026-10-24T23:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.54,
-    "american": "-185",
-    "prob_pct": 62.1,
+    "price_decimal": 1.539,
+    "american": "-186",
+    "prob_pct": 62.2,
     "source_urls": [
       "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
       "https://api-web.nhle.com/v1/schedule/2026-10-24"
     ]
   },
   {
-    "text": "At American Airlines Center, the model splits this 61.4% in favour of Dallas Stars. Form favours Dallas Stars, who have won three of their last five, while New York Islanders have won three of their last five. They most recently beat Boston Bruins 3-2 at home. The model probability is 61.4%, and we quote -179. The pick is Dallas Stars at -179.",
-    "word_count": 62,
+    "text": "We make Dallas Stars a 61.1% chance to beat New York Islanders at American Airlines Center. Dallas Stars are on a 3-game winning run. They most recently beat Boston Bruins 3-2 at home. The model probability is 61.1%, and we quote -177. We are backing Dallas Stars at -177.",
+    "word_count": 49,
     "facts": [
       {
         "fact": "Dallas Stars vs New York Islanders, scheduled 2026-10-25T22:00:00Z",
@@ -734,11 +626,11 @@
         "source": "https://www.nhl.com/gamecenter/dal-vs-nyi/2026/03/26/2025021141"
       },
       {
-        "fact": "Model win probability 61.4% priced at -179",
+        "fact": "Model win probability 61.1% priced at -177",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 13,
+    "variant": 11,
     "market": "moneyline",
     "selection": "Dallas Stars",
     "fixture_id": "nhl-2026020181",
@@ -747,17 +639,17 @@
     "match": "New York Islanders at Dallas Stars",
     "start_utc": "2026-10-25T22:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.559,
-    "american": "-179",
-    "prob_pct": 61.4,
+    "price_decimal": 1.565,
+    "american": "-177",
+    "prob_pct": 61.1,
     "source_urls": [
       "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
       "https://api-web.nhle.com/v1/schedule/2026-10-25"
     ]
   },
   {
-    "text": "Our ratings have Minnesota Wild 1.6 goals clear of Vancouver Canucks going into this one. Form favours Minnesota Wild, who have won three of their last five, while Vancouver Canucks have not won any of their last five. They most recently lost 3-4 to Edmonton Oilers on the road. Our price of -306 reflects a 72.1% win probability. The pick is Minnesota Wild at -306.",
-    "word_count": 65,
+    "text": "Minnesota Wild visit Rogers Arena to face Vancouver Canucks, and our model makes Minnesota Wild a 71.6% favourite. Minnesota Wild have won three of their last five. They most recently lost 3-4 to Edmonton Oilers on the road. Our price of -298 reflects a 71.6% win probability. We are backing Minnesota Wild at -298.",
+    "word_count": 54,
     "facts": [
       {
         "fact": "Vancouver Canucks vs Minnesota Wild, scheduled 2026-10-26T02:00:00Z",
@@ -788,11 +680,11 @@
         "source": "https://www.nhl.com/gamecenter/van-vs-min/2026/04/02/2025021199"
       },
       {
-        "fact": "Model win probability 72.1% priced at -306",
+        "fact": "Model win probability 71.6% priced at -298",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 14,
+    "variant": 12,
     "market": "moneyline",
     "selection": "Minnesota Wild",
     "fixture_id": "nhl-2026020184",
@@ -801,17 +693,17 @@
     "match": "Minnesota Wild at Vancouver Canucks",
     "start_utc": "2026-10-26T02:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.327,
-    "american": "-306",
-    "prob_pct": 72.1,
+    "price_decimal": 1.336,
+    "american": "-298",
+    "prob_pct": 71.6,
     "source_urls": [
       "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
       "https://api-web.nhle.com/v1/schedule/2026-10-25"
     ]
   },
   {
-    "text": "Our model has New York Rangers 0.9 goals clear in this one, a 62.1% win probability. Form favours New York Rangers, who have won three of their last five, while Los Angeles Kings have won one of their last five. They most recently beat Anaheim Ducks 5-2 at home. The model probability is 62.1%, and we quote -185. We are taking New York Rangers at -185.",
-    "word_count": 66,
+    "text": "At Madison Square Garden, the model splits this 62.2% in favour of New York Rangers. Form favours New York Rangers, who have won three of their last five, while Los Angeles Kings have won one of their last five. They most recently beat Anaheim Ducks 5-2 at home. The model probability is 62.2%, and we quote -186. The pick is New York Rangers at -186.",
+    "word_count": 65,
     "facts": [
       {
         "fact": "New York Rangers vs Los Angeles Kings, scheduled 2026-10-26T23:00:00Z",
@@ -842,11 +734,11 @@
         "source": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/03/16/2025021065"
       },
       {
-        "fact": "Model win probability 62.1% priced at -185",
+        "fact": "Model win probability 62.2% priced at -186",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 15,
+    "variant": 13,
     "market": "moneyline",
     "selection": "New York Rangers",
     "fixture_id": "nhl-2026020185",
@@ -855,16 +747,16 @@
     "match": "Los Angeles Kings at New York Rangers",
     "start_utc": "2026-10-26T23:00:00Z",
     "confidence": "high",
-    "price_decimal": 1.54,
-    "american": "-185",
-    "prob_pct": 62.1,
+    "price_decimal": 1.539,
+    "american": "-186",
+    "prob_pct": 62.2,
     "source_urls": [
       "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
       "https://api-web.nhle.com/v1/schedule/2026-10-26"
     ]
   },
   {
-    "text": "We make the Puck line +0.5 for Toronto Maple Leafs, having opened it at -0.5. Toronto Maple Leafs have won two of their last five. We price the cover at -206, a 64.4% probability. We are taking Toronto Maple Leafs +0.5 at -206.",
+    "text": "Our opening number was -0.5; the current model says +0.5. Toronto Maple Leafs hold a 5-4-2 record and have won two of their last five. We price the cover at -204, a 64.2% probability. We are taking Toronto Maple Leafs +0.5 at -204.",
     "word_count": 43,
     "facts": [
       {
@@ -896,11 +788,11 @@
         "source": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/02/02/2025020885"
       },
       {
-        "fact": "Model win probability 64.4% priced at -206",
+        "fact": "Model win probability 64.2% priced at -204",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 16,
+    "variant": 14,
     "market": "handicap",
     "selection": "Toronto Maple Leafs +0.5",
     "fixture_id": "nhl-2026020186",
@@ -909,17 +801,17 @@
     "match": "Toronto Maple Leafs at Calgary Flames",
     "start_utc": "2026-10-27T00:30:00Z",
     "confidence": "high",
-    "price_decimal": 1.486,
-    "american": "-206",
-    "prob_pct": 64.4,
+    "price_decimal": 1.49,
+    "american": "-204",
+    "prob_pct": 64.2,
     "source_urls": [
       "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
       "https://api-web.nhle.com/v1/schedule/2026-10-26"
     ]
   },
   {
-    "text": "We make Edmonton Oilers a 63.5% chance to beat Detroit Red Wings at Rogers Place. Form favours Edmonton Oilers, who have won four of their last five, while Detroit Red Wings have won two of their last five. They most recently beat Minnesota Wild 4-3 at home. The model probability is 63.5%, and we quote -198. Selection: Edmonton Oilers at -198.",
-    "word_count": 61,
+    "text": "Our model has Edmonton Oilers 1.1 goals clear in this one, a 63.4% win probability. Form favours Edmonton Oilers, who have won four of their last five, while Detroit Red Wings have won two of their last five. They most recently beat Minnesota Wild 4-3 at home. The model probability is 63.4%, and we quote -196. We are taking Edmonton Oilers at -196.",
+    "word_count": 63,
     "facts": [
       {
         "fact": "Edmonton Oilers vs Detroit Red Wings, scheduled 2026-10-27T01:30:00Z",
@@ -950,11 +842,11 @@
         "source": "https://www.nhl.com/gamecenter/det-vs-edm/2025/12/11/2025020491"
       },
       {
-        "fact": "Model win probability 63.5% priced at -198",
+        "fact": "Model win probability 63.4% priced at -196",
         "source": "derived: pipeline/model.py + pipeline/markets.py"
       }
     ],
-    "variant": 17,
+    "variant": 15,
     "market": "moneyline",
     "selection": "Edmonton Oilers",
     "fixture_id": "nhl-2026020187",
@@ -963,12 +855,120 @@
     "match": "Detroit Red Wings at Edmonton Oilers",
     "start_utc": "2026-10-27T01:30:00Z",
     "confidence": "high",
-    "price_decimal": 1.506,
-    "american": "-198",
-    "prob_pct": 63.5,
+    "price_decimal": 1.509,
+    "american": "-196",
+    "prob_pct": 63.4,
     "source_urls": [
       "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
       "https://api-web.nhle.com/v1/schedule/2026-10-26"
+    ]
+  },
+  {
+    "text": "Dallas Stars rate 1.1 goals stronger than New Jersey Devils in our model, a 63.5% win probability. Form favours Dallas Stars, who have won three of their last five, while New Jersey Devils have won three of their last five. They most recently beat Boston Bruins 3-2 at home. Our price of -197 reflects a 63.5% win probability. We are taking Dallas Stars at -197.",
+    "word_count": 65,
+    "facts": [
+      {
+        "fact": "Dallas Stars vs New Jersey Devils, scheduled 2026-10-28T00:00:00Z",
+        "source": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193"
+      },
+      {
+        "fact": "Venue: American Airlines Center",
+        "source": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193"
+      },
+      {
+        "fact": "Dallas Stars record: 5-3-1",
+        "source": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193"
+      },
+      {
+        "fact": "Dallas Stars last five completed games: W 3-2, W 4-0, W 3-2, L 2-3, L 1-2",
+        "source": "https://www.nhl.com/gamecenter/bos-vs-dal/2026/10/20/2026020147"
+      },
+      {
+        "fact": "New Jersey Devils record: 5-4-0",
+        "source": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193"
+      },
+      {
+        "fact": "New Jersey Devils last five completed games: W 4-3, L 2-4, W 7-1, W 5-4, L 1-4",
+        "source": "https://www.nhl.com/gamecenter/col-vs-njd/2026/10/20/2026020142"
+      },
+      {
+        "fact": "2 previous meeting(s) in the verified sample; most recent 2026-03-25 ended 6-4 (away-home)",
+        "source": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/03/24/2025021130"
+      },
+      {
+        "fact": "Model win probability 63.5% priced at -197",
+        "source": "derived: pipeline/model.py + pipeline/markets.py"
+      }
+    ],
+    "variant": 16,
+    "market": "moneyline",
+    "selection": "Dallas Stars",
+    "fixture_id": "nhl-2026020193",
+    "sport": "ice_hockey",
+    "league": "NHL",
+    "match": "New Jersey Devils at Dallas Stars",
+    "start_utc": "2026-10-28T00:00:00Z",
+    "confidence": "high",
+    "price_decimal": 1.507,
+    "american": "-197",
+    "prob_pct": 63.5,
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193",
+      "https://api-web.nhle.com/v1/schedule/2026-10-27"
+    ]
+  },
+  {
+    "text": "We make Anaheim Ducks a 64.8% chance to beat Vancouver Canucks at Honda Center. Form favours Anaheim Ducks, who have won one of their last five, while Vancouver Canucks have not won any of their last five. They most recently lost 2-3 to New York Islanders on the road. The model probability is 64.8%, and we quote -209. Selection: Anaheim Ducks at -209.",
+    "word_count": 63,
+    "facts": [
+      {
+        "fact": "Anaheim Ducks vs Vancouver Canucks, scheduled 2026-10-28T02:00:00Z",
+        "source": "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197"
+      },
+      {
+        "fact": "Venue: Honda Center",
+        "source": "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197"
+      },
+      {
+        "fact": "Anaheim Ducks record: 4-5-0",
+        "source": "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197"
+      },
+      {
+        "fact": "Anaheim Ducks last five completed games: L 2-3, L 2-5, L 2-4, L 2-4, W 4-2",
+        "source": "https://www.nhl.com/gamecenter/ana-vs-nyi/2026/10/20/2026020143"
+      },
+      {
+        "fact": "Vancouver Canucks record: 2-8-1",
+        "source": "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197"
+      },
+      {
+        "fact": "Vancouver Canucks last five completed games: L 3-6, L 2-4, L 2-3, L 2-3, L 2-6",
+        "source": "https://www.nhl.com/gamecenter/car-vs-van/2026/10/20/2026020150"
+      },
+      {
+        "fact": "3 previous meeting(s) in the verified sample; most recent 2026-04-13 ended 4-3 (away-home)",
+        "source": "https://www.nhl.com/gamecenter/van-vs-ana/2026/04/12/2025021280"
+      },
+      {
+        "fact": "Model win probability 64.8% priced at -209",
+        "source": "derived: pipeline/model.py + pipeline/markets.py"
+      }
+    ],
+    "variant": 17,
+    "market": "moneyline",
+    "selection": "Anaheim Ducks",
+    "fixture_id": "nhl-2026020197",
+    "sport": "ice_hockey",
+    "league": "NHL",
+    "match": "Vancouver Canucks at Anaheim Ducks",
+    "start_utc": "2026-10-28T02:00:00Z",
+    "confidence": "high",
+    "price_decimal": 1.478,
+    "american": "-209",
+    "prob_pct": 64.8,
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197",
+      "https://api-web.nhle.com/v1/schedule/2026-10-27"
     ]
   }
 ]

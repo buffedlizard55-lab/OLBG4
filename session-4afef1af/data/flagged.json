@@ -3,7 +3,7 @@
     "id": "flag-001",
     "severity": "warning",
     "category": "market_withheld",
-    "detail": "NBA: markets and picks are withheld for 50 fixtures because the smallest per-team sample is under 20 completed games, so no line can be originated. The prior-season stats endpoint (stats.nba.com) timed out from the build runner and the schedule CDN carries only the current season, which is why the sample is this small. The fixtures, records and official source links are still published.",
+    "detail": "NBA: markets and picks are withheld for 47 fixtures because the smallest per-team sample is under 20 completed games, so no line can be originated. The prior-season stats endpoint (stats.nba.com) timed out from the build runner and the schedule CDN carries only the current season, which is why the sample is this small. The fixtures, records and official source links are still published.",
     "field": "markets",
     "value": null,
     "action": "published",
@@ -65,5 +65,22 @@
     "fixture_id": "mlb-849804",
     "match": "Milwaukee Brewers at Tampa Bay Rays",
     "start_utc": "2026-10-27T00:00:00Z"
+  },
+  {
+    "id": "flag-005",
+    "severity": "info",
+    "category": "missing_probable_pitcher",
+    "detail": "probable pitchers not yet announced; left blank rather than guessed",
+    "field": "probable_pitcher",
+    "value": null,
+    "action": "published_blank",
+    "source_urls": [
+      "https://www.mlb.com/gameday/849803",
+      "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849803"
+    ],
+    "sport": "baseball",
+    "fixture_id": "mlb-849803",
+    "match": "Milwaukee Brewers at Tampa Bay Rays",
+    "start_utc": "2026-10-28T00:00:00Z"
   }
 ]
