@@ -3131,3 +3131,21 @@ Session `arena/c4fda15e-olbg4` · branch `arena/c4fda15e-olbg4` (Arena fixes the
 - **Irregularities (published on `session-c4fda15e/flagged.html`):** OLBG NBA timestamps +10 min vs NBA.com tip times; Rockets@Spurs staged at Moody Center, Austin; Maccabi home game at Aleksandar Nikolic Hall; Leinster–Munster absent from the official URC fixture excerpt; PDC `prizeMoney` field ≠ Order of Merit (Wade £5.51m > Littler £4.87m) — not used; Gaelic Football scope ambiguity; board-letter collisions (U/V/W).
 - **Integration request (not applied — root files belong to the integration boards):** add a root-nav link to `session-c4fda15e/index.html` ("OLBG live listing, reconciled") at the next integration.
 - **PR / merge / Pages:** https://github.com/buffedlizard55-lab/OLBG4/pull/90 — **MERGED** `arena/c4fda15e-olbg4` → `main` at 2026-10-22T03:51:47Z (merge commit `f6e1204`). PR checks `audit`, `build-and-validate`, `verify` all passed before merge; post-merge on `main`: Validate ✓, Verify integrated dashboard ✓, Repository-wide publication audit ✓, "Deploy OLBG4 to GitHub Pages" ✓ and "pages build and deployment" ✓ (Pages API: `built`, commit `f6e1204`, 03:52:18Z). Live read-back over HTTPS: https://buffedlizard55-lab.github.io/OLBG4/session-c4fda15e/high.html served the merged High-picks page. Follow-up PR records this result (and a cosmetic date-label fix).
+
+## Board 4a73430b — session `arena/4a73430b-olbg4` (2026-10-22 fresh OLBG reverse-engineering + own lines + focus-window High picks)
+
+Session: `arena/4a73430b-olbg4` | Branch: `arena/4a73430b-olbg4` | Claimed: 2026-10-22 UTC
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| X1 | Reverse-engineer OLBG.com sport/market structure; inventory in-scope sports (excluding soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling, specials) | in progress | arena/4a73430b-olbg4 | `session-4a73430b/`, `data/session-4a73430b/`, `scripts/session-4a73430b/` |
+| X2 | Line-by-line re-verification of every current (>=2026-10-22) in-scope canonical fixture against official league/tour/federation sources; live re-check via official pages/APIs where reachable; blank+flag anything unconfirmed | in progress | arena/4a73430b-olbg4 | `data/session-4a73430b/` |
+| X3 | Originate own lines (match winner, handicap/spread, match total where official inputs exist), pick + Low/Medium/High confidence for every priced match | in progress | arena/4a73430b-olbg4 | `data/session-4a73430b/`, `scripts/session-4a73430b/` |
+| X4 | High-confidence focus desk: only picks with model probability >=70% AND fair American odds in [-250, +10000]; unique human predictions >=30 words naming team/player, form, recent history and obvious selection, facts only from official sources read live | in progress | arena/4a73430b-olbg4 | `data/session-4a73430b/predictions.json`, `session-4a73430b/` |
+| X5 | Clean GitHub Pages dashboard: landing + per-sport subpages + full tables + markets + analysis + Flagged for Review, every row with official source link | in progress | arena/4a73430b-olbg4 | `session-4a73430b/` |
+| X6 | Verification gate (sources, odds-window maths, prediction word-count/uniqueness, links) + repo-wide audit; PR to main, merge, Pages deploy confirmation | in progress | arena/4a73430b-olbg4 | `scripts/session-4a73430b/verify.py`, `COORDINATION.md` |
+
+**Claim boundary.** New non-overlapping deliverable. `data/master.json`, `board/`, root `*.html`, `data/matches.json`, `data/rows.json`, `data/board.json`, every other `session-*/` and `data/session-*/` folder, and all existing generators/workflows are read-only for this board. Root navigation/README pointer, if added, is additive only at final integration. Findings needing another owner's file are logged here, not applied.
+
+### 4a73430b working log
+- 2026-10-22 UTC — `4a73430b` — board claimed; scope `session-4a73430b/` + `data/session-4a73430b/` + `scripts/session-4a73430b/`; claim committed and pushed before any other work. Canonical baseline read: `data/master.json` 317 rows (312 in scope), 189 current (>=2026-10-22) in-scope fixtures, 30 current High. Freshest merged desks noted (e5f2dad3 Board W 226 matches; c4fda15e; cdf25c13 Board T) — read-only inputs, not overwritten.
