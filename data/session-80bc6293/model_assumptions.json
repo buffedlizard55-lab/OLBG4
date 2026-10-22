@@ -1,0 +1,142 @@
+{
+ "schema": "olbg4/board-af-assumptions/v1",
+ "policy": "Every constant below is either (a) computed from an official number committed in data/session-80bc6293/capture/, or (b) an explicitly declared modelling choice that is NOT presented as an official fact. Type (b) constants are also published on the Flagged for Review page so a reviewer can see exactly which numbers came from a source and which came from us.",
+ "min_games_for_high": 8,
+ "min_games_for_high_reason": "A row may only be graded High when both sides have at least 8 completed official matches behind the inputs, so a two- or three-round sample can never be sold as High confidence.",
+ "nhl": {
+  "shrinkage_games": 12,
+  "poisson_max_goals": 12,
+  "total_line": "auto",
+  "total_line_rule": "The total-goals line is the nearest half-goal to twice the official league average goals per team-game read from api-web.nhle.com/v1/standings/now, so the line is derived from official data rather than chosen.",
+  "derived_from_official": [
+   "league_goals_per_team_game",
+   "home_ice_multiplier",
+   "p_home_wins_ot_or_so",
+   "every team's GF/GA/points/L10/home-road split"
+  ],
+  "declared_modelling_choices": [
+   {
+    "name": "shrinkage_games (K=12)",
+    "value": 12,
+    "why": "After 9-11 games each team's own scoring rate is weighted GP/(GP+12) (about 43-48%) and the league mean the rest. This is a conservative prior so early-season flukes are not turned into High confidence."
+   },
+   {
+    "name": "Poisson independence",
+    "why": "Goals are treated as independent Poisson events up to 12 per side; the truncation loses under 0.05% of the mass at these rates."
+   },
+   {
+    "name": "OT/SO resolution",
+    "why": "A game level after regulation is awarded to the home side with the probability implied by the official home/road overtime-and-shootout win counts, not 50/50."
+   }
+  ]
+ },
+ "mlb": {
+  "run_margin_sigma": 4.5,
+  "home_field_runs": 0.25,
+  "derived_from_official": [
+   "both clubs' 2026 wins/losses",
+   "runs scored",
+   "runs allowed",
+   "league rank"
+  ],
+  "declared_modelling_choices": [
+   {
+    "name": "run_margin_sigma",
+    "value": 4.5,
+    "why": "The official standings feed publishes season runs scored and allowed but not game logs, so the spread of a single game margin cannot be read from an official number. 4.5 runs is declared as our modelling constant."
+   },
+   {
+    "name": "home_field_runs",
+    "value": 0.25,
+    "why": "Declared modelling constant: the MLB Stats API schedule feed carries no home/away run split for 2026 in the bytes we committed."
+   }
+  ]
+ },
+ "urc": {
+  "margin_sigma_points": "auto",
+  "margin_sigma_rule": "Computed as the standard deviation of the eight official Round-3 margins transcribed from the URC Match Centre (8 observations - a very small sample, published as a limitation).",
+  "home_advantage_points": 3.0,
+  "shrinkage_games": 6,
+  "draw_margin_points": 3,
+  "total_line": "auto",
+  "total_line_rule": "Nearest half-point to the model's own expected total, so the total line is not an arbitrary choice.",
+  "derived_from_official": [
+   "the full Round-3 table (PTS/PL/W/D/L/BP/PF/PA/DIFF/TF/TA/TB/LB/FORM for all 16 clubs)",
+   "the eight Round-3 results",
+   "the eight Round-4 fixtures with venues and official match ids"
+  ],
+  "declared_modelling_choices": [
+   {
+    "name": "home_advantage_points",
+    "value": 3.0,
+    "why": "Eight Round-3 results are not enough to fit a home advantage from official data; 3.0 points is declared as our modelling constant and the row is capped at Medium by the sample rule regardless."
+   },
+   {
+    "name": "draw_margin_points",
+    "value": 3,
+    "why": "A rugby union match counts as a draw when the final margin is inside 3 points; this is the sport's own scoring granularity (penalty goal = 3)."
+   },
+   {
+    "name": "shrinkage_games",
+    "value": 6,
+    "why": "After three rounds each club's own scoring is weighted 3/(3+6) = 33% and the league mean 67%, which is deliberately conservative."
+   }
+  ]
+ },
+ "confidence_rule": {
+  "High": "model probability >= 0.70 AND both sides have >= 8 completed official matches AND the selection's price sits inside -250...+10000 American (either our own fair price or, where the league publishes one, the official market price on that league's own feed).",
+  "Medium": "model probability >= 0.70 but the sample or the price window fails, OR 0.55 <= probability < 0.70.",
+  "Low": "probability < 0.55.",
+  "Blank": "no verified official numeric input - the row publishes its fixture only, with pick, price and confidence left empty and a reason recorded."
+ },
+ "window_rule": {
+  "band": [
+   -250,
+   10000
+  ],
+  "why_both_bases_are_reported": "At fair odds a probability of 70% prices at -233 and 71.4% prices at -250, so 'probability >= 70%' and 'our own fair price >= -250' can only both hold inside a 1.4-point probability band. That is a real property of the brief, not a bug: we therefore report BOTH tests on every row - our own fair price and, where the league publishes market prices on its own feed (NHL.com does), that official market price - and we label which one put the row inside the window."
+ },
+ "listing_reasons": {
+  "Tennis": "atptour.com refused the first capture with HTTP 403 but returned HTTP 200 on the pass-2 capture with browser headers, so the official ATP daily schedules for Brussels (European Open, ATP 250) and Almaty (Almaty Open, ATP 250) WERE read: 10 quarter-final singles ties on 23 Oct 2026 with published seeds. Lyon (the third ATP 250 of the week) was not in the target list, wtatennis.com returned only a JavaScript shell and the ATP rankings page was still HTTP 403, so WTA fixtures and all ATP rankings remain unverified and are published as OLBG-listing rows.",
+  "Basketball": "cdn.nba.com returned HTTP 403 for the scoreboard and standings JSON, stats.nba.com did not complete a connection (status 0) and euroleaguebasketball.net returned HTTP 429. No official NBA or EuroLeague numeric input was readable in the committed bytes.",
+  "Cricket": "icc-cricket.com ranking pages, bcci.tv fixtures and cricket.com.au series pages all returned JavaScript shells or schema.org metadata without the ranking/fixture numbers; blackcaps.co.nz and slcricket.com did not resolve (status 0); ecb.co.uk/fixtures returned HTTP 404.",
+  "Snooker": "wst.tv returned its Nuxt shell - the rankings array in the committed bytes is empty - so no official ranking or draw could be read.",
+  "Darts": "pdc.tv returned the same Nuxt shell for every path (identical byte counts for /, /tournaments, /european-championship and /rankings), so no official draw, Order of Merit or result could be read from committed bytes.",
+  "Handball": "ehfcl.eurohandball.com matches and standings pages returned shells; the official /api/competitionmatchesapi/GetMatches endpoint was queued for the pass-2 capture.",
+  "Volleyball": "plusliga.pl/table.html returned a real official table (364 rows) but plusliga.pl/schedule.html returned HTTP 404, legavolley.it/calendario returned a shell and cev.eu returned HTTP 404, so there are official standings but no official fixture list to price.",
+  "Aussie Rules": "afl.com.au fixture and ladder pages returned shells; the official AFL digital API base (afl-digital-xapi-prd.au-s1.cloudhub.io/api) was discovered in the page and queued for the pass-2 capture.",
+  "Esports": "lolesports.com/schedule returned a JavaScript shell; the LoL Esports API requires a key that is not published on the page.",
+  "Table Tennis": "worldtabletennis.com returned a 6.4 KB Angular shell for both / and /events and ittf.com refused with HTTP 403.",
+  "Badminton": "bwfbadminton.com rankings and calendar pages returned shells; /tournaments/ returned HTTP 404.",
+  "Gaelic Football": "gaa.ie fixtures returned a shell and corkgaa.ie refused with HTTP 403. Note also that the brief excludes hurling but does not name Gaelic football, so the scope of this sport is itself flagged for review.",
+  "Greyhounds": "Greyhound racing is a multi-runner race, not a two-sided match: there is no match winner, handicap or match total market to originate. gbgb.org.uk/api and portal.gbgb.org.uk/data/api were queued for pass 2, but the market structure alone rules out a match line.",
+  "Golf": "pgatour.com/schedule delivered its __NEXT_DATA__ payload but no field, odds or points numbers were present in it; owgr.com returned HTTP 404; dpworldtour.com returned a 35-byte block and lpga.com/tournaments/schedule returned HTTP 404. Golf is also a single-field stroke-play event, so no head-to-head match market exists.",
+  "Motor Racing": "The official formula1.com and motogp.com calendars WERE read (rounds, venues and dates are published in the committed bytes), but a race is a single-field event: there is no match winner, handicap or match total to originate, and the official driver standings pages returned shells, so no race-winner outright is priced.",
+  "Rugby League": "rlwc2026.com published the competing nation names inside its page payload but no dated fixture list (the only timestamps in the committed bytes are 2026-10-15 asset times); nrl.com/draw returned 798 bytes of shell and superleague.co.uk/fixtures returned HTTP 500.",
+  "_default": "no official governing-body numeric input could be read from the committed capture"
+ },
+ "tennis": {
+  "seed_model": "p(player 1) = 1 / (1 + exp(-k * ln(slot2 / slot1))) where slot = the seed number printed on the official ATP daily schedule, and an unseeded player is given the slot just outside the seeded field.",
+  "k": 0.35,
+  "unseeded_slot": 29,
+  "derived_from_official": [
+   "the published seed number in brackets next to each player on the ATP daily-schedule page",
+   "the match date and round printed on the same page",
+   "the official ATP player profile URL"
+  ],
+  "declared_modelling_choices": [
+   {
+    "name": "k",
+    "value": 0.35,
+    "why": "Declared constant that sets how steeply a seed gap converts into win probability: seed 1 vs an unseeded qualifier prices at about 77%, seed 3 vs unseeded about 70%, seed 1 vs seed 8 about 67%. No official ATP number provides this mapping."
+   },
+   {
+    "name": "unseeded_slot",
+    "value": 29,
+    "why": "An ATP 250 main draw is 28 players, so a player the ATP did not seed is placed at slot 29 - the first slot outside the published field."
+   }
+  ],
+  "no_line_when": "the ATP daily schedule prints no seed for either player, so there is no official strength input at all - the fixture is published with a blank line and flagged"
+ },
+ "min_games_for_high_tennis_note": "Tennis rows are graded on the seed-gap evidence only; because the ATP page publishes no recent form, a tennis row can only reach High when the seed gap is the strongest official signal available (a top seed against an unseeded opponent) and the price is inside the window."
+}

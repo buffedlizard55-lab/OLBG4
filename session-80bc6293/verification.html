@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification — Board AF · OLBG4</title>
+<link rel="stylesheet" href="./assets/site.css"><script src="./assets/site.js" defer></script>
+</head><body>
+<header><h1>Verification</h1><p>What the verification gate checks and how to reproduce it.</p></header>
+<nav><a class="" href="./index.html">Dashboard</a><a class="" href="./entries.html">All entries</a><a class="" href="./picks.html">High-confidence picks</a><a class="" href="./markets.html">Markets</a><a class="" href="./coverage.html">Sport coverage</a><a class="" href="./olbg.html">OLBG reverse-engineering</a><a class="" href="./methodology.html">Methodology</a><a class="" href="./sources.html">Sources</a><a class="here" href="./verification.html">Verification</a><a class="" href="./flagged.html">Flagged for review</a><a class="" href="./review.html">Repo review</a></nav>
+<main><h2>Verification register</h2>
+<div class="note">Run <code>python3 scripts/session-80bc6293/verify.py</code> to reproduce every check below. The gate
+re-derives each published price from its own probability, re-checks the confidence rule, the window flag, the prediction
+word counts and uniqueness, that unpriced rows publish nothing, that every row carries a source URL, and that every
+internal link on this site resolves.</div>
+<table><thead><tr><th>Check</th><th>Rule</th><th>How it is enforced</th></tr></thead><tbody>
+<tr><td>Fixture provenance</td><td>fixtures only from a governing body</td><td>each priced row's <code>source_url</code> must be nhl.com / statsapi.mlb.com / stats.unitedrugby.com / atptour.com</td></tr>
+<tr><td>Evidence integrity</td><td>raw bytes committed</td><td>every manifest entry must name a file that exists, and its SHA-256 is recomputed at build time</td></tr>
+<tr><td>Price maths</td><td>fair decimal = 1 ÷ p</td><td>re-derived for all 1542 originated markets; tolerance 0.001</td></tr>
+<tr><td>American conversion</td><td>standard decimal↔American</td><td>re-derived for every market; tolerance 2 units for rounding</td></tr>
+<tr><td>Two-way markets</td><td>probabilities sum to 1</td><td>checked per market group; tolerance 0.002</td></tr>
+<tr><td>Confidence rule</td><td>High = p ≥ 0.70 + sample ≥ 8 + price in band</td><td>recomputed for every row; any mismatch fails the gate</td></tr>
+<tr><td>Window flag</td><td>−250 ≤ American ≤ +10,000</td><td>recomputed from the published price and the basis recorded</td></tr>
+<tr><td>Unpriced purity</td><td>a row with no line publishes no pick, no price, no confidence</td><td>checked for all 100 listing-only rows</td></tr>
+<tr><td>Predictions</td><td>≥30 words, unique, names a side, states the selection, every quoted number traceable</td><td>word count, pairwise 3-gram overlap and number-traceability all checked</td></tr>
+<tr><td>Links</td><td>no broken internal links, every external row link present</td><td>all <code>href</code> targets on this site are resolved against the file tree</td></tr>
+</tbody></table></main>
+<footer>Board AF · session <code>arena/80bc6293-olbg4</code> · generated 2026-10-22T21:41:44Z UTC from committed official bytes in
+<code>data/session-80bc6293/capture/</code>. Every row links to the source that produced it; any value no official source
+printed is left blank and flagged.</footer>
+</body></html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology — Board AF · OLBG4</title>
+<link rel="stylesheet" href="./assets/site.css"><script src="./assets/site.js" defer></script>
+</head><body>
+<header><h1>Methodology</h1><p>How fixtures were verified, how each line was originated, how confidence was graded.</p></header>
+<nav><a class="" href="./index.html">Dashboard</a><a class="" href="./entries.html">All entries</a><a class="" href="./picks.html">High-confidence picks</a><a class="" href="./markets.html">Markets</a><a class="" href="./coverage.html">Sport coverage</a><a class="" href="./olbg.html">OLBG reverse-engineering</a><a class="here" href="./methodology.html">Methodology</a><a class="" href="./sources.html">Sources</a><a class="" href="./verification.html">Verification</a><a class="" href="./flagged.html">Flagged for review</a><a class="" href="./review.html">Repo review</a></nav>
+<main><h2>How a line is originated here</h2>
+<ol class="small">
+<li><b>Fixtures</b> come only from a governing body: the NHL official API, the MLB Stats API, the URC Match Centre,
+the ATP Tour daily schedule. OLBG is used for taxonomy and coverage only, never as the source of a fixture we price.</li>
+<li><b>Inputs</b> are the numbers those sources print — goals for/against, points, home and road splits, last ten,
+streaks, season runs scored and allowed, published seeds.</li>
+<li><b>Model</b> per sport: a Poisson goal model for ice hockey; a run-differential normal-margin model for baseball; an
+expected-points model with an explicit draw band for rugby union; a published-seed logistic for tennis. Every constant is
+either derived from official numbers or declared below.</li>
+<li><b>Price</b>: fair decimal = 1 ÷ probability, converted to American. No margin is added, so our prices are
+margin-free fair prices, not bookmaker prices.</li>
+<li><b>Window test</b>: the brief's −250…+10,000 band. At fair odds 70% prices at −233 and 71.4% at −250, so
+"probability ≥ 70%" and "our own fair price ≥ −250" can only both hold inside a 1.4-point probability band. We therefore
+report both bases on every row — our fair price and, where the league publishes one, the official market price on the
+league's own feed — and label which one put the row inside the band.</li>
+<li><b>Confidence</b>: High needs probability ≥ 0.70, at least 8 completed official
+matches per side, and a price inside the band. Probability ≥ 0.70 with a failed sample or window test is published as
+Medium and the reason is printed on the row. Never as High.</li>
+</ol>
+<h2>Declared modelling constants</h2>
+<p class="small">These are ours, not the governing bodies'. Each is also published on the Flagged page.</p>
+<table><thead><tr><th>Sport</th><th>Constant</th><th>Value</th><th>Why</th></tr></thead><tbody>
+<tr><td>nhl</td><td>shrinkage_games (K=12)</td><td class="num">12</td><td class="small">After 9-11 games each team&#x27;s own scoring rate is weighted GP/(GP+12) (about 43-48%) and the league mean the rest. This is a conservative prior so early-season flukes are not turned into High confidence.</td></tr><tr><td>nhl</td><td>Poisson independence</td><td class="num"></td><td class="small">Goals are treated as independent Poisson events up to 12 per side; the truncation loses under 0.05% of the mass at these rates.</td></tr><tr><td>nhl</td><td>OT/SO resolution</td><td class="num"></td><td class="small">A game level after regulation is awarded to the home side with the probability implied by the official home/road overtime-and-shootout win counts, not 50/50.</td></tr><tr><td>mlb</td><td>run_margin_sigma</td><td class="num">4.5</td><td class="small">The official standings feed publishes season runs scored and allowed but not game logs, so the spread of a single game margin cannot be read from an official number. 4.5 runs is declared as our modelling constant.</td></tr><tr><td>mlb</td><td>home_field_runs</td><td class="num">0.25</td><td class="small">Declared modelling constant: the MLB Stats API schedule feed carries no home/away run split for 2026 in the bytes we committed.</td></tr><tr><td>urc</td><td>home_advantage_points</td><td class="num">3.0</td><td class="small">Eight Round-3 results are not enough to fit a home advantage from official data; 3.0 points is declared as our modelling constant and the row is capped at Medium by the sample rule regardless.</td></tr><tr><td>urc</td><td>draw_margin_points</td><td class="num">3</td><td class="small">A rugby union match counts as a draw when the final margin is inside 3 points; this is the sport&#x27;s own scoring granularity (penalty goal = 3).</td></tr><tr><td>urc</td><td>shrinkage_games</td><td class="num">6</td><td class="small">After three rounds each club&#x27;s own scoring is weighted 3/(3+6) = 33% and the league mean 67%, which is deliberately conservative.</td></tr><tr><td>tennis</td><td>k</td><td class="num">0.35</td><td class="small">Declared constant that sets how steeply a seed gap converts into win probability: seed 1 vs an unseeded qualifier prices at about 77%, seed 3 vs unseeded about 70%, seed 1 vs seed 8 about 67%. No official ATP number provides this mapping.</td></tr><tr><td>tennis</td><td>unseeded_slot</td><td class="num">29</td><td class="small">An ATP 250 main draw is 28 players, so a player the ATP did not seed is placed at slot 29 - the first slot outside the published field.</td></tr>
+</tbody></table>
+<h2>What "verified" means on this site</h2>
+<p class="small">A value is verified when the official page or API that produced it is linked on the same row and the raw
+response is committed in <code>data/session-80bc6293/capture/</code> with its SHA-256 in the manifest. Anything else is
+left blank. The URC table and Round-4 fixtures are the one hand transcription, because stats.unitedrugby.com renders
+client-side: the transcription records the URL, the read time and the method, and the unrendered shell bytes are
+committed alongside it so a reviewer can see exactly what the runner received.</p></main>
+<footer>Board AF · session <code>arena/80bc6293-olbg4</code> · generated 2026-10-22T21:41:44Z UTC from committed official bytes in
+<code>data/session-80bc6293/capture/</code>. Every row links to the source that produced it; any value no official source
+printed is left blank and flagged.</footer>
+</body></html>
