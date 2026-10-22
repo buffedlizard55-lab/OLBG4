@@ -3417,3 +3417,14 @@ To ensure zero file-scope overlap with active sessions, Board AC claims exclusiv
 
 ---
 
+## Board AD — session `arena/d2d25025-olbg4` (2026-10-22 independent line-by-line audit of freshest desk + live official spot re-verification + High-window focus + dashboard + final integration)
+Session: `arena/d2d25025-olbg4` | Branch: `arena/d2d25025-olbg4` | Claimed: 2026-10-22 UTC
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AD1 | Claim + OLBG taxonomy/exclusion check (no soccer, boxing, UFC/MMA, football/American football, hurling, horse racing, cycling, specials) | in progress | arena/d2d25025-olbg4 | `session-d2d25025/`, `data/session-d2d25025/`, `COORDINATION.md` |
+| AD2 | Line-by-line audit of freshest desk (Board AB `data/session-1695b749/desk.json`): source official-domain, odds math, markets, confidence rules | in progress | arena/d2d25025-olbg4 | same |
+| AD3 | Live official spot re-verification 2026-10-22 (NHL API schedule/standings, MLB Stats API World Series) recorded with URLs/timestamps | in progress | arena/d2d25025-olbg4 | same |
+| AD4 | High picks: prob>=0.70 AND fair American -250..+10000, unique predictions >=30 words, flagged otherwise | in progress | arena/d2d25025-olbg4 | same |
+| AD5 | Dashboard landing + per-sport + entries/picks/markets/coverage/methodology/sources/flagged/verification; every row source link, unverified blank+flagged | in progress | arena/d2d25025-olbg4 | same |
+| AD6 | Final integration: verify script, link check, PR to main, merge, confirm Pages, record here | in progress | arena/d2d25025-olbg4 | same + PR only |
+**Claim boundary.** All existing boards/data/root HTML read-only; findings logged here, not edited in other owners' files.
