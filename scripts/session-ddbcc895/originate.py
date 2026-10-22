@@ -268,7 +268,7 @@ def _evidence(f: dict, key: str) -> dict | None:
         sa, sb = fa.get("seed"), fb.get("seed")
         if not sa or not sb:
             return None
-        s = (sb - sa) / 7.0
+        s = (sb - sa) / 20.0
         return {"s": s, "n": 999, "total_mean": 9.5,
                 "note": f'PDC European Tour seed {sa} vs seed {sb}'}
     return None
@@ -395,7 +395,8 @@ def selection_records(f: dict, key: str) -> tuple[dict, list[dict]]:
             inw = model.in_window(sel["fair_american"])
             conf = model.confidence(psel, s_ok, True, inw)
             if conf == "High":
-                why = f"p {psel:.3f} >= 0.700, sample {n} ok, fair {sel['fair_american']:+d} inside -250..+10,000"
+                where = "inside" if inw else "outside"
+                why = f"p {psel:.3f} >= 0.700, sample {n} ok, fair {sel['fair_american']:+d} {where} -250..+10,000"
             elif conf == "Medium":
                 gates = []
                 if psel < 0.70:
@@ -403,7 +404,7 @@ def selection_records(f: dict, key: str) -> tuple[dict, list[dict]]:
                 if psel >= 0.70 and not s_ok:
                     gates.append(f"sample {n} below the sport gate")
                 if psel >= 0.70 and not inw:
-                    gates.append(f"fair {sel['fair_american']:+d} outside -250..+10,000")
+                    gates.append(f"fair {sel['fair_american']:+d} outside -250..+10,000 (published; price band is a separate flag)")
                 why = "; ".join(gates)
             else:
                 why = f"p {psel:.3f} < 0.600"
@@ -421,13 +422,16 @@ def selection_records(f: dict, key: str) -> tuple[dict, list[dict]]:
 
 
 def choose_pick(recs: list[dict]) -> dict:
-    """Prefer an in-window High; then any High; then the strongest match-winner side."""
+    """Prefer an in-window High; then the strongest High; then the match winner."""
+    inwin = [r for r in recs if r["confidence"] == "High" and r["in_window"]]
+    if inwin:
+        return max(inwin, key=lambda r: r["fair_prob"])
+    ml = [r for r in recs if r["confidence"] == "High" and r["market"] == "match_winner"]
+    if ml:
+        return max(ml, key=lambda r: r["fair_prob"])
     highs = [r for r in recs if r["confidence"] == "High"]
     if highs:
-        return max(highs, key=lambda r: (r["in_window"], r["fair_prob"]))
-    seventies = [r for r in recs if r["fair_prob"] >= 0.70]
-    if seventies:
-        return max(seventies, key=lambda r: r["fair_prob"])
+        return max(highs, key=lambda r: r["fair_prob"])
     win = [r for r in recs if r["market"] == "match_winner"]
     pool = win or recs
     return max(pool, key=lambda r: r["fair_prob"])
@@ -474,6 +478,7 @@ def main() -> int:
         stats, recs = selection_records(f, key)
         row = {
             "id": f"AF{i:04d}",
+            "key": f'{SLUG.get(f["sport"], "other")}|{f["side_a"]}|{f["side_b"]}|{f["start_utc"][:10]}',
             "sport": f["sport"], "sport_slug": SLUG.get(f["sport"], "other"),
             "competition": f["competition"], "stage": f.get("stage", ""),
             "side_a": f["side_a"], "side_b": f["side_b"],

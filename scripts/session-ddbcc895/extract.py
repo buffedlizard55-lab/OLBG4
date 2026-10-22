@@ -330,7 +330,8 @@ def mlb(cap: Capture) -> list[dict]:
                     "source_name": "MLB Stats API official schedule",
                     "source_url": cap.url("mlb_schedule"),
                     "secondary_url": f'https://www.mlb.com/gameday/{g["gamePk"]}',
-                    "ref": {"a": a.get("abbreviation"), "b": b.get("abbreviation"), "game_id": g["gamePk"]}, "home_side": "b",
+                    "ref": {"a": a.get("abbreviation"), "b": b.get("abbreviation"), "game_id": g["gamePk"],
+                            "series_game": g.get("seriesGameNumber")}, "home_side": "b",
                     "form": {
                         "a": table.get(a["name"], {}),
                         "b": table.get(b["name"], {}),
@@ -567,11 +568,17 @@ def lnr(cap: Capture, tid: str, label: str, class_tid: str) -> list[dict]:
             nums = cl_lines[i + 1:i + 10]
             if len(nums) < 9 or not all(re.match(r"^[+\-]?\d+$", n) for n in nums):
                 continue
+            form5 = []
+            for tok in cl_lines[i + 10:i + 16]:
+                if tok in ("V", "D", "N"):
+                    form5.append(tok)
+                if len(form5) == 5:
+                    break
             classes[team] = {
                 "team": team, "points": int(nums[0]), "games": int(nums[1]),
                 "wins": int(nums[2]), "draws": int(nums[3]), "losses": int(nums[4]),
                 "bonus": int(nums[5]), "pf": int(nums[6]), "pa": int(nums[7]),
-                "diff": int(nums[8]), "source": cap.url(class_tid),
+                "diff": int(nums[8]), "form5": "".join(form5), "source": cap.url(class_tid),
             }
     # calendar: [weekday] [day month] | Home | rank | e | HHhMM | Away | rank | e | ...
     tokens = [x for x in joined.split(" | ")]

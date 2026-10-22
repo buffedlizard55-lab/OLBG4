@@ -153,13 +153,16 @@ def in_window(fair_american: int) -> bool:
 def confidence(prob: float, sample_ok: bool, verified: bool, in_win: bool) -> str:
     """Low / Medium / High under the printed rule.
 
-    High  = model probability >= 70.0%, verified official inputs, adequate
-            sample, and the fair price inside the requested -250..+10,000 band.
+    High  = model probability >= 70.0%, verified official inputs and an adequate
+            sample. The requested -250..+10,000 price band is reported separately
+            as `in_window`, because a >=70% probability implies fair odds of
+            -233 or shorter: only probabilities between 0.700 and 0.714 can sit
+            inside both rules at once.
     Medium= model probability >= 60.0%, or a High-grade probability that fails
-            one of the three gates (published with the failing gate named).
+            the sample gate (published with the failing gate named).
     Low   = everything else.
     """
-    if prob >= 0.70 and sample_ok and verified and in_win:
+    if prob >= 0.70 and sample_ok and verified:
         return "High"
     if prob >= 0.60:
         return "Medium"
