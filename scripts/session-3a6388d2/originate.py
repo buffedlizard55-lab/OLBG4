@@ -382,7 +382,8 @@ def build_mlb():
 
 def main() -> int:
     notes = {}
-    for fn in (build_nhl, build_mlb):
+    for fn in (build_nhl, build_mlb, build_urc, build_rugby_league, build_esports,
+              build_motorsport, build_cricket):
         try:
             notes[fn.__name__] = fn() or {}
         except Exception as exc:
@@ -407,6 +408,317 @@ def main() -> int:
     print("by sport:", dict(Counter(r["sport"] for r in rows)))
     print("by confidence:", dict(Counter(r["confidence"] for r in rows)))
     return 0
+
+
+
+
+# =====================================================================================
+# 3. RUGBY UNION — United Rugby Championship (official URC match centre)
+# =====================================================================================
+URC_ABBREV = {
+    "CAR": "Cardiff Rugby", "SHA": "Hollywoodbets Sharks", "CON": "Connacht Rugby",
+    "ZEB": "Zebre Parma", "EDI": "Edinburgh", "LIO": "10bet Lions", "BUL": "Vodacom Bulls",
+    "ULS": "Ulster Rugby", "STO": "DHL Stormers", "SCA": "Scarlets", "BEN": "Benetton Rugby",
+    "GLA": "Glasgow Warriors", "LEI": "Leinster Rugby", "MUN": "Munster Rugby",
+    "OSP": "Ospreys", "DRA": "Dragons RFC",
+}
+URC_HFA = 3.0          # model assumption: home advantage in URC points (see methodology)
+URC_SD_MARGIN = 15.5   # model assumption: sd of the URC winning margin
+URC_SD_TOTAL = 15.0    # model assumption: sd of total match points
+URC_P_DRAW = 0.02      # model assumption: historical URC draw rate
+
+
+def build_urc():
+    try:
+        table = json.load(open(os.path.join(ROOT, "data", "session-3a6388d2", "official_urc_table.json")))
+    except Exception as exc:
+        return {"error": f"official URC table unavailable: {exc}"}
+    cols = table["columns"]
+    tab = {}
+    for r in table["rows"]:
+        d = dict(zip(cols, r))
+        tab[d["abbrev"]] = d
+    txt = raw_text("urc_home")
+    cards = re.findall(
+        r'<div class="fixture-card[^"]*" data-match-id="(\d+)"[^>]*>\s*<a href="([^"]+)"[^>]*>'
+        r'.*?data-utc="([^"]+)".*?class="team-name home-name">([^<]+)</span>'
+        r'.*?class="team-name away-name">([^<]+)</span>.*?<div class="match-venue">([^<]*)</div>',
+        txt, re.S)
+    if not cards:
+        return {"error": "no URC fixture cards parsed"}
+
+    gp = sum(t["played"] for t in tab.values())
+    lg_ppg = sum(t["pf"] for t in tab.values()) / gp
+    SHRINK_K = 8.0
+    out = []
+    for mid, href, utc, hab, aab, venue in cards:
+        if not (WINDOW_START <= utc[:10] <= WINDOW_END):
+            continue
+        H, A = tab.get(hab), tab.get(aab)
+        if not H or not A:
+            add_row(sport="Rugby Union", competition="United Rugby Championship 2026-27",
+                    date=utc[:10], home=hab, away=aab, venue=html_mod.unescape(venue),
+                    source_url=href, source_name="URC official match centre",
+                    verified=False, confidence="", confidence_rule="not priced",
+                    flags=[{"kind": "unpriced", "text": "Team not present in the official URC table; no line originated."}])
+            continue
+
+        def att(t):
+            return M.shrink(t["pf"] / t["played"], lg_ppg, t["played"] / (t["played"] + SHRINK_K))
+
+        def dfn(t):
+            return M.shrink(t["pa"] / t["played"], lg_ppg, t["played"] / (t["played"] + SHRINK_K))
+
+        home_pts = max(att(H) * dfn(A) / lg_ppg + URC_HFA / 2.0, 5.0)
+        away_pts = max(att(A) * dfn(H) / lg_ppg - URC_HFA / 2.0, 5.0)
+        mu = home_pts - away_pts
+        exp_total = home_pts + away_pts
+        p_home_raw = 1.0 - M.normal_cdf(0.0, mu, URC_SD_MARGIN)
+        p_home = (1.0 - URC_P_DRAW) * p_home_raw
+        p_away = (1.0 - URC_P_DRAW) * (1.0 - p_home_raw)
+        total_line = M.nearest_half(exp_total)
+        p_over = 1.0 - M.normal_cdf(total_line, exp_total, URC_SD_TOTAL)
+        hcap = round(mu * 2.0) / 2.0
+        p_hcap_home = 1.0 - M.normal_cdf(hcap, mu, URC_SD_MARGIN)
+
+        markets = [
+            mkt("Match Winner", H["team"], p_home),
+            mkt("Match Winner", A["team"], p_away),
+            mkt("Draw", "Draw", URC_P_DRAW, margin=VIG3),
+            mkt(f"Handicap {hcap:+.1f}", f"{H['team']} {hcap:+.1f}", p_hcap_home, f"{hcap:+.1f}"),
+            mkt(f"Handicap {hcap:+.1f}", f"{A['team']} {-hcap:+.1f}", 1 - p_hcap_home, f"{-hcap:+.1f}"),
+            mkt(f"Total Points Over {total_line}", f"Over {total_line}", p_over, str(total_line)),
+            mkt(f"Total Points Under {total_line}", f"Under {total_line}", 1 - p_over, str(total_line)),
+        ]
+        pick_home = p_home >= p_away
+        pick = H["team"] if pick_home else A["team"]
+        p_pick = p_home if pick_home else p_away
+        sample_ok = min(H["played"], A["played"]) >= 5
+        conf, reason = confidence_from(p_pick, sample_ok,
+                                       f"only {H['played']} rounds of the official URC table exist at capture time")
+        out.append((utc[:10], H["team"], A["team"]))
+        add_row(
+            sport="Rugby Union",
+            competition="United Rugby Championship 2026-27",
+            date=utc[:10], time_utc=utc, home=H["team"], away=A["team"],
+            venue=html_mod.unescape(venue), neutral=False,
+            source_url=href,
+            source_name="United Rugby Championship official match centre",
+            source_checked_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            model="Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+            model_inputs={
+                "home_table_position": H["pos"], "away_table_position": A["pos"],
+                "home_pts": H["pts"], "away_pts": A["pts"],
+                "home_record": f"{H['won']}-{H['drawn']}-{H['lost']}",
+                "away_record": f"{A['won']}-{A['drawn']}-{A['lost']}",
+                "home_pf_per_game": round(H["pf"] / H["played"], 2),
+                "home_pa_per_game": round(H["pa"] / H["played"], 2),
+                "away_pf_per_game": round(A["pf"] / A["played"], 2),
+                "away_pa_per_game": round(A["pa"] / A["played"], 2),
+                "league_points_per_team_game": round(lg_ppg, 2),
+                "home_advantage_points": URC_HFA,
+                "expected_home_points": round(home_pts, 2),
+                "expected_away_points": round(away_pts, 2),
+                "expected_margin": round(mu, 2),
+                "expected_total_points": round(exp_total, 2),
+                "source_table_url": table["source_url"],
+            },
+            markets=markets,
+            pick={"market": "Match Winner", "selection": pick, "p": round(p_pick, 4),
+                  "fair_american": M.prob_to_american(p_pick),
+                  "book_american": M.prob_to_american(M.apply_margin(p_pick, VIG2))},
+            confidence=conf, confidence_rule=reason,
+            in_odds_window=(-250 <= M.prob_to_american(p_pick) <= 10000),
+        )
+    return {"fixtures": len(cards), "rows": len(out), "league_points_per_team_game": round(lg_ppg, 2)}
+
+
+# =====================================================================================
+# 4. RUGBY LEAGUE — RLWC 2026 (official NRL-hosted draw)
+# =====================================================================================
+def build_rugby_league():
+    txt = raw_text("nrl_draw")
+    m = re.search(r'q-data="(\{.*?\})"\s', txt, re.S)
+    if not m:
+        return {"error": "NRL draw payload not found"}
+    data = json.loads(html_mod.unescape(m.group(1)))
+    n = 0
+    for f in data.get("fixtures", []):
+        kick = f["clock"]["kickOffTimeLong"]
+        if not (WINDOW_START <= kick[:10] <= WINDOW_END):
+            continue
+        home = f["homeTeam"]["nickName"]
+        away = f["awayTeam"]["nickName"]
+        n += 1
+        add_row(
+            sport="Rugby League",
+            competition=f"Rugby League World Cup 2026 — {f['roundTitle']} ({f.get('groupName','')})",
+            date=kick[:10], time_utc=kick, home=home, away=away,
+            venue=f"{f.get('venue','')}, {f.get('venueCity','')}".strip(", "),
+            neutral=True,
+            source_url="https://www.nrl.com" + f.get("matchCentreUrl", "/draw/"),
+            source_name="NRL.com official RLWC 2026 draw (host federation site)",
+            source_checked_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            model="", model_inputs={},
+            markets=[], pick={}, confidence="", confidence_rule="not priced",
+            in_odds_window=None, verified=True,
+            flags=[{"kind": "no-line",
+                    "text": "Fixture, venue and kick-off verified from the official NRL/RLWC draw, but no official "
+                            "strength input could be read at capture time (the IRL world-ranking host "
+                            "intrl.co.uk was unreachable from both the interactive sandbox and the Actions "
+                            "runner, and no RLWC pool table was published as machine-readable data), so no "
+                            "line was originated. Review link: https://www.nrl.com/draw/"}],
+        )
+    return {"fixtures": n}
+
+
+# =====================================================================================
+# 5. ESPORTS — League of Legends Worlds 2026 (official Riot esports API)
+# =====================================================================================
+def build_esports():
+    try:
+        d = raw_json("lol_schedule")
+    except Exception as exc:
+        return {"error": str(exc)}
+    events = d.get("data", {}).get("schedule", {}).get("events", [])
+    n = 0
+    for e in sorted(events, key=lambda x: x.get("startTime", "")):
+        st = e.get("startTime", "")
+        if not (WINDOW_START <= st[:10] <= WINDOW_END):
+            continue
+        if e.get("state") != "unstarted":
+            continue
+        m = e.get("match") or {}
+        teams = m.get("teams") or []
+        if len(teams) != 2:
+            continue
+        names = [t.get("name", "") for t in teams]
+        if any(nm in ("TBD", "", None) for nm in names):
+            continue
+        league = (e.get("league") or {}).get("name", "League of Legends")
+        n += 1
+        add_row(
+            sport="Esports", competition=f"{league} — {e.get('blockName','')}",
+            date=st[:10], time_utc=st, home=names[0], away=names[1],
+            venue="", neutral=True,
+            source_url="https://lolesports.com/schedule?leagues=worlds",
+            source_name="lolesports.com — official Riot Games esports schedule (esports-api.lolesports.com)",
+            source_checked_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            model="", model_inputs={
+                "best_of": (m.get("strategy") or {}).get("count"),
+                "team_records": [t.get("record") for t in teams],
+            },
+            markets=[], pick={}, confidence="", confidence_rule="not priced",
+            in_odds_window=None, verified=True,
+            flags=[{"kind": "no-line",
+                    "text": "Match-up, stage and start time verified from the official Riot esports API. "
+                            "Both teams are 0-0 in the Swiss stage at capture time, so the official feed "
+                            "carries no strength input; no line was originated rather than inventing one."}],
+        )
+    return {"fixtures": n}
+
+
+# =====================================================================================
+# 6. MOTOR RACING — F1 + MotoGP official calendars
+# =====================================================================================
+MONTHS = {"Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6, "Jul": 7,
+          "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12}
+
+
+def build_motorsport():
+    n = 0
+    # --- MotoGP: official event structured data
+    txt = raw_text("motogp_calendar")
+    for m in re.finditer(
+            r'data-structured-title="([^"]+)"\s+data-structured-image="[^"]*"\s+'
+            r'data-structured-start-date="([^"]+)"\s+data-structured-end-date="([^"]+)"\s+'
+            r'data-structured-location="([^"]*)"', txt):
+        title, s, e, loc = m.group(1).strip(), m.group(2)[:10], m.group(3)[:10], m.group(4)
+        if not (WINDOW_START <= s <= WINDOW_END or (s <= WINDOW_START <= e)):
+            continue
+        n += 1
+        add_row(sport="Motor Racing", competition="MotoGP World Championship 2026",
+                date=s, time_utc=s, home=title, away="", venue=loc, neutral=True,
+                source_url="https://www.motogp.com/en/calendar",
+                source_name="MotoGP.com official calendar",
+                source_checked_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                markets=[], pick={}, confidence="", confidence_rule="not priced",
+                in_odds_window=None, verified=True,
+                flags=[{"kind": "no-line",
+                        "text": "Event dates and circuit verified from the official MotoGP calendar. The rider "
+                                "standings page could not be read (HTTP 404 at /en/standings/motogp/2026) and no "
+                                "official machine-readable entry list was captured, so no winner line was originated."}])
+    # --- Formula 1: official 2026 calendar cards
+    txt = raw_text("f1_racing2")
+    seen = set()
+    for block in re.split(r'(?=href="/en/racing/2026/)', txt):
+        m = re.match(r'href="/en/racing/2026/([a-z\-]+)"', block)
+        if not m:
+            continue
+        slug = m.group(1)
+        rnd = re.search(r"ROUND (\d+)", block)
+        dates = re.search(r">(\d{2}) - \d{2} (\w{3})<", block)
+        if not dates:
+            continue
+        day, mon = int(dates.group(1)), MONTHS.get(dates.group(2).title(), 0)
+        if not mon:
+            continue
+        iso = f"2026-{mon:02d}-{day:02d}"
+        if not (WINDOW_START <= iso <= WINDOW_END) or (slug, iso) in seen:
+            continue
+        seen.add((slug, iso))
+        n += 1
+        add_row(sport="Motor Racing", competition=f"Formula 1 2026 — Round {rnd.group(1) if rnd else '?'}",
+                date=iso, time_utc=iso, home=slug.replace("-", " ").title(), away="",
+                venue="", neutral=True,
+                source_url=f"https://www.formula1.com/en/racing/2026/{slug}",
+                source_name="Formula1.com official 2026 calendar",
+                source_checked_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                markets=[], pick={}, confidence="", confidence_rule="not priced",
+                in_odds_window=None, verified=True,
+                flags=[{"kind": "no-line",
+                        "text": "Round and dates verified from the official Formula 1 2026 calendar. The official "
+                                "driver-standings page renders its table client-side, so no official championship "
+                                "points could be read at capture time; no winner line was originated."}])
+    return {"fixtures": n}
+
+
+# =====================================================================================
+# 7. CRICKET — official Cricket Australia fixture feed (flagged: no rating input)
+# =====================================================================================
+def build_cricket():
+    scr = raw_script("cricketcomau_fixtures")
+    m = re.search(r"window\.FIXTURES_DATA\s*=\s*JSON\.parse\('(.*?)'\);", scr, re.S)
+    if not m:
+        return {"error": "FIXTURES_DATA not found"}
+    data = json.loads(m.group(1).encode().decode("unicode_escape"))
+    n = 0
+    for f in sorted(data, key=lambda x: x.get("startDateTime", "")):
+        st = f.get("startDateTime", "")
+        if not (WINDOW_START <= st[:10] <= WINDOW_END):
+            continue
+        home = (f.get("homeTeam") or {}).get("name", "")
+        away = (f.get("awayTeam") or {}).get("name", "")
+        venue = (f.get("venue") or {}).get("name", "") if isinstance(f.get("venue"), dict) else str(f.get("venue") or "")
+        comp = (f.get("competition") or {})
+        comp_name = comp.get("name", "") if isinstance(comp, dict) else str(comp)
+        n += 1
+        add_row(sport="Cricket", competition=comp_name or f.get("gameType") or "Cricket",
+                date=st[:10], time_utc=st, home=home, away=away, venue=venue, neutral=True,
+                source_url=f"https://www.cricket.com.au/fixtures#match-{f.get('id')}",
+                source_name="Cricket Australia official fixtures feed (cricket.com.au)",
+                source_checked_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                model_inputs={"fixture_id": f.get("id"), "game_type": f.get("gameType"),
+                              "name": f.get("name")},
+                markets=[], pick={}, confidence="", confidence_rule="not priced",
+                in_odds_window=None, verified=True,
+                flags=[{"kind": "no-line",
+                        "text": "Fixture, venue and start time verified from the official Cricket Australia "
+                                "fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render "
+                                "their table client-side, so no official rating input could be read at capture "
+                                "time and no line was originated. Review link: "
+                                "https://www.icc-cricket.com/rankings/team-rankings/mens/odi"}])
+    return {"fixtures": n}
 
 
 if __name__ == "__main__":

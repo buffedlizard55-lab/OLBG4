@@ -6,7 +6,7 @@
   "start": "2026-10-22",
   "end": "2026-11-08"
  },
- "generated_at_utc": "2026-10-22T12:31:19Z",
+ "generated_at_utc": "2026-10-22T12:42:59Z",
  "vig": {
   "two_way": 0.042,
   "three_way": 0.052
@@ -18,6 +18,23 @@
   },
   "build_mlb": {
    "league_runs_per_team_game": 4.481
+  },
+  "build_urc": {
+   "fixtures": 16,
+   "rows": 16,
+   "league_points_per_team_game": 26.21
+  },
+  "build_rugby_league": {
+   "fixtures": 5
+  },
+  "build_esports": {
+   "fixtures": 8
+  },
+  "build_motorsport": {
+   "fixtures": 5
+  },
+  "build_cricket": {
+   "fixtures": 13
   }
  },
  "rows": [
@@ -33,7 +50,7 @@
    "venue": "TD Garden",
    "source_url": "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.6,
@@ -192,7 +209,7 @@
    "venue": "Scotiabank Arena",
    "source_url": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.455,
@@ -351,7 +368,7 @@
    "venue": "Canadian Tire Centre",
    "source_url": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.9,
@@ -510,7 +527,7 @@
    "venue": "Prudential Center",
    "source_url": "https://www.nhl.com/gamecenter/ana-vs-njd/2026/10/22/2026020157",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.222,
@@ -669,7 +686,7 @@
    "venue": "PPG Paints Arena",
    "source_url": "https://www.nhl.com/gamecenter/fla-vs-pit/2026/10/22/2026020158",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.3,
@@ -828,7 +845,7 @@
    "venue": "UBS Arena",
    "source_url": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -987,7 +1004,7 @@
    "venue": "Enterprise Center",
    "source_url": "https://www.nhl.com/gamecenter/vgk-vs-stl/2026/10/22/2026020160",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.222,
@@ -1146,7 +1163,7 @@
    "venue": "American Airlines Center",
    "source_url": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -1305,7 +1322,7 @@
    "venue": "Scotiabank Saddledome",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.125,
@@ -1464,7 +1481,7 @@
    "venue": "Rogers Place",
    "source_url": "https://www.nhl.com/gamecenter/car-vs-edm/2026/10/22/2026020163",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.556,
@@ -1623,7 +1640,7 @@
    "venue": "Climate Pledge Arena",
    "source_url": "https://www.nhl.com/gamecenter/uta-vs-sea/2026/10/22/2026020164",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.9,
@@ -1782,7 +1799,7 @@
    "venue": "Rogers Arena",
    "source_url": "https://www.nhl.com/gamecenter/det-vs-van/2026/10/22/2026020165",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -1941,7 +1958,7 @@
    "venue": "United Center",
    "source_url": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.333,
@@ -2100,7 +2117,7 @@
    "venue": "Ball Arena",
    "source_url": "https://www.nhl.com/gamecenter/tbl-vs-col/2026/10/23/2026020167",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.1,
@@ -2259,7 +2276,7 @@
    "venue": "Xfinity Mobile Arena",
    "source_url": "https://www.nhl.com/gamecenter/ana-vs-phi/2026/10/24/2026020168",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 1.667,
@@ -2418,7 +2435,7 @@
    "venue": "Prudential Center",
    "source_url": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.222,
@@ -2577,7 +2594,7 @@
    "venue": "TD Garden",
    "source_url": "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.6,
@@ -2736,7 +2753,7 @@
    "venue": "Canadian Tire Centre",
    "source_url": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.9,
@@ -2895,7 +2912,7 @@
    "venue": "PPG Paints Arena",
    "source_url": "https://www.nhl.com/gamecenter/nsh-vs-pit/2026/10/24/2026020172",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.3,
@@ -3054,7 +3071,7 @@
    "venue": "Capital One Arena",
    "source_url": "https://www.nhl.com/gamecenter/buf-vs-wsh/2026/10/24/2026020173",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.333,
@@ -3213,7 +3230,7 @@
    "venue": "Nationwide Arena",
    "source_url": "https://www.nhl.com/gamecenter/vgk-vs-cbj/2026/10/24/2026020174",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.5,
@@ -3372,7 +3389,7 @@
    "venue": "Enterprise Center",
    "source_url": "https://www.nhl.com/gamecenter/car-vs-stl/2026/10/24/2026020175",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.222,
@@ -3531,7 +3548,7 @@
    "venue": "Rogers Place",
    "source_url": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.556,
@@ -3690,7 +3707,7 @@
    "venue": "Delta Center",
    "source_url": "https://www.nhl.com/gamecenter/tbl-vs-uta/2026/10/24/2026020177",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.8,
@@ -3849,7 +3866,7 @@
    "venue": "Scotiabank Saddledome",
    "source_url": "https://www.nhl.com/gamecenter/det-vs-cgy/2026/10/24/2026020178",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.125,
@@ -4008,7 +4025,7 @@
    "venue": "Climate Pledge Arena",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-sea/2026/10/24/2026020179",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.9,
@@ -4167,7 +4184,7 @@
    "venue": "United Center",
    "source_url": "https://www.nhl.com/gamecenter/fla-vs-chi/2026/10/25/2026020180",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.333,
@@ -4326,7 +4343,7 @@
    "venue": "American Airlines Center",
    "source_url": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -4485,7 +4502,7 @@
    "venue": "Princess Auto Stadium",
    "source_url": "https://www.nhl.com/gamecenter/mtl-vs-wpg/2026/10/25/2026020182",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.667,
@@ -4644,7 +4661,7 @@
    "venue": "Bridgestone Arena",
    "source_url": "https://www.nhl.com/gamecenter/col-vs-nsh/2026/10/25/2026020183",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.875,
@@ -4803,7 +4820,7 @@
    "venue": "Rogers Arena",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -4962,7 +4979,7 @@
    "venue": "Madison Square Garden",
    "source_url": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -5121,7 +5138,7 @@
    "venue": "Scotiabank Saddledome",
    "source_url": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.125,
@@ -5280,7 +5297,7 @@
    "venue": "Rogers Place",
    "source_url": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.556,
@@ -5439,7 +5456,7 @@
    "venue": "Xfinity Mobile Arena",
    "source_url": "https://www.nhl.com/gamecenter/cbj-vs-phi/2026/10/27/2026020188",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 1.667,
@@ -5598,7 +5615,7 @@
    "venue": "Lenovo Center",
    "source_url": "https://www.nhl.com/gamecenter/bos-vs-car/2026/10/27/2026020189",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.818,
@@ -5757,7 +5774,7 @@
    "venue": "United Center",
    "source_url": "https://www.nhl.com/gamecenter/lak-vs-chi/2026/10/27/2026020190",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.333,
@@ -5916,7 +5933,7 @@
    "venue": "Enterprise Center",
    "source_url": "https://www.nhl.com/gamecenter/mtl-vs-stl/2026/10/27/2026020191",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.222,
@@ -6075,7 +6092,7 @@
    "venue": "Bridgestone Arena",
    "source_url": "https://www.nhl.com/gamecenter/nyi-vs-nsh/2026/10/27/2026020192",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.875,
@@ -6234,7 +6251,7 @@
    "venue": "American Airlines Center",
    "source_url": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -6393,7 +6410,7 @@
    "venue": "Canada Life Centre",
    "source_url": "https://www.nhl.com/gamecenter/fla-vs-wpg/2026/10/27/2026020194",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.667,
@@ -6552,7 +6569,7 @@
    "venue": "Delta Center",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-uta/2026/10/27/2026020195",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.8,
@@ -6711,7 +6728,7 @@
    "venue": "T-Mobile Arena",
    "source_url": "https://www.nhl.com/gamecenter/ott-vs-vgk/2026/10/27/2026020196",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.0,
@@ -6870,7 +6887,7 @@
    "venue": "Honda Center",
    "source_url": "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.889,
@@ -7029,7 +7046,7 @@
    "venue": "SAP Center at San Jose",
    "source_url": "https://www.nhl.com/gamecenter/buf-vs-sjs/2026/10/27/2026020198",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.7,
@@ -7188,7 +7205,7 @@
    "venue": "Capital One Arena",
    "source_url": "https://www.nhl.com/gamecenter/phi-vs-wsh/2026/10/28/2026020199",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.333,
@@ -7347,7 +7364,7 @@
    "venue": "Rogers Place",
    "source_url": "https://www.nhl.com/gamecenter/cgy-vs-edm/2026/10/28/2026020200",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.556,
@@ -7506,7 +7523,7 @@
    "venue": "Ball Arena",
    "source_url": "https://www.nhl.com/gamecenter/njd-vs-col/2026/10/28/2026020201",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.1,
@@ -7665,7 +7682,7 @@
    "venue": "Climate Pledge Arena",
    "source_url": "https://www.nhl.com/gamecenter/tor-vs-sea/2026/10/28/2026020202",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.9,
@@ -7824,7 +7841,7 @@
    "venue": "Benchmark International Arena",
    "source_url": "https://www.nhl.com/gamecenter/wpg-vs-tbl/2026/10/29/2026020204",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.444,
@@ -7983,7 +8000,7 @@
    "venue": "PPG Paints Arena",
    "source_url": "https://www.nhl.com/gamecenter/uta-vs-pit/2026/10/29/2026020205",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.3,
@@ -8142,7 +8159,7 @@
    "venue": "Lenovo Center",
    "source_url": "https://www.nhl.com/gamecenter/cbj-vs-car/2026/10/29/2026020206",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.818,
@@ -8301,7 +8318,7 @@
    "venue": "Little Caesars Arena",
    "source_url": "https://www.nhl.com/gamecenter/chi-vs-det/2026/10/29/2026020203",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -8460,7 +8477,7 @@
    "venue": "Enterprise Center",
    "source_url": "https://www.nhl.com/gamecenter/bos-vs-stl/2026/10/29/2026020207",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.222,
@@ -8619,7 +8636,7 @@
    "venue": "Bridgestone Arena",
    "source_url": "https://www.nhl.com/gamecenter/wsh-vs-nsh/2026/10/29/2026020208",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.875,
@@ -8778,7 +8795,7 @@
    "venue": "American Airlines Center",
    "source_url": "https://www.nhl.com/gamecenter/mtl-vs-dal/2026/10/29/2026020209",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -8937,7 +8954,7 @@
    "venue": "Grand Casino Arena",
    "source_url": "https://www.nhl.com/gamecenter/nyi-vs-min/2026/10/29/2026020210",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.1,
@@ -9096,7 +9113,7 @@
    "venue": "Honda Center",
    "source_url": "https://www.nhl.com/gamecenter/buf-vs-ana/2026/10/29/2026020211",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.889,
@@ -9255,7 +9272,7 @@
    "venue": "Crypto.com Arena",
    "source_url": "https://www.nhl.com/gamecenter/ott-vs-lak/2026/10/29/2026020212",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.429,
@@ -9414,7 +9431,7 @@
    "venue": "SAP Center at San Jose",
    "source_url": "https://www.nhl.com/gamecenter/van-vs-sjs/2026/10/29/2026020213",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.7,
@@ -9573,7 +9590,7 @@
    "venue": "T-Mobile Arena",
    "source_url": "https://www.nhl.com/gamecenter/njd-vs-vgk/2026/10/30/2026020214",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.0,
@@ -9732,7 +9749,7 @@
    "venue": "Amerant Bank Arena",
    "source_url": "https://www.nhl.com/gamecenter/wpg-vs-fla/2026/10/30/2026020215",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.1,
@@ -9891,7 +9908,7 @@
    "venue": "Scotiabank Saddledome",
    "source_url": "https://www.nhl.com/gamecenter/sea-vs-cgy/2026/10/30/2026020216",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.125,
@@ -10050,7 +10067,7 @@
    "venue": "TD Garden",
    "source_url": "https://www.nhl.com/gamecenter/chi-vs-bos/2026/10/31/2026020217",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.6,
@@ -10209,7 +10226,7 @@
    "venue": "Little Caesars Arena",
    "source_url": "https://www.nhl.com/gamecenter/stl-vs-det/2026/10/31/2026020218",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -10368,7 +10385,7 @@
    "venue": "Bridgestone Arena",
    "source_url": "https://www.nhl.com/gamecenter/tbl-vs-nsh/2026/10/31/2026020219",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.875,
@@ -10527,7 +10544,7 @@
    "venue": "UBS Arena",
    "source_url": "https://www.nhl.com/gamecenter/edm-vs-nyi/2026/10/31/2026020220",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -10686,7 +10703,7 @@
    "venue": "Crypto.com Arena",
    "source_url": "https://www.nhl.com/gamecenter/buf-vs-lak/2026/10/31/2026020221",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.429,
@@ -10845,7 +10862,7 @@
    "venue": "SAP Center at San Jose",
    "source_url": "https://www.nhl.com/gamecenter/ott-vs-sjs/2026/10/31/2026020222",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.7,
@@ -11004,7 +11021,7 @@
    "venue": "Centre Bell",
    "source_url": "https://www.nhl.com/gamecenter/pit-vs-mtl/2026/10/31/2026020223",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.333,
@@ -11163,7 +11180,7 @@
    "venue": "Rogers Arena",
    "source_url": "https://www.nhl.com/gamecenter/tor-vs-van/2026/10/31/2026020224",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -11322,7 +11339,7 @@
    "venue": "American Airlines Center",
    "source_url": "https://www.nhl.com/gamecenter/cbj-vs-dal/2026/10/31/2026020225",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -11481,7 +11498,7 @@
    "venue": "Ball Arena",
    "source_url": "https://www.nhl.com/gamecenter/cgy-vs-col/2026/10/31/2026020226",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.1,
@@ -11640,7 +11657,7 @@
    "venue": "Lenovo Center",
    "source_url": "https://www.nhl.com/gamecenter/wpg-vs-car/2026/11/01/2026020227",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.818,
@@ -11799,7 +11816,7 @@
    "venue": "Capital One Arena",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-wsh/2026/11/01/2026020228",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.333,
@@ -11958,7 +11975,7 @@
    "venue": "Xfinity Mobile Arena",
    "source_url": "https://www.nhl.com/gamecenter/uta-vs-phi/2026/11/01/2026020229",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 1.667,
@@ -12117,7 +12134,7 @@
    "venue": "Madison Square Garden",
    "source_url": "https://www.nhl.com/gamecenter/edm-vs-nyr/2026/11/01/2026020230",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -12276,7 +12293,7 @@
    "venue": "Honda Center",
    "source_url": "https://www.nhl.com/gamecenter/ott-vs-ana/2026/11/01/2026020231",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.889,
@@ -12435,7 +12452,7 @@
    "venue": "TD Garden",
    "source_url": "https://www.nhl.com/gamecenter/vgk-vs-bos/2026/11/02/2026020232",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.6,
@@ -12594,7 +12611,7 @@
    "venue": "Amerant Bank Arena",
    "source_url": "https://www.nhl.com/gamecenter/det-vs-fla/2026/11/02/2026020233",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.1,
@@ -12753,7 +12770,7 @@
    "venue": "United Center",
    "source_url": "https://www.nhl.com/gamecenter/col-vs-chi/2026/11/02/2026020234",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.333,
@@ -12912,7 +12929,7 @@
    "venue": "SAP Center at San Jose",
    "source_url": "https://www.nhl.com/gamecenter/cgy-vs-sjs/2026/11/02/2026020235",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.7,
@@ -13071,7 +13088,7 @@
    "venue": "Scotiabank Arena",
    "source_url": "https://www.nhl.com/gamecenter/uta-vs-tor/2026/11/03/2026020236",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.455,
@@ -13230,7 +13247,7 @@
    "venue": "Centre Bell",
    "source_url": "https://www.nhl.com/gamecenter/wpg-vs-mtl/2026/11/03/2026020237",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.333,
@@ -13389,7 +13406,7 @@
    "venue": "Benchmark International Arena",
    "source_url": "https://www.nhl.com/gamecenter/det-vs-tbl/2026/11/03/2026020238",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.444,
@@ -13548,7 +13565,7 @@
    "venue": "Madison Square Garden",
    "source_url": "https://www.nhl.com/gamecenter/stl-vs-nyr/2026/11/03/2026020240",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -13707,7 +13724,7 @@
    "venue": "Xfinity Mobile Arena",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-phi/2026/11/03/2026020241",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 1.667,
@@ -13866,7 +13883,7 @@
    "venue": "PPG Paints Arena",
    "source_url": "https://www.nhl.com/gamecenter/vgk-vs-pit/2026/11/03/2026020242",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.3,
@@ -14025,7 +14042,7 @@
    "venue": "Capital One Arena",
    "source_url": "https://www.nhl.com/gamecenter/dal-vs-wsh/2026/11/03/2026020243",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.333,
@@ -14184,7 +14201,7 @@
    "venue": "Nationwide Arena",
    "source_url": "https://www.nhl.com/gamecenter/col-vs-cbj/2026/11/03/2026020244",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.5,
@@ -14343,7 +14360,7 @@
    "venue": "Prudential Center",
    "source_url": "https://www.nhl.com/gamecenter/edm-vs-njd/2026/11/03/2026020239",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.222,
@@ -14502,7 +14519,7 @@
    "venue": "Bridgestone Arena",
    "source_url": "https://www.nhl.com/gamecenter/car-vs-nsh/2026/11/03/2026020245",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.875,
@@ -14661,7 +14678,7 @@
    "venue": "Rogers Arena",
    "source_url": "https://www.nhl.com/gamecenter/ana-vs-van/2026/11/03/2026020246",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -14820,7 +14837,7 @@
    "venue": "KeyBank Center",
    "source_url": "https://www.nhl.com/gamecenter/ott-vs-buf/2026/11/04/2026020247",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.8,
@@ -14979,7 +14996,7 @@
    "venue": "Amerant Bank Arena",
    "source_url": "https://www.nhl.com/gamecenter/chi-vs-fla/2026/11/04/2026020248",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.1,
@@ -15138,7 +15155,7 @@
    "venue": "Crypto.com Arena",
    "source_url": "https://www.nhl.com/gamecenter/sjs-vs-lak/2026/11/04/2026020249",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.429,
@@ -15297,7 +15314,7 @@
    "venue": "Climate Pledge Arena",
    "source_url": "https://www.nhl.com/gamecenter/cgy-vs-sea/2026/11/04/2026020250",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.9,
@@ -15456,7 +15473,7 @@
    "venue": "Centre Bell",
    "source_url": "https://www.nhl.com/gamecenter/uta-vs-mtl/2026/11/05/2026020251",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.333,
@@ -15615,7 +15632,7 @@
    "venue": "Little Caesars Arena",
    "source_url": "https://www.nhl.com/gamecenter/vgk-vs-det/2026/11/05/2026020252",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -15774,7 +15791,7 @@
    "venue": "Benchmark International Arena",
    "source_url": "https://www.nhl.com/gamecenter/chi-vs-tbl/2026/11/05/2026020253",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.444,
@@ -15933,7 +15950,7 @@
    "venue": "Prudential Center",
    "source_url": "https://www.nhl.com/gamecenter/stl-vs-njd/2026/11/05/2026020254",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.222,
@@ -16092,7 +16109,7 @@
    "venue": "UBS Arena",
    "source_url": "https://www.nhl.com/gamecenter/car-vs-nyi/2026/11/05/2026020255",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -16251,7 +16268,7 @@
    "venue": "Madison Square Garden",
    "source_url": "https://www.nhl.com/gamecenter/phi-vs-nyr/2026/11/05/2026020256",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -16410,7 +16427,7 @@
    "venue": "PPG Paints Arena",
    "source_url": "https://www.nhl.com/gamecenter/bos-vs-pit/2026/11/05/2026020257",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.3,
@@ -16569,7 +16586,7 @@
    "venue": "Nationwide Arena",
    "source_url": "https://www.nhl.com/gamecenter/dal-vs-cbj/2026/11/05/2026020258",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.5,
@@ -16728,7 +16745,7 @@
    "venue": "Canada Life Centre",
    "source_url": "https://www.nhl.com/gamecenter/van-vs-wpg/2026/11/05/2026020259",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.667,
@@ -16887,7 +16904,7 @@
    "venue": "Rogers Place",
    "source_url": "https://www.nhl.com/gamecenter/ana-vs-edm/2026/11/05/2026020260",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.556,
@@ -17046,7 +17063,7 @@
    "venue": "Ball Arena",
    "source_url": "https://www.nhl.com/gamecenter/nsh-vs-col/2026/11/05/2026020261",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.1,
@@ -17205,7 +17222,7 @@
    "venue": "KeyBank Center",
    "source_url": "https://www.nhl.com/gamecenter/cbj-vs-buf/2026/11/06/2026020262",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.8,
@@ -17364,7 +17381,7 @@
    "venue": "Grand Casino Arena",
    "source_url": "https://www.nhl.com/gamecenter/sjs-vs-min/2026/11/06/2026020263",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.1,
@@ -17523,7 +17540,7 @@
    "venue": "Scotiabank Saddledome",
    "source_url": "https://www.nhl.com/gamecenter/ana-vs-cgy/2026/11/06/2026020264",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.125,
@@ -17682,7 +17699,7 @@
    "venue": "Capital One Arena",
    "source_url": "https://www.nhl.com/gamecenter/fla-vs-wsh/2026/11/07/2026020265",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.333,
@@ -17841,7 +17858,7 @@
    "venue": "Bridgestone Arena",
    "source_url": "https://www.nhl.com/gamecenter/stl-vs-nsh/2026/11/07/2026020266",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.875,
@@ -18000,7 +18017,7 @@
    "venue": "Climate Pledge Arena",
    "source_url": "https://www.nhl.com/gamecenter/nyr-vs-sea/2026/11/07/2026020267",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.9,
@@ -18159,7 +18176,7 @@
    "venue": "Scotiabank Arena",
    "source_url": "https://www.nhl.com/gamecenter/mtl-vs-tor/2026/11/07/2026020268",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.455,
@@ -18318,7 +18335,7 @@
    "venue": "Canadian Tire Centre",
    "source_url": "https://www.nhl.com/gamecenter/uta-vs-ott/2026/11/07/2026020269",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.9,
@@ -18477,7 +18494,7 @@
    "venue": "UBS Arena",
    "source_url": "https://www.nhl.com/gamecenter/njd-vs-nyi/2026/11/07/2026020270",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.0,
@@ -18636,7 +18653,7 @@
    "venue": "Lenovo Center",
    "source_url": "https://www.nhl.com/gamecenter/chi-vs-car/2026/11/07/2026020271",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.818,
@@ -18795,7 +18812,7 @@
    "venue": "American Airlines Center",
    "source_url": "https://www.nhl.com/gamecenter/sjs-vs-dal/2026/11/07/2026020272",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.556,
@@ -18954,7 +18971,7 @@
    "venue": "Grand Casino Arena",
    "source_url": "https://www.nhl.com/gamecenter/tbl-vs-min/2026/11/07/2026020273",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.1,
@@ -19113,7 +19130,7 @@
    "venue": "Ball Arena",
    "source_url": "https://www.nhl.com/gamecenter/det-vs-col/2026/11/07/2026020274",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.1,
@@ -19272,7 +19289,7 @@
    "venue": "Crypto.com Arena",
    "source_url": "https://www.nhl.com/gamecenter/pit-vs-lak/2026/11/07/2026020275",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.429,
@@ -19431,7 +19448,7 @@
    "venue": "Rogers Place",
    "source_url": "https://www.nhl.com/gamecenter/van-vs-edm/2026/11/07/2026020276",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 4.556,
@@ -19590,7 +19607,7 @@
    "venue": "TD Garden",
    "source_url": "https://www.nhl.com/gamecenter/fla-vs-bos/2026/11/08/2026020277",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.6,
@@ -19749,7 +19766,7 @@
    "venue": "KeyBank Center",
    "source_url": "https://www.nhl.com/gamecenter/vgk-vs-buf/2026/11/08/2026020278",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.8,
@@ -19908,7 +19925,7 @@
    "venue": "Canada Life Centre",
    "source_url": "https://www.nhl.com/gamecenter/tbl-vs-wpg/2026/11/08/2026020280",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.667,
@@ -20067,7 +20084,7 @@
    "venue": "Scotiabank Arena",
    "source_url": "https://www.nhl.com/gamecenter/njd-vs-tor/2026/11/08/2026020279",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 3.455,
@@ -20226,7 +20243,7 @@
    "venue": "Scotiabank Saddledome",
    "source_url": "https://www.nhl.com/gamecenter/phi-vs-cgy/2026/11/08/2026020281",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.125,
@@ -20385,7 +20402,7 @@
    "venue": "Honda Center",
    "source_url": "https://www.nhl.com/gamecenter/pit-vs-ana/2026/11/08/2026020282",
    "source_name": "NHL.com official game centre (schedule + standings from the NHL official API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Independent Poisson goal model on official NHL 2026-27 scoring rates, shrunk to the league mean, plus a home-ice advantage measured from the official standings splits.",
    "model_inputs": {
     "home_gf_per_game": 2.889,
@@ -20544,7 +20561,7 @@
    "venue": "American Family Field",
    "source_url": "https://www.mlb.com/gameday/849805",
    "source_name": "MLB.com official Gameday (schedule + standings from the MLB Stats API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Pythagorean win expectancy (exponent 1.83) from official 2026 runs scored/allowed, combined with a Poisson runs model for totals and a normal margin model for the run line; 1.08 home-field multiplier.",
    "model_inputs": {
     "home_record": "103-59",
@@ -20674,7 +20691,7 @@
    "venue": "American Family Field",
    "source_url": "https://www.mlb.com/gameday/849802",
    "source_name": "MLB.com official Gameday (schedule + standings from the MLB Stats API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Pythagorean win expectancy (exponent 1.83) from official 2026 runs scored/allowed, combined with a Poisson runs model for totals and a normal margin model for the run line; 1.08 home-field multiplier.",
    "model_inputs": {
     "home_record": "103-59",
@@ -20804,7 +20821,7 @@
    "venue": "Tropicana Field",
    "source_url": "https://www.mlb.com/gameday/849804",
    "source_name": "MLB.com official Gameday (schedule + standings from the MLB Stats API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Pythagorean win expectancy (exponent 1.83) from official 2026 runs scored/allowed, combined with a Poisson runs model for totals and a normal margin model for the run line; 1.08 home-field multiplier.",
    "model_inputs": {
     "home_record": "98-64",
@@ -20934,7 +20951,7 @@
    "venue": "Tropicana Field",
    "source_url": "https://www.mlb.com/gameday/849803",
    "source_name": "MLB.com official Gameday (schedule + standings from the MLB Stats API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Pythagorean win expectancy (exponent 1.83) from official 2026 runs scored/allowed, combined with a Poisson runs model for totals and a normal margin model for the run line; 1.08 home-field multiplier.",
    "model_inputs": {
     "home_record": "98-64",
@@ -21064,7 +21081,7 @@
    "venue": "Tropicana Field",
    "source_url": "https://www.mlb.com/gameday/849799",
    "source_name": "MLB.com official Gameday (schedule + standings from the MLB Stats API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Pythagorean win expectancy (exponent 1.83) from official 2026 runs scored/allowed, combined with a Poisson runs model for totals and a normal margin model for the run line; 1.08 home-field multiplier.",
    "model_inputs": {
     "home_record": "98-64",
@@ -21194,7 +21211,7 @@
    "venue": "American Family Field",
    "source_url": "https://www.mlb.com/gameday/849801",
    "source_name": "MLB.com official Gameday (schedule + standings from the MLB Stats API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Pythagorean win expectancy (exponent 1.83) from official 2026 runs scored/allowed, combined with a Poisson runs model for totals and a normal margin model for the run line; 1.08 home-field multiplier.",
    "model_inputs": {
     "home_record": "103-59",
@@ -21324,7 +21341,7 @@
    "venue": "American Family Field",
    "source_url": "https://www.mlb.com/gameday/849800",
    "source_name": "MLB.com official Gameday (schedule + standings from the MLB Stats API)",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Pythagorean win expectancy (exponent 1.83) from official 2026 runs scored/allowed, combined with a Poisson runs model for totals and a normal margin model for the run line; 1.08 home-field multiplier.",
    "model_inputs": {
     "home_record": "103-59",
@@ -21454,7 +21471,7 @@
    "venue": "",
    "source_url": "https://www.mlb.com/postseason/2026/world-series",
    "source_name": "MLB.com official World Series schedule",
-   "source_checked_utc": "2026-10-22T12:31:19Z",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
    "model": "Best-of-seven series probability simulated from our own per-game World Series probabilities (binomial first-to-four).",
    "model_inputs": {
     "per_game_probability": 0.4179,
@@ -21495,6 +21512,3004 @@
    "prediction": "",
    "prediction_words": 0,
    "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0138",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T18:45:00.000Z",
+   "home": "Cardiff Rugby",
+   "away": "Hollywoodbets Sharks",
+   "neutral": false,
+   "venue": "Cardiff Arms Park",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/cardiff-rugby-vs-hollywoodbets-sharks-2026-10-23/292608#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 6,
+    "away_table_position": 5,
+    "home_pts": 9,
+    "away_pts": 10,
+    "home_record": "2-0-1",
+    "away_record": "2-0-1",
+    "home_pf_per_game": 22.0,
+    "home_pa_per_game": 23.67,
+    "away_pf_per_game": 29.67,
+    "away_pa_per_game": 27.67,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 26.94,
+    "expected_away_points": 24.93,
+    "expected_margin": 2.01,
+    "expected_total_points": 51.87,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Cardiff Rugby",
+     "line": "",
+     "p": 0.5405,
+     "fair_dec": 1.8502,
+     "fair_american": -118,
+     "book_dec": 1.7756,
+     "book_american": -129
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Hollywoodbets Sharks",
+     "line": "",
+     "p": 0.4395,
+     "fair_dec": 2.2753,
+     "fair_american": 128,
+     "book_dec": 2.1836,
+     "book_american": 118
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +2.0",
+     "selection": "Cardiff Rugby +2.0",
+     "line": "+2.0",
+     "p": 0.5002,
+     "fair_dec": 1.9992,
+     "fair_american": -100,
+     "book_dec": 1.9186,
+     "book_american": -109
+    },
+    {
+     "market": "Handicap +2.0",
+     "selection": "Hollywoodbets Sharks -2.0",
+     "line": "-2.0",
+     "p": 0.4998,
+     "fair_dec": 2.0008,
+     "fair_american": 100,
+     "book_dec": 1.9201,
+     "book_american": -109
+    },
+    {
+     "market": "Total Points Over 52.0",
+     "selection": "Over 52.0",
+     "line": "52.0",
+     "p": 0.4967,
+     "fair_dec": 2.0135,
+     "fair_american": 101,
+     "book_dec": 1.9323,
+     "book_american": -107
+    },
+    {
+     "market": "Total Points Under 52.0",
+     "selection": "Under 52.0",
+     "line": "52.0",
+     "p": 0.5033,
+     "fair_dec": 1.9867,
+     "fair_american": -101,
+     "book_dec": 1.9066,
+     "book_american": -110
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Cardiff Rugby",
+    "p": 0.5405,
+    "fair_american": -118,
+    "book_american": -129
+   },
+   "confidence": "Low",
+   "confidence_rule": "model probability 0.540 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0139",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T18:45:00.000Z",
+   "home": "Connacht Rugby",
+   "away": "Zebre Parma",
+   "neutral": false,
+   "venue": "Dexcom Stadium",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/connacht-rugby-vs-zebre-parma-2026-10-23/292609#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 14,
+    "away_table_position": 16,
+    "home_pts": 5,
+    "away_pts": 1,
+    "home_record": "1-0-2",
+    "away_record": "0-0-3",
+    "home_pf_per_game": 18.67,
+    "home_pa_per_game": 28.0,
+    "away_pf_per_game": 17.33,
+    "away_pa_per_game": 38.67,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 28.78,
+    "expected_away_points": 22.73,
+    "expected_margin": 6.05,
+    "expected_total_points": 51.51,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Connacht Rugby",
+     "line": "",
+     "p": 0.6388,
+     "fair_dec": 1.5653,
+     "fair_american": -177,
+     "book_dec": 1.5022,
+     "book_american": -199
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Zebre Parma",
+     "line": "",
+     "p": 0.3412,
+     "fair_dec": 2.9312,
+     "fair_american": 193,
+     "book_dec": 2.813,
+     "book_american": 181
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +6.0",
+     "selection": "Connacht Rugby +6.0",
+     "line": "+6.0",
+     "p": 0.5013,
+     "fair_dec": 1.9947,
+     "fair_american": -101,
+     "book_dec": 1.9143,
+     "book_american": -109
+    },
+    {
+     "market": "Handicap +6.0",
+     "selection": "Zebre Parma -6.0",
+     "line": "-6.0",
+     "p": 0.4987,
+     "fair_dec": 2.0053,
+     "fair_american": 101,
+     "book_dec": 1.9245,
+     "book_american": -108
+    },
+    {
+     "market": "Total Points Over 51.5",
+     "selection": "Over 51.5",
+     "line": "51.5",
+     "p": 0.5004,
+     "fair_dec": 1.9985,
+     "fair_american": -100,
+     "book_dec": 1.918,
+     "book_american": -109
+    },
+    {
+     "market": "Total Points Under 51.5",
+     "selection": "Under 51.5",
+     "line": "51.5",
+     "p": 0.4996,
+     "fair_dec": 2.0015,
+     "fair_american": 100,
+     "book_dec": 1.9208,
+     "book_american": -109
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Connacht Rugby",
+    "p": 0.6388,
+    "fair_american": -177,
+    "book_american": -199
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.639 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0140",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T18:45:00.000Z",
+   "home": "Edinburgh",
+   "away": "10bet Lions",
+   "neutral": false,
+   "venue": "Hive Stadium",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/edinburgh-rugby-vs-10bet-lions-2026-10-23/292610#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 1,
+    "away_table_position": 7,
+    "home_pts": 14,
+    "away_pts": 9,
+    "home_record": "3-0-0",
+    "away_record": "2-0-1",
+    "home_pf_per_game": 26.67,
+    "home_pa_per_game": 18.0,
+    "away_pf_per_game": 25.67,
+    "away_pa_per_game": 34.0,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 29.97,
+    "expected_away_points": 22.33,
+    "expected_margin": 7.63,
+    "expected_total_points": 52.3,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Edinburgh",
+     "line": "",
+     "p": 0.675,
+     "fair_dec": 1.4814,
+     "fair_american": -208,
+     "book_dec": 1.4217,
+     "book_american": -237
+    },
+    {
+     "market": "Match Winner",
+     "selection": "10bet Lions",
+     "line": "",
+     "p": 0.305,
+     "fair_dec": 3.2792,
+     "fair_american": 228,
+     "book_dec": 3.147,
+     "book_american": 215
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +7.5",
+     "selection": "Edinburgh +7.5",
+     "line": "+7.5",
+     "p": 0.5034,
+     "fair_dec": 1.9863,
+     "fair_american": -101,
+     "book_dec": 1.9062,
+     "book_american": -110
+    },
+    {
+     "market": "Handicap +7.5",
+     "selection": "10bet Lions -7.5",
+     "line": "-7.5",
+     "p": 0.4966,
+     "fair_dec": 2.0139,
+     "fair_american": 101,
+     "book_dec": 1.9327,
+     "book_american": -107
+    },
+    {
+     "market": "Total Points Over 52.5",
+     "selection": "Over 52.5",
+     "line": "52.5",
+     "p": 0.4948,
+     "fair_dec": 2.0212,
+     "fair_american": 102,
+     "book_dec": 1.9397,
+     "book_american": -106
+    },
+    {
+     "market": "Total Points Under 52.5",
+     "selection": "Under 52.5",
+     "line": "52.5",
+     "p": 0.5052,
+     "fair_dec": 1.9793,
+     "fair_american": -102,
+     "book_dec": 1.8995,
+     "book_american": -111
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Edinburgh",
+    "p": 0.675,
+    "fair_american": -208,
+    "book_american": -237
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.675 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0141",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T11:45:00.000Z",
+   "home": "Vodacom Bulls",
+   "away": "Ulster Rugby",
+   "neutral": false,
+   "venue": "Loftus Versfeld",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/vodacom-bulls-vs-ulster-rugby-2026-10-24/292611#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 3,
+    "away_table_position": 11,
+    "home_pts": 11,
+    "away_pts": 8,
+    "home_record": "2-0-1",
+    "away_record": "0-2-1",
+    "home_pf_per_game": 42.0,
+    "home_pa_per_game": 18.0,
+    "away_pf_per_game": 29.33,
+    "away_pa_per_game": 31.0,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 33.54,
+    "expected_away_points": 23.25,
+    "expected_margin": 10.29,
+    "expected_total_points": 56.79,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Vodacom Bulls",
+     "line": "",
+     "p": 0.7316,
+     "fair_dec": 1.3668,
+     "fair_american": -273,
+     "book_dec": 1.3117,
+     "book_american": -321
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Ulster Rugby",
+     "line": "",
+     "p": 0.2484,
+     "fair_dec": 4.0263,
+     "fair_american": 303,
+     "book_dec": 3.864,
+     "book_american": 286
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +10.5",
+     "selection": "Vodacom Bulls +10.5",
+     "line": "+10.5",
+     "p": 0.4945,
+     "fair_dec": 2.0221,
+     "fair_american": 102,
+     "book_dec": 1.9406,
+     "book_american": -106
+    },
+    {
+     "market": "Handicap +10.5",
+     "selection": "Ulster Rugby -10.5",
+     "line": "-10.5",
+     "p": 0.5055,
+     "fair_dec": 1.9784,
+     "fair_american": -102,
+     "book_dec": 1.8986,
+     "book_american": -111
+    },
+    {
+     "market": "Total Points Over 57.0",
+     "selection": "Over 57.0",
+     "line": "57.0",
+     "p": 0.4943,
+     "fair_dec": 2.023,
+     "fair_american": 102,
+     "book_dec": 1.9415,
+     "book_american": -106
+    },
+    {
+     "market": "Total Points Under 57.0",
+     "selection": "Under 57.0",
+     "line": "57.0",
+     "p": 0.5057,
+     "fair_dec": 1.9775,
+     "fair_american": -102,
+     "book_dec": 1.8978,
+     "book_american": -111
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Vodacom Bulls",
+    "p": 0.7316,
+    "fair_american": -273,
+    "book_american": -321
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.732 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": false,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0142",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T14:00:00.000Z",
+   "home": "DHL Stormers",
+   "away": "Scarlets",
+   "neutral": false,
+   "venue": "DHL Stadium",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/dhl-stormers-vs-scarlets-2026-10-24/292612#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 4,
+    "away_table_position": 12,
+    "home_pts": 11,
+    "away_pts": 7,
+    "home_record": "2-0-1",
+    "away_record": "1-0-2",
+    "home_pf_per_game": 27.0,
+    "home_pa_per_game": 18.0,
+    "away_pf_per_game": 22.67,
+    "away_pa_per_game": 28.33,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 28.51,
+    "expected_away_points": 21.59,
+    "expected_margin": 6.92,
+    "expected_total_points": 50.09,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "DHL Stormers",
+     "line": "",
+     "p": 0.659,
+     "fair_dec": 1.5175,
+     "fair_american": -193,
+     "book_dec": 1.4564,
+     "book_american": -219
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Scarlets",
+     "line": "",
+     "p": 0.321,
+     "fair_dec": 3.115,
+     "fair_american": 211,
+     "book_dec": 2.9894,
+     "book_american": 199
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +7.0",
+     "selection": "DHL Stormers +7.0",
+     "line": "+7.0",
+     "p": 0.498,
+     "fair_dec": 2.008,
+     "fair_american": 101,
+     "book_dec": 1.9271,
+     "book_american": -108
+    },
+    {
+     "market": "Handicap +7.0",
+     "selection": "Scarlets -7.0",
+     "line": "-7.0",
+     "p": 0.502,
+     "fair_dec": 1.992,
+     "fair_american": -101,
+     "book_dec": 1.9117,
+     "book_american": -110
+    },
+    {
+     "market": "Total Points Over 50.0",
+     "selection": "Over 50.0",
+     "line": "50.0",
+     "p": 0.5025,
+     "fair_dec": 1.99,
+     "fair_american": -101,
+     "book_dec": 1.9098,
+     "book_american": -110
+    },
+    {
+     "market": "Total Points Under 50.0",
+     "selection": "Under 50.0",
+     "line": "50.0",
+     "p": 0.4975,
+     "fair_dec": 2.0101,
+     "fair_american": 101,
+     "book_dec": 1.9291,
+     "book_american": -108
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "DHL Stormers",
+    "p": 0.659,
+    "fair_american": -193,
+    "book_american": -219
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.659 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0143",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T14:00:00.000Z",
+   "home": "Benetton Rugby",
+   "away": "Glasgow Warriors",
+   "neutral": false,
+   "venue": "Stadio Monigo",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/benetton-rugby-vs-glasgow-warriors-2026-10-24/292613#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 15,
+    "away_table_position": 2,
+    "home_pts": 5,
+    "away_pts": 13,
+    "home_record": "0-1-2",
+    "away_record": "2-1-0",
+    "home_pf_per_game": 21.33,
+    "home_pa_per_game": 22.67,
+    "away_pf_per_game": 31.67,
+    "away_pa_per_game": 24.0,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 25.81,
+    "expected_away_points": 25.18,
+    "expected_margin": 0.63,
+    "expected_total_points": 50.98,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Benetton Rugby",
+     "line": "",
+     "p": 0.5059,
+     "fair_dec": 1.9766,
+     "fair_american": -102,
+     "book_dec": 1.897,
+     "book_american": -111
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Glasgow Warriors",
+     "line": "",
+     "p": 0.4741,
+     "fair_dec": 2.1093,
+     "fair_american": 111,
+     "book_dec": 2.0243,
+     "book_american": 102
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +0.5",
+     "selection": "Benetton Rugby +0.5",
+     "line": "+0.5",
+     "p": 0.5034,
+     "fair_dec": 1.9866,
+     "fair_american": -101,
+     "book_dec": 1.9065,
+     "book_american": -110
+    },
+    {
+     "market": "Handicap +0.5",
+     "selection": "Glasgow Warriors -0.5",
+     "line": "-0.5",
+     "p": 0.4966,
+     "fair_dec": 2.0136,
+     "fair_american": 101,
+     "book_dec": 1.9324,
+     "book_american": -107
+    },
+    {
+     "market": "Total Points Over 51.0",
+     "selection": "Over 51.0",
+     "line": "51.0",
+     "p": 0.4996,
+     "fair_dec": 2.0018,
+     "fair_american": 100,
+     "book_dec": 1.9211,
+     "book_american": -109
+    },
+    {
+     "market": "Total Points Under 51.0",
+     "selection": "Under 51.0",
+     "line": "51.0",
+     "p": 0.5004,
+     "fair_dec": 1.9982,
+     "fair_american": -100,
+     "book_dec": 1.9177,
+     "book_american": -109
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Benetton Rugby",
+    "p": 0.5059,
+    "fair_american": -102,
+    "book_american": -111
+   },
+   "confidence": "Low",
+   "confidence_rule": "model probability 0.506 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0144",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T17:00:00.000Z",
+   "home": "Leinster Rugby",
+   "away": "Munster Rugby",
+   "neutral": false,
+   "venue": "Aviva Stadium",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/leinster-rugby-vs-munster-rugby-2026-10-24/292614#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 10,
+    "away_table_position": 9,
+    "home_pts": 8,
+    "away_pts": 9,
+    "home_record": "1-0-2",
+    "away_record": "1-1-1",
+    "home_pf_per_game": 25.0,
+    "home_pa_per_game": 19.33,
+    "away_pf_per_game": 24.0,
+    "away_pa_per_game": 24.67,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 26.96,
+    "expected_away_points": 22.27,
+    "expected_margin": 4.69,
+    "expected_total_points": 49.24,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Leinster Rugby",
+     "line": "",
+     "p": 0.6065,
+     "fair_dec": 1.6488,
+     "fair_american": -154,
+     "book_dec": 1.5823,
+     "book_american": -172
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Munster Rugby",
+     "line": "",
+     "p": 0.3735,
+     "fair_dec": 2.6774,
+     "fair_american": 168,
+     "book_dec": 2.5695,
+     "book_american": 157
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +4.5",
+     "selection": "Leinster Rugby +4.5",
+     "line": "+4.5",
+     "p": 0.5049,
+     "fair_dec": 1.9807,
+     "fair_american": -102,
+     "book_dec": 1.9008,
+     "book_american": -111
+    },
+    {
+     "market": "Handicap +4.5",
+     "selection": "Munster Rugby -4.5",
+     "line": "-4.5",
+     "p": 0.4951,
+     "fair_dec": 2.0197,
+     "fair_american": 102,
+     "book_dec": 1.9383,
+     "book_american": -107
+    },
+    {
+     "market": "Total Points Over 49.0",
+     "selection": "Over 49.0",
+     "line": "49.0",
+     "p": 0.5063,
+     "fair_dec": 1.975,
+     "fair_american": -103,
+     "book_dec": 1.8954,
+     "book_american": -112
+    },
+    {
+     "market": "Total Points Under 49.0",
+     "selection": "Under 49.0",
+     "line": "49.0",
+     "p": 0.4937,
+     "fair_dec": 2.0256,
+     "fair_american": 103,
+     "book_dec": 1.944,
+     "book_american": -106
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Leinster Rugby",
+    "p": 0.6065,
+    "fair_american": -154,
+    "book_american": -172
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.607 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0145",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T18:00:00.000Z",
+   "home": "Ospreys",
+   "away": "Dragons RFC",
+   "neutral": false,
+   "venue": "St Helen's",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/ospreys-vs-dragons-rfc-2026-10-24/292615#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 13,
+    "away_table_position": 8,
+    "home_pts": 6,
+    "away_pts": 9,
+    "home_record": "1-0-2",
+    "away_record": "1-1-1",
+    "home_pf_per_game": 27.0,
+    "home_pa_per_game": 35.67,
+    "away_pf_per_game": 29.33,
+    "away_pa_per_game": 27.67,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 28.33,
+    "expected_away_points": 28.22,
+    "expected_margin": 0.1,
+    "expected_total_points": 56.55,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Ospreys",
+     "line": "",
+     "p": 0.4926,
+     "fair_dec": 2.0302,
+     "fair_american": 103,
+     "book_dec": 1.9484,
+     "book_american": -105
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Dragons RFC",
+     "line": "",
+     "p": 0.4874,
+     "fair_dec": 2.0515,
+     "fair_american": 105,
+     "book_dec": 1.9688,
+     "book_american": -103
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +0.0",
+     "selection": "Ospreys +0.0",
+     "line": "+0.0",
+     "p": 0.5026,
+     "fair_dec": 1.9896,
+     "fair_american": -101,
+     "book_dec": 1.9094,
+     "book_american": -110
+    },
+    {
+     "market": "Handicap +0.0",
+     "selection": "Dragons RFC -0.0",
+     "line": "-0.0",
+     "p": 0.4974,
+     "fair_dec": 2.0105,
+     "fair_american": 101,
+     "book_dec": 1.9294,
+     "book_american": -108
+    },
+    {
+     "market": "Total Points Over 56.5",
+     "selection": "Over 56.5",
+     "line": "56.5",
+     "p": 0.5013,
+     "fair_dec": 1.9948,
+     "fair_american": -101,
+     "book_dec": 1.9144,
+     "book_american": -109
+    },
+    {
+     "market": "Total Points Under 56.5",
+     "selection": "Under 56.5",
+     "line": "56.5",
+     "p": 0.4987,
+     "fair_dec": 2.0053,
+     "fair_american": 101,
+     "book_dec": 1.9244,
+     "book_american": -108
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Ospreys",
+    "p": 0.4926,
+    "fair_american": 103,
+    "book_american": -105
+   },
+   "confidence": "Low",
+   "confidence_rule": "model probability 0.493 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0146",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-30",
+   "time_utc": "2026-10-30T19:45:00.000Z",
+   "home": "Connacht Rugby",
+   "away": "Leinster Rugby",
+   "neutral": false,
+   "venue": "Dexcom Stadium",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/connacht-rugby-vs-leinster-rugby-2026-10-30/292616#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 14,
+    "away_table_position": 10,
+    "home_pts": 5,
+    "away_pts": 8,
+    "home_record": "1-0-2",
+    "away_record": "1-0-2",
+    "home_pf_per_game": 18.67,
+    "home_pa_per_game": 28.0,
+    "away_pf_per_game": 25.0,
+    "away_pa_per_game": 19.33,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 23.92,
+    "expected_away_points": 24.86,
+    "expected_margin": -0.94,
+    "expected_total_points": 48.78,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Connacht Rugby",
+     "line": "",
+     "p": 0.4664,
+     "fair_dec": 2.1442,
+     "fair_american": 114,
+     "book_dec": 2.0578,
+     "book_american": 106
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Leinster Rugby",
+     "line": "",
+     "p": 0.5136,
+     "fair_dec": 1.9469,
+     "fair_american": -106,
+     "book_dec": 1.8684,
+     "book_american": -115
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap -1.0",
+     "selection": "Connacht Rugby -1.0",
+     "line": "-1.0",
+     "p": 0.5016,
+     "fair_dec": 1.9936,
+     "fair_american": -101,
+     "book_dec": 1.9132,
+     "book_american": -110
+    },
+    {
+     "market": "Handicap -1.0",
+     "selection": "Leinster Rugby +1.0",
+     "line": "+1.0",
+     "p": 0.4984,
+     "fair_dec": 2.0064,
+     "fair_american": 101,
+     "book_dec": 1.9256,
+     "book_american": -108
+    },
+    {
+     "market": "Total Points Over 49.0",
+     "selection": "Over 49.0",
+     "line": "49.0",
+     "p": 0.4943,
+     "fair_dec": 2.0231,
+     "fair_american": 102,
+     "book_dec": 1.9416,
+     "book_american": -106
+    },
+    {
+     "market": "Total Points Under 49.0",
+     "selection": "Under 49.0",
+     "line": "49.0",
+     "p": 0.5057,
+     "fair_dec": 1.9774,
+     "fair_american": -102,
+     "book_dec": 1.8977,
+     "book_american": -111
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Leinster Rugby",
+    "p": 0.5136,
+    "fair_american": -106,
+    "book_american": -115
+   },
+   "confidence": "Low",
+   "confidence_rule": "model probability 0.514 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0147",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-30",
+   "time_utc": "2026-10-30T19:45:00.000Z",
+   "home": "Glasgow Warriors",
+   "away": "10bet Lions",
+   "neutral": false,
+   "venue": "Scotstoun Stadium",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/glasgow-warriors-vs-10bet-lions-2026-10-30/292617#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 2,
+    "away_table_position": 7,
+    "home_pts": 13,
+    "away_pts": 9,
+    "home_record": "2-1-0",
+    "away_record": "2-0-1",
+    "home_pf_per_game": 31.67,
+    "home_pa_per_game": 24.0,
+    "away_pf_per_game": 25.67,
+    "away_pa_per_game": 34.0,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 31.44,
+    "expected_away_points": 23.96,
+    "expected_margin": 7.48,
+    "expected_total_points": 55.4,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Glasgow Warriors",
+     "line": "",
+     "p": 0.6716,
+     "fair_dec": 1.4889,
+     "fair_american": -205,
+     "book_dec": 1.4289,
+     "book_american": -233
+    },
+    {
+     "market": "Match Winner",
+     "selection": "10bet Lions",
+     "line": "",
+     "p": 0.3084,
+     "fair_dec": 3.2427,
+     "fair_american": 224,
+     "book_dec": 3.112,
+     "book_american": 211
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +7.5",
+     "selection": "Glasgow Warriors +7.5",
+     "line": "+7.5",
+     "p": 0.4995,
+     "fair_dec": 2.002,
+     "fair_american": 100,
+     "book_dec": 1.9213,
+     "book_american": -109
+    },
+    {
+     "market": "Handicap +7.5",
+     "selection": "10bet Lions -7.5",
+     "line": "-7.5",
+     "p": 0.5005,
+     "fair_dec": 1.998,
+     "fair_american": -100,
+     "book_dec": 1.9175,
+     "book_american": -109
+    },
+    {
+     "market": "Total Points Over 55.5",
+     "selection": "Over 55.5",
+     "line": "55.5",
+     "p": 0.4975,
+     "fair_dec": 2.0102,
+     "fair_american": 101,
+     "book_dec": 1.9292,
+     "book_american": -108
+    },
+    {
+     "market": "Total Points Under 55.5",
+     "selection": "Under 55.5",
+     "line": "55.5",
+     "p": 0.5025,
+     "fair_dec": 1.9899,
+     "fair_american": -101,
+     "book_dec": 1.9097,
+     "book_american": -110
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Glasgow Warriors",
+    "p": 0.6716,
+    "fair_american": -205,
+    "book_american": -233
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.672 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0148",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-31",
+   "time_utc": "2026-10-31T12:45:00.000Z",
+   "home": "DHL Stormers",
+   "away": "Ulster Rugby",
+   "neutral": false,
+   "venue": "DHL Stadium",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/dhl-stormers-vs-ulster-rugby-2026-10-31/292618#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 4,
+    "away_table_position": 11,
+    "home_pts": 11,
+    "away_pts": 8,
+    "home_record": "2-0-1",
+    "away_record": "0-2-1",
+    "home_pf_per_game": 27.0,
+    "home_pa_per_game": 18.0,
+    "away_pf_per_game": 29.33,
+    "away_pa_per_game": 31.0,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 29.24,
+    "expected_away_points": 23.25,
+    "expected_margin": 5.99,
+    "expected_total_points": 52.49,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "DHL Stormers",
+     "line": "",
+     "p": 0.6375,
+     "fair_dec": 1.5687,
+     "fair_american": -176,
+     "book_dec": 1.5055,
+     "book_american": -198
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Ulster Rugby",
+     "line": "",
+     "p": 0.3425,
+     "fair_dec": 2.9195,
+     "fair_american": 192,
+     "book_dec": 2.8018,
+     "book_american": 180
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +6.0",
+     "selection": "DHL Stormers +6.0",
+     "line": "+6.0",
+     "p": 0.4998,
+     "fair_dec": 2.0008,
+     "fair_american": 100,
+     "book_dec": 1.9201,
+     "book_american": -109
+    },
+    {
+     "market": "Handicap +6.0",
+     "selection": "Ulster Rugby -6.0",
+     "line": "-6.0",
+     "p": 0.5002,
+     "fair_dec": 1.9992,
+     "fair_american": -100,
+     "book_dec": 1.9187,
+     "book_american": -109
+    },
+    {
+     "market": "Total Points Over 52.5",
+     "selection": "Over 52.5",
+     "line": "52.5",
+     "p": 0.4998,
+     "fair_dec": 2.001,
+     "fair_american": 100,
+     "book_dec": 1.9203,
+     "book_american": -109
+    },
+    {
+     "market": "Total Points Under 52.5",
+     "selection": "Under 52.5",
+     "line": "52.5",
+     "p": 0.5002,
+     "fair_dec": 1.999,
+     "fair_american": -100,
+     "book_dec": 1.9185,
+     "book_american": -109
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "DHL Stormers",
+    "p": 0.6375,
+    "fair_american": -176,
+    "book_american": -198
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.637 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0149",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-31",
+   "time_utc": "2026-10-31T15:00:00.000Z",
+   "home": "Vodacom Bulls",
+   "away": "Scarlets",
+   "neutral": false,
+   "venue": "Loftus Versfeld",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/vodacom-bulls-vs-scarlets-2026-10-31/292619#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 3,
+    "away_table_position": 12,
+    "home_pts": 11,
+    "away_pts": 7,
+    "home_record": "2-0-1",
+    "away_record": "1-0-2",
+    "home_pf_per_game": 42.0,
+    "home_pa_per_game": 18.0,
+    "away_pf_per_game": 22.67,
+    "away_pa_per_game": 28.33,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 32.69,
+    "expected_away_points": 21.59,
+    "expected_margin": 11.1,
+    "expected_total_points": 54.28,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Vodacom Bulls",
+     "line": "",
+     "p": 0.7479,
+     "fair_dec": 1.3372,
+     "fair_american": -297,
+     "book_dec": 1.2833,
+     "book_american": -353
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Scarlets",
+     "line": "",
+     "p": 0.2321,
+     "fair_dec": 4.3076,
+     "fair_american": 331,
+     "book_dec": 4.134,
+     "book_american": 313
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +11.0",
+     "selection": "Vodacom Bulls +11.0",
+     "line": "+11.0",
+     "p": 0.5027,
+     "fair_dec": 1.9894,
+     "fair_american": -101,
+     "book_dec": 1.9092,
+     "book_american": -110
+    },
+    {
+     "market": "Handicap +11.0",
+     "selection": "Scarlets -11.0",
+     "line": "-11.0",
+     "p": 0.4973,
+     "fair_dec": 2.0107,
+     "fair_american": 101,
+     "book_dec": 1.9297,
+     "book_american": -108
+    },
+    {
+     "market": "Total Points Over 54.5",
+     "selection": "Over 54.5",
+     "line": "54.5",
+     "p": 0.494,
+     "fair_dec": 2.0241,
+     "fair_american": 102,
+     "book_dec": 1.9425,
+     "book_american": -106
+    },
+    {
+     "market": "Total Points Under 54.5",
+     "selection": "Under 54.5",
+     "line": "54.5",
+     "p": 0.506,
+     "fair_dec": 1.9765,
+     "fair_american": -102,
+     "book_dec": 1.8968,
+     "book_american": -112
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Vodacom Bulls",
+    "p": 0.7479,
+    "fair_american": -297,
+    "book_american": -353
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.748 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": false,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0150",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-31",
+   "time_utc": "2026-10-31T15:00:00.000Z",
+   "home": "Benetton Rugby",
+   "away": "Edinburgh",
+   "neutral": false,
+   "venue": "Stadio Monigo",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/benetton-rugby-vs-edinburgh-rugby-2026-10-31/292620#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 15,
+    "away_table_position": 1,
+    "home_pts": 5,
+    "away_pts": 14,
+    "home_record": "0-1-2",
+    "away_record": "3-0-0",
+    "home_pf_per_game": 21.33,
+    "home_pa_per_game": 22.67,
+    "away_pf_per_game": 26.67,
+    "away_pa_per_game": 18.0,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 24.25,
+    "expected_away_points": 23.86,
+    "expected_margin": 0.39,
+    "expected_total_points": 48.12,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Benetton Rugby",
+     "line": "",
+     "p": 0.4999,
+     "fair_dec": 2.0006,
+     "fair_american": 100,
+     "book_dec": 1.9199,
+     "book_american": -109
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Edinburgh",
+     "line": "",
+     "p": 0.4801,
+     "fair_dec": 2.0827,
+     "fair_american": 108,
+     "book_dec": 1.9988,
+     "book_american": -100
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +0.5",
+     "selection": "Benetton Rugby +0.5",
+     "line": "+0.5",
+     "p": 0.4972,
+     "fair_dec": 2.0113,
+     "fair_american": 101,
+     "book_dec": 1.9302,
+     "book_american": -108
+    },
+    {
+     "market": "Handicap +0.5",
+     "selection": "Edinburgh -0.5",
+     "line": "-0.5",
+     "p": 0.5028,
+     "fair_dec": 1.9888,
+     "fair_american": -101,
+     "book_dec": 1.9087,
+     "book_american": -110
+    },
+    {
+     "market": "Total Points Over 48.0",
+     "selection": "Over 48.0",
+     "line": "48.0",
+     "p": 0.5031,
+     "fair_dec": 1.9877,
+     "fair_american": -101,
+     "book_dec": 1.9076,
+     "book_american": -110
+    },
+    {
+     "market": "Total Points Under 48.0",
+     "selection": "Under 48.0",
+     "line": "48.0",
+     "p": 0.4969,
+     "fair_dec": 2.0125,
+     "fair_american": 101,
+     "book_dec": 1.9314,
+     "book_american": -107
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Benetton Rugby",
+    "p": 0.4999,
+    "fair_american": 100,
+    "book_american": -109
+   },
+   "confidence": "Low",
+   "confidence_rule": "model probability 0.500 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0151",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-31",
+   "time_utc": "2026-10-31T17:30:00.000Z",
+   "home": "Munster Rugby",
+   "away": "Hollywoodbets Sharks",
+   "neutral": false,
+   "venue": "Thomond Park",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/munster-rugby-vs-hollywoodbets-sharks-2026-10-31/292621#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 9,
+    "away_table_position": 5,
+    "home_pts": 9,
+    "away_pts": 10,
+    "home_record": "1-1-1",
+    "away_record": "2-0-1",
+    "home_pf_per_game": 24.0,
+    "home_pa_per_game": 24.67,
+    "away_pf_per_game": 29.67,
+    "away_pa_per_game": 27.67,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 27.49,
+    "expected_away_points": 25.22,
+    "expected_margin": 2.28,
+    "expected_total_points": 52.71,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Munster Rugby",
+     "line": "",
+     "p": 0.5473,
+     "fair_dec": 1.8272,
+     "fair_american": -121,
+     "book_dec": 1.7536,
+     "book_american": -133
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Hollywoodbets Sharks",
+     "line": "",
+     "p": 0.4327,
+     "fair_dec": 2.3109,
+     "fair_american": 131,
+     "book_dec": 2.2178,
+     "book_american": 122
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +2.5",
+     "selection": "Munster Rugby +2.5",
+     "line": "+2.5",
+     "p": 0.4943,
+     "fair_dec": 2.023,
+     "fair_american": 102,
+     "book_dec": 1.9415,
+     "book_american": -106
+    },
+    {
+     "market": "Handicap +2.5",
+     "selection": "Hollywoodbets Sharks -2.5",
+     "line": "-2.5",
+     "p": 0.5057,
+     "fair_dec": 1.9775,
+     "fair_american": -102,
+     "book_dec": 1.8978,
+     "book_american": -111
+    },
+    {
+     "market": "Total Points Over 52.5",
+     "selection": "Over 52.5",
+     "line": "52.5",
+     "p": 0.5056,
+     "fair_dec": 1.9778,
+     "fair_american": -102,
+     "book_dec": 1.8981,
+     "book_american": -111
+    },
+    {
+     "market": "Total Points Under 52.5",
+     "selection": "Under 52.5",
+     "line": "52.5",
+     "p": 0.4944,
+     "fair_dec": 2.0227,
+     "fair_american": 102,
+     "book_dec": 1.9411,
+     "book_american": -106
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Munster Rugby",
+    "p": 0.5473,
+    "fair_american": -121,
+    "book_american": -133
+   },
+   "confidence": "Low",
+   "confidence_rule": "model probability 0.547 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0152",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-31",
+   "time_utc": "2026-10-31T17:30:00.000Z",
+   "home": "Dragons RFC",
+   "away": "Zebre Parma",
+   "neutral": false,
+   "venue": "Rodney Parade",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/dragons-rfc-vs-zebre-parma-2026-10-31/292622#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 8,
+    "away_table_position": 16,
+    "home_pts": 9,
+    "away_pts": 1,
+    "home_record": "1-1-1",
+    "away_record": "0-0-3",
+    "home_pf_per_game": 29.33,
+    "home_pa_per_game": 27.67,
+    "away_pf_per_game": 17.33,
+    "away_pa_per_game": 38.67,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 32.07,
+    "expected_away_points": 22.65,
+    "expected_margin": 9.42,
+    "expected_total_points": 54.72,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Dragons RFC",
+     "line": "",
+     "p": 0.7138,
+     "fair_dec": 1.401,
+     "fair_american": -249,
+     "book_dec": 1.3446,
+     "book_american": -290
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Zebre Parma",
+     "line": "",
+     "p": 0.2662,
+     "fair_dec": 3.7559,
+     "fair_american": 276,
+     "book_dec": 3.6045,
+     "book_american": 260
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +9.5",
+     "selection": "Dragons RFC +9.5",
+     "line": "+9.5",
+     "p": 0.4979,
+     "fair_dec": 2.0083,
+     "fair_american": 101,
+     "book_dec": 1.9273,
+     "book_american": -108
+    },
+    {
+     "market": "Handicap +9.5",
+     "selection": "Zebre Parma -9.5",
+     "line": "-9.5",
+     "p": 0.5021,
+     "fair_dec": 1.9918,
+     "fair_american": -101,
+     "book_dec": 1.9115,
+     "book_american": -110
+    },
+    {
+     "market": "Total Points Over 54.5",
+     "selection": "Over 54.5",
+     "line": "54.5",
+     "p": 0.5058,
+     "fair_dec": 1.9771,
+     "fair_american": -102,
+     "book_dec": 1.8974,
+     "book_american": -111
+    },
+    {
+     "market": "Total Points Under 54.5",
+     "selection": "Under 54.5",
+     "line": "54.5",
+     "p": 0.4942,
+     "fair_dec": 2.0234,
+     "fair_american": 102,
+     "book_dec": 1.9419,
+     "book_american": -106
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Dragons RFC",
+    "p": 0.7138,
+    "fair_american": -249,
+    "book_american": -290
+   },
+   "confidence": "Medium",
+   "confidence_rule": "model probability 0.714 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0153",
+   "sport": "Rugby Union",
+   "competition": "United Rugby Championship 2026-27",
+   "date": "2026-10-31",
+   "time_utc": "2026-10-31T19:45:00.000Z",
+   "home": "Ospreys",
+   "away": "Cardiff Rugby",
+   "neutral": false,
+   "venue": "St Helen's",
+   "source_url": "https://stats.unitedrugby.com/match-centre/202601/united-rugby-championship/ospreys-vs-cardiff-rugby-2026-10-31/292623#tabs-overview",
+   "source_name": "United Rugby Championship official match centre",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "Attack/defence points model fitted to the official URC table (points for/against per game, shrunk to the league mean), normal margin model for the handicap and a normal total-points model for Over/Under.",
+   "model_inputs": {
+    "home_table_position": 13,
+    "away_table_position": 6,
+    "home_pts": 6,
+    "away_pts": 9,
+    "home_record": "1-0-2",
+    "away_record": "2-0-1",
+    "home_pf_per_game": 27.0,
+    "home_pa_per_game": 35.67,
+    "away_pf_per_game": 22.0,
+    "away_pa_per_game": 23.67,
+    "league_points_per_team_game": 26.21,
+    "home_advantage_points": 3.0,
+    "expected_home_points": 27.23,
+    "expected_away_points": 26.03,
+    "expected_margin": 1.2,
+    "expected_total_points": 53.25,
+    "source_table_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   },
+   "markets": [
+    {
+     "market": "Match Winner",
+     "selection": "Ospreys",
+     "line": "",
+     "p": 0.5202,
+     "fair_dec": 1.9224,
+     "fair_american": -108,
+     "book_dec": 1.8449,
+     "book_american": -118
+    },
+    {
+     "market": "Match Winner",
+     "selection": "Cardiff Rugby",
+     "line": "",
+     "p": 0.4598,
+     "fair_dec": 2.1748,
+     "fair_american": 117,
+     "book_dec": 2.0872,
+     "book_american": 109
+    },
+    {
+     "market": "Draw",
+     "selection": "Draw",
+     "line": "",
+     "p": 0.02,
+     "fair_dec": 50.0,
+     "fair_american": 4900,
+     "book_dec": 47.5285,
+     "book_american": 4653
+    },
+    {
+     "market": "Handicap +1.0",
+     "selection": "Ospreys +1.0",
+     "line": "+1.0",
+     "p": 0.5051,
+     "fair_dec": 1.9798,
+     "fair_american": -102,
+     "book_dec": 1.9,
+     "book_american": -111
+    },
+    {
+     "market": "Handicap +1.0",
+     "selection": "Cardiff Rugby -1.0",
+     "line": "-1.0",
+     "p": 0.4949,
+     "fair_dec": 2.0206,
+     "fair_american": 102,
+     "book_dec": 1.9392,
+     "book_american": -106
+    },
+    {
+     "market": "Total Points Over 53.5",
+     "selection": "Over 53.5",
+     "line": "53.5",
+     "p": 0.4934,
+     "fair_dec": 2.0267,
+     "fair_american": 103,
+     "book_dec": 1.945,
+     "book_american": -106
+    },
+    {
+     "market": "Total Points Under 53.5",
+     "selection": "Under 53.5",
+     "line": "53.5",
+     "p": 0.5066,
+     "fair_dec": 1.974,
+     "fair_american": -103,
+     "book_dec": 1.8945,
+     "book_american": -112
+    }
+   ],
+   "pick": {
+    "market": "Match Winner",
+    "selection": "Ospreys",
+    "p": 0.5202,
+    "fair_american": -108,
+    "book_american": -118
+   },
+   "confidence": "Low",
+   "confidence_rule": "model probability 0.520 would grade High at >=0.700 but the sample is capped: only 3 rounds of the official URC table exist at capture time",
+   "in_odds_window": true,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [],
+   "verified": true
+  },
+  {
+   "id": "AD0154",
+   "sport": "Rugby League",
+   "competition": "Rugby League World Cup 2026 \u2014 Round 2 (Pool B & C)",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T09:05:00Z",
+   "home": "Tonga",
+   "away": "Lebanon",
+   "neutral": true,
+   "venue": "CommBank Stadium, Sydney",
+   "source_url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-2/tonga-v-lebanon/",
+   "source_name": "NRL.com official RLWC 2026 draw (host federation site)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and kick-off verified from the official NRL/RLWC draw, but no official strength input could be read at capture time (the IRL world-ranking host intrl.co.uk was unreachable from both the interactive sandbox and the Actions runner, and no RLWC pool table was published as machine-readable data), so no line was originated. Review link: https://www.nrl.com/draw/"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0155",
+   "sport": "Rugby League",
+   "competition": "Rugby League World Cup 2026 \u2014 Round 2 (Pool B & C)",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T04:25:00Z",
+   "home": "Papua New Guinea",
+   "away": "Samoa",
+   "neutral": true,
+   "venue": "Santos National Football Stadium, Port Moresby",
+   "source_url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-2/papua-new-guinea-v-samoa/",
+   "source_name": "NRL.com official RLWC 2026 draw (host federation site)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and kick-off verified from the official NRL/RLWC draw, but no official strength input could be read at capture time (the IRL world-ranking host intrl.co.uk was unreachable from both the interactive sandbox and the Actions runner, and no RLWC pool table was published as machine-readable data), so no line was originated. Review link: https://www.nrl.com/draw/"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0156",
+   "sport": "Rugby League",
+   "competition": "Rugby League World Cup 2026 \u2014 Round 2 (Pool B & C)",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T06:35:00Z",
+   "home": "England",
+   "away": "France",
+   "neutral": true,
+   "venue": "HBF Park, Perth",
+   "source_url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-2/england-v-france/",
+   "source_name": "NRL.com official RLWC 2026 draw (host federation site)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and kick-off verified from the official NRL/RLWC draw, but no official strength input could be read at capture time (the IRL world-ranking host intrl.co.uk was unreachable from both the interactive sandbox and the Actions runner, and no RLWC pool table was published as machine-readable data), so no line was originated. Review link: https://www.nrl.com/draw/"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0157",
+   "sport": "Rugby League",
+   "competition": "Rugby League World Cup 2026 \u2014 Round 2 (Pool A)",
+   "date": "2026-10-25",
+   "time_utc": "2026-10-25T05:05:00Z",
+   "home": "New Zealand",
+   "away": "Cook Islands",
+   "neutral": true,
+   "venue": "One NZ Stadium, Christchurch",
+   "source_url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-2/new-zealand-v-cook-islands/",
+   "source_name": "NRL.com official RLWC 2026 draw (host federation site)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and kick-off verified from the official NRL/RLWC draw, but no official strength input could be read at capture time (the IRL world-ranking host intrl.co.uk was unreachable from both the interactive sandbox and the Actions runner, and no RLWC pool table was published as machine-readable data), so no line was originated. Review link: https://www.nrl.com/draw/"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0158",
+   "sport": "Rugby League",
+   "competition": "Rugby League World Cup 2026 \u2014 Round 2 (Pool A)",
+   "date": "2026-10-25",
+   "time_utc": "2026-10-25T09:05:00Z",
+   "home": "Australia",
+   "away": "Fiji",
+   "neutral": true,
+   "venue": "Suncorp Stadium, Brisbane",
+   "source_url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-2/australia-v-fiji/",
+   "source_name": "NRL.com official RLWC 2026 draw (host federation site)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and kick-off verified from the official NRL/RLWC draw, but no official strength input could be read at capture time (the IRL world-ranking host intrl.co.uk was unreachable from both the interactive sandbox and the Actions runner, and no RLWC pool table was published as machine-readable data), so no line was originated. Review link: https://www.nrl.com/draw/"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0159",
+   "sport": "Esports",
+   "competition": "Worlds \u2014 Swiss",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T17:00:00Z",
+   "home": "Gen.G Esports",
+   "away": "Invictus Gaming",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://lolesports.com/schedule?leagues=worlds",
+   "source_name": "lolesports.com \u2014 official Riot Games esports schedule (esports-api.lolesports.com)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "best_of": 1,
+    "team_records": [
+     {
+      "wins": 0,
+      "losses": 0
+     },
+     {
+      "wins": 0,
+      "losses": 0
+     }
+    ]
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Match-up, stage and start time verified from the official Riot esports API. Both teams are 0-0 in the Swiss stage at capture time, so the official feed carries no strength input; no line was originated rather than inventing one."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0160",
+   "sport": "Esports",
+   "competition": "Worlds \u2014 Swiss",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T18:00:00Z",
+   "home": "Hanwha Life Esports",
+   "away": "TOP ESPORTS",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://lolesports.com/schedule?leagues=worlds",
+   "source_name": "lolesports.com \u2014 official Riot Games esports schedule (esports-api.lolesports.com)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "best_of": 1,
+    "team_records": [
+     {
+      "wins": 0,
+      "losses": 0
+     },
+     {
+      "wins": 0,
+      "losses": 0
+     }
+    ]
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Match-up, stage and start time verified from the official Riot esports API. Both teams are 0-0 in the Swiss stage at capture time, so the official feed carries no strength input; no line was originated rather than inventing one."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0161",
+   "sport": "Esports",
+   "competition": "Worlds \u2014 Swiss",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T19:00:00Z",
+   "home": "BILIBILI GAMING",
+   "away": "Movistar KOI",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://lolesports.com/schedule?leagues=worlds",
+   "source_name": "lolesports.com \u2014 official Riot Games esports schedule (esports-api.lolesports.com)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "best_of": 1,
+    "team_records": [
+     {
+      "wins": 0,
+      "losses": 0
+     },
+     {
+      "wins": 0,
+      "losses": 0
+     }
+    ]
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Match-up, stage and start time verified from the official Riot esports API. Both teams are 0-0 in the Swiss stage at capture time, so the official feed carries no strength input; no line was originated rather than inventing one."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0162",
+   "sport": "Esports",
+   "competition": "Worlds \u2014 Swiss",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T20:00:00Z",
+   "home": "Anyone's Legend",
+   "away": "Karmine Corp",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://lolesports.com/schedule?leagues=worlds",
+   "source_name": "lolesports.com \u2014 official Riot Games esports schedule (esports-api.lolesports.com)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "best_of": 1,
+    "team_records": [
+     {
+      "wins": 0,
+      "losses": 0
+     },
+     {
+      "wins": 0,
+      "losses": 0
+     }
+    ]
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Match-up, stage and start time verified from the official Riot esports API. Both teams are 0-0 in the Swiss stage at capture time, so the official feed carries no strength input; no line was originated rather than inventing one."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0163",
+   "sport": "Esports",
+   "competition": "Worlds \u2014 Swiss",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T21:00:00Z",
+   "home": "G2 Esports",
+   "away": "Dplus KIA",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://lolesports.com/schedule?leagues=worlds",
+   "source_name": "lolesports.com \u2014 official Riot Games esports schedule (esports-api.lolesports.com)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "best_of": 1,
+    "team_records": [
+     {
+      "wins": 0,
+      "losses": 0
+     },
+     {
+      "wins": 0,
+      "losses": 0
+     }
+    ]
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Match-up, stage and start time verified from the official Riot esports API. Both teams are 0-0 in the Swiss stage at capture time, so the official feed carries no strength input; no line was originated rather than inventing one."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0164",
+   "sport": "Esports",
+   "competition": "Worlds \u2014 Swiss",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T22:00:00Z",
+   "home": "Team Liquid Alienware",
+   "away": "CTBC Flying Oyster",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://lolesports.com/schedule?leagues=worlds",
+   "source_name": "lolesports.com \u2014 official Riot Games esports schedule (esports-api.lolesports.com)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "best_of": 1,
+    "team_records": [
+     {
+      "wins": 0,
+      "losses": 0
+     },
+     {
+      "wins": 0,
+      "losses": 0
+     }
+    ]
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Match-up, stage and start time verified from the official Riot esports API. Both teams are 0-0 in the Swiss stage at capture time, so the official feed carries no strength input; no line was originated rather than inventing one."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0165",
+   "sport": "Esports",
+   "competition": "Worlds \u2014 Swiss",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T23:00:00Z",
+   "home": "LOS",
+   "away": "T1",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://lolesports.com/schedule?leagues=worlds",
+   "source_name": "lolesports.com \u2014 official Riot Games esports schedule (esports-api.lolesports.com)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "best_of": 1,
+    "team_records": [
+     {
+      "wins": 0,
+      "losses": 0
+     },
+     {
+      "wins": 0,
+      "losses": 0
+     }
+    ]
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Match-up, stage and start time verified from the official Riot esports API. Both teams are 0-0 in the Swiss stage at capture time, so the official feed carries no strength input; no line was originated rather than inventing one."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0166",
+   "sport": "Esports",
+   "competition": "Worlds \u2014 Swiss",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T00:00:00Z",
+   "home": "Team Secret Whales",
+   "away": "LYON",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://lolesports.com/schedule?leagues=worlds",
+   "source_name": "lolesports.com \u2014 official Riot Games esports schedule (esports-api.lolesports.com)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "best_of": 1,
+    "team_records": [
+     {
+      "wins": 0,
+      "losses": 0
+     },
+     {
+      "wins": 0,
+      "losses": 0
+     }
+    ]
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Match-up, stage and start time verified from the official Riot esports API. Both teams are 0-0 in the Swiss stage at capture time, so the official feed carries no strength input; no line was originated rather than inventing one."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0167",
+   "sport": "Motor Racing",
+   "competition": "MotoGP World Championship 2026",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23",
+   "home": "RED BULL GRAND PRIX OF AUSTRALIA",
+   "away": "",
+   "neutral": true,
+   "venue": "Phillip Island",
+   "source_url": "https://www.motogp.com/en/calendar",
+   "source_name": "MotoGP.com official calendar",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Event dates and circuit verified from the official MotoGP calendar. The rider standings page could not be read (HTTP 404 at /en/standings/motogp/2026) and no official machine-readable entry list was captured, so no winner line was originated."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0168",
+   "sport": "Motor Racing",
+   "competition": "MotoGP World Championship 2026",
+   "date": "2026-10-30",
+   "time_utc": "2026-10-30",
+   "home": "PETRONAS GRAND PRIX OF MALAYSIA",
+   "away": "",
+   "neutral": true,
+   "venue": "Petronas Sepang International Circuit",
+   "source_url": "https://www.motogp.com/en/calendar",
+   "source_name": "MotoGP.com official calendar",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Event dates and circuit verified from the official MotoGP calendar. The rider standings page could not be read (HTTP 404 at /en/standings/motogp/2026) and no official machine-readable entry list was captured, so no winner line was originated."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0169",
+   "sport": "Motor Racing",
+   "competition": "MotoGP World Championship 2026",
+   "date": "2026-11-06",
+   "time_utc": "2026-11-06",
+   "home": "QATAR AIRWAYS GRAND PRIX OF QATAR",
+   "away": "",
+   "neutral": true,
+   "venue": "Lusail International Circuit",
+   "source_url": "https://www.motogp.com/en/calendar",
+   "source_name": "MotoGP.com official calendar",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Event dates and circuit verified from the official MotoGP calendar. The rider standings page could not be read (HTTP 404 at /en/standings/motogp/2026) and no official machine-readable entry list was captured, so no winner line was originated."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0170",
+   "sport": "Motor Racing",
+   "competition": "Formula 1 2026 \u2014 Round 18",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23",
+   "home": "United States",
+   "away": "",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://www.formula1.com/en/racing/2026/united-states",
+   "source_name": "Formula1.com official 2026 calendar",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Round and dates verified from the official Formula 1 2026 calendar. The official driver-standings page renders its table client-side, so no official championship points could be read at capture time; no winner line was originated."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0171",
+   "sport": "Motor Racing",
+   "competition": "Formula 1 2026 \u2014 Round 20",
+   "date": "2026-11-06",
+   "time_utc": "2026-11-06",
+   "home": "Brazil",
+   "away": "",
+   "neutral": true,
+   "venue": "",
+   "source_url": "https://www.formula1.com/en/racing/2026/brazil",
+   "source_name": "Formula1.com official 2026 calendar",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {},
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Round and dates verified from the official Formula 1 2026 calendar. The official driver-standings page renders its table client-side, so no official championship points could be read at capture time; no winner line was originated."
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0172",
+   "sport": "Cricket",
+   "competition": "Pakistan ODI Tri-Series 2026 - Men",
+   "date": "2026-10-22",
+   "time_utc": "2026-10-22T08:00:00Z",
+   "home": "Sri Lanka Men",
+   "away": "England Men",
+   "neutral": true,
+   "venue": "Rawalpindi Cricket Stadium",
+   "source_url": "https://www.cricket.com.au/fixtures#match-40980",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 40980,
+    "game_type": "ODI",
+    "name": "Sri Lanka v England"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0173",
+   "sport": "Cricket",
+   "competition": "India v Zimbabwe ODIs 2026 - Women",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T08:30:00Z",
+   "home": "India Women",
+   "away": "Zimbabwe Women",
+   "neutral": true,
+   "venue": "Vadodara International Cricket Stadium",
+   "source_url": "https://www.cricket.com.au/fixtures#match-40393",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 40393,
+    "game_type": null,
+    "name": "1st ODI"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0174",
+   "sport": "Cricket",
+   "competition": "UAE Tri-Nations ODI Series 2026 - Men",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T11:30:00Z",
+   "home": "Afghanistan Men",
+   "away": "Zimbabwe Men",
+   "neutral": true,
+   "venue": "Sharjah Cricket Association Stadium",
+   "source_url": "https://www.cricket.com.au/fixtures#match-41008",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 41008,
+    "game_type": "ODI",
+    "name": "Final"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0175",
+   "sport": "Cricket",
+   "competition": "One-Day Cup 2026-27",
+   "date": "2026-10-23",
+   "time_utc": "2026-10-23T23:30:00Z",
+   "home": "Tasmanian Tigers Men",
+   "away": "Victoria Men",
+   "neutral": true,
+   "venue": "Bellerive Oval",
+   "source_url": "https://www.cricket.com.au/fixtures#match-40681",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 40681,
+    "game_type": "One Day Domestic",
+    "name": "Tasmanian Tigers v Victoria"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0176",
+   "sport": "Cricket",
+   "competition": "One-Day Cup 2026-27",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T06:00:00Z",
+   "home": "Western Australia Men",
+   "away": "NSW Men",
+   "neutral": true,
+   "venue": "WACA Ground",
+   "source_url": "https://www.cricket.com.au/fixtures#match-40683",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 40683,
+    "game_type": "One Day Domestic",
+    "name": "Western Australia v New South Wales"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0177",
+   "sport": "Cricket",
+   "competition": "New Zealand v India T20Is 2026 - Men",
+   "date": "2026-10-24",
+   "time_utc": "2026-10-24T07:00:00Z",
+   "home": "New Zealand Men",
+   "away": "India Men",
+   "neutral": true,
+   "venue": "Hagley Oval",
+   "source_url": "https://www.cricket.com.au/fixtures#match-41095",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 41095,
+    "game_type": "T20 International",
+    "name": "2nd T20I"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0178",
+   "sport": "Cricket",
+   "competition": "Pakistan ODI Tri-Series 2026 - Men",
+   "date": "2026-10-25",
+   "time_utc": "2026-10-25T08:00:00Z",
+   "home": "Pakistan Men",
+   "away": "England Men",
+   "neutral": true,
+   "venue": "Gaddafi Stadium",
+   "source_url": "https://www.cricket.com.au/fixtures#match-40981",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 40981,
+    "game_type": "ODI",
+    "name": "Pakistan v England"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0179",
+   "sport": "Cricket",
+   "competition": "India v Zimbabwe ODIs 2026 - Women",
+   "date": "2026-10-25",
+   "time_utc": "2026-10-25T08:30:00Z",
+   "home": "India Women",
+   "away": "Zimbabwe Women",
+   "neutral": true,
+   "venue": "Vadodara International Cricket Stadium",
+   "source_url": "https://www.cricket.com.au/fixtures#match-40394",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 40394,
+    "game_type": null,
+    "name": "2nd ODI"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0180",
+   "sport": "Cricket",
+   "competition": "New Zealand v India T20Is 2026 - Men",
+   "date": "2026-10-27",
+   "time_utc": "2026-10-27T07:00:00Z",
+   "home": "New Zealand Men",
+   "away": "India Men",
+   "neutral": true,
+   "venue": "Hnry Stadium",
+   "source_url": "https://www.cricket.com.au/fixtures#match-41097",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 41097,
+    "game_type": "T20 International",
+    "name": "3rd T20I"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0181",
+   "sport": "Cricket",
+   "competition": "Pakistan ODI Tri-Series 2026 - Men",
+   "date": "2026-10-27",
+   "time_utc": "2026-10-27T08:00:00Z",
+   "home": "Pakistan Men",
+   "away": "Sri Lanka Men",
+   "neutral": true,
+   "venue": "Gaddafi Stadium",
+   "source_url": "https://www.cricket.com.au/fixtures#match-40982",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 40982,
+    "game_type": "ODI",
+    "name": "Pakistan v Sri Lanka"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0182",
+   "sport": "Cricket",
+   "competition": "South Africa v Australia Tests 2026 - Men",
+   "date": "2026-10-27",
+   "time_utc": "2026-10-27T08:30:00Z",
+   "home": "South Africa Men",
+   "away": "Australia Men",
+   "neutral": true,
+   "venue": "Newlands Cricket Ground",
+   "source_url": "https://www.cricket.com.au/fixtures#match-39992",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 39992,
+    "game_type": "Test",
+    "name": "3rd Test"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0183",
+   "sport": "Cricket",
+   "competition": "Afghanistan v Zimbabwe T20Is 2026 - Men",
+   "date": "2026-10-27",
+   "time_utc": "2026-10-27T14:30:00Z",
+   "home": "Afghanistan Men",
+   "away": "Zimbabwe Men",
+   "neutral": true,
+   "venue": "Sharjah Cricket Association Stadium",
+   "source_url": "https://www.cricket.com.au/fixtures#match-41009",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 41009,
+    "game_type": "T20 International",
+    "name": "1st T20I"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "AD0184",
+   "sport": "Cricket",
+   "competition": "Sheffield Shield 2026-27",
+   "date": "2026-10-28",
+   "time_utc": "2026-10-28T00:00:00Z",
+   "home": "South Australia Men",
+   "away": "Western Australia Men",
+   "neutral": true,
+   "venue": "Adelaide Oval",
+   "source_url": "https://www.cricket.com.au/fixtures#match-40680",
+   "source_name": "Cricket Australia official fixtures feed (cricket.com.au)",
+   "source_checked_utc": "2026-10-22T12:42:59Z",
+   "model": "",
+   "model_inputs": {
+    "fixture_id": 40680,
+    "game_type": "First Class Domestic",
+    "name": "South Australia v Western Australia"
+   },
+   "markets": [],
+   "pick": {},
+   "confidence": "",
+   "confidence_rule": "not priced",
+   "in_odds_window": null,
+   "prediction": "",
+   "prediction_words": 0,
+   "flags": [
+    {
+     "kind": "no-line",
+     "text": "Fixture, venue and start time verified from the official Cricket Australia fixture feed. The ICC team-ranking pages (icc-cricket.com/rankings/...) render their table client-side, so no official rating input could be read at capture time and no line was originated. Review link: https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+    }
+   ],
    "verified": true
   }
  ]
