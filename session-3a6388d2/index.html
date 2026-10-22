@@ -10,7 +10,7 @@
 <h2>Dashboard</h2>
 <p class="lede">Verified fixtures, our own originated lines, and high-confidence human predictions.</p>
 
-<div class="cards"><div class="card"><div class="k">184</div><div class="l">Fixtures in window</div></div><div class="card"><div class="k">153</div><div class="l">Own lines originated</div></div><div class="card"><div class="k">1589</div><div class="l">Markets priced</div></div><div class="card"><div class="k">5</div><div class="l">High confidence</div></div><div class="card"><div class="k">2</div><div class="l">High inside −250…+10000</div></div><div class="card"><div class="k">7</div><div class="l">Sports covered</div></div><div class="card"><div class="k">146/193</div><div class="l">Official captures</div></div><div class="card"><div class="k">258</div><div class="l">Repo-review findings</div></div></div>
+<div class="cards"><div class="card"><div class="k">184</div><div class="l">Fixtures in window</div></div><div class="card"><div class="k">153</div><div class="l">Own lines originated</div></div><div class="card"><div class="k">1589</div><div class="l">Markets priced</div></div><div class="card"><div class="k">5</div><div class="l">High confidence</div></div><div class="card"><div class="k">2</div><div class="l">High inside −250…+10000</div></div><div class="card"><div class="k">7</div><div class="l">Sports covered</div></div><div class="card"><div class="k">146/193</div><div class="l">Official captures</div></div><div class="card"><div class="k">258</div><div class="l">Repo-review findings</div></div><div class="card"><div class="k">12380</div><div class="l">Verification checks</div></div><div class="card"><div class="k">146/193</div><div class="l">Official captures 200</div></div></div>
 <p class="lede">Fresh desk for 22 Oct – 8 Nov 2026 for every OLBG sport except soccer/football, American
 football, boxing, UFC/MMA, hurling, horse racing, cycling and specials. Fixtures, times, venues and every
 rating input were read from official league, federation or organiser endpoints; the raw bytes of every
@@ -32,9 +32,22 @@ Where an official input could not be read, the row is published with the fixture
 <a class="panel" href="coverage.html"><h3>Coverage</h3><div class="small">sport-by-sport status: verified, priced or flagged, with the official check made.</div></a>
 <a class="panel" href="olbg.html"><h3>OLBG reverse engineering</h3><div class="small">URL taxonomy, sport IDs, market types, SSR behaviour.</div></a>
 <a class="panel" href="review.html"><h3>Repo review</h3><div class="small">line-by-line review of data/master.json — 258 findings.</div></a>
+<a class="panel" href="flagged.html"><h3>Flagged for review</h3><div class="small">31 rows with no line, each with the reason and the official source checked.</div></a>
+</div>
+<h3>Verification</h3>
+<div class="note">
+<strong>12380 automated checks, all passing</strong>
+(re-run with <code>python3 scripts/session-3a6388d2/verify.py</code>; the report is committed as
+<code>data/session-3a6388d2/verify_report.json</code>). Every row carries an official source URL; every fair
+price equals 1/p; every published price equals p with the stated 4.2&nbsp;% / 5.2&nbsp;% over-round; two-way
+and three-way markets sum to 1; the confidence label follows the published rule; the −250…+10000 flag matches
+the price; unpriced rows publish no pick, no price and no confidence; every high-confidence prediction is
+≥30&nbsp;words, unique, names a side, states the selection, and quotes no statistic that is not in that row's
+committed official inputs; every internal link resolves; every raw file named by a manifest exists.
+Completeness, Ice Hockey: 129 desk rows against 129 official in-window fixtures (0 missing) read from https://api-web.nhle.com/v1/schedule/2026-10-22. 
 </div>
 
 </div>
-<footer>Board AD · session arena/3a6388d2-olbg4 · generated 2026-10-22 13:22 UTC · every row links to the official source it was verified from.</footer>
+<footer>Board AD · session arena/3a6388d2-olbg4 · generated 2026-10-22 13:32 UTC · every row links to the official source it was verified from.</footer>
 <script src="assets/app.js"></script>
 </body></html>

@@ -13,6 +13,7 @@ import json
 import os
 import re
 import sys
+from datetime import datetime, timezone
 from collections import Counter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -193,6 +194,65 @@ def main() -> int:
             if e.get("saved_as"):
                 check(os.path.exists(os.path.join(ROOT, e["saved_as"])),
                       f"{mf}: raw file missing for {e['id']}")
+
+    # ---- completeness: every official in-window fixture must appear on the desk ----------
+    completeness = {}
+    sys.path.insert(0, os.path.join(ROOT, "scripts", "session-3a6388d2"))
+    try:
+        import originate as O                       # reuses the same raw reader the desk is built from
+        sched = {}
+        for f in ("nhl_sched_w1", "nhl_sched_w2", "nhl_sched_w3"):
+            d = O.raw_json(f)
+            for day in d.get("gameWeek", []):
+                for g in day.get("games", []):
+                    sched[g["id"]] = (day["date"], g)
+        inwin = [(dt, g) for dt, g in sched.values()
+                 if WINDOW_START <= dt <= WINDOW_END and g.get("gameType") in (2, 3)]
+        desk_nhl = set((r["date"], r["away"].split()[-1], r["home"].split()[-1])
+                       for r in rows if r["sport"] == "Ice Hockey")
+        desk_hockey_rows = sum(1 for r in rows if r["sport"] == "Ice Hockey")
+        for dt, g in inwin:
+            key = (dt, g["awayTeam"]["commonName"]["default"].split()[-1],
+                   g["homeTeam"]["commonName"]["default"].split()[-1])
+            check(key in desk_nhl,
+                  f"NHL {dt}: {key[1]} @ {key[2]} is on the official schedule but not on the desk")
+        completeness["Ice Hockey"] = {
+            "official_source": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+            "official_fixtures_captured": len(sched),
+            "official_fixtures_in_window": len(inwin),
+            "desk_rows": desk_hockey_rows,
+            "missing_from_desk": len(inwin) - sum(
+                1 for dt, g in inwin
+                if (dt, g["awayTeam"]["commonName"]["default"].split()[-1],
+                    g["homeTeam"]["commonName"]["default"].split()[-1]) in desk_nhl),
+        }
+        print(f"completeness: NHL {len(desk_nhl)} desk rows vs {len(inwin)} official in-window fixtures "
+              f"({completeness['Ice Hockey']['missing_from_desk']} missing)")
+    except Exception as exc:                        # never let the report step mask a real finding
+        errors.append(f"completeness check could not run: {exc}")
+
+    report = {
+        "schema": "olbg4/board-ad-verify/v1",
+        "session": "arena/3a6388d2-olbg4",
+        "board": "AD",
+        "generated_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "window": {"start": WINDOW_START, "end": WINDOW_END},
+        "checks_run": checks,
+        "rows": len(rows),
+        "priced": sum(1 for r in rows if r["markets"]),
+        "flagged_no_line": sum(1 for r in rows if not r["markets"]),
+        "by_confidence": dict(Counter(r["confidence"] or "no line" for r in rows)),
+        "high_picks": len(high),
+        "high_in_odds_window": sum(1 for r in high if r.get("in_odds_window")),
+        "captures_ok": ok,
+        "captures_total": total,
+        "completeness": completeness,
+        "errors": errors,
+        "passed": not errors,
+    }
+    with open(os.path.join(DATA, "verify_report.json"), "w", encoding="utf-8") as fh:
+        json.dump(report, fh, indent=1)
+        fh.write("\n")
 
     print(f"\nchecks run: {checks}")
     print(f"captures:   {ok}/{total} official requests returned HTTP 200")

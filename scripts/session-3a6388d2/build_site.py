@@ -210,6 +210,8 @@ def main() -> int:
     rows = desk.get("rows", [])
     review = load("review.json", {"summary": {}, "findings": [], "cross_check": []})
     flags = load("flagged.json", {"items": []})
+    olbg_board = load("olbg_board.json", {})
+    vrep = load("verify_report.json", {})
     preds = load("predictions.json", {"predictions": []})
     manifests = []
     for name in ("manifest.json", "manifest3.json", "manifest4.json", "manifest5.json",
@@ -313,8 +315,19 @@ def main() -> int:
             + '<div class="small"><a href="' + esc(r["source_url"])
             + '" target="_blank" rel="noopener">official source</a></div></div>')
 
+    kpi_verify = (
+        '<div class="card"><div class="k">' + str(vrep.get("checks_run", 0)) + '</div>'
+        '<div class="l">Verification checks</div></div>'
+        '<div class="card"><div class="k">' + str(vrep.get("captures_ok", 0)) + '/' + str(vrep.get("captures_total", 0)) + '</div>'
+        '<div class="l">Official captures 200</div></div>')
+    comp_note = ""
+    for sport, c in sorted((vrep.get("completeness") or {}).items()):
+        comp_note += (f"Completeness, {sport}: {c['desk_rows']} desk rows against "
+                      f"{c['official_fixtures_in_window']} official in-window fixtures "
+                      f"({c['missing_from_desk']} missing) read from {c['official_source']}. ")
+
     body = f"""
-<div class="cards">{kpi_html}</div>
+<div class="cards">{kpi_html}{kpi_verify}</div>
 <p class="lede">Fresh desk for 22 Oct – 8 Nov 2026 for every OLBG sport except soccer/football, American
 football, boxing, UFC/MMA, hurling, horse racing, cycling and specials. Fixtures, times, venues and every
 rating input were read from official league, federation or organiser endpoints; the raw bytes of every
@@ -336,6 +349,19 @@ Where an official input could not be read, the row is published with the fixture
 <a class="panel" href="coverage.html"><h3>Coverage</h3><div class="small">sport-by-sport status: verified, priced or flagged, with the official check made.</div></a>
 <a class="panel" href="olbg.html"><h3>OLBG reverse engineering</h3><div class="small">URL taxonomy, sport IDs, market types, SSR behaviour.</div></a>
 <a class="panel" href="review.html"><h3>Repo review</h3><div class="small">line-by-line review of data/master.json — {len(review.get('findings', []))} findings.</div></a>
+<a class="panel" href="flagged.html"><h3>Flagged for review</h3><div class="small">{sum(1 for r in rows if not r['markets'])} rows with no line, each with the reason and the official source checked.</div></a>
+</div>
+<h3>Verification</h3>
+<div class="note">
+<strong>{esc(vrep.get('checks_run', 0))} automated checks, {esc('all passing' if vrep.get('passed') else 'FAILURES PRESENT')}</strong>
+(re-run with <code>python3 scripts/session-3a6388d2/verify.py</code>; the report is committed as
+<code>data/session-3a6388d2/verify_report.json</code>). Every row carries an official source URL; every fair
+price equals 1/p; every published price equals p with the stated 4.2&nbsp;% / 5.2&nbsp;% over-round; two-way
+and three-way markets sum to 1; the confidence label follows the published rule; the −250…+10000 flag matches
+the price; unpriced rows publish no pick, no price and no confidence; every high-confidence prediction is
+≥30&nbsp;words, unique, names a side, states the selection, and quotes no statistic that is not in that row's
+committed official inputs; every internal link resolves; every raw file named by a manifest exists.
+{esc(comp_note)}
 </div>
 """
     write("index.html", page("Dashboard", "index.html", body,
@@ -457,6 +483,38 @@ source; each is listed with the official site checked so the owner can review it
     write("coverage.html", page("Coverage", "coverage.html", body,
                                 "Which sports we covered, what we priced, and the official source behind each row."))
 
+    # ---- OLBG live board vs our own desk -------------------------------------------
+    def norm(x: str) -> set:
+        return {w for w in re.findall(r"[a-z0-9]{3,}", (x or "").lower())}
+
+    desk_by_sport = defaultdict(list)
+    for r in rows:
+        desk_by_sport[r["sport"]].append(r)
+    olbg_rows, matched_events = [], 0
+    for key, blk in sorted((olbg_board.get("sports") or {}).items()):
+        for e in blk["events"]:
+            sport = e["sport"]
+            ours = ""
+            if sport in desk_by_sport:
+                want = norm(e["home"]) | norm(e["away"])
+                for r in desk_by_sport[sport]:
+                    have = norm(r["home"]) | norm(r["away"])
+                    pick = r.get("pick") or {}
+                    if want and len(want & have) >= max(2, len(want) - 1) and pick.get("selection"):
+                        ours = (r["id"] + " · " + esc(pick["selection"]) + " "
+                                + ams(pick["fair_american"]) + " (" + r["confidence"] + ")")
+                        matched_events += 1
+                        break
+            olbg_rows.append(
+                '<tr><td>' + esc(sport) + '</td><td>' + esc(e["home"])
+                + (' vs ' + esc(e["away"]) if e["away"] else '') + '</td>'
+                + '<td>' + (esc(str(e["tips_on_olbg"])) if e["tips_on_olbg"] is not None else '—') + '</td>'
+                + '<td>' + (esc(ours) if ours else '<span class="chip">no verified row</span>') + '</td>'
+                + '<td><a href="' + esc(e["url"]) + '" target="_blank" rel="noopener">'
+                + str(e["event_id"]) + '</a></td></tr>')
+    olbg_rows = "".join(olbg_rows)
+    olbg_events = olbg_board.get("events_total", 0)
+
     # ------------------------------------------------------------------ olbg
     sport_rows = "".join(
         f'<tr><td>{i}</td><td>{esc(n)}</td><td>{esc(k)}</td>'
@@ -495,6 +553,18 @@ from the site — which is why this desk builds its fixture list from official l
 <li>Tipster consensus is shown as "n/m Win Tips" plus a percentage; it is a community sentiment figure,
 not a probability, and is not used anywhere in our numbers.</li>
 </ul>
+<h3>OLBG's own live board at capture time vs this desk</h3>
+<p class="small">{esc(olbg_events)} events were read out of the committed bytes of OLBG's {esc(olbg_board.get("sports_captured", 0))}
+per-sport pages on 22 Oct 2026. {esc(matched_events)} of them match a row on our own desk (named below and
+linked to the official source); the rest are either outright markets OLBG carries for 2027 competitions, or
+events in a sport where no official pairing could be verified in the window — for those we publish no line
+rather than guess one. This is a completeness cross-check only: <strong>no OLBG price, percentage or tipster
+figure is used anywhere in our numbers</strong>.</p>
+<table id="tbl-olbg"><thead><tr><th data-sort="0">Sport</th><th data-sort="1">OLBG event</th>
+<th data-sort="2">Tips on OLBG</th><th data-sort="3">Our desk</th><th>OLBG event id</th></tr></thead>
+<tbody>
+{olbg_rows}
+</tbody></table>
 """
     write("olbg.html", page("OLBG reverse engineering", "olbg.html", body,
                             "How OLBG.com is put together — sport ids, URL patterns, market taxonomy, SSR behaviour."))
