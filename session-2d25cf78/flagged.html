@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for review · OLBG4 Board AF</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><header class="top"><div class="wrap"><b>OLBG4 · Board AF</b><nav><a href="index.html">Dashboard</a><a href="entries.html">All fixtures</a><a href="picks.html">Predictions</a><a href="markets.html">Markets</a><a href="coverage.html">Coverage</a><a href="olbg.html">OLBG</a><a href="review.html">Repo review</a><a href="flagged.html" style='color:#fff;font-weight:700'>Flagged</a><a href="methodology.html">Method</a><a href="sources.html">Sources</a><a href="verification.html">Verification</a></nav></div></header>
+<main>
+<h1>Flagged for Review</h1>
+<p class="lead">Everything Board AF could not fully verify, plus the disclosures a reader needs to judge the desk. None
+of these items blocks publication; each has the source link a reviewer needs to check it.</p>
+<div class="card"><div class="kv"><span class="tag info">info</span>
+        <span>AF-F01</span><span>odds-window arithmetic</span></div><h3>Why only a 1.4% band satisfies both &#x27;&gt;70%&#x27; and &#x27;no shorter than -250&#x27;</h3>
+        <p>A fair price of -250 is a decimal 1.400, i.e. a 71.43% implied chance. Any selection our model rates above 71.43% is therefore necessarily shorter than -250, and any selection rated below 70.00% is not a &gt;70% pick. The only overlap is a model probability of 0.7000-0.7143 (fair 1.4000-1.4286). Board AF publishes every 70%+ selection it finds even when the price is shorter than -250 (the match-winner pick column), and it builds the five-per-sport prediction set from the highest-probability selections that do sit inside -250 to +10,000.</p>
+        <div class="kv"><a href="https://www.nhl.com/schedule" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag medium">warning</span>
+        <span>AF-F02</span><span>handball fixtures</span></div><h3>EHF fixture list read from a client-rendered page; raw capture holds only the page shell</h3>
+        <p>The EHF Champions League matches page renders its fixture cards in JavaScript. The committed raw capture (SHA-256 in the manifest) contains the page shell, so the seven 28 October fixtures were read from the rendered page on 2026-10-22T21:05Z and are transcribed into desk.json with the printed CET times. Standings (the model inputs) are server-rendered and fully reproducible from the capture.</p>
+        <div class="kv"><a href="https://ehfcl.eurohandball.com/men/2026-27/matches/" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag medium">warning</span>
+        <span>AF-F03</span><span>volleyball sample</span></div><h3>SuperLega had played one round when the desk was built</h3>
+        <p>Only one match per club was in the official classifica at capture time, so every rate is shrunk hard toward the league average (k=8). The five volleyball picks are published with Medium/Low labels, not High, and the model probability on each is disclosed.</p>
+        <div class="kv"><a href="https://www.legavolley.it/classifica/?IdCampionato=999" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag medium">warning</span>
+        <span>AF-F04</span><span>baseball pitching</span></div><h3>No official probable pitcher published for the World Series games at capture time</h3>
+        <p>The MLB postseason schedule feed carried no probablePitcher for the games listed, so the run model is team-level only (runs scored/allowed over 162 games). If a probable pitcher is announced, the numbers should be re-run before staking.</p>
+        <div class="kv"><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-11-05" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag info">info</span>
+        <span>AF-F05-baseball</span><span>coverage</span></div><h3>Baseball: 5 predictions published against 7 verified fixtures</h3>
+        <p>The desk carries 7 verified Baseball fixtures and 5 written predictions (the five highest-probability in-window selections).</p>
+        <div class="kv"><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag info">info</span>
+        <span>AF-F05-basketba</span><span>coverage</span></div><h3>Basketball: 5 predictions published against 23 verified fixtures</h3>
+        <p>The desk carries 23 verified Basketball fixtures and 5 written predictions (the five highest-probability in-window selections).</p>
+        <div class="kv"><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag info">info</span>
+        <span>AF-F05-handball</span><span>coverage</span></div><h3>Handball: 5 predictions published against 7 verified fixtures</h3>
+        <p>The desk carries 7 verified Handball fixtures and 5 written predictions (the five highest-probability in-window selections).</p>
+        <div class="kv"><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag info">info</span>
+        <span>AF-F05-icehocke</span><span>coverage</span></div><h3>Ice Hockey: 5 predictions published against 76 verified fixtures</h3>
+        <p>The desk carries 76 verified Ice Hockey fixtures and 5 written predictions (the five highest-probability in-window selections).</p>
+        <div class="kv"><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag info">info</span>
+        <span>AF-F05-rugbyuni</span><span>coverage</span></div><h3>Rugby Union: 5 predictions published against 7 verified fixtures</h3>
+        <p>The desk carries 7 verified Rugby Union fixtures and 5 written predictions (the five highest-probability in-window selections).</p>
+        <div class="kv"><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag info">info</span>
+        <span>AF-F05-volleyba</span><span>coverage</span></div><h3>Volleyball: 5 predictions published against 6 verified fixtures</h3>
+        <p>The desk carries 6 verified Volleyball fixtures and 5 written predictions (the five highest-probability in-window selections).</p>
+        <div class="kv"><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-tennis</span><span>coverage gap</span></div><h3>Tennis is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-cricket</span><span>coverage gap</span></div><h3>Cricket is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-snooker</span><span>coverage gap</span></div><h3>Snooker is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-rugbylea</span><span>coverage gap</span></div><h3>Rugby League is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-darts</span><span>coverage gap</span></div><h3>Darts is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-badminto</span><span>coverage gap</span></div><h3>Badminton is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-tableten</span><span>coverage gap</span></div><h3>Table Tennis is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-esports</span><span>coverage gap</span></div><h3>eSports is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-aussieru</span><span>coverage gap</span></div><h3>Aussie Rules is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-golf</span><span>coverage gap</span></div><h3>Golf is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-motorrac</span><span>coverage gap</span></div><h3>Motor Racing is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-greyhoun</span><span>coverage gap</span></div><h3>Greyhounds is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag err">needs review</span>
+        <span>AF-F06-gaelicfo</span><span>coverage gap</span></div><h3>Gaelic Football is in scope but has no Board AF prediction today</h3>
+        <p>No official fixture/ranking feed for this sport could be captured and verified in this run: the captured pages were either client-rendered shells, blocked (HTTP 403/404) or did not publish a head-to-head line-up at capture time. Nothing is inferred or filled in; the sport is published as a gap rather than with guessed rows.</p>
+        <div class="kv"><a href="https://www.olbg.com/betting-tips" rel="noopener">source ↗</a></div></div><div class="card"><div class="kv"><span class="tag medium">warning</span>
+        <span>AF-F07</span><span>rugby union draw treatment</span></div><h3>Top 14 two-way lines fold the modelled draw into both sides</h3>
+        <p>Top 14 matches can be drawn. Board AF quotes a two-way half-line market and folds the draw probability into both sides using the normal margin assumption, rather than pretending draws do not exist. The draw is included in the model total of 1.0.</p>
+        <div class="kv"><a href="https://top14.lnr.fr/classement" rel="noopener">source ↗</a></div></div>
+</main>
+<footer>Board AF (session <code>arena/2d25cf78-olbg4</code>) · built 2026-10-22 21:11 UTC ·
+every row links to the official page it was read from · <a href="index.html">Board AF dashboard</a> ·
+<a href="https://github.com/buffedlizard55-lab/OLBG4">repository</a></footer>
+</body></html>

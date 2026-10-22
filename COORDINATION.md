@@ -3738,3 +3738,54 @@ Changes wanted in another owner's file are logged here as integration requests, 
 
 ### AF working log
 - `2026-10-22T17:20Z UTC` — `2d25cf78` — Board AF claimed and pushed before any other work. Sandbox bash egress is restricted to GitHub / npm / PyPI (`curl` to `api-web.nhle.com` fails TLS), so official bytes are captured by an Actions runner with open egress and committed with a SHA-256 manifest; all parsing, pricing, prediction authoring and verification then run locally over those committed bytes.
+
+### AF completion record (2026-10-22T22:10Z UTC)
+
+**Published dashboard:** `session-2d25cf78/index.html` (landing + `entries.html`, `picks.html`, `markets.html`,
+`coverage.html`, `olbg.html`, `review.html`, `flagged.html`, `methodology.html`, `sources.html`,
+`verification.html`, plus 19 per-sport pages under `session-2d25cf78/sports/`).
+
+**Capture.** `data/session-2d25cf78/capture/20261022T210018Z` — 111 official targets, 93 with content, every body
+stored gzip-compressed with a SHA-256 manifest (`manifest.json`, schema `olbg4.board-af.capture-manifest/1`).
+Sources: NHL schedule + standings API, MLB statsapi schedule/standings/team stats, EuroLeague games API, LNR Top 14
+calendar + classement, EHF Champions League standings/matches, Lega Pallavolo calendar + classifica, WTA match API,
+ATP draw/order-of-play PDFs, WST rankings, BWF, ICC, RLWC, LoL Esports, F1, MotoGP, PGA/DP World, GBGB and OLBG's
+sitemap + sport landing pages.
+
+**Desk.** `data/session-2d25cf78/desk.json` — **126 verified fixtures** (22 Oct 21:30Z → 31 Oct 2026), **4,936
+originated markets** and **9,872 priced selections** across six sports: Ice Hockey (NHL 76), Basketball (EuroLeague
+23), Baseball (MLB World Series 7), Rugby Union (Top 14 7), Handball (EHF CL 7), Volleyball (SuperLega 6). Every
+fixture carries a match-winner pick with a Low/Medium/High label, our fair line and our book line, and every
+selection whose probability lands in the 0.7000–0.7143 band.
+
+**Predictions.** `data/session-2d25cf78/predictions.json` — **30 unique hand-written predictions, five per covered
+sport** (39–59 words; max pairwise 3-gram Jaccard 0.067). 14 are High, 16 Medium; every one sits inside
+−250 … +10,000 at our quoted price. Each card prints the official inputs it quotes and links the official page.
+
+**Review.** `data/session-2d25cf78/review.json` — 336 rows of `data/master.json` reviewed: 268 findings
+(123 stale dates, 50 rows with no pick, 39 with no source URL, 40 priced while unverified, 16 off-season
+placeholders) and an official cross-check of 55 in-window NHL/MLB/EuroLeague fixtures with **0 mismatches**.
+40 peer desks inventoried. No peer file was edited.
+
+**Flagged (non-blocking).** `session-2d25cf78/flagged.html` — the −250/70% band arithmetic, the EHF client-rendered
+fixture list, the one-round SuperLega sample, missing MLB probable pitchers, the Top 14 draw treatment, and 13
+in-scope sports with no verified feed today (Tennis, Cricket, Snooker, Rugby League, Darts, Badminton, Table Tennis,
+eSports, Aussie Rules, Golf, Motor Racing, Greyhounds, Gaelic Football).
+
+**Verification.** `python3 scripts/session-2d25cf78/verify.py` → **19/19 checks pass** (sources, price maths,
+American re-derivation, confidence rule and sample cap, window and band arithmetic, prediction length/uniqueness/
+traceability, every internal link, manifest re-hash, scope). `python3 scripts/audit_publication.py --check` →
+22,978 local targets, **0 broken, 0 stale**. `python3 -m pipeline.selftest` → pass.
+
+**Model defects found and fixed during the build (kept as a record):**
+1. `model.margin_market` had an inverted line sign, so a team could look more likely to cover −4.5 than to win.
+   Caught by the consistency check and fixed (`P(A covers L) = 1 − Φ((−L − μ)/σ)`).
+2. Extreme probabilities were priced from unrounded p, so fair decimal and 1/p diverged at long odds; fixed by
+   rounding the probability before inverting.
+3. Top 14 and EHF prices were driven by scoring rates alone, which made a 0–6 Vannes side a home favourite; the
+   model now blends scoring rates 50/50 with the official win-percentage log5.
+4. An earlier cross-check falsely flagged Gaelic Football as an excluded sport (substring match on "football");
+   scope matching is now exact.
+
+**Integration request (not applied, outside AF scope):** add a pointer to `/session-2d25cf78/index.html` from the
+root `index.html` / `README.md` navigation so the dashboard is reachable from the site front door.
