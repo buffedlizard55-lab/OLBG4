@@ -31,7 +31,7 @@ rebuilt the desk from scratch:
 - **Confidence is an evidence rule.** High needs ≥70% model probability, a real sample and a price inside
   the brief's −250…+10,000 window; that window and a 70% floor intersect between −233 and −250, which is
   why the desk publishes 8 High picks rather than a hundred. 8 High, 30 Medium, 53 Low.
-- **8 written predictions**, 62–86 words, each naming the teams, the form, the scoring record, a verified
+- **8 written predictions**, 62–87 words, each naming the teams, the form, the scoring record, a verified
   player where one exists, and the exact selection, with every fact and its URL listed under the card.
 - **Nothing invented.** Fifteen in-scope sports could not be priced from an official feed in this session
   and are listed with their reasons on `session-cdf25c13/coverage.html`; every gap is on
