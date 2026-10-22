@@ -3045,4 +3045,12 @@ URC (404), EHF (404), GBGB (no response), AFL API (401), WTT and BWF match pages
 5. Two board-name collisions (`arena/cdf25c13-olbg4` took "T"; `arena/c92c927c-olbg4` took "U"), logged above; this board renumbered to W and kept its files separate.
 6. The 123 officially confirmed rows are a subset of the 226 published matches; the other 103 are explicitly unverified.
 
-**PR / merge:** recorded below once the pull request is merged and Pages is confirmed.
+**PR / merge / Pages — result (2026-10-22).**
+
+- **Pull request:** [#82](https://github.com/buffedlizard55-lab/OLBG4/pull/82) — *Board W: independent 22 Oct–2 Nov 2026 official-source desk* — base `main`, head `arena/e5f2dad3-olbg4`.
+- **Checks before merge:** `build-and-validate` **pass** (6s), `verify` **pass** (7s), `audit` **pass** (11s); PR state `MERGEABLE`/`CLEAN`.
+- **Merged without waiting for approval:** 2026-10-22T03:15:51Z, **merge commit `b5d1bffd0968574ed31f7dc31d96cef87cf8f8ba`**.
+- **Pages deploy:** workflow run [`39715879976`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39715879976) — both `build` and `deploy` jobs **success**; the Pages API reports `status: built` for `https://buffedlizard55-lab.github.io/OLBG4/`.
+- **Live verification (fetched after deploy):** `/session-e5f2dad3/index.html` renders the 226-match dashboard, the 3 in-window High write-ups (Rangers 1.45, Hurricanes 1.42, Bruins 1.40) and the Flagged-for-Review link; `/board/index.html` carries the additive Board W callout and the 312-row master board is unchanged; the root `/index.html` lists Board W in the "desks re-read on 22 October" block.
+- **Nothing was blocked by flags:** the 137 flagged items (103 listing-only rows, 8 unpriced sports, the −250/70% tension, OLBG timezone rendering) remain published on the desk's Flagged page and did not gate the merge, per the brief.
+- **Post-merge state:** `data/master*.json`, `data/rows.json`, `docs/**` and every other `session-*/` are byte-identical to the pre-merge `main`; the only shared-file deltas are the root pointer, the data-driven `board/index.html` callout, one `README.md` section and this record.
