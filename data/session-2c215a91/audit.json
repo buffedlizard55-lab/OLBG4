@@ -604,15 +604,15 @@
       "title": "Upcoming-date coverage has unresolved times and elapsed starts"
     },
     {
-      "affected": "Desk cutoff 2026-10-23T16:34:00Z; latest available Board AH capture finished 2026-10-23T16:58:45.932199+00:00; latest included capture is 20261023T163921Z.",
-      "detail": "A later capture directory is present in the repository, but its stamp is not in desk.capture_stamps and is not the primary_capture. Therefore the published fixture set is an explicitly earlier snapshot, even though it was generated shortly after the later capture became available. Rebuild from the newer bytes before calling the list current.",
+      "affected": "Desk cutoff 2026-10-23T16:34:00Z; primary/latest capture 20261023T165722Z finished 2026-10-23T16:58:45.932199+00:00; desk generated 2026-10-23T16:58:45.932199+00:00.",
+      "detail": "The committed desk names this latest capture as its primary and includes it in capture_stamps. However, cutoff_utc remains 16:34Z while the primary capture and desk generation finished at 16:58:45Z. Clarify whether cutoff_utc labels a point before capture or is stale metadata; do not describe it as the time of the included source snapshot.",
       "evidence": [
         "data/session-b2c7308d/desk.json",
         "data/session-b2c7308d/capture/20261023T163921Z/manifest.json",
         "data/session-b2c7308d/capture/20261023T165722Z/manifest.json"
       ],
       "id": "AK-F05",
-      "manual_note": "All 108 payload files in the latest capture match their manifest SHA-256 values; the issue is desk freshness, not byte integrity.",
+      "manual_note": "All 108 payload files in the latest capture match their manifest SHA-256 values and the desk includes that capture; the concern is cutoff-time metadata, not omitted bytes or hash integrity.",
       "official_refs": [
         {
           "label": "NHL official schedule API",
@@ -627,9 +627,9 @@
           "url": "https://www.cricket.com.au/fixtures"
         }
       ],
-      "severity": "high",
+      "severity": "medium",
       "status": "needs review",
-      "title": "The desk cutoff predates the latest committed source capture"
+      "title": "The declared desk cutoff predates its primary capture and build time"
     },
     {
       "affected": "10 High rows total, by sport: Baseball 3, Ice Hockey 5, Basketball 2; no High rows in the other 12 sports.",
@@ -895,13 +895,14 @@
   "primary_desk": {
     "board": "AH",
     "cutoff_utc": "2026-10-23T16:34:00Z",
-    "generated_utc": "2026-10-23T16:59:10+00:00",
+    "generated_utc": "2026-10-23T16:58:45.932199+00:00",
     "included_capture_stamps": [
       "20261023T162444Z",
       "20261023T162620Z",
       "20261023T162800Z",
       "20261023T163404Z",
-      "20261023T163921Z"
+      "20261023T163921Z",
+      "20261023T165722Z"
     ],
     "latest_capture_available": {
       "errors": [],
@@ -919,18 +920,18 @@
     "latest_capture_included": {
       "errors": [],
       "files": 108,
-      "finished_utc": "2026-10-23T16:40:31.681899+00:00",
-      "manifest": "data/session-b2c7308d/capture/20261023T163921Z/manifest.json",
+      "finished_utc": "2026-10-23T16:58:45.932199+00:00",
+      "manifest": "data/session-b2c7308d/capture/20261023T165722Z/manifest.json",
       "manifest_captured_at_utc": "",
       "matched": 108,
-      "recorded_utc": "2026-10-23T16:40:31.681899+00:00",
-      "stamp": "20261023T163921Z",
-      "started_utc": "2026-10-23T16:39:21.992820+00:00",
+      "recorded_utc": "2026-10-23T16:58:45.932199+00:00",
+      "stamp": "20261023T165722Z",
+      "started_utc": "2026-10-23T16:57:25.227376+00:00",
       "summary": {},
       "targets": 132
     },
-    "latest_capture_included_in_desk": false,
-    "primary_capture": "20261023T163921Z",
+    "latest_capture_included_in_desk": true,
+    "primary_capture": "20261023T165722Z",
     "session": "arena/b2c7308d-olbg4",
     "summary_declared": {
       "high": 10,

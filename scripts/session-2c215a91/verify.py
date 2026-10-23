@@ -42,7 +42,7 @@ def main() -> int:
     integrity = audit["capture_integrity"]
     latest_capture = audit["primary_desk"]["latest_capture_available"]
     check(bool(latest_capture.get("recorded_utc") and latest_capture.get("finished_utc")), "latest capture timestamp fields are incomplete")
-    check(not audit["primary_desk"]["latest_capture_included_in_desk"], "latest available capture unexpectedly changed to included")
+    check(audit["primary_desk"]["latest_capture_included_in_desk"] and latest_capture.get("stamp") == audit["primary_desk"].get("primary_capture"), "primary desk no longer includes its latest available capture; revisit the freshness finding")
     check(integrity["files_checked"] == integrity["files_sha256_matched"], "one or more capture payload hashes do not match")
     check(not integrity["hash_errors"], "capture hash errors were recorded")
     check(metrics["source_urls_matching_row_capture_manifest"] == metrics["rows"], "a desk row source URL is not in its capture manifest")
