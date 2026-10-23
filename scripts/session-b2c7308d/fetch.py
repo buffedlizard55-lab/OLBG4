@@ -139,11 +139,11 @@ def process_target(idx: int, item: dict, out_dir: str) -> tuple[int, dict]:
         fname = f"{tid}.{ext_for(ctype, url)}"
         path = Path(out_dir) / fname
         path.parent.mkdir(parents=True, exist_ok=True)
-        buf = bytearray()
+        buf = io.BytesIO()
         gz = gzip.GzipFile(fileobj=buf, mode="wb", compresslevel=9, mtime=0)
         gz.write(body)
         gz.close()
-        path.write_bytes(bytes(buf))
+        path.write_bytes(buf.getvalue())
         rec.update(file=fname, sha256=digest, bytes=len(body))
     with PRINT_LOCK:
         print(f"[{idx:03d}] {status or 'ERR':>3} {tid} ({len(body)}B) {url}", flush=True)
