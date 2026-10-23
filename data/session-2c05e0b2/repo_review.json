@@ -1,0 +1,2601 @@
+{
+ "datasets": [
+  {
+   "by_sport": {
+    "Aussie Rules": 1,
+    "Badminton": 3,
+    "Baseball": 6,
+    "Basketball": 79,
+    "Cricket": 17,
+    "Darts": 20,
+    "Esports": 2,
+    "Gaelic Football": 5,
+    "Golf": 6,
+    "Greyhound Racing": 2,
+    "Greyhounds": 6,
+    "Handball": 22,
+    "Ice Hockey": 58,
+    "Motor Racing": 2,
+    "Rugby League": 10,
+    "Rugby Union": 30,
+    "Snooker": 17,
+    "Table Tennis": 3,
+    "Tennis": 28,
+    "Volleyball": 19
+   },
+   "checks_run": {
+    "numeric_prices": 372,
+    "rows": 336
+   },
+   "counts": {
+    "R1_no_source": 39,
+    "R2_out_of_scope_sport": 9,
+    "R3_past_dated": 162
+   },
+   "dataset": "data/master.json",
+   "findings": {
+    "R1_no_source": [
+     {
+      "date": "2026-09-27",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0001",
+      "sport": "Aussie Rules"
+     },
+     {
+      "date": "2026-09-30",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0002",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-01",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0003",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-07",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0004",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-08",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0005",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-08",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0006",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-09",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0007",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-11",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0008",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-13",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0009",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-14",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0010",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-15",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0011",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-18",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0012",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-18",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0013",
+      "sport": "Rugby League"
+     },
+     {
+      "date": "2026-10-19",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0016",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0017",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0018",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0024",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0028",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0124",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0129",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0145",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0146",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0147",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0154",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0176",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0207",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-24",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0220",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-24",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0249",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-25",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0261",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-25",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0277",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-26",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0290",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-27",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0291",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-27",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0299",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-27",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0303",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-28",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0313",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-28",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0325",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-29",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0326",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-29",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0327",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-11-08",
+      "detail": "in-scope row has no source URL",
+      "manual_review": "",
+      "row": "M0336",
+      "sport": "Tennis"
+     }
+    ],
+    "R2_out_of_scope_sport": [
+     {
+      "date": "2026-09-27",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "",
+      "row": "M0001",
+      "sport": "Aussie Rules"
+     },
+     {
+      "date": "2026-10-08",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "",
+      "row": "M0005",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-11",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "",
+      "row": "M0008",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-13",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "",
+      "row": "M0009",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-14",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "",
+      "row": "M0010",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+      "row": "M0019",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-27",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "",
+      "row": "M0291",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-27",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "",
+      "row": "M0303",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-28",
+      "detail": "sport is outside the 15-sport brief",
+      "manual_review": "",
+      "row": "M0325",
+      "sport": "Table Tennis"
+     }
+    ],
+    "R3_past_dated": [
+     {
+      "date": "2026-09-27",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0001",
+      "sport": "Aussie Rules"
+     },
+     {
+      "date": "2026-09-30",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0002",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-01",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0003",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-07",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0004",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-08",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0005",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-08",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0006",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-09",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0007",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-11",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0008",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-13",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0009",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-14",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0010",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-15",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0011",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-18",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0012",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-18",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0013",
+      "sport": "Rugby League"
+     },
+     {
+      "date": "2026-10-18",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/matches/",
+      "row": "M0014",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-19",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
+      "row": "M0015",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0016",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0017",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0018",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+      "row": "M0019",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "row": "M0020",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "row": "M0021",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "row": "M0022",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+      "row": "M0023",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0024",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026",
+      "row": "M0025",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/gamecenter/2026020142/right-rail",
+      "row": "M0026",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/score/2026-10-20",
+      "row": "M0027",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0028",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.championsleague.basketball/en/games",
+      "row": "M0029",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.championsleague.basketball/en/games",
+      "row": "M0030",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "row": "M0031",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "row": "M0032",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.championsleague.basketball/en/games",
+      "row": "M0033",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/standings?Season=2025-26",
+      "row": "M0034",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "row": "M0035",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/euroleague/game-center/",
+      "row": "M0036",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "row": "M0037",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/games?date=2026-10-21",
+      "row": "M0038",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/games?date=2026-10-21",
+      "row": "M0039",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/standings?Season=2025-26",
+      "row": "M0040",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "row": "M0041",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/schedule",
+      "row": "M0042",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/schedule",
+      "row": "M0043",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "row": "M0044",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/schedule",
+      "row": "M0045",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.kbl.or.kr/",
+      "row": "M0046",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "row": "M0047",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/standings?Season=2025-26",
+      "row": "M0048",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "row": "M0049",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/schedule",
+      "row": "M0050",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi",
+      "row": "M0051",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.cricket.co.za/upcoming/",
+      "row": "M0052",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.cricket.co.za/upcoming/",
+      "row": "M0053",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.gbgb.org.uk/",
+      "row": "M0054",
+      "sport": "Greyhounds"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.gbgb.org.uk/",
+      "row": "M0055",
+      "sport": "Greyhounds"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.gbgb.org.uk/",
+      "row": "M0056",
+      "sport": "Greyhounds"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.gbgb.org.uk/",
+      "row": "M0057",
+      "sport": "Greyhounds"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nottingham-greyhounds.co.uk/racing",
+      "row": "M0058",
+      "sport": "Greyhounds"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.gbgb.org.uk/",
+      "row": "M0059",
+      "sport": "Greyhounds"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "row": "M0060",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.eurohandball.com/en/competitions/national-team-competitions/women/2027-ihf-womens-world-championship-qualification-europe/",
+      "row": "M0061",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0062",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0063",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0064",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "row": "M0065",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://handbollsligan.se/herr/",
+      "row": "M0066",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://handbollsligan.se/herr/",
+      "row": "M0067",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://handbollsligan.se/herr/",
+      "row": "M0068",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://tophaandbold.dk/stillinger/herreligaen",
+      "row": "M0069",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0070",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "row": "M0071",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.handball.no/nyheter/2026/04/dette-er-lagene-i-eliteserien-og-1.-divisjon-for-menn-202627/",
+      "row": "M0072",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.ice.hockey/en/season/standings",
+      "row": "M0073",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail",
+      "row": "M0074",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.ice.hockey/en/season/standings",
+      "row": "M0075",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.ice.hockey/en/season/standings",
+      "row": "M0076",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.ice.hockey/en/season/standings",
+      "row": "M0077",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail",
+      "row": "M0078",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/northernirelandopen/",
+      "row": "M0079",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/match-centre",
+      "row": "M0080",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+      "row": "M0081",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/match-centre",
+      "row": "M0082",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+      "row": "M0083",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/match-centre",
+      "row": "M0084",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+      "row": "M0085",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/match-centre",
+      "row": "M0086",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+      "row": "M0087",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+      "row": "M0088",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/match-centre",
+      "row": "M0089",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/match-centre",
+      "row": "M0090",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+      "row": "M0091",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "row": "M0092",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+      "row": "M0093",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+      "row": "M0094",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+      "row": "M0095",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+      "row": "M0096",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+      "row": "M0097",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+      "row": "M0098",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "row": "M0099",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "row": "M0100",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+      "row": "M0101",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf",
+      "row": "M0102",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+      "row": "M0103",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+      "row": "M0104",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+      "row": "M0105",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "row": "M0106",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+      "row": "M0107",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+      "row": "M0108",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+      "row": "M0109",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "row": "M0110",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "row": "M0111",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.legavolleyfemminile.it/classifica/",
+      "row": "M0112",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.volleybal.nl/nieuws/eerste-doordeweekse-speelronde-bij-eredivisie-volleybal-vrouwen",
+      "row": "M0113",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.tauron1liga.pl/table.html",
+      "row": "M0114",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.plusliga.pl/table.html",
+      "row": "M0115",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle.xhtml",
+      "row": "M0116",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.legavolleyfemminile.it/classifica/",
+      "row": "M0117",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://mestaruusliiga.fi/uutiset/keskiviikon-ottelussa-voiitoputkessa-oleva-puijo-kohtaa-orpon/",
+      "row": "M0118",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle.xhtml",
+      "row": "M0119",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_frauen/statistik/hauptrunde.xhtml",
+      "row": "M0120",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.legavolleyfemminile.it/classifica/",
+      "row": "M0121",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle.xhtml",
+      "row": "M0122",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.plusliga.pl/table.html",
+      "row": "M0123",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0124",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/standings?Season=2025-26",
+      "row": "M0125",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/standings?Season=2025-26",
+      "row": "M0126",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/schedule",
+      "row": "M0127",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.euroleaguebasketball.net/en/euroleague/game-center/",
+      "row": "M0128",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0129",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/games?date=2026-10-22",
+      "row": "M0130",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.icc-cricket.com/rankings/team-rankings/womens/t20i",
+      "row": "M0131",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.cricket.co.za/upcoming/",
+      "row": "M0132",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.ecb.co.uk/news/4562387/pakistan-to-host-sri-lanka-and-england-in-odi-triseries",
+      "row": "M0133",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.cricket.co.za/upcoming/",
+      "row": "M0134",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://cricketireland.ie/news/africa-bound",
+      "row": "M0135",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.icc-cricket.com/rankings/team-rankings/mens/t20i",
+      "row": "M0136",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "row": "M0137",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "row": "M0138",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "row": "M0139",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "row": "M0140",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "row": "M0141",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "row": "M0142",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "row": "M0143",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+      "row": "M0144",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0145",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0146",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0147",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
+      "row": "M0148",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0149",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0150",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0151",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0152",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "row": "M0153",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "M0154",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154",
+      "row": "M0155",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nhl.com/gamecenter/ana-vs-njd/2026/10/22/2026020157",
+      "row": "M0156",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nhl.com/standings/2026-10-20/wildcard",
+      "row": "M0157",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
+      "row": "M0158",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nhl.com/gamecenter/fla-vs-pit/2026/10/22/2026020158",
+      "row": "M0159",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.shl.se/",
+      "row": "M0160",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155",
+      "row": "M0161",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://prod2.lnr.fr/classement",
+      "row": "M0162",
+      "sport": "Rugby Union"
+     }
+    ]
+   },
+   "rows": 336
+  },
+  {
+   "checks_run": {
+    "rows": 68,
+    "two_way_moneylines": 34
+   },
+   "counts": {
+    "M1_no_source": 41,
+    "M2_past_dated": 40,
+    "M4_bad_price": 68,
+    "M5_implausible_margin": 2
+   },
+   "dataset": "data/matches.json",
+   "findings": {
+    "M1_no_source": [
+     {
+      "date": "2026-10-23",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "NBA06",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "NBA07",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "EL01",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "EL02",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-01",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "EL03",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "ATP01",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "ATP02",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "ATP03",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-26 to 2026-11-01",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "ATP04",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-07 to 2026-10-18",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "ATP05",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-11-08 to 2026-11-15",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "WTA01",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-18 to 2026-10-23",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "CRK01",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-27 to 2026-11-01",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "CRK02",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-09 to 2026-10-14",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "CRK06",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "NHL03",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "NHL04",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "SNK02",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-24",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "SNK03",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-25",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "SNK04",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "DRT01",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "DRT02",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-24",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "DRT03",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-25",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "DRT04",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-08 to 2026-10-11",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "GLF01",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "GLF02",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-29 to 2026-11-01",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "GLF03",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "GLF04",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-29 to 2026-11-01",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "GLF05",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-13 to 2026-10-18",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "BDM01",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-27 to 2026-11-01",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "BDM03",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-11 to 2026-10-18",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "TTT01",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-27 to 2026-11-01",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "TTT02",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-28 to 2026-11-01",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "TTT03",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-15",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "VBL01",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-09-30 to 2026-10-12",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "VBL02",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-23",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "HDB01",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-28 to 2026-11-02",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "HDB02",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-14 to 2026-11-08",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "ESP01",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-08 to 2026-10-22",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "ESP02",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-09-27",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "AFL01",
+      "sport": "Aussie Rules"
+     },
+     {
+      "date": "2026-10-18 to 2026-11-08",
+      "detail": "row carries no sourceUrl",
+      "manual_review": "",
+      "row": "RL01",
+      "sport": "Rugby League"
+     }
+    ],
+    "M2_past_dated": [
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "row": "NBA01",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "row": "NBA02",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "row": "NBA03",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "row": "NBA04",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nba.com/news/2026-27-nba-regular-season-schedule",
+      "row": "NBA05",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "EL01",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "EL02",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-01",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "EL03",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "ATP01",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "ATP02",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "ATP03",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-07 to 2026-10-18",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "ATP05",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-18 to 2026-10-23",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "CRK01",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+      "row": "CRK03",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+      "row": "CRK04",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-09 to 2026-10-14",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "CRK06",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/score/2026-10-20",
+      "row": "NHL01",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/gamecenter/2026020142/right-rail",
+      "row": "NHL02",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "NHL03",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "NHL04",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/gamecenter/2026020152/right-rail",
+      "row": "NHL05",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-20",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.nhl.com/news/boston-bruins-dallas-stars-game-recap-october-20-2026",
+      "row": "NHL06",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-21",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/gamecenter/2026020153/right-rail",
+      "row": "NHL07",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-18 to 2026-10-25",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://www.wst.tv/matches/",
+      "row": "SNK01",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "DRT01",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-08 to 2026-10-11",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "GLF01",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "GLF02",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "GLF04",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-13 to 2026-10-18",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "BDM01",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-20 to 2026-10-25",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+      "row": "BDM02",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-11 to 2026-10-18",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "TTT01",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-15",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "VBL01",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-09-30 to 2026-10-12",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "VBL02",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-23",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "HDB01",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-14 to 2026-11-08",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "ESP01",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-08 to 2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "ESP02",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-09-27",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "AFL01",
+      "sport": "Aussie Rules"
+     },
+     {
+      "date": "2026-10-18 to 2026-11-08",
+      "detail": "fixture date is before the review date",
+      "manual_review": "",
+      "row": "RL01",
+      "sport": "Rugby League"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/gamecenter/2026020154/right-rail",
+      "row": "NHL08",
+      "sport": "Ice Hockey"
+     },
+     {
+      "date": "2026-10-22",
+      "detail": "fixture date is before the review date",
+      "manual_review": "https://api-web.nhle.com/v1/gamecenter/2026020155/right-rail",
+      "row": "NHL09",
+      "sport": "Ice Hockey"
+     }
+    ],
+    "M4_bad_price": [
+     {
+      "date": "2026-10-01",
+      "detail": "side a has a non-numeric price '\u2014'",
+      "manual_review": "",
+      "row": "EL03",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-01",
+      "detail": "side b has a non-numeric price '\u2014'",
+      "manual_review": "",
+      "row": "EL03",
+      "sport": "Basketball"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "side a has a non-numeric price 'Event \u2014 outright: Medvedev 3.70'",
+      "manual_review": "",
+      "row": "ATP01",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "side b has a non-numeric price 'Next fav 6.00-8.00 range'",
+      "manual_review": "",
+      "row": "ATP01",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "side a has a non-numeric price 'Outright \u2014 Dzumhur 17.00'",
+      "manual_review": "",
+      "row": "ATP02",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "side b has a non-numeric price 'Field 2.50-12.00'",
+      "manual_review": "",
+      "row": "ATP02",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "side a has a non-numeric price 'Outright field 3.00-15.00'",
+      "manual_review": "",
+      "row": "ATP03",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-19 to 2026-10-25",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "ATP03",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-26 to 2026-11-01",
+      "detail": "side a has a non-numeric price 'Outlook \u2014 Basel/Vienna outrights 4.00-9.00 for top seeds'",
+      "manual_review": "",
+      "row": "ATP04",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-26 to 2026-11-01",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "ATP04",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-07 to 2026-10-18",
+      "detail": "side a has a non-numeric price '\u2014'",
+      "manual_review": "",
+      "row": "ATP05",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-07 to 2026-10-18",
+      "detail": "side b has a non-numeric price '\u2014'",
+      "manual_review": "",
+      "row": "ATP05",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-11-08 to 2026-11-15",
+      "detail": "side a has a non-numeric price 'Outright \u2014 top seeds 3.50-6.00 range'",
+      "manual_review": "",
+      "row": "WTA01",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-11-08 to 2026-11-15",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "WTA01",
+      "sport": "Tennis"
+     },
+     {
+      "date": "2026-10-31",
+      "detail": "side a has a non-numeric price 'Market set after round-robin'",
+      "manual_review": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+      "row": "CRK05",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-31",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "https://www.pcb.com.pk/press-release-detail/pakistan-to-host-sri-lanka-and-england-for-t20is-odi-tri-series-and-tests.html",
+      "row": "CRK05",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-18 to 2026-10-25",
+      "detail": "side a has a non-numeric price 'Outright: Judd Trump 5.00'",
+      "manual_review": "https://www.wst.tv/matches/",
+      "row": "SNK01",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-18 to 2026-10-25",
+      "detail": "side b has a non-numeric price \"Lisowski 9.00, O'Sullivan 10.00, Allen 10.00\"",
+      "manual_review": "https://www.wst.tv/matches/",
+      "row": "SNK01",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "side a has a non-numeric price 'Match prices set after R3'",
+      "manual_review": "",
+      "row": "SNK02",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "SNK02",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-24",
+      "detail": "side a has a non-numeric price 'To Be Priced after QF'",
+      "manual_review": "",
+      "row": "SNK03",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-24",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "SNK03",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-25",
+      "detail": "side a has a non-numeric price 'Pre-match favourite 1.65-2.10 typical'",
+      "manual_review": "",
+      "row": "SNK04",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-25",
+      "detail": "side b has a non-numeric price 'Underdog 2.10-2.20'",
+      "manual_review": "",
+      "row": "SNK04",
+      "sport": "Snooker"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "side a has a non-numeric price 'Match favourites 1.40-1.75 typical (Bo11)'",
+      "manual_review": "",
+      "row": "DRT01",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "side b has a non-numeric price 'Outright: Littler 4.50, Humphries 6.00'",
+      "manual_review": "",
+      "row": "DRT01",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "side a has a non-numeric price 'Favourites 1.45-1.80'",
+      "manual_review": "",
+      "row": "DRT02",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-23",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "DRT02",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-24",
+      "detail": "side a has a non-numeric price 'Bo19 favourites 1.55-1.85'",
+      "manual_review": "",
+      "row": "DRT03",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-24",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "DRT03",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-25",
+      "detail": "side a has a non-numeric price 'Final outright 1.70-2.20 favourite typical'",
+      "manual_review": "",
+      "row": "DRT04",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-25",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "DRT04",
+      "sport": "Darts"
+     },
+     {
+      "date": "2026-10-08 to 2026-10-11",
+      "detail": "side a has a non-numeric price 'Pre-event fave Schauffele 8.00'",
+      "manual_review": "",
+      "row": "GLF01",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-08 to 2026-10-11",
+      "detail": "side b has a non-numeric price 'Brennan 34.00 (post-win verification)'",
+      "manual_review": "",
+      "row": "GLF01",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "side a has a non-numeric price 'Favourites 16.00-22.00 (open field)'",
+      "manual_review": "",
+      "row": "GLF02",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "side b has a non-numeric price 'Longshots 50.00+'",
+      "manual_review": "",
+      "row": "GLF02",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-29 to 2026-11-01",
+      "detail": "side a has a non-numeric price 'Outright 18.00-25.00 co-favourites'",
+      "manual_review": "",
+      "row": "GLF03",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-29 to 2026-11-01",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "GLF03",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "side a has a non-numeric price 'Favourites: KOR stars 7.00-9.00 (Kim, Jeeno Thitikul)'",
+      "manual_review": "",
+      "row": "GLF04",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-25",
+      "detail": "side b has a non-numeric price 'US/EU 12.00-20.00'",
+      "manual_review": "",
+      "row": "GLF04",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-29 to 2026-11-01",
+      "detail": "side a has a non-numeric price 'Outright 9.00-16.00'",
+      "manual_review": "",
+      "row": "GLF05",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-29 to 2026-11-01",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "GLF05",
+      "sport": "Golf"
+     },
+     {
+      "date": "2026-10-13 to 2026-10-18",
+      "detail": "side a has a non-numeric price 'MS Final: Lanier 2.20 vs field'",
+      "manual_review": "",
+      "row": "BDM01",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-13 to 2026-10-18",
+      "detail": "side b has a non-numeric price 'WS: An Se-young 1.85 favourite'",
+      "manual_review": "",
+      "row": "BDM01",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-20 to 2026-10-25",
+      "detail": "side a has a non-numeric price 'MS: Lanier 5.50, Top CHN/INA 6.00-9.00'",
+      "manual_review": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+      "row": "BDM02",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-20 to 2026-10-25",
+      "detail": "side b has a non-numeric price 'WS: An Se-young 1.90 favourite'",
+      "manual_review": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview",
+      "row": "BDM02",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-27 to 2026-11-01",
+      "detail": "side a has a non-numeric price 'To Be Priced post-French'",
+      "manual_review": "",
+      "row": "BDM03",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-27 to 2026-11-01",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "BDM03",
+      "sport": "Badminton"
+     },
+     {
+      "date": "2026-10-11 to 2026-10-18",
+      "detail": "side a has a non-numeric price 'N/A \u2014 Continental champs: pre-event favs 2.50-4.00'",
+      "manual_review": "",
+      "row": "TTT01",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-11 to 2026-10-18",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "TTT01",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-27 to 2026-11-01",
+      "detail": "side a has a non-numeric price 'MS Fav: F\u00e9lix Lebrun 3.00 (home), Chinese seeds 3.50-5.00'",
+      "manual_review": "",
+      "row": "TTT02",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-27 to 2026-11-01",
+      "detail": "side b has a non-numeric price 'WS: Top CHN/JPN 3.00-6.00'",
+      "manual_review": "",
+      "row": "TTT02",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-28 to 2026-11-01",
+      "detail": "side a has a non-numeric price 'N/A small field'",
+      "manual_review": "",
+      "row": "TTT03",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-28 to 2026-11-01",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "TTT03",
+      "sport": "Table Tennis"
+     },
+     {
+      "date": "2026-10-15",
+      "detail": "side a has a non-numeric price 'N/A \u2014 Outright 2.50-4.00 when draw released'",
+      "manual_review": "",
+      "row": "VBL01",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-15",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "VBL01",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-09-30 to 2026-10-12",
+      "detail": "side a has a non-numeric price 'Youth event \u2014 no senior lines'",
+      "manual_review": "",
+      "row": "VBL02",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-09-30 to 2026-10-12",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "VBL02",
+      "sport": "Volleyball"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-23",
+      "detail": "side a has a non-numeric price 'Home favourites 1.40-1.65 typical for EHF CL group'",
+      "manual_review": "",
+      "row": "HDB01",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-22 to 2026-10-23",
+      "detail": "side b has a non-numeric price 'Away 2.40-3.20'",
+      "manual_review": "",
+      "row": "HDB01",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-28 to 2026-11-02",
+      "detail": "side a has a non-numeric price 'N/A \u2014 Pre-draw'",
+      "manual_review": "",
+      "row": "HDB02",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-28 to 2026-11-02",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "HDB02",
+      "sport": "Handball"
+     },
+     {
+      "date": "2026-10-14 to 2026-11-08",
+      "detail": "side a has a non-numeric price 'Match favourites 1.55-2.00 (Bo5)'",
+      "manual_review": "",
+      "row": "ESP01",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-14 to 2026-11-08",
+      "detail": "side b has a non-numeric price 'Outright: T1 3.50, Gen.G 4.00'",
+      "manual_review": "",
+      "row": "ESP01",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-08 to 2026-10-22",
+      "detail": "side a has a non-numeric price 'Grand Final fav 1.60-1.85'",
+      "manual_review": "",
+      "row": "ESP02",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-10-08 to 2026-10-22",
+      "detail": "side b has a non-numeric price 'Underdog 2.10-2.50'",
+      "manual_review": "",
+      "row": "ESP02",
+      "sport": "Esports"
+     },
+     {
+      "date": "2026-09-27",
+      "detail": "side a has a non-numeric price 'No market \u2014 Season complete'",
+      "manual_review": "",
+      "row": "AFL01",
+      "sport": "Aussie Rules"
+     },
+     {
+      "date": "2026-09-27",
+      "detail": "side b has a non-numeric price ''",
+      "manual_review": "",
+      "row": "AFL01",
+      "sport": "Aussie Rules"
+     }
+    ],
+    "M5_implausible_margin": [
+     {
+      "date": "2026-10-18 to 2026-10-23",
+      "detail": "two-way implied probability sums to 0.904",
+      "manual_review": "",
+      "row": "CRK01",
+      "sport": "Cricket"
+     },
+     {
+      "date": "2026-10-27 to 2026-11-01",
+      "detail": "two-way implied probability sums to 0.913",
+      "manual_review": "",
+      "row": "CRK02",
+      "sport": "Cricket"
+     }
+    ]
+   },
+   "rows": 68
+  }
+ ],
+ "generated_at_utc": "2026-10-23T16:35:59Z",
+ "review_date": "2026-10-23",
+ "scope_note": "The 15-sport brief is narrower than data/master.json, which also carries Aussie Rules, Badminton, Table Tennis and Esports rows. Those rows are recorded under R2 and are not published on this board."
+}

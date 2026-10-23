@@ -4144,3 +4144,52 @@ Out of scope and never published: soccer/football, American football, boxing, UF
   `session-c10a7aca/**` tree, so this board's `session-2c05e0b2/**` scope does not overlap. Local bash egress in this
   sandbox is blocked (TLS reset to every non-allow-listed host), so official pages are captured by an Actions runner
   and parsed from the committed bytes.
+
+### Board AI completion record (session `arena/2c05e0b2-olbg4`), 2026-10-23 UTC
+
+**Scope delivered.** [`session-2c05e0b2/index.html`](session-2c05e0b2/index.html) — a dashboard for exactly the brief's
+15 sports (Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis,
+Motor Racing, Handball, Ice Hockey, Basketball, Rugby League). Landing page plus `picks`, `predictions`, `entries`,
+`markets`, `coverage`, `sources`, `methodology`, `review`, `flagged`, `verification` and 15 per-sport subpages.
+
+**OLBG reverse-engineering (AI1).** Each OLBG sport hub ships a SvelteKit payload; `scripts/session-2c05e0b2/re_olbg.py`
+extracts every tip verbatim (selection, market alias, decimal/American/fractional price, event start, tip counts,
+OLBG confidence). Result: **236 listed events across all 15 sports** → `data/session-2c05e0b2/olbg_inventory.json`.
+The correct hub path is `/betting-tips/<Sport>/<id>` (the bare `/betting-tips/<Sport>` path returns 404 for all 15).
+Golf returned **zero** priced events at capture.
+
+**Official capture (AI1).** 154 targets requested across three runner passes
+(`data/session-2c05e0b2/capture/{20261023T161830Z,20261023T170000Z,20261023T173000Z}/`, gzipped bytes + SHA-256).
+102 returned HTTP 200; every non-200 is published with its status on `sources.html`. Machine-readable official feeds
+that worked: `api-web.nhle.com` schedule + standings, `statsapi.mlb.com` schedule + standings,
+`api-live.euroleague.net` standings, `stats.unitedrugby.com` Round 5, `wst.tv/rankings`, `legavolley.it` classifica.
+
+**Lines and picks (AI2).** **121 fixtures with our own lines / 726 originated markets**, each with match winner both
+ways, handicap both ways, total over/under and the sport derivative (puck line, run line, frame handicap, set line).
+Fair decimal = 1/p with no margin. Confidence: **17 High, 45 Medium, 59 Low**. Every free-price rule is published in
+`data/session-2c05e0b2/model_assumptions.json`.
+
+**Predictions (AI3).** **25 unique hand-written texts** (52–96 words, max pairwise 3-gram Jaccard 0.079) covering
+Ice Hockey 5, Baseball 5, Rugby Union 5, Volleyball 4, Basketball 3, Snooker 3. Each names teams/players, current
+record, recent results, per-match statistics and states the selection, with its official sources underneath.
+
+**Honest shortfall, published not hidden.** Nine sports carry no High pick and no prediction because no
+machine-readable official form feed existed at capture (NBA 403, ATP 403, WTA API ignores year filters, PDC/WST match
+pages are JavaScript shells, ICC and cricket.com.au APIs 404, EHF/LNH/ASOBAL 404, GBGB racecard endpoints 404, GAA
+listed no match, OLBG Golf listed no event). They are still published in full from OLBG with prices and reasons, and
+the shortfall is stated on `coverage.html` and `flagged.html`. Prior boards noted the same class of gap.
+
+**Window arithmetic (AI-F01).** A 70.0% chance prices at −233 and 71.43% at −250, so High ∩ [−250, +10,000] is only
+p ∈ [0.700, 0.7143]. No price was moved to fit; High rows shorter than −250 are labelled, and the market-price column
+shows where OLBG's own listing sits inside the band.
+
+**Repo review (AI4).** `data/session-2c05e0b2/repo_review.json`: `data/master.json` 336 rows → 39 with no source URL,
+162 dated before the review date, 9 outside the 15-sport brief; `data/matches.json` 68 rows → 41 with no sourceUrl,
+40 past-dated, 34 two-way moneylines with non-numeric values in a price field, 2 with an implausible implied margin.
+Published on `review.html`; nothing was edited.
+
+**Verification (AI6).** `python3 scripts/session-2c05e0b2/verify.py` → **43 checks, 0 errors, 771 internal links
+resolved, 343 rows re-derived, 121 prices re-derived, 25 predictions re-measured**. Rebuild command:
+`python3 scripts/session-2c05e0b2/re_olbg.py && python3 scripts/session-2c05e0b2/build_desk.py && python3 scripts/session-2c05e0b2/predictions.py && python3 scripts/session-2c05e0b2/review.py && python3 scripts/session-2c05e0b2/build_site.py && python3 scripts/session-2c05e0b2/verify.py`.
+
+**Root pointer.** A Board AI nav link and notebox were added to the root `index.html`; no existing line was removed.
