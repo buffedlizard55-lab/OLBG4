@@ -4250,3 +4250,28 @@ ce15a89 (chore(coordination): claim Board AH (b2c7308d) fresh 15-sport same-day 
 **Irregularities → flags (non-blocking):** AH-F-SHL-02 local kick times; ATP conditional ties (AH-F-ATP-03); darts EC (PDC hosts unresolvable from runner; Humphries withdrew — excluded); ICC/OWGR/F1/MotoGP JS-locked; GBGB pre-race endpoints dead (results only); tennis no completed-results feed → Medium cap; VB/CR/RU/GA/SN/RL gaps each flagged. No value published without an official link; no blanks inferred.
 
 **Debug notes for future boards:** CaptureReader keeps LARGEST payload per target (later OLBG passes are bot shells); EuroLeague feed uses local/road (home/away null); Liiga finished = `end` flag; WTA MatchTimeStamp carries local offsets; SHL fixture names must be resolved against standings keys (uppercase-token names break naive venue splits); puck/run line = win-by-3+/2+ (fixed after review caught the win-by-1-2 bug).
+
+## Board AK — session `arena/63ad3394-olbg4` (2026-10-23T19:30Z same-day desk: 15-sport official-source re-verification + multi-market own lines + −250…+10,000 High-confidence human predictions + repo review + dashboard + final integration)
+
+Session: `arena/63ad3394-olbg4` · Branch: `arena/63ad3394-olbg4` (fixed Arena branch) · Claimed: `2026-10-23T19:30Z UTC` · **status: in progress**
+
+Exclusive working scope: `session-63ad3394/**`, `data/session-63ad3394/**`, `scripts/session-63ad3394/**`,
+`.github/workflows/ak-63ad3394.yml`, `.github/workflows/ak-63ad3394-verify.yml`, one nav pointer line appended to
+root `README.md`, and append-only blocks in this file. Everything else — `data/master.json`, `board/`, root `*.html`,
+peer `session-*/` folders, `data/session-*/`, peer scripts, `pipeline/**`, `tools/**` — is **read-only** for Board AK;
+findings that would require editing another owner's file are logged here as integration requests, never applied.
+
+The published sport scope is exactly the brief's fifteen: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts,
+Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AK1 | Live, `robots.txt`-compliant capture (Actions runner, open egress) of today's OLBG sport hubs for the 15-sport scope + the official league/tour/federation fixture, standings and result feeds for the 23 Oct – 2 Nov 2026 window; raw bytes + SHA-256 manifest committed. OLBG used for taxonomy/listing only; every published value re-derived from an official source | in progress | arena/63ad3394-olbg4 | `scripts/session-63ad3394/fetch.py`, `scripts/session-63ad3394/targets.json`, `.github/workflows/ak-63ad3394.yml`, `data/session-63ad3394/capture/` |
+| AK2 | Originate our own fair lines for every verified upcoming fixture (money line / match winner, handicap-spread, match total, plus sport-specific derivatives), pick a selection and label Low/Medium/High; record every market investigated | pending | arena/63ad3394-olbg4 | `scripts/session-63ad3394/originate.py`, `data/session-63ad3394/desk.json` |
+| AK3 | High-confidence focus: selections whose own fair price sits inside −250…+10,000 American and whose fair probability clears the 70% bar, five strongest per covered sport wherever verified inputs allow; unique human ≥30-word write-ups naming teams/players, verified form, recent results, verified match statistics and an explicit selection, each with its official source link | pending | arena/63ad3394-olbg4 | `scripts/session-63ad3394/predictions.py`, `data/session-63ad3394/predictions.json` |
+| AK4 | Line-by-line repo review of the canonical datasets (`data/master.json`, `data/matches.json`) and same-day peer desks against official sources; exact defects + manual-review URLs on a Flagged for Review page; unconfirmed values left blank, never inferred | pending | arena/63ad3394-olbg4 | `scripts/session-63ad3394/review.py`, `data/session-63ad3394/review.json`, `data/session-63ad3394/flagged.json` |
+| AK5 | Clean dashboard-style GitHub Pages desk under `session-63ad3394/` (executive-summary landing + 15 per-sport subpages + entries/markets/predictions/coverage/methodology/sources/verification/review/flagged tables), every row carrying its official source link, filterable and printable | pending | arena/63ad3394-olbg4 | `scripts/session-63ad3394/build_site.py`, `session-63ad3394/**` |
+| AK6 | Verification gate (deterministic rebuild, provenance, price maths, prediction rules, internal links, publication audit), `git pull --rebase` sync, PR to `main`, merge without waiting, confirm GitHub Pages deploy, record the result here | pending | arena/63ad3394-olbg4 | `scripts/session-63ad3394/verify.py`, `COORDINATION.md` |
+
+### AK working log
+- `2026-10-23T19:30Z` UTC — `63ad3394` — board read end to end. Latest merged board is AH (`arena/b2c7308d-olbg4`, PR #139) whose committed desk `data/session-b2c7308d/desk.json` prices only 5 of the 15 brief sports (Ice Hockey 104, Basketball 39, Baseball 7, Tennis 7, Handball 2) and carries 22 write-ups; Rugby Union, Cricket, Snooker, Darts, Golf, Volleyball, Gaelic Sports, Greyhounds, Motor Racing and Rugby League carry **zero** priced rows there (Snooker and Rugby League carry zero rows at all). That gap is Board AK's primary target. Claim committed and pushed before any other work. The sandbox shell reaches GitHub/npm/PyPI only, so official payloads are fetched by the Actions runner in `ak-63ad3394.yml`, committed with a SHA-256 manifest, and every parse, line and verification is done locally against those committed bytes.
