@@ -94,12 +94,31 @@ class Links(HTMLParser):
 
 
 def local_links():
-    broken, count = [], 0
+    """Check every local file target referenced by a published HTML page.
+
+    Capture desks store raw response bytes gzip-compressed and keep the response's own
+    file extension, so a compressed official HTML response lands on disk as `*.html`.
+    Those files are data, not pages: they have no outbound links and are not valid UTF-8.
+    They are reported as skipped rather than crashing the repo-wide gate (see AJ-F01 in
+    COORDINATION.md). No link is ignored and no page is excluded from the check.
+    """
+    broken, count, skipped = [], 0, []
     for page in sorted(ROOT.rglob('*.html')):
         if any(p in ('.git', 'node_modules', '.venv') for p in page.relative_to(ROOT).parts):
             continue
+        raw = page.read_bytes()
+        if raw[:2] == b'\x1f\x8b':
+            skipped.append({'file': str(page.relative_to(ROOT)),
+                            'reason': 'gzip-compressed captured response, not an HTML page'})
+            continue
+        try:
+            text = raw.decode('utf-8')
+        except UnicodeDecodeError:
+            skipped.append({'file': str(page.relative_to(ROOT)),
+                            'reason': 'not UTF-8 decodable; binary artefact, not an HTML page'})
+            continue
         parser = Links()
-        parser.feed(page.read_text())
+        parser.feed(text)
         for url in parser.links:
             parsed = urlsplit(url)
             if parsed.scheme or parsed.netloc or not parsed.path:
@@ -117,7 +136,7 @@ def local_links():
             count += 1
             if not target.is_relative_to(ROOT) or not target.is_file():
                 broken.append(dict(page=str(page.relative_to(ROOT)), url=url))
-    return count, broken
+    return count, broken, skipped
 
 
 def render(report):
@@ -172,9 +191,10 @@ def main():
                 stale.append(name)
         else:
             path.write_text(text)
-    count, broken = local_links()
+    count, broken, skipped = local_links()
     print(json.dumps(dict(rows=len(entries), build_counts=report['build_counts'],
-                          local_targets_checked=count, broken=broken, stale=stale), indent=2))
+                          local_targets_checked=count, broken=broken, stale=stale,
+                          skipped_non_html=len(skipped), skipped=skipped), indent=2))
     return int(bool(broken or stale))
 
 
