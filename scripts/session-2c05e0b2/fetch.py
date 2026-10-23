@@ -24,7 +24,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-TARGETS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "targets.json")
+TARGETS = os.environ.get("TARGETS_FILE") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "targets.json")
 MAX_BYTES = 4 * 1024 * 1024
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/127.0 Safari/537.36")

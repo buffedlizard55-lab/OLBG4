@@ -8,7 +8,7 @@ on:
   push:
     branches: [arena/2c05e0b2-olbg4]
     paths:
-      - "scripts/session-2c05e0b2/targets.json"
+      - "scripts/session-2c05e0b2/targets*.json"
       - "scripts/session-2c05e0b2/fetch.py"
       - ".github/workflows/ai-2c05e0b2.yml"
 
@@ -26,18 +26,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: arena/2c05e0b2-olbg4
-      - name: Fetch targets
-        run: python3 scripts/session-2c05e0b2/fetch.py
+      - name: Fetch targets (round 1)
+        run: python3 scripts/session-2c05e0b2/fetch.py 20261023T161830Z
+      - name: Fetch targets (round 2)
+        env:
+          TARGETS_FILE: scripts/session-2c05e0b2/targets-2.json
+        run: python3 scripts/session-2c05e0b2/fetch.py 20261023T170000Z
       - name: Show status table
         run: |
-          latest=$(ls -1d data/session-2c05e0b2/capture/*/ | tail -1)
-          python3 - "$latest" <<'PY'
+          for d in data/session-2c05e0b2/capture/*/; do
+            python3 - "$d" <<'PY'
           import json,sys
           m=json.load(open(sys.argv[1]+"manifest.json"))
-          print(json.dumps(m["summary"]))
+          print(sys.argv[1], json.dumps(m["summary"]))
           for t in m["targets"]:
-              print(t["http_status"], t["id"], t["bytes"], t["error"])
+              print(t["http_status"], t["id"], t["bytes"], t["error"][:70])
           PY
+          done
       - name: Commit capture
         run: |
           git config user.name "buffedlizard55-lab"
