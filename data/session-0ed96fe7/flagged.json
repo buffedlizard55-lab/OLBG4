@@ -1,0 +1,393 @@
+{
+ "board": "EZ",
+ "generated_utc": "2026-10-23T20:48:44+00:00",
+ "flags": [
+  {
+   "id": "EZ-F-SHL-02",
+   "severity": "review",
+   "sport": "Ice Hockey",
+   "title": "SHL start times are local",
+   "detail": "stats.swehockey.se publishes round fixtures with local Swedish times only; rows carry start_local, start_utc left blank rather than inferred.",
+   "evidence_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+   "manual_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"
+  },
+  {
+   "id": "EZ-F-ATP-03",
+   "severity": "review",
+   "sport": "Tennis",
+   "title": "ATP items deliberately skipped in the order-of-play PDFs",
+   "detail": "Swiss Indoors Basel: conditional tie (opponent not yet decided); Swiss Indoors Basel: doubles or multi-player block; Grand Prix Auvergne-Rhone-Alpes: doubles or multi-player block; Grand Prix Auvergne-Rhone-Alpes: exhibition/interval item; BNP Paribas Fortis European Open: doubles or multi-player block; BNP Paribas Fortis European Open: doubles or multi-player block; BNP Paribas Fortis European Open: doubles or multi-player block; BNP Paribas Fortis European Open: doubles or multi-player block … — doubles blocks, exhibition/interval items and ties whose opponent is not yet decided are never published as pickable rows.",
+   "evidence_url": "https://www.protennislive.com/",
+   "manual_url": "https://www.protennislive.com/"
+  },
+  {
+   "id": "EZ-F-DARTS-01",
+   "severity": "blocker",
+   "sport": "Darts",
+   "title": "PDC official pages unreadable in this capture — every PDC target returned the same 1,241,849-byte shell with zero player names",
+   "detail": "pdc.tv, the European Championship schedule/preview articles and the Order of Merit page each returned byte-identical client-side shells (no Humphries/Littler/EC article text at all) and the PDC match-data host did not resolve, so no PDC numeric input could be captured. European Championship ties are published as listing-only rows with blank picks.",
+   "evidence_url": "https://www.pdc.tv/",
+   "manual_url": "https://www.pdc.tv/"
+  },
+  {
+   "id": "EZ-F-DARTS-02",
+   "severity": "review",
+   "sport": "Darts",
+   "title": "EC pairings known only from the OLBG listing",
+   "detail": "The first-round/quarter-final pairings below come from OLBG's live listing only; the PDC page published no article bytes in this capture, so each pairing is published unverified from an official source (listing-only, blank values).",
+   "evidence_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+   "manual_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+  },
+  {
+   "id": "EZ-F-HB-03",
+   "severity": "review",
+   "sport": "Handball",
+   "title": "Kick-off times for Danish fixtures",
+   "detail": "The captured Herreligaen page publishes the table only; where OLBG listed a start time its event timestamp is carried, otherwise start_utc stays blank rather than inferred.",
+   "evidence_url": "https://tophaandbold.dk/stillinger/herreligaen",
+   "manual_url": "https://tophaandbold.dk/stillinger/herreligaen"
+  },
+  {
+   "id": "EZ-F-VB-03",
+   "severity": "review",
+   "sport": "Volleyball",
+   "title": "Set handicap and set totals not modelled for SuperLega rows",
+   "detail": "4 SuperLega match-winner row(s) are priced from the official points classifica, which has no set-level model behind it: set handicaps and set totals are therefore left unpriced rather than inferred, and kick-off times are blank where legavolley.it only offers them through a JS calendar (the OLBG event timestamp is used where one exists).",
+   "evidence_url": "https://www.legavolley.it/classifica/",
+   "manual_url": "https://www.legavolley.it/classifica/"
+  },
+  {
+   "id": "EZ-F-RU-02",
+   "severity": "review",
+   "sport": "Rugby Union",
+   "title": "URC rows unpriced — no readable official table in this capture",
+   "detail": "stats.unitedrugby.com match-centre pages are client-side apps (returned shell bytes again tonight), so no verified standings input exists. 16 fixtures are verified from the official fixtures-in-full article (24 round-4/5/6 fixture paragraphs in window considered, 0 excluded for an ambiguous ' v ' split) but left unpriced rather than modelled from unverified numbers.",
+   "evidence_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+   "manual_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+  },
+  {
+   "id": "EZ-F-RU-03",
+   "severity": "review",
+   "sport": "Rugby Union",
+   "title": "Premiership / Top14 / Pro D2 / autumn tests not officially readable",
+   "detail": "premiershiprugby.com fixtures/standings pages carry no structured fixture payload in this capture and top14.lnr.fr / prod2.lnr.fr render shells, so those OLBG listings fall through to listing-only rows.",
+   "evidence_url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+   "manual_url": "https://www.olbg.com/betting-tips/Rugby_Union/9"
+  },
+  {
+   "id": "EZ-F-CR-02",
+   "severity": "review",
+   "sport": "Cricket",
+   "title": "ICC ratings tables not readable in this capture",
+   "detail": "icc-cricket.com ranking pages rendered without their rating table in tonight's capture, so the verified international fixtures are published unpriced rather than priced from numbers we cannot see.",
+   "evidence_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i",
+   "manual_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i"
+  },
+  {
+   "id": "EZ-F-CR-03",
+   "severity": "review",
+   "sport": "Cricket",
+   "title": "Domestic one-day rows unpriced",
+   "detail": "Marsh One-Day Cup fixtures are verified from cricket.com.au but no official ratings/feed for the state sides was captured, so they are published without lines.",
+   "evidence_url": "https://www.cricket.com.au/fixtures",
+   "manual_url": "https://www.cricket.com.au/fixtures"
+  },
+  {
+   "id": "EZ-F-GF-01",
+   "severity": "review",
+   "sport": "Golf",
+   "title": "OWGR ranking table rendered as a shell — no player points parsed",
+   "detail": "www.owgr.com/current-world-ranking captured (HTTP 200) but its ranking table is client-side: the stripped page contains the column headers only and zero player rows, so no outright can be priced from verified ranking numbers.",
+   "evidence_url": "https://www.owgr.com/current-world-ranking",
+   "manual_url": "https://www.owgr.com/current-world-ranking"
+  },
+  {
+   "id": "EZ-F-GF-02",
+   "severity": "review",
+   "sport": "Golf",
+   "title": "PGA/DP World Tour event pages carry no leaderboard data in this capture",
+   "detail": "pgatour.com Bermuda Championship / leaderboard and europeantour.com tee-times pages returned only nav content (JS-rendered), and the OLBG golf hub listed zero events at capture time, so Golf has no rows tonight rather than any unverified outright.",
+   "evidence_url": "https://www.pgatour.com/leaderboard",
+   "manual_url": "https://www.pgatour.com/leaderboard"
+  },
+  {
+   "id": "EZ-F-MR-01",
+   "severity": "review",
+   "sport": "Motor Racing",
+   "title": "F1 drivers' standings table rendered as a shell — no championship points parsed",
+   "detail": "formula1.com/en/results/2026/drivers captured (HTTP 200) but the standings table is client-side: the stripped page contains only navigation, so no race-winner outright can be priced from verified points tonight.",
+   "evidence_url": "https://www.formula1.com/en/results/2026/drivers",
+   "manual_url": "https://www.formula1.com/en/results/2026/drivers"
+  },
+  {
+   "id": "EZ-F-MR-02",
+   "severity": "review",
+   "sport": "Motor Racing",
+   "title": "No priced Motor Racing rows in this capture",
+   "detail": "F1 standings and race pages rendered without data, motogp.com/en/standings returned 404, and the OLBG motor-racing hub lists only event outrights — every motor row is published blank and flagged rather than priced from unverified numbers.",
+   "evidence_url": "https://www.formula1.com/en/racing/2026.html",
+   "manual_url": "https://www.formula1.com/en/racing/2026.html"
+  },
+  {
+   "id": "EZ-F-GA-01",
+   "severity": "review",
+   "sport": "Gaelic Sports",
+   "title": "Official GAA fixture pages rendered as shells in this capture",
+   "detail": "gaa.ie/fixtures returned its loading skeleton (no fixture payload) and gaacork.ie/fixtures returned nav content only, so no official club fixture row, venue or result table could be parsed. Gaelic rows below are OLBG listings with blank picks.",
+   "evidence_url": "https://www.gaa.ie/fixtures",
+   "manual_url": "https://www.gaa.ie/fixtures"
+  },
+  {
+   "id": "EZ-F-GA-02",
+   "severity": "review",
+   "sport": "Gaelic Sports",
+   "title": "Gaelic rows unpriced",
+   "detail": "No official team-strength inputs (results tables/ratings) for the listed club championships were capturable, so gaelic rows are published without lines.",
+   "evidence_url": "https://www.gaa.ie/fixtures",
+   "manual_url": "https://www.gaa.ie/fixtures"
+  },
+  {
+   "id": "EZ-F-GR-01",
+   "severity": "review",
+   "sport": "Greyhounds",
+   "title": "Zero-inference ledger (no priced greyhound rows)",
+   "detail": "GBGB is the official body; api.gbgb.org.uk results cover completed races only and the fixture/card endpoints returned 404 in this capture, so no trap or runner can be verified before the race. Every greyhound row is published with blank selections and no pick — we do not originate greyhound lines we cannot verify.",
+   "evidence_url": "https://www.gbgb.org.uk/results/",
+   "manual_url": "https://www.gbgb.org.uk/results/"
+  },
+  {
+   "id": "EZ-F-RL-01",
+   "severity": "review",
+   "sport": "Rugby League",
+   "title": "RLWC fixtures verified from the draws page but unpriced — no official strength feed readable",
+   "detail": "25 upcoming RLWC fixtures (teams + date) parsed from the official draws-and-pools payload. rlwc2026.com/fixtures and /results are client-side shells, nrl.com/draw returned a form postback, and no official ratings table was captured, so match winner/handicap/total are left blank rather than modelled from unverified numbers. The OLBG rugby-league hub lists only 2027 futures tonight (State of Origin/Super League/NRL outrights), which are not upcoming matches and are not published as fixtures.",
+   "evidence_url": "https://www.rlwc2026.com/draws-and-pools",
+   "manual_url": "https://www.rlwc2026.com/draws-and-pools"
+  },
+  {
+   "id": "EZ-F-SN-01",
+   "severity": "review",
+   "sport": "Snooker",
+   "title": "wst.tv rendered no match data; snooker.org event page used instead",
+   "detail": "The World Snooker Tour site (wst.tv) returned a JS shell in this capture, so the Northern Ireland Open draw, scores and session times are taken from the snooker.org official event results page for event 2548 (manual check linked): 1 upcoming tie(s) priced from world ranks carried in the draw, with event frame-form verified for both players. Win-match only: frame handicap/totals were investigated but not originated — no verified handicap input exists for a single-elimination draw and the OLBG hub lists match winner only.",
+   "evidence_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+   "manual_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/"
+  },
+  {
+   "id": "EZ-F-LIST-VOLLEYBA",
+   "severity": "review",
+   "sport": "Volleyball",
+   "title": "18 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.legavolley.it/",
+   "manual_url": "https://www.legavolley.it/"
+  },
+  {
+   "id": "EZ-F-LIST-RUGBYUNI",
+   "severity": "review",
+   "sport": "Rugby Union",
+   "title": "8 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.unitedrugby.com/",
+   "manual_url": "https://www.unitedrugby.com/"
+  },
+  {
+   "id": "EZ-F-LIST-CRICKET",
+   "severity": "review",
+   "sport": "Cricket",
+   "title": "5 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.cricket.com.au/fixtures",
+   "manual_url": "https://www.cricket.com.au/fixtures"
+  },
+  {
+   "id": "EZ-F-LIST-DARTS",
+   "severity": "review",
+   "sport": "Darts",
+   "title": "1 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.pdc.tv/",
+   "manual_url": "https://www.pdc.tv/"
+  },
+  {
+   "id": "EZ-F-LIST-GAELICSP",
+   "severity": "review",
+   "sport": "Gaelic Sports",
+   "title": "4 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.gaa.ie/fixtures",
+   "manual_url": "https://www.gaa.ie/fixtures"
+  },
+  {
+   "id": "EZ-F-LIST-GREYHOUN",
+   "severity": "review",
+   "sport": "Greyhounds",
+   "title": "11 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.gbgb.org.uk/",
+   "manual_url": "https://www.gbgb.org.uk/"
+  },
+  {
+   "id": "EZ-F-LIST-TENNIS",
+   "severity": "review",
+   "sport": "Tennis",
+   "title": "1 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.atptour.com/",
+   "manual_url": "https://www.atptour.com/"
+  },
+  {
+   "id": "EZ-F-LIST-MOTORRAC",
+   "severity": "review",
+   "sport": "Motor Racing",
+   "title": "1 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.formula1.com/",
+   "manual_url": "https://www.formula1.com/"
+  },
+  {
+   "id": "EZ-F-LIST-HANDBALL",
+   "severity": "review",
+   "sport": "Handball",
+   "title": "26 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.ehfcl.com/",
+   "manual_url": "https://www.ehfcl.com/"
+  },
+  {
+   "id": "EZ-F-LIST-BASKETBA",
+   "severity": "review",
+   "sport": "Basketball",
+   "title": "13 OLBG-listed event(s) without official confirmation in this capture",
+   "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
+   "evidence_url": "https://www.nba.com/schedule",
+   "manual_url": "https://www.nba.com/schedule"
+  },
+  {
+   "id": "EZ4-REV-01",
+   "severity": "review",
+   "sport": "Aussie Rules",
+   "title": "2 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 0 (D, Aussie Rules, 2026-09-27, No fixture v No fixture): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 0 (D, Aussie Rules, 2026-09-27, No fixture v No fixture): fixture date 2026-09-27 predates the dataset generation date 2026-10-21 (stale or already-played row still published). Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-02",
+   "severity": "review",
+   "sport": "Badminton",
+   "title": "4 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 8 (D, Badminton, 2026-10-13, Winners: FRA Alex Lanier, KOR An Se-youn): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 8 (D, Badminton, 2026-10-13, Winners: FRA Alex Lanier, KOR An Se-youn): fixture date 2026-10-13 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 18 (D, Badminton, 2026-10-20, Super 750 world-ranked top-32 per catego): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 292 (D, Badminton, 2026-10-27, Super 500 v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-03",
+   "severity": "review",
+   "sport": "Basketball",
+   "title": "7 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 2 (D, Basketball, 2026-10-01, Crvena Zvezda Belgrade v Anadolu Efes Is): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 2 (D, Basketball, 2026-10-01, Crvena Zvezda Belgrade v Anadolu Efes Is): fixture date 2026-10-01 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 19 (D, Basketball, 2026-10-20, Boston Celtics v Detroit Pistons): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 20 (D, Basketball, 2026-10-20, Oklahoma City Thunder v San Antonio Spur): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 21 (D, Basketball, 2026-10-20, Philadelphia 76ers v Banner Night)): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 123 (D, Basketball, 2026-10-22, Anadolu Efes Istanbul v Beşiktaş Istanbu): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; +1 more in review.json. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-04",
+   "severity": "review",
+   "sport": "Cricket",
+   "title": "6 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 6 (D, Cricket, 2026-10-09, Australia Women v Bangladesh Women): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 6 (D, Cricket, 2026-10-09, Australia Women v Bangladesh Women): fixture date 2026-10-09 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 11 (D, Cricket, 2026-10-18, South Africa v Australia): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 11 (D, Cricket, 2026-10-18, South Africa v Australia): fixture date 2026-10-18 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 22 (D, Cricket, 2026-10-20, Pakistan v England): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 300 (D, Cricket, 2026-10-27, South Africa v Australia): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-05",
+   "severity": "review",
+   "sport": "Darts",
+   "title": "4 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 144 (D, Darts, 2026-10-22, Top 32 European Tour Order of Merit v Fi): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 175 (D, Darts, 2026-10-23, Field v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 220 (D, Darts, 2026-10-24, Round 2 field TBD v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 262 (D, Darts, 2026-10-25, QF/SF/Finalists TBD v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-06",
+   "severity": "review",
+   "sport": "Esports",
+   "title": "4 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 4 (D, Esports, 2026-10-08, 16 teams v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 4 (D, Esports, 2026-10-08, 16 teams v Field): fixture date 2026-10-08 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 9 (D, Esports, 2026-10-14, LCK/LPL/LEC/LCS v Bo5 knockout): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 9 (D, Esports, 2026-10-14, LCK/LPL/LEC/LCS v Bo5 knockout): fixture date 2026-10-14 predates the dataset generation date 2026-10-21 (stale or already-played row still published). Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-07",
+   "severity": "review",
+   "sport": "Golf",
+   "title": "6 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 5 (D, Golf, 2026-10-08, FedEx Fall field v Verification note: PG): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 5 (D, Golf, 2026-10-08, FedEx Fall field v Verification note: PG): fixture date 2026-10-08 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 145 (D, Golf, 2026-10-22, FedEx Fall v winning score typically -15): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 146 (D, Golf, 2026-10-22, LPGA Asian swing v winning score typical): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 336 (D, Golf, 2026-10-29, Fall bubble players v ): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 337 (D, Golf, 2026-10-29, LPGA Asian swing continues v After BMW, ): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-08",
+   "severity": "review",
+   "sport": "Handball",
+   "title": "2 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 153 (D, Handball, 2026-10-22, Top 16 clubs v Field 16): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 314 (D, Handball, 2026-10-28, Europe v IHF 32-team WC 2027): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-09",
+   "severity": "review",
+   "sport": "Ice Hockey",
+   "title": "7 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 23 (D, Ice Hockey, 2026-10-20, Anaheim Ducks v New York Islanders): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 23 (D, Ice Hockey, 2026-10-20, Anaheim Ducks v New York Islanders): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 24 (D, Ice Hockey, 2026-10-20, Boston Bruins v Dallas Stars): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 25 (D, Ice Hockey, 2026-10-20, Colorado Avalanche v New Jersey Devils): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 26 (D, Ice Hockey, 2026-10-20, San Jose Sharks v Montreal Canadiens): fixture date 2026-10-20 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 27 (D, Ice Hockey, 2026-10-20, Toronto Maple Leafs v Columbus Blue Jack): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; +1 more in review.json. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-10",
+   "severity": "review",
+   "sport": "Rugby League",
+   "title": "2 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 12 (D, Rugby League, 2026-10-18, Australia v New Zealand): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 12 (D, Rugby League, 2026-10-18, Australia v New Zealand): fixture date 2026-10-18 predates the dataset generation date 2026-10-21 (stale or already-played row still published). Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-11",
+   "severity": "review",
+   "sport": "Snooker",
+   "title": "4 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 13 (D, Snooker, 2026-10-18, Top 16 + Qualifiers v Defending Champion): fixture date 2026-10-18 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 206 (D, Snooker, 2026-10-23, TBD from Last 16 Oct 22 v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 249 (D, Snooker, 2026-10-24, TBD v TBD): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 278 (D, Snooker, 2026-10-25, Finalist A TBD v Finalist B TBD): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-12",
+   "severity": "review",
+   "sport": "Table Tennis",
+   "title": "4 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 7 (D, Table Tennis, 2026-10-11, Winners to be verified via ETTU v Field ): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 7 (D, Table Tennis, 2026-10-11, Winners to be verified via ETTU v Field ): fixture date 2026-10-11 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 304 (D, Table Tennis, 2026-10-27, French stars: Félix Lebrun (WR #2), Alex): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 326 (D, Table Tennis, 2026-10-28, outside top-32 v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-13",
+   "severity": "review",
+   "sport": "Tennis",
+   "title": "11 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 3 (D, Tennis, 2026-10-07, Alejandro Davidovich Fokina (ESP) Champi): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 3 (D, Tennis, 2026-10-07, Alejandro Davidovich Fokina (ESP) Champi): fixture date 2026-10-07 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 14 (A, Tennis, 2026-10-19,  v ): fixture date 2026-10-19 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 15 (D, Tennis, 2026-10-19, Daniil Medvedev v 28S/16Q/16D): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 15 (D, Tennis, 2026-10-19, Daniil Medvedev v 28S/16Q/16D): fixture date 2026-10-19 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 16 (D, Tennis, 2026-10-19, French indoor specialists v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; +5 more in review.json. Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EZ4-REV-14",
+   "severity": "review",
+   "sport": "Volleyball",
+   "title": "4 shared-dataset defect(s) flagged for manual review",
+   "detail": "Line-by-line review of data/master.json / data/predictions.json (read-only, nothing edited): row 1 (D, Volleyball, 2026-09-30, 24 national U17 teams v Field): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 1 (D, Volleyball, 2026-09-30, 24 national U17 teams v Field): fixture date 2026-09-30 predates the dataset generation date 2026-10-21 (stale or already-played row still published); row 10 (D, Volleyball, 2026-10-15, via FIVB Oct 15 announcement v Pools of ): no source_url — the dataset's own cutoff_note promises every row carries its build's source URL; row 10 (D, Volleyball, 2026-10-15, via FIVB Oct 15 announcement v Pools of ): fixture date 2026-10-15 predates the dataset generation date 2026-10-21 (stale or already-played row still published). Rows stay exactly as committed — defects are logged here, never corrected in place by this board.",
+   "evidence_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json",
+   "manual_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  }
+ ]
+}

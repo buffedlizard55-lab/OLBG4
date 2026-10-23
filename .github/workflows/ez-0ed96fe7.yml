@@ -1,0 +1,52 @@
+name: Board EZ official capture (0ed96fe7)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/0ed96fe7-olbg4
+    paths:
+      - "scripts/session-0ed96fe7/targets.json"
+      - "scripts/session-0ed96fe7/fetch.py"
+      - ".github/workflows/ez-0ed96fe7.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ez-0ed96fe7-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/0ed96fe7-olbg4
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG hubs + official governing-body feeds with SHA-256 manifest
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-0ed96fe7/fetch.py scripts/session-0ed96fe7/targets.json "data/session-0ed96fe7/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+      - name: Commit capture (even partial) to arena/0ed96fe7-olbg4
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-ez-capture[bot]"
+          git config user.email "board-ez-capture@users.noreply.github.com"
+          mkdir -p data/session-0ed96fe7/logs
+          cp /tmp/capture.log "data/session-0ed96fe7/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-0ed96fe7
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board EZ (0ed96fe7): official capture ${{ env.STAMP }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/0ed96fe7-olbg4 && git push origin HEAD:arena/0ed96fe7-olbg4 && break
+            sleep 5
+          done
