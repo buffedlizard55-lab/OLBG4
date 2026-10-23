@@ -1,8 +1,8 @@
 {
  "schema": "olbg4.board-aj.verification/1",
- "run_utc": "2026-10-23T19:53:25Z",
- "result": "PASS",
- "passed": 12,
+ "run_utc": "2026-10-23T19:55:14Z",
+ "result": "FAIL",
+ "passed": 11,
  "checks": [
   {
    "name": "Desk built with both sides of every fixture",
@@ -46,7 +46,7 @@
   },
   {
    "name": "Site rebuild is byte-identical",
-   "ok": true,
+   "ok": false,
    "detail": "digest d21af99e7be15737… before and after a clean re-render"
   },
   {

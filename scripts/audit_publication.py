@@ -93,7 +93,10 @@ class Links(HTMLParser):
                 self.links.append(v)
 
 
-def local_links():
+SKIPPED_FILES = []
+
+
+def local_links(include_skipped: bool = False):
     """Check every local file target referenced by a published HTML page.
 
     Capture desks store raw response bytes gzip-compressed and keep the response's own
@@ -136,7 +139,8 @@ def local_links():
             count += 1
             if not target.is_relative_to(ROOT) or not target.is_file():
                 broken.append(dict(page=str(page.relative_to(ROOT)), url=url))
-    return count, broken, skipped
+    SKIPPED_FILES[:] = skipped
+    return (count, broken, skipped) if include_skipped else (count, broken)
 
 
 def render(report):
@@ -191,7 +195,7 @@ def main():
                 stale.append(name)
         else:
             path.write_text(text)
-    count, broken, skipped = local_links()
+    count, broken, skipped = local_links(include_skipped=True)
     print(json.dumps(dict(rows=len(entries), build_counts=report['build_counts'],
                           local_targets_checked=count, broken=broken, stale=stale,
                           skipped_non_html=len(skipped), skipped=skipped), indent=2))
