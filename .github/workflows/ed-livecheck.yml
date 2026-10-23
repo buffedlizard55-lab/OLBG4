@@ -28,16 +28,17 @@ jobs:
           fail=0
           check () {
             url="$1"; marker="$2"
-            body=$(curl -sS --max-time 30 -w "\n%{http_code}" "$url") || { REPORT="$REPORT\nFETCHFAIL $url"; fail=1; return; }
-            code=$(printf '%s' "$body" | tail -n1)
-            html=$(printf '%s' "$body" | sed '$d')
-            n=$(printf '%s' "$html" | wc -c)
-            if [ "$code" = "200" ] && printf '%s' "$html" | grep -qF -- "$marker"; then
+            tmp=$(mktemp)
+            # write to a file: piping a very large page into `grep -q` trips SIGPIPE under pipefail
+            code=$(curl -sS --max-time 30 -o "$tmp" -w "%{http_code}" "$url" || echo "000")
+            n=$(wc -c < "$tmp")
+            if [ "$code" = "200" ] && grep -qF -- "$marker" "$tmp"; then
               REPORT="$REPORT\nOK $code $n $url"
             else
               REPORT="$REPORT\nFAIL $code $n $url marker=[$marker]"
               fail=1
             fi
+            rm -f "$tmp"
           }
           check "$BASE/index.html"        "Executive summary"
           check "$BASE/picks.html"        "Picks and the"
@@ -67,7 +68,7 @@ jobs:
           check "$BASE/sports/rugby-league.html"   "Rugby League"
           printf '%b\n' "$REPORT" | tail -30
           if [ "$fail" -ne 0 ]; then
-            echo "::error title=live read-back report::$(printf '%b' "$REPORT" | grep -E 'FAIL|FETCHFAIL' | head -6 | tr '\n' ' ')"
+            echo "::error title=live read-back report::$(printf '%b' "$REPORT" | grep -E 'FAIL' | head -6 | tr '\n' ' ')"
             echo "live read-back FAILED"; exit 1
           fi
           echo "live read-back PASSED"
