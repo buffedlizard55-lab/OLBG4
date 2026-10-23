@@ -4064,3 +4064,10 @@ Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes b
 - Verification gate: `python3 scripts/session-509d544b/verify.py` PASS (fair 1/p, Σp, window, word count, banned words, allowlist, SHA256, link audit).
 - Root `index.html` updated with Board AP banner + nav pointer (additive, no deletion).
 - Status: **done** — ready for PR to main.
+
+### AP integration complete — 2026-10-23T16:28Z
+- PR #131 (Board AP desk) merged at 2026-10-23T16:26:58Z (42eb648) — https://github.com/buffedlizard55-lab/OLBG4/pull/131 — 253 fixtures, 65 High picks (5/sport), 25 HTML pages, 110 SHA256 captures.
+- Fix PR #132 merged at 2026-10-23T16:28:00Z (630a8ac) — https://github.com/buffedlizard55-lab/OLBG4/pull/132 — rebuilt master (354 rows) to satisfy deploy gate.
+- Pages deploy: **success** for 630a8ac — status built at https://buffedlizard55-lab.github.io/OLBG4/ (verified via gh api). Latest run 734f726 also shows Validate/Verify success; no deploy failure remains.
+- Live dashboards: https://buffedlizard55-lab.github.io/OLBG4/session-509d544b/index.html (executive dashboard) and https://buffedlizard55-lab.github.io/OLBG4/index.html (root banner).
+- Board status: **done** — all tasks verified, no broken site.
