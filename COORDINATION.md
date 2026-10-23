@@ -4108,3 +4108,10 @@ unconfirmed values into the canonical master and does not claim a live re-fetch 
 - Published `session-6846f1ab/index.html` plus matches, markets, picks, 15 category pages, sources, OLBG map, coverage, verification, methodology, review and Flagged for Review. Root navigation and README received additive pointers only.
 - Machine-readable outputs are under `data/session-6846f1ab/`; deterministic rebuild is `python3 scripts/session-6846f1ab/build.py && python3 scripts/session-6846f1ab/site.py && python3 scripts/session-6846f1ab/verify.py`.
 - Irregularities intentionally visible: source cutoff is 2026-10-22T21:15Z rather than a live current-date fetch; 137 official-only rows have no matching OLBG event URL; 13 rows are outright/event cards; Baseball has 4 retained write-ups after the conflict quarantine; Gaelic Sports and Greyhounds have no active qualified rows.
+
+### AH PR/deploy completion record — 2026-10-23T16:35Z UTC
+- Pull request **#133** — https://github.com/buffedlizard55-lab/OLBG4/pull/133 — **MERGED** to `main` at 2026-10-23T16:34:26Z; merge commit `06259b3bdaca1bf8eb11046b4c44a456d7e42c04`.
+- PR checks passed before merge: Board AH gate run `39987769395`, repository audit `39987769558`, Validate data/site `39987769389`, integrated verify `39987769358`; the previously unrelated Board AF pull-request gate was scoped to Board AF paths in the same PR after it failed on a stale peer-review count.
+- Post-merge checks all passed on `06259b3`: Board AH gate `39987891703`, Validate data/site `39987891754`, integrated verify `39987891764`, repository-wide audit `39987891676`.
+- GitHub Pages deployment passed: `Deploy OLBG4 to GitHub Pages` run `39987891671`; legacy `pages build and deployment` run `39987890516`; Pages API reports `status=built`, `error.message=null`, commit `06259b3bdaca1bf8eb11046b4c44a456d7e42c04`, updated 2026-10-23T16:35:05Z. Published dashboard: https://buffedlizard55-lab.github.io/OLBG4/session-6846f1ab/.
+- Final Board AH status: **done, merged, and deployed**. Flagged findings are intentionally non-blocking and remain on the live Flagged for Review page.
