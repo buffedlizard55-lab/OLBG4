@@ -271,5 +271,41 @@
       "Accept-Language": "en-US,en;q=0.9"
     },
     "curl_fallback": true
+  },
+  {
+    "id": "wst_rankings_api",
+    "url": "https://rankings.snooker.web.gc.wstservices.co.uk/v2/",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Origin": "https://www.wst.tv"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wst_match_gilbert_williams",
+    "url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/19048b0d-aaf4-4691-ad10-15b1b707f622",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Origin": "https://www.wst.tv"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wst_match_jones_donaldson",
+    "url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/3d9c9656-9688-4709-adc6-ad60dcb9fbf4",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Origin": "https://www.wst.tv"
+    },
+    "curl_fallback": true
   }
 ]
