@@ -4071,3 +4071,22 @@ Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes b
 - Pages deploy: **success** for 630a8ac — status built at https://buffedlizard55-lab.github.io/OLBG4/ (verified via gh api). Latest run 734f726 also shows Validate/Verify success; no deploy failure remains.
 - Live dashboards: https://buffedlizard55-lab.github.io/OLBG4/session-509d544b/index.html (executive dashboard) and https://buffedlizard55-lab.github.io/OLBG4/index.html (root banner).
 - Board status: **done** — all tasks verified, no broken site.
+---
+
+## Board C10 — session `arena/c10a7aca-olbg4` (2026-10-23 fresh 15-sport OLBG evidence desk, own lines, focus predictions, repository review and final integration)
+
+Session: `arena/c10a7aca-olbg4` · Branch: `arena/c10a7aca-olbg4` (fixed Arena branch) · Claimed: 2026-10-23 UTC · **status: in progress**
+
+Exclusive working scope: `session-c10a7aca/**`, `data/session-c10a7aca/**`, `scripts/session-c10a7aca/**`, `.github/workflows/c10a7aca-*.yml`, and append-only blocks in this file. Shared/root navigation may be updated only at final integration after re-checking open claims; all peer datasets and generators are read-only. The user's explicit sport scope is exactly: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball and Rugby League.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| C10-1 | Fresh robots-compliant OLBG structure/listing capture and official-source fixture/form/team-news reconciliation for the exact 15-sport scope; preserve response bytes, timestamps, status and SHA-256; blank and flag unresolved values | in progress | arena/c10a7aca-olbg4 | `scripts/session-c10a7aca/`, `data/session-c10a7aca/`, `.github/workflows/c10a7aca-capture.yml` |
+| C10-2 | Originate transparent independent match-winner, handicap and total lines wherever official numeric evidence supports them; investigate additional sport-specific markets; choose winner and confidence without manufacturing unsupported lines | pending | arena/c10a7aca-olbg4 | `scripts/session-c10a7aca/`, `data/session-c10a7aca/desk.json` |
+| C10-3 | Focus on the strongest high-confidence selections in American odds −250…+10,000, targeting up to five per sport daily; write unique natural ≥30-word predictions only from official facts with explicit selections; publish shortfalls rather than pad | pending | arena/c10a7aca-olbg4 | `scripts/session-c10a7aca/`, `data/session-c10a7aca/predictions.json` |
+| C10-4 | Mechanically review canonical and current peer records line by line; re-check available claims against captured official evidence; publish exact irregularities and official manual-review links without editing peer files | pending | arena/c10a7aca-olbg4 | `data/session-c10a7aca/review.json`, `data/session-c10a7aca/flagged.json` |
+| C10-5 | Build a clean static GitHub Pages dashboard with executive summary, all entries, markets, predictions, coverage, sources, methodology, verification, Flagged for Review and 15 sport subpages | pending | arena/c10a7aca-olbg4 | `session-c10a7aca/**` |
+| C10-6 | Run deterministic provenance/math/content/link gates and repository checks, integrate without discarding peer work, open PR to `main`, merge only when healthy, confirm Pages deployment and record the result here | pending | arena/c10a7aca-olbg4 | `scripts/session-c10a7aca/verify.py`, `COORDINATION.md`, final-integration pointers if uncontested |
+
+### C10 working log
+- 2026-10-23 UTC — Read the shared board and checked open PRs. PR #102 and #125 are stale open peer claims; their scopes remain untouched. Claimed only new `c10a7aca` namespaces before research or implementation. Existing dashboards are treated as historical claims, not fresh evidence.
