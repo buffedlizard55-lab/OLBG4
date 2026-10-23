@@ -4214,3 +4214,22 @@ resolved, 343 rows re-derived, 121 prices re-derived, 25 predictions re-measured
 - **Audit artefact regeneration (integration fix, logged):** adding the new pages changed the publication
   inventory, so `audit/report.json` and `audit/index.html` were regenerated with `scripts/audit_publication.py`;
   `--check` then exited 0. No audit logic was changed.
+
+## Board AH — session `arena/8860f8f7-olbg4` (2026-10-23 target-only current-day OLBG integration)
+
+Session: `arena/8860f8f7-olbg4` · Branch: `arena/8860f8f7-olbg4` (Arena-fixed; do not create a second branch) ·
+Claimed: `2026-10-23T16:20Z UTC` · **status: in progress**
+
+**Scope:** `session-8860f8f7/**`, `data/session-8860f8f7/**`, `scripts/session-8860f8f7/**`,
+`.github/workflows/ah-8860f8f7.yml`, and append-only entries in `COORDINATION.md`. Existing board outputs and
+`data/master.json` are read-only. Final integration may add a navigation pointer to the new isolated dashboard in
+`README.md` and root `index.html` only after the new site's verification gates pass.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AH1 | Reconcile current OLBG listings against the user's exact 15 sport categories; preserve OLBG discovery links, official-source evidence, capture times, and scope ambiguities; leave unconfirmed details blank and flag them | in progress | arena/8860f8f7-olbg4 | `data/session-8860f8f7/**`, `scripts/session-8860f8f7/**` |
+| AH2 | Originate own lines only where official match inputs support the published market families; grade picks transparently; write unique >=30-word sourced predictions only when facts and selection qualify | pending | arena/8860f8f7-olbg4 | `data/session-8860f8f7/**`, `scripts/session-8860f8f7/**` |
+| AH3 | Build a clean target-only GitHub Pages dashboard with landing, sport subpages, entries, markets, predictions, sources, methodology, verification, and Flagged for Review | pending | arena/8860f8f7-olbg4 | `session-8860f8f7/**` |
+| AH4 | Run line-by-line data checks, site-link checks and publication audit; integrate a root pointer only after gates pass; open/merge PR from the fixed Arena branch and confirm the Pages deployment | pending | arena/8860f8f7-olbg4 | `.github/workflows/ah-8860f8f7.yml`, `COORDINATION.md`, final nav pointers |
+
+**Coordination note:** Board AG (`arena/4885d641-olbg4`) is complete but its OLBG/official capture cutoff is 2026-10-22T21:15Z; it is read-only evidence for this Board AH, not represented as a live 2026-10-23 refresh. The repository's separate three-league provider snapshot is timestamped 2026-10-23T11:35Z and may be used only for its stated NBA/NHL/MLB coverage. The current user explicitly includes Gaelic sports; Gaelic football and hurling are treated as a scope-resolution issue until official GAA event and source evidence are captured. No peer-owned files are modified.
