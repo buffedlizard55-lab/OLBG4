@@ -4233,3 +4233,20 @@ Exclusive working scope: `session-b2c7308d/**`, `data/session-b2c7308d/**`, `scr
 ### AH working log
 - 2026-10-23T16:25Z UTC — `b2c7308d` — board read (Board C10 claimed by `arena/c10a7aca-olbg4` at 16:17Z with the same brief; no file overlap: all AH work stays inside the `b2c7308d` namespaces above). Claim committed and pushed before any other work. Evidence plan: fresh Actions-runner capture on this branch (the sandbox shell reaches GitHub only); the 2026-10-21 OLBG listing snapshot in `data/raw/` is stale and will be re-read live today; today's verified window starts with the MLB World Series Game 1 (23 Oct), the Friday ATP/WTA quarter-finals and the 23 Oct NHL slate.
 ce15a89 (chore(coordination): claim Board AH (b2c7308d) fresh 15-sport same-day desk)
+
+## Board AH — session `arena/b2c7308d-olbg4` — DONE (2026-10-23 ~19:2x UTC)
+
+**Result:** PR #137 merged to main (after rebasing onto #136's COORDINATION append; union-merged, nothing discarded). All four main-branch gates queued: Validate data and site / Verify integrated dashboard / Deploy OLBG4 to GitHub Pages / Repository-wide publication audit.
+
+**Delivered (all in `*b2c7308d*` paths only):**
+- `scripts/session-b2c7308d/`: fetch.py, targets.json (132), originate_desk.py, sports_ext.py, predictions_bank.py, review.py, build_site.py, verify.py, build_all.sh (one-command pipeline; installs pypdf).
+- `data/session-b2c7308d/`: capture/ 5 stamps (sha-256 manifest per stamp), desk.json (276 rows / 159 priced / 10 in-window Highs), flagged.json (16 flags), review.json + review.md (0 hard failures, 1 documented warning).
+- `session-b2c7308d/` dashboard: index (executive summary), 15 sport pages (every row links its official source; blanks link flags), predictions.html (22 texts), review.html, flagged.html, methodology.html, sources.html.
+
+**Sources & verification:** NHL api-web schedule+standings; MLB Stats API WS schedule+season stats; EuroLeague/EuroCup official game feeds (380 games; local/road fields); swehockey SHL overview; Liiga result service (544 games); WTA Osaka/Ningbo tournament feeds; ATP order-of-play PDFs (pypdf); cricket.com.au fixtures; GBGB results API; URC fixtures-in-full; Betoro Herreligaen table; OLBG event listings (pass-1 payload). Every priced row: market prob pair sums to 1.0, decimal=1/p, american re-derived; re-checked by review.py before every build.
+
+**Predictions:** 22 texts — Ice Hockey 5, Basketball 5, Baseball 5 (World Series), Tennis 5, Handball 2 (only 2 priced Danish fixtures exist today; shortfall flagged AH-F-HB-03, not padded). All ≥30 words, pairwise 3-gram Jaccard ≤0.08, no internal vocabulary, no unverifiable injury claims.
+
+**Irregularities → flags (non-blocking):** AH-F-SHL-02 local kick times; ATP conditional ties (AH-F-ATP-03); darts EC (PDC hosts unresolvable from runner; Humphries withdrew — excluded); ICC/OWGR/F1/MotoGP JS-locked; GBGB pre-race endpoints dead (results only); tennis no completed-results feed → Medium cap; VB/CR/RU/GA/SN/RL gaps each flagged. No value published without an official link; no blanks inferred.
+
+**Debug notes for future boards:** CaptureReader keeps LARGEST payload per target (later OLBG passes are bot shells); EuroLeague feed uses local/road (home/away null); Liiga finished = `end` flag; WTA MatchTimeStamp carries local offsets; SHL fixture names must be resolved against standings keys (uppercase-token names break naive venue splits); puck/run line = win-by-3+/2+ (fixed after review caught the win-by-1-2 bug).
