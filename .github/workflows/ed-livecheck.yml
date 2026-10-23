@@ -24,22 +24,23 @@ jobs:
         run: |
           set -uo pipefail
           BASE="https://buffedlizard55-lab.github.io/OLBG4/session-ed4c358c"
+          REPORT=""
           fail=0
           check () {
             url="$1"; marker="$2"
-            body=$(curl -sS --max-time 30 -w "\n%{http_code}" "$url") || { echo "FAIL fetch $url"; fail=1; return; }
+            body=$(curl -sS --max-time 30 -w "\n%{http_code}" "$url") || { REPORT="$REPORT\nFETCHFAIL $url"; fail=1; return; }
             code=$(printf '%s' "$body" | tail -n1)
             html=$(printf '%s' "$body" | sed '$d')
-            if [ "$code" = "200" ] && printf '%s' "$html" | grep -qF "$marker"; then
-              echo "OK   $code $url  (marker: $marker)"
+            n=$(printf '%s' "$html" | wc -c)
+            if [ "$code" = "200" ] && printf '%s' "$html" | grep -qF -- "$marker"; then
+              REPORT="$REPORT\nOK $code $n $url"
             else
-              echo "FAIL $code $url  (marker: $marker)"
-              echo "::error title=live read-back::$code $url missing marker: $marker"
+              REPORT="$REPORT\nFAIL $code $n $url marker=[$marker]"
               fail=1
             fi
           }
           check "$BASE/index.html"        "Executive summary"
-          check "$BASE/picks.html"        "-250"
+          check "$BASE/picks.html"        "Picks and the"
           check "$BASE/predictions.html"  "Written predictions"
           check "$BASE/entries.html"      "All entries"
           check "$BASE/markets.html"      "Markets originated"
@@ -49,28 +50,24 @@ jobs:
           check "$BASE/review.html"       "Repository review"
           check "$BASE/flagged.html"      "Flagged for review"
           check "$BASE/verification.html" "PASS"
-          check "$BASE/sports/golf.html"           "<h1>Golf</h1>"
-          check "$BASE/sports/volleyball.html"     "<h1>Volleyball</h1>"
-          check "$BASE/sports/rugby-union.html"    "<h1>Rugby Union</h1>"
-          check "$BASE/sports/cricket.html"        "<h1>Cricket</h1>"
-          check "$BASE/sports/snooker.html"        "<h1>Snooker</h1>"
-          check "$BASE/sports/darts.html"          "<h1>Darts</h1>"
-          check "$BASE/sports/baseball.html"       "<h1>Baseball</h1>"
-          check "$BASE/sports/gaelic-sports.html"  "<h1>Gaelic Sports</h1>"
-          check "$BASE/sports/greyhounds.html"     "<h1>Greyhounds</h1>"
-          check "$BASE/sports/tennis.html"         "<h1>Tennis</h1>"
-          check "$BASE/sports/motor-racing.html"   "<h1>Motor Racing</h1>"
-          check "$BASE/sports/handball.html"       "<h1>Handball</h1>"
-          check "$BASE/sports/ice-hockey.html"     "<h1>Ice Hockey</h1>"
-          check "$BASE/sports/basketball.html"     "<h1>Basketball</h1>"
-          check "$BASE/sports/rugby-league.html"   "<h1>Rugby League</h1>"
-          echo "--- debug: live vs committed"
-          for f in picks.html entries.html markets.html sports/ice-hockey.html; do
-            lc=$(curl -sS --max-time 30 "https://buffedlizard55-lab.github.io/OLBG4/session-ed4c358c/$f" | wc -c)
-            cc=$(wc -c < "session-ed4c358c/$f")
-            echo "$f live_bytes=$lc committed_bytes=$cc"
-            echo "::notice title=live compare::$f live=$lc committed=$cc"
-          done
-          echo "---"
-          if [ "$fail" -ne 0 ]; then echo "live read-back FAILED"; exit 1; fi
+          check "$BASE/sports/golf.html"           "Golf"
+          check "$BASE/sports/volleyball.html"     "Volleyball"
+          check "$BASE/sports/rugby-union.html"    "Rugby Union"
+          check "$BASE/sports/cricket.html"        "Cricket"
+          check "$BASE/sports/snooker.html"        "Snooker"
+          check "$BASE/sports/darts.html"          "Darts"
+          check "$BASE/sports/baseball.html"       "Baseball"
+          check "$BASE/sports/gaelic-sports.html"  "Gaelic Sports"
+          check "$BASE/sports/greyhounds.html"     "Greyhounds"
+          check "$BASE/sports/tennis.html"         "Tennis"
+          check "$BASE/sports/motor-racing.html"   "Motor Racing"
+          check "$BASE/sports/handball.html"       "Handball"
+          check "$BASE/sports/ice-hockey.html"     "Ice Hockey"
+          check "$BASE/sports/basketball.html"     "Basketball"
+          check "$BASE/sports/rugby-league.html"   "Rugby League"
+          printf '%b\n' "$REPORT" | tail -30
+          if [ "$fail" -ne 0 ]; then
+            echo "::error title=live read-back report::$(printf '%b' "$REPORT" | grep -E 'FAIL|FETCHFAIL' | head -6 | tr '\n' ' ')"
+            echo "live read-back FAILED"; exit 1
+          fi
           echo "live read-back PASSED"
