@@ -689,7 +689,15 @@ def read_urc(cap: Capture, tid: str = "urc_fixtures_in_full"):
 
 
 # ------------------------------------------------------------------ volleyball
-def read_legavolley(cap: Capture, tid: str):
+def _it_utc(m) -> str:
+    """Italian wall-clock to UTC: CEST (UTC+2) until 2026-10-25 03:00 local, CET (UTC+1) after."""
+    from datetime import datetime, timedelta
+    loc = datetime(int(m.group(3)), int(m.group(2)), int(m.group(1)), int(m.group(4)), int(m.group(5)))
+    off = 2 if loc < datetime(2026, 10, 25, 3, 0) else 1
+    return (loc - timedelta(hours=off)).strftime("%Y-%m-%dT%H:%M:00Z")
+
+
+def read_legavolley(cap: Capture, tid: str, competition: str = "SuperLega Credem Banca 2026-27 (Italy)"):
     """SuperLega official calendar (legavolley.it): fixture rows + published table."""
     if not cap.exists(tid):
         return [], {}
@@ -699,7 +707,7 @@ def read_legavolley(cap: Capture, tid: str):
         cells = [_clean(re.sub(r"<[^>]+>", " ", c)) for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
         if len(cells) < 5:
             continue
-        date_m = re.match(r"[A-Za-zì]+\s+(\d{1,2})/(\d{1,2})/(\d{4})\s+Ore\s+(\d{1,2}):(\d{2})", cells[1])
+        date_m = re.match(r"[^\d]+\s+(\d{1,2})/(\d{1,2})/(\d{4})\s+Ore\s+(\d{1,2}):(\d{2})", cells[1])
         if not date_m:
             continue
         home, result, away = cells[2], cells[3], cells[4]
@@ -710,15 +718,16 @@ def read_legavolley(cap: Capture, tid: str):
                 "id": "fx_lv_" + re.sub(r"\W+", "_", f"{cells[0]}_{home}_{away}")[:60],
                 "sport": "Volleyball",
                 "sport_slug": "volleyball",
-                "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+                "competition": competition,
                 "side_a": away,
                 "side_b": home,
-                "start_utc": f"{date_m.group(3)}-{int(date_m.group(2)):02d}-{int(date_m.group(1)):02d}T{int(date_m.group(4)):02d}:{date_m.group(5)}:00Z",
+                "start_utc": _it_utc(date_m),
                 "venue": cells[6] if len(cells) > 6 else "",
                 "source_id": tid,
                 "source_url": cap.url(tid),
                 "source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
-                "extra": {"round": cells[0], "result": result, "played": bool(result and re.match(r"\d-\d", result))},
+                "extra": {"round": cells[0], "result": result,
+                          "played": bool(result and re.match(r"\d+-\d+", result) and result not in ("0-0",))},
             }
         )
     table = {}

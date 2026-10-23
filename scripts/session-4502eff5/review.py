@@ -189,6 +189,29 @@ def main():
             find("FX4-O01", "high", "data/session-4502eff5/desk.json", f"{len(bad)} market legs",
                  "Own-line probability pairs do not sum to 1 or the decimal price is not 1/p.",
                  f"Recomputed both quantities; examples {bad[:3]}", "")
+        # coverage gaps: sports carried but not priced, with the reason we could not price them
+        gaps = {
+            "Handball": "EHF Champions League standings captured, but the official match list renders client-side; no fixture feed was captured, so the 30 OLBG-listed matches stay blank.",
+            "Tennis": "WTA match feeds captured and parsed, but no official singles ranking list was reachable (api.wtatennis.com/atptour.com returned 403/404), so a ranking-based line would be a guess.",
+            "Cricket": "cricket.com.au fixture list captured, but no official competition table or rating list was reachable, so no line is originated.",
+            "Rugby Union": "United Rugby Championship fixture list captured, but the official table and results feeds render client-side; only the fixture list is published.",
+            "Darts": "pdc.tv pages are the same client-side shell; no draw or Order of Merit data could be read, so the six listings stay blank.",
+            "Gaelic Sports": "gaa.ie fixtures captured; no official form or scoring feed across the same competitions, so no line.",
+            "Greyhounds": "GBGB returns completed results only; the racecard and meeting APIs returned 404, so no upcoming race could be priced.",
+            "Snooker": "priced from the official world ranking gap, but the best-of-7/11 format keeps the strongest pick below the 70% line on this card.",
+            "Rugby League": "priced from the official RLWC feed; two matches per side is too small a sample for a 70% label, so every pick is capped at Medium.",
+        }
+        for sport, why in gaps.items():
+            srow = [r for r in desk["rows"] if r["sport"] == sport]
+            priced = [r for r in srow if r.get("pick")]
+            flags.append({"id": "FX4-COV-" + re.sub(r"\W+", "", sport)[:8].upper(), "sport": sport,
+                          "row": f"{len(srow)} rows / {len(priced)} priced",
+                          "issue": why, "impact": "published as a blank row or a capped label; nothing inferred",
+                          "source_url": srow[0]["official_url"] if srow else ""})
+        flags.append({"id": "FX4-COV-INJ", "sport": "all", "row": "14 High picks",
+                      "issue": "No official team injury report was captured for any priced fixture. The predictions therefore carry no injury claim; "
+                               "squad-news feeds (nhl.com, euroleague.net) publish rosters but not availability lists at capture time.",
+                      "impact": "predictions are built on records, goals/points per game and splits only", "source_url": ""})
         if not bad:
             flags.append({"id": "FX4-F02", "sport": "all", "row": "our desk",
                           "issue": "0 arithmetic defects found in our own market legs (probabilities sum to 1, decimal = 1/p)",

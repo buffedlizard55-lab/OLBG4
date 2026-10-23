@@ -1,20 +1,19 @@
 {
  "board": "FX",
- "capture": "20261023T213607Z",
- "generated_utc": "2026-10-23T21:47:00Z",
+ "capture": "20261023T214256Z",
+ "generated_utc": "2026-10-23T21:50:29Z",
  "olbg_market_taxonomy": {
   "Baseball": {
    "Money Line": 1
   },
   "Basketball": {
    "Game Totals": 2,
-   "Money Line": 34,
-   "Pointspread": 2
+   "Money Line": 32,
+   "Pointspread": 4
   },
   "Cricket": {
    "Outright Winner": 5,
-   "Top Team1 Batsman": 1,
-   "Win Match": 7
+   "Win Match": 8
   },
   "Darts": {
    "Win Match 2-way": 4,
@@ -27,9 +26,9 @@
    "Money Line": 30
   },
   "Ice Hockey": {
-   "Game Totals": 10,
-   "Money Line": 39,
-   "Puck Line": 5
+   "Game Totals": 12,
+   "Money Line": 35,
+   "Puck Line": 7
   },
   "Motor Racing": {
    "Win Race": 1
@@ -48,13 +47,13 @@
    "Win Match": 4
   },
   "Tennis": {
-   "Games Won": 1,
-   "Set Betting": 2,
-   "Win Match": 20
+   "Games Won": 2,
+   "Set Betting": 1,
+   "Win Match": 21
   },
   "Volleyball": {
-   "Set Score": 5,
-   "Win Match": 20
+   "Set Score": 1,
+   "Win Match": 22
   }
  },
  "rows": [
@@ -24940,6 +24939,3450 @@
    "venue": "American Family Field"
   },
   {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 91.0,
+    "away_points_per_set": 31.33,
+    "away_sets": "3-1",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 47.5,
+    "home_points_per_set": 38.0,
+    "home_sets": "3-2",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "7"
+   },
+   "flags": [],
+   "form": {
+    "away": "3 pts, sets 3-1",
+    "home": "2 pts, sets 3-2"
+   },
+   "id": "fx_lv_7_Sir_Susa_Scai_Perugia_Tinet_Prata_di_Pordenone",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 133,
+       "fair_decimal": 2.33,
+       "fair_prob": 0.4301,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia -1.5"
+      },
+      {
+       "fair_american": -133,
+       "fair_decimal": 1.75,
+       "fair_prob": 0.5699,
+       "implied_prob_sum": 1.0,
+       "label": "Tinet Prata di Pordenone +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -175,
+       "fair_decimal": 1.57,
+       "fair_prob": 0.636,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia (home)"
+      },
+      {
+       "fair_american": 175,
+       "fair_decimal": 2.75,
+       "fair_prob": 0.364,
+       "implied_prob_sum": 1.0,
+       "label": "Tinet Prata di Pordenone (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 276,
+       "fair_decimal": 3.76,
+       "fair_prob": 0.2662,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -278,
+       "fair_decimal": 1.36,
+       "fair_prob": 0.7338,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5296,
+    "p_set_home": 0.5736,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -175,
+    "fair_decimal": 1.57,
+    "fair_prob": 0.636,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Sir Susa Scai Perugia (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Tinet Prata di Pordenone",
+   "side_b": "Sir Susa Scai Perugia",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "Pala Barton Energy Perugia (PG)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 56.0,
+    "away_points_per_set": 26.33,
+    "away_sets": "3-0",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 61.0,
+    "home_points_per_set": 25.0,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "8"
+   },
+   "flags": [],
+   "form": {
+    "away": "3 pts, sets 3-0",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_8_Itas_Trentino_Cisterna_Volley",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 205,
+       "fair_decimal": 3.05,
+       "fair_prob": 0.3282,
+       "implied_prob_sum": 1.0,
+       "label": "Itas Trentino -1.5"
+      },
+      {
+       "fair_american": -204,
+       "fair_decimal": 1.49,
+       "fair_prob": 0.6718,
+       "implied_prob_sum": 1.0,
+       "label": "Cisterna Volley +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -108,
+       "fair_decimal": 1.93,
+       "fair_prob": 0.5194,
+       "implied_prob_sum": 1.0,
+       "label": "Itas Trentino (home)"
+      },
+      {
+       "fair_american": 108,
+       "fair_decimal": 2.08,
+       "fair_prob": 0.4806,
+       "implied_prob_sum": 1.0,
+       "label": "Cisterna Volley (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 300,
+       "fair_decimal": 4.0,
+       "fair_prob": 0.2503,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -303,
+       "fair_decimal": 1.33,
+       "fair_prob": 0.7497,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5041,
+    "p_set_home": 0.5103,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Low",
+    "fair_american": -108,
+    "fair_decimal": 1.93,
+    "fair_prob": 0.5194,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Itas Trentino (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Cisterna Volley",
+   "side_b": "Itas Trentino",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T16:00:00Z",
+   "venue": "BTS Arena Trento (TN)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 25.0,
+    "away_points_per_set": 61.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 56.0,
+    "home_points_per_set": 25.0,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "9"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_9_Gas_Sales_Bluenergy_Piacenza_Valsa_Group_Modena",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 382,
+       "fair_decimal": 4.82,
+       "fair_prob": 0.2074,
+       "implied_prob_sum": 1.0,
+       "label": "Gas Sales Bluenergy Piacenza -1.5"
+      },
+      {
+       "fair_american": -385,
+       "fair_decimal": 1.26,
+       "fair_prob": 0.7926,
+       "implied_prob_sum": 1.0,
+       "label": "Valsa Group Modena +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 179,
+       "fair_decimal": 2.79,
+       "fair_prob": 0.3589,
+       "implied_prob_sum": 1.0,
+       "label": "Gas Sales Bluenergy Piacenza (home)"
+      },
+      {
+       "fair_american": -179,
+       "fair_decimal": 1.56,
+       "fair_prob": 0.6411,
+       "implied_prob_sum": 1.0,
+       "label": "Valsa Group Modena (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 274,
+       "fair_decimal": 3.74,
+       "fair_prob": 0.2675,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -270,
+       "fair_decimal": 1.37,
+       "fair_prob": 0.7325,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.4692,
+    "p_set_home": 0.4236,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -179,
+    "fair_decimal": 1.56,
+    "fair_prob": 0.6411,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Valsa Group Modena (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Valsa Group Modena",
+   "side_b": "Gas Sales Bluenergy Piacenza",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "PalaBancaSport Piacenza (PC)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 25.0,
+    "away_points_per_set": 56.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 65.0,
+    "home_points_per_set": 26.0,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "10"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_10_Cucine_Lube_Civitanova_Pallavolo_Padova",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 389,
+       "fair_decimal": 4.89,
+       "fair_prob": 0.2044,
+       "implied_prob_sum": 1.0,
+       "label": "Cucine Lube Civitanova -1.5"
+      },
+      {
+       "fair_american": -385,
+       "fair_decimal": 1.26,
+       "fair_prob": 0.7956,
+       "implied_prob_sum": 1.0,
+       "label": "Pallavolo Padova +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 182,
+       "fair_decimal": 2.82,
+       "fair_prob": 0.3546,
+       "implied_prob_sum": 1.0,
+       "label": "Cucine Lube Civitanova (home)"
+      },
+      {
+       "fair_american": -182,
+       "fair_decimal": 1.55,
+       "fair_prob": 0.6454,
+       "implied_prob_sum": 1.0,
+       "label": "Pallavolo Padova (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 272,
+       "fair_decimal": 3.72,
+       "fair_prob": 0.2687,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -270,
+       "fair_decimal": 1.37,
+       "fair_prob": 0.7313,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.4682,
+    "p_set_home": 0.4212,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -182,
+    "fair_decimal": 1.55,
+    "fair_prob": 0.6454,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Pallavolo Padova (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Pallavolo Padova",
+   "side_b": "Cucine Lube Civitanova",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "Eurosuole Forum Civitanova Marche (MC)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 38.0,
+    "away_points_per_set": 47.5,
+    "away_sets": "2-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 26.33,
+    "home_points_per_set": 56.0,
+    "home_sets": "0-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "11"
+   },
+   "flags": [],
+   "form": {
+    "away": "1 pts, sets 2-3",
+    "home": "0 pts, sets 0-3"
+   },
+   "id": "fx_lv_11_Allianz_Milano_Acqua_Sant_Anna_Cuneo",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 158,
+       "fair_decimal": 2.58,
+       "fair_prob": 0.3873,
+       "implied_prob_sum": 1.0,
+       "label": "Allianz Milano -1.5"
+      },
+      {
+       "fair_american": -159,
+       "fair_decimal": 1.63,
+       "fair_prob": 0.6127,
+       "implied_prob_sum": 1.0,
+       "label": "Acqua Sant'Anna Cuneo +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -143,
+       "fair_decimal": 1.7,
+       "fair_prob": 0.589,
+       "implied_prob_sum": 1.0,
+       "label": "Allianz Milano (home)"
+      },
+      {
+       "fair_american": 143,
+       "fair_decimal": 2.43,
+       "fair_prob": 0.411,
+       "implied_prob_sum": 1.0,
+       "label": "Acqua Sant'Anna Cuneo (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 289,
+       "fair_decimal": 3.89,
+       "fair_prob": 0.2568,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -286,
+       "fair_decimal": 1.35,
+       "fair_prob": 0.7432,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5191,
+    "p_set_home": 0.5477,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -143,
+    "fair_decimal": 1.7,
+    "fair_prob": 0.589,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Allianz Milano (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Acqua Sant'Anna Cuneo",
+   "side_b": "Allianz Milano",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T18:00:00Z",
+   "venue": "Allianz Cloud (Palalido) Milano (MI)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 26.0,
+    "away_points_per_set": 65.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 31.33,
+    "home_points_per_set": 91.0,
+    "home_sets": "1-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "12"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "0 pts, sets 1-3"
+   },
+   "id": "fx_lv_12_Vero_Volley_Monza_Rana_Verona",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 174,
+       "fair_decimal": 2.74,
+       "fair_prob": 0.3652,
+       "implied_prob_sum": 1.0,
+       "label": "Vero Volley Monza -1.5"
+      },
+      {
+       "fair_american": -172,
+       "fair_decimal": 1.58,
+       "fair_prob": 0.6348,
+       "implied_prob_sum": 1.0,
+       "label": "Rana Verona +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -130,
+       "fair_decimal": 1.77,
+       "fair_prob": 0.5636,
+       "implied_prob_sum": 1.0,
+       "label": "Vero Volley Monza (home)"
+      },
+      {
+       "fair_american": 129,
+       "fair_decimal": 2.29,
+       "fair_prob": 0.4364,
+       "implied_prob_sum": 1.0,
+       "label": "Rana Verona (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 294,
+       "fair_decimal": 3.94,
+       "fair_prob": 0.2535,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -294,
+       "fair_decimal": 1.34,
+       "fair_prob": 0.7465,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5136,
+    "p_set_home": 0.534,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -130,
+    "fair_decimal": 1.77,
+    "fair_prob": 0.5636,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Vero Volley Monza (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Rana Verona",
+   "side_b": "Vero Volley Monza",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "OpiquadArena Monza (MB)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 26.0,
+    "away_points_per_set": 65.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 25.0,
+    "home_points_per_set": 61.0,
+    "home_sets": "0-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "13"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "0 pts, sets 0-3"
+   },
+   "id": "fx_lv_13_Valsa_Group_Modena_Rana_Verona",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 197,
+       "fair_decimal": 2.97,
+       "fair_prob": 0.3368,
+       "implied_prob_sum": 1.0,
+       "label": "Valsa Group Modena -1.5"
+      },
+      {
+       "fair_american": -196,
+       "fair_decimal": 1.51,
+       "fair_prob": 0.6632,
+       "implied_prob_sum": 1.0,
+       "label": "Rana Verona +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -112,
+       "fair_decimal": 1.89,
+       "fair_prob": 0.5299,
+       "implied_prob_sum": 1.0,
+       "label": "Valsa Group Modena (home)"
+      },
+      {
+       "fair_american": 113,
+       "fair_decimal": 2.13,
+       "fair_prob": 0.4701,
+       "implied_prob_sum": 1.0,
+       "label": "Rana Verona (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 299,
+       "fair_decimal": 3.99,
+       "fair_prob": 0.2508,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -303,
+       "fair_decimal": 1.33,
+       "fair_prob": 0.7492,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5064,
+    "p_set_home": 0.516,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Low",
+    "fair_american": -112,
+    "fair_decimal": 1.89,
+    "fair_prob": 0.5299,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Valsa Group Modena (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Rana Verona",
+   "side_b": "Valsa Group Modena",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T16:00:00Z",
+   "venue": "PalaSport G.Panini Modena (MO)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 25.0,
+    "away_points_per_set": 56.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 26.33,
+    "home_points_per_set": 56.0,
+    "home_sets": "0-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "14"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "0 pts, sets 0-3"
+   },
+   "id": "fx_lv_14_Allianz_Milano_Pallavolo_Padova",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 197,
+       "fair_decimal": 2.97,
+       "fair_prob": 0.3369,
+       "implied_prob_sum": 1.0,
+       "label": "Allianz Milano -1.5"
+      },
+      {
+       "fair_american": -196,
+       "fair_decimal": 1.51,
+       "fair_prob": 0.6631,
+       "implied_prob_sum": 1.0,
+       "label": "Pallavolo Padova +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -112,
+       "fair_decimal": 1.89,
+       "fair_prob": 0.53,
+       "implied_prob_sum": 1.0,
+       "label": "Allianz Milano (home)"
+      },
+      {
+       "fair_american": 113,
+       "fair_decimal": 2.13,
+       "fair_prob": 0.47,
+       "implied_prob_sum": 1.0,
+       "label": "Pallavolo Padova (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 299,
+       "fair_decimal": 3.99,
+       "fair_prob": 0.2508,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -303,
+       "fair_decimal": 1.33,
+       "fair_prob": 0.7492,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5064,
+    "p_set_home": 0.516,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Low",
+    "fair_american": -112,
+    "fair_decimal": 1.89,
+    "fair_prob": 0.53,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Allianz Milano (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Pallavolo Padova",
+   "side_b": "Allianz Milano",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T17:00:00Z",
+   "venue": "Allianz Cloud (Palalido) Milano (MI)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 47.5,
+    "away_points_per_set": 38.0,
+    "away_sets": "3-2",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 31.33,
+    "home_points_per_set": 91.0,
+    "home_sets": "1-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "15"
+   },
+   "flags": [],
+   "form": {
+    "away": "2 pts, sets 3-2",
+    "home": "0 pts, sets 1-3"
+   },
+   "id": "fx_lv_15_Vero_Volley_Monza_Sir_Susa_Scai_Perugia",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 111,
+       "fair_decimal": 2.11,
+       "fair_prob": 0.4733,
+       "implied_prob_sum": 1.0,
+       "label": "Vero Volley Monza -1.5"
+      },
+      {
+       "fair_american": -111,
+       "fair_decimal": 1.9,
+       "fair_prob": 0.5267,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -213,
+       "fair_decimal": 1.47,
+       "fair_prob": 0.6806,
+       "implied_prob_sum": 1.0,
+       "label": "Vero Volley Monza (home)"
+      },
+      {
+       "fair_american": 213,
+       "fair_decimal": 3.13,
+       "fair_prob": 0.3194,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 258,
+       "fair_decimal": 3.58,
+       "fair_prob": 0.2793,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -256,
+       "fair_decimal": 1.39,
+       "fair_prob": 0.7207,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.54,
+    "p_set_home": 0.5989,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -213,
+    "fair_decimal": 1.47,
+    "fair_prob": 0.6806,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Vero Volley Monza (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Sir Susa Scai Perugia",
+   "side_b": "Vero Volley Monza",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-31T17:00:00Z",
+   "venue": "OpiquadArena Monza (MB)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 56.0,
+    "away_points_per_set": 25.0,
+    "away_sets": "3-0",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 56.0,
+    "home_points_per_set": 26.33,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "16"
+   },
+   "flags": [],
+   "form": {
+    "away": "3 pts, sets 3-0",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_16_Cisterna_Volley_Gas_Sales_Bluenergy_Piacenza",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 190,
+       "fair_decimal": 2.9,
+       "fair_prob": 0.3445,
+       "implied_prob_sum": 1.0,
+       "label": "Cisterna Volley -1.5"
+      },
+      {
+       "fair_american": -189,
+       "fair_decimal": 1.53,
+       "fair_prob": 0.6555,
+       "implied_prob_sum": 1.0,
+       "label": "Gas Sales Bluenergy Piacenza +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -118,
+       "fair_decimal": 1.85,
+       "fair_prob": 0.5392,
+       "implied_prob_sum": 1.0,
+       "label": "Cisterna Volley (home)"
+      },
+      {
+       "fair_american": 117,
+       "fair_decimal": 2.17,
+       "fair_prob": 0.4608,
+       "implied_prob_sum": 1.0,
+       "label": "Gas Sales Bluenergy Piacenza (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 298,
+       "fair_decimal": 3.98,
+       "fair_prob": 0.2513,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -294,
+       "fair_decimal": 1.34,
+       "fair_prob": 0.7487,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5084,
+    "p_set_home": 0.5209,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Low",
+    "fair_american": -118,
+    "fair_decimal": 1.85,
+    "fair_prob": 0.5392,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Cisterna Volley (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Gas Sales Bluenergy Piacenza",
+   "side_b": "Cisterna Volley",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T17:00:00Z",
+   "venue": "Palasport di Cisterna di Latina Cisterna di Latina (LT)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 65.0,
+    "away_points_per_set": 26.0,
+    "away_sets": "3-0",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 38.0,
+    "home_points_per_set": 47.5,
+    "home_sets": "2-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "17"
+   },
+   "flags": [],
+   "form": {
+    "away": "3 pts, sets 3-0",
+    "home": "1 pts, sets 2-3"
+   },
+   "id": "fx_lv_17_Acqua_Sant_Anna_Cuneo_Cucine_Lube_Civitanova",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 124,
+       "fair_decimal": 2.24,
+       "fair_prob": 0.4474,
+       "implied_prob_sum": 1.0,
+       "label": "Acqua Sant'Anna Cuneo -1.5"
+      },
+      {
+       "fair_american": -123,
+       "fair_decimal": 1.81,
+       "fair_prob": 0.5526,
+       "implied_prob_sum": 1.0,
+       "label": "Cucine Lube Civitanova +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -189,
+       "fair_decimal": 1.53,
+       "fair_prob": 0.6542,
+       "implied_prob_sum": 1.0,
+       "label": "Acqua Sant'Anna Cuneo (home)"
+      },
+      {
+       "fair_american": 189,
+       "fair_decimal": 2.89,
+       "fair_prob": 0.3458,
+       "implied_prob_sum": 1.0,
+       "label": "Cucine Lube Civitanova (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 269,
+       "fair_decimal": 3.69,
+       "fair_prob": 0.2711,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -270,
+       "fair_decimal": 1.37,
+       "fair_prob": 0.7289,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5338,
+    "p_set_home": 0.5838,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -189,
+    "fair_decimal": 1.53,
+    "fair_prob": 0.6542,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Acqua Sant'Anna Cuneo (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Cucine Lube Civitanova",
+   "side_b": "Acqua Sant'Anna Cuneo",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T17:00:00Z",
+   "venue": "Palasport di Cuneo Cuneo (CN)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 61.0,
+    "away_points_per_set": 25.0,
+    "away_sets": "3-0",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 91.0,
+    "home_points_per_set": 31.33,
+    "home_sets": "3-1",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "18"
+   },
+   "flags": [],
+   "form": {
+    "away": "3 pts, sets 3-0",
+    "home": "3 pts, sets 3-1"
+   },
+   "id": "fx_lv_18_Tinet_Prata_di_Pordenone_Itas_Trentino",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 219,
+       "fair_decimal": 3.19,
+       "fair_prob": 0.3131,
+       "implied_prob_sum": 1.0,
+       "label": "Tinet Prata di Pordenone -1.5"
+      },
+      {
+       "fair_american": -217,
+       "fair_decimal": 1.46,
+       "fair_prob": 0.6869,
+       "implied_prob_sum": 1.0,
+       "label": "Itas Trentino +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 100,
+       "fair_decimal": 2.0,
+       "fair_prob": 0.5007,
+       "implied_prob_sum": 1.0,
+       "label": "Tinet Prata di Pordenone (home)"
+      },
+      {
+       "fair_american": 100,
+       "fair_decimal": 2.0,
+       "fair_prob": 0.4993,
+       "implied_prob_sum": 1.0,
+       "label": "Itas Trentino (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 300,
+       "fair_decimal": 4.0,
+       "fair_prob": 0.25,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -303,
+       "fair_decimal": 1.33,
+       "fair_prob": 0.75,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5001,
+    "p_set_home": 0.5004,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Low",
+    "fair_american": 100,
+    "fair_decimal": 2.0,
+    "fair_prob": 0.5007,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Tinet Prata di Pordenone (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Itas Trentino",
+   "side_b": "Tinet Prata di Pordenone",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T17:00:00Z",
+   "venue": "Palasport \"Crisafulli\" Pordenone (PN)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 56.0,
+    "away_points_per_set": 26.33,
+    "away_sets": "3-0",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 47.5,
+    "home_points_per_set": 38.0,
+    "home_sets": "3-2",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "19"
+   },
+   "flags": [],
+   "form": {
+    "away": "3 pts, sets 3-0",
+    "home": "2 pts, sets 3-2"
+   },
+   "id": "fx_lv_19_Sir_Susa_Scai_Perugia_Cisterna_Volley",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 158,
+       "fair_decimal": 2.58,
+       "fair_prob": 0.3873,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia -1.5"
+      },
+      {
+       "fair_american": -159,
+       "fair_decimal": 1.63,
+       "fair_prob": 0.6127,
+       "implied_prob_sum": 1.0,
+       "label": "Cisterna Volley +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -143,
+       "fair_decimal": 1.7,
+       "fair_prob": 0.589,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia (home)"
+      },
+      {
+       "fair_american": 143,
+       "fair_decimal": 2.43,
+       "fair_prob": 0.411,
+       "implied_prob_sum": 1.0,
+       "label": "Cisterna Volley (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 289,
+       "fair_decimal": 3.89,
+       "fair_prob": 0.2568,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -286,
+       "fair_decimal": 1.35,
+       "fair_prob": 0.7432,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5191,
+    "p_set_home": 0.5477,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -143,
+    "fair_decimal": 1.7,
+    "fair_prob": 0.589,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Sir Susa Scai Perugia (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Cisterna Volley",
+   "side_b": "Sir Susa Scai Perugia",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-04T19:30:00Z",
+   "venue": "Pala Barton Energy Perugia (PG)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 26.33,
+    "away_points_per_set": 56.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 26.0,
+    "home_points_per_set": 65.0,
+    "home_sets": "0-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "20"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "0 pts, sets 0-3"
+   },
+   "id": "fx_lv_20_Rana_Verona_Allianz_Milano",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 180,
+       "fair_decimal": 2.8,
+       "fair_prob": 0.3573,
+       "implied_prob_sum": 1.0,
+       "label": "Rana Verona -1.5"
+      },
+      {
+       "fair_american": -179,
+       "fair_decimal": 1.56,
+       "fair_prob": 0.6427,
+       "implied_prob_sum": 1.0,
+       "label": "Allianz Milano +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -125,
+       "fair_decimal": 1.8,
+       "fair_prob": 0.5544,
+       "implied_prob_sum": 1.0,
+       "label": "Rana Verona (home)"
+      },
+      {
+       "fair_american": 124,
+       "fair_decimal": 2.24,
+       "fair_prob": 0.4456,
+       "implied_prob_sum": 1.0,
+       "label": "Allianz Milano (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 296,
+       "fair_decimal": 3.96,
+       "fair_prob": 0.2525,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -294,
+       "fair_decimal": 1.34,
+       "fair_prob": 0.7475,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5116,
+    "p_set_home": 0.5291,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -125,
+    "fair_decimal": 1.8,
+    "fair_prob": 0.5544,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Rana Verona (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Allianz Milano",
+   "side_b": "Rana Verona",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-04T19:30:00Z",
+   "venue": "Pala MAGIS Verona (VR)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 56.0,
+    "away_points_per_set": 25.0,
+    "away_sets": "3-0",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 61.0,
+    "home_points_per_set": 25.0,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "21"
+   },
+   "flags": [],
+   "form": {
+    "away": "3 pts, sets 3-0",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_21_Itas_Trentino_Gas_Sales_Bluenergy_Piacenza",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 201,
+       "fair_decimal": 3.01,
+       "fair_prob": 0.3319,
+       "implied_prob_sum": 1.0,
+       "label": "Itas Trentino -1.5"
+      },
+      {
+       "fair_american": -200,
+       "fair_decimal": 1.5,
+       "fair_prob": 0.6681,
+       "implied_prob_sum": 1.0,
+       "label": "Gas Sales Bluenergy Piacenza +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -110,
+       "fair_decimal": 1.91,
+       "fair_prob": 0.524,
+       "implied_prob_sum": 1.0,
+       "label": "Itas Trentino (home)"
+      },
+      {
+       "fair_american": 110,
+       "fair_decimal": 2.1,
+       "fair_prob": 0.476,
+       "implied_prob_sum": 1.0,
+       "label": "Gas Sales Bluenergy Piacenza (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 299,
+       "fair_decimal": 3.99,
+       "fair_prob": 0.2505,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -303,
+       "fair_decimal": 1.33,
+       "fair_prob": 0.7495,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5051,
+    "p_set_home": 0.5128,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Low",
+    "fair_american": -110,
+    "fair_decimal": 1.91,
+    "fair_prob": 0.524,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Itas Trentino (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Gas Sales Bluenergy Piacenza",
+   "side_b": "Itas Trentino",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-04T19:30:00Z",
+   "venue": "BTS Arena Trento (TN)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 25.0,
+    "away_points_per_set": 61.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 65.0,
+    "home_points_per_set": 26.0,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "22"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_22_Cucine_Lube_Civitanova_Valsa_Group_Modena",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 406,
+       "fair_decimal": 5.06,
+       "fair_prob": 0.1977,
+       "implied_prob_sum": 1.0,
+       "label": "Cucine Lube Civitanova -1.5"
+      },
+      {
+       "fair_american": -400,
+       "fair_decimal": 1.25,
+       "fair_prob": 0.8023,
+       "implied_prob_sum": 1.0,
+       "label": "Valsa Group Modena +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 190,
+       "fair_decimal": 2.9,
+       "fair_prob": 0.3448,
+       "implied_prob_sum": 1.0,
+       "label": "Cucine Lube Civitanova (home)"
+      },
+      {
+       "fair_american": -189,
+       "fair_decimal": 1.53,
+       "fair_prob": 0.6552,
+       "implied_prob_sum": 1.0,
+       "label": "Valsa Group Modena (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 268,
+       "fair_decimal": 3.68,
+       "fair_prob": 0.2714,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -270,
+       "fair_decimal": 1.37,
+       "fair_prob": 0.7286,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.466,
+    "p_set_home": 0.4156,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -189,
+    "fair_decimal": 1.53,
+    "fair_prob": 0.6552,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Valsa Group Modena (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Valsa Group Modena",
+   "side_b": "Cucine Lube Civitanova",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-04T19:30:00Z",
+   "venue": "Eurosuole Forum Civitanova Marche (MC)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 31.33,
+    "away_points_per_set": 91.0,
+    "away_sets": "1-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 38.0,
+    "home_points_per_set": 47.5,
+    "home_sets": "2-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "24"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 1-3",
+    "home": "1 pts, sets 2-3"
+   },
+   "id": "fx_lv_24_Acqua_Sant_Anna_Cuneo_Vero_Volley_Monza",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 286,
+       "fair_decimal": 3.86,
+       "fair_prob": 0.259,
+       "implied_prob_sum": 1.0,
+       "label": "Acqua Sant'Anna Cuneo -1.5"
+      },
+      {
+       "fair_american": -286,
+       "fair_decimal": 1.35,
+       "fair_prob": 0.741,
+       "implied_prob_sum": 1.0,
+       "label": "Vero Volley Monza +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 132,
+       "fair_decimal": 2.32,
+       "fair_prob": 0.4307,
+       "implied_prob_sum": 1.0,
+       "label": "Acqua Sant'Anna Cuneo (home)"
+      },
+      {
+       "fair_american": -132,
+       "fair_decimal": 1.76,
+       "fair_prob": 0.5693,
+       "implied_prob_sum": 1.0,
+       "label": "Vero Volley Monza (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 294,
+       "fair_decimal": 3.94,
+       "fair_prob": 0.2541,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -294,
+       "fair_decimal": 1.34,
+       "fair_prob": 0.7459,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.4851,
+    "p_set_home": 0.4629,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -132,
+    "fair_decimal": 1.76,
+    "fair_prob": 0.5693,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Vero Volley Monza (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Vero Volley Monza",
+   "side_b": "Acqua Sant'Anna Cuneo",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-04T19:30:00Z",
+   "venue": "Palasport di Cuneo Cuneo (CN)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 47.5,
+    "away_points_per_set": 38.0,
+    "away_sets": "3-2",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 61.0,
+    "home_points_per_set": 25.0,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "25"
+   },
+   "flags": [],
+   "form": {
+    "away": "2 pts, sets 3-2",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_25_Itas_Trentino_Sir_Susa_Scai_Perugia",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 251,
+       "fair_decimal": 3.51,
+       "fair_prob": 0.2845,
+       "implied_prob_sum": 1.0,
+       "label": "Itas Trentino -1.5"
+      },
+      {
+       "fair_american": -250,
+       "fair_decimal": 1.4,
+       "fair_prob": 0.7155,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 115,
+       "fair_decimal": 2.15,
+       "fair_prob": 0.4643,
+       "implied_prob_sum": 1.0,
+       "label": "Itas Trentino (home)"
+      },
+      {
+       "fair_american": -115,
+       "fair_decimal": 1.87,
+       "fair_prob": 0.5357,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 298,
+       "fair_decimal": 3.98,
+       "fair_prob": 0.2511,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -294,
+       "fair_decimal": 1.34,
+       "fair_prob": 0.7489,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.4924,
+    "p_set_home": 0.4809,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Low",
+    "fair_american": -115,
+    "fair_decimal": 1.87,
+    "fair_prob": 0.5357,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Sir Susa Scai Perugia (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Sir Susa Scai Perugia",
+   "side_b": "Itas Trentino",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "BTS Arena Trento (TN)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 26.0,
+    "away_points_per_set": 65.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 56.0,
+    "home_points_per_set": 25.0,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "26"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_26_Gas_Sales_Bluenergy_Piacenza_Rana_Verona",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 389,
+       "fair_decimal": 4.89,
+       "fair_prob": 0.2044,
+       "implied_prob_sum": 1.0,
+       "label": "Gas Sales Bluenergy Piacenza -1.5"
+      },
+      {
+       "fair_american": -385,
+       "fair_decimal": 1.26,
+       "fair_prob": 0.7956,
+       "implied_prob_sum": 1.0,
+       "label": "Rana Verona +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 182,
+       "fair_decimal": 2.82,
+       "fair_prob": 0.3546,
+       "implied_prob_sum": 1.0,
+       "label": "Gas Sales Bluenergy Piacenza (home)"
+      },
+      {
+       "fair_american": -182,
+       "fair_decimal": 1.55,
+       "fair_prob": 0.6454,
+       "implied_prob_sum": 1.0,
+       "label": "Rana Verona (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 272,
+       "fair_decimal": 3.72,
+       "fair_prob": 0.2687,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -270,
+       "fair_decimal": 1.37,
+       "fair_prob": 0.7313,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.4682,
+    "p_set_home": 0.4212,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -182,
+    "fair_decimal": 1.55,
+    "fair_prob": 0.6454,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Rana Verona (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Rana Verona",
+   "side_b": "Gas Sales Bluenergy Piacenza",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "PalaBancaSport Piacenza (PC)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 65.0,
+    "away_points_per_set": 26.0,
+    "away_sets": "3-0",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 26.33,
+    "home_points_per_set": 56.0,
+    "home_sets": "0-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "27"
+   },
+   "flags": [],
+   "form": {
+    "away": "3 pts, sets 3-0",
+    "home": "0 pts, sets 0-3"
+   },
+   "id": "fx_lv_27_Allianz_Milano_Cucine_Lube_Civitanova",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 102,
+       "fair_decimal": 2.02,
+       "fair_prob": 0.4961,
+       "implied_prob_sum": 1.0,
+       "label": "Allianz Milano -1.5"
+      },
+      {
+       "fair_american": -102,
+       "fair_decimal": 1.98,
+       "fair_prob": 0.5039,
+       "implied_prob_sum": 1.0,
+       "label": "Cucine Lube Civitanova +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -238,
+       "fair_decimal": 1.42,
+       "fair_prob": 0.7032,
+       "implied_prob_sum": 1.0,
+       "label": "Allianz Milano (home)"
+      },
+      {
+       "fair_american": 237,
+       "fair_decimal": 3.37,
+       "fair_prob": 0.2968,
+       "implied_prob_sum": 1.0,
+       "label": "Cucine Lube Civitanova (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 248,
+       "fair_decimal": 3.48,
+       "fair_prob": 0.2877,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -250,
+       "fair_decimal": 1.4,
+       "fair_prob": 0.7123,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5455,
+    "p_set_home": 0.6121,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -238,
+    "fair_decimal": 1.42,
+    "fair_prob": 0.7032,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Allianz Milano (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Cucine Lube Civitanova",
+   "side_b": "Allianz Milano",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T15:00:00Z",
+   "venue": "Allianz Cloud (Palalido) Milano (MI)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 25.0,
+    "away_points_per_set": 61.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 31.33,
+    "home_points_per_set": 91.0,
+    "home_sets": "1-3",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "28"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "0 pts, sets 1-3"
+   },
+   "id": "fx_lv_28_Vero_Volley_Monza_Valsa_Group_Modena",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 171,
+       "fair_decimal": 2.71,
+       "fair_prob": 0.3692,
+       "implied_prob_sum": 1.0,
+       "label": "Vero Volley Monza -1.5"
+      },
+      {
+       "fair_american": -169,
+       "fair_decimal": 1.59,
+       "fair_prob": 0.6308,
+       "implied_prob_sum": 1.0,
+       "label": "Valsa Group Modena +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -132,
+       "fair_decimal": 1.76,
+       "fair_prob": 0.5682,
+       "implied_prob_sum": 1.0,
+       "label": "Vero Volley Monza (home)"
+      },
+      {
+       "fair_american": 132,
+       "fair_decimal": 2.32,
+       "fair_prob": 0.4318,
+       "implied_prob_sum": 1.0,
+       "label": "Valsa Group Modena (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 294,
+       "fair_decimal": 3.94,
+       "fair_prob": 0.254,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -294,
+       "fair_decimal": 1.34,
+       "fair_prob": 0.746,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.5146,
+    "p_set_home": 0.5365,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -132,
+    "fair_decimal": 1.76,
+    "fair_prob": 0.5682,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Vero Volley Monza (home)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Valsa Group Modena",
+   "side_b": "Vero Volley Monza",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T19:00:00Z",
+   "venue": "OpiquadArena Monza (MB)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 25.0,
+    "away_points_per_set": 56.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 56.0,
+    "home_points_per_set": 26.33,
+    "home_sets": "3-0",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "29"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "3 pts, sets 3-0"
+   },
+   "id": "fx_lv_29_Cisterna_Volley_Pallavolo_Padova",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 360,
+       "fair_decimal": 4.6,
+       "fair_prob": 0.2174,
+       "implied_prob_sum": 1.0,
+       "label": "Cisterna Volley -1.5"
+      },
+      {
+       "fair_american": -357,
+       "fair_decimal": 1.28,
+       "fair_prob": 0.7826,
+       "implied_prob_sum": 1.0,
+       "label": "Pallavolo Padova +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 168,
+       "fair_decimal": 2.68,
+       "fair_prob": 0.3733,
+       "implied_prob_sum": 1.0,
+       "label": "Cisterna Volley (home)"
+      },
+      {
+       "fair_american": -167,
+       "fair_decimal": 1.6,
+       "fair_prob": 0.6267,
+       "implied_prob_sum": 1.0,
+       "label": "Pallavolo Padova (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 279,
+       "fair_decimal": 3.79,
+       "fair_prob": 0.2641,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -278,
+       "fair_decimal": 1.36,
+       "fair_prob": 0.7359,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.4725,
+    "p_set_home": 0.4316,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -167,
+    "fair_decimal": 1.6,
+    "fair_prob": 0.6267,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Pallavolo Padova (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Pallavolo Padova",
+   "side_b": "Cisterna Volley",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "Palasport di Cisterna di Latina Cisterna di Latina (LT)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 38.0,
+    "away_points_per_set": 47.5,
+    "away_sets": "2-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 91.0,
+    "home_points_per_set": 31.33,
+    "home_sets": "3-1",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "30"
+   },
+   "flags": [],
+   "form": {
+    "away": "1 pts, sets 2-3",
+    "home": "3 pts, sets 3-1"
+   },
+   "id": "fx_lv_30_Tinet_Prata_di_Pordenone_Acqua_Sant_Anna_Cuneo",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 345,
+       "fair_decimal": 4.45,
+       "fair_prob": 0.2245,
+       "implied_prob_sum": 1.0,
+       "label": "Tinet Prata di Pordenone -1.5"
+      },
+      {
+       "fair_american": -345,
+       "fair_decimal": 1.29,
+       "fair_prob": 0.7755,
+       "implied_prob_sum": 1.0,
+       "label": "Acqua Sant'Anna Cuneo +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 161,
+       "fair_decimal": 2.61,
+       "fair_prob": 0.3833,
+       "implied_prob_sum": 1.0,
+       "label": "Tinet Prata di Pordenone (home)"
+      },
+      {
+       "fair_american": -161,
+       "fair_decimal": 1.62,
+       "fair_prob": 0.6167,
+       "implied_prob_sum": 1.0,
+       "label": "Acqua Sant'Anna Cuneo (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 282,
+       "fair_decimal": 3.82,
+       "fair_prob": 0.2619,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -286,
+       "fair_decimal": 1.35,
+       "fair_prob": 0.7381,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.4747,
+    "p_set_home": 0.4371,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -161,
+    "fair_decimal": 1.62,
+    "fair_prob": 0.6167,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Acqua Sant'Anna Cuneo (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Acqua Sant'Anna Cuneo",
+   "side_b": "Tinet Prata di Pordenone",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "Palasport \"Crisafulli\" Pordenone (PN)"
+  },
+  {
+   "capture_id": "legavolley_cal_999",
+   "competition": "SuperLega Credem Banca 2026-27 (Italy)",
+   "evidence": {
+    "away_conceded_per_set": 25.0,
+    "away_points_per_set": 56.0,
+    "away_sets": "0-3",
+    "games_played": "1 / 1",
+    "home_conceded_per_set": 47.5,
+    "home_points_per_set": 38.0,
+    "home_sets": "3-2",
+    "table_source": "https://www.legavolley.it/classifica/",
+    "table_updated": "classifica aggiornata al 18/10/2026"
+   },
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "61"
+   },
+   "flags": [],
+   "form": {
+    "away": "0 pts, sets 0-3",
+    "home": "2 pts, sets 3-2"
+   },
+   "id": "fx_lv_61_Sir_Susa_Scai_Perugia_Pallavolo_Padova",
+   "markets": {
+    "handicap": {
+     "line": -1.5,
+     "market_name": "Set Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 291,
+       "fair_decimal": 3.91,
+       "fair_prob": 0.2558,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia -1.5"
+      },
+      {
+       "fair_american": -294,
+       "fair_decimal": 1.34,
+       "fair_prob": 0.7442,
+       "implied_prob_sum": 1.0,
+       "label": "Pallavolo Padova +1.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 135,
+       "fair_decimal": 2.35,
+       "fair_prob": 0.4264,
+       "implied_prob_sum": 1.0,
+       "label": "Sir Susa Scai Perugia (home)"
+      },
+      {
+       "fair_american": -135,
+       "fair_decimal": 1.74,
+       "fair_prob": 0.5736,
+       "implied_prob_sum": 1.0,
+       "label": "Pallavolo Padova (away)"
+      }
+     ]
+    },
+    "total": {
+     "line": 3.5,
+     "market_name": "Total Sets 3.5",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 293,
+       "fair_decimal": 3.93,
+       "fair_prob": 0.2547,
+       "implied_prob_sum": 1.0,
+       "label": "Under 3.5"
+      },
+      {
+       "fair_american": -294,
+       "fair_decimal": 1.34,
+       "fair_prob": 0.7453,
+       "implied_prob_sum": 1.0,
+       "label": "Over 3.5"
+      }
+     ]
+    }
+   },
+   "model": {
+    "name": "point-ratio set model, exact best-of-5",
+    "note": "Lega Pallavolo Serie A calendar and classifica read in the same capture",
+    "p_point_home": 0.4842,
+    "p_set_home": 0.4606,
+    "sample_penalty": "0.15 weight on the club rate (one completed match)"
+   },
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=999",
+   "olbg": null,
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -135,
+    "fair_decimal": 1.74,
+    "fair_prob": 0.5736,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; a one-match official sample keeps the label at Medium",
+    "selection": "Pallavolo Padova (away)"
+   },
+   "sample": "1 completed match(es) per side",
+   "side_a": "Pallavolo Padova",
+   "side_b": "Sir Susa Scai Perugia",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-28T19:30:00Z",
+   "venue": "Pala Barton Energy Perugia (PG)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "508"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_508_Yuasa_Battery_Grottazzolina_Essence_Hotels_Fano",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Essence Hotels Fano",
+   "side_b": "Yuasa Battery Grottazzolina",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "PalaSavelli Porto San Giorgio (FM)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "509"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_509_Rinascita_Lagonegro_Conad_Reggio_Emilia",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Conad Reggio Emilia",
+   "side_b": "Rinascita Lagonegro",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-24T16:00:00Z",
+   "venue": "Palasport Villa D'Agri Marsicovetere (PZ)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "510"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_510_Gruppo_Fisiomed_Alema_Energy_Macerata_Sviluppo_Sud_Palmi",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Sviluppo Sud Palmi",
+   "side_b": "Gruppo Fisiomed Alema Energy Macerata",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "Banca Macerata Forum Macerata (MC)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "511"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_511_Alva_Inox_Porto_Viro_Consar_Ravenna",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Consar Ravenna",
+   "side_b": "Alva Inox Porto Viro",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "Palazzetto dello sport Porto Viro Porto Viro (RO)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "512"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_512_Domotek_Reggio_Calabria_Consoli_Sferc_Brescia",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Consoli Sferc Brescia",
+   "side_b": "Domotek Reggio Calabria",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T15:00:00Z",
+   "venue": "PalaCalafiore Reggio di Calabria (RC)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "513"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_513_Belluno_Volley_Union_Napoli",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Union Napoli",
+   "side_b": "Belluno Volley",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T15:00:00Z",
+   "venue": "VHV Arena Belluno (BL)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "514"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_514_JV_Gioia_Del_Colle_Abba_Pineto",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Abba Pineto",
+   "side_b": "JV Gioia Del Colle",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "PalaCapurso Gioia del Colle (BA)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "515"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_515_Yuasa_Battery_Grottazzolina_Domotek_Reggio_Calabria",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Domotek Reggio Calabria",
+   "side_b": "Yuasa Battery Grottazzolina",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T17:00:00Z",
+   "venue": "Palasport Grottazzolina Grottazzolina (FM)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "516"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_516_Consar_Ravenna_Rinascita_Lagonegro",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Rinascita Lagonegro",
+   "side_b": "Consar Ravenna",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-28T18:00:00Z",
+   "venue": "Pala De Andr\u00e8 Ravenna (RA)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "517"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_517_Union_Napoli_Consoli_Sferc_Brescia",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Consoli Sferc Brescia",
+   "side_b": "Union Napoli",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-03T19:00:00Z",
+   "venue": "Complesso polisportivo PalaVesuvio Napoli (NA)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "518"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_518_Gruppo_Fisiomed_Alema_Energy_Macerata_Alva_Inox_Porto_Vi",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Alva Inox Porto Viro",
+   "side_b": "Gruppo Fisiomed Alema Energy Macerata",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T17:00:00Z",
+   "venue": "Banca Macerata Forum Macerata (MC)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "519"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_519_Essence_Hotels_Fano_Abba_Pineto",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Abba Pineto",
+   "side_b": "Essence Hotels Fano",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T16:30:00Z",
+   "venue": "Palasport Allende - Fano Fano (PU)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "520"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_520_JV_Gioia_Del_Colle_Belluno_Volley",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Belluno Volley",
+   "side_b": "JV Gioia Del Colle",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-01T15:00:00Z",
+   "venue": "PalaCapurso Gioia del Colle (BA)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "521"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_521_Sviluppo_Sud_Palmi_Conad_Reggio_Emilia",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Conad Reggio Emilia",
+   "side_b": "Sviluppo Sud Palmi",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-31T15:00:00Z",
+   "venue": "Palasport \"Mimmo Surace\" Palmi (RC)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "522"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_522_Abba_Pineto_Gruppo_Fisiomed_Alema_Energy_Macerata",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Gruppo Fisiomed Alema Energy Macerata",
+   "side_b": "Abba Pineto",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "PalaVolley S.Maria Pineto (TE)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "523"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_523_Consoli_Sferc_Brescia_Sviluppo_Sud_Palmi",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Sviluppo Sud Palmi",
+   "side_b": "Consoli Sferc Brescia",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T15:00:00Z",
+   "venue": "Centro Sportivo San Filippo Brescia (BS)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "524"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_524_Rinascita_Lagonegro_Union_Napoli",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Union Napoli",
+   "side_b": "Rinascita Lagonegro",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "Palasport Villa D'Agri Marsicovetere (PZ)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "525"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_525_Alva_Inox_Porto_Viro_Yuasa_Battery_Grottazzolina",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Yuasa Battery Grottazzolina",
+   "side_b": "Alva Inox Porto Viro",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "Palazzetto dello sport Porto Viro Porto Viro (RO)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "526"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_526_Conad_Reggio_Emilia_Consar_Ravenna",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Consar Ravenna",
+   "side_b": "Conad Reggio Emilia",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "Palasport \"G.Bigi\" Reggio nell'Emilia (RE)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "527"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_527_Domotek_Reggio_Calabria_JV_Gioia_Del_Colle",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "JV Gioia Del Colle",
+   "side_b": "Domotek Reggio Calabria",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-08T17:00:00Z",
+   "venue": "PalaCalafiore Reggio di Calabria (RC)"
+  },
+  {
+   "capture_id": "legavolley_cal_1000",
+   "competition": "Serie A2 Credem Banca 2026-27 (Italy)",
+   "evidence": {},
+   "extra": {
+    "played": false,
+    "result": "0-0",
+    "round": "528"
+   },
+   "flags": [
+    "Serie A2 classifica not captured - fixture listed without a line"
+   ],
+   "form": {},
+   "id": "fx_lv_528_Belluno_Volley_Essence_Hotels_Fano",
+   "markets": {},
+   "model": {},
+   "official_source_name": "Lega Pallavolo Serie A official calendar (legavolley.it)",
+   "official_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=1000",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Essence Hotels Fano",
+   "side_b": "Belluno Volley",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-11-07T17:00:00Z",
+   "venue": "VHV Arena Belluno (BL)"
+  },
+  {
    "capture_id": "wta_2092",
    "competition": "BNB Ningbo Open - Ningbo, CHN",
    "evidence": {
@@ -30708,6 +34151,33 @@
    "venue": "Gaddafi Stadium, Lahore"
   },
   {
+   "capture_id": "gaa_fixtures",
+   "competition": "ShintyHurling",
+   "evidence": {},
+   "extra": {
+    "round": "Final",
+    "tbc": false
+   },
+   "flags": [
+    "fixture published without a verified form table - no line originated"
+   ],
+   "form": {},
+   "id": "fx_gaa_9abfb6e4-6223-44b7-8d25-57510681e49e",
+   "markets": {},
+   "model": {},
+   "official_source_name": "GAA official fixtures (gaa.ie)",
+   "official_url": "https://www.gaa.ie/fixtures",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Scotland",
+   "side_b": "Ireland",
+   "sport": "Gaelic Sports",
+   "sport_slug": "gaelic-sports",
+   "start_utc": "2026-10-24T17:00:00Z",
+   "venue": "SuperValu P\u00e1irc U\u00ed Chaoimh, Cork"
+  },
+  {
    "capture_id": "gbgb_results_api",
    "competition": "GBGB race results 23 Oct 2026",
    "evidence": {
@@ -31737,34 +35207,6 @@
     "OLBG listing only - no official fixture/values located, no line originated"
    ],
    "form": {},
-   "id": "fx_olbg_12130",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Vardar_vs_MT_Melsungen/20?event_id=12130",
-   "olbg": {
-    "event": "HC Vardar vs MT Melsungen",
-    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Vardar_vs_MT_Melsungen/20?event_id=12130",
-    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "HC Vardar vs MT Melsungen",
-   "side_b": "",
-   "sport": "Handball",
-   "sport_slug": "handball",
-   "start_utc": "2026-10-28T17:45:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_handball_20",
-   "competition": "OLBG-listed event (official fixture not located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated"
-   ],
-   "form": {},
    "id": "fx_olbg_12127",
    "markets": {},
    "model": {},
@@ -31779,6 +35221,34 @@
    "pick": null,
    "sample": "",
    "side_a": "FC Porto vs Veszprem",
+   "side_b": "",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_handball_20",
+   "competition": "OLBG-listed event (official fixture not located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated"
+   ],
+   "form": {},
+   "id": "fx_olbg_12130",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Vardar_vs_MT_Melsungen/20?event_id=12130",
+   "olbg": {
+    "event": "HC Vardar vs MT Melsungen",
+    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Vardar_vs_MT_Melsungen/20?event_id=12130",
+    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "HC Vardar vs MT Melsungen",
    "side_b": "",
    "sport": "Handball",
    "sport_slug": "handball",
@@ -31849,20 +35319,20 @@
     "OLBG listing only - no official fixture/values located, no line originated"
    ],
    "form": {},
-   "id": "fx_olbg_12134",
+   "id": "fx_olbg_12136",
    "markets": {},
    "model": {},
    "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/PSG_Handball_vs_Aalborg_Handbold/20?event_id=12134",
+   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136",
    "olbg": {
-    "event": "PSG Handball vs Aalborg Handbold",
-    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/PSG_Handball_vs_Aalborg_Handbold/20?event_id=12134",
+    "event": "SC Magdeburg vs HC Kriens Luzern",
+    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136",
     "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
     "listed_tips": 1
    },
    "pick": null,
    "sample": "",
-   "side_a": "PSG Handball vs Aalborg Handbold",
+   "side_a": "SC Magdeburg vs HC Kriens Luzern",
    "side_b": "",
    "sport": "Handball",
    "sport_slug": "handball",
@@ -31905,20 +35375,20 @@
     "OLBG listing only - no official fixture/values located, no line originated"
    ],
    "form": {},
-   "id": "fx_olbg_12136",
+   "id": "fx_olbg_12134",
    "markets": {},
    "model": {},
    "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136",
+   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/PSG_Handball_vs_Aalborg_Handbold/20?event_id=12134",
    "olbg": {
-    "event": "SC Magdeburg vs HC Kriens Luzern",
-    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136",
+    "event": "PSG Handball vs Aalborg Handbold",
+    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/PSG_Handball_vs_Aalborg_Handbold/20?event_id=12134",
     "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
     "listed_tips": 1
    },
    "pick": null,
    "sample": "",
-   "side_a": "SC Magdeburg vs HC Kriens Luzern",
+   "side_a": "PSG Handball vs Aalborg Handbold",
    "side_b": "",
    "sport": "Handball",
    "sport_slug": "handball",
@@ -32521,34 +35991,6 @@
     "OLBG listing only - no official fixture/values located, no line originated"
    ],
    "form": {},
-   "id": "fx_olbg_37011",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SVG_Luneburg_vs_SV_Warnemunde/21?event_id=37011",
-   "olbg": {
-    "event": "SVG Luneburg vs SV Warnemunde",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SVG_Luneburg_vs_SV_Warnemunde/21?event_id=37011",
-    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "SVG Luneburg vs SV Warnemunde",
-   "side_b": "",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "start_utc": "2026-10-24T17:00:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_volleyball_21",
-   "competition": "OLBG-listed event (official fixture not located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated"
-   ],
-   "form": {},
    "id": "fx_olbg_37018",
    "markets": {},
    "model": {},
@@ -32563,6 +36005,34 @@
    "pick": null,
    "sample": "",
    "side_a": "ASKO Purgstall W vs VBV Trofaiach-WSV Eisenerz W",
+   "side_b": "",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-24T17:00:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_volleyball_21",
+   "competition": "OLBG-listed event (official fixture not located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated"
+   ],
+   "form": {},
+   "id": "fx_olbg_37011",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SVG_Luneburg_vs_SV_Warnemunde/21?event_id=37011",
+   "olbg": {
+    "event": "SVG Luneburg vs SV Warnemunde",
+    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SVG_Luneburg_vs_SV_Warnemunde/21?event_id=37011",
+    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "SVG Luneburg vs SV Warnemunde",
    "side_b": "",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
@@ -32689,34 +36159,6 @@
     "OLBG listing only - no official fixture/values located, no line originated"
    ],
    "form": {},
-   "id": "fx_olbg_37026",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Sternberk_W_vs_VK_Lvice_Praha_W/21?event_id=37026",
-   "olbg": {
-    "event": "Sternberk W vs VK Lvice Praha W",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Sternberk_W_vs_VK_Lvice_Praha_W/21?event_id=37026",
-    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "Sternberk W vs VK Lvice Praha W",
-   "side_b": "",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "start_utc": "2026-10-24T16:00:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_volleyball_21",
-   "competition": "OLBG-listed event (official fixture not located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated"
-   ],
-   "form": {},
    "id": "fx_olbg_37029",
    "markets": {},
    "model": {},
@@ -32731,6 +36173,34 @@
    "pick": null,
    "sample": "",
    "side_a": "Liberec W vs Prostejov W",
+   "side_b": "",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-24T16:00:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_volleyball_21",
+   "competition": "OLBG-listed event (official fixture not located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated"
+   ],
+   "form": {},
+   "id": "fx_olbg_37026",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Sternberk_W_vs_VK_Lvice_Praha_W/21?event_id=37026",
+   "olbg": {
+    "event": "Sternberk W vs VK Lvice Praha W",
+    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Sternberk_W_vs_VK_Lvice_Praha_W/21?event_id=37026",
+    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Sternberk W vs VK Lvice Praha W",
    "side_b": "",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
@@ -32773,34 +36243,6 @@
     "OLBG listing only - no official fixture/values located, no line originated"
    ],
    "form": {},
-   "id": "fx_olbg_37032",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SK_Aich-Dob_vs_SG_VCA_Amstetten/21?event_id=37032",
-   "olbg": {
-    "event": "SK Aich-Dob vs SG VCA Amstetten",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SK_Aich-Dob_vs_SG_VCA_Amstetten/21?event_id=37032",
-    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "SK Aich-Dob vs SG VCA Amstetten",
-   "side_b": "",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "start_utc": "2026-10-24T17:00:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_volleyball_21",
-   "competition": "OLBG-listed event (official fixture not located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated"
-   ],
-   "form": {},
    "id": "fx_olbg_37066",
    "markets": {},
    "model": {},
@@ -32815,6 +36257,34 @@
    "pick": null,
    "sample": "",
    "side_a": "Evreux W vs Mulhouse W",
+   "side_b": "",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-24T17:00:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_volleyball_21",
+   "competition": "OLBG-listed event (official fixture not located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated"
+   ],
+   "form": {},
+   "id": "fx_olbg_37032",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SK_Aich-Dob_vs_SG_VCA_Amstetten/21?event_id=37032",
+   "olbg": {
+    "event": "SK Aich-Dob vs SG VCA Amstetten",
+    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SK_Aich-Dob_vs_SG_VCA_Amstetten/21?event_id=37032",
+    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "SK Aich-Dob vs SG VCA Amstetten",
    "side_b": "",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
@@ -33025,34 +36495,6 @@
     "OLBG listing only - no official fixture/values located, no line originated"
    ],
    "form": {},
-   "id": "fx_olbg_36995",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995",
-   "olbg": {
-    "event": "Civitanova vs Padova",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995",
-    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "Civitanova vs Padova",
-   "side_b": "",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "start_utc": "2026-10-25T17:00:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_volleyball_21",
-   "competition": "OLBG-listed event (official fixture not located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated"
-   ],
-   "form": {},
    "id": "fx_olbg_36996",
    "markets": {},
    "model": {},
@@ -33081,52 +36523,24 @@
     "OLBG listing only - no official fixture/values located, no line originated"
    ],
    "form": {},
-   "id": "fx_olbg_37001",
+   "id": "fx_olbg_36995",
    "markets": {},
    "model": {},
    "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brasilia_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37001",
+   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995",
    "olbg": {
-    "event": "Brasilia W vs Sesc RJ Flamengo W",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brasilia_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37001",
+    "event": "Civitanova vs Padova",
+    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995",
     "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
     "listed_tips": 1
    },
    "pick": null,
    "sample": "",
-   "side_a": "Brasilia W vs Sesc RJ Flamengo W",
+   "side_a": "Civitanova vs Padova",
    "side_b": "",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
-   "start_utc": "2026-10-23T21:30:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_volleyball_21",
-   "competition": "OLBG-listed event (official fixture not located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated"
-   ],
-   "form": {},
-   "id": "fx_olbg_37022",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Minas_W_vs_Paulistano-Barueri_W/21?event_id=37022",
-   "olbg": {
-    "event": "Minas W vs Paulistano-Barueri W",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Minas_W_vs_Paulistano-Barueri_W/21?event_id=37022",
-    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "Minas W vs Paulistano-Barueri W",
-   "side_b": "",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "start_utc": "2026-10-23T21:30:00Z",
+   "start_utc": "2026-10-25T17:00:00Z",
    "venue": ""
   }
  ],
@@ -33170,7 +36584,7 @@
    "high_in_window": 0,
    "markets": 0,
    "priced": 0,
-   "rows": 4,
+   "rows": 5,
    "slug": "gaelic-sports"
   },
   "Golf": {
@@ -33248,9 +36662,9 @@
   "Volleyball": {
    "high": 0,
    "high_in_window": 0,
-   "markets": 0,
-   "priced": 0,
-   "rows": 25,
+   "markets": 72,
+   "priced": 24,
+   "rows": 68,
    "slug": "volleyball"
   }
  },

@@ -1,5 +1,5 @@
 {
- "capture": "20261023T213607Z",
+ "capture": "20261023T214256Z",
  "findings": [
   {
    "dataset": "data/master.json",
@@ -177,18 +177,9 @@
    "finding": "Aggregate state of the peer desks at review time.",
    "id": "FX4-P02",
    "manual_url": "",
-   "row": "26 desks / 5697 rows",
+   "row": "27 desks / 6122 rows",
    "severity": "info",
-   "verification": "2171 rows without a source URL; 1360 rows with neither a pick nor markets."
-  },
-  {
-   "dataset": "data/session-4502eff5/desk.json",
-   "finding": "Own-line probability pairs do not sum to 1 or the decimal price is not 1/p.",
-   "id": "FX4-O01",
-   "manual_url": "",
-   "row": "36 market legs",
-   "severity": "high",
-   "verification": "Recomputed both quantities; examples [('fx_el_games_E2026_92', 'handicap', 'decimal', 38.46, 38.44), ('fx_el_games_E2026_90', 'handicap', 'decimal', 27.17, 27.14), ('fx_el_games_E2026_76', 'handicap', 'decimal', 95.24, 50.0)]"
+   "verification": "2171 rows without a source URL; 1492 rows with neither a pick nor markets."
   }
  ],
  "flags": [
@@ -199,18 +190,106 @@
    "row": "data/master.json",
    "source_url": "",
    "sport": "all"
+  },
+  {
+   "id": "FX4-COV-HANDBALL",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "EHF Champions League standings captured, but the official match list renders client-side; no fixture feed was captured, so the 30 OLBG-listed matches stay blank.",
+   "row": "30 rows / 0 priced",
+   "source_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Skive_FH_vs_Aalborg_Handbold/20?event_id=12076",
+   "sport": "Handball"
+  },
+  {
+   "id": "FX4-COV-TENNIS",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "WTA match feeds captured and parsed, but no official singles ranking list was reachable (api.wtatennis.com/atptour.com returned 403/404), so a ranking-based line would be a guess.",
+   "row": "30 rows / 0 priced",
+   "source_url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+   "sport": "Tennis"
+  },
+  {
+   "id": "FX4-COV-CRICKET",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "cricket.com.au fixture list captured, but no official competition table or rating list was reachable, so no line is originated.",
+   "row": "22 rows / 0 priced",
+   "source_url": "https://www.cricket.com.au/fixtures",
+   "sport": "Cricket"
+  },
+  {
+   "id": "FX4-COV-RUGBYUNI",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "United Rugby Championship fixture list captured, but the official table and results feeds render client-side; only the fixture list is published.",
+   "row": "12 rows / 0 priced",
+   "source_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Bulls_v_Ulster/9?event_id=609576",
+   "sport": "Rugby Union"
+  },
+  {
+   "id": "FX4-COV-DARTS",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "pdc.tv pages are the same client-side shell; no draw or Order of Merit data could be read, so the six listings stay blank.",
+   "row": "5 rows / 0 priced",
+   "source_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Cameron_Menzies_vs_Gerwyn_Price/15?event_id=32383",
+   "sport": "Darts"
+  },
+  {
+   "id": "FX4-COV-GAELICSP",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "gaa.ie fixtures captured; no official form or scoring feed across the same competitions, so no line.",
+   "row": "5 rows / 0 priced",
+   "source_url": "https://www.gaa.ie/fixtures",
+   "sport": "Gaelic Sports"
+  },
+  {
+   "id": "FX4-COV-GREYHOUN",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "GBGB returns completed results only; the racecard and meeting APIs returned 404, so no upcoming race could be priced.",
+   "row": "1 rows / 0 priced",
+   "source_url": "https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=100&date=2026-10-23&race_type=race",
+   "sport": "Greyhounds"
+  },
+  {
+   "id": "FX4-COV-SNOOKER",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "priced from the official world ranking gap, but the best-of-7/11 format keeps the strongest pick below the 70% line on this card.",
+   "row": "34 rows / 29 priced",
+   "source_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=100&filter[startDateTime][gte]=2026-10-23&filter[startDateTime][lte]=2026-11-08",
+   "sport": "Snooker"
+  },
+  {
+   "id": "FX4-COV-RUGBYLEA",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "priced from the official RLWC feed; two matches per side is too small a sample for a 70% label, so every pick is capped at Medium.",
+   "row": "11 rows / 9 priced",
+   "source_url": "https://www.rlwc2026.com/api/fixtures",
+   "sport": "Rugby League"
+  },
+  {
+   "id": "FX4-COV-INJ",
+   "impact": "predictions are built on records, goals/points per game and splits only",
+   "issue": "No official team injury report was captured for any priced fixture. The predictions therefore carry no injury claim; squad-news feeds (nhl.com, euroleague.net) publish rosters but not availability lists at capture time.",
+   "row": "14 High picks",
+   "source_url": "",
+   "sport": "all"
+  },
+  {
+   "id": "FX4-F02",
+   "impact": "none - recorded as a positive check",
+   "issue": "0 arithmetic defects found in our own market legs (probabilities sum to 1, decimal = 1/p)",
+   "row": "our desk",
+   "source_url": "",
+   "sport": "all"
   }
  ],
  "schema": "fx-review-1",
  "session": "arena/4502eff5-olbg4",
  "summary": {
-  "findings": 21,
-  "flags": 1,
+  "findings": 20,
+  "flags": 12,
   "master_rows": 354,
   "matchups_checked": 161,
   "matchups_date_mismatch": 20,
   "matchups_unverified": 101,
-  "peer_files": 26,
-  "peer_rows": 5697
+  "peer_files": 27,
+  "peer_rows": 6122
  }
 }

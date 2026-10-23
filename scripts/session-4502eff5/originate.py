@@ -412,56 +412,65 @@ def build_mlb(cap: P.Capture, rows):
 
 # ------------------------------------------------------------------- volleyball
 def _volley_rows(rows, fixtures, table, comp_name, src_note, cap_conf="Medium"):
+    sc = lambda t: t["pw"] / max(1, t["sw"])
+    cn = lambda t: t["pl"] / max(1, t["sl"])
+    shrink_rate = lambda x: 1.0 + 0.15 * (x - 1.0)  # one-match samples pulled 85% back to the league mean
     for f in fixtures:
         if not in_window(f["start_utc"]):
             continue
         a, b = table.get(f["side_a"]), table.get(f["side_b"])
         row = blank_row(**f)
-        if not a or not b or not a.get("pw") or not b.get("pw"):
-            row["flags"].append("published table row unavailable - no line originated")
+        if not a or not b or a["gp"] < 1 or b["gp"] < 1:
+            row["flags"].append("published table row or completed match unavailable - no line originated")
             rows.append(row)
             continue
-        pr_a = a["pw"] / max(1, a["pl"])
-        pr_b = b["pw"] / max(1, b["pl"])
-        diff = (pr_a - pr_b) * 25.0 + 1.0
-        p_set = norm_cdf(diff / 5.5)
-        p_home, dist = volleyball_dist(1 - p_set)  # side_b is home
-        p_away = 1 - p_home
-        # set handicap -1.5 for home: wins 3-0 or 3-1
-        home_31 = sum(pr for (w, l), pr in dist.items() if w == 3 and l <= 1)
-        away_p15 = 1 - home_31
-        # totals
-        t35 = sum(pr for k, pr in dist.items() if sum(k) <= 3)
-        row["evidence"] = {"away_points_ratio": round(pr_a, 4), "home_points_ratio": round(pr_b, 4),
+        att_h, att_a = shrink_rate((sc(b) / 25.0) ** 0.5), shrink_rate((sc(a) / 25.0) ** 0.5)
+        def_h, def_a = shrink_rate((cn(b) / 25.0) ** 0.5), shrink_rate((cn(a) / 25.0) ** 0.5)
+        num = att_h * def_a * 1.03
+        p_point = num / (num + att_a * def_h)
+        p_set = p_point ** 2.5 / (p_point ** 2.5 + (1 - p_point) ** 2.5)
+        p_home, dist = volleyball_dist(p_set)
+        p_home = min(0.86, max(0.14, p_home))
+        p_set = min(0.80, max(0.20, p_set))
+        home_31 = dist.get((3, 0), 0.0) + dist.get((3, 1), 0.0)
+        straight = dist.get((3, 0), 0.0) + dist.get((0, 3), 0.0)
+        row["evidence"] = {"away_points_per_set": round(sc(a), 2), "home_points_per_set": round(sc(b), 2),
+                           "away_conceded_per_set": round(cn(a), 2), "home_conceded_per_set": round(cn(b), 2),
                            "away_sets": f"{a['sw']}-{a['sl']}", "home_sets": f"{b['sw']}-{b['sl']}",
-                           "away_pts": f"{a['pw']}-{a['pl']}", "home_pts": f"{b['pw']}-{b['pl']}",
-                           "games_played": f"{a['gp']} / {b['gp']}", "table_source": a["source_url"]}
-        row["form"] = {"away": f"{a.get('pts', 0)} pts, sets {a['sw']}-{a['sl']}", "home": f"{b.get('pts', 0)} pts, sets {b['sw']}-{b['sl']}"}
-        row["sample"] = f"{min(a['gp'], b['gp'])} matches played"
+                           "games_played": f"{a['gp']} / {b['gp']}", "table_source": a["source_url"],
+                           "table_updated": "classifica aggiornata al 18/10/2026"}
+        row["form"] = {"away": f"{a.get('pts', 0)} pts, sets {a['sw']}-{a['sl']}",
+                       "home": f"{b.get('pts', 0)} pts, sets {b['sw']}-{b['sl']}"}
+        row["sample"] = f"{min(a['gp'], b['gp'])} completed match(es) per side"
         row["markets"] = {
             "match_winner": market("Match Winner", None, [
-                (f"{f['side_b']} (home)", p_home), (f"{f['side_a']} (away)", p_away)]),
+                (f"{f['side_b']} (home)", p_home), (f"{f['side_a']} (away)", 1 - p_home)]),
             "handicap": market("Set Handicap", -1.5, [
-                (f"{f['side_b']} -1.5", home_31), (f"{f['side_a']} +1.5", away_p15)]),
-            "total": market("Total Sets 3.5", 3.5, [("Under 3.5", t35), ("Over 3.5", 1 - t35)]),
+                (f"{f['side_b']} -1.5", home_31), (f"{f['side_a']} +1.5", 1 - home_31)]),
+            "total": market("Total Sets 3.5", 3.5, [
+                ("Under 3.5", straight), ("Over 3.5", 1 - straight)]),
         }
-        row["model"] = {"name": "point-ratio set model, best-of-5", "p_set_home": round(1 - p_set, 4),
-                        "point_diff_input": round(diff, 2), "note": src_note}
-        p_best = max(p_home, p_away)
-        pick_from(row, "match_winner", 0 if p_home >= p_away else 1, conf(p_best, cap_conf),
-                  "p>=70% High; sample <5 matches capped Medium")
+        row["model"] = {"name": "point-ratio set model, exact best-of-5",
+                        "p_point_home": round(p_point, 4), "p_set_home": round(p_set, 4),
+                        "note": src_note, "sample_penalty": "0.15 weight on the club rate (one completed match)"}
+        p_best = max(p_home, 1 - p_home)
+        pick_from(row, "match_winner", 0 if p_home >= 1 - p_home else 1, conf(p_best, cap_conf),
+                  "p>=70% High; a one-match official sample keeps the label at Medium")
         rows.append(row)
 
 
 def build_volleyball(cap: P.Capture, rows):
-    for cid in ("1003", "1004", "995", "1002", "legavolley_cal"):
-        tid = f"legavolley_cal_{cid}" if f"legavolley_cal_{cid}" in cap.by_id else cid
-        fx, tab = P.read_legavolley(cap, tid)
-        if fx and tab and any((not f["extra"].get("played") for f in fx)):
-            _volley_rows(rows, [f for f in fx if not f["extra"].get("played")], tab,
-                         "SuperLega", "official calendar + published table")
-            break
-    # PlusLiga: table only (no official fixture payload captured) -> listed as unpriced
+    fx, tab = P.read_legavolley(cap, "legavolley_cal_999", "SuperLega Credem Banca 2026-27 (Italy)")
+    _volley_rows(rows, [f for f in fx if not f["extra"].get("played")], tab, "SuperLega",
+                 "Lega Pallavolo Serie A calendar and classifica read in the same capture")
+    # Serie A2 calendar is published, but its own classifica was not captured: list the fixtures, do not price them.
+    fx2, tab2 = P.read_legavolley(cap, "legavolley_cal_1000", "Serie A2 Credem Banca 2026-27 (Italy)")
+    for f in fx2:
+        if f["extra"].get("played") or not in_window(f["start_utc"]):
+            continue
+        row = blank_row(**f)
+        row["flags"].append("Serie A2 classifica not captured - fixture listed without a line")
+        rows.append(row)
     pt = P.read_plusliga(cap)
     for team, t in pt.items():
         pass

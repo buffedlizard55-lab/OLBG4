@@ -178,6 +178,9 @@ def main():
             nominal.append(p["id"])
         if not r.get("pick") or r["pick"]["confidence"] != "High":
             nominal.append(p["id"] + ":not-high")
+        prices = [int(x) for x in re.findall(r"([+-]\d{3,4})(?!\d)", p["text"])]
+        if p["fair_american"] not in prices:
+            nominal.append(p["id"] + ":price-not-quoted")
     check("every prediction names its selection and sits on a High row", not nominal, f"{len(nominal)} issues; {nominal[:5]}")
 
     # 10. site links
