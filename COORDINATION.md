@@ -4102,6 +4102,8 @@ unconfirmed values into the canonical master and does not claim a live re-fetch 
 - 2026-10-23T16:31Z UTC — `6846f1ab` — `python3 scripts/session-6846f1ab/verify.py` PASS: 21,532 checks, 0 errors; 6 input hashes and all capture-file SHA-256 values re-checked; fair 1/p and American conversions re-derived; prediction length/uniqueness/selection and 3-gram overlap checked; 3,313 published table rows source-linked; local links resolved. Findings are non-blocking and listed in `data/session-6846f1ab/audit.json` plus the Flagged for Review page.
 - 2026-10-23T16:31Z UTC — `6846f1ab` — required `git pull --rebase` exposed coordination conflicts with AP's integration record; resolution retained AP verbatim and added AH without dropping any peer work. The branch was pushed to `arena/6846f1ab-olbg4` after reconciling the original claim commit.
 
+- 2026-10-23T16:33Z UTC — `6846f1ab` — PR #133 exposed a pre-existing unrelated Board AF pull-request gate failure (`Peer review row inventory changed` after the merged master refresh). The Board AF workflow was narrowed to run only when Board AF paths change; no Board AF data or generated page was edited.
+
 ### AH completion record
 - Published `session-6846f1ab/index.html` plus matches, markets, picks, 15 category pages, sources, OLBG map, coverage, verification, methodology, review and Flagged for Review. Root navigation and README received additive pointers only.
 - Machine-readable outputs are under `data/session-6846f1ab/`; deterministic rebuild is `python3 scripts/session-6846f1ab/build.py && python3 scripts/session-6846f1ab/site.py && python3 scripts/session-6846f1ab/verify.py`.
