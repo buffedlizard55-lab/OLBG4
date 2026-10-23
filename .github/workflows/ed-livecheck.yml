@@ -64,6 +64,13 @@ jobs:
           check "$BASE/sports/ice-hockey.html"     "<h1>Ice Hockey</h1>"
           check "$BASE/sports/basketball.html"     "<h1>Basketball</h1>"
           check "$BASE/sports/rugby-league.html"   "<h1>Rugby League</h1>"
+          echo "--- debug: live vs committed"
+          for f in picks.html entries.html markets.html sports/ice-hockey.html; do
+            lc=$(curl -sS --max-time 30 "https://buffedlizard55-lab.github.io/OLBG4/session-ed4c358c/$f" | wc -c)
+            cc=$(wc -c < "session-ed4c358c/$f")
+            echo "$f live_bytes=$lc committed_bytes=$cc"
+            echo "::notice title=live compare::$f live=$lc committed=$cc"
+          done
           echo "---"
           if [ "$fail" -ne 0 ]; then echo "live read-back FAILED"; exit 1; fi
           echo "live read-back PASSED"
