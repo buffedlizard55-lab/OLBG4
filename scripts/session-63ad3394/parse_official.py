@@ -19,6 +19,7 @@ coverage page can show what was attempted rather than silently omitting them.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -77,20 +78,41 @@ def table(results) -> dict:
 
 
 class Ctx:
-    def __init__(self, cap: Path):
-        self.cap = cap
-        self.m = load_manifest(cap)
-        self.R = by_id(self.m)
-        self.stamp = cap.name
+    """Read-only view over every capture stamp, latest successful payload wins."""
+
+    def __init__(self, cap_dirs):
+        if isinstance(cap_dirs, (str, Path)):
+            cap_dirs = [cap_dirs]
+        self.dirs = sorted(Path(c) for c in cap_dirs)
+        self.index: dict[str, tuple[Path, dict]] = {}
+        self.stamps = []
+        for d in self.dirs:
+            man = load_manifest(d)
+            self.stamps.append({"capture": d.name, "targets": man.get("targets"), "ok": man.get("ok"),
+                                "started_utc": man.get("started_utc")})
+            for rec in man.get("records", []):
+                tid = rec.get("id")
+                if not tid:
+                    continue
+                prev = self.index.get(tid)
+                if prev is None or (rec.get("status") == 200 and prev[1].get("status") != 200):
+                    self.index[tid] = (d, rec)
+                elif rec.get("status") == 200:
+                    self.index[tid] = (d, rec)
+        self.stamp = "+".join(d.name for d in self.dirs)
         self.events: list[dict] = []
         self.unavailable: list[dict] = []
 
+    # -- payload access -------------------------------------------------
     def rec(self, tid):
-        return self.R.get(tid)
+        hit = self.index.get(tid)
+        return hit[1] if hit else None
 
     def raw(self, tid):
-        r = self.R.get(tid)
-        return read_capture(self.cap, r) if r and r.get("status") == 200 else None
+        hit = self.index.get(tid)
+        if not hit or hit[1].get("status") != 200:
+            return None
+        return read_capture(hit[0], hit[1])
 
     def json(self, tid):
         b = self.raw(tid)
@@ -101,14 +123,17 @@ class Ctx:
         return b.decode("utf-8", "replace") if b else None
 
     def meta(self, tid):
-        r = self.R[tid]
-        return {"source_url": r["url"], "source_sha256": r.get("sha256"), "capture": self.stamp}
+        hit = self.index.get(tid)
+        if not hit:
+            return {"source_url": None, "source_sha256": None, "capture": None}
+        d, r = hit
+        return {"source_url": r["url"], "source_sha256": r.get("sha256"), "capture": d.name}
 
     def add(self, **kw):
         self.events.append(kw)
 
     def missing(self, sport, tid, why):
-        r = self.R.get(tid) or {}
+        r = self.rec(tid) or {}
         self.unavailable.append({
             "sport": sport, "target": tid, "url": r.get("url"),
             "status": r.get("status"), "error": r.get("error"), "reason": why,
@@ -133,7 +158,7 @@ def parse_nhl(ctx: Ctx):
             "streak": s.get("streakCode"), "pct": s.get("pointPctg"),
         }
     seen = set()
-    for tid in sorted(t for t in ctx.R if t.startswith("nhl_sched_")):
+    for tid in sorted(t for t in ctx.index if t.startswith("nhl_sched_")):
         d = ctx.json(tid)
         if not d:
             continue
@@ -257,14 +282,20 @@ def parse_euroleague(ctx: Ctx):
             continue
         games = d.get("data", [])
         results = []
+        names = {}
         for g in games:
             if not g.get("played"):
                 continue
             local, road = g.get("local") or {}, g.get("road") or {}
             la, ra = local.get("score"), road.get("score")
-            if la is None or ra is None or not local.get("club") or not road.get("club"):
+            lc, rc = local.get("club") or {}, road.get("club") or {}
+            if la is None or ra is None or not lc or not rc:
                 continue
-            results.append((local["club"]["name"], road["club"]["name"], int(la), int(ra)))
+            # key on the club code, not the sponsored display name, so a club
+            # that appears under two spellings is still one team
+            names[lc.get("code")] = lc.get("name")
+            names[rc.get("code")] = rc.get("name")
+            results.append((lc.get("code"), rc.get("code"), int(la), int(ra)))
         tbl = table(results)
         for g in games:
             if g.get("played"):
@@ -273,11 +304,11 @@ def parse_euroleague(ctx: Ctx):
             if not within(start):
                 continue
             local, road = g.get("local") or {}, g.get("road") or {}
-            ln = (local.get("club") or {}).get("name")
-            rn = (road.get("club") or {}).get("name")
+            lc, rc = local.get("club") or {}, road.get("club") or {}
+            ln, rn = lc.get("name"), rc.get("name")
             if not ln or not rn:
                 continue
-            fa = dict(tbl.get(ln) or {}); fb = dict(tbl.get(rn) or {})
+            fa = dict(tbl.get(rc.get("code")) or {}); fb = dict(tbl.get(lc.get("code")) or {})
             if not fa or not fb:
                 continue
             fa["points_pg"], fa["allowed_pg"] = fa["pf_pg"], fa["pa_pg"]
@@ -324,7 +355,7 @@ def parse_rlwc(ctx: Ctx):
             continue
         home = next((t for t in g["teams"] if t.get("isHomeTeam")), g["teams"][0])
         away = next((t for t in g["teams"] if not t.get("isHomeTeam")), g["teams"][1])
-        fa, fb = tbl.get(home["teamName"]), tbl.get(away["teamName"])
+        fa, fb = tbl.get(away["teamName"]), tbl.get(home["teamName"])
         if not fa or not fb:
             continue
         ctx.add(
@@ -336,6 +367,7 @@ def parse_rlwc(ctx: Ctx):
             facts=[
                 f"{away['teamName']} ({away.get('teamNickName')}) {fa['w']}-{fa['l']} in {fa['n']} completed World Cup matches, {fa['pf_pg']} points scored and {fa['pa_pg']} conceded per game.",
                 f"{home['teamName']} ({home.get('teamNickName')}) {fb['w']}-{fb['l']} in {fb['n']} completed World Cup matches, {fb['pf_pg']} points scored and {fb['pa_pg']} conceded per game.",
+                f"{g.get('groupName')} fixture at {g.get('venueName')}, {g.get('city')}, kick-off {start}; the official feed lists the ground as {g.get('groundConditionName')} with {g.get('weatherName')}.",
             ],
             **ctx.meta("rlwc_api_fixtures"),
         )
@@ -376,7 +408,8 @@ def parse_wst(ctx: Ctx):
     for r in frames.values():
         r["win_pct"] = round(r["w"] / r["n"], 4) if r["n"] else 0.0
         r["margin"] = round((r["fw"] - r["fl"]) / r["n"], 3) if r["n"] else 0.0
-        r["pf_pg"], r["pa_pg"] = r["fw"], r["fl"]
+        r["pf_pg"] = round(r["fw"] / r["n"], 3)
+        r["pa_pg"] = round(r["fl"] / r["n"], 3)
     for a in rows:
         if a.get("status") not in ("Scheduled", "Suspended") or not a.get("playersAllocated"):
             continue
@@ -390,12 +423,12 @@ def parse_wst(ctx: Ctx):
         if not hn or not an or not fa or not fb:
             continue
         ctx.add(
-            id=f"wst-{a.get('name','')[:0] or hash(a.get('name'))%10**8}", sport="Snooker",
+            id="wst-" + hashlib.sha1(str(a.get("name")).encode()).hexdigest()[:8], sport="Snooker",
             competition="BetVictor Northern Ireland Open 2026",
             side_a=an, side_b=hn, start_utc=start, venue="Waterfront Hall, Belfast",
             form={"a": fa, "b": fb},
-            facts=[f"{hn} has won {fa['w']} of {fa['n']} completed matches in the captured WST feed ({fa['fw']}-{fa['fl']} frames).",
-                   f"{an} has won {fb['w']} of {fb['n']} completed matches in the captured WST feed ({fb['fw']}-{fb['fl']} frames).",
+            facts=[f"{an} has won {fa['w']} of {fa['n']} completed matches in the captured WST feed ({fa['fw']}-{fa['fl']} frames).",
+                   f"{hn} has won {fb['w']} of {fb['n']} completed matches in the captured WST feed ({fb['fw']}-{fb['fl']} frames).",
                    f"{a.get('round')} over {a.get('numberOfFrames')} frames, scheduled {start}."],
             **ctx.meta("wst_matches_probe"),
         )
@@ -456,13 +489,436 @@ def parse_wta(ctx: Ctx):
             )
 
 
-EXTRACTORS = [parse_nhl, parse_mlb, parse_euroleague, parse_rlwc, parse_wst, parse_wta]
+# --------------------------------------------------------------------------
+# Darts — PDC official fixture + result service
+# --------------------------------------------------------------------------
+def parse_pdc(ctx: Ctx):
+    d = ctx.json("pdc_fixtures_web")
+    if not d:
+        ctx.missing("Darts", "pdc_fixtures_web", "no payload")
+        return
+    rows = [x.get("attributes", {}) for x in d.get("data", [])]
+    legs: dict[str, dict] = {}
+    for r in rows:
+        if r.get("status") != "Result":
+            continue
+        p1, p2 = r.get("participant1") or {}, r.get("participant2") or {}
+        s1, s2 = r.get("participant1Score"), r.get("participant2Score")
+        if None in (s1, s2):
+            continue
+        for pl, own, opp in ((p1, s1, s2), (p2, s2, s1)):
+            nm = f"{pl.get('firstName')} {pl.get('lastName')}".strip() if pl else ""
+            if not nm:
+                continue
+            rec = legs.setdefault(nm, {"w": 0, "l": 0, "n": 0, "lw": 0, "ll": 0})
+            rec["n"] += 1; rec["lw"] += own; rec["ll"] += opp
+            rec["w" if own > opp else "l"] += 1
+    for rec in legs.values():
+        rec["win_pct"] = round(rec["w"] / rec["n"], 4) if rec["n"] else 0.0
+        rec["margin"] = round((rec["lw"] - rec["ll"]) / rec["n"], 3) if rec["n"] else 0.0
+        # per-match scoring rates, so `margin` stays pf_pg - pa_pg like every other sport
+        rec["pf_pg"] = round(rec["lw"] / rec["n"], 3)
+        rec["pa_pg"] = round(rec["ll"] / rec["n"], 3)
+    for r in rows:
+        if r.get("status") != "Fixture":
+            continue
+        p1, p2 = r.get("participant1") or {}, r.get("participant2") or {}
+        if not p1 or not p2:
+            continue
+        start = iso(f"{r.get('startDate')}T{r.get('startTime')}")
+        if not within(start):
+            continue
+        n1 = f"{p1.get('firstName')} {p1.get('lastName')}".strip()
+        n2 = f"{p2.get('firstName')} {p2.get('lastName')}".strip()
+        fa, fb = legs.get(n2), legs.get(n1)
+        if not fa or not fb:
+            continue
+        t = r.get("tournament") or {}
+        ctx.add(
+            id=f"pdc-{r.get('tournamentRoundID')}-{n1[:3]}{n2[:3]}".replace(" ", ""),
+            sport="Darts", competition=t.get("name") or "PDC",
+            side_a=n2, side_b=n1, start_utc=start,
+            venue=", ".join(x for x in (t.get("venue"), t.get("city")) if x) or None,
+            form={"a": fa, "b": fb},
+            facts=[f"{n2} has won {fa['w']} of {fa['n']} completed matches in the captured PDC feed, winning {fa['lw']} legs to {fa['ll']}.",
+                   f"{n1} has won {fb['w']} of {fb['n']} completed matches in the captured PDC feed, winning {fb['lw']} legs to {fb['ll']}.",
+                   f"{t.get('name')} at {t.get('venue')}, {r.get('startDate')} {r.get('startTime')}."],
+            **ctx.meta("pdc_fixtures_web"),
+        )
+
+
+# --------------------------------------------------------------------------
+# Golf — PGA TOUR official leaderboard (outright + top-10 markets)
+# --------------------------------------------------------------------------
+def parse_pga(ctx: Ctx):
+    for tid, label in (("pga_bermuda_lb", "Butterfield Bermuda Championship"),
+                       ("pga_bermuda", "Butterfield Bermuda Championship")):
+        b = ctx.raw(tid)
+        if not b:
+            continue
+        html = b.decode("utf-8", "replace")
+        m = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', html, re.S)
+        if not m:
+            continue
+        data = json.loads(m.group(1))
+        qs = data["props"]["pageProps"]["dehydratedState"]["queries"]
+        lb = None
+        for q in qs:
+            st = q.get("state", {}).get("data")
+            if isinstance(st, dict) and isinstance(st.get("players"), list):
+                lb = st
+                break
+        if not lb:
+            continue
+        players = []
+        for row in lb["players"]:
+            sd = row.get("scoringData") or {}
+            tot = sd.get("totalSort")
+            if tot is None:
+                continue
+            players.append({
+                "name": (row.get("player") or {}).get("displayName"),
+                "country": (row.get("player") or {}).get("country"),
+                "position": sd.get("position"), "total": tot,
+                "thru": sd.get("thru"), "round": sd.get("currentRound"),
+                "rounds": sd.get("rounds"),
+            })
+        if not players:
+            continue
+        st = lb.get("tournamentStatus") or {}
+        ctx.add(
+            id=f"golf-{lb.get('tournamentId')}", sport="Golf",
+            competition=f"PGA TOUR · {label}",
+            side_a=label, side_b="Field", start_utc=iso("2026-10-25T18:00:00Z"),
+            venue="Port Royal Golf Course, Southampton",
+            form=None, market_kind="outright",
+            outright={"market": "Outright winner", "field": players,
+                      "status": st if isinstance(st, str) else st.get("roundStatus"), "round_header": lb.get("leaderboardRoundHeader"),
+                      "event_end": "2026-10-25"},
+            facts=[f"{label} is in progress at Port Royal Golf Course; the board shows {len(players)} players after {lb.get('leaderboardRoundHeader')}.",
+                   f"Leader: {players[0]['name']} on {players[0]['total']} (position {players[0]['position']})."],
+            **ctx.meta(tid),
+        )
+        return
+    ctx.missing("Golf", "pga_bermuda_lb", "no embedded leaderboard")
+
+
+# --------------------------------------------------------------------------
+# Motor racing — Formula 1 official calendar + constructor standings
+# --------------------------------------------------------------------------
+def parse_f1(ctx: Ctx):
+    cal = ctx.html("f1_calendar_2026")
+    teams = ctx.html("f1_team_results")
+    races = ctx.html("f1_races_2026")
+    if not cal or not teams:
+        ctx.missing("Motor Racing", "f1_calendar_2026", "no payload")
+        return
+    t = strip_html(teams)
+    i = t.find("2026 Teams")
+    table = []
+    for m in re.finditer(r"(\d+)\s+(Mercedes|Ferrari|Red Bull Racing|McLaren|Aston Martin|Williams|Alpine|Racing Bulls|Haas F1 Team|Audi|Cadillac)\s+(\d+)", t[i:] if i > 0 else t):
+        table.append({"pos": int(m.group(1)), "team": m.group(2), "points": int(m.group(3))})
+    if not table:
+        ctx.missing("Motor Racing", "f1_team_results", "constructor table not parsed")
+        return
+    rc = strip_html(races) if races else ""
+    wins = {}
+    for m in re.finditer(r"(\d{2} - \d{2} [A-Z][a-z]{2})\s+([A-Z][A-Za-z\.\-\u00c0-\u017f' ]{3,40}?)\s+(Mercedes|Ferrari|Red Bull Racing|McLaren|Aston Martin|Williams|Alpine|Racing Bulls|Haas F1 Team|Audi|Cadillac)", rc):
+        wins[m.group(3)] = wins.get(m.group(3), 0) + 1
+    ctx.add(
+        id="f1-2026-united-states", sport="Motor Racing",
+        competition="FIA Formula One World Championship · United States Grand Prix",
+        side_a="United States Grand Prix", side_b="Race winner market",
+        start_utc=iso("2026-10-25T20:00:00Z"), venue="Circuit of the Americas, Austin",
+        form=None, market_kind="outright",
+        outright={"market": "Winning constructor", "table": table, "wins": wins,
+                  "event_end": "2026-10-25"},
+        facts=[f"Constructor standings read from formula1.com: " +
+               "; ".join(f"{r['team']} {r['points']}" for r in table) + ".",
+               f"Round 18 of the 2026 championship is the United States Grand Prix, 23-25 October, with the race on Sunday 25 October."],
+        **ctx.meta("f1_team_results"),
+    )
+
+
+# --------------------------------------------------------------------------
+# Rugby Union — TOP 14 official fixtures + standings (LNR) and URC fixture list
+# --------------------------------------------------------------------------
+def parse_top14(ctx: Ctx):
+    cal = ctx.html("top14_classement") or ctx.html("top14_cal")
+    if not cal:
+        ctx.missing("Rugby Union", "top14_classement", "no payload")
+        return
+    clubs, form = {}, {}
+    t = strip_html(cal)
+    i = t.find("Prochain match")
+    if i > 0:
+        seg = t[i:i + 4000]
+        names = re.findall(r"(?:^|\s)((?:Stade Toulousain|Section Paloise|Union Bordeaux-Bègles|Stade Rochelais|Racing 92|ASM Clermont|RC Toulon|Montpellier Hérault Rugby|Castres Olympique|Aviron Bayonnais|LOU Rugby|RC Vannes|USA Perpignan|Stade Français Paris))", seg)
+        for nm in names:
+            chunk = seg.split(nm, 1)[1][:120]
+            nums = re.findall(r"\b\d+\b", chunk)[:9]
+            fm = re.search(r"((?:[VDNP]\s+){3,})", chunk)
+            if len(nums) >= 9 and fm:
+                form[nm] = {"pts": int(nums[0]), "m": int(nums[1]), "w": int(nums[2]),
+                            "d": int(nums[3]), "l": int(nums[4]), "bonus": int(nums[5]),
+                            "pf": int(nums[6]), "pa": int(nums[7]),
+                            "diff": float(nums[8].replace("+", "")),
+                            "margin": round(float(nums[8].replace("+", "")) / max(1, int(nums[1])), 3),
+                            "form": fm.group(1).split(),
+                            "win_pct": round(int(nums[2]) / max(1, int(nums[1])), 4),
+                            "pf_pg": round(int(nums[6]) / max(1, int(nums[1])), 3),
+                            "pa_pg": round(int(nums[7]) / max(1, int(nums[1])), 3),
+                            "n": int(nums[1])}
+    m = re.search(r":matches='(\[.*?\])'", cal, re.S)
+    if m:
+        raw = m.group(1).replace("\\/", "/")
+        try:
+            matches = json.loads(raw)
+        except json.JSONDecodeError:
+            matches = []
+        for mt in matches:
+            h = (mt.get("hosting_club") or {}).get("name")
+            v = (mt.get("visiting_club") or {}).get("name")
+            start = iso(((mt.get("timer") or {}).get("firstPeriodStartDate") or ""))
+            if not h or not v or not within(start):
+                continue
+            fa, fb = form.get(v), form.get(h)
+            if not fa or not fb:
+                continue
+            ctx.add(
+                id=f"top14-{mt.get('id')}", sport="Rugby Union", competition="TOP 14 2026-27 · Round 7",
+                side_a=v, side_b=h, start_utc=start, venue=None,
+                form={"a": fa, "b": fb},
+                facts=[f"{h} has {fa['pts']} league points from {fa['m']} matches ({fa['w']}W-{fa['d']}D-{fa['l']}L), scoring {fa['pf']} and conceding {fa['pa']}.",
+                       f"{v} has {fb['pts']} league points from {fb['m']} matches ({fb['w']}W-{fb['d']}D-{fb['l']}L), scoring {fb['pf']} and conceding {fb['pa']}.",
+                       f"Round 7 fixture at {h}, kick-off {start}."],
+                **ctx.meta("top14_classement"),
+            )
+    else:
+        ctx.missing("Rugby Union", "top14_classement", "fixture JSON not found")
+
+
+def parse_urc(ctx: Ctx):
+    """URC Round 5 fixture list from the official 'Fixtures in Full' page (no table
+    was retrievable, so these rows are listed but deliberately left unpriced)."""
+    html = ctx.html("urc_fixtures_in_full")
+    if not html:
+        ctx.missing("Rugby Union", "urc_fixtures_in_full", "no payload")
+        return
+    t = strip_html(html)
+    cur_round = None
+    months = {"SEPTEMBER": 9, "OCTOBER": 10, "NOVEMBER": 11, "DECEMBER": 12}
+    for line in re.finditer(r"ROUND (\d+)|(?:FRIDAY|SATURDAY|SUNDAY), ([A-Z]+) (\d{1,2})|([A-Z][A-Za-z0-9'\- ]{2,30}) v ([A-Z][A-Za-z0-9'\- ]{2,30})([^A-Z]{0,80}?KO (\d{1,2})[.:](\d{2}))", t):
+        if line.group(1):
+            cur_round = int(line.group(1)); continue
+        if line.group(2):
+            continue
+        if cur_round != 5:
+            continue
+        a, b, ko = line.group(4).strip(), line.group(5).strip(), f"{line.group(7)}:{line.group(8)}"
+        ctx.add(
+            id=f"urc-r5-{re.sub(r'[^a-z0-9]+','-',(a+b).lower())[:40]}", sport="Rugby Union",
+            competition="United Rugby Championship 2026-27 · Round 5",
+            side_a=b, side_b=a, start_utc=None, venue=None, form=None,
+            facts=[f"Round 5 fixture {a} v {b}, kick-off {ko} Irish/UK time, listed on the URC official fixtures page."],
+            **ctx.meta("urc_fixtures_in_full"),
+        )
+
+
+# --------------------------------------------------------------------------
+# Cricket — Cricket Australia official fixture feed
+# --------------------------------------------------------------------------
+def parse_ca(ctx: Ctx):
+    html = ctx.html("ca_fixtures")
+    if not html:
+        ctx.missing("Cricket", "ca_fixtures", "no payload")
+        return
+    m = re.search(r"window\.FIXTURES_DATA = JSON\.parse\('(.*?)'\);", html, re.S)
+    if not m:
+        ctx.missing("Cricket", "ca_fixtures", "FIXTURES_DATA missing")
+        return
+    raw = m.group(1).encode().decode("unicode_escape")
+    try:
+        fixtures = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        ctx.missing("Cricket", "ca_fixtures", f"FIXTURES_DATA unparsable: {exc}")
+        return
+    results: dict[tuple, dict] = {}
+    for f in fixtures:
+        parts = f.get("name", "").split(" v ")
+        if len(parts) != 2:
+            continue
+        key = (f.get("gameType"), parts[0], parts[1])
+        r = results.setdefault(key, {"w": 0, "l": 0, "n": 0})
+        if f.get("isCompleted") and f.get("resultText"):
+            r["n"] += 1
+            if parts[0] in f["resultText"]:
+                r["w"] += 1
+            elif parts[1] in f["resultText"]:
+                r["l"] += 1
+    for r in results.values():
+        if r["n"]:
+            r["win_pct"] = round(r["w"] / r["n"], 4)
+            r["margin"] = 0.0
+    for f in fixtures:
+        if f.get("isCompleted") or f.get("isLive"):
+            continue
+        start = iso(f.get("startDateTime"))
+        if not within(start):
+            continue
+        parts = f.get("name", "").split(" v ")
+        if len(parts) != 2:
+            continue
+        a, b = parts[0].strip(), parts[1].strip()
+        fa, fb = results.get((f.get("gameType"), a, b)), results.get((f.get("gameType"), b, a))
+        # Win rates are stored per ordered pair; swap where needed.
+        fa = fa or {"w": results.get((f.get("gameType"), a, b), {}).get("l", 0), "l": results.get((f.get("gameType"), a, b), {}).get("w", 0), "n": results.get((f.get("gameType"), a, b), {}).get("n", 0)}
+        fb = fb or {"w": results.get((f.get("gameType"), a, b), {}).get("l", 0), "l": results.get((f.get("gameType"), a, b), {}).get("w", 0), "n": results.get((f.get("gameType"), a, b), {}).get("n", 0)}
+        for d in (fa, fb):
+            d["win_pct"] = round(d["w"] / d["n"], 4) if d.get("n") else None
+            d.setdefault("margin", 0.0)
+        ctx.add(
+            id=f"ca-{f.get('id')}", sport="Cricket",
+            competition=f"{f.get('gameType')} · Cricket Australia",
+            side_a=b, side_b=a, start_utc=start, venue=f.get("venue") or None,
+            form={"a": fa, "b": fb} if fa.get("n") and fb.get("n") else None,
+            facts=[f"{a} v {b}, {f.get('gameType')}, scheduled {start}.",
+                   f"{f.get('resultText') or 'Match not yet played.'}"],
+            **ctx.meta("ca_fixtures"),
+        )
+
+
+# --------------------------------------------------------------------------
+# Gaelic games — GAA official fixtures and results payload
+# --------------------------------------------------------------------------
+def _brace_objects(s: str, key: str):
+    out = []
+    for m in re.finditer(re.escape(f'"{key}":"'), s):
+        start = s.rfind("{", 0, m.start())
+        depth, j, in_s, esc = 0, start, False, False
+        while j < len(s):
+            c = s[j]
+            if in_s:
+                if esc: esc = False
+                elif c == "\\": esc = True
+                elif c == '"': in_s = False
+            elif c == '"': in_s = True
+            elif c == "{": depth += 1
+            elif c == "}":
+                depth -= 1
+                if depth == 0:
+                    out.append(s[start:j + 1]); break
+            j += 1
+    return out
+
+
+def parse_gaa(ctx: Ctx):
+    html = ctx.html("gaa_fixtures_results")
+    if not html:
+        ctx.missing("Gaelic Sports", "gaa_fixtures_results", "no payload")
+        return
+    s = html.replace('\\"', '"').replace('\\/', '/')
+    seen, completed = set(), []
+    games = []
+    for obj in _brace_objects(s, "matchId"):
+        if obj in seen:
+            continue
+        seen.add(obj)
+        try:
+            g = json.loads(obj)
+        except json.JSONDecodeError:
+            continue
+        home = (g.get("homeTeam") or {}).get("name")
+        away = (g.get("awayTeam") or {}).get("name")
+        if not home or not away:
+            continue
+        sc = g.get("score") or {}
+        hg, ag = sc.get("homeGoals", 0), sc.get("awayGoals", 0)
+        hp, ap = sc.get("homePoints", 0), sc.get("awayPoints", 0)
+        hs, as_ = hg * 3 + hp, ag * 3 + ap
+        comp = g.get("url", "").strip("/").split("/")
+        competition = comp[1].replace("-", " ").title() if len(comp) > 1 else "GAA"
+        games.append({"id": g["matchId"], "home": home, "away": away, "start": iso(g.get("matchStartDate")),
+                      "status": g.get("status"), "hs": hs, "as": as_, "competition": competition,
+                      "round": g.get("roundName")})
+        if (g.get("status") or "").lower() in ("completed", "result", "played") and (hs or as_):
+            completed.append((g["matchId"], home, away, hs, as_))
+    tbl = table([(h, a, hs, as_) for _, h, a, hs, as_ in completed])
+    for g in games:
+        if not within(g["start"]) or (g["status"] or "").lower() in ("completed", "result", "played"):
+            continue
+        fa, fb = tbl.get(g["away"]), tbl.get(g["home"])
+        ctx.add(
+            id=f"gaa-{g['id'][:12]}", sport="Gaelic Sports",
+            competition=f"GAA · {g['competition']}",
+            side_a=g["away"], side_b=g["home"], start_utc=g["start"], venue=None,
+            form={"a": fa, "b": fb} if fa and fb else None,
+            facts=[f"{g['home']} v {g['away']} in the {g['competition']} ({g.get('round') or 'fixture'}), scheduled {g['start']}."],
+            **ctx.meta("gaa_fixtures_results"),
+        )
+
+
+# --------------------------------------------------------------------------
+# Volleyball — PlusLiga (Poland) official match centre HTML
+# --------------------------------------------------------------------------
+def parse_plusliga(ctx: Ctx):
+    html = ctx.html("plusliga_games_root")
+    if not html:
+        ctx.missing("Volleyball", "plusliga_games_root", "no payload")
+        return
+    blocks = re.split(r'<div class="gamesbox(?!-body)', html)
+    rows = []
+    for b in blocks[1:]:
+        dm = re.search(r'<div class="date">([^<]+)</div>', b)
+        names = re.findall(r'<div class="name notranslate">([^<]+)</div>', b)
+        sets = re.findall(r'data-synced-games-content="setsTeam([AB])"[^>]*>([^<]*)<', b)
+        if not dm or len(names) < 2:
+            continue
+        rows.append({"date": dm.group(1).strip(), "a": names[0].strip(), "b": names[1].strip(),
+                     "sets": {k: v for k, v in sets}})
+    mon = {"sty": 1, "lut": 2, "mar": 3, "kwi": 4, "maj": 5, "cze": 6, "lip": 7, "sie": 8,
+           "wrz": 9, "paź": 10, "lis": 11, "gru": 12}
+    results = []
+    fixtures = []
+    for r in rows:
+        m = re.search(r"(\d{1,2}) (\w{3}), (\d{2}):(\d{2})", r["date"])
+        if not m:
+            continue
+        mo = mon.get(m.group(2))
+        if not mo:
+            continue
+        start = iso(f"2026-{mo:02d}-{int(m.group(1)):02d}T{m.group(3)}:{m.group(4)}:00Z")
+        sa, sb = r["sets"].get("A", ""), r["sets"].get("B", "")
+        if sa.isdigit() and sb.isdigit() and (int(sa) + int(sb)) >= 3:
+            results.append((r["a"], r["b"], int(sa), int(sb)))
+        else:
+            fixtures.append((start, r["a"], r["b"]))
+    tbl = table(results)
+    for start, a, b in fixtures:
+        if not within(start):
+            continue
+        fa, fb = tbl.get(b), tbl.get(a)
+        ctx.add(
+            id=f"plusliga-{re.sub(r'[^a-z0-9]+','-',(a+'|'+b).lower())[:40]}-{start[:10]}",
+            sport="Volleyball", competition="PlusLiga 2026-27 (Poland)",
+            side_a=b, side_b=a, start_utc=start, venue=None,
+            form={"a": fa, "b": fb} if fa and fb else None,
+            facts=[f"{a} v {b}, PlusLiga, scheduled {start}.",
+                   f"Standings form is read from completed PlusLiga sets in the same official feed."],
+            **ctx.meta("plusliga_games_root"),
+        )
+    if not fixtures:
+        ctx.missing("Volleyball", "plusliga_games_root", "no parseable upcoming fixture rows")
+
+
+EXTRACTORS = [parse_nhl, parse_mlb, parse_euroleague, parse_rlwc, parse_wst, parse_wta,
+              parse_pdc, parse_pga, parse_f1, parse_top14, parse_urc, parse_ca, parse_gaa, parse_plusliga]
 
 
 def main() -> int:
-    cap = Path(sys.argv[1])
+    caps = [Path(p) for p in sys.argv[1].split(",")]
     out = Path(sys.argv[2])
-    ctx = Ctx(cap)
+    ctx = Ctx(caps)
     for fn in EXTRACTORS:
         try:
             fn(ctx)
@@ -471,9 +927,19 @@ def main() -> int:
             print(f"!! {fn.__name__} failed: {exc}")
             traceback.print_exc()
             ctx.unavailable.append({"sport": fn.__name__, "reason": f"extractor error: {exc}"})
+    # Normalise the one derived field every sport exposes: `margin` must equal the
+    # scoring rate minus the conceding rate, whichever table the row came from.
+    for ev in ctx.events:
+        form = ev.get("form") or {}
+        for side in ("a", "b"):
+            f = form.get(side) or {}
+            if f.get("pf_pg") is not None and f.get("pa_pg") is not None:
+                f["margin"] = round(f["pf_pg"] - f["pa_pg"], 3)
+
     payload = {
         "schema": "olbg4.board-ak.events/1",
         "session": "arena/63ad3394-olbg4",
+        "captures": ctx.stamps,
         "capture": ctx.stamp,
         "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "window": {"from": TODAY, "to": HORIZON},

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Picks · OLBG4 Board AK</title><style>
+:root{--bg:#0b1220;--panel:#121b2d;--panel2:#182339;--line:#26344d;--ink:#e8eefc;
+--muted:#9aabc7;--accent:#4ade80;--accent2:#60a5fa;--warn:#fbbf24;--bad:#f87171;
+--high:#22c55e;--med:#eab308;--low:#94a3b8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,
+"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+.brand{display:flex;gap:14px;align-items:baseline;padding:12px 0 4px;flex-wrap:wrap}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--muted);font-size:12.5px}
+nav{display:flex;gap:4px;flex-wrap:wrap;padding:4px 0 10px}
+nav a{padding:5px 10px;border-radius:999px;color:var(--muted);font-size:13px;border:1px solid transparent}
+nav a:hover{background:var(--panel2);color:var(--ink);text-decoration:none}
+nav a.on{background:var(--panel2);border-color:var(--line);color:var(--ink)}
+main{padding:22px 0 60px}
+h1{font-size:26px;margin:6px 0 6px}h2{font-size:19px;margin:28px 0 10px}
+h3{font-size:15.5px;margin:18px 0 8px;color:var(--ink)}
+p{color:#cfdcf2;max-width:78ch}
+.lede{color:var(--muted);font-size:14px;max-width:88ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0 6px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font-size:24px;line-height:1.1}
+.kpi span{color:var(--muted);font-size:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card h3{margin:0 0 6px}.card p{margin:0;color:var(--muted);font-size:13px}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);
+border-radius:12px;overflow:hidden;font-size:13.5px;margin:8px 0 4px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--panel2);color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.03em;
+text-transform:uppercase;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#16213a}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11.5px;font-weight:600;
+border:1px solid var(--line);white-space:nowrap}
+.High{background:rgba(34,197,94,.14);color:var(--high);border-color:rgba(34,197,94,.4)}
+.Medium{background:rgba(234,179,8,.13);color:var(--med);border-color:rgba(234,179,8,.35)}
+.Low{background:rgba(148,163,184,.13);color:var(--low)}
+.ok{color:var(--high)}.flag{color:var(--warn)}.fail{color:var(--bad)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent2);
+border-radius:8px;padding:10px 14px;color:#cfdcf2;font-size:13.5px;margin:12px 0}
+.note.warn{border-left-color:var(--warn)}.note.bad{border-left-color:var(--bad)}
+.pick{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+.pick header{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.pick .who{font-weight:650}
+.pick .meta{color:var(--muted);font-size:12.5px}
+.pick p{margin:8px 0 6px;color:#dbe6fb}
+.pick .facts{color:var(--muted);font-size:12.5px;margin:0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+input[type=search],select{background:var(--panel);border:1px solid var(--line);color:var(--ink);
+border-radius:8px;padding:7px 10px;font-size:13.5px}
+.scroll{max-height:70vh;overflow:auto;border-radius:12px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;padding:18px 0 40px}
+.small{font-size:12.5px;color:var(--muted)}
+code{background:#0e1728;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:12px}
+</style></head>
+<body><header class="top"><div class="wrap">
+<div class="brand"><b>OLBG4 · Board AK</b>
+<span>15-sport betting desk · lines originated from official feeds · 2026-10-23 19:45:45 UTC</span></div>
+<nav><a href="../index.html">All boards</a><a href="index.html">Summary</a><a href="picks.html" class="on">Picks</a><a href="markets.html">Markets</a><a href="entries.html">Fixtures</a><a href="coverage.html">Coverage</a><a href="review.html">Review</a><a href="flagged.html">Flagged</a><a href="sources.html">Sources</a><a href="methodology.html">Method</a><a href="verification.html">Checks</a></nav>
+</div></header><main><div class="wrap">
+<h1>Published picks</h1>
+<p class="lede">22 picks across 8 sports.
+One pick per fixture: a three-game series is previewed once, not three times. Each write-up names the
+side, quotes form figures that appear on the linked official page, and states the market and the
+price. The words "model" and "verified" are not used anywhere in them.</p>
+<div class="toolbar"><select id="f"><option value="">All sports</option>
+<option>Baseball</option><option>Basketball</option><option>Darts</option><option>Golf</option><option>Ice Hockey</option><option>Motor Racing</option><option>Rugby Union</option><option>Snooker</option></select>
+<span class="small">Shortest write-up 53 words · worst three-word overlap between
+any two write-ups 0.050 (Jaccard)</span></div>
+<article class="pick" data-sport="Golf">
+<header><span class="tag Medium">Medium</span>
+<span class="who">Kensei Hirata</span>
+<span class="meta">Golf · PGA TOUR · Butterfield Bermuda Championship · Butterfield Bermuda Championship @ Field ·
+2026-10-25 18:00:00 UTC</span></header>
+<p>Kensei Hirata is tied for the lead at 13 under through two rounds at Port Royal, having opened with 65 and 64 for 129 strokes. The top-ten line currently sits at 11 under, so he is two strokes inside it with 36 holes to play, and only one player in the field has gone lower than his 64. Take Kensei Hirata for a top ten at -495.</p>
+<p class="facts"><b>Top 10 finish</b> · fair price -495 ·
+fair probability 83.2% · inside the
+−250…+10,000 window · 67 words · official source <a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/leaderboard" rel="noopener">www.pgatour.com</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Butterfield Bermuda Championship is in progress at Port Royal Golf Course; the board shows 120 players after R2.</li><li>Leader: Kensei Hirata on -13 (position T1).</li></ul></details>
+</article><article class="pick" data-sport="Rugby Union">
+<header><span class="tag High">High</span>
+<span class="who">Section Paloise (away)</span>
+<span class="meta">Rugby Union · TOP 14 2026-27 · Round 7 · Section Paloise @ RC Toulon ·
+2026-10-24 19:00:00 UTC</span></header>
+<p>Section Paloise are second on 22 points after six rounds, five wins and one defeat, with 239 points scored and 181 conceded. RC Toulon sit on 12 points from 2-4, having scored 130 and conceded 130, so their points difference is level while Pau&#x27;s is plus 58. Pau have won five of six and travel with the better pack, so Section Paloise at -266 is the bet.</p>
+<p class="facts"><b>Match winner</b> · fair price -266 ·
+fair probability 72.6% · outside the
+−250…+10,000 window · 67 words · official source <a href="https://top14.lnr.fr/classement" rel="noopener">top14.lnr.fr</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>RC Toulon has 22 league points from 6 matches (5W-0D-1L), scoring 239 and conceding 181.</li><li>Section Paloise has 12 league points from 6 matches (2W-0D-4L), scoring 130 and conceding 130.</li><li>Round 7 fixture at RC Toulon, kick-off 2026-10-24T19:00:00Z.</li></ul></details>
+</article><article class="pick" data-sport="Rugby Union">
+<header><span class="tag High">High</span>
+<span class="who">Stade Toulousain (home)</span>
+<span class="meta">Rugby Union · TOP 14 2026-27 · Round 7 · USA Perpignan @ Stade Toulousain ·
+2026-10-24 14:35:00 UTC</span></header>
+<p>Stade Toulousain lead the TOP 14 on 24 points, five wins from six, with 197 points scored and 124 conceded, the best defensive record in the top half. USA Perpignan are 3-3 on 13 points with 166 scored and 199 conceded, 33 points in the red. Toulouse have lost once all season and none of Perpignan&#x27;s wins came against a side this high: Stade Toulousain at -243.</p>
+<p class="facts"><b>Match winner</b> · fair price -243 ·
+fair probability 70.8% · inside the
+−250…+10,000 window · 67 words · official source <a href="https://top14.lnr.fr/classement" rel="noopener">top14.lnr.fr</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Stade Toulousain has 13 league points from 6 matches (3W-0D-3L), scoring 166 and conceding 199.</li><li>USA Perpignan has 24 league points from 6 matches (5W-0D-1L), scoring 197 and conceding 124.</li><li>Round 7 fixture at Stade Toulousain, kick-off 2026-10-24T14:35:00Z.</li></ul></details>
+</article><article class="pick" data-sport="Rugby Union">
+<header><span class="tag Medium">Medium</span>
+<span class="who">Aviron Bayonnais (home)</span>
+<span class="meta">Rugby Union · TOP 14 2026-27 · Round 7 · LOU Rugby @ Aviron Bayonnais ·
+2026-10-24 14:35:00 UTC</span></header>
+<p>Aviron Bayonnais are 4-2 on 17 points, with 190 points scored and 214 conceded, and they return home after a win. LOU Rugby are 3-3 on 14 points, 193 scored and 202 conceded, and they have alternated wins and defeats through six rounds. Bayonne&#x27;s home form and the three extra league points make them the call: Aviron Bayonnais at -166.</p>
+<p class="facts"><b>Match winner</b> · fair price -166 ·
+fair probability 62.4% · inside the
+−250…+10,000 window · 60 words · official source <a href="https://top14.lnr.fr/classement" rel="noopener">top14.lnr.fr</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Aviron Bayonnais has 14 league points from 6 matches (3W-0D-3L), scoring 193 and conceding 202.</li><li>LOU Rugby has 17 league points from 6 matches (4W-0D-2L), scoring 190 and conceding 214.</li><li>Round 7 fixture at Aviron Bayonnais, kick-off 2026-10-24T14:35:00Z.</li></ul></details>
+</article><article class="pick" data-sport="Rugby Union">
+<header><span class="tag Medium">Medium</span>
+<span class="who">ASM Clermont (away)</span>
+<span class="meta">Rugby Union · TOP 14 2026-27 · Round 7 · ASM Clermont @ RC Vannes ·
+2026-10-24 12:30:00 UTC</span></header>
+<p>RC Vannes are bottom of the TOP 14 with a single point from six defeats, 117 points scored and 176 conceded. ASM Clermont are 2-4 on 11 points with 140 scored and 169 conceded, and they have faced the harder half of the draw. A winless home side against a team with a stronger set piece is a clear spot, so ASM Clermont at -163 is the selection.</p>
+<p class="facts"><b>Match winner</b> · fair price -163 ·
+fair probability 62.0% · inside the
+−250…+10,000 window · 68 words · official source <a href="https://top14.lnr.fr/classement" rel="noopener">top14.lnr.fr</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>RC Vannes has 11 league points from 6 matches (2W-0D-4L), scoring 140 and conceding 169.</li><li>ASM Clermont has 1 league points from 6 matches (0W-0D-6L), scoring 117 and conceding 176.</li><li>Round 7 fixture at RC Vannes, kick-off 2026-10-24T12:30:00Z.</li></ul></details>
+</article><article class="pick" data-sport="Rugby Union">
+<header><span class="tag Low">Low</span>
+<span class="who">Montpellier Hérault Rugby (away)</span>
+<span class="meta">Rugby Union · TOP 14 2026-27 · Round 7 · Montpellier Hérault Rugby @ Racing 92 ·
+2026-10-24 14:35:00 UTC</span></header>
+<p>Montpellier have scored 163 points and conceded 122 in six rounds, a plus 6.8 margin a game, while Racing 92 are 2-4 having conceded 196 and scored 143. Racing have lost four of six and their defence has been the weaker of the two all season. Montpellier travel with the better points difference, so Montpellier Herault Rugby at -120.</p>
+<p class="facts"><b>Match winner</b> · fair price -120 ·
+fair probability 54.5% · inside the
+−250…+10,000 window · 59 words · official source <a href="https://top14.lnr.fr/classement" rel="noopener">top14.lnr.fr</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Racing 92 has 14 league points from 6 matches (3W-0D-3L), scoring 163 and conceding 122.</li><li>Montpellier Hérault Rugby has 10 league points from 6 matches (2W-0D-4L), scoring 143 and conceding 196.</li><li>Round 7 fixture at Racing 92, kick-off 2026-10-24T14:35:00Z.</li></ul></details>
+</article><article class="pick" data-sport="Snooker">
+<header><span class="tag Low">Low</span>
+<span class="who">Sam Craigie (away)</span>
+<span class="meta">Snooker · BetVictor Northern Ireland Open 2026 · Sam Craigie @ Kyren Wilson ·
+2026-10-24 12:00:00 UTC</span></header>
+<p>Sam Craigie has won all three of his matches in Belfast and holds a 14-7 frame record, a plus 2.33 frame margin a match. Kyren Wilson has won two from two with 10 frames to 4, but has played one fewer match and against weaker opposition. Craigie has played the longer route through the draw and has the sharper scoring, so Sam Craigie at -109 is the value.</p>
+<p class="facts"><b>Match winner</b> · fair price -109 ·
+fair probability 52.2% · inside the
+−250…+10,000 window · 68 words · official source <a href="https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=100" rel="noopener">matches.snooker.web.gc.wstservices.co.uk</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Sam Craigie has won 3 of 3 completed matches in the captured WST feed (14-7 frames).</li><li>Kyren Wilson has won 2 of 2 completed matches in the captured WST feed (10-4 frames).</li><li>Semi Finals over 11 frames, scheduled 2026-10-24T12:00:00Z.</li></ul></details>
+</article><article class="pick" data-sport="Darts">
+<header><span class="tag Medium">Medium</span>
+<span class="who">Stephen Bunting (home)</span>
+<span class="meta">Darts · 2026 European Championship · Kim Huybrechts @ Stephen Bunting ·
+2026-10-24 12:15:00 UTC</span></header>
+<p>Stephen Bunting has won four of five completed matches in Dortmund, taking 28 legs to 18, while Kim Huybrechts has won one of two with 11 legs to 7. Bunting&#x27;s scoring has been the more consistent across the event and he has already come through a deciding-leg match. Over a long format that consistency matters, so Stephen Bunting to win at -151.</p>
+<p class="facts"><b>Match winner</b> · fair price -151 ·
+fair probability 60.1% · inside the
+−250…+10,000 window · 62 words · official source <a href="https://fixtures.darts.web.gc.pdcservices.co.uk/v2/?page.size=100" rel="noopener">fixtures.darts.web.gc.pdcservices.co.uk</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Kim Huybrechts has won 1 of 2 completed matches in the captured PDC feed, winning 11 legs to 7.</li><li>Stephen Bunting has won 4 of 5 completed matches in the captured PDC feed, winning 28 legs to 18.</li><li>2026 European Championship at Westfalenhalle, Dortmund, 2026-10-24 12:15:00.</li></ul></details>
+</article><article class="pick" data-sport="Darts">
+<header><span class="tag Low">Low</span>
+<span class="who">Damon Heta (away)</span>
+<span class="meta">Darts · 2026 European Championship · Damon Heta @ Ross Smith ·
+2026-10-24 13:15:00 UTC</span></header>
+<p>Damon Heta has won four of five matches at the European Championship and leads the leg count 27 to 20, a plus 1.4 margin a match. Ross Smith has won two of three, 16 legs to 12, but has played fewer completed matches and a lighter draw. Heta&#x27;s heavier scoring and greater number of completed matches make him the call: Damon Heta at -128.</p>
+<p class="facts"><b>Match winner</b> · fair price -128 ·
+fair probability 56.1% · inside the
+−250…+10,000 window · 64 words · official source <a href="https://fixtures.darts.web.gc.pdcservices.co.uk/v2/?page.size=100" rel="noopener">fixtures.darts.web.gc.pdcservices.co.uk</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Damon Heta has won 4 of 5 completed matches in the captured PDC feed, winning 27 legs to 20.</li><li>Ross Smith has won 2 of 3 completed matches in the captured PDC feed, winning 16 legs to 12.</li><li>2026 European Championship at Westfalenhalle, Dortmund, 2026-10-24 13:15:00.</li></ul></details>
+</article><article class="pick" data-sport="Darts">
+<header><span class="tag Low">Low</span>
+<span class="who">Wessel Nijman (home)</span>
+<span class="meta">Darts · 2026 European Championship · Martin Schindler @ Wessel Nijman ·
+2026-10-23 19:55:00 UTC</span></header>
+<p>Wessel Nijman has won two of three completed matches in Dortmund, taking 17 legs to 12, a plus 1.67 margin a match. Martin Schindler has won one of two and is level on legs at 10 apiece, so his scoring has not separated him from his opponents. Nijman has the stronger leg difference and the better recent record, so Wessel Nijman at -124 is the selection.</p>
+<p class="facts"><b>Match winner</b> · fair price -124 ·
+fair probability 55.4% · inside the
+−250…+10,000 window · 66 words · official source <a href="https://fixtures.darts.web.gc.pdcservices.co.uk/v2/?page.size=100" rel="noopener">fixtures.darts.web.gc.pdcservices.co.uk</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Martin Schindler has won 1 of 2 completed matches in the captured PDC feed, winning 10 legs to 10.</li><li>Wessel Nijman has won 2 of 3 completed matches in the captured PDC feed, winning 17 legs to 12.</li><li>2026 European Championship at Westfalenhalle, Dortmund, 2026-10-23 19:55:00.</li></ul></details>
+</article><article class="pick" data-sport="Baseball">
+<header><span class="tag Low">Low</span>
+<span class="who">Brewers (home)</span>
+<span class="meta">Baseball · MLB 2026 World Series · Rays @ Brewers ·
+2026-10-24 00:00:00 UTC</span></header>
+<p>Milwaukee won 103 games to Tampa Bay&#x27;s 98 and out-scored them across the season, 5.14 runs a game to 4.54, while conceding 3.82 against 4.01. The Brewers closed the regular season on a five-game winning streak and the Rays lost their last game. American Family Field opens the series, so Brewers at -128 is the pick.</p>
+<p class="facts"><b>Money line</b> · fair price -128 ·
+fair probability 56.0% · inside the
+−250…+10,000 window · 56 words · official source <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-22&amp;endDate=2026-11-05&amp;hydrate=probablePitcher(note),team,venue,linescore" rel="noopener">statsapi.mlb.com</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Rays finished the regular season 98-64 (RS 736, RA 650).</li><li>Brewers finished the regular season 103-59 (RS 832, RA 618).</li><li>Probable starters: Tampa Bay Rays Nick Martinez vs Milwaukee Brewers Jacob Misiorowski.</li></ul></details>
+</article><article class="pick" data-sport="Motor Racing">
+<header><span class="tag Low">Low</span>
+<span class="who">Mercedes (constructor of race winner)</span>
+<span class="meta">Motor Racing · FIA Formula One World Championship · United States Grand Prix · United States Grand Prix @ Race winner market ·
+2026-10-25 20:00:00 UTC</span></header>
+<p>Mercedes lead the 2026 constructors&#x27; championship on 578 points, with Ferrari on 444 and McLaren on 339 after seventeen rounds. Round 18 is the United States Grand Prix at the Circuit of the Americas over 56 laps on 25 October, and in first practice George Russell was fourth and Kimi Antonelli fifth behind Charles Leclerc&#x27;s 1:36.052. Mercedes to supply the race winner at +234.</p>
+<p class="facts"><b>Winning constructor</b> · fair price +234 ·
+fair probability 29.9% · inside the
+−250…+10,000 window · 64 words · official source <a href="https://www.formula1.com/en/results/2026/team" rel="noopener">www.formula1.com</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Constructor standings read from formula1.com: Mercedes 578; Ferrari 444; McLaren 339; Red Bull Racing 332; Racing Bulls 100; Alpine 68; Haas F1 Team 30; Audi 23; Williams 12; Aston Martin 7; Cadillac 0.</li><li>Round 18 of the 2026 championship is the United States Grand Prix, 23-25 October, with the race on Sunday 25 October.</li></ul></details>
+</article><article class="pick" data-sport="Ice Hockey">
+<header><span class="tag High">High</span>
+<span class="who">Edmonton Oilers (home)</span>
+<span class="meta">Ice Hockey · NHL 2026-27 regular season · Calgary Flames @ Edmonton Oilers ·
+2026-10-29 00:30:00 UTC</span></header>
+<p>Edmonton are 8-1 through ten games for 17 points, scoring 4.7 goals a night and conceding 3.2, a margin of plus 1.5 that no Calgary side has come near. The Flames are 3-6 with six points, scoring 2.1 and conceding 4.2, and they arrive at Rogers Place having lost six of their nine games. Back Edmonton Oilers at -272.</p>
+<p class="facts"><b>Money line</b> · fair price -272 ·
+fair probability 73.1% · outside the
+−250…+10,000 window · 59 words · official source <a href="https://api-web.nhle.com/v1/schedule/2026-10-23" rel="noopener">api-web.nhle.com</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>CGY 3-6-0 in 9 games, 6 points, 19 goals for and 38 against.</li><li>EDM 8-1-1 in 10 games, 17 points, 47 goals for and 32 against.</li></ul></details>
+</article><article class="pick" data-sport="Ice Hockey">
+<header><span class="tag High">High</span>
+<span class="who">Boston Bruins (home)</span>
+<span class="meta">Ice Hockey · NHL 2026-27 regular season · Chicago Blackhawks @ Boston Bruins ·
+2026-10-31 17:00:00 UTC</span></header>
+<p>Boston are 8-2 through eleven games and concede only 2.0 goals a night, the tightest defence in this slate, while scoring 3.8. Chicago are 3-6 with six points, shipping 4.0 a game and scoring 2.3, and they travel to TD Garden on a losing run. The Bruins have 17 points to Chicago&#x27;s six: Boston Bruins at -249.</p>
+<p class="facts"><b>Money line</b> · fair price -249 ·
+fair probability 71.4% · inside the
+−250…+10,000 window · 57 words · official source <a href="https://api-web.nhle.com/v1/schedule/2026-10-25" rel="noopener">api-web.nhle.com</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>CHI 3-6-0 in 9 games, 6 points, 21 goals for and 36 against.</li><li>BOS 8-2-1 in 11 games, 17 points, 42 goals for and 22 against.</li></ul></details>
+</article><article class="pick" data-sport="Ice Hockey">
+<header><span class="tag Medium">Medium</span>
+<span class="who">Carolina Hurricanes (home)</span>
+<span class="meta">Ice Hockey · NHL 2026-27 regular season · Columbus Blue Jackets @ Carolina Hurricanes ·
+2026-10-29 23:00:00 UTC</span></header>
+<p>Carolina&#x27;s 8-2 start rests on 3.9 goals scored and 2.75 conceded per game, with 18 points from twelve outings. Columbus are 3-5 on six points, scoring 2.5 and conceding 3.6, and they head to the Lenovo Center after a defeat. The home side has the deeper scoring and the better goal difference, so take Carolina Hurricanes at -217.</p>
+<p class="facts"><b>Money line</b> · fair price -217 ·
+fair probability 68.4% · inside the
+−250…+10,000 window · 58 words · official source <a href="https://api-web.nhle.com/v1/schedule/2026-10-23" rel="noopener">api-web.nhle.com</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>CBJ 3-5-0 in 8 games, 6 points, 20 goals for and 29 against.</li><li>CAR 8-2-2 in 12 games, 18 points, 47 goals for and 33 against.</li></ul></details>
+</article><article class="pick" data-sport="Ice Hockey">
+<header><span class="tag Medium">Medium</span>
+<span class="who">San Jose Sharks (home)</span>
+<span class="meta">Ice Hockey · NHL 2026-27 regular season · Vancouver Canucks @ San Jose Sharks ·
+2026-10-30 02:00:00 UTC</span></header>
+<p>Vancouver&#x27;s 2-9 record is the worst in this slate: five points from twelve games, 2.9 goals scored and 4.7 conceded, and a run of defeats behind them. San Jose are 6-4 with 13 points, scoring 3.0 and conceding 3.4, and they won their most recent outing. Against a Canucks side leaking almost five a night, San Jose Sharks at -213.</p>
+<p class="facts"><b>Money line</b> · fair price -213 ·
+fair probability 68.1% · inside the
+−250…+10,000 window · 60 words · official source <a href="https://api-web.nhle.com/v1/schedule/2026-10-23" rel="noopener">api-web.nhle.com</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>VAN 2-9-1 in 12 games, 5 points, 35 goals for and 56 against.</li><li>SJS 6-4-1 in 11 games, 13 points, 33 goals for and 37 against.</li></ul></details>
+</article><article class="pick" data-sport="Ice Hockey">
+<header><span class="tag Medium">Medium</span>
+<span class="who">Edmonton Oilers (home)</span>
+<span class="meta">Ice Hockey · NHL 2026-27 regular season · Detroit Red Wings @ Edmonton Oilers ·
+2026-10-27 01:30:00 UTC</span></header>
+<p>Detroit are 4-3 through ten games with 11 points, scoring 2.8 and conceding 3.0, and they won their latest match. That is respectable form, but it is not the form of an Edmonton team on 8-1, 17 points, 4.7 goals for and 3.2 against. Rogers Place has been a hard trip this month, so Edmonton Oilers at -190 is the selection.</p>
+<p class="facts"><b>Money line</b> · fair price -190 ·
+fair probability 65.5% · inside the
+−250…+10,000 window · 61 words · official source <a href="https://api-web.nhle.com/v1/schedule/2026-10-23" rel="noopener">api-web.nhle.com</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>DET 4-3-3 in 10 games, 11 points, 28 goals for and 30 against.</li><li>EDM 8-1-1 in 10 games, 17 points, 47 goals for and 32 against.</li></ul></details>
+</article><article class="pick" data-sport="Basketball">
+<header><span class="tag High">High</span>
+<span class="who">Aris Thessaloniki (home)</span>
+<span class="meta">Basketball · EuroCup 2026-27 · Cedevita Olimpija Ljubljana @ Aris Thessaloniki ·
+2026-10-28 17:30:00 UTC</span></header>
+<p>Aris Thessaloniki are 4-0 in the EuroCup, scoring 378 points and conceding 301 across those four games, a plus 19.25 margin a night. Cedevita Olimpija are 0-4, with 290 scored and 333 conceded, and all four defeats came by double figures apart from a four-point loss at Burgos. The gap at both ends is wide: Aris Thessaloniki at -587.</p>
+<p class="facts"><b>Match winner</b> · fair price -587 ·
+fair probability 85.5% · outside the
+−250…+10,000 window · 59 words · official source <a href="https://api-live.euroleague.net/v2/competitions/U/seasons/U2026/games" rel="noopener">api-live.euroleague.net</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Cedevita Olimpija Ljubljana 0-4 over 4 completed EuroCup games, scoring 72.5 and conceding 83.25.</li><li>Aris Thessaloniki 4-0 over 4 completed EuroCup games, scoring 94.5 and conceding 75.25.</li></ul></details>
+</article><article class="pick" data-sport="Basketball">
+<header><span class="tag High">High</span>
+<span class="who">Panathinaikos AKTOR Athens (home)</span>
+<span class="meta">Basketball · EuroLeague 2026-27 · Armani Olimpia Milan @ Panathinaikos AKTOR Athens ·
+2026-10-27 19:15:00 UTC</span></header>
+<p>Panathinaikos are 6-1 in the EuroLeague, scoring 613 points and conceding 517 in seven games for a plus 13.7 margin, the best in this group. Armani Olimpia Milan are 1-6, with 585 scored and 648 conceded, and their only win was a two-point game against Virtus. Athens has been a fortress for the hosts, so Panathinaikos AKTOR Athens -476.</p>
+<p class="facts"><b>Match winner</b> · fair price -476 ·
+fair probability 82.6% · outside the
+−250…+10,000 window · 59 words · official source <a href="https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games" rel="noopener">api-live.euroleague.net</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Armani Olimpia Milan 1-6 over 7 completed EuroLeague games, scoring 83.571 and conceding 92.571.</li><li>Panathinaikos AKTOR Athens 6-1 over 7 completed EuroLeague games, scoring 87.571 and conceding 73.857.</li></ul></details>
+</article><article class="pick" data-sport="Basketball">
+<header><span class="tag High">High</span>
+<span class="who">Olympiacos Piraeus (home)</span>
+<span class="meta">Basketball · EuroLeague 2026-27 · Armani Olimpia Milan @ Olympiacos Piraeus ·
+2026-10-30 19:15:00 UTC</span></header>
+<p>Olympiacos have started 5-1, scoring 589 and conceding 539 across six EuroLeague games, while Armani Olimpia Milan are 1-6 having conceded 648 points in seven outings. Milan have lost six of seven, including a 21-point beating by Dubai, and they now travel to Piraeus. Take Olympiacos Piraeus on the match winner at -414.</p>
+<p class="facts"><b>Match winner</b> · fair price -414 ·
+fair probability 80.5% · outside the
+−250…+10,000 window · 53 words · official source <a href="https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games" rel="noopener">api-live.euroleague.net</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Armani Olimpia Milan 1-6 over 7 completed EuroLeague games, scoring 83.571 and conceding 92.571.</li><li>Olympiacos Piraeus 5-1 over 6 completed EuroLeague games, scoring 98.167 and conceding 89.833.</li></ul></details>
+</article><article class="pick" data-sport="Basketball">
+<header><span class="tag High">High</span>
+<span class="who">Napoli Basketball (home)</span>
+<span class="meta">Basketball · EuroCup 2026-27 · Dolomiti Energia Trento @ Napoli Basketball ·
+2026-11-03 19:00:00 UTC</span></header>
+<p>Napoli Basketball are 4-0 in the EuroCup with 368 points scored and 334 conceded, a plus 8.5 margin a game, and they have won every match by at least six. Dolomiti Energia Trento are 1-3, scoring 316 and conceding 345, and they have already lost by 25 in the competition. Napoli&#x27;s home record and scoring depth make Napoli Basketball at -360 the call.</p>
+<p class="facts"><b>Match winner</b> · fair price -360 ·
+fair probability 78.3% · outside the
+−250…+10,000 window · 63 words · official source <a href="https://api-live.euroleague.net/v2/competitions/U/seasons/U2026/games" rel="noopener">api-live.euroleague.net</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Dolomiti Energia Trento 1-3 over 4 completed EuroCup games, scoring 79.0 and conceding 86.25.</li><li>Napoli Basketball 4-0 over 4 completed EuroCup games, scoring 92.0 and conceding 83.5.</li></ul></details>
+</article><article class="pick" data-sport="Basketball">
+<header><span class="tag High">High</span>
+<span class="who">Dubai Basketball (home)</span>
+<span class="meta">Basketball · EuroLeague 2026-27 · Paris Basketball @ Dubai Basketball ·
+2026-10-27 16:00:00 UTC</span></header>
+<p>Dubai Basketball are 5-2 with 597 points scored and 584 conceded in seven EuroLeague games, and they have won three of their last four. Paris Basketball are 1-5 after scoring 504 and conceding 545, with a 19-point loss to Panathinaikos among the defeats. Dubai&#x27;s home record and the plus 1.9 margin are enough: Dubai Basketball at -298.</p>
+<p class="facts"><b>Match winner</b> · fair price -298 ·
+fair probability 74.8% · outside the
+−250…+10,000 window · 57 words · official source <a href="https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games" rel="noopener">api-live.euroleague.net</a></p>
+<details><summary class="small">Figures copied from that page</summary><ul class="small"><li>Paris Basketball 1-5 over 6 completed EuroLeague games, scoring 84.0 and conceding 90.833.</li><li>Dubai Basketball 5-2 over 7 completed EuroLeague games, scoring 85.286 and conceding 83.429.</li></ul></details>
+</article>
+<script>
+const f=document.getElementById('f');
+f.addEventListener('change',()=>{document.querySelectorAll('.pick').forEach(el=>{
+el.style.display=(!f.value||el.dataset.sport===f.value)?'':'none';});});
+</script>
+</div></main>
+<footer><div class="wrap">
+<p>Board AK · session <code>arena/63ad3394-olbg4</code> · captures 20261023T193229Z, 20261023T193509Z, 20261023T193724Z ·
+fixtures from official league, tour and federation feeds; OLBG used for taxonomy and market
+cross-check only. Nothing on this site is a tip from OLBG.</p>
+<p><a href="../flagged.html">Repository-wide flagged items</a> ·
+<a href="https://github.com/buffedlizard55-lab/OLBG4">source repository</a></p>
+</div></footer></body></html>
