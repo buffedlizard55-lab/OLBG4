@@ -4031,7 +4031,6 @@ prediction texts, 15 predictions under 30 words, 1 price-maths defect.
 (2) Do **not** merge Board AF rows into `data/master.json`; this desk keeps its own official source and verification trail
 per row, and its findings on `master.json` are advisory, not edits.
 
-<<<<<<< HEAD
 ---
 
 ## Board AP — session `arena/509d544b-olbg4` (2026-10-23 final 15-sport verification, multi-market origination, 5-per-sport in-window High predictions & clean executive dashboard)
@@ -4077,8 +4076,8 @@ Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes b
 
 ---
 
-=======
->>>>>>> origin/arena/6846f1ab-olbg4
+---
+
 ## Board AH — session `arena/6846f1ab-olbg4` (scope-first current dashboard and evidence-health audit)
 
 Session: `arena/6846f1ab-olbg4` · Branch: `arena/6846f1ab-olbg4` (fixed by Arena) · Claimed: 2026-10-23T16:20Z UTC · **status: in progress**
