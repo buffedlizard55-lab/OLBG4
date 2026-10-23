@@ -1,0 +1,65 @@
+name: Board AT official capture pass 3+ (086e616f)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/086e616f-olbg4
+    paths:
+      - "scripts/session-086e616f/targets_pass*.json"
+      - ".github/workflows/at-086e616f-pass3.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: at-086e616f-capture-pass3
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/086e616f-olbg4
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Capture every target list that this push changed (pass 3 and later)
+        run: |
+          set -uo pipefail
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'scripts/session-086e616f/targets_pass*.json' || true)
+          if [ -z "$CHANGED" ]; then
+            CHANGED=$(ls scripts/session-086e616f/targets_pass*.json 2>/dev/null | grep -v '^scripts/session-086e616f/targets_pass2.json$' || true)
+          fi
+          echo "changed target lists: $CHANGED"
+          : > /tmp/capture3.log
+          for T in $CHANGED; do
+            STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+            echo "=== $T -> $STAMP" | tee -a /tmp/capture3.log
+            python3 scripts/session-086e616f/fetch.py "$T" \
+              "data/session-086e616f/capture/$STAMP" --workers 8 2>&1 | tee -a /tmp/capture3.log
+            sleep 2
+          done
+
+      - name: Commit pass-3 captures to arena/086e616f-olbg4
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-at-capture[bot]"
+          git config user.email "board-at-capture@users.noreply.github.com"
+          mkdir -p data/session-086e616f/logs
+          cp /tmp/capture3.log "data/session-086e616f/logs/capture-pass3-$(date -u +%Y%m%dT%H%M%SZ).log" || true
+          git add data/session-086e616f
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board AT (086e616f): pass-3 official-source capture [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/086e616f-olbg4 \
+              && git push origin HEAD:arena/086e616f-olbg4 && break
+            sleep 5
+          done
