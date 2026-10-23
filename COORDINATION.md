@@ -4193,3 +4193,24 @@ resolved, 343 rows re-derived, 121 prices re-derived, 25 predictions re-measured
 `python3 scripts/session-2c05e0b2/re_olbg.py && python3 scripts/session-2c05e0b2/build_desk.py && python3 scripts/session-2c05e0b2/predictions.py && python3 scripts/session-2c05e0b2/review.py && python3 scripts/session-2c05e0b2/build_site.py && python3 scripts/session-2c05e0b2/verify.py`.
 
 **Root pointer.** A Board AI nav link and notebox were added to the root `index.html`; no existing line was removed.
+
+**Pull request, merge and deployment record (2026-10-23).**
+- **Pull request:** https://github.com/buffedlizard55-lab/OLBG4/pull/135 — **MERGED** to `main` at
+  `2026-10-23T16:40:37Z`, merge commit `3a51c3a1da24b0f208a18acaceeb7a0a239ed080`.
+- **PR checks:** `audit` pass, `build-and-validate` pass, `verify` pass (both jobs).
+- **Post-merge CI on `main`:** `Repository-wide publication audit` run `39988760128` success,
+  `Validate data and site` run `39988760175` success, `Verify integrated dashboard` run `39988760126` success,
+  **`Deploy OLBG4 to GitHub Pages` run `39988760113` success**, `pages build and deployment` run `39988758951` success.
+- **Live read-back (HTTP 200, content verified):**
+  https://buffedlizard55-lab.github.io/OLBG4/session-2c05e0b2/index.html renders the eight headline counters
+  (343 rows, 121 own lines, 726 markets, 236 OLBG events, 17 High, 25 predictions, 19 flagged), the
+  executive-summary table with official `nhl.com/gamecenter/...` links per row, the prediction cards with
+  their facts, and the 15-sport coverage table.
+- **Merge-conflict log.** While Board AI was working, other sessions merged 17 commits to `main` (Boards AH/AP).
+  `COORDINATION.md` collided twice (both append blocks at the end of the file) and the root `index.html` nav line
+  collided once. Resolved by keeping every upstream line verbatim and inserting the Board AI nav link and notebox
+  without removing anything; the 8 pre-rebase Board AI commits were replayed onto `main` and the branch was
+  `--force-with-lease` pushed (the only commits replaced were this board's own, already replayed).
+- **Audit artefact regeneration (integration fix, logged):** adding the new pages changed the publication
+  inventory, so `audit/report.json` and `audit/index.html` were regenerated with `scripts/audit_publication.py`;
+  `--check` then exited 0. No audit logic was changed.
