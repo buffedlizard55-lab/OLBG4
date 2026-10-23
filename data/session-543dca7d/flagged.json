@@ -1,0 +1,332 @@
+{
+  "schema": "olbg4.board-as.flagged/1",
+  "board": "AS",
+  "session": "arena/543dca7d-olbg4",
+  "cutoff_utc": "2026-10-23T20:00:00Z",
+  "summary": {
+    "total_flagged_items": 26,
+    "board_as_blank_conditional_rows": 1,
+    "board_as_non200_endpoints": 9,
+    "board_as_predraw_pdfs": 2,
+    "olbg_stale_ssr_sport_hubs": 7,
+    "repository_forensic_findings": 7,
+    "peer_and_legacy_flagged_rows": 1287
+  },
+  "flagged_items": [
+    {
+      "flag_id": "AS-FLAG-SNK-01",
+      "source_scope": "Board AS Live Desk (session-543dca7d)",
+      "sport": "Snooker",
+      "entity": " vs ",
+      "category": "Unconfirmed Conditional Lineup — Left Blank",
+      "unconfirmed_fields_left_blank": [
+        "home",
+        "away",
+        "match_winner_pick",
+        "markets"
+      ],
+      "reason": "Feeder Quarter-Finals (David Gilbert vs Mark Williams & Jak Jones vs Scott Donaldson, kicked off 18:00Z Oct 23) were in-play at capture time; both Semi-Final 2 slots left strictly blank rather than inferred.",
+      "official_review_url": "https://www.wst.tv/matches/",
+      "official_source_name": "World Snooker Tour Official Match Centre (wst.tv)"
+    },
+    {
+      "flag_id": "FLAG-CAP-SHL_GAMES_NOW",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Ice Hockey",
+      "entity": "Endpoint `shl_games_now` (HTTP 500)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=s4y-994162547&seriesUuid=qQ9-af3704004p&gameTypeUuid=qQ9-af3704004p&gamePlace=all&played=all` in capture `20261023T194205Z` returned HTTP `500` (HTTPError 500). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=s4y-994162547&seriesUuid=qQ9-af3704004p&gameTypeUuid=qQ9-af3704004p&gamePlace=all&played=all",
+      "official_source_name": "Official Governing Endpoint (shl_games_now)"
+    },
+    {
+      "flag_id": "FLAG-CAP-WTA_RANKINGS_SINGLES",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Tennis",
+      "entity": "Endpoint `wta_rankings_singles` (HTTP 400)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://api.wtatennis.com/tennis/players/ranked?page=0&pageSize=100&type=rankSingles&sort=asc` in capture `20261023T194205Z` returned HTTP `400` (HTTPError 400). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://api.wtatennis.com/tennis/players/ranked?page=0&pageSize=100&type=rankSingles&sort=asc",
+      "official_source_name": "Official Governing Endpoint (wta_rankings_singles)"
+    },
+    {
+      "flag_id": "FLAG-CAP-DPWT_GENESIS_LEADERBOARD",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Golf",
+      "entity": "Endpoint `dpwt_genesis_leaderboard` (HTTP 403)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard` in capture `20261023T194205Z` returned HTTP `403` (HTTPError 403). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard",
+      "official_source_name": "Official Governing Endpoint (dpwt_genesis_leaderboard)"
+    },
+    {
+      "flag_id": "FLAG-CAP-DPWT_SCHEDULE_2026",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Golf",
+      "entity": "Endpoint `dpwt_schedule_2026` (HTTP 403)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://www.europeantour.com/dpworld-tour/schedule/` in capture `20261023T194205Z` returned HTTP `403` (HTTPError 403). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://www.europeantour.com/dpworld-tour/schedule/",
+      "official_source_name": "Official Governing Endpoint (dpwt_schedule_2026)"
+    },
+    {
+      "flag_id": "FLAG-CAP-DK_HERRELIGAEN_STILLING",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Handball",
+      "entity": "Endpoint `dk_herreligaen_stilling` (HTTP 404)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://tophaandbold.dk/stilling/herreligaen` in capture `20261023T194205Z` returned HTTP `404` (HTTPError 404). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://tophaandbold.dk/stilling/herreligaen",
+      "official_source_name": "Official Governing Endpoint (dk_herreligaen_stilling)"
+    },
+    {
+      "flag_id": "FLAG-CAP-URC_FIXTURES",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Rugby Union",
+      "entity": "Endpoint `urc_fixtures` (HTTP 404)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://www.unitedrugby.com/fixtures-and-results` in capture `20261023T194205Z` returned HTTP `404` (HTTPError 404). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://www.unitedrugby.com/fixtures-and-results",
+      "official_source_name": "Official Governing Endpoint (urc_fixtures)"
+    },
+    {
+      "flag_id": "FLAG-CAP-URC_STANDINGS",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Rugby Union",
+      "entity": "Endpoint `urc_standings` (HTTP 404)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://www.unitedrugby.com/standings` in capture `20261023T194205Z` returned HTTP `404` (HTTPError 404). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://www.unitedrugby.com/standings",
+      "official_source_name": "Official Governing Endpoint (urc_standings)"
+    },
+    {
+      "flag_id": "FLAG-CAP-PCB_HOME",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Cricket",
+      "entity": "Endpoint `pcb_home` (HTTP 403)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://www.pcb.com.pk/` in capture `20261023T194205Z` returned HTTP `403` (HTTPError 403). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://www.pcb.com.pk/",
+      "official_source_name": "Official Governing Endpoint (pcb_home)"
+    },
+    {
+      "flag_id": "FLAG-CAP-ICC_FIXTURES",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Cricket",
+      "entity": "Endpoint `icc_fixtures` (HTTP 404)",
+      "category": "Governing-Body Endpoint HTTP Non-200 — Not Inferred",
+      "unconfirmed_fields_left_blank": [
+        "unfetched_endpoint_rows"
+      ],
+      "reason": "Direct GitHub Actions GET to `https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/matches` in capture `20261023T194205Z` returned HTTP `404` (HTTPError 404). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.",
+      "official_review_url": "https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/matches",
+      "official_source_name": "Official Governing Endpoint (icc_fixtures)"
+    },
+    {
+      "flag_id": "FLAG-PREDRAW-ATP_VIENNA_MDS",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Tennis",
+      "entity": "ATP 500 Erste Bank Open Vienna Main Draw PDF",
+      "category": "Pre-Draw Placeholder PDF — Excluded From Pricing",
+      "unconfirmed_fields_left_blank": [
+        "r1_pairings",
+        "markets"
+      ],
+      "reason": "Captured PDF `atp_vienna_mds` at `19:42Z` is a 1,315-byte pre-ceremony placeholder (draw ceremony not yet posted to ProTennisLive), whereas Almaty (`9410`, 74 KB) and Brussels (`7480`, 75 KB) were full brackets. Excluded rather than guessing R1 pairings.",
+      "official_review_url": "https://www.protennislive.com/posting/2026/337/mds.pdf",
+      "official_source_name": "ATP Tour / ProTennisLive Official Draw Sheet"
+    },
+    {
+      "flag_id": "FLAG-PREDRAW-ATP_BASEL_MDS",
+      "source_scope": "Board AS Official Capture (20261023T194205Z)",
+      "sport": "Tennis",
+      "entity": "ATP 500 Swiss Indoors Basel Main Draw PDF",
+      "category": "Pre-Draw Placeholder PDF — Excluded From Pricing",
+      "unconfirmed_fields_left_blank": [
+        "r1_pairings",
+        "markets"
+      ],
+      "reason": "Captured PDF `atp_basel_mds` at `19:42Z` is a 1,315-byte pre-ceremony placeholder (draw ceremony not yet posted to ProTennisLive), whereas Almaty (`9410`, 74 KB) and Brussels (`7480`, 75 KB) were full brackets. Excluded rather than guessing R1 pairings.",
+      "official_review_url": "https://www.protennislive.com/posting/2026/328/mds.pdf",
+      "official_source_name": "ATP Tour / ProTennisLive Official Draw Sheet"
+    },
+    {
+      "flag_id": "FLAG-OLBG-STALE-ICE-HOCKEY",
+      "source_scope": "OLBG.com Live SSR Audit (AS1)",
+      "sport": "Ice Hockey",
+      "entity": "OLBG `Ice Hockey` Hub — 36 Stale `expired:\"0\"` Rows",
+      "category": "OLBG Stale Unexpired SSR Cache Defect",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "OLBG's SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Ice_Hockey/13` served `36` tip rows marked `expired:\"0\"` whose scheduled `event_datetime` had already passed before `2026-10-23T20:00:00Z`. Excluded from Board AS upcoming desk.",
+      "official_review_url": "https://www.nhl.com/schedule",
+      "official_source_name": "Ice Hockey Canonical Governing-Body Schedule"
+    },
+    {
+      "flag_id": "FLAG-OLBG-STALE-TENNIS",
+      "source_scope": "OLBG.com Live SSR Audit (AS1)",
+      "sport": "Tennis",
+      "entity": "OLBG `Tennis` Hub — 16 Stale `expired:\"0\"` Rows",
+      "category": "OLBG Stale Unexpired SSR Cache Defect",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "OLBG's SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Tennis/3` served `16` tip rows marked `expired:\"0\"` whose scheduled `event_datetime` had already passed before `2026-10-23T20:00:00Z`. Excluded from Board AS upcoming desk.",
+      "official_review_url": "https://www.wtatennis.com/scores",
+      "official_source_name": "Tennis Canonical Governing-Body Schedule"
+    },
+    {
+      "flag_id": "FLAG-OLBG-STALE-RUGBY-UNION",
+      "source_scope": "OLBG.com Live SSR Audit (AS1)",
+      "sport": "Rugby Union",
+      "entity": "OLBG `Rugby Union` Hub — 12 Stale `expired:\"0\"` Rows",
+      "category": "OLBG Stale Unexpired SSR Cache Defect",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "OLBG's SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Rugby_Union/9` served `12` tip rows marked `expired:\"0\"` whose scheduled `event_datetime` had already passed before `2026-10-23T20:00:00Z`. Excluded from Board AS upcoming desk.",
+      "official_review_url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "official_source_name": "Rugby Union Canonical Governing-Body Schedule"
+    },
+    {
+      "flag_id": "FLAG-OLBG-STALE-BASKETBALL",
+      "source_scope": "OLBG.com Live SSR Audit (AS1)",
+      "sport": "Basketball",
+      "entity": "OLBG `Basketball` Hub — 7 Stale `expired:\"0\"` Rows",
+      "category": "OLBG Stale Unexpired SSR Cache Defect",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "OLBG's SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Basketball/4` served `7` tip rows marked `expired:\"0\"` whose scheduled `event_datetime` had already passed before `2026-10-23T20:00:00Z`. Excluded from Board AS upcoming desk.",
+      "official_review_url": "https://www.nba.com/games",
+      "official_source_name": "Basketball Canonical Governing-Body Schedule"
+    },
+    {
+      "flag_id": "FLAG-OLBG-STALE-GREYHOUNDS",
+      "source_scope": "OLBG.com Live SSR Audit (AS1)",
+      "sport": "Greyhounds",
+      "entity": "OLBG `Greyhounds` Hub — 5 Stale `expired:\"0\"` Rows",
+      "category": "OLBG Stale Unexpired SSR Cache Defect",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "OLBG's SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Greyhounds/28` served `5` tip rows marked `expired:\"0\"` whose scheduled `event_datetime` had already passed before `2026-10-23T20:00:00Z`. Excluded from Board AS upcoming desk.",
+      "official_review_url": "https://www.gbgb.org.uk/racing/results/",
+      "official_source_name": "Greyhounds Canonical Governing-Body Schedule"
+    },
+    {
+      "flag_id": "FLAG-OLBG-STALE-SNOOKER",
+      "source_scope": "OLBG.com Live SSR Audit (AS1)",
+      "sport": "Snooker",
+      "entity": "OLBG `Snooker` Hub — 4 Stale `expired:\"0\"` Rows",
+      "category": "OLBG Stale Unexpired SSR Cache Defect",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "OLBG's SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Snooker/8` served `4` tip rows marked `expired:\"0\"` whose scheduled `event_datetime` had already passed before `2026-10-23T20:00:00Z`. Excluded from Board AS upcoming desk.",
+      "official_review_url": "https://www.wst.tv/matches/",
+      "official_source_name": "Snooker Canonical Governing-Body Schedule"
+    },
+    {
+      "flag_id": "FLAG-OLBG-STALE-DARTS",
+      "source_scope": "OLBG.com Live SSR Audit (AS1)",
+      "sport": "Darts",
+      "entity": "OLBG `Darts` Hub — 1 Stale `expired:\"0\"` Rows",
+      "category": "OLBG Stale Unexpired SSR Cache Defect",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "OLBG's SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Darts/15` served `1` tip rows marked `expired:\"0\"` whose scheduled `event_datetime` had already passed before `2026-10-23T20:00:00Z`. Excluded from Board AS upcoming desk.",
+      "official_review_url": "https://www.pdc.tv/tournaments/calendar",
+      "official_source_name": "Darts Canonical Governing-Body Schedule"
+    },
+    {
+      "flag_id": "AS-REV-01",
+      "source_scope": "scripts/session-4885d641/originate_desk.py (L249, L298-300, L333-341, L354-356, L426-440) & data/session-{4885d641,509d544b,6846f1ab}/desk.json",
+      "sport": "Multi-Sport Audit",
+      "entity": "Synthetic Probability Override Clamping",
+      "category": "Repository Line-by-Line Audit Irregularity",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "`originate_desk.py` accepts a hardcoded `pred_override['p_target']` dictionary that overwrites closed-form handicap (`p_cover`), total (`p_over`), derivative (`d_p`), and outright (`p_a`) probabilities into a narrow `[0.700, 0.704]` band (-233 to -238 American) so picks clear a 70% threshold while staying above -250. Both `session-509d544b` and `session-6846f1ab` inherited those `ag_*` rows verbatim.",
+      "official_review_url": "https://www.nba.com/games",
+      "official_source_name": "Canonical Official Governing-Body Verification Portal"
+    },
+    {
+      "flag_id": "AS-REV-02",
+      "source_scope": "data/session-4885d641/desk.json (46 rows out of 299)",
+      "sport": "Multi-Sport Audit",
+      "entity": "Out-of-Scope Sports Included",
+      "category": "Repository Line-by-Line Audit Irregularity",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "Contains 46 rows from sports outside the strict 15-sport brief (Football, Horse Racing, Boxing, MMA, Esports, American Football, Table Tennis).",
+      "official_review_url": "https://www.olbg.com/betting-tips",
+      "official_source_name": "Canonical Official Governing-Body Verification Portal"
+    },
+    {
+      "flag_id": "AS-REV-03",
+      "source_scope": "data/session-509d544b/desk.json (summary & gaelic_synthetic_row)",
+      "sport": "Multi-Sport Audit",
+      "entity": "Summary Counter Multiplier Bug, Contradictory Pick Prose & Misdated Cork Final",
+      "category": "Repository Line-by-Line Audit Irregularity",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "1) `summary.markets_originated` reports `2024` (`253 rows * 4 * 2`), double-counting markets; 2) `summary.confidence_counts` reports `{'High': 65, 'Medium': 0, 'Low': 0}` despite 188 Medium/Low rows in `rows`; 3) `gaelic_synthetic_row.note` misdates Cork SFC Final (`St Finbarrs vs Nemo Rangers`) to `2026-11-01` instead of Sunday `2026-10-25T16:00:00Z` on `gaacork.ie` and flags Galway SFC (`M0221`) `in_scope: False` due to matching the substring `'football'`; 4) World Series Game 4 prose argues `Under 7.5` while structured selection is `Over 7.5`.",
+      "official_review_url": "https://gaacork.ie/",
+      "official_source_name": "Canonical Official Governing-Body Verification Portal"
+    },
+    {
+      "flag_id": "AS-REV-04",
+      "source_scope": "data/session-b2c7308d/desk.json (276 rows)",
+      "sport": "Multi-Sport Audit",
+      "entity": "10 of 15 Sports Unpriced & Pre-20:00Z Friday Fixtures Completed",
+      "category": "Repository Line-by-Line Audit Irregularity",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "10 of the 15 required sports have `0` priced rows (`listing_only: True`), and Friday Oct 23 afternoon fixtures captured at `16:28Z` have since started or finished prior to `20:00Z`.",
+      "official_review_url": "https://www.rlwc2026.com/fixtures",
+      "official_source_name": "Canonical Official Governing-Body Verification Portal"
+    },
+    {
+      "flag_id": "AS-REV-05",
+      "source_scope": "data/session-2c05e0b2/desk.json (343 rows)",
+      "sport": "Multi-Sport Audit",
+      "entity": "9 of 15 Sports Unpriced & Pre-20:00Z Cutoffs",
+      "category": "Repository Line-by-Line Audit Irregularity",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "9 of 15 sports carry `priced: False` rows without originated multi-market lines, and early Friday Oct 23 fixtures have now elapsed.",
+      "official_review_url": "https://www.wtatennis.com/scores",
+      "official_source_name": "Canonical Official Governing-Body Verification Portal"
+    },
+    {
+      "flag_id": "AS-REV-06",
+      "source_scope": "data/session-7cfa69e5/desk.json (121 rows, 0 High picks)",
+      "sport": "Multi-Sport Audit",
+      "entity": "11 of 15 Sports Unpriced, Zero High-Confidence Predictions & Zero OLBG Captures",
+      "category": "Repository Line-by-Line Audit Irregularity",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "Only 4 of 15 sports have originated markets (`markets: 336` across Ice Hockey, Basketball, Baseball, Handball); `high_predictions` is empty (`0`), and `olbg_event` is `None` across all 121 rows.",
+      "official_review_url": "https://www.olbg.com/betting-tips",
+      "official_source_name": "Canonical Official Governing-Body Verification Portal"
+    },
+    {
+      "flag_id": "AS-REV-07",
+      "source_scope": "data/{master,matches,rows,board}.json (706 combined rows)",
+      "sport": "Multi-Sport Audit",
+      "entity": "Historical Oct 17–22 Snapshots, Out-of-Scope Rows & Aggregator-Only Links",
+      "category": "Repository Line-by-Line Audit Irregularity",
+      "unconfirmed_fields_left_blank": [],
+      "reason": "Root legacy datasets were generated Oct 20–22: nearly all fixtures predate `2026-10-23T20:00:00Z` (e.g., NBA Tip-Off Oct 20-21, WTA QF Oct 22-23 morning), `master.json` contains out-of-scope sports (`Aussie Rules`, `Football`, `American Football`, `Horse Racing`), and `board.json` cites only `olbg.com` URLs with `MODEL ASSUMPTION` placeholders.",
+      "official_review_url": "https://www.nhl.com/schedule",
+      "official_source_name": "Canonical Official Governing-Body Verification Portal"
+    }
+  ]
+}
