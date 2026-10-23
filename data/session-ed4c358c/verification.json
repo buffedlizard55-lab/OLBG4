@@ -1,0 +1,88 @@
+{
+ "capture_stamp": "20261023T193325Z",
+ "checks": [
+  {
+   "detail": "12 distinct payloads re-hashed",
+   "name": "capture bytes re-hash to the manifest",
+   "ok": true
+  },
+  {
+   "detail": "654 markets checked; 0 problems",
+   "name": "market maths (probability sum, decimal = 1/p, American re-derived)",
+   "ok": true
+  },
+  {
+   "detail": "0 offending rows",
+   "name": "no fixture starts before the claim time",
+   "ok": true
+  },
+  {
+   "detail": "0 offending rows",
+   "name": "no fixture starts after the published window",
+   "ok": true
+  },
+  {
+   "detail": "0 rows without a link",
+   "name": "every row carries a source link",
+   "ok": true
+  },
+  {
+   "detail": "0 priced rows on a non-official source",
+   "name": "every priced row is backed by an official source",
+   "ok": true
+  },
+  {
+   "detail": "0 bad URLs",
+   "name": "official URLs are absolute https",
+   "ok": true
+  },
+  {
+   "detail": "sports present: Baseball, Basketball, Cricket, Darts, Gaelic Sports, Greyhounds, Handball, Ice Hockey, Motor Racing, Rugby Union, Tennis, Volleyball",
+   "name": "only the fifteen sports in scope appear",
+   "ok": true
+  },
+  {
+   "detail": "0 mismatches",
+   "name": "confidence grades follow the stated thresholds",
+   "ok": true
+  },
+  {
+   "detail": "24 texts; max pairwise 3-gram Jaccard 0.061",
+   "name": "predictions: length, wording, selection, sources",
+   "ok": true
+  },
+  {
+   "detail": "24 vs 24",
+   "name": "prediction count reported matches the file",
+   "ok": true
+  },
+  {
+   "detail": "26 pages scanned; 0 broken",
+   "name": "every internal link resolves",
+   "ok": true
+  },
+  {
+   "detail": "rows 333/333, priced 222, markets 654",
+   "name": "desk summary matches the rows",
+   "ok": true
+  },
+  {
+   "detail": "78 High; 13 inside -250..+10,000 (Basketball, Ice Hockey, Tennis, Volleyball)",
+   "name": "High picks and window arithmetic reported",
+   "ok": true
+  }
+ ],
+ "counts": {
+  "high": 78,
+  "in_window": 13,
+  "markets": 654,
+  "pages": 26,
+  "predictions": 24,
+  "priced": 222,
+  "rows": 333,
+  "sports_with_predictions": 5,
+  "sports_with_rows": 12
+ },
+ "generated_utc": "2026-10-23T19:40:01Z",
+ "result": "PASS"
+}
