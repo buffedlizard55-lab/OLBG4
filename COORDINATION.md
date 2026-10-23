@@ -4280,3 +4280,26 @@ Never published: soccer, American football, boxing, UFC/MMA, horse racing, cycli
   `4cdcddb`). No live claim overlaps this scope. Claimed and pushed before any other work. Sandbox shell reaches
   GitHub only, but this session's research tools reach the open web, so endpoint + fixture facts are confirmed here
   and the byte-level evidence trail (raw responses + SHA-256 manifest) is committed by an Actions runner.
+
+### AJ working log — 2026-10-23T20:05Z UTC
+- Capture `20261023T194429Z` (191/257 targets 200) plus two endpoint probes (`probe/20261023T194429Z`,
+  `probe/20261023T194600Z`, 58 candidates) are committed with SHA-256 per payload. The probes found two
+  readable handball tables (Liga ASOBAL 16 clubs, Danish Herreligaen 13 clubs) that the pass-1/2 target
+  list had not resolved; those bytes are folded into the desk as first-class sources (`Capture.merge_probe`).
+- Desk: **256 priced fixtures / 2,589 market selections / 121 listing-only rows** across 15 sports;
+  High 15 (Ice Hockey 5, Basketball 5, Handball 4, Rugby Union 1), Medium 155, Low 86.
+- Two latent bugs found and fixed while wiring the handball builder: a sign inversion in the goal-handicap
+  CDF (`P(margin > −line)` was evaluated as `P(margin > line)`, which priced +3.5 cushions as favourites),
+  and a stale PlusLiga table (a completed-season archive whose rows reach 30 matches in October) that was
+  silently pricing volleyball — volleyball is now published listing-only with that reason.
+- Snooker is published unpriced: the WST feed gives 2–3 completed matches per player, so a frame model
+  would be a guess (the earlier 0.63 for Craigie over Wilson came from exactly that thin sample).
+- Review: 11 findings, all in shared files this board does not own — including **inverted home/away sides in
+  the World Series rows of `data/master.json`** (Game 1 lists Rays as home at American Family Field) and
+  162 stale rows in the canonical board.
+- Gate repair (rides this merge, AJ-F17): `scripts/audit_publication.py` aborted with a UnicodeDecodeError on
+  75 gzip-compressed `*.html` capture artefacts owned by Boards AH/AI. It now skips non-UTF-8 payloads and
+  reports 0 broken links over 30,335 local targets. No peer artefact was deleted or edited.
+- `python3 scripts/session-2722b692/verify.py` → **12/12 PASS** (prices re-derive, complements sum to 1,
+  provenance hashes resolve for all 256 rows, predictions ≥30 words/unique/no banned vocabulary, site
+  rebuild byte-identical, every internal link resolves, every shortfall flagged).

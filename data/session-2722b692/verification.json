@@ -1,0 +1,73 @@
+{
+ "schema": "olbg4.board-aj.verification/1",
+ "run_utc": "2026-10-23T19:53:25Z",
+ "result": "PASS",
+ "passed": 12,
+ "checks": [
+  {
+   "name": "Desk built with both sides of every fixture",
+   "ok": true,
+   "detail": "256 fixtures, 2589 market selections, 121 listing-only rows"
+  },
+  {
+   "name": "Every priced row cites a non-OLBG official https source",
+   "ok": true,
+   "detail": "256/256 rows cite an official source; offenders: []"
+  },
+  {
+   "name": "Every row's source hash resolves to the captured bytes",
+   "ok": true,
+   "detail": "256 rows carry a SHA-256 that exists in a committed capture or probe manifest; 0 unresolved, 0 without a hash ([])"
+  },
+  {
+   "name": "Prices re-derive from probability (decimal = 1/p, American from p)",
+   "ok": true,
+   "detail": "2589 selections checked; 0 out-of-range probabilities, 0 decimal mismatches, 0 American mismatches"
+  },
+  {
+   "name": "Complementary markets sum to 1.0",
+   "ok": true,
+   "detail": "0 market groups off 1.0: []"
+  },
+  {
+   "name": "Every High pick has one unique, hand-written prediction of 30+ words",
+   "ok": true,
+   "detail": "15 predictions for 15 High picks; short=[], banned=[], near-duplicates=[], sides not named=[]"
+  },
+  {
+   "name": "−250…+10,000 flags agree with the published prices",
+   "ok": true,
+   "detail": "0 disagreements: []"
+  },
+  {
+   "name": "Every page exists and every internal link resolves",
+   "ok": true,
+   "detail": "25 pages; missing sport pages=[]; broken=[]"
+  },
+  {
+   "name": "Site rebuild is byte-identical",
+   "ok": true,
+   "detail": "digest d21af99e7be15737… before and after a clean re-render"
+  },
+  {
+   "name": "Every in-scope OLBG listing is either priced or carries a recorded reason",
+   "ok": true,
+   "detail": "233 OLBG listings, 256 priced fixtures, 121 listing-only rows; hubs read: ['Baseball', 'Basketball', 'Cricket', 'Darts', 'Gaelic Sports', 'Golf', 'Greyhounds', 'Handball', 'Ice Hockey', 'Motor Racing', 'Rugby League', 'Rugby Union', 'Snooker', 'Tennis', 'Volleyball']"
+  },
+  {
+   "name": "Every shortfall is published on the Flagged for Review page",
+   "ok": true,
+   "detail": "18 flags; zero-row sports without a flag=[]; sub-five-High sports without a flag=[]"
+  },
+  {
+   "name": "Line-by-line review carries a manual-check URL for every finding",
+   "ok": true,
+   "detail": "11 findings across 4 shared files, each with row selector and official URL"
+  }
+ ],
+ "notes": [
+  "Verification runs offline against the committed capture, probe and desk artefacts.",
+  "The site digest check re-renders every page and compares SHA-256 digests.",
+  "Prediction checks cover word count, uniqueness (3-gram Jaccard), banned vocabulary and whether both sides are named."
+ ]
+}

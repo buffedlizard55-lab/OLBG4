@@ -63,7 +63,35 @@ class Capture:
         rec = self.by_id.get(tid)
         if not rec or not rec.get("file"):
             return None
-        return gzip.decompress((self.path / rec["file"]).read_bytes())
+        path = Path(rec["abs"]) if rec.get("abs") else self.path / rec["file"]
+        return gzip.decompress(path.read_bytes())
+
+    def merge_probe(self, probe_dir: Path) -> int:
+        """Fold the latest endpoint-probe payloads into this capture.
+
+        The probe writes the same gzip+sha256 layout, so its raw bytes can be cited exactly like
+        a capture target. Records are only added when the response was a 200 with a body.
+        """
+        summary = json.loads((Path(probe_dir) / "probe_summary.json").read_text())
+        added = 0
+        for rec in summary["results"]:
+            if rec.get("status") != 200 or not rec.get("file") or rec["id"] in self.by_id:
+                continue
+            row = dict(rec)
+            row["abs"] = str(Path(probe_dir) / rec["file"])
+            row["kind"] = "probe"
+            self.by_id[rec["id"]] = row
+            self.manifest["records"].append(row)
+            added += 1
+        return added
+
+    def url(self, tid: str) -> str:
+        rec = self.by_id.get(tid) or {}
+        return rec.get("final_url") or rec.get("url") or ""
+
+    def sha(self, tid: str) -> str:
+        rec = self.by_id.get(tid)
+        return (rec or {}).get("sha256", "")
 
     def text(self, tid: str) -> str | None:
         raw = self.raw(tid)
@@ -77,14 +105,6 @@ class Capture:
             return json.loads(raw)
         except json.JSONDecodeError:
             return None
-
-    def url(self, tid: str) -> str:
-        rec = self.by_id.get(tid)
-        return (rec or {}).get("url", "")
-
-    def sha(self, tid: str) -> str:
-        rec = self.by_id.get(tid)
-        return (rec or {}).get("sha256", "")
 
     def status(self, tid: str) -> int | None:
         rec = self.by_id.get(tid)

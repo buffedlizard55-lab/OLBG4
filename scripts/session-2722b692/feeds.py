@@ -515,23 +515,30 @@ def shl_fixtures(cap: Capture) -> tuple[list[dict], dict]:
 
 # ----------------------------------------------------------------------------- PlusLiga
 def plusliga_table(cap: Capture) -> dict:
-    """PlusLiga standings from the official table page (team, matches, points, sets W/L)."""
+    """PlusLiga standings from the official table page.
+
+    The page renders one row per played matchday with cumulative figures, under a two-row header
+    (Drużyna | Punkty | Mecze | Sety | Punkty | Stosunek): rank, team, points, played, won, lost,
+    sets won, sets lost, points won, points lost. The last row for a team is its current total.
+    """
     raw = cap.text("plusliga_table")
     if not raw:
         return {}
-    lines = visible_lines(raw)
     table: dict[str, dict] = {}
-    for i, line in enumerate(lines):
-        # rows appear as: position, team, played, points, setsW, setsL, ...
-        if re.match(r"^\d{1,2}$", line) and i + 6 < len(lines):
-            nums = [lines[i + k] for k in range(2, 7)]
-            if all(re.match(r"^\d{1,3}$", n) for n in nums):
-                name = lines[i + 1]
-                if len(name) > 3 and not name.isdigit():
-                    table.setdefault(name, {"name": name, "played": int(nums[0]),
-                                            "points": int(nums[1]),
-                                            "sets_won": int(nums[2]), "sets_lost": int(nums[3]),
-                                            "source": cap.url("plusliga_table")})
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", raw, re.S):
+        cells = [re.sub(r"<[^>]+>", "", c).strip()
+                 for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)]
+        cells = [c for c in cells if c]
+        if len(cells) < 10 or not cells[0].isdigit():
+            continue
+        try:
+            points, played, won, lost, sets_w, sets_l = (int(cells[i]) for i in (2, 3, 4, 5, 6, 7))
+        except (ValueError, IndexError):
+            continue
+        table[cells[1]] = {"name": cells[1], "played": played, "points": points,
+                           "won": won, "lost": lost,
+                           "sets_won": sets_w, "sets_lost": sets_l,
+                           "source": cap.url("plusliga_table")}
     return table
 
 

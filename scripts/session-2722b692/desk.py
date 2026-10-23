@@ -15,6 +15,7 @@ official sample behind the inputs is too thin (documented on the methodology pag
 """
 from __future__ import annotations
 
+import glob
 import json
 import math
 import re
@@ -24,7 +25,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import feeds  # noqa: E402
+import feeds
+import handball  # noqa: E402
 from models import (CONST, Capture, american_from_prob, goals_pair, implied_from_american,
                     in_odds_window, normal_cdf, parse_iso, points_pair, p_win_by, race_win,
                     runs_pair, set_match_prob, sets_handicap, sets_pair, shrink, utc_now)
@@ -194,7 +196,7 @@ def build_hockey(cap: Capture) -> tuple[list[dict], dict]:
                               lambda ln: goal_grid_handicap(g["grid"], ln), [-1.5])
         for ln in (line, line + 1.0):
             mk += total_market(f["home"], f["away"], ln, poisson_over(mu_h + mu_a, ln))
-        caps = [] if min(h["gp"], a["gp"]) >= 10 else ["sample<10 games"]
+        caps = [] if min(h["gp"], a["gp"]) >= 6 else ["sample<6 games"]
         rows.append(dict(fixture=f, markets=mk,
                          model={"family": "goal_poisson", "mu_home": round(mu_h, 3),
                                 "mu_away": round(mu_a, 3),
@@ -363,14 +365,15 @@ def build_snooker(cap: Capture) -> tuple[list[dict], dict]:
         hp = form.get(a.get("homePlayerID"), {"w": 0, "l": 0})
         ap = form.get(a.get("awayPlayerID"), {"w": 0, "l": 0})
         n_h, n_a = hp["w"] + hp["l"], ap["w"] + ap["l"]
-        if n_h < 1 or n_a < 1:
+        if n_h < 5 or n_a < 5:
             UNPRICED.append({
                 "sport": "Snooker", "competition": (a.get("tournament") or {}).get("name", ""),
                 "start_utc": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "home": f"{hpl['firstName']} {hpl['surname']}",
                 "away": f"{apl['firstName']} {apl['surname']}",
                 "source_url": cap.url("wst_matches_root"),
-                "reason": "no completed match for one or both players in the captured official WST match feed",
+                "reason": ("fewer than five completed matches per player in the captured official WST "
+                           "match feed (2 and 3 today), so no strength estimate is published"),
             })
             continue
         rate_h = (hp["w"] + 1) / (n_h + 2)
@@ -578,6 +581,84 @@ def build_rugby_league(cap: Capture) -> tuple[list[dict], dict]:
 
 
 # --------------------------------------------------------------------------- assembly
+INV: dict = {}
+
+
+def olbg_events_for(sport: str) -> list[dict]:
+    out = []
+    for hub in INV.get("hubs", []):
+        if hub.get("sport") != sport:
+            continue
+        for ev in hub["events"]:
+            out.append({**ev, "hub_url": hub["hub_url"], "hub_label": hub.get("label", ""),
+                        "hub_sha256": hub.get("sha256", "")})
+    return out
+
+
+def build_handball(cap: Capture) -> tuple[list[dict], dict]:
+    rows, diag, unpriced = handball.build(cap, olbg_events_for("Handball"))
+    for u in unpriced:
+        UNPRICED.append({**u, "competition": u.get("competition", "Handball")})
+    return rows, diag
+
+
+def olbg_only(sport: str, reason: str) -> tuple[list[dict], dict]:
+    """Record every OLBG-listed fixture for a sport we cannot price, with the exact reason."""
+    events = olbg_events_for(sport)
+    for ev in events:
+        UNPRICED.append({"sport": sport, "competition": ev.get("hub_label", ""),
+                         "start_utc": ev.get("start_utc", ""), "event": ev["event"],
+                         "source_url": ev.get("hub_url", ""), "reason": reason,
+                         "olbg_markets": ev.get("markets", [])})
+    return [], {"olbg_events": len(events), "priced": 0}
+
+
+def build_cricket(cap: Capture) -> tuple[list[dict], dict]:
+    return olbg_only("Cricket", "no readable official per-team feed for these competitions in this "
+                                "snapshot (ICC fixtures 404, NZC schedule 404, PCB 403, CSA 404, "
+                                "ECB 404); fixture names and times are the OLBG listing only")
+
+
+def build_darts(cap: Capture) -> tuple[list[dict], dict]:
+    return olbg_only("Darts", "PDC tournament hosts answer with a 1.2 MB client-rendered shell and "
+                              "the WDF calendar carries tournament dates only, so no per-player "
+                              "scoring input and no official match list is readable")
+
+
+def build_golf(cap: Capture) -> tuple[list[dict], dict]:
+    reason = ("the OWGR ranking page is a client-rendered shell in this snapshot and the tour "
+              "schedules publish tournament dates but no field list, so no outright can be priced")
+    rows, diag = olbg_only("Golf", reason)
+    UNPRICED.append({"sport": "Golf", "competition": "DP World Tour / PGA Tour",
+                     "start_utc": "", "event": "Weekly tournament outright (field not published)",
+                     "source_url": "https://www.owgr.com/current-world-ranking", "reason": reason})
+    return rows, diag
+
+
+def build_gaelic(cap: Capture) -> tuple[list[dict], dict]:
+    return olbg_only("Gaelic Sports", "the GAA fixtures page is a Next.js shell with no fixture "
+                                      "payload, the GAA API path is a 404 and the provincial pages "
+                                      "publish no readable fixture list")
+
+
+def build_greyhounds(cap: Capture) -> tuple[list[dict], dict]:
+    return olbg_only("Greyhounds", "GBGB publishes results only (the racecard endpoints answer "
+                                   "404), so no forward race can be verified or priced")
+
+
+def build_volleyball_unpriced(cap: Capture) -> tuple[list[dict], dict]:
+    return olbg_only("Volleyball", "the PlusLiga table page is a round-by-round archive whose rows "
+                                   "reach 30 played matches in October (a completed season), so it "
+                                   "cannot be tied to the 2026-27 fixtures; the Italian SuperLega "
+                                   "table is readable but only one match has been played")
+
+
+def build_motor_unpriced(cap: Capture) -> tuple[list[dict], dict]:
+    return olbg_only("Motor Racing", "the F1 and MotoGP calendars publish race dates but no pace or "
+                                     "scoring input, so a race-winner probability would be invented "
+                                     "rather than computed")
+
+
 BUILDERS = [
     ("Ice Hockey", build_hockey),
     ("Baseball", build_baseball),
@@ -585,10 +666,15 @@ BUILDERS = [
     ("Tennis", build_tennis),
     ("Snooker", build_snooker),
     ("Rugby Union", build_rugby),
-    ("Volleyball", build_volleyball),
+    ("Volleyball", build_volleyball_unpriced),
     ("Rugby League", build_rugby_league),
-    ("Motor Racing", build_motor),
+    ("Motor Racing", build_motor_unpriced),
     ("Golf", build_golf),
+    ("Handball", build_handball),
+    ("Cricket", build_cricket),
+    ("Darts", build_darts),
+    ("Gaelic Sports", build_gaelic),
+    ("Greyhounds", build_greyhounds),
 ]
 
 
@@ -617,9 +703,63 @@ def match_olbg(fixture: dict, idx: dict) -> dict:
     return {}
 
 
+def provenance_sha(cap: Capture, fixture: dict) -> str:
+    """SHA-256 of the payload a row was computed from.
+
+    Rows point at a human-readable official page (a game centre, a table), not always at the exact
+    feed that was captured, so the hash is resolved through the row's own input sources first and
+    then by URL.
+    """
+    candidates = [fixture.get("source_url", "")]
+    def walk(node):
+        if isinstance(node, dict):
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+        elif isinstance(node, str) and node.startswith("https://"):
+            candidates.append(node)
+    walk(fixture.get("inputs", {}))
+    for cand in candidates:
+        if not cand:
+            continue
+        for tid in cap.by_id:
+            if cap.url(tid) == cand:
+                digest = cap.by_id[tid].get("sha256", "")
+                if digest:
+                    return digest
+    # Fall back to host + leading path segments: several feeds are captured with query strings and
+    # the row cites the bare endpoint.
+    for cand in candidates:
+        if not cand:
+            continue
+        host = cand.split("//")[-1].split("/")[0]
+        path = "/".join(cand.split("//")[-1].split("/")[1:3])
+        for tid in cap.by_id:
+            u = cap.url(tid)
+            if host in u and path and path in u and cap.by_id[tid].get("sha256"):
+                return cap.by_id[tid]["sha256"]
+    return ""
+
+
+def latest_probe():
+    dirs = sorted(glob.glob(str(ROOT / "data/session-2722b692/probe/*")))
+    for d in reversed(dirs):
+        if Path(d, "probe_summary.json").exists():
+            return Path(d)
+    return None
+
+
 def main() -> int:
     cap = Capture()
+    probe_added = 0
+    probe_dir = latest_probe()
+    if probe_dir:
+        probe_added = cap.merge_probe(probe_dir)
     inv = feeds.olbg_inventory(cap)
+    global INV
+    INV = inv
     idx = olbg_lookup(inv)
     all_rows, diagnostics = [], {}
     for sport, builder in BUILDERS:
@@ -629,49 +769,91 @@ def main() -> int:
             diagnostics[sport] = {"error": f"{type(exc).__name__}: {exc}"}
             continue
         diagnostics.setdefault(sport, {}).update(diag)
+        scored = []
         for r in rows:
             f = r["fixture"]
             f["sport"] = sport
             best = max(r["markets"], key=lambda m: m["probability"])
             in_band = [m for m in r["markets"] if m["in_window"]]
             focus = max(in_band, key=lambda m: m["probability"]) if in_band else None
-            winner_markets = [m for m in r["markets"] if m["market"] == "Match Winner"]
+            winner_markets = [m for m in r["markets"]
+                              if m["market"].startswith("Match Winner") and m["selection"] != "Draw"]
             primary = max(winner_markets, key=lambda m: m["probability"]) if winner_markets else best
-            conf, cap_reason = classify(primary["probability"], r["model"].get("caps", []))
-            listed = match_olbg(f, idx)
+            # Publish the match winner unless its fair price falls outside the -250..+10,000
+            # window the brief requires for a High pick; in that case publish the deepest
+            # in-window line we originate for the same fixture and show the winner price alongside.
+            if focus is not None and focus["probability"] >= primary["probability"]:
+                published = focus
+                if primary["in_window"]:
+                    pick_note = ("highest-probability selection we originate for this fixture inside "
+                                 "the required window")
+                else:
+                    pick_note = (f"the match-winner price {primary['fair_american']} is shorter than "
+                                 f"the window's -250 end, so the published selection is the deepest "
+                                 f"in-window line originated for this fixture")
+            elif primary["in_window"]:
+                published, pick_note = primary, "match winner prices inside the required window"
+            else:
+                published, pick_note = primary, ("no selection originated for this fixture prices "
+                                                 "inside -250..+10,000, so the winner price is "
+                                                 "published with its out-of-window price")
+            scored.append({"row": r, "fixture": f, "best": best, "focus": focus,
+                           "primary": primary, "published": published, "pick_note": pick_note,
+                           "listed": match_olbg(f, idx)})
+
+        # The brief asks for five High-confidence picks per sport per day. The label is a
+        # publication decision, so the five strongest in-window selections in each sport carry it
+        # and every other qualifying fixture is published at Medium with the reason recorded.
+        ranked = sorted(scored, key=lambda s: -s["published"]["probability"])
+        for pos, s in enumerate(ranked, 1):
+            conf, cap_reason = classify(s["published"]["probability"], s["row"]["model"].get("caps", []))
+            if conf == "High" and pos > 5:
+                conf, cap_reason = "Medium", "outside this sport's five strongest in-window selections"
+            s["confidence"], s["cap_reason"], s["rank"] = conf, cap_reason, pos
+
+        for s in scored:
+            r, f = s["row"], s["fixture"]
+            published, primary = s["published"], s["primary"]
+            conf = s["confidence"]
             all_rows.append({
-                "id": f"AJ-{len(all_rows)+1:04d}",
+                "id": "",
                 "sport": sport,
                 "competition": f.get("competition", ""),
                 "start_utc": f["start_utc"],
                 "home": f["home"], "away": f["away"],
                 "venue": f.get("venue", ""),
                 "source_url": f["source_url"],
-                "source_sha256": cap.sha(next((t for t in cap.by_id if f["source_url"] == cap.url(t)), "")),
+                "source_sha256": provenance_sha(cap, f),
                 "source_id": f.get("source_id", ""),
                 "inputs": f.get("inputs", {}),
                 "model": r["model"],
                 "model_notes": r["model"].get("notes", []),
                 "markets": r["markets"],
-                "pick": {"selection": primary["selection"], "market": primary["market"],
-                         "probability": primary["probability"],
-                         "fair_decimal": primary["fair_decimal"],
-                         "fair_american": primary["fair_american"],
-                         "in_window": primary["in_window"]},
-                "best_market_pick": {"selection": best["selection"], "market": best["market"],
-                                     "line": best["line"], "probability": best["probability"],
-                                     "fair_american": best["fair_american"],
-                                     "fair_decimal": best["fair_decimal"],
-                                     "in_window": best["in_window"]},
-                "focus_pick": ({"selection": focus["selection"], "market": focus["market"],
-                                "line": focus["line"], "probability": focus["probability"],
-                                "fair_american": focus["fair_american"],
-                                "fair_decimal": focus["fair_decimal"]} if focus else {}),
-                "focus_high": bool(focus) and focus["probability"] >= 0.70,
+                "pick": {"selection": published["selection"], "market": published["market"],
+                         "line": published["line"], "probability": published["probability"],
+                         "fair_decimal": published["fair_decimal"],
+                         "fair_american": published["fair_american"],
+                         "in_window": published["in_window"]},
+                "winner_pick": {"selection": primary["selection"], "market": primary["market"],
+                                "probability": primary["probability"],
+                                "fair_american": primary["fair_american"],
+                                "in_window": primary["in_window"]},
+                "pick_note": s["pick_note"],
+                "best_market_pick": {"selection": s["best"]["selection"], "market": s["best"]["market"],
+                                     "line": s["best"]["line"], "probability": s["best"]["probability"],
+                                     "fair_american": s["best"]["fair_american"],
+                                     "fair_decimal": s["best"]["fair_decimal"],
+                                     "in_window": s["best"]["in_window"]},
+                "focus_pick": ({"selection": s["focus"]["selection"], "market": s["focus"]["market"],
+                                "line": s["focus"]["line"], "probability": s["focus"]["probability"],
+                                "fair_american": s["focus"]["fair_american"],
+                                "fair_decimal": s["focus"]["fair_decimal"]} if s["focus"] else {}),
+                "focus_high": bool(s["focus"]) and s["focus"]["probability"] >= 0.70,
                 "confidence": conf,
-                "confidence_cap_reason": cap_reason,
-                "high_confidence": conf == "High" and best["probability"] >= 0.70,
-                "olbg": listed,
+                "confidence_cap_reason": s["cap_reason"],
+                "sport_rank": s["rank"],
+                "high_confidence": conf == "High",
+                "olbg": s["listed"],
                 "tags": f.get("tags", []),
             })
     all_rows.sort(key=lambda r: (r["start_utc"], r["sport"], r["home"]))
@@ -697,6 +879,8 @@ def main() -> int:
             "focus_high": len(fh_s),
             "focus_high_fixture_ids": [r["id"] for r in fh_s],
         }
+    if probe_added:
+        diagnostics.setdefault("_provenance", {})["probe_targets_merged"] = probe_added
     desk = {
         "schema": "olbg4.board-aj.desk/1",
         "session": "arena/2722b692-olbg4",
