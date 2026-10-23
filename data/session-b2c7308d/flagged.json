@@ -1,0 +1,150 @@
+{
+ "board": "AH",
+ "generated_utc": "2026-10-23T16:56:15+00:00",
+ "flags": [
+  {
+   "id": "AH-F-SHL-02",
+   "severity": "review",
+   "sport": "Ice Hockey",
+   "title": "SHL start times are local",
+   "detail": "stats.swehockey.se publishes round fixtures with local Swedish times only; rows carry start_local, start_utc left blank rather than inferred.",
+   "evidence_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+   "manual_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"
+  },
+  {
+   "id": "AH-F-ATP-03",
+   "severity": "review",
+   "sport": "Tennis",
+   "title": "Conditional ATP ties skipped",
+   "detail": "Brussels SF1 (Cerundolo v Grieekspoor/Lehecka), SF2 (Fils/Michelsen v Struff/Bergs) and the Almaty second semi-final depend on quarter-final results not captured here; Lyon QF1/QF2 (Moutet v Paul, Altmaier v Fritz) started before the 16:34Z cut-off. None is published as a pickable row.",
+   "evidence_url": "https://www.protennislive.com/",
+   "manual_url": "https://www.protennislive.com/"
+  },
+  {
+   "id": "AH-F-DARTS-02",
+   "severity": "review",
+   "sport": "Darts",
+   "title": "Ties not officially verifiable today",
+   "detail": "The Machineseeker European Championship first-round ties below match the PDC's published schedule articles as indexed today, but the PDC page itself renders no article bytes in this capture, so every pairing is published unverified from an official source (listing-only).",
+   "evidence_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+   "manual_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+  },
+  {
+   "id": "AH-F-HB-03",
+   "severity": "review",
+   "sport": "Handball",
+   "title": "Kick-off times not published on the league table page",
+   "detail": "The captured Herreligaen page publishes the table only; OLBG lists both Danish fixtures as today. Rows carry blank start_utc rather than an inferred time.",
+   "evidence_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "manual_url": "https://www.olbg.com/betting-tips/Handball/20"
+  },
+  {
+   "id": "AH-F-VB-02",
+   "severity": "review",
+   "sport": "Volleyball",
+   "title": "SuperLega kick-off times",
+   "detail": "legavolley.it publishes round fixtures in a JS calendar; captured round fixtures carry no readable date/time rows today, so priced SuperLega rows carry blank start_utc and the date is taken from the OLBG listing (today/tomorrow label) without inferring a timestamp.",
+   "evidence_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "manual_url": "https://www.olbg.com/betting-tips/Volleyball/21"
+  },
+  {
+   "id": "AH-F-RU-02",
+   "severity": "review",
+   "sport": "Rugby Union",
+   "title": "URC rows unpriced — no readable official table today",
+   "detail": "stats.unitedrugby.com match-centre pages are client-side apps and returned 5.7 KB shells with no data; the SPA bundle references no public table API. URC fixtures are verified from the official fixtures-in-full article but left unpriced rather than modelled from unverified numbers.",
+   "evidence_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+   "manual_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+  },
+  {
+   "id": "AH-F-RU-03",
+   "severity": "review",
+   "sport": "Rugby Union",
+   "title": "Premiership / Top14 / Pro D2 / Japan v Fiji not officially readable",
+   "detail": "premiershiprugby.com embedded payload carries no fixture dates, top14.lnr.fr and prod2.lnr.fr render shells, and no official source for the Japan v Fiji autumn international was captured, so these OLBG listings are published as listing-only rows.",
+   "evidence_url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+   "manual_url": "https://www.olbg.com/betting-tips/Rugby_Union/9"
+  },
+  {
+   "id": "AH-F-CR-02",
+   "severity": "review",
+   "sport": "Cricket",
+   "title": "ICC ratings table not parsed",
+   "detail": "icc-cricket.com ranking pages are partly JS; the team rating table did not parse from today's capture, so the verified international fixtures are published unpriced.",
+   "evidence_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i",
+   "manual_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i"
+  },
+  {
+   "id": "AH-F-CR-03",
+   "severity": "review",
+   "sport": "Cricket",
+   "title": "Domestic one-day rows unpriced",
+   "detail": "Marsh One-Day Cup fixtures are verified from cricket.com.au but no official ratings/feed for the state sides was captured, so they are published without lines.",
+   "evidence_url": "https://www.cricket.com.au/fixtures",
+   "manual_url": "https://www.cricket.com.au/fixtures"
+  },
+  {
+   "id": "AH-F-GF-02",
+   "severity": "review",
+   "sport": "Golf",
+   "title": "Bermuda field not priced",
+   "detail": "No OWGR top-60 player names were parsed from the captured Bermuda Championship page (leaderboard is JS-rendered), so the outright is published unpriced.",
+   "evidence_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528",
+   "manual_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528"
+  },
+  {
+   "id": "AH-F-GF-03",
+   "severity": "review",
+   "sport": "Golf",
+   "title": "Genesis field not priced",
+   "detail": "The captured tee-times page is a shell; no player names parsed, outright left unpriced.",
+   "evidence_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/tee-times",
+   "manual_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/tee-times"
+  },
+  {
+   "id": "AH-F-MR-03",
+   "severity": "review",
+   "sport": "Motor Racing",
+   "title": "MotoGP standings 404",
+   "detail": "motogp.com/en/standings returned 404 in this capture; the next-round event row is published unpriced.",
+   "evidence_url": "https://www.motogp.com/en/standings",
+   "manual_url": "https://www.motogp.com/en/standings"
+  },
+  {
+   "id": "AH-F-GA-02",
+   "severity": "review",
+   "sport": "Gaelic Sports",
+   "title": "Gaelic rows unpriced",
+   "detail": "No official team-strength inputs (results tables/ratings) for the Cork club championship were captured, so gaelic football rows are published without lines.",
+   "evidence_url": "https://gaacork.ie/fixtures",
+   "manual_url": "https://gaacork.ie/fixtures"
+  },
+  {
+   "id": "AH-F-GR-01",
+   "severity": "review",
+   "sport": "Greyhounds",
+   "title": "Zero-inference ledger (no priced greyhound rows)",
+   "detail": "GBGB is the official body; api.gbgb.org.uk results cover completed races only and the fixture/card endpoints returned 404 today, so no trap or runner can be verified before the race. Every greyhound row is therefore published with blank selections and no pick — we do not originate greyhound lines we cannot verify.",
+   "evidence_url": "https://www.gbgb.org.uk/results/",
+   "manual_url": "https://www.gbgb.org.uk/results/"
+  },
+  {
+   "id": "AH-F-SN-01",
+   "severity": "review",
+   "sport": "Snooker",
+   "title": "Northern Ireland Open not officially readable today",
+   "detail": "wst.tv returned a JS shell and the WST participants service lists players without match data; the OLBG listing is published as a listing-only row with blank values.",
+   "evidence_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+   "manual_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/"
+  },
+  {
+   "id": "AH-F-RL-01",
+   "severity": "review",
+   "sport": "Rugby League",
+   "title": "No current OLBG rugby-league events; official RLWC feed is a shell",
+   "detail": "The OLBG rugby-league hub lists only future markets (State of Origin 2027, NRL 2027) today, and rlwc2026.com fixtures/draws pages render as client-side shells with no readable fixtures, so no Rugby League match rows can be published or priced from official sources today.",
+   "evidence_url": "https://www.rlwc2026.com/fixtures",
+   "manual_url": "https://www.rlwc2026.com/fixtures"
+  }
+ ]
+}

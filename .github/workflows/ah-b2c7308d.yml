@@ -1,0 +1,52 @@
+name: Board AH official capture (b2c7308d)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/b2c7308d-olbg4
+    paths:
+      - "scripts/session-b2c7308d/targets.json"
+      - "scripts/session-b2c7308d/fetch.py"
+      - ".github/workflows/ah-b2c7308d.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ah-b2c7308d-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/b2c7308d-olbg4
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG hubs + official governing-body feeds with SHA-256 manifest
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-b2c7308d/fetch.py scripts/session-b2c7308d/targets.json "data/session-b2c7308d/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+      - name: Commit capture (even partial) to arena/b2c7308d-olbg4
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-ah-capture[bot]"
+          git config user.email "board-ah-capture@users.noreply.github.com"
+          mkdir -p data/session-b2c7308d/logs
+          cp /tmp/capture.log "data/session-b2c7308d/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-b2c7308d
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board AH (b2c7308d): official capture ${{ env.STAMP }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/b2c7308d-olbg4 && git push origin HEAD:arena/b2c7308d-olbg4 && break
+            sleep 5
+          done

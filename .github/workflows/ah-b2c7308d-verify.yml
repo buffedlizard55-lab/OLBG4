@@ -1,0 +1,36 @@
+name: Board AH verify gate (b2c7308d)
+
+on:
+  pull_request:
+  push:
+    branches:
+      - arena/b2c7308d-olbg4
+    paths:
+      - "session-b2c7308d/**"
+      - "data/session-b2c7308d/**"
+      - "scripts/session-b2c7308d/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ah-b2c7308d-verify
+  cancel-in-progress: false
+
+jobs:
+  verify-board-ah:
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && !contains(github.event.head_commit.message, '[capture]'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild Board AH deterministically and run the verification gate
+        run: |
+          bash scripts/session-b2c7308d/build_all.sh
+          if ! git diff --quiet -- session-b2c7308d data/session-b2c7308d; then
+            echo "Board AH rebuild produced non-identical output!"
+            git diff --stat -- session-b2c7308d data/session-b2c7308d
+            exit 1
+          fi

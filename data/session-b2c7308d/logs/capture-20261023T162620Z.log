@@ -1,0 +1,28 @@
+[board-ah] capture started 2026-10-23T16:26:21.173478+00:00 with 105 targets
+[045] 403 nba_com_schedule (373B) https://www.nba.com/schedule
+[046] 403 nba_com_scores (371B) https://www.nba.com/scores
+[047] 403 nba_com_standings (374B) https://www.nba.com/standings
+[049] 404 euroleague_standings_E2026 (0B) https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/standings
+[070] 404 plusliga_table_t48 (4688B) https://plusliga.pl/table/tour/48.html
+Traceback (most recent call last):
+  File "/home/runner/work/OLBG4/OLBG4/scripts/session-b2c7308d/fetch.py", line 164, in main
+    _, rec = fut.result()
+             ^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/OLBG4/OLBG4/scripts/session-b2c7308d/fetch.py", line 143, in process_target
+    gz = gzip.GzipFile(fileobj=buf, mode="wb", compresslevel=9, mtime=0)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/gzip.py", line 244, in __init__
+    self._write_gzip_header(compresslevel)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/gzip.py", line 274, in _write_gzip_header
+    self.fileobj.write(b'\037\213')             # magic header
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'bytearray' object has no attribute 'write'
+[board-ah] finished: 0/105 OK; manifest written
