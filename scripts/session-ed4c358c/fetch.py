@@ -136,7 +136,7 @@ def process_target(idx: int, item: dict, out_dir: str) -> tuple[int, dict]:
     rec.update(status=status, final_url=final_url, content_type=ctype, error=err or None)
     if status == 200 and body:
         digest = hashlib.sha256(body).hexdigest()
-        fname = f"{tid}.{ext_for(ctype, url)}"
+        fname = f"{tid}.{ext_for(ctype, url)}.gz"  # gzip bytes; keep .gz so repo-wide link audits skip binary payloads
         path = Path(out_dir) / fname
         path.parent.mkdir(parents=True, exist_ok=True)
         buf = io.BytesIO()
