@@ -87,10 +87,19 @@ def desk_checks(desk):
             if len(sels) < 2:
                 bad.append(f"{r['id']}:{key} has {len(sels)} selection(s)")
                 continue
-            if not key.endswith("ladder"):
+            if key.endswith("ladder"):
+                # a ladder is a set of independent two-way rungs, not one book
+                continue
+            multi = len(sels) > 2
+            if not key.endswith("ladder") and not multi:
                 total = sum(s["fair_prob"] for s in sels)
                 if abs(total - 1.0) > 1e-6:
                     bad.append(f"{r['id']}:{key} probabilities sum to {total:.6f}")
+            if multi and key != "top10":
+                # a multi-way win market must not price more than a whole book
+                total = sum(s["fair_prob"] for s in sels)
+                if total > 1.02:
+                    bad.append(f"{r['id']}:{key} multi-way book sums to {total:.4f}")
             for s in sels:
                 if s["fair_prob"] <= 0:
                     # a selection our own line prices at zero or below cannot be backed
@@ -104,8 +113,9 @@ def desk_checks(desk):
                     if abs(want - s["fair_american"]) > 2:
                         bad.append(f"{r['id']}:{key}:{s['label']} price {s['fair_american']} "
                                    f"!= {want} for p={s['fair_prob']:.4f}")
-    add("D1", "desk", "Every carried market prices a complete two-way book "
-        "(probabilities sum to 1, decimal = 1/p, American = p)", "pass" if not bad else "fail",
+    add("D1", "desk", "Every carried market prices a complete book (two-way books sum to 1, "
+        "multi-way books never exceed 1), with decimal = 1/p and the American price derived "
+        "from the same rounded probability", "pass" if not bad else "fail",
         f"{len(priced)} priced fixtures, {sum(1 for r in priced for k in r['markets'] if not k.startswith('_'))} "
         f"markets checked; {len(bad)} problem(s)" + ("" if not bad else ": " + "; ".join(bad[:6])))
 

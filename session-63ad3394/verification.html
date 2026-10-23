@@ -64,11 +64,18 @@ code{background:#0e1728;border:1px solid var(--line);border-radius:5px;padding:1
 </style></head>
 <body><header class="top"><div class="wrap">
 <div class="brand"><b>OLBG4 · Board AK</b>
-<span>15-sport betting desk · lines originated from official feeds · 2026-10-23 19:45:45 UTC</span></div>
+<span>15-sport betting desk · lines originated from official feeds · 2026-10-23 19:51:14 UTC</span></div>
 <nav><a href="../index.html">All boards</a><a href="index.html">Summary</a><a href="picks.html">Picks</a><a href="markets.html">Markets</a><a href="entries.html">Fixtures</a><a href="coverage.html">Coverage</a><a href="review.html">Review</a><a href="flagged.html">Flagged</a><a href="sources.html">Sources</a><a href="methodology.html">Method</a><a href="verification.html" class="on">Checks</a></nav>
-</div></header><main><div class="wrap"><h1>Checks</h1><p>Run <code>python3 verify.py</code> to produce this page.</p></div></main>
+</div></header><main><div class="wrap">
+<h1>Checks</h1>
+<p class="lede">12 gates, 11 pass, 1 fail. The gate runs from a
+clean checkout: it re-runs the parser and the pricer, compares the output byte for byte with what is
+committed, and then lints the published pages.</p>
+<div class="note bad">1 check(s) failed: placeholders</div>
+<div class="scroll"><table class=""><thead><tr><th>Check</th><th>Result</th><th>Detail</th></tr></thead><tbody><tr><td>rebuild</td><td><span class="ok">pass</span></td><td>parser, pricer and prediction builder reproduce the committed JSON byte for byte</td></tr><tr><td>provenance</td><td><span class="ok">pass</span></td><td>all 171 fixtures cite an official URL whose payload hash is in a capture manifest</td></tr><tr><td>price-books</td><td><span class="ok">pass</span></td><td>every two-way book sums to 100% and every price equals 1/p</td></tr><tr><td>price-window</td><td><span class="ok">pass</span></td><td>153 picks priced; 16 sit outside the brief&#x27;s −250…+10,000 window and are marked as such</td></tr><tr><td>predictions</td><td><span class="ok">pass</span></td><td>32 write-ups, shortest 51 words, each names its selection and its source</td></tr><tr><td>uniqueness</td><td><span class="ok">pass</span></td><td>no duplicate write-ups; worst three-word overlap 0.106 (Jaccard)</td></tr><tr><td>pages</td><td><span class="ok">pass</span></td><td>25 expected pages present</td></tr><tr><td>links</td><td><span class="ok">pass</span></td><td>25 pages scanned, 0 broken internal links</td></tr><tr><td>placeholders</td><td><span class="fail">fail</span></td><td>placeholder tokens in: session-63ad3394/verification.html</td></tr><tr><td>picks-published</td><td><span class="ok">pass</span></td><td>all 32 picks appear on the landing page or their sport page</td></tr><tr><td>row-links</td><td><span class="ok">pass</span></td><td>171 official source links rendered for 171 fixture rows</td></tr><tr><td>summary</td><td><span class="ok">pass</span></td><td>171 fixtures · 153 priced · 32 picks · 9 High (1 inside the price window)</td></tr></tbody></table></div>
+</div></main>
 <footer><div class="wrap">
-<p>Board AK · session <code>arena/63ad3394-olbg4</code> · captures 20261023T193229Z, 20261023T193509Z, 20261023T193724Z ·
+<p>Board AK · session <code>arena/63ad3394-olbg4</code> · captures 20261023T193229Z, 20261023T193509Z, 20261023T193724Z, 20261023T194729Z ·
 fixtures from official league, tour and federation feeds; OLBG used for taxonomy and market
 cross-check only. Nothing on this site is a tip from OLBG.</p>
 <p><a href="../flagged.html">Repository-wide flagged items</a> ·

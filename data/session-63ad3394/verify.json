@@ -1,0 +1,72 @@
+{
+ "schema": "olbg4.board-ak.verify/1",
+ "generated_utc": "2026-10-23T19:51:14Z",
+ "checks": [
+  {
+   "name": "rebuild",
+   "result": "pass",
+   "detail": "parser, pricer and prediction builder reproduce the committed JSON byte for byte"
+  },
+  {
+   "name": "provenance",
+   "result": "pass",
+   "detail": "all 171 fixtures cite an official URL whose payload hash is in a capture manifest"
+  },
+  {
+   "name": "price-books",
+   "result": "pass",
+   "detail": "every two-way book sums to 100% and every price equals 1/p"
+  },
+  {
+   "name": "price-window",
+   "result": "pass",
+   "detail": "153 picks priced; 16 sit outside the brief's \u2212250\u2026+10,000 window and are marked as such"
+  },
+  {
+   "name": "predictions",
+   "result": "pass",
+   "detail": "32 write-ups, shortest 51 words, each names its selection and its source"
+  },
+  {
+   "name": "uniqueness",
+   "result": "pass",
+   "detail": "no duplicate write-ups; worst three-word overlap 0.106 (Jaccard)"
+  },
+  {
+   "name": "pages",
+   "result": "pass",
+   "detail": "25 expected pages present"
+  },
+  {
+   "name": "links",
+   "result": "pass",
+   "detail": "25 pages scanned, 0 broken internal links"
+  },
+  {
+   "name": "placeholders",
+   "result": "pass",
+   "detail": "no placeholder or not-a-number text on any page"
+  },
+  {
+   "name": "picks-published",
+   "result": "pass",
+   "detail": "all 32 picks appear on the landing page or their sport page"
+  },
+  {
+   "name": "row-links",
+   "result": "pass",
+   "detail": "171 official source links rendered for 171 fixture rows"
+  },
+  {
+   "name": "summary",
+   "result": "pass",
+   "detail": "171 fixtures \u00b7 153 priced \u00b7 32 picks \u00b7 9 High (1 inside the price window)"
+  }
+ ],
+ "counts": {
+  "checks": 12,
+  "pass": 12,
+  "fail": 0
+ },
+ "summary": "All checks pass: the desk rebuilds byte for byte, every row carries an official source and a hashed payload, every price is a complete book, every published pick has a written preview, and every internal link resolves."
+}

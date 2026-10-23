@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -77,7 +78,8 @@ def american(p: float) -> int | None:
 
 
 def decimal(p: float) -> float | None:
-    return round(1.0 / p, 3) if p and 0 < p < 1 else None
+    """Decimal odds from the same rounded probability that sets the American price."""
+    return round(1.0 / round(p, 4), 3) if p and 0 < p < 1 else None
 
 
 def snap(x: float, step: float) -> float:
@@ -91,8 +93,9 @@ def in_window(am: int | None) -> bool:
 def market(label: str, p: float) -> dict:
     # a selection that rounds to zero probability still needs a printable price
     p = min(max(p, 1e-4), 1 - 1e-4)
-    return {"label": label, "fair_prob": round(p, 4), "fair_decimal": decimal(p),
-            "fair_american": american(p), "in_window": in_window(american(p))}
+    rp = round(p, 4)
+    return {"label": label, "fair_prob": rp, "fair_decimal": decimal(rp),
+            "fair_american": american(rp), "in_window": in_window(american(rp))}
 
 
 def two_way(name: str, line: float | None, a_label: str, b_label: str,
@@ -261,7 +264,8 @@ def main() -> int:
     events_path, out_path = Path(sys.argv[1]), Path(sys.argv[2])
     olbg_path = Path(sys.argv[3]) if len(sys.argv) > 3 else None
     payload = json.loads(events_path.read_text())
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    now = (os.environ.get("AK_GENERATED_UTC")
+           or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
 
     olbg = json.loads(olbg_path.read_text()) if olbg_path and olbg_path.exists() else {"tips": [], "hubs": []}
     tips = olbg.get("tips", [])
@@ -364,7 +368,7 @@ def main() -> int:
         "generated_utc": now,
         "window": payload.get("window"),
         "captures": payload.get("captures"),
-        "events_source": str(events_path),
+        "events_source": "data/session-63ad3394/events.json",
         "summary": summary,
         "totals": {
             "rows": len(rows),

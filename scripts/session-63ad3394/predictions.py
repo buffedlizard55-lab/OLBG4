@@ -161,7 +161,7 @@ def main() -> int:
         "schema": "olbg4.board-ak.predictions/1",
         "session": desk.get("session"),
         "generated_utc": desk.get("generated_utc"),
-        "desk": desk_path,
+        "desk": "data/session-63ad3394/desk.json",
         "note": ("Every write-up is hand-written against the numbers on that row's official "
                  "page. A pick is published only when a hand-written prediction exists for it."),
         "counts": {

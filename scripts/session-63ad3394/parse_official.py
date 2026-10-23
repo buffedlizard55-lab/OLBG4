@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -662,8 +663,8 @@ def parse_top14(ctx: Ctx):
                 form[nm] = {"pts": int(nums[0]), "m": int(nums[1]), "w": int(nums[2]),
                             "d": int(nums[3]), "l": int(nums[4]), "bonus": int(nums[5]),
                             "pf": int(nums[6]), "pa": int(nums[7]),
-                            "diff": float(nums[8].replace("+", "")),
-                            "margin": round(float(nums[8].replace("+", "")) / max(1, int(nums[1])), 3),
+                            "diff": float(nums[8]),
+                            "margin": round(float(nums[8]) / max(1, int(nums[1])), 3),
                             "form": fm.group(1).split(),
                             "win_pct": round(int(nums[2]) / max(1, int(nums[1])), 4),
                             "pf_pg": round(int(nums[6]) / max(1, int(nums[1])), 3),
@@ -689,8 +690,8 @@ def parse_top14(ctx: Ctx):
                 id=f"top14-{mt.get('id')}", sport="Rugby Union", competition="TOP 14 2026-27 · Round 7",
                 side_a=v, side_b=h, start_utc=start, venue=None,
                 form={"a": fa, "b": fb},
-                facts=[f"{h} has {fa['pts']} league points from {fa['m']} matches ({fa['w']}W-{fa['d']}D-{fa['l']}L), scoring {fa['pf']} and conceding {fa['pa']}.",
-                       f"{v} has {fb['pts']} league points from {fb['m']} matches ({fb['w']}W-{fb['d']}D-{fb['l']}L), scoring {fb['pf']} and conceding {fb['pa']}.",
+                facts=[f"{v} has {fa['pts']} league points from {fa['m']} matches ({fa['w']}W-{fa['d']}D-{fa['l']}L), scoring {fa['pf']} and conceding {fa['pa']}.",
+                       f"{h} has {fb['pts']} league points from {fb['m']} matches ({fb['w']}W-{fb['d']}D-{fb['l']}L), scoring {fb['pf']} and conceding {fb['pa']}.",
                        f"Round 7 fixture at {h}, kick-off {start}."],
                 **ctx.meta("top14_classement"),
             )
@@ -743,23 +744,25 @@ def parse_ca(ctx: Ctx):
     except json.JSONDecodeError as exc:
         ctx.missing("Cricket", "ca_fixtures", f"FIXTURES_DATA unparsable: {exc}")
         return
+    # Win/loss records per team, accumulated across every completed fixture in
+    # the same competition type that the feed still lists.
     results: dict[tuple, dict] = {}
     for f in fixtures:
         parts = f.get("name", "").split(" v ")
-        if len(parts) != 2:
+        if len(parts) != 2 or not f.get("isCompleted"):
             continue
-        key = (f.get("gameType"), parts[0], parts[1])
-        r = results.setdefault(key, {"w": 0, "l": 0, "n": 0})
-        if f.get("isCompleted") and f.get("resultText"):
+        text = f.get("resultText") or ""
+        winner = next((p.strip() for p in parts if p.strip() and p.strip() in text), None)
+        if not winner:
+            continue
+        for team in (parts[0].strip(), parts[1].strip()):
+            r = results.setdefault((f.get("gameType"), team), {"w": 0, "l": 0, "n": 0})
             r["n"] += 1
-            if parts[0] in f["resultText"]:
-                r["w"] += 1
-            elif parts[1] in f["resultText"]:
-                r["l"] += 1
+            r["w" if team == winner else "l"] += 1
     for r in results.values():
-        if r["n"]:
-            r["win_pct"] = round(r["w"] / r["n"], 4)
-            r["margin"] = 0.0
+        r["win_pct"] = round(r["w"] / r["n"], 4) if r["n"] else None
+        r["margin"] = 0.0
+
     for f in fixtures:
         if f.get("isCompleted") or f.get("isLive"):
             continue
@@ -770,18 +773,12 @@ def parse_ca(ctx: Ctx):
         if len(parts) != 2:
             continue
         a, b = parts[0].strip(), parts[1].strip()
-        fa, fb = results.get((f.get("gameType"), a, b)), results.get((f.get("gameType"), b, a))
-        # Win rates are stored per ordered pair; swap where needed.
-        fa = fa or {"w": results.get((f.get("gameType"), a, b), {}).get("l", 0), "l": results.get((f.get("gameType"), a, b), {}).get("w", 0), "n": results.get((f.get("gameType"), a, b), {}).get("n", 0)}
-        fb = fb or {"w": results.get((f.get("gameType"), a, b), {}).get("l", 0), "l": results.get((f.get("gameType"), a, b), {}).get("w", 0), "n": results.get((f.get("gameType"), a, b), {}).get("n", 0)}
-        for d in (fa, fb):
-            d["win_pct"] = round(d["w"] / d["n"], 4) if d.get("n") else None
-            d.setdefault("margin", 0.0)
+        fa, fb = results.get((f.get("gameType"), a)), results.get((f.get("gameType"), b))
         ctx.add(
             id=f"ca-{f.get('id')}", sport="Cricket",
             competition=f"{f.get('gameType')} · Cricket Australia",
             side_a=b, side_b=a, start_utc=start, venue=f.get("venue") or None,
-            form={"a": fa, "b": fb} if fa.get("n") and fb.get("n") else None,
+            form={"a": fa, "b": fb} if fa and fb and fa.get("n") and fb.get("n") else None,
             facts=[f"{a} v {b}, {f.get('gameType')}, scheduled {start}.",
                    f"{f.get('resultText') or 'Match not yet played.'}"],
             **ctx.meta("ca_fixtures"),
@@ -941,7 +938,8 @@ def main() -> int:
         "session": "arena/63ad3394-olbg4",
         "captures": ctx.stamps,
         "capture": ctx.stamp,
-        "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_utc": os.environ.get("AK_GENERATED_UTC")
+        or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "window": {"from": TODAY, "to": HORIZON},
         "events": sorted(ctx.events, key=lambda e: (e["sport"], e["start_utc"], e["id"])),
         "unavailable": ctx.unavailable,

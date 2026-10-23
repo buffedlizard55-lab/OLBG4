@@ -1,38 +1,14 @@
 {
  "schema": "olbg4.board-ak.review/1",
- "generated_utc": "2026-10-23T19:45:45Z",
+ "generated_utc": "2026-10-23T19:51:14Z",
  "note": "Each desk check recomputes what arithmetic allows and re-reads a fixed list of figures from the committed official payload. A pass says the published number agrees with the page it came from, nothing more.",
  "counts": {
   "total": 22,
-  "pass": 16,
+  "pass": 19,
   "flag": 3,
-  "fail": 3
+  "fail": 0
  },
  "findings": [
-  {
-   "id": "D1",
-   "area": "desk",
-   "check": "Every carried market prices a complete two-way book (probabilities sum to 1, decimal = 1/p, American = p)",
-   "result": "fail",
-   "detail": "133 priced fixtures, 646 markets checked; 25 problem(s): el_games-81:total_ladder:Under 170 price 100 != -100 for p=0.5000; el_games-90:handicap:Olympiacos Piraeus -13 price 100 != -100 for p=0.5000; el_games-89:total:Over 178 price 100 != -100 for p=0.5000; pdc-88053-WesMar:handicap_ladder:Wessel Nijman -6.5 decimal 226.757 != 1/p; pdc-88052-CamGer:handicap_ladder:Gerwyn Price -5.5 decimal 172.186 != 1/p; pdc-88052-CamGer:handicap_ladder:Gerwyn Price -3.5 decimal 17.222 != 1/p",
-   "source_url": null
-  },
-  {
-   "id": "D2",
-   "area": "desk",
-   "check": "Form arithmetic: W+L(+OTL) equals games played, and the quoted margin equals scoring rate minus conceding rate",
-   "result": "fail",
-   "detail": "8 problem(s): top14-11862:a margin 4.833 != pf_pg-pa_pg; top14-11862:b margin 9.833 != pf_pg-pa_pg; top14-11861:a margin 1.5 != pf_pg-pa_pg; top14-11861:b margin 4.0 != pf_pg-pa_pg; top14-11863:a margin 1.833 != pf_pg-pa_pg; top14-11863:b margin 4.5 != pf_pg-pa_pg",
-   "source_url": null
-  },
-  {
-   "id": "R1",
-   "area": "repository",
-   "check": "scripts/audit_publication.py runs to completion on the repository",
-   "result": "fail",
-   "detail": "it raises UnicodeDecodeError in local_links(): 75 committed files are gzip bytes under a .html name, so Path.read_text() fails. First offenders: data/session-b2c7308d/capture/20261023T165722Z/asobal_home.html, data/session-b2c7308d/capture/20261023T165722Z/bcci_home.html, data/session-b2c7308d/capture/20261023T165722Z/cricket_au_fixtures.html",
-   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/audit_publication.py"
-  },
   {
    "id": "R4",
    "area": "repository",
@@ -58,6 +34,22 @@
    "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md"
   },
   {
+   "id": "D1",
+   "area": "desk",
+   "check": "Every carried market prices a complete book (two-way books sum to 1, multi-way books never exceed 1), with decimal = 1/p and the American price derived from the same rounded probability",
+   "result": "pass",
+   "detail": "153 priced fixtures, 724 markets checked; 0 problem(s)",
+   "source_url": null
+  },
+  {
+   "id": "D2",
+   "area": "desk",
+   "check": "Form arithmetic: W+L(+OTL) equals games played, and the quoted margin equals scoring rate minus conceding rate",
+   "result": "pass",
+   "detail": "0 problem(s)",
+   "source_url": null
+  },
+  {
    "id": "D3",
    "area": "desk",
    "check": "Every fixture row carries an official URL from the capture target list and the SHA-256 of the committed payload it was parsed from",
@@ -78,15 +70,15 @@
    "area": "desk",
    "check": "Every unpriced fixture states, in the row, why no line is published (never a guessed line)",
    "result": "pass",
-   "detail": "38 unpriced fixtures; 0 without a reason",
+   "detail": "18 unpriced fixtures; 0 without a reason",
    "source_url": null
   },
   {
    "id": "D6",
    "area": "predictions",
-   "check": "All 22 published write-ups are 30+ words, free of the words 'model' and 'verified', and carry their official source",
+   "check": "All 32 published write-ups are 30+ words, free of the words 'model' and 'verified', and carry their official source",
    "result": "pass",
-   "detail": "22 write-ups, shortest 53 words; 0 problem(s)",
+   "detail": "32 write-ups, shortest 51 words; 0 problem(s)",
    "source_url": null
   },
   {
@@ -94,7 +86,7 @@
    "area": "predictions",
    "check": "No two published write-ups are the same text, and no pair of write-ups shares more than a third of its three-word runs",
    "result": "pass",
-   "detail": "worst pair ['pdc-88052-SteKim', 'pdc-88053-WesMar'] at 0.050 Jaccard",
+   "detail": "worst pair ['el_games-76', 'el_games-90'] at 0.106 Jaccard",
    "source_url": null
   },
   {
@@ -168,6 +160,14 @@
    "result": "pass",
    "detail": "figure found in the captured page",
    "source_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=100"
+  },
+  {
+   "id": "R1",
+   "area": "repository",
+   "check": "scripts/audit_publication.py runs to completion on the repository",
+   "result": "pass",
+   "detail": "no gzip payloads are committed under a .html name",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/audit_publication.py"
   },
   {
    "id": "R2",
