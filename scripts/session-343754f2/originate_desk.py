@@ -49,7 +49,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "session-343754f2"
 
-CUT_OFF = "2026-10-23T19:36:27Z"          # EZ evening capture stamp (main evidence)
+CUT_OFF = "2026-10-23T21:29:35Z"          # EZ evening capture stamp (main evidence)
 WINDOW_START = "2026-10-23T00:00:00Z"
 WINDOW_END = "2026-11-09T00:00:00Z"
 
@@ -66,7 +66,7 @@ CAPTURE_DIR = DATA / "capture"
 # Pinned to the capture this published desk was derived from: later bot stamps
 # (e.g. 20261023T193956Z) stay archived in capture/ but are NOT desk inputs, so a
 # rebuild from committed bytes is byte-identical.
-PRIMARY_STAMP = "20261023T193627Z"
+PRIMARY_STAMP = "20261023T212935Z"
 ALL_STAMPS = [PRIMARY_STAMP]
 
 _flags: list[dict] = []
@@ -194,7 +194,7 @@ def new_row(**kw):
     global _row_seq
     _row_seq += 1
     row = {
-        "id": f"ez_{_row_seq:03d}",
+        "id": f"bw_{_row_seq:03d}",
         "row_kind": kw.get("row_kind", "match"),
         "listing_only": kw.get("listing_only", False),
         "sport": kw["sport"],
@@ -986,7 +986,7 @@ def parse_atp(reader: CaptureReader) -> None:
 # ---- Main ----------------------------------------------------------------------
 
 def main() -> int:
-    print(f"[board-ez] originating from captures {ALL_STAMPS} (primary {PRIMARY_STAMP})")
+    print(f"[board-bw] originating from captures {ALL_STAMPS} (primary {PRIMARY_STAMP})")
     parse_nhl(CR)
     parse_mlb(CR)
     parse_euroleague(CR)
@@ -1009,6 +1009,8 @@ def main() -> int:
     parse_greyhounds(CR, new_row, sel_row, two_way_market, finish_pick, flag)
     parse_rugby_league(CR, new_row, sel_row, two_way_market, finish_pick, flag)
     parse_snooker(CR, new_row, sel_row, two_way_market, finish_pick, flag)
+    from top14 import parse_top14
+    parse_top14(CR, new_row, sel_row, two_way_market, finish_pick, flag)
     # last: every OLBG-listed event not matching a published row becomes listing-only
     parse_listing_fallback(CR, new_row, sel_row, two_way_market, finish_pick, flag, list(_rows))
 
@@ -1044,12 +1046,12 @@ def main() -> int:
                          "olbg_listed": [t["decimal"] for t in best["tips"][:4]],
                          "olbg_event": best["name"]}
             linked += 1
-    print(f"[board-ez] OLBG cross-links attached to {linked} official rows")
+    print(f"[board-bw] OLBG cross-links attached to {linked} official rows")
 
     desk = {
-        "schema": "board-ez-desk-1",
+        "schema": "board-bw-desk-1",
         "session": "arena/343754f2-olbg4",
-        "board": "EZ",
+        "board": "BW",
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "cutoff_utc": CUT_OFF,
         "window": [WINDOW_START, WINDOW_END],
@@ -1069,8 +1071,8 @@ def main() -> int:
     }
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / "desk.json").write_text(json.dumps(desk, indent=1, ensure_ascii=False))
-    (DATA / "flagged.json").write_text(json.dumps({"board": "EZ", "generated_utc": desk["generated_utc"], "flags": _flags}, indent=1, ensure_ascii=False))
-    print(f"[board-ez] desk rows={len(_rows)} priced={desk['summary']['priced']} "
+    (DATA / "flagged.json").write_text(json.dumps({"board": "BW", "generated_utc": desk["generated_utc"], "flags": _flags}, indent=1, ensure_ascii=False))
+    print(f"[board-bw] desk rows={len(_rows)} priced={desk['summary']['priced']} "
           f"high={desk['summary']['high']} high_in_window={desk['summary']['high_in_window']} flags={len(_flags)}")
     return 0
 

@@ -878,5 +878,5 @@ def parse_listing_fallback(reader, new_row, sel_row, two_way_market, finish_pick
              "fixtures on an official governing-body feed in tonight's capture; they are published with blank "
              "picks and a manual-check link, never priced or inferred.",
              BODY_URL[sport])
-    print(f"[board-ez] listing fallback: {sum(counts.values())} unconfirmed listing rows "
+    print(f"[board-bw] listing fallback: {sum(counts.values())} unconfirmed listing rows "
           f"across {len(counts)} sports")
