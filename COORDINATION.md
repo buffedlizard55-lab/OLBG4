@@ -4033,6 +4033,7 @@ per row, and its findings on `master.json` are advisory, not edits.
 
 ---
 
+HEAD
 ## Board AP — session `arena/509d544b-olbg4` (2026-10-23 final 15-sport verification, multi-market origination, 5-per-sport in-window High predictions & clean executive dashboard)
 
 Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes branch name; deliverables isolated under `509d544b`) · Claimed: **2026-10-23T00:00Z UTC** · **status: in progress**
@@ -4214,3 +4215,21 @@ resolved, 343 rows re-derived, 121 prices re-derived, 25 predictions re-measured
 - **Audit artefact regeneration (integration fix, logged):** adding the new pages changed the publication
   inventory, so `audit/report.json` and `audit/index.html` were regenerated with `scripts/audit_publication.py`;
   `--check` then exited 0. No audit logic was changed.
+## Board AH — session `arena/b2c7308d-olbg4` (2026-10-23 fresh same-day desk: OLBG reverse-engineering + 15-scope official verification + multi-market own lines + −250…+10,000 High-confidence human predictions (target 5 per sport) + repo-wide line-by-line review + dashboard + final integration)
+
+Session: `arena/b2c7308d-olbg4` · Branch: `arena/b2c7308d-olbg4` (fixed Arena branch) · Claimed: `2026-10-23T16:25Z UTC` · **status: in progress**
+
+Exclusive working scope: `session-b2c7308d/**`, `data/session-b2c7308d/**`, `scripts/session-b2c7308d/**`, `.github/workflows/ah-b2c7308d.yml`, and append-only blocks in this file. Everything else — `data/master.json`, `board/`, root `*.html`, peer `session-*/` folders, `data/session-*/`, peer scripts, `pipeline/**` — is read-only for Board AH; findings that would touch another owner's file are logged here as integration requests, never applied. The user's sport scope is exactly: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AH1 | Live `robots.txt`-compliant capture (Actions runner, open egress) of today's (2026-10-23) OLBG sport hubs for the 15-sport scope + official governing-body fixture/form feeds for the 23 Oct – 2 Nov 2026 window; raw bytes + SHA-256 manifest committed; OLBG used for taxonomy/listings only, all published values verified from official sources | in progress | arena/b2c7308d-olbg4 | `scripts/session-b2c7308d/fetch.py`, `scripts/session-b2c7308d/targets.json`, `.github/workflows/ah-b2c7308d.yml`, `data/session-b2c7308d/capture/` |
+| AH2 | Originate own lines for every verified upcoming fixture (match winner, handicap/spread, match total, sport-specific derivative where verified inputs exist); pick a winner; label Low/Medium/High confidence; record every market investigated | pending | arena/b2c7308d-olbg4 | `scripts/session-b2c7308d/originate_desk.py`, `data/session-b2c7308d/desk.json` |
+| AH3 | High-confidence focus: picks priced inside −250…+10,000 American, targeting the 5 strongest per covered sport; unique human ≥30-word predictions naming teams/players, form, recent history, verified stats and an explicit selection, each with its official source link | pending | arena/b2c7308d-olbg4 | `scripts/session-b2c7308d/predictions_bank.py`, `data/session-b2c7308d/predictions.json` |
+| AH4 | Line-by-line repo review of canonical + peer datasets against official sources; exact defects + manual-review URLs on a Flagged for Review page; unconfirmed values left blank, never inferred | pending | arena/b2c7308d-olbg4 | `data/session-b2c7308d/review.json`, `data/session-b2c7308d/flagged.json` |
+| AH5 | Clean dashboard-style GitHub Pages desk under `session-b2c7308d/` (executive summary landing + per-sport subpages + entries/markets/predictions/coverage/methodology/sources/verification/review/flagged tables), every row carrying its official source link | pending | arena/b2c7308d-olbg4 | `scripts/session-b2c7308d/build_site.py`, `session-b2c7308d/**` |
+| AH6 | Verification gate (deterministic rebuild, provenance, maths, predictions, links), `git pull --rebase` sync, PR to `main`, merge without waiting, confirm Pages deploy, record result here | pending | arena/b2c7308d-olbg4 | `scripts/session-b2c7308d/verify.py`, `COORDINATION.md` |
+
+### AH working log
+- 2026-10-23T16:25Z UTC — `b2c7308d` — board read (Board C10 claimed by `arena/c10a7aca-olbg4` at 16:17Z with the same brief; no file overlap: all AH work stays inside the `b2c7308d` namespaces above). Claim committed and pushed before any other work. Evidence plan: fresh Actions-runner capture on this branch (the sandbox shell reaches GitHub only); the 2026-10-21 OLBG listing snapshot in `data/raw/` is stale and will be re-read live today; today's verified window starts with the MLB World Series Game 1 (23 Oct), the Friday ATP/WTA quarter-finals and the 23 Oct NHL slate.
+ce15a89 (chore(coordination): claim Board AH (b2c7308d) fresh 15-sport same-day desk)
