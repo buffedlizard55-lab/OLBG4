@@ -1,0 +1,81 @@
+name: Board AJ Live Capture & Gate (0c3076a9)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/0c3076a9-olbg4
+    paths:
+      - "scripts/session-0c3076a9/CAPTURE_TRIGGER"
+      - "session-0c3076a9/**"
+  pull_request:
+    paths:
+      - "session-0c3076a9/**"
+      - "data/session-0c3076a9/**"
+      - "scripts/session-0c3076a9/**"
+      - ".github/workflows/aj-0c3076a9.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aj-0c3076a9-${{ github.event_name }}-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    if: >-
+      github.ref == 'refs/heads/arena/0c3076a9-olbg4' &&
+      (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.modified, 'scripts/session-0c3076a9/CAPTURE_TRIGGER') || contains(github.event.head_commit.added, 'scripts/session-0c3076a9/CAPTURE_TRIGGER'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: arena/0c3076a9-olbg4
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Board AJ deterministic capture
+        id: run_cap
+        run: |
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          OUT="data/session-0c3076a9/capture/${STAMP}"
+          python3 scripts/session-0c3076a9/fetch.py scripts/session-0c3076a9/targets.json "${OUT}"
+          echo "${STAMP}" > data/session-0c3076a9/capture/LATEST
+          echo "stamp=${STAMP}" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push raw capture
+        run: |
+          git config user.name "board-aj-capture[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/session-0c3076a9/capture
+          git commit -m "Board AJ (0c3076a9): live OLBG + official capture ${{ steps.run_cap.outputs.stamp }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin arena/0c3076a9-olbg4 && git push origin HEAD:arena/0c3076a9-olbg4 && break
+            sleep 3
+          done
+
+  verify-board-aj:
+    if: >-
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'push' && !contains(github.event.head_commit.added, 'scripts/session-0c3076a9/CAPTURE_TRIGGER') && !contains(github.event.head_commit.modified, 'scripts/session-0c3076a9/CAPTURE_TRIGGER'))
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify Board AJ deterministic build & link integrity
+        run: |
+          if [ -f scripts/session-0c3076a9/build_all.sh ]; then
+            bash scripts/session-0c3076a9/build_all.sh
+            git diff --exit-code -- session-0c3076a9 data/session-0c3076a9
+          fi
