@@ -230,6 +230,84 @@ add("gbgb_racecards", "https://www.gbgb.org.uk/racecards/", "Greyhounds", "sched
 add("gbgb_racing", "https://www.gbgb.org.uk/racing/", "Greyhounds", "schedule", "GBGB racing")
 add("gbgb_results_page", "https://www.gbgb.org.uk/results/", "Greyhounds", "results", "GBGB results")
 
+
+# ---------------------------------------------------------------- pass 2: gap fillers
+PASS2 = [
+    # Basketball: NBA HTML + other official domestic leagues
+    ("nba_sched_html", "https://www.nba.com/schedule?date=2026-10-24", "Basketball", "schedule", "NBA schedule page"),
+    ("nba_games_html", "https://www.nba.com/games", "Basketball", "schedule", "NBA games page"),
+    ("acb_calendario", "https://www.acb.com/calendario", "Basketball", "schedule", "Spanish ACB calendar"),
+    ("bbl_spielplan", "https://www.easycredit-bbl.de/spielplan", "Basketball", "schedule", "German BBL schedule"),
+    ("lega_calendario", "https://www.legabasket.it/calendario", "Basketball", "schedule", "Italian Lega Basket calendar"),
+    ("euroleague_gc", "https://www.euroleaguebasketball.net/euroleague/game-center/", "Basketball", "schedule", "EuroLeague game centre"),
+    # Tennis: ATP official live-scoring order of play + WTA pages
+    ("ptl_496_op", "https://www.protennislive.com/posting/2026/496/op.pdf", "Tennis", "schedule", "ATP order of play 496"),
+    ("ptl_7485_op", "https://www.protennislive.com/posting/2026/7485/op.pdf", "Tennis", "schedule", "ATP order of play 7485"),
+    ("ptl_9410_op", "https://www.protennislive.com/posting/2026/9410/op.pdf", "Tennis", "schedule", "ATP order of play 9410"),
+    ("ptl_328_op", "https://www.protennislive.com/posting/2026/328/op.pdf", "Tennis", "schedule", "ATP order of play 328"),
+    ("ptl_337_op", "https://www.protennislive.com/posting/2026/337/op.pdf", "Tennis", "schedule", "ATP order of play 337"),
+    ("wta_scores", "https://www.wtatennis.com/scores", "Tennis", "schedule", "WTA scores"),
+    ("wta_tournaments_2", "https://api.wtatennis.com/tennis/tournaments?page=1&pageSize=50&year=2026", "Tennis", "schedule", "WTA tournaments page 2"),
+    # Darts: alternate PDC service hosts
+    ("pdc_matches_web", "https://matches.darts.web.gc.pdcservices.co.uk/v2/matches", "Darts", "schedule", "PDC matches (web host)"),
+    ("pdc_matches_admin", "https://matches.darts.admin.gc.pdcservices.co.uk/v2/matches", "Darts", "schedule", "PDC matches (admin host)"),
+    ("pdc_tournaments_web", "https://matches.darts.web.gc.pdcservices.co.uk/v2/tournaments", "Darts", "reference", "PDC tournaments (web host)"),
+    ("pdc_ec_2026", "https://www.pdc.tv/tournaments/european-championship-2026", "Darts", "schedule", "PDC European Championship 2026"),
+    ("pdc_news", "https://www.pdc.tv/news", "Darts", "reference", "PDC news"),
+    # Snooker: alternate WST service paths
+    ("wst_matches_root", "https://matches.snooker.web.gc.wstservices.co.uk/v2/", "Snooker", "schedule", "WST matches root"),
+    ("wst_events_root", "https://events.snooker.web.gc.wstservices.co.uk/v2/", "Snooker", "schedule", "WST events root"),
+    ("wst_comps_web", "https://comps.snooker.web.gc.wstservices.co.uk/v2/", "Snooker", "reference", "WST competitions web"),
+    ("wst_nio", "https://wst.tv/northern-ireland-open/", "Snooker", "schedule", "WST Northern Ireland Open"),
+    # Rugby league: NRL + Super League alternates
+    ("nrl_fixtures", "https://www.nrl.com/fixtures/", "Rugby League", "schedule", "NRL fixtures"),
+    ("nrl_draw_data", "https://www.nrl.com/draw/data?competition=111&season=2026", "Rugby League", "schedule", "NRL draw data"),
+    ("nrl_home", "https://www.nrl.com/", "Rugby League", "reference", "NRL home"),
+    ("superleague_mc", "https://www.superleague.co.uk/match-centre", "Rugby League", "schedule", "Super League match centre"),
+    ("rugby_league_com", "https://www.rugby-league.com/", "Rugby League", "schedule", "RFL site"),
+    ("rlwc_home", "https://www.rlwc2026.com/", "Rugby League", "schedule", "RLWC 2026 home"),
+    ("rlwc_news", "https://www.rlwc2026.com/news", "Rugby League", "reference", "RLWC 2026 news"),
+    # Rugby union: autumn internationals + news
+    ("sixnations", "https://www.sixnationsrugby.com/en/", "Rugby Union", "schedule", "Six Nations / Autumn Nations"),
+    ("urc_news", "https://www.unitedrugby.com/latest/news", "Rugby Union", "reference", "URC news"),
+    ("prem_home", "https://www.premiershiprugby.com/", "Rugby Union", "schedule", "Premiership Rugby home"),
+    ("epcr_home", "https://www.epcrugby.com/", "Rugby Union", "schedule", "EPCR home"),
+    ("world_rugby_rankings2", "https://www.world.rugby/rankings", "Rugby Union", "rankings", "World Rugby rankings alt"),
+    # Handball: EHF European League + national leagues
+    ("ehfel_matches", "https://ehfel.eurohandball.com/men/2026-27/matches/", "Handball", "schedule", "EHF European League men"),
+    ("eurohandball_home", "https://www.eurohandball.com/en/", "Handball", "reference", "EHF home"),
+    ("lnh_calendrier", "https://www.lnh.fr/calendrier", "Handball", "schedule", "French LNH calendar"),
+    ("hbl_home", "https://www.dkb-handball-bundesliga.de/", "Handball", "standings", "German HBL home"),
+    # Volleyball: PlusLiga fixture pages + national leagues
+    ("plusliga_t47", "https://plusliga.pl/terminarz/tour/47.html", "Volleyball", "schedule", "PlusLiga fixtures tour 47"),
+    ("plusliga_home2", "https://plusliga.pl/", "Volleyball", "schedule", "PlusLiga home"),
+    ("vbl_spielplan", "https://www.volleyball-bundesliga.de/spielplan", "Volleyball", "schedule", "German Bundesliga schedule"),
+    ("cev_home", "https://www.cev.eu/", "Volleyball", "schedule", "CEV home"),
+    # Cricket: more official boards
+    ("cricket_au_matches", "https://www.cricket.com.au/matches", "Cricket", "schedule", "Cricket Australia matches"),
+    ("blackcaps", "https://www.blackcaps.co.nz/", "Cricket", "schedule", "Blackcaps fixtures"),
+    ("cricket_westindies", "https://www.cricketwestindies.org/", "Cricket", "schedule", "Cricket West Indies"),
+    ("slc", "https://www.srilankacricket.lk/", "Cricket", "schedule", "Sri Lanka Cricket"),
+    # Golf
+    ("dpwt_schedule_2026", "https://www.europeantour.com/dpworld-tour/schedule/2026", "Golf", "schedule", "DP World Tour 2026 schedule"),
+    ("owgr_alt", "https://www.owgr.com/rankings/world-ranking", "Golf", "rankings", "OWGR alt"),
+    # Motor racing
+    ("f1_us", "https://www.formula1.com/en/racing/2026/united-states", "Motor Racing", "schedule", "F1 United States GP"),
+    ("f1_races", "https://www.formula1.com/en/results/2026/races", "Motor Racing", "results", "F1 2026 races"),
+    ("motogp_calendar_2026", "https://www.motogp.com/en/calendar/2026", "Motor Racing", "schedule", "MotoGP 2026 calendar"),
+    ("motogp_results", "https://www.motogp.com/en/results/2026", "Motor Racing", "results", "MotoGP 2026 results"),
+    # Gaelic
+    ("munster_gaa", "https://munstergaa.ie/", "Gaelic Sports", "schedule", "Munster GAA"),
+    ("ulster_gaa", "https://ulstergaa.ie/", "Gaelic Sports", "schedule", "Ulster GAA"),
+    ("connacht_gaa", "https://connachtgaa.ie/", "Gaelic Sports", "schedule", "Connacht GAA"),
+    # Greyhounds
+    ("gbgb_fixtures", "https://www.gbgb.org.uk/fixtures/", "Greyhounds", "schedule", "GBGB fixtures"),
+    ("gbgb_race_card", "https://www.gbgb.org.uk/race-card/", "Greyhounds", "schedule", "GBGB race card"),
+    ("gbgb_results_28", "https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=100&date=2026-10-28&race_type=race", "Greyhounds", "results", "GBGB results 28 Oct"),
+]
+for tid, url, sport, kind, label in PASS2:
+    add(tid, url, sport, kind, label)
+
 dedup: dict[str, dict] = {}
 for item in T:
     dedup.setdefault(item["id"], item)
