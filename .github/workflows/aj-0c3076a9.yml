@@ -6,8 +6,9 @@ on:
     branches:
       - arena/0c3076a9-olbg4
     paths:
-      - "scripts/session-0c3076a9/CAPTURE_TRIGGER"
+      - "scripts/session-0c3076a9/**"
       - "session-0c3076a9/**"
+      - ".github/workflows/aj-0c3076a9.yml"
   pull_request:
     paths:
       - "session-0c3076a9/**"
@@ -26,7 +27,7 @@ jobs:
   capture:
     if: >-
       github.ref == 'refs/heads/arena/0c3076a9-olbg4' &&
-      (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.modified, 'scripts/session-0c3076a9/CAPTURE_TRIGGER') || contains(github.event.head_commit.added, 'scripts/session-0c3076a9/CAPTURE_TRIGGER'))
+      (github.event_name == 'workflow_dispatch' || startsWith(github.event.head_commit.message, 'capture(aj-0c3076a9):'))
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -64,7 +65,7 @@ jobs:
   verify-board-aj:
     if: >-
       github.event_name == 'pull_request' ||
-      (github.event_name == 'push' && !contains(github.event.head_commit.added, 'scripts/session-0c3076a9/CAPTURE_TRIGGER') && !contains(github.event.head_commit.modified, 'scripts/session-0c3076a9/CAPTURE_TRIGGER'))
+      (github.event_name == 'push' && !startsWith(github.event.head_commit.message, 'capture(aj-0c3076a9):'))
     permissions:
       contents: read
     runs-on: ubuntu-latest
