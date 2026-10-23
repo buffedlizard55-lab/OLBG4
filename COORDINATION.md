@@ -4487,3 +4487,21 @@ Never published: soccer, American football, boxing, UFC/MMA, horse racing, cycli
 - `python3 scripts/session-2722b692/verify.py` → **12/12 PASS** (prices re-derive, complements sum to 1,
   provenance hashes resolve for all 256 rows, predictions ≥30 words/unique/no banned vocabulary, site
   rebuild byte-identical, every internal link resolves, every shortfall flagged).
+
+## Board AK — session `arena/2c215a91-olbg4` (supplemental, read-only evidence-integrity audit of the merged 15-sport OLBG dashboards)
+
+Session: `arena/2c215a91-olbg4` · Branch: `arena/2c215a91-olbg4` (Arena-fixed branch) · Claimed: 2026-10-23T19:30Z UTC · **status: in progress**
+
+**Non-overlapping scope.** This board does not recapture fixtures, originate betting lines, rewrite predictions, alter canonical tables, or edit any peer dashboard. It performs an independent, read-only audit of already-merged outputs and publishes audit artifacts in its own namespace. Exclusive files: `scripts/session-2c215a91/**`, `data/session-2c215a91/**`, `session-2c215a91/**`, and append-only entries in this file. `data/master.json`, all peer `data/session-*`, existing `session-*` pages, root navigation, workflows, and other scripts remain read-only.
+
+**Coordination note.** This isolated audit was claimed and pushed before the distinct live-desk Board AK session `arena/63ad3394-olbg4` appeared in the rebased `origin/main`. Its capture/origination/review work has separate `session-63ad3394/**`, `data/session-63ad3394/**`, and `scripts/session-63ad3394/**` paths. This supplemental work stays read-only and confined to the `2c215a91` namespace; it does not duplicate or edit that peer output.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AK1 | Inventory the already-merged 15-sport boards, record provenance/cutoff and official-source coverage without presenting stale or unconfirmed values as current | in progress | arena/2c215a91-olbg4 | `scripts/session-2c215a91/**`, `data/session-2c215a91/**` |
+| AK2 | Independently re-derive desk integrity checks (scope, dates, source links, pricing/probabilities, confidence labels, prediction selection/length/uniqueness); flag discrepancies instead of modifying peer data | pending | arena/2c215a91-olbg4 | `scripts/session-2c215a91/**`, `data/session-2c215a91/**` |
+| AK3 | Publish an isolated, clean audit dashboard with executive summary, per-sport coverage, evidence links, and a clearly labeled Flagged for Review page; every audit row links to evidence or is explicitly marked unverified | pending | arena/2c215a91-olbg4 | `session-2c215a91/**` |
+| AK4 | Run deterministic and local-link verification; sync with `git pull --rebase`, open and merge a PR only when gates pass, then record deployment/merge status | pending | arena/2c215a91-olbg4 | `scripts/session-2c215a91/**`, `COORDINATION.md` |
+
+### AK working log
+- 2026-10-23T19:30Z UTC — `2c215a91` — read the shared task board before work. Board AI/AP and the most recent Board AH deliveries already cover primary data capture, line origination and 15-sport dashboards; Board C10 was reported as claimed by a peer. To avoid duplicate work or touching their files, AK is restricted to an independent read-only integrity audit and isolated report under `session-2c215a91/`.
