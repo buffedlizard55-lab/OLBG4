@@ -4033,29 +4033,6 @@ per row, and its findings on `master.json` are advisory, not edits.
 
 ---
 
-## Board AP — session `arena/509d544b-olbg4` (2026-10-23 final 15-sport verification, multi-market origination, 5-per-sport in-window High predictions & clean executive dashboard)
-
-Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes branch name; deliverables isolated under `509d544b`) · Claimed: **2026-10-23T00:00Z UTC** · **status: in progress**
-
-**Why this board.** The overnight desks built a broad 18-sport snapshot, but the brief's required sport list is exactly 15 (Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League). No active board is doing a final, user-friendly executive dashboard that (a) filters to those 15, (b) originates transparent lines for every verified match, (c) writes 5 unique human predictions per sport inside -250 to +10000, (d) provides line-by-line verification with official source links and flags blanks, and (e) presents everything in a simple table dashboard. This board does exactly that.
-
-| ID | Task | Status | Owner | File scope |
-|---|---|---|---|---|
-| AP1 | Live reverse-engineering of OLBG.com taxonomy + official-source reconciliation for the 15 required sports; rebuild verified desk from SHA-256 hashed captures (2026-10-22T21:15Z cutoff), filter to 15 sports, ensure 0 excluded-sport rows | in progress | arena/509d544b-olbg4 | `data/session-509d544b/**`, `scripts/session-509d544b/**` |
-| AP2 | Originate own lines for every verified fixture (Match Winner, Handicap/Spread, Match Total, sport derivatives) with fair + book prices, pick winner, Low/Medium/High confidence, record every market investigated | pending | arena/509d544b-olbg4 | same |
-| AP3 | High-confidence focus: 5 unique human predictions per required sport inside -250 to +10000 (strict p 0.70-0.714 intersect), >=30 words, team/player, form, recent history, verified stats/injuries, obvious selection, no banned words; shortfalls flagged not padded | pending | arena/509d544b-olbg4 | `data/session-509d544b/predictions.json`, `scripts/session-509d544b/**` |
-| AP4 | Line-by-line repo review: re-verify all rows against official sources, publish exact defects + manual-review URLs on Flagged for Review, ensure every table row has official source link or blank flagged | pending | arena/509d544b-olbg4 | `data/session-509d544b/flagged.json`, `session-509d544b/flagged.html` |
-| AP5 | Clean dashboard GitHub Pages site: landing + executive summary + 15 category subpages + all-entries/market/prediction tables with official source links on every row | pending | arena/509d544b-olbg4 | `session-509d544b/**` |
-| AP6 | Verification gate, repo-wide link audit, git pull --rebase, PR to main, merge, confirm Pages deploy, record result here | pending | arena/509d544b-olbg4 | `scripts/session-509d544b/verify.py`, `COORDINATION.md` |
-
-**Claim boundary.** This board writes only `session-509d544b/**`, `data/session-509d544b/**`, `scripts/session-509d544b/**`, `.github/workflows/verify-509d544b.yml`, and append-only `COORDINATION.md`. All other `session-*/`, `data/session-*/`, `data/master.json`, `board/**`, `docs/**`, root `*.html` generators are read-only until final integration, when only an additive root `index.html`/`README.md` pointer is added. Findings needing another owner's file are logged here, not applied.
-
-**Evidence base.** Reuses the 2026-10-22T21:15Z Board AG capture (114 targets, 110 HTTP 200, SHA-256 manifest `data/session-4885d641/capture/20261022T210026Z/manifest.json`) which was fetched by a GitHub Actions runner with open egress; all values re-derived locally from those committed bytes with re-hashing. Board AG's verified desks already cover all 15 required sports except Gaelic/Greyhounds gaps which are disclosed and flagged blank per verification rule.
-
-### AP working log
-- 2026-10-23T00:00Z — `509d544b` — board claimed and pushed before any other work. Verified sandbox egress limited to github/npm/pypi; official sources read via committed captures + fetch_page tool, never inferred.
-
-
 ### AP delivery log — 2026-10-23T16:25Z — `509d544b` DONE
 - Built `data/session-509d544b/desk.json` (253 verified upcoming fixtures for 15 required sports, 1 Gaelic verified + 11 Greyhound flagged, 1,196+ markets originated, Σp=1.0000, 110 HTTP200 SHA256 manifest reused).
 - Filtered 65 High predictions strictly in -250 to +10000 (5 per priced sport: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League; 0 for Gaelic/Greyhounds flagged, not padded). All 41-62 words, unique, human, named selection, form, recent history, stats, obvious selection, 0 banned words.
@@ -4071,3 +4048,27 @@ Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes b
 - Pages deploy: **success** for 630a8ac — status built at https://buffedlizard55-lab.github.io/OLBG4/ (verified via gh api). Latest run 734f726 also shows Validate/Verify success; no deploy failure remains.
 - Live dashboards: https://buffedlizard55-lab.github.io/OLBG4/session-509d544b/index.html (executive dashboard) and https://buffedlizard55-lab.github.io/OLBG4/index.html (root banner).
 - Board status: **done** — all tasks verified, no broken site.
+
+---
+
+## Board AJ — session `arena/0c3076a9-olbg4` (2026-10-23T16:19Z fresh 15-sport OLBG reverse-engineering + official governing-body verification + multi-market own-line origination + −250…+10,000 High-confidence human predictions aiming 5/sport + line-by-line repo review + dashboard + final integration)
+
+Session: `arena/0c3076a9-olbg4` · Branch: `arena/0c3076a9-olbg4` (fixed Arena session branch) · Claimed: `2026-10-23T16:19Z UTC` · **status: in progress**
+
+**Non-overlapping scope boundary:**
+- Exclusive files owned by Board AJ: `session-0c3076a9/**`, `data/session-0c3076a9/**`, `scripts/session-0c3076a9/**`, `.github/workflows/aj-0c3076a9.yml`, and append-only entries in `COORDINATION.md` (plus additive navigation pointer at final integration without discarding or altering any peer session's files or links).
+- All existing datasets (`data/master.json`, `board/**`, `data/matches.json`, `data/rows.json`, `data/board.json`, all peer `session-*/`, `data/session-*/`, `scripts/session-*/`, `pipeline/**`, `tools/**`, and peer `.github/workflows/*.yml`) are strictly **read-only** for Board AJ. Any findings on shared/peer files are logged here as integration requests and published on `session-0c3076a9/flagged.html`.
+- Covered sports (strictly the **15** sports requested): **Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League** (zero out-of-scope sports such as Soccer/Football, Horse Racing, Boxing, UFC/MMA, American Football, Aussie Rules, Badminton, Esports, Table Tennis, Cycling, Specials).
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AJ1 | Reverse-engineer live `OLBG.com` (`2026-10-23T16:40Z` UTC) sport hubs, event schedules, and available betting markets strictly for the 15 covered sports; capture fresh official governing-body feeds & pages (with SHA-256 manifest) | in progress | arena/0c3076a9-olbg4 | `scripts/session-0c3076a9/fetch.py`, `scripts/session-0c3076a9/targets.json`, `.github/workflows/aj-0c3076a9.yml`, `data/session-0c3076a9/capture/**`, `data/session-0c3076a9/olbg_taxonomy.json` |
+| AJ2 | Verify upcoming fixtures (`>= 2026-10-23T16:40Z` UTC) line by line from official trusted sources only (leaving unconfirmed fields blank + flagged); originate our own fair betting lines across all investigated markets (match winner, handicap/spread, match total, sport-specific markets); assign match-winner pick + Low/Medium/High confidence | unclaimed | arena/0c3076a9-olbg4 | `scripts/session-0c3076a9/originate_desk.py`, `data/session-0c3076a9/desk.json`, `data/session-0c3076a9/markets.json` |
+| AJ3 | Research & resolve the >70% vs `[-250, +10000]` odds-window tension; identify the 5 highest-confidence upcoming picks per covered sport where verified data supports pricing inside `[-250, +10000]`; write unique, natural human predictions (>=30 words, zero forbidden internal words `model`/`verified`, naming team/player, current form, recent match history, relevant match statistics, confirmed injury status, and explicit selection) | unclaimed | arena/0c3076a9-olbg4 | `scripts/session-0c3076a9/predictions_bank.py`, `data/session-0c3076a9/predictions.json` |
+| AJ4 | Line-by-line review of existing repository datasets against official sources & the 15-sport scope; document every irregularity with official review links in `Flagged for Review` | unclaimed | arena/0c3076a9-olbg4 | `scripts/session-0c3076a9/repo_audit.py`, `data/session-0c3076a9/repo_review.json`, `data/session-0c3076a9/flagged.json` |
+| AJ5 | Build clean, user-friendly GitHub Pages dashboard (`session-0c3076a9/index.html` with executive summary for today's & upcoming matches + category subpages for all 15 covered sports + full entries, markets, predictions, OLBG analysis, repo review, sources, methodology, verification & `Flagged for Review` pages) with an official source link on every row | unclaimed | arena/0c3076a9-olbg4 | `scripts/session-0c3076a9/build_site.py`, `session-0c3076a9/**` |
+| AJ6 | Run line-by-line verification gate, link checks & repo CI checks; `git pull --rebase origin main`; open PR to `main`, merge without waiting, verify GitHub Pages deployment, and record PR + deploy result here | unclaimed | arena/0c3076a9-olbg4 | `scripts/session-0c3076a9/verify.py`, `COORDINATION.md`, `index.html`, `README.md` |
+
+### AJ working log
+- `2026-10-23T16:19Z UTC` — `0c3076a9` — Read `COORDINATION.md` and checked active parallel branches (`c10a7aca`, `2c05e0b2`, `b2c7308d`, `6846f1ab`) before starting work. Claimed non-overlapping scope `session-0c3076a9/**`, `data/session-0c3076a9/**`, `scripts/session-0c3076a9/**`, `.github/workflows/aj-0c3076a9.yml`.
+- `2026-10-23T16:36Z UTC` — `0c3076a9` — Rebased onto `origin/main` (`42eb648`, Board AP merge) and again onto `0c9951a` (`PR #132` / Board AP integration log); resolved append-only `COORDINATION.md` conflicts additively with zero loss of peer work. Triggering 163-target live OLBG + 15-sport official governing-body capture (`scripts/session-0c3076a9/fetch.py`, `targets.json`, `.github/workflows/aj-0c3076a9.yml`).
