@@ -1,0 +1,40 @@
+name: FA evidence capture and strict dashboard tests
+on:
+  workflow_dispatch:
+    inputs:
+      capture:
+        description: Fetch public official sources (otherwise offline verification only)
+        type: boolean
+        default: true
+  pull_request:
+    paths:
+      - 'scripts/session-49866065/**'
+      - 'data/session-49866065/**'
+      - 'session-49866065/**'
+      - '.github/workflows/fa-49866065.yml'
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fresh public source capture
+        if: github.event_name == 'workflow_dispatch' && inputs.capture
+        run: python scripts/session-49866065/capture.py
+      - name: Upload fresh evidence without mutating a branch
+        if: github.event_name == 'workflow_dispatch' && inputs.capture
+        uses: actions/upload-artifact@v4
+        with:
+          name: fa-evidence
+          path: data/session-49866065/capture/
+      - name: Offline tests and deterministic publication gate
+        if: github.event_name == 'pull_request' || !inputs.capture
+        run: |
+          python -m unittest discover -s scripts/session-49866065 -p 'test_*.py' -v
+          python scripts/session-49866065/build.py
+          git diff --exit-code -- data/session-49866065/desk.json session-49866065
