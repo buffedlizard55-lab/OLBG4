@@ -6,6 +6,10 @@ on:
         description: Fetch public official sources (otherwise offline verification only)
         type: boolean
         default: true
+      livecheck:
+        description: Compare deployed public HTTPS files with committed dashboard bytes
+        type: boolean
+        default: false
   pull_request:
     paths:
       - 'scripts/session-49866065/**'
@@ -49,3 +53,6 @@ jobs:
           python -m unittest discover -s scripts/session-49866065 -p 'test_*.py' -v
           python scripts/session-49866065/build.py
           git diff --exit-code -- data/session-49866065/desk.json session-49866065
+      - name: Confirm public HTTPS deployment byte for byte
+        if: github.event_name == 'workflow_dispatch' && inputs.livecheck
+        run: python scripts/session-49866065/livecheck.py
