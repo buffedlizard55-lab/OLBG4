@@ -114,8 +114,21 @@ def logistic(x: float) -> float:
     return 1.0 / (1.0 + math.exp(-x))
 
 
+_BUILD_STAMP: str | None = None
+
+
 def iso_now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    """Build timestamp pinned to the capture, so a rebuild is byte-identical."""
+    global _BUILD_STAMP
+    if _BUILD_STAMP is None:
+        stamps = sorted(p.parent for p in CAP.glob("*/manifest.json"))
+        if stamps:
+            m = json.loads((stamps[-1] / "manifest.json").read_text())
+            finished = m.get("finished_utc", "")
+            _BUILD_STAMP = finished[:19].replace("T", "T") + "Z" if finished else "1970-01-01T00:00:00Z"
+        else:
+            _BUILD_STAMP = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return _BUILD_STAMP
 
 
 # --------------------------------------------------------------------------- #
