@@ -1,0 +1,124 @@
+{
+ "checks": [
+  {
+   "detail": "",
+   "name": "desk.json exists",
+   "ok": true
+  },
+  {
+   "detail": "432 rows",
+   "name": "desk rows present",
+   "ok": true
+  },
+  {
+   "detail": "0 missing",
+   "name": "every row has an official source URL",
+   "ok": true
+  },
+  {
+   "detail": "/home/user/OLBG4/data/session-4502eff5/capture/20261023T214256Z/manifest.json",
+   "name": "capture manifest committed",
+   "ok": true
+  },
+  {
+   "detail": "0 unknown ids",
+   "name": "every row's capture id exists in the manifest",
+   "ok": true
+  },
+  {
+   "detail": "0 defects; []",
+   "name": "market probabilities sum to 1 and price = 1/p",
+   "ok": true
+  },
+  {
+   "detail": "0 defects; []",
+   "name": "every pick copies its market leg exactly",
+   "ok": true
+  },
+  {
+   "detail": "0 defects; []",
+   "name": "confidence labels follow the published rule",
+   "ok": true
+  },
+  {
+   "detail": "0 defects; []",
+   "name": "in-window flag recomputed from the price",
+   "ok": true
+  },
+  {
+   "detail": "0 outside; []",
+   "name": "every dated row falls inside the advertised window",
+   "ok": true
+  },
+  {
+   "detail": "missing []",
+   "name": "all 15 in-scope sports have at least one row",
+   "ok": true
+  },
+  {
+   "detail": "14 texts",
+   "name": "predictions present",
+   "ok": true
+  },
+  {
+   "detail": "0 short; []",
+   "name": "every prediction is at least 30 words",
+   "ok": true
+  },
+  {
+   "detail": "0 contain banned words; []",
+   "name": "no internal vocabulary in published text",
+   "ok": true
+  },
+  {
+   "detail": "0 duplicated",
+   "name": "prediction texts are unique",
+   "ok": true
+  },
+  {
+   "detail": "max Jaccard 0.140 on ('pred_fx_el_games_E2026_90', 'pred_fx_el_games_E2026_92')",
+   "name": "predictions are not formulaic (max trigram overlap < 0.35)",
+   "ok": true
+  },
+  {
+   "detail": "0 orphaned; []",
+   "name": "every prediction points at a real desk row",
+   "ok": true
+  },
+  {
+   "detail": "0 issues; []",
+   "name": "every prediction names its selection and sits on a High row",
+   "ok": true
+  },
+  {
+   "detail": "26 pages",
+   "name": "site pages generated",
+   "ok": true
+  },
+  {
+   "detail": "0 broken; []",
+   "name": "internal links resolve",
+   "ok": true
+  },
+  {
+   "detail": "275 priced rows, 14 High, 1 in window",
+   "name": "desk has priced rows and High picks",
+   "ok": true
+  },
+  {
+   "detail": "summary total 432 vs 432 rows",
+   "name": "executive counts match the rows",
+   "ok": true
+  }
+ ],
+ "counts": {
+  "high": 14,
+  "predictions": 14,
+  "priced": 275,
+  "rows": 432
+ },
+ "generated_utc": "2026-10-23T21:50:56Z",
+ "ok": true,
+ "schema": "fx-verify-1",
+ "session": "arena/4502eff5-olbg4"
+}

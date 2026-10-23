@@ -1,0 +1,295 @@
+{
+ "capture": "20261023T214256Z",
+ "findings": [
+  {
+   "dataset": "data/master.json",
+   "finding": "Rows publish win/handicap/total/pick values with no source URL at all.",
+   "id": "FX4-M01",
+   "manual_url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+   "row": "39 of 354 rows",
+   "severity": "high",
+   "verification": "Counted every row whose source_url is empty."
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "Rows are published from builds whose own record says build_verified = false.",
+   "id": "FX4-M02",
+   "manual_url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+   "row": "67 rows",
+   "severity": "high",
+   "verification": "Flag build_verified is false on the row itself."
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "Rows carry dates before the capture day, so they are results or expired fixtures, not upcoming matches.",
+   "id": "FX4-M03",
+   "manual_url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+   "row": "162 rows",
+   "severity": "medium",
+   "verification": "Compared each row date with 2026-10-23 (this session's capture date)."
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "Predictions under 30 words or containing internal vocabulary (model/verified) that the brief forbids in published text.",
+   "id": "FX4-M04",
+   "manual_url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+   "row": "49 predictions",
+   "severity": "medium",
+   "verification": "Token counts and regex scan of every non-empty prediction; first three: [('Basketball', 'Brooklyn Nets', 'Charlotte Hornets', 'banned-word'), ('Handball', 'HC Zagreb', 'Paris Saint-Germain', 'banned-word'), ('Handball', 'RK Partizan AdmiralBet', 'FC Porto', 'banned-word')]"
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "For rows whose pairing does appear on the official schedule, the published date differs from the official date.",
+   "id": "FX4-M06",
+   "manual_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "row": "20 of 161 matched rows",
+   "severity": "high",
+   "verification": "Pairing matched on normalised club names against the captured NHL/MLB/EuroLeague feeds; date compared day-level. Examples: ['Crvena Zvezda Belgrade v Anadolu Efes Istanbul (2026-10-01)', 'Boston Celtics v Detroit Pistons (2026-10-20)', 'Oklahoma City Thunder v San Antonio Spurs (2026-10-20)']"
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "Fixtures could not be found on the official schedule for that pairing inside the captured window, so they are unverified.",
+   "id": "FX4-M07",
+   "manual_url": "https://www.nhl.com/schedule",
+   "row": "101 of 161 rows",
+   "severity": "medium",
+   "verification": "Normalised home/away pairing search in the captured official feeds. Examples: ['Crvena Zvezda Belgrade v Anadolu Efes Istanbul (2026-10-01)', 'Boston Celtics v Detroit Pistons (2026-10-20)', 'Oklahoma City Thunder v San Antonio Spurs (2026-10-20)']"
+  },
+  {
+   "dataset": "data/session-19b8e377/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "91 of 91 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-2722b692/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "256 of 256 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-2c05e0b2/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "343 of 343 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-3a6388d2/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "184 of 184 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-405e9797/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "160 of 340 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-4a73430b/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "164 of 164 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-543dca7d/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "112 of 112 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-63ad3394/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "171 of 171 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-7cfa69e5/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "121 of 121 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-80bc6293/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "264 of 264 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-8cbd0cb9/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "150 of 152 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-9359e596/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "17 of 280 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-c4fda15e/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "138 of 138 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-*/desk.json",
+   "finding": "Aggregate state of the peer desks at review time.",
+   "id": "FX4-P02",
+   "manual_url": "",
+   "row": "27 desks / 6122 rows",
+   "severity": "info",
+   "verification": "2171 rows without a source URL; 1492 rows with neither a pick nor markets."
+  }
+ ],
+ "flags": [
+  {
+   "id": "FX4-F01",
+   "impact": "A reader cannot re-check these rows; they should not be treated as verified.",
+   "issue": "39 rows without a source_url",
+   "row": "data/master.json",
+   "source_url": "",
+   "sport": "all"
+  },
+  {
+   "id": "FX4-COV-HANDBALL",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "EHF Champions League standings captured, but the official match list renders client-side; no fixture feed was captured, so the 30 OLBG-listed matches stay blank.",
+   "row": "30 rows / 0 priced",
+   "source_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Skive_FH_vs_Aalborg_Handbold/20?event_id=12076",
+   "sport": "Handball"
+  },
+  {
+   "id": "FX4-COV-TENNIS",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "WTA match feeds captured and parsed, but no official singles ranking list was reachable (api.wtatennis.com/atptour.com returned 403/404), so a ranking-based line would be a guess.",
+   "row": "30 rows / 0 priced",
+   "source_url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+   "sport": "Tennis"
+  },
+  {
+   "id": "FX4-COV-CRICKET",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "cricket.com.au fixture list captured, but no official competition table or rating list was reachable, so no line is originated.",
+   "row": "22 rows / 0 priced",
+   "source_url": "https://www.cricket.com.au/fixtures",
+   "sport": "Cricket"
+  },
+  {
+   "id": "FX4-COV-RUGBYUNI",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "United Rugby Championship fixture list captured, but the official table and results feeds render client-side; only the fixture list is published.",
+   "row": "12 rows / 0 priced",
+   "source_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Bulls_v_Ulster/9?event_id=609576",
+   "sport": "Rugby Union"
+  },
+  {
+   "id": "FX4-COV-DARTS",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "pdc.tv pages are the same client-side shell; no draw or Order of Merit data could be read, so the six listings stay blank.",
+   "row": "5 rows / 0 priced",
+   "source_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Cameron_Menzies_vs_Gerwyn_Price/15?event_id=32383",
+   "sport": "Darts"
+  },
+  {
+   "id": "FX4-COV-GAELICSP",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "gaa.ie fixtures captured; no official form or scoring feed across the same competitions, so no line.",
+   "row": "5 rows / 0 priced",
+   "source_url": "https://www.gaa.ie/fixtures",
+   "sport": "Gaelic Sports"
+  },
+  {
+   "id": "FX4-COV-GREYHOUN",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "GBGB returns completed results only; the racecard and meeting APIs returned 404, so no upcoming race could be priced.",
+   "row": "1 rows / 0 priced",
+   "source_url": "https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=100&date=2026-10-23&race_type=race",
+   "sport": "Greyhounds"
+  },
+  {
+   "id": "FX4-COV-SNOOKER",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "priced from the official world ranking gap, but the best-of-7/11 format keeps the strongest pick below the 70% line on this card.",
+   "row": "34 rows / 29 priced",
+   "source_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=100&filter[startDateTime][gte]=2026-10-23&filter[startDateTime][lte]=2026-11-08",
+   "sport": "Snooker"
+  },
+  {
+   "id": "FX4-COV-RUGBYLEA",
+   "impact": "published as a blank row or a capped label; nothing inferred",
+   "issue": "priced from the official RLWC feed; two matches per side is too small a sample for a 70% label, so every pick is capped at Medium.",
+   "row": "11 rows / 9 priced",
+   "source_url": "https://www.rlwc2026.com/api/fixtures",
+   "sport": "Rugby League"
+  },
+  {
+   "id": "FX4-COV-INJ",
+   "impact": "predictions are built on records, goals/points per game and splits only",
+   "issue": "No official team injury report was captured for any priced fixture. The predictions therefore carry no injury claim; squad-news feeds (nhl.com, euroleague.net) publish rosters but not availability lists at capture time.",
+   "row": "14 High picks",
+   "source_url": "",
+   "sport": "all"
+  },
+  {
+   "id": "FX4-F02",
+   "impact": "none - recorded as a positive check",
+   "issue": "0 arithmetic defects found in our own market legs (probabilities sum to 1, decimal = 1/p)",
+   "row": "our desk",
+   "source_url": "",
+   "sport": "all"
+  }
+ ],
+ "schema": "fx-review-1",
+ "session": "arena/4502eff5-olbg4",
+ "summary": {
+  "findings": 20,
+  "flags": 12,
+  "master_rows": 354,
+  "matchups_checked": 161,
+  "matchups_date_mismatch": 20,
+  "matchups_unverified": 101,
+  "peer_files": 27,
+  "peer_rows": 6122
+ }
+}

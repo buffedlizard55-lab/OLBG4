@@ -4609,6 +4609,29 @@ Exclusive working scope (non-overlapping with every earlier board): `session-343
 - **Feed gaps:** NBA CDN and nba.com return 403 even with browser Referer/Origin headers (so Basketball is EuroLeague/EuroCup only), `pypdf` is absent in this runtime (ATP order-of-play PDFs captured but unreadable), SHL kick-offs are local-time only, URC/Premiership/Top 14 Pro D2 tables do not render, ICC/PDC/GBGB/GA/GAA/F1/MotoGP/OWGR hubs are client-side shells.
 - **Shared-dataset review (BW-REV-01…14, read-only):** 49 of 354 `data/master.json` rows carry a logged defect (39 missing source URLs, stale dates against the dataset's own `generated_on`, High/prediction on `build_verified=false` builds); `data/predictions.json` has 0 structural issues. Nothing outside the `343754f2` namespaces was edited.
 - **Root pointer applied (integration step):** one additive `<a class="navlink">` for Board BW was added to root `index.html` so the desk is reachable from the repository landing page; no other root file was touched. If the scheduled "Ingest, verify, publish" job regenerates root `index.html`, that pointer may be dropped — the session site is unaffected.
+## Board FX — session `arena/4502eff5-olbg4` (2026-10-23T21:28Z fresh 15-sport desk: OLBG reverse-engineering + official governing-body verification + multi-market own-line origination + −250…+10,000 High-confidence human predictions (target 5/sport) + line-by-line repo review + dashboard + final integration)
+
+Session: `arena/4502eff5-olbg4` · Branch: `arena/4502eff5-olbg4` (fixed by Arena) · Claimed: `2026-10-23T21:28Z` UTC · **status: in progress**
+
+Exclusive working scope: `session-4502eff5/**`, `data/session-4502eff5/**`, `scripts/session-4502eff5/**`,
+`.github/workflows/fx-4502eff5.yml`, and append-only blocks in this file. Everything else — `data/master.json`,
+`board/`, root `*.html`, peer `session-*/` folders, `data/session-*/`, peer `scripts/session-*/`, `pipeline/**`,
+`tools/**`, `audit/**` and all other `.github/workflows/*.yml` — is **read-only** for Board FX. Findings that would
+require editing a file owned by another session are logged here as integration requests, not applied.
+Sport scope is exactly the brief's 15: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports,
+Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| FX1 | Live `robots.txt`-compliant capture (Actions runner, open egress) of OLBG sport hubs for the 15-sport scope + official governing-body fixture/form feeds for the 23 Oct – 8 Nov 2026 window; raw bytes + SHA-256 manifest committed | in progress | arena/4502eff5-olbg4 | `scripts/session-4502eff5/fetch.py`, `scripts/session-4502eff5/targets.json`, `.github/workflows/fx-4502eff5.yml`, `data/session-4502eff5/capture/` |
+| FX2 | Originate own lines (match winner, handicap/spread, match total, sport derivative where verified inputs exist) for every verified fixture; pick a winner; label Low/Medium/High; record every market investigated | pending | arena/4502eff5-olbg4 | `scripts/session-4502eff5/originate.py`, `data/session-4502eff5/desk.json` |
+| FX3 | High-confidence focus: picks ≥70% own-line probability inside −250…+10,000 American; target 5 strongest per covered sport; unique human ≥30-word predictions naming teams/players, form, recent history, verified stats and an explicit selection, each with its official source link | pending | arena/4502eff5-olbg4 | `scripts/session-4502eff5/predictions.py`, `data/session-4502eff5/predictions.json` |
+| FX4 | Line-by-line review of shared datasets (`data/master.json`, peer desks) against official sources; exact defects + manual-review URLs on a Flagged for Review page; unconfirmed values blank + flagged, never inferred | pending | arena/4502eff5-olbg4 | `scripts/session-4502eff5/review.py`, `data/session-4502eff5/review.json` |
+| FX5 | Dashboard-style GitHub Pages desk under `session-4502eff5/` (executive-summary landing + 15 sport subpages + entries/markets/predictions/coverage/sources/methodology/verification/review/flagged tables), every row carrying its official source link | pending | arena/4502eff5-olbg4 | `scripts/session-4502eff5/build_site.py`, `session-4502eff5/**` |
+| FX6 | Verification gate (deterministic rebuild, provenance, maths, predictions, links), `git pull --rebase` sync, PR to `main`, merge without waiting, confirm Pages deploy, record result here | pending | arena/4502eff5-olbg4 | `scripts/session-4502eff5/verify.py`, `COORDINATION.md` |
+
+### FX working log
+- 2026-10-23T21:28Z — `4502eff5` — board claimed and pushed before any other work. Sandbox egress reaches GitHub/npm/PyPI only, so official sources are captured by an Actions runner (`fx-4502eff5.yml`) that commits raw responses + a SHA-256 manifest; all parsing, line origination, prediction authoring and verification then happen locally from those committed bytes.
 ## Board FA — session `arena/49866065-olbg4` — strict evidence/publication audit and 15-sport dashboard
 
 Claimed 2026-10-23T21:32Z. Status: **in progress**. Fixed Arena branch `arena/49866065-olbg4` is used instead of creating a conflicting session branch.

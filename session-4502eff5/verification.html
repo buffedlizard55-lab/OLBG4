@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification - OLBG4 Board FX</title>
+<link rel="stylesheet" href="assets.css">
+</head><body>
+<header class="top"><div class="wrap">
+  <div class="brand"><span class="dot"></span> OLBG4 <span class="muted">/ Board FX desk</span></div>
+  <nav><a class="" href="index.html">Overview</a><a class="" href="entries.html">All matches</a><a class="" href="picks.html">Picks</a><a class="" href="predictions.html">Predictions</a><a class="" href="markets.html">Markets</a><a class="" href="coverage.html">Coverage</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged for review</a><a class="" href="sources.html">Sources</a><a class="" href="methodology.html">Method</a><a class="on" href="verification.html">Verification</a></nav>
+</div></header>
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">Repository index</a> / <a href="index.html">Board FX</a></div>
+  <h1>Verification</h1>
+  
+  <p class="sub">Gate result: <b class="ok">PASS</b> at 2026-10-23T21:50:40Z.</p><table class=""><thead><tr><th>Check</th><th>Result</th><th>Detail</th></tr></thead><tbody><tr><td>desk.json exists</td><td><span class="ok">PASS</span></td><td></td></tr><tr><td>desk rows present</td><td><span class="ok">PASS</span></td><td>432 rows</td></tr><tr><td>every row has an official source URL</td><td><span class="ok">PASS</span></td><td>0 missing</td></tr><tr><td>capture manifest committed</td><td><span class="ok">PASS</span></td><td>/home/user/OLBG4/data/session-4502eff5/capture/20261023T214256Z/manifest.json</td></tr><tr><td>every row&#x27;s capture id exists in the manifest</td><td><span class="ok">PASS</span></td><td>0 unknown ids</td></tr><tr><td>market probabilities sum to 1 and price = 1/p</td><td><span class="ok">PASS</span></td><td>0 defects; []</td></tr><tr><td>every pick copies its market leg exactly</td><td><span class="ok">PASS</span></td><td>0 defects; []</td></tr><tr><td>confidence labels follow the published rule</td><td><span class="ok">PASS</span></td><td>0 defects; []</td></tr><tr><td>in-window flag recomputed from the price</td><td><span class="ok">PASS</span></td><td>0 defects; []</td></tr><tr><td>every dated row falls inside the advertised window</td><td><span class="ok">PASS</span></td><td>0 outside; []</td></tr><tr><td>all 15 in-scope sports have at least one row</td><td><span class="ok">PASS</span></td><td>missing []</td></tr><tr><td>predictions present</td><td><span class="ok">PASS</span></td><td>14 texts</td></tr><tr><td>every prediction is at least 30 words</td><td><span class="ok">PASS</span></td><td>0 short; []</td></tr><tr><td>no internal vocabulary in published text</td><td><span class="ok">PASS</span></td><td>0 contain banned words; []</td></tr><tr><td>prediction texts are unique</td><td><span class="ok">PASS</span></td><td>0 duplicated</td></tr><tr><td>predictions are not formulaic (max trigram overlap &lt; 0.35)</td><td><span class="ok">PASS</span></td><td>max Jaccard 0.140 on (&#x27;pred_fx_el_games_E2026_90&#x27;, &#x27;pred_fx_el_games_E2026_92&#x27;)</td></tr><tr><td>every prediction points at a real desk row</td><td><span class="ok">PASS</span></td><td>0 orphaned; []</td></tr><tr><td>every prediction names its selection and sits on a High row</td><td><span class="ok">PASS</span></td><td>0 issues; []</td></tr><tr><td>site pages generated</td><td><span class="ok">PASS</span></td><td>26 pages</td></tr><tr><td>internal links resolve</td><td><span class="ok">PASS</span></td><td>0 broken; []</td></tr><tr><td>desk has priced rows and High picks</td><td><span class="ok">PASS</span></td><td>275 priced rows, 14 High, 1 in window</td></tr><tr><td>executive counts match the rows</td><td><span class="ok">PASS</span></td><td>summary total 432 vs 432 rows</td></tr></tbody></table>
+</main>
+<footer class="wrap foot">
+  <p>Board FX - session <code>arena/4502eff5-olbg4</code> - every value traced to an official source captured in
+  <code>data/session-4502eff5/capture/</code>. Own lines only: no bookmaker or OLBG price is used to originate a number.
+  OLBG is used for sport/market taxonomy and listing cross-reference. Unconfirmed values are blank, never inferred.</p>
+</footer>
+</body></html>
