@@ -102,13 +102,15 @@ def nhl_fixtures(cap: Capture) -> tuple[list[dict], dict, list[str]]:
             "gf": t.get("goalFor", 0), "ga": t.get("goalAgainst", 0),
             "gf_pg": round(t.get("goalFor", 0) / gp, 3),
             "ga_pg": round(t.get("goalAgainst", 0) / gp, 3),
-            "l10_pts_pct": round((t.get("l10Points", 0) or 0) / max(2 * (t.get("l10GamesPlayed", 0) or 1), 1), 4),
+            "l10_record": f"{t.get('l10Wins',0)}-{t.get('l10Losses',0)}-{t.get('l10OtLosses',0)}",
+            "l10_points": t.get("l10Points", ""),
             "home_record": f"{t.get('homeWins',0)}-{t.get('homeLosses',0)}-{t.get('homeOtLosses',0)}",
             "road_record": f"{t.get('roadWins',0)}-{t.get('roadLosses',0)}-{t.get('roadOtLosses',0)}",
             "source": cap.url("nhl_standings_now"),
         }
     now = utc_now()
     fixtures, used, skipped = [], [], []
+    seen_games: set[str] = set()
     for rec in cap.manifest["records"]:
         if not rec["id"].startswith("nhl_sched_") or not rec.get("file"):
             continue
@@ -121,6 +123,9 @@ def nhl_fixtures(cap: Capture) -> tuple[list[dict], dict, list[str]]:
                 if not _keep(start, now):
                     continue
                 if g.get("gameState") not in ("FUT", "PRE"):
+                    continue
+                gid = str(g.get("id", ""))
+                if gid and gid in seen_games:
                     continue
                 home, away = g["homeTeam"], g["awayTeam"]
                 if home["abbrev"] not in teams or away["abbrev"] not in teams:
@@ -140,6 +145,8 @@ def nhl_fixtures(cap: Capture) -> tuple[list[dict], dict, list[str]]:
                                "schedule_source": rec["url"]},
                     "tags": ["regular-season"],
                 }
+                if gid:
+                    seen_games.add(gid)
                 fixtures.append(fixture)
     return fixtures, teams, skipped
 
@@ -214,16 +221,18 @@ def euroleague_fixtures(cap: Capture) -> tuple[list[dict], dict, list[str]]:
         data = cap.json(tid) or {}
         games = data.get("data", [])
         for g in games:
-            local = (g.get("local") or {}).get("club") or {}
-            road = (g.get("road") or {}).get("club") or {}
+            lside, rside = g.get("local") or {}, g.get("road") or {}
+            local = lside.get("club") or {}
+            road = rside.get("club") or {}
             lname = local.get("name") or ""
             rname = road.get("name") or ""
             if not lname or not rname:
                 continue
-            lg, rg = local.get("results") or {}, road.get("results") or {}
-            if g.get("played") and lg.get("score") is not None:
-                for club, code, pts, opp in ((local, lname, lg.get("score", 0), rg.get("score", 0)),
-                                             (road, rname, rg.get("score", 0), lg.get("score", 0))):
+            lg = {"score": lside.get("score")}
+            rg = {"score": rside.get("score")}
+            if g.get("played") and lside.get("score") is not None:
+                for club, code, pts, opp in ((local, lname, lside.get("score", 0), rside.get("score", 0)),
+                                             (road, rname, rside.get("score", 0), lside.get("score", 0))):
                     t = teams.setdefault(code, {"name": code, "code": club.get("code", ""),
                                                 "gp": 0, "w": 0, "l": 0, "pf": 0, "pa": 0,
                                                 "competition": comp_name,
@@ -362,3 +371,374 @@ def wta_fixtures(cap: Capture) -> tuple[list[dict], dict, list[str]]:
                 "tags": ["singles"],
             })
     return fixtures, players, skipped
+
+
+# ----------------------------------------------------------------------------- generic HTML text
+def visible_lines(raw: str) -> list[str]:
+    t = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw)
+    t = re.sub(r"(?s)<[^>]+>", "\n", t)
+    return [l.strip() for l in re.sub(r"\n+", "\n", html.unescape(t)).split("\n") if l.strip()]
+
+
+MONTHS_FR = {"janvier": 1, "fevrier": 2, "février": 2, "mars": 3, "avril": 4, "mai": 5,
+             "juin": 6, "juillet": 7, "aout": 8, "août": 8, "septembre": 9, "octobre": 10,
+             "novembre": 11, "decembre": 12, "décembre": 12}
+
+
+def lnr_fixtures(cap: Capture, tid: str, competition: str) -> list[dict]:
+    """LNR Top 14 / Pro D2: server-rendered round list (home, rank, time, away, rank)."""
+    raw = cap.text(tid)
+    if not raw:
+        return []
+    lines = visible_lines(raw)
+    out = []
+    current_date = None
+    i = 0
+    while i < len(lines) - 6:
+        m = re.match(r"(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)\s+(\d{1,2})\s+([a-zéûôà]+)",
+                     lines[i], re.I)
+        if m and m.group(3).lower() in MONTHS_FR:
+            current_date = (2026, MONTHS_FR[m.group(3).lower()], int(m.group(2)))
+            i += 1
+            continue
+        # block: home, rank, "e", HHhMM, away, rank, "e"
+        if (current_date and re.match(r"^\d{1,2}$", lines[i + 1])
+                and lines[i + 2] in ("e", "e.") and re.match(r"^\d{1,2}h\d{2}$", lines[i + 3])
+                and re.match(r"^\d{1,2}$", lines[i + 5])):
+            hh, mm = lines[i + 3].split("h")
+            # French local time (CEST, UTC+2) unless November (CET, UTC+1)
+            offset = 2 if current_date[1] <= 10 else 1
+            try:
+                start = datetime(*current_date, int(hh) - offset, int(mm), tzinfo=timezone.utc)
+            except ValueError:
+                i += 1
+                continue
+            out.append({
+                "sport": "Rugby Union", "competition": f"{competition} (LNR)",
+                "start_utc": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "home": lines[i], "away": lines[i + 4], "home_code": "", "away_code": "",
+                "venue": "",
+                "source_url": cap.url(tid),
+                "source_id": f"{lines[i]}|{lines[i+4]}|{start.isoformat()}",
+                "inputs": {"home_rank": lines[i + 1], "away_rank": lines[i + 5],
+                           "model": "rugby_point_normal",
+                           "time_note": "published kick-off is French local; converted with the "
+                                        "French summer/winter offset",
+                           "schedule_source": cap.url(tid)},
+                "tags": ["league"],
+            })
+            i += 6
+            continue
+        i += 1
+    return out
+
+
+def lnr_table(cap: Capture, tid: str, url_id: str | None = None) -> dict:
+    """LNR standings: team, Pts, M, G, N, P, Bonus, PF, PA, Diff, form letters."""
+    raw = cap.text(url_id or tid)
+    if not raw:
+        return {}
+    lines = visible_lines(raw)
+    table: dict[str, dict] = {}
+    for i in range(len(lines) - 10):
+        if re.match(r"^\d{2,3}$", lines[i + 1]) and re.match(r"^\d{1,2}$", lines[i + 2]) \
+                and re.match(r"^[+-]?\d{1,3}$", lines[i + 9]):
+            nums = lines[i + 1:i + 10]
+            if all(re.match(r"^[+-]?\d{1,3}$", n) for n in nums):
+                team = lines[i]
+                table[team] = {"name": team, "pts": int(nums[0]), "played": int(nums[1]),
+                               "w": int(nums[2]), "d": int(nums[3]), "l": int(nums[4]),
+                               "bonus": int(nums[5]), "pf": int(nums[6]), "pa": int(nums[7]),
+                               "diff": int(nums[8]),
+                               "source": cap.url(url_id or tid)}
+    return table
+
+
+# ----------------------------------------------------------------------------- SHL
+def shl_fixtures(cap: Capture) -> tuple[list[dict], dict]:
+    raw = cap.text("swehockey_shl")
+    if not raw:
+        return [], {}
+    lines = visible_lines(raw)
+    teams: dict[str, dict] = {}
+    for i in range(len(lines) - 12):
+        if (re.match(r"^\d{1,2}$", lines[i]) and re.match(r"^\d{1,2}$", lines[i + 2])
+                and re.match(r"^\d{1,2}$", lines[i + 3]) and re.match(r"^\d{1,2}$", lines[i + 4])
+                and re.match(r"^\d{1,3}:\d{1,3}\s*\(", lines[i + 5])):
+            gf, ga = re.match(r"^(\d{1,3}):(\d{1,3})", lines[i + 5]).groups()
+            teams[lines[i + 1]] = {"name": lines[i + 1], "gp": int(lines[i + 2]),
+                                   "w": int(lines[i + 3]), "t": int(lines[i + 4]),
+                                   "l": int(lines[i + 3 + 1]) if False else None,
+                                   "gf": int(gf), "ga": int(ga),
+                                   "source": cap.url("swehockey_shl")}
+    # The standings row order is RK, Team, GP, W, T, L, GF:GA, GD, TP, OTW, OTL, GWSW, GWSL
+    teams = {}
+    for i in range(len(lines) - 12):
+        if (re.match(r"^\d{1,2}$", lines[i]) and re.match(r"^\d{1,2}$", lines[i + 2])
+                and re.match(r"^\d{1,2}$", lines[i + 3]) and re.match(r"^\d{1,2}$", lines[i + 4])
+                and re.match(r"^\d{1,2}$", lines[i + 5])
+                and re.match(r"^\d{1,3}:\d{1,3}\s*\(-?\d+\)$", lines[i + 6])):
+            gf, ga = re.match(r"^(\d{1,3}):(\d{1,3})", lines[i + 6]).groups()
+            gp = int(lines[i + 2])
+            teams[lines[i + 1]] = {"name": lines[i + 1], "gp": gp,
+                                   "w": int(lines[i + 3]), "t": int(lines[i + 4]),
+                                   "l": int(lines[i + 5]), "points": int(lines[i + 8]),
+                                   "gf": int(gf), "ga": int(ga),
+                                   "gf_pg": round(int(gf) / gp, 3) if gp else 0,
+                                   "ga_pg": round(int(ga) / gp, 3) if gp else 0,
+                                   "pts_pct": round(int(lines[i + 8]) / (3 * gp), 4) if gp else 0,
+                                   "source": cap.url("swehockey_shl")}
+    fixtures = []
+    for i in range(len(lines) - 5):
+        m = re.match(r"^(2026-\d{2}-\d{2})\s+(\d{2}):(\d{2})$", lines[i])
+        if m and lines[i + 2] == "-" and lines[i + 4] not in ("-", ""):
+            # published in Swedish local time (CEST to 25 Oct, then CET)
+            date = m.group(1)
+            offset = 2 if date <= "2026-10-25" else 1
+            start = datetime(int(date[:4]), int(date[5:7]), int(date[8:10]),
+                             int(m.group(2)) - offset, int(m.group(3)), tzinfo=timezone.utc)
+            fixtures.append({
+                "sport": "Ice Hockey", "competition": "SHL (Sweden) regular season",
+                "start_utc": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "home": lines[i + 1], "away": lines[i + 3], "home_code": "", "away_code": "",
+                "venue": lines[i + 4] if i + 4 < len(lines) else "",
+                "source_url": cap.url("swehockey_shl"),
+                "source_id": f"{lines[i+1]}|{lines[i+3]}|{date}",
+                "inputs": {"model": "nhl_goal_poisson",
+                           "time_note": "published in Swedish local time; converted with the "
+                                        "Swedish summer/winter offset",
+                           "schedule_source": cap.url("swehockey_shl")},
+                "tags": ["league"],
+            })
+    return fixtures, teams
+
+
+# ----------------------------------------------------------------------------- PlusLiga
+def plusliga_table(cap: Capture) -> dict:
+    """PlusLiga standings from the official table page (team, matches, points, sets W/L)."""
+    raw = cap.text("plusliga_table")
+    if not raw:
+        return {}
+    lines = visible_lines(raw)
+    table: dict[str, dict] = {}
+    for i, line in enumerate(lines):
+        # rows appear as: position, team, played, points, setsW, setsL, ...
+        if re.match(r"^\d{1,2}$", line) and i + 6 < len(lines):
+            nums = [lines[i + k] for k in range(2, 7)]
+            if all(re.match(r"^\d{1,3}$", n) for n in nums):
+                name = lines[i + 1]
+                if len(name) > 3 and not name.isdigit():
+                    table.setdefault(name, {"name": name, "played": int(nums[0]),
+                                            "points": int(nums[1]),
+                                            "sets_won": int(nums[2]), "sets_lost": int(nums[3]),
+                                            "source": cap.url("plusliga_table")})
+    return table
+
+
+def plusliga_fixtures(cap: Capture) -> list[dict]:
+    raw = cap.text("plusliga_table")
+    if not raw:
+        return []
+    lines = visible_lines(raw)
+    out = []
+    months = {"sty": 1, "lut": 2, "mar": 3, "kwi": 4, "maj": 5, "cze": 6, "lip": 7,
+              "sie": 8, "wrz": 9, "paź": 10, "paz": 10, "lis": 11, "gru": 12}
+    for i, line in enumerate(lines[:-14]):
+        m = re.match(r"^(poniedziałek|wtorek|środa|czwartek|piątek|sobota|niedziela),\s*(\d{1,2})\s*([a-ząćęłńóśźż]+),\s*(\d{1,2}):(\d{2})$",
+                     line, re.I)
+        if not m:
+            continue
+        mon = months.get(m.group(3).lower()[:3])
+        if not mon:
+            continue
+        if lines[i + 1] != "Trwa":
+            continue
+        home, away = lines[i + 2], None
+        for k in range(i + 3, min(i + 16, len(lines))):
+            if lines[k] not in ("···", "0", "") and not re.match(r"^[\d\.·]+$", lines[k]) and len(lines[k]) > 4:
+                away = lines[k]
+                break
+        if not away:
+            continue
+        # Polish local time: CEST (UTC+2) to 25 Oct, CET (UTC+1) after
+        offset = 2 if (mon, int(m.group(2))) <= (10, 25) else 1
+        try:
+            start = datetime(2026, mon, int(m.group(2)), int(m.group(4)) - offset,
+                             int(m.group(5)), tzinfo=timezone.utc)
+        except ValueError:
+            continue
+        out.append({
+            "sport": "Volleyball", "competition": "PlusLiga (Poland) regular season",
+            "start_utc": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "home": home, "away": away, "home_code": "", "away_code": "",
+            "venue": "",
+            "source_url": cap.url("plusliga_table"),
+            "source_id": f"{home}|{away}|{start.isoformat()}",
+            "inputs": {"model": "volley_set_model",
+                       "side_note": "the official page lists the pair in this order but does not "
+                                    "label home/away; no home advantage is applied",
+                       "time_note": "published in Polish local time; converted to UTC",
+                       "schedule_source": cap.url("plusliga_table")},
+            "tags": ["league"],
+        })
+    return out
+
+
+# ----------------------------------------------------------------------------- Formula 1
+def f1_calendar(cap: Capture) -> list[dict]:
+    raw = cap.text("f1_season")
+    if not raw:
+        return []
+    text = " ".join(visible_lines(raw))
+    month_map = {"JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAY": 5, "JUN": 6, "JUL": 7,
+                 "AUG": 8, "SEP": 9, "OCT": 10, "NOV": 11, "DEC": 12}
+    races = []
+    tokens = list(re.finditer(
+        r"ROUND (\d{1,2}) ([A-Za-z][A-Za-z\s’']{2,28}?) "
+        r"(?:(\d{1,2}) ([A-Z]{3}) - (\d{1,2}) ([A-Z]{3})|(\d{1,2}) - (\d{1,2}) ([A-Z]{3}))", text))
+    for m in tokens:
+        num, name = m.group(1), m.group(2).strip()
+        if m.group(3):
+            d1, mon_s, d2 = m.group(3), m.group(6), m.group(5)
+        else:
+            d1, d2, mon_s = m.group(7), m.group(8), m.group(9)
+        mon = month_map.get(mon_s)
+        if not mon:
+            continue
+        try:
+            start = datetime(2026, mon, int(d1), 12, 0, tzinfo=timezone.utc)
+            end = datetime(2026, mon, int(d2), 18, 0, tzinfo=timezone.utc)
+        except ValueError:
+            continue
+        if end < utc_now() - timedelta(days=1):
+            continue
+        name = name.replace("Chequered Flag", "").strip()
+        races.append({
+            "sport": "Motor Racing", "competition": f"Formula 1 — {name} Grand Prix",
+            "start_utc": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "home": f"{name} Grand Prix", "away": "Field",
+            "home_code": "", "away_code": "",
+            "venue": "",
+            "source_url": cap.url("f1_season"),
+            "source_id": f"round-{num}",
+            "inputs": {"model": "outright_from_standings_order", "round": num,
+                       "date_range": f"{d1}-{d2} {mon_s}",
+                       "schedule_source": cap.url("f1_season")},
+            "tags": ["race"],
+        })
+    return races
+
+
+def f1_driver_order(cap: Capture) -> list[str]:
+    raw = cap.text("f1_drivers")
+    if not raw:
+        return []
+    lines = visible_lines(raw)
+    out = []
+    i = 0
+    while i < len(lines) - 5:
+        if re.match(r"^\d{1,2}$", lines[i]) and re.match(r"^[A-Z]{3}$", lines[i + 3] or ""):
+            out.append(f"{lines[i + 1]} {lines[i + 2]}")
+            i += 6
+            continue
+        i += 1
+    return out
+
+
+# ----------------------------------------------------------------------------- Golf
+def dpwt_event(cap: Capture) -> dict:
+    raw = cap.text("dpwt_genesis_tee")
+    if not raw:
+        return {}
+    m = re.search(r'<script type="application/ld\+json">(.*?)</script>', raw, re.S)
+    if not m:
+        return {}
+    try:
+        data = json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return {}
+    loc = (data.get("Location") or [{}])[0]
+    performers = [p.get("name", "") for p in data.get("Performer", []) if p.get("name")]
+    return {
+        "sport": "Golf", "competition": "DP World Tour — Genesis Championship",
+        "start_utc": (data.get("StartDate", "") or "").replace("+00:00", "Z"),
+        "home": "Genesis Championship", "away": f"{len(performers)}-player field",
+        "home_code": "", "away_code": "",
+        "venue": loc.get("name", ""),
+        "source_url": cap.url("dpwt_genesis_tee"),
+        "source_id": "genesis-championship-2026",
+        "inputs": {"model": "outright_from_owgr", "field": performers[:80],
+                   "event_end": data.get("EndDate", ""),
+                   "schedule_source": cap.url("dpwt_genesis_tee")},
+        "tags": ["tournament"],
+    }
+
+
+def owgr_strengths(cap: Capture) -> list[tuple[str, float]]:
+    raw = cap.text("owgr")
+    if not raw or "Scheffler" not in raw:
+        return []
+    rows = re.findall(r'<a href="https://www\.owgr\.com/playerprofile/[^"]+">([^<]+)</a>.*?'
+                      r'\|?\s*([\d.]+)\s*\|', raw, re.S)
+    out = []
+    for name, pts in rows:
+        try:
+            out.append((html.unescape(name), float(pts)))
+        except ValueError:
+            continue
+    return out
+
+
+# ----------------------------------------------------------------------------- Rugby League (RLWC)
+def rlwc_fixtures(cap: Capture) -> tuple[list[dict], dict, list[str]]:
+    data = cap.json("rlwc_api") or {}
+    rounds = ((data.get("result") or {}).get("roundFixtures")) or []
+    now = utc_now()
+    form: dict[str, dict] = {}
+    fixtures, skipped = [], []
+    for r in rounds:
+        for g in r.get("gameFixtures", []):
+            teams = g.get("teams") or []
+            if len(teams) != 2 or any(t.get("teamName") == "TBA" for t in teams):
+                continue
+            state = (g.get("gameStateName") or "").lower()
+            start = parse_iso(g.get("startTimeUTC", ""))
+            if state in ("final", "fulltime", "completed") and start and start < now:
+                for t in teams:
+                    name = t.get("teamName")
+                    pf, pa = t.get("teamFinalScore"), next(
+                        (x.get("teamFinalScore") for x in teams if x is not t), None)
+                    if pf is None or pa is None:
+                        continue
+                    rec = form.setdefault(name, {"name": name, "gp": 0, "w": 0, "l": 0,
+                                                 "pf": 0, "pa": 0,
+                                                 "source": cap.url("rlwc_api")})
+                    rec["gp"] += 1
+                    rec["pf"] += int(pf)
+                    rec["pa"] += int(pa)
+                    rec["w" if int(pf) > int(pa) else "l"] += 1
+                continue
+            if not start or start < now - timedelta(hours=3):
+                continue
+            home = next((t for t in teams if t.get("isHomeTeam")), teams[0])
+            away = next((t for t in teams if t is not home), teams[1])
+            fixtures.append({
+                "sport": "Rugby League",
+                "competition": f"Rugby League World Cup 2026 — {r.get('roundName','')}".strip(),
+                "start_utc": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "home": home.get("teamName", ""), "away": away.get("teamName", ""),
+                "home_code": home.get("teamAbbr", ""), "away_code": away.get("teamAbbr", ""),
+                "venue": g.get("venueName", ""),
+                "source_url": cap.url("rlwc_api"),
+                "source_id": str(g.get("gameId", "")),
+                "inputs": {"model": "league_points_normal", "round": r.get("roundName", ""),
+                           "group": g.get("groupName", ""),
+                           "listed_home_price": home.get("teamHeadToHeadOdds", ""),
+                           "listed_away_price": away.get("teamHeadToHeadOdds", ""),
+                           "schedule_source": cap.url("rlwc_api")},
+                "tags": ["international", "world-cup"],
+            })
+    for t in form.values():
+        t["pf_pg"] = round(t["pf"] / t["gp"], 2) if t["gp"] else 0
+        t["pa_pg"] = round(t["pa"] / t["gp"], 2) if t["gp"] else 0
+    return fixtures, form, skipped

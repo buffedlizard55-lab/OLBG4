@@ -160,19 +160,40 @@ def sets_pair(rating_gap: float, best_of: int = 5, slope: float = 0.055) -> dict
             "away": 1.0 - set_match_prob(p_set, best_of)}
 
 
-def sets_handicap(p_set: float, best_of: int, line: float) -> float:
-    """P(away+line wins) style set handicap by enumerating set scores (approximation-free)."""
+def shrink(rate: float, sample: int, k: float, prior: float) -> float:
+    """Empirical-Bayes shrinkage of a per-game rate toward the league prior.
+
+    weight = sample / (sample + k). With few official games the estimate stays close to the
+    league average, which keeps an early-season mismatch from producing a false 90% pick.
+    """
+    if sample <= 0:
+        return prior
+    w = sample / (sample + k)
+    return w * rate + (1 - w) * prior
+
+
+def p_win_by(p_set: float, best_of: int, margin: int) -> float:
+    """Exact P(A wins the match by at least `margin` sets) for independent set outcomes.
+
+    A wins the match at score (need, b) with b < need; the ways to reach that score with the
+    last set going to A are C(need+b-1, b), and the set margin is need-b.
+    """
     need = best_of // 2 + 1
-    out = 0.0
-    for a in range(need):
-        for b in range(need):
-            if a == need - 1 and b == need - 1:
-                continue
-            ways = math.comb(a + b, a)
-            prob = ways * (p_set ** a) * ((1 - p_set) ** b) if (a == need - 1 or b == need - 1) else 0.0
-            if prob and (a - b) + line > 0:
-                out += prob
-    return out
+    total = 0.0
+    for b in range(0, need):
+        if need - b < margin:
+            continue
+        ways = math.comb(need + b - 1, b)
+        total += ways * (p_set ** need) * ((1 - p_set) ** b)
+    return min(total, 1.0)
+
+
+def sets_handicap(p_set: float, best_of: int, line: float) -> float:
+    """P(home covers a set handicap). line=-1.5 means home must win by two or more sets."""
+    margin = int(abs(line)) + (1 if abs(line) % 1 else 0)
+    if line < 0:
+        return p_win_by(p_set, best_of, margin)
+    return 1.0 - p_win_by(1 - p_set, best_of, margin)
 
 
 def race_win(strengths: list[float]) -> list[float]:
