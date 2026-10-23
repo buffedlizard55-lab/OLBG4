@@ -21,7 +21,13 @@ OUT = Path(__file__).with_name("targets_pass3.json")
 targets: list[dict] = []
 
 
+SEEN: set[str] = set()
+
+
 def add(tid, url, sport, role="official", headers="bot", timeout=30, delay=None):
+    if tid in SEEN:
+        return
+    SEEN.add(tid)
     t = {"id": tid, "url": url, "sport": sport, "role": role, "headers": headers, "timeout": timeout}
     if delay:
         t["delay"] = delay
@@ -139,6 +145,74 @@ add("gbgb_open_races_oaks", "https://www.gbgb.org.uk/racing/open-races/premier-g
 add("gbgb_scurry", "https://www.gbgb.org.uk/racing/open-races/arena-racing-company-scurry-gold-cup/", "Greyhounds",
     headers="browser")
 add("gri_racing_today", "https://www.igb.ie/todays-racing", "Greyhounds", headers="browser")
+
+# ------------------------------------------------- NHL: completed games, so the margin dispersion
+# and each club's last five results come from official scores rather than from an assumption
+NHL_DATES = [
+    "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-09", "2026-10-10", "2026-10-13",
+    "2026-10-14", "2026-10-15", "2026-10-16", "2026-10-17", "2026-10-20", "2026-10-21", "2026-10-22",
+]
+for d in NHL_DATES:
+    add(f"nhl_sched_prev_{d}", f"https://api-web.nhle.com/v1/schedule/{d}", "Ice Hockey", timeout=45)
+for code in ("EDM", "CGY", "BOS", "CHI", "COL", "VAN", "TOR", "MTL", "TBL", "NYR"):
+    add(f"nhl_club_prev_{code}", f"https://api-web.nhle.com/v1/club-schedule/{code}/week/2026-10-19", "Ice Hockey",
+        timeout=45)
+
+# ------------------------------------------------- volleyball: last season, for a real rating sample
+add("legavolley_risultati_2025_923", "https://www.legavolley.it/risultati/?Anno=2025&IdCampionato=923", "Volleyball")
+
+# ------------------------------------------------- handball: every remaining fixture route
+add("ehfcl_m_2026_matches", "https://ehfcl.eurohandball.com/men/2026-27/matches/", "Handball", headers="browser")
+add("ehfcl_w_2026_matches", "https://ehfcl.eurohandball.com/women/2026-27/matches/", "Handball", headers="browser")
+add("ehf_matches_api", "https://ehfcl.eurohandball.com/api/v1/matches", "Handball")
+add("tophaandbold_kampprogram_alt", "https://tophaandbold.dk/kampprogram/herreligaen", "Handball", headers="browser")
+add("dhf_home", "https://www.danskhaandbold.dk/", "Handball", headers="browser")
+
+# ------------------------------------------------- rugby league: official ratings and results
+add("irl_rankings_men", "https://www.internationalrugbyleague.com/rankings/men", "Rugby League", headers="browser")
+add("irl_rankings_women", "https://www.internationalrugbyleague.com/rankings/women", "Rugby League", headers="browser")
+add("irl_rankings_wheelchair", "https://www.internationalrugbyleague.com/rankings/wheelchair", "Rugby League",
+    headers="browser")
+add("rlwc_results_men_page", "https://www.rlwc2026.com/results/men", "Rugby League", headers="browser")
+add("rlwc_ladder_men", "https://www.rlwc2026.com/ladder/men", "Rugby League", headers="browser")
+add("rlwc_news_home", "https://www.rlwc2026.com/news/", "Rugby League", headers="browser")
+
+# ------------------------------------------------- cricket: official fixtures and ratings
+add("icc_rankings_api_v2", "https://www.icc-cricket.com/api/v1/rankings/team?format=t20i", "Cricket")
+add("icc_api_fixtures", "https://www.icc-cricket.com/api/fixtures", "Cricket")
+add("nz_c_fixtures_page", "https://www.nzc.nz/fixtures-results", "Cricket", headers="browser")
+add("nz_c_blackcaps_india", "https://www.nzc.nz/news/blackcaps-v-india", "Cricket", headers="browser")
+add("bcci_series_page", "https://www.bcci.tv/series", "Cricket", headers="browser")
+add("eci_series_page", "https://www.cricketireland.ie/series", "Cricket", headers="browser")
+add("pcb_news", "https://www.pcb.com.pk/press-release.html", "Cricket", headers="browser")
+add("espncricinfo_calendar", "https://www.espncricinfo.com/ci/engine/match/index.html?view=calendar", "Cricket",
+    headers="browser")
+
+# ------------------------------------------------- gaelic: results, so a rating could exist
+add("mayogaa_results", "https://mayogaa.com/results/", "Gaelic Sports", headers="browser")
+add("leitrimgaa_results", "https://www.leitrimgaa.ie/results/", "Gaelic Sports", headers="browser")
+add("claregaa_results", "https://clare.gaa.ie/results/", "Gaelic Sports", headers="browser")
+add("ulstergaa_results", "https://ulster.gaa.ie/results/", "Gaelic Sports", headers="browser")
+add("kilkennygaa_results", "https://kilkennygaa.ie/results/", "Gaelic Sports", headers="browser")
+
+# ------------------------------------------------- darts: the WDF and the PDC event page variants
+add("wdf_events", "https://darts.wdf.org/events", "Darts", headers="browser")
+add("wdf_home_alt", "https://wdf.org/", "Darts", headers="browser")
+add("pdc_ec_2026_event", "https://www.pdc.tv/tournaments/2026-european-championship", "Darts", headers="browser")
+add("pdc_draws_page", "https://www.pdc.tv/draws-results", "Darts", headers="browser")
+add("pdc_api_rankings", "https://www.pdc.tv/api/rankings", "Darts")
+
+# ------------------------------------------------- greyhounds: the racecard that the Cat-1 page names
+add("gbgb_dunstall", "https://www.gbgb.org.uk/racing/track/dunstall-park/", "Greyhounds", headers="browser")
+add("gbgb_api_results_page2", "https://api.gbgb.org.uk/api/results?page=2&itemsPerPage=100", "Greyhounds")
+add("gbgb_api_openraces", "https://api.gbgb.org.uk/api/open-races", "Greyhounds")
+add("gri_today_racing", "https://www.igb.ie/todays-racing", "Greyhounds", headers="browser")
+
+# ------------------------------------------------- tennis: ATP tour IDs via the official posting host
+for tid in ("7475", "7476", "7477", "7491", "7492", "7493", "7494", "7495"):
+    add(f"atp_op_b_{tid}", f"https://www.protennislive.com/posting/2026/{tid}/op.pdf", "Tennis")
+add("wta_rankings_api_p0", "https://api.wtatennis.com/tennis/rankings/singles?page=0&pageSize=100", "Tennis")
+add("wta_players_api", "https://api.wtatennis.com/tennis/players?page=0&pageSize=100", "Tennis")
 
 OUT.write_text(json.dumps(targets, indent=1) + "\n")
 print(f"{len(targets)} pass-3 targets -> {OUT}")

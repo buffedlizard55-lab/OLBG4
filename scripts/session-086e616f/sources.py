@@ -694,12 +694,259 @@ def urc(cap: Capture) -> dict:
 
 
 # ============================================================== rugby league — RLWC 2026
-def rlwc(cap: Capture) -> dict:
-    prov = cap.provenance("rlwc_draws")
-    text = cap.text("rlwc_draws")
-    body = strip_scripts(text)
-    plain = to_text(body)
-    return {"text": plain, "source_url": prov["source_url"], "capture": prov, "html": body}
+def rlwc_games(cap: Capture, target: str = "rlwc_draws") -> list[dict]:
+    """Read every fixture out of the official RLWC26 fixture blob embedded in rlwc2026.com.
+
+    The page ships `fixturesByComp` as an escaped JSON string. Each game carries gameId, round,
+    pool, both team names, the UTC start, venue, city, the match-centre URL, the ticket URL and the
+    broadcast list. There is deliberately no score field, so this source cannot produce a rating.
+    """
+    if not cap.have(target):
+        return []
+    prov = cap.provenance(target)
+    text = cap.text(target)
+    body = text
+    for _ in range(5):
+        nxt = body.replace("\\\\\"", '"').replace('\\"', '"').replace('\\"', '"')
+        if nxt == body:
+            break
+        body = nxt
+    out: list[dict] = []
+    seen = set()
+    # split the blob into one segment per game so no field can bleed into the next fixture
+    starts = [m.start() for m in re.finditer(r'\{"gameId":"\d+"', body)]
+    if not starts:
+        starts = [m.start() for m in re.finditer(r'"gameId":"\d+"', body)]
+    for i, pos in enumerate(starts):
+        end = starts[i + 1] if i + 1 < len(starts) else len(body)
+        seg = body[pos:end]
+        gid_m = re.search(r'"gameId":"(\d+)"', seg)
+        if not gid_m:
+            continue
+        gid = gid_m.group(1)
+        if gid in seen:
+            continue
+
+        def field(name: str) -> str | None:
+            fm = re.search(r'"%s":"([^"]*)"' % name, seg)
+            return fm.group(1) if fm else None
+
+        start = field("startTimeUTC") or field("startTime")
+        venue = field("venueName")
+        city = field("city")
+        rnd = field("roundName")
+        state = field("gameStateName")
+        mc = field("matchCentreUrl")
+        ticket = field("ticketUrl")
+        described = field("game")
+        home_flag = re.findall(r'"isHomeTeam":(true|false),"teamId":"\d+","teamName":"([^"]+)"', seg)
+        home = away = None
+        for is_home, name in home_flag[:2]:
+            if is_home == "true":
+                home = name
+            else:
+                away = name
+        if not home:
+            names = re.findall(r'"teamName":"([^"]+)"', seg)
+            if len(names) >= 2:
+                home, away = names[0], names[1]
+        if not (home and away and start):
+            continue
+        # the team names are authoritative: the organiser labels wheelchair and women's sides explicitly
+        joined = f"{home} {away} {described or ''}"
+        if "wheelchair" in joined.lower():
+            comp = "RLWC26 Wheelchair"
+        elif (mc and "/women/" in mc) or re.search(r"\bWomen\b", described or ""):
+            comp = "RLWC26 Women"
+        else:
+            comp = "RLWC26 Men"
+        seen.add(gid)
+        out.append({
+            "game_id": gid, "competition": comp, "round": rnd, "pool": _group(seg),
+            "home": home, "away": away, "start_utc": start.replace(".000Z", "Z"),
+            "venue": venue, "city": city, "state": state, "event_name": f"{home} v {away}",
+            "match_centre_url": ("https://www.rlwc2026.com" + mc) if mc else None,
+            "ticket_url": (ticket or "").replace("\\u0026", "&"), "organiser_description": described,
+            "broadcasters": re.findall(r'"channelName":"([^"]+)"', seg)[:6],
+            "source_url": prov["source_url"], "capture": prov,
+        })
+    return out
+
+
+def _group(seg: str) -> str | None:
+    m = re.search(r'"group":(\d+)', seg)
+    return f"Pool {m.group(1)}" if m else None
+
+
+# ============================================================== snooker — draw sheets
+SNOOKER_EVENT_TARGETS = sorted({f"snooker_org_{n}" for n in range(2536, 2561)})
+
+
+def snooker_events(cap: Capture, season: str = "2026/2027") -> list[dict]:
+    """Parse every 2026/27 event sheet on snooker.org for the matches still to be played.
+
+    A sheet publishes the stage ("Final (Best of 17; Winner: GBP100,000 ...)"), each pairing with
+    the official world-ranking seed in brackets, the score where the match is complete and the UTC
+    start where one is scheduled.
+    """
+    out = []
+    for target in SNOOKER_EVENT_TARGETS:
+        if not cap.have(target):
+            continue
+        prov = cap.provenance(target)
+        text = cap.text(target)
+        title = _snooker_title(text)
+        if not title:
+            continue
+        if season not in text:
+            continue
+        dates = None  # the sheet prints other events' date ranges in its sidebar; not published here
+        tables = [t for t in html_tables(text) if len(t) > 6]
+        if not tables:
+            continue
+        upcoming, completed = [], []
+        current_stage: dict = {"stage": None, "best_of": None, "prize": None}
+        # a sheet holds the main draw and, on the same page, the qualifying draw; parse every table
+        for draw in tables:
+          for row in draw:
+            joined = " ".join(row)
+            sm = re.search(r"^(Final|Semi-?finals?|Quarter-?finals?|Round \d+|Last \d+)\s*\(([^)]*)\)",
+                           joined, flags=re.I)
+            if sm:
+                stage = sm.group(1)
+                bm = re.search(r"Best of (\d+)", sm.group(2), flags=re.I)
+                best_of = bm.group(1) if bm else None
+                prize = None
+                pm = re.search(r"Winner:\s*\u00a3?([\d,]+)", sm.group(2))
+                if pm:
+                    prize = pm.group(1)
+                current_stage = {"stage": stage, "best_of": best_of, "prize": prize}
+                continue
+            if len(row) < 4:
+                continue
+            # snooker.org prints a match to be played as  [blank, blank, PLAYER A, blank, "v", blank,
+            # blank, PLAYER B, blank, ISO times] and a completed match as
+            # [blank, blank, PLAYER A, frames, "-", frames, blank, PLAYER B, blank, blank].
+            cells = [(i, c.strip()) for i, c in enumerate(row) if c.strip()]
+            named = [(i, c) for i, c in cells if _snooker_is_player(c)]
+            if len(named) < 2:
+                continue
+            ia, pa_raw = named[0]
+            ib, pb_raw = named[1]
+            between = [c for i, c in cells if ia < i < ib]
+            dash = next((k for k, c in enumerate(between) if c == "-"), None)
+            if not between or not all(re.fullmatch(r"\d{1,3}|-", c) for c in between):
+                between_are_score = False
+            else:
+                between_are_score = True
+            vi = next((i for i, c in cells if c.lower() == "v"), None)
+            score = None
+            if between_are_score and dash is not None:
+                score = f"{between[dash - 1]}-{between[dash + 1]}"
+            times = [c for i, c in cells if re.fullmatch(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}Z", c)]
+            if not times and not score:
+                continue
+            pa = _snooker_player(row, ia)
+            pb = _snooker_player(row, ib)
+            if not pa["name"] or not pb["name"]:
+                continue
+            if "to be decided" in f'{pa["name"]} {pb["name"]}'.lower():
+                continue  # the sheet has not resolved this pairing yet
+            entry = {
+                "stage": current_stage.get("stage"),
+                "best_of": current_stage.get("best_of"),
+                "prize": current_stage.get("prize"),
+                "player_a": pa["name"], "seed_a": pa["seed"], "country_a": pa["country"],
+                "player_b": pb["name"], "seed_b": pb["seed"], "country_b": pb["country"],
+                "score": score,
+                "start_utc": times[0].replace(" ", "T") if times else None,
+                "local_start": times[1].replace(" ", "T") if len(times) > 1 else None,
+                "path_a": [], "path_b": [],
+            }
+            if times and not score:
+                upcoming.append(entry)
+            elif score:
+                completed.append(entry)
+        # each player's route to this round, from the same official sheet
+        for entry in upcoming:
+            entry["path_a"] = _snooker_path(entry["player_a"], completed)
+            entry["path_b"] = _snooker_path(entry["player_b"], completed)
+        if not upcoming:
+            continue
+        out.append({
+            "event_target": target, "event_name": title, "dates": dates,
+            "venue": _snooker_venue(text), "upcoming": upcoming, "completed": completed,
+            "source_url": prov["source_url"], "capture": prov,
+        })
+    return out
+
+
+def _snooker_dates(text: str) -> str | None:
+    """The event's own date range, taken from the sheet's info block rather than the site navigation."""
+    plain = to_text(text)
+    for pattern in (r"Dates?\s*[:\-]\s*(\d{1,2}\s+[A-Z][a-z]+\s*[-\u2013]\s*\d{1,2}\s+[A-Z][a-z]+\s+\d{4})",
+                    r"(\d{1,2}\s+[A-Z][a-z]+\s*[-\u2013]\s*\d{1,2}\s+[A-Z][a-z]+\s+\d{4})"):
+        for m in re.finditer(pattern, plain):
+            candidate = m.group(1)
+            if "Jun" in candidate or "Jul" in candidate or "Sep" in candidate:
+                continue  # the site sidebar lists other events' dates first
+            return candidate
+    return None
+
+
+def _snooker_title(text: str) -> str | None:
+    m = re.search(r"<title>\s*(.*?)\s*-\s*snooker\.org", text, flags=re.S)
+    if not m:
+        return None
+    return html_unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip()
+
+
+def html_unescape(value: str) -> str:
+    return (value.replace("&nbsp;", " ").replace("&amp;", "&").replace("&#8209;", "-")
+            .replace("&pound;", "\u00a3").replace("&#8217;", "'").replace("\xa0", " "))
+
+
+def _snooker_is_player(cell: str) -> bool:
+    """True for a cell that holds a competitor name rather than a score, a seed or a timestamp."""
+    if not cell or re.fullmatch(r"[\d\s\-]+", cell):
+        return False
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}(?:\s+\d{2}:\d{2}:\d{2}Z)?", cell):
+        return False
+    if len(cell) <= 2:
+        return False
+    return bool(re.search(r"[A-Za-z]", cell))
+
+
+def _snooker_player(row: list[str], index: int) -> dict:
+    if index >= len(row):
+        return {"name": None, "seed": None, "country": None}
+    raw = (row[index] or "").strip()
+    m = re.match(r"^(.*?)\s*\[(\d+)\]\s*$", raw)
+    country = None
+    for back in range(index - 1, max(index - 3, -1), -1):
+        cand = (row[back] or "").strip()
+        if cand and len(cand) <= 4 and cand.isalpha():
+            country = cand
+            break
+    if m:
+        return {"name": m.group(1).strip(), "seed": int(m.group(2)), "country": country}
+    return {"name": raw or None, "seed": None, "country": country}
+
+
+def _snooker_path(player: str, completed: list[dict]) -> list[str]:
+    out = []
+    for m in completed:
+        if m["player_a"] == player:
+            out.append(f'{m["stage"]}: {m["score"]} v {m["player_b"]}')
+        elif m["player_b"] == player:
+            out.append(f'{m["stage"]}: {m["score"]} (as second listed) v {m["player_a"]}')
+    return out
+
+
+def _snooker_venue(text: str) -> str | None:
+    plain = to_text(text)
+    m = re.search(r"(Waterfront Hall[^.\n]{0,60}|Venue[:\s]+[^\n]{3,80})", plain)
+    return m.group(1).strip() if m else None
 
 
 # ============================================================== golf — PGA Tour leaderboard
@@ -742,6 +989,58 @@ def golf_pga(cap: Capture, target: str) -> dict:
 
 
 # ============================================================== motor racing — F1
+F1_MONTHS = {"Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6, "Jul": 7, "Aug": 8,
+             "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12}
+
+
+def f1_calendar(cap: Capture) -> list[dict]:
+    """The official 2026 race index: ROUND n / country / date range, plus its Upcoming marker."""
+    if not cap.have("f1_racing_2026"):
+        return []
+    prov = cap.provenance("f1_racing_2026")
+    body = re.sub(r"<script\b.*?</script>", " ", cap.text("f1_racing_2026"), flags=re.S | re.I)
+    body = re.sub(r"<[^>]+>", "\n", body)
+    body = body.replace("&nbsp;", " ").replace("&amp;", "&").replace("\xa0", " ")
+    lines = [l.strip() for l in body.split("\n") if l.strip()]
+    out = []
+    for i, line in enumerate(lines):
+        m = re.fullmatch(r"ROUND (\d{1,2})", line)
+        if not m:
+            continue
+        window = lines[i + 1:i + 6]
+        # the race index prints two listings; the authoritative one carries the FIA event name
+        fi = next((k for k, w in enumerate(window) if re.match(r"^FORMULA 1\b", w)), None)
+        if fi is None:
+            continue
+        full = window[fi]
+        span = next((w for w in window if re.match(r"^\d{2}\s*-\s*\d{2}", w)), None)
+        country = next((w for w in window[:fi] if w and not w.startswith("Flag of")), None)
+        if not (country and span):
+            continue
+        end_mon = end_day = None
+        for tok in re.finditer(r"(?:(\d{2})\s+)?(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)", span):
+            end_mon = F1_MONTHS.get(tok.group(2))
+            end_day = int(tok.group(1)) if tok.group(1) else None
+        if end_day is None:
+            dm = re.match(r"(\d{2})", span)
+            end_day = int(dm.group(1)) if dm else None
+        status = None
+        for back in range(i - 1, max(i - 5, -1), -1):
+            if lines[back] in ("Previous", "Current", "Upcoming"):
+                status = lines[back]
+                break
+        out.append({
+            "round": int(m.group(1)), "country": country, "event_name": full, "date_span": span,
+            "end_date": f"2026-{end_mon:02d}-{end_day:02d}" if end_mon and end_day else None,
+            "status": status,
+            "source_url": prov["source_url"], "capture": prov,
+        })
+    deduped = {}
+    for r in out:
+        deduped.setdefault(r["round"], r)
+    return [deduped[k] for k in sorted(deduped)]
+
+
 def f1_standings(cap: Capture, target: str) -> dict:
     """formula1.com renders its championship tables server-side."""
     if not cap.have(target):
@@ -894,3 +1193,176 @@ def load_all(cap: Capture) -> dict:
         "gaa": gaa(cap),
         "cricket": cricket_boards(cap),
     }
+
+
+# ============================================================== fixture readers for the boards that
+# ============================================================== publish their lists server-side
+GAA_FIXTURE_BOARDS = {
+    "mayogaa_fixtures": ("Mayo GAA", "https://mayogaa.com/fixtures/"),
+    "claregaa_fixtures": ("Clare GAA", "https://clare.gaa.ie/fixtures-results/"),
+    "leitrimgaa_fixtures": ("Leitrim GAA", "https://www.leitrimgaa.ie/fixtures-next-10-days/"),
+    "ulstergaa_fixtures": ("Ulster GAA", "https://ulster.gaa.ie/fixtures/"),
+    "kilkennygaa_fixtures": ("Kilkenny GAA", "https://kilkennygaa.ie/fixtures-results/"),
+    "gaacork_fixtures": ("Cork GAA", "https://gaacork.ie/fixtures"),
+    "gaakerry_fixtures": ("Kerry GAA", "https://kerrygaa.ie/fixtures"),
+}
+
+GAA_MONTHS = {m: n + 1 for n, m in enumerate(
+    ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])}
+
+
+def _gaa_lines(text: str) -> list[str]:
+    body = re.sub(r"<script\b.*?</script>", " ", text, flags=re.S | re.I)
+    body = re.sub(r"<style\b.*?</style>", " ", body, flags=re.S | re.I)
+    body = re.sub(r"<[^>]+>", "\n", body)
+    body = (body.replace("&nbsp;", " ").replace("&amp;", "&").replace("&#8217;", "'")
+            .replace("\xa0", " "))
+    return [l.strip() for l in body.split("\n") if l.strip()]
+
+
+def gaa_fixtures(cap: Capture) -> list[dict]:
+    """Read the fixture blocks a county board renders server-side.
+
+    The block layout on every board tested is:
+    ``<competition>`` / ``<DD Mon YYYY>`` / ``<HH:MM>`` / ``<home>`` / ``V`` / ``<away>`` /
+    ``<venue>`` / ``Time: HH:MM`` / ``Venue: <ground>`` / ``Referee: <name>`` / ``Comment: <round>``.
+    """
+    out = []
+    seen = set()
+    for target, (org, url) in sorted(GAA_FIXTURE_BOARDS.items()):
+        if not cap.have(target):
+            continue
+        prov = cap.provenance(target)
+        lines = _gaa_lines(cap.text(target))
+        for i, line in enumerate(lines):
+            if line != "V":
+                continue
+            home = lines[i - 1] if i >= 1 else None
+            away = lines[i + 1] if i + 1 < len(lines) else None
+            if not home or not away or len(home) < 2 or len(away) < 2:
+                continue
+            if home in ("Team1", "Home") or away in ("Team2", "Away"):
+                continue
+            date = time = competition = venue = referee = comment = None
+            for back in range(i - 2, max(i - 9, -1), -1):
+                cand = lines[back]
+                dm = re.fullmatch(r"(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})", cand)
+                if dm and date is None:
+                    mon = GAA_MONTHS.get(dm.group(2))
+                    if mon:
+                        date = f"{dm.group(3)}-{mon:02d}-{int(dm.group(1)):02d}"
+                        if back - 1 >= 0 and competition is None:
+                            competition = lines[back - 1]
+                    continue
+                tm = re.fullmatch(r"\d{2}:\d{2}", cand)
+                if tm and time is None and date is not None:
+                    time = cand
+            for fwd in range(i + 2, min(i + 12, len(lines))):
+                cand = lines[fwd]
+                if cand.startswith("Time:") and time is None:
+                    time = cand.split(":", 1)[1].strip()
+                elif cand.startswith("Venue:"):
+                    venue = cand.split(":", 1)[1].strip() or None
+                elif cand.startswith("Referee:"):
+                    referee = cand.split(":", 1)[1].strip() or None
+                elif cand.startswith("Comment:"):
+                    comment = cand.split(":", 1)[1].strip() or None
+                elif venue is None and not cand.startswith("More") and cand != "-->":
+                    venue = cand
+            if not date:
+                continue
+            start = f"{date}T{time}:00Z" if time else None
+            key = (org, date, home, away)
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append({
+                "county": org, "organisation": f"{org} (official county board)",
+                "competition": competition, "event": f"{home} v {away}",
+                "home": home, "away": away, "date": date, "time_local": time,
+                "start_utc": None, "local_start": start, "venue": venue,
+                "referee": referee, "round": comment,
+                "source_url": url, "capture": prov,
+                "timezone_note": "the county board publishes the throw-in in Irish local time; it does not "
+                                 "publish a UTC time, so the UTC column is left empty rather than converted",
+            })
+    return out
+
+
+def cricket_fixtures(cap: Capture) -> list[dict]:
+    """Cricket fixture facts that are actually printed in the committed bytes of an official board page.
+
+    Every board fixture list tested (icc-cricket.com, nzc.nz, cricket.com.au, ecb.co.uk, bcci.tv,
+    cricketireland.ie, windiescricket.com) renders its match cards client-side, so the cards are not
+    in the bytes the runner received. What IS in the bytes is the board's own editorial text, and
+    that is what is published here, with the sentence it came from, so a reviewer can check it.
+    """
+    out = []
+    if cap.have("nzc_matches"):
+        prov = cap.provenance("nzc_matches")
+        lines = _gaa_lines(cap.text("nzc_matches"))
+        joined = " ".join(lines)
+        found = set()
+        for m in re.finditer(r"([^.\n]*(?:BLACKCAPS v India|BLACKCAPS\s+v\s+India|India T20Is)[^.\n]*)", joined):
+            sentence = re.sub(r"\s+", " ", m.group(1)).strip()
+            sentence = re.sub(r"^(?:\d{1,2} \w+, \d{4} in [\w ]+ )+(?:International News\s*)*", "", sentence).strip()
+            sentence = sentence.replace("&#x2019;", "'").replace("&#8217;", "'")
+            if len(sentence) < 40 or sentence[:120] in found:
+                continue
+            found.add(sentence[:120])
+            venues = sorted({v for v in ("Hagley Oval", "Seddon Park", "Eden Park") if v in sentence})
+            out.append({
+                "competition": "BLACKCAPS v India T20I series 2026", "organisation": "New Zealand Cricket",
+                "event": "BLACKCAPS v India — T20I series", "home": "New Zealand", "away": "India",
+                "format": "T20I", "date": None, "start_utc": None,
+                "venue": ", ".join(venues) if venues else None,
+                "official_sentence": sentence[:400],
+                "source_url": prov["source_url"], "capture": prov,
+                "why_unpriced": "New Zealand Cricket renders its match cards client-side, so the per-match date, "
+                                "start time and venue are not in the captured bytes; the series itself and its "
+                                "venues are confirmed by NZC's own news items on that page. The ICC team-rating "
+                                "endpoint was unreachable (icc-cricket.com/rankings/* is also a client-side app), "
+                                "so there is no official rating input for a line either.",
+            })
+    return out
+
+
+def gbgb_meetings(cap: Capture) -> list[dict]:
+    """The Greyhound Board of Great Britain's own Category One calendar, as published."""
+    out = []
+    if not cap.have("gbgb_cat1_schedule"):
+        return out
+    prov = cap.provenance("gbgb_cat1_schedule")
+    lines = _gaa_lines(cap.text("gbgb_cat1_schedule"))
+    month_at = None
+    for i, line in enumerate(lines):
+        mm = re.fullmatch(r"(January|February|March|April|May|June|July|August|September|October|November|December)", line)
+        if mm:
+            month_at = mm.group(1)
+            continue
+        dm = re.fullmatch(r"(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+(\d{1,2})\s+([A-Za-z]{3})", line)
+        if not dm:
+            continue
+        track = lines[i + 1] if i + 1 < len(lines) else None
+        race = lines[i + 2] if i + 2 < len(lines) else None
+        spec = lines[i + 3] if i + 3 < len(lines) else None
+        if not track or not race:
+            continue
+        mon = GAA_MONTHS.get(dm.group(3))
+        if not mon:
+            continue
+        date = f"2026-{mon:02d}-{int(dm.group(2)):02d}"
+        distance = None
+        rtype = None
+        if spec:
+            sm = re.match(r"(\d{2,4})m\s*(.*)", spec)
+            if sm:
+                distance, rtype = f"{sm.group(1)}m", sm.group(2).strip() or None
+        out.append({
+            "competition": "GBGB Category One open racing 2026",
+            "event": f"{race} — {track}", "track": track, "race": race, "day": dm.group(1),
+            "date": date, "start_utc": None, "distance": distance, "type": rtype,
+            "month_heading": month_at,
+            "source_url": prov["source_url"], "capture": prov,
+        })
+    return [m for m in out if "2026-10-23" <= m["date"] <= "2026-11-08"]

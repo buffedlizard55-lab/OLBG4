@@ -189,3 +189,41 @@ def grade(prob: float | None, sample: int, min_sample: int, model_sigma_ok: bool
     if prob >= 0.55:
         return "Medium", reasons
     return "Low", reasons
+
+
+# ---------------------------------------------------------------- small-sample discipline
+def shrink(diff_per_game: float, games: int, k: float) -> float:
+    """Shrink an observed per-game differential toward zero.
+
+    Early in a season a 7-game differential is mostly noise, and publishing a line straight off it
+    is exactly the kind of over-confidence this desk refuses to print. ``k`` is the number of games
+    at which the observed differential and a zero differential carry equal weight.
+    """
+    if games <= 0:
+        return 0.0
+    return diff_per_game * (games / (games + k))
+
+
+def sigma_with_rating_error(sigma_margin: float, unit_sd: float, games: int, k: float) -> float:
+    """Widen the match-margin dispersion to cover the uncertainty in the two ratings themselves.
+
+    Each rating is a mean over ``games`` official results, so its standard error is
+    ``unit_sd / sqrt(games)``; the two ratings enter the margin with opposite signs, and the
+    shrinkage weight ``games / (games + k)`` scales that error down in step with the shrinkage.
+    """
+    if games <= 0:
+        return sigma_margin
+    weight = games / (games + k)
+    se = (unit_sd / (games ** 0.5)) * weight * (2 ** 0.5)
+    return (sigma_margin ** 2 + se ** 2) ** 0.5
+
+
+def ladder(prob_fn, lines: list[float], market: str, label: str) -> list[dict]:
+    """Publish a full ladder of handicap / total lines rather than a single arbitrary one."""
+    out = []
+    for line in lines:
+        p = prob_fn(line)
+        if p is None or not (0.001 < p < 0.999):
+            continue
+        out.append(price_row(p, market, label.format(line=line)))
+    return out
