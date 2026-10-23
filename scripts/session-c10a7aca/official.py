@@ -483,6 +483,89 @@ def parse_legavolley(store: EvidenceStore) -> list[dict]:
     return out
 
 
+def parse_gaacork(store: EvidenceStore) -> list[dict]:
+    fixtures_ev = store.get("gaa_cork_fixtures")
+    results_ev = store.get("gaa_cork_results")
+    if not fixtures_ev:
+        return []
+    def read_rows(ev, completed: bool):
+        rows = []
+        if not ev:
+            return rows
+        for index, block in enumerate(re.findall(r'(<ul\b[^>]*data-hometeam="[^"]+".*?</ul>)', ev.text(), re.S), 1):
+            opening = block.split(">", 1)[0]
+            attrs = {key: value.strip() for key, value in re.findall(r'data-([\w]+)="([^"]*)"', opening)}
+            if not attrs.get("hometeam") or not attrs.get("awayteam") or not attrs.get("date"):
+                continue
+            try:
+                naive = datetime.strptime(f"{attrs['date']} {attrs.get('time', '00:00')}", "%d %b %Y %H:%M")
+            except ValueError:
+                continue
+            start = naive.replace(tzinfo=ZoneInfo("Europe/Dublin")).astimezone(timezone.utc)
+            competition = attrs.get("compname", "Cork GAA")
+            discipline = "Football" if "FC" in competition.upper() else "Hurling"
+            row = {"index": index, "start": start, "home": attrs["hometeam"], "away": attrs["awayteam"],
+                   "competition": competition, "discipline": discipline, "venue": attrs.get("venue", ""),
+                   "round": attrs.get("comment", ""), "home_points": None, "away_points": None}
+            if completed:
+                text = clean_text(block)
+                score = re.search(r"(\d+)\s*-\s*(\d+)\s+v\s+(\d+)\s*-\s*(\d+)", text)
+                if score:
+                    hg, hp, ag, ap = map(int, score.groups())
+                    row["home_points"] = hg * 3 + hp
+                    row["away_points"] = ag * 3 + ap
+                    row["score_text"] = f"{hg}-{hp} v {ag}-{ap}"
+                    rows.append(row)
+            else:
+                rows.append(row)
+        return rows
+    completed = read_rows(results_ev, True)
+    upcoming = read_rows(fixtures_ev, False)
+    totals: dict[tuple[str, str], dict] = defaultdict(lambda: {"gp": 0, "wins": 0, "losses": 0, "draws": 0,
+                                                                 "pf": 0.0, "pa": 0.0})
+    recent: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for row in completed:
+        if row["start"] > store.cutoff or row["home_points"] is None:
+            continue
+        for name, opponent, own, other in ((row["home"], row["away"], row["home_points"], row["away_points"]),
+                                           (row["away"], row["home"], row["away_points"], row["home_points"])):
+            key = (row["discipline"], name)
+            t = totals[key]
+            t["gp"] += 1
+            t["pf"] += own
+            t["pa"] += other
+            outcome = "W" if own > other else "L" if own < other else "D"
+            t[{"W": "wins", "L": "losses", "D": "draws"}[outcome]] += 1
+            recent[key].append({"date": iso(row["start"]), "opponent": opponent, "team_score": own,
+                                "opponent_score": other, "result": outcome, "score_text": row["score_text"],
+                                "competition": row["competition"]})
+    for values in recent.values():
+        values.sort(key=lambda r: r["date"], reverse=True)
+        del values[5:]
+    citations = [fixtures_ev.citation()] + ([results_ev.citation()] if results_ev else [])
+    out = []
+    for row in upcoming:
+        if row["start"] <= store.cutoff:
+            continue
+        hkey, akey = (row["discipline"], row["home"]), (row["discipline"], row["away"])
+        hstat = _summary_stats(**totals[hkey]) if hkey in totals else {}
+        astat = _summary_stats(**totals[akey]) if akey in totals else {}
+        haliases = ["Eire Og Cor"] if row["home"] == "Eire Og" else []
+        aaliases = ["Eire Og Cor"] if row["away"] == "Eire Og" else []
+        h = team_side(row["home"], haliases, row["home"], stats=hstat)
+        a = team_side(row["away"], aaliases, row["away"], stats=astat)
+        detail = {"venue": row["venue"], "round": row["round"], "league": f"Cork {row['discipline']}",
+                  "margin_sd": 7.0, "total_sd": 8.0, "home_advantage_logit": 0.12,
+                  "home_advantage_points": 1.0, "model_family": "gaelic_points",
+                  "discipline": row["discipline"]}
+        out.append(fixture(f"gaacork:{row['discipline']}:{row['index']}:{row['home']}:{row['away']}",
+                           "Gaelic Sports", row["competition"], iso(row["start"]), fixtures_ev.url,
+                           h, a, citations, detail,
+                           {"side1": hstat, "side2": astat, "recent1": recent.get(hkey, []),
+                            "recent2": recent.get(akey, [])}))
+    return out
+
+
 def parse_all(store: EvidenceStore) -> list[dict]:
     fixtures = []
     fixtures += parse_nhl(store)
@@ -493,4 +576,5 @@ def parse_all(store: EvidenceStore) -> list[dict]:
     fixtures += parse_wta(store)
     fixtures += parse_snooker(store)
     fixtures += parse_legavolley(store)
+    fixtures += parse_gaacork(store)
     return fixtures

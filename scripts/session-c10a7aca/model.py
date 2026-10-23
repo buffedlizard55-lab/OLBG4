@@ -139,9 +139,10 @@ def originate_team(event: dict, baseline: float | None) -> bool:
         return False
     league = detail.get("league", "")
     prior = {"NBA": 12.0, "EuroLeague": 8.0, "EuroCup": 8.0, "NHL": 5.0, "MLB": 6.0,
-             "SuperLega": 8.0}.get(league, 8.0)
+             "SuperLega": 8.0, "Cork Football": 5.0, "Cork Hurling": 5.0}.get(league, 8.0)
     net_coef = {"NBA": 0.045, "EuroLeague": 0.055, "EuroCup": 0.055,
-                "NHL": 0.32, "MLB": 0.16, "SuperLega": 0.25}.get(league, 0.05)
+                "NHL": 0.32, "MLB": 0.16, "SuperLega": 0.25,
+                "Cork Football": 0.07, "Cork Hurling": 0.07}.get(league, 0.05)
     def rating(s):
         gp = float(s["gp"])
         shrunk_win = (float(s["wins"]) + prior * 0.5) / (gp + prior)
@@ -161,8 +162,12 @@ def originate_team(event: dict, baseline: float | None) -> bool:
     # disclosed competition home-court/ice/field constant.
     def shrunk_net(s):
         return float(s["net_pg"]) * float(s["gp"]) / (float(s["gp"]) + prior)
-    mu = shrunk_net(s1) - shrunk_net(s2) + float(detail.get("home_advantage_points", 0.0))
+    scoring_margin = shrunk_net(s1) - shrunk_net(s2) + float(detail.get("home_advantage_points", 0.0))
     sd = float(detail.get("margin_sd", 10.0))
+    # A logistic win logit is approximately 1.6 times the corresponding normal
+    # margin z-score.  Using that identity keeps the winner and handicap signs
+    # coherent while retaining the scoring inputs through the win calculation.
+    mu = logit * sd / 1.6
     if league in {"NHL", "MLB"}:
         handicap = 1.5
     else:
@@ -193,7 +198,8 @@ def originate_team(event: dict, baseline: float | None) -> bool:
     markets += [market_row("Total", f"Over {total_line:.1f} {total_unit}", over, f"{total_line:.1f}"),
                 market_row("Total", f"Under {total_line:.1f} {total_unit}", 1 - over, f"{total_line:.1f}")]
     spread_text = f"{favorite} -{handicap:.1f} {unit}"
-    event.update(markets=markets, projected_margin=round(mu, 3), projected_total=round(expected_total, 3),
+    event.update(markets=markets, projected_margin=round(mu, 3), scoring_margin=round(scoring_margin, 3),
+                 projected_total=round(expected_total, 3),
                  market_review=[
                      {"market": "Match winner", "status": "Originated from two-sided official records and scoring."},
                      {"market": "Handicap/spread", "status": f"Originated at {spread_text}."},
@@ -201,7 +207,7 @@ def originate_team(event: dict, baseline: float | None) -> bool:
                      {"market": "Player props", "status": "Investigated; no two-sided official player-prop inputs captured, so no price published."},
                  ])
     min_sample = {"NBA": 8, "NHL": 8, "EuroLeague": 6, "EuroCup": 6, "MLB": 30,
-                  "SuperLega": 4}.get(league, 8)
+                  "SuperLega": 4, "Cork Football": 3, "Cork Hurling": 3}.get(league, 8)
     recent_ok = all(stats.get(key) or (stats.get(stat_key) or {}).get("last10")
                     for key, stat_key in (("recent1", "side1"), ("recent2", "side2")))
     enough = min_gp >= min_sample and recent_ok
@@ -387,7 +393,7 @@ def originate(events: list[dict], cutoff) -> None:
             continue
         family = (event.get("official_detail") or {}).get("model_family")
         ok = False
-        if family in {"nhl_goals", "mlb_runs", "nba_points", "euro_points", "volley_sets"}:
+        if family in {"nhl_goals", "mlb_runs", "nba_points", "euro_points", "volley_sets", "gaelic_points"}:
             ok = originate_team(event, baselines.get(event.get("competition", "")))
         elif family == "wta_ranking_points":
             ok = originate_wta(event)
