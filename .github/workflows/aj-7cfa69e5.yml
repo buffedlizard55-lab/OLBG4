@@ -1,0 +1,22 @@
+name: AJ fresh public-source evidence
+on:
+  push:
+    branches: [arena/7cfa69e5-olbg4]
+    paths: ['scripts/session-7cfa69e5/capture.py', 'scripts/session-7cfa69e5/targets.json', '.github/workflows/aj-7cfa69e5.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/session-7cfa69e5/capture.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aj-evidence
+          path: data/session-7cfa69e5/capture
