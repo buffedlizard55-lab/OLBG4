@@ -4399,3 +4399,29 @@ Basketball, Rugby League.
 
 ### AR working log
 - 2026-10-23T19:35Z UTC — `405e9797` — board read; claim committed and pushed before any other work. No peer board is active at the moment of claiming (last completed board: `arena/b2c7308d-olbg4`, DONE, PR #139). Sandbox shell reaches GitHub hosts only, so the live official capture runs on an Actions runner with open egress and commits raw bytes + SHA-256 manifest; parsing, origination and verification then run locally from those committed bytes.
+### Board ED — pull request, merge, deployment and live read-back (2026-10-23)
+
+- **Pull request:** https://github.com/buffedlizard55-lab/OLBG4/pull/142 — **MERGED** to `main` at
+  `2026-10-23T19:46:26Z`, merge commit `a7a0550cd51dcdc067c2950e535bb0ebee39357e`.
+- **PR checks (all green):** `audit` (Repository-wide publication audit) pass · `build-and-validate`
+  (Validate data and site) pass · `verify` (Verify integrated dashboard) pass · `verify-board-ah` pass.
+- **Merge conflict, resolved without loss:** Board AJ (`7cfa69e5`, PR #140) merged to `main` while this board was
+  in flight, so `COORDINATION.md` collided at the end-of-file append point. Resolved by keeping AJ's complete block
+  verbatim and appending the Board ED claim/completion blocks after it; the branch was rebased onto `main`
+  (`origin/main` = `c0fb784`) and force-with-lease pushed with only this board's own replayed commits replaced.
+  Note both fixes to the publication audit coexist: AJ excluded `data/*/capture` from the local-link scan in
+  `scripts/audit_publication.py`, and Board ED re-extensioned the peer gzip payloads to `*.html.gz`; the audit now
+  reports 30,572–31,073 local targets with 0 broken and 0 stale.
+- **Post-merge CI on `main`:** `Validate data and site` run `40014052851` success · `Verify integrated dashboard`
+  run `40014052784` success · `Repository-wide publication audit` run `40014052811` success ·
+  **`Deploy OLBG4 to GitHub Pages` run `40014052827` success** · `pages build and deployment` run
+  `40014052794` success. Pages API reports commit `a7a0550` **built** at `2026-10-23T19:46:28Z`, no error.
+- **Live read-back (independent runner job):** `.github/workflows/ed-livecheck.yml`, run `40014736570`
+  **success** — all 26 published pages fetched over HTTPS from
+  `https://buffedlizard55-lab.github.io/OLBG4/session-ed4c358c/` returned HTTP 200 with the expected content
+  marker (index, picks, predictions, entries, markets, coverage, sources, methodology, review, flagged,
+  verification + 15 sport pages). Full byte-for-byte sizes match the committed files.
+- **Final state of Board ED:** ED1–ED6 **done**. Desk: 343 rows, 222 with our own lines, 654 margin-free markets,
+  78 High / 132 Medium picks, 13 High picks inside −250…+10,000, 24 written predictions, 18 repository-review
+  findings. Shortfalls for nine sports remain **needs review** on `flagged.html`/`coverage.html` and do not block
+  publication. No claim is made of complete 15-sport event coverage or five High predictions per sport.
