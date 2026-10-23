@@ -1,0 +1,317 @@
+{
+ "note": "Round 2: standings, results and OLBG sport hubs. Same runner capture rules as targets.json.",
+ "targets": [
+  {
+   "id": "acb-clasificacion",
+   "sport": "Basketball",
+   "tier": "official",
+   "url": "https://www.acb.com/clasificacion"
+  },
+  {
+   "id": "acb-resultados",
+   "sport": "Basketball",
+   "tier": "official",
+   "url": "https://www.acb.com/resultados"
+  },
+  {
+   "id": "euroleague-standings",
+   "sport": "Basketball",
+   "tier": "official",
+   "url": "https://api-live.euroleague.net/v1/standings?seasonCode=E2026"
+  },
+  {
+   "id": "euroleague-games",
+   "sport": "Basketball",
+   "tier": "official",
+   "url": "https://api-live.euroleague.net/v1/games?seasonCode=E2026&round=8"
+  },
+  {
+   "id": "nba-schedule-date",
+   "sport": "Basketball",
+   "tier": "official",
+   "url": "https://www.nba.com/schedule?date=10/24/2026"
+  },
+  {
+   "id": "legavolley-classifica",
+   "sport": "Volleyball",
+   "tier": "official",
+   "url": "https://www.legavolley.it/classifica/"
+  },
+  {
+   "id": "legavolley-risultati",
+   "sport": "Volleyball",
+   "tier": "official",
+   "url": "https://www.legavolley.it/risultati/"
+  },
+  {
+   "id": "vbl-tabelle",
+   "sport": "Volleyball",
+   "tier": "official",
+   "url": "https://www.volleyball-bundesliga.de/tabelle"
+  },
+  {
+   "id": "plusliga-tabela",
+   "sport": "Volleyball",
+   "tier": "official",
+   "url": "https://www.plusliga.pl/table.html"
+  },
+  {
+   "id": "urc-api-fixtures",
+   "sport": "Rugby Union",
+   "tier": "official",
+   "url": "https://stats.unitedrugby.com/api/v1/fixtures?season=2026-27&round=5"
+  },
+  {
+   "id": "premiership-table",
+   "sport": "Rugby Union",
+   "tier": "official",
+   "url": "https://www.premiershiprugby.com/table"
+  },
+  {
+   "id": "cricket-aus-series",
+   "sport": "Cricket",
+   "tier": "official",
+   "url": "https://www.cricket.com.au/series"
+  },
+  {
+   "id": "icc-rankings",
+   "sport": "Cricket",
+   "tier": "official",
+   "url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i"
+  },
+  {
+   "id": "wta-matches-2026",
+   "sport": "Tennis",
+   "tier": "official",
+   "url": "https://api.wtatennis.com/tennis/tournaments?year=2026&page=0&pageSize=100"
+  },
+  {
+   "id": "wta-rankings-api",
+   "sport": "Tennis",
+   "tier": "official",
+   "url": "https://api.wtatennis.com/tennis/rankings/singles?page=0&pageSize=20"
+  },
+  {
+   "id": "wta-events",
+   "sport": "Tennis",
+   "tier": "official",
+   "url": "https://www.wtatennis.com/tournaments"
+  },
+  {
+   "id": "ehfcl-root",
+   "sport": "Handball",
+   "tier": "official",
+   "url": "https://ehfcl.eurohandball.com/"
+  },
+  {
+   "id": "ehf-root",
+   "sport": "Handball",
+   "tier": "official",
+   "url": "https://www.eurohandball.com/en/"
+  },
+  {
+   "id": "hbl-spielplan",
+   "sport": "Handball",
+   "tier": "official",
+   "url": "https://www.handball-bundesliga.de/spielplan/"
+  },
+  {
+   "id": "lnh-root",
+   "sport": "Handball",
+   "tier": "official",
+   "url": "https://www.lnh.fr/"
+  },
+  {
+   "id": "asobal-root",
+   "sport": "Handball",
+   "tier": "official",
+   "url": "https://asobal.es/calendario/"
+  },
+  {
+   "id": "rfl-fixtures",
+   "sport": "Rugby League",
+   "tier": "official",
+   "url": "https://www.rugby-league.com/fixtures_results"
+  },
+  {
+   "id": "nrl-ladder",
+   "sport": "Rugby League",
+   "tier": "official",
+   "url": "https://www.nrl.com/ladder/"
+  },
+  {
+   "id": "rlwc-draw",
+   "sport": "Rugby League",
+   "tier": "official",
+   "url": "https://www.rlwc2026.com/draw"
+  },
+  {
+   "id": "pdc-tournaments",
+   "sport": "Darts",
+   "tier": "official",
+   "url": "https://www.pdc.tv/tournaments"
+  },
+  {
+   "id": "pdc-tv",
+   "sport": "Darts",
+   "tier": "official",
+   "url": "https://www.pdc.tv/tv-guide"
+  },
+  {
+   "id": "wst-matches",
+   "sport": "Snooker",
+   "tier": "official",
+   "url": "https://www.wst.tv/matches"
+  },
+  {
+   "id": "wst-calendar",
+   "sport": "Snooker",
+   "tier": "official",
+   "url": "https://www.wst.tv/calendar"
+  },
+  {
+   "id": "snooker-event",
+   "sport": "Snooker",
+   "tier": "secondary",
+   "url": "https://www.snooker.org/res/index.asp?event=2548"
+  },
+  {
+   "id": "owgr-rankings",
+   "sport": "Golf",
+   "tier": "official",
+   "url": "https://www.owgr.com/rankings"
+  },
+  {
+   "id": "pgatour-2026",
+   "sport": "Golf",
+   "tier": "official",
+   "url": "https://www.pgatour.com/schedule/2026"
+  },
+  {
+   "id": "lpga-tournaments",
+   "sport": "Golf",
+   "tier": "official",
+   "url": "https://www.lpga.com/tournaments"
+  },
+  {
+   "id": "f1-usgp",
+   "sport": "Motor Racing",
+   "tier": "official",
+   "url": "https://www.formula1.com/en/racing/2026/united-states"
+  },
+  {
+   "id": "motogp-2026",
+   "sport": "Motor Racing",
+   "tier": "official",
+   "url": "https://www.motogp.com/en/calendar/2026"
+  },
+  {
+   "id": "gbgb-racecards",
+   "sport": "Greyhounds",
+   "tier": "official",
+   "url": "https://www.gbgb.org.uk/racecards"
+  },
+  {
+   "id": "gbgb-results",
+   "sport": "Greyhounds",
+   "tier": "official",
+   "url": "https://www.gbgb.org.uk/results"
+  },
+  {
+   "id": "gaa-club",
+   "sport": "Gaelic Sports",
+   "tier": "official",
+   "url": "https://www.gaa.ie/fixtures-results/club"
+  },
+  {
+   "id": "olbg-gaelic-football",
+   "sport": "Gaelic Sports",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+  },
+  {
+   "id": "olbg-motor-racing",
+   "sport": "Motor Racing",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Motor_Racing/14"
+  },
+  {
+   "id": "olbg-darts",
+   "sport": "Darts",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Darts/15"
+  },
+  {
+   "id": "olbg-rugby-union",
+   "sport": "Rugby Union",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Rugby_Union/9"
+  },
+  {
+   "id": "olbg-tennis",
+   "sport": "Tennis",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Tennis/3"
+  },
+  {
+   "id": "olbg-golf",
+   "sport": "Golf",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Golf/5"
+  },
+  {
+   "id": "olbg-cricket",
+   "sport": "Cricket",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Cricket/7"
+  },
+  {
+   "id": "olbg-snooker",
+   "sport": "Snooker",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Snooker/8"
+  },
+  {
+   "id": "olbg-basketball",
+   "sport": "Basketball",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Basketball/4"
+  },
+  {
+   "id": "olbg-volleyball",
+   "sport": "Volleyball",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+  },
+  {
+   "id": "olbg-handball",
+   "sport": "Handball",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Handball/20"
+  },
+  {
+   "id": "olbg-ice-hockey",
+   "sport": "Ice Hockey",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+  },
+  {
+   "id": "olbg-baseball",
+   "sport": "Baseball",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Baseball/12"
+  },
+  {
+   "id": "olbg-rugby-league",
+   "sport": "Rugby League",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/10"
+  },
+  {
+   "id": "olbg-greyhounds",
+   "sport": "Greyhounds",
+   "tier": "olbg",
+   "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+  }
+ ]
+}

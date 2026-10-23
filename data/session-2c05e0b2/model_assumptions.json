@@ -1,0 +1,65 @@
+{
+ "confidence_rule": {
+  "High": "p >= 0.70 AND the verified sample passes the sport's minimum games",
+  "Low": "p < 0.60 or the sample fails the minimum",
+  "Medium": "p >= 0.60, or a sport whose captured sample is too small to support High",
+  "caps": {
+   "baseball": "",
+   "basketball": "",
+   "ice_hockey": "",
+   "rugby_union": "Medium",
+   "snooker": "Medium",
+   "volleyball": "Low"
+  }
+ },
+ "fair_price_rule": "fair decimal = 1 / model probability; no margin is added or removed",
+ "generated_at_utc": "2026-10-23T16:35:59Z",
+ "market_reference_rule": "OLBG rows are the public listing, not an originated line; their market-implied probability is 1/decimal and includes any margin, so they are never labelled High",
+ "models": {
+  "baseball": {
+   "home_adv": 0.18,
+   "min_gp": 100,
+   "scale": 3.2,
+   "total_sd": 3.4,
+   "why": "normal run-difference scale 3.2 and home advantage 0.18 runs reflect the published 2026 regular-season run environment; totals sd 3.4 runs"
+  },
+  "basketball": {
+   "home_adv": 3.2,
+   "min_gp": 5,
+   "scale": 11.5,
+   "total_sd": 16.0,
+   "why": "normal EuroLeague point-difference scale 11.5 and home advantage 3.2 points; total points sd 16"
+  },
+  "ice_hockey": {
+   "home_adv": 0.22,
+   "min_gp": 5,
+   "scale": 1.9,
+   "total_sd": 1.9,
+   "why": "normal goal-difference scale 1.9 and home advantage 0.22 goals are the long-run NHL regular-season values; totals sd 1.9 goals per game"
+  },
+  "rugby_union": {
+   "confidence_cap": "Medium",
+   "home_adv": 4.0,
+   "min_gp": 3,
+   "scale": 12.0,
+   "total_sd": 14.0,
+   "why": "normal URC point-difference scale 12 and home advantage 4 points; totals sd 14. Ratings use the single completed round available, so confidence is capped"
+  },
+  "snooker": {
+   "confidence_cap": "Medium",
+   "min_gp": 1,
+   "scale": 22.0,
+   "why": "seed/ranking gap converted with a 22-place logistic scale; ranking data captured covers only part of the field, so confidence is capped"
+  },
+  "volleyball": {
+   "confidence_cap": "Low",
+   "home_adv": 0.3,
+   "min_gp": 3,
+   "scale": 1.0,
+   "total_sd": 1.6,
+   "why": "set-difference normal scale 1.0 sets and home advantage 0.3 sets; only one completed round of the 2026-27 Serie A season existed at capture"
+  }
+ },
+ "window_arithmetic": "p=0.700 prices at -233 and p=0.7143 at -250, so High (p>=0.70) and the -250 floor overlap only inside p=0.700-0.7143",
+ "window_rule": "American price between -250 and +10000 inclusive, on our own fair price"
+}

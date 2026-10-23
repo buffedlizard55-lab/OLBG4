@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology · OLBG4 Board AI</title>
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header><div class="wrap"><div class="brand"><b>OLBG4 · Board AI</b>
+<span>15-sport official-source desk · captured 2026-10-23 16:38Z</span></div>
+<nav><a class="" href="index.html">Dashboard</a><a class="" href="picks.html">Picks &amp; predictions</a><a class="" href="entries.html">All entries</a><a class="" href="markets.html">Markets</a><a class="" href="coverage.html">Coverage</a><a class="" href="sources.html">Sources</a><a class="on" href="methodology.html">Methodology</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged for review</a><a class="" href="verification.html">Verification</a></nav><nav class="small"><a href="sports/golf.html">Golf</a><a href="sports/volleyball.html">Volleyball</a><a href="sports/rugby-union.html">Rugby Union</a><a href="sports/cricket.html">Cricket</a><a href="sports/snooker.html">Snooker</a><a href="sports/darts.html">Darts</a><a href="sports/baseball.html">Baseball</a><a href="sports/gaelic-sports.html">Gaelic Sports</a><a href="sports/greyhounds.html">Greyhounds</a><a href="sports/tennis.html">Tennis</a><a href="sports/motor-racing.html">Motor Racing</a><a href="sports/handball.html">Handball</a><a href="sports/ice-hockey.html">Ice Hockey</a><a href="sports/basketball.html">Basketball</a><a href="sports/rugby-league.html">Rugby League</a></nav></div></header>
+<main class="wrap"><h1>Methodology</h1><p class="lede">The model, the confidence rule and the limits, stated so a reader can re-check a line.</p>
+
+<h2>How a line is originated</h2>
+<ol>
+<li><b>Verified inputs only.</b> Team records, points, goals or runs for and against, round
+scores or ranking positions are read from the governing body's own page. No bookmaker price and
+no OLBG price enters a fair line.</li>
+<li><b>Expected margin.</b> Goal, run or point attack and defence averages are combined for each
+side and adjusted for home advantage from the table below.</li>
+<li><b>Probability.</b> The expected margin is converted with a normal distribution using the
+sport's single-game scale.</li>
+<li><b>Price.</b> Fair decimal is exactly 1 ÷ probability. No margin is added or removed.</li>
+<li><b>Markets.</b> Match winner both ways; handicap at the published line; total over/under at
+the published line; plus puck line (NHL), run line (MLB), frame handicap (snooker) or set line
+(volleyball). Every market is on <a href="markets.html">Markets</a>.</li>
+<li><b>Confidence.</b> High at p ≥ 0.70 with an adequate sample; Medium at p ≥ 0.60 or where the
+captured sample is too thin for High; Low otherwise. Sports with a thin sample are capped.</li>
+</ol>
+<div class="tblwrap"><table><tr><th>Sport</th><th class="num">Scale</th><th class="num">Home adv</th>
+<th class="num">Total sd</th><th class="num">Min games</th><th>Confidence cap</th>
+<th>Justification</th></tr><tr><td>baseball</td><td class='num'>3.2</td><td class='num'>0.18</td><td class='num'>3.4</td><td class='num'>100</td><td>—</td><td>normal run-difference scale 3.2 and home advantage 0.18 runs reflect the published 2026 regular-season run environment; totals sd 3.4 runs</td></tr><tr><td>basketball</td><td class='num'>11.5</td><td class='num'>3.2</td><td class='num'>16.0</td><td class='num'>5</td><td>—</td><td>normal EuroLeague point-difference scale 11.5 and home advantage 3.2 points; total points sd 16</td></tr><tr><td>ice_hockey</td><td class='num'>1.9</td><td class='num'>0.22</td><td class='num'>1.9</td><td class='num'>5</td><td>—</td><td>normal goal-difference scale 1.9 and home advantage 0.22 goals are the long-run NHL regular-season values; totals sd 1.9 goals per game</td></tr><tr><td>rugby_union</td><td class='num'>12.0</td><td class='num'>4.0</td><td class='num'>14.0</td><td class='num'>3</td><td>Medium</td><td>normal URC point-difference scale 12 and home advantage 4 points; totals sd 14. Ratings use the single completed round available, so confidence is capped</td></tr><tr><td>snooker</td><td class='num'>22.0</td><td class='num'></td><td class='num'></td><td class='num'>1</td><td>Medium</td><td>seed/ranking gap converted with a 22-place logistic scale; ranking data captured covers only part of the field, so confidence is capped</td></tr><tr><td>volleyball</td><td class='num'>1.0</td><td class='num'>0.3</td><td class='num'>1.6</td><td class='num'>3</td><td>Low</td><td>set-difference normal scale 1.0 sets and home advantage 0.3 sets; only one completed round of the 2026-27 Serie A season existed at capture</td></tr></table></div>
+<div class="note warnbox"><b>What this board does not claim.</b> The model uses season-long
+averages, not starting pitchers, line combinations, injuries or team news. Where an injury or
+availability fact could not be confirmed on an official page it is absent from the write-up
+rather than guessed. Sample sizes are published per fixture so a reader can judge the line.</div>
+<h2>Market-reference rows</h2>
+<p class="lede">For sports where no machine-readable official feed existed, the OLBG listing is
+reproduced with its public price and OLBG's own tipping percentage. The implied probability shown
+is 1 ÷ decimal and includes whatever margin the listing carries. These rows are never labelled
+High and never carry a written prediction.</p>
+</main>
+<footer><div class="wrap">Built from committed capture bytes only. Every figure on this site
+traces to an official governing-body page or to the OLBG listing published alongside it.
+Unconfirmed values are blank and listed on <a href="flagged.html">Flagged for review</a>.
+· <a href="../index.html">Repository root</a></div></footer></body></html>

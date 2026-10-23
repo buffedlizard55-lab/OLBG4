@@ -1,0 +1,272 @@
+{
+ "checks": [
+  {
+   "id": "V01",
+   "observed": "343/343",
+   "result": "PASS",
+   "what": "row keys are unique"
+  },
+  {
+   "id": "V02",
+   "observed": "",
+   "result": "PASS",
+   "what": "every row has an in-scope sport"
+  },
+  {
+   "id": "V03",
+   "observed": "",
+   "result": "PASS",
+   "what": "no excluded sport leaks in"
+  },
+  {
+   "id": "V04",
+   "observed": "0 missing",
+   "result": "PASS",
+   "what": "every row carries a source URL"
+  },
+  {
+   "id": "V05",
+   "observed": "",
+   "result": "PASS",
+   "what": "every start time is an ISO UTC stamp"
+  },
+  {
+   "id": "V06",
+   "observed": "15/15",
+   "result": "PASS",
+   "what": "all 15 sports are represented in the desk"
+  },
+  {
+   "id": "V07",
+   "observed": "0 defects",
+   "result": "PASS",
+   "what": "every priced row carries match winner, handicap and total"
+  },
+  {
+   "id": "V08",
+   "observed": "0 defects",
+   "result": "PASS",
+   "what": "fair decimal re-derived as 1/p for every market"
+  },
+  {
+   "id": "V09",
+   "observed": "0 defects",
+   "result": "PASS",
+   "what": "American price re-derived from every decimal"
+  },
+  {
+   "id": "V10",
+   "observed": "",
+   "result": "PASS",
+   "what": "market families sum to 1.000"
+  },
+  {
+   "id": "V11",
+   "observed": "",
+   "result": "PASS",
+   "what": "published pick is always a match winner"
+  },
+  {
+   "id": "V12",
+   "observed": "0 defects",
+   "result": "PASS",
+   "what": "confidence re-derived from the published rule"
+  },
+  {
+   "id": "V13",
+   "observed": "0 defects",
+   "result": "PASS",
+   "what": "window flag re-derived from the fair price"
+  },
+  {
+   "id": "V14",
+   "observed": "222 rows",
+   "result": "PASS",
+   "what": "market-reference rows publish no pick, market or own price"
+  },
+  {
+   "id": "V15",
+   "observed": "",
+   "result": "PASS",
+   "what": "market-reference rows are never High"
+  },
+  {
+   "id": "V16",
+   "observed": "0 without reason",
+   "result": "PASS",
+   "what": "market-reference rows state why they are unpriced"
+  },
+  {
+   "id": "V17",
+   "observed": "",
+   "result": "PASS",
+   "what": "predictions reference published rows"
+  },
+  {
+   "id": "V18",
+   "observed": "min 52",
+   "result": "PASS",
+   "what": "every prediction is at least 30 words"
+  },
+  {
+   "id": "V19",
+   "observed": "",
+   "result": "PASS",
+   "what": "word count is re-derived from the text"
+  },
+  {
+   "id": "V20",
+   "observed": "",
+   "result": "PASS",
+   "what": "every prediction names someone or two sides"
+  },
+  {
+   "id": "V21",
+   "observed": "",
+   "result": "PASS",
+   "what": "every prediction states its selection in the text"
+  },
+  {
+   "id": "V22",
+   "observed": "",
+   "result": "PASS",
+   "what": "no prediction uses the words excluded from published text"
+  },
+  {
+   "id": "V23",
+   "observed": "",
+   "result": "PASS",
+   "what": "every prediction carries at least two facts and one source"
+  },
+  {
+   "id": "V24",
+   "observed": "",
+   "result": "PASS",
+   "what": "prediction sources are official or the OLBG listing"
+  },
+  {
+   "id": "V25",
+   "observed": "max 0.0789",
+   "result": "PASS",
+   "what": "no two predictions are near-duplicates (3-gram Jaccard < 0.30)"
+  },
+  {
+   "id": "V26",
+   "observed": "",
+   "result": "PASS",
+   "what": "no prediction text is reused verbatim"
+  },
+  {
+   "id": "V27",
+   "observed": "{\"high\": 17, \"high_in_window\": 2, \"low\": 59, \"market_reference\": 222, \"medium\": 45, \"olbg_events\": 236, \"originated_markets\": 726, \"priced\": 121, \"rows\": 343}",
+   "result": "PASS",
+   "what": "row count matches the published counts"
+  },
+  {
+   "id": "V28",
+   "observed": "",
+   "result": "PASS",
+   "what": "market count matches the markets actually published"
+  },
+  {
+   "id": "V29",
+   "observed": "",
+   "result": "PASS",
+   "what": "confidence counts match the rows"
+  },
+  {
+   "id": "V30",
+   "observed": "",
+   "result": "PASS",
+   "what": "every sport on the desk has a hub URL"
+  },
+  {
+   "id": "V31",
+   "observed": "19 items",
+   "result": "PASS",
+   "what": "every flagged item carries a source URL"
+  },
+  {
+   "id": "V32",
+   "observed": "",
+   "result": "PASS",
+   "what": "flagged ids are unique"
+  },
+  {
+   "id": "V33",
+   "observed": "",
+   "result": "PASS",
+   "what": "no sport is left without either a line or a flag"
+  },
+  {
+   "id": "V34",
+   "observed": "336 rows",
+   "result": "PASS",
+   "what": "repo review covers the shared datasets"
+  },
+  {
+   "id": "V35",
+   "observed": "",
+   "result": "PASS",
+   "what": "every review category count matches its listed findings"
+  },
+  {
+   "id": "V36",
+   "observed": "771 links, 0 broken",
+   "result": "PASS",
+   "what": "every internal link resolves"
+  },
+  {
+   "id": "V37",
+   "observed": "",
+   "result": "PASS",
+   "what": "all expected pages exist"
+  },
+  {
+   "id": "V38-entries.html",
+   "observed": "",
+   "result": "PASS",
+   "what": "entries.html contains source links"
+  },
+  {
+   "id": "V38-markets.html",
+   "observed": "",
+   "result": "PASS",
+   "what": "markets.html contains source links"
+  },
+  {
+   "id": "V38-picks.html",
+   "observed": "",
+   "result": "PASS",
+   "what": "picks.html contains source links"
+  },
+  {
+   "id": "V38-flagged.html",
+   "observed": "",
+   "result": "PASS",
+   "what": "flagged.html contains source links"
+  },
+  {
+   "id": "V38-sources.html",
+   "observed": "",
+   "result": "PASS",
+   "what": "sources.html contains source links"
+  },
+  {
+   "id": "V39",
+   "observed": "",
+   "result": "PASS",
+   "what": "no reference row shows an American price in the fair-price column"
+  }
+ ],
+ "errors": [],
+ "generated_at_utc": "2026-10-23T16:38:09Z",
+ "summary": {
+  "checks": 43,
+  "errors": 0,
+  "links": 771,
+  "predictions": 25,
+  "priced": 121,
+  "rows": 343
+ }
+}
