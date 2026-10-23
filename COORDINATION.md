@@ -4349,3 +4349,20 @@ now exits 0 (31,073 local targets, 0 broken, 0 stale) and `audit/{index.html,rep
 length/uniqueness/selection, 26 pages with 0 broken internal links, summary reconciliation). Byte-identical
 rebuild confirmed (`bash scripts/session-ed4c358c/build_all.sh` twice → no diff). Repo gates on the branch:
 `Validate data and site` PASS, `Verify integrated dashboard` PASS, `Repository-wide publication audit` PASS.
+
+
+## Board AL — session `arena/392eead5-olbg4` (final integration: strict-source 15-sport dashboard)
+
+Session: `arena/392eead5-olbg4` · Branch: `arena/392eead5-olbg4` (Arena-fixed active branch; no branch switch) · Claimed: **2026-10-23T19:46:30Z UTC** · **status: in progress**
+
+Board ED's data/site PR #142 is merged to `main` at `a7a0550cd51dcdc067c2950e535bb0ebee39357e` (checks `audit`, `build-and-validate`, `verify`, and `verify-board-ah` passed). Board AL is the final root-site integration; peer data, desk scripts, and capture files remain read-only. Root `index.html` and the unique `session-392eead5/**`, `data/session-392eead5/**`, `scripts/session-392eead5/**` namespace are owned by AL; `COORDINATION.md` is append-only. No README, master dataset, peer page, peer script, or peer data will be changed.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AL1 | Build a clean root landing + integrated 15-category dashboard from the merged 23 Oct 19:35Z desk, keeping only official links in official-source cells; OLBG-only rows retain blank official fields and move to explicit unverified/Flagged presentation | in progress | arena/392eead5-olbg4 | `index.html`, `session-392eead5/**`, `data/session-392eead5/**`, `scripts/session-392eead5/**` |
+| AL2 | Independently verify hashes, per-row source tier, market arithmetic, prediction words/sources, summary arithmetic and all internal links; run upstream desk gate and root publication audit | pending | arena/392eead5-olbg4 | `scripts/session-392eead5/**`, `COORDINATION.md` append-only |
+| AL3 | PR from this fixed branch, merge only when checks pass, confirm GitHub Pages deploy and public read-back; log PR/check/deploy URLs | pending | arena/392eead5-olbg4 | `COORDINATION.md` append-only |
+
+### AL working log
+- 2026-10-23T19:46:30Z UTC — synchronized with latest `main` using `git pull --rebase origin main`; the Board ED merge appended to `COORDINATION.md` at the same end-of-file location, causing the expected append/append conflict. Resolved by preserving the entire upstream Board ED completion record verbatim and appending this AL scope; no peer work was removed. The initial root-only plan is extended to a uniquely namespaced strict-source view because the merged Board ED table intentionally displays 107 OLBG-only discovery links in its source cell; the user's rule requires official-source cells blank and these rows flagged. The integration view will make that distinction explicit without changing Board ED's files.
+- Merged source snapshot as read from `data/session-ed4c358c/desk.json`: cutoff `2026-10-23T19:35:00Z`, capture `20261023T194348Z`; 343 rows / 222 priced / 654 own-line markets; 236 `source_tier=official` rows and 107 `source_tier=olbg-listing` rows. Board ED's verifier reports 78 High best-market picks, 13 within −250…+10,000, and 24 predictions (5 Baseball / 5 Basketball / 5 Ice Hockey / 5 Tennis / 4 Volleyball); its `desk.json.summary.high` (12) and `summary.listing_only` (121) use different row-level semantics from the rendered best-market count and source-tier inventory. AL will calculate its displayed values from the corresponding row definitions and flag the semantic mismatch, not reuse the ambiguous counters. Repo review: 738 rows across 7 peer datasets, 18 findings.
