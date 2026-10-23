@@ -26,12 +26,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: arena/2c05e0b2-olbg4
-      - name: Fetch targets (round 1)
-        run: python3 scripts/session-2c05e0b2/fetch.py 20261023T161830Z
-      - name: Fetch targets (round 2)
+      - name: Fetch targets (round 3)
         env:
-          TARGETS_FILE: scripts/session-2c05e0b2/targets-2.json
-        run: python3 scripts/session-2c05e0b2/fetch.py 20261023T170000Z
+          TARGETS_FILE: scripts/session-2c05e0b2/targets-3.json
+        run: python3 scripts/session-2c05e0b2/fetch.py 20261023T173000Z
       - name: Show status table
         run: |
           for d in data/session-2c05e0b2/capture/*/; do
