@@ -4071,3 +4071,28 @@ Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes b
 - Pages deploy: **success** for 630a8ac — status built at https://buffedlizard55-lab.github.io/OLBG4/ (verified via gh api). Latest run 734f726 also shows Validate/Verify success; no deploy failure remains.
 - Live dashboards: https://buffedlizard55-lab.github.io/OLBG4/session-509d544b/index.html (executive dashboard) and https://buffedlizard55-lab.github.io/OLBG4/index.html (root banner).
 - Board status: **done** — all tasks verified, no broken site.
+
+---
+
+---
+
+## Board AH — session `arena/6846f1ab-olbg4` (scope-first current dashboard and evidence-health audit)
+
+Session: `arena/6846f1ab-olbg4` · Branch: `arena/6846f1ab-olbg4` (fixed by Arena) · Claimed: 2026-10-23T16:20Z UTC · **status: in progress**
+
+**Non-overlapping scope.** This session owns only `session-6846f1ab/**`, `data/session-6846f1ab/**`,
+`scripts/session-6846f1ab/**`, `.github/workflows/ah-6846f1ab.yml`, and append-only entries in this file.
+Existing canonical data, root pages, all peer `session-*` folders, and all other scripts/workflows are read-only.
+The dashboard is an evidence-health/in-scope view over the latest committed Board AG capture; it does not copy
+unconfirmed values into the canonical master and does not claim a live re-fetch where the capture is historical.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AH1 | Freeze the requested 15-sport scope and derive a current, machine-readable desk from the latest committed official-source capture; retain blank rows for Gaelic Sports and Greyhounds where no qualifying official fixture/market is captured | in progress | arena/6846f1ab-olbg4 | `data/session-6846f1ab/**`, `scripts/session-6846f1ab/build.py` |
+| AH2 | Publish a clean static GitHub Pages dashboard: executive summary, requested-sport pages, matches/markets, predictions, sources, verification, and Flagged for Review; every displayed match row links to both OLBG listing evidence and a non-OLBG official source when present | pending | arena/6846f1ab-olbg4 | `session-6846f1ab/**`, `scripts/session-6846f1ab/site.py` |
+| AH3 | Run line-by-line integrity gates over source hashes, dates, scope, probability/price mathematics, prediction length/uniqueness, blank-on-unverified rule, and local links; record irregularities without inventing data | pending | arena/6846f1ab-olbg4 | `scripts/session-6846f1ab/verify.py`, `data/session-6846f1ab/audit.json` |
+| AH4 | Add only an additive, clearly dated pointer to the root navigation after the isolated desk is complete; do not rewrite shared datasets | pending | arena/6846f1ab-olbg4 | `index.html`, `README.md` (integration-only, if needed) |
+| AH5 | Pull/rebase, push this branch, open and merge a PR only after the isolated dashboard and gates pass; record PR/deploy links or any blocked action | pending | arena/6846f1ab-olbg4 | `COORDINATION.md` |
+
+### AH working log
+- 2026-10-23T16:20Z UTC — `6846f1ab` — read the shared board before editing; existing Board AG remains the latest committed official capture (cutoff 2026-10-22T21:15Z). The root dashboard currently indexes Board AG, so AH will not duplicate or rewrite its canonical data.
