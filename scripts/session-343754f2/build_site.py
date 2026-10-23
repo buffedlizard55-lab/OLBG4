@@ -248,6 +248,19 @@ def main() -> int:
           f"<strong>{review['checked_predictions']}</strong> · hard failures: <strong>{len(review['hard_failures'])}</strong> · "
           f"warnings: <strong>{len(review['warnings'])}</strong>. Every priced market re-verified: probability pair sums to 1, "
           "decimal odds equal 1/p, american prices recomputed, window arithmetic re-checked.</p>"]
+    try:
+        sc = json.load(open(os.path.join(DATA, "source_check.json")))
+        rv.append(f"<h2>Independent source re-check</h2><p>Re-derived straight from the captured bytes "
+                  f"(not through the origination code): <strong>{sc['checks']}</strong> checks across "
+                  f"<strong>{sc['rows_checked']}</strong> published rows, <strong>{len(sc['failures'])}</strong> "
+                  f"failures. Capture integrity: <strong>{sc['integrity']['captured_files']}</strong> files "
+                  f"re-hashed against the SHA-256 manifest, "
+                  f"<strong>{sc['integrity']['sha256_mismatches']}</strong> mismatches (stamp "
+                  f"<code>{esc(sc['stamp'])}</code>, finished {esc(sc['integrity']['manifest_finished_utc'])}). "
+                  f"Each row's fixture identity (game id, both sides, kick-off, venue) is compared with the "
+                  f"official payload, and every price is rebuilt from its probability.</p>")
+    except FileNotFoundError:
+        rv.append("<p><em>Independent source re-check artefact not present in this build.</em></p>")
     if review["warnings"]:
         rv.append("<ul>" + "".join(f"<li>{esc(w)}</li>" for w in review["warnings"]) + "</ul>")
     rr = review.get("repo_review") or {}
