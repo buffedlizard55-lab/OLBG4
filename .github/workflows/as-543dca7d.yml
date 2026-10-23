@@ -1,0 +1,51 @@
+name: Board AS official capture (543dca7d)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/543dca7d-olbg4
+    paths:
+      - "scripts/session-543dca7d/targets.json"
+      - "scripts/session-543dca7d/fetch.py"
+      - ".github/workflows/as-543dca7d.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: as-543dca7d-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/543dca7d-olbg4
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG 15-sport hubs and official governing-body feeds
+        run: |
+          set -o pipefail
+          python3 scripts/session-543dca7d/fetch.py 2>&1 | tee /tmp/capture.log
+      - name: Commit capture bundle to arena/543dca7d-olbg4
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-as-capture[bot]"
+          git config user.email "board-as-capture@users.noreply.github.com"
+          mkdir -p data/session-543dca7d/logs
+          STAMP=$(ls -1 data/session-543dca7d/capture 2>/dev/null | sort | tail -n 1 || echo "run")
+          cp /tmp/capture.log "data/session-543dca7d/logs/capture-${STAMP}.log" || true
+          git add data/session-543dca7d
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board AS (543dca7d): official capture ${STAMP} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/543dca7d-olbg4 && git push origin HEAD:arena/543dca7d-olbg4 && break
+            sleep 5
+          done
