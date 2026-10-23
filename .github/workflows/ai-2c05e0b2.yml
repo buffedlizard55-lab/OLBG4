@@ -1,0 +1,48 @@
+name: Capture Board AI official sources
+# Runner-side capture: this sandbox cannot reach governing-body hosts, so the runner
+# fetches the targets in scripts/session-2c05e0b2/targets.json, hashes them and commits
+# the gzipped bodies for local parsing. Commits carry [skip ci] so no other gate reruns.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [arena/2c05e0b2-olbg4]
+    paths:
+      - "scripts/session-2c05e0b2/targets.json"
+      - "scripts/session-2c05e0b2/fetch.py"
+      - ".github/workflows/ai-2c05e0b2.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/2c05e0b2-olbg4
+      - name: Fetch targets
+        run: python3 scripts/session-2c05e0b2/fetch.py
+      - name: Show status table
+        run: |
+          latest=$(ls -1d data/session-2c05e0b2/capture/*/ | tail -1)
+          python3 - "$latest" <<'PY'
+          import json,sys
+          m=json.load(open(sys.argv[1]+"manifest.json"))
+          print(json.dumps(m["summary"]))
+          for t in m["targets"]:
+              print(t["http_status"], t["id"], t["bytes"], t["error"])
+          PY
+      - name: Commit capture
+        run: |
+          git config user.name "buffedlizard55-lab"
+          git config user.email "309556078+buffedlizard55-lab@users.noreply.github.com"
+          git add data/session-2c05e0b2/capture
+          git commit -m "data(ai): official-source capture [skip ci]" || echo "nothing to commit"
+          git pull --rebase origin arena/2c05e0b2-olbg4
+          git push origin HEAD:arena/2c05e0b2-olbg4

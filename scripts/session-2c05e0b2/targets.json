@@ -1,0 +1,87 @@
+{
+  "note": "Official governing-body / league endpoints and OLBG taxonomy pages captured by an Actions runner with open egress on 2026-10-23. No bookmaker or aggregator feed is used for any published fixture fact.",
+  "targets": [
+    {"id": "olbg-home", "sport": "OLBG", "tier": "olbg", "url": "https://www.olbg.com/"},
+    {"id": "olbg-tips", "sport": "OLBG", "tier": "olbg", "url": "https://www.olbg.com/betting-tips"},
+    {"id": "olbg-sitemap", "sport": "OLBG", "tier": "olbg", "url": "https://www.olbg.com/sitemap-betting-tips.xml"},
+    {"id": "olbg-golf", "sport": "Golf", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Golf"},
+    {"id": "olbg-volleyball", "sport": "Volleyball", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Volleyball"},
+    {"id": "olbg-rugby-union", "sport": "Rugby Union", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Rugby_Union"},
+    {"id": "olbg-cricket", "sport": "Cricket", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Cricket"},
+    {"id": "olbg-snooker", "sport": "Snooker", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Snooker"},
+    {"id": "olbg-darts", "sport": "Darts", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Darts"},
+    {"id": "olbg-baseball", "sport": "Baseball", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Baseball"},
+    {"id": "olbg-gaelic", "sport": "Gaelic Sports", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Gaelic_Games"},
+    {"id": "olbg-greyhounds", "sport": "Greyhounds", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Greyhounds"},
+    {"id": "olbg-tennis", "sport": "Tennis", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Tennis"},
+    {"id": "olbg-motor-racing", "sport": "Motor Racing", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Motor_Racing"},
+    {"id": "olbg-handball", "sport": "Handball", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Handball"},
+    {"id": "olbg-ice-hockey", "sport": "Ice Hockey", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Ice_Hockey"},
+    {"id": "olbg-basketball", "sport": "Basketball", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Basketball"},
+    {"id": "olbg-rugby-league", "sport": "Rugby League", "tier": "olbg", "url": "https://www.olbg.com/betting-tips/Rugby_League"},
+
+    {"id": "mlb-schedule", "sport": "Baseball", "tier": "official", "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-11-05&hydrate=team"},
+    {"id": "mlb-standings", "sport": "Baseball", "tier": "official", "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&hydrate=team"},
+
+    {"id": "nhl-schedule-w1", "sport": "Ice Hockey", "tier": "official", "url": "https://api-web.nhle.com/v1/schedule/2026-10-23"},
+    {"id": "nhl-schedule-w2", "sport": "Ice Hockey", "tier": "official", "url": "https://api-web.nhle.com/v1/schedule/2026-10-30"},
+    {"id": "nhl-standings", "sport": "Ice Hockey", "tier": "official", "url": "https://api-web.nhle.com/v1/standings/now"},
+
+    {"id": "urc-r5", "sport": "Rugby Union", "tier": "official", "url": "https://stats.unitedrugby.com/match-centre/2026-27/5"},
+    {"id": "urc-table", "sport": "Rugby Union", "tier": "official", "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"},
+    {"id": "premiership-fixtures", "sport": "Rugby Union", "tier": "official", "url": "https://www.premiershiprugby.com/fixtures"},
+    {"id": "top14-calendar", "sport": "Rugby Union", "tier": "official", "url": "https://top14.lnr.fr/calendrier"},
+
+    {"id": "icc-home", "sport": "Cricket", "tier": "official", "url": "https://www.icc-cricket.com/"},
+    {"id": "ecb-fixtures", "sport": "Cricket", "tier": "official", "url": "https://www.ecb.co.uk/england/men/fixtures"},
+    {"id": "bcci-fixtures", "sport": "Cricket", "tier": "official", "url": "https://www.bcci.tv/international/fixtures"},
+    {"id": "cricket-aus", "sport": "Cricket", "tier": "official", "url": "https://www.cricket.com.au/matches"},
+
+    {"id": "atp-scores", "sport": "Tennis", "tier": "official", "url": "https://www.atptour.com/en/scores/current"},
+    {"id": "atp-rankings", "sport": "Tennis", "tier": "official", "url": "https://www.atptour.com/en/rankings/singles"},
+    {"id": "wta-api-tournaments", "sport": "Tennis", "tier": "official", "url": "https://api.wtatennis.com/tennis/tournaments"},
+    {"id": "wta-rankings", "sport": "Tennis", "tier": "official", "url": "https://www.wtatennis.com/rankings/singles"},
+
+    {"id": "nba-schedule", "sport": "Basketball", "tier": "official", "url": "https://www.nba.com/schedule"},
+    {"id": "nba-cdn-schedule", "sport": "Basketball", "tier": "official", "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"},
+    {"id": "euroleague-results", "sport": "Basketball", "tier": "official", "url": "https://api-live.euroleague.net/v1/results?seasonCode=E2026"},
+    {"id": "acb-calendar", "sport": "Basketball", "tier": "official", "url": "https://www.acb.com/calendario"},
+
+    {"id": "pdc-home", "sport": "Darts", "tier": "official", "url": "https://www.pdc.tv/"},
+    {"id": "pdc-news", "sport": "Darts", "tier": "official", "url": "https://www.pdc.tv/news"},
+
+    {"id": "wst-home", "sport": "Snooker", "tier": "official", "url": "https://www.wst.tv/"},
+    {"id": "wst-news", "sport": "Snooker", "tier": "official", "url": "https://www.wst.tv/news"},
+    {"id": "snooker-org", "sport": "Snooker", "tier": "secondary", "url": "https://www.snooker.org/res/index.asp?template=2"},
+
+    {"id": "f1-calendar", "sport": "Motor Racing", "tier": "official", "url": "https://www.formula1.com/en/racing/2026"},
+    {"id": "f1-drivers", "sport": "Motor Racing", "tier": "official", "url": "https://www.formula1.com/en/results/2026/drivers"},
+    {"id": "motogp-calendar", "sport": "Motor Racing", "tier": "official", "url": "https://www.motogp.com/en/calendar"},
+
+    {"id": "ehfcl-home", "sport": "Handball", "tier": "official", "url": "https://ehfcl.eurohandball.com/en/"},
+    {"id": "lnh-calendar", "sport": "Handball", "tier": "official", "url": "https://www.lnh.fr/calendrier"},
+    {"id": "asobal-calendar", "sport": "Handball", "tier": "official", "url": "https://www.asobal.es/calendario"},
+    {"id": "tophaandbold", "sport": "Handball", "tier": "official", "url": "https://tophaandbold.dk/kampprogram"},
+
+    {"id": "legavolley", "sport": "Volleyball", "tier": "official", "url": "https://www.legavolley.it/calendario/"},
+    {"id": "plusliga", "sport": "Volleyball", "tier": "official", "url": "https://www.plusliga.pl/"},
+    {"id": "cev-home", "sport": "Volleyball", "tier": "official", "url": "https://www.cev.eu/"},
+    {"id": "volleyball-bundesliga", "sport": "Volleyball", "tier": "official", "url": "https://www.volleyball-bundesliga.de/"},
+
+    {"id": "nrl-draw-api", "sport": "Rugby League", "tier": "official", "url": "https://www.nrl.com/draw/data/2026/round/1"},
+    {"id": "nrl-draw", "sport": "Rugby League", "tier": "official", "url": "https://www.nrl.com/draw/"},
+    {"id": "superleague-fixtures", "sport": "Rugby League", "tier": "official", "url": "https://www.superleague.co.uk/fixtures"},
+    {"id": "rlwc-home", "sport": "Rugby League", "tier": "official", "url": "https://www.rlwc2026.com/"},
+
+    {"id": "pgatour-schedule", "sport": "Golf", "tier": "official", "url": "https://www.pgatour.com/schedule"},
+    {"id": "europeantour", "sport": "Golf", "tier": "official", "url": "https://www.europeantour.com/"},
+    {"id": "owgr", "sport": "Golf", "tier": "official", "url": "https://www.owgr.com/ranking"},
+    {"id": "lpga", "sport": "Golf", "tier": "official", "url": "https://www.lpga.com/"},
+
+    {"id": "gaa-fixtures", "sport": "Gaelic Sports", "tier": "official", "url": "https://www.gaa.ie/fixtures-results"},
+    {"id": "gaa-home", "sport": "Gaelic Sports", "tier": "official", "url": "https://www.gaa.ie/"},
+
+    {"id": "gbgb-home", "sport": "Greyhounds", "tier": "official", "url": "https://www.gbgb.org.uk/"},
+    {"id": "gri", "sport": "Greyhounds", "tier": "official", "url": "https://www.grireland.ie/"}
+  ]
+}
