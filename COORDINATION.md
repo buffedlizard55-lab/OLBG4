@@ -4250,3 +4250,33 @@ ce15a89 (chore(coordination): claim Board AH (b2c7308d) fresh 15-sport same-day 
 **Irregularities → flags (non-blocking):** AH-F-SHL-02 local kick times; ATP conditional ties (AH-F-ATP-03); darts EC (PDC hosts unresolvable from runner; Humphries withdrew — excluded); ICC/OWGR/F1/MotoGP JS-locked; GBGB pre-race endpoints dead (results only); tennis no completed-results feed → Medium cap; VB/CR/RU/GA/SN/RL gaps each flagged. No value published without an official link; no blanks inferred.
 
 **Debug notes for future boards:** CaptureReader keeps LARGEST payload per target (later OLBG passes are bot shells); EuroLeague feed uses local/road (home/away null); Liiga finished = `end` flag; WTA MatchTimeStamp carries local offsets; SHL fixture names must be resolved against standings keys (uppercase-token names break naive venue splits); puck/run line = win-by-3+/2+ (fixed after review caught the win-by-1-2 bug).
+
+## Board AJ — session `arena/2722b692-olbg4` (2026-10-23 same-day 15-sport desk: OLBG market reverse-engineering, live official-feed capture, own multi-market lines, −250…+10,000 High-confidence human predictions targeting 5 per sport, repo line-by-line review, dashboard, integration)
+
+Session: `arena/2722b692-olbg4` · Branch: `arena/2722b692-olbg4` (fixed Arena branch) · Claimed: **2026-10-23T19:35Z UTC** · **status: in progress**
+
+**Non-overlapping scope.** Exclusive: `session-2722b692/**`, `data/session-2722b692/**`, `scripts/session-2722b692/**`,
+`.github/workflows/aj-2722b692.yml`, and append-only blocks in this file. Everything else — `data/master.json`,
+`board/`, root `*.html`, every other `session-*/`, `data/session-*/`, peer `scripts/**`, `pipeline/**`, `tools/**`,
+`audit/**` logic and all other workflows — is **read-only** for Board AJ. Findings that would need another owner's
+file are logged here as integration requests, never applied. Root navigation/README receive **additive** pointers only,
+at integration time.
+
+**Sports in scope (exactly the brief's 15):** Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball,
+Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League.
+Never published: soccer, American football, boxing, UFC/MMA, horse racing, cycling, hurling, specials.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AJ1 | OLBG.com market/taxonomy reverse-engineering for the 15 sports (hub + per-sport listing payloads, market aliases, prices) and a live official-source capture of upcoming fixtures for the 24 Oct – 8 Nov 2026 window | in progress | arena/2722b692-olbg4 | `scripts/session-2722b692/{fetch.py,olbg.py,targets.json}`, `data/session-2722b692/capture/**`, `.github/workflows/aj-2722b692.yml` |
+| AJ2 | Originate our own lines for every verified upcoming fixture — match winner, handicap/spread, match total and the sport derivative — pick a winner, label Low/Medium/High, record every market investigated and every market left unoriginated with its reason | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/{desk.py}`, `data/session-2722b692/desk.json` |
+| AJ3 | High-confidence focus: own-line probability ≥70 % with the price inside −250…+10,000 American; author unique, human, ≥30-word predictions (target 5 per covered sport) naming teams/players, verified current form, recent results, match statistics and an explicit selection, each with its official source link | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/predictions.py`, `data/session-2722b692/predictions.json` |
+| AJ4 | Line-by-line review of the repo's shared datasets against official sources; publish each defect with a manual-review URL on a Flagged for Review page; unconfirmed cells left blank | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/review.py`, `data/session-2722b692/{review.json,flagged.json}` |
+| AJ5 | Dashboard GitHub Pages site in `session-2722b692/` — executive summary landing, 15 sport subpages, all-entries / markets / picks / predictions / coverage / sources / methodology / verification / review / flagged tables; every row carries its official source link | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/site.py`, `session-2722b692/**` |
+| AJ6 | Verification gate (deterministic rebuild, provenance hashes, price maths, prediction rules, link audit), `git pull --rebase`, PR to `main`, merge without waiting, confirm Pages deploy, record PR + result here | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/verify.py`, `COORDINATION.md` |
+
+### AJ working log
+- 2026-10-23T19:35Z UTC — `2722b692` — board read in full (latest peer claims: Boards AH/AI, all merged to `main` at
+  `4cdcddb`). No live claim overlaps this scope. Claimed and pushed before any other work. Sandbox shell reaches
+  GitHub only, but this session's research tools reach the open web, so endpoint + fixture facts are confirmed here
+  and the byte-level evidence trail (raw responses + SHA-256 manifest) is committed by an Actions runner.
