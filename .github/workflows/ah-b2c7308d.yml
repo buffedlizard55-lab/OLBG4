@@ -1,0 +1,73 @@
+name: Board AH live capture & gate (b2c7308d)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "session-b2c7308d/**"
+      - "data/session-b2c7308d/**"
+      - "scripts/session-b2c7308d/**"
+      - ".github/workflows/ah-b2c7308d.yml"
+  push:
+    branches:
+      - main
+      - arena/b2c7308d-olbg4
+    paths:
+      - "session-b2c7308d/**"
+      - "data/session-b2c7308d/**"
+      - "scripts/session-b2c7308d/**"
+      - ".github/workflows/ah-b2c7308d.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ah-b2c7308d-${{ github.event_name }}-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/b2c7308d-olbg4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG hubs + official governing-body feeds with SHA-256 manifest
+        run: |
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-b2c7308d/fetch.py scripts/session-b2c7308d/targets.json "data/session-b2c7308d/capture/$STAMP"
+      - name: Commit capture to arena/b2c7308d-olbg4
+        run: |
+          git config user.name "board-ah-capture[bot]"
+          git config user.email "board-ah-capture@users.noreply.github.com"
+          git add "data/session-b2c7308d/capture/$STAMP"
+          git commit -m "Board AH (b2c7308d): live capture $STAMP [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin arena/b2c7308d-olbg4 && git push origin HEAD:arena/b2c7308d-olbg4 && break
+            sleep 4
+          done
+
+  verify-board-ah:
+    if: github.event_name != 'workflow_dispatch' && github.event_name != 'pull_request'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild Board AH deterministically and run the verification gate
+        run: |
+          bash scripts/session-b2c7308d/build_all.sh
+          if ! git diff --quiet -- session-b2c7308d data/session-b2c7308d; then
+            echo "Board AH rebuild produced non-identical output!"
+            git diff --stat -- session-b2c7308d data/session-b2c7308d
+            exit 1
+          fi
