@@ -1,0 +1,1114 @@
+[
+ {
+  "id": "wta_tournaments_shell",
+  "url": "https://www.wtatennis.com/tournaments",
+  "sport": "Tennis",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "wta_api_calendar_p1",
+  "url": "https://api.wtatennis.com/tennis/tournaments?season=2026&page=1&pageSize=100",
+  "sport": "Tennis",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "wta_api_calendar_p2",
+  "url": "https://api.wtatennis.com/tennis/tournaments?season=2026&page=2&pageSize=100",
+  "sport": "Tennis",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "atp_tournaments_shell",
+  "url": "https://www.atptour.com/en/tournaments",
+  "sport": "Tennis",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 45
+ },
+ {
+  "id": "atp_content_api",
+  "url": "https://www.atptour.com/-/content/atp-media/contentapi/tournaments",
+  "sport": "Tennis",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 45
+ },
+ {
+  "id": "itf_calendar",
+  "url": "https://www.itftennis.com/en/itf-tours/calendar/",
+  "sport": "Tennis",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "icc_fixtures_results",
+  "url": "https://www.icc-cricket.com/fixtures-results",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "icc_rankings_api",
+  "url": "https://www.icc-cricket.com/api/rankings?format=t20i&type=team",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "nzc_fixtures",
+  "url": "https://www.nzc.nz/fixtures",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "nzc_api_matches",
+  "url": "https://www.nzc.nz/api/matches",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "ca_api_matches",
+  "url": "https://www.cricket.com.au/api/matches",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "ca_series",
+  "url": "https://www.cricket.com.au/series",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "eci_home",
+  "url": "https://www.cricketireland.ie/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "eci_fixtures",
+  "url": "https://www.cricketireland.ie/fixtures",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "zimbabwe_cricket",
+  "url": "https://www.zimcricket.org/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "cwi_home",
+  "url": "https://www.windiescricket.com/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "cwi_fixtures",
+  "url": "https://www.windiescricket.com/fixtures/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "acb_home",
+  "url": "https://www.cricket.af/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "ecb_api_matches",
+  "url": "https://www.ecb.co.uk/api/matches",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "ecb_england_fixtures",
+  "url": "https://www.ecb.co.uk/england/men/fixtures",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "bcci_api_matches",
+  "url": "https://www.bcci.tv/api/matches",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "slc_home",
+  "url": "https://srilankacricket.lk/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pcb_home",
+  "url": "https://www.pcb.com.pk/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pcb_fixtures",
+  "url": "https://www.pcb.com.pk/fixtures-results.html",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "bangladesh_cricket",
+  "url": "https://www.tigercricket.com.bd/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "usa_cricket",
+  "url": "https://www.usacricket.org/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "namibia_cricket",
+  "url": "https://www.namibiacricket.org/",
+  "sport": "Cricket",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pdc_news_oct20",
+  "url": "https://www.pdc.tv/news/2026/october/20/",
+  "sport": "Darts",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pdc_news_oct22",
+  "url": "https://www.pdc.tv/news/2026/october/22/",
+  "sport": "Darts",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pdc_news_oct23",
+  "url": "https://www.pdc.tv/news/2026/october/23/",
+  "sport": "Darts",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pdc_ec_results",
+  "url": "https://www.pdc.tv/news/2026/october/23/2026-machineseeker-european-championship-results/",
+  "sport": "Darts",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pdc_ec_draw_alt",
+  "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-draw/",
+  "sport": "Darts",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pdc_ec_first_round",
+  "url": "https://www.pdc.tv/news/2026/october/22/2026-machineseeker-european-championship-first-round-results/",
+  "sport": "Darts",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "pdc_sitemap_news",
+  "url": "https://www.pdc.tv/sitemap.xml",
+  "sport": "Darts",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "pdc_robots",
+  "url": "https://www.pdc.tv/robots.txt",
+  "sport": "Darts",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "wst_nio_draw",
+  "url": "https://www.wst.tv/northern-ireland-open-2026-draw/",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "wst_news",
+  "url": "https://www.wst.tv/news/",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "wst_sitemap",
+  "url": "https://www.wst.tv/sitemap.xml",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_upcoming",
+  "url": "https://www.snooker.org/trn/upcoming.asp",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_calendar",
+  "url": "https://www.snooker.org/trn/",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_live",
+  "url": "https://www.snooker.org/trn/live.asp",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2536",
+  "url": "https://www.snooker.org/res/index.asp?event=2536",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2537",
+  "url": "https://www.snooker.org/res/index.asp?event=2537",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2538",
+  "url": "https://www.snooker.org/res/index.asp?event=2538",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2539",
+  "url": "https://www.snooker.org/res/index.asp?event=2539",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2540",
+  "url": "https://www.snooker.org/res/index.asp?event=2540",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2541",
+  "url": "https://www.snooker.org/res/index.asp?event=2541",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2542",
+  "url": "https://www.snooker.org/res/index.asp?event=2542",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2543",
+  "url": "https://www.snooker.org/res/index.asp?event=2543",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2544",
+  "url": "https://www.snooker.org/res/index.asp?event=2544",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2554",
+  "url": "https://www.snooker.org/res/index.asp?event=2554",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2555",
+  "url": "https://www.snooker.org/res/index.asp?event=2555",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2556",
+  "url": "https://www.snooker.org/res/index.asp?event=2556",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2557",
+  "url": "https://www.snooker.org/res/index.asp?event=2557",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2558",
+  "url": "https://www.snooker.org/res/index.asp?event=2558",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2559",
+  "url": "https://www.snooker.org/res/index.asp?event=2559",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "snooker_org_2560",
+  "url": "https://www.snooker.org/res/index.asp?event=2560",
+  "sport": "Snooker",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_cat1_schedule",
+  "url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_open_races",
+  "url": "https://www.gbgb.org.uk/racing/open-races/",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api2_fixtures",
+  "url": "https://api.gbgb.org.uk/api/fixtures",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api2_racecards",
+  "url": "https://api.gbgb.org.uk/api/racecards",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api2_cards",
+  "url": "https://api.gbgb.org.uk/api/cards",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api2_meetings",
+  "url": "https://api.gbgb.org.uk/api/meetings",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api2_races",
+  "url": "https://api.gbgb.org.uk/api/races",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api2_events",
+  "url": "https://api.gbgb.org.uk/api/events",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api2_results",
+  "url": "https://api.gbgb.org.uk/api/results",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api_results_24",
+  "url": "https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=100&date=2026-10-24&race_type=race",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gbgb_api_results_nodate",
+  "url": "https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=100",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gri_racing",
+  "url": "https://www.igb.ie/racing",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "gri_results",
+  "url": "https://www.igb.ie/results",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "gri_racecards",
+  "url": "https://www.igb.ie/racecards",
+  "sport": "Greyhounds",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "mayogaa_fixtures",
+  "url": "https://mayogaa.com/fixtures/",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "claregaa_fixtures",
+  "url": "https://clare.gaa.ie/fixtures-results/",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "leitrimgaa_fixtures",
+  "url": "https://www.leitrimgaa.ie/fixtures-next-10-days/",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "ulstergaa_fixtures",
+  "url": "https://ulster.gaa.ie/fixtures/",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "dublingaa_fixtures",
+  "url": "https://www.dublingaa.ie/fixtures-results/",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "kilkennygaa_fixtures",
+  "url": "https://kilkennygaa.ie/fixtures-results/",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "gaa_sitemap",
+  "url": "https://www.gaa.ie/sitemap.xml",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "gaa_fixtures_results",
+  "url": "https://www.gaa.ie/fixtures-results",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "gaa_api_fixtures_v2",
+  "url": "https://www.gaa.ie/api/fixtures-results",
+  "sport": "Gaelic Sports",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "nrl_wc_team_lists_r2",
+  "url": "https://www.nrl.com/news/2026-10-20/world-cup-team-lists-mens-round-2/",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "nrl_news_wc",
+  "url": "https://www.nrl.com/news/world-cup/",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "nrl_draw_rlwc",
+  "url": "https://www.nrl.com/draw/competition=rlwc&year=2026",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "rlwc_news",
+  "url": "https://www.rlwc2026.com/news",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "rlwc_matches",
+  "url": "https://www.rlwc2026.com/matches",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "rlwc_sitemap",
+  "url": "https://www.rlwc2026.com/sitemap.xml",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "rfl_fixtures",
+  "url": "https://www.rugby-league.com/fixtures",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "rfl_competitions",
+  "url": "https://www.rugby-league.com/competitions",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "superleague_results",
+  "url": "https://www.superleague.co.uk/results",
+  "sport": "Rugby League",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "nba_statsapi_gamelog",
+  "url": "https://stats.nba.com/stats/leaguegamelog?Season=2025-26&SeasonType=Regular%20Season&Sorter=DATE&Direction=DESC",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 120
+ },
+ {
+  "id": "nba_statsapi_teamdashboard",
+  "url": "https://stats.nba.com/stats/leaguedashteamstats?Season=2025-26&SeasonType=Regular%20Season&PerMode=PerGame",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 120
+ },
+ {
+  "id": "nba_blob_container",
+  "url": "https://nbastats.blob.core.windows.net/csv/",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 60
+ },
+ {
+  "id": "nba_blob_season_index",
+  "url": "https://nbastats.blob.core.windows.net/csv/season_2025-26/index.html",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 60
+ },
+ {
+  "id": "nba_cdn_schedule_v2_1",
+  "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "nba_cdn_scoreboard_v2",
+  "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "euroleague_standings_a",
+  "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/standings",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "euroleague_standings_b",
+  "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games/standings",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "euroleague_results_a",
+  "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/results",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "euroleague_teams_a",
+  "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/teams/",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "euroleague_competitions",
+  "url": "https://api-live.euroleague.net/v2/competitions",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "euroleague_seasons",
+  "url": "https://api-live.euroleague.net/v2/competitions/E/seasons",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "euroleague_games_p1",
+  "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games?page=1&size=50",
+  "sport": "Basketball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "prem_api_fixtures",
+  "url": "https://www.premiershiprugby.com/api/fixtures",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "prem_match_pages",
+  "url": "https://www.premiershiprugby.com/matches",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "urc_matches",
+  "url": "https://www.unitedrugby.com/matches/",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "urc_api_table",
+  "url": "https://stats.unitedrugby.com/api/table/2026-27",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "urc_api_matchcentre",
+  "url": "https://stats.unitedrugby.com/api/match-centre/2026-27/6",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "urc_standings",
+  "url": "https://www.unitedrugby.com/standings/",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "lnr_top14_classement",
+  "url": "https://top14.lnr.fr/classement",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "lnr_top14_calendrier",
+  "url": "https://top14.lnr.fr/calendrier",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "rugby_ie_home",
+  "url": "https://www.rugby.ie/",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "rugby_ie_fixtures",
+  "url": "https://www.rugby.ie/fixtures-results/",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "worldrugby_rankings_api",
+  "url": "https://api.wr-rims-prod.pulselive.com/rugby/v3/ranking/mru",
+  "sport": "Rugby Union",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "plusliga_terminarz_alt",
+  "url": "https://plusliga.pl/matches.html",
+  "sport": "Volleyball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "plusliga_results",
+  "url": "https://plusliga.pl/results.html",
+  "sport": "Volleyball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "vbl_spielplan",
+  "url": "https://www.volleyball-bundesliga.de/saison/spielplan",
+  "sport": "Volleyball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "legavolley_risultati",
+  "url": "https://www.legavolley.it/risultati/",
+  "sport": "Volleyball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "legavolley_seriea2",
+  "url": "https://www.legavolley.it/classifica/?IdCampionato=992",
+  "sport": "Volleyball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "cev_competitions",
+  "url": "https://www.cev.eu/competitions/",
+  "sport": "Volleyball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "handbollsligan_program",
+  "url": "https://handbollsligan.se/spelschema/",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "handbollsligan_resultat",
+  "url": "https://handbollsligan.se/resultat/",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "tophaandbold_kampe",
+  "url": "https://tophaandbold.dk/kampe/herreligaen",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "tophaandbold_kampprogram",
+  "url": "https://tophaandbold.dk/kampprogram",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "hbl_ergebnisse",
+  "url": "https://www.dkb-handball-bundesliga.de/ergebnisse",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "asobal_partidos",
+  "url": "https://asobal.es/partidos/",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "asobal_clasificacion",
+  "url": "https://asobal.es/clasificacion/",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "lnh_division1",
+  "url": "https://www.lnh.fr/division-1",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "ehf_api_matches",
+  "url": "https://ehfcl.eurohandball.com/api/matches",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "ehf_home_matches",
+  "url": "https://www.eurohandball.com/en/matches/",
+  "sport": "Handball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "nhl_club_sched_tor",
+  "url": "https://api-web.nhle.com/v1/club-schedule/TOR/week/now",
+  "sport": "Ice Hockey",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "nhl_team_landing",
+  "url": "https://api-web.nhle.com/v1/team-landing/20262027",
+  "sport": "Ice Hockey",
+  "role": "official",
+  "headers": "bot",
+  "timeout": 25
+ },
+ {
+  "id": "mlb_news_schedule",
+  "url": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
+  "sport": "Baseball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "mlb_news_ws_faq",
+  "url": "https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more",
+  "sport": "Baseball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "mlb_brewers_news",
+  "url": "https://www.mlb.com/brewers/news",
+  "sport": "Baseball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "mlb_rays_news",
+  "url": "https://www.mlb.com/rays/news",
+  "sport": "Baseball",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "motogp_results_2026",
+  "url": "https://www.motogp.com/en/results/2026/moto-gp",
+  "sport": "Motor Racing",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "motogp_calendar_2026",
+  "url": "https://www.motogp.com/en/calendar/2026",
+  "sport": "Motor Racing",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "motogp_malaysia",
+  "url": "https://www.motogp.com/en/calendar/2026/malaysia",
+  "sport": "Motor Racing",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ },
+ {
+  "id": "indycar_results",
+  "url": "https://www.indycar.com/Results",
+  "sport": "Motor Racing",
+  "role": "official",
+  "headers": "browser",
+  "timeout": 25
+ }
+]
