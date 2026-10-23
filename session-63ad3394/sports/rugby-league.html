@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rugby League · OLBG4 Board AK</title><style>
+:root{--bg:#0b1220;--panel:#121b2d;--panel2:#182339;--line:#26344d;--ink:#e8eefc;
+--muted:#9aabc7;--accent:#4ade80;--accent2:#60a5fa;--warn:#fbbf24;--bad:#f87171;
+--high:#22c55e;--med:#eab308;--low:#94a3b8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,
+"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+.brand{display:flex;gap:14px;align-items:baseline;padding:12px 0 4px;flex-wrap:wrap}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--muted);font-size:12.5px}
+nav{display:flex;gap:4px;flex-wrap:wrap;padding:4px 0 10px}
+nav a{padding:5px 10px;border-radius:999px;color:var(--muted);font-size:13px;border:1px solid transparent}
+nav a:hover{background:var(--panel2);color:var(--ink);text-decoration:none}
+nav a.on{background:var(--panel2);border-color:var(--line);color:var(--ink)}
+main{padding:22px 0 60px}
+h1{font-size:26px;margin:6px 0 6px}h2{font-size:19px;margin:28px 0 10px}
+h3{font-size:15.5px;margin:18px 0 8px;color:var(--ink)}
+p{color:#cfdcf2;max-width:78ch}
+.lede{color:var(--muted);font-size:14px;max-width:88ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0 6px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font-size:24px;line-height:1.1}
+.kpi span{color:var(--muted);font-size:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card h3{margin:0 0 6px}.card p{margin:0;color:var(--muted);font-size:13px}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);
+border-radius:12px;overflow:hidden;font-size:13.5px;margin:8px 0 4px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--panel2);color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.03em;
+text-transform:uppercase;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#16213a}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11.5px;font-weight:600;
+border:1px solid var(--line);white-space:nowrap}
+.High{background:rgba(34,197,94,.14);color:var(--high);border-color:rgba(34,197,94,.4)}
+.Medium{background:rgba(234,179,8,.13);color:var(--med);border-color:rgba(234,179,8,.35)}
+.Low{background:rgba(148,163,184,.13);color:var(--low)}
+.ok{color:var(--high)}.flag{color:var(--warn)}.fail{color:var(--bad)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent2);
+border-radius:8px;padding:10px 14px;color:#cfdcf2;font-size:13.5px;margin:12px 0}
+.note.warn{border-left-color:var(--warn)}.note.bad{border-left-color:var(--bad)}
+.pick{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+.pick header{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.pick .who{font-weight:650}
+.pick .meta{color:var(--muted);font-size:12.5px}
+.pick p{margin:8px 0 6px;color:#dbe6fb}
+.pick .facts{color:var(--muted);font-size:12.5px;margin:0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+input[type=search],select{background:var(--panel);border:1px solid var(--line);color:var(--ink);
+border-radius:8px;padding:7px 10px;font-size:13.5px}
+.scroll{max-height:70vh;overflow:auto;border-radius:12px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;padding:18px 0 40px}
+.small{font-size:12.5px;color:var(--muted)}
+code{background:#0e1728;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:12px}
+</style></head>
+<body><header class="top"><div class="wrap">
+<div class="brand"><b>OLBG4 · Board AK</b>
+<span>15-sport betting desk · lines originated from official feeds · 2026-10-23 19:51:14 UTC</span></div>
+<nav><a href="../../index.html">All boards</a><a href="../index.html">Summary</a><a href="../picks.html">Picks</a><a href="../markets.html">Markets</a><a href="../entries.html">Fixtures</a><a href="../coverage.html">Coverage</a><a href="../review.html">Review</a><a href="../flagged.html">Flagged</a><a href="../sources.html">Sources</a><a href="../methodology.html">Method</a><a href="../verification.html">Checks</a></nav>
+</div></header><main><div class="wrap">
+<h1>Rugby League</h1>
+<p class="lede">0 fixtures · 0 with our own lines ·
+0 labelled High · 5 written picks.
+No fixture feed captured today; see Sources for the endpoints that did not answer.</p>
+<h2>Written picks</h2><article class="pick"><header>
+<span class="tag Medium">Medium</span>
+<span class="who">Australia (home)</span>
+<span class="meta">Cook Islands @ Australia · 2026-10-31 09:05:00 UTC ·
+Match winner · fair -448</span></header>
+<p>Australia opened their World Cup with a 24-22 win over New Zealand, 24 points scored and 22 conceded. Cook Islands lost their opener 12-40, conceding 40 points and scoring two tries&#x27; worth, a minus 28 margin. The gap in points difference is 30 across the two games, so Australia at -448 in Townsville.</p>
+<p class="facts">53 words · outside the price
+window · source <a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></p></article><article class="pick"><header>
+<span class="tag Medium">Medium</span>
+<span class="who">Papua New Guinea (away)</span>
+<span class="meta">Papua New Guinea @ England · 2026-10-30 09:05:00 UTC ·
+Match winner · fair -391</span></header>
+<p>Papua New Guinea opened with a 42-18 win, 42 points scored and 18 conceded, a plus 24 margin. England lost their opener 12-30, scoring 12 and conceding 30, a minus 18 margin. The two records sit 42 points apart on points difference, and the Kumuls&#x27; scoring rate is more than three times England&#x27;s, so Papua New Guinea at -391.</p>
+<p class="facts">59 words · outside the price
+window · source <a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></p></article><article class="pick"><header>
+<span class="tag Medium">Medium</span>
+<span class="who">Fiji (away)</span>
+<span class="meta">Fiji @ New Zealand · 2026-10-31 04:30:00 UTC ·
+Match winner · fair -339</span></header>
+<p>Fiji opened their World Cup with a 40-12 win, a plus 28 margin, scoring 40 points. New Zealand lost their opener 22-24 to Australia, a minus 2 margin, and have conceded more than they have scored. Fiji&#x27;s points difference is 30 better across the two games, so Fiji at -339 on the Gold Coast.</p>
+<p class="facts">54 words · outside the price
+window · source <a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></p></article><article class="pick"><header>
+<span class="tag Medium">Medium</span>
+<span class="who">England (home)</span>
+<span class="meta">France @ England · 2026-10-24 06:35:00 UTC ·
+Match winner · fair -225</span></header>
+<p>England lost their opener 12-30 but scored twice as many points as France did in theirs. France were beaten 4-78, conceding 78 points and scoring four, a minus 74 margin that is the worst in the pool. At HBF Park in Perth, with the ground rated good and the weather fine, England at -225.</p>
+<p class="facts">54 words · inside the price
+window · source <a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></p></article><article class="pick"><header>
+<span class="tag Medium">Medium</span>
+<span class="who">Lebanon (home)</span>
+<span class="meta">France @ Lebanon · 2026-11-01 06:40:00 UTC ·
+Match winner · fair -210</span></header>
+<p>Lebanon lost their opener 18-42, scoring 18 and conceding 42, a minus 24 margin. France were beaten 4-78 in theirs, scoring four points and conceding 78, a minus 74 margin. The 50-point gap in points difference across the two games is the widest of this round, so Lebanon at -210 in Sydney.</p>
+<p class="facts">52 words · inside the price
+window · source <a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></p></article>
+<h2>Fixtures and lines</h2>
+<div class="scroll"><table class=""><thead><tr><th>Kick-off (UTC)</th><th>Competition</th><th>Fixture</th><th>Venue</th><th>Our pick</th><th>Label</th><th>Official source</th></tr></thead><tbody><tr><td class="num">2026-10-24 04:25:00</td><td>Rugby League World Cup 2026 · Pool B &amp; C</td><td><b>Samoa v Papua New Guinea</b></td><td>Santos National Football Stadium, Port Moresby</td><td><b>Samoa (away)</b><br><span class="small">Match winner · -158 · 61.3%</span></td><td><span class="tag Medium">Medium</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td class="num">2026-10-24 06:35:00</td><td>Rugby League World Cup 2026 · Pool B &amp; C</td><td><b>France v England</b></td><td>HBF Park, Perth</td><td><b>England (home)</b><br><span class="small">Match winner · -225 · 69.2%</span></td><td><span class="tag Medium">Medium</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td class="num">2026-10-25 05:05:00</td><td>Rugby League World Cup 2026 · Pool A</td><td><b>Cook Islands v New Zealand</b></td><td>One NZ Stadium, Christchurch</td><td><b>New Zealand (home)</b><br><span class="small">Match winner · -157 · 61.1%</span></td><td><span class="tag Medium">Medium</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td class="num">2026-10-25 09:05:00</td><td>Rugby League World Cup 2026 · Pool A</td><td><b>Fiji v Australia</b></td><td>Suncorp Stadium, Brisbane</td><td><b>Fiji (away)</b><br><span class="small">Match winner · -119 · 54.3%</span></td><td><span class="tag Low">Low</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td class="num">2026-10-30 09:05:00</td><td>Rugby League World Cup 2026 · Pool B &amp; C</td><td><b>Papua New Guinea v England</b></td><td>WIN Stadium, Wollongong</td><td><b>Papua New Guinea (away)</b><br><span class="small">Match winner · -391 · 79.6%</span></td><td><span class="tag Medium">Medium</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td class="num">2026-10-31 04:30:00</td><td>Rugby League World Cup 2026 · Pool A</td><td><b>Fiji v New Zealand</b></td><td>Cbus Super Stadium, Gold Coast</td><td><b>Fiji (away)</b><br><span class="small">Match winner · -339 · 77.2%</span></td><td><span class="tag Medium">Medium</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td class="num">2026-10-31 09:05:00</td><td>Rugby League World Cup 2026 · Pool A</td><td><b>Cook Islands v Australia</b></td><td>Queensland Country Bank Stadium, Townsville</td><td><b>Australia (home)</b><br><span class="small">Match winner · -448 · 81.8%</span></td><td><span class="tag Medium">Medium</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td class="num">2026-11-01 06:40:00</td><td>Rugby League World Cup 2026 · Pool B &amp; C</td><td><b>France v Lebanon</b></td><td>CommBank Stadium, Sydney</td><td><b>Lebanon (home)</b><br><span class="small">Match winner · -210 · 67.7%</span></td><td><span class="tag Medium">Medium</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td class="num">2026-11-01 09:05:00</td><td>Rugby League World Cup 2026 · Pool B &amp; C</td><td><b>Samoa v Tonga XIII</b></td><td>CommBank Stadium, Sydney</td><td><b>Samoa (away)</b><br><span class="small">Match winner · -170 · 63.0%</span></td><td><span class="tag Medium">Medium</span></td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr></tbody></table></div>
+<h2>Form used for the lines</h2>
+<p class="lede">Copied from the same official page as the fixture. A blank cell means the page did not
+carry that figure.</p>
+<div class="scroll"><table class=""><thead><tr><th>Side A</th><th>A: record and scoring</th><th>Side B</th><th>B: record and scoring</th><th>Our pick</th><th>Official source</th></tr></thead><tbody><tr><td>Samoa</td><td>1-0 in 1 · 78.00 for / 4.00 against</td><td>Papua New Guinea</td><td>1-0 in 1 · 42.00 for / 18.00 against</td><td>Samoa (away)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td>France</td><td>0-1 in 1 · 4.00 for / 78.00 against</td><td>England</td><td>0-1 in 1 · 12.00 for / 30.00 against</td><td>England (home)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td>Cook Islands</td><td>0-1 in 1 · 12.00 for / 40.00 against</td><td>New Zealand</td><td>0-1 in 1 · 22.00 for / 24.00 against</td><td>New Zealand (home)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td>Fiji</td><td>1-0 in 1 · 40.00 for / 12.00 against</td><td>Australia</td><td>1-0 in 1 · 24.00 for / 22.00 against</td><td>Fiji (away)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td>Papua New Guinea</td><td>1-0 in 1 · 42.00 for / 18.00 against</td><td>England</td><td>0-1 in 1 · 12.00 for / 30.00 against</td><td>Papua New Guinea (away)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td>Fiji</td><td>1-0 in 1 · 40.00 for / 12.00 against</td><td>New Zealand</td><td>0-1 in 1 · 22.00 for / 24.00 against</td><td>Fiji (away)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td>Cook Islands</td><td>0-1 in 1 · 12.00 for / 40.00 against</td><td>Australia</td><td>1-0 in 1 · 24.00 for / 22.00 against</td><td>Australia (home)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td>France</td><td>0-1 in 1 · 4.00 for / 78.00 against</td><td>Lebanon</td><td>0-1 in 1 · 18.00 for / 42.00 against</td><td>Lebanon (home)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr><tr><td>Samoa</td><td>1-0 in 1 · 78.00 for / 4.00 against</td><td>Tonga XIII</td><td>1-0 in 1 · 30.00 for / 12.00 against</td><td>Samoa (away)</td><td><a href="https://www.rlwc2026.com/api/fixtures" rel="noopener">www.rlwc2026.com</a></td></tr></tbody></table></div>
+<p class="small"><a href="../entries.html">All fixtures</a> · <a href="../markets.html">All markets</a> ·
+<a href="../coverage.html">Coverage</a></p>
+</div></main>
+<footer><div class="wrap">
+<p>Board AK · session <code>arena/63ad3394-olbg4</code> · captures 20261023T193229Z, 20261023T193509Z, 20261023T193724Z, 20261023T194729Z ·
+fixtures from official league, tour and federation feeds; OLBG used for taxonomy and market
+cross-check only. Nothing on this site is a tip from OLBG.</p>
+<p><a href="../../flagged.html">Repository-wide flagged items</a> ·
+<a href="https://github.com/buffedlizard55-lab/OLBG4">source repository</a></p>
+</div></footer></body></html>

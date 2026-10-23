@@ -1,5 +1,7 @@
 # OLBG4 — reverse-engineered OLBG.com coverage, originated lines and verified predictions
 
+> **Board AJ — 23 Oct 2026 15-sport desk (capture `20261023T194429Z`):** [`session-2722b692/`](session-2722b692/index.html) (`https://buffedlizard55-lab.github.io/OLBG4/session-2722b692/`) — **256 fixtures with own originated lines and 2,589 market selections** across the brief's 15 sports, **15 High-confidence picks** (7 inside −250…+10,000, the other 8 published at their true shorter price and flagged, because ≥70% probability implies ≤ −233), **15 hand-written predictions of 42–59 words**, full market ladder per fixture (winner, handicap, total, plus sport derivatives), **121 listings left unpriced with the exact reason** and an **11-finding line-by-line review** of `data/master.json` and two peer desks. Gate: `python3 scripts/session-2722b692/verify.py` → 12/12 checks pass.
+
 > **Board AH — exact 15-sport scope dashboard (`2026-10-22T21:15:00Z` UTC cutoff):** [`session-6846f1ab/`](session-6846f1ab/index.html) (`https://buffedlizard55-lab.github.io/OLBG4/session-6846f1ab/`) — **253 source-backed rows** across the 15 categories requested in the brief, **1,012 originated market families**, **67 retained human write-ups**, and **207 Flagged for Review records**. Every active row links to an official source; 137 official schedule rows without a matching OLBG event URL remain explicitly marked, one contradictory Baseball write-up is withheld rather than rewritten, and Gaelic Sports/Greyhounds remain blank where the capture supplied no qualified row. The source capture cutoff is 2026-10-22T21:15:00Z; the isolated gate runs 21,532 checks with 0 errors. This is a dated snapshot and does not claim a live 2026-10-23 re-fetch.
 
 > **Latest Post-European-Evening Refresh — Board AG (`2026-10-22T21:15:00Z` UTC cutoff · capture `20261022T210026Z`):** [`session-4885d641/`](session-4885d641/index.html) (`https://buffedlizard55-lab.github.io/OLBG4/session-4885d641/`) — **299 verified upcoming fixtures & outrights** across **all 18 in-scope sports** (`17` priced sports + `Greyhounds` zero-inference WAF ledger), **1,196 originated markets** (`Match Winner / 1X2`, `Handicap`, `Total O/U`, `Sport Derivative`, `Σp = 1.0000`, zero clamping), **89 unique human predictions (`5–6` in EVERY covered sport, `41–62` words, max 3-gram Jaccard `0.0366`, `100%` strictly inside `[-250, +10000]`, incl. `16` strict `p >= 70.0%` in-window selections)**, **8-dataset repository review (`1,234` rows, catching Luke Humphries's illness withdrawal & 3 ATP/BWF bracket errors)**, and **73 strictly blank Flagged for Review entries** (`13,432` automated checks passing via `bash scripts/session-4885d641/build_all.sh`). Also indexing evening peer desks [`session-0d3b826c/`](session-0d3b826c/index.html), [`session-2d25cf78/`](session-2d25cf78/index.html), and [`session-3a6388d2/`](session-3a6388d2/index.html).
@@ -188,6 +190,7 @@ Two other sessions reached the integration step at the same time and their work 
   pages are kept byte-for-byte as `session-6b8d2d5f/hub-2026-10-21.html` and `hub-flagged-2026-10-21.html`.
 - **Board L — `session-093bfd5e/`** — re-checked all 66 hub rows and downgraded 19 to unverified+flagged.
 - **Board K (second claimant, `arena/082d3c16-olbg4`)** — rebuilt the hub from a frozen snapshot with an evidence
+- **Board AK** — 15-sport desk from today's official feeds: [session-63ad3394/index.html](session-63ad3394/index.html)
   register: it reported 25 of 68 rows CONFIRMED on an official feed, 2 partial and 41 UNVERIFIED, withdrew all 66
   previous prediction texts and published 3. Its pages are preserved under `session-082d3c16/`, its registers under
   `data/board_k/` and its dashboard at `verification.html`.
@@ -519,3 +522,11 @@ Scripts: `scripts/session-47b1b4e2/` — `fix_draft_artefacts.py` (R-F14, idempo
 `check_all.py` (the gate) · plus the pre-merge `remediate.py`, `fix_build_b_flag.py` and `update_site.py`.
 
 Deployed at https://buffedlizard55-lab.github.io/OLBG4/session-47b1b4e2/
+
+## Board ED — 23 October 2026, 19:35Z desk (session `arena/ed4c358c-olbg4`)
+
+A fresh desk built from an official-source capture taken on 23 October 2026 at 19:33Z.
+Dashboard: [`session-ed4c358c/index.html`](session-ed4c358c/index.html) — executive summary, 15 sport
+subpages, all entries, originated markets, picks, 24 written predictions, coverage, sources, methodology,
+repo review, flagged-for-review and verification pages. 333 rows, 222 with our own lines, 654 fair markets,
+24 predictions. Rebuild with `bash scripts/session-ed4c358c/build_all.sh`.

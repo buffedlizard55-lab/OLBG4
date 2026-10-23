@@ -1,0 +1,835 @@
+{
+ "datasets": {
+  "data/authored_predictions.json": {
+   "duplicate_matchups": 0,
+   "missing_source": 0,
+   "missing_sport": 5,
+   "out_of_scope_sport": 0,
+   "past_dated": 0,
+   "predictions": 5,
+   "predictions_under_30_words": 0,
+   "predictions_with_internal_vocabulary": 0,
+   "present": true,
+   "rows": 5,
+   "sports": {},
+   "undated": 5
+  },
+  "data/board.json": {
+   "duplicate_matchups": 0,
+   "missing_source": 116,
+   "missing_sport": 0,
+   "out_of_scope_sport": 0,
+   "past_dated": 0,
+   "predictions": 0,
+   "predictions_under_30_words": 0,
+   "predictions_with_internal_vocabulary": 0,
+   "present": true,
+   "rows": 116,
+   "sports": {
+    "Baseball": 1,
+    "Basketball": 14,
+    "Cricket": 9,
+    "Darts": 14,
+    "Greyhounds": 6,
+    "Handball": 15,
+    "Ice Hockey": 7,
+    "Rugby Union": 15,
+    "Snooker": 6,
+    "Tennis": 14,
+    "Volleyball": 15
+   },
+   "undated": 116
+  },
+  "data/flagged.json": {
+   "duplicate_matchups": 0,
+   "missing_source": 13,
+   "missing_sport": 0,
+   "out_of_scope_sport": 6,
+   "past_dated": 0,
+   "predictions": 0,
+   "predictions_under_30_words": 0,
+   "predictions_with_internal_vocabulary": 0,
+   "present": true,
+   "rows": 50,
+   "sports": {
+    "All": 3,
+    "Baseball": 2,
+    "Basketball": 5,
+    "Cricket": 11,
+    "Darts": 7,
+    "Excluded sports": 1,
+    "Gaelic Football": 1,
+    "Golf": 1,
+    "Golf / Motor Racing": 1,
+    "Greyhounds": 1,
+    "Handball": 1,
+    "Motor Racing": 1,
+    "Rugby League": 1,
+    "Rugby Union": 1,
+    "Snooker": 4,
+    "Tennis": 6,
+    "Volleyball": 3
+   },
+   "undated": 50
+  },
+  "data/master.json": {
+   "duplicate_matchups": 12,
+   "missing_source": 39,
+   "missing_sport": 0,
+   "out_of_scope_sport": 16,
+   "past_dated": 162,
+   "predictions": 76,
+   "predictions_under_30_words": 0,
+   "predictions_with_internal_vocabulary": 49,
+   "present": true,
+   "rows": 354,
+   "sports": {
+    "Aussie Rules": 1,
+    "Badminton": 3,
+    "Baseball": 7,
+    "Basketball": 89,
+    "Cricket": 17,
+    "Darts": 20,
+    "Esports": 2,
+    "Gaelic Football": 5,
+    "Golf": 6,
+    "Greyhound Racing": 2,
+    "Greyhounds": 6,
+    "Handball": 22,
+    "Ice Hockey": 65,
+    "Motor Racing": 2,
+    "Rugby League": 10,
+    "Rugby Union": 30,
+    "Snooker": 17,
+    "Table Tennis": 3,
+    "Tennis": 28,
+    "Volleyball": 19
+   },
+   "undated": 0
+  },
+  "data/matches.json": {
+   "duplicate_matchups": 2,
+   "missing_source": 41,
+   "missing_sport": 0,
+   "out_of_scope_sport": 9,
+   "past_dated": 40,
+   "predictions": 5,
+   "predictions_under_30_words": 0,
+   "predictions_with_internal_vocabulary": 0,
+   "present": true,
+   "rows": 68,
+   "sports": {
+    "Aussie Rules": 1,
+    "Badminton": 3,
+    "Baseball": 4,
+    "Basketball": 10,
+    "Cricket": 6,
+    "Darts": 4,
+    "Esports": 2,
+    "Golf": 5,
+    "Handball": 2,
+    "Ice Hockey": 9,
+    "Rugby League": 1,
+    "Rugby Union": 6,
+    "Snooker": 4,
+    "Table Tennis": 3,
+    "Tennis": 6,
+    "Volleyball": 2
+   },
+   "undated": 0
+  },
+  "data/predictions.json": {
+   "duplicate_matchups": 0,
+   "missing_source": 1,
+   "missing_sport": 1,
+   "out_of_scope_sport": 0,
+   "past_dated": 0,
+   "predictions": 0,
+   "predictions_under_30_words": 0,
+   "predictions_with_internal_vocabulary": 0,
+   "present": true,
+   "rows": 1,
+   "sports": {},
+   "undated": 1
+  },
+  "data/rows.json": {
+   "duplicate_matchups": 3,
+   "missing_source": 0,
+   "missing_sport": 0,
+   "out_of_scope_sport": 5,
+   "past_dated": 53,
+   "predictions": 18,
+   "predictions_under_30_words": 0,
+   "predictions_with_internal_vocabulary": 9,
+   "present": true,
+   "rows": 144,
+   "sports": {
+    "Baseball": 2,
+    "Basketball": 40,
+    "Cricket": 4,
+    "Darts": 16,
+    "Gaelic Football": 2,
+    "Golf": 1,
+    "Greyhound Racing": 3,
+    "Handball": 12,
+    "Ice Hockey": 33,
+    "Motor Racing": 1,
+    "Rugby League": 9,
+    "Rugby Union": 13,
+    "Snooker": 2,
+    "Tennis": 4,
+    "Volleyball": 2
+   },
+   "undated": 0
+  }
+ },
+ "findings": [
+  {
+   "count": 39,
+   "dataset": "data/master.json",
+   "examples": [
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R01",
+   "issue": "Row has no official source link, so the value cannot be checked by a reader",
+   "review_url": "",
+   "severity": "high"
+  },
+  {
+   "count": 162,
+   "dataset": "data/master.json",
+   "examples": [
+    {
+     "label": " \u2014 2026-09-27",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-09-30",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-10-01",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-10-07",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-10-08",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-10-08",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-10-09",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-10-11",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R02",
+   "issue": "Row is dated before the review date (2026-10-23) but is still published in the dataset",
+   "review_url": "",
+   "severity": "medium"
+  },
+  {
+   "count": 16,
+   "dataset": "data/master.json",
+   "examples": [
+    {
+     "label": "Aussie Rules \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Esports \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Table Tennis \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Badminton \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Esports \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Badminton \u2014 ",
+     "review_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview"
+    },
+    {
+     "label": "Greyhound Racing \u2014 ",
+     "review_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/"
+    },
+    {
+     "label": "Gaelic Football \u2014 ",
+     "review_url": "https://www.galwaygaa.ie/fixtures/?user=6929"
+    }
+   ],
+   "id": "ED-R03",
+   "issue": "Row belongs to a sport outside the fifteen-sport brief",
+   "review_url": "",
+   "severity": "low"
+  },
+  {
+   "count": 49,
+   "dataset": "data/master.json",
+   "examples": [
+    {
+     "label": "",
+     "review_url": "https://www.nba.com/standings?Season=2025-26"
+    },
+    {
+     "label": "",
+     "review_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+    },
+    {
+     "label": "",
+     "review_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.ice.hockey/en/season/standings"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.ice.hockey/en/season/standings"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.ice.hockey/en/season/standings"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.wst.tv/match-centre"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.wst.tv/match-centre"
+    }
+   ],
+   "id": "ED-R04",
+   "issue": "Written prediction uses internal vocabulary (model / verified)",
+   "review_url": "",
+   "severity": "medium"
+  },
+  {
+   "count": 12,
+   "dataset": "data/master.json",
+   "examples": [
+    {
+     "label": "South Africa v Australia",
+     "review_url": ""
+    },
+    {
+     "label": "Pakistan v England",
+     "review_url": ""
+    },
+    {
+     "label": "Colorado Avalanche v New Jersey Devils",
+     "review_url": ""
+    },
+    {
+     "label": "Namibia v Ireland",
+     "review_url": ""
+    },
+    {
+     "label": "New Zealand v India",
+     "review_url": ""
+    },
+    {
+     "label": "Tampa Bay Rays v Milwaukee Brewers",
+     "review_url": ""
+    },
+    {
+     "label": "Los Angeles Lakers v LA Clippers",
+     "review_url": ""
+    },
+    {
+     "label": "Declared runners not verified v",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R05",
+   "issue": "The same matchup appears more than once in the dataset",
+   "review_url": "",
+   "severity": "medium"
+  },
+  {
+   "count": 41,
+   "dataset": "data/matches.json",
+   "examples": [
+    {
+     "label": "New York Knicks @ Boston Celtics",
+     "review_url": ""
+    },
+    {
+     "label": "Houston Rockets @ San Antonio Spurs",
+     "review_url": ""
+    },
+    {
+     "label": "Partizan Mozzart Bet Belgrade vs Crvena Zvezda Meridianbet Belgrade",
+     "review_url": ""
+    },
+    {
+     "label": "Anadolu Efes Istanbul vs Be\u015fikta\u015f Istanbul",
+     "review_url": ""
+    },
+    {
+     "label": "Crvena Zvezda 77-72 Anadolu Efes",
+     "review_url": ""
+    },
+    {
+     "label": "Almaty Open \u2014 Tournament (Medvedev top seed, 27% outright per Kalshi)",
+     "review_url": ""
+    },
+    {
+     "label": "European Open \u2014 Tournament (Damir Dzumhur ~6% per Kalshi)",
+     "review_url": ""
+    },
+    {
+     "label": "Lyon ATP 250 \u2014 Tournament",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R06",
+   "issue": "Row has no official source link, so the value cannot be checked by a reader",
+   "review_url": "",
+   "severity": "high"
+  },
+  {
+   "count": 40,
+   "dataset": "data/matches.json",
+   "examples": [
+    {
+     "label": " \u2014 2026-10-20",
+     "review_url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
+    },
+    {
+     "label": " \u2014 2026-10-20",
+     "review_url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
+    },
+    {
+     "label": " \u2014 2026-10-20",
+     "review_url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
+    },
+    {
+     "label": " \u2014 2026-10-22",
+     "review_url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
+    },
+    {
+     "label": " \u2014 2026-10-22",
+     "review_url": "https://www.nba.com/news/2026-27-nba-regular-season-schedule"
+    },
+    {
+     "label": " \u2014 2026-10-22",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-10-22",
+     "review_url": ""
+    },
+    {
+     "label": " \u2014 2026-10-01",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R07",
+   "issue": "Row is dated before the review date (2026-10-23) but is still published in the dataset",
+   "review_url": "",
+   "severity": "medium"
+  },
+  {
+   "count": 9,
+   "dataset": "data/matches.json",
+   "examples": [
+    {
+     "label": "Badminton \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Badminton \u2014 ",
+     "review_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/overview"
+    },
+    {
+     "label": "Badminton \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Table Tennis \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Table Tennis \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Table Tennis \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Esports \u2014 ",
+     "review_url": ""
+    },
+    {
+     "label": "Esports \u2014 ",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R08",
+   "issue": "Row belongs to a sport outside the fifteen-sport brief",
+   "review_url": "",
+   "severity": "low"
+  },
+  {
+   "count": 2,
+   "dataset": "data/matches.json",
+   "examples": [
+    {
+     "label": "Tampa Bay Rays @ Milwaukee Brewers",
+     "review_url": ""
+    },
+    {
+     "label": "Milwaukee Brewers @ Tampa Bay Rays",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R09",
+   "issue": "The same matchup appears more than once in the dataset",
+   "review_url": "",
+   "severity": "medium"
+  },
+  {
+   "count": 53,
+   "dataset": "data/rows.json",
+   "examples": [
+    {
+     "label": " \u2014 2026-10-21",
+     "review_url": "https://www.nba.com/games?date=2026-10-21"
+    },
+    {
+     "label": " \u2014 2026-10-21",
+     "review_url": "https://www.nba.com/games?date=2026-10-21"
+    },
+    {
+     "label": " \u2014 2026-10-21",
+     "review_url": "https://www.nba.com/games?date=2026-10-21"
+    },
+    {
+     "label": " \u2014 2026-10-21",
+     "review_url": "https://www.nba.com/games?date=2026-10-21"
+    },
+    {
+     "label": " \u2014 2026-10-21",
+     "review_url": "https://www.nba.com/games?date=2026-10-21"
+    },
+    {
+     "label": " \u2014 2026-10-21",
+     "review_url": "https://www.nba.com/games?date=2026-10-21"
+    },
+    {
+     "label": " \u2014 2026-10-21",
+     "review_url": "https://www.nba.com/games?date=2026-10-21"
+    },
+    {
+     "label": " \u2014 2026-10-21",
+     "review_url": "https://www.nba.com/games?date=2026-10-21"
+    }
+   ],
+   "id": "ED-R10",
+   "issue": "Row is dated before the review date (2026-10-23) but is still published in the dataset",
+   "review_url": "",
+   "severity": "medium"
+  },
+  {
+   "count": 5,
+   "dataset": "data/rows.json",
+   "examples": [
+    {
+     "label": "Gaelic Football \u2014 ",
+     "review_url": "https://www.galwaygaa.ie/fixtures/?user=6929"
+    },
+    {
+     "label": "Gaelic Football \u2014 ",
+     "review_url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/"
+    },
+    {
+     "label": "Greyhound Racing \u2014 ",
+     "review_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/"
+    },
+    {
+     "label": "Greyhound Racing \u2014 ",
+     "review_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/"
+    },
+    {
+     "label": "Greyhound Racing \u2014 ",
+     "review_url": "https://www.gbgb.org.uk/racing/open-races/2025-category-one-schedule/"
+    }
+   ],
+   "id": "ED-R11",
+   "issue": "Row belongs to a sport outside the fifteen-sport brief",
+   "review_url": "",
+   "severity": "low"
+  },
+  {
+   "count": 9,
+   "dataset": "data/rows.json",
+   "examples": [
+    {
+     "label": "",
+     "review_url": "https://www.nhl.com/schedule/2026-10-21"
+    },
+    {
+     "label": "",
+     "review_url": "https://stats.unitedrugby.com/match-centre/2026-27/4"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/"
+    },
+    {
+     "label": "",
+     "review_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+    },
+    {
+     "label": "",
+     "review_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+    },
+    {
+     "label": "",
+     "review_url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+    }
+   ],
+   "id": "ED-R12",
+   "issue": "Written prediction uses internal vocabulary (model / verified)",
+   "review_url": "",
+   "severity": "medium"
+  },
+  {
+   "count": 3,
+   "dataset": "data/rows.json",
+   "examples": [
+    {
+     "label": "Milwaukee Brewers v Tampa Bay Rays",
+     "review_url": ""
+    },
+    {
+     "label": "New Zealand v India",
+     "review_url": ""
+    },
+    {
+     "label": "Declared runners not verified v",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R13",
+   "issue": "The same matchup appears more than once in the dataset",
+   "review_url": "",
+   "severity": "medium"
+  },
+  {
+   "count": 116,
+   "dataset": "data/board.json",
+   "examples": [
+    {
+     "label": "Leylah Fernandez vs Aliaksandra Sasnovich",
+     "review_url": ""
+    },
+    {
+     "label": "Katie Boulter vs Viktorija Golubic",
+     "review_url": ""
+    },
+    {
+     "label": "James Duckworth vs Luciano Darderi",
+     "review_url": ""
+    },
+    {
+     "label": "Adrian Mannarino vs Andrey Rublev",
+     "review_url": ""
+    },
+    {
+     "label": "Sorana Cirstea vs Sara Bejlek",
+     "review_url": ""
+    },
+    {
+     "label": "Zangar Nurlanuly vs Tomas Machac",
+     "review_url": ""
+    },
+    {
+     "label": "Mattia Bellucci vs Tomas Martin Etcheverry",
+     "review_url": ""
+    },
+    {
+     "label": "Dino Prizmic vs Damir Dzumhur",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R14",
+   "issue": "Row has no official source link, so the value cannot be checked by a reader",
+   "review_url": "",
+   "severity": "high"
+  },
+  {
+   "count": 1,
+   "dataset": "data/predictions.json",
+   "examples": [
+    {
+     "label": "",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R15",
+   "issue": "Row has no official source link, so the value cannot be checked by a reader",
+   "review_url": "",
+   "severity": "high"
+  },
+  {
+   "count": 13,
+   "dataset": "data/flagged.json",
+   "examples": [
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    },
+    {
+     "label": "",
+     "review_url": ""
+    }
+   ],
+   "id": "ED-R16",
+   "issue": "Row has no official source link, so the value cannot be checked by a reader",
+   "review_url": "",
+   "severity": "high"
+  },
+  {
+   "count": 6,
+   "dataset": "data/flagged.json",
+   "examples": [
+    {
+     "label": "All \u2014 ",
+     "review_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+    },
+    {
+     "label": "All \u2014 ",
+     "review_url": "https://www.olbg.com/betting-tips"
+    },
+    {
+     "label": "Excluded sports \u2014 ",
+     "review_url": "https://www.olbg.com/betting-tips"
+    },
+    {
+     "label": "All \u2014 ",
+     "review_url": "https://www.olbg.com/betting-tips"
+    },
+    {
+     "label": "Gaelic Football \u2014 ",
+     "review_url": "https://www.galwaygaa.ie/fixtures/?user=6929"
+    },
+    {
+     "label": "Golf / Motor Racing \u2014 ",
+     "review_url": "https://www.olbg.com/best-tipsters"
+    }
+   ],
+   "id": "ED-R17",
+   "issue": "Row belongs to a sport outside the fifteen-sport brief",
+   "review_url": "",
+   "severity": "low"
+  },
+  {
+   "count": 77,
+   "dataset": "data/session-b2c7308d/capture/20261023T165722Z/",
+   "examples": [
+    {
+     "label": "asobal_home.html (gzip payload, 0x1f8b header)",
+     "review_url": "https://github.com/buffedlizard55-lab/OLBG4/tree/main/data/session-b2c7308d/capture/20261023T165722Z"
+    }
+   ],
+   "id": "ED-R18",
+   "issue": "Peer capture committed gzip bytes with a .html extension. scripts/audit_publication.py reads every *.html file as UTF-8 text, so the repository-wide publication audit now fails on main (run 39991336806) and on every branch.",
+   "review_url": "https://github.com/buffedlizard55-lab/OLBG4/actions/runs/39991336806",
+   "severity": "high"
+  }
+ ],
+ "generated_utc": "2026-10-23T19:44:49Z",
+ "reviewed_on": "2026-10-23",
+ "scope": "Shared datasets owned by other boards \u2014 read only in this session",
+ "summary": {
+  "datasets_reviewed": 7,
+  "findings": 18,
+  "high": 6,
+  "low": 4,
+  "medium": 8,
+  "rows_inspected": 738
+ }
+}

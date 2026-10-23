@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cricket · OLBG4 Board AK</title><style>
+:root{--bg:#0b1220;--panel:#121b2d;--panel2:#182339;--line:#26344d;--ink:#e8eefc;
+--muted:#9aabc7;--accent:#4ade80;--accent2:#60a5fa;--warn:#fbbf24;--bad:#f87171;
+--high:#22c55e;--med:#eab308;--low:#94a3b8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,
+"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+.brand{display:flex;gap:14px;align-items:baseline;padding:12px 0 4px;flex-wrap:wrap}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--muted);font-size:12.5px}
+nav{display:flex;gap:4px;flex-wrap:wrap;padding:4px 0 10px}
+nav a{padding:5px 10px;border-radius:999px;color:var(--muted);font-size:13px;border:1px solid transparent}
+nav a:hover{background:var(--panel2);color:var(--ink);text-decoration:none}
+nav a.on{background:var(--panel2);border-color:var(--line);color:var(--ink)}
+main{padding:22px 0 60px}
+h1{font-size:26px;margin:6px 0 6px}h2{font-size:19px;margin:28px 0 10px}
+h3{font-size:15.5px;margin:18px 0 8px;color:var(--ink)}
+p{color:#cfdcf2;max-width:78ch}
+.lede{color:var(--muted);font-size:14px;max-width:88ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0 6px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font-size:24px;line-height:1.1}
+.kpi span{color:var(--muted);font-size:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card h3{margin:0 0 6px}.card p{margin:0;color:var(--muted);font-size:13px}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);
+border-radius:12px;overflow:hidden;font-size:13.5px;margin:8px 0 4px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--panel2);color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.03em;
+text-transform:uppercase;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#16213a}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11.5px;font-weight:600;
+border:1px solid var(--line);white-space:nowrap}
+.High{background:rgba(34,197,94,.14);color:var(--high);border-color:rgba(34,197,94,.4)}
+.Medium{background:rgba(234,179,8,.13);color:var(--med);border-color:rgba(234,179,8,.35)}
+.Low{background:rgba(148,163,184,.13);color:var(--low)}
+.ok{color:var(--high)}.flag{color:var(--warn)}.fail{color:var(--bad)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent2);
+border-radius:8px;padding:10px 14px;color:#cfdcf2;font-size:13.5px;margin:12px 0}
+.note.warn{border-left-color:var(--warn)}.note.bad{border-left-color:var(--bad)}
+.pick{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+.pick header{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.pick .who{font-weight:650}
+.pick .meta{color:var(--muted);font-size:12.5px}
+.pick p{margin:8px 0 6px;color:#dbe6fb}
+.pick .facts{color:var(--muted);font-size:12.5px;margin:0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+input[type=search],select{background:var(--panel);border:1px solid var(--line);color:var(--ink);
+border-radius:8px;padding:7px 10px;font-size:13.5px}
+.scroll{max-height:70vh;overflow:auto;border-radius:12px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;padding:18px 0 40px}
+.small{font-size:12.5px;color:var(--muted)}
+code{background:#0e1728;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:12px}
+</style></head>
+<body><header class="top"><div class="wrap">
+<div class="brand"><b>OLBG4 · Board AK</b>
+<span>15-sport betting desk · lines originated from official feeds · 2026-10-23 19:51:14 UTC</span></div>
+<nav><a href="../../index.html">All boards</a><a href="../index.html">Summary</a><a href="../picks.html">Picks</a><a href="../markets.html">Markets</a><a href="../entries.html">Fixtures</a><a href="../coverage.html">Coverage</a><a href="../review.html">Review</a><a href="../flagged.html">Flagged</a><a href="../sources.html">Sources</a><a href="../methodology.html">Method</a><a href="../verification.html">Checks</a></nav>
+</div></header><main><div class="wrap">
+<h1>Cricket</h1>
+<p class="lede">0 fixtures · 0 with our own lines ·
+0 labelled High · 0 written picks.
+No fixture feed captured today; see Sources for the endpoints that did not answer.</p>
+<div class="note warn">No pick is published for this sport today: the captured official feeds do not carry verified head-to-head form for the fixtures listed below.</div>
+<h2>Fixtures and lines</h2>
+<div class="scroll"><table class=""><thead><tr><th>Kick-off (UTC)</th><th>Competition</th><th>Fixture</th><th>Venue</th><th>Our pick</th><th>Label</th><th>Official source</th></tr></thead><tbody><tr><td class="num">2026-10-23 23:30:00</td><td>One Day Domestic · Cricket Australia</td><td><b>Victoria v Tasmanian Tigers</b></td><td>{&#x27;id&#x27;: 77, &#x27;name&#x27;: &#x27;Bellerive Oval&#x27;, &#x27;location&#x27;: &#x27;Hobart&#x27;}</td><td><span class="small">no verified head-to-head form for both sides in the captured official payload</span></td><td></td><td><a href="https://www.cricket.com.au/fixtures" rel="noopener">www.cricket.com.au</a></td></tr><tr><td class="num">2026-10-24 06:00:00</td><td>One Day Domestic · Cricket Australia</td><td><b>New South Wales v Western Australia</b></td><td>{&#x27;id&#x27;: 74, &#x27;name&#x27;: &#x27;WACA Ground&#x27;, &#x27;location&#x27;: &#x27;Perth&#x27;}</td><td><span class="small">no verified head-to-head form for both sides in the captured official payload</span></td><td></td><td><a href="https://www.cricket.com.au/fixtures" rel="noopener">www.cricket.com.au</a></td></tr><tr><td class="num">2026-10-25 08:00:00</td><td>ODI · Cricket Australia</td><td><b>England v Pakistan</b></td><td>{&#x27;id&#x27;: 515, &#x27;name&#x27;: &#x27;Gaddafi Stadium&#x27;, &#x27;location&#x27;: &#x27;Lahore&#x27;}</td><td><span class="small">no verified head-to-head form for both sides in the captured official payload</span></td><td></td><td><a href="https://www.cricket.com.au/fixtures" rel="noopener">www.cricket.com.au</a></td></tr><tr><td class="num">2026-10-27 08:00:00</td><td>ODI · Cricket Australia</td><td><b>Sri Lanka v Pakistan</b></td><td>{&#x27;id&#x27;: 515, &#x27;name&#x27;: &#x27;Gaddafi Stadium&#x27;, &#x27;location&#x27;: &#x27;Lahore&#x27;}</td><td><span class="small">no verified head-to-head form for both sides in the captured official payload</span></td><td></td><td><a href="https://www.cricket.com.au/fixtures" rel="noopener">www.cricket.com.au</a></td></tr><tr><td class="num">2026-10-28 00:00:00</td><td>First Class Domestic · Cricket Australia</td><td><b>Western Australia v South Australia</b></td><td>{&#x27;id&#x27;: 76, &#x27;name&#x27;: &#x27;Adelaide Oval&#x27;, &#x27;location&#x27;: &#x27;Adelaide&#x27;}</td><td><span class="small">no verified head-to-head form for both sides in the captured official payload</span></td><td></td><td><a href="https://www.cricket.com.au/fixtures" rel="noopener">www.cricket.com.au</a></td></tr><tr><td class="num">2026-10-29 08:00:00</td><td>ODI · Cricket Australia</td><td><b>England v Sri Lanka</b></td><td>{&#x27;id&#x27;: 515, &#x27;name&#x27;: &#x27;Gaddafi Stadium&#x27;, &#x27;location&#x27;: &#x27;Lahore&#x27;}</td><td><span class="small">no verified head-to-head form for both sides in the captured official payload</span></td><td></td><td><a href="https://www.cricket.com.au/fixtures" rel="noopener">www.cricket.com.au</a></td></tr></tbody></table></div>
+<h2>Form used for the lines</h2>
+<p class="lede">Copied from the same official page as the fixture. A blank cell means the page did not
+carry that figure.</p>
+<div class="scroll"><table class=""><thead><tr><th>Side A</th><th>A: record and scoring</th><th>Side B</th><th>B: record and scoring</th><th>Our pick</th><th>Official source</th></tr></thead><tbody></tbody></table></div>
+<p class="small"><a href="../entries.html">All fixtures</a> · <a href="../markets.html">All markets</a> ·
+<a href="../coverage.html">Coverage</a></p>
+</div></main>
+<footer><div class="wrap">
+<p>Board AK · session <code>arena/63ad3394-olbg4</code> · captures 20261023T193229Z, 20261023T193509Z, 20261023T193724Z, 20261023T194729Z ·
+fixtures from official league, tour and federation feeds; OLBG used for taxonomy and market
+cross-check only. Nothing on this site is a tip from OLBG.</p>
+<p><a href="../../flagged.html">Repository-wide flagged items</a> ·
+<a href="https://github.com/buffedlizard55-lab/OLBG4">source repository</a></p>
+</div></footer></body></html>
