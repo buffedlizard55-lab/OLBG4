@@ -775,7 +775,8 @@ def parse_snooker(reader, new_row, sel_row, two_way_market, finish_pick, flag):
                 fl["l"] += 1
                 fl["matches"].append("w/o against")
             elif sc1 is None and sc2 is None:
-                upcoming.append((rnd, a_raw, b_raw, sched[0] if sched else ""))
+                # snooker.org prints session times with a space; normalise to ISO
+                upcoming.append((rnd, a_raw, b_raw, sched[0].replace(" ", "T") if sched else ""))
     n = 0
     for rnd, a_raw, b_raw, start in upcoming:
         a, ra = rank_of(a_raw)

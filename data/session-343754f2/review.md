@@ -1,6 +1,6 @@
 # Board BW — line-by-line review
 
-Rows checked: **404** · predictions checked: **33** · hard failures: **0** · warnings: **70**
+Rows checked: **405** · predictions checked: **33** · hard failures: **0** · warnings: **70**
 
 | Row | Matchup | Status | Checks passed |
 |---|---|---|---|
@@ -323,88 +323,89 @@ Rows checked: **404** · predictions checked: **33** · hard failures: **0** · 
 | [bw_317](sports/rugby-union.html#bw_317) | Racing 92 v Montpellier Hérault Rugby | ✅ ok | 50/50 |
 | [bw_318](sports/rugby-union.html#bw_318) | RC Toulon v Section Paloise | ✅ ok | 40/40 |
 | [bw_319](sports/rugby-union.html#bw_319) | Stade Rochelais v Union Bordeaux-Bègles | ✅ ok | 40/40 |
-| [bw_320](sports/volleyball.html#bw_320) | SG Sokol-Post W vs TSV Hartberg W | ✅ ok | 5/5 |
-| [bw_321](sports/volleyball.html#bw_321) | PGE Skra Belchatow vs Projekt Warszawa | ✅ ok | 5/5 |
-| [bw_322](sports/volleyball.html#bw_322) | VfB Friedrichshafen vs SSC Karlsruhe | ✅ ok | 5/5 |
-| [bw_323](sports/volleyball.html#bw_323) | SVG Luneburg vs SV Warnemunde | ✅ ok | 5/5 |
-| [bw_324](sports/volleyball.html#bw_324) | ASKO Purgstall W vs VBV Trofaiach-WSV Eisenerz W | ✅ ok | 5/5 |
-| [bw_325](sports/volleyball.html#bw_325) | UVC Graz W vs Sportunion St Polten W | ✅ ok | 5/5 |
-| [bw_326](sports/volleyball.html#bw_326) | Mackenzie W vs Osasco W | ✅ ok | 5/5 |
-| [bw_327](sports/volleyball.html#bw_327) | Sada Cruzeiro vs Volei Renata | ✅ ok | 5/5 |
-| [bw_328](sports/volleyball.html#bw_328) | Milano W vs UYBA Busto Arsizio W | ✅ ok | 5/5 |
-| [bw_329](sports/volleyball.html#bw_329) | Sternberk W vs VK Lvice Praha W | ✅ ok | 5/5 |
-| [bw_330](sports/volleyball.html#bw_330) | Liberec W vs Prostejov W | ✅ ok | 5/5 |
-| [bw_331](sports/volleyball.html#bw_331) | UVC Ried vs VBK Klagenfurt | ✅ ok | 5/5 |
-| [bw_332](sports/volleyball.html#bw_332) | SK Aich-Dob vs SG VCA Amstetten | ✅ ok | 5/5 |
-| [bw_333](sports/volleyball.html#bw_333) | Evreux W vs Mulhouse W | ✅ ok | 5/5 |
-| [bw_334](sports/volleyball.html#bw_334) | Helios Grizzlys Giesen vs Berlin Volleys | ✅ ok | 5/5 |
-| [bw_335](sports/volleyball.html#bw_335) | SWD Duren vs WWK Volleys Munchen | ✅ ok | 5/5 |
-| [bw_336](sports/volleyball.html#bw_336) | Abel-Moda Brusque W vs Praia Clube W | ✅ ok | 5/5 |
-| [bw_337](sports/volleyball.html#bw_337) | CHKS Chelm vs Resovia Rzeszow | ✅ ok | 5/5 |
-| [bw_338](sports/volleyball.html#bw_338) | Barock Volleys Ludwigsburg vs TV Rottenburg | ✅ ok | 5/5 |
-| [bw_339](sports/rugby-union.html#bw_339) | Japan v Fiji | ✅ ok | 5/5 |
-| [bw_340](sports/rugby-union.html#bw_340) | Toulouse v Perpignan | ✅ ok | 5/5 |
-| [bw_341](sports/rugby-union.html#bw_341) | Leicester Tigers v Northampton Saints | ✅ ok | 5/5 |
-| [bw_342](sports/rugby-union.html#bw_342) | Bayonne v Lyon | ✅ ok | 5/5 |
-| [bw_343](sports/rugby-union.html#bw_343) | Bristol Bears v Exeter Chiefs | ✅ ok | 5/5 |
-| [bw_344](sports/rugby-union.html#bw_344) | Harlequins v Saracens | ✅ ok | 5/5 |
-| [bw_345](sports/rugby-union.html#bw_345) | La Rochelle v Bordeaux | ✅ ok | 5/5 |
-| [bw_346](sports/cricket.html#bw_346) | Tasmania vs Victoria One Day Match | ✅ ok | 5/5 |
-| [bw_347](sports/cricket.html#bw_347) | Lions vs Limpopo Impalas T20 | ✅ ok | 5/5 |
-| [bw_348](sports/cricket.html#bw_348) | Toronto Kings vs Vancouver Guardians T20 | ✅ ok | 5/5 |
-| [bw_349](sports/cricket.html#bw_349) | Eastern Cape Iinyathi vs Warriors T20 | ✅ ok | 5/5 |
-| [bw_350](sports/cricket.html#bw_350) | Knights vs Mpumalanga Rhinos T20 | ✅ ok | 5/5 |
-| [bw_351](sports/darts.html#bw_351) | European Championship | ✅ ok | 5/5 |
-| [bw_352](sports/gaelic-sports.html#bw_352) | St Finbarrs v Nemo Rangers | ✅ ok | 5/5 |
-| [bw_353](sports/gaelic-sports.html#bw_353) | Moycullen v Salthill-Knocknacarra | ✅ ok | 5/5 |
-| [bw_354](sports/gaelic-sports.html#bw_354) | Kanturk v Eire Og Cor | ✅ ok | 5/5 |
-| [bw_355](sports/gaelic-sports.html#bw_355) | Fr Caseys v Kildimo Pallaskenry | ✅ ok | 5/5 |
-| [bw_356](sports/tennis.html#bw_356) | Nikoloz Basilashvili vs Stefanos Tsitsipas | ✅ ok | 5/5 |
-| [bw_357](sports/tennis.html#bw_357) | Tommy Paul vs Taylor Fritz | ✅ ok | 5/5 |
-| [bw_358](sports/tennis.html#bw_358) | Daniil Medvedev vs Alexander Bublik | ✅ ok | 5/5 |
-| [bw_359](sports/motor-racing.html#bw_359) | USA Grand Prix | ✅ ok | 5/5 |
-| [bw_360](sports/handball.html#bw_360) | Elverum vs OIF Arendal | ✅ ok | 5/5 |
-| [bw_361](sports/handball.html#bw_361) | Villa De Aranda vs Puerto Sagunto | ✅ ok | 5/5 |
-| [bw_362](sports/handball.html#bw_362) | Nantes vs Chambery Savoie | ✅ ok | 5/5 |
-| [bw_363](sports/handball.html#bw_363) | BM Logrono La Rioja vs BM Cangas | ✅ ok | 5/5 |
-| [bw_364](sports/handball.html#bw_364) | HC Erlangen vs THW Kiel | ✅ ok | 5/5 |
-| [bw_365](sports/handball.html#bw_365) | BM Nava vs Atletico Valladolid | ✅ ok | 5/5 |
-| [bw_366](sports/handball.html#bw_366) | HBW Balingen Weilstetten vs MT Melsungen | ✅ ok | 5/5 |
-| [bw_367](sports/handball.html#bw_367) | CBM Sporting Alicante vs Ademar Leon | ✅ ok | 5/5 |
-| [bw_368](sports/handball.html#bw_368) | BM Granollers vs Angel Ximenez Puente Genil | ✅ ok | 5/5 |
-| [bw_369](sports/handball.html#bw_369) | Rhein Neckar Lowen vs SC Magdeburg | ✅ ok | 5/5 |
-| [bw_370](sports/handball.html#bw_370) | Lithuania W vs Belgium W | ✅ ok | 5/5 |
-| [bw_371](sports/handball.html#bw_371) | Luxembourg W vs Great Britain W | ✅ ok | 5/5 |
-| [bw_372](sports/handball.html#bw_372) | Saint Raphael vs PSG Handball | ✅ ok | 5/5 |
-| [bw_373](sports/handball.html#bw_373) | Fuchse Berlin vs HSG Wetzlar | ✅ ok | 5/5 |
-| [bw_374](sports/handball.html#bw_374) | BM Torrelavega vs BM Proin | ✅ ok | 5/5 |
-| [bw_375](sports/handball.html#bw_375) | Italy W vs Bulgaria W | ✅ ok | 5/5 |
-| [bw_376](sports/handball.html#bw_376) | HC Vardar vs MT Melsungen | ✅ ok | 5/5 |
-| [bw_377](sports/handball.html#bw_377) | FC Porto vs Veszprem | ✅ ok | 5/5 |
-| [bw_378](sports/handball.html#bw_378) | Wisla Plock vs Nantes | ✅ ok | 5/5 |
-| [bw_379](sports/handball.html#bw_379) | KS Kielce vs Kolstad | ✅ ok | 5/5 |
-| [bw_380](sports/handball.html#bw_380) | RK Celje vs RK Zagreb | ✅ ok | 5/5 |
-| [bw_381](sports/handball.html#bw_381) | SC Magdeburg vs HC Kriens Luzern | ✅ ok | 5/5 |
-| [bw_382](sports/handball.html#bw_382) | GOG vs Sporting CP | ✅ ok | 5/5 |
-| [bw_383](sports/handball.html#bw_383) | Fuchse Berlin vs RK Partizan | ✅ ok | 5/5 |
-| [bw_384](sports/handball.html#bw_384) | IFK Kristianstad vs Pick Szeged | ✅ ok | 5/5 |
-| [bw_385](sports/handball.html#bw_385) | Montpellier vs Dinamo Bucuresti | ✅ ok | 5/5 |
-| [bw_386](sports/handball.html#bw_386) | Skanderborg Handbold vs FC Barcelona | ✅ ok | 5/5 |
-| [bw_387](sports/ice-hockey.html#bw_387) | IF Bjorkloven vs Skelleftea AIK | ✅ ok | 5/5 |
-| [bw_388](sports/ice-hockey.html#bw_388) | IF Malmo Redhawks vs Timra IK | ✅ ok | 5/5 |
-| [bw_389](sports/basketball.html#bw_389) | Bauru vs Mogi das Cruzes | ✅ ok | 5/5 |
-| [bw_390](sports/basketball.html#bw_390) | MIN Timberwolves @ ORL Magic | ✅ ok | 5/5 |
-| [bw_391](sports/basketball.html#bw_391) | DAL Mavericks @ IND Pacers | ✅ ok | 5/5 |
-| [bw_392](sports/basketball.html#bw_392) | TOR Raptors @ WAS Wizards | ✅ ok | 5/5 |
-| [bw_393](sports/basketball.html#bw_393) | HOU Rockets @ SA Spurs | ✅ ok | 5/5 |
-| [bw_394](sports/basketball.html#bw_394) | NY Knicks @ BOS Celtics | ✅ ok | 5/5 |
-| [bw_395](sports/basketball.html#bw_395) | DET Pistons @ MIA Heat | ✅ ok | 5/5 |
-| [bw_396](sports/basketball.html#bw_396) | ATL Hawks @ CHA Hornets | ✅ ok | 5/5 |
-| [bw_397](sports/basketball.html#bw_397) | POR Trail Blazers @ SAC Kings | ✅ ok | 5/5 |
-| [bw_398](sports/basketball.html#bw_398) | NO Pelicans @ UTA Jazz | ✅ ok | 5/5 |
-| [bw_399](sports/basketball.html#bw_399) | LA Clippers @ LA Lakers | ✅ ok | 5/5 |
-| [bw_400](sports/basketball.html#bw_400) | MEM Grizzlies @ GS Warriors | ✅ ok | 5/5 |
-| [bw_401](sports/basketball.html#bw_401) | Argentino Junin vs Quimsa | ✅ ok | 5/5 |
-| [bw_402](sports/basketball.html#bw_402) | Atenas vs Lanus | ✅ ok | 5/5 |
-| [bw_403](sports/basketball.html#bw_403) | Racing de Chivilcoy vs Boca Juniors | ✅ ok | 5/5 |
-| [bw_404](sports/basketball.html#bw_404) | Seoul Knights vs Changwon Sakers | ✅ ok | 5/5 |
+| [bw_320](sports/handball.html#bw_320) | HC Vardar 1961 vs MT Melsungen | ✅ ok | 15/15 |
+| [bw_321](sports/handball.html#bw_321) | FC Porto vs One Veszprém HC | ✅ ok | 15/15 |
+| [bw_322](sports/handball.html#bw_322) | Orlen Wisla Plock vs HBC Nantes | ✅ ok | 15/15 |
+| [bw_323](sports/handball.html#bw_323) | RK Celje Pivovarna Laško vs HC Zagreb | ✅ ok | 15/15 |
+| [bw_324](sports/handball.html#bw_324) | Füchse Berlin vs RK Partizan AdmiralBet | ✅ ok | 15/15 |
+| [bw_325](sports/handball.html#bw_325) | IFK Kristianstad vs OTP Bank - PICK Szeged | ✅ ok | 15/15 |
+| [bw_326](sports/volleyball.html#bw_326) | SG Sokol-Post W vs TSV Hartberg W | ✅ ok | 5/5 |
+| [bw_327](sports/volleyball.html#bw_327) | PGE Skra Belchatow vs Projekt Warszawa | ✅ ok | 5/5 |
+| [bw_328](sports/volleyball.html#bw_328) | VfB Friedrichshafen vs SSC Karlsruhe | ✅ ok | 5/5 |
+| [bw_329](sports/volleyball.html#bw_329) | SVG Luneburg vs SV Warnemunde | ✅ ok | 5/5 |
+| [bw_330](sports/volleyball.html#bw_330) | ASKO Purgstall W vs VBV Trofaiach-WSV Eisenerz W | ✅ ok | 5/5 |
+| [bw_331](sports/volleyball.html#bw_331) | UVC Graz W vs Sportunion St Polten W | ✅ ok | 5/5 |
+| [bw_332](sports/volleyball.html#bw_332) | Mackenzie W vs Osasco W | ✅ ok | 5/5 |
+| [bw_333](sports/volleyball.html#bw_333) | Sada Cruzeiro vs Volei Renata | ✅ ok | 5/5 |
+| [bw_334](sports/volleyball.html#bw_334) | Milano W vs UYBA Busto Arsizio W | ✅ ok | 5/5 |
+| [bw_335](sports/volleyball.html#bw_335) | Sternberk W vs VK Lvice Praha W | ✅ ok | 5/5 |
+| [bw_336](sports/volleyball.html#bw_336) | Liberec W vs Prostejov W | ✅ ok | 5/5 |
+| [bw_337](sports/volleyball.html#bw_337) | UVC Ried vs VBK Klagenfurt | ✅ ok | 5/5 |
+| [bw_338](sports/volleyball.html#bw_338) | SK Aich-Dob vs SG VCA Amstetten | ✅ ok | 5/5 |
+| [bw_339](sports/volleyball.html#bw_339) | Evreux W vs Mulhouse W | ✅ ok | 5/5 |
+| [bw_340](sports/volleyball.html#bw_340) | Helios Grizzlys Giesen vs Berlin Volleys | ✅ ok | 5/5 |
+| [bw_341](sports/volleyball.html#bw_341) | SWD Duren vs WWK Volleys Munchen | ✅ ok | 5/5 |
+| [bw_342](sports/volleyball.html#bw_342) | Abel-Moda Brusque W vs Praia Clube W | ✅ ok | 5/5 |
+| [bw_343](sports/volleyball.html#bw_343) | CHKS Chelm vs Resovia Rzeszow | ✅ ok | 5/5 |
+| [bw_344](sports/volleyball.html#bw_344) | Barock Volleys Ludwigsburg vs TV Rottenburg | ✅ ok | 5/5 |
+| [bw_345](sports/rugby-union.html#bw_345) | Japan v Fiji | ✅ ok | 5/5 |
+| [bw_346](sports/rugby-union.html#bw_346) | Toulouse v Perpignan | ✅ ok | 5/5 |
+| [bw_347](sports/rugby-union.html#bw_347) | Leicester Tigers v Northampton Saints | ✅ ok | 5/5 |
+| [bw_348](sports/rugby-union.html#bw_348) | Bayonne v Lyon | ✅ ok | 5/5 |
+| [bw_349](sports/rugby-union.html#bw_349) | Bristol Bears v Exeter Chiefs | ✅ ok | 5/5 |
+| [bw_350](sports/rugby-union.html#bw_350) | Harlequins v Saracens | ✅ ok | 5/5 |
+| [bw_351](sports/rugby-union.html#bw_351) | La Rochelle v Bordeaux | ✅ ok | 5/5 |
+| [bw_352](sports/cricket.html#bw_352) | Tasmania vs Victoria One Day Match | ✅ ok | 5/5 |
+| [bw_353](sports/cricket.html#bw_353) | Lions vs Limpopo Impalas T20 | ✅ ok | 5/5 |
+| [bw_354](sports/cricket.html#bw_354) | Toronto Kings vs Vancouver Guardians T20 | ✅ ok | 5/5 |
+| [bw_355](sports/cricket.html#bw_355) | Eastern Cape Iinyathi vs Warriors T20 | ✅ ok | 5/5 |
+| [bw_356](sports/cricket.html#bw_356) | Knights vs Mpumalanga Rhinos T20 | ✅ ok | 5/5 |
+| [bw_357](sports/darts.html#bw_357) | European Championship | ✅ ok | 5/5 |
+| [bw_358](sports/gaelic-sports.html#bw_358) | St Finbarrs v Nemo Rangers | ✅ ok | 5/5 |
+| [bw_359](sports/gaelic-sports.html#bw_359) | Moycullen v Salthill-Knocknacarra | ✅ ok | 5/5 |
+| [bw_360](sports/gaelic-sports.html#bw_360) | Kanturk v Eire Og Cor | ✅ ok | 5/5 |
+| [bw_361](sports/gaelic-sports.html#bw_361) | Fr Caseys v Kildimo Pallaskenry | ✅ ok | 5/5 |
+| [bw_362](sports/tennis.html#bw_362) | Nikoloz Basilashvili vs Stefanos Tsitsipas | ✅ ok | 5/5 |
+| [bw_363](sports/tennis.html#bw_363) | Tommy Paul vs Taylor Fritz | ✅ ok | 5/5 |
+| [bw_364](sports/tennis.html#bw_364) | Daniil Medvedev vs Alexander Bublik | ✅ ok | 5/5 |
+| [bw_365](sports/motor-racing.html#bw_365) | USA Grand Prix | ✅ ok | 5/5 |
+| [bw_366](sports/handball.html#bw_366) | Elverum vs OIF Arendal | ✅ ok | 5/5 |
+| [bw_367](sports/handball.html#bw_367) | Villa De Aranda vs Puerto Sagunto | ✅ ok | 5/5 |
+| [bw_368](sports/handball.html#bw_368) | Nantes vs Chambery Savoie | ✅ ok | 5/5 |
+| [bw_369](sports/handball.html#bw_369) | BM Logrono La Rioja vs BM Cangas | ✅ ok | 5/5 |
+| [bw_370](sports/handball.html#bw_370) | HC Erlangen vs THW Kiel | ✅ ok | 5/5 |
+| [bw_371](sports/handball.html#bw_371) | BM Nava vs Atletico Valladolid | ✅ ok | 5/5 |
+| [bw_372](sports/handball.html#bw_372) | HBW Balingen Weilstetten vs MT Melsungen | ✅ ok | 5/5 |
+| [bw_373](sports/handball.html#bw_373) | CBM Sporting Alicante vs Ademar Leon | ✅ ok | 5/5 |
+| [bw_374](sports/handball.html#bw_374) | BM Granollers vs Angel Ximenez Puente Genil | ✅ ok | 5/5 |
+| [bw_375](sports/handball.html#bw_375) | Rhein Neckar Lowen vs SC Magdeburg | ✅ ok | 5/5 |
+| [bw_376](sports/handball.html#bw_376) | Lithuania W vs Belgium W | ✅ ok | 5/5 |
+| [bw_377](sports/handball.html#bw_377) | Luxembourg W vs Great Britain W | ✅ ok | 5/5 |
+| [bw_378](sports/handball.html#bw_378) | Saint Raphael vs PSG Handball | ✅ ok | 5/5 |
+| [bw_379](sports/handball.html#bw_379) | Fuchse Berlin vs HSG Wetzlar | ✅ ok | 5/5 |
+| [bw_380](sports/handball.html#bw_380) | BM Torrelavega vs BM Proin | ✅ ok | 5/5 |
+| [bw_381](sports/handball.html#bw_381) | Italy W vs Bulgaria W | ✅ ok | 5/5 |
+| [bw_382](sports/handball.html#bw_382) | FC Porto vs Veszprem | ✅ ok | 5/5 |
+| [bw_383](sports/handball.html#bw_383) | KS Kielce vs Kolstad | ✅ ok | 5/5 |
+| [bw_384](sports/handball.html#bw_384) | SC Magdeburg vs HC Kriens Luzern | ✅ ok | 5/5 |
+| [bw_385](sports/handball.html#bw_385) | GOG vs Sporting CP | ✅ ok | 5/5 |
+| [bw_386](sports/handball.html#bw_386) | Montpellier vs Dinamo Bucuresti | ✅ ok | 5/5 |
+| [bw_387](sports/handball.html#bw_387) | Skanderborg Handbold vs FC Barcelona | ✅ ok | 5/5 |
+| [bw_388](sports/ice-hockey.html#bw_388) | IF Bjorkloven vs Skelleftea AIK | ✅ ok | 5/5 |
+| [bw_389](sports/ice-hockey.html#bw_389) | IF Malmo Redhawks vs Timra IK | ✅ ok | 5/5 |
+| [bw_390](sports/basketball.html#bw_390) | Bauru vs Mogi das Cruzes | ✅ ok | 5/5 |
+| [bw_391](sports/basketball.html#bw_391) | MIN Timberwolves @ ORL Magic | ✅ ok | 5/5 |
+| [bw_392](sports/basketball.html#bw_392) | DAL Mavericks @ IND Pacers | ✅ ok | 5/5 |
+| [bw_393](sports/basketball.html#bw_393) | TOR Raptors @ WAS Wizards | ✅ ok | 5/5 |
+| [bw_394](sports/basketball.html#bw_394) | HOU Rockets @ SA Spurs | ✅ ok | 5/5 |
+| [bw_395](sports/basketball.html#bw_395) | NY Knicks @ BOS Celtics | ✅ ok | 5/5 |
+| [bw_396](sports/basketball.html#bw_396) | DET Pistons @ MIA Heat | ✅ ok | 5/5 |
+| [bw_397](sports/basketball.html#bw_397) | ATL Hawks @ CHA Hornets | ✅ ok | 5/5 |
+| [bw_398](sports/basketball.html#bw_398) | POR Trail Blazers @ SAC Kings | ✅ ok | 5/5 |
+| [bw_399](sports/basketball.html#bw_399) | NO Pelicans @ UTA Jazz | ✅ ok | 5/5 |
+| [bw_400](sports/basketball.html#bw_400) | LA Clippers @ LA Lakers | ✅ ok | 5/5 |
+| [bw_401](sports/basketball.html#bw_401) | MEM Grizzlies @ GS Warriors | ✅ ok | 5/5 |
+| [bw_402](sports/basketball.html#bw_402) | Argentino Junin vs Quimsa | ✅ ok | 5/5 |
+| [bw_403](sports/basketball.html#bw_403) | Atenas vs Lanus | ✅ ok | 5/5 |
+| [bw_404](sports/basketball.html#bw_404) | Racing de Chivilcoy vs Boca Juniors | ✅ ok | 5/5 |
+| [bw_405](sports/basketball.html#bw_405) | Seoul Knights vs Changwon Sakers | ✅ ok | 5/5 |
