@@ -53,6 +53,14 @@ def pick_kind(r):
     return "win"
 
 
+def an(num: str) -> str:
+    return "an" if str(num).lstrip("-")[:1] in ("8", "1") and not str(num).startswith("1.") else "a"
+
+
+def cap(phrase: str) -> str:
+    return ("The " + phrase[4:]) if phrase.startswith("the ") else phrase
+
+
 def short(name: str) -> str:
     if not name:
         return name
@@ -177,10 +185,10 @@ def note_hockey(r: dict) -> str:
         second = rot(r["id"] + "f2", [
             f"{A} arrive at {g['aw']}-{g['al']}-{g['aot']} on {g['apts']} points, scoring {g['agf']} and giving up {g['aga']} ahead of the {day} trip",
             f"The visitors are {g['aw']}-{g['al']}-{g['aot']} with {g['agf']} goals for and {g['aga']} against, good for {g['apts']} points before the {day} game",
-            f"{A} counter with a {g['aw']}-{g['al']}-{g['aot']} mark and {g['apts']} points from a {g['agf']}:{g['aga']} scoring line on {day}",
+            f"{A} counter with a {g['aw']}-{g['al']}-{g['aot']} mark and {g['apts']} points from {an(g['agf'])} {g['agf']}:{g['aga']} scoring line on {day}",
         ])
         third = rot(r["id"] + "f3", [
-            f"{hs.capitalize() if hs.startswith('the') else hs} are {g['hhome']} on home ice while {as_} are {g['aaway']} on the road, with last-ten splits of {g['hl10']} and {g['al10']}",
+            f"{cap(hs)} are {g['hhome']} on home ice while {as_} are {g['aaway']} on the road, with last-ten splits of {g['hl10']} and {g['al10']}",
             f"Home form reads {g['hhome']} for {hs} and away form {g['aaway']} for {as_}; the last ten are {g['hl10']} and {g['al10']}",
             f"Split form is {g['hhome']} at home against {g['aaway']} on the road, and the ten-game sample sits at {g['hl10']} versus {g['al10']}",
         ])
@@ -233,7 +241,7 @@ def note_basketball(r: dict) -> str:
     form2 = rot(r["id"] + "f2", [
         f"{A} are {g['aw']}-{g['al']}, scoring {g['apf']} and conceding {g['apa']}",
         f"The visitors counter at {g['aw']}-{g['al']} with {g['apf']} for and {g['apa']} against",
-        f"{A} bring a {g['aw']}-{g['al']} mark and a {g['apf']}:{g['apa']} scoring split into the {day} game",
+        f"{A} bring a {g['aw']}-{g['al']} mark and {an(g['apf'])} {g['apf']}:{g['apa']} scoring split into the {day} game",
     ])
     proj = rot(r["id"] + "p", [
         f"Those rates and the home floor land the game near {g['x']}-{g['y']}",
