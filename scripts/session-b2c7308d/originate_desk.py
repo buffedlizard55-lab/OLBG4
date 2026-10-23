@@ -343,9 +343,8 @@ def parse_nhl(reader: CaptureReader) -> None:
         ph = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(i)) for i in range(13))
         pt = sum(poisson_pmf(lam_h, i) * poisson_pmf(lam_a, i) for i in range(13))
         p_home = ph + 0.5 * pt
-        cover_h = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(max(0, i - 2), i)) for i in range(13))
+        cover_h = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(0, i - 2)) for i in range(13))
         pt2 = sum(poisson_pmf(lam_h, i) * poisson_pmf(lam_a, i) for i in range(13))
-        cover_h = cover_h + 0.5 * pt2
         tot = lam_h + lam_a
         p_under = sum(poisson_pmf(tot, k) for k in range(7)) + 0.5 * poisson_pmf(tot, 6)  # line 6.0
         p_under = min(1.0, max(0.0, p_under))
@@ -431,7 +430,7 @@ def parse_mlb(reader: CaptureReader) -> None:
             ph = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(i)) for i in range(15))
             pt = sum(poisson_pmf(lam_h, i) * poisson_pmf(lam_a, i) for i in range(15))
             p_home = ph + 0.5 * pt
-            cover_h = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(max(0, i - 2), i)) for i in range(15)) + 0.5 * sum(poisson_pmf(lam_h, i) * poisson_pmf(lam_a, i) for i in range(15))
+            cover_h = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(0, i - 1)) for i in range(15))
             tot = lam_h + lam_a
             p_under = min(1.0, max(0.0, sum(poisson_pmf(tot, k) for k in range(8)) + 0.5 * poisson_pmf(tot, 7)))
             h_hit = hitting.get(hm["team"]["id"], {})
@@ -523,7 +522,7 @@ def parse_euroleague(reader: CaptureReader) -> None:
             diff = mu_h - mu_a
             sigma = 10.5
             p_home = 1 - norm_cdf(0, diff, sigma)
-            p_cover = 1 - norm_cdf(-4.5, diff, sigma)
+            p_cover = 1 - norm_cdf(4.5, diff, sigma)  # P(home wins by > 4.5)
             total = mu_h + mu_a
             total_line = round(total * 2) / 2
             p_over = 1 - norm_cdf(total_line, total, sigma * math.sqrt(2) / 2 * 1.35)
@@ -566,8 +565,20 @@ def parse_shl(reader: CaptureReader) -> None:
             name = r[1].strip()
             table[name] = {"gp": int(r[2]), "w": int(r[3]), "t": int(r[4]), "l": int(r[5]),
                            "gf": int(r[6]), "ga": int(r[7]), "pts": int(r[8])}
-    # upcoming fixtures block: "2026-10-24 15:15 TEAM - TEAM Venue"
-    fixtures = re.findall(r"(2026-10-\d{2} \d{2}:\d{2}) ([^0-9][A-Za-zÅÄÖåäöéÉü .\-]+?) - ([A-Za-zÅÄÖåäöéÉü .\-]+?) ([A-ZÅÄÖ][A-Za-zÅÄÖåäöéÉü .\-&]+?)(?= 2026-10-\d{2}| Group Standings|$)", t)
+    # upcoming fixtures block: "2026-10-24 15:15 TEAM - TEAM Venue". Team names ending
+    # in uppercase tokens (AIK, BK, HC, IF) defeat a naive venue split, so each side is
+    # resolved against the parsed standings names (longest official-name prefix wins)
+    # and the venue is whatever trailing text remains.
+    fixtures = []
+    for seg in re.split(r"(?=2026-10-\d{2})", t):
+        m = re.match(r"(2026-10-\d{2} \d{2}:\d{2}) (.+?) - (.+)", seg)
+        if not m:
+            continue
+        when, left, right = m.group(1), m.group(2).strip(), m.group(3).strip()
+        a = next((k for k in sorted(table, key=len, reverse=True) if left == k), None)
+        b = next((k for k in sorted(table, key=len, reverse=True) if right.startswith(k)), None)
+        if a and b:
+            fixtures.append((when, a, b, right[len(b):].strip()))
     if not table:
         flag("AH-F-SHL-01", "review", "Ice Hockey", "SHL standings not parsed",
              "The SHL overview page captured but the standings regex found no rows; upcoming SHL fixtures published unpriced.", url)
@@ -593,7 +604,7 @@ def parse_shl(reader: CaptureReader) -> None:
         pb = sum(poisson_pmf(lam_b, i) * sum(poisson_pmf(lam_a, j) for j in range(i)) for i in range(13))
         pt = sum(poisson_pmf(lam_b, i) * poisson_pmf(lam_a, i) for i in range(13))
         p_home = pb + 0.5 * pt
-        cover_b = sum(poisson_pmf(lam_b, i) * sum(poisson_pmf(lam_a, j) for j in range(max(0, i - 2), i)) for i in range(13)) + 0.5 * sum(poisson_pmf(lam_b, i) * poisson_pmf(lam_a, i) for i in range(13))
+        cover_b = sum(poisson_pmf(lam_b, i) * sum(poisson_pmf(lam_a, j) for j in range(0, i - 2)) for i in range(13))
         p_under = min(1.0, max(0.0, sum(poisson_pmf(lam_a + lam_b, k) for k in range(7)) + 0.5 * poisson_pmf(lam_a + lam_b, 6)))
         markets = {
             "match_winner": {"market_name": "Money Line", "line": None, "prob_sum": 1.0,
@@ -661,7 +672,7 @@ def parse_liiga(reader: CaptureReader) -> None:
         ph = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(i)) for i in range(13))
         pt = sum(poisson_pmf(lam_h, i) * poisson_pmf(lam_a, i) for i in range(13))
         p_home = ph + 0.5 * pt
-        cover_h = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(max(0, i - 2), i)) for i in range(13)) + 0.5 * pt
+        cover_h = sum(poisson_pmf(lam_h, i) * sum(poisson_pmf(lam_a, j) for j in range(0, i - 2)) for i in range(13))
         p_under = min(1.0, max(0.0, sum(poisson_pmf(lam_h + lam_a, k) for k in range(7)) + 0.5 * poisson_pmf(lam_h + lam_a, 6)))
         markets = {
             "match_winner": {"market_name": "Money Line", "line": None, "prob_sum": 1.0,
@@ -819,7 +830,9 @@ def parse_atp(reader: CaptureReader) -> None:
             seeds_note = f" main-draw PDF verifies seed {sa.split()[-1]}={seed_a}" if seed_a else ""
         seed_edge = 0.22 * ((seed_b if seed_b else 9) - (seed_a if seed_a else 9))
         p_a = min(0.85, max(0.15, 1 / (1 + math.exp(-seed_edge))))
-        p_over = min(0.95, max(0.05, 1 - 0.62))
+        # same documented total-games model as the WTA parser (baseline 62% three-set
+        # rate at even money, falling with the mismatch)
+        p_over = min(0.92, max(0.10, 0.62 - 0.686 * abs(p_a - 0.5)))
         comp_name = {"Lyon": "Grand Prix Auvergne-Rhone-Alpes (Lyon, Challenger 175)",
                      "Almaty": "Almaty Open (ATP 250)", "Brussels": "European Open (Brussels, ATP 250)"}[tour]
         markets = {

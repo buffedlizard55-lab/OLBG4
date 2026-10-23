@@ -1,7 +1,16 @@
 {
  "board": "AH",
- "generated_utc": "2026-10-23T16:48:27+00:00",
+ "generated_utc": "2026-10-23T16:53:30+00:00",
  "flags": [
+  {
+   "id": "AH-F-SHL-02",
+   "severity": "review",
+   "sport": "Ice Hockey",
+   "title": "SHL start times are local",
+   "detail": "stats.swehockey.se publishes round fixtures with local Swedish times only; rows carry start_local, start_utc left blank rather than inferred.",
+   "evidence_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+   "manual_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"
+  },
   {
    "id": "AH-F-ATP-03",
    "severity": "review",

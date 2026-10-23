@@ -143,7 +143,7 @@ def parse_handball_danish(reader, new_row, sel_row, two_way_market, finish_pick,
             "match_winner": {"market_name": "Money Line", "line": None, "prob_sum": 1.0,
                              "selections": [sel_row(b, p_home), sel_row(a, 1 - p_home)]},
             "handicap": {**two_way_market("Handicap", p_cover, line=-3.5),
-                         "selections": [sel_row(f"{b} -3.5", p_cover), sel_row(f"{a} +3.5", 1 - p_cover)]},
+                         "selections": [sel_row(f"{a} -3.5", p_cover), sel_row(f"{b} +3.5", 1 - p_cover)]},
             "total": {**two_way_market("Total Goals", p_over, line=tl),
                       "selections": [sel_row(f"Over {tl}", p_over), sel_row(f"Under {tl}", 1 - p_over)]},
         }
