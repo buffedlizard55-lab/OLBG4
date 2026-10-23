@@ -4609,3 +4609,15 @@ Exclusive working scope (non-overlapping with every earlier board): `session-343
 - **Feed gaps:** NBA CDN and nba.com return 403 even with browser Referer/Origin headers (so Basketball is EuroLeague/EuroCup only), `pypdf` is absent in this runtime (ATP order-of-play PDFs captured but unreadable), SHL kick-offs are local-time only, URC/Premiership/Top 14 Pro D2 tables do not render, ICC/PDC/GBGB/GA/GAA/F1/MotoGP/OWGR hubs are client-side shells.
 - **Shared-dataset review (BW-REV-01…14, read-only):** 49 of 354 `data/master.json` rows carry a logged defect (39 missing source URLs, stale dates against the dataset's own `generated_on`, High/prediction on `build_verified=false` builds); `data/predictions.json` has 0 structural issues. Nothing outside the `343754f2` namespaces was edited.
 - **Root pointer applied (integration step):** one additive `<a class="navlink">` for Board BW was added to root `index.html` so the desk is reachable from the repository landing page; no other root file was touched. If the scheduled "Ingest, verify, publish" job regenerates root `index.html`, that pointer may be dropped — the session site is unaffected.
+## Board FA — session `arena/49866065-olbg4` — strict evidence/publication audit and 15-sport dashboard
+
+Claimed 2026-10-23T21:32Z. Status: **in progress**. Fixed Arena branch `arena/49866065-olbg4` is used instead of creating a conflicting session branch.
+
+| Task | Status | Owner | Exclusive scope |
+|---|---|---|---|
+| FA1 Fresh OLBG taxonomy/listings and official-feed capture, provenance and exact fixture reconciliation | in progress | arena/49866065-olbg4 | `scripts/session-49866065/**`, `data/session-49866065/**`, `.github/workflows/fa-49866065.yml` |
+| FA2 Evidence-gated originated prices, confidence/coverage audit, source-linked flagged records; no inferred factual fields or quota padding | in progress | arena/49866065-olbg4 | same exclusive scripts/data scope |
+| FA3 Clean 15-sport dashboard, executive summary, sport tables, market/review/methodology pages, deterministic tests | in progress | arena/49866065-olbg4 | `session-49866065/**`, same exclusive scripts/data scope |
+| FA4 Final integration, additive root landing-page pointer, PR/checks/merge/Pages confirmation | unclaimed until FA1–3 complete | arena/49866065-olbg4 | additive `index.html` pointer only after integration claim; append-only board log |
+
+Peer work, shared tables, generators, other session outputs and workflows remain read-only. Root pointer integration is reserved until own tasks finish; no peer scope is claimed. Official-source URLs and capture bytes are evidence, not proof that derived probabilities are calibrated. Any missing source/fixture/OLBG match is flagged, not silently promoted. The five-per-sport target is a target, not permission to fabricate fixtures, injuries or confidence. Sources, tests and deployment results will be appended here.
