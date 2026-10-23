@@ -136,7 +136,10 @@ def process_target(idx: int, item: dict, out_dir: str) -> tuple[int, dict]:
     rec.update(status=status, final_url=final_url, content_type=ctype, error=err or None)
     if status == 200 and body:
         digest = hashlib.sha256(body).hexdigest()
-        fname = f"{tid}.{ext_for(ctype, url)}"
+        ext = ext_for(ctype, url)
+        # gzip-compressed HTML must not carry a bare .html name: the repository-wide
+        # publication audit reads every *.html as UTF-8 text (see PR #139 convention).
+        fname = f"{tid}.{ext}" + (".gz" if ext == "html" else "")
         path = Path(out_dir) / fname
         path.parent.mkdir(parents=True, exist_ok=True)
         buf = io.BytesIO()
