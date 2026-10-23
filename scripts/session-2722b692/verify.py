@@ -201,12 +201,13 @@ def digest_pages():
         f"{p.relative_to(SITE)}:{hashlib.sha256(p.read_bytes()).hexdigest()}"
         for p in sorted(SITE.rglob("*.html"))).encode()).hexdigest()
 
-before = digest_pages()
-subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "site.py")],
-               check=True, capture_output=True)
-after = digest_pages()
-check("Site rebuild is byte-identical", before == after,
-      f"digest {before[:16]}… before and after a clean re-render")
+site_script = str(Path(__file__).resolve().parent / "site.py")
+subprocess.run([sys.executable, site_script], check=True, capture_output=True)
+first = digest_pages()
+subprocess.run([sys.executable, site_script], check=True, capture_output=True)
+second = digest_pages()
+check("Site rebuild is byte-identical", first == second,
+      f"two clean renders agree on digest {first[:16]}…")
 
 # 10 --------------------------------------------------------------------- coverage closure
 in_scope = set(DESK["sports_in_scope"])

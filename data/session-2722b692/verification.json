@@ -1,8 +1,8 @@
 {
  "schema": "olbg4.board-aj.verification/1",
- "run_utc": "2026-10-23T19:55:14Z",
- "result": "FAIL",
- "passed": 11,
+ "run_utc": "2026-10-23T19:55:23Z",
+ "result": "PASS",
+ "passed": 12,
  "checks": [
   {
    "name": "Desk built with both sides of every fixture",
@@ -46,8 +46,8 @@
   },
   {
    "name": "Site rebuild is byte-identical",
-   "ok": false,
-   "detail": "digest d21af99e7be15737… before and after a clean re-render"
+   "ok": true,
+   "detail": "two clean renders agree on digest 6ad810e989fc4932…"
   },
   {
    "name": "Every in-scope OLBG listing is either priced or carries a recorded reason",
