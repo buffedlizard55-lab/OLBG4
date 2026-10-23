@@ -1,0 +1,52 @@
+name: Board BW official capture (343754f2)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/343754f2-olbg4
+    paths:
+      - "scripts/session-343754f2/targets.json"
+      - "scripts/session-343754f2/fetch.py"
+      - ".github/workflows/bw-343754f2.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bw-343754f2-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/343754f2-olbg4
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG hubs + official governing-body feeds with SHA-256 manifest
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-343754f2/fetch.py scripts/session-343754f2/targets.json "data/session-343754f2/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+      - name: Commit capture (even partial) to arena/343754f2-olbg4
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-bw-capture[bot]"
+          git config user.email "board-bw-capture@users.noreply.github.com"
+          mkdir -p data/session-343754f2/logs
+          cp /tmp/capture.log "data/session-343754f2/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-343754f2
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board BW (343754f2): official capture ${{ env.STAMP }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/343754f2-olbg4 && git push origin HEAD:arena/343754f2-olbg4 && break
+            sleep 5
+          done
