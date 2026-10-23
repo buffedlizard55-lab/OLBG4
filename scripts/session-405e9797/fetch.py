@@ -136,7 +136,10 @@ def process_target(idx: int, item: dict, out_dir: str) -> tuple[int, dict]:
     rec.update(status=status, final_url=final_url, content_type=ctype, error=err or None)
     if status == 200 and body:
         digest = hashlib.sha256(body).hexdigest()
-        fname = f"{tid}.{ext_for(ctype, url)}"
+        fname = f"{tid}.{ext_for(ctype, url)}.gz"
+        # gzip payloads are stored with an explicit .gz suffix so that repository-wide
+        # tools that walk *.html never try to UTF-8 decode compressed bytes (Board AR fix
+        # for the publication-audit crash traced to peer capture files).
         path = Path(out_dir) / fname
         path.parent.mkdir(parents=True, exist_ok=True)
         buf = io.BytesIO()
