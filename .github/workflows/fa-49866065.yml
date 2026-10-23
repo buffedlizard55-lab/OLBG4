@@ -1,5 +1,8 @@
 name: FA evidence capture and strict dashboard tests
 on:
+  push:
+    branches: [arena/49866065-olbg4]
+    paths: [scripts/session-49866065/targets.json, scripts/session-49866065/capture.py, .github/workflows/fa-49866065.yml]
   workflow_dispatch:
     inputs:
       capture:
@@ -24,16 +27,16 @@ jobs:
         with:
           python-version: '3.12'
       - name: Fresh public source capture
-        if: github.event_name == 'workflow_dispatch' && inputs.capture
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.capture)
         run: python scripts/session-49866065/capture.py
       - name: Upload fresh evidence without mutating a branch
-        if: github.event_name == 'workflow_dispatch' && inputs.capture
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.capture)
         uses: actions/upload-artifact@v4
         with:
           name: fa-evidence
           path: data/session-49866065/capture/
       - name: Offline tests and deterministic publication gate
-        if: github.event_name == 'pull_request' || !inputs.capture
+        if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && !inputs.capture)
         run: |
           python -m unittest discover -s scripts/session-49866065 -p 'test_*.py' -v
           python scripts/session-49866065/build.py
