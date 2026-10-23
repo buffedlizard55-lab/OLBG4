@@ -188,6 +188,7 @@ Two other sessions reached the integration step at the same time and their work 
   pages are kept byte-for-byte as `session-6b8d2d5f/hub-2026-10-21.html` and `hub-flagged-2026-10-21.html`.
 - **Board L — `session-093bfd5e/`** — re-checked all 66 hub rows and downgraded 19 to unverified+flagged.
 - **Board K (second claimant, `arena/082d3c16-olbg4`)** — rebuilt the hub from a frozen snapshot with an evidence
+- **Board AK** — 15-sport desk from today's official feeds: [session-63ad3394/index.html](session-63ad3394/index.html)
   register: it reported 25 of 68 rows CONFIRMED on an official feed, 2 partial and 41 UNVERIFIED, withdrew all 66
   previous prediction texts and published 3. Its pages are preserved under `session-082d3c16/`, its registers under
   `data/board_k/` and its dashboard at `verification.html`.

@@ -1,0 +1,189 @@
+{
+ "schema": "olbg4.board-ak.review/1",
+ "generated_utc": "2026-10-23T19:51:14Z",
+ "note": "Each desk check recomputes what arithmetic allows and re-reads a fixed list of figures from the committed official payload. A pass says the published number agrees with the page it came from, nothing more.",
+ "counts": {
+  "total": 22,
+  "pass": 19,
+  "flag": 3,
+  "fail": 0
+ },
+ "findings": [
+  {
+   "id": "R4",
+   "area": "repository",
+   "check": "The master board contains no sport outside the fifteen in the brief",
+   "result": "flag",
+   "detail": "outside-scope sports still present in data/master.json: Aussie Rules, Badminton, Esports, Gaelic Football, Greyhound Racing, Table Tennis (they are marked in_scope=false, but they ship with the site)",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "R5",
+   "area": "repository",
+   "check": "OLBG sport hubs still publish their event/tip listings in the server-rendered HTML",
+   "result": "flag",
+   "detail": "15 hubs answered 200 and the market labels were read from the page, but each hub body contains \"No tips found\" and the listing itself is fetched from an XHR endpoint that robots.txt disallows (/api/), so only 178 tip rows in total could be read from the HTML. Earlier boards' OLBG event counts cannot be reproduced from a robots-compliant crawl.",
+   "source_url": "https://www.olbg.com/betting-tips/Baseball/12"
+  },
+  {
+   "id": "R6",
+   "area": "repository",
+   "check": "COORDINATION.md holds no claim that is still 'in progress' from an earlier session",
+   "result": "flag",
+   "detail": "claim ids still marked in progress/claimed: AB1, AD1, AD2, AD3, AD4, AD5, AD6, AF1, AH1, AI1, AK1, AP1",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/COORDINATION.md"
+  },
+  {
+   "id": "D1",
+   "area": "desk",
+   "check": "Every carried market prices a complete book (two-way books sum to 1, multi-way books never exceed 1), with decimal = 1/p and the American price derived from the same rounded probability",
+   "result": "pass",
+   "detail": "153 priced fixtures, 724 markets checked; 0 problem(s)",
+   "source_url": null
+  },
+  {
+   "id": "D2",
+   "area": "desk",
+   "check": "Form arithmetic: W+L(+OTL) equals games played, and the quoted margin equals scoring rate minus conceding rate",
+   "result": "pass",
+   "detail": "0 problem(s)",
+   "source_url": null
+  },
+  {
+   "id": "D3",
+   "area": "desk",
+   "check": "Every fixture row carries an official URL from the capture target list and the SHA-256 of the committed payload it was parsed from",
+   "result": "pass",
+   "detail": "171 rows; missing/unknown source on 0",
+   "source_url": null
+  },
+  {
+   "id": "D4",
+   "area": "desk",
+   "check": "No fixture that had already started at capture time is published as an upcoming pick",
+   "result": "pass",
+   "detail": "4 rows were in play; 0 of them carry a pick",
+   "source_url": null
+  },
+  {
+   "id": "D5",
+   "area": "desk",
+   "check": "Every unpriced fixture states, in the row, why no line is published (never a guessed line)",
+   "result": "pass",
+   "detail": "18 unpriced fixtures; 0 without a reason",
+   "source_url": null
+  },
+  {
+   "id": "D6",
+   "area": "predictions",
+   "check": "All 32 published write-ups are 30+ words, free of the words 'model' and 'verified', and carry their official source",
+   "result": "pass",
+   "detail": "32 write-ups, shortest 51 words; 0 problem(s)",
+   "source_url": null
+  },
+  {
+   "id": "D7",
+   "area": "predictions",
+   "check": "No two published write-ups are the same text, and no pair of write-ups shares more than a third of its three-word runs",
+   "result": "pass",
+   "detail": "worst pair ['el_games-76', 'el_games-90'] at 0.106 Jaccard",
+   "source_url": null
+  },
+  {
+   "id": "D8",
+   "area": "predictions",
+   "check": "Each write-up names the selection it is attached to",
+   "result": "pass",
+   "detail": "0 write-up(s) do not repeat the selection name",
+   "source_url": null
+  },
+  {
+   "id": "S1",
+   "area": "Ice Hockey",
+   "check": "Edmonton Oilers 8-1 and 17 points (NHL standings payload)",
+   "result": "pass",
+   "detail": "figure found in the captured page",
+   "source_url": "https://api-web.nhle.com/v1/standings/now"
+  },
+  {
+   "id": "S2",
+   "area": "Basketball",
+   "check": "Panathinaikos 6-1 in the EuroLeague game feed",
+   "result": "pass",
+   "detail": "figure found in the captured page",
+   "source_url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games"
+  },
+  {
+   "id": "S3",
+   "area": "Rugby Union",
+   "check": "Stade Toulousain 24 league points from six rounds (LNR table)",
+   "result": "pass",
+   "detail": "figure found in the captured page",
+   "source_url": "https://top14.lnr.fr/classement"
+  },
+  {
+   "id": "S4",
+   "area": "Baseball",
+   "check": "Milwaukee Brewers 103-59 in the MLB standings payload",
+   "result": "pass",
+   "detail": "figure found in the captured page",
+   "source_url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+  },
+  {
+   "id": "S5",
+   "area": "Golf",
+   "check": "Kensei Hirata tied first at -13 through two rounds (PGA TOUR leaderboard)",
+   "result": "pass",
+   "detail": "figure found in the captured page",
+   "source_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/leaderboard"
+  },
+  {
+   "id": "S6",
+   "area": "Motor Racing",
+   "check": "Mercedes on 578 points (formula1.com constructors' standings)",
+   "result": "pass",
+   "detail": "figure found in the captured page",
+   "source_url": "https://www.formula1.com/en/results/2026/team"
+  },
+  {
+   "id": "S7",
+   "area": "Darts",
+   "check": "Stephen Bunting 28 legs to 18 (PDC match feed)",
+   "result": "pass",
+   "detail": "figure found in the captured page",
+   "source_url": "https://fixtures.darts.web.gc.pdcservices.co.uk/v2/?page.size=100"
+  },
+  {
+   "id": "S8",
+   "area": "Snooker",
+   "check": "Sam Craigie 14 frames to 7 (WST match feed)",
+   "result": "pass",
+   "detail": "figure found in the captured page",
+   "source_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=100"
+  },
+  {
+   "id": "R1",
+   "area": "repository",
+   "check": "scripts/audit_publication.py runs to completion on the repository",
+   "result": "pass",
+   "detail": "no gzip payloads are committed under a .html name",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/audit_publication.py"
+  },
+  {
+   "id": "R2",
+   "area": "repository",
+   "check": "data/master.json row ids are unique",
+   "result": "pass",
+   "detail": "354 rows, 0 duplicate id(s)",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "R3",
+   "area": "repository",
+   "check": "Every sourced row in data/master.json cites a domain that is in data/source_registry.json",
+   "result": "pass",
+   "detail": "315 sourced rows; 0 unregistered",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/source_registry.json"
+  }
+ ]
+}
