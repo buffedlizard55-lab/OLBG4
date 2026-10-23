@@ -4115,3 +4115,32 @@ unconfirmed values into the canonical master and does not claim a live re-fetch 
 - Post-merge checks all passed on `06259b3`: Board AH gate `39987891703`, Validate data/site `39987891754`, integrated verify `39987891764`, repository-wide audit `39987891676`.
 - GitHub Pages deployment passed: `Deploy OLBG4 to GitHub Pages` run `39987891671`; legacy `pages build and deployment` run `39987890516`; Pages API reports `status=built`, `error.message=null`, commit `06259b3bdaca1bf8eb11046b4c44a456d7e42c04`, updated 2026-10-23T16:35:05Z. Published dashboard: https://buffedlizard55-lab.github.io/OLBG4/session-6846f1ab/.
 - Final Board AH status: **done, merged, and deployed**. Flagged findings are intentionally non-blocking and remain on the live Flagged for Review page.
+## Board AI — session `arena/2c05e0b2-olbg4` (2026-10-23 fresh 15-sport official-source desk: OLBG reverse-engineering, own multi-market lines, ≥5 High-confidence human predictions per covered sport, repo line-by-line review, dashboard, integration)
+
+Session: `arena/2c05e0b2-olbg4` · Branch: `arena/2c05e0b2-olbg4` (fixed Arena branch) · Claimed: **2026-10-23T16:20Z UTC** · **status: in progress**
+
+**Non-overlapping scope.** Exclusive: `session-2c05e0b2/**`, `data/session-2c05e0b2/**`, `scripts/session-2c05e0b2/**`,
+`.github/workflows/ai-2c05e0b2.yml`, and append-only entries in this file. Everything else — `data/master.json`,
+`board/`, all root `*.html`, every other `session-*/`, `data/session-*/`, `scripts/**`, `pipeline/**`, `tools/**` and
+all other `.github/workflows/*.yml` — is **read-only** for Board AI. Findings that would need another owner's file are
+logged here as integration requests, not applied.
+
+**Sports in scope (exactly the brief's list, 15):** Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball,
+Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League.
+Out of scope and never published: soccer/football, American football, boxing, UFC/MMA, horse racing, cycling, hurling, specials.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AI1 | Live OLBG.com reverse-engineering (sport taxonomy + market names) and fresh official fixture capture for 23 Oct – 5 Nov 2026, raw bytes + SHA-256 manifest committed by an Actions runner with open egress | in progress | arena/2c05e0b2-olbg4 | `scripts/session-2c05e0b2/fetch.py`, `data/session-2c05e0b2/capture/**`, `.github/workflows/ai-2c05e0b2.yml` |
+| AI2 | Originate own lines (match winner/1X2, handicap/spread, match total, sport derivative) for every verified fixture; pick a winner; label Low/Medium/High; record every market investigated | pending | arena/2c05e0b2-olbg4 | `scripts/session-2c05e0b2/originate.py`, `data/session-2c05e0b2/desk.json` |
+| AI3 | High-confidence focus: ≥70 % own-line probability inside −250…+10,000 American; ≥5 unique human predictions (≥30 words) per covered sport, each naming teams/players, verified form, recent results, statistics and stating the selection | pending | arena/2c05e0b2-olbg4 | `scripts/session-2c05e0b2/predictions.py`, `data/session-2c05e0b2/predictions.json` |
+| AI4 | Line-by-line review of the repo's shared datasets against official sources; publish exact defects with manual-review URLs on a Flagged for Review page | pending | arena/2c05e0b2-olbg4 | `scripts/session-2c05e0b2/review.py`, `data/session-2c05e0b2/repo_review.json` |
+| AI5 | Dashboard-style GitHub Pages site in `session-2c05e0b2/` (landing, executive summary, per-sport subpages, entries/markets/picks/coverage/sources/methodology/verification/flagged); every table row carries an official source link, unconfirmed cells blank + flagged | pending | arena/2c05e0b2-olbg4 | `session-2c05e0b2/**`, `scripts/session-2c05e0b2/build_site.py` |
+| AI6 | Verification gate, link audit, `git pull --rebase`, PR to `main`, merge without waiting, confirm Pages deploy, record PR + merge result here | pending | arena/2c05e0b2-olbg4 | `scripts/session-2c05e0b2/verify.py`, `COORDINATION.md` |
+
+### AI working log
+- `2026-10-23T16:20Z` — `2c05e0b2` — Board AI claimed and pushed before any other work. Checked every board section in
+  this file plus the peer claim from `arena/c10a7aca-olbg4` (fresh 15-sport desk); that session owns only its own
+  `session-c10a7aca/**` tree, so this board's `session-2c05e0b2/**` scope does not overlap. Local bash egress in this
+  sandbox is blocked (TLS reset to every non-allow-listed host), so official pages are captured by an Actions runner
+  and parsed from the committed bytes.
