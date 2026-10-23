@@ -17,7 +17,8 @@ from common import american, decimal, logistic, norm, normal_cdf, odds_american,
 HIGH_MIN_PROBABILITY = 0.70
 HIGH_MIN_AMERICAN = -250
 HIGH_MAX_AMERICAN = 10000
-SHORTLIST_HOURS = 36
+SHORTLIST_HOURS = 168
+EXECUTIVE_WINDOW_HOURS = 36
 
 
 def price(probability: float) -> dict:
@@ -371,6 +372,72 @@ def originate_snooker(event: dict) -> bool:
     return True
 
 
+def _darts_analysis(event: dict, a: dict, b: dict) -> str:
+    side1, side2 = event["official_side1"], event["official_side2"]
+    selected = a if event["prediction"] == side1 else b
+    latest = (selected.get("recent") or [{}])[0]
+    outcome = "win over" if latest.get("result") == "W" else "loss to"
+    latest_text = (f"One captured official match in the selection's five-match record was a "
+                   f"{latest.get('team_score', '')}–{latest.get('opponent_score', '')} {outcome} {latest.get('opponent', '')}"
+                   if latest else "No completed match was present in the selected player's captured five-match record")
+    return (f"{event['prediction']} is the match-winner selection at {event['predicted_probability']:.1%}, "
+            f"equivalent to fair American odds {event['fair_american']:+d}. Official PDC rankings place {side1} "
+            f"No. {a['ranking']} and {side2} No. {b['ranking']}. Their captured five-match records contain "
+            f"{sum(r['result'] == 'W' for r in a['recent'])} wins from {len(a['recent'])} and "
+            f"{sum(r['result'] == 'W' for r in b['recent'])} wins from {len(b['recent'])}, respectively. "
+            f"{latest_text}. The {event['official_detail'].get('stage')} is first to "
+            f"{event['official_detail'].get('wins_needed')} legs at {event['official_detail'].get('venue')}; "
+            f"leg handicaps and total legs are priced separately from the winner call.")
+
+
+def originate_darts(event: dict) -> bool:
+    stats = event.get("official_stats") or {}
+    a, b = stats.get("side1"), stats.get("side2")
+    if not a or not b or not a.get("ranking") or not b.get("ranking"):
+        return False
+    if len(a.get("recent") or []) < 3 or len(b.get("recent") or []) < 3:
+        return False
+    def form(side):
+        rows = side["recent"][:5]
+        return (sum(r["result"] == "W" for r in rows) + 2) / (len(rows) + 4)
+    rank_term = math.log((float(b["ranking"]) + 10) / (float(a["ranking"]) + 10))
+    x = 1.15 * rank_term + 2.2 * (form(a) - form(b))
+    p1 = logistic(x)
+    side1, side2 = event["official_side1"], event["official_side2"]
+    p = max(p1, 1 - p1)
+    event.update(prediction=side1 if p1 >= 0.5 else side2, predicted_probability=round(p, 5),
+                 opponent_probability=round(1 - p, 5), fair_american=american(p), fair_decimal=decimal(p),
+                 side1_probability=round(p1, 5), side2_probability=round(1 - p1, 5))
+    needed = int(event["official_detail"].get("wins_needed") or 6)
+    q = _solve_unit_probability(p1, needed)
+    a_scores = {k: math.comb(needed + k - 1, k) * q ** needed * (1 - q) ** k for k in range(needed)}
+    b_scores = {k: math.comb(needed + k - 1, k) * (1 - q) ** needed * q ** k for k in range(needed)}
+    a_minus = sum(v for k, v in a_scores.items() if needed - k >= 2)
+    total_line = 9.5 if needed == 6 else 15.5 if needed == 10 else float(2 * needed - 2) - 0.5
+    threshold = int(total_line + 0.5)
+    over = sum(v for k, v in a_scores.items() if needed + k > total_line) + sum(v for k, v in b_scores.items() if needed + k > total_line)
+    best_a = max(a_scores, key=a_scores.get)
+    best_b = max(b_scores, key=b_scores.get)
+    if a_scores[best_a] >= b_scores[best_b]:
+        correct_selection, correct_p = f"{side1} {needed}–{best_a}", a_scores[best_a]
+    else:
+        correct_selection, correct_p = f"{side2} {needed}–{best_b}", b_scores[best_b]
+    event["markets"] = [market_row("Match winner", side1, p1), market_row("Match winner", side2, 1 - p1),
+                        market_row("Leg handicap", f"{side1} -1.5 legs", a_minus, "-1.5"),
+                        market_row("Leg handicap", f"{side2} +1.5 legs", 1 - a_minus, "+1.5"),
+                        market_row("Total legs", f"Over {total_line} legs", over, str(total_line)),
+                        market_row("Total legs", f"Under {total_line} legs", 1 - over, str(total_line)),
+                        market_row("Correct leg score", correct_selection, correct_p)]
+    event["market_review"] = [
+        {"market": "Match winner", "status": "Originated from official PDC rankings and five-match results."},
+        {"market": "Leg handicap / correct score", "status": f"Originated from the official first-to-{needed} format."},
+        {"market": "Total legs", "status": f"Originated at {total_line}; 180 and checkout props left blank without dedicated official inputs."},
+    ]
+    event["confidence"] = "High" if p >= HIGH_MIN_PROBABILITY else "Medium" if p >= 0.58 else "Low"
+    event["analysis"] = _darts_analysis(event, a, b)
+    return True
+
+
 def originate(events: list[dict], cutoff) -> None:
     baselines = _team_baselines(events)
     for event in events:
@@ -399,6 +466,8 @@ def originate(events: list[dict], cutoff) -> None:
             ok = originate_wta(event)
         elif family == "wst_season_stats":
             ok = originate_snooker(event)
+        elif family == "pdc_ranking_form":
+            ok = originate_darts(event)
         if not ok:
             event["market_review"] = [{"market": "Match winner / handicap / total", "status": "Not originated: required official two-sided statistical fields are incomplete."}]
             event.setdefault("flags", []).append("Official fixture found, but required pricing inputs are incomplete.")
@@ -410,7 +479,12 @@ def originate(events: list[dict], cutoff) -> None:
                                    and HIGH_MIN_AMERICAN <= fair <= HIGH_MAX_AMERICAN)
         if event["confidence"] == "High" and not event["high_focus"]:
             event["flags"].append("High confidence, but fair American odds fall outside the requested focus range.")
-    # Strongest qualifying matches per covered sport in the daily 36-hour window.
+    # Strongest qualifying matches per covered sport in this daily build's
+    # seven-day publication window.  A separate 36-hour flag drives the
+    # executive "next 36 hours" section; it does not hide later qualifiers.
+    executive_horizon = cutoff + timedelta(hours=EXECUTIVE_WINDOW_HOURS)
+    for event in events:
+        event["within_36h"] = bool(event.get("start_utc") and utc(event["start_utc"]) <= executive_horizon)
     horizon = cutoff + timedelta(hours=SHORTLIST_HOURS)
     for sport in sorted({e["sport"] for e in events}):
         candidates = [e for e in events if e["sport"] == sport and e["high_focus"]

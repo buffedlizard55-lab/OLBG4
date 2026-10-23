@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 import re
 
-from common import EvidenceStore, clean_text, fixture, iso, team_side, utc
+from common import EvidenceStore, clean_text, fixture, iso, norm, team_side, utc
 
 
 def _summary_stats(gp: int, wins: int, losses: int, pf: float, pa: float, **extra) -> dict:
@@ -566,6 +566,89 @@ def parse_gaacork(store: EvidenceStore) -> list[dict]:
     return out
 
 
+def parse_pdc(store: EvidenceStore) -> list[dict]:
+    tournament_ev = store.get("pdc_tournament_10870")
+    if not tournament_ev:
+        return []
+    tournament = tournament_ev.json().get("data", {}).get("attributes", {})
+    profiles = {}
+    for target in store.records:
+        if not target.startswith("pdc_player_"):
+            continue
+        evidence = store.get(target)
+        payload = evidence.json()
+        data = payload.get("data", {})
+        attributes = data.get("attributes", {})
+        participant_id = str(attributes.get("participantID") or data.get("id") or "")
+        if not participant_id:
+            continue
+        included = payload.get("included") or []
+        names = {str(x.get("id")): x.get("attributes", {}) for x in included if x.get("type") == "participant"}
+        recent = []
+        for row in included:
+            if row.get("type") != "fixture":
+                continue
+            a = row.get("attributes", {})
+            p1 = str(a.get("participant1ID") or "")
+            p2 = str(a.get("participant2ID") or "")
+            if participant_id not in {p1, p2} or a.get("participant1Score") is None or a.get("participant2Score") is None:
+                continue
+            first = participant_id == p1
+            opponent_id = p2 if first else p1
+            opponent_attr = names.get(opponent_id, {})
+            opponent = " ".join(x for x in [opponent_attr.get("firstName"), opponent_attr.get("lastName")] if x)
+            score1 = int(a.get("participant1Score") or 0)
+            score2 = int(a.get("participant2Score") or 0)
+            recent.append({
+                "date": a.get("startDate") or "", "result": "W" if a.get("isWinner") is True else "L",
+                "team_score": score1 if first else score2, "opponent_score": score2 if first else score1,
+                "opponent": opponent, "tournament": (a.get("tournament") or {}).get("name", ""),
+                "stage": ((a.get("tournamentStage") or {}).get("stage") or {}).get("name", ""),
+                "fixture_id": str(row.get("id") or ""),
+            })
+        recent.sort(key=lambda r: (r["date"], r["fixture_id"]), reverse=True)
+        career = (attributes.get("statistics") or {}).get("careerRecord") or []
+        senior = next((x for x in career if x.get("tournamentCategoryName") == "Senior PDC Titles"), {})
+        profiles[participant_id] = {
+            "participant_id": participant_id, "ranking": attributes.get("ranking"),
+            "prize_money": attributes.get("prizeMoney"), "recent": recent,
+            "senior_titles": senior.get("winCount"), "country": attributes.get("countryCode") or "",
+            "profile_url": evidence.url, "evidence_target": target,
+        }
+    out = []
+    for stage in tournament.get("stages") or []:
+        for row in stage.get("fixtures") or []:
+            p1, p2 = row.get("participant1"), row.get("participant2")
+            if row.get("status") != "Fixture" or not p1 or not p2:
+                continue
+            id1, id2 = str(p1["participantID"]), str(p2["participantID"])
+            if id1 not in profiles or id2 not in profiles:
+                continue
+            name1 = f"{p1['firstName']} {p1['lastName']}"
+            name2 = f"{p2['firstName']} {p2['lastName']}"
+            start = utc(f"{row['startDate']}T{row['startTime']}+00:00")
+            citations = [tournament_ev.citation(), store.get(profiles[id1]["evidence_target"]).citation(),
+                         store.get(profiles[id2]["evidence_target"]).citation()]
+            def side(pid, name, profile):
+                aliases = {norm(name), norm(name.replace("'", ""))}
+                return {"name": name, "common": "", "aliases": sorted(a for a in aliases if a),
+                        "participant_id": pid, "ranking": profile["ranking"]}
+            detail = {
+                "model_family": "pdc_ranking_form", "tournament": tournament.get("name"),
+                "venue": tournament.get("venue") or "", "stage": (stage.get("stage") or {}).get("name", ""),
+                "number_of_legs": int(stage.get("numberOfLegsPerSet") or 0),
+                "wins_needed": int(stage.get("numberOfLegsPerSet") or 0) // 2 + 1,
+                "start_date": row.get("startDate") or "", "start_time_local": row.get("startTime") or "",
+                "start_timezone_unverified": True,
+                "timezone_note": "PDC supplies date and clock fields without a timezone. UTC is published only where the clock value agrees exactly with OLBG's Unix timestamp.",
+            }
+            out.append(fixture(f"pdc:{row['fixtureID']}", "Darts",
+                               f"{tournament.get('name')} — {detail['stage']}", iso(start), tournament_ev.url,
+                               side(id1, name1, profiles[id1]), side(id2, name2, profiles[id2]), citations, detail,
+                               {"side1": profiles[id1], "side2": profiles[id2]}))
+    return out
+
+
 def parse_all(store: EvidenceStore) -> list[dict]:
     fixtures = []
     fixtures += parse_nhl(store)
@@ -577,4 +660,5 @@ def parse_all(store: EvidenceStore) -> list[dict]:
     fixtures += parse_snooker(store)
     fixtures += parse_legavolley(store)
     fixtures += parse_gaacork(store)
+    fixtures += parse_pdc(store)
     return fixtures

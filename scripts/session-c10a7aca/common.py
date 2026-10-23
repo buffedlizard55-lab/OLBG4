@@ -379,7 +379,10 @@ def reconcile(events: list[dict], official: list[dict], source_label: str,
             if event["start_utc"] and fixture.get("start_utc"):
                 delta = abs((utc(event["start_utc"]) - utc(fixture["start_utc"])).total_seconds())
                 if delta > 900:
-                    event["flags"].append(f"OLBG/official start differs by {round(delta / 60)} minutes; official time controls.")
+                    if (fixture.get("detail") or {}).get("start_timezone_unverified"):
+                        event["flags"].append(f"OLBG and official clock values differ by {round(delta / 60)} minutes; UTC is left blank pending timezone confirmation.")
+                    else:
+                        event["flags"].append(f"OLBG/official start differs by {round(delta / 60)} minutes; official time controls.")
                     event["verification"] = "Official fixture matched; start-time discrepancy flagged"
         elif len(candidates) > 1:
             event["flags"].append(f"Ambiguous official reconciliation: {len(candidates)} candidates retained for review.")
