@@ -284,16 +284,16 @@
     "league": "NHL",
     "current_season": "20262027",
     "current": {
-      "games": 1476,
+      "games": 1477,
       "seasons": [
         "20252026",
         "20262027"
       ],
-      "home_advantage": 0.196,
-      "league_total": 6.257,
+      "home_advantage": 0.202,
+      "league_total": 6.26,
       "sigma_margin": 2.524,
-      "sigma_total": 2.217,
-      "n_eff": 1476.0,
+      "sigma_total": 2.215,
+      "n_eff": 1477.0,
       "notes": [],
       "ratings": [
         {
@@ -308,8 +308,8 @@
           "team_id": "6",
           "team": "Boston Bruins",
           "rating": 0.87,
-          "offence": -0.37,
-          "defence": 0.22,
+          "offence": -0.38,
+          "defence": 0.21,
           "games": 93
         },
         {
@@ -333,23 +333,15 @@
           "team": "Tampa Bay Lightning",
           "rating": 0.68,
           "offence": -0.31,
-          "defence": 0.44,
+          "defence": 0.43,
           "games": 91
         },
         {
           "team_id": "22",
           "team": "Edmonton Oilers",
-          "rating": 0.54,
-          "offence": 0.66,
+          "rating": 0.53,
+          "offence": 0.65,
           "defence": 0.69,
-          "games": 92
-        },
-        {
-          "team_id": "68",
-          "team": "Utah Mammoth",
-          "rating": 0.44,
-          "offence": 0.5,
-          "defence": -0.08,
           "games": 92
         },
         {
@@ -358,6 +350,14 @@
           "rating": 0.4,
           "offence": -0.36,
           "defence": -0.17,
+          "games": 93
+        },
+        {
+          "team_id": "68",
+          "team": "Utah Mammoth",
+          "rating": 0.36,
+          "offence": 0.5,
+          "defence": 0.01,
           "games": 93
         },
         {
@@ -373,14 +373,14 @@
           "team": "Vegas Golden Knights",
           "rating": 0.27,
           "offence": 0.29,
-          "defence": -0.05,
+          "defence": -0.06,
           "games": 94
         },
         {
           "team_id": "15",
           "team": "Washington Capitals",
           "rating": 0.22,
-          "offence": 0.11,
+          "offence": 0.1,
           "defence": -0.04,
           "games": 91
         },
@@ -388,7 +388,7 @@
           "team_id": "3",
           "team": "New York Rangers",
           "rating": 0.22,
-          "offence": -0.22,
+          "offence": -0.23,
           "defence": -0.51,
           "games": 94
         },
@@ -435,31 +435,31 @@
         {
           "team_id": "1",
           "team": "New Jersey Devils",
-          "rating": -0.09,
-          "offence": -0.04,
+          "rating": -0.1,
+          "offence": -0.05,
           "defence": -0.12,
           "games": 92
         },
         {
           "team_id": "55",
           "team": "Seattle Kraken",
-          "rating": -0.24,
-          "offence": 0.26,
+          "rating": -0.15,
+          "offence": 0.37,
           "defence": 0.25,
-          "games": 92
+          "games": 93
         },
         {
           "team_id": "4",
           "team": "Philadelphia Flyers",
           "rating": -0.24,
-          "offence": -0.99,
+          "offence": -1.0,
           "defence": -0.45,
           "games": 94
         },
         {
           "team_id": "10",
           "team": "Toronto Maple Leafs",
-          "rating": -0.24,
+          "rating": -0.25,
           "offence": 0.32,
           "defence": 0.71,
           "games": 94
@@ -477,37 +477,37 @@
           "team": "Florida Panthers",
           "rating": -0.28,
           "offence": 0.14,
-          "defence": -0.13,
+          "defence": -0.14,
           "games": 93
         },
         {
           "team_id": "29",
           "team": "Columbus Blue Jackets",
           "rating": -0.28,
-          "offence": -0.02,
+          "offence": -0.03,
           "defence": -0.4,
           "games": 90
+        },
+        {
+          "team_id": "17",
+          "team": "Detroit Red Wings",
+          "rating": -0.3,
+          "offence": 0.15,
+          "defence": -0.67,
+          "games": 92
         },
         {
           "team_id": "52",
           "team": "Winnipeg Jets",
           "rating": -0.3,
-          "offence": -0.2,
-          "defence": -0.64,
-          "games": 92
-        },
-        {
-          "team_id": "17",
-          "team": "Detroit Red Wings",
-          "rating": -0.31,
-          "offence": 0.16,
-          "defence": -0.66,
+          "offence": -0.21,
+          "defence": -0.65,
           "games": 92
         },
         {
           "team_id": "28",
           "team": "San Jose Sharks",
-          "rating": -0.42,
+          "rating": -0.41,
           "offence": 0.39,
           "defence": 0.1,
           "games": 93
@@ -525,7 +525,7 @@
           "team": "Los Angeles Kings",
           "rating": -0.45,
           "offence": -0.72,
-          "defence": -0.07,
+          "defence": -0.08,
           "games": 90
         },
         {
@@ -539,9 +539,9 @@
         {
           "team_id": "20",
           "team": "Calgary Flames",
-          "rating": -1.01,
+          "rating": -1.0,
           "offence": -0.47,
-          "defence": -0.19,
+          "defence": -0.2,
           "games": 91
         },
         {
@@ -573,11 +573,11 @@
     "backtest": {
       "available": true,
       "train_games": 1312,
-      "holdout_games": 164,
+      "holdout_games": 165,
       "holdout_days": 30,
-      "accuracy": 0.622,
-      "brier": 0.2352,
-      "log_loss": 0.6625,
+      "accuracy": 0.6182,
+      "brier": 0.2357,
+      "log_loss": 0.6637,
       "calibration": {
         "50-55%": {
           "n": 68,
@@ -585,9 +585,9 @@
           "observed": 0.6029
         },
         "55-60%": {
-          "n": 54,
+          "n": 55,
           "predicted": 0.5712,
-          "observed": 0.5926
+          "observed": 0.5818
         },
         "60-65%": {
           "n": 24,
