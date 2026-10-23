@@ -1,6 +1,6 @@
 {
  "schema": "board-ar-flagged/1",
- "generated_at_utc": "2026-10-23T19:42:37Z",
+ "generated_at_utc": "2026-10-23T19:53:25Z",
  "flags": [
   {
    "id": "AR-F-TEN-01",
@@ -39,10 +39,64 @@
    "manual_url": ""
   },
   {
+   "id": "AR-F-DARTS-01",
+   "severity": "blocker",
+   "sport": "Darts",
+   "title": "PDC ranking positions not captured",
+   "detail": "pdc.tv renders client-side and the PDC match host did not resolve from the runner; the ranking service returned only the ranking list metadata, so no darts line was originated.",
+   "evidence_url": "https://www.pdc.tv/order-of-merit/pdc-order-of-merit",
+   "manual_url": "https://www.pdc.tv/order-of-merit/pdc-order-of-merit"
+  },
+  {
+   "id": "AR-F-SNOOK-03",
+   "severity": "review",
+   "sport": "Snooker",
+   "title": "Frame-level model calibrated on official prize-money ranking only",
+   "detail": "The WST ranking list is the only official numeric input captured for these ties; no frame-level season statistics are published in the feed, so frame probabilities come from the log prize-money gap.",
+   "evidence_url": "https://www.wst.tv/rankings/",
+   "manual_url": "https://www.wst.tv/rankings/"
+  },
+  {
+   "id": "AR-F-CRIC-02",
+   "severity": "review",
+   "sport": "Cricket",
+   "title": "Cricket prices rest on the ICC team rating only",
+   "detail": "ICC ratings are the only official numeric input captured for these internationals; no lineup, weather or pitch data was published, so confidence is capped below High.",
+   "evidence_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i",
+   "manual_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i"
+  },
+  {
+   "id": "AR-F-VB-01",
+   "severity": "review",
+   "sport": "Volleyball",
+   "title": "Italian prices rest on a single completed round",
+   "detail": "The SuperLega table published after round one is the only official numeric input captured; set handicaps are therefore wide and confidence is capped below High.",
+   "evidence_url": "https://www.legavolley.it/classifica/",
+   "manual_url": "https://www.legavolley.it/classifica/"
+  },
+  {
+   "id": "AR-F-MOT-02",
+   "severity": "review",
+   "sport": "Motor Racing",
+   "title": "Race outright priced from championship points only",
+   "detail": "The F1 standings table is the only official numeric input captured for the USA Grand Prix; no grid, qualifying or practice classification was available, so confidence is capped at Medium.",
+   "evidence_url": "https://www.formula1.com/en/results/2026/drivers",
+   "manual_url": "https://www.formula1.com/en/results/2026/drivers"
+  },
+  {
+   "id": "AR-F-EHF-03",
+   "severity": "review",
+   "sport": "Handball",
+   "title": "EHF prices come only from the group tables",
+   "detail": "No squad, injury or venue-specific data is published on the EHF standings feed; the lines use the official group records and goal differences, with kick-off times converted from CET.",
+   "evidence_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "manual_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+  },
+  {
    "id": "AR-F-LIST-VOLLEYBALL",
    "severity": "review",
    "sport": "Volleyball",
-   "title": "22 OLBG-listed Volleyball event(s) could not be confirmed on an official page",
+   "title": "18 OLBG-listed Volleyball event(s) could not be confirmed on an official page",
    "detail": "These events appear on the OLBG sport hub captured today but the governing body's page did not publish a readable confirmation in this capture. Values are blank; the OLBG link is kept so the pairing can be checked manually.",
    "evidence_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=991",
    "manual_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=991"
@@ -60,7 +114,7 @@
    "id": "AR-F-LIST-CRICKET",
    "severity": "review",
    "sport": "Cricket",
-   "title": "8 OLBG-listed Cricket event(s) could not be confirmed on an official page",
+   "title": "6 OLBG-listed Cricket event(s) could not be confirmed on an official page",
    "detail": "These events appear on the OLBG sport hub captured today but the governing body's page did not publish a readable confirmation in this capture. Values are blank; the OLBG link is kept so the pairing can be checked manually.",
    "evidence_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i",
    "manual_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i"
@@ -69,7 +123,7 @@
    "id": "AR-F-LIST-SNOOKER",
    "severity": "review",
    "sport": "Snooker",
-   "title": "4 OLBG-listed Snooker event(s) could not be confirmed on an official page",
+   "title": "2 OLBG-listed Snooker event(s) could not be confirmed on an official page",
    "detail": "These events appear on the OLBG sport hub captured today but the governing body's page did not publish a readable confirmation in this capture. Values are blank; the OLBG link is kept so the pairing can be checked manually.",
    "evidence_url": "https://www.wst.tv/rankings",
    "manual_url": "https://www.wst.tv/rankings"
@@ -111,19 +165,10 @@
    "manual_url": "https://www.wtatennis.com/tournaments"
   },
   {
-   "id": "AR-F-LIST-MOTOR-RACING",
-   "severity": "review",
-   "sport": "Motor Racing",
-   "title": "1 OLBG-listed Motor Racing event(s) could not be confirmed on an official page",
-   "detail": "These events appear on the OLBG sport hub captured today but the governing body's page did not publish a readable confirmation in this capture. Values are blank; the OLBG link is kept so the pairing can be checked manually.",
-   "evidence_url": "https://www.formula1.com/en/racing/2026.html",
-   "manual_url": "https://www.formula1.com/en/racing/2026.html"
-  },
-  {
    "id": "AR-F-LIST-HANDBALL",
    "severity": "review",
    "sport": "Handball",
-   "title": "27 OLBG-listed Handball event(s) could not be confirmed on an official page",
+   "title": "24 OLBG-listed Handball event(s) could not be confirmed on an official page",
    "detail": "These events appear on the OLBG sport hub captured today but the governing body's page did not publish a readable confirmation in this capture. Values are blank; the OLBG link is kept so the pairing can be checked manually.",
    "evidence_url": "https://ehfcl.eurohandball.com/men/2026-27/matches/",
    "manual_url": "https://ehfcl.eurohandball.com/men/2026-27/matches/"
@@ -148,8 +193,8 @@
   }
  ],
  "counts": {
-  "total": 16,
-  "blocker": 0,
-  "review": 16
+  "total": 21,
+  "blocker": 1,
+  "review": 20
  }
 }

@@ -264,7 +264,9 @@ def choose_pick(row: dict, gate: bool, prefer=("Money Line", "Match Winner", "To
     cands = []
     for mk in row["markets"]:
         for sel in mk["selections"]:
-            if in_window(sel["american"]):
+            # a selection priced inside the window but with a very low probability (the
+            # complement of an out-of-window favourite) is never published as the play
+            if in_window(sel["american"]) and sel["prob"] >= 0.55:
                 pref = 0 if mk["name"] in prefer else 1
                 cands.append(((pref, -sel["prob"], mk["name"]), mk, sel))
     if cands:
@@ -966,6 +968,12 @@ def main() -> int:
     urc(reader, inventory)
     handball_danish(reader, inventory)
     atp(reader, inventory)
+    try:
+        from extra_sports import install as _install_extra
+        _install_extra(globals())
+    except Exception as exc:  # a broken optional parser must not stop the desk
+        flag("AR-F-PARSE-00", "review", "All sports", "Optional parser module failed to install",
+             f"extra_sports.py could not be installed: {type(exc).__name__}: {exc}", "")
     for fn in ("nba", "darts", "snooker", "cricket", "volleyball", "rugby_league",
                "gaelic", "golf", "motor", "greyhounds", "ehf"):
         f = globals().get(fn)
@@ -975,6 +983,16 @@ def main() -> int:
             except TypeError:
                 f(reader, inventory)
     listing_pass(reader, inventory)
+    # every listing link must resolve: fall back to the captured OLBG hub page when the
+    # tips payload does not carry a per-event URL
+    hub_url = {}
+    for sport in SPORTS:
+        cf = inventory["sports"].get(sport, {}).get("capture_file")
+        hub_url[sport] = reader.url(cf) if cf and reader.has(cf) else ""
+    for r in _rows:
+        ol = r.get("olbg")
+        if ol and not ol.get("event_url"):
+            ol["event_url"] = hub_url.get(r["sport"], "")
     desk = {
         "schema": "board-ar-desk/1",
         "generated_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
