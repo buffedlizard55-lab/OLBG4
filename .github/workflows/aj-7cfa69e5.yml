@@ -27,6 +27,10 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/session-7cfa69e5/capture.py
+      - name: Reconcile and validate captured evidence before preserving it
+        run: |
+          python scripts/session-7cfa69e5/build.py
+          python scripts/session-7cfa69e5/test.py
       - uses: actions/upload-artifact@v4
         with:
           name: aj-evidence
@@ -35,7 +39,7 @@ jobs:
         run: |
           git config user.name "OLBG evidence bot"
           git config user.email "olbg-evidence@users.noreply.github.com"
-          git add data/session-7cfa69e5/capture
+          git add data/session-7cfa69e5 session-7cfa69e5
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "data: fresh AJ public-source capture [skip ci]"
           git pull --rebase origin arena/7cfa69e5-olbg4
