@@ -427,8 +427,11 @@ def build_audit() -> dict:
         "M5_implausible_margin": len(matches_audit["implausible_margin_rows"]),
     }
     matches_review_counts_match = ai_matches_review.get("counts", {}) == fresh_match_counts
+    latest_desk = read_json(ROOT / "data/session-63ad3394/desk.json")
     index_html = (ROOT / "index.html").read_text(encoding="utf-8")
-    root_links_latest_ah = "session-b2c7308d" in index_html
+    readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
+    root_index_links_later_board_ak = "session-63ad3394" in index_html
+    root_readme_links_later_board_ak = "session-63ad3394" in readme_text
 
     # Manual findings are deliberately not treated as verified fixture records.
     findings = [
@@ -546,13 +549,13 @@ def build_audit() -> dict:
             "manual_note": "This is a repository-content finding; no external official source applies. Missing-source rows remain unlinked and flagged.",
         },
         {
-            "id": "AK-F10", "severity": "high", "status": "needs review",
-            "title": "The root landing page does not surface the latest 23 October Board AH desk",
-            "affected": "Root index.html links Board AI, Board AP and the previous Board AH snapshot, but contains no session-b2c7308d link.",
-            "detail": "The most recent committed desk in this audit was generated at 16:59Z, yet the root landing still foregrounds Board AI (16:35Z) and older snapshots. The root page may therefore send users to a desk with an earlier cutoff. This session does not edit shared navigation under the coordination boundary.",
+            "id": "AK-F10", "severity": "medium", "status": "needs review",
+            "title": "The root landing omits the newer 23 October Board AK desk",
+            "affected": f"Board AK's later desk was generated at {latest_desk.get('generated_utc')}; README.md links it, but root index.html does not.",
+            "detail": "This report audits the earlier Board AH/AI snapshots only; it does not assess or certify the newer Board AK 63ad3394 desk. The root landing page still foregrounds Board AI/AP and older boards, while the README has a direct link to the later desk. This report exposes that desk separately but does not edit shared navigation under the coordination boundary.",
             "official_refs": [],
-            "evidence": ["index.html", "session-2c05e0b2/index.html", "session-b2c7308d/index.html", "COORDINATION.md"],
-            "manual_note": "Repository integration finding; no external official source applies. A final integration owner should add the latest-page pointer.",
+            "evidence": ["index.html", "README.md", "data/session-63ad3394/desk.json", "session-63ad3394/index.html", "session-2c05e0b2/index.html", "session-b2c7308d/index.html", "COORDINATION.md"],
+            "manual_note": "Repository navigation finding; no external official source applies. The later desk is linked for discovery but is outside this audit's reviewed dataset.",
         },
         {
             "id": "AK-F11", "severity": "medium", "status": "needs review",
@@ -620,6 +623,12 @@ def build_audit() -> dict:
             "latest_capture_included_in_desk": latest_b2_capture["stamp"] in included_stamps,
             "summary_declared": ah_desk.get("summary", {}),
         },
+        "later_desk_not_audited": {
+            "session": latest_desk.get("session"),
+            "generated_utc": latest_desk.get("generated_utc"),
+            "dashboard": "session-63ad3394/index.html",
+            "audit_status": "not audited by this static Board AH/AI report",
+        },
         "coverage": sport_coverage,
         "metrics": {
             "rows": len(ah_rows),
@@ -679,7 +688,8 @@ def build_audit() -> dict:
             "board_ai_matches_review_counts": ai_matches_review.get("counts", {}),
             "matches_review_counts_rederived_match": matches_review_counts_match,
             "matches_fresh_review_counts": fresh_match_counts,
-            "root_index_links_latest_board_ah": root_links_latest_ah,
+            "root_index_links_later_board_ak": root_index_links_later_board_ak,
+            "root_readme_links_later_board_ak": root_readme_links_later_board_ak,
         },
         "findings": findings,
         "source_references": [
@@ -693,9 +703,10 @@ def build_audit() -> dict:
             "not_live": "The audit is not a live feed and does not assert that a scheduled event has completed or that an unconfirmed fixture exists.",
         },
         "peer_links": {
-            "latest_board_ah": "../session-b2c7308d/index.html",
+            "audited_board_ah": "../session-b2c7308d/index.html",
             "board_ai": "../session-2c05e0b2/index.html",
             "board_ap": "../session-509d544b/index.html",
+            "later_board_ak_not_audited": "../session-63ad3394/index.html",
             "root_dashboard": "../index.html",
         },
     }
@@ -709,14 +720,14 @@ def esc(value) -> str:
 def nav(active: str) -> str:
     pages = [("index.html", "Audit overview"), ("coverage.html", "Sport coverage"), ("flagged.html", "Flagged for Review"), ("sources.html", "Sources & captures"), ("methodology.html", "Method")]
     items = "".join(f'<a class="nav-link {"active" if href == active else ""}" href="{href}">{esc(label)}</a>' for href, label in pages)
-    return f'<nav class="nav">{items}<a class="nav-link external" href="../session-b2c7308d/index.html">Latest desk ↗</a></nav>'
+    return f'<nav class="nav">{items}<a class="nav-link external" href="../session-63ad3394/index.html">Later Board AK desk ↗</a></nav>'
 
 
 def layout(title: str, active: str, body: str) -> str:
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} · OLBG evidence review</title><link rel="stylesheet" href="assets/style.css">
-<meta name="description" content="Read-only evidence-integrity audit of the latest committed OLBG multi-sport desk."></head>
+<meta name="description" content="Static evidence audit of Board AH and Board AI snapshots; links to the later Board AK desk without certifying it."></head>
 <body><header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">O</span><span>OLBG <small>evidence review</small></span></a>{nav(active)}</header>
 <main>{body}</main><footer class="footer"><span>Independent static audit · as of {AS_OF_TEXT} UTC</span><span>Unconfirmed values are not promoted to facts.</span></footer></body></html>'''
 
@@ -746,7 +757,7 @@ def render_coverage(audit: dict) -> str:
     for item in audit["coverage"]:
         source_status = item["official_reference_note"]
         source_link = link(item["official_reference_url"], item["official_reference_label"], "source-link")
-        page_link = link(item["sport_page"], "Open matches", "button tiny")
+        page_link = link(item["sport_page"], "Open audited AH rows", "button tiny")
         needs_review = item["reference_status"] == "manual-review-only"
         status_class = "warn" if needs_review else "good"
         status_label = "manual review / gaps" if needs_review else "source-backed capture"
@@ -762,32 +773,32 @@ def build_site(audit: dict) -> None:
     latest = audit["primary_desk"]["latest_capture_available"]
     included = audit["primary_desk"]["latest_capture_included_in_desk"]
     elapsed = audit["elapsed_timed_rows"]
-    latest_use_note = "Latest capture is included; stated cutoff predates it." if included else "Latest capture is not included in this desk."
+    latest_use_note = "Newest Board AH capture included; stated cutoff predates it." if included else "Newest Board AH capture is not included in this desk."
     high_by_sport = ", ".join(f"{s} {n}" for s, n in m["high_rows_by_sport"].items()) or "none"
     index_body = f'''
-<section class="hero"><div class="hero-copy"><p class="eyebrow">Read-only quality review · {AS_OF_TEXT}</p><h1>What is current, what is sourced, and what still needs review?</h1><p class="lead">This page audits the merged OLBG sports desks. It is not a live fixture or odds feed. The newest desk in this repository is explicitly a snapshot, and unresolved listings remain flagged rather than presented as confirmed matches.</p>
-<div class="hero-actions">{link("../session-b2c7308d/index.html", "Open latest 23 Oct desk", "button primary")}{link("coverage.html", "Check all 15 sports", "button")}{link("flagged.html", "Review findings", "button")}</div></div>
-<div class="snapshot-card"><span class="snapshot-tag">Latest committed source desk</span><h2>Board AH · 23 Oct</h2><p><strong>Built</strong> {esc(audit['primary_desk']['generated_utc'])}</p><p><strong>Data cutoff</strong> {esc(audit['primary_desk']['cutoff_utc'])}</p><p><strong>Latest capture available</strong> {esc(latest['stamp'])} · finished {esc(latest.get('finished_utc','') or latest.get('recorded_utc',''))}</p><p class="warning-line">{esc(latest_use_note)}</p></div></section>
-<section class="metrics"><article class="metric"><span>Desk rows</span><strong>{m['rows']}</strong><small>15 requested sports, 13 with rows</small></article><article class="metric"><span>Originated</span><strong>{m['priced_rows']}</strong><small>3 families per priced row</small></article><article class="metric alert"><span>Listing-only</span><strong>{m['listing_only_rows']}</strong><small>Unconfirmed matchup/race details</small></article><article class="metric alert"><span>Starts elapsed</span><strong>{m['rows_with_start_at_or_before_audit_cutoff']}</strong><small>Scheduled at/before audit time</small></article><article class="metric"><span>High picks</span><strong>{m['high_rows']}</strong><small>{esc(high_by_sport)}</small></article><article class="metric"><span>Written texts</span><strong>{m['predictions']}</strong><small>All {m['high_rows_with_prediction']} High rows have a text</small></article></section>
-<section class="notice warning"><div class="notice-icon">!</div><div><h2>Do not treat this snapshot as today's full upcoming slate</h2><p>The primary capture finished at {esc(latest.get('finished_utc','') or latest.get('recorded_utc',''))}, after the desk cutoff of {esc(audit['primary_desk']['cutoff_utc'])}, and is included in the desk. This leaves a cutoff-metadata ambiguity. Also, {m['rows_with_blank_start_utc']} rows have no UTC start time and {len(elapsed)} scheduled starts are already past this audit cut-off. The report links to official pages for manual review; it does not claim a live re-check.</p></div></section>
+<section class="hero"><div class="hero-copy"><p class="eyebrow">Board AH/AI snapshot audit · {AS_OF_TEXT}</p><h1>What did the earlier Board AH/AI snapshot establish?</h1><p class="lead">This static report audits the earlier committed Board AH/AI snapshots, not a live fixture or odds feed. A newer Board AK desk was generated at {esc(audit['later_desk_not_audited']['generated_utc'])}; it is linked separately but is not independently audited here. Unresolved listings remain flagged rather than presented as confirmed matches.</p>
+<div class="hero-actions">{link("../session-63ad3394/index.html", "Open later Board AK desk", "button primary")}{link("coverage.html", "Check all 15 sports", "button")}{link("flagged.html", "Review findings", "button")}</div></div>
+<div class="snapshot-card"><span class="snapshot-tag">Audited Board AH snapshot</span><h2>Board AH · 23 Oct</h2><p><strong>Built</strong> {esc(audit['primary_desk']['generated_utc'])}</p><p><strong>Data cutoff</strong> {esc(audit['primary_desk']['cutoff_utc'])}</p><p><strong>Newest AH capture</strong> {esc(latest['stamp'])} · finished {esc(latest.get('finished_utc','') or latest.get('recorded_utc',''))}</p><p class="warning-line">{esc(latest_use_note)}</p></div></section>
+<section class="metrics"><article class="metric"><span>Audited AH rows</span><strong>{m['rows']}</strong><small>15 requested sports, 13 with AH rows</small></article><article class="metric"><span>AH-priced rows</span><strong>{m['priced_rows']}</strong><small>3 families per priced row</small></article><article class="metric alert"><span>Listing-only</span><strong>{m['listing_only_rows']}</strong><small>Unconfirmed matchup/race details</small></article><article class="metric alert"><span>Starts elapsed</span><strong>{m['rows_with_start_at_or_before_audit_cutoff']}</strong><small>Scheduled at/before audit time</small></article><article class="metric"><span>AH High picks</span><strong>{m['high_rows']}</strong><small>{esc(high_by_sport)}</small></article><article class="metric"><span>AH prediction texts</span><strong>{m['predictions']}</strong><small>All {m['high_rows_with_prediction']} High rows have a text</small></article></section>
+<section class="notice warning"><div class="notice-icon">!</div><div><h2>This is not the current full upcoming slate</h2><p>The audited Board AH primary capture finished at {esc(latest.get('finished_utc','') or latest.get('recorded_utc',''))}, after its stated cutoff of {esc(audit['primary_desk']['cutoff_utc'])}, and is included. This leaves a cutoff-metadata ambiguity. {m['rows_with_blank_start_utc']} AH rows have no UTC start time and {len(elapsed)} scheduled starts were already past the audit cut-off. The later Board AK desk is linked above but is not assessed in this report; official links here are manual-review destinations.</p></div></section>
 <section class="section-heading"><div><p class="eyebrow">Executive summary</p><h2>Confirmed checks and unresolved gaps</h2></div>{link("flagged.html", "All flagged findings →", "text-link")}</section>
 {render_findings(audit, compact=True)}
-<section class="section-heading"><div><p class="eyebrow">By category</p><h2>15-sport coverage</h2><p class="section-note">Counts are read from the latest committed Board AH desk. Official references for blank categories are manual-review destinations, not fixture confirmation.</p></div>{link("coverage.html", "Full coverage table →", "text-link")}</section>
+<section class="section-heading"><div><p class="eyebrow">By category</p><h2>15-sport coverage</h2><p class="section-note">Counts describe the audited Board AH snapshot, not the later Board AK desk. Official references are manual-review destinations, not fixture confirmation.</p></div>{link("coverage.html", "Full coverage table →", "text-link")}</section>
 {render_coverage(audit)}
 <section class="section-heading"><div><p class="eyebrow">Repository evidence</p><h2>Audit health</h2></div></section><section class="health-grid"><article><strong>{audit['capture_integrity']['files_sha256_matched']}/{audit['capture_integrity']['files_checked']}</strong><span>capture payload hashes matched</span></article><article><strong>{m['source_urls_matching_row_capture_manifest']}/{m['rows']}</strong><span>row source URLs map to declared capture manifests</span></article><article><strong>{m['market_math']['selection_outcomes_checked']}</strong><span>market outcomes re-derived · {m['market_math']['arithmetic_errors']} arithmetic errors</span></article><article><strong>{m['prediction_word_min']}–{m['prediction_word_max']}</strong><span>words across the 22 published prediction texts</span></article></section>
-<section class="cta-row"><div><h2>Need the full match table?</h2><p>The primary 23 October dashboard contains the sport-specific match rows. This audit intentionally does not copy peer data or alter their tables.</p></div>{link("../session-b2c7308d/index.html", "Browse the latest desk →", "button primary")}</section>
+<section class="cta-row"><div><h2>Need the later desk?</h2><p>The Board AK dashboard generated at {esc(audit['later_desk_not_audited']['generated_utc'])} is newer than the audited AH snapshot. It is linked here for access; this report does not independently assess that peer desk.</p></div>{link("../session-63ad3394/index.html", "Open later Board AK desk →", "button primary")}</section>
 '''
     (OUT_SITE / "index.html").write_text(layout("Audit overview", "index.html", index_body), encoding="utf-8")
 
-    coverage_body = f'''<section class="page-intro"><p class="eyebrow">Coverage register · {AS_OF_TEXT}</p><h1>All 15 requested sports</h1><p class="lead">The table separates row counts and originated rows from evidence strength. A source link is a manual-review reference; it does not automatically confirm every listed event in that sport.</p></section>
-<section class="notice"><div class="notice-icon">i</div><div><h2>Scope is not the same as fixture coverage</h2><p>The latest desk has rows in {m['distinct_requested_sports_with_rows']} of the 15 categories. Snooker and Rugby League have no rows in the desk. Volleyball, Handball and Rugby Union include OLBG-only listing rows that were not confirmed by a readable official fixture feed.</p></div></section>
+    coverage_body = f'''<section class="page-intro"><p class="eyebrow">Board AH snapshot · {AS_OF_TEXT}</p><h1>All 15 requested sports</h1><p class="lead">These counts describe the audited Board AH snapshot, not the later Board AK desk linked in the navigation. The table separates row counts and originated rows from evidence strength. A source link is a manual-review reference; it does not automatically confirm every listed event in that sport.</p></section>
+<section class="notice"><div class="notice-icon">i</div><div><h2>Scope is not the same as fixture coverage</h2><p>The audited AH snapshot has rows in {m['distinct_requested_sports_with_rows']} of the 15 categories. Snooker and Rugby League have no AH rows. Volleyball, Handball and Rugby Union include OLBG-only listing rows that were not confirmed by a readable official fixture feed.</p></div></section>
 {render_coverage(audit)}
 <section class="section-heading"><div><p class="eyebrow">Elapsed scheduled starts</p><h2>Rows to refresh or retire from the upcoming view</h2><p class="section-note">A scheduled start at or before {AS_OF_TEXT} is not presented here as an upcoming match. The official link is supplied to verify status/result; no result is asserted.</p></div></section>
-<div class="table-wrap"><table><thead><tr><th>ID</th><th>Sport</th><th>Matchup</th><th>Scheduled UTC</th><th>Official status source</th><th>Desk row</th></tr></thead><tbody>{''.join(f'<tr><td>{esc(r["id"])}</td><td>{esc(r["sport"])}</td><td>{esc(r["matchup"])}</td><td>{esc(r["start_utc"])}</td><td>{link(r["official_url"], "Open official source", "source-link")}</td><td>{link(r["sport_page"], "Open row", "text-link")}</td></tr>' for r in elapsed)}</tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Sport</th><th>Matchup</th><th>Scheduled UTC</th><th>Official status source</th><th>Desk row</th></tr></thead><tbody>{''.join(f'<tr><td>{esc(r["id"])}</td><td>{esc(r["sport"])}</td><td>{esc(r["matchup"])}</td><td>{esc(r["start_utc"])}</td><td>{link(r["official_url"], "Open official source", "source-link")}</td><td>{link(r["sport_page"], "Open AH row", "text-link")}</td></tr>' for r in elapsed)}</tbody></table></div>
 '''
     (OUT_SITE / "coverage.html").write_text(layout("Sport coverage", "coverage.html", coverage_body), encoding="utf-8")
 
-    flagged_body = f'''<section class="page-intro"><p class="eyebrow">Needs review · {len(audit['findings'])} findings</p><h1>Flagged for Review</h1><p class="lead">These are specific evidence, freshness, market-coverage and repository-integrity issues. The audit leaves unsupported values blank; links below are official where labeled, and are for manual review rather than fresh confirmation.</p></section>
+    flagged_body = f'''<section class="page-intro"><p class="eyebrow">Needs review · {len(audit['findings'])} findings</p><h1>Flagged for Review</h1><p class="lead">These findings apply to the audited Board AH/AI snapshots and current repository records checked at {AS_OF_TEXT}; the later Board AK desk is not assessed. Unsupported values remain flagged, and official links below are manual-review destinations rather than fresh confirmations.</p></section>
 <section class="notice warning"><div class="notice-icon">!</div><div><h2>No unsupported picks were added to close coverage gaps</h2><p>Where the committed capture lacks readable official evidence, rows stay unpriced or are marked listing-only. The shortfalls and stale snapshots remain visible rather than being padded with inferred fixtures or predictions.</p></div></section>
 {render_findings(audit, compact=False)}
 <section class="section-heading"><div><p class="eyebrow">No inferred outcomes</p><h2>Timed rows already past the audit cut-off</h2></div></section>
@@ -795,8 +806,8 @@ def build_site(audit: dict) -> None:
 '''
     (OUT_SITE / "flagged.html").write_text(layout("Flagged for Review", "flagged.html", flagged_body), encoding="utf-8")
 
-    sources_body = f'''<section class="page-intro"><p class="eyebrow">Provenance & links</p><h1>Sources and capture integrity</h1><p class="lead">Official URLs below were recorded in upstream committed desk/capture metadata. They are offered for manual review. This audit did not issue live requests to those sites.</p></section>
-<section class="metrics compact"><article class="metric"><span>Payload files checked</span><strong>{audit['capture_integrity']['files_checked']}</strong><small>{audit['capture_integrity']['files_sha256_matched']} matched committed SHA-256</small></article><article class="metric"><span>Row URL mapping</span><strong>{m['source_urls_matching_row_capture_manifest']}/{m['rows']}</strong><small>Rows mapped to their own capture stamp</small></article><article class="metric"><span>Hash mismatches</span><strong>{len(audit['capture_integrity']['hash_errors'])}</strong><small>Expected zero</small></article><article class="metric"><span>Latest capture used?</span><strong>{'Yes' if audit['primary_desk']['latest_capture_included_in_desk'] else 'No'}</strong><small>{esc(latest_use_note)}</small></article></section>
+    sources_body = f'''<section class="page-intro"><p class="eyebrow">Provenance & links</p><h1>Sources and capture integrity</h1><p class="lead">Official URLs below were recorded in the audited Board AH/AI desk and capture metadata. They are offered for manual review. This audit did not issue live requests to those sites; the later Board AK desk is not assessed here.</p></section>
+<section class="metrics compact"><article class="metric"><span>Payload files checked</span><strong>{audit['capture_integrity']['files_checked']}</strong><small>{audit['capture_integrity']['files_sha256_matched']} matched committed SHA-256</small></article><article class="metric"><span>Row URL mapping</span><strong>{m['source_urls_matching_row_capture_manifest']}/{m['rows']}</strong><small>Rows mapped to their own capture stamp</small></article><article class="metric"><span>Hash mismatches</span><strong>{len(audit['capture_integrity']['hash_errors'])}</strong><small>Expected zero</small></article><article class="metric"><span>Newest AH capture included?</span><strong>{'Yes' if audit['primary_desk']['latest_capture_included_in_desk'] else 'No'}</strong><small>{esc(latest_use_note)}</small></article></section>
 <div class="table-wrap"><table><thead><tr><th>Sport</th><th>Official/manual-review link</th><th>Evidence note</th></tr></thead><tbody>{''.join(f'<tr><th scope="row">{esc(s["sport"])}</th><td>{link(s["url"], s["label"], "source-link")}</td><td>{esc(s["note"])}</td></tr>' for s in audit['source_references'])}</tbody></table></div>
 <section class="section-heading"><div><p class="eyebrow">Capture timeline</p><h2>Committed source snapshots</h2><p class="section-note">The manifest timestamp is authoritative; directory names can be only labels, as the Board AI round2 folder demonstrates.</p></div></section>
 <div class="table-wrap"><table><thead><tr><th>Board / stamp</th><th>manifest captured_at_utc</th><th>started_utc</th><th>finished_utc</th><th>Payloads</th><th>Hash matches</th><th>Included in published desk</th><th>Manifest</th></tr></thead><tbody>{''.join(f'<tr><td>Board AH · {esc(c["stamp"])}</td><td>{esc(c.get("manifest_captured_at_utc") or "—")}</td><td>{esc(c.get("started_utc") or "—")}</td><td>{esc(c.get("finished_utc") or "—")}</td><td>{c["files"]}</td><td>{c["matched"]}</td><td>{"Yes" if c["stamp"] in set(audit["primary_desk"]["included_capture_stamps"]) else "No"}</td><td>{link("../"+c["manifest"], "Open manifest", "evidence-link")}</td></tr>' for c in audit['capture_integrity']['board_ah_captures'])}{''.join(f'<tr><td>Board AI · {esc(c["stamp"])}</td><td>{esc(c.get("manifest_captured_at_utc") or "—")}</td><td>{esc(c.get("started_utc") or "—")}</td><td>{esc(c.get("finished_utc") or "—")}</td><td>{c["files"]}</td><td>{c["matched"]}</td><td>Capture retained; desk reference is separate</td><td>{link("../"+c["manifest"], "Open manifest", "evidence-link")}</td></tr>' for c in audit['capture_integrity']['board_ai_captures'])}</tbody></table></div>

@@ -68,7 +68,9 @@ def main() -> int:
     check(master_audit["rows_now"] == 354 and master_audit["review_denominator_delta"] == 18, "master review denominator mismatch changed")
     check(master_audit["scope_flag_mismatch_count"] == 14 and master_audit["missing_source_in_scope_rows"] == 31 and master_audit["missing_source_out_of_scope_rows"] == 8, "master scope-field audit changed")
     check(audit["repo_audit"]["matches_review_counts_rederived_match"], "legacy matches.json review counts do not match a fresh local recomputation")
-    check(not audit["repo_audit"]["root_index_links_latest_board_ah"], "latest desk was already linked from root; update this finding if integration changed")
+    later_desk = audit["later_desk_not_audited"]
+    check(later_desk["session"] == "arena/63ad3394-olbg4" and later_desk["audit_status"] == "not audited by this static Board AH/AI report", "the newer peer desk is not clearly labeled as outside this audit")
+    check(not audit["repo_audit"]["root_index_links_later_board_ak"] and audit["repo_audit"]["root_readme_links_later_board_ak"], "root navigation/README status for the later desk changed")
 
     html_pages = sorted(SITE.rglob("*.html"))
     check(len(html_pages) == 5, f"expected 5 local pages, found {len(html_pages)}")

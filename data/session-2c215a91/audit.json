@@ -725,20 +725,23 @@
       "title": "The root canonical master is a 21 October mixed-sport snapshot"
     },
     {
-      "affected": "Root index.html links Board AI, Board AP and the previous Board AH snapshot, but contains no session-b2c7308d link.",
-      "detail": "The most recent committed desk in this audit was generated at 16:59Z, yet the root landing still foregrounds Board AI (16:35Z) and older snapshots. The root page may therefore send users to a desk with an earlier cutoff. This session does not edit shared navigation under the coordination boundary.",
+      "affected": "Board AK's later desk was generated at 2026-10-23T19:51:14Z; README.md links it, but root index.html does not.",
+      "detail": "This report audits the earlier Board AH/AI snapshots only; it does not assess or certify the newer Board AK 63ad3394 desk. The root landing page still foregrounds Board AI/AP and older boards, while the README has a direct link to the later desk. This report exposes that desk separately but does not edit shared navigation under the coordination boundary.",
       "evidence": [
         "index.html",
+        "README.md",
+        "data/session-63ad3394/desk.json",
+        "session-63ad3394/index.html",
         "session-2c05e0b2/index.html",
         "session-b2c7308d/index.html",
         "COORDINATION.md"
       ],
       "id": "AK-F10",
-      "manual_note": "Repository integration finding; no external official source applies. A final integration owner should add the latest-page pointer.",
+      "manual_note": "Repository navigation finding; no external official source applies. The later desk is linked for discovery but is outside this audit's reviewed dataset.",
       "official_refs": [],
-      "severity": "high",
+      "severity": "medium",
       "status": "needs review",
-      "title": "The root landing page does not surface the latest 23 October Board AH desk"
+      "title": "The root landing omits the newer 23 October Board AK desk"
     },
     {
       "affected": "The desk's round2 folder is labeled 20261023T170000Z but its manifest records 16:23:04Z; a third capture folder 20261023T173000Z records 16:26:38Z and is not listed in desk.captures.",
@@ -806,6 +809,12 @@
       "title": "Canonical master in_scope flags conflict with the 15-sport taxonomy on 14 rows"
     }
   ],
+  "later_desk_not_audited": {
+    "audit_status": "not audited by this static Board AH/AI report",
+    "dashboard": "session-63ad3394/index.html",
+    "generated_utc": "2026-10-23T19:51:14Z",
+    "session": "arena/63ad3394-olbg4"
+  },
   "method": {
     "fair_odds": "American fair odds are recomputed from the stored fair probability after the desk's 3-decimal decimal-odds rounding. A field named book_* is not treated as a market quote when it exactly duplicates fair_*.",
     "freshness": "Folder names are retained as labels, but manifest timestamps take precedence. Desk cutoffs, capture timestamps and audit as-of are reported separately.",
@@ -887,9 +896,10 @@
     "unpriced_rows": 117
   },
   "peer_links": {
+    "audited_board_ah": "../session-b2c7308d/index.html",
     "board_ai": "../session-2c05e0b2/index.html",
     "board_ap": "../session-509d544b/index.html",
-    "latest_board_ah": "../session-b2c7308d/index.html",
+    "later_board_ak_not_audited": "../session-63ad3394/index.html",
     "root_dashboard": "../index.html"
   },
   "primary_desk": {
@@ -1109,7 +1119,8 @@
       "M5_implausible_margin": 2
     },
     "matches_review_counts_rederived_match": true,
-    "root_index_links_latest_board_ah": false
+    "root_index_links_later_board_ak": false,
+    "root_readme_links_later_board_ak": true
   },
   "schema": "olbg4.session-audit/1",
   "scope": [
