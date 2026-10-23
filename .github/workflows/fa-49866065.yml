@@ -16,7 +16,7 @@ on:
       - 'session-49866065/**'
       - '.github/workflows/fa-49866065.yml'
 permissions:
-  contents: read
+  contents: write
 jobs:
   evidence:
     runs-on: ubuntu-latest
@@ -35,6 +35,17 @@ jobs:
         with:
           name: fa-evidence
           path: data/session-49866065/capture/
+      - name: Preserve evidence on the fixed session branch
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.capture && github.ref_name == 'arena/49866065-olbg4')
+        run: |
+          git config user.name 'FA evidence capture'
+          git config user.email 'fa-capture@users.noreply.github.com'
+          git add data/session-49866065/capture
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve fresh official evidence for FA dashboard [skip ci]'
+            git pull --rebase origin arena/49866065-olbg4
+            git push origin HEAD:arena/49866065-olbg4
+          fi
       - name: Offline tests and deterministic publication gate
         if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && !inputs.capture)
         run: |
