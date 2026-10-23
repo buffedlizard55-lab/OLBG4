@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{const input=document.querySelector('#entry-search');if(!input)return;const rows=[...document.querySelectorAll('table tbody tr')];input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();rows.forEach(row=>row.classList.toggle('hide-row',q&&!row.textContent.toLowerCase().includes(q)));});});

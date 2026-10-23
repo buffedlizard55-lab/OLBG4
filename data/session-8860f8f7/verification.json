@@ -1,0 +1,261 @@
+{
+  "schema": "olbg4.board-ah.verification.v1",
+  "board": "AH",
+  "generated_utc": "2026-10-23T16:32:06Z",
+  "status": "PASS",
+  "check_count": 50,
+  "failure_count": 0,
+  "summary": "50 automated checks; 0 failure(s).",
+  "checks": [
+    {
+      "name": "Exactly 15 in-scope categories",
+      "status": "PASS",
+      "detail": "Found 15."
+    },
+    {
+      "name": "Unique scope identifiers",
+      "status": "PASS",
+      "detail": "Category slugs and labels are unique."
+    },
+    {
+      "name": "13 priced-capable + Gaelic + Greyhounds scope",
+      "status": "PASS",
+      "detail": "Scope includes the exact 15-category interpretation."
+    },
+    {
+      "name": "Gaelic Sports includes both OLBG hubs",
+      "status": "PASS",
+      "detail": "Gaelic Football ID 25 and Hurling ID 26 are present."
+    },
+    {
+      "name": "16 live hub rechecks recorded",
+      "status": "PASS",
+      "detail": "Found 16 separately checked hubs."
+    },
+    {
+      "name": "Current page-reader hash limitation disclosed",
+      "status": "PASS",
+      "detail": "No unsupported raw-response hash claim."
+    },
+    {
+      "name": "Source-ledger current reads have direct URLs",
+      "status": "PASS",
+      "detail": "All current official checks link to HTTPS sources."
+    },
+    {
+      "name": "Provider snapshot byte counts and hashes reconciled",
+      "status": "PASS",
+      "detail": "Checked 5 ledger entries against snapshot providers.fetch_log; missing or mismatched: []."
+    },
+    {
+      "name": "16 event observations persisted",
+      "status": "PASS",
+      "detail": "Found 16 rows."
+    },
+    {
+      "name": "15 provider crossmatches; 1 listing-only row",
+      "status": "PASS",
+      "detail": "Found 15 and 1."
+    },
+    {
+      "name": "Crossmatches are exactly 12 NBA, 2 NHL, 1 MLB",
+      "status": "PASS",
+      "detail": "Counts: {'Basketball': 12, 'Baseball': 1, 'Ice Hockey': 2}."
+    },
+    {
+      "name": "Every event row carries an official review URL",
+      "status": "PASS",
+      "detail": "All published rows carry an official-source/manual-review URL."
+    },
+    {
+      "name": "Every crossmatch has an official schedule URL",
+      "status": "PASS",
+      "detail": "All provider rows carry a second official schedule/API reference."
+    },
+    {
+      "name": "All current event source URLs use the expected governing-body domains",
+      "status": "PASS",
+      "detail": "NBA, NHL and MLB rows link to their governing bodies."
+    },
+    {
+      "name": "All OLBG event references use OLBG",
+      "status": "PASS",
+      "detail": "Every event row has an OLBG review link."
+    },
+    {
+      "name": "OLBG recheck discrepancy is retained",
+      "status": "PASS",
+      "detail": "No earlier card is presented as a reaffirmed active listing."
+    },
+    {
+      "name": "NBA event-ID map matches the 12 observed cards",
+      "status": "PASS",
+      "detail": "Exact provider fixture IDs are used."
+    },
+    {
+      "name": "All 12 NBA markets and picks are withheld",
+      "status": "PASS",
+      "detail": "No NBA price, market or pick was inferred."
+    },
+    {
+      "name": "NBA sample gate is under 20 games",
+      "status": "PASS",
+      "detail": "Sample minimum is below the stated 20-game requirement."
+    },
+    {
+      "name": "Gaelic listing-only row remains unconfirmed and unpriced",
+      "status": "PASS",
+      "detail": "Exact Hurling club fixture was not confirmed."
+    },
+    {
+      "name": "Gaelic listing does not infer home/away orientation",
+      "status": "PASS",
+      "detail": "Only the OLBG-listed pairing order is retained."
+    },
+    {
+      "name": "42 originated selections from 3 fixtures",
+      "status": "PASS",
+      "detail": "Found 42 selection rows."
+    },
+    {
+      "name": "Only the two NHL and one MLB fixtures are priced",
+      "status": "PASS",
+      "detail": "Priced fixtures: ['mlb-849805', 'nhl-2026020166', 'nhl-2026020167']."
+    },
+    {
+      "name": "Every published market probability is valid",
+      "status": "PASS",
+      "detail": "All probabilities are inside (0,1)."
+    },
+    {
+      "name": "Fair decimal prices re-derived as 1/p",
+      "status": "PASS",
+      "detail": "All fair decimal odds recomputed."
+    },
+    {
+      "name": "Fair American prices re-derived from probability",
+      "status": "PASS",
+      "detail": "All fair American prices recomputed."
+    },
+    {
+      "name": "Margin price uses 4.5% hold and is separate",
+      "status": "PASS",
+      "detail": "Margin-adjusted decimal prices recomputed independently."
+    },
+    {
+      "name": "Fair-odds-band flags re-derived correctly",
+      "status": "PASS",
+      "detail": "The band test uses fair American prices, not margin prices."
+    },
+    {
+      "name": "All three market families explored",
+      "status": "PASS",
+      "detail": "Family counts: {'moneyline': 6, 'handicap': 18, 'total': 18}."
+    },
+    {
+      "name": "Every two-outcome market line sums to one",
+      "status": "PASS",
+      "detail": "Checked 21 line groups."
+    },
+    {
+      "name": "Exactly two ≥70% selections are outside the fair window",
+      "status": "PASS",
+      "detail": "Both candidates remain visible as outside-window values."
+    },
+    {
+      "name": "Outside-window candidates are the two audited NHL totals",
+      "status": "PASS",
+      "detail": "Candidates: [('nhl-2026020166', 'Over 5.5'), ('nhl-2026020167', 'Under 8.5')]."
+    },
+    {
+      "name": "No ≥70% selection passes the fair odds window",
+      "status": "PASS",
+      "detail": "No in-window High selection."
+    },
+    {
+      "name": "No High prediction text is published",
+      "status": "PASS",
+      "detail": "Empty because no selection qualifies; no old text reused."
+    },
+    {
+      "name": "Match-winner leans are three Medium selections",
+      "status": "PASS",
+      "detail": "No winner is labelled High below 70%."
+    },
+    {
+      "name": "Pipeline confidence labels are not adopted",
+      "status": "PASS",
+      "detail": "User threshold controls the published grade."
+    },
+    {
+      "name": "Historical slice recomputes to 253 rows and 68 texts",
+      "status": "PASS",
+      "detail": "Found 253 rows / 68 texts."
+    },
+    {
+      "name": "Historical events stay outside current desk",
+      "status": "PASS",
+      "detail": "No Board AG row is re-labelled as current."
+    },
+    {
+      "name": "Coverage page includes all 15 categories",
+      "status": "PASS",
+      "detail": "All requested categories have a row."
+    },
+    {
+      "name": "All categories publish five-pick shortfall",
+      "status": "PASS",
+      "detail": "Shortfalls are visible; no quota is manufactured."
+    },
+    {
+      "name": "Flag register has source links for manual review",
+      "status": "PASS",
+      "detail": "11 flagged issues include official and OLBG review URLs."
+    },
+    {
+      "name": "NHL current-season records are not confused with 91-game form",
+      "status": "PASS",
+      "detail": "Published records are sourced from current-season standings fields."
+    },
+    {
+      "name": "All required dashboard pages exist",
+      "status": "PASS",
+      "detail": "Core static pages are present."
+    },
+    {
+      "name": "Exactly 15 sport subpages exist",
+      "status": "PASS",
+      "detail": "Found 15."
+    },
+    {
+      "name": "All local HTML links resolve",
+      "status": "PASS",
+      "detail": "0 broken local link(s)."
+    },
+    {
+      "name": "Every entries-table data row links an official source",
+      "status": "PASS",
+      "detail": "Checked 16 rows; missing official link in 0."
+    },
+    {
+      "name": "NHL stale 91/92-game form records are not published",
+      "status": "PASS",
+      "detail": "Unexpected stale tokens: []."
+    },
+    {
+      "name": "No draft placeholder remains in Board AH",
+      "status": "PASS",
+      "detail": "No draft marker in rendered pages."
+    },
+    {
+      "name": "Prediction copy does not contain banned words",
+      "status": "PASS",
+      "detail": "No high-confidence prose is present; any future item must satisfy lint."
+    },
+    {
+      "name": "Generated page links to no remote fonts or scripts",
+      "status": "PASS",
+      "detail": "Site uses local assets and system fonts."
+    }
+  ]
+}

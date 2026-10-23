@@ -1,0 +1,501 @@
+{
+  "schema": "olbg4.board-ah.coverage.v1",
+  "as_of_utc": "2026-10-23T16:32:06Z",
+  "scope_count": 15,
+  "priced_scope_category_count": 13,
+  "current_entry_count": 16,
+  "officially_crossmatched_entry_count": 15,
+  "priced_entry_count": 3,
+  "high_in_window_pick_count": 0,
+  "five_pick_target": 5,
+  "categories": [
+    {
+      "slug": "baseball",
+      "label": "Baseball",
+      "olbg_hubs": [
+        {
+          "id": 12,
+          "url": "https://www.olbg.com/betting-tips/Baseball/12"
+        }
+      ],
+      "official_references": [
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849805",
+        "https://www.mlb.com/gameday/849805"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' An earlier 16:19Z scan had one card, event 160789, which matched MLB Game 1 by teams and game ID.",
+      "current_rows": 1,
+      "priced_rows": 1,
+      "status": "officially crossmatched; OLBG card not reproduced by later hub recheck",
+      "market_families": [
+        "moneyline",
+        "run line / handicap",
+        "game total"
+      ],
+      "fresh_official_capture": "2026-10-23T16:19Z–16:32Z",
+      "observed_entry_count": 1,
+      "official_crossmatch_count": 1,
+      "priced_count": 1,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 5,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "basketball",
+      "label": "Basketball",
+      "olbg_hubs": [
+        {
+          "id": 4,
+          "url": "https://www.olbg.com/betting-tips/Basketball/4"
+        }
+      ],
+      "official_references": [
+        "https://www.nba.com/games?date=2026-10-23",
+        "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games",
+        "https://plk.pl/"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' An earlier 16:19Z scan had 12 NBA cards; all 12 mapped by teams and date to official NBA game IDs. The current NBA page reports 12 games; its first reader chunk exposed only six cards.",
+      "current_rows": 12,
+      "priced_rows": 0,
+      "status": "12 official fixtures crossmatched; all NBA prices withheld for inadequate team samples; OLBG card not reproduced by later hub recheck",
+      "market_families": [
+        "moneyline",
+        "point spread",
+        "game total"
+      ],
+      "fresh_official_capture": "2026-10-23T16:19Z–16:32Z",
+      "observed_entry_count": 12,
+      "official_crossmatch_count": 12,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 72,
+      "historical_predictions_not_current": 6
+    },
+    {
+      "slug": "cricket",
+      "label": "Cricket",
+      "olbg_hubs": [
+        {
+          "id": 7,
+          "url": "https://www.olbg.com/betting-tips/Cricket/7"
+        }
+      ],
+      "official_references": [
+        "https://www.icc-cricket.com/rankings/mens/team-rankings/odi",
+        "https://www.nzc.nz/matches",
+        "https://www.cricket.com.au/matches",
+        "https://www.ecb.co.uk/",
+        "https://www.bcci.tv/"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' No current event row was retained from an official fixture source.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "match winner",
+        "top batter / player props",
+        "match totals"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 7,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "darts",
+      "label": "Darts",
+      "olbg_hubs": [
+        {
+          "id": 15,
+          "url": "https://www.olbg.com/betting-tips/Darts/15"
+        }
+      ],
+      "official_references": [
+        "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+        "https://www.pdc.tv/"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' The last captured official PDC schedule reference is dated 2026-10-22, not a fresh event reconciliation.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "match winner",
+        "legs / sets handicap",
+        "totals",
+        "outrights"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 9,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "golf",
+      "label": "Golf",
+      "olbg_hubs": [
+        {
+          "id": 5,
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        }
+      ],
+      "official_references": [
+        "https://www.pgatour.com/leaderboard",
+        "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528",
+        "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/tee-times"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' No current event-level official reconciliation was retained.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "tournament outright",
+        "round leader",
+        "place / finishing position"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 5,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "gaelic-sports",
+      "label": "Gaelic Sports",
+      "olbg_hubs": [
+        {
+          "id": 25,
+          "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+          "subsport": "Gaelic Football"
+        },
+        {
+          "id": 26,
+          "url": "https://www.olbg.com/betting-tips/Hurling/26",
+          "subsport": "Hurling"
+        }
+      ],
+      "official_references": [
+        "https://www.gaa.ie/fixtures-results",
+        "https://kilkennygaa.ie/fixtures-results/"
+      ],
+      "latest_olbg_hub_observation": "Gaelic Football returned 'No tips found.' Hurling displayed Ballyhale Shamrocks v Tullaroan for 25 Oct (event 714) and a 2027 outright. GAA national fixtures showed Ireland v Scotland on 24 Oct; the county fixture page was opened but the exact club fixture was not confirmed.",
+      "current_rows": 1,
+      "priced_rows": 0,
+      "status": "one OLBG Hurling listing retained as listing-only; exact official club fixture not confirmed",
+      "market_families": [
+        "match result / 3-way result",
+        "points handicap",
+        "total points",
+        "outrights"
+      ],
+      "fresh_official_capture": "2026-10-23T16:31Z–16:32Z",
+      "observed_entry_count": 1,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 0,
+      "historical_predictions_not_current": 0
+    },
+    {
+      "slug": "greyhounds",
+      "label": "Greyhounds",
+      "olbg_hubs": [
+        {
+          "id": 28,
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ],
+      "official_references": [
+        "https://www.gbgb.org.uk/racing/results/"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tournaments tips found.' No current official racecard or runner set was captured.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "official runner-level inputs not captured; no race or selection priced",
+      "market_families": [
+        "race winner / forecast"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 0,
+      "historical_predictions_not_current": 0
+    },
+    {
+      "slug": "handball",
+      "label": "Handball",
+      "olbg_hubs": [
+        {
+          "id": 20,
+          "url": "https://www.olbg.com/betting-tips/Handball/20"
+        }
+      ],
+      "official_references": [
+        "https://ehfcl.eurohandball.com/men/2026-27/matches/",
+        "https://ehfcl.eurohandball.com/women/2026-27/matches/",
+        "https://tophaandbold.dk/stillinger/herreligaen",
+        "https://www.dkb-handball-bundesliga.de/spielplan"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' No current event-level official reconciliation was retained.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "moneyline / 3-way result",
+        "match handicap",
+        "goals total"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 28,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "ice-hockey",
+      "label": "Ice Hockey",
+      "olbg_hubs": [
+        {
+          "id": 13,
+          "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+        }
+      ],
+      "official_references": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "https://api-web.nhle.com/v1/standings/now",
+        "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+        "https://liiga.fi/api/v2/games?tournament=runkosarja&season=2027"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' An earlier 16:19Z scan had two NHL cards; individual event pages later rendered 'Expired' while the official schedule still showed both games as upcoming.",
+      "current_rows": 2,
+      "priced_rows": 2,
+      "status": "two NHL fixtures crossmatched and priced; OLBG hub/event status is inconsistent",
+      "market_families": [
+        "moneyline",
+        "puck line / handicap",
+        "game total"
+      ],
+      "fresh_official_capture": "2026-10-23T16:19Z–16:32Z",
+      "observed_entry_count": 2,
+      "official_crossmatch_count": 2,
+      "priced_count": 2,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 56,
+      "historical_predictions_not_current": 6
+    },
+    {
+      "slug": "motor-racing",
+      "label": "Motor Racing",
+      "olbg_hubs": [
+        {
+          "id": 14,
+          "url": "https://www.olbg.com/betting-tips/Motor_Racing/14"
+        }
+      ],
+      "official_references": [
+        "https://www.formula1.com/en/racing/2026",
+        "https://www.motogp.com/en/calendar"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tournaments tips found.' No current event-level official reconciliation was retained.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "race winner",
+        "qualifying",
+        "podium / finishing position",
+        "outrights"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 5,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "rugby-league",
+      "label": "Rugby League",
+      "olbg_hubs": [
+        {
+          "id": 10,
+          "url": "https://www.olbg.com/betting-tips/Rugby_League/10"
+        }
+      ],
+      "official_references": [
+        "https://www.rlwc2026.com/fixtures",
+        "https://www.nrl.com/draw/"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tournaments tips found.' No current event-level official reconciliation was retained.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "match winner",
+        "handicap",
+        "match points total"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 6,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "rugby-union",
+      "label": "Rugby Union",
+      "olbg_hubs": [
+        {
+          "id": 9,
+          "url": "https://www.olbg.com/betting-tips/Rugby_Union/9"
+        }
+      ],
+      "official_references": [
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.premiershiprugby.com/fixtures-results",
+        "https://top14.lnr.fr/calendrier-et-resultats",
+        "https://prod2.lnr.fr/calendrier-et-resultats"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' No current event-level official reconciliation was retained.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "match winner / 3-way result",
+        "handicap",
+        "match points total"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 23,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "snooker",
+      "label": "Snooker",
+      "olbg_hubs": [
+        {
+          "id": 8,
+          "url": "https://www.olbg.com/betting-tips/Snooker/8"
+        }
+      ],
+      "official_references": [
+        "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+        "https://www.snooker.org/res/index.asp?event=2548"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' No current event-level official reconciliation was retained.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "match winner",
+        "frame handicap",
+        "frame total / exact score",
+        "outrights"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 5,
+      "historical_predictions_not_current": 5
+    },
+    {
+      "slug": "tennis",
+      "label": "Tennis",
+      "olbg_hubs": [
+        {
+          "id": 3,
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        }
+      ],
+      "official_references": [
+        "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule",
+        "https://www.wtatennis.com/",
+        "https://www.protennislive.com/posting/2026/9410/op.pdf",
+        "https://www.protennislive.com/posting/2026/7485/op.pdf"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' No current event-level official reconciliation was retained.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "match winner",
+        "games handicap",
+        "set betting",
+        "tournament outright"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 20,
+      "historical_predictions_not_current": 6
+    },
+    {
+      "slug": "volleyball",
+      "label": "Volleyball",
+      "olbg_hubs": [
+        {
+          "id": 21,
+          "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+        }
+      ],
+      "official_references": [
+        "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=991",
+        "https://plusliga.pl/table/tour/47.html",
+        "https://www.cvf.cz/extraliga/extraliga-muzi?filteredGroupId=29147"
+      ],
+      "latest_olbg_hub_observation": "The 16:31–16:32Z hub recheck returned 'No tips found.' No current event-level official reconciliation was retained.",
+      "current_rows": 0,
+      "priced_rows": 0,
+      "status": "no current event-level official reconciliation in this snapshot",
+      "market_families": [
+        "match winner",
+        "set score",
+        "set handicap / totals"
+      ],
+      "fresh_official_capture": "none",
+      "observed_entry_count": 0,
+      "official_crossmatch_count": 0,
+      "priced_count": 0,
+      "in_window_high_count": 0,
+      "five_pick_shortfall": 5,
+      "historical_rows_not_current": 12,
+      "historical_predictions_not_current": 5
+    }
+  ],
+  "scope_note": "The user's 15 categories are the 13 priced categories below plus Gaelic Sports and Greyhounds. Gaelic Sports includes both OLBG Gaelic Football (ID 25) and Hurling (ID 26)."
+}

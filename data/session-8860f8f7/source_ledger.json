@@ -1,0 +1,117 @@
+{
+  "schema": "olbg4.board-ah.source-ledger.v1",
+  "retrieved_window_utc": "2026-10-23T16:19Z–16:32Z",
+  "extracted_page_response_hashes": null,
+  "hash_limitation": "Arena's current-page reader returned parsed text, not the response bytes. Current rechecks therefore have direct URLs and observed facts but no response SHA-256. The separate 11:35Z provider pipeline records hashes in its snapshot metadata; its raw response bodies are not included in the Board AH folder.",
+  "current_checks": [
+    {
+      "id": "nba_schedule_live_recheck",
+      "sport": "Basketball",
+      "url": "https://www.nba.com/games?date=2026-10-23",
+      "retrieved_window_utc": "2026-10-23T16:19Z–16:32Z",
+      "status": "read",
+      "finding": "Official page reported 12 games for 2026-10-23. The reader returned six cards in its first chunk and indicated more content. The official fixture snapshot contains the 12 event IDs crossmatched to the OLBG scan.",
+      "sha256": null
+    },
+    {
+      "id": "nhl_schedule_live_recheck",
+      "sport": "Ice Hockey",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "retrieved_window_utc": "2026-10-23T16:19Z–16:32Z",
+      "status": "read",
+      "finding": "Official schedule listed game 2026020166, Montréal Canadiens at Chicago Blackhawks, start 2026-10-24T00:00:00Z, and game 2026020167, Tampa Bay Lightning at Colorado Avalanche, start 2026-10-24T01:00:00Z.",
+      "sha256": null
+    },
+    {
+      "id": "mlb_game1_live_recheck",
+      "sport": "Baseball",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849805",
+      "retrieved_window_utc": "2026-10-23T16:19Z–16:32Z",
+      "status": "read",
+      "finding": "GamePk 849805 is World Series Game 1: Tampa Bay at Milwaukee, official date 2026-10-23, first pitch 2026-10-24T00:00:00Z, American Family Field. Probable pitchers in the feed: Nick Martinez (Tampa Bay) and Jacob Misiorowski (Milwaukee).",
+      "sha256": null
+    },
+    {
+      "id": "gaa_fixtures_live_recheck",
+      "sport": "Gaelic Sports",
+      "url": "https://www.gaa.ie/fixtures-results",
+      "retrieved_window_utc": "2026-10-23T16:31Z–16:32Z",
+      "status": "read",
+      "finding": "The national GAA fixture page showed Ireland v Scotland in the Shinty-Hurling International for Saturday 24 October. It did not confirm the OLBG-listed Ballyhale Shamrocks v Tullaroan club fixture.",
+      "sha256": null
+    },
+    {
+      "id": "kilkenny_fixtures_live_recheck",
+      "sport": "Gaelic Sports",
+      "url": "https://kilkennygaa.ie/fixtures-results/",
+      "retrieved_window_utc": "2026-10-23T16:31Z–16:32Z",
+      "status": "read",
+      "finding": "Official Kilkenny GAA Fix & Res page was opened. The parsed page exposed competition navigation and a long fixtures listing, but no exact Ballyhale Shamrocks v Tullaroan fixture was confirmed in the returned chunk.",
+      "sha256": null
+    }
+  ],
+  "provider_snapshot_2026_10_23T11_35Z": [
+    {
+      "id": "nba_schedule_snapshot",
+      "sport": "Basketball",
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+      "retrieved_utc": "2026-10-23T11:35:26Z",
+      "http_status": 200,
+      "bytes": 7395384,
+      "reported_sha256": "441b32db2b01d8379fbc4560e3156d11a3aacce13bbb9639cb229383a244efcf",
+      "snapshot_file": "session-4afef1af/data/snapshot.json",
+      "note": "Provider schedule lists 53 NBA fixtures. The training-results endpoint timed out; only 16 completed games were available, so all NBA betting markets were withheld for this small sample."
+    },
+    {
+      "id": "nhl_schedule_snapshot",
+      "sport": "Ice Hockey",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "retrieved_utc": "2026-10-23T11:37:04Z",
+      "http_status": 200,
+      "bytes": 91158,
+      "reported_sha256": "f613d29baf9686cc2256213303a086e48e3cd908664d61c201b42124327016ae",
+      "snapshot_file": "session-4afef1af/data/snapshot.json",
+      "note": "Official NHL daily schedule. Used alongside current standings and club schedule history; 2 OLBG-observed NHL event IDs crossmatch."
+    },
+    {
+      "id": "nhl_standings_snapshot",
+      "sport": "Ice Hockey",
+      "url": "https://api-web.nhle.com/v1/standings/now",
+      "retrieved_utc": "2026-10-23T11:37:04Z",
+      "http_status": 200,
+      "bytes": 58175,
+      "reported_sha256": "9707f203787c0d1bc483319d043863033d2d854b0bf46efac5a0e0c18d7ed910",
+      "snapshot_file": "session-4afef1af/data/snapshot.json",
+      "note": "Standings values are current-season records; do not substitute the separate 91/92-game form sample for current standings."
+    },
+    {
+      "id": "mlb_schedule_snapshot",
+      "sport": "Baseball",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-30&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
+      "retrieved_utc": "2026-10-23T11:37:25Z",
+      "http_status": 200,
+      "bytes": 2978,
+      "reported_sha256":  "d76c028c863a3b4faebfec2057c68742a41fdd4db3da1ee0f1b29985ab2c646b",
+      "snapshot_file": "session-4afef1af/data/snapshot.json",
+      "note": "Current MLB schedule includes World Series games, venue and probable-pitcher fields where announced."
+    },
+    {
+      "id": "mlb_standings_snapshot",
+      "sport": "Baseball",
+      "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103%2C104&season=2026&standingsTypes=regularSeason",
+      "retrieved_utc": "2026-10-23T11:37:25Z",
+      "http_status": 200,
+      "bytes": 80986,
+      "reported_sha256":  "bd55f101dcd2b4c5ed284fe66da6511e6159b817501bbcb77009af8e10b451db",
+      "snapshot_file": "session-4afef1af/data/snapshot.json",
+      "note": "Regular-season record source."
+    }
+  ],
+  "prior_official_source_capture": {
+    "board": "AG",
+    "cutoff_utc": "2026-10-22T21:15:00Z",
+    "manifest": "data/session-4885d641/official_sources.json",
+    "raw_directory": "data/session-4885d641/raw/",
+    "note": "This provides historical official references for the 13 priced sports and taxonomy checks; it is not evidence that those events remain current on 2026-10-23."
+  }
+}

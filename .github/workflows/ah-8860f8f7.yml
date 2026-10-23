@@ -1,0 +1,40 @@
+name: Verify Board AH
+
+on:
+  push:
+    branches: ["arena/8860f8f7-olbg4"]
+    paths:
+      - "session-8860f8f7/**"
+      - "data/session-8860f8f7/**"
+      - "scripts/session-8860f8f7/**"
+      - ".github/workflows/ah-8860f8f7.yml"
+  pull_request:
+    paths:
+      - "session-8860f8f7/**"
+      - "data/session-8860f8f7/**"
+      - "scripts/session-8860f8f7/**"
+      - ".github/workflows/ah-8860f8f7.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Rebuild Board AH from its checked-in evidence ledgers
+        run: python3 scripts/session-8860f8f7/build.py
+      - name: Verify scope, sources, prices, thresholds and page links
+        run: python3 scripts/session-8860f8f7/verify.py --check
+      - name: Fail if generated Board AH files are stale
+        run: |
+          if ! git diff --quiet -- session-8860f8f7 data/session-8860f8f7; then
+            echo "Board AH outputs are stale. Run build.py and verify.py, then rebuild once more."
+            git diff --stat -- session-8860f8f7 data/session-8860f8f7
+            exit 1
+          fi

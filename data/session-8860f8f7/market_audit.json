@@ -1,0 +1,109 @@
+{
+  "schema": "olbg4.board-ah.market-audit.v1",
+  "generated_utc": "2026-10-23T16:32:06Z",
+  "fair_odds_band_american": {
+    "min": -250,
+    "max": 10000,
+    "inclusive": true
+  },
+  "high_probability_threshold": 0.7,
+  "margin_rate": 0.045,
+  "selection_count": 42,
+  "priced_event_count": 3,
+  "events_with_high_probability_selection": 2,
+  "high_probability_in_window_count": 0,
+  "high_probability_outside_window_count": 2,
+  "high_probability_outside_window": [
+    {
+      "fixture_id": "nhl-2026020166",
+      "market": "Match total (over/under)",
+      "selection": "Over 5.5",
+      "probability": 0.7398,
+      "probability_pct": 73.98,
+      "fair_decimal": 1.3517166801838334,
+      "fair_american": "−284",
+      "fair_american_value": -284.31975403535745,
+      "margin_decimal": 1.293,
+      "margin_american": "-341",
+      "fair_in_band": false
+    },
+    {
+      "fixture_id": "nhl-2026020167",
+      "market": "Match total (over/under)",
+      "selection": "Under 8.5",
+      "probability": 0.7297,
+      "probability_pct": 72.97,
+      "fair_decimal": 1.3704262025489926,
+      "fair_american": "−270",
+      "fair_american_value": -269.9593044765076,
+      "margin_decimal": 1.311,
+      "margin_american": "-322",
+      "fair_in_band": false
+    }
+  ],
+  "eligible_high_selections": [],
+  "match_winner_pick_count": 3,
+  "match_winner_picks": [
+    {
+      "fixture_id": "mlb-849805",
+      "sport": "Baseball",
+      "matchup": "Tampa Bay Rays @ Milwaukee Brewers",
+      "selection": "Milwaukee Brewers",
+      "probability": 0.576,
+      "probability_pct": 57.599999999999994,
+      "fair_decimal": 1.7361111111111112,
+      "fair_american_value": -135.84905660377356,
+      "fair_american": "−136",
+      "fair_in_band": true,
+      "confidence": "Medium",
+      "pipeline_confidence_tag": "medium",
+      "pipeline_tag_adopted": false,
+      "margin_decimal": 1.661,
+      "margin_american": "-151",
+      "training_sample_min_games": 333
+    },
+    {
+      "fixture_id": "nhl-2026020166",
+      "sport": "Ice Hockey",
+      "matchup": "Montréal Canadiens @ Chicago Blackhawks",
+      "selection": "Montréal Canadiens",
+      "probability": 0.607,
+      "probability_pct": 60.699999999999996,
+      "fair_decimal": 1.6474464579901154,
+      "fair_american_value": -154.45292620865138,
+      "fair_american": "−154",
+      "fair_in_band": true,
+      "confidence": "Medium",
+      "pipeline_confidence_tag": "high",
+      "pipeline_tag_adopted": false,
+      "margin_decimal": 1.576,
+      "margin_american": "-174",
+      "training_sample_min_games": 91
+    },
+    {
+      "fixture_id": "nhl-2026020167",
+      "sport": "Ice Hockey",
+      "matchup": "Tampa Bay Lightning @ Colorado Avalanche",
+      "selection": "Colorado Avalanche",
+      "probability": 0.5712,
+      "probability_pct": 57.120000000000005,
+      "fair_decimal": 1.7507002801120446,
+      "fair_american_value": -133.20895522388062,
+      "fair_american": "−133",
+      "fair_in_band": true,
+      "confidence": "Medium",
+      "pipeline_confidence_tag": "medium",
+      "pipeline_tag_adopted": false,
+      "margin_decimal": 1.675,
+      "margin_american": "-148",
+      "training_sample_min_games": 91
+    }
+  ],
+  "market_family_counts": {
+    "moneyline": 6,
+    "handicap": 18,
+    "total": 18
+  },
+  "nba_withheld_count": 12,
+  "interpretation": "Probability and fair odds are the originated values. Margin-adjusted prices are reported separately and are not used for the focus-band test."
+}

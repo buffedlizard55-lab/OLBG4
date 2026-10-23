@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology · Board AH · OLBG4</title>
+<meta name="description" content="Current-day OLBG source reconciliation and independently originated lines.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230e7490'/><text x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='white' text-anchor='middle'>AH</text></svg>">
+</head>
+<body>
+<header class="topbar"><div class="wrap topbar-inner">
+  <a class="brand" href="index.html"><span class="brand-mark">AH</span><span><b>OLBG4</b><small>current-day line desk · 23 Oct 2026</small></span></a>
+  <nav class="nav"><a href="index.html" class="">Overview</a><a href="entries.html" class="">Entries</a><a href="markets.html" class="">Markets</a><a href="picks.html" class="">Picks</a><a href="coverage.html" class="">Coverage</a><a href="olbg.html" class="">OLBG map</a><a href="sources.html" class="">Sources</a><a href="methodology.html" class="active">Method</a><a href="flagged.html" class="">Flagged review</a><a href="verification.html" class="">Verification</a><a href="history.html" class="">History</a></nav>
+</div></header>
+<main class="wrap"><section class="page-head"><div class="eyebrow">BOARD AH · 23 OCTOBER 2026</div><h1>How this desk decides what can be published</h1><p>A line-by-line path from OLBG discovery to official fixture, originated market, confidence grade and review flag.</p></section><section class="method-grid">
+      <article class="method-card"><span class="step">01</span><h2>Scope &amp; discovery</h2><p>The target is 15 categories: 13 priced-capable sports, Gaelic Sports (Gaelic Football plus Hurling), and Greyhounds. OLBG hub cards identify candidate events only. The later 16:32Z recheck is recorded alongside the earlier 16:19Z scan so feed changes are not hidden.</p></article>
+      <article class="method-card"><span class="step">02</span><h2>Official fixture gate</h2><p>A row is crossmatched only when the OLBG event observation maps to an official provider fixture by event ID plus matchup/date. The NBA, NHL and MLB rows link to the official game page and schedule. The Hurling event remains listing-only because the exact club fixture was not confirmed.</p></article>
+      <article class="method-card"><span class="step">03</span><h2>Own market construction</h2><p>For the three NHL/MLB fixtures with sufficient official-feed training data, the line engine supplies moneyline, handicap/run-or-puck line and total distributions, including alternate lines. No OLBG or sportsbook line is copied. Fair decimal = 1 / p; the separate margin price uses a 4.5% two-way hold.</p></article>
+      <article class="method-card"><span class="step">04</span><h2>NBA sample hold</h2><p>The current NBA training sample has 16 completed games overall, and the matched teams have one or two completed games each. The required minimum is 20 per team; moneyline, pointspread and total markets are blank rather than inferred.</p></article>
+      <article class="method-card"><span class="step">05</span><h2>Confidence &amp; odds window</h2><p>High requires probability ≥70% and a fair American price between −250 and +10,000 inclusive. Fair price—not margin-adjusted price—is used for the band test. Medium is 55% to under 70%; Low is under 55%. These desk grades override internal pipeline tags where they use a different threshold.</p></article>
+      <article class="method-card"><span class="step">06</span><h2>Prediction prose</h2><p>Only qualifying High selections receive a unique, natural prediction of at least 30 words naming the bet and citing source-confirmed facts. No selection qualifies now, so no prediction prose is emitted. Injuries and lineups are not claimed without a direct upcoming-game source.</p></article>
+    </section>
+    <section class="section"><h2>Fair odds and the −250 boundary</h2><p>At 70% probability, fair American odds are approximately −233.3, so the two conditions can overlap only from 70% through about 71.43%. The 73.98% Over 5.5 and 72.97% Under 8.5 totals are shorter than −250 at fair odds, so they are listed as outside-window candidates rather than eligible High selections.</p><p>The source pipeline also reports a 4.5%-margin price. That figure can be shorter than the fair price. Both are shown in <a href="markets.html">Markets</a>; only the fair price determines window eligibility.</p></section>
+    <section class="section"><h2>Data freshness and limits</h2><ul class="clean"><li>The underlying NHL/MLB training and market snapshot is from 2026-10-23 11:35–11:37Z. Later official reads rechecked schedule facts, not the full model inputs.</li><li>The current page-reader results are saved as extracted facts and URLs; raw response bytes and hashes were not provided.</li><li>Historical Board AG entries dated 22 Oct remain in a separate archive and never populate this current-day desk.</li><li>Every row has an official source link for manual review. Listing-only rows are labelled and carry no originated market, price, pick or confidence.</li><li>This desk is informational, not betting advice. Prices and outcomes can change.</li></ul></section></main>
+<footer class="footer"><div class="wrap footer-inner">
+  <span>Board AH · read-only source cut 2026-10-23T16:32:06Z · times shown in UTC unless stated.</span>
+  <span><a href="../index.html">All dashboards</a> · <a href="flagged.html">Flagged for review</a> · <a href="verification.html">Verification register</a></span>
+</div><div class="wrap footer-note">Source-first research display. No selection is guaranteed. 18+; gamble responsibly.</div></footer>
+<script src="assets/site.js"></script>
+</body></html>

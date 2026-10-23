@@ -1,0 +1,90 @@
+[
+  {
+    "id": "AH-F01",
+    "severity": "high",
+    "category": "OLBG listing volatility / status mismatch",
+    "detail": "The 16:19Z scan observed 12 NBA, two NHL and one MLB OLBG cards. The 16:31–16:32Z hub recheck returned 'No tips found' on those three hubs; direct NHL event pages rendered 'Expired' while the NHL schedule still listed both games as upcoming. Keep the 15 event IDs as observed listings, not as a claim that the cards remained active.",
+    "official_url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+    "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+  },
+  {
+    "id": "AH-F02",
+    "severity": "high",
+    "category": "NBA prices withheld",
+    "detail": "Twelve NBA fixtures crossmatch, but the source snapshot has only 16 completed games in the 2026–27 training sample and individual team samples below 20. Moneyline, point spread and game-total numbers and picks are blank for all 12; do not infer them.",
+    "official_url": "https://www.nba.com/games?date=2026-10-23",
+    "olbg_url": "https://www.olbg.com/betting-tips/Basketball/4"
+  },
+  {
+    "id": "AH-F03",
+    "severity": "high",
+    "category": "Twelve categories without an official crossmatch",
+    "detail": "Only Baseball, Basketball and Ice Hockey have event-level official crossmatches in this current scan. Latest hub reads for the other 12 categories did not expose an officially matched card (except the unverified Hurling listing); this is a capture limitation, not proof that no fixtures exist. No old Board AG event or prediction is carried forward as current.",
+    "official_url": "https://www.gaa.ie/fixtures-results",
+    "olbg_url": "https://www.olbg.com/betting-tips"
+  },
+  {
+    "id": "AH-F04",
+    "severity": "high",
+    "category": "Gaelic Sports scope and Hurling listing",
+    "detail": "Gaelic Sports includes Gaelic Football and Hurling. OLBG lists Ballyhale Shamrocks v Tullaroan for 25 Oct, but the GAA national fixture page and the reviewed portion of the Kilkenny GAA county fixture page did not confirm that club fixture. Date/time zone and venue are therefore blank; no line or pick is published.",
+    "official_url": "https://kilkennygaa.ie/fixtures-results/",
+    "olbg_url": "https://www.olbg.com/betting-tips/Hurling/26"
+  },
+  {
+    "id": "AH-F05",
+    "severity": "medium",
+    "category": "Market snapshot freshness",
+    "detail": "The NHL and MLB originated market inputs come from the official-provider snapshot captured 2026-10-23T11:35Z–11:37Z. Later reads rechecked the schedules, not the full team history/model inputs. These prices are a same-day snapshot, not a live-odds guarantee.",
+    "official_url": "https://api-web.nhle.com/v1/standings/now",
+    "olbg_url": "https://www.olbg.com/betting-tips"
+  },
+  {
+    "id": "AH-F06",
+    "severity": "medium",
+    "category": "Historical NHL form sample",
+    "detail": "The pipeline's form.record fields for the two NHL games represent 91/92-game samples, not the current-season standings. They are omitted from the published form panel; current-season NHL records are taken from the official fixture snapshot (3-6-0 / 4-3-2 and 5-4-1 / 7-2-0).",
+    "official_url": "https://api-web.nhle.com/v1/standings/now",
+    "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+  },
+  {
+    "id": "AH-F07",
+    "severity": "medium",
+    "category": "Injuries and lineup information",
+    "detail": "No upcoming-game injury report or confirmed lineup source was captured for any row. No injury, availability or lineup claim is made.",
+    "official_url": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
+    "olbg_url": "https://www.olbg.com/betting-tips"
+  },
+  {
+    "id": "AH-F08",
+    "severity": "high",
+    "category": "≥70% candidates outside fair-odds band",
+    "detail": "Two originated totals exceed 70% probability, but fair prices are shorter than −250: Montréal–Chicago Over 5.5 at 73.98% (fair −284) and Tampa Bay–Colorado Under 8.5 at 72.97% (fair −270). They are shown as outside-window candidates, not eligible High picks.",
+    "official_url": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
+    "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+  },
+  {
+    "id": "AH-F09",
+    "severity": "medium",
+    "category": "Fair versus margin-adjusted price",
+    "detail": "The 4.5% margin-adjusted price and the fair price are both displayed. The −250 to +10,000 focus window is tested on the fair American price, not the shorter margin-adjusted price.",
+    "official_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=849805",
+    "olbg_url": "https://www.olbg.com/betting-tips/Baseball/12"
+  },
+  {
+    "id": "AH-F10",
+    "severity": "medium",
+    "category": "Five-pick target shortfall",
+    "detail": "No current in-window High selection was found. The requested target of up to five strongest High picks per sport is not met; the shortfall is displayed for all 15 categories rather than filled with weak or historical picks.",
+    "official_url": "https://www.nba.com/games?date=2026-10-23",
+    "olbg_url": "https://www.olbg.com/betting-tips"
+  },
+  {
+    "id": "AH-F11",
+    "severity": "medium",
+    "category": "Web-reader capture integrity",
+    "detail": "Current source checks are recorded with URLs, retrieval windows and extracted facts, but the Arena reader did not expose raw HTTP bytes or response hashes. The independent provider snapshot's reported hashes are recorded separately and were not recomputed from raw bytes in this Board AH workspace.",
+    "official_url": "https://www.nba.com/games?date=2026-10-23",
+    "olbg_url": "https://www.olbg.com/betting-tips"
+  }
+]
