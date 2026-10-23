@@ -1,6 +1,6 @@
 {
  "schema": "board-ar-flagged/1",
- "generated_at_utc": "2026-10-23T19:39:12Z",
+ "generated_at_utc": "2026-10-23T19:42:37Z",
  "flags": [
   {
    "id": "AR-F-TEN-01",
@@ -28,6 +28,15 @@
    "detail": "tophaandbold.dk's standings page does not publish the fixture list; the start clock on these rows is the OLBG listing clock. The teams, table values and lines are official; the clock is not.",
    "evidence_url": "https://tophaandbold.dk/stillinger/herreligaen",
    "manual_url": "https://tophaandbold.dk/stillinger/herreligaen"
+  },
+  {
+   "id": "AR-F-ATP-02",
+   "severity": "review",
+   "sport": "Tennis",
+   "title": "ATP start clock blank on order-of-play rows",
+   "detail": "The official ATP order-of-play PDF prints court order and 'not before' times but no date-qualified UTC timestamp accepted by this desk, so the start clock is blank rather than inferred.",
+   "evidence_url": "",
+   "manual_url": ""
   },
   {
    "id": "AR-F-LIST-VOLLEYBALL",
@@ -139,8 +148,8 @@
   }
  ],
  "counts": {
-  "total": 15,
+  "total": 16,
   "blocker": 0,
-  "review": 15
+  "review": 16
  }
 }

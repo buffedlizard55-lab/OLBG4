@@ -2,6 +2,11 @@ name: Board AR official capture (405e9797)
 
 on:
   workflow_dispatch:
+    inputs:
+      targets:
+        description: "Target list to capture"
+        required: false
+        default: "scripts/session-405e9797/targets.json"
   push:
     branches:
       - arena/405e9797-olbg4
@@ -34,7 +39,7 @@ jobs:
           set -o pipefail
           STAMP=$(date -u +%Y%m%dT%H%M%SZ)
           echo "STAMP=$STAMP" >> "$GITHUB_ENV"
-          python3 scripts/session-405e9797/fetch.py scripts/session-405e9797/targets.json "data/session-405e9797/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+          python3 scripts/session-405e9797/fetch.py "${{ inputs.targets || 'scripts/session-405e9797/targets.json' }}" "data/session-405e9797/capture/$STAMP" 2>&1 | tee /tmp/capture.log
       - name: Commit capture (even partial) to arena/405e9797-olbg4
         if: always()
         run: |

@@ -4,7 +4,7 @@
 Fetches public OLBG sport hubs (taxonomy + live listings for the 15-sport scope only) and
 official governing-body / league / tour feeds for the 23 Oct – 2 Nov 2026 window on an
 open-egress GitHub Actions runner, storing deterministic gzip-compressed raw bytes plus a
-SHA-256 manifest in data/session-b2c7308d/capture/<UTC_STAMP>/.
+SHA-256 manifest in data/session-405e9797/capture/<UTC_STAMP>/.
 
 Design guarantees (same discipline as the repo's earlier capture desks):
   - Per-host polite spacing via per-netloc lock + monotonic timer (>=0.90s between requests
