@@ -4296,3 +4296,56 @@ User sport scope (exactly): Golf, Volleyball, Rugby Union, Cricket, Snooker, Dar
 
 ### ED working log
 - `2026-10-23T19:35Z` — `ed4c358c` — Board ED claimed and pushed before any other work. Prior boards (latest: AH `b2c7308d`, AI `2c05e0b2`, AP `509d544b`) are read-only. Sandbox bash egress reaches GitHub only, so official pages are captured by an Actions runner on this branch and every published value is parsed from those committed bytes.
+
+### Board ED completion record (session `arena/ed4c358c-olbg4`), 2026-10-23 UTC
+
+**Deliverable.** [`session-ed4c358c/index.html`](session-ed4c358c/index.html) — executive-summary landing page,
+15 per-sport subpages, plus `picks`, `predictions`, `entries`, `markets`, `coverage`, `sources`, `methodology`,
+`review`, `flagged` and `verification` pages (26 pages). Machine-readable outputs:
+`data/session-ed4c358c/{olbg_inventory,desk,predictions,repo_review,verification}.json`.
+
+**Task status.** ED1 done · ED2 done · ED3 done (partial per-sport coverage, shortfall published) · ED4 done ·
+ED5 done · ED6 in progress (PR/merge record appended below once the run completes).
+
+**OLBG reverse-engineering (ED1).** Fresh capture `20261023T193325Z` (153 targets, 118 HTTP 200) fetched by
+`.github/workflows/ed-4c358c.yml` on this branch; raw gzip bytes + SHA-256 manifest in
+`data/session-ed4c358c/capture/20261023T193325Z/`. Every one of the 15 OLBG hubs exposes a SvelteKit `tips:[…]`
+payload; `scripts/session-ed4c358c/re_olbg.py` copies selection / market alias / decimal / American / fractional /
+start / tip counts / OLBG confidence verbatim → **202 listed events, 202 listed prices**. Golf listed zero events.
+
+**Own lines (ED2).** **333 rows, 222 with our own lines, 654 margin-free markets** across six sports with a
+machine-readable official form feed: Ice Hockey (NHL 111 + Liiga 30), Basketball (EuroLeague/EuroCup 62),
+Baseball (MLB World Series 7), Volleyball (Italian SuperLega 4), Tennis (WTA/ATP 5), Handball (Danish
+Herreligaen 2) and Motor Racing (F1 US GP race-winner outright 1). Every priced row re-hashes its captured
+payload before use. Confidence: **78 High / 132 Medium / 123 Low-or-unpriced**; **13 High picks sit inside
+−250…+10,000** (the band is p 0.700–0.7143 — the arithmetic is published on `picks.html`).
+
+**Predictions (ED3).** 24 hand-written texts (Ice Hockey 5, Basketball 5, Baseball 5, Tennis 5, Volleyball 4);
+all ≥ 30 words, max pairwise 3-gram Jaccard 0.061, no internal vocabulary, each names the teams/players, the
+official form inputs for that fixture and an explicit selection, with the official source link under the card.
+
+**Honest shortfall (published, not hidden).** Nine sports carry no originated line because no official
+machine-readable form/standings feed was reachable: Golf (OLBG listed no event), Darts and Snooker (PDC/WST pages
+are JavaScript shells), Greyhounds (pre-race endpoints 404; results only), Gaelic Sports (county fixtures, no club
+card), Rugby League (RLWC site 404s, NRL login wall), Rugby Union (URC SPA shell, Premiership/NRL JS payloads),
+Cricket (official fixtures captured and published with links, but no form feed) and NBA (403). PlusLiga was
+deliberately not priced after review found the captured table is the 2024/2025 season. All of it is on
+`coverage.html` and `flagged.html`; nothing was inferred to fill a gap.
+
+**Repo review (ED4).** `data/session-ed4c358c/repo_review.json`: 738 rows across 7 shared datasets inspected,
+18 findings (6 high / 8 medium / 4 low) — 39 source-less rows in `data/master.json`, 41 in `data/matches.json`,
+116 in `data/board.json`, 13 in `data/flagged.json`; 255 past-dated rows; 58 written predictions using internal
+vocabulary; 17 duplicate matchups; 16+9+5 out-of-scope sport rows. Nothing in those files was edited.
+
+**Integration fix applied (logged, peer scope touched).** `data/session-b2c7308d/capture/20261023T165722Z/` had
+108 payloads committed as gzip bytes with a `.html` extension, which made `scripts/audit_publication.py` crash
+(UTF-8 decode) on `main` and on every branch since PR #139. As the integration session this board renamed those
+files to `*.html.gz` and updated that capture's own `manifest.json` `file` fields (a pure re-extension: bytes and
+SHA-256 unchanged, the peer reader decompresses by magic bytes). `python3 scripts/audit_publication.py --check`
+now exits 0 (31,073 local targets, 0 broken, 0 stale) and `audit/{index.html,report.json}` were regenerated.
+
+**Verification performed (ED6).** `python3 scripts/session-ed4c358c/verify.py` → **PASS 14/14** (capture re-hash,
+654 markets re-derived, window/scope, source on every row, official-only pricing, grade thresholds, prediction
+length/uniqueness/selection, 26 pages with 0 broken internal links, summary reconciliation). Byte-identical
+rebuild confirmed (`bash scripts/session-ed4c358c/build_all.sh` twice → no diff). Repo gates on the branch:
+`Validate data and site` PASS, `Verify integrated dashboard` PASS, `Repository-wide publication audit` PASS.
