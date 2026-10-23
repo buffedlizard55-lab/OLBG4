@@ -98,6 +98,12 @@ def local_links():
     for page in sorted(ROOT.rglob('*.html')):
         if any(p in ('.git', 'node_modules', '.venv') for p in page.relative_to(ROOT).parts):
             continue
+        # Capture payloads are evidence, not authored website documents. Some
+        # historical captures retain .html while storing gzip bytes. Do not
+        # parse their external site's navigation as our local publication.
+        relative = page.relative_to(ROOT)
+        if relative.parts[0] == 'data' and any(p in ('capture', 'raw') for p in relative.parts[1:-1]):
+            continue
         parser = Links()
         parser.feed(page.read_text())
         for url in parser.links:

@@ -41,6 +41,19 @@ class AuditTests(unittest.TestCase):
             self.assertEqual(count, 6)
             self.assertEqual({r['url'] for r in broken}, {'missing.html', 'absent.png'})
 
+    def test_raw_capture_is_not_a_published_page(self):
+        import gzip
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            raw = root / 'data/session-peer/capture/stamp'
+            raw.mkdir(parents=True)
+            (raw / 'source.html').write_bytes(gzip.compress(b'<a href="foreign-path">not our nav</a>'))
+            (root / 'index.html').write_text('<a href="missing.html">real broken link</a>')
+            with patch.object(audit, 'ROOT', root):
+                count, broken = audit.local_links()
+            self.assertEqual(count, 1)
+            self.assertEqual(broken, [{'page': 'index.html', 'url': 'missing.html'}])
+
     def test_html_escaped(self):
         report = {'build_counts': {}, 'rows': [{'build': '<script>alert(1)</script>', 'file': 'x', 'row': 1,
             'sport': '', 'match': '<img onerror=bad>', 'date': '', 'official_source_candidates': [],

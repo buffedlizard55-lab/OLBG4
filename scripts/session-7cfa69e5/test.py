@@ -15,6 +15,31 @@ class Publication(unittest.TestCase):
             if r.get('file'):
                 b=gzip.decompress((D/'capture'/r['file']).read_bytes())
                 self.assertEqual(hashlib.sha256(b).hexdigest(),r['sha256']);self.assertEqual(len(b),r['bytes'])
+    def test_robots_evidence_hashes(self):
+        for r in load(D/'capture/manifest.json')['records']:
+            if r.get('robots_file'):
+                raw=gzip.decompress((D/'capture'/r['robots_file']).read_bytes())
+                self.assertEqual(hashlib.sha256(raw).hexdigest(),r['robots_sha256'])
+
+    def test_every_fixture_field_against_capture(self):
+        def raw(id):
+            return json.loads(gzip.decompress((D/'capture'/(id+'.gz')).read_bytes()))
+        expected={}
+        for day in raw('nhl_sched_2026_10_23')['gameWeek']:
+            for g in day['games']:
+                def name(t):return t['placeName']['default']+' '+t['commonName']['default']
+                expected[str(g['id'])]=(name(g['awayTeam']),name(g['homeTeam']),g['startTimeUTC'],g.get('venue',{}).get('default',''))
+        for day in raw('mlb_ws_schedule')['dates']:
+            for g in day['games']:
+                expected[str(g['gamePk'])]=(g['teams']['away']['team']['name'],g['teams']['home']['team']['name'],g['gameDate'],g.get('venue',{}).get('name',''))
+        for id in ['euroleague_games_E2026','eurocup_games_U2026']:
+            for g in raw(id)['data']:
+                expected[g['identifier']]=(g['road']['club']['name'],g['local']['club']['name'],g['utcDate'],(g.get('venue') or {}).get('name',''))
+        for g in raw('liiga_games_2027'):
+            expected['liiga_'+str(g['id'])]=(g['awayTeam']['teamName'],g['homeTeam']['teamName'],g['start'],'')
+        for r in load(D/'desk.json')['rows']:
+            self.assertEqual((r['away'],r['home'],r['start_utc'],r['venue']),expected[r['id']])
+
     def test_no_missing_local_links(self):
         for p in O.glob('*.html'):
             parser=Links();parser.feed(p.read_text())
