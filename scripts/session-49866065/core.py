@@ -51,7 +51,12 @@ class Evidence:
     def __init__(self, directory=DATA/'capture'):
         self.directory = Path(directory)
         self.manifest = json.loads((self.directory/'manifest.json').read_text())
-        self.records = {r['id']:r for r in self.manifest['records']}
+        self.records = {}
+        for r in self.manifest['records']:
+            previous=self.records.get(r['id'])
+            if previous and previous.get('sha256')!=r.get('sha256'):
+                raise ValueError('Conflicting duplicate capture target: '+r['id'])
+            self.records[r['id']]=r
         self.cache = {}
         self.json_cache = {}
         self.cutoff = instant(self.manifest['finished_at'])

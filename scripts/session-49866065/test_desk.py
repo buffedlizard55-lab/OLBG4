@@ -99,6 +99,32 @@ class PublishedEvidenceTests(unittest.TestCase):
             for f in r['facts']:
                 self.assertEqual(self.e.fact_value(f),f['value'])
                 self.assertEqual(f['sha256'],self.e.records[f['target']]['sha256'])
+    def test_fixture_fields_independently_reconstructed(self):
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        import re
+        for r in self.d['rows']:
+            f={x['label']:self.e.fact_value(x) for x in r['facts']}
+            if r['id'].startswith('nhl-'):
+                a=f['Away place']+' '+f['Away name'];b=f['Home place']+' '+f['Home name'];start=f['Start UTC']
+            elif r['id'].startswith(('mlb-','euroleague_','eurocup_')):
+                a=f['Away team'];b=f['Home team'];start=f['Start UTC']
+            elif r['id'].startswith('wta_'):
+                a=f['PlayerNameFirstA']+' '+f['PlayerNameLastA'];b=f['PlayerNameFirstB']+' '+f['PlayerNameLastB'];start=f['MatchTimeStamp']
+            elif r['id'].startswith('liiga-'):
+                a=f['awayTeam/teamName'];b=f['homeTeam/teamName'];start=f['start']
+            elif r['id'].startswith('ca-'):
+                a=f['awayTeam/name'];b=f['homeTeam/name'];start=f['startDateTime']
+            elif r['id'].startswith('urc-'):
+                a,b=f['Published pairing'].replace('\xa0',' ').split(' v ')
+                m=re.search(r'(OCTOBER|NOVEMBER) (\d+)',f['Published day'])
+                t=re.search(r'KO (\d+)[.:](\d+) IRE & UK',f['Published venue and regional KO'])
+                year=int(f['Published season'].split('/')[0])
+                dt=datetime(year,10 if m[1]=='OCTOBER' else 11,int(m[2]),int(t[1]),int(t[2]),tzinfo=ZoneInfo('Europe/London'))
+                start=dt.isoformat()
+            else:self.fail('No independent fixture reconstruction for '+r['id'])
+            self.assertEqual(r['away'],a.strip());self.assertEqual(r['home'],b.strip())
+            self.assertEqual(instant(r['start_utc']),instant(start))
     def test_no_injuries_or_predictions_invented(self):
         self.assertEqual(self.d['high_predictions'],[])
         for r in self.d['rows']:

@@ -98243,6 +98243,15 @@
     {
       "id": "FA-0868",
       "sport": "Repository",
+      "subject": "Stale legacy master publication repaired",
+      "detail": "Canonical regeneration changed five stale master-board artifacts before release. This repair restores build reproducibility; it does not freshly verify the legacy NBA/MLB facts or predictions. Source inputs and peer generators were not changed.",
+      "official_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/tools/build_master.py",
+      "olbg_url": "",
+      "row_id": ""
+    },
+    {
+      "id": "FA-0869",
+      "sport": "Repository",
       "subject": "Peer factual labels not inherited",
       "detail": "1211 rows audited structurally. Their match values are NOT independently re-confirmed in this pass. See the pinned row-level review, which leaves confirmed_values empty.",
       "official_url": "https://github.com/buffedlizard55-lab/OLBG4",
