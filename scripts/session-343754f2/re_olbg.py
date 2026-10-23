@@ -47,7 +47,7 @@ FIELD = re.compile(r'(?:^|[{,])\s*([a-zA-Z_]+):\s*(?:"([^"]*)"|(-?\d+(?:\.\d+)?)
 def latest_stamp() -> str:
     # pinned primary stamp (same contract as originate_desk): archived extra bot
     # stamps exist under capture/ but the inventory is rebuilt from the primary one.
-    return os.path.join(CAP, "20261023T193627Z")
+    return os.path.join(CAP, "20261023T213335Z")
 
 
 def read_capture(stamp: str, target_id: str) -> str | None:
@@ -148,7 +148,7 @@ def main() -> int:
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as fh:
         json.dump(out, fh, indent=1, sort_keys=True)
-    print(f"[board-ez] olbg_inventory: {total_events} events, {total_tips} priced tips -> {OUT}")
+    print(f"[board-bw] olbg_inventory: {total_events} events, {total_tips} priced tips -> {OUT}")
     return 0
 
 

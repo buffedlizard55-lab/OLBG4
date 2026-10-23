@@ -122,7 +122,7 @@ def main() -> int:
         if open(os.path.join(SITE, rel), "rb").read() != blob:
             fails.append(f"rebuild is not deterministic: {rel}")
 
-    print(f"[board-ez] verify: rows={len(rows)} pages={len(pages)} flags={len(flagged['flags'])} "
+    print(f"[board-bw] verify: rows={len(rows)} pages={len(pages)} flags={len(flagged['flags'])} "
           f"fails={len(fails)}")
     for f in fails[:20]:
         print("  FAIL", f)

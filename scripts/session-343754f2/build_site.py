@@ -320,9 +320,12 @@ def main() -> int:
           "computed mean.</li>",
           "<li><strong>Baseball (World Series)</strong> — Poisson runs model on official season scoring/allowance rates, "
           "run line −1.5 = win by 2+.</li>",
-          "<li><strong>Tennis</strong> — seeding from official order-of-play PDFs / tournament feeds drives a logistic "
-          "match model; total-games model anchors a 62% three-set rate at even money and falls linearly with the "
-          "mismatch. Where no completed-results feed was captured, confidence is capped at Medium and flagged.</li>",
+          "<li><strong>Tennis</strong> — draw seeds and completed-set/game form from the official WTA tournament "
+          "feeds drive a logistic match line (seed gap weight 0.30, event set/game form); the total-games line "
+          "anchors a 62% three-set rate at even money and falls linearly with the mismatch. Ties between "
+          "unseeded players with no completed match at the event carry no official strength input and are "
+          "published unpriced (flagged). ATP order-of-play PDFs were captured but the PDF reader is absent in "
+          "this environment, so no ATP row is published.</li>",
           "<li><strong>Handball (Denmark)</strong> — season goals for/against from the official table, shrunk; expected "
           "margin in goals with home allowance +3.5%; handicap −3.5 and totals two-way.</li>",
           "<li><strong>Volleyball (SuperLega)</strong> — match winner only: points-per-game and set-quotient "
@@ -332,9 +335,15 @@ def main() -> int:
           "<li><strong>Snooker (Northern Ireland Open)</strong> — win match only: world ranks carried in the "
           "snooker.org event draw through a normal-CDF rank-gap link, clamped [0.15, 0.85], with event frame form "
           "from the same page feeding the written pick; frame handicaps/totals are not originated (flagged).</li>",
-          "<li><strong>Cricket, Rugby Union, Darts, Golf, Motor Racing, Gaelic, Greyhounds, "
-          "Rugby League</strong> — fixtures published as a complete list; rows stay unpriced where an official numeric "
-          "input (standings, ratings, rankings, racecards) was not capturable — every such row links its flag.</li>",
+          "<li><strong>Rugby Union (TOP 14)</strong> — the official LNR league table gives matches played, "
+          "points for and against per club; attack/defence rates are divided by the league mean of points scored "
+          "per match (27.50 at this capture) and combined into independent Poisson scoring expectations with a "
+          "1.08 home factor. The two-way win price removes the draw mass, the handicap ladder is priced from the "
+          "same joint distribution, and the match total line is the nearest half point to the modelled total. "
+          "URC and Premiership fixtures are listed unpriced because their official tables did not render.</li>",
+          "<li><strong>Cricket, Darts, Golf, Motor Racing, Gaelic, Greyhounds, Rugby League</strong> — fixtures "
+          "published as a complete list; rows stay unpriced where an official numeric input (standings, ratings, "
+          "rankings, racecards) was not capturable — every such row links its flag.</li>",
           "</ul><h3>Republication rule</h3><p>Bookmaker prices are never shown. Every published price is this desk's "
           "own fair computation (decimal = 1/p, american converted at 100·(d−1) or −100/(d−1)), and the review gate "
           "re-derives all of it before the site builds.</p>"]
@@ -357,7 +366,7 @@ def main() -> int:
     so.append("</tbody></table>")
     open(os.path.join(SITE, "sources.html"), "w").write(layout("Sources", "sources.html", "\n".join(so)))
 
-    print(f"[board-ez] site built under session-343754f2/ ({len(rows)} rows, "
+    print(f"[board-bw] site built under session-343754f2/ ({len(rows)} rows, "
           f"{len(flagged['flags'])} flags, {len(bank)} predictions)")
 
 

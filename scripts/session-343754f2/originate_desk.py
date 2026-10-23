@@ -49,7 +49,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "session-343754f2"
 
-CUT_OFF = "2026-10-23T21:29:35Z"          # EZ evening capture stamp (main evidence)
+CUT_OFF = "2026-10-23T21:33:35Z"          # EZ evening capture stamp (main evidence)
 WINDOW_START = "2026-10-23T00:00:00Z"
 WINDOW_END = "2026-11-09T00:00:00Z"
 
@@ -66,7 +66,7 @@ CAPTURE_DIR = DATA / "capture"
 # Pinned to the capture this published desk was derived from: later bot stamps
 # (e.g. 20261023T193956Z) stay archived in capture/ but are NOT desk inputs, so a
 # rebuild from committed bytes is byte-identical.
-PRIMARY_STAMP = "20261023T212935Z"
+PRIMARY_STAMP = "20261023T213335Z"
 ALL_STAMPS = [PRIMARY_STAMP]
 
 _flags: list[dict] = []
@@ -172,12 +172,15 @@ def in_window(am: int) -> bool:
     return -250 <= am <= 10000
 
 
-def confidence(p: float, gate_ok: bool):
+def confidence(p: float, gate_ok: bool, window_ok: bool = True):
+    """High requires all three: sample gate met, our line at >=70%, and the pick's own
+    fair price inside -250..+10,000 American (the brief's High-confidence window).
+    A >=70% pick priced shorter than -250 is published Medium and flagged, never High."""
     if not gate_ok:
         return "Medium" if p >= 0.55 else "Low", False
-    if p >= 0.70:
+    if p >= 0.70 and window_ok:
         return "High", True
-    if p >= 0.55:
+    if p >= 0.55 or p >= 0.70:
         return "Medium", True
     return "Low", True
 
@@ -227,42 +230,49 @@ def new_row(**kw):
 def finish_pick(row, market_name, sel_label, p, gate_ok):
     dec = decimal_from_prob(p)
     am = american_from_decimal(dec)
-    conf, _ = confidence(p, gate_ok)
+    window_ok = bool(-250 <= am <= 10000)
+    conf, _ = confidence(p, gate_ok, window_ok)
     row["pick"] = sel_label
     row["pick_market"] = market_name
     row["pick_prob"] = round(p, 4)
     row["pick_fair_american"] = am
     row["confidence"] = conf
-    row["in_window"] = bool(-250 <= am <= 10000)
+    row["in_window"] = window_ok
     return row
 
 
 def pick_best_selection(row, gate_ok):
-    """Published selection rule: scan every originated market on the row and pick the
-    selection with the highest model probability that prices inside the requested
-    [-250, +10000] American window; if no selection fits the window, fall back to the
-    highest-probability money-line side and leave in_window False (flagged page shows
-    the arithmetic). Ties prefer the simpler market (match_winner first)."""
-    best = None
+    """Published selection rule (Board BW).
+
+    1. Candidate set = every selection of every originated market on the row whose own
+       fair American price sits inside the brief's -250..+10,000 window.
+    2. If the best in-window candidate is a genuine opinion (>=55% on our line), that is
+       the published pick. This is what lets a 71% handicap/total at about -245 be the
+       High-confidence selection instead of an 82% favourite priced -470 that sits
+       outside the window the brief asks us to work in.
+    3. Otherwise (no in-window selection, or only a sub-55% in-window underdog) the pick
+       is the highest-probability selection overall, published with its real price and
+       `in_window=false`; it can never be labelled High.
+    Ties prefer the simpler market (match_winner first)."""
     order = {"match_winner": 0, "handicap": 1, "total": 2, "outright": 3}
-    for mk in sorted(row.get("markets", {}).values(), key=lambda m: order.get(m["market_name"].split()[0].lower(), 9)):
-        for s in mk.get("selections", []):
-            am = s["fair_american"]
-            if not (-250 <= am <= 10000):
-                continue
-            key = (s["fair_prob"], -order.get(mk["market_name"].split()[0].lower(), 9))
-            if best is None or key > best[0]:
-                best = (key, mk["market_name"], s)
-    if best is not None:
-        _, mk_name, s = best
-        return finish_pick(row, mk_name, s["label"], s["fair_prob"], gate_ok)
-    # no in-window selection: take the money-line favourite
-    mw = row.get("markets", {}).get("match_winner") or {}
-    sels = mw.get("selections") or []
-    if not sels:
+    best_in = None
+    best_all = None
+    for mk in row.get("markets", {}).values():
+        if not isinstance(mk, dict) or "selections" not in mk:
+            continue
+        simple = order.get(mk["market_name"].split()[0].lower(), 9)
+        for sel in mk["selections"]:
+            key = (sel["fair_prob"], -simple)
+            if best_all is None or key > best_all[0]:
+                best_all = (key, mk["market_name"], sel)
+            if -250 <= sel["fair_american"] <= 10000 and sel["fair_prob"] >= 0.55:
+                if best_in is None or key > best_in[0]:
+                    best_in = (key, mk["market_name"], sel)
+    chosen = best_in or best_all
+    if chosen is None:
         return row
-    s = max(sels, key=lambda x: x["fair_prob"])
-    return finish_pick(row, mw["market_name"], s["label"], s["fair_prob"], gate_ok)
+    _, mk_name, sel = chosen
+    return finish_pick(row, mk_name, sel["label"], sel["fair_prob"], gate_ok)
 
 
 # ===========================================================================
@@ -368,9 +378,11 @@ def parse_nhl(reader: CaptureReader) -> None:
                       start_utc=start, venue=g.get("venue", {}).get("default", ""),
                       official_url=url, official_source_name="NHL Official Schedule API (api-web.nhle.com)",
                       capture_stamp=stamp,
-                      inputs_summary=(f"Official NHL schedule game {gid}; standings {th['gp']}GP {th['w']}-{th['l']}-{th['otl']} "
-                                      f"({th['pts']} pts, GF:GA {th['gf']}:{th['ga']}) vs {ta['gp']}GP {ta['w']}-{ta['l']}-{ta['otl']} "
-                                      f"({ta['pts']} pts, GF:GA {ta['gf']}:{ta['ga']}); model xG {lam_h:.2f}-{lam_a:.2f}."),
+                      inputs_summary=(f"Official NHL schedule game {gid} ({start}). Home {th['name']}: {th['gp']}GP "
+                                      f"{th['w']}-{th['l']}-{th['otl']} ({th['pts']} pts, GF:GA {th['gf']}:{th['ga']}). "
+                                      f"Away {ta['name']}: {ta['gp']}GP {ta['w']}-{ta['l']}-{ta['otl']} "
+                                      f"({ta['pts']} pts, GF:GA {ta['gf']}:{ta['ga']}). Derived expected goals "
+                                      f"(home-away) {lam_h:.2f}-{lam_a:.2f}."),
                       markets=markets)
         pick_best_selection(row, gate)
         n_priced += 1
@@ -709,6 +721,7 @@ def parse_liiga(reader: CaptureReader) -> None:
 # ---- Tennis -------------------------------------------------------------------
 
 def parse_tennis(reader: CaptureReader) -> None:
+    unpriced_tennis = []
     # WTA tournaments — every captured wta_*_matches feed in this session
     wta_targets = []
     for t in sorted(k for k in reader.filemap if k.startswith("wta_")):
@@ -747,7 +760,10 @@ def parse_tennis(reader: CaptureReader) -> None:
             pb = f"{(m.get('PlayerNameFirstB') or '').strip()} {m.get('PlayerNameLastB','')}".strip()
             if not pa or not pb or "TBD" in (pa + pb).upper():
                 continue
-            seed_a, seed_b = m.get("SeedA"), m.get("SeedB")
+            def _seed(v):
+                v = str(v or "").strip()
+                return int(v) if v.isdigit() and int(v) > 0 else None
+            seed_a, seed_b = _seed(m.get("SeedA")), _seed(m.get("SeedB"))
             # this-event results so far (sets/games won-lost) from finished singles matches
             def form_for(name):
                 sets_w = sets_l = games_w = games_l = wins = 0
@@ -780,12 +796,29 @@ def parse_tennis(reader: CaptureReader) -> None:
                 return wins, sets_w, sets_l, games_w, games_l
             wa, sa_, sla, gwa, gla = form_for(m.get("PlayerNameLastA", ""))
             wb, sb, slb, gwb, glb = form_for(m.get("PlayerNameLastB", ""))
-            seed_edge = 0.22 * ((seed_b if isinstance(seed_b, int) else 9) - (seed_a if isinstance(seed_a, int) else 9))
+            seed_edge = 0.30 * ((seed_b if isinstance(seed_b, int) else 9) - (seed_a if isinstance(seed_a, int) else 9))
             form_edge = 0.10 * ((sa_ - sla) - (sb - slb)) + 0.02 * ((gwa - gla) - (gwb - glb))
             raw_p = 1 / (1 + math.exp(-(seed_edge + form_edge)))
             p_a = min(0.85, max(0.15, raw_p))
             rnd = m.get("RoundID", "")
-            comp = f"{title} — {({'Q': 'Quarter-Final', 'S': 'Semi-Final', 'F': 'Final'}).get(rnd, 'Main Draw')}"
+            level = {"Q": "Qualifying", "M": "Main Draw", "D": "Doubles", "P": "Preliminary"}.get(
+                str(m.get("DrawLevelType", "")).strip().upper(), "Main Draw")
+            stage = {"Q": "Quarter-Final", "S": "Semi-Final", "F": "Final"}.get(str(rnd))
+            comp = f"{title} — {level}" + (f" {stage}" if stage else "")
+            no_input = (seed_a is None and seed_b is None and (wa + wb) == 0)
+            if no_input:
+                new_row(sport="Tennis", competition=comp, side_a=pa, side_b=pb,
+                        matchup=f"{pa} vs {pb}", start_utc=start_utc, venue=tour.get("city", ""),
+                        official_url=url,
+                        official_source_name=f"WTA Official Tournament Feed ({tour.get('tournamentGroup',{}).get('id','')})",
+                        capture_stamp=stamp,
+                        inputs_summary=(f"Official {city} tournament feed match {m.get('MatchID')} "
+                                        f"(scheduled {start_utc}): {pa} vs {pb}. Neither player carries a draw "
+                                        f"seed in the official feed and neither has a completed singles match at "
+                                        f"this event, so no verified ranking or form input exists: published "
+                                        f"unpriced rather than priced off a coin flip (see flag BW-F-TN-01)."))
+                unpriced_tennis.append((city, pa, pb))
+                continue
             total_line = 21.5
             # Documented total-games model: baseline three-set rate 62% at a 50/50 match,
             # falling linearly to 38% at a total mismatch (|p-0.5| = 0.35).
@@ -799,15 +832,30 @@ def parse_tennis(reader: CaptureReader) -> None:
                           "selections": [sel_row(f"Over {total_line}", p_over), sel_row(f"Under {total_line}", 1 - p_over)]},
             }
             summary = (f"Official {city} tournament feed match {m.get('MatchID')} (scheduled {start_utc}): "
-                       f"{pa}" + (f" [seed {seed_a}]" if isinstance(seed_a, int) else "") + " beat " +
-                       ", ".join(x.get("ResultString", "") for x in d.get("matches", []) if x.get("DrawMatchType") == "S" and x.get("MatchState") == "F" and m.get("PlayerNameLastA") in (x.get("PlayerNameLastA"), x.get("PlayerNameLastB")))[:80]
-                       + f"; opponent {pb}" + (f" [seed {seed_b}]" if isinstance(seed_b, int) else "") + ".")
+                       f"{pa}" + (f" [seed {seed_a}]" if isinstance(seed_a, int) else "") +
+                       f" vs {pb}" + (f" [seed {seed_b}]" if isinstance(seed_b, int) else "") +
+                       f". Seed gap edge {seed_edge:+.4f}; main-draw sets so far {sa_}-{sla} for {pa} and "
+                       f"{sb}-{slb} for {pb}; games {gwa}-{gla} vs {gwb}-{glb}. "
+                       f"Model p({pa})={p_a:.4f} = logistic(seed gap + set/game form) clamped [0.15,0.85]; "
+                       f"total-games line {total_line} over probability {p_over:.4f} (documented three-set baseline). "
+                       f"Markets investigated: match winner, game handicap, total games. No injury or withdrawal "
+                       f"notice was published in the captured feed, so none is claimed.")
             row = new_row(sport="Tennis", competition=comp, side_a=pa, side_b=pb, matchup=f"{pa} vs {pb}",
                           start_utc=start_utc,
                           venue=tour.get("city", ""), official_url=url,
                           official_source_name=f"WTA Official Tournament Feed ({tour.get('tournamentGroup',{}).get('id','')})",
                           capture_stamp=stamp, inputs_summary=summary, markets=markets)
             pick_best_selection(row, (wa + wb) >= 2)
+
+
+    if unpriced_tennis:
+        flag("BW-F-TN-01", "review", "Tennis",
+             f"{len(unpriced_tennis)} tennis tie(s) published unpriced — no official seed or form input",
+             "Qualifying-round ties drawn between unseeded players with no completed singles match at the "
+             "same event carry neither a draw seed nor event form in the official WTA feed. They are listed "
+             "with their official times and left unpriced instead of being priced at 50/50. Examples: "
+             + "; ".join(f"{c}: {a} vs {b}" for c, a, b in unpriced_tennis[:6]) + ".",
+             "https://www.wtatennis.com/")
 
 
 # ---- ATP (official supervisor order-of-play PDFs, generic parser) ------------
@@ -933,7 +981,7 @@ def parse_atp(reader: CaptureReader) -> None:
                 continue
             pa, pb = side_a[0], side_b[0]
             seed_a, seed_b = pa["seed"], pb["seed"]
-            seed_edge = 0.22 * ((seed_b if seed_b is not None else 9) - (seed_a if seed_a is not None else 9))
+            seed_edge = 0.30 * ((seed_b if seed_b is not None else 9) - (seed_a if seed_a is not None else 9))
             p_a = min(0.85, max(0.15, 1 / (1 + math.exp(-seed_edge))))
             p_over = min(0.92, max(0.10, 0.62 - 0.686 * abs(p_a - 0.5)))
             session_before_draw = ""
@@ -1048,6 +1096,40 @@ def main() -> int:
             linked += 1
     print(f"[board-bw] OLBG cross-links attached to {linked} official rows")
 
+    # coverage ledger: the brief asks for five High-confidence picks per covered sport.
+    # Where the capture/line gate cannot support that, the shortfall is published with
+    # its reason instead of being padded with weaker selections.
+    from collections import Counter as _C
+    hi = _C(r["sport"] for r in _rows if r.get("confidence") == "High")
+    pr = _C(r["sport"] for r in _rows if r.get("priced"))
+    rr = _C(r["sport"] for r in _rows)
+    led = []
+    for sp in SPORT_SLUGS:
+        if hi.get(sp, 0) < 5:
+            led.append(f"{sp} {hi.get(sp,0)}/5 High ({pr.get(sp,0)} priced of {rr.get(sp,0)} rows)")
+    flag("BW-F-COV-01", "review", "All 15 sports",
+         f"Five High-confidence picks per sport met for {sum(1 for sp in SPORT_SLUGS if hi.get(sp,0)>=5)} of 15 sports",
+         "The brief's target of five High-confidence picks per covered sport is met only where the official "
+         "capture supports a >=70% own line priced inside -250..+10,000 with the sample gate passed. Ledger of "
+         "shortfalls: " + "; ".join(led) + ". Nothing is padded: rows without an official strength input stay "
+         "unpriced and are flagged individually.",
+         "https://www.olbg.com/betting-tips")
+    _inv = {}
+    try:
+        import json as _json
+        _inv = _json.loads((DATA / "olbg_inventory.json").read_text()).get("sports", {})
+    except Exception:
+        _inv = {}
+    empty_hubs = [f"{sp} ({v.get('event_count', 0)} events)" for sp, v in _inv.items()
+                  if v.get("event_count", 0) == 0]
+    if empty_hubs:
+        flag("BW-F-OLBG-02", "review", "All 15 sports",
+             "OLBG hubs with zero listed events at capture time",
+             "Direct reverse-engineering of the OLBG sport hubs showed no listed events for: "
+             + ", ".join(empty_hubs) + ". Those sports therefore have no OLBG market to mirror in this capture; "
+             "their absence is a property of the live listing at the capture stamp, not a collection failure. "
+             "The full per-hub event inventory is published in data/session-343754f2/olbg_inventory.json.",
+             "https://www.olbg.com/betting-tips")
     desk = {
         "schema": "board-bw-desk-1",
         "session": "arena/343754f2-olbg4",

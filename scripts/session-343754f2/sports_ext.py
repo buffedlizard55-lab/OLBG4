@@ -445,9 +445,11 @@ def parse_rugby_union(reader, new_row, sel_row, two_way_market, finish_pick, fla
          f"article ({considered} round-4/5/6 fixture paragraphs in window considered, {excluded} excluded for an "
          f"ambiguous ' v ' split) but left unpriced rather than modelled from unverified numbers.",
          "https://stats.unitedrugby.com/match-centre/table/2026-27")
-    flag("EZ-F-RU-03", "review", "Rugby Union", "Premiership / Top14 / Pro D2 / autumn tests not officially readable",
-         "premiershiprugby.com fixtures/standings pages carry no structured fixture payload in this capture and "
-         "top14.lnr.fr / prod2.lnr.fr render shells, so those OLBG listings fall through to listing-only rows.",
+    flag("EZ-F-RU-03", "review", "Rugby Union", "Premiership / Pro D2 / autumn tests not officially readable",
+         "premiershiprugby.com standings returned nav-only markup (no table payload); TOP 14 was read successfully "
+         "from the official LNR table and calendar and is priced (see BW-F-RU-13), but Pro D2 and the autumn "
+         "international pages produced no structured fixture payload, so those OLBG listings fall through to "
+         "listing-only rows.",
          reader.source_url("olbg_rugby_union_9") if reader.has("olbg_rugby_union_9") else "https://www.unitedrugby.com/")
 
 
@@ -542,10 +544,12 @@ def parse_golf(reader, new_row, sel_row, two_way_market, finish_pick, flag):
              "from verified ranking numbers.",
              "https://www.owgr.com/current-world-ranking")
     flag("EZ-F-GF-02", "review", "Golf",
-         "PGA/DP World Tour event pages carry no leaderboard data in this capture",
-         "pgatour.com Bermuda Championship / leaderboard and europeantour.com tee-times pages returned only "
-         "nav content (JS-rendered), and the OLBG golf hub listed zero events at capture time, so Golf has no "
-         "rows tonight rather than any unverified outright.",
+         "Golf published unpriced — no OLBG golf market and no official field-strength input",
+         "The PGA Tour leaderboard page did capture embedded player rows for the live Butterfield Bermuda "
+         "Championship (R2 complete), but OLBG's golf hub listed zero events at capture time and no official "
+         "pre-event field-strength or world-ranking table was readable (owgr.com is a client-side shell, "
+         "rolexrankings.com returned 403, LPGA schedule 404). With no market to serve and no official strength "
+         "input, no golf line is originated; this is recorded as a coverage gap rather than an invented outright.",
          "https://www.pgatour.com/leaderboard")
 
 

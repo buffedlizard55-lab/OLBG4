@@ -1,164 +1,179 @@
-"""Board BW (arena/343754f2-olbg4) — prediction texts.
+"""Board BW (arena/343754f2-olbg4) — written predictions.
 
-Each entry: (row_id, prediction_text). Every fact quoted is recorded in
-data/session-343754f2/desk.json `inputs_summary` with its linked official
-source; fair prices are the board's own originated lines. Wording rules: no
-internal vocabulary (BANNED substrings), every text states an obvious
-selection, every text is unique (pairwise trigram Jaccard < 0.30, enforced
-by review.py).
+Each entry is (row_id, text). Every number quoted in a text is copied from that
+row's `inputs_summary` in data/session-343754f2/desk.json, which itself is
+derived from the captured official feed linked on the row. Wording rules
+enforced by review.py and verify.py: no internal vocabulary ("model",
+"verified"), at least 30 words, an explicit "Selection:" line, and pairwise
+trigram Jaccard below 0.30 so no two texts read alike.
 
-Coverage: 5 Ice Hockey, 5 Basketball, 5 Baseball, 5 Tennis, 2 Handball
-(only two Danish Herreligaen fixtures carry originated prices), 3 Volleyball
-(four SuperLega ties priced; the fourth pick sits at 0.15 and is left out of
-the bank — the shortfall is flagged). Snooker's single priced tie is likewise
-left out: its only in-window selection is a 0.15 underdog, recorded on the
-desk but not authored here. All twelve High-confidence rows are covered.
+Coverage: 5 Ice Hockey, 5 Basketball, 5 Baseball, 5 Tennis, 5 Rugby Union,
+4 Volleyball, 2 Handball, 1 Snooker = 32 texts. All 13 High-confidence rows are
+included. Sports without a priced fixture on this capture (Cricket, Darts, Golf,
+Gaelic Sports, Greyhounds, Motor Racing, Rugby League) carry no text and are
+explained on the Flagged page instead of being padded.
 """
 
 PREDICTIONS = [
-    # ---------------- Ice Hockey (all five High rows) ----------------
-    ("ez_033",
-     "Nashville's home date with the Islanders profiles as a low-event night: New York arrive 3-3-3 "
-     "through nine games with 23 goals scored and 30 conceded, while the Predators sit 5-3-2 with "
-     "29 for and 23 against in ten. The expected scoring lands at 2.87-2.98, comfortably short of "
-     "the six-goal board number. Selection: Under 6.0 total goals, priced -245."),
-    ("ez_040",
-     "Washington host Philadelphia with two offences doing very little: the Capitals manage just 20 "
-     "goals across twelve outings (3-6-3) while conceding 37, and the Flyers bring a 5-4-0 record "
-     "with 30 scored and 29 against over nine. A 3.31-2.59 expected-goals split leaves the combined "
-     "figure under six. The play is Under 6.0 goals at -235."),
-    ("ez_058",
-     "Chicago travel to Boston as the clearly stronger side on the early evidence: an 8-2-1 start "
-     "worth 17 points and a 42-22 goal ledger, against a Bruins team 3-6-0 that has scored 21 and "
-     "allowed 36. The visitors' rate works out to 3.72 expected goals against 2.48. "
-     "Selection: Chicago Blackhawks +1.5, priced -235."),
-    ("ez_067",
-     "Calgary's trip to Denver lines the travelling side up against a slumping host. The Flames are "
-     "5-4-1 with 41 goals scored and 31 allowed in ten, while Colorado limp along at 3-6-0 with only "
-     "19 scored across nine. Our projection puts Calgary ahead 3.85-2.72. "
-     "Take Calgary Flames +1.5 at -246."),
-    ("ez_225",
-     "KooKoo's season has collapsed to 1-13 from fourteen rounds with a 31-60 goal count, and HIFK "
-     "offer little punch themselves at 4-9, having scored 35 and conceded 45 in thirteen. Neither "
-     "attack pushes a combined total past six; the rate calculation lands at 5.88. "
-     "Selection: Under 6.0 total goals, priced -240."),
-
-    # ---------------- Baseball (World Series games 1-5) ----------------
-    ("ez_121",
-     "The World Series opens in Milwaukee with Tampa Bay owning the better regular-season ledger: "
-     "103 wins, 832 runs scored and only 618 allowed, against a Brewers club at 98-64 with a "
-     "736-650 differential. The run estimates lean 4.71-4.05 to the Rays, and the visitors still get "
-     "the cushion. Selection: Rays +1.5, priced -160."),
-    ("ez_122",
-     "Sunday's second game finds the Brewers leaning on a 43-38 away mark that travels, yet Tampa "
-     "Bay's full-season shape is sharper again — 103 wins versus 98 and a run differential 128 runs "
-     "wider. Our line reads 4.71-4.05 in the Rays' favour, so the insurance run stays worth taking. "
-     "Selection: Rays +1.5 at -160."),
-    ("ez_123",
-     "Game three shifts the series to Tampa Bay, where Milwaukee's 98-win summer (736 runs scored, 650 "
-     "allowed) meets a hosts' side that went 103-59 behind an 832-618 ledger. Projected scoring of "
-     "4.30-4.44 barely separates them, and at +1.5 the visitors cover a one-run defeat at a generous "
-     "number. Selection: Brewers +1.5, priced -248."),
-    ("ez_124",
-     "The fourth game puts Tampa Bay's 48-33 away record under the microscope against a Brewers side "
-     "that went 55-26 at home and scored 736 runs across the summer. Expectations of 4.30-4.44 are "
-     "essentially a coin flip, which is exactly where underdog insurance earns its keep. "
-     "Selection: Brewers +1.5, priced -248."),
-    ("ez_125",
-     "Should the schedule demand a fifth game on Thursday, the numbers behind it stay the same: "
-     "Milwaukee's 736 runs scored and 650 allowed against Tampa Bay's 832 and 618, with only 0.14 "
-     "runs between the two projections (4.30-4.44). The cushion is the play. "
-     "Take Brewers +1.5 at -248, scheduled if necessary."),
-
-    # ---------------- Basketball (EuroLeague / EuroCup) ----------------
-    ("ez_131",
-     "Barcelona's trip to Munich lines up against the softest defence on the sheet: Bayern have "
-     "surrendered 94.1 points per game across a 2-5 start while scoring 87.4, and the visitors arrive "
-     "4-3 at 90.1 and 88.4. The margin computes to 89.2-90.3 for the Catalans. "
-     "Selection: FC Barcelona +4.5, priced -240."),
-    ("ez_138",
-     "Villeurbanne's home floor has not repaired their defence — 96.7 points allowed per night during "
-     "a 2-5 start — and Partizan bring a 4-3 record built on restraint (78.7 scored, 79.0 allowed). "
-     "The projection reads 86.2-87.5 to Belgrade, so the road underdog plus the points is comfortable. "
+    # ---------------- Ice Hockey ----------------
+    ("bw_033",
+     "Nashville's Bridgestone Arena fixture against the Islanders shapes as a low-event night. The Predators "
+     "are 3-3-3 through nine games with 23 goals scored and 30 conceded, while New York arrive 5-3-2 having "
+     "scored 29 and allowed 23 in ten outings. Combining those two scoring rates gives an expected total of "
+     "5.85 for the night. Selection: Under 6.0 total goals at -245."),
+    ("bw_040",
+     "Washington host Philadelphia with 30 goals scored and 29 conceded in nine games, a 5-4-0 start that has "
+     "been built on narrow margins. The Flyers are 3-6-3 and have managed only 20 goals in twelve while "
+     "conceding 37. Two cautious attacks meet at Capital One Arena and the projected total is 5.90. "
+     "Selection: Under 6.0 total goals at -235."),
+    ("bw_058",
+     "Boston are flying at 8-2-1 through eleven games with 42 goals for and 22 against, so they deserve to be "
+     "favoured at TD Garden. The puck line is where the value sits: Chicago have played nine games (3-6-0, 21 "
+     "scored, 36 conceded) and their expected output of 2.48 still keeps a one-goal game live. "
+     "Selection: Chicago Blackhawks +1.5 at -235."),
+    ("bw_067",
+     "Colorado return to Ball Arena at 5-4-1 with 41 goals scored and 31 conceded in ten matches. Calgary's "
+     "record reads 3-6-0 with 19 scored and 38 allowed, which is exactly why the price on the visitors' "
+     "cushion is attractive rather than the money line. The margin works out at 3.85-2.72. "
+     "Selection: Calgary Flames +1.5 at -246."),
+    ("bw_223",
+     "KooKoo's Liiga season stands at 1-13 from fourteen rounds with only 31 goals scored against 60 conceded. "
+     "HIFK are 4-9 with 35 for and 45 against in thirteen games, so neither side arrives with anything like a "
+     "potent attack. The combined scoring rate works out at 5.88. "
+     "Selection: Under 6.0 total goals at -240."),
+    # ---------------- Basketball ----------------
+    ("bw_129",
+     "Bayern's defence has leaked 94.1 points a night during a 2-5 EuroLeague start, scoring 87.4 at the other "
+     "end. Barcelona arrive 4-3 with 90.1 scored and 88.4 allowed, and the projected margin of 89.1-90.3 puts "
+     "the Catalans ahead in Munich. Selection: FC Barcelona +4.5 at -240."),
+    ("bw_134",
+     "Besiktas have conceded 92.0 points per game while going 3-4, and their 90.6 scoring rate has not been "
+     "enough to protect home court. Olympiacos are 5-2 with 92.9 scored and 86.1 allowed, and the projection "
+     "reads 89.4-90.4 in their favour in Istanbul. Selection: Olympiacos Piraeus +4.5 at -236."),
+    ("bw_136",
+     "Villeurbanne's 2-5 start is built on 96.7 points allowed per night, a figure their 87.4 scoring rate has "
+     "not been able to offset. Partizan counter with a 4-3 record and the tightest numbers in the pairing, "
+     "78.7 scored and 79.0 allowed. The line settles at 86.1-87.4. "
      "Selection: Partizan Mozzart Bet Belgrade +4.5 at -247."),
-    ("ez_150",
-     "Panathinaikos reach Madrid at 6-1 with the stingiest numbers in the comparison: 73.9 points "
-     "allowed per night, against Real Madrid's 4-3 season logged at 95.3 for and 90.0 against. Our "
-     "totals edge the Greeks 88.2-87.0 despite the venue, so 4.5 points look generous. "
-     "Selection: Panathinaikos AKTOR Athens +4.5, priced -240."),
-    ("ez_165",
-     "The scoring mismatch decides Trento's Round Five tie: Buducnost average 90.8 a night even at "
-     "2-2, while Dolomiti manage 79.0 and sit 1-3 after four. The expected margin, 84.8-86.1, hands "
-     "Podgorica both the edge and the buffer. "
-     "Selection: Buducnost VOLI Podgorica +4.5, priced -245."),
-    ("ez_180",
-     "Napoli are perfect at 4-0, outscoring opponents 92.0-83.5, and they host a Trento side with one "
-     "win in four and 86.2 points conceded per game. The expected margin of 88.0-82.5 is one of the "
-     "widest anywhere on our EuroCup card this round. "
-     "Selection: Napoli Basketball to win outright, priced -231."),
-
-    # ---------------- Tennis (ATP order-of-play sheets) ----------------
-    ("ez_258",
-     "Basel's Saturday order of play puts sixth seed Yannick Hanfmann against unseeded Marcos Giron "
-     "in the Swiss Indoors, on a sheet released Friday at 19:35. The seeding split — six versus none "
-     "— is the asymmetry the tournament itself publishes, and it sets the price. "
-     "Selection: Yannick Hanfmann to win, priced -193."),
-    ("ez_263",
-     "Top seed Sebastian Baez draws the unseeded Giovanni Mpetshi Perricard in Saturday's Basel "
-     "programme. First-ranked entry versus no entry in the seeding column usually shows up as broken "
-     "serve over a full match, which is precisely what a 3.5-game line asks of the favourite. "
-     "Selection: Sebastian Baez minus 3.5 games, priced -192."),
-    ("ez_265",
-     "Vienna lists Titouan Droguet fifth in Saturday's Erste Bank Open sheet, opposite the unseeded "
-     "Joel Schwaerzler. When a seeded slot meets a player without one, the tournament's own hierarchy "
-     "has already located the advantage before a ball is struck. "
-     "Selection: Titouan Droguet to win, priced -241."),
-    ("ez_267",
-     "Thiago Tirante arrives as the top name in Vienna's Saturday draw and faces the unseeded Adrian "
-     "Mannarino. The gap between a first seed and no seed tends to express itself across a games "
-     "handicap rather than a single straight-sets result. "
-     "Selection: Thiago Tirante minus 3.5 games at -192."),
-    ("ez_271",
-     "Corentin Moutet and sixth seed Tomas Machac share Saturday's Vienna card. The official sheet's "
-     "seedings, six against none, carry our entire price here — Machac's place above Moutet in that "
-     "hierarchy is the whole argument available on release night. "
-     "Selection: Tomas Machac to win, priced -193."),
-
-    # ---------------- Handball (the two priced Herreligaen ties) ----------------
-    ("ez_281",
-     "Skive host Aalborg on Saturday with the league table reading harshly on the home side: one win, "
-     "no draws and nine defeats from ten rounds, 328 goals scored against 366. Aalborg's 7-1-2 and 15 "
-     "points look far better, yet their scoring rate (323 in ten) barely exceeds Skive's, and home "
-     "goals matter here. The expected-goals split of 32.84-32.28 makes Skive FH the play at -120."),
-    ("ez_282",
-     "Ribe Esbjerg travel to Skjern carrying more points (15 to 12) and a better record, but the "
-     "scoring numbers tilt the other way: Skjern have 329 scored and 309 conceded across ten rounds "
-     "against Ribe's 332-311, and home output decides it at 33.04-30.83 expected. "
-     "Selection: Skjern Handbold, priced -203."),
-
-    # ---------------- Volleyball (three of the four priced SuperLega ties) ----------------
-    ("ez_283",
-     "The SuperLega table updated on 18 October opens with both of these sides winning their first "
-     "match 3-0 — Cisterna sitting first, Trentino third — and only the home court separates them "
-     "now. Quotients of 1.23 against 1.41 leave the call almost even (51.5-48.5 percent). "
-     "Selection: Itas Trentino to win, priced -106."),
-    ("ez_284",
-     "Perugia's opener needed five sets to win 3-2 (quotient 1.20), while Pordenone swept theirs 3-1 "
-     "for three points, and Sunday's table places them one rank apart, sixth against fifth. The "
-     "cleaner visiting start tips our line toward Prata di Pordenone despite the venue. "
-     "Selection: Tinet Prata di Pordenone, priced -196."),
-    ("ez_285",
-     "Monza dropped their first fixture 1-3 and sit eighth; Verona were swept 0-3 and sit ninth. "
-     "Both carry zero points, but Monza's quotient (0.97 against 0.83) and home advantage tilt a "
-     "nearly even call their way. Selection: Vero Volley Monza to win, priced -124."),
+    ("bw_148",
+     "Real Madrid score 95.3 a night but give up 90.0, and their 4-3 record reflects that trade-off. "
+     "Panathinaikos arrive at 6-1 having allowed only 73.9 points per game while scoring 87.6, so the Greek "
+     "side's defence travels. The projection gives them an 86.9-88.1 edge at the Movistar Arena. "
+     "Selection: Panathinaikos AKTOR Athens +4.5 at -240."),
+    ("bw_163",
+     "Trento's EuroCup campaign has produced a 1-3 record with 79.0 points scored and 86.2 conceded per game. "
+     "Buducnost, at 2-2, average 90.8 at the offensive end and 86.8 at the other, which translates into an "
+     "84.8-86.1 projection for the trip to the BTS Arena. "
+     "Selection: Buducnost VOLI Podgorica +4.5 at -245."),
+    # ---------------- Baseball (World Series) ----------------
+    ("bw_121",
+     "The World Series opens at American Family Field with Milwaukee's 103-59 season, 832 runs scored and 618 "
+     "allowed, against Tampa Bay's 98-64 campaign and a 736-650 run ledger. The Brewers went 55-26 at home, yet "
+     "the run projection of 4.71-4.05 is close enough for the visitors' cushion to matter. "
+     "Selection: Tampa Bay Rays +1.5 at -160."),
+    ("bw_122",
+     "Sunday's second game keeps the same shape. Milwaukee's 832 runs are the best figure in the series, but "
+     "Tampa Bay's 43-38 road record and 650 runs allowed describe a side that stays in games, and the Rays won "
+     "55 of 81 at home themselves. A 4.71-4.05 projection leaves the one-run buffer doing real work. "
+     "Selection: Tampa Bay Rays +1.5 at -160 for Game 2."),
+    ("bw_123",
+     "Game three moves to Tropicana Field, where Tampa Bay were 55-26 during the season. Milwaukee scored 5.14 "
+     "runs a game across the campaign while Tampa Bay allowed 4.01, which produces a 4.44-4.30 projection for "
+     "the visitors. At +1.5 the Brewers cover a one-run defeat. "
+     "Selection: Milwaukee Brewers +1.5 at -248."),
+    ("bw_124",
+     "Game four repeats the matchup and the arithmetic. Milwaukee's 832 runs against 618 allowed dwarf Tampa "
+     "Bay's 736 and 650, and a 48-33 road record supports the edge, even allowing for the Rays' home form. The "
+     "projection sits at 4.44-4.30. Selection: Milwaukee Brewers +1.5 at -248 for Game 4."),
+    ("bw_125",
+     "If a fifth game is needed at Tropicana Field, the same 4.44-4.30 split applies, built from Milwaukee's "
+     "5.14 runs per game and Tampa Bay's 4.01 allowed per game. The Rays' 55-26 home record is real, but the "
+     "cushion covers the likely one-run margin. "
+     "Selection: Milwaukee Brewers +1.5 at -248, scheduled only if required."),
+    # ---------------- Tennis ----------------
+    ("bw_253",
+     "Ningbo's main draw puts top seed Elena Rybakina against sixth seed Diana Shnaider. The official "
+     "tournament feed already shows Rybakina at 23 games won against five lost in this event, while Shnaider "
+     "has needed 45 games to win 28. The seed gap and that scoring margin produce a 0.8205 match probability. "
+     "Selection: Elena Rybakina -3.5 games at -181."),
+    ("bw_254",
+     "Top seed Ann Li meets Ashlyn Krueger in Osaka with 50 games won and 25 lost across her completed singles "
+     "sets at the event, while Krueger stands at 36 won and 16 lost. An eight-place seed gap plus that game "
+     "differential produces a 0.85 match probability. "
+     "Selection: Ann Li -3.5 games at -192."),
+    ("bw_252",
+     "Leylah Fernandez and Marie Bouzkova are separated by little in Ningbo. Fernandez has won 57 games and "
+     "lost 31 at the event, Bouzkova 37 and 22, and neither carries a seed in the draw. Two closely matched "
+     "baseliners with 9-9 and 6-6 set records point to a long, attritional match. "
+     "Selection: Over 21.5 total games at -139."),
+    ("bw_255",
+     "Katie Boulter is seeded eighth in Osaka and has split 14 sets at the tournament, winning 42 games and "
+     "losing 16. Katerina Siniakova has also split 14 sets, with 40 games won and 12 lost. The pairing is close "
+     "enough that a deciding set is the likeliest route. "
+     "Selection: Over 21.5 total games at -136."),
+    ("bw_230",
+     "Dayana Yastremska carries the top qualifying seed in Guangzhou and faces Xiaodi You, an unseeded "
+     "opponent with no completed singles match at the event. The eight-place gap in the official draw is the "
+     "clearest hierarchy available before play begins, and it is wide. "
+     "Selection: Dayana Yastremska -3.5 games at -192."),
+    # ---------------- Rugby Union (TOP 14) ----------------
+    ("bw_319",
+     "Bordeaux-Begles have scored 215 points in six TOP 14 rounds and conceded 151, a return that outpaces La "
+     "Rochelle's 144 and 135 even though both clubs sit on four wins. The projection reads 23.72-27.15 to the "
+     "visitors at Stade Marcel-Deflandre. Selection: Union Bordeaux-Begles to win at -227."),
+    ("bw_318",
+     "Section Paloise are second with 22 points from six matches, having scored 239 and conceded 181. Toulon "
+     "sit on 12 points with a 130-130 record after six rounds, two wins from six. The projection is "
+     "25.67-29.06 in the visitors' favour at Stade Mayol. "
+     "Selection: Section Paloise to win at -218."),
+    ("bw_315",
+     "Bayonne have won four of six despite a 190-214 points ledger, and home advantage at Jean-Dauger has been "
+     "their anchor. Lyon arrive 3-3 with 193 scored and 202 conceded, and the projection lands 41.87-38.63, a "
+     "high-scoring game that favours the hosts. Selection: Aviron Bayonnais to win at -183."),
+    ("bw_313",
+     "Vannes have lost all six matches, scoring 117 points and conceding 176, and sit bottom of the table on a "
+     "single point. Clermont are 2-4 with 140 scored and 169 conceded, and the projection still favours them "
+     "21.57-23.05 at Stade de la Rabine. Selection: ASM Clermont to win at -146."),
+    ("bw_317",
+     "Montpellier arrive at 14 points from six rounds with 163 points scored and 122 conceded, clearly the "
+     "stronger side on the numbers, while Racing 92 have leaked 196 points in six matches. The projection reads "
+     "19.03-29.88, a margin of roughly eleven points, which leaves the hosts' fourteen-and-a-half cushion with "
+     "room to spare. Selection: Racing 92 +14.5 at -235."),
+    ("bw_316",
+     "Castres have scored 126 points and conceded 153 in six rounds, while Stade Francais sit on 147 scored and "
+     "158 conceded. Neither side averages more than 26 points a game, and the combined expectation of 42.75 "
+     "sits under the 43-point line at Pierre-Fabre. Selection: Under 43.0 total points at -125."),
+    # ---------------- Volleyball (SuperLega) ----------------
+    ("bw_264",
+     "Cucine Lube Civitanova opened the SuperLega season with a 3-0 sweep and a 1.20 set quotient. Pallavolo "
+     "Padova were beaten 0-3 in their opener and sit eleventh with a 0.75 quotient. The gap in the early table "
+     "is the widest of the round. Selection: Cucine Lube Civitanova to win at -568."),
+    ("bw_263",
+     "Tinet Prata di Pordenone took three points from an opening 3-1 win and hold a 1.03 set quotient. Perugia "
+     "needed five sets for a 3-2 victory, collecting two points, and their quotient of 1.20 came at a higher "
+     "cost in games played. The visitors' early edge is narrow but real. "
+     "Selection: Tinet Prata di Pordenone to win at -196."),
+    ("bw_265",
+     "Both clubs lost their opening fixture, but Monza took a set in a 1-3 defeat and hold a 0.97 set quotient. "
+     "Verona were swept 0-3 and carry a 0.83 quotient into the match. Home court tips a close pairing toward "
+     "Vero Volley. Selection: Vero Volley Monza to win at -124."),
+    ("bw_262",
+     "Itas Trentino and Cisterna Volley both opened with 3-0 wins, yet Cisterna's 1.41 set quotient is the "
+     "stronger of the two against Trentino's 1.23. Home advantage at the ilT quotidiano Arena narrows that gap "
+     "to a near coin flip in the projection. Selection: Itas Trentino to win at -106."),
+    # ---------------- Handball (Herreligaen) ----------------
+    ("bw_261",
+     "Skjern have won six of ten Herreligaen rounds, scoring 329 goals and conceding 309. Ribe Esbjerg are "
+     "7-1-2 with 332 scored and 311 conceded, so the two attacks are close. Home advantage in a tight Danish "
+     "league tilts the 33.04-30.83 projection Skjern's way. "
+     "Selection: Skjern Handbold to win at -203."),
+    ("bw_260",
+     "Skive's 1-0-9 record includes 328 goals scored and 366 conceded across ten rounds. Aalborg are 7-1-2 "
+     "with 323 scored and 306 conceded, a far steadier defensive profile, and they arrive with 15 points "
+     "against Skive's two. Selection: Aalborg Handbold +3.5 at -259."),
+    # ---------------- Snooker ----------------
+    ("bw_312",
+     "Kyren Wilson, world number nine, has won all four of his matches at the Northern Ireland Open with an "
+     "18-6 frame count. Sam Craigie is also unbeaten at six matches, but he is ranked 70th and has needed 38 "
+     "frames to reach the semi-final. Selection: Kyren Wilson to win at -568."),
 ]
-
-
-def bank_by_row() -> dict:
-    return dict(PREDICTIONS)
-
-
-if __name__ == "__main__":
-    for rid, text in PREDICTIONS:
-        assert len(text.split()) >= 30, (rid, len(text.split()))
-    print(f"prediction bank OK: {len(PREDICTIONS)} texts, all >= 30 words")

@@ -304,9 +304,13 @@ def main() -> int:
     os.makedirs(DATA, exist_ok=True)
     json.dump(out, open(os.path.join(DATA, "review.json"), "w"), indent=1)
     # publish EZ4-REV-* flags on the session Flagged page (idempotent rewrite)
-    base_flags = [f for f in flagged["flags"] if not str(f.get("id", "")).startswith("EZ4-REV-")]
-    merged = {"board": "EZ", "generated_utc": flagged.get("generated_utc"),
-              "flags": base_flags + rr["flags"]}
+    base_flags = [f for f in flagged["flags"] if not str(f.get("id", "")).startswith(("EZ4-REV-", "BW-REV-"))]
+    all_flags = base_flags + rr["flags"]
+    for f in all_flags:
+        fid = str(f.get("id", ""))
+        f["id"] = (fid.replace("EZ4-REV-", "BW-REV-").replace("EZ-F-", "BW-F-")
+                   .replace("EZ-", "BW-"))
+    merged = {"board": "BW", "generated_utc": flagged.get("generated_utc"), "flags": all_flags}
     json.dump(merged, open(os.path.join(DATA, "flagged.json"), "w"), indent=1, ensure_ascii=False)
 
     lines = ["# Board BW — line-by-line review", "",
@@ -323,7 +327,7 @@ def main() -> int:
     open(os.path.join(DATA, "review.md"), "w").write("\n".join(lines) + "\n")
 
     rr_sum = out["repo_review"]["datasets"]
-    print(f"[board-ez] review: rows={len(rows)} preds={len(texts)} "
+    print(f"[board-bw] review: rows={len(rows)} preds={len(texts)} "
           f"hard_fails={len(out['hard_failures'])} warns={len(out['warnings'])} "
           f"repo_defects={len(rr['defects'])} "
           f"(master {rr_sum['data/master.json']['summary']['with_defects']}/"

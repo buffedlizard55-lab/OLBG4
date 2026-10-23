@@ -182,26 +182,33 @@ def parse_top14(reader, new_row, sel_row, two_way_market, finish_pick, flag):
         markets = {
             "match_winner": {"market_name": "Match Winner (two-way, draw removed)", "line": None,
                              "prob_sum": 1.0, "book_margin": 0.0,
-                             "selections": [sel_row(f"{home} (home)", p_home),
-                                            sel_row(f"{away} (away)", 1 - p_home)]},
-            "handicap": {},
+                             "selections": [sel_row(f"{home} (home)", max(0.001, min(0.999, p_home))),
+                                            sel_row(f"{away} (away)", 1 - max(0.001, min(0.999, p_home)))]},
             "total": {},
         }
         # handicap ladder around the modelled margin
         margin = lh - la
         lines = sorted({round(x * 2) / 2 for x in (margin - 6.5, margin - 3.5, margin - 0.5,
                                                    margin + 3.5, margin + 6.5)})
+        primary = None
         for ln in lines:
             if ln == 0:
                 continue
             p_hc = _cover(ph, pa, -ln, "home")
-            p_hc = max(0.02, min(0.98, p_hc))
-            markets["handicap"][str(ln)] = {
+            p_hc = max(0.001, min(0.999, p_hc))
+            mk = {
                 "market_name": "Handicap", "line": -ln, "prob_sum": 1.0, "book_margin": 0.0,
                 "selections": [sel_row(f"{home} {-ln:+g}", p_hc),
                                sel_row(f"{away} {ln:+g}", 1 - p_hc)],
             }
-        p_o = max(0.02, min(0.98, p_over))
+            markets[f"handicap_{ln:+g}"] = mk
+            if primary is None or abs(ln - margin) < abs(primary["line"] + margin):
+                primary = mk
+        if "handicap" in markets and isinstance(markets["handicap"], dict):
+            pass
+        markets["handicap"] = primary or {"market_name": "Handicap", "line": None,
+                                          "prob_sum": 1.0, "book_margin": 0.0, "selections": []}
+        p_o = max(0.001, min(0.999, p_over))
         markets["total"] = {
             "market_name": "Match Total Points", "line": total_line, "prob_sum": 1.0,
             "book_margin": 0.0,
