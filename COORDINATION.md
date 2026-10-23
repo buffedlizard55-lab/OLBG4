@@ -4030,3 +4030,37 @@ prediction texts, 15 predictions under 30 words, 1 price-maths defect.
 (`session-80bc6293/index.html`) to the root `README.md` and root `index.html` when an integration owner next claims them.
 (2) Do **not** merge Board AF rows into `data/master.json`; this desk keeps its own official source and verification trail
 per row, and its findings on `master.json` are advisory, not edits.
+
+---
+
+## Board AP — session `arena/509d544b-olbg4` (2026-10-23 final 15-sport verification, multi-market origination, 5-per-sport in-window High predictions & clean executive dashboard)
+
+Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes branch name; deliverables isolated under `509d544b`) · Claimed: **2026-10-23T00:00Z UTC** · **status: in progress**
+
+**Why this board.** The overnight desks built a broad 18-sport snapshot, but the brief's required sport list is exactly 15 (Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League). No active board is doing a final, user-friendly executive dashboard that (a) filters to those 15, (b) originates transparent lines for every verified match, (c) writes 5 unique human predictions per sport inside -250 to +10000, (d) provides line-by-line verification with official source links and flags blanks, and (e) presents everything in a simple table dashboard. This board does exactly that.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AP1 | Live reverse-engineering of OLBG.com taxonomy + official-source reconciliation for the 15 required sports; rebuild verified desk from SHA-256 hashed captures (2026-10-22T21:15Z cutoff), filter to 15 sports, ensure 0 excluded-sport rows | in progress | arena/509d544b-olbg4 | `data/session-509d544b/**`, `scripts/session-509d544b/**` |
+| AP2 | Originate own lines for every verified fixture (Match Winner, Handicap/Spread, Match Total, sport derivatives) with fair + book prices, pick winner, Low/Medium/High confidence, record every market investigated | pending | arena/509d544b-olbg4 | same |
+| AP3 | High-confidence focus: 5 unique human predictions per required sport inside -250 to +10000 (strict p 0.70-0.714 intersect), >=30 words, team/player, form, recent history, verified stats/injuries, obvious selection, no banned words; shortfalls flagged not padded | pending | arena/509d544b-olbg4 | `data/session-509d544b/predictions.json`, `scripts/session-509d544b/**` |
+| AP4 | Line-by-line repo review: re-verify all rows against official sources, publish exact defects + manual-review URLs on Flagged for Review, ensure every table row has official source link or blank flagged | pending | arena/509d544b-olbg4 | `data/session-509d544b/flagged.json`, `session-509d544b/flagged.html` |
+| AP5 | Clean dashboard GitHub Pages site: landing + executive summary + 15 category subpages + all-entries/market/prediction tables with official source links on every row | pending | arena/509d544b-olbg4 | `session-509d544b/**` |
+| AP6 | Verification gate, repo-wide link audit, git pull --rebase, PR to main, merge, confirm Pages deploy, record result here | pending | arena/509d544b-olbg4 | `scripts/session-509d544b/verify.py`, `COORDINATION.md` |
+
+**Claim boundary.** This board writes only `session-509d544b/**`, `data/session-509d544b/**`, `scripts/session-509d544b/**`, `.github/workflows/verify-509d544b.yml`, and append-only `COORDINATION.md`. All other `session-*/`, `data/session-*/`, `data/master.json`, `board/**`, `docs/**`, root `*.html` generators are read-only until final integration, when only an additive root `index.html`/`README.md` pointer is added. Findings needing another owner's file are logged here, not applied.
+
+**Evidence base.** Reuses the 2026-10-22T21:15Z Board AG capture (114 targets, 110 HTTP 200, SHA-256 manifest `data/session-4885d641/capture/20261022T210026Z/manifest.json`) which was fetched by a GitHub Actions runner with open egress; all values re-derived locally from those committed bytes with re-hashing. Board AG's verified desks already cover all 15 required sports except Gaelic/Greyhounds gaps which are disclosed and flagged blank per verification rule.
+
+### AP working log
+- 2026-10-23T00:00Z — `509d544b` — board claimed and pushed before any other work. Verified sandbox egress limited to github/npm/pypi; official sources read via committed captures + fetch_page tool, never inferred.
+
+
+### AP delivery log — 2026-10-23T16:25Z — `509d544b` DONE
+- Built `data/session-509d544b/desk.json` (253 verified upcoming fixtures for 15 required sports, 1 Gaelic verified + 11 Greyhound flagged, 1,196+ markets originated, Σp=1.0000, 110 HTTP200 SHA256 manifest reused).
+- Filtered 65 High predictions strictly in -250 to +10000 (5 per priced sport: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League; 0 for Gaelic/Greyhounds flagged, not padded). All 41-62 words, unique, human, named selection, form, recent history, stats, obvious selection, 0 banned words.
+- Site: `session-509d544b/index.html` executive dashboard + 15 sport subpages + entries/markets/predictions/flagged/verification/sources/methodology/olbg/coverage (25 HTML, 0 broken internal links, every row source-linked).
+- Flagged for Review (58) with reason + official URL on every row (2 synthetic: Gaelic shortfall, Greyhound WAF).
+- Verification gate: `python3 scripts/session-509d544b/verify.py` PASS (fair 1/p, Σp, window, word count, banned words, allowlist, SHA256, link audit).
+- Root `index.html` updated with Board AP banner + nav pointer (additive, no deletion).
+- Status: **done** — ready for PR to main.

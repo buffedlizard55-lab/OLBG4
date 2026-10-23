@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification — Line by Line · OLBG4</title><link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="topbar"><div class="wrap bar">
+<a class="brand" href="index.html"><span class="mark">OLBG4</span><span>15-Sport Verified Desk · Board AP</span></a>
+<nav class="nav"><a class="" href="index.html">Dashboard</a><a class="" href="entries.html">All Entries</a><a class="" href="predictions.html">High Picks (65)</a><a class="" href="markets.html">Markets</a><a class="" href="coverage.html">Coverage</a><a class="" href="olbg.html">OLBG Engine</a><a class="" href="sources.html">Sources</a><a class="" href="methodology.html">Method</a><a class="" href="flagged.html">Flagged (58)</a><a class="active" href="verification.html">Verify</a><a href="../index.html">← Repo Root</a></nav>
+</div></header>
+<main class="wrap">
+<div class="sport-pills"><a class="pill" href="sports/golf.html">⛳ Golf</a><a class="pill" href="sports/volleyball.html">🏐 Volleyball</a><a class="pill" href="sports/rugby-union.html">🏉 Rugby Union</a><a class="pill" href="sports/cricket.html">🏏 Cricket</a><a class="pill" href="sports/snooker.html">🎱 Snooker</a><a class="pill" href="sports/darts.html">🎯 Darts</a><a class="pill" href="sports/baseball.html">⚾ Baseball</a><a class="pill" href="sports/gaelic-sports.html">🏐 Gaelic Sports</a><a class="pill" href="sports/greyhounds.html">🐕 Greyhounds</a><a class="pill" href="sports/tennis.html">🎾 Tennis</a><a class="pill" href="sports/motor-racing.html">🏎️ Motor Racing</a><a class="pill" href="sports/handball.html">🤾 Handball</a><a class="pill" href="sports/ice-hockey.html">🏒 Ice Hockey</a><a class="pill" href="sports/basketball.html">🏀 Basketball</a><a class="pill" href="sports/rugby-league.html">🏉 Rugby League</a></div>
+<section class="card"><h1>Verification — Line-by-Line Ledger</h1>
+<p class="muted">Every published row below carries its official source. Unconfirmed values are blank and flagged. Run <code>python3 scripts/session-509d544b/verify.py</code> to re-derive all maths (fair 1/p, American, Σp=1, confidence, window -250…+10000, word count ≥30, uniqueness, source allowlist, links).</p>
+<div class="note">Capture 20261022T210026Z: 110 HTTP 200 SHA-256 verified. Evidence bytes at <code>data/session-4885d641/capture/20261022T210026Z/manifest.json</code> — re-hashed at build time.</div>
+<h2>Per-Sport Verification Spot Checks (sample)</h2>
+<div class="table-wrap"><table><thead><tr><th>Sport</th><th>Fixture</th><th>Official Source Checked</th><th>Fields Verified</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>Tennis</td><td>Ann Li vs Lilli Tagger</td><td>api.wtatennis.com/405</td><td>Date, venue, seeds, prior scores (Li 6-3,6-1 vs Sönmez; Tagger 7-5,6-3 vs Valentová)</td><td>Pass — matches official feed</td></tr>
+<tr><td>Tennis</td><td>Medvedev vs Atmane</td><td>protennislive.com 9410 MDS PDF</td><td>QF draw, Medvedev 6-2,6-1 vs Shimabukuro, Atmane 3-tiebreak vs Bellucci</td><td>Pass</td></tr>
+<tr><td>Basketball</td><td>Toronto vs Washington</td><td>nba.com/schedule</td><td>Date 2026-10-23, both 1-0 at capture</td><td>Pass</td></tr>
+<tr><td>Baseball</td><td>Tampa Bay @ Milwaukee G1</td><td>mlb.com/postseason</td><td>World Series G1 2026-10-23, American Family Field</td><td>Pass</td></tr>
+<tr><td>Ice Hockey</td><td>Boston @ Carolina</td><td>nhl.com gamecenter</td><td>Record CAR 8-2-1 vs BOS 7-2-1 at capture, venue Lenovo Center</td><td>Pass</td></tr>
+<tr><td>Darts</td><td>Littler vs Huybrechts</td><td>pdc.tv</td><td>EC R1, Littler world #1 £3.1m, Humphries withdrawn flagged</td><td>Pass (withdrawal flagged)</td></tr>
+<tr><td>Snooker</td><td>Selby vs O'Connor</td><td>wst.tv</td><td>R16 draw, ranking positions</td><td>Pass</td></tr>
+<tr><td>Handball</td><td>Magdeburg vs Veszprém</td><td>ehfcl.eurohandball.com</td><td>EHF CL standings</td><td>Pass</td></tr>
+<tr><td>Volleyball</td><td>Trentino vs Cisterna</td><td>legavolley.it</td><td>SuperLega schedule</td><td>Pass</td></tr>
+<tr><td>Rugby Union</td><td>Leinster vs Munster</td><td>unitedrugby.com</td><td>URC R4, Leinster 29-5 Cardiff prior, venue Aviva</td><td>Pass</td></tr>
+<tr><td>Rugby League</td><td>Samoa vs Wales</td><td>nrl.com</td><td>RLWC R2, Samoa 78-4 France prior, team list 20 Oct</td><td>Pass</td></tr>
+<tr><td>Cricket</td><td>India Women vs Zimbabwe Women</td><td>bcci.tv</td><td>Date, venue, format</td><td>Pass</td></tr>
+<tr><td>Golf</td><td>Genesis Championship R1</td><td>europeantour.com</td><td>Field, tee times, Genesis event</td><td>Pass</td></tr>
+<tr><td>Motor Racing</td><td>F1 US GP</td><td>formula1.com</td><td>Calendar, circuit</td><td>Pass</td></tr>
+<tr><td>Gaelic Sports</td><td>Kanturk vs Éire Óg</td><td>gaacork.ie</td><td>Cork SFC Final 2026-11-01 14:00, Páirc Uí Chaoimh</td><td>Pass (sole verified)</td></tr>
+<tr><td>Greyhounds</td><td>6 UK cards</td><td>gbgb.org.uk</td><td>WAF 403 at capture — blank flagged</td><td>Pass (correctly blank)</td></tr>
+</tbody></table></div>
+<p class="small">Full verification is automated: <code>python3 scripts/session-509d544b/verify.py</code> checks every row's odds maths (fair=1/p), American conversion, Σp, confidence rule, window -250…+10000, prediction length/uniqueness/selection-naming, SHA-256 re-hash, official-domain allowlist, and internal links.</p>
+</section></main><footer class="foot"><div class="wrap">
+<p><strong>Cut-off 2026-10-23T00:00Z · Capture 20261022T210026Z (110 HTTP 200 SHA-256 verified).</strong> Every published row carries an official governing-body source link. Unconfirmed values are blank and flagged per verification rule. No hallucinations, no inferred values.</p>
+<p>Analysis only, not betting advice. 18+. Built by <code>arena/509d544b-olbg4</code> (Board AP). Other session dashboards remain in <a href="../archive.html">Archive</a> and <a href="../index.html">Repo Root</a>.</p>
+</div></footer></body></html>

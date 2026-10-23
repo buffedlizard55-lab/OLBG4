@@ -1,0 +1,163 @@
+{
+  "schema": "olbg4.board-ag.repo-review/1",
+  "generated_utc": "2026-10-22T21:01:17Z",
+  "cutoff_utc": "2026-10-22T21:15:00Z",
+  "datasets_audited": 8,
+  "total_peer_rows_audited": 1234,
+  "dataset_summaries": [
+    {
+      "dataset": "Master Canonical (`data/master.json`)",
+      "path": "data/master.json",
+      "rows_audited": 336,
+      "stale_at_2115z_utc": 123,
+      "still_upcoming_after_2115z": 213,
+      "missing_direct_official_url": 70,
+      "unpriced_or_withheld_rows": 43,
+      "review_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+    },
+    {
+      "dataset": "Root Hub (`data/matches.json`)",
+      "path": "data/matches.json",
+      "rows_audited": 68,
+      "stale_at_2115z_utc": 33,
+      "still_upcoming_after_2115z": 35,
+      "missing_direct_official_url": 68,
+      "unpriced_or_withheld_rows": 4,
+      "review_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/matches.json"
+    },
+    {
+      "dataset": "Build A (`data/rows.json`)",
+      "path": "data/rows.json",
+      "rows_audited": 144,
+      "stale_at_2115z_utc": 25,
+      "still_upcoming_after_2115z": 119,
+      "missing_direct_official_url": 144,
+      "unpriced_or_withheld_rows": 14,
+      "review_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/rows.json"
+    },
+    {
+      "dataset": "Build B (`data/board.json`)",
+      "path": "data/board.json",
+      "rows_audited": 116,
+      "stale_at_2115z_utc": 0,
+      "still_upcoming_after_2115z": 116,
+      "missing_direct_official_url": 116,
+      "unpriced_or_withheld_rows": 0,
+      "review_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/board.json"
+    },
+    {
+      "dataset": "Build C (`data/session-74f9613e/matches.json`)",
+      "path": "data/session-74f9613e/matches.json",
+      "rows_audited": 43,
+      "stale_at_2115z_utc": 11,
+      "still_upcoming_after_2115z": 32,
+      "missing_direct_official_url": 43,
+      "unpriced_or_withheld_rows": 11,
+      "review_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-74f9613e/matches.json"
+    },
+    {
+      "dataset": "Pipeline Feed (`session-4afef1af/data/fixtures.json`)",
+      "path": "session-4afef1af/data/fixtures.json",
+      "rows_audited": 97,
+      "stale_at_2115z_utc": 0,
+      "still_upcoming_after_2115z": 97,
+      "missing_direct_official_url": 97,
+      "unpriced_or_withheld_rows": 97,
+      "review_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-4afef1af/data/fixtures.json"
+    },
+    {
+      "dataset": "Board AD (`data/session-3a6388d2/desk.json`)",
+      "path": "data/session-3a6388d2/desk.json",
+      "rows_audited": 184,
+      "stale_at_2115z_utc": 0,
+      "still_upcoming_after_2115z": 184,
+      "missing_direct_official_url": 0,
+      "unpriced_or_withheld_rows": 31,
+      "review_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-3a6388d2/desk.json"
+    },
+    {
+      "dataset": "Board AE (`data/session-22ca2e95/desk.json`)",
+      "path": "data/session-22ca2e95/desk.json",
+      "rows_audited": 246,
+      "stale_at_2115z_utc": 62,
+      "still_upcoming_after_2115z": 184,
+      "missing_direct_official_url": 2,
+      "unpriced_or_withheld_rows": 0,
+      "review_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-22ca2e95/desk.json"
+    }
+  ],
+  "critical_findings": [
+    {
+      "finding_id": "AG-REV-01",
+      "severity": "critical_withdrawal",
+      "target_file": "data/session-22ca2e95/desk.json (ae_158 / da_pdc_hum_sea)",
+      "sport": "Darts",
+      "issue": "Board AE published a High-confidence pick on 'Luke Humphries vs Ryan Searle' (19:45Z Oct 22). Official PDC release on 22 Oct confirmed world #2 Luke Humphries withdrew through gastroenteritis and was replaced by Kim Huybrechts, and all 8 Thursday Dortmund ties commenced prior to 21:15Z.",
+      "official_verification_url": "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship",
+      "board_ag_resolution": "Withdrawn tie quarantined on Flagged for Review with blank odds; only the 8 confirmed Friday Oct 23 Dortmund Round 1 ties + Outright are priced on Board AG."
+    },
+    {
+      "finding_id": "AG-REV-02",
+      "severity": "critical_bracket_error",
+      "target_file": "data/session-22ca2e95/desk.json (ae_002 & ae_003)",
+      "sport": "Tennis",
+      "issue": "Board AE misread columns of ATP 250 Almaty MDS PDF (`9410/mds.pdf`), publishing 'Daniil Medvedev vs Mattia Bellucci' (claiming Medvedev won 6-7, 6-4, 6-4) and 'Facundo D\u00edaz Acosta vs Andrey Rublev'. Official supervisor draw released 22 Oct 19:54 confirms Medvedev beat Shimabukuro 6-2, 6-1, T\u00e9rence Atmane beat Bellucci 6-7(4), 7-6(2), 7-6(5), Nikoloz Basilashvili beat D\u00edaz Acosta 6-2, 6-4, and Adrian Mannarino upset Rublev 6-4, 3-6, 6-3.",
+      "official_verification_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "board_ag_resolution": "All 4 true Almaty Oct 23 Quarter-Finals priced (`Medvedev vs Atmane`, `Bublik vs Khachanov`, `Basilashvili vs Mannarino`, `Tsitsipas vs Duckworth`)."
+    },
+    {
+      "finding_id": "AG-REV-03",
+      "severity": "critical_bracket_error",
+      "target_file": "data/session-22ca2e95/desk.json (ae_015)",
+      "sport": "Tennis",
+      "issue": "Board AE listed 'Mo\u00efse Kouam\u00e9 vs Lorenzo Musetti' as a Friday Oct 23 Lyon Quarter-Final while quoting Musetti's 6-4, 6-4 win over Kouam\u00e9 in its own summary. Official Lyon MDS PDF (`496/mds.pdf`, released 22 Oct 22:11 CET) confirms Musetti eliminated Kouam\u00e9 in R16 and plays Luca Van Assche (who upset #3 Valentin Vacherot 7-6(3), 6-3) in Friday's QF, alongside Cobolli vs Nakashima, Moutet vs Paul, and Altmaier vs Fritz.",
+      "official_verification_url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+      "board_ag_resolution": "All 4 true Lyon Oct 23 Quarter-Finals priced accurately with tonight's verified R16 scores."
+    },
+    {
+      "finding_id": "AG-REV-04",
+      "severity": "critical_bracket_error",
+      "target_file": "data/session-22ca2e95/desk.json (ae_204)",
+      "sport": "Badminton",
+      "issue": "Board AE paired #3 Mathias Christiansen / Alexandra B\u00f8je against 'Wu Hsuan-Yi / Lee Chia Hsin'. Official BWF Court 1 Friday Oct 23 order confirms #3 Christiansen/B\u00f8je face #6 Guo Xin Wa / Chen Fang Hui (Match 2), whereas #4 Thom Gicquel / Delphine Delrue face Wu Guan-Xun / Lee Chia Hsin (Match 6).",
+      "official_verification_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-23",
+      "board_ag_resolution": "Replaced with all 20 official Friday Oct 23 Court 1\u20133 BWF Super 750 Quarter-Finals."
+    },
+    {
+      "finding_id": "AG-REV-05",
+      "severity": "stale_completed_evening_slate",
+      "target_file": "data/session-22ca2e95/desk.json (47 rows with start_utc <= 21:15Z)",
+      "sport": "Multi-Sport (Basketball, Ice Hockey, Handball, Snooker, Darts, Badminton, Volleyball, Rugby Union)",
+      "issue": "47 fixtures active at 12:15Z have now finished or started prior to 21:15Z UTC, including 5 EuroLeague games (`Milan 81-89 Barcelona`, `Maccabi 99-113 Real Madrid`, `Panathinaikos 85-79 Baskonia`, `Bayern 91-107 Dubai`, `Anadolu Efes 89-80 Besiktas`), 6 SHL games (`Timr\u00e5 0-4 F\u00e4rjestad`, `R\u00f6gle 4-1 Fr\u00f6lunda`, `Skellefte\u00e5 4-1 Djurg\u00e5rden`), Liiga (`JYP 3-2 HPK`), 11 Handball games, 6 Snooker Last-16 ties (`Mark Williams 4-0 O'Donnell`, `Gilbert 4-2 Cheung`), 9 BWF R16s, 7 Volleyball games, and Pro D2 `Montauban vs Oyonnax`.",
+      "official_verification_url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games",
+      "board_ag_resolution": "100% pruned from active desk, archived on Flagged for Review with verified scores, and succeeded by newly formed Oct 23\u2013Nov 9 fixtures."
+    },
+    {
+      "finding_id": "AG-REV-06",
+      "severity": "coverage_gap_resolved",
+      "target_file": "session-4afef1af/data/fixtures.json (47 NBA fixtures withheld)",
+      "sport": "Basketball",
+      "issue": "Automated pipeline (`olbg.yml` at 17:10Z) withheld lines on all 47 NBA games (`market_withheld`) because `stats.nba.com` timed out from the runner.",
+      "official_verification_url": "https://www.nba.com/schedule",
+      "board_ag_resolution": "All upcoming NBA fixtures priced across 4 markets (`Moneyline`, `Point Spread`, `Total Points`, `Team Total`) from verified team strength priors + opening week records."
+    },
+    {
+      "finding_id": "AG-REV-07",
+      "severity": "coverage_gap_resolved",
+      "target_file": "data/master.json (39 rows lacking source_url; 8 templated predictions; 5 Gaelic rows)",
+      "sport": "Repository Master Board",
+      "issue": "Canonical `data/master.json` retains 39 legacy Build-D rows without an official source URL, 8 repeated sentence-frame predictions, and pre-22-Oct historical fixtures.",
+      "official_verification_url": "https://www.olbg.com/sitemap-betting-tips.xml",
+      "board_ag_resolution": "Every single active row on Board AG enforces `https://` governing-body provenance, strict `> 2026-10-22T21:15:00Z` freshness, and 88 unique human predictions (max trigram Jaccard < 0.06)."
+    },
+    {
+      "finding_id": "AG-REV-08",
+      "severity": "coverage_gap_resolved",
+      "target_file": "Table Tennis & Rugby League peer coverage",
+      "sport": "Table Tennis / Rugby League",
+      "issue": "Prior 22 Oct desks carried 0 head-to-head club Table Tennis matches and missed Saturday's RLWC Round 2 double-header at HBF Park, Perth (`England vs France` + `Australia Jillaroos vs England Women`).",
+      "official_verification_url": "https://www.ttbl.de/en/bundesliga/gameschedule/2026-2027/6/all",
+      "board_ag_resolution": "Added all 6 official German TTBL Matchday 6 & 7 club fixtures with live singles player balances (`Fan Zhendong 7-0`, `Ovtcharov 5-1`, `Calderano 4-0`) plus both Perth RLWC Round 2 fixtures."
+    }
+  ]
+}
