@@ -575,10 +575,12 @@ def parse_shl(reader: CaptureReader) -> None:
         if not m:
             continue
         when, left, right = m.group(1), m.group(2).strip(), m.group(3).strip()
+        right = right.split(" Group Standings")[0]  # tail of the page follows the last fixture
         a = next((k for k in sorted(table, key=len, reverse=True) if left == k), None)
         b = next((k for k in sorted(table, key=len, reverse=True) if right.startswith(k)), None)
         if a and b:
-            fixtures.append((when, a, b, right[len(b):].strip()))
+            venue = right[len(b):].strip()[:48]  # venue name only; truncate any page residue
+            fixtures.append((when, a, b, venue))
     if not table:
         flag("AH-F-SHL-01", "review", "Ice Hockey", "SHL standings not parsed",
              "The SHL overview page captured but the standings regex found no rows; upcoming SHL fixtures published unpriced.", url)
