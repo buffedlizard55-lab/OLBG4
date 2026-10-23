@@ -3,15 +3,20 @@ on:
   push:
     branches: [arena/7cfa69e5-olbg4]
     paths: ['scripts/session-7cfa69e5/capture.py', 'scripts/session-7cfa69e5/targets.json', '.github/workflows/aj-7cfa69e5.yml']
+  pull_request:
+    paths: ['scripts/session-7cfa69e5/**', 'data/session-7cfa69e5/**', 'session-7cfa69e5/**', '.github/workflows/aj-7cfa69e5.yml']
   workflow_dispatch:
 permissions:
   contents: write
 jobs:
   capture:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: arena/7cfa69e5-olbg4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -29,3 +34,15 @@ jobs:
           git commit -m "data: fresh AJ public-source capture [skip ci]"
           git pull --rebase origin arena/7cfa69e5-olbg4
           git push origin HEAD:arena/7cfa69e5-olbg4
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/session-7cfa69e5/build.py
+      - run: python scripts/session-7cfa69e5/test.py
+      - run: git diff --exit-code -- data/session-7cfa69e5 session-7cfa69e5

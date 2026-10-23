@@ -16,13 +16,17 @@ def host_group(items):
     rp=urllib.robotparser.RobotFileParser()
     try:
         raw,_,_,_=get(origin+'/robots.txt');rp.parse(raw.decode(errors='replace').splitlines())
+        robot_file='robots_'+urlsplit(origin).netloc.replace('.','_')+'.gz'
+        (OUT/robot_file).write_bytes(gzip.compress(raw,mtime=0))
         robots='read'
+        robots_sha=hashlib.sha256(raw).hexdigest()
     except Exception as e:
         # RFC 9309 permits access on a 4xx except 429. Fail closed on other failures.
         if getattr(e,'code',0) in (404,410): rp.parse([]);robots='absent'
         else: rp=None;robots=str(e)
     for t in items:
         r=dict(t,captured_utc=datetime.now(timezone.utc).isoformat(),robots=robots)
+        if robots=='read':r.update(robots_file=robot_file,robots_sha256=robots_sha,robots_url=origin+'/robots.txt')
         try:
             if rp is None: raise ValueError('robots unavailable; capture withheld')
             if not rp.can_fetch(UA,t['url']): raise ValueError('robots disallow')
