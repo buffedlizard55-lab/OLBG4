@@ -1,0 +1,87 @@
+name: AJ fresh public-source evidence
+on:
+  push:
+    branches: [arena/7cfa69e5-olbg4]
+    paths: ['scripts/session-7cfa69e5/capture.py', 'scripts/session-7cfa69e5/targets.json', '.github/workflows/aj-7cfa69e5.yml']
+  pull_request:
+    paths: ['scripts/session-7cfa69e5/**', 'data/session-7cfa69e5/**', 'session-7cfa69e5/**', '.github/workflows/aj-7cfa69e5.yml']
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Capture public evidence or check the deployed Pages desk
+        type: choice
+        options: [capture, live-check]
+        default: capture
+permissions:
+  contents: write
+jobs:
+  capture:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'capture'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/7cfa69e5-olbg4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/session-7cfa69e5/capture.py
+      - name: Reconcile and validate captured evidence before preserving it
+        run: |
+          python scripts/session-7cfa69e5/build.py
+          python scripts/session-7cfa69e5/test.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aj-evidence
+          path: data/session-7cfa69e5/capture
+      - name: Preserve evidence on the fixed session branch
+        run: |
+          git config user.name "OLBG evidence bot"
+          git config user.email "olbg-evidence@users.noreply.github.com"
+          git add data/session-7cfa69e5 session-7cfa69e5
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "data: fresh AJ public-source capture [skip ci]"
+          git pull --rebase origin arena/7cfa69e5-olbg4
+          git push origin HEAD:arena/7cfa69e5-olbg4
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/session-7cfa69e5/build.py
+      - run: python scripts/session-7cfa69e5/test.py
+      - run: git diff --exit-code -- data/session-7cfa69e5 session-7cfa69e5
+  live-check:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'live-check'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Read back the public GitHub Pages deliverable
+        run: |
+          python - <<'PYCODE'
+          import json, os, urllib.request
+          base='https://buffedlizard55-lab.github.io/OLBG4/session-7cfa69e5/'
+          checks={
+            'index.html':'No approved High-confidence picks.',
+            'entries.html':'Upcoming fixtures',
+            'markets.html':'Our research lines',
+            'flagged.html':'Flagged for Review',
+            'sources.html':'Source capture register',
+          }
+          results=[]
+          for path,marker in checks.items():
+              with urllib.request.urlopen(base+path,timeout=30) as response:
+                  text=response.read().decode('utf-8')
+                  assert response.status==200 and marker in text, path
+                  results.append({'url':base+path,'status':response.status,'marker_confirmed':marker})
+          print(json.dumps(results,indent=2))
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write('## Public Pages read-back succeeded\n')
+              for result in results:f.write('- HTTP 200: '+result['url']+'; expected page content confirmed\n')
+          PYCODE
