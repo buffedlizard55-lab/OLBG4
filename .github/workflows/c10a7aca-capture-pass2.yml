@@ -1,0 +1,43 @@
+name: Board C10 targeted evidence retry
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [arena/c10a7aca-olbg4]
+    paths:
+      - scripts/session-c10a7aca/fetch_pass2.py
+      - scripts/session-c10a7aca/targets_pass2.json
+      - .github/workflows/c10a7aca-capture-pass2.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: c10a7aca-capture-pass2-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/c10a7aca-olbg4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Retry official CDN evidence and capture rankings
+        run: |
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          python3 scripts/session-c10a7aca/fetch_pass2.py scripts/session-c10a7aca/targets_pass2.json "data/session-c10a7aca/capture/$STAMP"
+      - name: Commit evidence to the session branch
+        run: |
+          git config user.name "board-c10-capture[bot]"
+          git config user.email "board-c10-capture@users.noreply.github.com"
+          git add data/session-c10a7aca/capture
+          git commit -m "chore(c10): targeted official evidence retry [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin arena/c10a7aca-olbg4 && git push origin HEAD:arena/c10a7aca-olbg4 && break
+            sleep 4
+          done

@@ -1,0 +1,275 @@
+[
+  {
+    "id": "nba_cdn_schedule",
+    "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.nba.com/",
+      "Origin": "https://www.nba.com",
+      "Sec-Fetch-Site": "same-site",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Dest": "empty"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "nba_cdn_scoreboard",
+    "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.nba.com/",
+      "Origin": "https://www.nba.com",
+      "Sec-Fetch-Site": "same-site",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Dest": "empty"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "nba_games_2026_10_23",
+    "url": "https://www.nba.com/games?date=2026-10-23",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.nba.com/",
+      "Origin": "https://www.nba.com",
+      "Sec-Fetch-Site": "same-site",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Dest": "empty"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "nba_games_2026_10_24",
+    "url": "https://www.nba.com/games?date=2026-10-24",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.nba.com/",
+      "Origin": "https://www.nba.com",
+      "Sec-Fetch-Site": "same-site",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Dest": "empty"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "nba_games_2026_10_25",
+    "url": "https://www.nba.com/games?date=2026-10-25",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.nba.com/",
+      "Origin": "https://www.nba.com",
+      "Sec-Fetch-Site": "same-site",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Dest": "empty"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "nba_com_standings",
+    "url": "https://www.nba.com/standings",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.nba.com/",
+      "Origin": "https://www.nba.com",
+      "Sec-Fetch-Site": "same-site",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Dest": "empty"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wta_2092_matches",
+    "url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.wtatennis.com/",
+      "Origin": "https://www.wtatennis.com/"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wta_405_matches",
+    "url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.wtatennis.com/",
+      "Origin": "https://www.wtatennis.com/"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wta_rankings_0",
+    "url": "https://api.wtatennis.com/tennis/players/ranked?page=0&pageSize=100&type=rankSingles&sort=asc&metric=SINGLES",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.wtatennis.com/",
+      "Origin": "https://www.wtatennis.com/"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wta_rankings_1",
+    "url": "https://api.wtatennis.com/tennis/players/ranked?page=1&pageSize=100&type=rankSingles&sort=asc&metric=SINGLES",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.wtatennis.com/",
+      "Origin": "https://www.wtatennis.com/"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wta_rankings_2",
+    "url": "https://api.wtatennis.com/tennis/players/ranked?page=2&pageSize=100&type=rankSingles&sort=asc&metric=SINGLES",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.wtatennis.com/",
+      "Origin": "https://www.wtatennis.com/"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wta_rankings_3",
+    "url": "https://api.wtatennis.com/tennis/players/ranked?page=3&pageSize=100&type=rankSingles&sort=asc&metric=SINGLES",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://www.wtatennis.com/",
+      "Origin": "https://www.wtatennis.com/"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "atp_rankings_1_100",
+    "url": "https://www.atptour.com/en/rankings/singles?rankRange=1-100&rankDate=2026-10-19",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "atp_rankings_101_200",
+    "url": "https://www.atptour.com/en/rankings/singles?rankRange=101-200&rankDate=2026-10-19",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "atp_rankings_201_300",
+    "url": "https://www.atptour.com/en/rankings/singles?rankRange=201-300&rankDate=2026-10-19",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "atp_rankings_301_400",
+    "url": "https://www.atptour.com/en/rankings/singles?rankRange=301-400&rankDate=2026-10-19",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wst_world_rankings_full",
+    "url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wst_one_year_rankings_full",
+    "url": "https://www.wst.tv/rankings/4c9b9e8a-f4c3-5ec0-a433-c1fb38464228?showLive=false",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "wst_day5_afternoon",
+    "url": "https://www.wst.tv/news/2026/october/23/betvictor-northern-ireland-open-2026-day-five-afternoon",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "pdc_day2_latest",
+    "url": "https://www.pdc.tv/news/2026/october/23/2026-machineseeker-european-championship---day-two-latest",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  },
+  {
+    "id": "pdc_field_draw",
+    "url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed/",
+    "delay": 0.45,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "curl_fallback": true
+  }
+]
