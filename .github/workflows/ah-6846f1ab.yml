@@ -1,0 +1,44 @@
+name: Board AH isolated dashboard gate (6846f1ab)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "session-6846f1ab/**"
+      - "data/session-6846f1ab/**"
+      - "scripts/session-6846f1ab/**"
+      - ".github/workflows/ah-6846f1ab.yml"
+  push:
+    branches:
+      - main
+      - arena/6846f1ab-olbg4
+    paths:
+      - "session-6846f1ab/**"
+      - "data/session-6846f1ab/**"
+      - "scripts/session-6846f1ab/**"
+      - ".github/workflows/ah-6846f1ab.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-board-ah:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild isolated JSON and static pages
+        run: |
+          python3 scripts/session-6846f1ab/build.py
+          python3 scripts/session-6846f1ab/site.py
+      - name: Run source, market, prediction and publication gate
+        run: python3 scripts/session-6846f1ab/verify.py
+      - name: Render verification result into the static page
+        run: python3 scripts/session-6846f1ab/site.py
+      - name: Repeat gate after final render
+        run: python3 scripts/session-6846f1ab/verify.py
+      - name: Ensure the committed isolated desk is reproducible
+        run: git diff --exit-code -- data/session-6846f1ab session-6846f1ab

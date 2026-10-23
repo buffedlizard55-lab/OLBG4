@@ -1,0 +1,70 @@
+{
+  "schema": "olbg4.board-ah.audit/1",
+  "status": "PASS",
+  "checks": 21532,
+  "errors": 0,
+  "input_hashes": 6,
+  "rows": 253,
+  "predictions": 67,
+  "withheld_predictions": 1,
+  "flagged": 207,
+  "published_table_rows_checked": 3313,
+  "max_prediction_trigram_jaccard": 0.036585,
+  "findings": [
+    {
+      "code": "AH-PRED-BASEBALL",
+      "severity": "needs_review",
+      "message": "Only 4 qualifying written picks were retained for Baseball; target is five and no text was invented.",
+      "url": ""
+    },
+    {
+      "code": "AH-SCOPE-GAELIC-SPORTS",
+      "severity": "needs_review",
+      "message": "No active qualifying row was retained for Gaelic Sports; the category is blank and linked on Flagged for Review.",
+      "url": ""
+    },
+    {
+      "code": "AH-SCOPE-GREYHOUNDS",
+      "severity": "needs_review",
+      "message": "No active qualifying row was retained for Greyhounds; the category is blank and linked on Flagged for Review.",
+      "url": ""
+    },
+    {
+      "code": "AH-PRED-CONFLICT",
+      "severity": "needs_review",
+      "message": "Published selection is Over 7.5, but the authored text explicitly says Under 7.5; the text was not rewritten.",
+      "url": "https://www.mlb.com/postseason"
+    },
+    {
+      "code": "AH-OLBG-MATCH",
+      "severity": "needs_review",
+      "message": "137 official schedule rows had no matching OLBG event URL in the capture; their OLBG fields remain blank.",
+      "url": ""
+    },
+    {
+      "code": "AH-OUTRIGHTS",
+      "severity": "note",
+      "message": "13 rows are outright/event cards, not head-to-head matches; they are labelled rather than relabelled.",
+      "url": ""
+    },
+    {
+      "code": "AH-FRESHNESS",
+      "severity": "needs_review",
+      "message": "The latest committed source cutoff is 2026-10-22T21:15:00Z; this gate does not claim a live re-fetch for the current date.",
+      "url": ""
+    },
+    {
+      "code": "AH-GAELIC",
+      "severity": "needs_review",
+      "message": "Gaelic Sports is blank and quarantined under the captured scope rule; official GAA review link is on the category and Flagged pages.",
+      "url": "https://www.gaa.ie/fixtures-results/"
+    },
+    {
+      "code": "AH-GREYHOUNDS",
+      "severity": "needs_review",
+      "message": "Greyhounds has no dated runner-level card retained from the captured OLBG/GBGB pages; no race lines were inferred.",
+      "url": "https://www.gbgb.org.uk/results/"
+    }
+  ],
+  "error_messages": []
+}
