@@ -4250,3 +4250,14 @@ ce15a89 (chore(coordination): claim Board AH (b2c7308d) fresh 15-sport same-day 
 **Irregularities → flags (non-blocking):** AH-F-SHL-02 local kick times; ATP conditional ties (AH-F-ATP-03); darts EC (PDC hosts unresolvable from runner; Humphries withdrew — excluded); ICC/OWGR/F1/MotoGP JS-locked; GBGB pre-race endpoints dead (results only); tennis no completed-results feed → Medium cap; VB/CR/RU/GA/SN/RL gaps each flagged. No value published without an official link; no blanks inferred.
 
 **Debug notes for future boards:** CaptureReader keeps LARGEST payload per target (later OLBG passes are bot shells); EuroLeague feed uses local/road (home/away null); Liiga finished = `end` flag; WTA MatchTimeStamp carries local offsets; SHL fixture names must be resolved against standings keys (uppercase-token names break naive venue splits); puck/run line = win-by-3+/2+ (fixed after review caught the win-by-1-2 bug).
+
+## Board AJ — arena/7cfa69e5-olbg4 — 2026-10-23
+Claim: fresh evidence reconciliation and conservative publication desk. Status: in progress.
+Exclusive scope: `scripts/session-7cfa69e5/**`, `data/session-7cfa69e5/**`, `session-7cfa69e5/**`, `.github/workflows/aj-7cfa69e5.yml`; append-only coordination. All peer desks and root navigation read-only. Fixed Arena branch used instead of requested session branch (platform constraint). No peer claims taken over. Final integration applies only to this additive desk; existing desks are linked, not silently certified.
+
+| Task | Status | Owner | Scope |
+|---|---|---|---|
+| AJ1 Fresh public OLBG + official source capture, robots-aware, timestamp/hash evidence | in progress | arena/7cfa69e5-olbg4 | scoped workflow, capture script and data |
+| AJ2 Row-by-row reconciliation, explicit estimate/fact separation, confidence and coverage gaps | in progress | arena/7cfa69e5-olbg4 | scoped data and scripts |
+| AJ3 Clean 15-sport dashboard, official links, flags, methodology and tests | in progress | arena/7cfa69e5-olbg4 | scoped site and scripts |
+| AJ4 PR, checks, merge and Pages deployment confirmation | in progress | arena/7cfa69e5-olbg4 | append-only coordination |
