@@ -1,0 +1,123 @@
+{
+ "schema": "olbg4.board-aj.review/1",
+ "reviewed_utc": "2026-10-23T19:50:35.537892+00:00",
+ "files_reviewed": [
+  "data/master.json",
+  "data/session-b2c7308d/desk.json",
+  "data/session-2c05e0b2/desk.json",
+  "audit/report.json"
+ ],
+ "finding_count": 11,
+ "findings": [
+  {
+   "id": "AJ-R01",
+   "file": "data/master.json",
+   "severity": "high",
+   "title": "World Series Game 1 home side contradicts its own venue",
+   "detail": "The row for MLB World Series Game 1 lists home=Tampa Bay Rays and away=Milwaukee Brewers while its venue field is American Family Field, Milwaukee — the Brewers are the home club in Game 1 of the official schedule.",
+   "row_selector": "sport=Baseball, competition contains 'World Series 2026 — Game 1'",
+   "official_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-31",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R02",
+   "file": "data/master.json",
+   "severity": "medium",
+   "title": "World Series Game 3 sides are inverted the same way",
+   "detail": "Game 3 is listed with home=Milwaukee Brewers while the venue is Tropicana Field, St. Petersburg, where Tampa Bay are the home club.",
+   "row_selector": "sport=Baseball, competition contains 'Game 3'",
+   "official_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-31",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R03",
+   "file": "data/master.json",
+   "severity": "medium",
+   "title": "162 of 354 rows are dated before today and are still served as current",
+   "detail": "The master board is a snapshot of builds A–G with a 2026-10-21 cut-off note, but the rows are rendered on the live site with no per-row 'already played' marker. Counts were recomputed here directly from the file.",
+   "row_selector": "rows where date < 2026-10-23",
+   "official_url": "https://www.olbg.com/",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R04",
+   "file": "data/master.json",
+   "severity": "medium",
+   "title": "Two labels for one sport and out-of-scope sports are mixed into the board",
+   "detail": "Greyhounds appears as both 'Greyhounds' (6 rows) and 'Greyhound Racing' (2 rows); the board also carries Table Tennis, Badminton, Esports and Aussie Rules rows, which are outside the 15-sport brief this desk publishes.",
+   "row_selector": "sport in {Greyhounds, Greyhound Racing, Table Tennis, Badminton, Esports, Aussie Rules}",
+   "official_url": "https://www.olbg.com/greyhounds",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R05",
+   "file": "data/master.json",
+   "severity": "low",
+   "title": "One placeholder row survives",
+   "detail": "A row whose home and away are both 'No fixture' is still present in the canonical dataset.",
+   "row_selector": "home == 'No fixture'",
+   "official_url": "https://www.olbg.com/",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R06",
+   "file": "data/session-b2c7308d/desk.json",
+   "severity": "low",
+   "title": "Peer desk keeps rows whose kick-off has passed",
+   "detail": "132 of 276 rows start before this review (first: ah_074 Zalgiris Kaunas vs LDLC ASVEL Villeurbanne) and remain listed as upcoming.",
+   "row_selector": "ah_074",
+   "official_url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R07",
+   "file": "data/session-b2c7308d/desk.json",
+   "severity": "medium",
+   "title": "Two-way market pairs that do not sum to 1.0",
+   "detail": "All market families report prob_sum 1.0 — re-derived here and confirmed.",
+   "row_selector": "",
+   "official_url": "https://www.euroleaguebasketball.net/euroleague/game-center/",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R08",
+   "file": "data/session-2c05e0b2/desk.json",
+   "severity": "low",
+   "title": "Fair prices that do not equal 1/probability",
+   "detail": "Every selection re-derives decimal = 1/p within 0.02 — checked across all rows.",
+   "row_selector": "rows []",
+   "official_url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R09",
+   "file": "data/session-2c05e0b2/desk.json",
+   "severity": "medium",
+   "title": "15 High labels priced shorter than -250",
+   "detail": "The brief's High-confidence window starts at -250 American; these rows carry a High label with a shorter price, the same tension this board documents as AJ-F01 rather than moving prices.",
+   "row_selector": "[(4, '-308'), (19, '-259'), (34, '-599'), (39, '-324'), (50, '-268'), (51, '-562')]",
+   "official_url": "https://www.olbg.com/",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R10",
+   "file": "data/session-2c05e0b2/desk.json",
+   "severity": "low",
+   "title": "119 rows already started",
+   "detail": "Rows whose start_utc is before this review remain in the published dataset.",
+   "row_selector": "[103, 104, 105, 114, 115, 116]",
+   "official_url": "https://api-web.nhle.com/v1/standings/now",
+   "action": "needs manual review"
+  },
+  {
+   "id": "AJ-R11",
+   "file": "audit/report.json",
+   "severity": "low",
+   "title": "Repository-wide local-link audit now completes after the gzip-skip fix",
+   "detail": "The gate reports ? local targets with 0 broken. Before this session the same gate aborted on 75 gzip-compressed peer capture artefacts (*.html written by an older fetcher); skipping non-UTF-8 payloads removed the crash without deleting any peer evidence.",
+   "row_selector": "scripts/audit_publication.py",
+   "official_url": "https://github.com/buffedlizard55-lab/OLBG4/actions",
+   "action": "needs manual review"
+  }
+ ]
+}

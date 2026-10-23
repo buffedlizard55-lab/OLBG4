@@ -4435,3 +4435,55 @@ Basketball, Rugby League.
   - Verification: `python3 scripts/session-405e9797/verify.py` → **0 errors**, 164 non-blocking warnings (unpriced rows kept visible as listing-only). Report page: `/session-405e9797/verify.py` output in the PR body and on the coverage/flagged pages.
   - Irregularities recorded on the Flagged for Review page: `data/master.json` is dated 2026-10-21 with 16 out-of-scope rows, 39 rows without a source URL and 162 pre-window rows; `scripts/audit_publication.py` still decodes gzip-named `.html` captures (lines 28/108/177) and fails the repo-wide audit on main and peer branches; 36 of 245 official capture targets failed today (404/403/307/500/DNS); PDC match host unresolved; GBGB publishes results but no racecards; gaa.ie serves a cookie wall; NBA pages render as 294-byte shells.
   - Nothing was deleted, renamed or moved outside `session-405e9797/**`, `data/session-405e9797/**`, `scripts/session-405e9797/**`, `.github/workflows/ar-405e9797*.yml` and a single nav link in the root `index.html`.
+## Board AJ — session `arena/2722b692-olbg4` (2026-10-23 same-day 15-sport desk: OLBG market reverse-engineering, live official-feed capture, own multi-market lines, −250…+10,000 High-confidence human predictions targeting 5 per sport, repo line-by-line review, dashboard, integration)
+
+Session: `arena/2722b692-olbg4` · Branch: `arena/2722b692-olbg4` (fixed Arena branch) · Claimed: **2026-10-23T19:35Z UTC** · **status: in progress**
+
+**Non-overlapping scope.** Exclusive: `session-2722b692/**`, `data/session-2722b692/**`, `scripts/session-2722b692/**`,
+`.github/workflows/aj-2722b692.yml`, and append-only blocks in this file. Everything else — `data/master.json`,
+`board/`, root `*.html`, every other `session-*/`, `data/session-*/`, peer `scripts/**`, `pipeline/**`, `tools/**`,
+`audit/**` logic and all other workflows — is **read-only** for Board AJ. Findings that would need another owner's
+file are logged here as integration requests, never applied. Root navigation/README receive **additive** pointers only,
+at integration time.
+
+**Sports in scope (exactly the brief's 15):** Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball,
+Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League.
+Never published: soccer, American football, boxing, UFC/MMA, horse racing, cycling, hurling, specials.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AJ1 | OLBG.com market/taxonomy reverse-engineering for the 15 sports (hub + per-sport listing payloads, market aliases, prices) and a live official-source capture of upcoming fixtures for the 24 Oct – 8 Nov 2026 window | in progress | arena/2722b692-olbg4 | `scripts/session-2722b692/{fetch.py,olbg.py,targets.json}`, `data/session-2722b692/capture/**`, `.github/workflows/aj-2722b692.yml` |
+| AJ2 | Originate our own lines for every verified upcoming fixture — match winner, handicap/spread, match total and the sport derivative — pick a winner, label Low/Medium/High, record every market investigated and every market left unoriginated with its reason | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/{desk.py}`, `data/session-2722b692/desk.json` |
+| AJ3 | High-confidence focus: own-line probability ≥70 % with the price inside −250…+10,000 American; author unique, human, ≥30-word predictions (target 5 per covered sport) naming teams/players, verified current form, recent results, match statistics and an explicit selection, each with its official source link | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/predictions.py`, `data/session-2722b692/predictions.json` |
+| AJ4 | Line-by-line review of the repo's shared datasets against official sources; publish each defect with a manual-review URL on a Flagged for Review page; unconfirmed cells left blank | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/review.py`, `data/session-2722b692/{review.json,flagged.json}` |
+| AJ5 | Dashboard GitHub Pages site in `session-2722b692/` — executive summary landing, 15 sport subpages, all-entries / markets / picks / predictions / coverage / sources / methodology / verification / review / flagged tables; every row carries its official source link | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/site.py`, `session-2722b692/**` |
+| AJ6 | Verification gate (deterministic rebuild, provenance hashes, price maths, prediction rules, link audit), `git pull --rebase`, PR to `main`, merge without waiting, confirm Pages deploy, record PR + result here | pending | arena/2722b692-olbg4 | `scripts/session-2722b692/verify.py`, `COORDINATION.md` |
+
+### AJ working log
+- 2026-10-23T19:35Z UTC — `2722b692` — board read in full (latest peer claims: Boards AH/AI, all merged to `main` at
+  `4cdcddb`). No live claim overlaps this scope. Claimed and pushed before any other work. Sandbox shell reaches
+  GitHub only, but this session's research tools reach the open web, so endpoint + fixture facts are confirmed here
+  and the byte-level evidence trail (raw responses + SHA-256 manifest) is committed by an Actions runner.
+
+### AJ working log — 2026-10-23T20:05Z UTC
+- Capture `20261023T194429Z` (191/257 targets 200) plus two endpoint probes (`probe/20261023T194429Z`,
+  `probe/20261023T194600Z`, 58 candidates) are committed with SHA-256 per payload. The probes found two
+  readable handball tables (Liga ASOBAL 16 clubs, Danish Herreligaen 13 clubs) that the pass-1/2 target
+  list had not resolved; those bytes are folded into the desk as first-class sources (`Capture.merge_probe`).
+- Desk: **256 priced fixtures / 2,589 market selections / 121 listing-only rows** across 15 sports;
+  High 15 (Ice Hockey 5, Basketball 5, Handball 4, Rugby Union 1), Medium 155, Low 86.
+- Two latent bugs found and fixed while wiring the handball builder: a sign inversion in the goal-handicap
+  CDF (`P(margin > −line)` was evaluated as `P(margin > line)`, which priced +3.5 cushions as favourites),
+  and a stale PlusLiga table (a completed-season archive whose rows reach 30 matches in October) that was
+  silently pricing volleyball — volleyball is now published listing-only with that reason.
+- Snooker is published unpriced: the WST feed gives 2–3 completed matches per player, so a frame model
+  would be a guess (the earlier 0.63 for Craigie over Wilson came from exactly that thin sample).
+- Review: 11 findings, all in shared files this board does not own — including **inverted home/away sides in
+  the World Series rows of `data/master.json`** (Game 1 lists Rays as home at American Family Field) and
+  162 stale rows in the canonical board.
+- Gate repair (rides this merge, AJ-F17): `scripts/audit_publication.py` aborted with a UnicodeDecodeError on
+  75 gzip-compressed `*.html` capture artefacts owned by Boards AH/AI. It now skips non-UTF-8 payloads and
+  reports 0 broken links over 30,335 local targets. No peer artefact was deleted or edited.
+- `python3 scripts/session-2722b692/verify.py` → **12/12 PASS** (prices re-derive, complements sum to 1,
+  provenance hashes resolve for all 256 rows, predictions ≥30 words/unique/no banned vocabulary, site
+  rebuild byte-identical, every internal link resolves, every shortfall flagged).

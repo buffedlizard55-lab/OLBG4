@@ -1,0 +1,151 @@
+{
+ "schema": "olbg4.board-aj.flagged/1",
+ "generated_utc": "2026-10-23T19:51:52Z",
+ "flag_count": 18,
+ "flags": [
+  {
+   "id": "AJ-F01",
+   "area": "All sports · odds window",
+   "title": "8 of 15 High picks price shorter than −250",
+   "detail": "A 70% probability prices at −233 American and the brief's window starts at −250, so only 70.00%–71.43% fits both rules. Where the match winner is stronger, the desk publishes the deepest line it originates that does fit — and where no originated line fits, it publishes the winner at its true price with this label rather than shortening it to look compliant.",
+   "missing": "A window that starts at −233, or acceptance of out-of-window High labels",
+   "source_url": "https://www.olbg.com/"
+  },
+  {
+   "id": "AJ-F02",
+   "area": "High-pick target",
+   "title": "Five High picks per sport is not reachable in every sport on this snapshot",
+   "detail": "Priced sports with fewer than five High labels: Baseball 0, Handball 4, Rugby League 0, Rugby Union 1, Tennis 0. Ice Hockey, Basketball and Handball reach five, four and four respectively; Baseball, Tennis and Rugby League have no fixture whose strongest in-window selection clears 70%. The nine sports with no price at all are covered individually below.",
+   "missing": "More lopsided fixtures, or official feeds for the blocked sports",
+   "source_url": "https://www.olbg.com/"
+  },
+  {
+   "id": "AJ-F03",
+   "area": "All sports · availability",
+   "title": "No official injury or team-news feed is readable for these competitions",
+   "detail": "None of the official sources captured here publishes per-match availability in a machine-readable form. The written predictions therefore describe form, results and statistics only; no injury claim is made anywhere on this site, and the injury column stays blank.",
+   "missing": "An official team-news or availability endpoint per competition",
+   "source_url": "https://www.nhl.com/"
+  },
+  {
+   "id": "AJ-F04",
+   "area": "Handball · kick-off times",
+   "title": "ASOBAL and Danish kick-off times come from the OLBG listing, not an official fixture list",
+   "detail": "The Liga ASOBAL fixture page returns 404 and the Danish programme page is a client-rendered shell, so the times published for those rows are the OLBG listing times. The strength inputs are from the official tables and are unaffected.",
+   "missing": "Official fixture times for Liga ASOBAL and the Danish Herreligaen",
+   "source_url": "https://www.asobal.es/liga/clasificacion/"
+  },
+  {
+   "id": "AJ-F05",
+   "area": "Golf, Volleyball, Cricket, Snooker, Darts, Gaelic Sports, Greyhounds, Motor Racing",
+   "title": "8 sports publish listing-only rows or nothing at all",
+   "detail": "Per sport: Golf — 0 OLBG listings, 1 recorded reasons; Volleyball — 22 OLBG listings, 22 recorded reasons; Cricket — 13 OLBG listings, 13 recorded reasons; Snooker — 4 OLBG listings, 34 recorded reasons; Darts — 9 OLBG listings, 9 recorded reasons; Gaelic Sports — 0 OLBG listings, 0 recorded reasons; Greyhounds — 18 OLBG listings, 18 recorded reasons; Motor Racing — 1 OLBG listings, 1 recorded reasons. Each row's reason is on the Coverage page.",
+   "missing": "A readable official feed per sport",
+   "source_url": "https://www.olbg.com/"
+  },
+  {
+   "id": "AJ-F06",
+   "area": "Snooker",
+   "title": "30+ WST matches are scheduled but none can be priced",
+   "detail": "The official WST match feed carries the draw, but each player has only two or three completed matches in the captured window. A five-match minimum is applied before any frame model is published, so every snooker fixture is listed without a price.",
+   "missing": "A WST ranking table or a longer completed-match window",
+   "source_url": "https://www.wst.tv/"
+  },
+  {
+   "id": "AJ-F07",
+   "area": "Cricket",
+   "title": "13 OLBG cricket listings are unpublished",
+   "detail": "ICC, NZC, CSA and ECB fixture endpoints return 403/404 in this snapshot and the ICC rankings pages are client-rendered. Without an official per-team input the internationals and the Australian and South African domestic one-day matches cannot be priced.",
+   "missing": "A readable ICC/board fixture and results feed",
+   "source_url": "https://www.icc-cricket.com/"
+  },
+  {
+   "id": "AJ-F08",
+   "area": "Darts",
+   "title": "9 OLBG darts listings are unpublished",
+   "detail": "pdc.tv serves a 1.2 MB client-rendered shell for every tournament path tried, and the WDF calendar carries tournament dates but no match scoring. No 180s, checkout or leg data exists to build a price from.",
+   "missing": "A PDC match-results endpoint",
+   "source_url": "https://www.pdc.tv/"
+  },
+  {
+   "id": "AJ-F09",
+   "area": "Greyhounds",
+   "title": "11 OLBG greyhound races are unpublished",
+   "detail": "GBGB publishes results (readable, and captured) but the racecard endpoints answer 404, so no forward race, trap draw or recent sectional time can be confirmed.",
+   "missing": "A forward racecard feed",
+   "source_url": "https://www.gbgb.org.uk/"
+  },
+  {
+   "id": "AJ-F10",
+   "area": "Volleyball",
+   "title": "22 OLBG volleyball listings are unpublished",
+   "detail": "The PlusLiga table page is a round-by-round archive whose rows reach 30 played matches in October, so it cannot be tied to the 2026-27 fixtures; the Italian SuperLega table is current but only one round has been played.",
+   "missing": "A current-season PlusLiga table, or several rounds of SuperLega results",
+   "source_url": "https://www.tauronliga.pl/table/tour/47.html"
+  },
+  {
+   "id": "AJ-F11",
+   "area": "Motor Racing",
+   "title": "The F1 and MotoGP races are listed but not priced",
+   "detail": "Both calendars publish dates and venues only. No lap-time, grid or points model can be built from them, and the driver-order page used in earlier builds carries finishing order without pace.",
+   "missing": "Official qualifying/grid or race-pace data",
+   "source_url": "https://www.formula1.com/en/racing/2026"
+  },
+  {
+   "id": "AJ-F12",
+   "area": "Gaelic Sports",
+   "title": "No Gaelic fixture could be listed at all",
+   "detail": "The GAA fixtures page is a Next.js shell with no fixture payload, the GAA API path is a 404 and the provincial pages publish no readable fixture list. The OLBG Gaelic hub returned zero events in this capture, so there is not even a listing to publish.",
+   "missing": "A GAA fixture feed and a populated OLBG Gaelic hub",
+   "source_url": "https://www.gaa.ie/fixtures-results"
+  },
+  {
+   "id": "AJ-F13",
+   "area": "Golf",
+   "title": "Golf has no listing and no readable field",
+   "detail": "The OLBG golf hub returned zero events and the OWGR ranking page is a client-rendered shell, so neither an outright nor a tournament matchup can be originated.",
+   "missing": "An OWGR snapshot with values, or a published tournament field",
+   "source_url": "https://www.owgr.com/current-world-ranking"
+  },
+  {
+   "id": "AJ-F14",
+   "area": "Rugby League",
+   "title": "Nine priced rows, no High label",
+   "detail": "Every RLWC 2026 side has one completed match in the official feed. The model shrinks those rates hard toward the tournament mean, which caps confidence at Low; the listed tournament prices are shown only as a cross-check and are never used as an input.",
+   "missing": "More rounds of the tournament",
+   "source_url": "https://www.rlwc2026.com/"
+  },
+  {
+   "id": "AJ-F15",
+   "area": "Ice Hockey · NBA",
+   "title": "No NBA rows: the NBA CDN answers 403 to this runner",
+   "detail": "Basketball coverage is EuroLeague and EuroCup only. cdn.nba.com returns 403 for both the schedule and the scoreboard endpoints, and stats.nba.com is not reachable, so the NBA slate is left out rather than approximated.",
+   "missing": "An accessible official NBA feed",
+   "source_url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+  },
+  {
+   "id": "AJ-F16",
+   "area": "Kick-off conversions",
+   "title": "Three competitions publish local times",
+   "detail": "SHL (Swedish), Top 14 (French) and PlusLiga (Polish) publish venue-local kick-offs; the stored UTC value is the converted time and the row records the conversion. The French and Polish clocks change on 25 October, so rows on either side of that date use different offsets.",
+   "missing": "An explicit UTC field in those sources",
+   "source_url": "https://stats.swehockey.se/"
+  },
+  {
+   "id": "AJ-F17",
+   "area": "Repository · audit gate",
+   "title": "The repository-wide local-link gate was failing before this session",
+   "detail": "scripts/audit_publication.py aborted with a UnicodeDecodeError on 75 gzip-compressed *.html capture artefacts owned by other boards. The gate now skips non-UTF-8 payloads and reports 0 broken links over 30,335 targets. No peer artefact was deleted or edited.",
+   "missing": "Nothing — recorded because the fix rides this merge",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/actions"
+  },
+  {
+   "id": "AJ-F18",
+   "area": "Repository · shared datasets",
+   "title": "11 defects found in shared files, none of them this board's files",
+   "detail": "The line-by-line review found inverted home/away sides in the World Series rows of data/master.json, 162 stale rows, duplicated sport labels and out-of-scope sports, plus stale rows and a mislabelled window in two peer desks. Full list with row selectors on the Review page.",
+   "missing": "Owner action on data/master.json and the two peer desks",
+   "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-31"
+  }
+ ]
+}
