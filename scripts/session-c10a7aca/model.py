@@ -138,9 +138,10 @@ def originate_team(event: dict, baseline: float | None) -> bool:
     if s1.get("pf") is None or s2.get("pf") is None:
         return False
     league = detail.get("league", "")
-    prior = {"NBA": 12.0, "EuroLeague": 8.0, "EuroCup": 8.0, "NHL": 5.0, "MLB": 6.0}.get(league, 8.0)
+    prior = {"NBA": 12.0, "EuroLeague": 8.0, "EuroCup": 8.0, "NHL": 5.0, "MLB": 6.0,
+             "SuperLega": 8.0}.get(league, 8.0)
     net_coef = {"NBA": 0.045, "EuroLeague": 0.055, "EuroCup": 0.055,
-                "NHL": 0.32, "MLB": 0.16}.get(league, 0.05)
+                "NHL": 0.32, "MLB": 0.16, "SuperLega": 0.25}.get(league, 0.05)
     def rating(s):
         gp = float(s["gp"])
         shrunk_win = (float(s["wins"]) + prior * 0.5) / (gp + prior)
@@ -173,7 +174,7 @@ def originate_team(event: dict, baseline: float | None) -> bool:
         favorite, underdog, sign = side2, side1, 1
         favorite_mu = -mu
     cover = 1 - normal_cdf((handicap - favorite_mu) / sd)
-    unit = "goals" if league == "NHL" else "runs" if league == "MLB" else "points"
+    unit = "goals" if league == "NHL" else "runs" if league == "MLB" else "sets" if league == "SuperLega" else "points"
     markets += [market_row("Handicap", f"{favorite} -{handicap:.1f}", cover, f"-{handicap:.1f}"),
                 market_row("Handicap", f"{underdog} +{handicap:.1f}", 1 - cover, f"+{handicap:.1f}")]
     total1 = (float(s1["pf"]) + float(s1["pa"])) / float(s1["gp"])
@@ -188,7 +189,7 @@ def originate_team(event: dict, baseline: float | None) -> bool:
         total_line += 0.5
     total_sd = float(detail.get("total_sd", 15.0))
     over = 1 - normal_cdf((total_line - expected_total) / total_sd)
-    total_unit = "goals" if league == "NHL" else "runs" if league == "MLB" else "points"
+    total_unit = "goals" if league == "NHL" else "runs" if league == "MLB" else "sets" if league == "SuperLega" else "points"
     markets += [market_row("Total", f"Over {total_line:.1f} {total_unit}", over, f"{total_line:.1f}"),
                 market_row("Total", f"Under {total_line:.1f} {total_unit}", 1 - over, f"{total_line:.1f}")]
     spread_text = f"{favorite} -{handicap:.1f} {unit}"
@@ -199,7 +200,8 @@ def originate_team(event: dict, baseline: float | None) -> bool:
                      {"market": "Total", "status": f"Originated at {total_line:.1f} {total_unit}."},
                      {"market": "Player props", "status": "Investigated; no two-sided official player-prop inputs captured, so no price published."},
                  ])
-    min_sample = {"NBA": 8, "NHL": 8, "EuroLeague": 6, "EuroCup": 6, "MLB": 30}.get(league, 8)
+    min_sample = {"NBA": 8, "NHL": 8, "EuroLeague": 6, "EuroCup": 6, "MLB": 30,
+                  "SuperLega": 4}.get(league, 8)
     recent_ok = all(stats.get(key) or (stats.get(stat_key) or {}).get("last10")
                     for key, stat_key in (("recent1", "side1"), ("recent2", "side2")))
     enough = min_gp >= min_sample and recent_ok
@@ -212,6 +214,9 @@ def originate_team(event: dict, baseline: float | None) -> bool:
     if league == "NBA" and min_gp < 8:
         confidence = "Low"
         event.setdefault("flags", []).append("Early-season sample below eight games for at least one side; confidence capped at Low.")
+    if league == "SuperLega" and min_gp < 3:
+        confidence = "Low"
+        event.setdefault("flags", []).append("Fewer than three completed league matches for at least one side; confidence capped at Low.")
     event["confidence"] = confidence
     event["analysis"] = _team_analysis(event, side1, side2, s1, s2, selection, expected_total, spread_text, total_unit)
     return True
@@ -382,7 +387,7 @@ def originate(events: list[dict], cutoff) -> None:
             continue
         family = (event.get("official_detail") or {}).get("model_family")
         ok = False
-        if family in {"nhl_goals", "mlb_runs", "nba_points", "euro_points"}:
+        if family in {"nhl_goals", "mlb_runs", "nba_points", "euro_points", "volley_sets"}:
             ok = originate_team(event, baselines.get(event.get("competition", "")))
         elif family == "wta_ranking_points":
             ok = originate_wta(event)

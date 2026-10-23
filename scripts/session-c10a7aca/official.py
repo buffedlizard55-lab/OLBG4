@@ -8,9 +8,10 @@ from __future__ import annotations
 
 from collections import defaultdict
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 import re
 
-from common import EvidenceStore, fixture, iso, team_side, utc
+from common import EvidenceStore, clean_text, fixture, iso, team_side, utc
 
 
 def _summary_stats(gp: int, wins: int, losses: int, pf: float, pa: float, **extra) -> dict:
@@ -411,6 +412,77 @@ def parse_snooker(store: EvidenceStore) -> list[dict]:
     return out
 
 
+def parse_legavolley(store: EvidenceStore) -> list[dict]:
+    ev = store.get("legavolley_regular_999")
+    if not ev:
+        return []
+    aliases = {
+        "Itas Trentino": "Trentino", "Cisterna Volley": "Cisterna",
+        "Sir Susa Scai Perugia": "Perugia", "Tinet Prata di Pordenone": "Pordenone",
+        "Vero Volley Monza": "Monza", "Rana Verona": "Verona",
+        "Cucine Lube Civitanova": "Civitanova", "Pallavolo Padova": "Padova",
+        "Allianz Milano": "Milano", "Gas Sales Bluenergy Piacenza": "Piacenza",
+        "Valsa Group Modena": "Modena", "Acqua Sant'Anna Cuneo": "Cuneo",
+    }
+    rows = []
+    for number, block in enumerate(re.findall(r'<tr class="tab-gara">(.*?)</tr>', ev.text(), re.S), 1):
+        cells = re.findall(r'<td\b[^>]*>(.*?)</td>', block, re.S)
+        if len(cells) < 5:
+            continue
+        values = [clean_text(cell) for cell in cells]
+        date_match = re.search(r"(\d{1,2}/\d{1,2}/\d{4}).*?Ore\s+(\d{1,2}:\d{2})", values[1])
+        if not date_match:
+            continue
+        naive = datetime.strptime(" ".join(date_match.groups()), "%d/%m/%Y %H:%M")
+        start = naive.replace(tzinfo=ZoneInfo("Europe/Rome")).astimezone(timezone.utc)
+        score_match = re.fullmatch(r"(\d+)-(\d+)", values[3])
+        home, away = values[2], values[4]
+        match_link = re.search(r'href="(https://www\.legavolley\.it/match/\d+)"', block)
+        rows.append({"number": number, "start": start, "home": home, "away": away,
+                     "home_score": int(score_match.group(1)) if score_match else None,
+                     "away_score": int(score_match.group(2)) if score_match else None,
+                     "venue": clean_text(cells[5]) if len(cells) > 5 else "",
+                     "url": match_link.group(1) if match_link else ev.url})
+    totals: dict[str, dict] = defaultdict(lambda: {"gp": 0, "wins": 0, "losses": 0, "pf": 0.0, "pa": 0.0})
+    recent: dict[str, list[dict]] = defaultdict(list)
+    for row in rows:
+        if row["start"] > store.cutoff or row["home_score"] is None:
+            continue
+        hs, aws = row["home_score"], row["away_score"]
+        if max(hs, aws) < 3:
+            continue
+        for name, opponent, own, other in ((row["home"], row["away"], hs, aws),
+                                           (row["away"], row["home"], aws, hs)):
+            t = totals[name]
+            t["gp"] += 1
+            t["pf"] += own
+            t["pa"] += other
+            won = own > other
+            t["wins" if won else "losses"] += 1
+            recent[name].append({"date": iso(row["start"]), "opponent": opponent,
+                                 "team_score": own, "opponent_score": other,
+                                 "result": "W" if won else "L", "match": row["number"]})
+    for values in recent.values():
+        values.sort(key=lambda r: r["date"], reverse=True)
+    out = []
+    for row in rows:
+        if row["start"] <= store.cutoff or row["home"] not in totals or row["away"] not in totals:
+            continue
+        hstat = _summary_stats(**totals[row["home"]])
+        astat = _summary_stats(**totals[row["away"]])
+        h = team_side(row["home"], [], aliases.get(row["home"], row["home"].split()[-1]), stats=hstat)
+        a = team_side(row["away"], [], aliases.get(row["away"], row["away"].split()[-1]), stats=astat)
+        detail = {"venue": row["venue"], "league": "SuperLega", "margin_sd": 1.15,
+                  "total_sd": 0.9, "home_advantage_logit": 0.12,
+                  "home_advantage_points": 0.15, "model_family": "volley_sets",
+                  "small_sample": True}
+        out.append(fixture(f"legavolley:999:{row['number']}", "Volleyball", "SuperLega",
+                           iso(row["start"]), row["url"], h, a, [ev.citation()], detail,
+                           {"side1": hstat, "side2": astat, "recent1": recent[row["home"]],
+                            "recent2": recent[row["away"]]}))
+    return out
+
+
 def parse_all(store: EvidenceStore) -> list[dict]:
     fixtures = []
     fixtures += parse_nhl(store)
@@ -420,4 +492,5 @@ def parse_all(store: EvidenceStore) -> list[dict]:
     fixtures += parse_euroleague(store, "U")
     fixtures += parse_wta(store)
     fixtures += parse_snooker(store)
+    fixtures += parse_legavolley(store)
     return fixtures
