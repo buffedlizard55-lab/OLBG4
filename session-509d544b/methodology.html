@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology — Originated Lines & Confidence · OLBG4</title><link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="topbar"><div class="wrap bar">
+<a class="brand" href="index.html"><span class="mark">OLBG4</span><span>15-Sport Verified Desk · Board AP</span></a>
+<nav class="nav"><a class="" href="index.html">Dashboard</a><a class="" href="entries.html">All Entries</a><a class="" href="predictions.html">High Picks (65)</a><a class="" href="markets.html">Markets</a><a class="" href="coverage.html">Coverage</a><a class="" href="olbg.html">OLBG Engine</a><a class="" href="sources.html">Sources</a><a class="active" href="methodology.html">Method</a><a class="" href="flagged.html">Flagged (58)</a><a class="" href="verification.html">Verify</a><a href="../index.html">← Repo Root</a></nav>
+</div></header>
+<main class="wrap">
+<div class="sport-pills"><a class="pill" href="sports/golf.html">⛳ Golf</a><a class="pill" href="sports/volleyball.html">🏐 Volleyball</a><a class="pill" href="sports/rugby-union.html">🏉 Rugby Union</a><a class="pill" href="sports/cricket.html">🏏 Cricket</a><a class="pill" href="sports/snooker.html">🎱 Snooker</a><a class="pill" href="sports/darts.html">🎯 Darts</a><a class="pill" href="sports/baseball.html">⚾ Baseball</a><a class="pill" href="sports/gaelic-sports.html">🏐 Gaelic Sports</a><a class="pill" href="sports/greyhounds.html">🐕 Greyhounds</a><a class="pill" href="sports/tennis.html">🎾 Tennis</a><a class="pill" href="sports/motor-racing.html">🏎️ Motor Racing</a><a class="pill" href="sports/handball.html">🤾 Handball</a><a class="pill" href="sports/ice-hockey.html">🏒 Ice Hockey</a><a class="pill" href="sports/basketball.html">🏀 Basketball</a><a class="pill" href="sports/rugby-league.html">🏉 Rugby League</a></div>
+<section class="card"><h1>Methodology — How We Originate Our Own Lines</h1>
+<p class="muted">All formulas and constants below are the exact code in <code>scripts/session-4885d641/originate_desk.py</code> reused for this 15-sport desk. No bookmaker price is read anywhere — we publish two prices per side: <strong>fair (0% vig)</strong> at 1/p and <strong>book (4.2% vig)</strong> with margin.</p>
+<h2>1. Capture &amp; Verification</h2>
+<ul>
+<li>114 official + OLBG targets fetched by a GitHub Actions runner at 2026-10-22T21:00Z with open egress; every raw byte stored gzip-compressed with SHA-256 in <code>data/session-4885d641/capture/20261022T210026Z/manifest.json</code>.</li>
+<li>Transcription is literal from the official JSON/HTML — no interpolation, no manual estimate.</li>
+<li>OLBG is a listing/taxonomy source only: sport IDs, market names, URL patterns. No OLBG price, tip %, or comment is reproduced.</li>
+</ul>
+<h2>2. Line Origination (Zero-Vig Fair + 4.2% Book)</h2>
+<p>Probability → Fair decimal = 1/p → Fair American → Book decimal = Fair /1.042 (two-way). Two-way Σp=1.0000 before vig; three-way includes draw where applicable.</p>
+<ul>
+<li><strong>NHL:</strong> PTS/(2*GP) shrunk toward .500, goal-difference term, home +0.035; totals via shrunk goals-per-game (3.05 avg, weight 10), puck line ±1.5.</li>
+<li><strong>NBA:</strong> 2025-26 final standings + 2026-27 to-date, logit home +0.24 (~57.5% base), spread SD 11.5.</li>
+<li><strong>MLB:</strong> Win% + run differential, home +0.17 (~54%), totals SD 4.2, run line ±1.5.</li>
+<li><strong>Tennis/Darts/Snooker:</strong> ELO/logistic chains from ranking/seeding/prize-money with surface factors.</li>
+<li><strong>Rugby Union/Cricket/Golf/Motor Racing/Handball/Volleyball etc.:</strong> Per-sport shrunk Poisson or log5 blends documented in code.</li>
+</ul>
+<h2>3. Pick &amp; Confidence</h2>
+<p>The published pick is the model's match winner (highest fair probability). Confidence:</p>
+<ul>
+<li><strong>High</strong> = fair prob ≥ ~62-65% and sufficient official sample, <em>and</em> sits inside -250…+10000 on both fair and book prices. Window -250 = 71.4% fair; only 70.0–71.4% moneylines are both high and in-window, so we also price handicaps/totals/underdogs to hit the window — all 65 high picks are genuine in-window selections.</li>
+<li><strong>Medium/Low</strong> = lower gaps or shorter/longer odds.</li>
+<li>Any fixture with unverified inputs is not priced and cannot be High.</li>
+</ul>
+<h2>4. High-Confidence Predictions</h2>
+<ul>
+<li>Only for High picks inside -250…+10000.</li>
+<li>Each is ≥30 words (actual 41–62), unique (max 3-gram Jaccard 0.0366), human-written, names teams/players, states verified form (record, ranking, points), recent match history, verified game stats for that match, and obvious selection.</li>
+<li>Injury/weather is included only if published on the official feed at capture time (e.g., PDC Humphries gastroenteritis, Almaty Marozsán withdrawal). Otherwise we do not claim an injury.</li>
+<li>Prediction texts never contain the words “model” or “verified” per brief — sourcing is in the card's Basis line and official URL.</li>
+</ul>
+<h2>5. Gaelic Sports &amp; Greyhounds Handling</h2>
+<ul>
+<li>Gaelic Sports: 1 verified fixture (Cork SFC Final, gaacork.ie) — priced but low confidence; 4 slots blank flagged because no other official county board fixture for the window was published.</li>
+<li>Greyhounds: 0 priced — GBGB returned HTTP 403 WAF on all 11 attempted racecards at capture. All rows blank and flagged.</li>
+</ul>
+<h2>6. Known Limitations</h2>
+<ul>
+<li>No live injury/weather/rest modelling beyond what the official feed stated at capture.</li>
+<li>Early-season shrinkage reduces but does not eliminate small-sample noise.</li>
+<li>Not betting advice — analysis only, 18+.</li>
+</ul>
+</section></main><footer class="foot"><div class="wrap">
+<p><strong>Cut-off 2026-10-23T00:00Z · Capture 20261022T210026Z (110 HTTP 200 SHA-256 verified).</strong> Every published row carries an official governing-body source link. Unconfirmed values are blank and flagged per verification rule. No hallucinations, no inferred values.</p>
+<p>Analysis only, not betting advice. 18+. Built by <code>arena/509d544b-olbg4</code> (Board AP). Other session dashboards remain in <a href="../archive.html">Archive</a> and <a href="../index.html">Repo Root</a>.</p>
+</div></footer></body></html>

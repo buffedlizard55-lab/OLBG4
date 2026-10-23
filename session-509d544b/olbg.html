@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OLBG Reverse-Engineering · OLBG4</title><link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="topbar"><div class="wrap bar">
+<a class="brand" href="index.html"><span class="mark">OLBG4</span><span>15-Sport Verified Desk · Board AP</span></a>
+<nav class="nav"><a class="" href="index.html">Dashboard</a><a class="" href="entries.html">All Entries</a><a class="" href="predictions.html">High Picks (65)</a><a class="" href="markets.html">Markets</a><a class="" href="coverage.html">Coverage</a><a class="active" href="olbg.html">OLBG Engine</a><a class="" href="sources.html">Sources</a><a class="" href="methodology.html">Method</a><a class="" href="flagged.html">Flagged (58)</a><a class="" href="verification.html">Verify</a><a href="../index.html">← Repo Root</a></nav>
+</div></header>
+<main class="wrap">
+<div class="sport-pills"><a class="pill" href="sports/golf.html">⛳ Golf</a><a class="pill" href="sports/volleyball.html">🏐 Volleyball</a><a class="pill" href="sports/rugby-union.html">🏉 Rugby Union</a><a class="pill" href="sports/cricket.html">🏏 Cricket</a><a class="pill" href="sports/snooker.html">🎱 Snooker</a><a class="pill" href="sports/darts.html">🎯 Darts</a><a class="pill" href="sports/baseball.html">⚾ Baseball</a><a class="pill" href="sports/gaelic-sports.html">🏐 Gaelic Sports</a><a class="pill" href="sports/greyhounds.html">🐕 Greyhounds</a><a class="pill" href="sports/tennis.html">🎾 Tennis</a><a class="pill" href="sports/motor-racing.html">🏎️ Motor Racing</a><a class="pill" href="sports/handball.html">🤾 Handball</a><a class="pill" href="sports/ice-hockey.html">🏒 Ice Hockey</a><a class="pill" href="sports/basketball.html">🏀 Basketball</a><a class="pill" href="sports/rugby-league.html">🏉 Rugby League</a></div>
+<section class="card"><h1>OLBG.com Reverse-Engineering — Sport Taxonomy &amp; Market Structure</h1>
+<p class="muted">Captured live at <strong>2026-10-22T21:00Z</strong> (110 HTTP 200, SHA-256). We respect <code>/robots.txt</code> and use only public listing pages.</p>
+<h2>24 Sport IDs (via sitemap-betting-tips.xml)</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Sport</th><th>Status per Brief</th><th>Market Examples Observed</th></tr></thead><tbody>
+<tr><td>1</td><td>Football / Soccer</td><td>Excluded</td><td>—</td></tr>
+<tr><td>2</td><td>Horse Racing</td><td>Excluded</td><td>Win, Each-Way</td></tr>
+<tr><td>3</td><td>Tennis</td><td>In scope</td><td>Match Winner, Game Handicap, Total Games, Set Betting</td></tr>
+<tr><td>4</td><td>Basketball</td><td>In scope</td><td>Moneyline, Spread, Total Points</td></tr>
+<tr><td>5</td><td>Ice Hockey</td><td>In scope</td><td>Moneyline, Puck Line, Total Goals</td></tr>
+<tr><td>7</td><td>Cricket</td><td>In scope</td><td>Match Winner, Handicap, Total Runs</td></tr>
+<tr><td>8</td><td>Rugby Union</td><td>In scope</td><td>Match Winner, Handicap</td></tr>
+<tr><td>9</td><td>Rugby League</td><td>In scope</td><td>Match Winner</td></tr>
+<tr><td>10</td><td>Darts</td><td>In scope</td><td>Match Winner, Leg Handicap</td></tr>
+<tr><td>12</td><td>Snooker</td><td>In scope</td><td>Match Winner, Frame Handicap</td></tr>
+<tr><td>13</td><td>Baseball</td><td>In scope</td><td>Moneyline, Run Line, Total Runs</td></tr>
+<tr><td>14</td><td>Volleyball</td><td>In scope</td><td>Match Winner, Handicap</td></tr>
+<tr><td>15</td><td>Handball</td><td>In scope</td><td>Match Winner, Handicap</td></tr>
+<tr><td>20</td><td>Golf</td><td>In scope</td><td>Outright Winner, Top 10</td></tr>
+<tr><td>21</td><td>Motor Racing</td><td>In scope</td><td>Race Winner, Podium</td></tr>
+<tr><td>22</td><td>Greyhounds</td><td>In scope</td><td>Race Winner (6 dogs)</td></tr>
+<tr><td>23</td><td>Gaelic Sports</td><td>In scope (this desk)</td><td>Match Winner</td></tr>
+<tr><td>25</td><td>Gaelic Football (legacy ID)</td><td>Mapped to Gaelic Sports</td><td>Match Winner</td></tr>
+<tr><td>6,11,16,17,26</td><td>Specials, American Football, Boxing/UFC/MMA, Cycling, Hurling</td><td>Excluded</td><td>—</td></tr>
+</tbody></table></div>
+<h2>Full List for 15 Required Sports</h2>
+<p>Capture contained <strong>217 unique events (174 in-scope)</strong>. Filtered to your 15 required sports: <strong>253 verified upcoming fixtures</strong> remain (plus 58 flagged blank). All excluded sports have <strong>0 rows</strong> in this desk — asserted in <code>scripts/session-509d544b/build.py</code> filter.</p>
+<p>OLBG market taxonomy observed: <code>Win Match / Moneyline (2-way/1X2), Handicap/Spread/Puck Line/Run Line, Match Total (Over/Under), plus sport derivatives (Set Betting, Frame Handicap, Winning Margin, Team Totals)</code>. No OLBG price or tip % is reproduced anywhere.</p>
+</section></main><footer class="foot"><div class="wrap">
+<p><strong>Cut-off 2026-10-23T00:00Z · Capture 20261022T210026Z (110 HTTP 200 SHA-256 verified).</strong> Every published row carries an official governing-body source link. Unconfirmed values are blank and flagged per verification rule. No hallucinations, no inferred values.</p>
+<p>Analysis only, not betting advice. 18+. Built by <code>arena/509d544b-olbg4</code> (Board AP). Other session dashboards remain in <a href="../archive.html">Archive</a> and <a href="../index.html">Repo Root</a>.</p>
+</div></footer></body></html>

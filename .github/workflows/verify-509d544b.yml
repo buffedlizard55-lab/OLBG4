@@ -1,0 +1,18 @@
+name: Verify Board AP (509d544b)
+on:
+  push:
+    paths:
+      - 'data/session-509d544b/**'
+      - 'session-509d544b/**'
+      - 'scripts/session-509d544b/**'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: python3 scripts/session-509d544b/verify.py
+      - run: python3 -m http.server 8000 &
+        working-directory: ./session-509d544b
