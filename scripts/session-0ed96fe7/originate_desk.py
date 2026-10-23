@@ -63,8 +63,11 @@ SPORT_SLUGS = {
 
 # newest capture wins; every stamp listed here is consulted
 CAPTURE_DIR = DATA / "capture"
-ALL_STAMPS = sorted(p.name for p in CAPTURE_DIR.iterdir() if p.is_dir())
-PRIMARY_STAMP = ALL_STAMPS[-1] if ALL_STAMPS else ""
+# Pinned to the capture this published desk was derived from: later bot stamps
+# (e.g. 20261023T193956Z) stay archived in capture/ but are NOT desk inputs, so a
+# rebuild from committed bytes is byte-identical.
+PRIMARY_STAMP = "20261023T193627Z"
+ALL_STAMPS = [PRIMARY_STAMP]
 
 _flags: list[dict] = []
 

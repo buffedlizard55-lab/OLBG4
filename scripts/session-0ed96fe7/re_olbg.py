@@ -45,8 +45,9 @@ FIELD = re.compile(r'(?:^|[{,])\s*([a-zA-Z_]+):\s*(?:"([^"]*)"|(-?\d+(?:\.\d+)?)
 
 
 def latest_stamp() -> str:
-    stamps = sorted(d for d in glob.glob(os.path.join(CAP, "*")) if os.path.isdir(d))
-    return stamps[-1] if stamps else ""
+    # pinned primary stamp (same contract as originate_desk): archived extra bot
+    # stamps exist under capture/ but the inventory is rebuilt from the primary one.
+    return os.path.join(CAP, "20261023T193627Z")
 
 
 def read_capture(stamp: str, target_id: str) -> str | None:
