@@ -27,4 +27,11 @@ def main():
         assert response.status==200 and 'session-49866065/index.html' in root
     print('PASS:',len(checks),'exact public files plus root dashboard pointer')
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    for attempt in range(12):
+        try:
+            main();break
+        except (OSError,AssertionError) as ex:
+            if attempt==11:raise
+            print('Public build not ready yet:',ex,flush=True)
+            time.sleep(20)

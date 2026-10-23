@@ -1,5 +1,8 @@
 name: FA evidence capture and strict dashboard tests
 on:
+  push:
+    branches: [arena/49866065-olbg4]
+    paths: [data/session-49866065/release-request.json]
   workflow_dispatch:
     inputs:
       capture:
@@ -48,11 +51,11 @@ jobs:
             git push origin HEAD:arena/49866065-olbg4
           fi
       - name: Offline tests and deterministic publication gate
-        if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && !inputs.capture)
+        if: github.event_name == 'push' || github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && !inputs.capture)
         run: |
           python -m unittest discover -s scripts/session-49866065 -p 'test_*.py' -v
           python scripts/session-49866065/build.py
           git diff --exit-code -- data/session-49866065/desk.json session-49866065
       - name: Confirm public HTTPS deployment byte for byte
-        if: github.event_name == 'workflow_dispatch' && inputs.livecheck
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.livecheck)
         run: python scripts/session-49866065/livecheck.py
