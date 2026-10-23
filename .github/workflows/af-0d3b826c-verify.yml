@@ -8,7 +8,14 @@ on:
       - data/session-0d3b826c/**
       - session-0d3b826c/**
       - .github/workflows/af-0d3b826c-verify.yml
+  # This desk is independent of the other session dashboards.  Do not run its
+  # deterministic gate for unrelated pull requests, where a later master-board
+  # refresh can change its peer-review inventory without changing Board AF.
   pull_request:
+    paths:
+      - "scripts/session-0d3b826c/**"
+      - "data/session-0d3b826c/**"
+      - "session-0d3b826c/**"
 
 permissions:
   contents: read

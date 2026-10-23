@@ -1,0 +1,2238 @@
+{
+  "schema": "olbg4.board-ah.sources/1",
+  "source_session": "arena/4885d641-olbg4",
+  "capture_cutoff_utc": "2026-10-22T21:15:00Z",
+  "official_sources_used_by_rows": [
+    {
+      "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games",
+      "domain": "api-live.euroleague.net",
+      "source_name": "EuroLeague Live Official API (21:00:26Z Capture)",
+      "row_count": 22,
+      "sports": [
+        "Basketball"
+      ]
+    },
+    {
+      "url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+      "domain": "api.wtatennis.com",
+      "source_name": "WTA Official Tournament Feed (2092)",
+      "row_count": 4,
+      "sports": [
+        "Tennis"
+      ]
+    },
+    {
+      "url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches",
+      "domain": "api.wtatennis.com",
+      "source_name": "WTA Official Tournament Feed (405)",
+      "row_count": 4,
+      "sports": [
+        "Tennis"
+      ]
+    },
+    {
+      "url": "https://archiv.thw-handball.de/thw/26tabell.htm",
+      "domain": "archiv.thw-handball.de",
+      "source_name": "THW Kiel official Bundesliga 2026/27 Standings & Spieltag 10 Schedule",
+      "row_count": 6,
+      "sports": [
+        "Handball"
+      ]
+    },
+    {
+      "url": "https://asobal.es/liga/calendario/7/",
+      "domain": "asobal.es",
+      "source_name": "Liga ASOBAL official calendar & standings (asobal.es)",
+      "row_count": 7,
+      "sports": [
+        "Handball"
+      ]
+    },
+    {
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "domain": "ehfcl.eurohandball.com",
+      "source_name": "EHF Champions League official calendar & standings (ehfcl.eurohandball.com)",
+      "row_count": 6,
+      "sports": [
+        "Handball"
+      ]
+    },
+    {
+      "url": "https://liiga.fi/en/games",
+      "domain": "liiga.fi",
+      "source_name": "Finnish Hockey League official API (liiga.fi/api/v2)",
+      "row_count": 5,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://lnb.com.br/noticias/onde-assistir-ao-nbb-caixa-2026-27-agenda-de-transmissoes-da-semana/",
+      "domain": "lnb.com.br",
+      "source_name": "Liga Nacional de Basquete (LNB) Official Weekly Broadcast Schedule",
+      "row_count": 2,
+      "sports": [
+        "Basketball"
+      ]
+    },
+    {
+      "url": "https://prod2.lnr.fr/calendrier-et-resultats",
+      "domain": "prod2.lnr.fr",
+      "source_name": "Ligue Nationale de Rugby (France Pro D2) official calendar & classement",
+      "row_count": 7,
+      "sports": [
+        "Rugby Union"
+      ]
+    },
+    {
+      "url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+      "domain": "stats.swehockey.se",
+      "source_name": "Swedish Ice Hockey Association Official Stats",
+      "row_count": 5,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-02&hydrate=team,probablePitcher,linescore",
+      "domain": "statsapi.mlb.com",
+      "source_name": "MLB StatsAPI Official Postseason Feed",
+      "row_count": 1,
+      "sports": [
+        "Baseball"
+      ]
+    },
+    {
+      "url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "domain": "top14.lnr.fr",
+      "source_name": "Ligue Nationale de Rugby (France Top 14) official calendar & classement",
+      "row_count": 7,
+      "sports": [
+        "Rugby Union"
+      ]
+    },
+    {
+      "url": "https://tophaandbold.dk/stillinger/herreligaen",
+      "domain": "tophaandbold.dk",
+      "source_name": "Tophåndbold (tophaandbold.dk) official standings & schedule",
+      "row_count": 2,
+      "sports": [
+        "Handball"
+      ]
+    },
+    {
+      "url": "https://www.bcci.tv/matches/023cf7d3-6571-4932-997b-cac801ed0b4a/india-women-vs-zimbabwe-women",
+      "domain": "www.bcci.tv",
+      "source_name": "Board of Control for Cricket in India (bcci.tv)",
+      "row_count": 2,
+      "sports": [
+        "Cricket"
+      ]
+    },
+    {
+      "url": "https://www.cricket.com.au/fixtures",
+      "domain": "www.cricket.com.au",
+      "source_name": "Cricket Australia Official Fixtures",
+      "row_count": 1,
+      "sports": [
+        "Cricket"
+      ]
+    },
+    {
+      "url": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka",
+      "domain": "www.ecb.co.uk",
+      "source_name": "ICC / ECB / Cricket Ireland official series schedule & ICC Team Rankings",
+      "row_count": 1,
+      "sports": [
+        "Cricket"
+      ]
+    },
+    {
+      "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/",
+      "domain": "www.euroleaguebasketball.net",
+      "source_name": "EuroLeague official API (api-live.euroleague.net)",
+      "row_count": 1,
+      "sports": [
+        "Basketball"
+      ]
+    },
+    {
+      "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/tee-times",
+      "domain": "www.europeantour.com",
+      "source_name": "DP World Tour Official Schedule & Tee Times",
+      "row_count": 1,
+      "sports": [
+        "Golf"
+      ]
+    },
+    {
+      "url": "https://www.formula1.com/en/racing/2026/mexico",
+      "domain": "www.formula1.com",
+      "source_name": "Formula1.com Official Round 19 Hub",
+      "row_count": 1,
+      "sports": [
+        "Motor Racing"
+      ]
+    },
+    {
+      "url": "https://www.formula1.com/en/racing/2026/united-states",
+      "domain": "www.formula1.com",
+      "source_name": "Formula1.com Official Event Hub & Live OLBG #911",
+      "row_count": 2,
+      "sports": [
+        "Motor Racing"
+      ]
+    },
+    {
+      "url": "https://www.formula1.com/en/results/2026/drivers",
+      "domain": "www.formula1.com",
+      "source_name": "Formula1.com Official 2026 Drivers' Standings & OLBG #912",
+      "row_count": 1,
+      "sports": [
+        "Motor Racing"
+      ]
+    },
+    {
+      "url": "https://www.icc-cricket.com/news/afghanistan-announce-multi-format-series-against-bangladesh-and-zimbabwe",
+      "domain": "www.icc-cricket.com",
+      "source_name": "ICC / ECB / Cricket Ireland official series schedule & ICC Team Rankings",
+      "row_count": 1,
+      "sports": [
+        "Cricket"
+      ]
+    },
+    {
+      "url": "https://www.icc-cricket.com/news/new-zealand-announce-schedule-for-action-packed-home-summer",
+      "domain": "www.icc-cricket.com",
+      "source_name": "ICC / New Zealand Cricket official summer schedule & ICC Men's T20I Rankings",
+      "row_count": 1,
+      "sports": [
+        "Cricket"
+      ]
+    },
+    {
+      "url": "https://www.icc-cricket.com/rankings/mens/team-rankings/odi",
+      "domain": "www.icc-cricket.com",
+      "source_name": "ICC International Schedule & Men's ODI Rankings",
+      "row_count": 1,
+      "sports": [
+        "Cricket"
+      ]
+    },
+    {
+      "url": "https://www.legavolley.it/calendario/?idCampionato=999",
+      "domain": "www.legavolley.it",
+      "source_name": "Lega Pallavolo Serie A (legavolley.it) official calendar & classifica",
+      "row_count": 6,
+      "sports": [
+        "Volleyball"
+      ]
+    },
+    {
+      "url": "https://www.lnh.fr/daikin-starligue/calendrier",
+      "domain": "www.lnh.fr",
+      "source_name": "Ligue Nationale de Handball (lnh.fr) official calendar & standings",
+      "row_count": 7,
+      "sports": [
+        "Handball"
+      ]
+    },
+    {
+      "url": "https://www.lpga.com/tournaments",
+      "domain": "www.lpga.com",
+      "source_name": "LPGA Tour Official Schedule & Leaderboard",
+      "row_count": 1,
+      "sports": [
+        "Golf"
+      ]
+    },
+    {
+      "url": "https://www.mlb.com/postseason",
+      "domain": "www.mlb.com",
+      "source_name": "MLB StatsAPI official standings & World Series schedule (statsapi.mlb.com)",
+      "row_count": 4,
+      "sports": [
+        "Baseball"
+      ]
+    },
+    {
+      "url": "https://www.motogp.com/en/calendar",
+      "domain": "www.motogp.com",
+      "source_name": "MotoGP.com Official 2026 Calendar",
+      "row_count": 1,
+      "sports": [
+        "Motor Racing"
+      ]
+    },
+    {
+      "url": "https://www.nba.com/game/cle-vs-phi-0022600006",
+      "domain": "www.nba.com",
+      "source_name": "NBA.com official game page & schedule API (cdn.nba.com)",
+      "row_count": 1,
+      "sports": [
+        "Basketball"
+      ]
+    },
+    {
+      "url": "https://www.nba.com/game/den-vs-okc-0022600007",
+      "domain": "www.nba.com",
+      "source_name": "NBA.com official game page & schedule API (cdn.nba.com)",
+      "row_count": 1,
+      "sports": [
+        "Basketball"
+      ]
+    },
+    {
+      "url": "https://www.nba.com/game/nyk-vs-bos-0022600008",
+      "domain": "www.nba.com",
+      "source_name": "NBA.com official game page & schedule API (cdn.nba.com)",
+      "row_count": 1,
+      "sports": [
+        "Basketball"
+      ]
+    },
+    {
+      "url": "https://www.nba.com/schedule",
+      "domain": "www.nba.com",
+      "source_name": "NBA.com Official Schedule & Live OLBG #536041",
+      "row_count": 44,
+      "sports": [
+        "Basketball"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/ana-vs-njd/2026/10/22/2026020157",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/ana-vs-phi/2026/10/24/2026020168",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/bos-vs-car/2026/10/27/2026020189",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/buf-vs-sjs/2026/10/27/2026020198",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/buf-vs-wsh/2026/10/24/2026020173",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/car-vs-edm/2026/10/22/2026020163",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/car-vs-stl/2026/10/24/2026020175",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/cbj-vs-phi/2026/10/27/2026020188",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/col-vs-nsh/2026/10/25/2026020183",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/det-vs-cgy/2026/10/24/2026020178",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/det-vs-van/2026/10/22/2026020165",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/fla-vs-chi/2026/10/25/2026020180",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/fla-vs-pit/2026/10/22/2026020158",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/fla-vs-wpg/2026/10/27/2026020194",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/lak-vs-chi/2026/10/27/2026020190",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/lak-vs-nyi/2026/10/22/2026020159",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/min-vs-cgy/2026/10/22/2026020162",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/min-vs-sea/2026/10/24/2026020179",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/min-vs-uta/2026/10/27/2026020195",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/mtl-vs-stl/2026/10/27/2026020191",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/mtl-vs-wpg/2026/10/25/2026020182",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/nsh-vs-bos/2026/10/22/2026020154",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/nsh-vs-pit/2026/10/24/2026020172",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/nyi-vs-nsh/2026/10/27/2026020192",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/nyr-vs-tor/2026/10/22/2026020155",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/ott-vs-vgk/2026/10/27/2026020196",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/phi-vs-wsh/2026/10/28/2026020199",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/sjs-vs-ott/2026/10/22/2026020156",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/tbl-vs-col/2026/10/23/2026020167",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/tbl-vs-uta/2026/10/24/2026020177",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/uta-vs-sea/2026/10/22/2026020164",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/vgk-vs-cbj/2026/10/24/2026020174",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/vgk-vs-stl/2026/10/22/2026020160",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nhl.com/gamecenter/wpg-vs-dal/2026/10/22/2026020161",
+      "domain": "www.nhl.com",
+      "source_name": "NHL official schedule & standings API (api-web.nhle.com)",
+      "row_count": 1,
+      "sports": [
+        "Ice Hockey"
+      ]
+    },
+    {
+      "url": "https://www.nrl.com/draw/rugby-league-world-cup/2026/round-2/england-v-france/",
+      "domain": "www.nrl.com",
+      "source_name": "NRL / RLWC2026 Official Match Centre",
+      "row_count": 1,
+      "sports": [
+        "Rugby League"
+      ]
+    },
+    {
+      "url": "https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/",
+      "domain": "www.nrl.com",
+      "source_name": "RLWC2026 / NRL.com official Round 2 team lists & Round 1 match wrap",
+      "row_count": 4,
+      "sports": [
+        "Rugby League"
+      ]
+    },
+    {
+      "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+      "domain": "www.pdc.tv",
+      "source_name": "PDC official European Championship schedule + Order of Merit",
+      "row_count": 8,
+      "sports": [
+        "Darts"
+      ]
+    },
+    {
+      "url": "https://www.pdc.tv/tournament/machineseeker-european-championship",
+      "domain": "www.pdc.tv",
+      "source_name": "Professional Darts Corporation (PDC) Official Tournament Hub & Order of Merit",
+      "row_count": 1,
+      "sports": [
+        "Darts"
+      ]
+    },
+    {
+      "url": "https://www.pgatour.com/leaderboard",
+      "domain": "www.pgatour.com",
+      "source_name": "PGA Tour Live Leaderboard (R2 Fri Oct 23)",
+      "row_count": 1,
+      "sports": [
+        "Golf"
+      ]
+    },
+    {
+      "url": "https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026045",
+      "domain": "www.pgatour.com",
+      "source_name": "PGA Tour Champions Official Event Hub & OLBG #101903",
+      "row_count": 1,
+      "sports": [
+        "Golf"
+      ]
+    },
+    {
+      "url": "https://www.pgatour.com/schedule",
+      "domain": "www.pgatour.com",
+      "source_name": "PGA Tour Official 2026 Fall Schedule",
+      "row_count": 1,
+      "sports": [
+        "Golf"
+      ]
+    },
+    {
+      "url": "https://www.premiershiprugby.com/fixtures-results",
+      "domain": "www.premiershiprugby.com",
+      "source_name": "Premiership Rugby Official Fixtures & OLBG #609599",
+      "row_count": 1,
+      "sports": [
+        "Rugby Union"
+      ]
+    },
+    {
+      "url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+      "domain": "www.protennislive.com",
+      "source_name": "ATP Official Main Draw (496, 22:11)",
+      "row_count": 4,
+      "sports": [
+        "Tennis"
+      ]
+    },
+    {
+      "url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+      "domain": "www.protennislive.com",
+      "source_name": "ATP Official Main Draw (7485, 18:43)",
+      "row_count": 4,
+      "sports": [
+        "Tennis"
+      ]
+    },
+    {
+      "url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "domain": "www.protennislive.com",
+      "source_name": "ATP Official Main Draw (9410, 19:54)",
+      "row_count": 4,
+      "sports": [
+        "Tennis"
+      ]
+    },
+    {
+      "url": "https://www.rlwc2026.com/draws-and-pools",
+      "domain": "www.rlwc2026.com",
+      "source_name": "RLWC2026 Official Draws & Pools",
+      "row_count": 1,
+      "sports": [
+        "Rugby League"
+      ]
+    },
+    {
+      "url": "https://www.snooker.org/res/index.asp?event=2548",
+      "domain": "www.snooker.org",
+      "source_name": "WST / snooker.org Live 21:00Z Draw (#2548)",
+      "row_count": 1,
+      "sports": [
+        "Snooker"
+      ]
+    },
+    {
+      "url": "https://www.tauronliga.pl/table/tour/53.html",
+      "domain": "www.tauronliga.pl",
+      "source_name": "PlusLiga / PLS official 2026/27 schedule & Round 1 match scores",
+      "row_count": 3,
+      "sports": [
+        "Volleyball"
+      ]
+    },
+    {
+      "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "domain": "www.unitedrugby.com",
+      "source_name": "URC official fixture list & Match Centre table (unitedrugby.com)",
+      "row_count": 8,
+      "sports": [
+        "Rugby Union"
+      ]
+    },
+    {
+      "url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/spielplan/hauptrunde.xhtml",
+      "domain": "www.volleyball-bundesliga.de",
+      "source_name": "German Volleyball Bundesliga (VBL) & OLBG #37010",
+      "row_count": 3,
+      "sports": [
+        "Volleyball"
+      ]
+    },
+    {
+      "url": "https://www.wst.tv/",
+      "domain": "www.wst.tv",
+      "source_name": "World Snooker Tour Calendar & Rankings",
+      "row_count": 1,
+      "sports": [
+        "Snooker"
+      ]
+    },
+    {
+      "url": "https://www.wst.tv/news/2026/october/22/betvictor-northern-ireland-open-2026-day-five-afternoon",
+      "domain": "www.wst.tv",
+      "source_name": "World Snooker Tour Official Report & snooker.org",
+      "row_count": 2,
+      "sports": [
+        "Snooker"
+      ]
+    },
+    {
+      "url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+      "domain": "www.wst.tv",
+      "source_name": "World Snooker Tour Official Event Hub",
+      "row_count": 1,
+      "sports": [
+        "Snooker"
+      ]
+    }
+  ],
+  "olbg_hubs": [
+    {
+      "hub_id": "olbg_all",
+      "url": "https://www.olbg.com/betting-tips",
+      "sha256": "b91c3ccf8ac3ef21044d39614c82fc337349536c31901378145f886583e99eba",
+      "fetched_utc": "2026-10-22T21:00:29Z",
+      "bytes": 410731,
+      "total_cards": 71,
+      "in_scope_cards": 32,
+      "excluded_cards": 39,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_tennis_3",
+      "url": "https://www.olbg.com/betting-tips/Tennis/3",
+      "sha256": "5328f65fedb867664786ca4d90c5b1a10cfc539ddf7ae36bf1a265c1edc661f2",
+      "fetched_utc": "2026-10-22T21:00:31Z",
+      "bytes": 362364,
+      "total_cards": 30,
+      "in_scope_cards": 30,
+      "excluded_cards": 0,
+      "requested_sport": "Tennis"
+    },
+    {
+      "hub_id": "olbg_basketball_4",
+      "url": "https://www.olbg.com/betting-tips/Basketball/4",
+      "sha256": "0fb5a48035ca8acea902c2b7a0091b345e30b8b15026577dd18892467cc07d3c",
+      "fetched_utc": "2026-10-22T21:00:32Z",
+      "bytes": 359775,
+      "total_cards": 22,
+      "in_scope_cards": 22,
+      "excluded_cards": 0,
+      "requested_sport": "Basketball"
+    },
+    {
+      "hub_id": "olbg_basketball_nba",
+      "url": "https://www.olbg.com/betting-tips/Basketball/NBA/4",
+      "sha256": "578400ad372bda59a80d7926f7dc0cd9c475e22a7aae59f671b33208797406eb",
+      "fetched_utc": "2026-10-22T21:00:34Z",
+      "bytes": 246956,
+      "total_cards": 8,
+      "in_scope_cards": 8,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_basketball_euroleague",
+      "url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/4",
+      "sha256": "b448d76cbc0557a51c9ed9bbe7e42a9d768934de228c9f6bd6cc79aea603b354",
+      "fetched_utc": "2026-10-22T21:00:35Z",
+      "bytes": 224279,
+      "total_cards": 3,
+      "in_scope_cards": 3,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_basketball_other",
+      "url": "https://www.olbg.com/betting-tips/Basketball/Other/4",
+      "sha256": "d2da232c88df1ce9d2a76f8bee6cd8888e2def871b2c1bdad78529550c6deac3",
+      "fetched_utc": "2026-10-22T21:00:36Z",
+      "bytes": 220411,
+      "total_cards": 5,
+      "in_scope_cards": 5,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_golf_5",
+      "url": "https://www.olbg.com/betting-tips/Golf/5",
+      "sha256": "e8c06e2eb8c31637764b8e04c60bff6af696c13396339107f19b5d0218ee6640",
+      "fetched_utc": "2026-10-22T21:00:38Z",
+      "bytes": 294179,
+      "total_cards": 1,
+      "in_scope_cards": 1,
+      "excluded_cards": 0,
+      "requested_sport": "Golf"
+    },
+    {
+      "hub_id": "olbg_cricket_7",
+      "url": "https://www.olbg.com/betting-tips/Cricket/7",
+      "sha256": "c4501f74952f66ad645e0d00f7f51f5adb2c53974184a68d8378e0f86ea4805b",
+      "fetched_utc": "2026-10-22T21:00:39Z",
+      "bytes": 316078,
+      "total_cards": 9,
+      "in_scope_cards": 9,
+      "excluded_cards": 0,
+      "requested_sport": "Cricket"
+    },
+    {
+      "hub_id": "olbg_snooker_8",
+      "url": "https://www.olbg.com/betting-tips/Snooker/8",
+      "sha256": "f75ababc590b36dbb0baf756153ec6bff704bec44fd5d3997c0564772ab9b004",
+      "fetched_utc": "2026-10-22T21:00:41Z",
+      "bytes": 276253,
+      "total_cards": 8,
+      "in_scope_cards": 8,
+      "excluded_cards": 0,
+      "requested_sport": "Snooker"
+    },
+    {
+      "hub_id": "olbg_rugby_union_9",
+      "url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+      "sha256": "8b561d2dfb93f0a104bc664916de778f6ddb976549c93e85e8ba3586e8d247ba",
+      "fetched_utc": "2026-10-22T21:00:43Z",
+      "bytes": 338587,
+      "total_cards": 18,
+      "in_scope_cards": 18,
+      "excluded_cards": 0,
+      "requested_sport": "Rugby Union"
+    },
+    {
+      "hub_id": "olbg_rugby_league_10",
+      "url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+      "sha256": "39929c7747bfdd0df387d2271ce2f7c5f2e2ced74885298370c0c0699336feca",
+      "fetched_utc": "2026-10-22T21:00:44Z",
+      "bytes": 271436,
+      "total_cards": 3,
+      "in_scope_cards": 3,
+      "excluded_cards": 0,
+      "requested_sport": "Rugby League"
+    },
+    {
+      "hub_id": "olbg_baseball_12",
+      "url": "https://www.olbg.com/betting-tips/Baseball/12",
+      "sha256": "cfdb0aaf434a342e2acccb95290aae82d61f862c2c6170f199703d6bf53257f7",
+      "fetched_utc": "2026-10-22T21:00:46Z",
+      "bytes": 263290,
+      "total_cards": 1,
+      "in_scope_cards": 1,
+      "excluded_cards": 0,
+      "requested_sport": "Baseball"
+    },
+    {
+      "hub_id": "olbg_ice_hockey_13",
+      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+      "sha256": "14e6dcc257627a2f7160fa69842d537b4c86d993f7ce029070378ae67e12a222",
+      "fetched_utc": "2026-10-22T21:00:47Z",
+      "bytes": 354403,
+      "total_cards": 25,
+      "in_scope_cards": 25,
+      "excluded_cards": 0,
+      "requested_sport": "Ice Hockey"
+    },
+    {
+      "hub_id": "olbg_ice_hockey_nhl",
+      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13",
+      "sha256": "55d52fab61516e732f125c633d862674bc3ee18fea7f6a3283e8340a294fd696",
+      "fetched_utc": "2026-10-22T21:00:49Z",
+      "bytes": 286016,
+      "total_cards": 14,
+      "in_scope_cards": 14,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_ice_hockey_other",
+      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/13",
+      "sha256": "bf31821c05c820d03f555db3641a2d466fe20141ce1de0d46d8fdb6eef5cbd2a",
+      "fetched_utc": "2026-10-22T21:00:50Z",
+      "bytes": 239268,
+      "total_cards": 11,
+      "in_scope_cards": 11,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_motor_racing_14",
+      "url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+      "sha256": "67f3ebc30eb07797156e42a0bc5d80c86e75c30e7b4234a98a300ba950f0256f",
+      "fetched_utc": "2026-10-22T21:00:52Z",
+      "bytes": 309132,
+      "total_cards": 3,
+      "in_scope_cards": 3,
+      "excluded_cards": 0,
+      "requested_sport": "Motor Racing"
+    },
+    {
+      "hub_id": "olbg_darts_15",
+      "url": "https://www.olbg.com/betting-tips/Darts/15",
+      "sha256": "4a6cdf1aa1e5b6dff184b3a13e1dd7421afee2bf7e72d548288b51e899842e9f",
+      "fetched_utc": "2026-10-22T21:00:54Z",
+      "bytes": 347192,
+      "total_cards": 10,
+      "in_scope_cards": 10,
+      "excluded_cards": 0,
+      "requested_sport": "Darts"
+    },
+    {
+      "hub_id": "olbg_slot_18_badminton",
+      "url": "https://www.olbg.com/betting-tips/Badminton/18",
+      "sha256": "8223f1243d778f7fbc81e2e5c34c23f8ef57ba5bd7f9d6d8508b164b1dc6b8e4",
+      "fetched_utc": "2026-10-22T21:00:55Z",
+      "bytes": 182975,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_handball_20",
+      "url": "https://www.olbg.com/betting-tips/Handball/20",
+      "sha256": "582ffea8ec0017484194c6e5536e1d648bccd3e57afc3159fb3cab0c229866fd",
+      "fetched_utc": "2026-10-22T21:00:57Z",
+      "bytes": 347645,
+      "total_cards": 23,
+      "in_scope_cards": 23,
+      "excluded_cards": 0,
+      "requested_sport": "Handball"
+    },
+    {
+      "hub_id": "olbg_volleyball_21",
+      "url": "https://www.olbg.com/betting-tips/Volleyball/21",
+      "sha256": "0a015406aefb0ba3d6b27bf8543658d2688841f847a9f04b6916d76b56a910ed",
+      "fetched_utc": "2026-10-22T21:00:58Z",
+      "bytes": 341287,
+      "total_cards": 20,
+      "in_scope_cards": 20,
+      "excluded_cards": 0,
+      "requested_sport": "Volleyball"
+    },
+    {
+      "hub_id": "olbg_aussie_rules_22",
+      "url": "https://www.olbg.com/betting-tips/Aussie_Rules/22",
+      "sha256": "b5acd542e83adb38106b55c6dcffafe99494b27c53da42e52bee1cb9b36b95f8",
+      "fetched_utc": "2026-10-22T21:00:59Z",
+      "bytes": 202546,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_esports_23",
+      "url": "https://www.olbg.com/betting-tips/eSports/23",
+      "sha256": "df7b5bbe5882eba10add77d6cb9a5163facd018f627f35c1c66d756588af00b3",
+      "fetched_utc": "2026-10-22T21:01:01Z",
+      "bytes": 209141,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_esports_lol",
+      "url": "https://www.olbg.com/betting-tips/eSports/All_eSports/LOL/23",
+      "sha256": "362829704450f43411dff5216a59ac000f1c0c0921583ea554d2f9d5638ede4f",
+      "fetched_utc": "2026-10-22T21:01:03Z",
+      "bytes": 200526,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_esports_csgo",
+      "url": "https://www.olbg.com/betting-tips/eSports/All_eSports/CSGO/23",
+      "sha256": "19b71c50de9206ff865c69b55f559545aaa513dcf67d8ab5a14c54afce8830ba",
+      "fetched_utc": "2026-10-22T21:01:04Z",
+      "bytes": 201515,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_esports_dota2",
+      "url": "https://www.olbg.com/betting-tips/eSports/All_eSports/DOTA2/23",
+      "sha256": "9fb78ff62843b31a6aa3bcbc971ba788e6ff5e3dafffae39b8f2a6df94fbb940",
+      "fetched_utc": "2026-10-22T21:01:06Z",
+      "bytes": 200971,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_esports_other",
+      "url": "https://www.olbg.com/betting-tips/eSports/All_eSports/Other_eSports/23",
+      "sha256": "c48bc9235c4b5361bac3bbca39a7ef204ec417a10e5d5a8292bb6959252595d9",
+      "fetched_utc": "2026-10-22T21:01:07Z",
+      "bytes": 201072,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_slot_24_tt",
+      "url": "https://www.olbg.com/betting-tips/Table_Tennis/24",
+      "sha256": "9d8161efff5f53fa6d92da7b48d4915a5642915be07301fd57f2be315c7fe68b",
+      "fetched_utc": "2026-10-22T21:01:08Z",
+      "bytes": 183041,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": ""
+    },
+    {
+      "hub_id": "olbg_gaelic_25",
+      "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+      "sha256": "c6b9965abf6d753dcb0827487e20ca3d6741061b8619043f667ac852ce742f21",
+      "fetched_utc": "2026-10-22T21:01:10Z",
+      "bytes": 291388,
+      "total_cards": 6,
+      "in_scope_cards": 0,
+      "excluded_cards": 6,
+      "requested_sport": "Gaelic Sports"
+    },
+    {
+      "hub_id": "olbg_greyhounds_28",
+      "url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+      "sha256": "9ab57855737092c27866960dd888abe4c94ee74977815329be5d1b4e8c300ad4",
+      "fetched_utc": "2026-10-22T21:01:12Z",
+      "bytes": 282953,
+      "total_cards": 0,
+      "in_scope_cards": 0,
+      "excluded_cards": 0,
+      "requested_sport": "Greyhounds"
+    }
+  ],
+  "capture_manifest_items": [
+    {
+      "id": "olbg_robots",
+      "url": "https://www.olbg.com/robots.txt",
+      "final_url": "https://www.olbg.com/robots.txt",
+      "status": 200,
+      "bytes": 6776,
+      "sha256": "ff0fd5ec1c9f8c643d8557373bcf914ff9e6159dfdc54a0aa3b221b75f57621c",
+      "fetched_utc": "2026-10-22T21:00:26Z"
+    },
+    {
+      "id": "olbg_sitemap",
+      "url": "https://www.olbg.com/sitemap-betting-tips.xml",
+      "final_url": "https://www.olbg.com/sitemap-betting-tips.xml",
+      "status": 200,
+      "bytes": 52406,
+      "sha256": "66b8c5e1fdba21da1f10891b01713dcef098e4b5148fec4d7fa68d8f5803be39",
+      "fetched_utc": "2026-10-22T21:00:28Z"
+    },
+    {
+      "id": "olbg_all",
+      "url": "https://www.olbg.com/betting-tips",
+      "final_url": "https://www.olbg.com/betting-tips",
+      "status": 200,
+      "bytes": 410731,
+      "sha256": "b91c3ccf8ac3ef21044d39614c82fc337349536c31901378145f886583e99eba",
+      "fetched_utc": "2026-10-22T21:00:29Z"
+    },
+    {
+      "id": "olbg_tennis_3",
+      "url": "https://www.olbg.com/betting-tips/Tennis/3",
+      "final_url": "https://www.olbg.com/betting-tips/Tennis/3",
+      "status": 200,
+      "bytes": 362364,
+      "sha256": "5328f65fedb867664786ca4d90c5b1a10cfc539ddf7ae36bf1a265c1edc661f2",
+      "fetched_utc": "2026-10-22T21:00:31Z"
+    },
+    {
+      "id": "olbg_basketball_4",
+      "url": "https://www.olbg.com/betting-tips/Basketball/4",
+      "final_url": "https://www.olbg.com/betting-tips/Basketball/4",
+      "status": 200,
+      "bytes": 359775,
+      "sha256": "0fb5a48035ca8acea902c2b7a0091b345e30b8b15026577dd18892467cc07d3c",
+      "fetched_utc": "2026-10-22T21:00:32Z"
+    },
+    {
+      "id": "olbg_basketball_nba",
+      "url": "https://www.olbg.com/betting-tips/Basketball/NBA/4",
+      "final_url": "https://www.olbg.com/betting-tips/Basketball/NBA/4",
+      "status": 200,
+      "bytes": 246956,
+      "sha256": "578400ad372bda59a80d7926f7dc0cd9c475e22a7aae59f671b33208797406eb",
+      "fetched_utc": "2026-10-22T21:00:34Z"
+    },
+    {
+      "id": "olbg_basketball_euroleague",
+      "url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/4",
+      "final_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/4",
+      "status": 200,
+      "bytes": 224279,
+      "sha256": "b448d76cbc0557a51c9ed9bbe7e42a9d768934de228c9f6bd6cc79aea603b354",
+      "fetched_utc": "2026-10-22T21:00:35Z"
+    },
+    {
+      "id": "olbg_basketball_other",
+      "url": "https://www.olbg.com/betting-tips/Basketball/Other/4",
+      "final_url": "https://www.olbg.com/betting-tips/Basketball/Other/4",
+      "status": 200,
+      "bytes": 220411,
+      "sha256": "d2da232c88df1ce9d2a76f8bee6cd8888e2def871b2c1bdad78529550c6deac3",
+      "fetched_utc": "2026-10-22T21:00:36Z"
+    },
+    {
+      "id": "olbg_golf_5",
+      "url": "https://www.olbg.com/betting-tips/Golf/5",
+      "final_url": "https://www.olbg.com/betting-tips/Golf/5",
+      "status": 200,
+      "bytes": 294179,
+      "sha256": "e8c06e2eb8c31637764b8e04c60bff6af696c13396339107f19b5d0218ee6640",
+      "fetched_utc": "2026-10-22T21:00:38Z"
+    },
+    {
+      "id": "olbg_cricket_7",
+      "url": "https://www.olbg.com/betting-tips/Cricket/7",
+      "final_url": "https://www.olbg.com/betting-tips/Cricket/7",
+      "status": 200,
+      "bytes": 316078,
+      "sha256": "c4501f74952f66ad645e0d00f7f51f5adb2c53974184a68d8378e0f86ea4805b",
+      "fetched_utc": "2026-10-22T21:00:39Z"
+    },
+    {
+      "id": "olbg_snooker_8",
+      "url": "https://www.olbg.com/betting-tips/Snooker/8",
+      "final_url": "https://www.olbg.com/betting-tips/Snooker/8",
+      "status": 200,
+      "bytes": 276253,
+      "sha256": "f75ababc590b36dbb0baf756153ec6bff704bec44fd5d3997c0564772ab9b004",
+      "fetched_utc": "2026-10-22T21:00:41Z"
+    },
+    {
+      "id": "olbg_rugby_union_9",
+      "url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+      "final_url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+      "status": 200,
+      "bytes": 338587,
+      "sha256": "8b561d2dfb93f0a104bc664916de778f6ddb976549c93e85e8ba3586e8d247ba",
+      "fetched_utc": "2026-10-22T21:00:43Z"
+    },
+    {
+      "id": "olbg_rugby_league_10",
+      "url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+      "final_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+      "status": 200,
+      "bytes": 271436,
+      "sha256": "39929c7747bfdd0df387d2271ce2f7c5f2e2ced74885298370c0c0699336feca",
+      "fetched_utc": "2026-10-22T21:00:44Z"
+    },
+    {
+      "id": "olbg_baseball_12",
+      "url": "https://www.olbg.com/betting-tips/Baseball/12",
+      "final_url": "https://www.olbg.com/betting-tips/Baseball/12",
+      "status": 200,
+      "bytes": 263290,
+      "sha256": "cfdb0aaf434a342e2acccb95290aae82d61f862c2c6170f199703d6bf53257f7",
+      "fetched_utc": "2026-10-22T21:00:46Z"
+    },
+    {
+      "id": "olbg_ice_hockey_13",
+      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+      "final_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+      "status": 200,
+      "bytes": 354403,
+      "sha256": "14e6dcc257627a2f7160fa69842d537b4c86d993f7ce029070378ae67e12a222",
+      "fetched_utc": "2026-10-22T21:00:47Z"
+    },
+    {
+      "id": "olbg_ice_hockey_nhl",
+      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13",
+      "final_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13",
+      "status": 200,
+      "bytes": 286016,
+      "sha256": "55d52fab61516e732f125c633d862674bc3ee18fea7f6a3283e8340a294fd696",
+      "fetched_utc": "2026-10-22T21:00:49Z"
+    },
+    {
+      "id": "olbg_ice_hockey_other",
+      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/13",
+      "final_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/13",
+      "status": 200,
+      "bytes": 239268,
+      "sha256": "bf31821c05c820d03f555db3641a2d466fe20141ce1de0d46d8fdb6eef5cbd2a",
+      "fetched_utc": "2026-10-22T21:00:50Z"
+    },
+    {
+      "id": "olbg_motor_racing_14",
+      "url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+      "final_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+      "status": 200,
+      "bytes": 309132,
+      "sha256": "67f3ebc30eb07797156e42a0bc5d80c86e75c30e7b4234a98a300ba950f0256f",
+      "fetched_utc": "2026-10-22T21:00:52Z"
+    },
+    {
+      "id": "olbg_darts_15",
+      "url": "https://www.olbg.com/betting-tips/Darts/15",
+      "final_url": "https://www.olbg.com/betting-tips/Darts/15",
+      "status": 200,
+      "bytes": 347192,
+      "sha256": "4a6cdf1aa1e5b6dff184b3a13e1dd7421afee2bf7e72d548288b51e899842e9f",
+      "fetched_utc": "2026-10-22T21:00:54Z"
+    },
+    {
+      "id": "olbg_slot_18_badminton",
+      "url": "https://www.olbg.com/betting-tips/Badminton/18",
+      "final_url": "https://www.olbg.com/betting-tips/Badminton/18",
+      "status": 200,
+      "bytes": 182975,
+      "sha256": "8223f1243d778f7fbc81e2e5c34c23f8ef57ba5bd7f9d6d8508b164b1dc6b8e4",
+      "fetched_utc": "2026-10-22T21:00:55Z"
+    },
+    {
+      "id": "olbg_handball_20",
+      "url": "https://www.olbg.com/betting-tips/Handball/20",
+      "final_url": "https://www.olbg.com/betting-tips/Handball/20",
+      "status": 200,
+      "bytes": 347645,
+      "sha256": "582ffea8ec0017484194c6e5536e1d648bccd3e57afc3159fb3cab0c229866fd",
+      "fetched_utc": "2026-10-22T21:00:57Z"
+    },
+    {
+      "id": "olbg_volleyball_21",
+      "url": "https://www.olbg.com/betting-tips/Volleyball/21",
+      "final_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+      "status": 200,
+      "bytes": 341287,
+      "sha256": "0a015406aefb0ba3d6b27bf8543658d2688841f847a9f04b6916d76b56a910ed",
+      "fetched_utc": "2026-10-22T21:00:58Z"
+    },
+    {
+      "id": "olbg_aussie_rules_22",
+      "url": "https://www.olbg.com/betting-tips/Aussie_Rules/22",
+      "final_url": "https://www.olbg.com/betting-tips/Aussie_Rules/22",
+      "status": 200,
+      "bytes": 202546,
+      "sha256": "b5acd542e83adb38106b55c6dcffafe99494b27c53da42e52bee1cb9b36b95f8",
+      "fetched_utc": "2026-10-22T21:00:59Z"
+    },
+    {
+      "id": "olbg_esports_23",
+      "url": "https://www.olbg.com/betting-tips/eSports/23",
+      "final_url": "https://www.olbg.com/betting-tips/eSports/23",
+      "status": 200,
+      "bytes": 209141,
+      "sha256": "df7b5bbe5882eba10add77d6cb9a5163facd018f627f35c1c66d756588af00b3",
+      "fetched_utc": "2026-10-22T21:01:01Z"
+    },
+    {
+      "id": "olbg_esports_lol",
+      "url": "https://www.olbg.com/betting-tips/eSports/All_eSports/LOL/23",
+      "final_url": "https://www.olbg.com/betting-tips/eSports/All_eSports/LOL/23",
+      "status": 200,
+      "bytes": 200526,
+      "sha256": "362829704450f43411dff5216a59ac000f1c0c0921583ea554d2f9d5638ede4f",
+      "fetched_utc": "2026-10-22T21:01:03Z"
+    },
+    {
+      "id": "olbg_esports_csgo",
+      "url": "https://www.olbg.com/betting-tips/eSports/All_eSports/CSGO/23",
+      "final_url": "https://www.olbg.com/betting-tips/eSports/All_eSports/CSGO/23",
+      "status": 200,
+      "bytes": 201515,
+      "sha256": "19b71c50de9206ff865c69b55f559545aaa513dcf67d8ab5a14c54afce8830ba",
+      "fetched_utc": "2026-10-22T21:01:04Z"
+    },
+    {
+      "id": "olbg_esports_dota2",
+      "url": "https://www.olbg.com/betting-tips/eSports/All_eSports/DOTA2/23",
+      "final_url": "https://www.olbg.com/betting-tips/eSports/All_eSports/DOTA2/23",
+      "status": 200,
+      "bytes": 200971,
+      "sha256": "9fb78ff62843b31a6aa3bcbc971ba788e6ff5e3dafffae39b8f2a6df94fbb940",
+      "fetched_utc": "2026-10-22T21:01:06Z"
+    },
+    {
+      "id": "olbg_esports_other",
+      "url": "https://www.olbg.com/betting-tips/eSports/All_eSports/Other_eSports/23",
+      "final_url": "https://www.olbg.com/betting-tips/eSports/All_eSports/Other_eSports/23",
+      "status": 200,
+      "bytes": 201072,
+      "sha256": "c48bc9235c4b5361bac3bbca39a7ef204ec417a10e5d5a8292bb6959252595d9",
+      "fetched_utc": "2026-10-22T21:01:07Z"
+    },
+    {
+      "id": "olbg_slot_24_tt",
+      "url": "https://www.olbg.com/betting-tips/Table_Tennis/24",
+      "final_url": "https://www.olbg.com/betting-tips/Table_Tennis/24",
+      "status": 200,
+      "bytes": 183041,
+      "sha256": "9d8161efff5f53fa6d92da7b48d4915a5642915be07301fd57f2be315c7fe68b",
+      "fetched_utc": "2026-10-22T21:01:08Z"
+    },
+    {
+      "id": "olbg_gaelic_25",
+      "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+      "final_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+      "status": 200,
+      "bytes": 291388,
+      "sha256": "c6b9965abf6d753dcb0827487e20ca3d6741061b8619043f667ac852ce742f21",
+      "fetched_utc": "2026-10-22T21:01:10Z"
+    },
+    {
+      "id": "olbg_greyhounds_28",
+      "url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+      "final_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+      "status": 200,
+      "bytes": 282953,
+      "sha256": "9ab57855737092c27866960dd888abe4c94ee74977815329be5d1b4e8c300ad4",
+      "fetched_utc": "2026-10-22T21:01:12Z"
+    },
+    {
+      "id": "wta_2092_matches",
+      "url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+      "final_url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+      "status": 200,
+      "bytes": 60079,
+      "sha256": "6f1ad5c9d04434aea9ec7ed114f19b9cfdbd2e2ebc7aea7515338fb8e0b52c1e",
+      "fetched_utc": "2026-10-22T21:00:58Z"
+    },
+    {
+      "id": "wta_405_matches",
+      "url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches",
+      "final_url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches",
+      "status": 200,
+      "bytes": 66554,
+      "sha256": "77346e985907ef750cf5302e1741882cee9976c79aa7f77d0618885929675a65",
+      "fetched_utc": "2026-10-22T21:00:59Z"
+    },
+    {
+      "id": "wta_1056_tokyo",
+      "url": "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches",
+      "final_url": "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches",
+      "status": 200,
+      "bytes": 539,
+      "sha256": "7ae42a85801eb3b4ad94869e39840707225b9f36efc0bb191c0ed5a829ff3d80",
+      "fetched_utc": "2026-10-22T21:00:59Z"
+    },
+    {
+      "id": "wta_1023_guangzhou",
+      "url": "https://api.wtatennis.com/tennis/tournaments/1023/2026/matches",
+      "final_url": "https://api.wtatennis.com/tennis/tournaments/1023/2026/matches",
+      "status": 200,
+      "bytes": 535,
+      "sha256": "a590217cd95e30de57170df372ccaae97112157e5748b73f33a8e061670f7c08",
+      "fetched_utc": "2026-10-22T21:01:00Z"
+    },
+    {
+      "id": "ptl_9410_op",
+      "url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+      "status": 200,
+      "bytes": 76488,
+      "sha256": "217a64416ddf6b6f5d4743971f24cba98a862950e8528de0c41e164558148224",
+      "fetched_utc": "2026-10-22T21:01:00Z"
+    },
+    {
+      "id": "ptl_9410_mds",
+      "url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/9410/mds.pdf",
+      "status": 200,
+      "bytes": 144076,
+      "sha256": "08ea87edbcf7610ab48e50b52fcc698c5304ccdb0ee155ac4ef4e5fad1f406c6",
+      "fetched_utc": "2026-10-22T21:01:00Z"
+    },
+    {
+      "id": "ptl_7485_op",
+      "url": "https://www.protennislive.com/posting/2026/7485/op.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/7485/op.pdf",
+      "status": 200,
+      "bytes": 72460,
+      "sha256": "168883246ebd8bd8ab0714479c7f23a6827a3c7a173afc829a27cfa856611f75",
+      "fetched_utc": "2026-10-22T21:01:01Z"
+    },
+    {
+      "id": "ptl_7485_mds",
+      "url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/7485/mds.pdf",
+      "status": 200,
+      "bytes": 147332,
+      "sha256": "f6cfd38a659da7b8186da63d084b6b5173abb55d5d132e7c1617738d68a2a351",
+      "fetched_utc": "2026-10-22T21:01:01Z"
+    },
+    {
+      "id": "ptl_496_op",
+      "url": "https://www.protennislive.com/posting/2026/496/op.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/496/op.pdf",
+      "status": 200,
+      "bytes": 82929,
+      "sha256": "7ebf84aaa86f9b9b0e600296f801769e7f616a6c6a5816b4362ca91de952f381",
+      "fetched_utc": "2026-10-22T21:01:02Z"
+    },
+    {
+      "id": "ptl_496_mds",
+      "url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/496/mds.pdf",
+      "status": 200,
+      "bytes": 151630,
+      "sha256": "9e93c1e86636255d709301a1421632e749664cffc4ece9da79ac7286f37c80d8",
+      "fetched_utc": "2026-10-22T21:01:03Z"
+    },
+    {
+      "id": "ptl_328_op",
+      "url": "https://www.protennislive.com/posting/2026/328/op.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/328/op.pdf",
+      "status": 200,
+      "bytes": 2616,
+      "sha256": "eaf906597d4921ed8af6cd9dbd721bd69f6da3fe33651a4fd6dec568b31dc4fe",
+      "fetched_utc": "2026-10-22T21:01:03Z"
+    },
+    {
+      "id": "ptl_328_mds",
+      "url": "https://www.protennislive.com/posting/2026/328/mds.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/328/mds.pdf",
+      "status": 200,
+      "bytes": 2616,
+      "sha256": "eaf906597d4921ed8af6cd9dbd721bd69f6da3fe33651a4fd6dec568b31dc4fe",
+      "fetched_utc": "2026-10-22T21:01:04Z"
+    },
+    {
+      "id": "ptl_337_op",
+      "url": "https://www.protennislive.com/posting/2026/337/op.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/337/op.pdf",
+      "status": 200,
+      "bytes": 2616,
+      "sha256": "eaf906597d4921ed8af6cd9dbd721bd69f6da3fe33651a4fd6dec568b31dc4fe",
+      "fetched_utc": "2026-10-22T21:01:04Z"
+    },
+    {
+      "id": "ptl_337_mds",
+      "url": "https://www.protennislive.com/posting/2026/337/mds.pdf",
+      "final_url": "https://www.protennislive.com/posting/2026/337/mds.pdf",
+      "status": 200,
+      "bytes": 2616,
+      "sha256": "eaf906597d4921ed8af6cd9dbd721bd69f6da3fe33651a4fd6dec568b31dc4fe",
+      "fetched_utc": "2026-10-22T21:01:05Z"
+    },
+    {
+      "id": "nhl_sched_2026_10_22",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+      "final_url": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+      "status": 200,
+      "bytes": 99723,
+      "sha256": "f247ced82bf6bf1140178f80f4810bcfe35d4af9b5872abac6fed2378f595409",
+      "fetched_utc": "2026-10-22T21:01:03Z"
+    },
+    {
+      "id": "nhl_sched_2026_10_23",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "final_url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "status": 200,
+      "bytes": 91158,
+      "sha256": "f613d29baf9686cc2256213303a086e48e3cd908664d61c201b42124327016ae",
+      "fetched_utc": "2026-10-22T21:01:04Z"
+    },
+    {
+      "id": "nhl_sched_2026_10_25",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-25",
+      "final_url": "https://api-web.nhle.com/v1/schedule/2026-10-25",
+      "status": 200,
+      "bytes": 89139,
+      "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+      "fetched_utc": "2026-10-22T21:01:04Z"
+    },
+    {
+      "id": "nhl_sched_2026_10_29",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-29",
+      "final_url": "https://api-web.nhle.com/v1/schedule/2026-10-29",
+      "status": 200,
+      "bytes": 92629,
+      "sha256": "97e3a5c4b60b31c8f2effba25d18ed3c995713034afeb7170b1eeb433911e48a",
+      "fetched_utc": "2026-10-22T21:01:05Z"
+    },
+    {
+      "id": "nhl_standings_2026_10_22",
+      "url": "https://api-web.nhle.com/v1/standings/2026-10-22",
+      "final_url": "https://api-web.nhle.com/v1/standings/2026-10-22",
+      "status": 200,
+      "bytes": 58152,
+      "sha256": "5e2d843d4072f7f64fc8694c575551545274106002c2e28f79cba5de5158e087",
+      "fetched_utc": "2026-10-22T21:01:06Z"
+    },
+    {
+      "id": "nhl_skater_leaders",
+      "url": "https://api-web.nhle.com/v1/skater-stats-leaders/current?categories=goals,points&limit=20",
+      "final_url": "https://api-web.nhle.com/v1/skater-stats-leaders/20262027/2?categories=goals%2Cpoints&limit=20",
+      "status": 200,
+      "bytes": 12856,
+      "sha256": "4f0560dc03c9b23654f9c9d5d93be6c16120e4a48652fc16e749e64c3bcb9c00",
+      "fetched_utc": "2026-10-22T21:01:06Z"
+    },
+    {
+      "id": "nhl_goalie_leaders",
+      "url": "https://api-web.nhle.com/v1/goalie-stats-leaders/current?categories=savePctg,goalsAgainstAverage&limit=20",
+      "final_url": "https://api-web.nhle.com/v1/goalie-stats-leaders/20262027/2?categories=savePctg%2CgoalsAgainstAverage&limit=20",
+      "status": 200,
+      "bytes": 13380,
+      "sha256": "301ec00e836510fb79fc4b6c541df7d40fb0d3cf2cb1819b981c32cc8ee168c9",
+      "fetched_utc": "2026-10-22T21:01:07Z"
+    },
+    {
+      "id": "swehockey_shl_overview",
+      "url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+      "final_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+      "status": 200,
+      "bytes": 119557,
+      "sha256": "331f410f4505f7bc0eacf67946bfddec4c203e2126dd07e1324c90a37228f551",
+      "fetched_utc": "2026-10-22T21:01:06Z"
+    },
+    {
+      "id": "liiga_games_2027",
+      "url": "https://liiga.fi/api/v2/games?tournament=runkosarja&season=2027",
+      "final_url": "https://liiga.fi/api/v2/games?tournament=runkosarja&season=2027",
+      "status": 200,
+      "bytes": 1774191,
+      "sha256": "c4b37fe4a4b9b96b91fa6990d2f517dbb77313c6b864b5252a3858dba60778a8",
+      "fetched_utc": "2026-10-22T21:01:07Z"
+    },
+    {
+      "id": "liiga_standings_2027",
+      "url": "https://liiga.fi/api/v2/standings/?season=2027",
+      "final_url": "https://liiga.fi/api/v2/standings/?season=2027",
+      "status": 200,
+      "bytes": 45280,
+      "sha256": "46a3fe080e179518b34fe6a19960e35dd8d0a3f7c638d9f570ef988ec161d369",
+      "fetched_utc": "2026-10-22T21:01:08Z"
+    },
+    {
+      "id": "nba_com_schedule",
+      "url": "https://www.nba.com/schedule",
+      "final_url": "https://www.nba.com/schedule",
+      "status": 403,
+      "bytes": 373,
+      "sha256": "15888ccb74641581455d19fc1ce86251b604e6ecaae634b85aa7019be2a158c8",
+      "fetched_utc": "2026-10-22T21:01:06Z"
+    },
+    {
+      "id": "nba_com_scores",
+      "url": "https://www.nba.com/scores",
+      "final_url": "https://www.nba.com/scores",
+      "status": 403,
+      "bytes": 371,
+      "sha256": "30f779a76782007a7063f7426794fe07f04a5ec200d76c4ff9246059ca25d4a4",
+      "fetched_utc": "2026-10-22T21:01:06Z"
+    },
+    {
+      "id": "nba_com_standings",
+      "url": "https://www.nba.com/standings",
+      "final_url": "https://www.nba.com/standings",
+      "status": 403,
+      "bytes": 374,
+      "sha256": "bc795fef0b5d540bae50f145994ba183c90eae0e12b4a73f7dfe9727a382d11e",
+      "fetched_utc": "2026-10-22T21:01:07Z"
+    },
+    {
+      "id": "euroleague_games_E2026",
+      "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games",
+      "final_url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games",
+      "status": 200,
+      "bytes": 715390,
+      "sha256": "bf9b12903b10d0cc61334c1aad481defaee16c45ac70e82b3a06f2a750c30590",
+      "fetched_utc": "2026-10-22T21:01:06Z"
+    },
+    {
+      "id": "euroleague_standings_E2026",
+      "url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/standings",
+      "final_url": "https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/standings",
+      "status": 404,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fetched_utc": "2026-10-22T21:01:07Z"
+    },
+    {
+      "id": "eurocup_games_U2026",
+      "url": "https://api-live.euroleague.net/v2/competitions/U/seasons/U2026/games",
+      "final_url": "https://api-live.euroleague.net/v2/competitions/U/seasons/U2026/games",
+      "status": 200,
+      "bytes": 426808,
+      "sha256": "05a491c65a66ce1aab0c0b42443ed54e4e1ed8760d1d76069ee08dcab4ebde0e",
+      "fetched_utc": "2026-10-22T21:01:08Z"
+    },
+    {
+      "id": "mlb_ws_schedule",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-04&hydrate=probablePitcher(note),team,venue,linescore",
+      "final_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-22&endDate=2026-11-04&hydrate=probablePitcher(note),team,venue,linescore",
+      "status": 200,
+      "bytes": 23412,
+      "sha256": "ece04f3a7b6980c8fa9edcc2dcf4ad16eb7672a4622468ef736f98d52ffdcb0b",
+      "fetched_utc": "2026-10-22T21:01:07Z"
+    },
+    {
+      "id": "mlb_standings_2026",
+      "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason",
+      "final_url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason",
+      "status": 200,
+      "bytes": 80986,
+      "sha256": "bd55f101dcd2b4c5ed284fe66da6511e6159b817501bbcb77009af8e10b451db",
+      "fetched_utc": "2026-10-22T21:01:07Z"
+    },
+    {
+      "id": "mlb_hitting_2026",
+      "url": "https://statsapi.mlb.com/api/v1/teams/stats?season=2026&group=hitting&stats=season&sportId=1&gameType=R",
+      "final_url": "https://statsapi.mlb.com/api/v1/teams/stats?season=2026&group=hitting&stats=season&sportId=1&gameType=R",
+      "status": 200,
+      "bytes": 21475,
+      "sha256": "a6f50f2bab7b2b2457c2ef627a9824d73c65266f772cfc282df1187ec8e9c6c4",
+      "fetched_utc": "2026-10-22T21:01:08Z"
+    },
+    {
+      "id": "mlb_pitching_2026",
+      "url": "https://statsapi.mlb.com/api/v1/teams/stats?season=2026&group=pitching&stats=season&sportId=1&gameType=R",
+      "final_url": "https://statsapi.mlb.com/api/v1/teams/stats?season=2026&group=pitching&stats=season&sportId=1&gameType=R",
+      "status": 200,
+      "bytes": 35686,
+      "sha256": "2ba977fd4a4fecb6b55102d7f75f2a6193bc3035f8f7454567322559b44e1d56",
+      "fetched_utc": "2026-10-22T21:01:09Z"
+    },
+    {
+      "id": "wst_participants_p1",
+      "url": "https://participants.snooker.web.gc.wstservices.co.uk/v2/?page.size=100",
+      "final_url": "https://participants.snooker.web.gc.wstservices.co.uk/v2/?page.size=100",
+      "status": 200,
+      "bytes": 78872,
+      "sha256": "84c98b7ff34ef7c58fc2b213458da79d551376e6b117f66e9daf4471928b4b3e",
+      "fetched_utc": "2026-10-22T21:01:08Z"
+    },
+    {
+      "id": "wst_home",
+      "url": "https://www.wst.tv/",
+      "final_url": "https://www.wst.tv/",
+      "status": 200,
+      "bytes": 181155,
+      "sha256": "06a915bd946d927dbed16faac4062fe1e5914371f828165b4d4fa7036e1aa014",
+      "fetched_utc": "2026-10-22T21:01:07Z"
+    },
+    {
+      "id": "wst_nio_page",
+      "url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+      "final_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+      "status": 200,
+      "bytes": 6169,
+      "sha256": "c71a0a02eee93ef0c409bb0750d230b5d77c70cdcf1f516a0d2074c4935faf59",
+      "fetched_utc": "2026-10-22T21:01:08Z"
+    },
+    {
+      "id": "snooker_org_2548",
+      "url": "https://www.snooker.org/res/index.asp?event=2548",
+      "final_url": "https://www.snooker.org/res/index.asp?event=2548",
+      "status": 200,
+      "bytes": 235970,
+      "sha256": "e2df926a128e7c018a570fd7af195211e49f88e22c98eb7cf192ce8e15657e11",
+      "fetched_utc": "2026-10-22T21:01:10Z"
+    },
+    {
+      "id": "pdc_ec_schedule",
+      "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+      "final_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+      "status": 200,
+      "bytes": 1241860,
+      "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+      "fetched_utc": "2026-10-22T21:01:08Z"
+    },
+    {
+      "id": "pdc_oom",
+      "url": "https://www.pdc.tv/order-of-merit/pdc-order-of-merit",
+      "final_url": "https://www.pdc.tv/order-of-merit/pdc-order-of-merit",
+      "status": 200,
+      "bytes": 1241860,
+      "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+      "fetched_utc": "2026-10-22T21:01:09Z"
+    },
+    {
+      "id": "pdc_home",
+      "url": "https://www.pdc.tv/",
+      "final_url": "https://www.pdc.tv/",
+      "status": 200,
+      "bytes": 1241860,
+      "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+      "fetched_utc": "2026-10-22T21:01:10Z"
+    },
+    {
+      "id": "ehfcl_standings",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "final_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "status": 200,
+      "bytes": 209049,
+      "sha256": "dcc04f1185cdc36c6ab077229aa86f9f7093108c2652f85f7dafd53ae5c6a2ae",
+      "fetched_utc": "2026-10-22T21:01:10Z"
+    },
+    {
+      "id": "ehfcl_matches",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/",
+      "final_url": "https://ehfcl.eurohandball.com/men/2026-27/matches/",
+      "status": 200,
+      "bytes": 94588,
+      "sha256": "3da60546ed70c80fd42a44badc9fa06199b7f5c79231e6675fda6b9737280e72",
+      "fetched_utc": "2026-10-22T21:01:11Z"
+    },
+    {
+      "id": "ehfcl_women_matches",
+      "url": "https://ehfcl.eurohandball.com/women/2026-27/matches/",
+      "final_url": "https://ehfcl.eurohandball.com/women/2026-27/matches/",
+      "status": 200,
+      "bytes": 91904,
+      "sha256": "007d5d0fecbc030266d929b00528dc54b364ccbd95397600e2ae28d8015dc325",
+      "fetched_utc": "2026-10-22T21:01:12Z"
+    },
+    {
+      "id": "tophaandbold_herreligaen",
+      "url": "https://tophaandbold.dk/stillinger/herreligaen",
+      "final_url": "https://tophaandbold.dk/stillinger/herreligaen",
+      "status": 200,
+      "bytes": 216179,
+      "sha256": "6a6fdf21fd9b2a2205c6ef7a51ff5ff5f2b719680a0a14325ecec95a21ba718d",
+      "fetched_utc": "2026-10-22T21:01:09Z"
+    },
+    {
+      "id": "hbl_spielplan",
+      "url": "https://www.dkb-handball-bundesliga.de/spielplan",
+      "final_url": "https://dkb-handball-bundesliga.de/",
+      "status": 200,
+      "bytes": 142835,
+      "sha256": "743f2e31e7e20972f3cfcd8f10256a683047f51deb5dedeeec7e511aa85ed005",
+      "fetched_utc": "2026-10-22T21:01:11Z"
+    },
+    {
+      "id": "plusliga_table",
+      "url": "https://plusliga.pl/table/tour/47.html",
+      "final_url": "https://www.tauronliga.pl/table/tour/47/nocookies/1.html",
+      "status": 200,
+      "bytes": 1136300,
+      "sha256": "a8154eb21a2570e77e33e00ff690558099b474210a50104ac063eaadfb643b09",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "legavolley_cal_991",
+      "url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=991",
+      "final_url": "https://www.legavolley.it/calendario/?Anno=2026&IdCampionato=991",
+      "status": 200,
+      "bytes": 150034,
+      "sha256": "da83645e9ebf535670a805498a9ff1146faeea08f37f9079ef94b3460830b31b",
+      "fetched_utc": "2026-10-22T21:01:11Z"
+    },
+    {
+      "id": "legavolley_classifica",
+      "url": "https://www.legavolley.it/classifica/",
+      "final_url": "https://www.legavolley.it/classifica/",
+      "status": 200,
+      "bytes": 156952,
+      "sha256": "560a92fddb351c3a7da19eb124f186fea6aa7ced6ed018df18c3764a9361fd59",
+      "fetched_utc": "2026-10-22T21:01:12Z"
+    },
+    {
+      "id": "cvf_extraliga",
+      "url": "https://www.cvf.cz/extraliga/extraliga-muzi?filteredGroupId=29147",
+      "final_url": "https://www.cvf.cz/extraliga/extraliga-muzi?filteredGroupId=29147",
+      "status": 200,
+      "bytes": 89226,
+      "sha256": "e1bff414269b3cde83c87112a9fc21fdd7d1675f7f211cbd25fa8949b71321bb",
+      "fetched_utc": "2026-10-22T21:01:11Z"
+    },
+    {
+      "id": "urc_table",
+      "url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+      "final_url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+      "status": 200,
+      "bytes": 5682,
+      "sha256": "e6c191d78d5b6cc217ef750deafa5b90e0d4e7beef67d21bdf4ecb15a8673ae5",
+      "fetched_utc": "2026-10-22T21:01:11Z"
+    },
+    {
+      "id": "prem_fixtures",
+      "url": "https://www.premiershiprugby.com/fixtures-results",
+      "final_url": "https://www.premrugby.com/fixtures-results",
+      "status": 200,
+      "bytes": 325428,
+      "sha256": "bc63c2d118bc1918b7078876c4642fba0b9201e3063862a96fce9fc1a6480c0e",
+      "fetched_utc": "2026-10-22T21:01:11Z"
+    },
+    {
+      "id": "prem_standings",
+      "url": "https://www.premiershiprugby.com/standings",
+      "final_url": "https://www.premrugby.com/standings",
+      "status": 200,
+      "bytes": 347741,
+      "sha256": "72d8f32c9985136c0d71a225bfc6e9f375228496d7f5da88072f59e9dbd647f9",
+      "fetched_utc": "2026-10-22T21:01:12Z"
+    },
+    {
+      "id": "top14_cal",
+      "url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "final_url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "status": 200,
+      "bytes": 166788,
+      "sha256": "6ea7680d8e4cd921a1ed352be9187eb7ae450bb366927c75a54572f8f2d8bcbc",
+      "fetched_utc": "2026-10-22T21:01:12Z"
+    },
+    {
+      "id": "prod2_cal",
+      "url": "https://prod2.lnr.fr/calendrier-et-resultats",
+      "final_url": "https://prod2.lnr.fr/calendrier-et-resultats",
+      "status": 200,
+      "bytes": 165545,
+      "sha256": "ef962a6aeecf82257a6ee236935c5f29422332de897d99e6071c1b3902ca57b3",
+      "fetched_utc": "2026-10-22T21:01:12Z"
+    },
+    {
+      "id": "rlwc_draws",
+      "url": "https://www.rlwc2026.com/draws-and-pools",
+      "final_url": "https://www.rlwc2026.com/draws-and-pools",
+      "status": 200,
+      "bytes": 227793,
+      "sha256": "8d5afba71552c5022ceae389df088854fab79f01456f257166031ddb180192d8",
+      "fetched_utc": "2026-10-22T21:01:11Z"
+    },
+    {
+      "id": "rlwc_fixtures",
+      "url": "https://www.rlwc2026.com/fixtures",
+      "final_url": "https://www.rlwc2026.com/fixtures",
+      "status": 200,
+      "bytes": 46149,
+      "sha256": "11e98a6873cc9034689f8d216db6fcdc970bbd069be6d7042b2a7bf895efea8f",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "rlwc_results",
+      "url": "https://www.rlwc2026.com/results",
+      "final_url": "https://www.rlwc2026.com/results",
+      "status": 200,
+      "bytes": 46146,
+      "sha256": "cc02c1b9b3a090c6b598d7bea1f3b5d18d260ed3aa188ee2f108fb2bdef135f4",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "nrl_draw",
+      "url": "https://www.nrl.com/draw/",
+      "final_url": "https://account.nrl.com/authorize?client_id=s7oMt6lSSioEPT6ZccktqxfgbAdeQYPU&response_type=code&scope=openid%20profile%20email&code_challenge=ICNU430sDu3BIJAzrYHyIPnw4nk60cebSiA2n5gopZM&code_challenge_method=S256&state=OpenIdConnect.AuthenticationProperties%3DA7nbiCOPPXEcisdhXaXLXBinZqH7E0czYL7HlnWNaOW-rtonbJyl5foffGW9DS9NeABYBum4vLFCHWEyI3EVAquGJtuG7vsEjfIoHtfIaIG7vIofjh02N-6CLcKYGtsaAEyFlcQQCcCjJJU-n2paA_sbbRgTWEO9bVawG0COmN11aiL3pGCdvcgwEVVDC74KHV5SP0Kb96L8D1M5kj5_KvfTncP9jE1WSSPchLQmSAcEx-pRgr0oTIrbtnRy159kPCDupKsHl69bxWty1ezl9Qf1oaikvBKTkjO1sqwyfUGZLlzdtC1UcymnG5z-VuTQGO58107t6qZHlUCs0xA1Ng&response_mode=form_post&nonce=639282996723994026.M2I1ZjFjNGEtYzUyZi00ZGEzLTgzOWItYzE0NzZiMDM4MDdjOTA1MWU3OTctYjhjMC00OGI2LWIxZDYtZjVjNTU3YmQ1YzRj&redirect_uri=https%3A%2F%2Fwww.nrl.com%2Faccount%2Fsignin-nrl&prompt=none&x-client-SKU=ID_NET472&x-client-ver=6.24.0.0",
+      "status": 200,
+      "bytes": 798,
+      "sha256": "e45231439b0fd2c573d2e0fd4a1bb93e0cc3f9ce0b46aabaee9446c7eeb22c66",
+      "fetched_utc": "2026-10-22T21:01:12Z"
+    },
+    {
+      "id": "icc_odi_rankings",
+      "url": "https://www.icc-cricket.com/rankings/mens/team-rankings/odi",
+      "final_url": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi",
+      "status": 200,
+      "bytes": 455120,
+      "sha256": "b272ba2f04781d4b7c3c4fc9d4ec1834712ddf89c42bc4f4d4810bb4079a25c6",
+      "fetched_utc": "2026-10-22T21:01:12Z"
+    },
+    {
+      "id": "icc_t20i_rankings",
+      "url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i",
+      "final_url": "https://www.icc-cricket.com/rankings/team-rankings/mens/t20i",
+      "status": 200,
+      "bytes": 454821,
+      "sha256": "8bf8f4bb0b48b215710caa5cd103071bbafe3fd4bf42d92eb8b455e169e8a61b",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "nzc_matches",
+      "url": "https://www.nzc.nz/matches",
+      "final_url": "https://www.nzc.nz/matches",
+      "status": 200,
+      "bytes": 209411,
+      "sha256": "25f2f224a5748f8cf317417d7cd2844c3ca3d2a8d1398ac11447ca4ae20db869",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "cricket_au_fixtures",
+      "url": "https://www.cricket.com.au/fixtures",
+      "final_url": "https://www.cricket.com.au/matches",
+      "status": 200,
+      "bytes": 186347,
+      "sha256": "454aae0c96342d3b99869d7ad4bcb584f804fc9a2aa43c1db361f83b46f4b61d",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "ecb_home",
+      "url": "https://www.ecb.co.uk/",
+      "final_url": "https://www.ecb.co.uk/",
+      "status": 200,
+      "bytes": 749006,
+      "sha256": "476c327bb106122573bb185174dd6dc3de8734f15d35b1b2385f80f92cda4cc8",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "bcci_home",
+      "url": "https://www.bcci.tv/",
+      "final_url": "https://www.bcci.tv/",
+      "status": 200,
+      "bytes": 532646,
+      "sha256": "ea6b6d255c913787449428b8090bba3cb563be1856cb8afefa4f5e144ea0ab0a",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "lolesports_schedule",
+      "url": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+      "final_url": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+      "status": 200,
+      "bytes": 44943,
+      "sha256": "c60265e2359fe4c0fa13aef9b4b4f129e006fa1e33f6b40bf7946bce4bd8802f",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "lol_worlds_primer",
+      "url": "https://lolesports.com/en-US/news/worlds-2026-primer",
+      "final_url": "https://lolesports.com/en-US/news/worlds-2026-primer",
+      "status": 200,
+      "bytes": 213310,
+      "sha256": "b0a688360254c8cc72097d0eb58e2fa88c869396c31fad3573ffad987b74f99f",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "bwf_french_open_d3",
+      "url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22",
+      "final_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-22",
+      "status": 200,
+      "bytes": 170139,
+      "sha256": "ee794fdcd0bf83a1ea39e41d45b6e60b39d13c00967f35ec79db050ef469115d",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "bwf_french_open_d4",
+      "url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-23",
+      "final_url": "https://bwfworldtour.bwfbadminton.com/tournament/5272/yonex-french-open-2026/results/2026-10-23",
+      "status": 200,
+      "bytes": 170139,
+      "sha256": "bac467e89475b748afa5318f61ba92f64a10f95c24959fb0efabe0cb32809a50",
+      "fetched_utc": "2026-10-22T21:01:15Z"
+    },
+    {
+      "id": "wtt_events",
+      "url": "https://worldtabletennis.com/events",
+      "final_url": "https://www.worldtabletennis.com/events",
+      "status": 200,
+      "bytes": 6438,
+      "sha256": "03aa69ea46305586844d5c2510de1924b7290714fcbbfd2b58eb14d103d586d2",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "aflw_home",
+      "url": "https://www.afl.com.au/aflw",
+      "final_url": "https://www.afl.com.au/aflw",
+      "status": 200,
+      "bytes": 775900,
+      "sha256": "76704ea1296efd8bab4a58f9945164d5984538f8ee853913e9edc21eefbacc9d",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "aflw_fixture",
+      "url": "https://www.afl.com.au/aflw/fixture",
+      "final_url": "https://www.afl.com.au/aflw/fixture",
+      "status": 200,
+      "bytes": 234863,
+      "sha256": "6616e4cac4f09beafdeaa8a1d4f41a73283d6aea3f15cca86ee723b502199cba",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "pgatour_leaderboard",
+      "url": "https://www.pgatour.com/leaderboard",
+      "final_url": "https://www.pgatour.com/leaderboard",
+      "status": 200,
+      "bytes": 960981,
+      "sha256": "047a6bcdc9f3f80cf6f5567c3937b4ecc537b2a81cc3c076a28ce41da1608226",
+      "fetched_utc": "2026-10-22T21:01:13Z"
+    },
+    {
+      "id": "pgatour_bermuda",
+      "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528",
+      "final_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528",
+      "status": 200,
+      "bytes": 954106,
+      "sha256": "82a21750b41cc0e4a58f110bb15a1b364885054c096243036f01fa27ae91a33d",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "pgatour_stifel",
+      "url": "https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026045",
+      "final_url": "https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026045",
+      "status": 200,
+      "bytes": 299088,
+      "sha256": "8184b3766e256b0eb752fbc816b2fac041290dc6cc8865e0f609f6d98bb40c54",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "dpwt_genesis",
+      "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/tee-times",
+      "final_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/tee-times",
+      "status": 200,
+      "bytes": 335922,
+      "sha256": "803b6f7ef56ae15ebef428176705845128b344d1a444a56bd9bb14dafb60cb62",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "owgr_ranking",
+      "url": "https://www.owgr.com/current-world-ranking",
+      "final_url": "https://www.owgr.com/current-world-ranking",
+      "status": 200,
+      "bytes": 165995,
+      "sha256": "bcae2e4c655e0b92fb9155c0862dfbfe45ac6f698d4689bb0c417fd4c8454a32",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "f1_racing_2026",
+      "url": "https://www.formula1.com/en/racing/2026.html",
+      "final_url": "https://www.formula1.com/en/racing/2026",
+      "status": 200,
+      "bytes": 613486,
+      "sha256": "bf5ae3d9d2e0ba2854df6f88444fe8f62c5100366d97c443d595fd1a931649f0",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "f1_mexico_gp",
+      "url": "https://www.formula1.com/en/racing/2026/mexico",
+      "final_url": "https://www.formula1.com/en/racing/2026/mexico",
+      "status": 200,
+      "bytes": 452255,
+      "sha256": "b08a23c776ba6b256f66cce0226355640661a1c062dc5b82cb339af1fce34272",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "f1_drivers_2026",
+      "url": "https://www.formula1.com/en/results/2026/drivers",
+      "final_url": "https://www.formula1.com/en/results/2026/drivers",
+      "status": 200,
+      "bytes": 409389,
+      "sha256": "6d3b4ba2d3b6a39e94d1143391223384bdc90e7febdf89cda87071ea13268a82",
+      "fetched_utc": "2026-10-22T21:01:15Z"
+    },
+    {
+      "id": "motogp_calendar",
+      "url": "https://www.motogp.com/en/calendar",
+      "final_url": "https://www.motogp.com/en/calendar",
+      "status": 200,
+      "bytes": 298951,
+      "sha256": "1b895294d7124606e574ab7837a4bd1b855a53bab3db13798ed648472d881952",
+      "fetched_utc": "2026-10-22T21:01:14Z"
+    },
+    {
+      "id": "gbgb_results",
+      "url": "https://www.gbgb.org.uk/results/",
+      "final_url": "https://www.gbgb.org.uk/racing/results/",
+      "status": 200,
+      "bytes": 81996,
+      "sha256": "157fc71103377358bf9dd13a47bbbfdb5345dffba72048ac3a192f24229739ae",
+      "fetched_utc": "2026-10-22T21:01:15Z"
+    },
+    {
+      "id": "gbgb_champion_stakes",
+      "url": "https://www.gbgb.org.uk/category-one-glory-beckons-in-coral-100-champion-stakes-final/",
+      "final_url": "https://www.gbgb.org.uk/category-one-glory-beckons-in-coral-100-champion-stakes-final/",
+      "status": 200,
+      "bytes": 88164,
+      "sha256": "f4d013555e05df950013b1dbe88f8a49bd80702037e81622b15e0aed1ed138a0",
+      "fetched_utc": "2026-10-22T21:01:17Z"
+    }
+  ]
+}
