@@ -1,0 +1,36 @@
+name: Board AS Verification Gate (543dca7d)
+
+on:
+  push:
+    branches:
+      - arena/543dca7d-olbg4
+      - main
+    paths:
+      - 'session-543dca7d/**'
+      - 'data/session-543dca7d/**'
+      - 'scripts/session-543dca7d/**'
+      - '.github/workflows/as-543dca7d-verify.yml'
+  pull_request:
+    paths:
+      - 'session-543dca7d/**'
+      - 'data/session-543dca7d/**'
+      - 'scripts/session-543dca7d/**'
+      - '.github/workflows/as-543dca7d-verify.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-board-as:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run Board AS Deterministic Build & Verification Suite
+        run: |
+          python3 scripts/session-543dca7d/re_olbg.py
+          python3 scripts/session-543dca7d/originate.py
+          python3 scripts/session-543dca7d/predictions.py
+          python3 scripts/session-543dca7d/review.py
+          python3 scripts/session-543dca7d/build_site.py
+          python3 scripts/session-543dca7d/verify.py

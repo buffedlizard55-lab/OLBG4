@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OLBG Reverse Engineering — Board AS (OLBG4)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span>BOARD AS</span>15-Sport Origination Desk &amp; Audit (2026-10-23T20:00Z)</a>
+      <nav class="navlinks"><a href="index.html" class="">Executive Summary</a><a href="predictions.html" class="">75 High-Confidence Picks</a><a href="markets.html" class="">Originated Markets (444)</a><a href="olbg-analysis.html" class="active">OLBG Reverse Engineering</a><a href="review.html" class="">Repo Audit (2,252 Rows)</a><a href="flagged.html" class="nav-flag">Flagged for Review</a><a href="methodology.html" class="">Methodology</a><a href="sources.html" class="">Official Sources (SHA-256)</a><a href="../index.html" class="">All Boards Hub</a></nav>
+    </div>
+  </header>
+  <div class="sportstrip">
+    <div class="sportstrip-inner">
+      <strong style="font-size:0.76rem;color:#475569;margin-right:0.25rem;">15 Sports:</strong>
+      <a href="sports/golf.html" class="">Golf</a><a href="sports/volleyball.html" class="">Volleyball</a><a href="sports/rugby-union.html" class="">Rugby Union</a><a href="sports/cricket.html" class="">Cricket</a><a href="sports/snooker.html" class="">Snooker</a><a href="sports/darts.html" class="">Darts</a><a href="sports/baseball.html" class="">Baseball</a><a href="sports/gaelic-sports.html" class="">Gaelic Sports</a><a href="sports/greyhounds.html" class="">Greyhounds</a><a href="sports/tennis.html" class="">Tennis</a><a href="sports/motor-racing.html" class="">Motor Racing</a><a href="sports/handball.html" class="">Handball</a><a href="sports/ice-hockey.html" class="">Ice Hockey</a><a href="sports/basketball.html" class="">Basketball</a><a href="sports/rugby-league.html" class="">Rugby League</a>
+    </div>
+  </div>
+  <main class="container">
+    
+    <section class="hero">
+      <h1>OLBG.com Reverse-Engineering Analysis (Capture <code>20261023T194205Z</code>)</h1>
+      <p>Structural dissection of OLBG's SvelteKit 2 SSR tip architecture across 23 captured live endpoints on <code>2026-10-23T19:42Z</code>, documenting canonical sport IDs, internal microservice endpoints, sub-route client shells, and cache-invalidation lag.</p>
+    </section>
+
+    <div class="callout">
+      <strong>4 Core Engineering Findings:</strong><br>
+      1. <strong>Top-Level Hub SSR vs Sub-Route Shells:</strong> Competition sub-routes such as /betting-tips/Basketball/NBA/USA/4 and /betting-tips/Ice_Hockey/NHL/USA/13 serve 183 KB empty shells (&#x27;No tips found.&#x27;) to non-JS clients because competition filters hydrate via client-side XHR to tipsb.olbg.info, whereas top-level sport hubs (/betting-tips/&lt;Sport&gt;/&lt;ID&gt;) embed full SvelteKit SSR tip arrays.<br>
+      2. <strong>Internal API Topology:</strong> Stack uses SvelteKit 2 SSR + Cloudflare Turnstile + Rackspace CDN (`olbg-shared.scdn1.secure.raxcdn.com`) alongside <code>https://tipsb.olbg.info</code>, <code>https://search.olbg.info/v5/</code>, <code>https://betting.olbg.info</code>, and <code>https://olbgliveapi.olbg.com</code> (with <code>/api/</code> disallowed in <code>robots.txt</code>).<br>
+      3. <strong>38.0% Stale Unexpired Cache Rate:</strong> Out of <strong>213</strong> SSR tip rows across our 15 sports, <strong>81</strong> (38.0%) carried <code>expired:"0"</code> despite starting prior to <code>20:00Z</code>.<br>
+      4. <strong>In-Play Tournament Drop-Off:</strong> Golf (/betting-tips/Golf/5) embeds 0 pre-event SSR rows once Thursday Round 1 tees off because OLBG closes outright tournament tip markets at Round 1 start; live tournaments must be sourced directly from PGA Tour, DP World Tour, and LPGA official leaderboards.
+    </div>
+
+    <section class="section">
+      <div class="section-head"><h2>15-Sport OLBG SSR Hub Audit vs Governing-Body Sources</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Sport</th>
+              <th>OLBG ID</th>
+              <th>SSR Rows</th>
+              <th>Upcoming (&ge;20:00Z)</th>
+              <th>Stale (expired:"0")</th>
+              <th>Distinct Events</th>
+              <th>Market Taxonomy Observed</th>
+              <th>Official Governing Source</th>
+            </tr>
+          </thead>
+          <tbody><tr>
+              <td><a href="sports/golf.html"><strong>Golf</strong></a></td>
+              <td class="mono">5</td>
+              <td class="mono">0</td>
+              <td class="mono"><strong>0</strong></td>
+              <td class="mono">0</td>
+              <td class="mono">0</td>
+              <td>0 SSR rows (in-play / empty)</td>
+              <td><a class="src-link" href="https://www.pgatour.com/leaderboard" target="_blank" rel="noopener">PGA Tour &amp; LPGA Official Leaderboards &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Golf/5" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/volleyball.html"><strong>Volleyball</strong></a></td>
+              <td class="mono">21</td>
+              <td class="mono">22</td>
+              <td class="mono"><strong>22</strong></td>
+              <td class="mono">0</td>
+              <td class="mono">22</td>
+              <td>Set Score, Win Match</td>
+              <td><a class="src-link" href="https://www.legavolley.it/calendario/" target="_blank" rel="noopener">Lega Pallavolo Serie A Official Calendar &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Volleyball/21" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/rugby-union.html"><strong>Rugby Union</strong></a></td>
+              <td class="mono">9</td>
+              <td class="mono">24</td>
+              <td class="mono"><strong>12</strong></td>
+              <td class="mono"><span class="badge badge-flag">12 stale</span></td>
+              <td class="mono">24</td>
+              <td>Handicap, To Win, Total Points, Win Tournament</td>
+              <td><a class="src-link" href="https://top14.lnr.fr/calendrier-et-resultats" target="_blank" rel="noopener">LNR Top 14 &amp; United Rugby Championship &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Rugby_Union/9" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/cricket.html"><strong>Cricket</strong></a></td>
+              <td class="mono">7</td>
+              <td class="mono">13</td>
+              <td class="mono"><strong>13</strong></td>
+              <td class="mono">0</td>
+              <td class="mono">13</td>
+              <td>Outright Winner, Top Team1 Batsman, Win Match</td>
+              <td><a class="src-link" href="https://www.cricket.com.au/matches" target="_blank" rel="noopener">Cricket Australia, BCCI &amp; NZC Official &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Cricket/7" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/snooker.html"><strong>Snooker</strong></a></td>
+              <td class="mono">8</td>
+              <td class="mono">4</td>
+              <td class="mono"><strong>0</strong></td>
+              <td class="mono"><span class="badge badge-flag">4 stale</span></td>
+              <td class="mono">4</td>
+              <td>Win Match</td>
+              <td><a class="src-link" href="https://www.wst.tv/matches/" target="_blank" rel="noopener">World Snooker Tour Official Match Centre &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Snooker/8" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/darts.html"><strong>Darts</strong></a></td>
+              <td class="mono">15</td>
+              <td class="mono">9</td>
+              <td class="mono"><strong>8</strong></td>
+              <td class="mono"><span class="badge badge-flag">1 stale</span></td>
+              <td class="mono">9</td>
+              <td>Win Match 2-way, Win Tournament</td>
+              <td><a class="src-link" href="https://www.pdc.tv/tournaments/calendar" target="_blank" rel="noopener">Professional Darts Corporation Official &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Darts/15" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/baseball.html"><strong>Baseball</strong></a></td>
+              <td class="mono">12</td>
+              <td class="mono">1</td>
+              <td class="mono"><strong>1</strong></td>
+              <td class="mono">0</td>
+              <td class="mono">1</td>
+              <td>Money Line</td>
+              <td><a class="src-link" href="https://www.mlb.com/postseason" target="_blank" rel="noopener">MLB Official StatsAPI &amp; Postseason &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Baseball/12" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/gaelic-sports.html"><strong>Gaelic Sports</strong></a></td>
+              <td class="mono">25 / 26</td>
+              <td class="mono">7</td>
+              <td class="mono"><strong>7</strong></td>
+              <td class="mono">0</td>
+              <td class="mono">7</td>
+              <td>Handicap, Match / Handicap, Win Hurling</td>
+              <td><a class="src-link" href="https://www.gaa.ie/fixtures-results" target="_blank" rel="noopener">GAA, Munster GAA &amp; Cork GAA Official &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Gaelic_Football/25" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/greyhounds.html"><strong>Greyhounds</strong></a></td>
+              <td class="mono">28</td>
+              <td class="mono">18</td>
+              <td class="mono"><strong>13</strong></td>
+              <td class="mono"><span class="badge badge-flag">5 stale</span></td>
+              <td class="mono">18</td>
+              <td>Daily Races</td>
+              <td><a class="src-link" href="https://www.gbgb.org.uk/racing/results/" target="_blank" rel="noopener">GBGB &amp; Greyhound Racing Ireland Official &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Greyhounds/28" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/tennis.html"><strong>Tennis</strong></a></td>
+              <td class="mono">3</td>
+              <td class="mono">21</td>
+              <td class="mono"><strong>5</strong></td>
+              <td class="mono"><span class="badge badge-flag">16 stale</span></td>
+              <td class="mono">21</td>
+              <td>Set Betting, Total Games, Win Match</td>
+              <td><a class="src-link" href="https://www.wtatennis.com/scores" target="_blank" rel="noopener">WTA &amp; ATP Tour Official Live Draws &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/motor-racing.html"><strong>Motor Racing</strong></a></td>
+              <td class="mono">14</td>
+              <td class="mono">1</td>
+              <td class="mono"><strong>1</strong></td>
+              <td class="mono">0</td>
+              <td class="mono">1</td>
+              <td>Win Race</td>
+              <td><a class="src-link" href="https://www.formula1.com/en/racing/2026" target="_blank" rel="noopener">FIA Formula 1 &amp; MotoGP Official Timing &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Motor_Racing/14" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/handball.html"><strong>Handball</strong></a></td>
+              <td class="mono">20</td>
+              <td class="mono">30</td>
+              <td class="mono"><strong>30</strong></td>
+              <td class="mono">0</td>
+              <td class="mono">30</td>
+              <td>Match Handicap, Money Line</td>
+              <td><a class="src-link" href="https://ehfcl.eurohandball.com/men/2026-27/matches/" target="_blank" rel="noopener">DanskHåndbold &amp; EHF Champions League &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Handball/20" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/ice-hockey.html"><strong>Ice Hockey</strong></a></td>
+              <td class="mono">13</td>
+              <td class="mono">38</td>
+              <td class="mono"><strong>2</strong></td>
+              <td class="mono"><span class="badge badge-flag">36 stale</span></td>
+              <td class="mono">38</td>
+              <td>Game Totals, Money Line, Puck Line</td>
+              <td><a class="src-link" href="https://www.nhl.com/schedule" target="_blank" rel="noopener">NHL Official API &amp; Finnish Liiga &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Ice_Hockey/13" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/basketball.html"><strong>Basketball</strong></a></td>
+              <td class="mono">4</td>
+              <td class="mono">22</td>
+              <td class="mono"><strong>15</strong></td>
+              <td class="mono"><span class="badge badge-flag">7 stale</span></td>
+              <td class="mono">22</td>
+              <td>Game Totals, Money Line, Pointspread</td>
+              <td><a class="src-link" href="https://www.nba.com/games" target="_blank" rel="noopener">NBA Official Game Notes &amp; EuroLeague &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Basketball/4" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr><tr>
+              <td><a href="sports/rugby-league.html"><strong>Rugby League</strong></a></td>
+              <td class="mono">10</td>
+              <td class="mono">3</td>
+              <td class="mono"><strong>3</strong></td>
+              <td class="mono">0</td>
+              <td class="mono">3</td>
+              <td>Grand Final Winner, Win Tournament</td>
+              <td><a class="src-link" href="https://www.rlwc2026.com/fixtures" target="_blank" rel="noopener">RLWC 2026 &amp; NRL Official Match Centre &nearr;</a><br><a style="font-size:0.75rem;" href="https://www.olbg.com/betting-tips/Rugby_League/10" target="_blank" rel="noopener">OLBG Hub &nearr;</a></td>
+            </tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Sub-Route Client-Shell Probes (0 SSR Rows)</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Capture ID</th>
+              <th>Sport</th>
+              <th>HTML Payload</th>
+              <th>SSR Rows</th>
+              <th>"No tips found."</th>
+              <th>Architectural Explanation</th>
+              <th>Official Governing Source</th>
+            </tr>
+          </thead>
+          <tbody><tr>
+              <td class="mono">olbg_basketball_nba</td>
+              <td>Basketball</td>
+              <td class="mono">184,168 B</td>
+              <td class="mono">0</td>
+              <td><code>True</code></td>
+              <td>Sub-league route serves 184 KB empty SvelteKit client shell requiring authenticated XHR to <code>tipsb.olbg.info</code>.</td>
+              <td><a class="src-link" href="https://www.nba.com/games" target="_blank" rel="noopener">NBA Official Game Notes &amp; EuroLeague &nearr;</a></td>
+            </tr><tr>
+              <td class="mono">olbg_basketball_el</td>
+              <td>Basketball</td>
+              <td class="mono">183,961 B</td>
+              <td class="mono">0</td>
+              <td><code>True</code></td>
+              <td>Sub-league route serves 184 KB empty SvelteKit client shell requiring authenticated XHR to <code>tipsb.olbg.info</code>.</td>
+              <td><a class="src-link" href="https://www.nba.com/games" target="_blank" rel="noopener">NBA Official Game Notes &amp; EuroLeague &nearr;</a></td>
+            </tr><tr>
+              <td class="mono">olbg_baseball_mlb</td>
+              <td>Tennis</td>
+              <td class="mono">183,947 B</td>
+              <td class="mono">0</td>
+              <td><code>True</code></td>
+              <td>Sub-league route serves 184 KB empty SvelteKit client shell requiring authenticated XHR to <code>tipsb.olbg.info</code>.</td>
+              <td><a class="src-link" href="https://www.wtatennis.com/scores" target="_blank" rel="noopener">WTA &amp; ATP Tour Official Live Draws &nearr;</a></td>
+            </tr><tr>
+              <td class="mono">olbg_ice_hockey_nhl</td>
+              <td>Ice Hockey</td>
+              <td class="mono">183,843 B</td>
+              <td class="mono">0</td>
+              <td><code>True</code></td>
+              <td>Sub-league route serves 184 KB empty SvelteKit client shell requiring authenticated XHR to <code>tipsb.olbg.info</code>.</td>
+              <td><a class="src-link" href="https://www.nhl.com/schedule" target="_blank" rel="noopener">NHL Official API &amp; Finnish Liiga &nearr;</a></td>
+            </tr></tbody>
+        </table>
+      </div>
+    </section>
+    
+  </main>
+  <footer class="footer">
+    Board AS (<code>arena/543dca7d-olbg4</code>) &middot; Capture Bundle <code>20261023T194205Z</code> (125 HTTP-200 governing-body &amp; OLBG artifacts, SHA-256) &middot; Strictly 15 Covered Sports &middot; Zero unconfirmed values inferred.
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
