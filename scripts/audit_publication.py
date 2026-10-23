@@ -110,15 +110,23 @@ def local_links(include_skipped: bool = False):
         if any(p in ('.git', 'node_modules', '.venv') for p in page.relative_to(ROOT).parts):
             continue
         raw = page.read_bytes()
+        # Capture payloads are evidence, not authored website documents. Some historical captures
+        # retain .html while storing gzip bytes; parsing their external navigation as our own
+        # publication produced both a crash and false links. Skipped, never deleted.
+        relative = page.relative_to(ROOT)
+        if relative.parts[0] == 'data' and any(p in ('capture', 'raw') for p in relative.parts[1:-1]):
+            skipped.append({'file': str(relative), 'reason': 'captured payload, not an authored page'})
+            continue
         if raw[:2] == b'\x1f\x8b':
-            skipped.append({'file': str(page.relative_to(ROOT)),
+            skipped.append({'file': str(relative),
                             'reason': 'gzip-compressed captured response, not an HTML page'})
             continue
         try:
             text = raw.decode('utf-8')
         except UnicodeDecodeError:
-            skipped.append({'file': str(page.relative_to(ROOT)),
+            skipped.append({'file': str(relative),
                             'reason': 'not UTF-8 decodable; binary artefact, not an HTML page'})
+            continue
             continue
         parser = Links()
         parser.feed(text)

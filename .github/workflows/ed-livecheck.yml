@@ -1,0 +1,74 @@
+name: Board ED live read-back
+
+# Independent read-back of the published Board ED pages. The interactive sandbox cannot
+# reach *.github.io, so this job fetches the public URLs from a runner and asserts the
+# HTTP status and a content marker for each page. It changes nothing in the repository.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/ed4c358c-olbg4
+    paths:
+      - ".github/workflows/ed-livecheck.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  live-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Fetch the published desk over HTTPS
+        run: |
+          set -uo pipefail
+          BASE="https://buffedlizard55-lab.github.io/OLBG4/session-ed4c358c"
+          REPORT=""
+          fail=0
+          check () {
+            url="$1"; marker="$2"
+            tmp=$(mktemp)
+            # write to a file: piping a very large page into `grep -q` trips SIGPIPE under pipefail
+            code=$(curl -sS --max-time 30 -o "$tmp" -w "%{http_code}" "$url" || echo "000")
+            n=$(wc -c < "$tmp")
+            if [ "$code" = "200" ] && grep -qF -- "$marker" "$tmp"; then
+              REPORT="$REPORT\nOK $code $n $url"
+            else
+              REPORT="$REPORT\nFAIL $code $n $url marker=[$marker]"
+              fail=1
+            fi
+            rm -f "$tmp"
+          }
+          check "$BASE/index.html"        "Executive summary"
+          check "$BASE/picks.html"        "Picks and the"
+          check "$BASE/predictions.html"  "Written predictions"
+          check "$BASE/entries.html"      "All entries"
+          check "$BASE/markets.html"      "Markets originated"
+          check "$BASE/coverage.html"     "Coverage and honest gaps"
+          check "$BASE/sources.html"      "capture manifest"
+          check "$BASE/methodology.html"  "Methodology"
+          check "$BASE/review.html"       "Repository review"
+          check "$BASE/flagged.html"      "Flagged for review"
+          check "$BASE/verification.html" "PASS"
+          check "$BASE/sports/golf.html"           "Golf"
+          check "$BASE/sports/volleyball.html"     "Volleyball"
+          check "$BASE/sports/rugby-union.html"    "Rugby Union"
+          check "$BASE/sports/cricket.html"        "Cricket"
+          check "$BASE/sports/snooker.html"        "Snooker"
+          check "$BASE/sports/darts.html"          "Darts"
+          check "$BASE/sports/baseball.html"       "Baseball"
+          check "$BASE/sports/gaelic-sports.html"  "Gaelic Sports"
+          check "$BASE/sports/greyhounds.html"     "Greyhounds"
+          check "$BASE/sports/tennis.html"         "Tennis"
+          check "$BASE/sports/motor-racing.html"   "Motor Racing"
+          check "$BASE/sports/handball.html"       "Handball"
+          check "$BASE/sports/ice-hockey.html"     "Ice Hockey"
+          check "$BASE/sports/basketball.html"     "Basketball"
+          check "$BASE/sports/rugby-league.html"   "Rugby League"
+          printf '%b\n' "$REPORT" | tail -30
+          if [ "$fail" -ne 0 ]; then
+            echo "::error title=live read-back report::$(printf '%b' "$REPORT" | grep -E 'FAIL' | head -6 | tr '\n' ' ')"
+            echo "live read-back FAILED"; exit 1
+          fi
+          echo "live read-back PASSED"

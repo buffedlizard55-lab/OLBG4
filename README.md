@@ -190,6 +190,7 @@ Two other sessions reached the integration step at the same time and their work 
   pages are kept byte-for-byte as `session-6b8d2d5f/hub-2026-10-21.html` and `hub-flagged-2026-10-21.html`.
 - **Board L — `session-093bfd5e/`** — re-checked all 66 hub rows and downgraded 19 to unverified+flagged.
 - **Board K (second claimant, `arena/082d3c16-olbg4`)** — rebuilt the hub from a frozen snapshot with an evidence
+- **Board AK** — 15-sport desk from today's official feeds: [session-63ad3394/index.html](session-63ad3394/index.html)
   register: it reported 25 of 68 rows CONFIRMED on an official feed, 2 partial and 41 UNVERIFIED, withdrew all 66
   previous prediction texts and published 3. Its pages are preserved under `session-082d3c16/`, its registers under
   `data/board_k/` and its dashboard at `verification.html`.
@@ -521,3 +522,11 @@ Scripts: `scripts/session-47b1b4e2/` — `fix_draft_artefacts.py` (R-F14, idempo
 `check_all.py` (the gate) · plus the pre-merge `remediate.py`, `fix_build_b_flag.py` and `update_site.py`.
 
 Deployed at https://buffedlizard55-lab.github.io/OLBG4/session-47b1b4e2/
+
+## Board ED — 23 October 2026, 19:35Z desk (session `arena/ed4c358c-olbg4`)
+
+A fresh desk built from an official-source capture taken on 23 October 2026 at 19:33Z.
+Dashboard: [`session-ed4c358c/index.html`](session-ed4c358c/index.html) — executive summary, 15 sport
+subpages, all entries, originated markets, picks, 24 written predictions, coverage, sources, methodology,
+repo review, flagged-for-review and verification pages. 333 rows, 222 with our own lines, 654 fair markets,
+24 predictions. Rebuild with `bash scripts/session-ed4c358c/build_all.sh`.

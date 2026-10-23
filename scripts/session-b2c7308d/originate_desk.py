@@ -893,7 +893,8 @@ def main() -> int:
         "schema": "board-ah-desk-1",
         "session": "arena/b2c7308d-olbg4",
         "board": "AH",
-        "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        # Evidence time is deterministic; wall-clock time breaks every PR rebuild.
+        "generated_utc": load_manifest(PRIMARY_STAMP)["finished_utc"],
         "cutoff_utc": CUT_OFF,
         "window": [WINDOW_START, WINDOW_END],
         "capture_stamps": ALL_STAMPS,

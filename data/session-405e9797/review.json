@@ -1,0 +1,111 @@
+{
+ "schema": "board-ar-review/1",
+ "generated_at_utc": "2026-10-23T20:05:00Z",
+ "summary": "Line-by-line pass over the shared board data and this session's own capture set, checked against the official pages each row cites. Twelve findings are recorded. The desk's own numbers survived the check: no duplicate fixtures, every priced row carries a source link, and every High pick has a note of at least 30 words with no internal jargon. The issues below concern the shared master board and official pages that could not be read in this environment.",
+ "checks": [
+  "Every priced row in data/session-405e9797/desk.json was re-read against its cited official page and carries an https link.",
+  "Capture payloads are SHA-256 checked against the run manifest before use (originate.py sha_ok).",
+  "No duplicate (sport, matchup, date) triples in this desk.",
+  "All 40 High picks have a prediction of at least 30 words and none contains the two internal words.",
+  "Root-level HTML links resolve; no broken href targets were found in the repository's top-level pages.",
+  "All fifteen sports in scope are accounted for, including those with no listed event or no readable official feed."
+ ],
+ "findings": [
+  {
+   "id": "AR-REV-01",
+   "area": "Shared master board",
+   "finding": "data/master.json was produced on 2026-10-21, two days before this capture, and still carries that timestamp.",
+   "impact": "Anything built only from the master file is stale against today's OLBG cards.",
+   "status": "Flagged",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "AR-REV-02",
+   "area": "Shared master board",
+   "finding": "16 of 354 master rows sit outside the fifteen-sport brief (Aussie Rules, Badminton, Esports, Table Tennis) and two scope sports are split under variant names (Gaelic Football, Greyhound Racing).",
+   "impact": "Aggregating by sport name under-counts Gaelic Sports and Greyhounds.",
+   "status": "Flagged",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "AR-REV-03",
+   "area": "Shared master board",
+   "finding": "39 master rows have an empty source_url.",
+   "impact": "Those rows cannot be handed to a reviewer for manual checking.",
+   "status": "Flagged",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "AR-REV-04",
+   "area": "Shared master board",
+   "finding": "162 master rows are dated before 2026-10-23, i.e. outside the live window this board publishes.",
+   "impact": "They must not be presented as today's card; this desk builds only from the live capture.",
+   "status": "Flagged",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "AR-REV-05",
+   "area": "Publication audit",
+   "finding": "scripts/audit_publication.py calls read_text() on every *.html it finds (lines 28, 108 and 177), which raises UnicodeDecodeError on gzip-compressed captures stored with an .html name.",
+   "impact": "The repository-wide audit job fails on main and on peer branches; today's Board AR audit run 40012507138 and peer run 0ed96fe7/40013166186 both failed on this.",
+   "status": "Open - owned by the shared tooling",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/scripts/audit_publication.py"
+  },
+  {
+   "id": "AR-REV-06",
+   "area": "Golf",
+   "finding": "The OLBG Golf hub returned no listed event in this capture, so the sport has no match to price despite golf pages being readable (OWGR ranking, PGA leaderboard).",
+   "impact": "Golf contributes zero rows; stated on the coverage page rather than padded.",
+   "status": "Flagged",
+   "source_url": "https://www.olbg.com/betting-tips/Golf"
+  },
+  {
+   "id": "AR-REV-07",
+   "area": "Darts",
+   "finding": "The PDC match-data host does not resolve from the runner (DNS failure) and the ranking service returned metadata without entry lists; only participants are exposed.",
+   "impact": "European Championship ties stay listing-only even though the tournament page renders.",
+   "status": "Flagged",
+   "source_url": "https://www.pdc.tv/order-of-merit/pdc-order-of-merit"
+  },
+  {
+   "id": "AR-REV-08",
+   "area": "Gaelic Sports",
+   "finding": "gaa.ie serves a cookie wall to the headless browser and its fixture grid is embedded in a client-side payload; the Cork final is nevertheless confirmed with venue, time and referee on the official Cork GAA fixture page.",
+   "impact": "Cork ties carry a verified fixture but no official form table, so no price is published.",
+   "status": "Flagged",
+   "source_url": "https://www.corkgaa.ie/fixtures/"
+  },
+  {
+   "id": "AR-REV-09",
+   "area": "Greyhounds",
+   "finding": "The GBGB service publishes results and race times but no racecard or full-field endpoint (racecard/races/meetings all 404).",
+   "impact": "Eleven listed races cannot be priced without a field.",
+   "status": "Flagged",
+   "source_url": "https://www.gbgb.org.uk/results"
+  },
+  {
+   "id": "AR-REV-10",
+   "area": "Rugby Union",
+   "finding": "The URC table page is client-side and returned 5.7 kB of shell bytes; the table used for pricing is transcribed into data/session-405e9797/evidence/urc_table.json against stats.unitedrugby.com.",
+   "impact": "The transcribed values are checkable but not machine-fetched; flag AR-F-RU-01 records it.",
+   "status": "Flagged",
+   "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+  },
+  {
+   "id": "AR-REV-11",
+   "area": "Capture coverage",
+   "finding": "36 of 245 official targets failed in the latest capture (22 HTTP 404, 6 DNS/connection failures, 2 x 403, 2 x 307, 2 x 500, 1 x 401, 1 x 400).",
+   "impact": "Some leagues (KHL, Super League, VBL, ACB results, BBL, CEV, EPCR) have no usable feed today; affected rows are flagged, never guessed.",
+   "status": "Flagged",
+   "source_url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-405e9797/capture"
+  },
+  {
+   "id": "AR-REV-12",
+   "area": "Basketball (NBA)",
+   "finding": "nba.com returned a 294-byte shell to the headless browser for schedule and standings, and its data hosts earlier rejected the runner.",
+   "impact": "NBA games are not published; only EuroLeague and EuroCup carry basketball rows.",
+   "status": "Flagged",
+   "source_url": "https://www.nba.com/standings"
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tennis · OLBG4 Board ED</title><style>
+:root{--bg:#0b1220;--panel:#121b2e;--panel2:#18233a;--ink:#e8eefb;--muted:#93a3c0;--line:#24314d;
+--accent:#4da3ff;--good:#35d07f;--warn:#ffc857;--bad:#ff6b6b;--chip:#1d2b45}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.bar{display:flex;align-items:center;gap:18px;height:60px;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.4px;font-size:16px}
+.brand span{color:var(--accent)}
+nav{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px}
+nav a{color:var(--muted)}nav a.active,nav a:hover{color:var(--ink)}
+main{padding:26px 0 60px}
+h1{font-size:28px;margin:6px 0 6px}h2{font-size:19px;margin:30px 0 10px}h3{font-size:15.5px;margin:20px 0 8px}
+p.lead{color:var(--muted);margin:0 0 18px;max-width:900px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0 6px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.6px}
+.card .v{font-size:26px;font-weight:700;margin-top:4px}
+.card .s{color:var(--muted);font-size:12.5px;margin-top:2px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:4px 0;overflow:auto;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:13.2px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--panel2);color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;position:sticky;top:60px}
+tr:hover td{background:#16203566}
+.chip{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11.5px;font-weight:600;background:var(--chip);border:1px solid var(--line);white-space:nowrap}
+.high{color:var(--good);border-color:#2b6b4b;background:#12351f}
+.medium{color:var(--warn);border-color:#7a6021;background:#31260c}
+.low{color:var(--muted)}
+.off{color:var(--accent)}.olbgc{color:var(--warn)}
+.muted{color:var(--muted)}.small{font-size:12px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.flag{color:var(--warn)}
+input[type=search],select{background:var(--panel2);border:1px solid var(--line);color:var(--ink);padding:8px 10px;border-radius:8px;font-size:13px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.pred{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
+.pred h3{margin:0 0 4px;font-size:16px}
+.pred .meta{color:var(--muted);font-size:12.5px;margin-bottom:8px}
+.pred .txt{max-width:940px}
+.pred .src{margin-top:10px;font-size:12.5px;color:var(--muted)}
+.sel{display:inline-block;background:#12351f;border:1px solid #2b6b4b;color:var(--good);border-radius:8px;padding:2px 9px;font-weight:600;font-size:12.5px}
+.footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}
+.note{border-left:3px solid var(--accent);background:#101a2c;padding:10px 14px;border-radius:6px;margin:12px 0;color:var(--muted)}
+.warnbox{border-left:3px solid var(--warn);background:#241d0c;padding:10px 14px;border-radius:6px;margin:12px 0}
+</style></head><body>
+<header class="top"><div class="wrap">
+<div class="bar"><div class="brand">OLBG4 <span>· Board ED</span></div>
+<nav><a href="../index.html">Overview</a><a href="../picks.html">Picks</a><a href="../predictions.html">Predictions</a><a href="../entries.html">All entries</a><a href="../markets.html">Markets</a><a href="../coverage.html">Coverage</a><a href="../sources.html">Sources</a><a href="../methodology.html">Methodology</a><a href="../review.html">Repo review</a><a href="../flagged.html">Flagged for review</a><a href="../verification.html">Verification</a></nav></div>
+<div class="bar" style="height:auto;padding-bottom:8px"><nav><a href="../sports/golf.html">Golf</a><a href="../sports/volleyball.html">Volleyball</a><a href="../sports/rugby-union.html">Rugby Union</a><a href="../sports/cricket.html">Cricket</a><a href="../sports/snooker.html">Snooker</a><a href="../sports/darts.html">Darts</a><a href="../sports/baseball.html">Baseball</a><a href="../sports/gaelic-sports.html">Gaelic Sports</a><a href="../sports/greyhounds.html">Greyhounds</a><a href="../sports/tennis.html">Tennis</a><a href="../sports/motor-racing.html">Motor Racing</a><a href="../sports/handball.html">Handball</a><a href="../sports/ice-hockey.html">Ice Hockey</a><a href="../sports/basketball.html">Basketball</a><a href="../sports/rugby-league.html">Rugby League</a></nav></div>
+</div></header><main><div class="wrap"><h1>Tennis</h1>
+<p class="lead">6 fixtures in the 2026-10-23 – 2026-11-08 window,
+5 with our own lines. ATP official order of play (protennislive.com)</p>
+<h2>Top five selections</h2>
+<div class="panel"><table><thead><tr><th>Start</th><th>Match</th><th>Selection</th><th>Fair price</th><th>Grade</th><th>Source</th></tr></thead><tbody>
+<tr><td class="mono">2026-10-24 03:00</td><td>Ann Li vs Ashlyn Krueger</td><td>Match Winner: <b>Ann Li</b></td><td class="mono">-272 (73.1%)</td><td><span class="chip high">High</span></td><td><a href="https://api.wtatennis.com/tennis/tournaments/405/2026/matches" target="_blank" rel="noopener">official ↗</a></td></tr><tr><td class="mono">2026-10-24 09:30</td><td>Elena Rybakina vs Diana Shnaider</td><td>Match Winner: <b>Elena Rybakina</b></td><td class="mono">-182 (64.5%)</td><td><span class="chip medium">Medium</span></td><td><a href="https://api.wtatennis.com/tennis/tournaments/2092/2026/matches" target="_blank" rel="noopener">official ↗</a></td></tr><tr><td class="mono">2026-10-24 04:30</td><td>Katie Boulter vs Katerina Siniakova</td><td>Match Winner: <b>Katie Boulter</b></td><td class="mono">-138 (58.1%)</td><td><span class="chip medium">Medium</span></td><td><a href="https://api.wtatennis.com/tennis/tournaments/405/2026/matches" target="_blank" rel="noopener">official ↗</a></td></tr><tr><td class="mono">2026-10-24</td><td>Tommy PAUL (USA) vs Taylor FRITZ (USA)</td><td>: <b>Taylor FRITZ (USA)</b></td><td class="mono">-124 (55.3%)</td><td><span class="chip low">Low</span></td><td><a href="https://www.protennislive.com/posting/2026/496/op.pdf" target="_blank" rel="noopener">official ↗</a></td></tr><tr><td class="mono">2026-10-24 07:00</td><td>Leylah Fernandez vs Marie Bouzkova</td><td>Match Winner: <b>Leylah Fernandez</b></td><td class="mono">+100 (50.0%)</td><td><span class="chip low">Low</span></td><td><a href="https://api.wtatennis.com/tennis/tournaments/2092/2026/matches" target="_blank" rel="noopener">official ↗</a></td></tr>
+</tbody></table></div>
+<h2>All fixtures</h2>
+<div class="panel"><table><thead><tr><th>Start (UTC)</th><th>Competition</th><th>Match</th><th>Venue</th>
+<th>Source</th><th>Our line / pick</th><th>Grade</th><th>Notes</th></tr></thead><tbody>
+<tr><td class="mono">2026-10-24</td><td>Grand Prix Auvergne-Rhone-Alpes</td><td>Tommy PAUL (USA) vs Taylor FRITZ (USA)</td><td></td><td><a href="https://www.protennislive.com/posting/2026/496/op.pdf" target="_blank" rel="noopener">official ↗</a></td><td>: <b>Taylor FRITZ (USA)</b><br><span class="mono">55.3% · -124</span> <span class="chip low">Low</span></td><td><span class="chip low">Low</span></td><td class="small"><span class="flag">⚑ start time not machine-readable in the order-of-play PDF</span> <span class="flag">⚑ seed-based model only: no official per-player form feed captured</span></td></tr><tr><td class="mono">2026-10-24 03:00</td><td>Kinoshita Group Japan Open - Osaka, JPN</td><td>Ann Li vs Ashlyn Krueger</td><td></td><td><a href="https://api.wtatennis.com/tennis/tournaments/405/2026/matches" target="_blank" rel="noopener">official ↗</a></td><td>Match Winner: <b>Ann Li</b><br><span class="mono">73.1% · -272</span> <span class="chip high">High</span></td><td><span class="chip high">High</span></td><td class="small"><span class="flag">⚑ seed-based model only: no official per-player form feed captured</span></td></tr><tr><td class="mono">2026-10-24 04:30</td><td>Kinoshita Group Japan Open - Osaka, JPN</td><td>Katie Boulter vs Katerina Siniakova</td><td></td><td><a href="https://api.wtatennis.com/tennis/tournaments/405/2026/matches" target="_blank" rel="noopener">official ↗</a></td><td>Match Winner: <b>Katie Boulter</b><br><span class="mono">58.1% · -138</span> <span class="chip medium">Medium</span></td><td><span class="chip medium">Medium</span></td><td class="small"><span class="flag">⚑ seed-based model only: no official per-player form feed captured</span></td></tr><tr><td class="mono">2026-10-24 07:00</td><td>BNB Ningbo Open - Ningbo, CHN</td><td>Leylah Fernandez vs Marie Bouzkova</td><td></td><td><a href="https://api.wtatennis.com/tennis/tournaments/2092/2026/matches" target="_blank" rel="noopener">official ↗</a></td><td>Match Winner: <b>Leylah Fernandez</b><br><span class="mono">50.0% · +100</span> <span class="chip low">Low</span></td><td><span class="chip low">Low</span></td><td class="small"><span class="flag">⚑ seed-based model only: no official per-player form feed captured</span></td></tr><tr><td class="mono">2026-10-24 09:30</td><td>BNB Ningbo Open - Ningbo, CHN</td><td>Elena Rybakina vs Diana Shnaider</td><td></td><td><a href="https://api.wtatennis.com/tennis/tournaments/2092/2026/matches" target="_blank" rel="noopener">official ↗</a></td><td>Match Winner: <b>Elena Rybakina</b><br><span class="mono">64.5% · -182</span> <span class="chip medium">Medium</span></td><td><span class="chip medium">Medium</span></td><td class="small"><span class="flag">⚑ seed-based model only: no official per-player form feed captured</span></td></tr><tr><td class="mono">2026-10-24 10:00</td><td>Tennis</td><td>Nikoloz Basilashvili vs Stefanos Tsitsipas</td><td></td><td><a class="olbgc" href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener">OLBG listing ↗</a></td><td><span class="muted">— no own line —</span></td><td><span class="chip low">—</span></td><td class="small"><span class="flag">⚑ own line not originated: no official machine-readable form source captured</span></td></tr>
+</tbody></table></div>
+<h2>Predictions</h2><div class="pred" id="ED-TN-ATP-ptl_496_op-005">
+<h3>Tommy PAUL (USA) vs Taylor FRITZ (USA)</h3>
+<div class="meta">Tennis · Grand Prix Auvergne-Rhone-Alpes · 2026-10-24 UTC ·
+<span class="chip low">Low</span> · 58 words</div>
+<div class="txt">The Lyon order of play for 24 October schedules Taylor Fritz, the second seed, against fourth seed Tommy Paul in an all-American semi-final. Fritz carries the higher seeding and the better protected position in the draw, having been placed second at entry. In a matchup between two seeded compatriots, the selection is Taylor Fritz to win the match.</div>
+<div class="src"><span class="sel">Match Winner: Taylor Fritz</span>
+&nbsp;our fair price -124 (55.3%)
+<br>Facts from: <a href="https://www.protennislive.com/posting/2026/496/op.pdf" target="_blank" rel="noopener">ATP official order of play (protennislive.com)</a></div></div><div class="pred" id="ED-TN-WTA-405-LS002">
+<h3>Ann Li vs Ashlyn Krueger</h3>
+<div class="meta">Tennis · Kinoshita Group Japan Open - Osaka, JPN · 2026-10-24 03:00 UTC ·
+<span class="chip high">High</span> · 59 words</div>
+<div class="txt">Ann Li goes into the Osaka second round as the top seed against an unseeded Ashlyn Krueger, and the seeding gap is the widest on the Osaka card. Li&#x27;s status as number one seed reflects her standing as the highest-ranked player left in the draw, while Krueger came through unseeded. The selection is Ann Li to win the match.</div>
+<div class="src"><span class="sel">Match Winner: Ann Li</span>
+&nbsp;our fair price -272 (73.1%)
+<br>Facts from: <a href="https://api.wtatennis.com/tennis/tournaments/405/2026/matches" target="_blank" rel="noopener">WTA official tournament match feed (api.wtatennis.com)</a> · <a href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener">OLBG listing (market comparison only)</a></div></div><div class="pred" id="ED-TN-WTA-405-LS003">
+<h3>Katie Boulter vs Katerina Siniakova</h3>
+<div class="meta">Tennis · Kinoshita Group Japan Open - Osaka, JPN · 2026-10-24 04:30 UTC ·
+<span class="chip medium">Medium</span> · 58 words</div>
+<div class="txt">Katie Boulter is seeded eighth in Osaka and takes on Katerina Siniakova, who entered the draw unseeded. Seeding in a WTA 250 event is set from the entry list, so Boulter&#x27;s place among the eight protected players gives her the edge in ranking terms going into this second-round meeting. The pick is Katie Boulter to win the match.</div>
+<div class="src"><span class="sel">Match Winner: Katie Boulter</span>
+&nbsp;our fair price -138 (58.1%)
+<br>Facts from: <a href="https://api.wtatennis.com/tennis/tournaments/405/2026/matches" target="_blank" rel="noopener">WTA official tournament match feed (api.wtatennis.com)</a> · <a href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener">OLBG listing (market comparison only)</a></div></div><div class="pred" id="ED-TN-WTA-2092-LS003">
+<h3>Leylah Fernandez vs Marie Bouzkova</h3>
+<div class="meta">Tennis · BNB Ningbo Open - Ningbo, CHN · 2026-10-24 07:00 UTC ·
+<span class="chip low">Low</span> · 61 words</div>
+<div class="txt">Leylah Fernandez meets Marie Bouzkova in the Ningbo second round with neither player seeded, which leaves the entry-list edge neutral and the contest close to even on paper. Fernandez has the higher-ceiling game of the two and the draw offers no seeding protection to either side. The selection is Leylah Fernandez to win the match at a price near even money.</div>
+<div class="src"><span class="sel">Match Winner: Leylah Fernandez</span>
+&nbsp;our fair price +100 (50.0%)
+<br>Facts from: <a href="https://api.wtatennis.com/tennis/tournaments/2092/2026/matches" target="_blank" rel="noopener">WTA official tournament match feed (api.wtatennis.com)</a> · <a href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener">OLBG listing (market comparison only)</a></div></div><div class="pred" id="ED-TN-WTA-2092-LS002">
+<h3>Elena Rybakina vs Diana Shnaider</h3>
+<div class="meta">Tennis · BNB Ningbo Open - Ningbo, CHN · 2026-10-24 09:30 UTC ·
+<span class="chip medium">Medium</span> · 56 words</div>
+<div class="txt">Elena Rybakina is seeded first in Ningbo and meets sixth seed Diana Shnaider in the second round. The five-place seeding gap is significant at WTA 500 level, where the top seed typically faces the strongest draw protection through the early rounds. Rybakina&#x27;s position as the tournament&#x27;s leading seed makes her the selection to win the match.</div>
+<div class="src"><span class="sel">Match Winner: Elena Rybakina</span>
+&nbsp;our fair price -182 (64.5%)
+<br>Facts from: <a href="https://api.wtatennis.com/tennis/tournaments/2092/2026/matches" target="_blank" rel="noopener">WTA official tournament match feed (api.wtatennis.com)</a> · <a href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener">OLBG listing (market comparison only)</a></div></div>
+
+<div class="footer">Desk built 2026-10-23T19:44:49Z from official capture <span class="mono">20261023T194348Z</span>.
+Every row links its source. Values that could not be confirmed from an official page are blank and listed on
+<a href="../flagged.html">Flagged for review</a>. Session <span class="mono">arena/ed4c358c-olbg4</span>.</div>
+</div></main></body></html>
