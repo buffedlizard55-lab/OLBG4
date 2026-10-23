@@ -16,7 +16,7 @@ permissions:
   contents: write
 jobs:
   capture:
-    if: github.event_name != 'pull_request' && inputs.mode != 'live-check'
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'capture'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
