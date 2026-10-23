@@ -1,0 +1,55 @@
+name: Board ED live read-back
+
+# Independent read-back of the published Board ED pages. The interactive sandbox cannot
+# reach *.github.io, so this job fetches the public URLs from a runner and asserts the
+# HTTP status and a content marker for each page. It changes nothing in the repository.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/ed4c358c-olbg4
+    paths:
+      - ".github/workflows/ed-livecheck.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  live-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Fetch the published desk over HTTPS
+        run: |
+          set -uo pipefail
+          BASE="https://buffedlizard55-lab.github.io/OLBG4/session-ed4c358c"
+          fail=0
+          check () {
+            url="$1"; marker="$2"
+            body=$(curl -sS --max-time 30 -w "\n%{http_code}" "$url") || { echo "FAIL fetch $url"; fail=1; return; }
+            code=$(printf '%s' "$body" | tail -n1)
+            html=$(printf '%s' "$body" | sed '$d')
+            if [ "$code" = "200" ] && printf '%s' "$html" | grep -q "$marker"; then
+              echo "OK   $code $url  (marker: $marker)"
+            else
+              echo "FAIL $code $url  (marker: $marker)"; fail=1
+            fi
+          }
+          check "$BASE/index.html"        "Executive summary"
+          check "$BASE/picks.html"        "-250"
+          check "$BASE/predictions.html"  "Written predictions"
+          check "$BASE/entries.html"      "All entries"
+          check "$BASE/markets.html"      "Markets originated"
+          check "$BASE/coverage.html"     "Coverage and honest gaps"
+          check "$BASE/sources.html"      "capture manifest"
+          check "$BASE/methodology.html"  "Methodology"
+          check "$BASE/review.html"       "Repository review"
+          check "$BASE/flagged.html"      "Flagged for review"
+          check "$BASE/verification.html" "PASS"
+          for s in golf volleyball rugby-union cricket snooker darts baseball gaelic-sports greyhounds tennis motor-racing handball ice-hockey basketball rugby-league; do
+            check "$BASE/sports/$s.html" "$s"
+          done
+          echo "---"
+          if [ "$fail" -ne 0 ]; then echo "live read-back FAILED"; exit 1; fi
+          echo "live read-back PASSED"
