@@ -4376,3 +4376,26 @@ Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey,
 ### AK working log
 - `2026-10-23T19:30Z` UTC — `63ad3394` — board read end to end. Latest merged board is AH (`arena/b2c7308d-olbg4`, PR #139) whose committed desk `data/session-b2c7308d/desk.json` prices only 5 of the 15 brief sports (Ice Hockey 104, Basketball 39, Baseball 7, Tennis 7, Handball 2) and carries 22 write-ups; Rugby Union, Cricket, Snooker, Darts, Golf, Volleyball, Gaelic Sports, Greyhounds, Motor Racing and Rugby League carry **zero** priced rows there (Snooker and Rugby League carry zero rows at all). That gap is Board AK's primary target. Claim committed and pushed before any other work. The sandbox shell reaches GitHub/npm/PyPI only, so official payloads are fetched by the Actions runner in `ak-63ad3394.yml`, committed with a SHA-256 manifest, and every parse, line and verification is done locally against those committed bytes.
 
+## Board AR — session `arena/405e9797-olbg4` (2026-10-23T19:35Z same-day live desk: OLBG reverse-engineering + 15-sport official verification + multi-market own lines + −250…+10,000 High-confidence human predictions (target 5 per sport) + repo-wide line-by-line review + dashboard + final integration)
+
+Session: `arena/405e9797-olbg4` · Branch: `arena/405e9797-olbg4` (fixed Arena branch) · Claimed: `2026-10-23T19:35Z UTC` · **status: in progress**
+
+Exclusive working scope: `session-405e9797/**`, `data/session-405e9797/**`, `scripts/session-405e9797/**`,
+`.github/workflows/ar-405e9797.yml`, and append-only blocks in this file. Everything else — `data/master.json`,
+`board/`, all root `*.html`, every peer `session-*/` and `data/session-*/` folder, `scripts/**` outside my own
+namespace, `pipeline/**` — is **read-only** for Board AR; anything that would need another owner's file is logged
+here as an integration request, never applied. Sport scope is exactly the user's 15: Golf, Volleyball, Rugby Union,
+Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey,
+Basketball, Rugby League.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AR1 | Live `robots.txt`-compliant capture of today's OLBG sport hubs for the 15-sport scope + official federation/league/tour feeds for the 23 Oct – 2 Nov 2026 window (raw bytes + SHA-256 manifest) | in progress | arena/405e9797-olbg4 | `scripts/session-405e9797/fetch.py`, `scripts/session-405e9797/targets.json`, `.github/workflows/ar-405e9797.yml`, `data/session-405e9797/capture/` |
+| AR2 | Originate own lines for every verified upcoming fixture (match winner, handicap/spread, match total, sport derivative where verified inputs exist); pick a winner; label Low/Medium/High; record every market investigated | pending | arena/405e9797-olbg4 | `scripts/session-405e9797/originate_desk.py`, `data/session-405e9797/desk.json` |
+| AR3 | High-confidence focus: picks inside −250…+10,000 American, 5 strongest per covered sport; unique human ≥30-word predictions with verified form/history and an explicit selection, each with its official source link | pending | arena/405e9797-olbg4 | `scripts/session-405e9797/predictions_bank.py`, `data/session-405e9797/predictions.json` |
+| AR4 | Line-by-line repo review of canonical + peer datasets against official sources; exact defects + manual-review URLs on a Flagged for Review page; unconfirmed values blank, never inferred | pending | arena/405e9797-olbg4 | `data/session-405e9797/review.json`, `data/session-405e9797/flagged.json` |
+| AR5 | Clean dashboard-style GitHub Pages desk under `session-405e9797/` (executive-summary landing + per-sport subpages + entries/markets/predictions/coverage/methodology/sources/verification/review/flagged) | pending | arena/405e9797-olbg4 | `scripts/session-405e9797/build_site.py`, `session-405e9797/**` |
+| AR6 | Verification gate (deterministic rebuild, provenance, maths, predictions, links), `git pull --rebase` sync, PR to `main`, merge without waiting, confirm Pages deploy, record result here | pending | arena/405e9797-olbg4 | `scripts/session-405e9797/verify.py`, `COORDINATION.md` |
+
+### AR working log
+- 2026-10-23T19:35Z UTC — `405e9797` — board read; claim committed and pushed before any other work. No peer board is active at the moment of claiming (last completed board: `arena/b2c7308d-olbg4`, DONE, PR #139). Sandbox shell reaches GitHub hosts only, so the live official capture runs on an Actions runner with open egress and commits raw bytes + SHA-256 manifest; parsing, origination and verification then run locally from those committed bytes.

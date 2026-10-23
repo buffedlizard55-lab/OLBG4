@@ -1,0 +1,57 @@
+name: Board AR official capture (405e9797)
+
+on:
+  workflow_dispatch:
+    inputs:
+      targets:
+        description: "Target list to capture"
+        required: false
+        default: "scripts/session-405e9797/targets.json"
+  push:
+    branches:
+      - arena/405e9797-olbg4
+    paths:
+      - "scripts/session-405e9797/targets.json"
+      - "scripts/session-405e9797/fetch.py"
+      - ".github/workflows/ar-405e9797.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ar-405e9797-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/405e9797-olbg4
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture live OLBG hubs + official federation feeds with SHA-256 manifest
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-405e9797/fetch.py "${{ inputs.targets || 'scripts/session-405e9797/targets.json' }}" "data/session-405e9797/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+      - name: Commit capture (even partial) to arena/405e9797-olbg4
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-ar-capture[bot]"
+          git config user.email "board-ar-capture@users.noreply.github.com"
+          mkdir -p data/session-405e9797/logs
+          cp /tmp/capture.log "data/session-405e9797/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-405e9797
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board AR (405e9797): official capture ${{ env.STAMP }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/405e9797-olbg4 && git push origin HEAD:arena/405e9797-olbg4 && break
+            sleep 5
+          done
