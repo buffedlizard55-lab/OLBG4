@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Method - OLBG4 Board FX</title>
+<link rel="stylesheet" href="assets.css">
+</head><body>
+<header class="top"><div class="wrap">
+  <div class="brand"><span class="dot"></span> OLBG4 <span class="muted">/ Board FX desk</span></div>
+  <nav><a class="" href="index.html">Overview</a><a class="" href="entries.html">All matches</a><a class="" href="picks.html">Picks</a><a class="" href="predictions.html">Predictions</a><a class="" href="markets.html">Markets</a><a class="" href="coverage.html">Coverage</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged for review</a><a class="" href="sources.html">Sources</a><a class="on" href="methodology.html">Method</a><a class="" href="verification.html">Verification</a></nav>
+</div></header>
+<main class="wrap">
+  <div class="crumb"><a href="../index.html">Repository index</a> / <a href="index.html">Board FX</a></div>
+  <h1>Method</h1>
+  
+  
+<h2>What this desk does</h2>
+<p>It rebuilds the OLBG sport list (15 sports in scope) from OLBG's own sport hubs, then goes to the governing body for every
+fixture, result and table it needs. OLBG supplies taxonomy and the listing link; it never supplies a number that goes into a line.</p>
+<h2>Line origination</h2>
+<ul>
+<li><b>Ice hockey</b> (NHL, Liiga): independent-Poisson goals from the official standings' goals-for and goals-against per game,
+with a 1.06 home factor, then exact win/draw/tie split, puck line and total.</li>
+<li><b>Basketball</b> (EuroLeague, EuroCup): normal point-margin model from points for/against per game in the official game feed,
+with a 1.5-point home court and a 12.5-point standard deviation.</li>
+<li><b>Baseball</b> (MLB): independent-Poisson runs from the official season team rates, with the listed probable pitchers
+recorded as an input where the official schedule publishes them.</li>
+<li><b>Volleyball</b> (SuperLega): point-ratio to set probability, then an exact best-of-five set distribution.</li>
+<li><b>Tennis / snooker</b>: logistic on the official ranking/seeding gap, then the exact best-of-n distribution.</li>
+<li><b>Golf / motor racing</b>: remaining-hole Monte Carlo on the official leaderboard, and a Plackett-Luce on official championship
+points. Both are capped at Medium confidence because a 100-player field or a 20-driver grid cannot be a 70% proposition.</li>
+</ul>
+<p>Every price is 1 / probability with no bookmaker margin, so the two sides of a market sum to 1.000.</p>
+<h2>Calibration and caps</h2>
+<p>Model probabilities are shrunk toward 50% by a documented constant (0.88-0.90 for hockey, 0.80-0.85 for basketball/baseball)
+and clamped to a sport-specific band. Samples below the sport's minimum (10 games for hockey, 4 for basketball, 5 matches for
+volleyball) cap the row at Medium. A pick is <b>High</b> only at p &ge; 0.70.</p>
+<h2>The -250 to +10,000 window</h2>
+<p>At p = 0.70 the fair American price is -233; at -250 it is 0.714. So the brief's two rules overlap only in p &isin; [0.700, 0.714].
+We therefore report, for every pick, whether it is inside the window, and we do not relabel an out-of-window favourite as something
+it is not.</p>
+<h2>Verification</h2>
+<p>Each row keeps the capture id and exact URL it came from. <code>verify.py</code> re-derives every price from its probability,
+re-checks the window, the confidence rule, the prediction length and uniqueness, and that every row's source URL exists in the
+committed manifest. See <a href="verification.html">Verification</a>.</p>
+
+</main>
+<footer class="wrap foot">
+  <p>Board FX - session <code>arena/4502eff5-olbg4</code> - every value traced to an official source captured in
+  <code>data/session-4502eff5/capture/</code>. Own lines only: no bookmaker or OLBG price is used to originate a number.
+  OLBG is used for sport/market taxonomy and listing cross-reference. Unconfirmed values are blank, never inferred.</p>
+</footer>
+</body></html>

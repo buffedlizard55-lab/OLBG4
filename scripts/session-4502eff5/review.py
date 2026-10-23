@@ -179,6 +179,9 @@ def main():
                 if abs(total - 1.0) > 0.002:
                     bad.append((r["id"], k, round(total, 4)))
                 for s in m["selections"]:
+                    if not s.get("fair_prob"):
+                        bad.append((r["id"], k, "zero-probability leg"))
+                        continue
                     exp_dec = round(1 / s["fair_prob"], 2)
                     if abs(exp_dec - s["fair_decimal"]) > 0.02:
                         bad.append((r["id"], k, "decimal", exp_dec, s["fair_decimal"]))

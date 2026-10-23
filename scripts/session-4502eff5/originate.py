@@ -23,7 +23,7 @@ import parse as P  # noqa: E402
 
 WINDOW_START = "2026-10-23T20:00:00Z"
 WINDOW_END = "2026-11-08T23:59:59Z"
-MIN_P, MAX_P = 0.02, 0.98
+MIN_P, MAX_P = 0.005, 0.995
 
 
 # --------------------------------------------------------------------- maths
@@ -142,14 +142,33 @@ def blank_row(**kw):
         "markets": {}, "pick": None, "flags": [], "olbg": None,
     }
     row.update(kw)
+    # readers emit source_* keys; the published row uses official_*
+    if "source_url" in row:
+        row["official_url"] = row.pop("source_url")
+    if "source_name" in row:
+        row["official_source_name"] = row.pop("source_name")
+    if "source_id" in row:
+        row["capture_id"] = row.pop("source_id")
     return row
 
 
 def market(name, line, selections, note=""):
-    return {"market_name": name, "line": line, "note": note,
-            "selections": [{"label": lbl, "fair_prob": round(p, 4), "fair_decimal": dec_from_p(p),
-                            "fair_american": american(dec_from_p(p)), "implied_prob_sum": 1.0}
-                           for lbl, p in selections]}
+    """Price every leg off the same rounded probability the page prints.
+
+    The pair is clamped and renormalised first so extreme model output cannot
+    produce a 300/1 line, then each leg's decimal price is exactly 1/p.
+    """
+    ps = [min(0.95, max(0.05, float(p))) for _, p in selections]
+    if len(ps) == 2:
+        tot = ps[0] + ps[1]
+        ps = [ps[0] / tot, ps[1] / tot]
+    legs = []
+    for (lbl, _), p in zip(selections, ps):
+        p = round(p, 4)
+        dec = round(1.0 / p, 2)
+        legs.append({"label": lbl, "fair_prob": p, "fair_decimal": dec,
+                     "fair_american": american(dec), "implied_prob_sum": 1.0})
+    return {"market_name": name, "line": line, "note": note, "selections": legs}
 
 
 def pick_from(row, mk: str, idx: int, confidence: str, rule: str):
@@ -191,17 +210,17 @@ def build_nhl(cap: P.Capture, rows):
             continue
         a, b = st.get(f["a_code"]), st.get(f["b_code"])
         row = blank_row(**f)
-        row["capture_id"] = row.pop("source_id")
         if not a or not b:
             row["flags"].append("standings row missing for one side - no line originated")
             rows.append(row)
             continue
-        home_att = b["gf_pg"] / max(1e-9, lg / 2)
-        away_att = a["gf_pg"] / max(1e-9, lg / 2)
-        home_def = b["ga_pg"] / max(1e-9, lg / 2)
-        away_def = a["ga_pg"] / max(1e-9, lg / 2)
-        lh = max(0.6, min(6.0, (lg / 2) * home_att * away_def * 1.06))
-        la = max(0.6, min(6.0, (lg / 2) * away_att * home_def * 0.94))
+        # partial pooling: 70% of the club's own rate, 30% league average, against a 10-12 game sample
+        home_att = 0.7 * (b["gf_pg"] / max(1e-9, lg / 2)) + 0.3
+        away_att = 0.7 * (a["gf_pg"] / max(1e-9, lg / 2)) + 0.3
+        home_def = 0.7 * (b["ga_pg"] / max(1e-9, lg / 2)) + 0.3
+        away_def = 0.7 * (a["ga_pg"] / max(1e-9, lg / 2)) + 0.3
+        lh = max(0.8, min(5.2, (lg / 2) * home_att * away_def * 1.06))
+        la = max(0.8, min(5.2, (lg / 2) * away_att * home_def * 0.94))
         g = grid_probs(lh, la)
         p_home = min(0.82, max(0.18, shrink(g["home"] + 0.5 * g["tie"], 0.88)))
         p_away = 1 - p_home
@@ -249,15 +268,18 @@ def build_liiga(cap: P.Capture, rows):
             continue
         a, b = tab.get(f["side_a"]), tab.get(f["side_b"])
         row = blank_row(**f)
-        row["capture_id"] = row.pop("source_id")
         if not a or not b or not a["gp"] or not b["gp"]:
             row["flags"].append("standings row missing - no line originated")
             rows.append(row)
             continue
         a_gf, a_ga = a["gf"] / a["gp"], a["ga"] / a["gp"]
         b_gf, b_ga = b["gf"] / b["gp"], b["ga"] / b["gp"]
-        lh = max(0.6, min(6.0, (lg / 2) * (b_gf / (lg / 2)) * (a_ga / (lg / 2)) * 1.06))
-        la = max(0.6, min(6.0, (lg / 2) * (a_gf / (lg / 2)) * (b_ga / (lg / 2)) * 0.94))
+        b_att = 0.7 * (b_gf / (lg / 2)) + 0.3
+        a_att = 0.7 * (a_gf / (lg / 2)) + 0.3
+        b_def = 0.7 * (b_ga / (lg / 2)) + 0.3
+        a_def = 0.7 * (a_ga / (lg / 2)) + 0.3
+        lh = max(0.8, min(5.2, (lg / 2) * b_att * a_def * 1.06))
+        la = max(0.8, min(5.2, (lg / 2) * a_att * b_def * 0.94))
         g = grid_probs(lh, la)
         p_home = min(0.82, max(0.18, shrink(g["home"] + 0.5 * g["tie"], 0.88)))
         p_away = 1 - p_home
@@ -297,7 +319,6 @@ def build_basketball(cap: P.Capture, rows):
                 continue
             a, b = tab.get(f["side_a"]), tab.get(f["side_b"])
             row = blank_row(**f)
-            row["capture_id"] = row.pop("source_id")
             if not a or not b or a["gp"] < 4 or b["gp"] < 4:
                 row["flags"].append("fewer than 3 completed games for one side - no line originated")
                 rows.append(row)
@@ -347,14 +368,17 @@ def build_mlb(cap: P.Capture, rows):
         a = st.get(f"id:{extra.get('away_id')}") or st.get(f["side_a"])
         b = st.get(f"id:{extra.get('home_id')}") or st.get(f["side_b"])
         row = blank_row(**f)
-        row["capture_id"] = row.pop("source_id")
         extra = row.pop("extra", {})
         if not a or not b:
             row["flags"].append("standings row missing - no line originated")
             rows.append(row)
             continue
-        lh = max(1.5, min(8.0, (lg / 2) * (b["rs_pg"] / (lg / 2)) * (a["ra_pg"] / (lg / 2)) * 1.02))
-        la = max(1.5, min(8.0, (lg / 2) * (a["rs_pg"] / (lg / 2)) * (b["ra_pg"] / (lg / 2)) * 0.98))
+        b_att = 0.75 * (b["rs_pg"] / (lg / 2)) + 0.25
+        a_att = 0.75 * (a["rs_pg"] / (lg / 2)) + 0.25
+        b_def = 0.75 * (b["ra_pg"] / (lg / 2)) + 0.25
+        a_def = 0.75 * (a["ra_pg"] / (lg / 2)) + 0.25
+        lh = max(2.5, min(7.0, (lg / 2) * b_att * a_def * 1.02))
+        la = max(2.5, min(7.0, (lg / 2) * a_att * b_def * 0.98))
         g = grid_probs(lh, la, 22)
         p_home = min(0.75, max(0.25, shrink(g["home"], 0.85)))
         p_away = 1 - p_home
@@ -393,7 +417,6 @@ def _volley_rows(rows, fixtures, table, comp_name, src_note, cap_conf="Medium"):
             continue
         a, b = table.get(f["side_a"]), table.get(f["side_b"])
         row = blank_row(**f)
-        row["capture_id"] = row.pop("source_id")
         if not a or not b or not a.get("pw") or not b.get("pw"):
             row["flags"].append("published table row unavailable - no line originated")
             rows.append(row)
@@ -469,7 +492,6 @@ def build_tennis(cap: P.Capture, rows):
     for tid in ("wta_2092", "wta_405", "wta_1023", "wta_1056"):
         for f in P.read_wta(cap, tid):
             row = blank_row(**f)
-            row["capture_id"] = row.pop("source_id")
             ra = ranks.get(f["side_a"].lower())
             rb = ranks.get(f["side_b"].lower())
             row["evidence"] = {"rank_a": ra, "rank_b": rb, "draw": f["extra"].get("draw")}
@@ -490,40 +512,124 @@ def build_tennis(cap: P.Capture, rows):
 
 
 # ---------------------------------------------------------------------- snooker
+def _snooker_row(rows, f, r1, r2, bo, source_note):
+    row = blank_row(**f)
+    p_a = 1 / (1 + 10 ** ((r1 - r2) / 220.0))
+    p_a = min(0.93, max(0.07, p_a))
+    wins = sum(math.comb(bo, k) * p_a ** k * (1 - p_a) ** (bo - k) for k in range(bo // 2 + 1, bo + 1))
+    row["evidence"] = {"world_rank_a": r1, "world_rank_b": r2, "best_of": bo,
+                       "round": f.get("extra", {}).get("round"),
+                       "rank_source": "WST official world ranking list",
+                       "cross_check": source_note}
+    row["form"] = {f["side_a"]: f"world rank {r1}", f["side_b"]: f"world rank {r2}"}
+    row["sample"] = f"best of {bo} frames; official two-year world ranking"
+    flag_p = p_a
+    margins = {}
+    for k in range(bo // 2 + 1, bo + 1):
+        margins[k - (bo - k)] = margins.get(k - (bo - k), 0) + math.comb(bo, k) * p_a ** k * (1 - p_a) ** (bo - k)
+    row["markets"] = {
+        "match_winner": market("Match Winner", None, [(f"{f['side_a']}", p_a), (f"{f['side_b']}", 1 - p_a)]),
+        "handicap": market("Frame Handicap", -2.5, [
+            (f"{f['side_a']} -2.5", sum(v for k, v in margins.items() if k >= 3)),
+            (f"{f['side_b']} +2.5", sum(v for k, v in margins.items() if k < 3))]),
+    }
+    row["flags"].append("total frames not modelled - no official frame-tempo input captured")
+    row["model"] = {"name": "frame Bernoulli from WST world-ranking gap, exact best-of-n",
+                    "p_frame": round(p_a, 4), "best_of": bo}
+    pick_from(row, "match_winner", 0 if p_a >= 0.5 else 1, conf(max(p_a, 1 - p_a), "High"),
+              "p>=70% High; ranking-only model, sample = official ranking list")
+    rows.append(row)
+
+
 def build_snooker(cap: P.Capture, rows):
-    fx = P.read_snooker_org(cap)
-    for f in fx:
-        row = blank_row(**f)
-        row["capture_id"] = row.pop("source_id")
-        ra = re.search(r"\[(\d+)\]", f["side_a"])
-        rb = re.search(r"\[(\d+)\]", f["side_b"])
-        if not ra or not rb:
-            row["flags"].append("world-ranking seed missing - no line originated")
+    wst, _ = P.read_wst(cap) if hasattr(P, "read_wst") else ([], {})
+    seen = set()
+    for f in wst:
+        if not in_window(f["start_utc"]):
+            continue
+        r1, r2 = f["extra"].get("rank_a"), f["extra"].get("rank_b")
+        if not r1 or not r2:
+            row = blank_row(**f)
+            row["flags"].append("one player has no official world-ranking position - no line originated")
             rows.append(row)
             continue
-        r1, r2 = int(ra.group(1)), int(rb.group(1))
-        p_frame = 1 / (1 + 10 ** ((r2 - r1) / 55.0))
-        bo = int(f["extra"].get("best_of") or 11)
-        p_a = sum(math.comb(bo, k) * p_frame ** k * (1 - p_frame) ** (bo - k)
-                  for k in range(bo // 2 + 1, bo + 1))
-        row["evidence"] = {"seed_a": r1, "seed_b": r2, "best_of": bo, "round": f["extra"].get("round")}
-        row["form"] = {"away": f"world rank {r2}", "home": f"world rank {r1}"}
-        row["sample"] = f"best of {bo}"
-        # handicap in frames: -2.5 for favourite (approx: P(win by 3+))
-        margins = {}
-        for k in range(bo // 2 + 1, bo + 1):
-            margins[k - (bo - k)] = margins.get(k - (bo - k), 0) + math.comb(bo, k) * p_a ** k * (1 - p_a) ** (bo - k)
+        _snooker_row(rows, f, int(r1), int(r2), int(f["extra"].get("best_of") or 7),
+                     "WST match feed and WST ranking list read in the same capture")
+        seen.add((f["side_a"], f["side_b"]))
+    if not wst:
+        for f in P.read_snooker_org(cap):
+            ra = re.search(r"\[(\d+)\]", f["side_a"])
+            rb = re.search(r"\[(\d+)\]", f["side_b"])
+            if not ra or not rb:
+                continue
+            _snooker_row(rows, f, int(ra.group(1)), int(rb.group(1)), int(f["extra"].get("best_of") or 11),
+                         "snooker.org event page (seed numbers)")
+
+
+# ------------------------------------------------------------------ rugby league
+def build_rugby_league(cap: P.Capture, rows):
+    fx = P.read_rlwc(cap)
+    if not fx:
+        return
+    played = [f for f in fx if f["extra"].get("state") == "Final"
+              and f["extra"].get("home_score") is not None and f["extra"].get("away_score") is not None]
+    stats = {}
+    for f in played:
+        h, a = f["side_b"], f["side_a"]
+        hs, as_ = f["extra"]["home_score"], f["extra"]["away_score"]
+        for team, pf, pa in ((h, hs, as_), (a, as_, hs)):
+            t = stats.setdefault(team, {"gp": 0, "pf": 0, "pa": 0})
+            t["gp"] += 1
+            t["pf"] += pf
+            t["pa"] += pa
+    if not stats:
+        return
+    lg = sum(t["pf"] for t in stats.values()) / max(1, sum(t["gp"] for t in stats.values()))
+    for f in fx:
+        if not in_window(f["start_utc"]):
+            continue
+        row = blank_row(**f)
+        a, b = stats.get(f["side_a"]), stats.get(f["side_b"])
+        if not a or not b:
+            row["flags"].append("no completed tournament match for one side - no line originated")
+            rows.append(row)
+            continue
+        # shrink each side's tournament rate 40% toward the tournament mean to counter a 1-2 game sample
+        a_pf = 0.35 * (a["pf"] / a["gp"]) + 0.65 * lg
+        a_pa = 0.35 * (a["pa"] / a["gp"]) + 0.65 * lg
+        b_pf = 0.35 * (b["pf"] / b["gp"]) + 0.65 * lg
+        b_pa = 0.35 * (b["pa"] / b["gp"]) + 0.65 * lg
+        lh = max(4.0, min(48.0, (b_pf * a_pa / lg) * 1.02))
+        la = max(4.0, min(48.0, (a_pf * b_pa / lg) * 0.98))
+        margin_mean = lh - la
+        sd = 20.0
+        p_home = min(0.95, max(0.05, shrink(norm_cdf(margin_mean / sd), 0.85)))
+        p_away = 1 - p_home
+        line = round(lh + la)
+        total_line = line + 0.5
+        over = 1 - norm_cdf(((total_line) - (lh + la)) / (sd * 1.25))
+        row["evidence"] = {"away_pf_pg": round(a_pf, 2), "away_pa_pg": round(a_pa, 2),
+                           "home_pf_pg": round(b_pf, 2), "home_pa_pg": round(b_pa, 2),
+                           "expected_away": round(la, 1), "expected_home": round(lh, 1),
+                           "completed_matches_used": len(played), "group": f["extra"].get("group")}
+        row["form"] = {"away": f"{a_pf:.0f} pts for / {a_pa:.0f} against per match ({a['gp']} played)",
+                       "home": f"{b_pf:.0f} pts for / {b_pa:.0f} against per match ({b['gp']} played)"}
+        row["sample"] = f"{len(played)} completed tournament matches in total"
+        spread = -round(abs(margin_mean)) - 0.5 if margin_mean > 0 else round(abs(margin_mean)) + 0.5
         row["markets"] = {
-            "match_winner": market("Match Winner", None, [(f"{f['side_a']}", p_a), (f"{f['side_b']}", 1 - p_a)]),
-            "handicap": market("Frame Handicap", -2.5, [
-                (f"{f['side_a']} -2.5", sum(v for k, v in margins.items() if k >= 3)),
-                (f"{f['side_b']} +2.5", sum(v for k, v in margins.items() if k < 3))]),
+            "match_winner": market("Match Winner (incl. golden point)", None, [
+                (f"{f['side_b']} (home)", p_home), (f"{f['side_a']} (away)", p_away)]),
+            "handicap": market("Points Handicap", spread, [
+                (f"{f['side_b']} {spread:+.1f}", norm_cdf((margin_mean - spread) / sd)),
+                (f"{f['side_a']} {-spread:+.1f}", 1 - norm_cdf((margin_mean - spread) / sd))]),
+            "total": market(f"Total Points {total_line}", total_line, [
+                (f"Under {total_line}", 1 - over), (f"Over {total_line}", over)]),
         }
-        row["flags"].append("total frames not modelled - no official frame-tempo input captured")
-        row["model"] = {"name": "frame Bernoulli from world-ranking gap, exact best-of-n",
-                        "p_frame": round(p_frame, 4), "best_of": bo}
-        pick_from(row, "match_winner", 0 if p_a >= 0.5 else 1, conf(max(p_a, 1 - p_a), "Medium"),
-                  "ranking-only model capped at Medium")
+        row["model"] = {"name": "independent Poisson points from tournament scoring rates",
+                        "home_exp": round(lh, 1), "away_exp": round(la, 1)}
+        row["flags"].append("one-to-two match sample per side: confidence capped at Medium")
+        pick_from(row, "match_winner", 0 if p_home >= p_away else 1, conf(max(p_home, p_away), "Medium"),
+                  "p>=70% High; <3 tournament matches per side capped Medium")
         rows.append(row)
 
 
@@ -618,7 +724,6 @@ def build_cricket(cap: P.Capture, rows):
         if not in_window(f["start_utc"]):
             continue
         row = blank_row(**f)
-        row["capture_id"] = row.pop("source_id")
         row["flags"].append("no official team-strength feed captured for this competition - no line originated")
         rows.append(row)
 
@@ -633,7 +738,6 @@ def build_gaelic(cap: P.Capture, rows):
             continue
         seen.add(f["id"])
         row = blank_row(**f)
-        row["capture_id"] = row.pop("source_id")
         row["flags"].append("fixture published without a verified form table - no line originated")
         rows.append(row)
 
@@ -692,6 +796,7 @@ def build(cap_dir: str):
     build_snooker(cap, rows)
     build_golf(cap, rows)
     build_motorsport(cap, rows)
+    build_rugby_league(cap, rows)
     build_cricket(cap, rows)
     build_gaelic(cap, rows)
     build_greyhounds(cap, rows)
@@ -701,6 +806,8 @@ def build(cap_dir: str):
     covered = {(r["sport"]) for r in rows}
     for ev in P.read_olbg(cap):
         if ev["sport"] in ("Ice Hockey", "Basketball", "Baseball", "Tennis", "Snooker"):
+            continue
+        if not in_window(ev["start_utc"] or ""):
             continue
         rows.append(blank_row(
             id="fx_olbg_" + (ev["event_id"] or re.sub(r"\W+", "_", ev["event"])[:40]),
@@ -731,7 +838,14 @@ def main():
     cap_dir = sys.argv[1]
     out_path = sys.argv[2]
     cap, rows = build(cap_dir)
+    # OLBG market taxonomy observed on the hubs (verbatim market_alias values)
+    taxonomy = {}
+    for ev in P.read_olbg(cap):
+        for t in ev["tips"]:
+            taxonomy.setdefault(ev["sport"], {}).setdefault(t["market"], 0)
+            taxonomy[ev["sport"]][t["market"]] += 1
     doc = {
+        "olbg_market_taxonomy": taxonomy,
         "schema": "fx-desk-1",
         "session": "arena/4502eff5-olbg4",
         "board": "FX",

@@ -900,3 +900,98 @@ def read_gbgb(cap: Capture, tid: str = "gbgb_results_api"):
         return []
     data = cap.json(tid)
     return data.get("items", [])
+
+
+# ------------------------------------------------------------------ WST snooker
+def read_wst(cap: Capture):
+    """Official World Snooker Tour match API + official world ranking positions."""
+    if not cap.exists("wst_matches_api"):
+        return [], {}
+    ranks = {}
+    if cap.exists("wst_rankings_api"):
+        for block in cap.json("wst_rankings_api").get("data", []):
+            a = block.get("attributes", {})
+            if a.get("rankingType") not in ("livePrizeMoney", "prizeMoney"):
+                continue
+            for pos in a.get("positions", []):
+                pid = pos.get("playerID")
+                if pid and pid not in ranks:
+                    ranks[pid] = pos.get("position")
+    out = []
+    for m in cap.json("wst_matches_api").get("data", []):
+        a = m.get("attributes", {})
+        name = a.get("name", "")
+        if not name or "Winner of" in name or "TBD" in name:
+            continue
+        if a.get("status") not in ("Scheduled", "Live", "In Progress"):
+            continue
+        if a.get("homePlayerScore") or a.get("awayPlayerScore"):
+            continue
+        parts = [p.strip() for p in re.split(r"\s+vs\s+", name)]
+        if len(parts) != 2:
+            continue
+        start = a.get("startDateTime", "")
+        start_utc = ""
+        if start:
+            try:
+                from datetime import datetime as _dt
+                from zoneinfo import ZoneInfo
+                local = _dt.strptime(start, "%Y-%m-%d %H:%M:%S").replace(tzinfo=ZoneInfo("Europe/London"))
+                start_utc = local.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            except Exception:  # noqa: BLE001
+                start_utc = ""
+        out.append(
+            {
+                "id": "fx_wst_" + m.get("id", "")[:18],
+                "sport": "Snooker",
+                "sport_slug": "snooker",
+                "competition": (a.get("tournament") or {}).get("name", "World Snooker Tour"),
+                "side_a": parts[1],
+                "side_b": parts[0],
+                "start_utc": start_utc,
+                "venue": "",
+                "source_id": "wst_matches_api",
+                "source_url": cap.url("wst_matches_api"),
+                "source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
+                "extra": {"round": a.get("round", ""), "best_of": a.get("numberOfFrames"),
+                          "rank_a": ranks.get(a.get("awayPlayerID")), "rank_b": ranks.get(a.get("homePlayerID")),
+                          "local_uk": start, "match_id": m.get("id")},
+            }
+        )
+    return out, ranks
+
+
+# ------------------------------------------------------------------ rugby league
+def read_rlwc(cap: Capture):
+    if not cap.exists("rlwc_api_fixtures"):
+        return []
+    data = cap.json("rlwc_api_fixtures").get("result", {})
+    out = []
+    for rnd in data.get("roundFixtures", []):
+        for g in rnd.get("gameFixtures", []):
+            teams = g.get("teams") or []
+            if len(teams) != 2:
+                continue
+            home = next((t for t in teams if t.get("isHomeTeam")), teams[0])
+            away = next((t for t in teams if t is not home), teams[1])
+            out.append(
+                {
+                    "id": f"fx_rlwc_{g.get('gameId')}",
+                    "sport": "Rugby League",
+                    "sport_slug": "rugby-league",
+                    "competition": f"Rugby League World Cup 2026 - {rnd.get('roundName','')}".strip(" -"),
+                    "side_a": away.get("teamName", ""),
+                    "side_b": home.get("teamName", ""),
+                    "start_utc": _utc(g.get("startTimeUTC", "")),
+                    "venue": ", ".join(x for x in (g.get("venueName", ""), g.get("city", "")) if x),
+                    "source_id": "rlwc_api_fixtures",
+                    "source_url": cap.url("rlwc_api_fixtures"),
+                    "source_name": "RLWC 2026 official fixtures API (rlwc2026.com)",
+                    "extra": {"round": rnd.get("roundName", ""), "group": g.get("groupName", ""),
+                              "state": g.get("gameStateName", ""),
+                              "home_score": home.get("teamFinalScore"),
+                              "away_score": away.get("teamFinalScore"),
+                              "line": g.get("teamLineAmount")},
+                }
+            )
+    return out

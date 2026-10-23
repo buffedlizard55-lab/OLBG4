@@ -1,0 +1,216 @@
+{
+ "capture": "20261023T213607Z",
+ "findings": [
+  {
+   "dataset": "data/master.json",
+   "finding": "Rows publish win/handicap/total/pick values with no source URL at all.",
+   "id": "FX4-M01",
+   "manual_url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+   "row": "39 of 354 rows",
+   "severity": "high",
+   "verification": "Counted every row whose source_url is empty."
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "Rows are published from builds whose own record says build_verified = false.",
+   "id": "FX4-M02",
+   "manual_url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+   "row": "67 rows",
+   "severity": "high",
+   "verification": "Flag build_verified is false on the row itself."
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "Rows carry dates before the capture day, so they are results or expired fixtures, not upcoming matches.",
+   "id": "FX4-M03",
+   "manual_url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+   "row": "162 rows",
+   "severity": "medium",
+   "verification": "Compared each row date with 2026-10-23 (this session's capture date)."
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "Predictions under 30 words or containing internal vocabulary (model/verified) that the brief forbids in published text.",
+   "id": "FX4-M04",
+   "manual_url": "https://buffedlizard55-lab.github.io/OLBG4/board/",
+   "row": "49 predictions",
+   "severity": "medium",
+   "verification": "Token counts and regex scan of every non-empty prediction; first three: [('Basketball', 'Brooklyn Nets', 'Charlotte Hornets', 'banned-word'), ('Handball', 'HC Zagreb', 'Paris Saint-Germain', 'banned-word'), ('Handball', 'RK Partizan AdmiralBet', 'FC Porto', 'banned-word')]"
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "For rows whose pairing does appear on the official schedule, the published date differs from the official date.",
+   "id": "FX4-M06",
+   "manual_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "row": "20 of 161 matched rows",
+   "severity": "high",
+   "verification": "Pairing matched on normalised club names against the captured NHL/MLB/EuroLeague feeds; date compared day-level. Examples: ['Crvena Zvezda Belgrade v Anadolu Efes Istanbul (2026-10-01)', 'Boston Celtics v Detroit Pistons (2026-10-20)', 'Oklahoma City Thunder v San Antonio Spurs (2026-10-20)']"
+  },
+  {
+   "dataset": "data/master.json",
+   "finding": "Fixtures could not be found on the official schedule for that pairing inside the captured window, so they are unverified.",
+   "id": "FX4-M07",
+   "manual_url": "https://www.nhl.com/schedule",
+   "row": "101 of 161 rows",
+   "severity": "medium",
+   "verification": "Normalised home/away pairing search in the captured official feeds. Examples: ['Crvena Zvezda Belgrade v Anadolu Efes Istanbul (2026-10-01)', 'Boston Celtics v Detroit Pistons (2026-10-20)', 'Oklahoma City Thunder v San Antonio Spurs (2026-10-20)']"
+  },
+  {
+   "dataset": "data/session-19b8e377/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "91 of 91 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-2722b692/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "256 of 256 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-2c05e0b2/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "343 of 343 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-3a6388d2/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "184 of 184 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-405e9797/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "160 of 340 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-4a73430b/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "164 of 164 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-543dca7d/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "112 of 112 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-63ad3394/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "171 of 171 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-7cfa69e5/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "121 of 121 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-80bc6293/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "264 of 264 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-8cbd0cb9/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "150 of 152 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-9359e596/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "17 of 280 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-c4fda15e/desk.json",
+   "finding": "Peer desk rows without an official source URL.",
+   "id": "FX4-P01",
+   "manual_url": "",
+   "row": "138 of 138 rows",
+   "severity": "medium",
+   "verification": "Counted rows whose official_url is empty."
+  },
+  {
+   "dataset": "data/session-*/desk.json",
+   "finding": "Aggregate state of the peer desks at review time.",
+   "id": "FX4-P02",
+   "manual_url": "",
+   "row": "26 desks / 5697 rows",
+   "severity": "info",
+   "verification": "2171 rows without a source URL; 1360 rows with neither a pick nor markets."
+  },
+  {
+   "dataset": "data/session-4502eff5/desk.json",
+   "finding": "Own-line probability pairs do not sum to 1 or the decimal price is not 1/p.",
+   "id": "FX4-O01",
+   "manual_url": "",
+   "row": "36 market legs",
+   "severity": "high",
+   "verification": "Recomputed both quantities; examples [('fx_el_games_E2026_92', 'handicap', 'decimal', 38.46, 38.44), ('fx_el_games_E2026_90', 'handicap', 'decimal', 27.17, 27.14), ('fx_el_games_E2026_76', 'handicap', 'decimal', 95.24, 50.0)]"
+  }
+ ],
+ "flags": [
+  {
+   "id": "FX4-F01",
+   "impact": "A reader cannot re-check these rows; they should not be treated as verified.",
+   "issue": "39 rows without a source_url",
+   "row": "data/master.json",
+   "source_url": "",
+   "sport": "all"
+  }
+ ],
+ "schema": "fx-review-1",
+ "session": "arena/4502eff5-olbg4",
+ "summary": {
+  "findings": 21,
+  "flags": 1,
+  "master_rows": 354,
+  "matchups_checked": 161,
+  "matchups_date_mismatch": 20,
+  "matchups_unverified": 101,
+  "peer_files": 26,
+  "peer_rows": 5697
+ }
+}

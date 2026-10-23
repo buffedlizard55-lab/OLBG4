@@ -36,22 +36,22 @@ def load(name, default):
     return default
 
 
-def page(title, body, active="", subtitle=""):
+def page(title, body, active="", subtitle="", rel=""):
     nav = "".join(
-        f'<a class="{"on" if href == active else ""}" href="{href}">{esc(label)}</a>' for href, label in NAV
+        f'<a class="{"on" if href == active else ""}" href="{rel}{href}">{esc(label)}</a>' for href, label in NAV
     )
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} - OLBG4 Board FX</title>
-<link rel="stylesheet" href="assets.css">
+<link rel="stylesheet" href="{rel}assets.css">
 </head><body>
 <header class="top"><div class="wrap">
   <div class="brand"><span class="dot"></span> OLBG4 <span class="muted">/ Board FX desk</span></div>
   <nav>{nav}</nav>
 </div></header>
 <main class="wrap">
-  <div class="crumb"><a href="../index.html">Repository index</a> / <a href="index.html">Board FX</a></div>
+  <div class="crumb"><a href="{rel}../index.html">Repository index</a> / <a href="{rel}index.html">Board FX</a></div>
   <h1>{esc(title)}</h1>
   {f'<p class="sub">{subtitle}</p>' if subtitle else ''}
   {body}
@@ -179,6 +179,16 @@ def build():
             conf_tag(p["confidence"]), esc(r["official_source_name"]),
             f'<a href="{esc(r["official_url"])}">source</a>',
         ])
+    window_sorted = sorted([r for r in priced if r["pick"]["in_window"]], key=lambda r: -r["pick"]["fair_prob"])[:10]
+    window_rows = []
+    for r in window_sorted:
+        p = r["pick"]
+        window_rows.append([
+            esc(r["sport"]), f'{esc(r["side_a"])} @ {esc(r["side_b"])}', esc((r["start_utc"] or "")[:16].replace("T", " ")),
+            f'{esc(p["selection"])}<br><span class="muted">{esc(p["market"])}</span>',
+            money(p["fair_american"]), f'{p["fair_prob"]:.3f}', conf_tag(p["confidence"]),
+            f'<a href="{esc(r["official_url"])}">source</a>',
+        ])
     cover_rows = []
     for sport, s in summary.items():
         cover_rows.append([
@@ -201,6 +211,10 @@ The brief's -250 to +10,000 window is shown separately for every pick: at 70% th
 of probabilities (roughly 70.0-71.4%) can satisfy both rules at once. We publish every High pick, and say plainly which ones sit
 outside the price window.</p>
 {table(["Sport", "Match", "Start (UTC)", "Selection", "Fair price", "Prob.", "Confidence", "Official source", "Link"], top_rows)}
+<h2>Best picks inside the -250 to +10,000 window</h2>
+<p class="sub">The brief asks us to concentrate on this band. Every pick below is priced between -250 and +10,000;
+confidence is our own probability label, so a Medium here is a genuine 60-70% proposition that happens to sit in the band.</p>
+{table(["Sport", "Match", "Start (UTC)", "Selection", "Fair price", "Prob.", "Confidence", "Source"], window_rows)}
 <h2>Coverage by sport</h2>
 {table(["Sport", "Listed", "Priced", "High", "High in window", "Markets"], cover_rows)}
 <div class="note">Sports where no official fixture/strength feed could be captured are still listed with their OLBG events and
@@ -254,8 +268,8 @@ official pages where they exist; those rows are deliberately unpriced and carry 
   <div class="head"><div><b>{esc(p["match"])}</b><br><span class="muted">{esc(p["competition"])} &middot; {esc(p["start_utc"][:16].replace("T"," "))} UTC</span></div>
   <div>{conf_tag("High")} <span class="pill">{esc(p["selection"])}</span> <span class="pill">{money(p["fair_american"])}</span></div></div>
   <p class="txt">{esc(p["text"])}</p>
-  <div class="facts"><b>Inputs:</b> {esc(p["inputs"])}<br><b>Source:</b> <a href="{esc(p["source_url"])}">{esc(p["source_url"])}</a>
-  &nbsp;·&nbsp; <b>OLBG event:</b> {f'<a href="{esc(p["olbg_url"])}">listing</a>' if p.get("olbg_url") else "not listed"}</div>
+  <div class="facts"><b>Official numbers used:</b> {esc(p.get("facts", ""))}<br><b>Source:</b> <a href="{esc(p["source_url"])}">{esc(p["source_url"])}</a>
+  &nbsp;·&nbsp; <b>Capture:</b> <code>{esc(p.get("capture_id", ""))}</code></div>
 </div>''')
     open(os.path.join(OUT, "predictions.html"), "w").write(page(
         "High-confidence predictions",
@@ -274,10 +288,18 @@ official pages where they exist; those rows are deliberately unpriced and carry 
         for k in ("match_winner", "handicap", "total", "outright"):
             if k in mk:
                 mrows.append([esc(sport), esc(k), esc(sorted(set(mk[k]))[0]), f'<span class="num">{len(mk[k])}</span>'])
+    tax_rows = []
+    for sport, mk in sorted((desk.get("olbg_market_taxonomy") or {}).items()):
+        for name, n in sorted(mk.items(), key=lambda x: -x[1]):
+            tax_rows.append([esc(sport), esc(name or "(blank on the OLBG page)"), f'<span class="num">{n}</span>'])
     open(os.path.join(OUT, "markets.html"), "w").write(page(
         "Markets investigated",
-        '<p class="sub">Every market we originated, and for which sport. Markets we could not model from a verified input are listed on the '
-        '<a href="flagged.html">flagged page</a> rather than filled with a placeholder.</p>' +
+        '<p class="sub">Top: the markets OLBG itself lists on its sport hubs (reverse-engineered taxonomy, counted verbatim from the captured pages). '
+        'Bottom: the markets we originated from official inputs. Markets we could not model from a verified input are listed on the '
+        '<a href="flagged.html">flagged page</a> rather than filled with a placeholder.</p>'
+        '<h2>OLBG market taxonomy (what the site lists)</h2>' +
+        table(["Sport", "OLBG market name", "Tips seen"], tax_rows) +
+        '<h2>Markets we originated</h2>' +
         table(["Sport", "Market key", "Market name", "Rows"], mrows), "markets.html"))
 
     # ---------------------------------------------------------------- coverage
@@ -314,7 +336,7 @@ official pages where they exist; those rows are deliberately unpriced and carry 
                 f'<div class="card"><div class="k">Markets</div><div class="v">{s["markets"]}</div><div class="n">winner/handicap/total</div></div></div>'
                 + table(["Match", "Competition", "Start (UTC)", "Venue", "Winner", "Handicap", "Total", "Our pick", "Sources", "Flags"], trows))
         open(os.path.join(OUT, "sports", f'{s["slug"]}.html'), "w").write(
-            page(sport, body, "", f'{sport}: official fixtures, our own lines and the pick we would take.'))
+            page(sport, body, "", f'{sport}: official fixtures, our own lines and the pick we would take.', rel="../"))
 
     # ---------------------------------------------------------------- review
     fr = []
