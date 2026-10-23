@@ -156,11 +156,15 @@ def main() -> int:
     print(f"[board-ah] capture started {started.isoformat()} with {len(targets)} targets", flush=True)
 
     results: list[dict] = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        futures = [pool.submit(process_target, i, t, out_dir) for i, t in enumerate(targets, 1)]
-        for fut in concurrent.futures.as_completed(futures):
-            _, rec = fut.result()
-            results.append(rec)
+    try:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+            futures = [pool.submit(process_target, i, t, out_dir) for i, t in enumerate(targets, 1)]
+            for fut in concurrent.futures.as_completed(futures):
+                _, rec = fut.result()
+                results.append(rec)
+    except Exception:
+        import traceback
+        traceback.print_exc()
 
     results.sort(key=lambda r: r["id"])
     ok = sum(1 for r in results if r.get("status") == 200 and r.get("file"))

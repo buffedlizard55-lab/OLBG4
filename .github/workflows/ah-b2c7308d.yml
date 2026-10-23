@@ -41,7 +41,9 @@ jobs:
           set -uo pipefail
           git config user.name "board-ah-capture[bot]"
           git config user.email "board-ah-capture@users.noreply.github.com"
-          git add data/session-b2c7308d/capture
+          mkdir -p data/session-b2c7308d/logs
+          cp /tmp/capture.log "data/session-b2c7308d/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-b2c7308d
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           git commit -m "Board AH (b2c7308d): official capture ${{ env.STAMP }} [skip ci]"
           for i in 1 2 3 4 5; do
