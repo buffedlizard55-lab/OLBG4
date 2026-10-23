@@ -18,6 +18,8 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
+from edlib import iso_now
+
 ROOT = Path(__file__).resolve().parents[2]
 CAP = ROOT / "data" / "session-ed4c358c" / "capture"
 OUT = ROOT / "data" / "session-ed4c358c" / "olbg_inventory.json"
@@ -73,7 +75,7 @@ def main() -> int:
     out = {
         "capture_stamp": cap.name,
         "capture_finished_utc": manifest["finished_utc"],
-        "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_utc": iso_now(),
         "method": (
             "SvelteKit tips payload on each OLBG sport hub. selection / market_alias / odds / "
             "american_odds / fractional_odds / event_start_unix_timestamp / confidence are copied "
