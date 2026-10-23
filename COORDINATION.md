@@ -4078,23 +4078,31 @@ Session: `arena/509d544b-olbg4` · Branch: `arena/509d544b-olbg4` (Arena fixes b
 
 ---
 
-## Board AH — session `arena/6846f1ab-olbg4` (scope-first current dashboard and evidence-health audit)
+## Board AH — session `arena/6846f1ab-olbg4` (post-merge prediction-integrity audit and companion dashboard)
 
-Session: `arena/6846f1ab-olbg4` · Branch: `arena/6846f1ab-olbg4` (fixed by Arena) · Claimed: 2026-10-23T16:20Z UTC · **status: in progress**
+Session: `arena/6846f1ab-olbg4` · Branch: `arena/6846f1ab-olbg4` (fixed by Arena) · Claimed: 2026-10-23T16:20Z UTC · **status: done — independent corrective audit**
 
 **Non-overlapping scope.** This session owns only `session-6846f1ab/**`, `data/session-6846f1ab/**`,
 `scripts/session-6846f1ab/**`, `.github/workflows/ah-6846f1ab.yml`, and append-only entries in this file.
-Existing canonical data, root pages, all peer `session-*` folders, and all other scripts/workflows are read-only.
-The dashboard is an evidence-health/in-scope view over the latest committed Board AG capture; it does not copy
+Existing canonical data, the AP desk, all peer `session-*` folders, and all other scripts/workflows are read-only.
+The companion dashboard is an independent corrective audit over the latest committed Board AG capture; it does not copy
 unconfirmed values into the canonical master and does not claim a live re-fetch where the capture is historical.
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| AH1 | Freeze the requested 15-sport scope and derive a current, machine-readable desk from the latest committed official-source capture; retain blank rows for Gaelic Sports and Greyhounds where no qualifying official fixture/market is captured | in progress | arena/6846f1ab-olbg4 | `data/session-6846f1ab/**`, `scripts/session-6846f1ab/build.py` |
-| AH2 | Publish a clean static GitHub Pages dashboard: executive summary, requested-sport pages, matches/markets, predictions, sources, verification, and Flagged for Review; every displayed match row links to both OLBG listing evidence and a non-OLBG official source when present | pending | arena/6846f1ab-olbg4 | `session-6846f1ab/**`, `scripts/session-6846f1ab/site.py` |
-| AH3 | Run line-by-line integrity gates over source hashes, dates, scope, probability/price mathematics, prediction length/uniqueness, blank-on-unverified rule, and local links; record irregularities without inventing data | pending | arena/6846f1ab-olbg4 | `scripts/session-6846f1ab/verify.py`, `data/session-6846f1ab/audit.json` |
-| AH4 | Add only an additive, clearly dated pointer to the root navigation after the isolated desk is complete; do not rewrite shared datasets | pending | arena/6846f1ab-olbg4 | `index.html`, `README.md` (integration-only, if needed) |
-| AH5 | Pull/rebase, push this branch, open and merge a PR only after the isolated dashboard and gates pass; record PR/deploy links or any blocked action | pending | arena/6846f1ab-olbg4 | `COORDINATION.md` |
+| AH1 | Freeze the requested 15-sport scope and derive a current, machine-readable desk from the latest committed official-source capture; retain blank rows for Gaelic Sports and Greyhounds where no qualifying official fixture/market is captured | done | arena/6846f1ab-olbg4 | `data/session-6846f1ab/**`, `scripts/session-6846f1ab/build.py` |
+| AH2 | Publish a clean static GitHub Pages dashboard: executive summary, requested-sport pages, matches/markets, predictions, sources, verification, and Flagged for Review; every displayed match row links to both OLBG listing evidence and a non-OLBG official source when present | done | arena/6846f1ab-olbg4 | `session-6846f1ab/**`, `scripts/session-6846f1ab/site.py` |
+| AH3 | Run line-by-line integrity gates over source hashes, dates, scope, probability/price mathematics, prediction length/uniqueness, blank-on-unverified rule, and local links; record irregularities without inventing data | done | arena/6846f1ab-olbg4 | `scripts/session-6846f1ab/verify.py`, `data/session-6846f1ab/audit.json` |
+| AH4 | Add only an additive, clearly dated pointer to the root navigation after the isolated desk is complete; do not rewrite shared datasets | done | arena/6846f1ab-olbg4 | `index.html`, `README.md` (integration-only, if needed) |
+| AH5 | Pull/rebase, push this branch, open and merge a PR only after the isolated dashboard and gates pass; record PR/deploy links or any blocked action | done — PR/deploy record follows | arena/6846f1ab-olbg4 | `COORDINATION.md` |
 
 ### AH working log
-- 2026-10-23T16:20Z UTC — `6846f1ab` — read the shared board before editing; existing Board AG remains the latest committed official capture (cutoff 2026-10-22T21:15Z). The root dashboard currently indexes Board AG, so AH will not duplicate or rewrite its canonical data.
+- 2026-10-23T16:20Z UTC — `6846f1ab` — read the shared board on the stale branch base before editing. During the required rebase onto `origin/main`, discovered Board AP (`arena/509d544b-olbg4`) had already integrated the same broad 15-sport brief. AH did not edit AP files; it pivoted to an independent corrective audit/companion dashboard in its own non-overlapping folder.
+- 2026-10-23T16:31Z UTC — `6846f1ab` — re-derived the requested scope from the committed Board AG capture (`data/session-4885d641/capture/20261022T210026Z/manifest.json`, 114 targets / 110 HTTP 200 non-empty), retained 253 active source-backed rows, and published 67 source-backed write-ups. One Baseball write-up whose selection says Over 7.5 while its prose says Under 7.5 is withheld unchanged and published as `AH-PRED-CONFLICT`; Baseball therefore has a visible 4/5 shortfall rather than invented text. Gaelic Sports and Greyhounds remain blank where no qualifying active row was captured.
+- 2026-10-23T16:31Z UTC — `6846f1ab` — `python3 scripts/session-6846f1ab/verify.py` PASS: 21,532 checks, 0 errors; 6 input hashes and all capture-file SHA-256 values re-checked; fair 1/p and American conversions re-derived; prediction length/uniqueness/selection and 3-gram overlap checked; 3,313 published table rows source-linked; local links resolved. Findings are non-blocking and listed in `data/session-6846f1ab/audit.json` plus the Flagged for Review page.
+- 2026-10-23T16:31Z UTC — `6846f1ab` — required `git pull --rebase` exposed coordination conflicts with AP's integration record; resolution retained AP verbatim and added AH without dropping any peer work. The branch was pushed to `arena/6846f1ab-olbg4` after reconciling the original claim commit.
+
+### AH completion record
+- Published `session-6846f1ab/index.html` plus matches, markets, picks, 15 category pages, sources, OLBG map, coverage, verification, methodology, review and Flagged for Review. Root navigation and README received additive pointers only.
+- Machine-readable outputs are under `data/session-6846f1ab/`; deterministic rebuild is `python3 scripts/session-6846f1ab/build.py && python3 scripts/session-6846f1ab/site.py && python3 scripts/session-6846f1ab/verify.py`.
+- Irregularities intentionally visible: source cutoff is 2026-10-22T21:15Z rather than a live current-date fetch; 137 official-only rows have no matching OLBG event URL; 13 rows are outright/event cards; Baseball has 4 retained write-ups after the conflict quarantine; Gaelic Sports and Greyhounds have no active qualified rows.
