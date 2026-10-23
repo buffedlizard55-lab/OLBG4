@@ -3,7 +3,7 @@ No seeding-to-win-probability conversion; no OLBG timestamps used as official fa
 """
 from collections import defaultdict
 from datetime import timedelta
-from core import instant, norm, log5, price, poisson_grid, in_window
+from core import instant, norm, log5, price, in_window
 
 
 def parse_official(e):
@@ -51,12 +51,13 @@ def parse_official(e):
         obj=e.json(tid) or {}
         for di,day in enumerate(obj.get('gameWeek',[])):
             for gi,g in enumerate(day.get('games',[])):
+                if g.get('season')!=20262027 or g.get('gameType')!=2:continue
                 if g.get('gameState') not in ('FUT','PRE') or g.get('gameScheduleState')!='OK': continue
                 a,b=g.get('awayTeam',{}),g.get('homeTeam',{})
                 def name(t): return (t.get('placeName',{}).get('default','')+' '+t.get('commonName',{}).get('default','')).strip()
                 fields=[('Away place','/awayTeam/placeName/default'),('Away name','/awayTeam/commonName/default'),
                         ('Home place','/homeTeam/placeName/default'),('Home name','/homeTeam/commonName/default'),
-                        ('Start UTC','/startTimeUTC'),('Game state','/gameState')]
+                        ('Start UTC','/startTimeUTC'),('Game state','/gameState'),('Season','/season'),('Game type','/gameType')]
                 if 'venue' in g:fields.append(('Venue','/venue/default'))
                 aliases=[[name(t),t.get('commonName',{}).get('default',''),t.get('abbrev','')+' '+t.get('commonName',{}).get('default','')] for t in (a,b)]
                 r=emit('Ice Hockey','NHL',tid,f'/gameWeek/{di}/games/{gi}','nhl-'+str(g['id']),name(a),name(b),g.get('startTimeUTC'),g.get('gameState'),fields,aliases)
@@ -150,7 +151,7 @@ def parse_official(e):
     games=e.json('liiga_games_2027') or []
     if isinstance(games,list):
         for i,g in enumerate(games):
-            if g.get('started') or g.get('ended'):continue
+            if g.get('started') is not False or g.get('ended') is not False or g.get('season')!=2027:continue
             a,b=g.get('awayTeam',{}),g.get('homeTeam',{})
             if not a.get('teamName') or not b.get('teamName'):continue
             r=emit('Ice Hockey','Liiga','liiga_games_2027',f'/{i}','liiga-'+str(g.get('id')),a['teamName'],b['teamName'],g.get('start'),'Scheduled',[(k,'/'+k) for k in ['awayTeam/teamName','homeTeam/teamName','start']])
@@ -167,6 +168,54 @@ def parse_official(e):
                 path=f'/leagueSchedule/gameDates/{di}/games/{gi}'
                 r=emit('Basketball','NBA',tid,path,'nba-'+str(g.get('gameId')),name(a),name(b),g.get('gameDateTimeUTC'),'Scheduled',[(k,'/'+k) for k in ['awayTeam/teamCity','awayTeam/teamName','homeTeam/teamCity','homeTeam/teamName','gameDateTimeUTC','gameStatus']],[[name(a),str(a.get('teamTricode',''))+' '+str(a.get('teamName',''))],[name(b),str(b.get('teamTricode',''))+' '+str(b.get('teamName',''))]])
                 if r:r['flags'].append('Official NBA fixture only; contemporaneous official season-strength inputs absent. All lines withheld.')
+    # Cricket Australia exposes a JSON.parse string with public fixture data.
+    # Evidence.json safely decodes that string, not JavaScript execution.
+    for i,g in enumerate(e.json('cricket_au_fixtures') or []):
+        if g.get('isLive') or g.get('isCompleted') or g.get('isInProgress'):continue
+        a,b=g.get('awayTeam',{}),g.get('homeTeam',{})
+        if not a.get('name') or not b.get('name'):continue
+        r=emit('Cricket',g.get('competition',{}).get('name',''),'cricket_au_fixtures',f'/{i}','ca-'+str(g.get('id')),a['name'],b['name'],g.get('startDateTime'),'Upcoming',[(k,'/'+k) for k in ['awayTeam/name','homeTeam/name','startDateTime','isCompleted','competition/name']])
+        if r:
+            r['flags'].append('Official pairing/time only. Match format, team selection, weather and innings distributions need supported inputs; winner, handicap, totals and player markets remain unpriced.')
+    # URC article explicitly publishes IRE & UK kickoff times. Convert with the
+    # standard Europe/London tz database, retaining the exact date/KO/season text.
+    import re,html
+    from datetime import datetime,timezone
+    from zoneinfo import ZoneInfo
+    tid='urc_fixtures_in_full';raw=e.text(tid)
+    season=re.search(r'<h1[^>]*>\s*(2026/27) Fixtures in Full',raw)
+    dates=list(re.finditer(r'(?:MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY),\s*(OCTOBER|NOVEMBER)\s+(\d{1,2})',raw))
+    fixtures=list(re.finditer(r'<b>\s*<span[^>]*>([^<]{3,90}\sv\s[^<]{3,90})</span>\s*</b>',raw))
+    if season:
+        for mi,m in enumerate(fixtures):
+            before=[d for d in dates if d.start()<m.start()]
+            if not before:continue
+            d=before[-1]
+            # Only accept a nearby explicit day header; do not carry October dates
+            # over later December/2027 rounds where another month heading intervenes.
+            intervening=re.search(r'(?:MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY),\s*([A-Z]+)\s+\d{1,2}',raw[d.end():m.start()])
+            if intervening:continue
+            text=html.unescape(m.group(1)).replace('\xa0',' ')
+            parts=text.split(' v ')
+            if len(parts)!=2:continue
+            # Venue line must be the next italic paragraph, before next fixture.
+            tail=raw[m.end():m.end()+700]
+            v=re.search(r'<i>\s*<span[^>]*>([^<]+)</span>\s*</i>',tail)
+            if not v:continue
+            venue=html.unescape(v.group(1))
+            ko=re.search(r'KO (\d{1,2})[.:](\d{2}) IRE & UK',venue)
+            if not ko:continue
+            local=datetime(2026,10 if d.group(1)=='OCTOBER' else 11,int(d.group(2)),int(ko.group(1)),int(ko.group(2)),tzinfo=ZoneInfo('Europe/London'))
+            utc=local.astimezone(timezone.utc)
+            if not e.cutoff<utc<horizon:continue
+            facts=[e.excerpt_fact(tid,m.start(1),m.end(1),'Published pairing'),e.excerpt_fact(tid,d.start(),d.end(),'Published day'),e.excerpt_fact(tid,m.end()+v.start(1),m.end()+v.end(1),'Published venue and regional KO'),e.excerpt_fact(tid,season.start(1),season.end(1),'Published season')]
+            id='urc-article-'+str(mi)
+            r=dict(id=id,sport='Rugby Union',competition='United Rugby Championship',away=parts[0].strip(),home=parts[1].strip(),
+                start_utc=utc.isoformat().replace('+00:00','Z'),status='Published schedule',conditional=False,facts=facts,
+                official_url=e.records[tid]['url'],aliases=[[parts[0].strip()],[parts[1].strip()]],markets=[],pick=None,confidence='',olbg_ids=[],
+                flags=['Published schedule article, not a live match-status feed. UTC is normalized from explicit IRE & UK kickoff via Europe/London; source text retained. Official current form/ratings absent: all prices withheld.'],prediction='',injuries=None,
+                start_transformation=dict(local_iso=local.isoformat(),timezone='Europe/London',source_season='2026/27'))
+            rows.append(r)
     for r in rows:
         if r['conditional']:r['flags'].append('If-necessary game: not guaranteed to take place; all prices withheld.')
         if len(r['facts'])<3:raise ValueError('Fixture lacks source facts')

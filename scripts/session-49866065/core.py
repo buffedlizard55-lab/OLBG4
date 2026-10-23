@@ -2,6 +2,7 @@
 from __future__ import annotations
 import gzip
 import hashlib
+import html
 import json
 import math
 import re
@@ -52,6 +53,7 @@ class Evidence:
         self.manifest = json.loads((self.directory/'manifest.json').read_text())
         self.records = {r['id']:r for r in self.manifest['records']}
         self.cache = {}
+        self.json_cache = {}
         self.cutoff = instant(self.manifest['finished_at'])
         if not self.cutoff: raise ValueError('Capture must carry a timezone-aware cutoff')
         for r in self.records.values():
@@ -64,13 +66,31 @@ class Evidence:
                 self.cache[r['id']] = raw
     def text(self, target): return self.cache.get(target, b'').decode('utf-8', errors='replace')
     def json(self, target):
-        try: return json.loads(self.text(target))
-        except (ValueError, TypeError): return None
+        if target not in self.json_cache:
+            try:
+                text=self.text(target)
+                if target=='cricket_au_fixtures':
+                    m=re.search(r"window\.FIXTURES_DATA\s*=\s*JSON\.parse\('((?:\\.|[^'\\])*)'\)",text)
+                    if not m: raise ValueError('No public embedded fixture array')
+                    # Decode the JS string literal without evaluating JavaScript.
+                    text=json.loads('"'+m.group(1).replace("\\'","'")+'"')
+                self.json_cache[target] = json.loads(text)
+            except (ValueError, TypeError): self.json_cache[target] = None
+        return self.json_cache[target]
     def fact(self, target, path, label):
         record = self.records[target]
         value = pointer(self.json(target), path)
         if value is None or value == '': return None
-        return dict(label=label,value=value,target=target,pointer=path,url=record['url'],sha256=record['sha256'])
+        return dict(label=label,value=value,target=target,pointer=path,url=record['url'],sha256=record['sha256'],kind='embedded-json' if target=='cricket_au_fixtures' else 'json')
+    def excerpt_fact(self,target,start,end,label):
+        record=self.records[target]
+        value=html.unescape(self.text(target)[start:end]).strip()
+        return dict(label=label,value=value,target=target,pointer=f'html-chars:{start}:{end}',url=record['url'],sha256=record['sha256'],kind='html-excerpt')
+    def fact_value(self,f):
+        if f.get('kind')=='html-excerpt':
+            _,start,end=f['pointer'].split(':')
+            return html.unescape(self.text(f['target'])[int(start):int(end)]).strip()
+        return pointer(self.json(f['target']),f['pointer'])
 
 def price(p):
     if not math.isfinite(p) or not 0 < p < 1: raise ValueError('Probability must lie strictly inside (0,1)')

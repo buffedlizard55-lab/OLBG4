@@ -28,7 +28,7 @@ def request(url):
 def main():
     out = DATA / 'capture'
     out.mkdir(parents=True, exist_ok=True)
-    targets = json.loads((BASE / 'scripts/session-49866065/targets.json').read_text())
+    targets = [t for t in json.loads((BASE / 'scripts/session-49866065/targets.json').read_text()) if t['id']!='olbg_robots']
     stamp = datetime.now(timezone.utc).isoformat()
     robots = urllib.robotparser.RobotFileParser()
     robot_ok = False
