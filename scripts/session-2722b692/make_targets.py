@@ -308,6 +308,52 @@ PASS2 = [
 for tid, url, sport, kind, label in PASS2:
     add(tid, url, sport, kind, label)
 
+
+# ---------------------------------------------------------------- pass 3: sports still lacking a fixture feed
+PASS3 = [
+    # Cricket: alternate official boards / gateways
+    ("icc_gateway", "https://content-gateway.icc-prd.deltatre.digital/api", "Cricket", "schedule", "ICC content gateway"),
+    ("icc_matches_api", "https://content-gateway.icc-prd.deltatre.digital/api/matches", "Cricket", "schedule", "ICC gateway matches"),
+    ("ca_api", "https://www.cricket.com.au/api/matches", "Cricket", "schedule", "Cricket Australia matches API"),
+    ("ecb_england_men", "https://www.ecb.co.uk/england/men", "Cricket", "schedule", "ECB England men"),
+    ("cricket_sa", "https://cricket.co.za/", "Cricket", "schedule", "Cricket South Africa"),
+    ("tigercricket", "https://www.tigercricket.com.bd/", "Cricket", "schedule", "Bangladesh Cricket Board"),
+    # Darts: alternate PDC service roots
+    ("pdc_matches_web_root", "https://matches.darts.web.gc.pdcservices.co.uk/v2/", "Darts", "schedule", "PDC matches web root"),
+    ("pdc_matches_admin_root", "https://matches.darts.admin.gc.pdcservices.co.uk/v2/", "Darts", "schedule", "PDC matches admin root"),
+    ("pdc_matches_web_alt", "https://matches.darts.web.gc.pdcservices.co.uk/api/matches", "Darts", "schedule", "PDC matches alt path"),
+    ("pdc_wp_json", "https://www.pdc.tv/wp-json/wp/v2/posts?per_page=20", "Darts", "reference", "PDC WordPress feed"),
+    ("pdc_et", "https://www.pdc.tv/european-tour", "Darts", "schedule", "PDC European Tour"),
+    # Rugby league: NRL / RFL / Super League data paths
+    ("nrl_api_draw", "https://www.nrl.com/api/v1/draw?competition=111&season=2026", "Rugby League", "schedule", "NRL draw API"),
+    ("nrl_fixtures_alt", "https://www.nrl.com/fixtures/?competition=111", "Rugby League", "schedule", "NRL fixtures alt"),
+    ("rfl_fixtures", "https://www.rugby-league.com/fixtures", "Rugby League", "schedule", "RFL fixtures"),
+    ("rlwc_api", "https://www.rlwc2026.com/api/fixtures", "Rugby League", "schedule", "RLWC fixtures API"),
+    ("superleague_mc_alt", "https://www.superleague.co.uk/matches", "Rugby League", "schedule", "Super League matches"),
+    # Gaelic: GAA data endpoints / county boards
+    ("gaa_api_fixtures", "https://www.gaa.ie/api/fixtures", "Gaelic Sports", "schedule", "GAA fixtures API"),
+    ("gaa_fixtures_json", "https://www.gaa.ie/fixtures/?format=json", "Gaelic Sports", "schedule", "GAA fixtures json"),
+    ("gaa_club_fixtures", "https://www.gaa.ie/club-fixtures", "Gaelic Sports", "schedule", "GAA club fixtures"),
+    ("munster_fixtures", "https://munstergaa.ie/fixtures-results/", "Gaelic Sports", "schedule", "Munster GAA fixtures"),
+    ("ulster_fixtures", "https://ulstergaa.ie/fixtures-results/", "Gaelic Sports", "schedule", "Ulster GAA fixtures"),
+    # Greyhounds: GBGB alternate endpoints
+    ("gbgb_races_api", "https://api.gbgb.org.uk/api/races?date=2026-10-24", "Greyhounds", "schedule", "GBGB races API"),
+    ("gbgb_meetings_api", "https://api.gbgb.org.uk/api/meetings", "Greyhounds", "schedule", "GBGB meetings API"),
+    ("gbgb_results_nodate", "https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=20", "Greyhounds", "results", "GBGB results latest"),
+    ("gbgb_racing_results", "https://www.gbgb.org.uk/racing/results/", "Greyhounds", "results", "GBGB racing results"),
+    # NBA: official league pages / alternate hosts
+    ("nba_schedule_2026", "https://www.nba.com/schedule?season=2026-27", "Basketball", "schedule", "NBA schedule 2026-27"),
+    ("nba_news_schedule", "https://www.nba.com/news/2026-27-nba-regular-season-schedule", "Basketball", "schedule", "NBA schedule release"),
+    ("nba_cdn_teams", "https://cdn.nba.com/static/json/staticData/teams.json", "Basketball", "reference", "NBA teams"),
+    # Volleyball / handball extra
+    ("plusliga_terminarz", "https://plusliga.pl/terminarz.html?tour=47", "Volleyball", "schedule", "PlusLiga schedule 47"),
+    ("legavolley_risultati", "https://www.legavolley.it/risultati/", "Volleyball", "results", "Italian SuperLega results"),
+    ("hbl_matches_api", "https://www.dkb-handball-bundesliga.de/api/matches", "Handball", "schedule", "HBL matches API"),
+    ("ehfcl_matches_json", "https://ehfcl.eurohandball.com/api/competitionmatchesapi/GetMatches?season=2026", "Handball", "schedule", "EHF CL matches API"),
+]
+for tid, url, sport, kind, label in PASS3:
+    add(tid, url, sport, kind, label)
+
 dedup: dict[str, dict] = {}
 for item in T:
     dedup.setdefault(item["id"], item)
