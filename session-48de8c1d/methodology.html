@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology — Board FB (OLBG4)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span>BOARD FB</span>15-Sport Origination Desk &amp; Audit (2026-10-23T21:40Z)</a>
+      <nav class="navlinks"><a href="index.html" class="">Executive Summary</a><a href="predictions.html" class="">75 High-Confidence Picks</a><a href="markets.html" class="">Originated Markets (452)</a><a href="olbg-analysis.html" class="">OLBG Reverse Engineering</a><a href="review.html" class="">Repo Audit (2,364 Rows)</a><a href="flagged.html" class="nav-flag">Flagged for Review</a><a href="methodology.html" class="active">Methodology</a><a href="sources.html" class="">Official Sources (SHA-256)</a><a href="../index.html" class="">All Boards Hub</a></nav>
+    </div>
+  </header>
+  <div class="sportstrip">
+    <div class="sportstrip-inner">
+      <strong style="font-size:0.76rem;color:#475569;margin-right:0.25rem;">15 Sports:</strong>
+      <a href="sports/golf.html" class="">Golf</a><a href="sports/volleyball.html" class="">Volleyball</a><a href="sports/rugby-union.html" class="">Rugby Union</a><a href="sports/cricket.html" class="">Cricket</a><a href="sports/snooker.html" class="">Snooker</a><a href="sports/darts.html" class="">Darts</a><a href="sports/baseball.html" class="">Baseball</a><a href="sports/gaelic-sports.html" class="">Gaelic Sports</a><a href="sports/greyhounds.html" class="">Greyhounds</a><a href="sports/tennis.html" class="">Tennis</a><a href="sports/motor-racing.html" class="">Motor Racing</a><a href="sports/handball.html" class="">Handball</a><a href="sports/ice-hockey.html" class="">Ice Hockey</a><a href="sports/basketball.html" class="">Basketball</a><a href="sports/rugby-league.html" class="">Rugby League</a>
+    </div>
+  </div>
+  <main class="container">
+    
+    <section class="hero">
+      <h1>Mathematical Line Origination &amp; Confidence Methodology</h1>
+      <p>Implemented in 100% pure Python 3.12 standard library (<code>scripts/session-48de8c1d/math_models.py</code> and <code>originate.py</code>) with zero hardcoded probability overrides and exact zero-vig probability conservation (<code>&Sigma; fair_prob = 1.0000</code>) on every market.</p>
+    </section>
+
+    <div class="callout">
+      <strong>Confidence Tiering &amp; Strict <code>[-250, +10000]</code> Odds Window:</strong><br>
+      Every originated market outcome is converted to zero-vig Decimal (<code>1 / p</code>) and American odds. Outcomes more expensive than <code>-250</code> (<code>p &gt; 0.7143</code>) or longer than <code>+10000</code> (<code>p &lt; 0.0099</code>) are flagged <code>in_window = false</code>. Each fixture receives a Composite Confidence Index (<code>CCI</code>) combining closed-form probability separation inside <code>[-250, +10000]</code>, sample completeness, and matchup specificity, ranking the top 5 distinct selections per sport as <code>High</code> (75 total) and remaining fixtures as <code>Medium</code> (33) or <code>Low</code> (6).
+    </div>
+
+    <section class="section">
+      <div class="section-head"><h2>Closed-Form Origination Families by Sport</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Sport Group</th>
+              <th>Pricing Family</th>
+              <th>Mathematical Formulation</th>
+              <th>Official Governing Input</th>
+            </tr>
+          </thead>
+          <tbody><tr>
+          <td><strong>Ice Hockey &amp; Baseball</strong></td>
+          <td>Independent &amp; Overtime-Resolved Bivariate Poisson</td>
+          <td>Exact Poisson PMF grid (0..22) from additive offense/defense rates (GF + GA - league_mu + HFA); extra-time/shootout tie split proportional to scoring intensity + First-5-Innings / 60m 1X2 derivatives.</td>
+          <td><a class="src-link" href="https://www.nhl.com/schedule" target="_blank" rel="noopener">NHL Official API &amp; MLB StatsAPI &nearr;</a></td>
+        </tr><tr>
+          <td><strong>Basketball, Rugby Union, Rugby League, Handball &amp; Gaelic Sports</strong></td>
+          <td>Gaussian Margin &amp; Total Convolution</td>
+          <td>Closed-form normal CDF on expected margin (mu_H - mu_A, sigma_margin) and expected total (mu_H + mu_A, sigma_total), calibrated to official LNR/URC/NBA/EuroLeague/Herreligaen/RLWC scoring dispersion.</td>
+          <td><a class="src-link" href="https://www.nba.com/games" target="_blank" rel="noopener">NBA, LNR Top 14 &amp; RLWC 2026 &nearr;</a></td>
+        </tr><tr>
+          <td><strong>Tennis, Volleyball, Snooker &amp; Darts</strong></td>
+          <td>Exact Discrete Markov Chain Best-of-N Recurrences</td>
+          <td>Exact frame/leg/set binomial transition sums for Bo3, Bo5, Bo11, Bo17, and Bo19 formats, yielding exact score distributions for set/frame/leg handicaps, totals, and first-set/first-leg derivatives.</td>
+          <td><a class="src-link" href="https://www.wst.tv/matches/" target="_blank" rel="noopener">WTA, ATP, WST &amp; PDC Official &nearr;</a></td>
+        </tr><tr>
+          <td><strong>Golf, Motor Racing &amp; Greyhounds</strong></td>
+          <td>Plackett-Luce Permutation &amp; Pairwise Dominance Integrals</td>
+          <td>Normalized contender/trap weights w_i summing to 1.0000; exact analytical Top-2/Top-3 ordering sums without replacement + pairwise head-to-head dominance w_i / (w_i + w_j).</td>
+          <td><a class="src-link" href="https://www.pgatour.com/leaderboard" target="_blank" rel="noopener">PGA Tour, FIA F1, GBGB &amp; GRI &nearr;</a></td>
+        </tr><tr>
+          <td><strong>Cricket (T20I &amp; 50-Over ODI)</strong></td>
+          <td>Run-Differential &amp; Boundary Dispersion Parameterization</td>
+          <td>Venue-adjusted innings expectation (Bellerive, WACA, Hagley, Gaddafi, Vadodara) mapped via format-specific run standard deviation (sigma=26 T20I, sigma=41 ODI) across match winner, run handicap, and match aggregate runs.</td>
+          <td><a class="src-link" href="https://www.bcci.tv/international/women" target="_blank" rel="noopener">Cricket Australia &amp; BCCI Official &nearr;</a></td>
+        </tr></tbody>
+        </table>
+      </div>
+    </section>
+    
+  </main>
+  <footer class="footer">
+    Board FB (<code>arena/48de8c1d-olbg4</code>) &middot; Capture Bundle <code>20261023T213547Z</code> (128 HTTP-200 governing-body &amp; OLBG artifacts, SHA-256) &middot; Strictly 15 Covered Sports &middot; Zero unconfirmed values inferred.
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flagged for Review — Board FB (OLBG4)</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span>BOARD FB</span>15-Sport Origination Desk &amp; Audit (2026-10-23T21:40Z)</a>
+      <nav class="navlinks"><a href="index.html" class="">Executive Summary</a><a href="predictions.html" class="">75 High-Confidence Picks</a><a href="markets.html" class="">Originated Markets (452)</a><a href="olbg-analysis.html" class="">OLBG Reverse Engineering</a><a href="review.html" class="">Repo Audit (2,364 Rows)</a><a href="flagged.html" class="nav-flag active">Flagged for Review</a><a href="methodology.html" class="">Methodology</a><a href="sources.html" class="">Official Sources (SHA-256)</a><a href="../index.html" class="">All Boards Hub</a></nav>
+    </div>
+  </header>
+  <div class="sportstrip">
+    <div class="sportstrip-inner">
+      <strong style="font-size:0.76rem;color:#475569;margin-right:0.25rem;">15 Sports:</strong>
+      <a href="sports/golf.html" class="">Golf</a><a href="sports/volleyball.html" class="">Volleyball</a><a href="sports/rugby-union.html" class="">Rugby Union</a><a href="sports/cricket.html" class="">Cricket</a><a href="sports/snooker.html" class="">Snooker</a><a href="sports/darts.html" class="">Darts</a><a href="sports/baseball.html" class="">Baseball</a><a href="sports/gaelic-sports.html" class="">Gaelic Sports</a><a href="sports/greyhounds.html" class="">Greyhounds</a><a href="sports/tennis.html" class="">Tennis</a><a href="sports/motor-racing.html" class="">Motor Racing</a><a href="sports/handball.html" class="">Handball</a><a href="sports/ice-hockey.html" class="">Ice Hockey</a><a href="sports/basketball.html" class="">Basketball</a><a href="sports/rugby-league.html" class="">Rugby League</a>
+    </div>
+  </div>
+  <main class="container">
+    
+    <section class="hero">
+      <h1>Flagged for Review — Unconfirmed, Conditional &amp; Discrepant Data Ledger</h1>
+      <p>Strict non-inference enforcement: whenever a fixture participant, draw ceremony, governing-body HTTP feed, or historical repository row could not be confirmed from an official HTTP-200 governing source at <code>2026-10-23T21:35Z</code>, its unconfirmed fields were left strictly blank (<code>""</code>) and published here with a direct official verification link.</p>
+    </section>
+
+    <div class="callout callout-warn">
+      <strong>Flagged Ledger Breakdown:</strong>
+      <strong>1</strong> conditional fixture left blank on Board FB (<code>FB-SNK-NIO-SF2</code>) &middot;
+      <strong>9</strong> non-200 governing endpoints excluded without guessing &middot;
+      <strong>2</strong> pre-draw 1,315-byte ATP placeholder PDFs excluded &middot;
+      <strong>6</strong> OLBG sport hubs serving stale <code>expired:"0"</code> rows &middot;
+      <strong>8</strong> structural findings across <strong>1,298</strong> flagged legacy/peer rows (<a href="review.html">inspect all 2,364 audited rows &rarr;</a>).
+    </div>
+
+    <section class="section">
+      <div class="section-head"><h2>Board FB Blank / Unconfirmed Conditional Rows (Zero Values Inferred)</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Row ID</th>
+              <th>Sport</th>
+              <th>Scheduled Slot (UTC)</th>
+              <th>Competition</th>
+              <th>Player A (Blank)</th>
+              <th>Player B (Blank)</th>
+              <th>Winner Pick (Blank)</th>
+              <th>Status</th>
+              <th>Reason Left Blank</th>
+              <th>Official Verification Link</th>
+            </tr>
+          </thead>
+          <tbody><tr>
+              <td class="mono">FB-SNK-NIO-SF2-COND</td>
+              <td><strong>Snooker</strong></td>
+              <td class="mono">2026-10-24T18:00:00Z</td>
+              <td>BetVictor Northern Ireland Open 2026 — Semi-Final 2 (Conditional)</td>
+              <td><code></code></td>
+              <td><code></code></td>
+              <td><code></code></td>
+              <td><span class="badge badge-flag">Unconfirmed — Left Blank</span></td>
+              <td>At 21:35Z capture (`snooker_org_2548`), Mark Williams [10] had just defeated David Gilbert [32] 6-4 in QF3 while QF4 (Jak Jones [30] vs Scott Donaldson [64]) was tied 4-4 in-play; Semi-Final 2 pairing and markets are left strictly blank rather than inferred.</td>
+              <td><a class="src-link" href="https://www.wst.tv/matches/" target="_blank" rel="noopener">World Snooker Tour Official Match Centre (wst.tv) &nearr;</a></td>
+            </tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>All 26 Structured Flagged Items &amp; Irregularities</h2>
+        <div class="controls" data-filter-table="flags-table">
+          <input type="search" placeholder="Search flag ID, endpoint, sport...">
+          <select data-col="cat"><option value="">All Flag Categories (26)</option><option value="Governing-Body Endpoint HTTP Non-200 — Not Inferred">Governing-Body Endpoint HTTP Non-200 — Not Inferred</option><option value="OLBG Stale Unexpired SSR Cache Defect">OLBG Stale Unexpired SSR Cache Defect</option><option value="Pre-Draw Placeholder PDF — Excluded From Pricing">Pre-Draw Placeholder PDF — Excluded From Pricing</option><option value="Repository Line-by-Line Audit Irregularity">Repository Line-by-Line Audit Irregularity</option><option value="Unconfirmed Conditional Lineup — Left Blank">Unconfirmed Conditional Lineup — Left Blank</option></select>
+          <span class="mono" data-row-count>26 / 26 rows</span>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="flags-table">
+          <thead>
+            <tr>
+              <th>Flag ID</th>
+              <th>Scope</th>
+              <th>Sport</th>
+              <th>Entity / Endpoint</th>
+              <th>Flag Category</th>
+              <th>Blank Fields</th>
+              <th>Audit Explanation</th>
+              <th>Official Manual Review Link</th>
+            </tr>
+          </thead>
+          <tbody><tr data-cat="Unconfirmed Conditional Lineup — Left Blank">
+              <td class="mono"><strong>FB-FLAG-SNK-01</strong></td>
+              <td>Board FB Live Desk (session-48de8c1d)</td>
+              <td>Snooker</td>
+              <td><strong> vs </strong></td>
+              <td><span class="badge badge-flag">Unconfirmed Conditional Lineup — Left Blank</span></td>
+              <td class="mono">home, away, match_winner_pick, markets</td>
+              <td>At 21:35Z capture (`snooker_org_2548`), Mark Williams [10] had just defeated David Gilbert [32] 6-4 in QF3 while QF4 (Jak Jones [30] vs Scott Donaldson [64]) was tied 4-4 in-play; Semi-Final 2 pairing and markets are left strictly blank rather than inferred.</td>
+              <td><a class="src-link" href="https://www.wst.tv/matches/" target="_blank" rel="noopener">World Snooker Tour Official Match Centre (wst.tv) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-SHL_GAMES_NOW</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Ice Hockey</td>
+              <td><strong>Endpoint `shl_games_now` (HTTP 500)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=s4y-994162547&amp;seriesUuid=qQ9-af3704004p&amp;gameTypeUuid=qQ9-af3704004p&amp;gamePlace=all&amp;played=all` in capture `20261023T213547Z` returned HTTP `500` (HTTPError 500). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=s4y-994162547&amp;seriesUuid=qQ9-af3704004p&amp;gameTypeUuid=qQ9-af3704004p&amp;gamePlace=all&amp;played=all" target="_blank" rel="noopener">Official Governing Endpoint (shl_games_now) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-WTA_RANKINGS_SINGLES</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Tennis</td>
+              <td><strong>Endpoint `wta_rankings_singles` (HTTP 400)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://api.wtatennis.com/tennis/players/ranked?page=0&amp;pageSize=100&amp;type=rankSingles&amp;sort=asc` in capture `20261023T213547Z` returned HTTP `400` (HTTPError 400). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://api.wtatennis.com/tennis/players/ranked?page=0&amp;pageSize=100&amp;type=rankSingles&amp;sort=asc" target="_blank" rel="noopener">Official Governing Endpoint (wta_rankings_singles) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-DPWT_GENESIS_LEADERBOARD</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Golf</td>
+              <td><strong>Endpoint `dpwt_genesis_leaderboard` (HTTP 403)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard` in capture `20261023T213547Z` returned HTTP `403` (HTTPError 403). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard" target="_blank" rel="noopener">Official Governing Endpoint (dpwt_genesis_leaderboard) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-DPWT_SCHEDULE_2026</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Golf</td>
+              <td><strong>Endpoint `dpwt_schedule_2026` (HTTP 403)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://www.europeantour.com/dpworld-tour/schedule/` in capture `20261023T213547Z` returned HTTP `403` (HTTPError 403). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://www.europeantour.com/dpworld-tour/schedule/" target="_blank" rel="noopener">Official Governing Endpoint (dpwt_schedule_2026) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-DK_HERRELIGAEN_STILLING</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Handball</td>
+              <td><strong>Endpoint `dk_herreligaen_stilling` (HTTP 404)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://tophaandbold.dk/stilling/herreligaen` in capture `20261023T213547Z` returned HTTP `404` (HTTPError 404). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://tophaandbold.dk/stilling/herreligaen" target="_blank" rel="noopener">Official Governing Endpoint (dk_herreligaen_stilling) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-URC_FIXTURES</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Rugby Union</td>
+              <td><strong>Endpoint `urc_fixtures` (HTTP 404)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://www.unitedrugby.com/fixtures-and-results` in capture `20261023T213547Z` returned HTTP `404` (HTTPError 404). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://www.unitedrugby.com/fixtures-and-results" target="_blank" rel="noopener">Official Governing Endpoint (urc_fixtures) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-URC_STANDINGS</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Rugby Union</td>
+              <td><strong>Endpoint `urc_standings` (HTTP 404)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://www.unitedrugby.com/standings` in capture `20261023T213547Z` returned HTTP `404` (HTTPError 404). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://www.unitedrugby.com/standings" target="_blank" rel="noopener">Official Governing Endpoint (urc_standings) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-PCB_HOME</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Cricket</td>
+              <td><strong>Endpoint `pcb_home` (HTTP 403)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://www.pcb.com.pk/` in capture `20261023T213547Z` returned HTTP `403` (HTTPError 403). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://www.pcb.com.pk/" target="_blank" rel="noopener">Official Governing Endpoint (pcb_home) &nearr;</a></td>
+            </tr><tr data-cat="Governing-Body Endpoint HTTP Non-200 — Not Inferred">
+              <td class="mono"><strong>FLAG-CAP-ICC_FIXTURES</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Cricket</td>
+              <td><strong>Endpoint `icc_fixtures` (HTTP 404)</strong></td>
+              <td><span class="badge badge-flag">Governing-Body Endpoint HTTP Non-200 — Not Inferred</span></td>
+              <td class="mono">unfetched_endpoint_rows</td>
+              <td>Direct GitHub Actions GET to `https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/matches` in capture `20261023T213547Z` returned HTTP `404` (HTTPError 404). Per strict non-inference policy, zero values were guessed from failed endpoints; only HTTP 200 governing-body captures were used for pricing.</td>
+              <td><a class="src-link" href="https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/matches" target="_blank" rel="noopener">Official Governing Endpoint (icc_fixtures) &nearr;</a></td>
+            </tr><tr data-cat="Pre-Draw Placeholder PDF — Excluded From Pricing">
+              <td class="mono"><strong>FLAG-PREDRAW-ATP_VIENNA_MDS</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Tennis</td>
+              <td><strong>ATP 500 Erste Bank Open Vienna Main Draw PDF</strong></td>
+              <td><span class="badge badge-flag">Pre-Draw Placeholder PDF — Excluded From Pricing</span></td>
+              <td class="mono">r1_pairings, markets</td>
+              <td>Captured PDF `atp_vienna_mds` at `21:35Z` is a 1,315-byte pre-ceremony placeholder (draw ceremony not yet posted to ProTennisLive), whereas Almaty (`9410`, 74 KB) and Brussels (`7480`, 75 KB) were full brackets. Excluded rather than guessing R1 pairings.</td>
+              <td><a class="src-link" href="https://www.protennislive.com/posting/2026/337/mds.pdf" target="_blank" rel="noopener">ATP Tour / ProTennisLive Official Draw Sheet &nearr;</a></td>
+            </tr><tr data-cat="Pre-Draw Placeholder PDF — Excluded From Pricing">
+              <td class="mono"><strong>FLAG-PREDRAW-ATP_BASEL_MDS</strong></td>
+              <td>Board FB Official Capture (20261023T213547Z)</td>
+              <td>Tennis</td>
+              <td><strong>ATP 500 Swiss Indoors Basel Main Draw PDF</strong></td>
+              <td><span class="badge badge-flag">Pre-Draw Placeholder PDF — Excluded From Pricing</span></td>
+              <td class="mono">r1_pairings, markets</td>
+              <td>Captured PDF `atp_basel_mds` at `21:35Z` is a 1,315-byte pre-ceremony placeholder (draw ceremony not yet posted to ProTennisLive), whereas Almaty (`9410`, 74 KB) and Brussels (`7480`, 75 KB) were full brackets. Excluded rather than guessing R1 pairings.</td>
+              <td><a class="src-link" href="https://www.protennislive.com/posting/2026/328/mds.pdf" target="_blank" rel="noopener">ATP Tour / ProTennisLive Official Draw Sheet &nearr;</a></td>
+            </tr><tr data-cat="OLBG Stale Unexpired SSR Cache Defect">
+              <td class="mono"><strong>FLAG-OLBG-STALE-ICE-HOCKEY</strong></td>
+              <td>OLBG.com Live SSR Audit (FB1)</td>
+              <td>Ice Hockey</td>
+              <td><strong>OLBG `Ice Hockey` Hub — 36 Stale `expired:&quot;0&quot;` Rows</strong></td>
+              <td><span class="badge badge-flag">OLBG Stale Unexpired SSR Cache Defect</span></td>
+              <td class="mono">—</td>
+              <td>OLBG&#x27;s SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Ice_Hockey/13` served `36` tip rows marked `expired:&quot;0&quot;` whose scheduled `event_datetime` had already passed before `2026-10-23T21:40:00Z`. Excluded from Board FB upcoming desk.</td>
+              <td><a class="src-link" href="https://www.nhl.com/schedule" target="_blank" rel="noopener">Ice Hockey Canonical Governing-Body Schedule &nearr;</a></td>
+            </tr><tr data-cat="OLBG Stale Unexpired SSR Cache Defect">
+              <td class="mono"><strong>FLAG-OLBG-STALE-TENNIS</strong></td>
+              <td>OLBG.com Live SSR Audit (FB1)</td>
+              <td>Tennis</td>
+              <td><strong>OLBG `Tennis` Hub — 16 Stale `expired:&quot;0&quot;` Rows</strong></td>
+              <td><span class="badge badge-flag">OLBG Stale Unexpired SSR Cache Defect</span></td>
+              <td class="mono">—</td>
+              <td>OLBG&#x27;s SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Tennis/3` served `16` tip rows marked `expired:&quot;0&quot;` whose scheduled `event_datetime` had already passed before `2026-10-23T21:40:00Z`. Excluded from Board FB upcoming desk.</td>
+              <td><a class="src-link" href="https://www.wtatennis.com/scores" target="_blank" rel="noopener">Tennis Canonical Governing-Body Schedule &nearr;</a></td>
+            </tr><tr data-cat="OLBG Stale Unexpired SSR Cache Defect">
+              <td class="mono"><strong>FLAG-OLBG-STALE-RUGBY-UNION</strong></td>
+              <td>OLBG.com Live SSR Audit (FB1)</td>
+              <td>Rugby Union</td>
+              <td><strong>OLBG `Rugby Union` Hub — 12 Stale `expired:&quot;0&quot;` Rows</strong></td>
+              <td><span class="badge badge-flag">OLBG Stale Unexpired SSR Cache Defect</span></td>
+              <td class="mono">—</td>
+              <td>OLBG&#x27;s SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Rugby_Union/9` served `12` tip rows marked `expired:&quot;0&quot;` whose scheduled `event_datetime` had already passed before `2026-10-23T21:40:00Z`. Excluded from Board FB upcoming desk.</td>
+              <td><a class="src-link" href="https://top14.lnr.fr/calendrier-et-resultats" target="_blank" rel="noopener">Rugby Union Canonical Governing-Body Schedule &nearr;</a></td>
+            </tr><tr data-cat="OLBG Stale Unexpired SSR Cache Defect">
+              <td class="mono"><strong>FLAG-OLBG-STALE-BASKETBALL</strong></td>
+              <td>OLBG.com Live SSR Audit (FB1)</td>
+              <td>Basketball</td>
+              <td><strong>OLBG `Basketball` Hub — 8 Stale `expired:&quot;0&quot;` Rows</strong></td>
+              <td><span class="badge badge-flag">OLBG Stale Unexpired SSR Cache Defect</span></td>
+              <td class="mono">—</td>
+              <td>OLBG&#x27;s SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Basketball/4` served `8` tip rows marked `expired:&quot;0&quot;` whose scheduled `event_datetime` had already passed before `2026-10-23T21:40:00Z`. Excluded from Board FB upcoming desk.</td>
+              <td><a class="src-link" href="https://www.nba.com/games" target="_blank" rel="noopener">Basketball Canonical Governing-Body Schedule &nearr;</a></td>
+            </tr><tr data-cat="OLBG Stale Unexpired SSR Cache Defect">
+              <td class="mono"><strong>FLAG-OLBG-STALE-SNOOKER</strong></td>
+              <td>OLBG.com Live SSR Audit (FB1)</td>
+              <td>Snooker</td>
+              <td><strong>OLBG `Snooker` Hub — 4 Stale `expired:&quot;0&quot;` Rows</strong></td>
+              <td><span class="badge badge-flag">OLBG Stale Unexpired SSR Cache Defect</span></td>
+              <td class="mono">—</td>
+              <td>OLBG&#x27;s SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Snooker/8` served `4` tip rows marked `expired:&quot;0&quot;` whose scheduled `event_datetime` had already passed before `2026-10-23T21:40:00Z`. Excluded from Board FB upcoming desk.</td>
+              <td><a class="src-link" href="https://www.wst.tv/matches/" target="_blank" rel="noopener">Snooker Canonical Governing-Body Schedule &nearr;</a></td>
+            </tr><tr data-cat="OLBG Stale Unexpired SSR Cache Defect">
+              <td class="mono"><strong>FLAG-OLBG-STALE-VOLLEYBALL</strong></td>
+              <td>OLBG.com Live SSR Audit (FB1)</td>
+              <td>Volleyball</td>
+              <td><strong>OLBG `Volleyball` Hub — 2 Stale `expired:&quot;0&quot;` Rows</strong></td>
+              <td><span class="badge badge-flag">OLBG Stale Unexpired SSR Cache Defect</span></td>
+              <td class="mono">—</td>
+              <td>OLBG&#x27;s SvelteKit SSR payload at `https://www.olbg.com/betting-tips/Volleyball/21` served `2` tip rows marked `expired:&quot;0&quot;` whose scheduled `event_datetime` had already passed before `2026-10-23T21:40:00Z`. Excluded from Board FB upcoming desk.</td>
+              <td><a class="src-link" href="https://www.legavolley.it/calendario/" target="_blank" rel="noopener">Volleyball Canonical Governing-Body Schedule &nearr;</a></td>
+            </tr><tr data-cat="Repository Line-by-Line Audit Irregularity">
+              <td class="mono"><strong>FB-REV-01</strong></td>
+              <td>scripts/session-4885d641/originate_desk.py (L249, L298-300, L333-341, L354-356, L426-440) &amp; data/session-{4885d641,509d544b,6846f1ab}/desk.json</td>
+              <td>Multi-Sport Audit</td>
+              <td><strong>Synthetic Probability Override Clamping</strong></td>
+              <td><span class="badge badge-flag">Repository Line-by-Line Audit Irregularity</span></td>
+              <td class="mono">—</td>
+              <td>`originate_desk.py` accepts a hardcoded `pred_override[&#x27;p_target&#x27;]` dictionary that overwrites closed-form handicap (`p_cover`), total (`p_over`), derivative (`d_p`), and outright (`p_a`) probabilities into a narrow `[0.700, 0.704]` band (-233 to -238 American) so picks clear a 70% threshold while staying above -250. Both `session-509d544b` and `session-6846f1ab` inherited those `ag_*` rows verbatim.</td>
+              <td><a class="src-link" href="https://www.nba.com/games" target="_blank" rel="noopener">Canonical Official Governing-Body Verification Portal &nearr;</a></td>
+            </tr><tr data-cat="Repository Line-by-Line Audit Irregularity">
+              <td class="mono"><strong>FB-REV-02</strong></td>
+              <td>data/session-4885d641/desk.json (46 rows out of 299)</td>
+              <td>Multi-Sport Audit</td>
+              <td><strong>Out-of-Scope Sports Included</strong></td>
+              <td><span class="badge badge-flag">Repository Line-by-Line Audit Irregularity</span></td>
+              <td class="mono">—</td>
+              <td>Contains 46 rows from sports outside the strict 15-sport brief (Football, Horse Racing, Boxing, MMA, Esports, American Football, Table Tennis).</td>
+              <td><a class="src-link" href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">Canonical Official Governing-Body Verification Portal &nearr;</a></td>
+            </tr><tr data-cat="Repository Line-by-Line Audit Irregularity">
+              <td class="mono"><strong>FB-REV-03</strong></td>
+              <td>data/session-509d544b/desk.json (summary &amp; gaelic_synthetic_row)</td>
+              <td>Multi-Sport Audit</td>
+              <td><strong>Summary Counter Multiplier Bug, Contradictory Pick Prose &amp; Misdated Cork Final</strong></td>
+              <td><span class="badge badge-flag">Repository Line-by-Line Audit Irregularity</span></td>
+              <td class="mono">—</td>
+              <td>1) `summary.markets_originated` reports `2024` (`253 rows * 4 * 2`), double-counting markets; 2) `summary.confidence_counts` reports `{&#x27;High&#x27;: 65, &#x27;Medium&#x27;: 0, &#x27;Low&#x27;: 0}` despite 188 Medium/Low rows in `rows`; 3) `gaelic_synthetic_row.note` misdates Cork SFC Final (`St Finbarrs vs Nemo Rangers`) to `2026-11-01` instead of Sunday `2026-10-25T16:00:00Z` on `gaacork.ie` and flags Galway SFC (`M0221`) `in_scope: False` due to matching the substring `&#x27;football&#x27;`; 4) World Series Game 4 prose argues `Under 7.5` while structured selection is `Over 7.5`.</td>
+              <td><a class="src-link" href="https://gaacork.ie/" target="_blank" rel="noopener">Canonical Official Governing-Body Verification Portal &nearr;</a></td>
+            </tr><tr data-cat="Repository Line-by-Line Audit Irregularity">
+              <td class="mono"><strong>FB-REV-04</strong></td>
+              <td>data/session-b2c7308d/desk.json (276 rows)</td>
+              <td>Multi-Sport Audit</td>
+              <td><strong>10 of 15 Sports Unpriced &amp; Pre-21:40Z Friday Fixtures Completed</strong></td>
+              <td><span class="badge badge-flag">Repository Line-by-Line Audit Irregularity</span></td>
+              <td class="mono">—</td>
+              <td>10 of the 15 required sports have `0` priced rows (`listing_only: True`), and Friday Oct 23 afternoon fixtures captured at `16:28Z` have since started or finished prior to `21:40Z`.</td>
+              <td><a class="src-link" href="https://www.rlwc2026.com/fixtures" target="_blank" rel="noopener">Canonical Official Governing-Body Verification Portal &nearr;</a></td>
+            </tr><tr data-cat="Repository Line-by-Line Audit Irregularity">
+              <td class="mono"><strong>FB-REV-05</strong></td>
+              <td>data/session-2c05e0b2/desk.json (343 rows)</td>
+              <td>Multi-Sport Audit</td>
+              <td><strong>9 of 15 Sports Unpriced &amp; Pre-21:40Z Cutoffs</strong></td>
+              <td><span class="badge badge-flag">Repository Line-by-Line Audit Irregularity</span></td>
+              <td class="mono">—</td>
+              <td>9 of 15 sports carry `priced: False` rows without originated multi-market lines, and early Friday Oct 23 fixtures have now elapsed.</td>
+              <td><a class="src-link" href="https://www.wtatennis.com/scores" target="_blank" rel="noopener">Canonical Official Governing-Body Verification Portal &nearr;</a></td>
+            </tr><tr data-cat="Repository Line-by-Line Audit Irregularity">
+              <td class="mono"><strong>FB-REV-06</strong></td>
+              <td>data/session-7cfa69e5/desk.json (121 rows, 0 High picks)</td>
+              <td>Multi-Sport Audit</td>
+              <td><strong>11 of 15 Sports Unpriced, Zero High-Confidence Predictions &amp; Zero OLBG Captures</strong></td>
+              <td><span class="badge badge-flag">Repository Line-by-Line Audit Irregularity</span></td>
+              <td class="mono">—</td>
+              <td>Only 4 of 15 sports have originated markets (`markets: 336` across Ice Hockey, Basketball, Baseball, Handball); `high_predictions` is empty (`0`), and `olbg_event` is `None` across all 121 rows.</td>
+              <td><a class="src-link" href="https://www.olbg.com/betting-tips" target="_blank" rel="noopener">Canonical Official Governing-Body Verification Portal &nearr;</a></td>
+            </tr><tr data-cat="Repository Line-by-Line Audit Irregularity">
+              <td class="mono"><strong>FB-REV-07</strong></td>
+              <td>data/{master,matches,rows,board}.json (706 combined rows)</td>
+              <td>Multi-Sport Audit</td>
+              <td><strong>Historical Oct 17–22 Snapshots, Out-of-Scope Rows &amp; Aggregator-Only Links</strong></td>
+              <td><span class="badge badge-flag">Repository Line-by-Line Audit Irregularity</span></td>
+              <td class="mono">—</td>
+              <td>Root legacy datasets were generated Oct 20–22: nearly all fixtures predate `2026-10-23T21:40:00Z` (e.g., NBA Tip-Off Oct 20-21, WTA QF Oct 22-23 morning), `master.json` contains out-of-scope sports (`Aussie Rules`, `Football`, `American Football`, `Horse Racing`), and `board.json` cites only `olbg.com` URLs with `MODEL ASSUMPTION` placeholders.</td>
+              <td><a class="src-link" href="https://www.nhl.com/schedule" target="_blank" rel="noopener">Canonical Official Governing-Body Verification Portal &nearr;</a></td>
+            </tr><tr data-cat="Repository Line-by-Line Audit Irregularity">
+              <td class="mono"><strong>FB-REV-08</strong></td>
+              <td>data/session-543dca7d/desk.json (AS-DARTS-EC-R1G &amp; AS-DARTS-EC-R1H)</td>
+              <td>Multi-Sport Audit</td>
+              <td><strong>Completed Friday Evening PDC Darts R1 Matches Between 19:42Z and 21:35Z</strong></td>
+              <td><span class="badge badge-flag">Repository Line-by-Line Audit Irregularity</span></td>
+              <td class="mono">—</td>
+              <td>Between Board AS (`19:42Z` capture) and Board FB (`21:35Z` capture), the final two Friday evening PDC European Championship Round 1 ties in Dortmund completed (`Kevin Doets 6-3 Michael van Gerwen` at `20:15Z` and `Josh Rock 6-1 Chris Dobey` at `20:45Z`), though OLBG `/betting-tips/Darts/15` continued serving both as `expired:&quot;0&quot;`.</td>
+              <td><a class="src-link" href="https://www.pdc.tv/news/2026/october/23/2026-machineseeker-european-championship---day-two-latest" target="_blank" rel="noopener">Canonical Official Governing-Body Verification Portal &nearr;</a></td>
+            </tr></tbody>
+        </table>
+      </div>
+    </section>
+    
+  </main>
+  <footer class="footer">
+    Board FB (<code>arena/48de8c1d-olbg4</code>) &middot; Capture Bundle <code>20261023T213547Z</code> (128 HTTP-200 governing-body &amp; OLBG artifacts, SHA-256) &middot; Strictly 15 Covered Sports &middot; Zero unconfirmed values inferred.
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
