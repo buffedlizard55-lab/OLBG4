@@ -17,6 +17,7 @@ from __future__ import annotations
 import concurrent.futures
 import gzip
 import hashlib
+import io
 import json
 import sys
 import threading
