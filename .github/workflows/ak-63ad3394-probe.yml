@@ -1,0 +1,51 @@
+name: Board AK probe capture (63ad3394)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/63ad3394-olbg4
+    paths:
+      - "scripts/session-63ad3394/targets-probe3.json"
+      - ".github/workflows/ak-63ad3394-probe.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ak-63ad3394-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/63ad3394-olbg4
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture probe endpoints
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-63ad3394/fetch.py scripts/session-63ad3394/targets-probe3.json "data/session-63ad3394/capture/$STAMP" 2>&1 | tee /tmp/probe.log
+      - name: Commit probe capture
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-ak-capture[bot]"
+          git config user.email "board-ak-capture@users.noreply.github.com"
+          mkdir -p data/session-63ad3394/logs
+          cp /tmp/probe.log "data/session-63ad3394/logs/probe-${STAMP:-unknown}.log" || true
+          git add data/session-63ad3394
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board AK (63ad3394): probe capture ${{ env.STAMP }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/63ad3394-olbg4 && git push origin HEAD:arena/63ad3394-olbg4 && break
+            sleep 5
+          done
