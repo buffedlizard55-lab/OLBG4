@@ -519,3 +519,11 @@ Scripts: `scripts/session-47b1b4e2/` — `fix_draft_artefacts.py` (R-F14, idempo
 `check_all.py` (the gate) · plus the pre-merge `remediate.py`, `fix_build_b_flag.py` and `update_site.py`.
 
 Deployed at https://buffedlizard55-lab.github.io/OLBG4/session-47b1b4e2/
+
+## Board ED — 23 October 2026, 19:35Z desk (session `arena/ed4c358c-olbg4`)
+
+A fresh desk built from an official-source capture taken on 23 October 2026 at 19:33Z.
+Dashboard: [`session-ed4c358c/index.html`](session-ed4c358c/index.html) — executive summary, 15 sport
+subpages, all entries, originated markets, picks, 24 written predictions, coverage, sources, methodology,
+repo review, flagged-for-review and verification pages. 333 rows, 222 with our own lines, 654 fair markets,
+24 predictions. Rebuild with `bash scripts/session-ed4c358c/build_all.sh`.
