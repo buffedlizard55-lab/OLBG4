@@ -1,7 +1,7 @@
 {
  "stamp": "20261023T213335Z",
- "rows_checked": 404,
- "checks": 6018,
+ "rows_checked": 405,
+ "checks": 6086,
  "failures": [],
  "integrity": {
   "captured_files": 158,
@@ -31345,103 +31345,433 @@
   },
   {
    "id": "bw_320",
-   "sport": "Volleyball",
-   "official_url": "https://www.legavolley.it/",
+   "sport": "Handball",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.legavolley.it/"
+     "detail": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
     },
     {
-     "check": "listing-row-is-flagged",
+     "check": "prob-sum[match_winner]",
      "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[match_winner:HC Vardar 1961]",
+     "ok": true,
+     "detail": "1.7361 vs 1.736"
+    },
+    {
+     "check": "american[match_winner:HC Vardar 1961]",
+     "ok": true,
+     "detail": "-136 vs -136"
+    },
+    {
+     "check": "decimal[match_winner:MT Melsungen]",
+     "ok": true,
+     "detail": "2.3585 vs 2.358"
+    },
+    {
+     "check": "american[match_winner:MT Melsungen]",
+     "ok": true,
+     "detail": "136 vs 136"
+    },
+    {
+     "check": "prob-sum[total_58.5]",
+     "ok": true,
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[total_58.5:Over 58.5]",
+     "ok": true,
+     "detail": "1.9550 vs 1.955"
+    },
+    {
+     "check": "american[total_58.5:Over 58.5]",
+     "ok": true,
+     "detail": "-105 vs -105"
+    },
+    {
+     "check": "decimal[total_58.5:Under 58.5]",
+     "ok": true,
+     "detail": "2.0471 vs 2.047"
+    },
+    {
+     "check": "american[total_58.5:Under 58.5]",
+     "ok": true,
+     "detail": "105 vs 105"
+    },
+    {
+     "check": "pick-present",
+     "ok": true,
+     "detail": "HC Vardar 1961"
+    },
+    {
+     "check": "window-consistent",
+     "ok": true,
+     "detail": "-136"
     }
    ]
   },
   {
    "id": "bw_321",
-   "sport": "Volleyball",
-   "official_url": "https://www.legavolley.it/",
+   "sport": "Handball",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.legavolley.it/"
+     "detail": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
     },
     {
-     "check": "listing-row-is-flagged",
+     "check": "prob-sum[match_winner]",
      "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[match_winner:FC Porto]",
+     "ok": true,
+     "detail": "3.0506 vs 3.051"
+    },
+    {
+     "check": "american[match_winner:FC Porto]",
+     "ok": true,
+     "detail": "205 vs 205"
+    },
+    {
+     "check": "decimal[match_winner:One Veszpr\u00e9m HC]",
+     "ok": true,
+     "detail": "1.4877 vs 1.488"
+    },
+    {
+     "check": "american[match_winner:One Veszpr\u00e9m HC]",
+     "ok": true,
+     "detail": "-205 vs -205"
+    },
+    {
+     "check": "prob-sum[total_66.5]",
+     "ok": true,
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[total_66.5:Over 66.5]",
+     "ok": true,
+     "detail": "2.1106 vs 2.111"
+    },
+    {
+     "check": "american[total_66.5:Over 66.5]",
+     "ok": true,
+     "detail": "111 vs 111"
+    },
+    {
+     "check": "decimal[total_66.5:Under 66.5]",
+     "ok": true,
+     "detail": "1.9004 vs 1.9"
+    },
+    {
+     "check": "american[total_66.5:Under 66.5]",
+     "ok": true,
+     "detail": "-111 vs -111"
+    },
+    {
+     "check": "pick-present",
+     "ok": true,
+     "detail": "One Veszpr\u00e9m HC"
+    },
+    {
+     "check": "window-consistent",
+     "ok": true,
+     "detail": "-205"
     }
    ]
   },
   {
    "id": "bw_322",
-   "sport": "Volleyball",
-   "official_url": "https://www.legavolley.it/",
+   "sport": "Handball",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.legavolley.it/"
+     "detail": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
     },
     {
-     "check": "listing-row-is-flagged",
+     "check": "prob-sum[match_winner]",
      "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[match_winner:Orlen Wisla Plock]",
+     "ok": true,
+     "detail": "1.6023 vs 1.602"
+    },
+    {
+     "check": "american[match_winner:Orlen Wisla Plock]",
+     "ok": true,
+     "detail": "-166 vs -166"
+    },
+    {
+     "check": "decimal[match_winner:HBC Nantes]",
+     "ok": true,
+     "detail": "2.6603 vs 2.66"
+    },
+    {
+     "check": "american[match_winner:HBC Nantes]",
+     "ok": true,
+     "detail": "166 vs 166"
+    },
+    {
+     "check": "prob-sum[total_56.5]",
+     "ok": true,
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[total_56.5:Over 56.5]",
+     "ok": true,
+     "detail": "2.0329 vs 2.033"
+    },
+    {
+     "check": "american[total_56.5:Over 56.5]",
+     "ok": true,
+     "detail": "103 vs 103"
+    },
+    {
+     "check": "decimal[total_56.5:Under 56.5]",
+     "ok": true,
+     "detail": "1.9681 vs 1.968"
+    },
+    {
+     "check": "american[total_56.5:Under 56.5]",
+     "ok": true,
+     "detail": "-103 vs -103"
+    },
+    {
+     "check": "pick-present",
+     "ok": true,
+     "detail": "Orlen Wisla Plock"
+    },
+    {
+     "check": "window-consistent",
+     "ok": true,
+     "detail": "-166"
     }
    ]
   },
   {
    "id": "bw_323",
-   "sport": "Volleyball",
-   "official_url": "https://www.legavolley.it/",
+   "sport": "Handball",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.legavolley.it/"
+     "detail": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
     },
     {
-     "check": "listing-row-is-flagged",
+     "check": "prob-sum[match_winner]",
      "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[match_winner:RK Celje Pivovarna]",
+     "ok": true,
+     "detail": "2.1173 vs 2.118"
+    },
+    {
+     "check": "american[match_winner:RK Celje Pivovarna]",
+     "ok": true,
+     "detail": "112 vs 112"
+    },
+    {
+     "check": "decimal[match_winner:HC Zagreb]",
+     "ok": true,
+     "detail": "1.8950 vs 1.895"
+    },
+    {
+     "check": "american[match_winner:HC Zagreb]",
+     "ok": true,
+     "detail": "-112 vs -112"
+    },
+    {
+     "check": "prob-sum[total_64.5]",
+     "ok": true,
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[total_64.5:Over 64.5]",
+     "ok": true,
+     "detail": "2.1390 vs 2.139"
+    },
+    {
+     "check": "american[total_64.5:Over 64.5]",
+     "ok": true,
+     "detail": "114 vs 114"
+    },
+    {
+     "check": "decimal[total_64.5:Under 64.5]",
+     "ok": true,
+     "detail": "1.8779 vs 1.878"
+    },
+    {
+     "check": "american[total_64.5:Under 64.5]",
+     "ok": true,
+     "detail": "-114 vs -114"
+    },
+    {
+     "check": "pick-present",
+     "ok": true,
+     "detail": "Under 64.5"
+    },
+    {
+     "check": "window-consistent",
+     "ok": true,
+     "detail": "-114"
     }
    ]
   },
   {
    "id": "bw_324",
-   "sport": "Volleyball",
-   "official_url": "https://www.legavolley.it/",
+   "sport": "Handball",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.legavolley.it/"
+     "detail": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
     },
     {
-     "check": "listing-row-is-flagged",
+     "check": "prob-sum[match_winner]",
      "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[match_winner:F\u00fcchse Berlin]",
+     "ok": true,
+     "detail": "1.2335 vs 1.233"
+    },
+    {
+     "check": "american[match_winner:F\u00fcchse Berlin]",
+     "ok": true,
+     "detail": "-429 vs -429"
+    },
+    {
+     "check": "decimal[match_winner:RK Partizan Admira]",
+     "ok": true,
+     "detail": "5.2826 vs 5.283"
+    },
+    {
+     "check": "american[match_winner:RK Partizan Admira]",
+     "ok": true,
+     "detail": "428 vs 428"
+    },
+    {
+     "check": "prob-sum[total_68.5]",
+     "ok": true,
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[total_68.5:Over 68.5]",
+     "ok": true,
+     "detail": "1.9380 vs 1.938"
+    },
+    {
+     "check": "american[total_68.5:Over 68.5]",
+     "ok": true,
+     "detail": "-107 vs -107"
+    },
+    {
+     "check": "decimal[total_68.5:Under 68.5]",
+     "ok": true,
+     "detail": "2.0661 vs 2.066"
+    },
+    {
+     "check": "american[total_68.5:Under 68.5]",
+     "ok": true,
+     "detail": "107 vs 107"
+    },
+    {
+     "check": "pick-present",
+     "ok": true,
+     "detail": "F\u00fcchse Berlin"
+    },
+    {
+     "check": "window-consistent",
+     "ok": true,
+     "detail": "-427"
     }
    ]
   },
   {
    "id": "bw_325",
-   "sport": "Volleyball",
-   "official_url": "https://www.legavolley.it/",
+   "sport": "Handball",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.legavolley.it/"
+     "detail": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
     },
     {
-     "check": "listing-row-is-flagged",
+     "check": "prob-sum[match_winner]",
      "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[match_winner:IFK Kristianstad]",
+     "ok": true,
+     "detail": "2.4337 vs 2.434"
+    },
+    {
+     "check": "american[match_winner:IFK Kristianstad]",
+     "ok": true,
+     "detail": "143 vs 143"
+    },
+    {
+     "check": "decimal[match_winner:OTP Bank - PICK Sz]",
+     "ok": true,
+     "detail": "1.6975 vs 1.697"
+    },
+    {
+     "check": "american[match_winner:OTP Bank - PICK Sz]",
+     "ok": true,
+     "detail": "-143 vs -143"
+    },
+    {
+     "check": "prob-sum[total_69.5]",
+     "ok": true,
+     "detail": "1.000000"
+    },
+    {
+     "check": "decimal[total_69.5:Over 69.5]",
+     "ok": true,
+     "detail": "1.9417 vs 1.942"
+    },
+    {
+     "check": "american[total_69.5:Over 69.5]",
+     "ok": true,
+     "detail": "-106 vs -106"
+    },
+    {
+     "check": "decimal[total_69.5:Under 69.5]",
+     "ok": true,
+     "detail": "2.0619 vs 2.062"
+    },
+    {
+     "check": "american[total_69.5:Under 69.5]",
+     "ok": true,
+     "detail": "106 vs 106"
+    },
+    {
+     "check": "pick-present",
+     "ok": true,
+     "detail": "OTP Bank - PICK Szeged"
+    },
+    {
+     "check": "window-consistent",
+     "ok": true,
+     "detail": "-143"
     }
    ]
   },
@@ -31668,13 +31998,13 @@
   },
   {
    "id": "bw_339",
-   "sport": "Rugby Union",
-   "official_url": "https://www.unitedrugby.com/",
+   "sport": "Volleyball",
+   "official_url": "https://www.legavolley.it/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.unitedrugby.com/"
+     "detail": "https://www.legavolley.it/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31685,13 +32015,13 @@
   },
   {
    "id": "bw_340",
-   "sport": "Rugby Union",
-   "official_url": "https://www.unitedrugby.com/",
+   "sport": "Volleyball",
+   "official_url": "https://www.legavolley.it/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.unitedrugby.com/"
+     "detail": "https://www.legavolley.it/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31702,13 +32032,13 @@
   },
   {
    "id": "bw_341",
-   "sport": "Rugby Union",
-   "official_url": "https://www.unitedrugby.com/",
+   "sport": "Volleyball",
+   "official_url": "https://www.legavolley.it/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.unitedrugby.com/"
+     "detail": "https://www.legavolley.it/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31719,13 +32049,13 @@
   },
   {
    "id": "bw_342",
-   "sport": "Rugby Union",
-   "official_url": "https://www.unitedrugby.com/",
+   "sport": "Volleyball",
+   "official_url": "https://www.legavolley.it/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.unitedrugby.com/"
+     "detail": "https://www.legavolley.it/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31736,13 +32066,13 @@
   },
   {
    "id": "bw_343",
-   "sport": "Rugby Union",
-   "official_url": "https://www.unitedrugby.com/",
+   "sport": "Volleyball",
+   "official_url": "https://www.legavolley.it/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.unitedrugby.com/"
+     "detail": "https://www.legavolley.it/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31753,13 +32083,13 @@
   },
   {
    "id": "bw_344",
-   "sport": "Rugby Union",
-   "official_url": "https://www.unitedrugby.com/",
+   "sport": "Volleyball",
+   "official_url": "https://www.legavolley.it/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.unitedrugby.com/"
+     "detail": "https://www.legavolley.it/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31787,13 +32117,13 @@
   },
   {
    "id": "bw_346",
-   "sport": "Cricket",
-   "official_url": "https://www.cricket.com.au/fixtures",
+   "sport": "Rugby Union",
+   "official_url": "https://www.unitedrugby.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.cricket.com.au/fixtures"
+     "detail": "https://www.unitedrugby.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31804,13 +32134,13 @@
   },
   {
    "id": "bw_347",
-   "sport": "Cricket",
-   "official_url": "https://www.cricket.com.au/fixtures",
+   "sport": "Rugby Union",
+   "official_url": "https://www.unitedrugby.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.cricket.com.au/fixtures"
+     "detail": "https://www.unitedrugby.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31821,13 +32151,13 @@
   },
   {
    "id": "bw_348",
-   "sport": "Cricket",
-   "official_url": "https://www.cricket.com.au/fixtures",
+   "sport": "Rugby Union",
+   "official_url": "https://www.unitedrugby.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.cricket.com.au/fixtures"
+     "detail": "https://www.unitedrugby.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31838,13 +32168,13 @@
   },
   {
    "id": "bw_349",
-   "sport": "Cricket",
-   "official_url": "https://www.cricket.com.au/fixtures",
+   "sport": "Rugby Union",
+   "official_url": "https://www.unitedrugby.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.cricket.com.au/fixtures"
+     "detail": "https://www.unitedrugby.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -31855,6 +32185,40 @@
   },
   {
    "id": "bw_350",
+   "sport": "Rugby Union",
+   "official_url": "https://www.unitedrugby.com/",
+   "checks": [
+    {
+     "check": "https-source",
+     "ok": true,
+     "detail": "https://www.unitedrugby.com/"
+    },
+    {
+     "check": "listing-row-is-flagged",
+     "ok": true,
+     "detail": "listing-only row must carry a sport-level flag"
+    }
+   ]
+  },
+  {
+   "id": "bw_351",
+   "sport": "Rugby Union",
+   "official_url": "https://www.unitedrugby.com/",
+   "checks": [
+    {
+     "check": "https-source",
+     "ok": true,
+     "detail": "https://www.unitedrugby.com/"
+    },
+    {
+     "check": "listing-row-is-flagged",
+     "ok": true,
+     "detail": "listing-only row must carry a sport-level flag"
+    }
+   ]
+  },
+  {
+   "id": "bw_352",
    "sport": "Cricket",
    "official_url": "https://www.cricket.com.au/fixtures",
    "checks": [
@@ -31871,7 +32235,75 @@
    ]
   },
   {
-   "id": "bw_351",
+   "id": "bw_353",
+   "sport": "Cricket",
+   "official_url": "https://www.cricket.com.au/fixtures",
+   "checks": [
+    {
+     "check": "https-source",
+     "ok": true,
+     "detail": "https://www.cricket.com.au/fixtures"
+    },
+    {
+     "check": "listing-row-is-flagged",
+     "ok": true,
+     "detail": "listing-only row must carry a sport-level flag"
+    }
+   ]
+  },
+  {
+   "id": "bw_354",
+   "sport": "Cricket",
+   "official_url": "https://www.cricket.com.au/fixtures",
+   "checks": [
+    {
+     "check": "https-source",
+     "ok": true,
+     "detail": "https://www.cricket.com.au/fixtures"
+    },
+    {
+     "check": "listing-row-is-flagged",
+     "ok": true,
+     "detail": "listing-only row must carry a sport-level flag"
+    }
+   ]
+  },
+  {
+   "id": "bw_355",
+   "sport": "Cricket",
+   "official_url": "https://www.cricket.com.au/fixtures",
+   "checks": [
+    {
+     "check": "https-source",
+     "ok": true,
+     "detail": "https://www.cricket.com.au/fixtures"
+    },
+    {
+     "check": "listing-row-is-flagged",
+     "ok": true,
+     "detail": "listing-only row must carry a sport-level flag"
+    }
+   ]
+  },
+  {
+   "id": "bw_356",
+   "sport": "Cricket",
+   "official_url": "https://www.cricket.com.au/fixtures",
+   "checks": [
+    {
+     "check": "https-source",
+     "ok": true,
+     "detail": "https://www.cricket.com.au/fixtures"
+    },
+    {
+     "check": "listing-row-is-flagged",
+     "ok": true,
+     "detail": "listing-only row must carry a sport-level flag"
+    }
+   ]
+  },
+  {
+   "id": "bw_357",
    "sport": "Darts",
    "official_url": "https://www.pdc.tv/",
    "checks": [
@@ -31888,116 +32320,14 @@
    ]
   },
   {
-   "id": "bw_352",
-   "sport": "Gaelic Sports",
-   "official_url": "https://www.gaa.ie/fixtures",
-   "checks": [
-    {
-     "check": "https-source",
-     "ok": true,
-     "detail": "https://www.gaa.ie/fixtures"
-    },
-    {
-     "check": "listing-row-is-flagged",
-     "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
-    }
-   ]
-  },
-  {
-   "id": "bw_353",
-   "sport": "Gaelic Sports",
-   "official_url": "https://www.gaa.ie/fixtures",
-   "checks": [
-    {
-     "check": "https-source",
-     "ok": true,
-     "detail": "https://www.gaa.ie/fixtures"
-    },
-    {
-     "check": "listing-row-is-flagged",
-     "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
-    }
-   ]
-  },
-  {
-   "id": "bw_354",
-   "sport": "Gaelic Sports",
-   "official_url": "https://www.gaa.ie/fixtures",
-   "checks": [
-    {
-     "check": "https-source",
-     "ok": true,
-     "detail": "https://www.gaa.ie/fixtures"
-    },
-    {
-     "check": "listing-row-is-flagged",
-     "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
-    }
-   ]
-  },
-  {
-   "id": "bw_355",
-   "sport": "Gaelic Sports",
-   "official_url": "https://www.gaa.ie/fixtures",
-   "checks": [
-    {
-     "check": "https-source",
-     "ok": true,
-     "detail": "https://www.gaa.ie/fixtures"
-    },
-    {
-     "check": "listing-row-is-flagged",
-     "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
-    }
-   ]
-  },
-  {
-   "id": "bw_356",
-   "sport": "Tennis",
-   "official_url": "https://www.atptour.com/",
-   "checks": [
-    {
-     "check": "https-source",
-     "ok": true,
-     "detail": "https://www.atptour.com/"
-    },
-    {
-     "check": "listing-row-is-flagged",
-     "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
-    }
-   ]
-  },
-  {
-   "id": "bw_357",
-   "sport": "Tennis",
-   "official_url": "https://www.atptour.com/",
-   "checks": [
-    {
-     "check": "https-source",
-     "ok": true,
-     "detail": "https://www.atptour.com/"
-    },
-    {
-     "check": "listing-row-is-flagged",
-     "ok": true,
-     "detail": "listing-only row must carry a sport-level flag"
-    }
-   ]
-  },
-  {
    "id": "bw_358",
-   "sport": "Tennis",
-   "official_url": "https://www.atptour.com/",
+   "sport": "Gaelic Sports",
+   "official_url": "https://www.gaa.ie/fixtures",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.atptour.com/"
+     "detail": "https://www.gaa.ie/fixtures"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32008,13 +32338,13 @@
   },
   {
    "id": "bw_359",
-   "sport": "Motor Racing",
-   "official_url": "https://www.formula1.com/",
+   "sport": "Gaelic Sports",
+   "official_url": "https://www.gaa.ie/fixtures",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.formula1.com/"
+     "detail": "https://www.gaa.ie/fixtures"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32025,13 +32355,13 @@
   },
   {
    "id": "bw_360",
-   "sport": "Handball",
-   "official_url": "https://www.ehfcl.com/",
+   "sport": "Gaelic Sports",
+   "official_url": "https://www.gaa.ie/fixtures",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.ehfcl.com/"
+     "detail": "https://www.gaa.ie/fixtures"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32042,13 +32372,13 @@
   },
   {
    "id": "bw_361",
-   "sport": "Handball",
-   "official_url": "https://www.ehfcl.com/",
+   "sport": "Gaelic Sports",
+   "official_url": "https://www.gaa.ie/fixtures",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.ehfcl.com/"
+     "detail": "https://www.gaa.ie/fixtures"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32059,13 +32389,13 @@
   },
   {
    "id": "bw_362",
-   "sport": "Handball",
-   "official_url": "https://www.ehfcl.com/",
+   "sport": "Tennis",
+   "official_url": "https://www.atptour.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.ehfcl.com/"
+     "detail": "https://www.atptour.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32076,13 +32406,13 @@
   },
   {
    "id": "bw_363",
-   "sport": "Handball",
-   "official_url": "https://www.ehfcl.com/",
+   "sport": "Tennis",
+   "official_url": "https://www.atptour.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.ehfcl.com/"
+     "detail": "https://www.atptour.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32093,13 +32423,13 @@
   },
   {
    "id": "bw_364",
-   "sport": "Handball",
-   "official_url": "https://www.ehfcl.com/",
+   "sport": "Tennis",
+   "official_url": "https://www.atptour.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.ehfcl.com/"
+     "detail": "https://www.atptour.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32110,13 +32440,13 @@
   },
   {
    "id": "bw_365",
-   "sport": "Handball",
-   "official_url": "https://www.ehfcl.com/",
+   "sport": "Motor Racing",
+   "official_url": "https://www.formula1.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.ehfcl.com/"
+     "detail": "https://www.formula1.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32484,13 +32814,13 @@
   },
   {
    "id": "bw_387",
-   "sport": "Ice Hockey",
-   "official_url": "https://www.nhl.com/",
+   "sport": "Handball",
+   "official_url": "https://www.ehfcl.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.nhl.com/"
+     "detail": "https://www.ehfcl.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32518,13 +32848,13 @@
   },
   {
    "id": "bw_389",
-   "sport": "Basketball",
-   "official_url": "https://www.nba.com/schedule",
+   "sport": "Ice Hockey",
+   "official_url": "https://www.nhl.com/",
    "checks": [
     {
      "check": "https-source",
      "ok": true,
-     "detail": "https://www.nba.com/schedule"
+     "detail": "https://www.nhl.com/"
     },
     {
      "check": "listing-row-is-flagged",
@@ -32773,6 +33103,23 @@
   },
   {
    "id": "bw_404",
+   "sport": "Basketball",
+   "official_url": "https://www.nba.com/schedule",
+   "checks": [
+    {
+     "check": "https-source",
+     "ok": true,
+     "detail": "https://www.nba.com/schedule"
+    },
+    {
+     "check": "listing-row-is-flagged",
+     "ok": true,
+     "detail": "listing-only row must carry a sport-level flag"
+    }
+   ]
+  },
+  {
+   "id": "bw_405",
    "sport": "Basketball",
    "official_url": "https://www.nba.com/schedule",
    "checks": [

@@ -1059,6 +1059,9 @@ def main() -> int:
     parse_snooker(CR, new_row, sel_row, two_way_market, finish_pick, flag)
     from top14 import parse_top14
     parse_top14(CR, new_row, sel_row, two_way_market, finish_pick, flag)
+    # appended last so the published row ids above stay stable for written predictions
+    from handball_ext import parse_handball_tables
+    parse_handball_tables(CR, new_row, sel_row, two_way_market, finish_pick, flag, list(_rows))
     # last: every OLBG-listed event not matching a published row becomes listing-only
     parse_listing_fallback(CR, new_row, sel_row, two_way_market, finish_pick, flag, list(_rows))
 

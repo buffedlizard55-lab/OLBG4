@@ -1,6 +1,6 @@
 {
  "board": "BW",
- "generated_utc": "2026-10-23T21:39:20+00:00",
+ "generated_utc": "2026-10-23T21:56:05+00:00",
  "flags": [
   {
    "id": "BW-F-SHL-02",
@@ -183,6 +183,24 @@
    "manual_url": "https://top14.lnr.fr/classement"
   },
   {
+   "id": "BW-F-HB-02",
+   "severity": "review",
+   "sport": "Handball",
+   "title": "EHF Champions League rows: pairing from the OLBG listing, strength from the EHF table",
+   "detail": "6 EHF Champions League tie(s) are priced from the official EHF group tables (goals for/against). The EHF fixture list on the same page is an Angular template that renders client-side (the captured HTML still contains {{match.homeTeam.team.name}} placeholders), so each pairing and kick-off comes from the OLBG listing and is labelled as such on the row. Match winner is quoted draw-no-bet because handball draws are common and the desk publishes two-way markets only; the draw probability is stated in the row's inputs.",
+   "evidence_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "manual_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+  },
+  {
+   "id": "BW-F-HB-04",
+   "severity": "review",
+   "sport": "Handball",
+   "title": "Liga ASOBAL ladder captured but not priceable",
+   "detail": "The official Liga ASOBAL ladder parsed cleanly (16 clubs, Bidasoa Irun top on 14 pts) but it publishes points only: no games-played, goals-for or goals-against columns, so the points total cannot be normalised into a per-game strength and no defensible line can be built from it. The Spanish OLBG listings therefore stay unpriced on this capture rather than being priced off an unverified points scale.",
+   "evidence_url": "https://asobal.es/",
+   "manual_url": "https://asobal.es/"
+  },
+  {
    "id": "BW-F-LIST-VOLLEYBA",
    "severity": "review",
    "sport": "Volleyball",
@@ -249,7 +267,7 @@
    "id": "BW-F-LIST-HANDBALL",
    "severity": "review",
    "sport": "Handball",
-   "title": "27 OLBG-listed event(s) without official confirmation in this capture",
+   "title": "22 OLBG-listed event(s) without official confirmation in this capture",
    "detail": "These rows exist on OLBG's live listing for this sport but were not confirmed as structured fixtures on an official governing-body feed in tonight's capture; they are published with blank picks and a manual-check link, never priced or inferred.",
    "evidence_url": "https://www.ehfcl.com/",
    "manual_url": "https://www.ehfcl.com/"
@@ -277,7 +295,7 @@
    "severity": "review",
    "sport": "All 15 sports",
    "title": "Five High-confidence picks per sport met for 2 of 15 sports",
-   "detail": "The brief's target of five High-confidence picks per covered sport is met only where the official capture supports a >=70% own line priced inside -250..+10,000 with the sample gate passed. Ledger of shortfalls: Golf 0/5 High (0 priced of 0 rows); Volleyball 0/5 High (4 priced of 23 rows); Rugby Union 1/5 High (7 priced of 30 rows); Cricket 0/5 High (0 priced of 9 rows); Snooker 0/5 High (1 priced of 1 rows); Darts 0/5 High (0 priced of 5 rows); Baseball 3/5 High (7 priced of 7 rows); Gaelic Sports 0/5 High (0 priced of 4 rows); Greyhounds 0/5 High (0 priced of 0 rows); Tennis 0/5 High (28 priced of 31 rows); Motor Racing 0/5 High (0 priced of 2 rows); Handball 0/5 High (2 priced of 29 rows); Rugby League 0/5 High (0 priced of 25 rows). Nothing is padded: rows without an official strength input stay unpriced and are flagged individually.",
+   "detail": "The brief's target of five High-confidence picks per covered sport is met only where the official capture supports a >=70% own line priced inside -250..+10,000 with the sample gate passed. Ledger of shortfalls: Golf 0/5 High (0 priced of 0 rows); Volleyball 0/5 High (4 priced of 23 rows); Rugby Union 1/5 High (7 priced of 30 rows); Cricket 0/5 High (0 priced of 9 rows); Snooker 0/5 High (1 priced of 1 rows); Darts 0/5 High (0 priced of 5 rows); Baseball 3/5 High (7 priced of 7 rows); Gaelic Sports 0/5 High (0 priced of 4 rows); Greyhounds 0/5 High (0 priced of 0 rows); Tennis 0/5 High (28 priced of 31 rows); Motor Racing 0/5 High (0 priced of 2 rows); Handball 0/5 High (8 priced of 30 rows); Rugby League 0/5 High (0 priced of 25 rows). Nothing is padded: rows without an official strength input stay unpriced and are flagged individually.",
    "evidence_url": "https://www.olbg.com/betting-tips",
    "manual_url": "https://www.olbg.com/betting-tips"
   },

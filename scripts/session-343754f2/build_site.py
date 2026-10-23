@@ -165,7 +165,7 @@ def main() -> int:
            f"<div class='card'><div class='n'>{summary['priced']}</div><div class='t'>rows with originated prices</div></div>",
            f"<div class='card'><div class='n'>{summary['high_in_window']}</div><div class='t'>high-confidence picks inside the window</div></div>",
            f"<div class='card'><div class='n'>{len(flagged['flags'])}</div><div class='t'>flagged gaps (non-blocking, linked per row)</div></div>",
-           f"<div class='card'><div class='n'>{len(bank)}</div><div class='t'>written predictions (top five per priced sport)</div></div>",
+           f"<div class='card'><div class='n'>{len(bank)}</div><div class='t'>written predictions across the priced sports</div></div>",
            "</div>",
            "<table><thead><tr><th>Matchup</th><th>Kick-off (UTC)</th><th>Market</th><th>Selection</th>"
            "<th>Fair price</th><th>Win prob.</th><th>Source</th></tr></thead><tbody>"]
@@ -213,7 +213,7 @@ def main() -> int:
             body.append("</p>")
         else:
             npriced = sum(1 for r in srows if r["priced"])
-            body.append(f"<p>{len(srows)} rows · {npriced} priced · capture cut-off 2026-10-23T19:36Z. "
+            body.append(f"<p>{len(srows)} rows · {npriced} priced · capture cut-off {esc(desk['cutoff_utc'])}. "
                         f"Blank prices link to a Flagged entry explaining exactly which input is missing.</p>")
             body.append(sport_table(srows, flags_by_row, depth=1))
         if preds_for_sport:
@@ -339,8 +339,17 @@ def main() -> int:
           "unseeded players with no completed match at the event carry no official strength input and are "
           "published unpriced (flagged). ATP order-of-play PDFs were captured but the PDF reader is absent in "
           "this environment, so no ATP row is published.</li>",
-          "<li><strong>Handball (Denmark)</strong> — season goals for/against from the official table, shrunk; expected "
-          "margin in goals with home allowance +3.5%; handicap −3.5 and totals two-way.</li>",
+          "<li><strong>Handball (Denmark, plus the EHF Champions League)</strong> — the Danish Herreligaen "
+          "uses season goals for/against from the official table with a +3.5% home allowance (handicap −3.5, "
+          "totals two-way). The six EHF Champions League ties are priced from the official four-group table "
+          "(GP, W, D, L, goals for/against, points): attack and defence are expressed against the group-phase "
+          "average of 32.51 goals per team, shrunk halfway to the mean because five games is a short sample, "
+          "clamped to 22–38, and turned into a full Poisson scoreline. Because handball draws are common, the "
+          "match winner is quoted draw-no-bet with the draw probability stated on the row, and the total line "
+          "is the nearest half point to the modelled total. Pairing and kick-off for those ties come from the "
+          "OLBG listing because the EHF match list on the same page is client-rendered — flagged, not inferred. "
+          "The official Liga ASOBAL ladder parsed cleanly but publishes points only, so Spanish ties stay "
+          "unpriced rather than being priced off an unnormalised points scale.</li>",
           "<li><strong>Volleyball (SuperLega)</strong> — match winner only: points-per-game and set-quotient "
           "difference from the official legavolley.it classifica through a normal-CDF link (+0.15 home, clamped "
           "[0.15, 0.85]); set handicaps and set totals are not modelled and stay blank (flagged). Other "
