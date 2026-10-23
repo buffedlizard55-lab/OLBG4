@@ -1,0 +1,41 @@
+name: Board FB Verification Gate (48de8c1d)
+
+on:
+  push:
+    branches: ["main", "arena/48de8c1d-olbg4"]
+    paths:
+      - "scripts/session-48de8c1d/**"
+      - "data/session-48de8c1d/**"
+      - "session-48de8c1d/**"
+      - ".github/workflows/fb-48de8c1d-verify.yml"
+  pull_request:
+    paths:
+      - "scripts/session-48de8c1d/**"
+      - "data/session-48de8c1d/**"
+      - "session-48de8c1d/**"
+      - ".github/workflows/fb-48de8c1d-verify.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-board-fb:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Re-run deterministic Board FB pipeline & assert zero drift
+        run: |
+          python scripts/session-48de8c1d/re_olbg.py
+          python scripts/session-48de8c1d/originate.py
+          python scripts/session-48de8c1d/predictions.py
+          python scripts/session-48de8c1d/review.py
+          python scripts/session-48de8c1d/build_site.py
+          python scripts/session-48de8c1d/verify.py
+          git diff --exit-code data/session-48de8c1d/ session-48de8c1d/
+      - name: Run repo-wide unit tests
+        run: |
+          python -m unittest discover -s audit -p 'test_*.py' -v

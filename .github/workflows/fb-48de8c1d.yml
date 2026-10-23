@@ -1,0 +1,32 @@
+name: Board FB official capture (48de8c1d)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/48de8c1d-olbg4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch official governing-body & OLBG sources
+        run: python scripts/session-48de8c1d/fetch.py
+      - name: Commit and push raw capture + SHA-256 manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/session-48de8c1d/capture/ data/session-48de8c1d/logs/
+          if git diff --cached --quiet; then
+            echo "No capture changes"
+            exit 0
+          fi
+          git commit -m "chore(fb-48de8c1d): live official + OLBG capture bundle [skip ci]"
+          git pull --rebase origin arena/48de8c1d-olbg4
+          git push origin HEAD:arena/48de8c1d-olbg4
