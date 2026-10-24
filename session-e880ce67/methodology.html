@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · OLBG desk</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="site"><div class="wrap"><div class="nav">
+<a class="brand" href="index.html"><span class="mark">DS</span><span>OLBG desk</span></a>
+<a class="link" href="index.html">Overview</a><a class="link" href="picks.html">Picks</a><a class="link" href="predictions.html">Predictions</a><a class="link" href="matches.html">All matches</a><a class="link" href="coverage.html">Sports</a><a class="link" href="markets.html">Markets</a><a class="link" href="sources.html">Sources</a><a class="link active" href="methodology.html">Method</a><a class="link" href="review.html">Repo review</a><a class="link" href="flagged.html">Flagged</a><span class="stamp">Official data read 2026-10-24T22:26:44Z</span>
+</div></div></header>
+<main><div class="wrap">
+
+<h1>Method</h1>
+<p class="lede">How a number gets onto this site, and what we refuse to do. Everything below is
+reproducible from the committed capture: <span class="code">collect.py</span> fetches,
+<span class="code">evidence.py</span> parses, <span class="code">originate.py</span> prices,
+<span class="code">predict.py</span> attaches the writing, <span class="code">verify.py</span>
+checks the lot.</p>
+
+<h2>1. What counts as a fixture</h2>
+<p>An OLBG event is only listed here if OLBG's own page carried it with a kick-off time and at
+least one market. OLBG renders events that have at least one public tip, so the inventory means
+"events OLBG is currently offering", not every fixture in world sport. Where OLBG lists an
+outright rather than a match, it is on <a href="coverage.html">Sports</a>, not in the matches.</p>
+
+<h2>2. What counts as a price</h2>
+<p>A match is priced only when <b>both</b> sides have a strength figure from a captured
+governing-body response. No 50/50 prior, no price from a hunch, no price borrowed from OLBG's own
+quote. The sixteen unpriced sports or fixtures are named individually with the missing input.</p>
+
+<h2>3. The model-free maths we publish</h2>
+<p>We call it a line, not a model. For a two-sided match the win probability is a log5 blend of
+the two official win rates, with a documented home-field term:</p>
+<p class="code">p(home) = ((a + h) − (a + h)(b − h)) / ((a + h) + (b − h) − 2(a + h)(b − h))</p>
+<p>Small samples are shrunk toward the competition mean before that blend, so a club that is 5-0
+after five rounds is not treated as a 98% favourite. Handicap and total markets use the expected
+margin and expected total from each side's scoring rate, with a normal approximation and a
+published spread:</p>
+<div class="tablescroll"><table class=""><thead><tr><th>Assumption</th><th>Ice Hockey</th><th>Baseball</th><th>Handball</th><th>Tennis</th></tr></thead><tbody><tr><td>Home-field term</td><td>0.035</td><td>0.02</td><td>0.045</td><td>0.0</td></tr><tr><td>Margin spread (goals/runs)</td><td>2.4</td><td>4.2</td><td>8.0</td><td>3.6</td></tr><tr><td>Total spread</td><td>1.9</td><td>3.4</td><td>8.5</td><td>—</td></tr><tr><td>Home scoring edge</td><td>0.12</td><td>0.1</td><td>1.2</td><td>—</td></tr></tbody></table></div>
+<p>These are our own line-building assumptions, stated as assumptions. They are not facts about
+any match, and they are the first thing to challenge if a price looks wrong.</p>
+
+<h2>4. Confidence and the price band</h2>
+<p>Confidence is a probability statement: <b>High</b> at 70% or better, <b>Medium</b> from 60% to
+70%, <b>Low</b> below 60%. The brief also asks for picks priced between −250 and +10,000. Those
+two rules collide: −250 is a 71.4% implied chance, so a pick that clears 70% and sits inside the
+band must land between 70.0% and 71.4%. Every pick therefore shows both facts — its label and
+whether it is inside the band — and nothing is relabelled to force a match. Today 6
+picks clear 70% and 0 of them are inside the band.</p>
+
+<h2>5. What is deliberately absent</h2>
+<ul>
+<li><b>No injuries.</b> No official availability report was captured for these fixtures, so no
+prediction claims one. An invented injury list is worse than no injury list.</li>
+<li><b>No head-to-head history</b> unless a captured official source states it.</li>
+<li><b>No odds-shop quotes.</b> The only price we compare against is the one OLBG displayed, and
+it is labelled as such.</li>
+<li><b>No filler picks.</b> A match without two verified inputs gets no pick, and the sport says
+so on its own page.</li>
+</ul>
+
+<h2>6. Verification gates</h2>
+<p><span class="code">verify.py</span> re-derives every decimal and American price from its own
+probability, checks both sides of every market sum to 1.0000 within rounding, re-applies the
+confidence rule and the band test, checks each prediction against its word floor, uniqueness and
+selection naming, confirms every rendered table row carries an https source link, and rebuilds the
+site byte for byte. Exit code is zero only if all of it passes.</p>
+
+</div></main>
+<footer><div class="wrap">
+Board DS · every fixture, price and statistic on this site is traceable to a captured
+governing-body response listed on <a href="sources.html">Sources</a>. Prices are our own fair
+lines, not bookmaker quotes. If a value could not be confirmed it is blank and listed on
+<a href="flagged.html">Flagged for review</a>.
+</div></footer></body></html>

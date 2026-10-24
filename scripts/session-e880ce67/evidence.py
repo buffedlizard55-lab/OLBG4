@@ -62,9 +62,13 @@ def parse_nhl(m: dict) -> dict:
             else row.get("teamAbbrev")
         name = row.get("teamName", {}).get("default", "")
         place = row.get("placeName", {}).get("default", "")
+        # The NHL feed returns teamName sometimes as the full name and sometimes as the
+        # nickname only; avoid printing "Edmonton Edmonton Oilers".
+        display = name if (" " in name and not name.lower().startswith(place.lower())) \
+            or name.lower().startswith(place.lower()) else f"{place} {name}".strip()
         teams[abbr] = {
             "abbrev": abbr,
-            "name": f"{place} {name}".strip(),
+            "name": display.strip(),
             "gp": row.get("gamesPlayed"), "wins": row.get("wins"),
             "losses": row.get("losses"), "otl": row.get("otLosses"),
             "points": row.get("points"), "point_pct": row.get("pointPctg"),

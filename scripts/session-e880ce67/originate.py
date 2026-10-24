@@ -38,7 +38,7 @@ OUT = os.path.join(DATA, "desk.json")
 HOME_EDGE = {"Ice Hockey": 0.035, "Baseball": 0.020, "Handball": 0.045, "Tennis": 0.0}
 MARGIN_SD = {"Ice Hockey": 2.40, "Baseball": 4.20, "Handball": 8.00, "Tennis": 3.60}
 TOTAL_SD = {"Ice Hockey": 1.90, "Baseball": 3.40, "Handball": 8.50}
-TOTAL_STEP = {"Ice Hockey": 0.5, "Baseball": 0.5, "Handball": 2.0}
+TOTAL_STEP = {"Ice Hockey": 0.5, "Baseball": 0.5, "Handball": 1.0}
 HOME_SCORE_EDGE = {"Ice Hockey": 0.12, "Baseball": 0.10, "Handball": 1.20}
 
 OUTRIGHT = re.compile(r"win tournament|outright|grand final|win hurling|all ireland|"
@@ -100,9 +100,13 @@ def phi(z: float) -> float:
 
 
 def market(p: float) -> dict:
-    p = min(max(p, 0.02), 0.98)
-    dec = 1 / p
-    return {"probability": round(p, 4), "decimal": round(dec, 2), "american": american(dec)}
+    """Decimal is rounded first and the American price is derived from that decimal, so the
+    two published figures always agree to the cent (and re-derive identically)."""
+    p = round(min(max(p, 0.02), 0.98), 4)
+    # Decimal is derived from the published probability and rounded to whole cents
+    # arithmetically, so the verifier re-derives the identical figure.
+    dec = math.floor(1 / p * 100 + 0.5) / 100
+    return {"probability": p, "decimal": dec, "american": american(dec)}
 
 
 def confidence(p: float) -> str:
@@ -244,8 +248,14 @@ def price_pair(event: dict, match: dict, sport: str) -> dict:
     home, away = match["home"], match["away"]
     edge = HOME_EDGE.get(sport, 0.0)
 
+    # Small samples are shrunk toward the competition mean: a club that is 5-0 after five
+    # rounds is not a 98% favourite.  k is the number of "prior" games added at 0.5.
+    SHRINK = {"Ice Hockey": 8.0, "Handball": 5.0, "Baseball": 0.0}
+
     if sport == "Ice Hockey":
-        sh, sa = float(home["point_pct"]), float(away["point_pct"])
+        k = SHRINK[sport]
+        sh = (float(home["point_pct"]) * float(home["gp"]) + 0.55 * k) / (float(home["gp"]) + k)
+        sa = (float(away["point_pct"]) * float(away["gp"]) + 0.55 * k) / (float(away["gp"]) + k)
         # scoring rates per game
         h_gf, h_ga = home["gf"] / home["gp"], home["ga"] / home["gp"]
         a_gf, a_ga = away["gf"] / away["gp"], away["ga"] / away["gp"]
@@ -256,8 +266,11 @@ def price_pair(event: dict, match: dict, sport: str) -> dict:
         a_gf, a_ga = away["runs_scored"] / away["gp"], away["runs_allowed"] / away["gp"]
         form_h, form_a = home["l10"], away["l10"]
     elif sport == "Handball":
-        sh = (2 * float(home["wins"]) + float(home["draws"])) / (2 * float(home["gp"]))
-        sa = (2 * float(away["wins"]) + float(away["draws"])) / (2 * float(away["gp"]))
+        k = SHRINK[sport]
+        raw_h = (2 * float(home["wins"]) + float(home["draws"])) / (2 * float(home["gp"]))
+        raw_a = (2 * float(away["wins"]) + float(away["draws"])) / (2 * float(away["gp"]))
+        sh = (raw_h * float(home["gp"]) + 0.5 * k) / (float(home["gp"]) + k)
+        sa = (raw_a * float(away["gp"]) + 0.5 * k) / (float(away["gp"]) + k)
         h_gf, h_ga = float(home["gf"]) / float(home["gp"]), float(home["ga"]) / float(home["gp"])
         a_gf, a_ga = float(away["gf"]) / float(away["gp"]), float(away["ga"]) / float(away["gp"])
         form_h = f"{home['wins']}-{home['draws']}-{home['losses']}"
@@ -275,7 +288,9 @@ def price_pair(event: dict, match: dict, sport: str) -> dict:
     if sport != "Tennis":
         p_home = log5(sh + edge, sa - edge)
     else:
-        p_home = min(max(p, 0.08), 0.92)
+        p_home = p
+    # No originated line claims better than a 90% chance: the inputs are a handful of games.
+    p_home = min(max(p_home, 0.10), 0.90)
 
     markets = {"moneyline": {
         "label": "Match winner (moneyline)", "home": market(p_home),
@@ -289,21 +304,31 @@ def price_pair(event: dict, match: dict, sport: str) -> dict:
         total += HOME_SCORE_EDGE.get(sport, 0.0) * 0.5
 
     if margin is not None:
-        line = 1.5 if abs(margin) < 3 else round(abs(margin) * 0.8)
-        line = float(line)
-        p_home_cover = phi((margin - line) / MARGIN_SD[sport])
+        # Handicap sits on the expected margin: 0.5 steps in hockey/baseball, 1.0 in handball.
+        # The line is given to the side we make favourite, with the correct sign.
+        step = 1.0 if sport == "Handball" else 0.5
+        line = max(step, round(abs(margin) / step) * step)
+        if margin >= 0:
+            p_fav = phi((margin - line) / MARGIN_SD[sport])
+            p_home_cover, p_away_cover = p_fav, 1 - p_fav
+            home_selection, away_selection = (f"{home['name']} -{line:g}",
+                                              f"{away['name']} +{line:g}")
+        else:
+            p_fav = phi((-margin - line) / MARGIN_SD[sport])
+            p_home_cover, p_away_cover = 1 - p_fav, p_fav
+            home_selection, away_selection = (f"{home['name']} +{line:g}",
+                                              f"{away['name']} -{line:g}")
         markets["handicap"] = {
             "label": "Handicap / spread", "line": line,
-            "home": market(p_home_cover), "away": market(1 - p_home_cover),
-            "home_selection": f"{home['name']} -{line:g}",
-            "away_selection": f"{away['name']} +{line:g}",
+            "home": market(p_home_cover), "away": market(p_away_cover),
+            "home_selection": home_selection, "away_selection": away_selection,
         }
 
     if total is not None:
         step = TOTAL_STEP[sport]
         line = round(total / step) * step
-        if line == int(line):
-            line += step / 2
+        if abs(line - total) < 1e-9:      # never publish a line that can push
+            line += step
         p_over = 1 - phi((line - total) / TOTAL_SD[sport])
         markets["total"] = {
             "label": "Match total", "line": line,
@@ -397,6 +422,25 @@ def specific_reason(event: dict, sport: str, ev: dict) -> str:
     return WHY_UNPRICED.get(sport, "No official strength input was captured.")
 
 
+def olbg_quote(olbg: dict, event_id: str, selection: str) -> dict | None:
+    """The price OLBG itself was showing for the selection we picked, when it listed one."""
+    hit = None
+    for row in olbg["rows"]:
+        if row["event_id"] != event_id or row["olbg_decimal"] is None:
+            continue
+        if norm_name(row["selection"]) and (
+                norm_name(row["selection"]) in norm_name(selection)
+                or norm_name(selection) in norm_name(row["selection"])):
+            hit = row
+            break
+    if not hit:
+        return None
+    return {"selection": hit["selection"], "decimal": hit["olbg_decimal"],
+            "american": hit["olbg_american"], "market": hit["market"],
+            "tips": f"{hit['tips_won']}/{hit['tips_total']}" if hit["tips_total"] else "",
+            "tip_pct": hit["tip_pct"]}
+
+
 def main() -> int:
     olbg = json.load(open(os.path.join(DATA, "olbg.json"), encoding="utf-8"))
     ev = json.load(open(os.path.join(DATA, "evidence.json"), encoding="utf-8"))
@@ -417,7 +461,7 @@ def main() -> int:
             "olbg_listed_selections": event["selections"],
             "status": "unpriced", "pick": None, "markets": {}, "flags": [],
             "official_url": "", "official_name": "", "official_sha256": "",
-            "identity_confirmed": False, "form": {}, "scoring": {},
+            "identity_confirmed": False, "form": {}, "scoring": {}, "olbg_quote": None,
             "expected_margin": None, "expected_total": None,
         }
         adapter = ADAPTER.get(sport)
@@ -439,6 +483,7 @@ def main() -> int:
                     "venue": (match["fixture"] or {}).get("venue", "") if match["fixture"] else "",
                     **priced_result,
                 })
+                row["olbg_quote"] = olbg_quote(olbg, event["event_id"], row["pick"]["selection"])
                 if not match["identity"]:
                     row["flags"].append(
                         "OLBG is the only source naming this fixture; the governing body page "
