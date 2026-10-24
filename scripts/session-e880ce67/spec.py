@@ -114,10 +114,6 @@ def schedule_dates(start: str = "2026-10-24", days: int = 8) -> dict:
     return out
 
 
-ALL_GROUPS = {
-    "olbg": OLBG_URLS,
-    "official": {**OFFICIAL, **schedule_dates()},
-}
 
 
 # ---------------------------------------------------------------- round 2 probes
@@ -164,5 +160,11 @@ OLBG_URLS.update({
     "data_handball": "https://www.olbg.com/betting-tips/Handball/20/__data.json",
     "data_tennis": "https://www.olbg.com/betting-tips/Tennis/3/__data.json",
 })
+
+# Built last, after every update above, so a newly probed endpoint is always fetched.
+ALL_GROUPS = {
+    "olbg": OLBG_URLS,
+    "official": {**OFFICIAL, **schedule_dates()},
+}
 
 MAX_BYTES = 12 * 1024 * 1024
