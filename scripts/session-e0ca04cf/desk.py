@@ -893,6 +893,11 @@ def build(cap_dir: str):
     build_rugby_league(cap, rows)
     build_tennis(cap, rows, events)
     build_motorsport(cap, rows, events)
+    import builders2 as B2
+    B2.build_snooker(sys.modules[__name__], cap, rows)
+    B2.build_rugby_union(sys.modules[__name__], cap, rows)
+    B2.build_handball_ehf(sys.modules[__name__], cap, rows, events)
+    B2.build_liiga(sys.modules[__name__], cap, rows)
     build_unpriced(cap, rows, events)
     attach_olbg(rows, events)
     return cap, rows, events, man
