@@ -5159,3 +5159,7 @@ Rebased the QF branch onto `origin/main` at `df1e0a7`. Re-ran `py_compile`, the 
 ### QF verification after latest main advance — 2026-10-24T18:24Z
 
 After `origin/main` advanced to `a202a6d` (PR #177), rebased QF and repeated the deterministic audit/build/verifier, `git diff --check`, and global publication audit. The CA desk inputs remain capture `20261024T173907Z`; QF results remain **26/26 PASS**, 350 source-linked table rows, zero broken local links, and zero publication-audit broken/stale targets (48,116 checked). PR #181 is being rechecked against the rebased head; no shared output changed.
+
+### QF refresh after root rebuild / latest main — 2026-10-24T18:33Z
+
+Main advanced through PR #179 (root overview rebuilt so the repository freshness gate can pass) and PR #180. Rebased QF on `7224553` and reran all local checks. The QF audit remains 401 desk rows / 234 priced / 19 High / 25 predictions; **26/26 gates pass**, 350 source-linked table rows, 0 broken local links; global publication audit: 471 rows, **50,242** local targets, 0 broken, 0 stale. PR #179's `Validate data and site` run passed (`https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40120682450`). PR #181 is being updated to this base; its checks must be reviewed again before any merge decision.
