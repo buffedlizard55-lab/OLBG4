@@ -53,8 +53,8 @@ TEXT = {
         "Carolina Hurricanes to beat the Chicago Blackhawks at Lenovo Center at -385. Carolina are 8-2-2 "
         "for 18 points, 8-1-1 over their last ten, and are scoring 3.92 goals a game while conceding 2.75. "
         "Chicago are 3-7-0 for six points, 3-7-0 in the same span, and have not won away from home in four "
-        "attempts, scoring 2.20 and conceding 4.00 per game. The Hurricanes carry a two-win unbeaten run "
-        "into the game, so the home side is the confident call."
+        "attempts, scoring 2.20 and conceding 4.00 per game. Carolina have won eight of their last ten and "
+        "are 2-1-1 on home ice, so the home side is the confident call."
     ),
     "fx_nhl_2026020250": (
         "Seattle Kraken to beat the Calgary Flames at Climate Pledge Arena at -370. Seattle are 7-3-1 for "
@@ -102,8 +102,8 @@ TEXT = {
     # ------------------------------------------------------------------- handball
     "ca_olbg_12078": (
         "GOG to win at TMS Ringsted in the Danish Herreligaen at -238. The official table has GOG 9-1-0 on "
-        "19 points with 352 goals scored and 292 conceded in ten matches, which is 35.2 scored and 29.2 "
-        "conceded a game. Ringsted are 1-1-8 on three points, scoring 306 and conceding 342. Against a "
+        "19 points with 352 goals scored and 292 conceded in ten matches, while "
+        "Ringsted have 306 scored and 342 conceded. Ringsted are 1-1-8 on three points, scoring 306 and conceding 342. Against a "
         "league average of 31.66 goals a match, GOG's attack and defence both point the same way, so the "
         "away win is the selection."
     ),
@@ -182,23 +182,23 @@ TEXT = {
     # -------------------------------------------------------------------- baseball
     "fx_mlb_849804": (
         "Milwaukee Brewers to beat the Tampa Bay Rays at Tropicana Field in game three at -152. The Brewers "
-        "finished the regular season 103-59, scoring 5.14 runs a game and conceding 3.82; the Rays were "
-        "98-64, scoring 4.54 and conceding 4.01. Milwaukee's run differential of plus 214 is the better of "
-        "the two by more than sixty runs. Robert Gasser is listed against Freddy Peralta, and on season "
+        "finished the regular season 103-59, scoring 5.14 runs a game and conceding 3.815; the Rays were "
+        "98-64, scoring 4.54 and conceding 4.012. Milwaukee scored 832 runs and conceded 618, against "
+        "Tampa Bay's 736 and 650. Robert Gasser is listed against Freddy Peralta, and on season "
         "scoring rates the Brewers are the selection away from home."
     ),
     "fx_mlb_849802": (
         "Milwaukee Brewers to beat the Tampa Bay Rays at American Family Field in game two at -111. "
-        "Milwaukee are 103-59 for the season, scoring 5.14 runs a game and conceding 3.82, while Tampa Bay "
-        "are 98-64, scoring 4.54 and conceding 4.01. Logan Henderson is the listed starter for the Brewers "
+        "Milwaukee are 103-59 for the season, scoring 5.136 runs a game and conceding 3.815, while Tampa Bay "
+        "are 98-64, scoring 4.543 and conceding 4.012. Logan Henderson is the listed starter for the Brewers "
         "against Drew Rasmussen, and the hosts score more than half a run a game more than their opponents. "
         "With home advantage and the better offence, the Brewers money line is the pick."
     ),
     "fx_mlb_849803": (
         "Milwaukee Brewers to beat the Tampa Bay Rays at Tropicana Field in game four at -152, with the "
         "caveat that no starting pitcher had been announced for either side when this was written. The "
-        "season numbers still separate them: Milwaukee are 103-59 with 5.14 runs scored and 3.82 conceded "
-        "per game, Tampa Bay 98-64 with 4.54 scored and 4.01 conceded. On those figures the Brewers remain "
+        "season numbers still separate them: Milwaukee are 103-59 with 5.136 runs scored and 3.815 conceded "
+        "per game, Tampa Bay 98-64 with 4.543 scored and 4.012 conceded. On those figures the Brewers remain "
         "the selection, but the price should be re-checked once the starters are named."
     ),
     # ---------------------------------------------------------------- motor racing

@@ -131,6 +131,34 @@ def main() -> int:
             dup = max(dup, len(ga & gb) / len(ga | gb))
     check("predictions are not duplicated", dup <= 0.30, f"max 3-gram Jaccard {dup:.3f}")
 
+    # ------------------------------------------- 6b. numbers must come from the row
+    by_id = {r["id"]: r for r in rows}
+    invented = []
+    for p in preds:
+        r = by_id.get(p["row_id"], {})
+        facts = " ".join([
+            json.dumps(r.get("evidence") or {}), json.dumps(r.get("form") or {}),
+            str(r.get("competition", "")), str(r.get("venue", "")), str(r.get("start_utc", "")),
+            str(r.get("side_a", "")), str(r.get("side_b", "")), str(r.get("sample", "")),
+            str(p.get("fair_american")), f'{p.get("fair_prob", 0) * 100:.1f}',
+            str(p.get("fair_decimal")), json.dumps(p.get("inputs") or {}),
+        ])
+        allowed = set()
+        for tok in re.findall(r"\d+(?:\.\d+)?", facts):
+            allowed.add(tok)
+            try:
+                f = float(tok)
+                allowed.update({f"{f:.0f}", f"{f:.1f}", f"{f:.2f}", f"{f:g}"})
+            except ValueError:
+                pass
+        for tok in re.findall(r"\d+(?:\.\d+)?", p["text"]):
+            if tok in allowed:
+                continue
+            if float(tok) in {float(a) for a in allowed if re.fullmatch(r"\d+(?:\.\d+)?", a)}:
+                continue
+            invented.append(f"{p['row_id']}: {tok}")
+    check("every number in a prediction traces to the row", not invented, str(invented[:8]))
+
     # ---------------------------------------------------------------- 7. links
     bad_links = []
     for f in files:
