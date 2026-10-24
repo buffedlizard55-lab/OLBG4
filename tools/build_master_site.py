@@ -331,7 +331,7 @@ def build_sport(sport: str) -> str:
     <span class="selection">{E(r['pick'])}</span></div>
   <div class="sub">{E(r['date'])} · {E(r['competition'])}</div>
   <p class="text">{E(r['prediction'])}</p>
-  {authored_block(r)}
+{('  ' + authored_block(r)) if r.get('authored_facts') else ''}
   <div class="foot"><span>Selection: <strong>{E(r['pick'])}</strong> ({E(r['pick_market'] or 'match winner')})</span>
   <span>{src_link(r['source_url'], r['source_domain'])}</span>{badge_verify(r)}</div>
 </div>""")
@@ -402,7 +402,7 @@ def build_picks() -> str:
     <span class="selection">{E(r['pick'])}</span><span class="sub">{E(r['pick_market'] or 'match winner')}</span></div>
   <div class="sub">{E(r['date'])} · {E(r['competition'])} {('· ' + E(r['venue'])) if r.get('venue') else ''}</div>
   <p class="text">{E(r['prediction'])}</p>
-  {authored_block(r)}
+{('  ' + authored_block(r)) if r.get('authored_facts') else ''}
   <div class="foot">
     <span>{words} words</span>
     <span>{"Facts checked 2026-10-21" if r.get("prediction_source", "").startswith("authored") else "Build " + E(r["build"])}</span>
