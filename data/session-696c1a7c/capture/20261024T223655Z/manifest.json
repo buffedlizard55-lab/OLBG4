@@ -1,0 +1,659 @@
+{
+ "board": "SA",
+ "failed": 51,
+ "failures": [
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "nba_schedule_cdn",
+   "sport": "Basketball",
+   "status": 403,
+   "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "nba_scoreboard_today",
+   "sport": "Basketball",
+   "status": 403,
+   "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json"
+  },
+  {
+   "error": "TimeoutError: The read operation timed out",
+   "id": "nba_standings_stats",
+   "sport": "Basketball",
+   "status": 0,
+   "url": "https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27&SeasonType=Regular+Season"
+  },
+  {
+   "error": "TimeoutError: The read operation timed out",
+   "id": "nba_gamelog_stats",
+   "sport": "Basketball",
+   "status": 0,
+   "url": "https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2026-27&SeasonType=Regular+Season&Sorter=DATE"
+  },
+  {
+   "error": "TimeoutError: The read operation timed out",
+   "id": "nba_teamstats_stats",
+   "sport": "Basketball",
+   "status": 0,
+   "url": "https://stats.nba.com/stats/leaguedashteamstats?Conference=&DateFrom=&DateTo=&Division=&GameScope=&GameSegment=&Height=&LastNGames=0&LeagueID=00&Location=&MeasureType=Base&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=PerGame&Period=0&PlayerExperience=&PlayerPosition=&PlusMinus=N&Rank=N&Season=2026-27&SeasonSegment=&SeasonType=Regular+Season&ShotClockRange=&StarterBench=&TeamID=0&VsConference=&VsDivision="
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "atp_rankings_browser",
+   "sport": "Tennis",
+   "status": 403,
+   "url": "https://www.atptour.com/en/rankings/singles?rankRange=1-200"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "atp_rankings_race",
+   "sport": "Tennis",
+   "status": 403,
+   "url": "https://www.atptour.com/en/rankings/race-to-turin"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "atp_calendar_browser",
+   "sport": "Tennis",
+   "status": 403,
+   "url": "https://www.atptour.com/en/tournaments"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "icc_mens_rankings_api",
+   "sport": "Cricket",
+   "status": 404,
+   "url": "https://www.icc-cricket.com/api/rankings/mens/t20i"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "pcb_fixtures",
+   "sport": "Cricket",
+   "status": 403,
+   "url": "https://www.pcb.com.pk/fixtures.html"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "nzc_schedule",
+   "sport": "Cricket",
+   "status": 404,
+   "url": "https://www.nzc.nz/schedule"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "ecb_schedule",
+   "sport": "Cricket",
+   "status": 404,
+   "url": "https://www.ecb.co.uk/england/men/schedule"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "cricket_au_schedule",
+   "sport": "Cricket",
+   "status": 404,
+   "url": "https://www.cricket.com.au/schedule"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "csa_fixtures",
+   "sport": "Cricket",
+   "status": 404,
+   "url": "https://cricket.co.za/fixtures"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "hbl_liquimoly_spielplan",
+   "sport": "Handball",
+   "status": 404,
+   "url": "https://www.liquimoly-hbl.de/de/spielplan/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "hbl_liquimoly_tabelle",
+   "sport": "Handball",
+   "status": 404,
+   "url": "https://www.liquimoly-hbl.de/de/tabelle/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 307: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nTemporary Redirect",
+   "id": "svenskhandboll",
+   "sport": "Handball",
+   "status": 307,
+   "url": "https://www.svenskhandboll.se/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "handbollsligan_statistik",
+   "sport": "Handball",
+   "status": 404,
+   "url": "https://handbollsligan.se/statistik/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "asobal_resultados",
+   "sport": "Handball",
+   "status": 404,
+   "url": "https://asobal.es/resultados/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "lnh_calendrier2",
+   "sport": "Handball",
+   "status": 404,
+   "url": "https://www.lnh.fr/calendrier"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "tvf_fixtures",
+   "sport": "Volleyball",
+   "status": 404,
+   "url": "https://tvf.org.tr/musabakalar/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "cbv_superliga",
+   "sport": "Volleyball",
+   "status": 404,
+   "url": "https://www.cbv.com.br/superliga"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "vbl_fixtures",
+   "sport": "Volleyball",
+   "status": 404,
+   "url": "https://www.volleyball-bundesliga.de/cms/home/1bl_frauen/spielplan/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "plusliga_women",
+   "sport": "Volleyball",
+   "status": 404,
+   "url": "https://www.tauronliga.pl/table/tour/2026.html"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "pdc_gc_matches",
+   "sport": "Darts",
+   "status": 0,
+   "url": "https://matches.gc.pdcservices.co.uk/v2/?page.size=200"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "pdc_api_root",
+   "sport": "Darts",
+   "status": 0,
+   "url": "https://api.pdc.tv/v2/?page.size=50"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "wdf_events",
+   "sport": "Darts",
+   "status": 404,
+   "url": "https://www.dartswdf.com/events/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gaa_club_fixtures",
+   "sport": "Gaelic Sports",
+   "status": 404,
+   "url": "https://www.gaa.ie/fixtures-results/club"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "dublingaa_results",
+   "sport": "Gaelic Sports",
+   "status": 404,
+   "url": "https://www.dublingaa.ie/results"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gbgb_api_races_date",
+   "sport": "Greyhounds",
+   "status": 404,
+   "url": "https://api.gbgb.org.uk/api/races?date=2026-10-25"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gbgb_api_racecards_date",
+   "sport": "Greyhounds",
+   "status": 404,
+   "url": "https://api.gbgb.org.uk/api/racecards?date=2026-10-25&page=1&itemsPerPage=100"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gbgb_racecard_page",
+   "sport": "Greyhounds",
+   "status": 404,
+   "url": "https://www.gbgb.org.uk/race-card/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "owgr_api",
+   "sport": "Golf",
+   "status": 404,
+   "url": "https://www.owgr.com/api/rankings/current"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "f1_mexico_results",
+   "sport": "Motor Racing",
+   "status": 404,
+   "url": "https://www.formula1.com/en/results/2026/races/1159/mexico/race-result"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "motogp_results_2026",
+   "sport": "Motor Racing",
+   "status": 404,
+   "url": "https://www.motogp.com/en/calendar/2026/race-results"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Baseball/MLB/MLB/12'",
+   "id": "olbg_league_mlb_12",
+   "sport": "Baseball",
+   "status": 0,
+   "url": "/betting-tips/Baseball/MLB/MLB/12"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Basketball/NBA/NBA/4'",
+   "id": "olbg_league_nba_4",
+   "sport": "Basketball",
+   "status": 0,
+   "url": "/betting-tips/Basketball/NBA/NBA/4"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Basketball/Other/Korea_KBL/4'",
+   "id": "olbg_league_korea_kbl_4",
+   "sport": "Basketball",
+   "status": 0,
+   "url": "/betting-tips/Basketball/Other/Korea_KBL/4"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Cricket/All_Cricket/All_Events/7'",
+   "id": "olbg_league_all_events_7",
+   "sport": "Cricket",
+   "status": 0,
+   "url": "/betting-tips/Cricket/All_Cricket/All_Events/7"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Darts/All_Darts/All_Events/15'",
+   "id": "olbg_league_all_events_15",
+   "sport": "Darts",
+   "status": 0,
+   "url": "/betting-tips/Darts/All_Darts/All_Events/15"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Greyhounds/All_Greyhounds/All_Events/28'",
+   "id": "olbg_league_all_events_28",
+   "sport": "Greyhounds",
+   "status": 0,
+   "url": "/betting-tips/Greyhounds/All_Greyhounds/All_Events/28"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Handball/All_Handball/All_Events/20'",
+   "id": "olbg_league_all_events_20",
+   "sport": "Handball",
+   "status": 0,
+   "url": "/betting-tips/Handball/All_Handball/All_Events/20"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Hurling/All_Hurling/All_Events/26'",
+   "id": "olbg_league_all_events_26",
+   "sport": "Gaelic Sports",
+   "status": 0,
+   "url": "/betting-tips/Hurling/All_Hurling/All_Events/26"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Ice_Hockey/NHL/NHL/13'",
+   "id": "olbg_league_nhl_13",
+   "sport": "Ice Hockey",
+   "status": 0,
+   "url": "/betting-tips/Ice_Hockey/NHL/NHL/13"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Ice_Hockey/Other/Austria_EHL/13'",
+   "id": "olbg_league_austria_ehl_13",
+   "sport": "Ice Hockey",
+   "status": 0,
+   "url": "/betting-tips/Ice_Hockey/Other/Austria_EHL/13"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Ice_Hockey/Other/Germany_Eishockey_Liga/13'",
+   "id": "olbg_league_germany_eishockey_liga_13",
+   "sport": "Ice Hockey",
+   "status": 0,
+   "url": "/betting-tips/Ice_Hockey/Other/Germany_Eishockey_Liga/13"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Ice_Hockey/Other/Switzerland_NLA/13'",
+   "id": "olbg_league_switzerland_nla_13",
+   "sport": "Ice Hockey",
+   "status": 0,
+   "url": "/betting-tips/Ice_Hockey/Other/Switzerland_NLA/13"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Rugby_League/All_Rugby_League/All_Events/10'",
+   "id": "olbg_league_all_events_10",
+   "sport": "Rugby League",
+   "status": 0,
+   "url": "/betting-tips/Rugby_League/All_Rugby_League/All_Events/10"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/9'",
+   "id": "olbg_league_all_events_9",
+   "sport": "Rugby Union",
+   "status": 0,
+   "url": "/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/9"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Tennis/All_Tennis/All_Events/3'",
+   "id": "olbg_league_all_events_3",
+   "sport": "Tennis",
+   "status": 0,
+   "url": "/betting-tips/Tennis/All_Tennis/All_Events/3"
+  },
+  {
+   "error": "ValueError: unknown url type: '/betting-tips/Volleyball/All_Volleyball/All_Events/21'",
+   "id": "olbg_league_all_events_21",
+   "sport": "Volleyball",
+   "status": 0,
+   "url": "/betting-tips/Volleyball/All_Volleyball/All_Events/21"
+  }
+ ],
+ "finished_utc": "2026-10-24T22:44:44Z",
+ "label": "r2",
+ "ok": 24,
+ "records": [
+  {
+   "bytes": 1390918,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wst_matches_window.gz",
+   "final_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=500&sort=startDateTime&filter%5BstartDateTime%5D%5Bgte%5D=2026-10-01&filter%5BstartDateTime%5D%5Blte%5D=2026-11-30",
+   "id": "wst_matches_window",
+   "sha256": "d6d18401cc4acdde1ecbf10269fbf162dc6bf12fd2225ac56ecfd2c051423ddc",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=500&sort=startDateTime&filter%5BstartDateTime%5D%5Bgte%5D=2026-10-01&filter%5BstartDateTime%5D%5Blte%5D=2026-11-30"
+  },
+  {
+   "bytes": 1390922,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wst_matches_recent.gz",
+   "final_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=500&sort=-startDateTime&filter%5BstartDateTime%5D%5Bgte%5D=2026-05-01&filter%5BstartDateTime%5D%5Blte%5D=2026-10-24",
+   "id": "wst_matches_recent",
+   "sha256": "e91f8d90a41818e68e4a006e904b7de031e3811d0b38d644fe9724594c3d00ab",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=500&sort=-startDateTime&filter%5BstartDateTime%5D%5Bgte%5D=2026-05-01&filter%5BstartDateTime%5D%5Blte%5D=2026-10-24"
+  },
+  {
+   "bytes": 74577,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wst_tournaments.gz",
+   "final_url": "https://tournaments.snooker.web.gc.wstservices.co.uk/v2/?page.size=100",
+   "id": "wst_tournaments",
+   "sha256": "1a7fcdd06af527990beccd75fcc6eb726657551a0a4c3a12dcb630206d93983f",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://tournaments.snooker.web.gc.wstservices.co.uk/v2/?page.size=100"
+  },
+  {
+   "bytes": 239422,
+   "content_type": "text/html",
+   "error": null,
+   "file": "snooker_org_event.gz",
+   "final_url": "https://www.snooker.org/res/index.asp?event=2548",
+   "id": "snooker_org_event",
+   "sha256": "f0fc2fc8d27377b695bd1076ad52efd184a21a9cbbf84701f88d1e8f6654146f",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://www.snooker.org/res/index.asp?event=2548"
+  },
+  {
+   "bytes": 1178101,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "wta_rankings_html.gz",
+   "final_url": "https://www.wtatennis.com/rankings/singles",
+   "id": "wta_rankings_html",
+   "sha256": "09ba25e68e1e2a912bed511ba8c41cd39a56f5e653891fa12519e9e4c47d9018",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://www.wtatennis.com/rankings/singles"
+  },
+  {
+   "bytes": 60559,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wta_calendar_full.gz",
+   "final_url": "https://api.wtatennis.com/tennis/tournaments?page=0&pageSize=200",
+   "id": "wta_calendar_full",
+   "sha256": "535b9b1736a00c153497be2905871d3c6dd7856a36f4456ec4563a28aa7c8e6a",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://api.wtatennis.com/tennis/tournaments?page=0&pageSize=200"
+  },
+  {
+   "bytes": 299169,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "cricket_au_bbl.gz",
+   "final_url": "https://www.bigbash.com.au/",
+   "id": "cricket_au_bbl",
+   "sha256": "b1f330107459092929e091613d38a7e14c13441539ddf788126c2a6f74edefd7",
+   "sport": "Cricket",
+   "status": 200,
+   "url": "https://www.cricket.com.au/big-bash"
+  },
+  {
+   "bytes": 94604,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "ehfcl_m_results.gz",
+   "final_url": "https://ehfcl.eurohandball.com/men/2026-27/matches/?round=6",
+   "id": "ehfcl_m_results",
+   "sha256": "f449fa6098f9c91871eef0d8e5b190b57430ab07a3b51a54c20fae4799217d09",
+   "sport": "Handball",
+   "status": 200,
+   "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/?round=6"
+  },
+  {
+   "bytes": 158595,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "lvgf_classifica.gz",
+   "final_url": "https://www.legavolleyfemminile.it/classifica/",
+   "id": "lvgf_classifica",
+   "sha256": "de04c58f79cc1eae3d65385b31b4d0a074bab2a0d0cb29d785f16d7837c1be5a",
+   "sport": "Volleyball",
+   "status": 200,
+   "url": "https://www.legavolleyfemminile.it/classifica/"
+  },
+  {
+   "bytes": 724388,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "lvgf_calendario.gz",
+   "final_url": "https://www.legavolleyfemminile.it/calendario/",
+   "id": "lvgf_calendario",
+   "sha256": "5d9088f1944ef67dd8288d784f8c95d88902792ac4a9253f6a0f499321de5fe2",
+   "sport": "Volleyball",
+   "status": 200,
+   "url": "https://www.legavolleyfemminile.it/calendario/"
+  },
+  {
+   "bytes": 1124,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "lnv_calendrier.gz",
+   "final_url": "https://lnv.fr/calendrier/",
+   "id": "lnv_calendrier",
+   "sha256": "9b8dd9efb97bcbe0b9cc2409ee8ac86adabbbcdec8c8b8016e669b26ec44e5a0",
+   "sport": "Volleyball",
+   "status": 200,
+   "url": "https://lnv.fr/calendrier/"
+  },
+  {
+   "bytes": 325457,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "prem_round.gz",
+   "final_url": "https://www.premrugby.com/fixtures-results?round=6",
+   "id": "prem_round",
+   "sha256": "5ee992755c2ed1927f4c5d7f9261dfc555fa0973e02850e82d5276915806d50d",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://www.premiershiprugby.com/fixtures-results?round=6"
+  },
+  {
+   "bytes": 155193,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "top14_journee.gz",
+   "final_url": "https://top14.lnr.fr/calendrier-et-resultats?journee=9",
+   "id": "top14_journee",
+   "sha256": "401f1b317e1c273fae4488137b352e74944435cfd1bde917e543dd46b7b903e8",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://top14.lnr.fr/calendrier-et-resultats?journee=9"
+  },
+  {
+   "bytes": 5680,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "urc_match_centre.gz",
+   "final_url": "https://stats.unitedrugby.com/match-centre/2025-26/1/$",
+   "id": "urc_match_centre",
+   "sha256": "194fa2ccc8366c13bcb1b8f0ba15426e97d3c1b211d606cf8774923179633747",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://www.unitedrugby.com/match-centre"
+  },
+  {
+   "bytes": 679373,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "epcr_home.gz",
+   "final_url": "https://www.epcrugby.com/",
+   "id": "epcr_home",
+   "sha256": "1a4fde6782c439283625d63a8323e0ccbd4e4d886f397cd036de59fec4edfe14",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://www.epcrugby.com/"
+  },
+  {
+   "bytes": 60357,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "japan_rugby.gz",
+   "final_url": "https://www.rugby-japan.jp/",
+   "id": "japan_rugby",
+   "sha256": "6c04d42e5c3ecf0e5fb4960e84a09e7e061b11f5aae8ff671533f6d826a13faa",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://www.rugby-japan.jp/"
+  },
+  {
+   "bytes": 20551,
+   "content_type": "application/xml",
+   "error": null,
+   "file": "pdc_sitemap.gz",
+   "final_url": "https://www.pdc.tv/sitemap.xml",
+   "id": "pdc_sitemap",
+   "sha256": "38cc9fee97929739357112994294719afcc0b616802df74da70e69f8edf5788d",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.pdc.tv/sitemap.xml"
+  },
+  {
+   "bytes": 1241860,
+   "content_type": "text/html",
+   "error": null,
+   "file": "pdc_tournaments_page.gz",
+   "final_url": "https://www.pdc.tv/tournaments",
+   "id": "pdc_tournaments_page",
+   "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.pdc.tv/tournaments"
+  },
+  {
+   "bytes": 164988,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "kilkennygaa.gz",
+   "final_url": "https://kilkennygaa.ie/",
+   "id": "kilkennygaa",
+   "sha256": "ddc0695b76dd9b6c4c319c00ca14f2d46a712eb4119bbf80551a44e58cb2658a",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://kilkennygaa.ie/"
+  },
+  {
+   "bytes": 366831,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "gaacork_results.gz",
+   "final_url": "https://gaacork.ie/results/",
+   "id": "gaacork_results",
+   "sha256": "0afd07f4d44e02410842d2009185d2c15f98a0c1ceae831c6b0338f556a39af5",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://gaacork.ie/results"
+  },
+  {
+   "bytes": 88736,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "gbgb_meetings_page.gz",
+   "final_url": "https://www.gbgb.org.uk/meetings-abandoned-and-competitions-rescheduled-as-extreme-weather-takes-its-toll-798/",
+   "id": "gbgb_meetings_page",
+   "sha256": "9f97719720ff1f8724d48e921c2f91ddd7e568ef172e64c3bcdf5a5ab3daf207",
+   "sport": "Greyhounds",
+   "status": 200,
+   "url": "https://www.gbgb.org.uk/meetings/"
+  },
+  {
+   "bytes": 932128,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "pgatour_bermuda.gz",
+   "final_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528",
+   "id": "pgatour_bermuda",
+   "sha256": "e9dae56d072dcda1f147eafb03495eda749b9ec964062421ea35b1f3a6b2e22a",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528"
+  },
+  {
+   "bytes": 337611,
+   "content_type": "text/html",
+   "error": null,
+   "file": "dpwt_genesis.gz",
+   "final_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard",
+   "id": "dpwt_genesis",
+   "sha256": "6e5813db63395057b51114a3d775ec4c393fe3bfe229699cd14f3772069be39a",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard"
+  },
+  {
+   "bytes": 468771,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "f1_race_results_latest.gz",
+   "final_url": "https://www.formula1.com/en/results/2026/races",
+   "id": "f1_race_results_latest",
+   "sha256": "a114a1a4d21907a6a87ed7070b57eefb94e9deca7654550459e8453e7bca0fcc",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://www.formula1.com/en/results/2026/races"
+  }
+ ],
+ "session": "arena/696c1a7c-olbg4",
+ "started_utc": "2026-10-24T22:36:55Z",
+ "targets": 75
+}
