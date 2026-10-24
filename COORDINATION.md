@@ -5067,6 +5067,11 @@ Session: `arena/11927acd-olbg4` · Branch: `arena/11927acd-olbg4` (Arena-fixed; 
 - RI4 complete: 24 static HTML pages under `session-11927acd/`, including executive dashboard, obvious picks, full 401-match inventory, 15 sport pages, markets, sources, audit, methodology and 122 flagged/review records. OLBG listings and official-schedule supplements are labelled separately.
 - RI5 local gates at deterministic timestamp `2026-10-24T18:11:17Z`: two complete rebuilds produced identical hashes; `verify.py` PASS (401 rows, four independently recomputed High picks, 122 flags, 24 pages, all internal links); `audit_publication.py` PASS (471 rows, zero broken, zero stale); `BOARD_DIR=board python3 tools/verify_master.py` PASS (369 rows, 28 pages, 63 written predictions); `python3 -m session-cdf25c13.verify` PASS. The unscoped master invocation looks for legacy root sport pages and is not the deployment command; the documented board invocation passes. No root, `desk/`, master, peer data or peer page was edited. PR, merge, deployment and live-publication evidence remain pending.
 
+
+### Board ZZ — coverage-text correction (post-merge follow-up)
+
+- The 17:58Z capture caught the Northern Ireland Open semi-final already under way, so the snooker fixture that the 17:35Z capture could list had dropped out of the window. The Coverage and Flagged copy now states that as the reason instead of claiming a listed fixture, and the coverage flag (`ZZ-F09`) is now computed from `fixtures.json` + `desk.json` on every rebuild rather than typed, so it cannot drift again.
+- Root `index.html`: the ZZ pointer no longer carries fixture/pick counts (they change with every capture); it points at the dashboard for live numbers. Same single `<div>` + one nav link as before, nothing else touched.
 ## Board UX-FIX — session `arena/11fad5c6-olbg4` (Pages build regression handoff)
 
 Session: `arena/11fad5c6-olbg4` · Branch: `arena/11fad5c6-olbg4` (Arena-fixed) · Claimed: `2026-10-24T17:21Z UTC` · **status: in progress**

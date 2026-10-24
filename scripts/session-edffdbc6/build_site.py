@@ -574,7 +574,7 @@ CAPFIRST = {}
 
 COVERAGE_REASON = {
     "Golf": "the only PGA Tour leaderboard in the capture is the in-play Bermuda Championship (no upcoming event page that is machine-readable); DP World Tour pages returned HTTP 403",
-    "Snooker": "one semi-final is verified and listed, but the snooker.org page states the round length only for the final, so the length of the best-of needed to price a match winner was not published and no line was originated",
+    "Snooker": "snooker.org's event page was captured while the semi-finals were being played and the final still showed one undecided finalist ('M J Williams / Jak Jones'), so no match with both players known and a published round length was left to price",
     "Darts": "pdc.tv serves a JavaScript shell (identical 1.24 MB payload for every page) and lists no fixture data outside scripts; OLBG darts listings are shown on the OLBG page but no official fixture page confirms them",
     "Gaelic Sports": "the only GAA fixture in the window (Shinty-Hurling International, 24 Oct 18:00) had started before the cut-off; county sites list no later fixture",
     "Greyhounds": "race cards and runners were captured from grireland.ie, but no verified form/time feed could support a probability for each runner, so no price was invented",
