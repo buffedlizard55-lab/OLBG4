@@ -1,0 +1,69 @@
+name: Board CA official capture (b6643783)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/b6643783-olbg4
+    paths:
+      - "scripts/session-b6643783/targets.json"
+      - "scripts/session-b6643783/targets2.json"
+      - "scripts/session-b6643783/fetch.py"
+      - ".github/workflows/ca-b6643783.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ca-b6643783-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/b6643783-olbg4
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Capture OLBG hubs + official governing-body feeds (pass 1)
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-b6643783/fetch.py \
+            scripts/session-b6643783/targets.json \
+            "data/session-b6643783/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+
+      - name: Capture OLBG per-event pages (pass 2, only if generated)
+        if: hashFiles('scripts/session-b6643783/targets2.json') != ''
+        run: |
+          set -o pipefail
+          python3 scripts/session-b6643783/fetch.py \
+            scripts/session-b6643783/targets2.json \
+            "data/session-b6643783/capture/$STAMP-events" 2>&1 | tee -a /tmp/capture.log
+
+      - name: Commit capture (even partial) to arena/b6643783-olbg4
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-ca-capture[bot]"
+          git config user.email "board-ca-capture@users.noreply.github.com"
+          mkdir -p data/session-b6643783/logs
+          cp /tmp/capture.log "data/session-b6643783/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-b6643783
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board CA (b6643783): official capture ${STAMP} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/b6643783-olbg4 && \
+              git push origin HEAD:arena/b6643783-olbg4 && break
+            sleep 5
+          done
+
+# trigger marker 2026-10-24T17:20:00Z

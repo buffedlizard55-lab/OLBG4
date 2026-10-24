@@ -20,8 +20,8 @@
   "B": "B — read directly off OLBG's live sport pages (published separately: no official source)"
  },
  "counts": {
-  "rows_total": 354,
-  "rows_in_scope": 349,
+  "rows_total": 369,
+  "rows_in_scope": 364,
   "sports_in_scope": [
    "Aussie Rules",
    "Badminton",
@@ -65,17 +65,17 @@
    "Tennis",
    "Volleyball"
   ],
-  "rows_verified_official": 286,
-  "rows_verified_in_scope": 281,
-  "rows_with_pick": 296,
-  "rows_with_prediction": 76,
-  "rows_with_written_prediction": 67,
-  "rows_with_templated_prediction": 9,
-  "high_with_written_prediction": 36,
+  "rows_verified_official": 301,
+  "rows_verified_in_scope": 296,
+  "rows_with_pick": 305,
+  "rows_with_prediction": 75,
+  "rows_with_written_prediction": 63,
+  "rows_with_templated_prediction": 12,
+  "high_with_written_prediction": 33,
   "confidence": {
-   "Low": 153,
-   "none": 43,
-   "Medium": 111,
+   "Low": 156,
+   "none": 49,
+   "Medium": 117,
    "High": 42
   },
   "by_sport": {
@@ -110,8 +110,8 @@
     "market_total": 7
    },
    "Basketball": {
-    "rows": 89,
-    "verified": 86,
+    "rows": 95,
+    "verified": 92,
     "picks": 60,
     "high": 2,
     "predicted": 5,
@@ -190,14 +190,14 @@
     "market_total": 20
    },
    "Ice Hockey": {
-    "rows": 65,
-    "verified": 63,
-    "picks": 65,
+    "rows": 74,
+    "verified": 72,
+    "picks": 74,
     "high": 22,
-    "predicted": 27,
-    "market_win": 60,
-    "market_handicap": 60,
-    "market_total": 65
+    "predicted": 26,
+    "market_win": 69,
+    "market_handicap": 67,
+    "market_total": 72
    },
    "Motor Racing": {
     "rows": 2,
@@ -272,21 +272,21 @@
   },
   "by_build": {
    "D": 60,
-   "A": 66,
+   "A": 69,
    "G": 128,
    "C": 26,
-   "E": 74
+   "E": 86
   },
-  "cross_build_fixtures": 119,
-  "cross_build_conflicts": 15,
-  "rows_flagged": 298,
+  "cross_build_fixtures": 109,
+  "cross_build_conflicts": 17,
+  "rows_flagged": 307,
   "outrights": 24,
   "outrights_in_scope": 23,
-  "upcoming": 326,
+  "upcoming": 341,
   "out_of_scope": 5,
   "source_tiers": {
    "none": 39,
-   "official": 314,
+   "official": 329,
    "unclassified": 1
   },
   "rows_live_confirmed": 36,
@@ -10387,8 +10387,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "7:00 pm ET",
-   "venue": "TD Garden",
+   "time": "",
+   "venue": "",
    "home": "Boston Celtics",
    "away": "New York Knicks",
    "neutral": null,
@@ -10420,10 +10420,6 @@
     {
      "kind": "build-flag",
      "text": "Not re-checked on an official league source during the 2026-10-21 verification cycle: the fixture, its start time and venue could not be confirmed, so time and venue are blank and no prediction is published."
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
     }
    ],
    "home_raw": "Boston Celtics",
@@ -10438,24 +10434,13 @@
      "date_raw": "2026-10-23",
      "source_url": "",
      "side": "home"
-    },
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23T23:00:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-23",
-     "side": ""
     }
    ],
    "fields_from": {
     "handicap": "D",
-    "total": "D",
-    "venue": "E",
-    "time": "E"
+    "total": "D"
    },
-   "archive_rows": 2,
+   "archive_rows": 1,
    "pick_side": "home",
    "id": "M0164",
    "source_tier": "official",
@@ -10477,8 +10462,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "7:00 pm ET",
-   "venue": "Spectrum Center",
+   "time": "",
+   "venue": "",
    "home": "Charlotte Hornets",
    "away": "Atlanta Hawks",
    "neutral": null,
@@ -10502,31 +10487,14 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; handicap (point spread) and match total (points) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
     }
    ],
    "home_raw": "Charlotte Hornets",
    "away_raw": "Atlanta Hawks",
    "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23T23:00:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-23",
-     "side": ""
-    }
-   ],
-   "fields_from": {
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 1,
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
    "pick_side": "home",
    "id": "M0165",
    "source_tier": "official",
@@ -10548,8 +10516,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "10:00 pm ET",
-   "venue": "Chase Center",
+   "time": "",
+   "venue": "",
    "home": "Golden State Warriors",
    "away": "Memphis Grizzlies",
    "neutral": null,
@@ -10573,35 +10541,14 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; handicap (point spread) and match total (points) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
-    },
-    {
-     "kind": "date-discrepancy",
-     "text": "Builds disagree on the date: 2026-10-23, 2026-10-24 (spread 1 day(s)). Primary date kept — check the official source."
     }
    ],
    "home_raw": "Golden State Warriors",
    "away_raw": "Memphis Grizzlies",
    "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-24",
-     "date_raw": "2026-10-24T02:00:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-24",
-     "side": ""
-    }
-   ],
-   "fields_from": {
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 1,
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
    "pick_side": "home",
    "id": "M0166",
    "source_tier": "official",
@@ -10623,8 +10570,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "7:00 pm ET",
-   "venue": "Gainbridge Fieldhouse",
+   "time": "",
+   "venue": "",
    "home": "Indiana Pacers",
    "away": "Dallas Mavericks",
    "neutral": null,
@@ -10648,31 +10595,14 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; handicap (point spread) and match total (points) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
     }
    ],
    "home_raw": "Indiana Pacers",
    "away_raw": "Dallas Mavericks",
    "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23T23:00:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-23",
-     "side": ""
-    }
-   ],
-   "fields_from": {
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 1,
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
    "pick_side": "home",
    "id": "M0167",
    "source_tier": "official",
@@ -10748,8 +10678,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "8:00 pm ET",
-   "venue": "Kaseya Center",
+   "time": "",
+   "venue": "",
    "home": "Miami Heat",
    "away": "Detroit Pistons",
    "neutral": null,
@@ -10773,35 +10703,14 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; handicap (point spread) and match total (points) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
-    },
-    {
-     "kind": "date-discrepancy",
-     "text": "Builds disagree on the date: 2026-10-23, 2026-10-24 (spread 1 day(s)). Primary date kept — check the official source."
     }
    ],
    "home_raw": "Miami Heat",
    "away_raw": "Detroit Pistons",
    "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-24",
-     "date_raw": "2026-10-24T00:00:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-24",
-     "side": ""
-    }
-   ],
-   "fields_from": {
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 1,
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
    "pick_side": "home",
    "id": "M0169",
    "source_tier": "official",
@@ -10877,8 +10786,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "7:00 pm ET",
-   "venue": "Kia Center",
+   "time": "",
+   "venue": "",
    "home": "Orlando Magic",
    "away": "Minnesota Timberwolves",
    "neutral": null,
@@ -10902,31 +10811,14 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; handicap (point spread) and match total (points) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
     }
    ],
    "home_raw": "Orlando Magic",
    "away_raw": "Minnesota Timberwolves",
    "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23T23:00:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-23",
-     "side": ""
-    }
-   ],
-   "fields_from": {
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 1,
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
    "pick_side": "home",
    "id": "M0171",
    "source_tier": "official",
@@ -10948,8 +10840,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "10:00 pm ET",
-   "venue": "Golden 1 Center",
+   "time": "",
+   "venue": "",
    "home": "Sacramento Kings",
    "away": "Portland Trail Blazers",
    "neutral": null,
@@ -10973,35 +10865,14 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; handicap (point spread) and match total (points) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
-    },
-    {
-     "kind": "date-discrepancy",
-     "text": "Builds disagree on the date: 2026-10-23, 2026-10-24 (spread 1 day(s)). Primary date kept — check the official source."
     }
    ],
    "home_raw": "Sacramento Kings",
    "away_raw": "Portland Trail Blazers",
    "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-24",
-     "date_raw": "2026-10-24T02:00:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-24",
-     "side": ""
-    }
-   ],
-   "fields_from": {
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 1,
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
    "pick_side": "home",
    "id": "M0172",
    "source_tier": "official",
@@ -11023,8 +10894,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "9:30 pm ET",
-   "venue": "Moody Center",
+   "time": "",
+   "venue": "",
    "home": "San Antonio Spurs",
    "away": "Houston Rockets",
    "neutral": null,
@@ -11056,14 +10927,6 @@
     {
      "kind": "build-flag",
      "text": "Not re-checked on an official league source during the 2026-10-21 verification cycle: the fixture, its start time and venue could not be confirmed, so time and venue are blank and no prediction is published."
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
-    },
-    {
-     "kind": "date-discrepancy",
-     "text": "Builds disagree on the date: 2026-10-23, 2026-10-24 (spread 1 day(s)). Primary date kept — check the official source."
     }
    ],
    "home_raw": "San Antonio Spurs",
@@ -11078,24 +10941,13 @@
      "date_raw": "2026-10-23",
      "source_url": "",
      "side": "home"
-    },
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-24",
-     "date_raw": "2026-10-24T01:30:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-24",
-     "side": ""
     }
    ],
    "fields_from": {
     "handicap": "D",
-    "total": "D",
-    "venue": "E",
-    "time": "E"
+    "total": "D"
    },
-   "archive_rows": 2,
+   "archive_rows": 1,
    "pick_side": "home",
    "id": "M0173",
    "source_tier": "official",
@@ -11117,8 +10969,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "9:30 pm ET",
-   "venue": "Delta Center",
+   "time": "",
+   "venue": "",
    "home": "Utah Jazz",
    "away": "New Orleans Pelicans",
    "neutral": null,
@@ -11142,35 +10994,14 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; handicap (point spread) and match total (points) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
-    },
-    {
-     "kind": "date-discrepancy",
-     "text": "Builds disagree on the date: 2026-10-23, 2026-10-24 (spread 1 day(s)). Primary date kept — check the official source."
     }
    ],
    "home_raw": "Utah Jazz",
    "away_raw": "New Orleans Pelicans",
    "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-24",
-     "date_raw": "2026-10-24T01:30:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-24",
-     "side": ""
-    }
-   ],
-   "fields_from": {
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 1,
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
    "pick_side": "home",
    "id": "M0174",
    "source_tier": "official",
@@ -11192,8 +11023,8 @@
    "competition": "NBA",
    "date": "2026-10-23",
    "date_raw": "2026-10-23",
-   "time": "7:00 pm ET",
-   "venue": "Capital One Arena",
+   "time": "",
+   "venue": "",
    "home": "Washington Wizards",
    "away": "Toronto Raptors",
    "neutral": null,
@@ -11217,31 +11048,14 @@
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; handicap (point spread) and match total (points) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
     }
    ],
    "home_raw": "Washington Wizards",
    "away_raw": "Toronto Raptors",
    "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "E",
-     "pick": "",
-     "confidence": "",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23T23:00:00Z",
-     "source_url": "https://www.nba.com/games?date=2026-10-23",
-     "side": ""
-    }
-   ],
-   "fields_from": {
-    "venue": "E",
-    "time": "E"
-   },
-   "archive_rows": 1,
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
    "pick_side": "home",
    "id": "M0175",
    "source_tier": "official",
@@ -12049,6 +11863,114 @@
    "live_contradicted": false
   },
   {
+   "build": "A",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-23",
+   "date_raw": "2026-10-23",
+   "time": "",
+   "venue": "",
+   "home": "Chicago Blackhawks",
+   "away": "Montreal Canadiens",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Chicago Blackhawks": 2.57,
+     "Montreal Canadiens": 1.53
+    },
+    "basis": "build A Model v1 line (its own price)"
+   },
+   "handicap": "",
+   "total": "",
+   "pick": "Montreal Canadiens",
+   "pick_market": "Match winner (moneyline)",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/schedule/2026-10-21",
+   "source_name": "NHL.com official schedule (week of 21-27 Oct 2026); standings: NHL.com standings 20 Oct 2026",
+   "notes": "Model v1 rating = official NHL standings points percentage at 20 Oct 2026 (NHL.com): Chicago Blackhawks 0.333, Montreal Canadiens 0.556. Recent form used is that standings snapshot only (games played, wins/losses and points percentage as published by the NHL); no unverified player news is used.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+    }
+   ],
+   "home_raw": "Chicago Blackhawks",
+   "away_raw": "Montreal Canadiens",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "away",
+   "id": "M0188",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "A",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-23",
+   "date_raw": "2026-10-23",
+   "time": "",
+   "venue": "",
+   "home": "Colorado Avalanche",
+   "away": "Tampa Bay Lightning",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Colorado Avalanche": 2.46,
+     "Tampa Bay Lightning": 1.57
+    },
+    "basis": "build A Model v1 line (its own price)"
+   },
+   "handicap": "",
+   "total": "",
+   "pick": "Tampa Bay Lightning",
+   "pick_market": "Match winner (moneyline)",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/schedule/2026-10-21",
+   "source_name": "NHL.com official schedule (week of 21-27 Oct 2026); standings: NHL.com standings 20 Oct 2026",
+   "notes": "Model v1 rating = official NHL standings points percentage at 20 Oct 2026 (NHL.com): Colorado Avalanche 0.55, Tampa Bay Lightning 0.75. Recent form used is that standings snapshot only (games played, wins/losses and points percentage as published by the NHL); no unverified player news is used.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+    }
+   ],
+   "home_raw": "Colorado Avalanche",
+   "away_raw": "Tampa Bay Lightning",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "away",
+   "id": "M0189",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
    "build": "C",
    "build_verified": true,
    "sport": "Ice Hockey",
@@ -12103,7 +12025,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0188",
+   "id": "M0190",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12171,7 +12093,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0189",
+   "id": "M0191",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12240,7 +12162,7 @@
    "archive_rows": 1,
    "pick_side": "home",
    "cross_build_conflict": true,
-   "id": "M0190",
+   "id": "M0192",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12308,7 +12230,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0191",
+   "id": "M0193",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12376,7 +12298,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0192",
+   "id": "M0194",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -12430,7 +12352,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0193",
+   "id": "M0195",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -12497,7 +12419,7 @@
    ],
    "prediction_similarity": 0.0,
    "pick_side": "home",
-   "id": "M0194",
+   "id": "M0196",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -12548,7 +12470,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0195",
+   "id": "M0197",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -12592,7 +12514,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.098,
    "pick_side": "home",
-   "id": "M0196",
+   "id": "M0198",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -12662,7 +12584,7 @@
    "archive_rows": 1,
    "pick_side": "home",
    "cross_build_conflict": true,
-   "id": "M0197",
+   "id": "M0199",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -12751,7 +12673,7 @@
    },
    "archive_rows": 2,
    "pick_side": "home",
-   "id": "M0198",
+   "id": "M0200",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -12828,7 +12750,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.108,
    "pick_side": "home",
-   "id": "M0199",
+   "id": "M0201",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -12885,7 +12807,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0200",
+   "id": "M0202",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -12928,7 +12850,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0201",
+   "id": "M0203",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -12972,7 +12894,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.107,
    "pick_side": "away",
-   "id": "M0202",
+   "id": "M0204",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13026,7 +12948,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0203",
+   "id": "M0205",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -13070,7 +12992,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.105,
    "pick_side": "home",
-   "id": "M0204",
+   "id": "M0206",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13114,7 +13036,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.092,
    "pick_side": "home",
-   "id": "M0205",
+   "id": "M0207",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13157,7 +13079,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0206",
+   "id": "M0208",
    "source_tier": "official",
    "source_domain": "prod2.lnr.fr",
    "source_note": "LNR (Pro D2)",
@@ -13222,7 +13144,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0207",
+   "id": "M0209",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -13275,7 +13197,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0208",
+   "id": "M0210",
    "source_tier": "official",
    "source_domain": "www.plusliga.pl",
    "source_note": "PlusLiga (Poland)",
@@ -13289,33 +13211,33 @@
    "live_contradicted": false
   },
   {
-   "build": "E",
+   "build": "A",
    "build_verified": true,
    "sport": "Baseball",
-   "competition": "MLB",
+   "competition": "MLB World Series",
    "date": "2026-10-24",
-   "date_raw": "2026-10-24T00:00:00Z",
-   "time": "Pre-Game",
-   "venue": "American Family Field",
+   "date_raw": "2026-10-24",
+   "time": "20:00 ET",
+   "venue": "American Family Field, Milwaukee",
    "home": "Milwaukee Brewers",
    "away": "Tampa Bay Rays",
    "neutral": null,
    "win": {
     "odds": {
-     "Milwaukee Brewers": 1.661,
-     "Tampa Bay Rays": 2.257
+     "Milwaukee Brewers": 1.74,
+     "Tampa Bay Rays": 2.14
     },
-    "basis": "build E originated price (its own margin applied)"
+    "basis": "build A Model v1 line (its own price)"
    },
-   "handicap": "Milwaukee Brewers -0.5 @ 1.772; Tampa Bay Rays +0.5 @ 2.08",
-   "total": "Over 8.5 @ 2.22; Under 8.5 @ 1.682",
+   "handicap": "MIL -1.5 @ 2.00 | TB +1.5 @ 1.83",
+   "total": "O/U 8.0 @ 1.91 / 1.91",
    "pick": "Milwaukee Brewers",
-   "pick_market": "moneyline",
+   "pick_market": "Match winner (moneyline)",
    "confidence": "Medium",
    "prediction": "",
-   "source_url": "https://www.mlb.com/gameday/849805",
-   "source_name": "MLB official schedule/game page",
-   "notes": "Model margin +0.8 runs and a 57.6% win probability for Milwaukee Brewers, priced at -151. Sample: 333 verified games per team.",
+   "source_url": "https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more",
+   "source_name": "MLB.com official — 2026 World Series FAQ (schedule, records, home-field advantage)",
+   "notes": "Verified from MLB's official World Series FAQ: the Brewers finished the regular season 103-59 (.636) and hold home-field advantage over the Rays (98-64, .605), hosting Games 1 and 2 at American Family Field. Model v1 rating = official regular-season win percentage published by MLB. Milwaukee also swept the Los Angeles Dodgers in the NLCS and Tampa Bay beat Cleveland in the ALCS, per MLB.com reporting; starting pitchers were not verified in this session and are not used.",
    "flags": [
     {
      "kind": "market-note",
@@ -13327,15 +13249,6 @@
    "prediction_style": "",
    "cross_build": [
     {
-     "build": "A",
-     "pick": "Milwaukee Brewers",
-     "confidence": "Medium",
-     "date": "2026-10-24",
-     "date_raw": "2026-10-24",
-     "source_url": "https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more",
-     "side": "home"
-    },
-    {
      "build": "D",
      "pick": "Milwaukee Brewers to win Game 2",
      "confidence": "Low",
@@ -13345,10 +13258,13 @@
      "side": "home"
     }
    ],
-   "fields_from": {},
-   "archive_rows": 2,
+   "fields_from": {
+    "handicap": "D",
+    "total": "D"
+   },
+   "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0209",
+   "id": "M0211",
    "source_tier": "official",
    "source_domain": "www.mlb.com",
    "source_note": "MLB",
@@ -13405,7 +13321,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0210",
+   "id": "M0212",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13453,7 +13369,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     }
    ],
    "home_raw": "Charlotte Hornets",
@@ -13476,7 +13392,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0211",
+   "id": "M0213",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13524,7 +13440,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "date-discrepancy",
@@ -13551,7 +13467,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0212",
+   "id": "M0214",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13622,7 +13538,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0213",
+   "id": "M0215",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13670,7 +13586,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "date-discrepancy",
@@ -13697,7 +13613,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0214",
+   "id": "M0216",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13751,59 +13667,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0215",
-   "source_tier": "official",
-   "source_domain": "www.nba.com",
-   "source_note": "NBA",
-   "verified": true,
-   "status": "upcoming",
-   "sport_slug": "basketball",
-   "row_type": "fixture",
-   "in_scope": true,
-   "scope_note": "",
-   "live_checks": [],
-   "live_contradicted": false
-  },
-  {
-   "build": "E",
-   "build_verified": true,
-   "sport": "Basketball",
-   "competition": "NBA",
-   "date": "2026-10-24",
-   "date_raw": "2026-10-24T02:00:00Z",
-   "time": "10:00 pm ET",
-   "venue": "Crypto.com Arena",
-   "home": "Los Angeles Lakers",
-   "away": "LA Clippers",
-   "neutral": null,
-   "win": {},
-   "handicap": "",
-   "total": "",
-   "pick": "",
-   "pick_market": "",
-   "confidence": "",
-   "prediction": "",
-   "source_url": "https://www.nba.com/games?date=2026-10-24",
-   "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
-   "flags": [
-    {
-     "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
-    },
-    {
-     "kind": "no-pick",
-     "text": "No pick originated: the originating build could not verify enough inputs."
-    }
-   ],
-   "home_raw": "Los Angeles Lakers",
-   "away_raw": "LA Clippers",
-   "prediction_style": "",
-   "cross_build": [],
-   "fields_from": {},
-   "archive_rows": 0,
-   "pick_side": "",
-   "id": "M0216",
+   "id": "M0217",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13851,7 +13715,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 2, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     }
    ],
    "home_raw": "Philadelphia 76ers",
@@ -13874,7 +13738,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0217",
+   "id": "M0218",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -13922,7 +13786,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
     },
     {
      "kind": "date-discrepancy",
@@ -13949,7 +13813,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0218",
+   "id": "M0219",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -14009,7 +13873,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0219",
+   "id": "M0220",
    "source_tier": "official",
    "source_domain": "www.icc-cricket.com",
    "source_note": "ICC",
@@ -14057,7 +13921,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0220",
+   "id": "M0221",
    "source_tier": "official",
    "source_domain": "www.nzc.nz",
    "source_note": "New Zealand Cricket",
@@ -14125,7 +13989,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0221",
+   "id": "M0222",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -14179,7 +14043,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0222",
+   "id": "M0223",
    "source_tier": "official",
    "source_domain": "www.galwaygaa.ie",
    "source_note": "Galway GAA",
@@ -14222,7 +14086,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0223",
+   "id": "M0224",
    "source_tier": "official",
    "source_domain": "www.galwaygaa.ie",
    "source_note": "Galway GAA",
@@ -14296,7 +14160,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "",
-   "id": "M0224",
+   "id": "M0225",
    "source_tier": "official",
    "source_domain": "www.gbgb.org.uk",
    "source_note": "Greyhound Board of Great Britain (regulator)",
@@ -14344,7 +14208,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0225",
+   "id": "M0226",
    "source_tier": "official",
    "source_domain": "tophaandbold.dk",
    "source_note": "Tophåndbold (Denmark)",
@@ -14371,20 +14235,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Boston Bruins": 1.374,
-     "San Jose Sharks": 3.154
+     "Boston Bruins": 1.376,
+     "San Jose Sharks": 3.141
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Boston Bruins -1.5 @ 1.83; San Jose Sharks +1.5 @ 2.006",
-   "total": "Over 5.5 @ 1.747; Under 5.5 @ 2.116",
+   "handicap": "Boston Bruins -1.5 @ 1.822; San Jose Sharks +1.5 @ 2.015",
+   "total": "Over 5.5 @ 1.746; Under 5.5 @ 2.118",
    "pick": "Boston Bruins",
    "pick_market": "moneyline",
    "confidence": "Medium",
-   "prediction": "At TD Garden, the model splits this 69.7% in favour of Boston Bruins. Across their last five, Boston Bruins have averaged 4.4 goals scored and 1.8 conceded. They most recently beat Nashville Predators 6-0 at home. The model probability is 69.7%, and we quote -267. Selection: Boston Bruins at -267.",
+   "prediction": "San Jose Sharks visit TD Garden to face Boston Bruins, and our model makes Boston Bruins a 69.5% favourite. Boston Bruins have won four of their last five. They most recently beat Nashville Predators 6-0 at home. We price that at -266, inclusive of our 4.5% two-way margin. Selection: Boston Bruins at -266.",
    "source_url": "https://www.nhl.com/gamecenter/sjs-vs-bos/2026/10/24/2026020170",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +1.5 goals and a 69.7% win probability for Boston Bruins, priced at -267. Sample: 93 verified games per team.",
+   "notes": "Model margin +1.5 goals and a 69.5% win probability for Boston Bruins, priced at -266. Sample: 93 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
@@ -14392,7 +14256,7 @@
     },
     {
      "kind": "odds-window-downgrade",
-     "text": "Downgraded from High to Medium: originated odds 1.374 (American -267) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
+     "text": "Downgraded from High to Medium: originated odds 1.376 (American -266) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Boston Bruins",
@@ -14411,146 +14275,9 @@
    ],
    "fields_from": {},
    "archive_rows": 1,
-   "prediction_similarity": 0.202,
+   "prediction_similarity": 0.158,
    "pick_side": "home",
-   "id": "M0226",
-   "source_tier": "official",
-   "source_domain": "www.nhl.com",
-   "source_note": "NHL",
-   "verified": true,
-   "status": "upcoming",
-   "sport_slug": "ice-hockey",
-   "row_type": "fixture",
-   "in_scope": true,
-   "scope_note": "",
-   "live_checks": [],
-   "live_contradicted": false
-  },
-  {
-   "build": "E",
-   "build_verified": true,
-   "sport": "Ice Hockey",
-   "competition": "NHL",
-   "date": "2026-10-24",
-   "date_raw": "2026-10-24T00:00:00Z",
-   "time": "FUT",
-   "venue": "United Center",
-   "home": "Chicago Blackhawks",
-   "away": "Montréal Canadiens",
-   "neutral": null,
-   "win": {
-    "odds": {
-     "Chicago Blackhawks": 2.435,
-     "Montréal Canadiens": 1.576
-    },
-    "basis": "build E originated price (its own margin applied)"
-   },
-   "handicap": "Chicago Blackhawks +0.5 @ 2.04; Montréal Canadiens -0.5 @ 1.803",
-   "total": "Over 6.5 @ 1.805; Under 6.5 @ 2.037",
-   "pick": "Montréal Canadiens",
-   "pick_market": "moneyline",
-   "confidence": "High",
-   "prediction": "Montréal Canadiens visit United Center to face Chicago Blackhawks, and our model makes Montréal Canadiens a 60.7% favourite. Montréal Canadiens have won three of their last five. They most recently lost 3-4 to San Jose Sharks at home. We price that at -174, inclusive of our 4.5% two-way margin. Selection: Montréal Canadiens at -174.",
-   "source_url": "https://www.nhl.com/gamecenter/mtl-vs-chi/2026/10/23/2026020166",
-   "source_name": "NHL official schedule/game page",
-   "notes": "Model margin -0.9 goals and a 60.7% win probability for Montréal Canadiens, priced at -174. Sample: 91 verified games per team.",
-   "flags": [
-    {
-     "kind": "market-note",
-     "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "date-discrepancy",
-     "text": "Builds disagree on the date: 2026-10-23, 2026-10-24 (spread 1 day(s)). Primary date kept — check the official source."
-    }
-   ],
-   "home_raw": "Chicago Blackhawks",
-   "away_raw": "Montréal Canadiens",
-   "prediction_style": "written",
-   "cross_build": [
-    {
-     "build": "A",
-     "pick": "Montreal Canadiens",
-     "confidence": "Medium",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23",
-     "source_url": "https://www.nhl.com/schedule/2026-10-21",
-     "side": "away"
-    }
-   ],
-   "fields_from": {},
-   "archive_rows": 1,
-   "prediction_similarity": 0.199,
-   "pick_side": "away",
    "id": "M0227",
-   "source_tier": "official",
-   "source_domain": "www.nhl.com",
-   "source_note": "NHL",
-   "verified": true,
-   "status": "upcoming",
-   "sport_slug": "ice-hockey",
-   "row_type": "fixture",
-   "in_scope": true,
-   "scope_note": "",
-   "live_checks": [],
-   "live_contradicted": false
-  },
-  {
-   "build": "E",
-   "build_verified": true,
-   "sport": "Ice Hockey",
-   "competition": "NHL",
-   "date": "2026-10-24",
-   "date_raw": "2026-10-24T01:00:00Z",
-   "time": "FUT",
-   "venue": "Ball Arena",
-   "home": "Colorado Avalanche",
-   "away": "Tampa Bay Lightning",
-   "neutral": null,
-   "win": {
-    "odds": {
-     "Colorado Avalanche": 1.675,
-     "Tampa Bay Lightning": 2.232
-    },
-    "basis": "build E originated price (its own margin applied)"
-   },
-   "handicap": "Colorado Avalanche -0.5 @ 1.838; Tampa Bay Lightning +0.5 @ 1.997",
-   "total": "Over 7.5 @ 2.178; Under 7.5 @ 1.707",
-   "pick": "Over 6.5",
-   "pick_market": "total",
-   "confidence": "Medium",
-   "prediction": "",
-   "source_url": "https://www.nhl.com/gamecenter/tbl-vs-col/2026/10/23/2026020167",
-   "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 7.5, 0.56 goals above our opening number, and the model makes Over 6.5 a 60.7% chance at -173.",
-   "flags": [
-    {
-     "kind": "market-note",
-     "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
-    },
-    {
-     "kind": "date-discrepancy",
-     "text": "Builds disagree on the date: 2026-10-23, 2026-10-24 (spread 1 day(s)). Primary date kept — check the official source."
-    }
-   ],
-   "home_raw": "Colorado Avalanche",
-   "away_raw": "Tampa Bay Lightning",
-   "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "A",
-     "pick": "Tampa Bay Lightning",
-     "confidence": "Medium",
-     "date": "2026-10-23",
-     "date_raw": "2026-10-23",
-     "source_url": "https://www.nhl.com/schedule/2026-10-21",
-     "side": "away"
-    }
-   ],
-   "fields_from": {},
-   "archive_rows": 1,
-   "pick_side": "over",
-   "id": "M0228",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14577,13 +14304,13 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Columbus Blue Jackets": 1.977,
-     "Vegas Golden Knights": 1.854
+     "Columbus Blue Jackets": 1.989,
+     "Vegas Golden Knights": 1.844
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Columbus Blue Jackets +0.5 @ 1.776; Vegas Golden Knights -0.5 @ 2.075",
-   "total": "Over 6.5 @ 2.244; Under 6.5 @ 1.668",
+   "handicap": "Columbus Blue Jackets +0.5 @ 1.778; Vegas Golden Knights -0.5 @ 2.073",
+   "total": "Over 6.5 @ 2.242; Under 6.5 @ 1.67",
    "pick": "Vegas Golden Knights +0.5",
    "pick_market": "handicap",
    "confidence": "Medium",
@@ -14614,7 +14341,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0229",
+   "id": "M0228",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14641,20 +14368,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Edmonton Oilers": 1.535,
-     "Toronto Maple Leafs": 2.542
+     "Edmonton Oilers": 1.533,
+     "Toronto Maple Leafs": 2.547
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Edmonton Oilers -0.5 @ 1.669; Toronto Maple Leafs +0.5 @ 2.243",
-   "total": "Over 7.5 @ 1.938; Under 7.5 @ 1.89",
+   "handicap": "Edmonton Oilers -0.5 @ 1.665; Toronto Maple Leafs +0.5 @ 2.25",
+   "total": "Over 7.5 @ 1.94; Under 7.5 @ 1.889",
    "pick": "Edmonton Oilers",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "Our ratings have Edmonton Oilers 1.0 goals clear of Toronto Maple Leafs going into this one. Across their last five, Edmonton Oilers have averaged 4.4 goals scored and 3.0 conceded. They most recently beat Carolina Hurricanes 6-5 at home. Our price of -187 reflects a 62.4% win probability. Selection: Edmonton Oilers at -187.",
+   "prediction": "At Rogers Place, the model splits this 62.4% in favour of Edmonton Oilers. Across their last five, Edmonton Oilers have averaged 4.4 goals scored and 3.0 conceded. They most recently beat Carolina Hurricanes 6-5 at home. The model probability is 62.4%, and we quote -188. Selection: Edmonton Oilers at -188.",
    "source_url": "https://www.nhl.com/gamecenter/tor-vs-edm/2026/10/24/2026020176",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +1.0 goals and a 62.4% win probability for Edmonton Oilers, priced at -187. Sample: 92 verified games per team.",
+   "notes": "Model margin +1.0 goals and a 62.4% win probability for Edmonton Oilers, priced at -188. Sample: 92 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
@@ -14681,9 +14408,9 @@
    ],
    "fields_from": {},
    "archive_rows": 1,
-   "prediction_similarity": 0.147,
+   "prediction_similarity": 0.299,
    "pick_side": "home",
-   "id": "M0230",
+   "id": "M0229",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14710,20 +14437,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "New Jersey Devils": 1.634,
-     "Los Angeles Kings": 2.31
+     "New Jersey Devils": 1.636,
+     "Los Angeles Kings": 2.305
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "New Jersey Devils -0.5 @ 1.799; Los Angeles Kings +0.5 @ 2.045",
-   "total": "Over 6.5 @ 2.28; Under 6.5 @ 1.649",
+   "handicap": "New Jersey Devils -0.5 @ 1.802; Los Angeles Kings +0.5 @ 2.04",
+   "total": "Over 6.5 @ 2.268; Under 6.5 @ 1.656",
    "pick": "New Jersey Devils",
    "pick_market": "moneyline",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/lak-vs-njd/2026/10/24/2026020169",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +0.6 goals and a 58.6% win probability for New Jersey Devils, priced at -158. Sample: 90 verified games per team.",
+   "notes": "Model margin +0.6 goals and a 58.5% win probability for New Jersey Devils, priced at -157. Sample: 90 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
@@ -14747,7 +14474,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0231",
+   "id": "M0230",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14774,20 +14501,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Ottawa Senators": 1.714,
-     "New York Rangers": 2.166
+     "Ottawa Senators": 1.706,
+     "New York Rangers": 2.18
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Ottawa Senators -0.5 @ 1.9; New York Rangers +0.5 @ 1.928",
-   "total": "Over 5.5 @ 2.034; Under 5.5 @ 1.807",
+   "handicap": "Ottawa Senators -0.5 @ 1.905; New York Rangers +0.5 @ 1.923",
+   "total": "Over 5.5 @ 2.032; Under 5.5 @ 1.809",
    "pick": "Under 6.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/nyr-vs-ott/2026/10/24/2026020171",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 5.5, 0.62 goals below our opening number, and the model makes Under 6.5 a 70.5% chance at -280.",
+   "notes": "Our current total is 5.5, 0.62 goals below our opening number, and the model makes Under 6.5 a 70.1% chance at -274.",
    "flags": [
     {
      "kind": "market-note",
@@ -14811,7 +14538,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "under",
-   "id": "M0232",
+   "id": "M0231",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -14838,20 +14565,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Philadelphia Flyers": 1.68,
-     "Anaheim Ducks": 2.224
+     "Philadelphia Flyers": 1.688,
+     "Anaheim Ducks": 2.209
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Philadelphia Flyers -0.5 @ 1.853; Anaheim Ducks +0.5 @ 1.979",
-   "total": "Over 5.5 @ 2.074; Under 5.5 @ 1.777",
+   "handicap": "Philadelphia Flyers -0.5 @ 1.851; Anaheim Ducks +0.5 @ 1.981",
+   "total": "Over 5.5 @ 2.071; Under 5.5 @ 1.779",
    "pick": "Philadelphia Flyers",
    "pick_market": "moneyline",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/ana-vs-phi/2026/10/24/2026020168",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +0.4 goals and a 57.0% win probability for Philadelphia Flyers, priced at -147. Sample: 92 verified games per team.",
+   "notes": "Model margin +0.4 goals and a 56.7% win probability for Philadelphia Flyers, priced at -145. Sample: 92 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
@@ -14866,6 +14593,71 @@
      "build": "A",
      "pick": "Anaheim Ducks",
      "confidence": "Low",
+     "date": "2026-10-24",
+     "date_raw": "2026-10-24",
+     "source_url": "https://www.nhl.com/schedule/2026-10-21",
+     "side": "away"
+    }
+   ],
+   "fields_from": {},
+   "archive_rows": 1,
+   "pick_side": "home",
+   "cross_build_conflict": true,
+   "id": "M0232",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-24",
+   "date_raw": "2026-10-24T23:00:00Z",
+   "time": "FUT",
+   "venue": "PPG Paints Arena",
+   "home": "Pittsburgh Penguins",
+   "away": "Nashville Predators",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Pittsburgh Penguins": 1.599,
+     "Nashville Predators": 2.383
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Pittsburgh Penguins -0.5 @ 1.752; Nashville Predators +0.5 @ 2.108",
+   "total": "Over 6.5 @ 1.787; Under 6.5 @ 2.06",
+   "pick": "Pittsburgh Penguins",
+   "pick_market": "moneyline",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/nsh-vs-pit/2026/10/24/2026020172",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin +0.7 goals and a 59.8% win probability for Pittsburgh Penguins, priced at -167. Sample: 91 verified games per team.",
+   "flags": [
+    {
+     "kind": "market-note",
+     "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+    }
+   ],
+   "home_raw": "Pittsburgh Penguins",
+   "away_raw": "Nashville Predators",
+   "prediction_style": "",
+   "cross_build": [
+    {
+     "build": "A",
+     "pick": "Nashville Predators",
+     "confidence": "Medium",
      "date": "2026-10-24",
      "date_raw": "2026-10-24",
      "source_url": "https://www.nhl.com/schedule/2026-10-21",
@@ -14897,91 +14689,26 @@
    "date": "2026-10-24",
    "date_raw": "2026-10-24T23:00:00Z",
    "time": "FUT",
-   "venue": "PPG Paints Arena",
-   "home": "Pittsburgh Penguins",
-   "away": "Nashville Predators",
-   "neutral": null,
-   "win": {
-    "odds": {
-     "Pittsburgh Penguins": 1.598,
-     "Nashville Predators": 2.385
-    },
-    "basis": "build E originated price (its own margin applied)"
-   },
-   "handicap": "Pittsburgh Penguins -0.5 @ 1.756; Nashville Predators +0.5 @ 2.103",
-   "total": "Over 6.5 @ 1.787; Under 6.5 @ 2.06",
-   "pick": "Pittsburgh Penguins",
-   "pick_market": "moneyline",
-   "confidence": "Medium",
-   "prediction": "",
-   "source_url": "https://www.nhl.com/gamecenter/nsh-vs-pit/2026/10/24/2026020172",
-   "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +0.7 goals and a 59.9% win probability for Pittsburgh Penguins, priced at -167. Sample: 91 verified games per team.",
-   "flags": [
-    {
-     "kind": "market-note",
-     "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
-    }
-   ],
-   "home_raw": "Pittsburgh Penguins",
-   "away_raw": "Nashville Predators",
-   "prediction_style": "",
-   "cross_build": [
-    {
-     "build": "A",
-     "pick": "Nashville Predators",
-     "confidence": "Medium",
-     "date": "2026-10-24",
-     "date_raw": "2026-10-24",
-     "source_url": "https://www.nhl.com/schedule/2026-10-21",
-     "side": "away"
-    }
-   ],
-   "fields_from": {},
-   "archive_rows": 1,
-   "pick_side": "home",
-   "cross_build_conflict": true,
-   "id": "M0234",
-   "source_tier": "official",
-   "source_domain": "www.nhl.com",
-   "source_note": "NHL",
-   "verified": true,
-   "status": "upcoming",
-   "sport_slug": "ice-hockey",
-   "row_type": "fixture",
-   "in_scope": true,
-   "scope_note": "",
-   "live_checks": [],
-   "live_contradicted": false
-  },
-  {
-   "build": "E",
-   "build_verified": true,
-   "sport": "Ice Hockey",
-   "competition": "NHL",
-   "date": "2026-10-24",
-   "date_raw": "2026-10-24T23:00:00Z",
-   "time": "FUT",
    "venue": "Enterprise Center",
    "home": "St. Louis Blues",
    "away": "Carolina Hurricanes",
    "neutral": null,
    "win": {
     "odds": {
-     "St. Louis Blues": 2.02,
-     "Carolina Hurricanes": 1.818
+     "St. Louis Blues": 2.018,
+     "Carolina Hurricanes": 1.82
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "St. Louis Blues +0.5 @ 1.788; Carolina Hurricanes -0.5 @ 2.059",
-   "total": "Over 6.5 @ 2.017; Under 6.5 @ 1.821",
+   "handicap": "St. Louis Blues +0.5 @ 1.784; Carolina Hurricanes -0.5 @ 2.064",
+   "total": "Over 6.5 @ 2.011; Under 6.5 @ 1.826",
    "pick": "Over 5.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/car-vs-stl/2026/10/24/2026020175",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 6.5, 0.63 goals above our opening number, and the model makes Over 5.5 a 65.5% chance at -217.",
+   "notes": "Our current total is 6.5, 0.64 goals above our opening number, and the model makes Over 5.5 a 65.3% chance at -215.",
    "flags": [
     {
      "kind": "market-note",
@@ -15005,7 +14732,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "over",
-   "id": "M0235",
+   "id": "M0234",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -15032,20 +14759,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Washington Capitals": 1.705,
-     "Buffalo Sabres": 2.181
+     "Washington Capitals": 1.702,
+     "Buffalo Sabres": 2.186
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Washington Capitals -0.5 @ 1.894; Buffalo Sabres +0.5 @ 1.934",
-   "total": "Over 6.5 @ 1.832; Under 6.5 @ 2.004",
+   "handicap": "Washington Capitals -0.5 @ 1.901; Buffalo Sabres +0.5 @ 1.927",
+   "total": "Over 6.5 @ 1.811; Under 6.5 @ 2.029",
    "pick": "Washington Capitals +0.5",
    "pick_market": "handicap",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/buf-vs-wsh/2026/10/24/2026020173",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current line is -0.5, 0.48 goals further from the opener, and Washington Capitals +0.5 covers 60.5% of the time at -172.",
+   "notes": "Our current line is -0.5, 0.48 goals further from the opener, and Washington Capitals +0.5 covers 60.8% of the time at -174.",
    "flags": [
     {
      "kind": "market-note",
@@ -15069,7 +14796,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0236",
+   "id": "M0235",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -15123,7 +14850,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0237",
+   "id": "M0236",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -15194,7 +14921,7 @@
    ],
    "prediction_similarity": 0.0,
    "pick_side": "home",
-   "id": "M0238",
+   "id": "M0237",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -15251,7 +14978,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0239",
+   "id": "M0238",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -15310,7 +15037,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.14,
    "pick_side": "away",
-   "id": "M0240",
+   "id": "M0239",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -15353,7 +15080,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0241",
+   "id": "M0240",
    "source_tier": "official",
    "source_domain": "top14.lnr.fr",
    "source_note": "LNR (Top 14)",
@@ -15422,7 +15149,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0242",
+   "id": "M0241",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15476,7 +15203,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0243",
+   "id": "M0242",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -15559,7 +15286,7 @@
    "archive_rows": 2,
    "prediction_similarity": 0.078,
    "pick_side": "home",
-   "id": "M0244",
+   "id": "M0243",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15613,7 +15340,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0245",
+   "id": "M0244",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -15707,7 +15434,7 @@
    "archive_rows": 2,
    "prediction_similarity": 0.142,
    "pick_side": "home",
-   "id": "M0246",
+   "id": "M0245",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15791,7 +15518,7 @@
    "prediction_similarity": 0.0,
    "pick_side": "home",
    "cross_build_conflict": true,
-   "id": "M0247",
+   "id": "M0246",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15838,7 +15565,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.09,
    "pick_side": "home",
-   "id": "M0248",
+   "id": "M0247",
    "source_tier": "official",
    "source_domain": "top14.lnr.fr",
    "source_note": "LNR (Top 14)",
@@ -15929,7 +15656,7 @@
    "archive_rows": 2,
    "prediction_similarity": 0.067,
    "pick_side": "home",
-   "id": "M0249",
+   "id": "M0248",
    "source_tier": "official",
    "source_domain": "stats.unitedrugby.com",
    "source_note": "United Rugby Championship",
@@ -15994,7 +15721,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0250",
+   "id": "M0249",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -16047,7 +15774,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0251",
+   "id": "M0250",
    "source_tier": "official",
    "source_domain": "www.plusliga.pl",
    "source_note": "PlusLiga (Poland)",
@@ -16075,19 +15802,19 @@
    "win": {
     "odds": {
      "Milwaukee Brewers": 1.661,
-     "Tampa Bay Rays": 2.257
+     "Tampa Bay Rays": 2.258
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Milwaukee Brewers -0.5 @ 1.772; Tampa Bay Rays +0.5 @ 2.08",
-   "total": "Over 8.5 @ 2.22; Under 8.5 @ 1.682",
+   "handicap": "Milwaukee Brewers -0.5 @ 1.771; Tampa Bay Rays +0.5 @ 2.082",
+   "total": "Over 8.5 @ 2.298; Under 8.5 @ 1.64",
    "pick": "Milwaukee Brewers",
    "pick_market": "moneyline",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.mlb.com/gameday/849802",
    "source_name": "MLB official schedule/game page",
-   "notes": "Model margin +0.8 runs and a 57.6% win probability for Milwaukee Brewers, priced at -151. Sample: 333 verified games per team.",
+   "notes": "Model margin +0.8 runs and a 57.6% win probability for Milwaukee Brewers, priced at -151. Sample: 334 verified games per team.",
    "flags": [
     {
      "kind": "contradicted-by-official-source",
@@ -16101,7 +15828,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0252",
+   "id": "M0251",
    "source_tier": "official",
    "source_domain": "www.mlb.com",
    "source_note": "MLB",
@@ -16138,11 +15865,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-25",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -16156,7 +15883,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0253",
+   "id": "M0252",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16204,7 +15931,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
     }
    ],
    "home_raw": "Brooklyn Nets",
@@ -16227,7 +15954,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0254",
+   "id": "M0253",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16261,11 +15988,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-25",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -16279,7 +16006,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0255",
+   "id": "M0254",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16327,7 +16054,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     }
    ],
    "home_raw": "Minnesota Timberwolves",
@@ -16350,7 +16077,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0256",
+   "id": "M0255",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16398,7 +16125,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     }
    ],
    "home_raw": "New York Knicks",
@@ -16421,7 +16148,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0257",
+   "id": "M0256",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16469,7 +16196,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 2, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     }
    ],
    "home_raw": "Oklahoma City Thunder",
@@ -16492,7 +16219,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0258",
+   "id": "M0257",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16540,7 +16267,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 2, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     }
    ],
    "home_raw": "Philadelphia 76ers",
@@ -16563,7 +16290,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0259",
+   "id": "M0258",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16611,7 +16338,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "date-discrepancy",
@@ -16638,7 +16365,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0260",
+   "id": "M0259",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16686,7 +16413,7 @@
     },
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     }
    ],
    "home_raw": "Utah Jazz",
@@ -16709,7 +16436,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0261",
+   "id": "M0260",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -16769,7 +16496,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0262",
+   "id": "M0261",
    "source_tier": "official",
    "source_domain": "www.icc-cricket.com",
    "source_note": "ICC",
@@ -16834,7 +16561,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0263",
+   "id": "M0262",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -16882,7 +16609,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0264",
+   "id": "M0263",
    "source_tier": "official",
    "source_domain": "munster.gaa.ie",
    "source_note": "Munster GAA",
@@ -16953,7 +16680,7 @@
    },
    "archive_rows": 1,
    "pick_side": "home",
-   "id": "M0265",
+   "id": "M0264",
    "source_tier": "official",
    "source_domain": "gaacork.ie",
    "source_note": "Cork GAA",
@@ -16980,20 +16707,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Calgary Flames": 2.082,
-     "Detroit Red Wings": 1.771
+     "Calgary Flames": 2.085,
+     "Detroit Red Wings": 1.769
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Calgary Flames +0.5 @ 1.828; Detroit Red Wings -0.5 @ 2.008",
-   "total": "Over 5.5 @ 2.298; Under 5.5 @ 1.64",
+   "handicap": "Calgary Flames +0.5 @ 1.817; Detroit Red Wings -0.5 @ 2.022",
+   "total": "Over 5.5 @ 2.283; Under 5.5 @ 1.647",
    "pick": "Detroit Red Wings",
    "pick_market": "moneyline",
    "confidence": "Low",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/det-vs-cgy/2026/10/24/2026020178",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin -0.5 goals and a 54.0% win probability for Detroit Red Wings, priced at -130. Sample: 91 verified games per team.",
+   "notes": "Model margin -0.5 goals and a 54.1% win probability for Detroit Red Wings, priced at -130. Sample: 91 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
@@ -17021,7 +16748,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "away",
-   "id": "M0266",
+   "id": "M0265",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17053,8 +16780,8 @@
     },
     "basis": "build A Model v1 line (its own price)"
    },
-   "handicap": "Chicago Blackhawks +0.5 @ 1.83; Florida Panthers -0.5 @ 2.006",
-   "total": "Over 6.5 @ 2.311; Under 6.5 @ 1.633",
+   "handicap": "Chicago Blackhawks +0.5 @ 1.841; Florida Panthers -0.5 @ 1.992",
+   "total": "Over 5.5 @ 1.771; Under 5.5 @ 2.082",
    "pick": "Florida Panthers",
    "pick_market": "Match winner (moneyline)",
    "confidence": "Medium",
@@ -17099,7 +16826,7 @@
    "archive_rows": 1,
    "prediction_similarity": 0.091,
    "pick_side": "away",
-   "id": "M0267",
+   "id": "M0266",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17126,17 +16853,17 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Dallas Stars": 1.541,
-     "New York Islanders": 2.526
+     "Dallas Stars": 1.534,
+     "New York Islanders": 2.544
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Dallas Stars -0.5 @ 1.672; New York Islanders +0.5 @ 2.237",
-   "total": "Over 4.5 @ 1.805; Under 4.5 @ 2.037",
+   "handicap": "Dallas Stars -0.5 @ 1.665; New York Islanders +0.5 @ 2.25",
+   "total": "Over 4.5 @ 1.804; Under 4.5 @ 2.039",
    "pick": "Under 5.5",
    "pick_market": "total",
    "confidence": "High",
-   "prediction": "We opened this total at 5.5; the current model projects 4.5. The recent scoring profile is 3.0 for Dallas Stars and 2.6 for New York Islanders. At -190 the implied probability is 62.7%. We are taking Under 5.5 at -190.",
+   "prediction": "The number has moved 0.70 goals from 5.5 to 4.5. The recent scoring profile is 3.0 for Dallas Stars and 2.6 for New York Islanders. At -190 the implied probability is 62.7%. We are taking Under 5.5 at -190.",
    "source_url": "https://www.nhl.com/gamecenter/nyi-vs-dal/2026/10/25/2026020181",
    "source_name": "NHL official schedule/game page",
    "notes": "Our current total is 4.5, 0.70 goals below our opening number, and the model makes Under 5.5 a 62.7% chance at -190.",
@@ -17162,9 +16889,9 @@
    ],
    "fields_from": {},
    "archive_rows": 1,
-   "prediction_similarity": 0.306,
+   "prediction_similarity": 0.308,
    "pick_side": "under",
-   "id": "M0268",
+   "id": "M0267",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17191,20 +16918,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Seattle Kraken": 1.977,
-     "Minnesota Wild": 1.854
+     "Seattle Kraken": 1.991,
+     "Minnesota Wild": 1.843
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Seattle Kraken +0.5 @ 1.779; Minnesota Wild -0.5 @ 2.071",
-   "total": "Over 6.5 @ 2.033; Under 6.5 @ 1.808",
-   "pick": "Minnesota Wild",
-   "pick_market": "moneyline",
+   "handicap": "Seattle Kraken +0.5 @ 1.781; Minnesota Wild -0.5 @ 2.069",
+   "total": "Over 6.5 @ 2.032; Under 6.5 @ 1.809",
+   "pick": "Seattle Kraken +0.5",
+   "pick_market": "handicap",
    "confidence": "Low",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-sea/2026/10/24/2026020179",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin -0.3 goals and a 51.6% win probability for Minnesota Wild, priced at -117. Sample: 93 verified games per team.",
+   "notes": "Our current line is +0.5, 0.30 goals further from the opener, and Seattle Kraken +0.5 covers 53.7% of the time at -128.",
    "flags": [
     {
      "kind": "market-note",
@@ -17231,8 +16958,9 @@
    ],
    "fields_from": {},
    "archive_rows": 1,
-   "pick_side": "away",
-   "id": "M0269",
+   "pick_side": "home",
+   "cross_build_conflict": true,
+   "id": "M0268",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17259,20 +16987,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Utah Mammoth": 1.867,
-     "Tampa Bay Lightning": 1.963
+     "Utah Mammoth": 1.827,
+     "Tampa Bay Lightning": 2.009
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Utah Mammoth +0.5 @ 1.681; Tampa Bay Lightning -0.5 @ 2.221",
-   "total": "Over 7.5 @ 2.229; Under 7.5 @ 1.677",
+   "handicap": "Utah Mammoth +0.5 @ 1.666; Tampa Bay Lightning -0.5 @ 2.248",
+   "total": "Over 7.5 @ 2.13; Under 7.5 @ 1.738",
    "pick": "Over 6.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/tbl-vs-uta/2026/10/24/2026020177",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 7.5, 0.53 goals above our opening number, and the model makes Over 6.5 a 59.3% chance at -163.",
+   "notes": "Our current total is 7.5, 0.65 goals above our opening number, and the model makes Over 6.5 a 62.0% chance at -184.",
    "flags": [
     {
      "kind": "market-note",
@@ -17300,7 +17028,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "over",
-   "id": "M0270",
+   "id": "M0269",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17327,20 +17055,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Winnipeg Jets": 1.918,
-     "Montréal Canadiens": 1.909
+     "Winnipeg Jets": 1.976,
+     "Montréal Canadiens": 1.856
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Winnipeg Jets +0.5 @ 1.719; Montréal Canadiens -0.5 @ 2.159",
-   "total": "Over 6.5 @ 1.891; Under 6.5 @ 1.937",
-   "pick": "Winnipeg Jets +0.5",
-   "pick_market": "handicap",
-   "confidence": "Medium",
+   "handicap": "Winnipeg Jets +0.5 @ 1.751; Montréal Canadiens -0.5 @ 2.111",
+   "total": "Over 6.5 @ 1.964; Under 6.5 @ 1.866",
+   "pick": "Montréal Canadiens",
+   "pick_market": "moneyline",
+   "confidence": "Low",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/mtl-vs-wpg/2026/10/25/2026020182",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current line is +0.5, 0.30 goals further from the opener, and Winnipeg Jets +0.5 covers 55.7% of the time at -139.",
+   "notes": "Model margin -0.3 goals and a 51.6% win probability for Montréal Canadiens, priced at -117. Sample: 92 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
@@ -17363,8 +17091,9 @@
    ],
    "fields_from": {},
    "archive_rows": 1,
-   "pick_side": "home",
-   "id": "M0271",
+   "pick_side": "away",
+   "cross_build_conflict": true,
+   "id": "M0270",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -17428,7 +17157,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0272",
+   "id": "M0271",
    "source_tier": "official",
    "source_domain": "www.formula1.com",
    "source_note": "Formula 1",
@@ -17480,7 +17209,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0273",
+   "id": "M0272",
    "source_tier": "official",
    "source_domain": "www.formula1.com",
    "source_note": "Formula 1",
@@ -17542,7 +17271,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0274",
+   "id": "M0273",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -17601,7 +17330,7 @@
    "archive_rows": 0,
    "prediction_similarity": 0.127,
    "pick_side": "home",
-   "id": "M0275",
+   "id": "M0274",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -17655,7 +17384,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0276",
+   "id": "M0275",
    "source_tier": "official",
    "source_domain": "www.nrl.com",
    "source_note": "NRL",
@@ -17709,7 +17438,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0277",
+   "id": "M0276",
    "source_tier": "official",
    "source_domain": "www.premiershiprugby.com",
    "source_note": "Premiership Rugby",
@@ -17752,7 +17481,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0278",
+   "id": "M0277",
    "source_tier": "official",
    "source_domain": "top14.lnr.fr",
    "source_note": "LNR (Top 14)",
@@ -17818,7 +17547,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "over",
-   "id": "M0279",
+   "id": "M0278",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -17871,7 +17600,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0280",
+   "id": "M0279",
    "source_tier": "official",
    "source_domain": "www.plusliga.pl",
    "source_note": "PlusLiga (Poland)",
@@ -17925,7 +17654,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0281",
+   "id": "M0280",
    "source_tier": "official",
    "source_domain": "en.volleyballworld.com",
    "source_note": "Volleyball World",
@@ -17979,7 +17708,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0282",
+   "id": "M0281",
    "source_tier": "official",
    "source_domain": "en.volleyballworld.com",
    "source_note": "Volleyball World",
@@ -18028,7 +17757,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0283",
+   "id": "M0282",
    "source_tier": "official",
    "source_domain": "statsapi.mlb.com",
    "source_note": "MLB",
@@ -18065,11 +17794,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-26",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -18083,7 +17812,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0284",
+   "id": "M0283",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18117,11 +17846,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-26",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -18135,7 +17864,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0285",
+   "id": "M0284",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18169,11 +17898,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-26",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -18187,7 +17916,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0286",
+   "id": "M0285",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18221,11 +17950,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-26",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -18239,7 +17968,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0287",
+   "id": "M0286",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18266,24 +17995,28 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Nashville Predators": 2.522,
-     "Colorado Avalanche": 1.542
+     "Nashville Predators": 2.615,
+     "Colorado Avalanche": 1.509
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Nashville Predators +0.5 @ 2.082; Colorado Avalanche -0.5 @ 1.771",
-   "total": "Over 5.5 @ 1.783; Under 5.5 @ 2.065",
+   "handicap": "Nashville Predators +1.5 @ 1.677; Colorado Avalanche -1.5 @ 2.229",
+   "total": "Over 5.5 @ 1.787; Under 5.5 @ 2.06",
    "pick": "Colorado Avalanche",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "We make Colorado Avalanche a 62% chance to beat Nashville Predators at Bridgestone Arena. Across their last five, Colorado Avalanche have averaged 3.0 goals scored and 2.8 conceded. They most recently lost 3-4 to New Jersey Devils on the road. The model probability is 62%, and we quote -185. The pick is Colorado Avalanche at -185.",
+   "prediction": "Colorado Avalanche rate 1.1 goals stronger than Nashville Predators in our model, a 63.4% win probability. Across their last five, Colorado Avalanche have averaged 3.6 goals scored and 3.0 conceded. They most recently beat Tampa Bay Lightning 6-3 at home. Our price of -196 reflects a 63.4% win probability. We are backing Colorado Avalanche at -196.",
    "source_url": "https://www.nhl.com/gamecenter/col-vs-nsh/2026/10/25/2026020183",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin -1.0 goals and a 62.0% win probability for Colorado Avalanche, priced at -185. Sample: 91 verified games per team.",
+   "notes": "Model margin -1.1 goals and a 63.4% win probability for Colorado Avalanche, priced at -196. Sample: 91 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
      "text": "Match winner (moneyline) investigated; puck-line handicap and match total (goals) investigated — not originated, see Flagged page"
+    },
+    {
+     "kind": "templated-prediction",
+     "text": "Build E generated this write-up from boilerplate: the same opening sentence appears on 3 rows. It is not counted as a written prediction."
     },
     {
      "kind": "date-discrepancy",
@@ -18292,7 +18025,7 @@
    ],
    "home_raw": "Nashville Predators",
    "away_raw": "Colorado Avalanche",
-   "prediction_style": "written",
+   "prediction_style": "templated",
    "cross_build": [
     {
      "build": "A",
@@ -18306,10 +18039,10 @@
    ],
    "fields_from": {},
    "archive_rows": 1,
-   "prediction_similarity": 0.468,
+   "prediction_similarity": 0.262,
    "pick_side": "away",
    "cross_build_conflict": true,
-   "id": "M0288",
+   "id": "M0287",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -18337,16 +18070,16 @@
    "win": {
     "odds": {
      "New York Rangers": 1.562,
-     "Los Angeles Kings": 2.471
+     "Los Angeles Kings": 2.47
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "New York Rangers -0.5 @ 1.684; Los Angeles Kings +0.5 @ 2.217",
-   "total": "Over 5.5 @ 1.774; Under 5.5 @ 2.077",
+   "handicap": "New York Rangers -0.5 @ 1.692; Los Angeles Kings +0.5 @ 2.202",
+   "total": "Over 5.5 @ 1.786; Under 5.5 @ 2.061",
    "pick": "New York Rangers",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "At Madison Square Garden, the model splits this 61.3% in favour of New York Rangers. New York Rangers have won two of their last five. They most recently lost 4-5 to Toronto Maple Leafs on the road. The model probability is 61.3%, and we quote -178. We are taking New York Rangers at -178.",
+   "prediction": "Los Angeles Kings visit Madison Square Garden to face New York Rangers, and our model makes New York Rangers a 61.3% favourite. Across their last five, New York Rangers have averaged 2.8 goals scored and 3.2 conceded. They most recently lost 4-5 to Toronto Maple Leafs on the road. Our price of -178 reflects a 61.3% win probability. The pick is New York Rangers at -178.",
    "source_url": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
    "source_name": "NHL official schedule/game page",
    "notes": "Model margin +0.9 goals and a 61.3% win probability for New York Rangers, priced at -178. Sample: 90 verified games per team.",
@@ -18357,9 +18090,9 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.239,
+   "prediction_similarity": 0.244,
    "pick_side": "home",
-   "id": "M0289",
+   "id": "M0288",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -18386,20 +18119,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Vancouver Canucks": 3.276,
-     "Minnesota Wild": 1.352
+     "Vancouver Canucks": 3.24,
+     "Minnesota Wild": 1.358
     },
     "basis": "build E originated price (its own margin applied)"
    },
    "handicap": "Vancouver Canucks +1.5 @ 1.839; Minnesota Wild -1.5 @ 1.996",
-   "total": "Over 6.5 @ 1.844; Under 6.5 @ 1.989",
+   "total": "Over 6.5 @ 1.837; Under 6.5 @ 1.998",
    "pick": "Minnesota Wild",
    "pick_market": "moneyline",
    "confidence": "Medium",
-   "prediction": "Minnesota Wild visit Rogers Arena to face Vancouver Canucks, and our model makes Minnesota Wild a 70.8% favourite. Across their last five, Minnesota Wild have averaged 2.6 goals scored and 3.2 conceded. They most recently lost 1-2 to Calgary Flames on the road. Our price of -284 reflects a 70.8% win probability. The pick is Minnesota Wild at -284.",
+   "prediction": "We make Minnesota Wild a 70.5% chance to beat Vancouver Canucks at Rogers Arena. Across their last five, Minnesota Wild have averaged 2.6 goals scored and 3.2 conceded. They most recently lost 1-2 to Calgary Flames on the road. The model probability is 70.5%, and we quote -279. The pick is Minnesota Wild at -279.",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-van/2026/10/25/2026020184",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin -1.6 goals and a 70.8% win probability for Minnesota Wild, priced at -284. Sample: 93 verified games per team.",
+   "notes": "Model margin -1.6 goals and a 70.5% win probability for Minnesota Wild, priced at -279. Sample: 93 verified games per team.",
    "flags": [
     {
      "kind": "market-note",
@@ -18411,7 +18144,7 @@
     },
     {
      "kind": "odds-window-downgrade",
-     "text": "Downgraded from High to Medium: originated odds 1.352 (American -284) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
+     "text": "Downgraded from High to Medium: originated odds 1.358 (American -279) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Vancouver Canucks",
@@ -18430,9 +18163,9 @@
    ],
    "fields_from": {},
    "archive_rows": 1,
-   "prediction_similarity": 0.415,
+   "prediction_similarity": 0.129,
    "pick_side": "away",
-   "id": "M0290",
+   "id": "M0289",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -18506,7 +18239,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "",
-   "id": "M0291",
+   "id": "M0290",
    "source_tier": "official",
    "source_domain": "www.atptour.com",
    "source_note": "ATP Tour",
@@ -18571,7 +18304,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0292",
+   "id": "M0291",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -18636,7 +18369,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0293",
+   "id": "M0292",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -18663,20 +18396,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Tampa Bay Rays": 2.118,
-     "Milwaukee Brewers": 1.746
+     "Tampa Bay Rays": 2.12,
+     "Milwaukee Brewers": 1.745
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Tampa Bay Rays +0.5 @ 1.924; Milwaukee Brewers -0.5 @ 1.904",
-   "total": "Over 8.5 @ 2.22; Under 8.5 @ 1.682",
+   "handicap": "Tampa Bay Rays +0.5 @ 1.923; Milwaukee Brewers -0.5 @ 1.905",
+   "total": "Over 8.5 @ 2.222; Under 8.5 @ 1.681",
    "pick": "Under 9.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.mlb.com/gameday/849804",
    "source_name": "MLB official schedule/game page",
-   "notes": "Our current total is 8.5, 0.76 runs below our opening number, and the model makes Under 9.5 a 65.1% chance at -213.",
+   "notes": "Our current total is 8.5, 0.76 runs below our opening number, and the model makes Under 9.5 a 65.2% chance at -213.",
    "flags": [],
    "home_raw": "Tampa Bay Rays",
    "away_raw": "Milwaukee Brewers",
@@ -18695,7 +18428,7 @@
    "fields_from": {},
    "archive_rows": 1,
    "pick_side": "under",
-   "id": "M0294",
+   "id": "M0293",
    "source_tier": "official",
    "source_domain": "www.mlb.com",
    "source_note": "MLB",
@@ -18732,11 +18465,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-27",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 2, away 1); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -18750,7 +18483,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0295",
+   "id": "M0294",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18784,11 +18517,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-27",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -18802,7 +18535,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0296",
+   "id": "M0295",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18836,11 +18569,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-27",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -18854,7 +18587,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0297",
+   "id": "M0296",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18888,11 +18621,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-27",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -18906,7 +18639,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0298",
+   "id": "M0297",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18940,7 +18673,7 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-27",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
@@ -18958,7 +18691,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0299",
+   "id": "M0298",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -18992,11 +18725,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-27",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19010,7 +18743,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0300",
+   "id": "M0299",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19072,7 +18805,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0301",
+   "id": "M0300",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -19099,17 +18832,17 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Calgary Flames": 2.124,
-     "Toronto Maple Leafs": 1.742
+     "Calgary Flames": 2.11,
+     "Toronto Maple Leafs": 1.751
     },
     "basis": "build E originated price (its own margin applied)"
    },
    "handicap": "Calgary Flames +0.5 @ 1.838; Toronto Maple Leafs -0.5 @ 1.997",
-   "total": "Over 6.5 @ 1.996; Under 6.5 @ 1.838",
+   "total": "Over 6.5 @ 2.007; Under 6.5 @ 1.829",
    "pick": "Toronto Maple Leafs +0.5",
    "pick_market": "handicap",
    "confidence": "High",
-   "prediction": "The line has moved 0.61 goals, from -0.5 to +0.5, since our opener. Recent form favors Toronto Maple Leafs, who have won three of their last five, while Calgary Flames have won three of their last five. We price the cover at -192, a 62.9% probability. We are taking Toronto Maple Leafs +0.5 at -192.",
+   "prediction": "Toronto Maple Leafs sit 0.5 goals clear of Calgary Flames on our board; the opener had it at 0.5. Recent form favors Toronto Maple Leafs, who have won three of their last five, while Calgary Flames have won three of their last five. We price the cover at -192, a 62.9% probability. We are taking Toronto Maple Leafs +0.5 at -192.",
    "source_url": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
    "source_name": "NHL official schedule/game page",
    "notes": "Our current line is +0.5, 0.61 goals the other way from the opener, and Toronto Maple Leafs +0.5 covers 62.9% of the time at -192.",
@@ -19120,9 +18853,9 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.471,
+   "prediction_similarity": 0.156,
    "pick_side": "away",
-   "id": "M0302",
+   "id": "M0301",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19149,20 +18882,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Edmonton Oilers": 1.506,
-     "Detroit Red Wings": 2.623
+     "Edmonton Oilers": 1.511,
+     "Detroit Red Wings": 2.609
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Edmonton Oilers -1.5 @ 2.057; Detroit Red Wings +1.5 @ 1.789",
-   "total": "Over 6.5 @ 2.197; Under 6.5 @ 1.696",
+   "handicap": "Edmonton Oilers -1.5 @ 2.077; Detroit Red Wings +1.5 @ 1.774",
+   "total": "Over 6.5 @ 2.196; Under 6.5 @ 1.696",
    "pick": "Edmonton Oilers",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "Our model has Edmonton Oilers 1.0 goals clear in this one, a 63.5% win probability. Edmonton Oilers are on a 3-game winning run. They most recently beat Carolina Hurricanes 6-5 at home. The model probability is 63.5%, and we quote -198. Selection: Edmonton Oilers at -198.",
+   "prediction": "Our ratings have Edmonton Oilers 1.0 goals clear of Detroit Red Wings going into this one. Edmonton Oilers are on a 3-game winning run. They most recently beat Carolina Hurricanes 6-5 at home. Our price of -196 reflects a 63.3% win probability. We are taking Edmonton Oilers at -196.",
    "source_url": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +1.0 goals and a 63.5% win probability for Edmonton Oilers, priced at -198. Sample: 92 verified games per team.",
+   "notes": "Model margin +1.0 goals and a 63.3% win probability for Edmonton Oilers, priced at -196. Sample: 92 verified games per team.",
    "flags": [],
    "home_raw": "Edmonton Oilers",
    "away_raw": "Detroit Red Wings",
@@ -19170,9 +18903,9 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.478,
+   "prediction_similarity": 0.305,
    "pick_side": "home",
-   "id": "M0303",
+   "id": "M0302",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19199,20 +18932,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Philadelphia Flyers": 1.719,
-     "Columbus Blue Jackets": 2.159
+     "Philadelphia Flyers": 1.717,
+     "Columbus Blue Jackets": 2.161
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Philadelphia Flyers -0.5 @ 1.923; Columbus Blue Jackets +0.5 @ 1.905",
-   "total": "Over 4.5 @ 1.815; Under 4.5 @ 2.025",
+   "handicap": "Philadelphia Flyers -0.5 @ 1.922; Columbus Blue Jackets +0.5 @ 1.905",
+   "total": "Over 4.5 @ 1.809; Under 4.5 @ 2.032",
    "pick": "Under 5.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/cbj-vs-phi/2026/10/27/2026020188",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 4.5, 0.44 goals below our opening number, and the model makes Under 5.5 a 63.0% chance at -193.",
+   "notes": "Our current total is 4.5, 0.44 goals below our opening number, and the model makes Under 5.5 a 63.0% chance at -192.",
    "flags": [],
    "home_raw": "Philadelphia Flyers",
    "away_raw": "Columbus Blue Jackets",
@@ -19221,7 +18954,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0304",
+   "id": "M0303",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19287,7 +19020,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0305",
+   "id": "M0304",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -19314,20 +19047,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Tampa Bay Rays": 2.118,
-     "Milwaukee Brewers": 1.746
+     "Tampa Bay Rays": 2.12,
+     "Milwaukee Brewers": 1.745
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Tampa Bay Rays +0.5 @ 1.924; Milwaukee Brewers -0.5 @ 1.904",
-   "total": "Over 8.5 @ 2.22; Under 8.5 @ 1.682",
+   "handicap": "Tampa Bay Rays +0.5 @ 1.923; Milwaukee Brewers -0.5 @ 1.905",
+   "total": "Over 8.5 @ 2.222; Under 8.5 @ 1.681",
    "pick": "Under 9.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.mlb.com/gameday/849803",
    "source_name": "MLB official schedule/game page",
-   "notes": "Our current total is 8.5, 0.76 runs below our opening number, and the model makes Under 9.5 a 65.1% chance at -213.",
+   "notes": "Our current total is 8.5, 0.76 runs below our opening number, and the model makes Under 9.5 a 65.2% chance at -213.",
    "flags": [],
    "home_raw": "Tampa Bay Rays",
    "away_raw": "Milwaukee Brewers",
@@ -19336,7 +19069,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0306",
+   "id": "M0305",
    "source_tier": "official",
    "source_domain": "www.mlb.com",
    "source_note": "MLB",
@@ -19373,11 +19106,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-28",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19391,7 +19124,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0307",
+   "id": "M0306",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19425,11 +19158,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-28",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19443,7 +19176,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0308",
+   "id": "M0307",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19477,11 +19210,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-28",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19495,7 +19228,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0309",
+   "id": "M0308",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19529,11 +19262,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-28",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19547,7 +19280,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0310",
+   "id": "M0309",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19581,11 +19314,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-28",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19599,7 +19332,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0311",
+   "id": "M0310",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19633,11 +19366,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-28",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19651,7 +19384,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0312",
+   "id": "M0311",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19685,11 +19418,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-28",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19703,7 +19436,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0313",
+   "id": "M0312",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19737,11 +19470,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-28",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -19755,7 +19488,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0314",
+   "id": "M0313",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -19820,7 +19553,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "draw",
-   "id": "M0315",
+   "id": "M0314",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -19847,30 +19580,35 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Anaheim Ducks": 1.476,
-     "Vancouver Canucks": 2.721
+     "Anaheim Ducks": 1.477,
+     "Vancouver Canucks": 2.718
     },
     "basis": "build E originated price (its own margin applied)"
    },
    "handicap": "Anaheim Ducks -1.5 @ 2.002; Vancouver Canucks +1.5 @ 1.833",
-   "total": "Over 7.5 @ 2.233; Under 7.5 @ 1.675",
+   "total": "Over 7.5 @ 2.234; Under 7.5 @ 1.674",
    "pick": "Anaheim Ducks",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "Vancouver Canucks visit Honda Center to face Anaheim Ducks, and our model makes Anaheim Ducks a 64.8% favourite. Anaheim Ducks are on a 5-game losing run. They most recently lost 1-4 to New Jersey Devils on the road. Our price of -210 reflects a 64.8% win probability. We are backing Anaheim Ducks at -210.",
+   "prediction": "Anaheim Ducks rate 1.1 goals stronger than Vancouver Canucks in our model, a 64.8% win probability. Anaheim Ducks are on a 5-game losing run. They most recently lost 1-4 to New Jersey Devils on the road. Our price of -210 reflects a 64.8% win probability. Selection: Anaheim Ducks at -210.",
    "source_url": "https://www.nhl.com/gamecenter/van-vs-ana/2026/10/27/2026020197",
    "source_name": "NHL official schedule/game page",
    "notes": "Model margin +1.1 goals and a 64.8% win probability for Anaheim Ducks, priced at -210. Sample: 92 verified games per team.",
-   "flags": [],
+   "flags": [
+    {
+     "kind": "templated-prediction",
+     "text": "Build E generated this write-up from boilerplate: the same opening sentence appears on 3 rows. It is not counted as a written prediction."
+    }
+   ],
    "home_raw": "Anaheim Ducks",
    "away_raw": "Vancouver Canucks",
-   "prediction_style": "written",
+   "prediction_style": "templated",
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.293,
+   "prediction_similarity": 0.21,
    "pick_side": "home",
-   "id": "M0316",
+   "id": "M0315",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19897,20 +19635,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Carolina Hurricanes": 1.798,
-     "Boston Bruins": 2.046
+     "Carolina Hurricanes": 1.797,
+     "Boston Bruins": 2.047
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Carolina Hurricanes -0.5 @ 2.052; Boston Bruins +0.5 @ 1.793",
-   "total": "Over 6.5 @ 1.841; Under 6.5 @ 1.993",
+   "handicap": "Carolina Hurricanes -0.5 @ 2.051; Boston Bruins +0.5 @ 1.794",
+   "total": "Over 6.5 @ 1.831; Under 6.5 @ 2.005",
    "pick": "Under 7.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/bos-vs-car/2026/10/27/2026020189",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 6.5, 0.44 goals below our opening number, and the model makes Under 7.5 a 63.6% chance at -198.",
+   "notes": "Our current total is 6.5, 0.43 goals below our opening number, and the model makes Under 7.5 a 63.6% chance at -198.",
    "flags": [],
    "home_raw": "Carolina Hurricanes",
    "away_raw": "Boston Bruins",
@@ -19919,7 +19657,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0317",
+   "id": "M0316",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19946,20 +19684,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Chicago Blackhawks": 1.977,
-     "Los Angeles Kings": 1.854
+     "Chicago Blackhawks": 2.035,
+     "Los Angeles Kings": 1.807
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Chicago Blackhawks +0.5 @ 1.776; Los Angeles Kings -0.5 @ 2.075",
-   "total": "Over 6.5 @ 2.268; Under 6.5 @ 1.656",
+   "handicap": "Chicago Blackhawks +0.5 @ 1.795; Los Angeles Kings -0.5 @ 2.05",
+   "total": "Over 6.5 @ 2.346; Under 6.5 @ 1.616",
    "pick": "Over 5.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/lak-vs-chi/2026/10/27/2026020190",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 6.5, 0.65 goals above our opening number, and the model makes Over 5.5 a 57.8% chance at -152.",
+   "notes": "Our current total is 6.5, 0.53 goals above our opening number, and the model makes Over 5.5 a 55.8% chance at -140.",
    "flags": [],
    "home_raw": "Chicago Blackhawks",
    "away_raw": "Los Angeles Kings",
@@ -19968,7 +19706,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "over",
-   "id": "M0318",
+   "id": "M0317",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -19996,19 +19734,19 @@
    "win": {
     "odds": {
      "Dallas Stars": 1.513,
-     "New Jersey Devils": 2.603
+     "New Jersey Devils": 2.604
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Dallas Stars -1.5 @ 2.074; New Jersey Devils +1.5 @ 1.777",
-   "total": "Over 5.5 @ 1.949; Under 5.5 @ 1.88",
+   "handicap": "Dallas Stars -1.5 @ 2.077; New Jersey Devils +1.5 @ 1.774",
+   "total": "Over 5.5 @ 1.957; Under 5.5 @ 1.872",
    "pick": "Dallas Stars",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "We make Dallas Stars a 63.2% chance to beat New Jersey Devils at American Airlines Center. Dallas Stars are on a 4-game winning run. They most recently beat Winnipeg Jets 3-2 at home. The model probability is 63.2%, and we quote -195. We are backing Dallas Stars at -195.",
+   "prediction": "Our model has Dallas Stars 1.0 goals clear in this one, a 63.3% win probability. Dallas Stars are on a 4-game winning run. They most recently beat Winnipeg Jets 3-2 at home. The model probability is 63.3%, and we quote -195. Selection: Dallas Stars at -195.",
    "source_url": "https://www.nhl.com/gamecenter/njd-vs-dal/2026/10/27/2026020193",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +1.0 goals and a 63.2% win probability for Dallas Stars, priced at -195. Sample: 92 verified games per team.",
+   "notes": "Model margin +1.0 goals and a 63.3% win probability for Dallas Stars, priced at -195. Sample: 92 verified games per team.",
    "flags": [],
    "home_raw": "Dallas Stars",
    "away_raw": "New Jersey Devils",
@@ -20016,9 +19754,9 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.359,
+   "prediction_similarity": 0.449,
    "pick_side": "home",
-   "id": "M0319",
+   "id": "M0318",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -20045,20 +19783,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Nashville Predators": 1.836,
-     "New York Islanders": 1.999
+     "Nashville Predators": 1.827,
+     "New York Islanders": 2.009
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Nashville Predators +0.5 @ 1.675; New York Islanders -0.5 @ 2.232",
-   "total": "Over 5.5 @ 2.219; Under 5.5 @ 1.682",
+   "handicap": "Nashville Predators +0.5 @ 1.666; New York Islanders -0.5 @ 2.248",
+   "total": "Over 5.5 @ 2.223; Under 5.5 @ 1.68",
    "pick": "Under 5.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/nyi-vs-nsh/2026/10/27/2026020192",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 5.5, 0.58 goals below our opening number, and the model makes Under 5.5 a 56.9% chance at -147.",
+   "notes": "Our current total is 5.5, 0.58 goals below our opening number, and the model makes Under 5.5 a 57.0% chance at -147.",
    "flags": [],
    "home_raw": "Nashville Predators",
    "away_raw": "New York Islanders",
@@ -20067,7 +19805,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0320",
+   "id": "M0319",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -20094,20 +19832,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "San Jose Sharks": 1.973,
-     "Buffalo Sabres": 1.858
+     "San Jose Sharks": 1.989,
+     "Buffalo Sabres": 1.844
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "San Jose Sharks +0.5 @ 1.776; Buffalo Sabres -0.5 @ 2.075",
-   "total": "Over 7.5 @ 2.282; Under 7.5 @ 1.648",
+   "handicap": "San Jose Sharks +0.5 @ 1.77; Buffalo Sabres -0.5 @ 2.083",
+   "total": "Over 7.5 @ 2.268; Under 7.5 @ 1.656",
    "pick": "Over 6.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/buf-vs-sjs/2026/10/27/2026020198",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 7.5, 0.52 goals above our opening number, and the model makes Over 6.5 a 57.7% chance at -152.",
+   "notes": "Our current total is 7.5, 0.52 goals above our opening number, and the model makes Over 6.5 a 57.5% chance at -151.",
    "flags": [],
    "home_raw": "San Jose Sharks",
    "away_raw": "Buffalo Sabres",
@@ -20116,7 +19854,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "over",
-   "id": "M0321",
+   "id": "M0320",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -20143,30 +19881,29 @@
    "neutral": null,
    "win": {
     "odds": {
-     "St. Louis Blues": 1.754,
-     "Montréal Canadiens": 2.106
+     "St. Louis Blues": 1.783,
+     "Montréal Canadiens": 2.066
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "St. Louis Blues -0.5 @ 1.968; Montréal Canadiens +0.5 @ 1.863",
-   "total": "Over 6.5 @ 1.887; Under 6.5 @ 1.941",
+   "handicap": "St. Louis Blues -0.5 @ 2.004; Montréal Canadiens +0.5 @ 1.831",
+   "total": "Over 6.5 @ 1.947; Under 6.5 @ 1.882",
    "pick": "St. Louis Blues +0.5",
    "pick_market": "handicap",
-   "confidence": "High",
-   "prediction": "We opened this Puck line at +0.5 and now make it +0.5, a move of 0.74 goals. Recent form favors St. Louis Blues, who have won three of their last five, while Montréal Canadiens have won three of their last five. We price the cover at -169, a 60.1% probability. We are taking St. Louis Blues +0.5 at -169.",
+   "confidence": "Medium",
+   "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/mtl-vs-stl/2026/10/27/2026020191",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current line is -0.5, 0.74 goals further from the opener, and St. Louis Blues +0.5 covers 60.1% of the time at -169.",
+   "notes": "Our current line is -0.5, 0.67 goals further from the opener, and St. Louis Blues +0.5 covers 59.2% of the time at -162.",
    "flags": [],
    "home_raw": "St. Louis Blues",
    "away_raw": "Montréal Canadiens",
-   "prediction_style": "written",
+   "prediction_style": "",
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.371,
    "pick_side": "home",
-   "id": "M0322",
+   "id": "M0321",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -20193,12 +19930,12 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Utah Mammoth": 1.776,
-     "Minnesota Wild": 2.075
+     "Utah Mammoth": 1.778,
+     "Minnesota Wild": 2.073
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Utah Mammoth -0.5 @ 1.973; Minnesota Wild +0.5 @ 1.858",
+   "handicap": "Utah Mammoth -0.5 @ 1.989; Minnesota Wild +0.5 @ 1.844",
    "total": "Over 6.5 @ 1.947; Under 6.5 @ 1.882",
    "pick": "Utah Mammoth",
    "pick_market": "moneyline",
@@ -20206,7 +19943,7 @@
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/min-vs-uta/2026/10/27/2026020195",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +0.2 goals and a 53.9% win probability for Utah Mammoth, priced at -129. Sample: 93 verified games per team.",
+   "notes": "Model margin +0.2 goals and a 53.8% win probability for Utah Mammoth, priced at -129. Sample: 93 verified games per team.",
    "flags": [],
    "home_raw": "Utah Mammoth",
    "away_raw": "Minnesota Wild",
@@ -20215,7 +19952,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0323",
+   "id": "M0322",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -20242,20 +19979,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Vegas Golden Knights": 1.763,
-     "Ottawa Senators": 2.093
+     "Vegas Golden Knights": 1.757,
+     "Ottawa Senators": 2.101
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Vegas Golden Knights -0.5 @ 1.971; Ottawa Senators +0.5 @ 1.86",
-   "total": "Over 6.5 @ 1.996; Under 6.5 @ 1.838",
+   "handicap": "Vegas Golden Knights -0.5 @ 1.986; Ottawa Senators +0.5 @ 1.847",
+   "total": "Over 6.5 @ 2.007; Under 6.5 @ 1.829",
    "pick": "Under 7.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/ott-vs-vgk/2026/10/27/2026020196",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 6.5, 0.56 goals below our opening number, and the model makes Under 7.5 a 69.3% chance at -262.",
+   "notes": "Our current total is 6.5, 0.57 goals below our opening number, and the model makes Under 7.5 a 69.3% chance at -262.",
    "flags": [],
    "home_raw": "Vegas Golden Knights",
    "away_raw": "Ottawa Senators",
@@ -20264,7 +20001,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0324",
+   "id": "M0323",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -20291,20 +20028,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Washington Capitals": 1.602,
-     "Philadelphia Flyers": 2.377
+     "Washington Capitals": 1.604,
+     "Philadelphia Flyers": 2.372
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Washington Capitals -0.5 @ 1.774; Philadelphia Flyers +0.5 @ 2.078",
-   "total": "Over 5.5 @ 1.794; Under 5.5 @ 2.051",
+   "handicap": "Washington Capitals -0.5 @ 1.77; Philadelphia Flyers +0.5 @ 2.083",
+   "total": "Over 5.5 @ 1.793; Under 5.5 @ 2.052",
    "pick": "Under 6.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/phi-vs-wsh/2026/10/28/2026020199",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 5.5, 0.40 goals below our opening number, and the model makes Under 6.5 a 62.4% chance at -187.",
+   "notes": "Our current total is 5.5, 0.39 goals below our opening number, and the model makes Under 6.5 a 61.8% chance at -182.",
    "flags": [],
    "home_raw": "Washington Capitals",
    "away_raw": "Philadelphia Flyers",
@@ -20313,7 +20050,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0325",
+   "id": "M0324",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -20340,20 +20077,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Winnipeg Jets": 1.759,
-     "Florida Panthers": 2.099
+     "Winnipeg Jets": 1.754,
+     "Florida Panthers": 2.106
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Winnipeg Jets -0.5 @ 1.971; Florida Panthers +0.5 @ 1.86",
-   "total": "Over 5.5 @ 1.787; Under 5.5 @ 2.06",
+   "handicap": "Winnipeg Jets -0.5 @ 1.983; Florida Panthers +0.5 @ 1.849",
+   "total": "Over 5.5 @ 1.793; Under 5.5 @ 2.052",
    "pick": "Under 6.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/fla-vs-wpg/2026/10/27/2026020194",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 5.5, 0.52 goals below our opening number, and the model makes Under 6.5 a 61.9% chance at -183.",
+   "notes": "Our current total is 5.5, 0.52 goals below our opening number, and the model makes Under 6.5 a 61.8% chance at -182.",
    "flags": [],
    "home_raw": "Winnipeg Jets",
    "away_raw": "Florida Panthers",
@@ -20362,7 +20099,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0326",
+   "id": "M0325",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -20427,7 +20164,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0327",
+   "id": "M0326",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -20454,20 +20191,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Tampa Bay Rays": 2.118,
-     "Milwaukee Brewers": 1.746
+     "Tampa Bay Rays": 2.12,
+     "Milwaukee Brewers": 1.745
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Tampa Bay Rays +0.5 @ 1.924; Milwaukee Brewers -0.5 @ 1.904",
-   "total": "Over 8.5 @ 2.22; Under 8.5 @ 1.682",
+   "handicap": "Tampa Bay Rays +0.5 @ 1.923; Milwaukee Brewers -0.5 @ 1.905",
+   "total": "Over 8.5 @ 2.222; Under 8.5 @ 1.681",
    "pick": "Under 9.5",
    "pick_market": "total",
    "confidence": "Medium",
    "prediction": "",
    "source_url": "https://www.mlb.com/gameday/849799",
    "source_name": "MLB official schedule/game page",
-   "notes": "Our current total is 8.5, 0.76 runs below our opening number, and the model makes Under 9.5 a 65.1% chance at -213.",
+   "notes": "Our current total is 8.5, 0.76 runs below our opening number, and the model makes Under 9.5 a 65.2% chance at -213.",
    "flags": [],
    "home_raw": "Tampa Bay Rays",
    "away_raw": "Milwaukee Brewers",
@@ -20476,7 +20213,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "under",
-   "id": "M0328",
+   "id": "M0327",
    "source_tier": "official",
    "source_domain": "www.mlb.com",
    "source_note": "MLB",
@@ -20513,11 +20250,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-29",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 2, away 1); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -20531,7 +20268,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0329",
+   "id": "M0328",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -20565,11 +20302,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-29",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -20583,7 +20320,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0330",
+   "id": "M0329",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -20617,11 +20354,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-29",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -20635,7 +20372,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0331",
+   "id": "M0330",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -20669,11 +20406,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-29",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -20687,7 +20424,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0332",
+   "id": "M0331",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -20721,11 +20458,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-29",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -20739,7 +20476,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0333",
+   "id": "M0332",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -20773,11 +20510,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-29",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -20791,7 +20528,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0334",
+   "id": "M0333",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -20825,11 +20562,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-29",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 2, away 1); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -20843,7 +20580,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0335",
+   "id": "M0334",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -20877,11 +20614,11 @@
    "prediction": "",
    "source_url": "https://www.nba.com/games?date=2026-10-29",
    "source_name": "NBA official schedule/game page",
-   "notes": "NBA ratings rest on 16 completed games, so no line is originated for this fixture.",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
    "flags": [
     {
      "kind": "market-withheld",
-     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 1); 20 are required to originate a price."
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
     },
     {
      "kind": "no-pick",
@@ -20895,7 +20632,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0336",
+   "id": "M0335",
    "source_tier": "official",
    "source_domain": "www.nba.com",
    "source_note": "NBA",
@@ -20960,7 +20697,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0337",
+   "id": "M0336",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -21025,7 +20762,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0338",
+   "id": "M0337",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",
@@ -21053,29 +20790,34 @@
    "win": {
     "odds": {
      "Carolina Hurricanes": 1.453,
-     "Columbus Blue Jackets": 2.801
+     "Columbus Blue Jackets": 2.803
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Carolina Hurricanes -1.5 @ 1.95; Columbus Blue Jackets +1.5 @ 1.879",
-   "total": "Over 6.5 @ 2.225; Under 6.5 @ 1.679",
+   "handicap": "Carolina Hurricanes -1.5 @ 1.946; Columbus Blue Jackets +1.5 @ 1.883",
+   "total": "Over 6.5 @ 2.223; Under 6.5 @ 1.68",
    "pick": "Carolina Hurricanes",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "Columbus Blue Jackets visit Lenovo Center to face Carolina Hurricanes, and our model makes Carolina Hurricanes a 65.8% favourite. Form favours Carolina Hurricanes, who have won three of their last five, while Columbus Blue Jackets have won one of their last five. They most recently lost 5-6 to Edmonton Oilers on the road. Our price of -221 reflects a 65.8% win probability. Selection: Carolina Hurricanes at -221.",
+   "prediction": "Carolina Hurricanes rate 1.2 goals stronger than Columbus Blue Jackets in our model, a 65.9% win probability. Form favours Carolina Hurricanes, who have won three of their last five, while Columbus Blue Jackets have won one of their last five. They most recently lost 5-6 to Edmonton Oilers on the road. Our price of -221 reflects a 65.9% win probability. We are taking Carolina Hurricanes at -221.",
    "source_url": "https://www.nhl.com/gamecenter/cbj-vs-car/2026/10/29/2026020206",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +1.2 goals and a 65.8% win probability for Carolina Hurricanes, priced at -221. Sample: 90 verified games per team.",
-   "flags": [],
+   "notes": "Model margin +1.2 goals and a 65.9% win probability for Carolina Hurricanes, priced at -221. Sample: 90 verified games per team.",
+   "flags": [
+    {
+     "kind": "templated-prediction",
+     "text": "Build E generated this write-up from boilerplate: the same opening sentence appears on 3 rows. It is not counted as a written prediction."
+    }
+   ],
    "home_raw": "Carolina Hurricanes",
    "away_raw": "Columbus Blue Jackets",
-   "prediction_style": "written",
+   "prediction_style": "templated",
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.286,
+   "prediction_similarity": 0.198,
    "pick_side": "home",
-   "id": "M0339",
+   "id": "M0338",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -21102,20 +20844,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Colorado Avalanche": 1.453,
-     "New Jersey Devils": 2.801
+     "Colorado Avalanche": 1.43,
+     "New Jersey Devils": 2.894
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Colorado Avalanche -1.5 @ 1.95; New Jersey Devils +1.5 @ 1.879",
-   "total": "Over 6.5 @ 1.891; Under 6.5 @ 1.937",
+   "handicap": "Colorado Avalanche -1.5 @ 1.89; New Jersey Devils +1.5 @ 1.939",
+   "total": "Over 6.5 @ 1.836; Under 6.5 @ 1.999",
    "pick": "Colorado Avalanche",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "Our model has Colorado Avalanche 1.2 goals clear in this one, a 65.8% win probability. Form favours Colorado Avalanche, who have won two of their last five, while New Jersey Devils have won four of their last five. They most recently lost 3-4 to New Jersey Devils on the road. The model probability is 65.8%, and we quote -221. We are taking Colorado Avalanche at -221.",
+   "prediction": "At Ball Arena, the model splits this 66.9% in favour of Colorado Avalanche. Form favours Colorado Avalanche, who have won two of their last five, while New Jersey Devils have won four of their last five. They most recently beat Tampa Bay Lightning 6-3 at home. The model probability is 66.9%, and we quote -233. The pick is Colorado Avalanche at -233.",
    "source_url": "https://www.nhl.com/gamecenter/njd-vs-col/2026/10/28/2026020201",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +1.2 goals and a 65.8% win probability for Colorado Avalanche, priced at -221. Sample: 92 verified games per team.",
+   "notes": "Model margin +1.3 goals and a 66.9% win probability for Colorado Avalanche, priced at -233. Sample: 92 verified games per team.",
    "flags": [],
    "home_raw": "Colorado Avalanche",
    "away_raw": "New Jersey Devils",
@@ -21123,9 +20865,9 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.465,
+   "prediction_similarity": 0.26,
    "pick_side": "home",
-   "id": "M0340",
+   "id": "M0339",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -21152,20 +20894,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Detroit Red Wings": 1.559,
-     "Chicago Blackhawks": 2.477
+     "Detroit Red Wings": 1.535,
+     "Chicago Blackhawks": 2.542
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Detroit Red Wings -0.5 @ 1.68; Chicago Blackhawks +0.5 @ 2.224",
-   "total": "Over 6.5 @ 2.268; Under 6.5 @ 1.656",
+   "handicap": "Detroit Red Wings -0.5 @ 1.666; Chicago Blackhawks +0.5 @ 2.248",
+   "total": "Over 6.5 @ 2.266; Under 6.5 @ 1.657",
    "pick": "Detroit Red Wings",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "At Little Caesars Arena, the model splits this 61.4% in favour of Detroit Red Wings. Detroit Red Wings arrive with a 4-3-3 record and have won three of their last five. They most recently beat Vancouver Canucks 5-2 on the road. The model probability is 61.4%, and we quote -179. We are backing Detroit Red Wings at -179.",
+   "prediction": "We make Detroit Red Wings a 62.4% chance to beat Chicago Blackhawks at Little Caesars Arena. Form favours Detroit Red Wings, who have won three of their last five, while Chicago Blackhawks have won two of their last five. They most recently beat Vancouver Canucks 5-2 on the road. The model probability is 62.4%, and we quote -187. Selection: Detroit Red Wings at -187.",
    "source_url": "https://www.nhl.com/gamecenter/chi-vs-det/2026/10/29/2026020203",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +0.9 goals and a 61.4% win probability for Detroit Red Wings, priced at -179. Sample: 91 verified games per team.",
+   "notes": "Model margin +1.0 goals and a 62.4% win probability for Detroit Red Wings, priced at -187. Sample: 92 verified games per team.",
    "flags": [],
    "home_raw": "Detroit Red Wings",
    "away_raw": "Chicago Blackhawks",
@@ -21173,9 +20915,9 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.312,
+   "prediction_similarity": 0.272,
    "pick_side": "home",
-   "id": "M0341",
+   "id": "M0340",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -21202,35 +20944,38 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Edmonton Oilers": 1.312,
-     "Calgary Flames": 3.539
+     "Edmonton Oilers": 1.313,
+     "Calgary Flames": 3.531
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Edmonton Oilers -1.5 @ 1.727; Calgary Flames +1.5 @ 2.146",
-   "total": "Over 6.5 @ 1.884; Under 6.5 @ 1.945",
+   "handicap": "Edmonton Oilers -1.5 @ 1.728; Calgary Flames +1.5 @ 2.144",
+   "total": "Over 6.5 @ 1.891; Under 6.5 @ 1.937",
    "pick": "Edmonton Oilers",
    "pick_market": "moneyline",
    "confidence": "Medium",
-   "prediction": "Our opening number was -0.5; the current model says -0.5. Edmonton Oilers hold a 8-1-1 record and have won four of their last five. We price the cover at -223, a 66% probability. We are taking Edmonton Oilers -0.5 at -223.",
+   "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/cgy-vs-edm/2026/10/28/2026020200",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +1.7 goals and a 73.0% win probability for Edmonton Oilers, priced at -321. Sample: 91 verified games per team.",
+   "notes": "Model margin +1.7 goals and a 72.9% win probability for Edmonton Oilers, priced at -319. Sample: 91 verified games per team.",
    "flags": [
     {
+     "kind": "missing-prediction",
+     "text": "High-confidence row with no written prediction in the source build."
+    },
+    {
      "kind": "odds-window-downgrade",
-     "text": "Downgraded from High to Medium: originated odds 1.312 (American -321) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
+     "text": "Downgraded from High to Medium: originated odds 1.313 (American -319) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
     }
    ],
    "home_raw": "Edmonton Oilers",
    "away_raw": "Calgary Flames",
-   "prediction_style": "written",
+   "prediction_style": "",
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.192,
    "pick_side": "home",
-   "id": "M0342",
+   "id": "M0341",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -21257,13 +21002,13 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Pittsburgh Penguins": 1.799,
-     "Utah Mammoth": 2.045
+     "Pittsburgh Penguins": 1.797,
+     "Utah Mammoth": 2.047
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Pittsburgh Penguins -0.5 @ 2.054; Utah Mammoth +0.5 @ 1.792",
-   "total": "Over 6.5 @ 1.834; Under 6.5 @ 2.001",
+   "handicap": "Pittsburgh Penguins -0.5 @ 2.056; Utah Mammoth +0.5 @ 1.79",
+   "total": "Over 6.5 @ 1.823; Under 6.5 @ 2.015",
    "pick": "Pittsburgh Penguins",
    "pick_market": "moneyline",
    "confidence": "Low",
@@ -21279,7 +21024,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0343",
+   "id": "M0342",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -21306,20 +21051,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Seattle Kraken": 1.705,
-     "Toronto Maple Leafs": 2.181
+     "Seattle Kraken": 1.713,
+     "Toronto Maple Leafs": 2.168
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Seattle Kraken -0.5 @ 1.894; Toronto Maple Leafs +0.5 @ 1.934",
-   "total": "Over 7.5 @ 2.105; Under 7.5 @ 1.754",
+   "handicap": "Seattle Kraken -0.5 @ 1.907; Toronto Maple Leafs +0.5 @ 1.921",
+   "total": "Over 7.5 @ 2.107; Under 7.5 @ 1.753",
    "pick": "Over 6.5",
    "pick_market": "total",
    "confidence": "High",
-   "prediction": "This total has been re-rated from 6.5 to 7.5 on the recent scoring data. Seattle Kraken have averaged 3.6 goals scored and 4.0 conceded across their last five. At -188 the implied probability is 62.5%. We are taking Over 6.5 at -188.",
+   "prediction": "We opened this total at 6.5; the current model projects 7.5. Across their last five, Seattle Kraken have scored 3.6 and conceded 4.0 goals per game. At -187 the implied probability is 62.4%. We are taking Over 6.5 at -187.",
    "source_url": "https://www.nhl.com/gamecenter/tor-vs-sea/2026/10/28/2026020202",
    "source_name": "NHL official schedule/game page",
-   "notes": "Our current total is 7.5, 0.95 goals above our opening number, and the model makes Over 6.5 a 62.5% chance at -188.",
+   "notes": "Our current total is 7.5, 0.95 goals above our opening number, and the model makes Over 6.5 a 62.4% chance at -187.",
    "flags": [],
    "home_raw": "Seattle Kraken",
    "away_raw": "Toronto Maple Leafs",
@@ -21327,9 +21072,9 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.302,
+   "prediction_similarity": 0.308,
    "pick_side": "over",
-   "id": "M0344",
+   "id": "M0343",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -21356,20 +21101,20 @@
    "neutral": null,
    "win": {
     "odds": {
-     "Tampa Bay Lightning": 1.466,
-     "Winnipeg Jets": 2.757
+     "Tampa Bay Lightning": 1.496,
+     "Winnipeg Jets": 2.655
     },
     "basis": "build E originated price (its own margin applied)"
    },
-   "handicap": "Tampa Bay Lightning -1.5 @ 1.971; Winnipeg Jets +1.5 @ 1.86",
-   "total": "Over 5.5 @ 2.135; Under 5.5 @ 1.734",
+   "handicap": "Tampa Bay Lightning -1.5 @ 2.019; Winnipeg Jets +1.5 @ 1.819",
+   "total": "Over 5.5 @ 2.127; Under 5.5 @ 1.739",
    "pick": "Tampa Bay Lightning",
    "pick_market": "moneyline",
    "confidence": "High",
-   "prediction": "We make Tampa Bay Lightning a 65.3% chance to beat Winnipeg Jets at Benchmark International Arena. Form favours Tampa Bay Lightning, who have won four of their last five, while Winnipeg Jets have won one of their last five. They most recently beat Vegas Golden Knights 6-2 on the road. The model probability is 65.3%, and we quote -215. Selection: Tampa Bay Lightning at -215.",
+   "prediction": "Our model has Tampa Bay Lightning 1.1 goals clear in this one, a 64% win probability. Form favours Tampa Bay Lightning, who have won three of their last five, while Winnipeg Jets have won one of their last five. They most recently lost 3-6 to Colorado Avalanche on the road. The model probability is 64%, and we quote -202. We are taking Tampa Bay Lightning at -202.",
    "source_url": "https://www.nhl.com/gamecenter/wpg-vs-tbl/2026/10/29/2026020204",
    "source_name": "NHL official schedule/game page",
-   "notes": "Model margin +1.2 goals and a 65.3% win probability for Tampa Bay Lightning, priced at -215. Sample: 91 verified games per team.",
+   "notes": "Model margin +1.1 goals and a 64.0% win probability for Tampa Bay Lightning, priced at -202. Sample: 92 verified games per team.",
    "flags": [],
    "home_raw": "Tampa Bay Lightning",
    "away_raw": "Winnipeg Jets",
@@ -21377,9 +21122,822 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "prediction_similarity": 0.22,
+   "prediction_similarity": 0.17,
    "pick_side": "home",
+   "id": "M0344",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Basketball",
+   "competition": "NBA",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T23:30:00Z",
+   "time": "7:30 pm ET",
+   "venue": "TD Garden",
+   "home": "Boston Celtics",
+   "away": "Chicago Bulls",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.nba.com/games?date=2026-10-30",
+   "source_name": "NBA official schedule/game page",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
+   "flags": [
+    {
+     "kind": "market-withheld",
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    }
+   ],
+   "home_raw": "Boston Celtics",
+   "away_raw": "Chicago Bulls",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
    "id": "M0345",
+   "source_tier": "official",
+   "source_domain": "www.nba.com",
+   "source_note": "NBA",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "basketball",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Basketball",
+   "competition": "NBA",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T23:30:00Z",
+   "time": "7:30 pm ET",
+   "venue": "Barclays Center",
+   "home": "Brooklyn Nets",
+   "away": "Detroit Pistons",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.nba.com/games?date=2026-10-30",
+   "source_name": "NBA official schedule/game page",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
+   "flags": [
+    {
+     "kind": "market-withheld",
+     "text": "Markets withheld: the smallest per-team sample is 1 completed games (home 1, away 2); 20 are required to originate a price."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    }
+   ],
+   "home_raw": "Brooklyn Nets",
+   "away_raw": "Detroit Pistons",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0346",
+   "source_tier": "official",
+   "source_domain": "www.nba.com",
+   "source_note": "NBA",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "basketball",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Basketball",
+   "competition": "NBA",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T00:00:00Z",
+   "time": "8:00 pm ET",
+   "venue": "Smoothie King Center",
+   "home": "New Orleans Pelicans",
+   "away": "Sacramento Kings",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.nba.com/games?date=2026-10-30",
+   "source_name": "NBA official schedule/game page",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
+   "flags": [
+    {
+     "kind": "market-withheld",
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    }
+   ],
+   "home_raw": "New Orleans Pelicans",
+   "away_raw": "Sacramento Kings",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0347",
+   "source_tier": "official",
+   "source_domain": "www.nba.com",
+   "source_note": "NBA",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "basketball",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Basketball",
+   "competition": "NBA",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T23:30:00Z",
+   "time": "7:30 pm ET",
+   "venue": "Xfinity Mobile Arena",
+   "home": "Philadelphia 76ers",
+   "away": "New York Knicks",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.nba.com/games?date=2026-10-30",
+   "source_name": "NBA official schedule/game page",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
+   "flags": [
+    {
+     "kind": "market-withheld",
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    }
+   ],
+   "home_raw": "Philadelphia 76ers",
+   "away_raw": "New York Knicks",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0348",
+   "source_tier": "official",
+   "source_domain": "www.nba.com",
+   "source_note": "NBA",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "basketball",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Basketball",
+   "competition": "NBA",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T02:00:00Z",
+   "time": "10:00 pm ET",
+   "venue": "Moda Center",
+   "home": "Portland Trail Blazers",
+   "away": "Memphis Grizzlies",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.nba.com/games?date=2026-10-30",
+   "source_name": "NBA official schedule/game page",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
+   "flags": [
+    {
+     "kind": "market-withheld",
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    }
+   ],
+   "home_raw": "Portland Trail Blazers",
+   "away_raw": "Memphis Grizzlies",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0349",
+   "source_tier": "official",
+   "source_domain": "www.nba.com",
+   "source_note": "NBA",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "basketball",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Basketball",
+   "competition": "NBA",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T23:30:00Z",
+   "time": "7:30 pm ET",
+   "venue": "Scotiabank Arena",
+   "home": "Toronto Raptors",
+   "away": "Orlando Magic",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.nba.com/games?date=2026-10-30",
+   "source_name": "NBA official schedule/game page",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
+   "flags": [
+    {
+     "kind": "market-withheld",
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    }
+   ],
+   "home_raw": "Toronto Raptors",
+   "away_raw": "Orlando Magic",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0350",
+   "source_tier": "official",
+   "source_domain": "www.nba.com",
+   "source_note": "NBA",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "basketball",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Basketball",
+   "competition": "NBA",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T23:00:00Z",
+   "time": "7:00 pm ET",
+   "venue": "Capital One Arena",
+   "home": "Washington Wizards",
+   "away": "Charlotte Hornets",
+   "neutral": null,
+   "win": {},
+   "handicap": "",
+   "total": "",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
+   "prediction": "",
+   "source_url": "https://www.nba.com/games?date=2026-10-30",
+   "source_name": "NBA official schedule/game page",
+   "notes": "NBA ratings rest on 28 completed games, so no line is originated for this fixture.",
+   "flags": [
+    {
+     "kind": "market-withheld",
+     "text": "Markets withheld: the smallest per-team sample is 2 completed games (home 2, away 2); 20 are required to originate a price."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
+    }
+   ],
+   "home_raw": "Washington Wizards",
+   "away_raw": "Charlotte Hornets",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "",
+   "id": "M0351",
+   "source_tier": "official",
+   "source_domain": "www.nba.com",
+   "source_note": "NBA",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "basketball",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T02:00:00Z",
+   "time": "FUT",
+   "venue": "Honda Center",
+   "home": "Anaheim Ducks",
+   "away": "Buffalo Sabres",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Anaheim Ducks": 2.002,
+     "Buffalo Sabres": 1.833
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Anaheim Ducks +0.5 @ 1.781; Buffalo Sabres -0.5 @ 2.069",
+   "total": "Over 7.5 @ 2.258; Under 7.5 @ 1.661",
+   "pick": "Buffalo Sabres",
+   "pick_market": "moneyline",
+   "confidence": "Low",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/buf-vs-ana/2026/10/29/2026020211",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin -0.4 goals and a 52.2% win probability for Buffalo Sabres, priced at -120. Sample: 92 verified games per team.",
+   "flags": [],
+   "home_raw": "Anaheim Ducks",
+   "away_raw": "Buffalo Sabres",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "away",
+   "id": "M0352",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T00:00:00Z",
+   "time": "FUT",
+   "venue": "American Airlines Center",
+   "home": "Dallas Stars",
+   "away": "Montréal Canadiens",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Dallas Stars": 1.587,
+     "Montréal Canadiens": 2.41
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Dallas Stars -0.5 @ 1.729; Montréal Canadiens +0.5 @ 2.143",
+   "total": "Over 6.5 @ 2.223; Under 6.5 @ 1.68",
+   "pick": "Dallas Stars",
+   "pick_market": "moneyline",
+   "confidence": "High",
+   "prediction": "Montréal Canadiens visit American Airlines Center to face Dallas Stars, and our model makes Dallas Stars a 60.3% favourite. Form favours Dallas Stars, who have won four of their last five, while Montréal Canadiens have won three of their last five. They most recently beat Winnipeg Jets 3-2 at home. Our price of -170 reflects a 60.3% win probability. Selection: Dallas Stars at -170.",
+   "source_url": "https://www.nhl.com/gamecenter/mtl-vs-dal/2026/10/29/2026020209",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin +0.7 goals and a 60.3% win probability for Dallas Stars, priced at -170. Sample: 92 verified games per team.",
+   "flags": [],
+   "home_raw": "Dallas Stars",
+   "away_raw": "Montréal Canadiens",
+   "prediction_style": "written",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "prediction_similarity": 0.238,
+   "pick_side": "home",
+   "id": "M0353",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T23:00:00Z",
+   "time": "FUT",
+   "venue": "Amerant Bank Arena",
+   "home": "Florida Panthers",
+   "away": "Winnipeg Jets",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Florida Panthers": 1.737,
+     "Winnipeg Jets": 2.131
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Florida Panthers -0.5 @ 1.946; Winnipeg Jets +0.5 @ 1.883",
+   "total": "Over 5.5 @ 1.849; Under 5.5 @ 1.984",
+   "pick": "Florida Panthers",
+   "pick_market": "moneyline",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/wpg-vs-fla/2026/10/30/2026020215",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin +0.2 goals and a 55.1% win probability for Florida Panthers, priced at -136. Sample: 92 verified games per team.",
+   "flags": [],
+   "home_raw": "Florida Panthers",
+   "away_raw": "Winnipeg Jets",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "home",
+   "id": "M0354",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T02:00:00Z",
+   "time": "FUT",
+   "venue": "Crypto.com Arena",
+   "home": "Los Angeles Kings",
+   "away": "Ottawa Senators",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Los Angeles Kings": 2.094,
+     "Ottawa Senators": 1.762
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Los Angeles Kings +0.5 @ 1.83; Ottawa Senators -0.5 @ 2.006",
+   "total": "Over 5.5 @ 2.011; Under 5.5 @ 1.826",
+   "pick": "Under 6.5",
+   "pick_market": "total",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/ott-vs-lak/2026/10/29/2026020212",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Our current total is 5.5, 0.78 goals below our opening number, and the model makes Under 6.5 a 69.4% chance at -264.",
+   "flags": [
+    {
+     "kind": "confidence-lowered",
+     "text": "Confidence lowered from High to Medium: Build E published this row as High confidence with an empty prediction field, so no written analysis exists for it. The pick (Under 6.5) stands, but the confidence is lowered rather than leaving a High selection with nothing written behind it."
+    }
+   ],
+   "home_raw": "Los Angeles Kings",
+   "away_raw": "Ottawa Senators",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "confidence_note": "Build E published this row as High confidence with an empty prediction field, so no written analysis exists for it. The pick (Under 6.5) stands, but the confidence is lowered rather than leaving a High selection with nothing written behind it.",
+   "pick_side": "under",
+   "id": "M0355",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T00:00:00Z",
+   "time": "FUT",
+   "venue": "Grand Casino Arena",
+   "home": "Minnesota Wild",
+   "away": "New York Islanders",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Minnesota Wild": 1.616,
+     "New York Islanders": 2.347
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Minnesota Wild -0.5 @ 1.781; New York Islanders +0.5 @ 2.069",
+   "total": "Over 5.5 @ 2.3; Under 5.5 @ 1.639",
+   "pick": "Minnesota Wild",
+   "pick_market": "moneyline",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/nyi-vs-min/2026/10/29/2026020210",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin +0.6 goals and a 59.2% win probability for Minnesota Wild, priced at -162. Sample: 92 verified games per team.",
+   "flags": [],
+   "home_raw": "Minnesota Wild",
+   "away_raw": "New York Islanders",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "home",
+   "id": "M0356",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T00:00:00Z",
+   "time": "FUT",
+   "venue": "Bridgestone Arena",
+   "home": "Nashville Predators",
+   "away": "Washington Capitals",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Nashville Predators": 1.974,
+     "Washington Capitals": 1.857
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Nashville Predators +0.5 @ 1.748; Washington Capitals -0.5 @ 2.115",
+   "total": "Over 6.5 @ 2.376; Under 6.5 @ 1.602",
+   "pick": "Under 6.5",
+   "pick_market": "total",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/wsh-vs-nsh/2026/10/29/2026020208",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Our current total is 6.5, 0.37 goals below our opening number, and the model makes Under 6.5 a 59.7% chance at -166.",
+   "flags": [],
+   "home_raw": "Nashville Predators",
+   "away_raw": "Washington Capitals",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "under",
+   "id": "M0357",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T02:00:00Z",
+   "time": "FUT",
+   "venue": "SAP Center at San Jose",
+   "home": "San Jose Sharks",
+   "away": "Vancouver Canucks",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "San Jose Sharks": 1.474,
+     "Vancouver Canucks": 2.727
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "San Jose Sharks -1.5 @ 1.989; Vancouver Canucks +1.5 @ 1.844",
+   "total": "Over 7.5 @ 2.242; Under 7.5 @ 1.67",
+   "pick": "San Jose Sharks",
+   "pick_market": "moneyline",
+   "confidence": "High",
+   "prediction": "Our ratings have San Jose Sharks 1.2 goals clear of Vancouver Canucks going into this one. San Jose Sharks arrive with a 6-4-1 record and have won three of their last five. They most recently beat Ottawa Senators 6-2 on the road. Our price of -211 reflects a 64.9% win probability. We are backing San Jose Sharks at -211.",
+   "source_url": "https://www.nhl.com/gamecenter/van-vs-sjs/2026/10/29/2026020213",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin +1.2 goals and a 64.9% win probability for San Jose Sharks, priced at -211. Sample: 93 verified games per team.",
+   "flags": [],
+   "home_raw": "San Jose Sharks",
+   "away_raw": "Vancouver Canucks",
+   "prediction_style": "written",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "prediction_similarity": 0.161,
+   "pick_side": "home",
+   "id": "M0358",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T00:00:00Z",
+   "time": "FUT",
+   "venue": "Enterprise Center",
+   "home": "St. Louis Blues",
+   "away": "Boston Bruins",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "St. Louis Blues": 2.092,
+     "Boston Bruins": 1.764
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "St. Louis Blues +0.5 @ 1.825; Boston Bruins -0.5 @ 2.012",
+   "total": "Over 6.5 @ 2.164; Under 6.5 @ 1.716",
+   "pick": "Boston Bruins",
+   "pick_market": "moneyline",
+   "confidence": "Low",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/bos-vs-stl/2026/10/29/2026020207",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin -0.5 goals and a 54.3% win probability for Boston Bruins, priced at -131. Sample: 92 verified games per team.",
+   "flags": [],
+   "home_raw": "St. Louis Blues",
+   "away_raw": "Boston Bruins",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "away",
+   "id": "M0359",
+   "source_tier": "official",
+   "source_domain": "www.nhl.com",
+   "source_note": "NHL",
+   "verified": true,
+   "status": "upcoming",
+   "sport_slug": "ice-hockey",
+   "row_type": "fixture",
+   "in_scope": true,
+   "scope_note": "",
+   "live_checks": [],
+   "live_contradicted": false
+  },
+  {
+   "build": "E",
+   "build_verified": true,
+   "sport": "Ice Hockey",
+   "competition": "NHL",
+   "date": "2026-10-30",
+   "date_raw": "2026-10-30T22:00:00Z",
+   "time": "FUT",
+   "venue": "T-Mobile Arena",
+   "home": "Vegas Golden Knights",
+   "away": "New Jersey Devils",
+   "neutral": null,
+   "win": {
+    "odds": {
+     "Vegas Golden Knights": 1.633,
+     "New Jersey Devils": 2.312
+    },
+    "basis": "build E originated price (its own margin applied)"
+   },
+   "handicap": "Vegas Golden Knights -0.5 @ 1.797; New Jersey Devils +0.5 @ 2.047",
+   "total": "Over 6.5 @ 2.038; Under 6.5 @ 1.804",
+   "pick": "Vegas Golden Knights",
+   "pick_market": "moneyline",
+   "confidence": "Medium",
+   "prediction": "",
+   "source_url": "https://www.nhl.com/gamecenter/njd-vs-vgk/2026/10/30/2026020214",
+   "source_name": "NHL official schedule/game page",
+   "notes": "Model margin +0.6 goals and a 58.6% win probability for Vegas Golden Knights, priced at -158. Sample: 92 verified games per team.",
+   "flags": [],
+   "home_raw": "Vegas Golden Knights",
+   "away_raw": "New Jersey Devils",
+   "prediction_style": "",
+   "cross_build": [],
+   "fields_from": {},
+   "archive_rows": 0,
+   "pick_side": "home",
+   "id": "M0360",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
    "source_note": "NHL",
@@ -21434,7 +21992,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "",
-   "id": "M0346",
+   "id": "M0361",
    "source_tier": "official",
    "source_domain": "www.pcb.com.pk",
    "source_note": "Pakistan Cricket Board",
@@ -21477,7 +22035,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0347",
+   "id": "M0362",
    "source_tier": "official",
    "source_domain": "gaacork.ie",
    "source_note": "Cork GAA",
@@ -21526,7 +22084,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0348",
+   "id": "M0363",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -21575,7 +22133,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0349",
+   "id": "M0364",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -21629,7 +22187,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0350",
+   "id": "M0365",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -21678,7 +22236,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "away",
-   "id": "M0351",
+   "id": "M0366",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -21727,7 +22285,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0352",
+   "id": "M0367",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -21776,7 +22334,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "home",
-   "id": "M0353",
+   "id": "M0368",
    "source_tier": "official",
    "source_domain": "www.world.rugby",
    "source_note": "World Rugby",
@@ -21841,7 +22399,7 @@
    "fields_from": {},
    "archive_rows": 0,
    "pick_side": "other",
-   "id": "M0354",
+   "id": "M0369",
    "source_tier": "none",
    "source_domain": "",
    "source_note": "no source URL recorded",

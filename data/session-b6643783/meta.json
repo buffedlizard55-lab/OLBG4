@@ -1,0 +1,186 @@
+{
+ "capture_id": "20261024T171155Z",
+ "capture_utc": "2026-10-24T17:14:34Z",
+ "window_start": "2026-10-24T17:30:00Z",
+ "window_end": "2026-11-08T23:59:59Z",
+ "targets": 154,
+ "ok": 137,
+ "failed": 17,
+ "gaps": [
+  {
+   "sport": "Gaelic Sports",
+   "reason": "gaa.ie serves a client-side app: the captured page carries no fixture list, so GAA club and county matches are listed from OLBG only and cannot be priced from an official table.",
+   "source_url": "https://www.gaa.ie/fixtures"
+  },
+  {
+   "sport": "Greyhounds",
+   "reason": "The Greyhound Board of Great Britain results API returns completed races; no forward racecard with traps, going and runners was retrievable, so no greyhound line is originated.",
+   "source_url": "https://www.gbgb.org.uk/racecards/"
+  },
+  {
+   "sport": "Cricket",
+   "reason": "ICC publishes team rankings on a client-rendered page and no machine-readable fixture list; domestic boards (Cricket Australia, NZC, ECB, BCCI) likewise serve app shells. Fixtures appear from OLBG only.",
+   "source_url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i"
+  },
+  {
+   "sport": "Rugby League",
+   "reason": "rlwc2026.com and nrl.com return app shells with no fixture JSON; no league table was retrievable to build a strength input from.",
+   "source_url": "https://www.rlwc2026.com/fixtures"
+  },
+  {
+   "sport": "Rugby Union",
+   "reason": "unitedrugby.com and premiershiprugby.com return client-rendered match centres (5.7 KB shell); no table or fixture array was captured, so URC and Premiership fixtures stay unpriced.",
+   "source_url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+  },
+  {
+   "sport": "Darts",
+   "reason": "pdc.tv returns the same 1.24 MB JavaScript shell for every route, so the draw is not machine-readable. The PDC participant API gives Order of Merit rankings but not tonight's pairings, so no line is made from ranking alone.",
+   "source_url": "https://www.pdc.tv/"
+  },
+  {
+   "sport": "Handball",
+   "reason": "EHF Champions League and the German/Spanish/French leagues render fixtures client-side; the Danish Herreligaen table is machine-readable but no OLBG-listed fixture in the window involved two Danish sides, so the handball rows stay unpriced.",
+   "source_url": "https://ehfcl.eurohandball.com/men/2026-27/matches/"
+  },
+  {
+   "sport": "Volleyball",
+   "reason": "Italian SuperLega, Polish PlusLiga and Czech Extraliga tables were captured, but the Italian season is one match old and the Polish table could not be reconciled to a single fixture in the window, so only rows with a reliable sample are priced.",
+   "source_url": "https://www.legavolley.it/classifica/"
+  },
+  {
+   "sport": "Golf",
+   "reason": "Golf is an outright tournament market, not a two-sided match. OLBG closes its golf tip markets when round one starts, so in-play weeks show no OLBG listing; the outright shown comes from the PGA Tour leaderboard only.",
+   "source_url": "https://www.pgatour.com/leaderboard"
+  },
+  {
+   "sport": "Motor Racing",
+   "reason": "Formula 1 and MotoGP publish a round-by-round calendar but not a machine-readable outright market; the race outright is derived from the official drivers' championship only.",
+   "source_url": "https://www.formula1.com/en/results/2026/drivers"
+  },
+  {
+   "sport": "Tennis",
+   "reason": "The WTA API returns match objects; where an official singles ranking is missing for either player the row is left unpriced rather than guessed.",
+   "source_url": "https://www.wtatennis.com/rankings/singles"
+  },
+  {
+   "sport": "Basketball",
+   "reason": "NBA.com and the NBA CDN return HTTP 403 to this capture, so only EuroLeague and EuroCup fixtures are priced from official data.",
+   "source_url": "https://www.nba.com/schedule"
+  },
+  {
+   "sport": "Snooker",
+   "reason": "snooker.org carries the draw and WST publishes rankings, but the Northern Ireland Open was in play at capture, so only matches with both players ranked are priced.",
+   "source_url": "https://www.snooker.org/"
+  }
+ ],
+ "peers": [
+  {
+   "href": "session-edffdbc6/index.html",
+   "label": "Board ZZ \u2014 peer 24 Oct clarity desk, 75 own-line rows, 30 High picks (still reachable)"
+  },
+  {
+   "href": "session-937ee172/index.html",
+   "label": "Board BZ \u2014 24 Oct NHL-only desk, three Medium write-ups (peer, still reachable)"
+  },
+  {
+   "href": "board/index.html",
+   "label": "Consolidated board (Board P)"
+  },
+  {
+   "href": "entries.html",
+   "label": "Legacy root entries table (21 Oct snapshot)"
+  },
+  {
+   "href": "picks.html",
+   "label": "Legacy root picks page (21 Oct snapshot)"
+  },
+  {
+   "href": "predictions.html",
+   "label": "Legacy root predictions (21 Oct snapshot)"
+  },
+  {
+   "href": "coverage.html",
+   "label": "Legacy root coverage page"
+  },
+  {
+   "href": "flagged.html",
+   "label": "Legacy root flagged page"
+  },
+  {
+   "href": "verification.html",
+   "label": "Board K verification register"
+  },
+  {
+   "href": "session-4502eff5/index.html",
+   "label": "Board FX \u2014 23 Oct 21:50Z 15-sport desk (the capture this desk reuses)"
+  },
+  {
+   "href": "session-48de8c1d/index.html",
+   "label": "Board FB \u2014 23 Oct 21:40Z desk with 75 written predictions"
+  },
+  {
+   "href": "session-2722b692/index.html",
+   "label": "Board AJ \u2014 23 Oct 15-sport desk, 2,589 market selections"
+  },
+  {
+   "href": "session-49866065/index.html",
+   "label": "Board FA \u2014 evidence-gated desk"
+  },
+  {
+   "href": "session-4885d641/index.html",
+   "label": "Board AG \u2014 21:15Z 18-sport desk"
+  },
+  {
+   "href": "session-6846f1ab/index.html",
+   "label": "Board AH \u2014 requested 15-sport snapshot"
+  },
+  {
+   "href": "session-22ca2e95/index.html",
+   "label": "Board AE \u2014 22 Oct afternoon refresh"
+  },
+  {
+   "href": "session-0d3b826c/index.html",
+   "label": "Board AF \u2014 evidence desk"
+  },
+  {
+   "href": "session-343754f2/index.html",
+   "label": "Board BW \u2014 23 Oct 15-sport desk"
+  },
+  {
+   "href": "session-543dca7d/index.html",
+   "label": "Board AS \u2014 15-sport desk"
+  },
+  {
+   "href": "session-2c05e0b2/index.html",
+   "label": "Board AI \u2014 15-sport OLBG desk"
+  },
+  {
+   "href": "session-509d544b/index.html",
+   "label": "Board AP \u2014 15-sport final"
+  },
+  {
+   "href": "session-ed4c358c/index.html",
+   "label": "Board ED \u2014 23 Oct desk"
+  },
+  {
+   "href": "session-405e9797/index.html",
+   "label": "Board AR \u2014 23 Oct desk"
+  },
+  {
+   "href": "session-3a6388d2/index.html",
+   "label": "Board AD \u2014 22 Oct desk"
+  },
+  {
+   "href": "session-19b8e377/index.html",
+   "label": "Board Z \u2014 91 fixtures"
+  },
+  {
+   "href": "session-9359e596/index.html",
+   "label": "Board Z \u2014 22 Oct live OLBG desk"
+  },
+  {
+   "href": "archive.html",
+   "label": "Full archive index"
+  }
+ ]
+}
