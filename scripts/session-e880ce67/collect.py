@@ -21,7 +21,9 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import shutil
 import socket
+import subprocess
 import sys
 import time
 import urllib.error
@@ -48,7 +50,57 @@ def now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def curl_fetch(url: str, timeout: int = 45) -> dict:
+    """Second attempt for hosts that answer urllib with 403 (Akamai bot rules).
+
+    curl is used with the same browser headers plus a referer; the HTTP status is returned
+    in the body tail so a real 404 is never mistaken for a successful fetch.
+    """
+    if not shutil.which("curl"):
+        return {"status": None, "final_url": url, "content_type": "", "bytes": 0,
+                "truncated": False, "elapsed_ms": 0, "error": "curl unavailable", "body": b""}
+    cmd = ["curl", "-sS", "-L", "--max-time", str(timeout), "--compressed",
+           "-A", UA, "-H", "Accept: text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
+           "-H", "Accept-Language: en-GB,en;q=0.9",
+           "-H", "Sec-Fetch-Mode: navigate", "-H", "Sec-Fetch-Site: none",
+           "-H", "Upgrade-Insecure-Requests: 1",
+           "-w", "\n%{http_code} %{content_type}", url]
+    started = time.time()
+    try:
+        out = subprocess.run(cmd, capture_output=True, timeout=timeout + 15)
+    except subprocess.TimeoutExpired:
+        return {"status": None, "final_url": url, "content_type": "", "bytes": 0,
+                "truncated": False, "elapsed_ms": int((time.time() - started) * 1000),
+                "error": "curl timeout", "body": b""}
+    raw = out.stdout
+    tail = raw.rsplit(b"\n", 1)
+    meta = tail[-1].decode("utf-8", "replace") if len(tail) == 2 else ""
+    body = tail[0] if len(tail) == 2 else raw
+    parts = meta.split(" ")
+    status = int(parts[0]) if parts and parts[0].isdigit() else None
+    ctype = " ".join(parts[1:]) if len(parts) > 1 else ""
+    truncated = len(body) > MAX_BYTES
+    return {"status": status, "final_url": url, "content_type": ctype,
+            "bytes": min(len(body), MAX_BYTES), "truncated": truncated,
+            "elapsed_ms": int((time.time() - started) * 1000),
+            "body": body[:MAX_BYTES] if status == 200 else b"",
+            "error": "" if status == 200 else f"curl HTTP {status}"}
+
+
 def fetch(url: str, timeout: int = 45) -> dict:
+    result = _fetch_urllib(url, timeout)
+    if result.get("status") == 200 and result.get("body"):
+        return result
+    # One retry through curl before a failure is recorded.
+    retry = curl_fetch(url, timeout)
+    if retry.get("status") == 200 and retry.get("body"):
+        retry["via"] = "curl"
+        return retry
+    result["via"] = "urllib"
+    return result
+
+
+def _fetch_urllib(url: str, timeout: int = 45) -> dict:
     req = urllib.request.Request(url, headers=HEADERS)
     started = time.time()
     try:

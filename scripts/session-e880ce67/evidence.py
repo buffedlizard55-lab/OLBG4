@@ -157,14 +157,15 @@ def parse_ehf(m: dict) -> dict:
     groups, current = {}, None
     for row in re.findall(r"<tr.*?</tr>", body, re.S):
         text = plain(row)
-        head = re.search(r"GROUP\s+([A-D])", text, re.I)
+        head = re.search(r"GROUP\s+([A-F])\b", text, re.I)
         if head:
             current = f"Group {head.group(1).upper()}"
             groups.setdefault(current, [])
             continue
         cells = [plain(c) for c in re.findall(r"<t[dh].*?</t[dh]>", row, re.S)]
         head_cell = re.match(r"^(\d+)\.\s*(.+)$", cells[0]) if cells else None
-        if current and len(cells) >= 8 and head_cell:
+        if current and len(cells) >= 8 and head_cell and re.match(r"^\d+$", cells[1]) \
+                and int(cells[1]) > 0:
             goals = re.match(r"(\d+)\s*:\s*(\d+)", cells[5])
             groups[current].append({
                 "rank": int(head_cell.group(1)), "team": head_cell.group(2),
@@ -186,9 +187,14 @@ def parse_danish(m: dict) -> dict:
     for row in re.findall(r'<tr class="team-position__row.*?</tr>', body, re.S):
         cells = [plain(c) for c in re.findall(r"<td.*?</td>", row, re.S)]
         if len(cells) >= 7:
+            goals = re.match(r"(\d+)\s*-\s*(\d+)", cells[6]) if len(cells) > 6 else None
+            w, d = int(cells[3]), int(cells[4])
             teams.append({"rank": cells[0], "team": cells[1], "gp": cells[2],
-                          "wins": cells[3], "draws": cells[4], "losses": cells[5],
-                          "goals": cells[6], "points": cells[-1]})
+                          "wins": w, "draws": d, "losses": cells[5],
+                          "gf": int(goals.group(1)) if goals else None,
+                          "ga": int(goals.group(2)) if goals else None,
+                          "goals": cells[6],
+                          "points": str(2 * w + d)})
     return {"teams": teams,
             "sources": [src("danish_table", m, "Betoro Herreligaen table (tophaandbold.dk, Danish Handball Federation)")]}
 
