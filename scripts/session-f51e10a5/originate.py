@@ -178,6 +178,7 @@ def pick_from(row, mk: str, idx: int, confidence: str, rule: str):
     sel = m["selections"][idx]
     p = sel["fair_prob"]
     in_win = -250 <= sel["fair_american"] <= 10000
+    confidence = conf(p, confidence)
     if confidence == "High" and not in_win:
         confidence = "Medium"
         rule = rule + "; High needs the price inside -250..+10,000, so this is capped at Medium"
@@ -2171,12 +2172,43 @@ def build_tennis_elo(cap: P.Capture, rows) -> int:
     return priced
 
 
+def _tennis_titles(cap: P.Capture) -> dict:
+    out = {}
+    for tid in ("wta_2092", "wta_405", "wta_1023", "wta_1056"):
+        if not cap.exists(tid):
+            continue
+        try:
+            t = cap.json(tid).get("tournament") or {}
+        except Exception:
+            continue
+        title = t.get("title") or ""
+        level = (t.get("tournamentGroup") or {}).get("level") or ""
+        if title:
+            out[tid] = title + (" (" + level + ")" if level else "")
+    return out
+
+
+def build_tennis_titles(cap: P.Capture, rows) -> int:
+    titles = _tennis_titles(cap)
+    n = 0
+    for r in rows:
+        if r["sport"] != "Tennis":
+            continue
+        parts = (r.get("id") or "").split("_")
+        tid = "_".join(parts[1:3]) if len(parts) > 2 else ""
+        if tid in titles:
+            r["competition"] = titles[tid]
+            n += 1
+    return n
+
+
 def late_repairs(cap: P.Capture, rows) -> dict:
     out = {}
     out["rugby_union_rows"] = build_rugby_union_official(cap, rows)
     out["snooker_rank_rows"] = build_snooker_ranks(cap, rows)
     out["snooker_elo_rows"] = build_snooker_elo(cap, rows)
     out["tennis_priced"] = build_tennis_elo(cap, rows)
+    out["tennis_titles"] = build_tennis_titles(cap, rows)
     return out
 
 

@@ -24,7 +24,7 @@ SPORTS = [
     ("Ice Hockey", "ice-hockey"), ("Basketball", "basketball"), ("Rugby League", "rugby-league"),
 ]
 NAV = [
-    ("index.html", "Overview"), ("picks.html", "Picks &amp; predictions"), ("entries.html", "All fixtures"),
+    ("index.html", "Overview"), ("picks.html", "Picks & predictions"), ("entries.html", "All fixtures"),
     ("markets.html", "Markets"), ("coverage.html", "Coverage"), ("sources.html", "Sources"),
     ("verification.html", "Verification"), ("flagged.html", "Flagged for review"),
     ("methodology.html", "Methodology"),
