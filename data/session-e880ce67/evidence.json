@@ -100,7 +100,7 @@
   ],
   "sources": [
    {
-    "fetched_utc": "2026-10-24T22:39:16Z",
+    "fetched_utc": "2026-10-24T23:09:39Z",
     "key": "mlb_standings",
     "label": "MLB standings (MLB.com StatsAPI)",
     "sha256": "4c4448d8203045383c9b2acab7927177ea80d0a16211a6528e3c2cd015623bbf",
@@ -108,10 +108,10 @@
     "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason&hydrate=team"
    },
    {
-    "fetched_utc": "2026-10-24T22:39:16Z",
+    "fetched_utc": "2026-10-24T23:09:39Z",
     "key": "mlb_sched",
     "label": "MLB schedule and probable pitchers (MLB.com StatsAPI)",
-    "sha256": "a187709b37e6e7134c1427f8903c99dc41b1ccd08a7f482e55e82c6e77cb697f",
+    "sha256": "74b4ecc016fe9fd00aa3415832f238ec46daa98dff2d4c2ed4c695a7ff88c4f7",
     "status": 200,
     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-11-05&hydrate=team,linescore,probablePitcher"
    }
@@ -569,8 +569,8 @@
    }
   }
  },
- "built_utc": "2026-10-24T22:40:40Z",
- "capture_utc": "2026-10-24T22:39:10Z",
+ "built_utc": "2026-10-24T23:13:33Z",
+ "capture_utc": "2026-10-24T23:09:32Z",
  "failed_sources": [
   {
    "error": "HTTP 404 Not Found",
@@ -616,6 +616,12 @@
   },
   {
    "error": "HTTP 404 Not Found",
+   "key": "ehfcl_results",
+   "status": 404,
+   "url": "https://ehfcl.eurohandball.com/men/2026-27/results/"
+  },
+  {
+   "error": "HTTP 404 Not Found",
    "key": "epcr_fixtures",
    "status": 404,
    "url": "https://www.epcrugby.com/fixtures"
@@ -625,12 +631,6 @@
    "key": "epcr_fixtures_en",
    "status": 404,
    "url": "https://www.epcrugby.com/en/fixtures"
-  },
-  {
-   "error": "HTTP 403 Forbidden",
-   "key": "europeantour_schedule",
-   "status": 403,
-   "url": "https://www.europeantour.com/dpworld-tour/schedule/"
   },
   {
    "error": "HTTP 404 Not Found",
@@ -708,7 +708,7 @@
  "handball_denmark": {
   "sources": [
    {
-    "fetched_utc": "2026-10-24T22:39:25Z",
+    "fetched_utc": "2026-10-24T23:09:54Z",
     "key": "danish_table",
     "label": "Betoro Herreligaen table (tophaandbold.dk, Danish Handball Federation)",
     "sha256": "288351fbd43fef5f9403eee84dc476c0b0a13d2452176bb9e380541a7f2c05b5",
@@ -1192,10 +1192,10 @@
   },
   "sources": [
    {
-    "fetched_utc": "2026-10-24T22:39:49Z",
+    "fetched_utc": "2026-10-24T23:10:24Z",
     "key": "ehfcl_standings",
     "label": "EHF Champions League men standings (eurohandball.com)",
-    "sha256": "3171241880dfff4100b14643fdd6bef806e0fa2acd12013e48fc38c6c6ea9cbf",
+    "sha256": "cc87eba374e3b5cf1c40db220be10cdd794533c76d5b512d9a1b69a9fdeace8b",
     "status": 200,
     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
    }
@@ -1242,7 +1242,7 @@
     "neutral": false,
     "source_key": "nhl_sched_2026-10-24",
     "start_utc": "2026-10-24T23:00:00Z",
-    "state": "PRE",
+    "state": "LIVE",
     "venue": "TD Garden"
    },
    {
@@ -1270,7 +1270,7 @@
     "neutral": false,
     "source_key": "nhl_sched_2026-10-24",
     "start_utc": "2026-10-24T23:00:00Z",
-    "state": "PRE",
+    "state": "LIVE",
     "venue": "PPG Paints Arena"
    },
    {
@@ -1284,7 +1284,7 @@
     "neutral": false,
     "source_key": "nhl_sched_2026-10-24",
     "start_utc": "2026-10-24T23:00:00Z",
-    "state": "PRE",
+    "state": "LIVE",
     "venue": "Capital One Arena"
    },
    {
@@ -1298,7 +1298,7 @@
     "neutral": false,
     "source_key": "nhl_sched_2026-10-24",
     "start_utc": "2026-10-24T23:00:00Z",
-    "state": "PRE",
+    "state": "LIVE",
     "venue": "Nationwide Arena"
    },
    {
@@ -1312,7 +1312,7 @@
     "neutral": false,
     "source_key": "nhl_sched_2026-10-24",
     "start_utc": "2026-10-24T23:00:00Z",
-    "state": "PRE",
+    "state": "LIVE",
     "venue": "Enterprise Center"
    },
    {
@@ -6568,10 +6568,10 @@
   ],
   "sources": [
    {
-    "fetched_utc": "2026-10-24T22:39:16Z",
+    "fetched_utc": "2026-10-24T23:09:38Z",
     "key": "nhl_standings",
     "label": "NHL standings (NHL.com official API)",
-    "sha256": "8be2b4fe3b8c1b8ab03275aa0bcaa2e285467b5eb4debb9a78e21c432dcd7a70",
+    "sha256": "8fffe9fe5e24c13082c07427003c09a3fa97c5bd3fba342ed50a9ba2fa83d492",
     "status": 200,
     "url": "https://api-web.nhle.com/v1/standings/now"
    }
@@ -7322,177 +7322,177 @@
    "Alexandra Eala": {
     "name": "Alexandra Eala",
     "points": 2241,
-    "rank": 21
+    "rank": 20
    },
    "Amanda Anisimova": {
     "name": "Amanda Anisimova",
     "points": 2363,
-    "rank": 25
+    "rank": 18
    },
    "Anastasia Potapova": {
     "name": "Anastasia Potapova",
     "points": 1814,
-    "rank": 25
+    "rank": 27
    },
    "Ann Li": {
     "name": "Ann Li",
     "points": 1833,
-    "rank": 26
+    "rank": 25
    },
    "Anna Kalinskaya": {
     "name": "Anna Kalinskaya",
     "points": 1989,
-    "rank": 27
+    "rank": 23
    },
    "Aryna Sabalenka": {
     "name": "Aryna Sabalenka",
     "points": 7550,
-    "rank": 28
+    "rank": 2
    },
    "Barbora Krejcikova": {
     "name": "Barbora Krejcikova",
     "points": 1133,
-    "rank": 30
+    "rank": 45
    },
    "Belinda Bencic": {
     "name": "Belinda Bencic",
     "points": 2662,
-    "rank": 29
+    "rank": 14
    },
    "Coco Gauff": {
     "name": "Coco Gauff",
     "points": 5974,
-    "rank": 22
+    "rank": 5
    },
    "Cristina Bucsa": {
     "name": "Cristina Bucsa",
     "points": 1294,
-    "rank": 28
+    "rank": 38
    },
    "Daria Snigur": {
     "name": "Daria Snigur",
     "points": 1280,
-    "rank": 24
+    "rank": 40
    },
    "Diana Shnaider": {
     "name": "Diana Shnaider",
     "points": 2663,
-    "rank": 22
+    "rank": 13
    },
    "Diane Parry": {
     "name": "Diane Parry",
     "points": 1549,
-    "rank": 24
+    "rank": 34
    },
    "Donna Vekic": {
     "name": "Donna Vekic",
     "points": 1333,
-    "rank": 30
+    "rank": 36
    },
    "Ekaterina Alexandrova": {
     "name": "Ekaterina Alexandrova",
     "points": 1591,
-    "rank": 31
+    "rank": 33
    },
    "Elena Rybakina": {
     "name": "Elena Rybakina",
     "points": 9196,
-    "rank": 27
+    "rank": 1
    },
    "Elina Svitolina": {
     "name": "Elina Svitolina",
     "points": 5229,
-    "rank": 32
+    "rank": 6
    },
    "Elise Mertens": {
     "name": "Elise Mertens",
     "points": 2540,
-    "rank": 30
+    "rank": 15
    },
    "Emma Navarro": {
     "name": "Emma Navarro",
     "points": 1794,
-    "rank": 25
+    "rank": 28
    },
    "Hailey Baptiste": {
     "name": "Hailey Baptiste",
     "points": 1154,
-    "rank": 24
+    "rank": 44
    },
    "Iga Swiatek": {
     "name": "Iga Swiatek",
     "points": 4389,
-    "rank": 25
+    "rank": 9
    },
    "Iva Jovic": {
     "name": "Iva Jovic",
     "points": 2931,
-    "rank": 18
+    "rank": 12
    },
    "Janice Tjen": {
     "name": "Janice Tjen",
     "points": 1120,
-    "rank": 24
+    "rank": 46
    },
    "Jasmine Paolini": {
     "name": "Jasmine Paolini",
     "points": 1453,
-    "rank": 30
+    "rank": 35
    },
    "Jelena Ostapenko": {
     "name": "Jelena Ostapenko",
     "points": 1916,
-    "rank": 29
+    "rank": 24
    },
    "Jessica Pegula": {
     "name": "Jessica Pegula",
     "points": 6235,
-    "rank": 32
+    "rank": 4
    },
    "Karolina Muchova": {
     "name": "Karolina Muchova",
     "points": 4833,
-    "rank": 30
+    "rank": 7
    },
    "Karolina Pliskova": {
     "name": "Karolina Pliskova",
     "points": 1105,
-    "rank": 34
+    "rank": 48
    },
    "Kimberly Birrell": {
     "name": "Kimberly Birrell",
     "points": 1280,
-    "rank": 28
+    "rank": 41
    },
    "Leylah Fernandez": {
     "name": "Leylah Fernandez",
     "points": 1709,
-    "rank": 24
+    "rank": 30
    },
    "Linda Noskova": {
     "name": "Linda Noskova",
     "points": 4678,
-    "rank": 21
+    "rank": 8
    },
    "Liudmila Samsonova": {
     "name": "Liudmila Samsonova",
     "points": 1234,
-    "rank": 27
+    "rank": 43
    },
    "Madison Keys": {
     "name": "Madison Keys",
     "points": 2029,
-    "rank": 31
+    "rank": 21
    },
    "Magdalena Frech": {
     "name": "Magdalena Frech",
     "points": 1110,
-    "rank": 28
+    "rank": 47
    },
    "Maja Chwalinska": {
     "name": "Maja Chwalinska",
     "points": 3031,
-    "rank": 25
+    "rank": 11
    },
    "Maria Sakkari": {
     "name": "Maria Sakkari",
@@ -7502,77 +7502,77 @@
    "Marie Bouzkova": {
     "name": "Marie Bouzkova",
     "points": 1818,
-    "rank": 28
+    "rank": 26
    },
    "Marta Kostyuk": {
     "name": "Marta Kostyuk",
     "points": 3920,
-    "rank": 24
+    "rank": 10
    },
    "Mirra Andreeva": {
     "name": "Mirra Andreeva",
     "points": 6306,
-    "rank": 19
+    "rank": 3
    },
    "Naomi Osaka": {
     "name": "Naomi Osaka",
     "points": 2297,
-    "rank": 29
+    "rank": 19
    },
    "Nikola Bartunkova": {
     "name": "Nikola Bartunkova",
     "points": 1711,
-    "rank": 20
+    "rank": 29
    },
    "Peyton Stearns": {
     "name": "Peyton Stearns",
     "points": 1316,
-    "rank": 25
+    "rank": 37
    },
    "Qinwen Zheng": {
     "name": "Qinwen Zheng",
     "points": 2018,
-    "rank": 24
+    "rank": 22
    },
    "Sara Bejlek": {
     "name": "Sara Bejlek",
     "points": 1650,
-    "rank": 20
+    "rank": 32
    },
    "Sonay Kartal": {
     "name": "Sonay Kartal",
     "points": 1097,
-    "rank": 24
+    "rank": 49
    },
    "Sorana Cirstea": {
     "name": "Sorana Cirstea",
     "points": 2380,
-    "rank": 36
+    "rank": 17
    },
    "Talia Gibson": {
     "name": "Talia Gibson",
     "points": 1273,
-    "rank": 22
+    "rank": 42
    },
    "Victoria Mboko": {
     "name": "Victoria Mboko",
     "points": 2501,
-    "rank": 20
+    "rank": 16
    },
    "Xinyu Wang": {
     "name": "Xinyu Wang",
     "points": 1288,
-    "rank": 25
+    "rank": 39
    },
    "Yuliia Starodubtseva": {
     "name": "Yuliia Starodubtseva",
     "points": 1090,
-    "rank": 26
+    "rank": 50
    }
   },
   "sources": [
    {
-    "fetched_utc": "2026-10-24T22:39:37Z",
+    "fetched_utc": "2026-10-24T23:10:06Z",
     "key": "wta_rankings",
     "label": "WTA singles rankings (wtatennis.com)",
     "sha256": "09ba25e68e1e2a912bed511ba8c41cd39a56f5e653891fa12519e9e4c47d9018",

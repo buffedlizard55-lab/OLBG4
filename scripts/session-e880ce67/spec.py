@@ -161,12 +161,6 @@ OLBG_URLS.update({
     "data_tennis": "https://www.olbg.com/betting-tips/Tennis/3/__data.json",
 })
 
-# Built last, after every update above, so a newly probed endpoint is always fetched.
-ALL_GROUPS = {
-    "olbg": OLBG_URLS,
-    "official": {**OFFICIAL, **schedule_dates()},
-}
-
 OFFICIAL.update({
     # EHF's own competition pages: the standings page returned a server-rendered table,
     # so the fixtures/results routes are worth probing for official fixture identity.
@@ -184,3 +178,9 @@ OFFICIAL.update({
 })
 
 MAX_BYTES = 12 * 1024 * 1024
+
+# Built last, after every update above, so a newly probed endpoint is always fetched.
+ALL_GROUPS = {
+    "olbg": OLBG_URLS,
+    "official": {**OFFICIAL, **schedule_dates()},
+}

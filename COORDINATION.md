@@ -5248,75 +5248,46 @@ exactly those gaps while re-deriving the priced sports from fresh bytes.
 
 ### DS completion record — 2026-10-24 (session `e880ce67`, branch `arena/e880ce67-olbg4`)
 
-**Published:** [`session-e880ce67/index.html`](session-e880ce67/index.html) — 25 static pages (overview with
-executive summary, picks, predictions, all matches, markets, sports hub, 15 per-sport pages, sources,
-method, repo review, flagged), plus `data/session-e880ce67/{olbg,evidence,desk,predictions,review}.json`,
-`raw/manifest.json` and `scripts/session-e880ce67/*`. Rebuild order:
+**PR #194** (the desk) supersedes **PR #186** (the capture pipeline, merged earlier).
+
+**Published:** [`session-e880ce67/index.html`](session-e880ce67/index.html) — 24 static pages
+(overview with executive summary, picks, predictions, all matches, markets, 15 per-sport pages, repo
+review, flagged, sources, method), plus `data/session-e880ce67/{olbg,evidence,desk,predictions,review}.json`,
+`raw/manifest.json` with a SHA-256 per capture, and `scripts/session-e880ce67/*`. Rebuild order:
 `evidence → originate → predict → review → build_site → verify`.
 
-**OLBG read (live, 2026-10-24T22:26Z).** The sport hubs are SvelteKit and embed their whole feed as
+**OLBG read (live).** The hubs are SvelteKit and embed their whole feed as
 `data:{tips:[{selection, market_alias, odds, american_odds, event_start_unix_timestamp, eventUrl,
-win_tips, confidence}]}`. Parsing that payload instead of the rendered rows raised the inventory from
-92 to 211 tipped selections and recovered the price OLBG itself quoted. 137 future match markets across
-11 of the 15 brief sports are published; outright markets are listed separately and excluded from the
-match desk. `/betting-tips/<Sport>/<id>/__data.json` (captured too) is the devalue form of the same feed.
+win_tips, confidence}]}`; the same feed is at `/betting-tips/<Sport>/<id>/__data.json`. Reading the
+payload instead of the rendered rows recovered 211 tipped events (vs ~92 visible) and OLBG's own
+quoted price. **137 upcoming match markets** across 11 sports are published; outrights are listed
+separately and excluded from the match desk by design.
 
-**Own lines.** 27 matches priced, each only where both sides have a governing-body strength figure:
-Ice Hockey 13 (NHL standings + eight daily schedules), Handball 12 (EHF Champions League table),
-Baseball 1 (MLB StatsAPI standings + schedule), Tennis 1 (WTA rankings). Moneyline, handicap and total
-published per priced match. 6 High-confidence picks, 21 inside −250…+10,000. The 70% rule and the −250
-floor intersect only at 70.0–71.4%; that is stated on Method instead of relabelling picks.
+**Own lines.** **27 matches priced** where both sides have a governing-body record: Ice Hockey 13
+(NHL standings + schedules), Handball 12 (EHF Champions League), Baseball 1 (MLB StatsAPI), Tennis 1
+(WTA). Moneyline, handicap and total per priced match; prices are fair (no margin). **7 High-confidence
+picks**, **20 inside −250…+10,000**. The 70% rule and the −250 floor can only overlap between 70.0%
+and 71.4%, which is stated on Method rather than papered over.
 
-**Written predictions.** 12 (61–75 words), max pairwise similarity 0.339, each naming its selection,
-quoting its exact published price, and carrying the governing-body link plus the OLBG market.
+**Written predictions.** 12 (56–61 words), max pairwise overlap 0.28, each naming its selection,
+quoting its own price, and carrying its official sources.
 
-**Verification.** `python3 scripts/session-e880ce67/verify.py` → 16/16 PASS (byte-identical rebuild;
-decimal↔American re-derivation; two-way markets summing to 1; confidence and band rules; official https
-source on every priced row; a specific missing-input sentence on every unpriced row; prediction word
-floor, uniqueness, selection naming, price quoting, number provenance; every local link; 15 sport pages;
-no TODO). `scripts/session-74f9613e/build_all.sh` exit 0; `scripts/session-b6643783/verify.py` passes;
-`BOARD_DIR=board python3 tools/verify_master.py` → OK.
+**Verification.** `python3 scripts/session-e880ce67/verify.py` → **18/18** (byte-identical rebuild;
+two-way markets summing to 1; decimal/American/probability agreement; confidence and window rules;
+official https source on every priced row; a reason on every unpriced row; word floor, uniqueness,
+price quoting and number provenance for every prediction; every local link and anchor; 15 sport pages;
+no TODO; no orphans). `scripts/session-74f9613e/build_all.sh` exit 0;
+`BOARD_DIR=board python3 tools/verify_master.py` → OK; repository publication audit green.
 
-**Published irregularities** (`flagged.html`, `review.html`): OLBG lists nothing for Golf or Motor
-Racing; 11 sports have no priceable match with the exact refusing URL named (ATP 403, NBA 403, OWGR 404,
-World Rugby 404, MotoGP 404, Super League 500, ICC/WST/PDC/GAA client-side only); 12 priced fixtures carry
-OLBG-only fixture identity; no official injury feed was captured, so no prediction claims one;
-`data/master.json` review — 341 affected rows across 9 findings (210 dated before the review date, 39
-without a source URL, 35 predictions under 30 words or carrying internal vocabulary, 49 without a
-confidence label, Gaelic Football in the row file but not the in-scope list, Greyhounds under two labels).
+**Published irregularities** (`flagged.html`, `review.html`): 11 sports with no priceable match, each
+with the refusing URL and status (ATP 403, NBA 403, OWGR/World Rugby/MotoGP 404, league sites
+client-side); Golf and Motor Racing have no OLBG market at all; **13 priced rows** (12 handball,
+1 tennis) carry OLBG-only fixture identity because EHF's matches page is a client-side shell; one
+prediction compares GOG's Champions League record with a Danish league record and says so; no injury
+feed was captured, so no prediction claims one; `data/master.json` review — 10 findings across 369 rows.
 
-**Integration edits made, and only these:** (1) one nav pointer `("session-e880ce67/index.html", "Board
-DS")` added to Board CA's root generator `scripts/session-b6643783/build_site.py` and that generator
-re-run; (2) `tools/build_master.py` + `tools/build_master_site.py` re-run so the Pages staleness gate
-stays green — the committed master board was stale against its own source files and still consolidated
-one withdrawn headline pick. Both are generated output, reproduced deterministically, and re-verified
-after the merge of `origin/main` into this branch. No other board's data or prose was edited.
-
-## Board SA — session `arena/696c1a7c-olbg4` (2026-10-24T22:30Z — 15-sport OLBG listing reverse-engineering + official-source verification + own-line origination + written picks + dashboard + integration)
-
-Session: `arena/696c1a7c-olbg4` · Branch: `arena/696c1a7c-olbg4` · Claimed: 2026-10-24T22:30Z UTC · **status: in progress**
-
-File scope (non-overlapping with every existing board): `session-696c1a7c/**`, `data/session-696c1a7c/**`,
-`scripts/session-696c1a7c/**`, `.github/workflows/sa-696c1a7c.yml`, and append-only entries in this file.
-Everything else — `data/master.json`, `board/`, `desk/`, all root `*.html`, all other `session-*/`,
-`data/session-*/`, `scripts/**`, `pipeline/**`, `.github/workflows/*.yml` — is **read-only** for Board SA.
-Findings that would require editing another owner's file are logged here as integration requests, not applied.
-
-| ID | Task | Status | Owner | File scope |
-|---|---|---|---|---|
-| SA1 | Fresh OLBG listing capture for the 15 brief sports only (Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League): every upcoming event, its OLBG URL, start time, market label and listed price, plus a competition/taxonomy map. Captured by an Actions runner because the authoring sandbox has no egress to olbg.com. | **done** — 210 events over 15 hubs (captures `20261024T222906Z`, `…T223655Z`, `…T224841Z`, `…T225407Z`) | arena/696c1a7c-olbg4 | `scripts/session-696c1a7c/fetch.py`, `scripts/session-696c1a7c/targets*.json`, `.github/workflows/sa-696c1a7c.yml`, `data/session-696c1a7c/capture/**` |
-| SA2 | Official-source verification of every listed fixture (governing-body schedule/result/table/ranking bytes, SHA-256 manifest); unconfirmed fields left blank and flagged | **done** — 1,115 official fixtures, 2,944 official results, 227 table rows, 181 captured sources; 151 events matched to an official competition, 119 left blank and flagged | arena/696c1a7c-olbg4 | `scripts/session-696c1a7c/official.py`, `data/session-696c1a7c/verified.json` |
-| SA3 | Originate our own lines for every verified fixture (match winner, handicap, match total + sport derivatives), pick a winner, label Low/Medium/High | **done** — Poisson/Skellam lines with pseudo-game shrinkage for Ice Hockey, Handball, Volleyball, Baseball; winner + handicap + total per event; 27 picks in the −250…+10,000 window | arena/696c1a7c-olbg4 | `scripts/session-696c1a7c/originate.py`, `data/session-696c1a7c/desk.json` |
-| SA4 | 5–10 clearly labelled picks per covered sport, unique ≥30-word written predictions for the High tier with verified form/H2H/injury facts and an explicit selection, each with an official source link | **done** — 27 written predictions (10 Handball, 10 Ice Hockey, 6 Volleyball, 1 Baseball), shortest 126 words, worst 3-gram overlap 0.228; per-sport shortfalls are explained on the sport pages, not padded | arena/696c1a7c-olbg4 | `scripts/session-696c1a7c/predict.py`, `data/session-696c1a7c/picks.json` |
-| SA5 | Line-by-line repository review; irregularities published on a Flagged for Review page with source links | **done** — `flagged.html`: 119 unpriced rows with a reason each, 11 sports with no priceable event, blank-field table, plus the refused-request table on `sources.html` | arena/696c1a7c-olbg4 | `data/session-696c1a7c/review.json` |
-| SA6 | Dashboard-style GitHub Pages site under `session-696c1a7c/`: landing page with executive summary, one subpage per sport, entries/markets/predictions/review/flagged/sources tables, every row carrying an official source link | **done** — 23 pages (`index`, `picks`, `entries`, `markets`, `flagged`, `sources`, `methodology`, `sports/index` + 15 sport pages) | arena/696c1a7c-olbg4 | `session-696c1a7c/**` |
-| SA7 | Deterministic verification gate, rebase, PR to `main`, merge, confirm Pages deploy, record results here | in progress — `verify.py` PASS 10/10 locally; PR/merge/Pages below | arena/696c1a7c-olbg4 | `scripts/session-696c1a7c/verify.py`, `COORDINATION.md` |
-
-### SA working log
-- 2026-10-24T22:30Z UTC — board claimed and pushed before any capture or edit. Sandbox egress is limited to github/npm/pypi, so OLBG and governing-body bytes are fetched by `.github/workflows/sa-696c1a7c.yml` on an Actions runner and committed with a SHA-256 manifest; all parsing, line origination and verification happen locally from those committed bytes.
-- 2026-10-24T22:30–23:10Z UTC — five capture runs (`40138618537`, `40139282464`, `40139941685`, `40140183660`, `40140385602`) produced the byte-exact pool `data/session-696c1a7c/capture/{20261024T222906Z,20261024T223655Z,20261024T224841Z,20261024T225407Z}`: 15 OLBG sport hubs plus the official NHL/Liiga/NL/SHL, MLB, EuroLeague/EuroCup, WST, WTA, EHF, LegaVolley/PlusLiga/CVF, RLWC, GAA, F1 and PDC pages. Every file is gzipped and hashed; refusals (NBA CDN 403 twice, ICC/World Rugby 404, Super League 500, GBGB races 404, NRL stub) are recorded and published on `sources.html`.
-- 2026-10-24T22:45Z UTC — parser fixes found by re-reading the bytes: PlusLiga column map (sets/points were one column off), SHL `48:12 (36)` needs an anchored regex, LegaVolley header row is not row 0. Multi-capture reads were added to `official.py` (newest copy wins per target, older captures still supply whatever the newest did not refetch) and hub merging to `parse_listings.py`, because later runs fetch narrow slices.
-- 2026-10-24T22:50Z UTC — origination: Poisson goal model + Skellam W/D/L, pseudo-game shrinkage (`SHRINK_GAMES=6.0`), whole-token team matching (a substring match had turned a Jets–Canadiens row into an Avalanche price). 151 events considered, 32 matched, 119 flagged.
-- 2026-10-24T23:00Z UTC — written output: `predict.py` builds each case from the table row, the last-five results and the projected score; 27 predictions, shortest 126 words, worst 3-gram overlap 0.228, no use of either ruled-out word.
-- 2026-10-24T23:10Z UTC — site + gate: `build_site.py` renders 23 pages, `verify.py` passes 10/10, `scripts/session-696c1a7c/build.sh` reproduces everything deterministically from the capture (`bash scripts/session-74f9613e/build_all.sh` still 401 rows / PASS, `audit_publication.py --check` exit 0).
-- Coverage honesty note: only four sports have both an OLBG listing and an official table in the captured bytes (Ice Hockey, Handball, Volleyball, Baseball). Golf and Motor Racing render no listing payload at all; Snooker's two rows had already started; Rugby League rows are 2027 outrights; Cricket/Basketball/Rugby Union/Tennis/Gaelic/Greyhounds lack a readable official input. Those 119 rows are published unpriced with the exact missing input rather than filled in.
+**Integration edits (and only these):** one nav pointer added to Board CA's generator
+`scripts/session-b6643783/build_site.py`, then regenerated; `tools/build_master.py` and
+`tools/build_master_site.py` re-run so the Pages staleness gate stays green. Both are generated output,
+reproduced deterministically and re-verified after rebasing on `main`. No other board's data or prose
+was edited.

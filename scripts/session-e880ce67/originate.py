@@ -276,8 +276,15 @@ def price_pair(event: dict, match: dict, sport: str) -> dict:
         form_h = f"{home['wins']}-{home['draws']}-{home['losses']}"
         form_a = f"{away['wins']}-{away['draws']}-{away['losses']}"
     elif sport == "Tennis":
-        # Ranking-based: a 25-place gap moves the win probability by about 8 points.
-        p = 0.5 + (float(away["rank"]) - float(home["rank"])) / 300.0
+        # Ranking-points ratio, damped: (points_home ** 0.6) / sum.  A straight points ratio
+        # overrates the top of the list (9,196 vs 1,709 would be 84%); the 0.6 exponent keeps
+        # a genuine no.1 vs no.30 near 73%, which is where the tour actually prices it.
+        ph = float(home.get("points") or 0)
+        pa = float(away.get("points") or 0)
+        if ph > 0 and pa > 0:
+            p = (ph ** 0.6) / (ph ** 0.6 + pa ** 0.6)
+        else:
+            p = 0.5 + (float(away["rank"]) - float(home["rank"])) / 300.0
         sh = sa = None
         h_gf = h_ga = a_gf = a_ga = None
         form_h = f"world no. {home['rank']}"

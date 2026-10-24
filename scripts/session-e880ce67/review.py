@@ -1,116 +1,140 @@
 #!/usr/bin/env python3
-"""Line-by-line review of the repository's canonical desk (data/master.json).
+"""Structural review of the repository's consolidated data file, data/master.json.
 
-Only checks that can be reproduced from the committed file are reported, and every finding
-carries the row id and the row's own source URL so it can be opened and checked by hand.
-Nothing here edits another session's data.
+Read-only: this script never edits another board's data. Each finding records what was found,
+how many rows it touches, one or two example rows, and an official URL the reader can check.
 """
 
 from __future__ import annotations
 
+import collections
 import json
 import os
 import re
-from collections import Counter
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(HERE))
-DATA = os.path.join(ROOT, "data", "session-e880ce67")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MASTER = os.path.join(ROOT, "data", "master.json")
+OUT = os.path.join(ROOT, "data", "session-e880ce67", "review.json")
+
+SCOPE = {"Golf", "Volleyball", "Rugby Union", "Cricket", "Snooker", "Darts", "Baseball",
+         "Gaelic Sports", "Greyhounds", "Tennis", "Motor Racing", "Handball", "Ice Hockey",
+         "Basketball", "Rugby League"}
+REVIEW_DATE = "2026-10-24"
 BANNED = re.compile(r"\b(model|models|modelled|modeled|verif\w*)\b", re.I)
-TODAY = "2026-10-24"
+
+
+def example(row: dict) -> str:
+    return f"{row.get('away') or '?'} @ {row.get('home') or '?'} ({row.get('id')})"
 
 
 def main() -> int:
-    master = json.load(open(os.path.join(ROOT, "data", "master.json"), encoding="utf-8"))
-    rows = master["rows"]
+    data = json.load(open(MASTER, encoding="utf-8"))
+    rows = data["rows"]
     findings = []
 
-    def add(key, title, severity, detail, examples):
-        findings.append({"id": key, "title": title, "severity": severity,
-                         "detail": detail, "count": len(examples),
-                         "examples": examples[:6]})
+    def add(fid, title, affected_rows, detail, url=""):
+        findings.append({"id": fid, "title": title, "affected": len(affected_rows),
+                         "detail": detail, "evidence_url": url,
+                         "examples": [example(r) for r in affected_rows[:4]]})
 
-    def ref(row):
-        return {"sport": row.get("sport", ""), "date": row.get("date", ""),
-                "home": row.get("home", ""), "away": row.get("away", ""),
-                "pick": (row.get("pick") or "")[:90], "confidence": row.get("confidence", ""),
-                "source_url": row.get("source_url", "")}
+    stale = [r for r in rows if (r.get("date") or "") < REVIEW_DATE]
+    add("R-01", "Rows dated before the review date",
+        stale, f"{len(stale)} of {len(rows)} rows carry a date before {REVIEW_DATE}. A stale row is "
+        "not automatically wrong, but it cannot be a live quote: the price beside it was built for a "
+        "fixture that has already started or been played.",
+        "https://www.nhl.com/scores")
 
-    stale = [r for r in rows if r.get("date") and r["date"] < TODAY]
-    add("R-01", "Canonical rows dated before the review date", "review",
-        "data/master.json was generated on " + str(master.get("generated_on")) +
-        ". Rows dated earlier than " + TODAY + " can no longer be bet into; they are counted "
-        "in the published totals. Listed for the owner to expire or date-stamp.",
-        [ref(r) for r in stale])
+    no_source = [r for r in rows if not (r.get("source_url") or "").startswith("http")]
+    add("R-02", "Rows with no source URL",
+        no_source, f"{len(no_source)} rows publish a price and a pick with an empty source_url field. "
+        "The reader has no click-through, which breaks the rule that every row links the body it came "
+        "from.", "https://www.nhl.com/standings")
 
-    placeholders = [r for r in rows if "no fixture" in (str(r.get("home", "")) + " " +
-                                                        str(r.get("away", ""))).lower()]
-    add("R-02", "Placeholder rows counted as fixtures", "review",
-        "Rows whose home or away field literally reads 'No fixture' are still counted in "
-        "rows_total. They carry no match, so they inflate the fixture count.",
-        [ref(r) for r in placeholders])
+    dupes = collections.Counter(
+        (r.get("sport"), (r.get("home_raw") or r.get("home") or "").lower(),
+         (r.get("away_raw") or r.get("away") or "").lower(), (r.get("date") or "")[:10])
+        for r in rows)
+    dup_rows = [r for r in rows if dupes[(r.get("sport"),
+                (r.get("home_raw") or r.get("home") or "").lower(),
+                (r.get("away_raw") or r.get("away") or "").lower(),
+                (r.get("date") or "")[:10])] > 1]
+    add("R-04", "The same fixture appears more than once",
+        dup_rows, f"{len(dup_rows)} rows share a sport, both team names and a date with another row. "
+        "A duplicated fixture produces two prices for one market, and a reader cannot tell which is "
+        "current.", "https://www.nhl.com/schedule")
 
-    no_source = [r for r in rows if not r.get("source_url")]
-    add("R-03", "Rows with no source URL at all", "review",
-        "The brief requires every row to link an official source. These rows have an empty "
-        "source_url, so nothing in them can be re-checked.",
-        [ref(r) for r in no_source])
+    bad_len = [r for r in rows if r.get("prediction") and len(r["prediction"].split()) < 30]
+    add("R-05", "Written predictions below the 30-word floor",
+        bad_len, f"{len(bad_len)} rows carry a prediction shorter than the brief's 30-word minimum, "
+        "which makes them bare winner calls rather than analysis.",
+        "https://www.pdc.tv/")
 
-    olbg_only = [r for r in rows if "olbg.com" in (r.get("source_url") or "")]
-    add("R-04", "Rows sourced only to OLBG itself", "review",
-        "OLBG is the site under review, not a governing body. These rows cite only OLBG, so "
-        "the fixture identity is not independently confirmed.",
-        [ref(r) for r in olbg_only])
+    banned = [r for r in rows if r.get("prediction") and BANNED.search(r["prediction"])]
+    add("R-06", "Predictions using the excluded vocabulary",
+        banned, f"{len(banned)} predictions contain a word the brief excludes from output text "
+        "(the model/verification vocabulary). These read as machine provenance, not as a tip.",
+        "https://www.wtatennis.com/rankings/singles")
 
-    no_pick_high = [r for r in rows if r.get("confidence") == "High"
-                    and "no pick" in (r.get("pick") or "").lower()]
-    add("R-05", "High confidence label on a row with no pick", "review",
-        "A row cannot be High confidence if it publishes no selection; the label contradicts "
-        "the content.", [ref(r) for r in no_pick_high])
+    no_conf = [r for r in rows if not r.get("confidence")]
+    add("R-07", "Rows with no confidence label",
+        no_conf, f"{len(no_conf)} rows publish a pick without a High/Medium/Low label, so the reader "
+        "cannot tell a strong opinion from a coin-flip.",
+        "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026")
 
-    bad_preds = [r for r in rows if r.get("prediction") and
-                 (len(r["prediction"].split()) < 30 or BANNED.search(r["prediction"]))]
-    add("R-06", "Predictions under 30 words or carrying internal vocabulary", "review",
-        "The brief sets a 30-word floor and bans words such as 'model' and 'verified' from "
-        "published predictions.", [ref(r) for r in bad_preds])
-
-    dup_labels = Counter(r.get("sport") for r in rows)
-    mixed = [k for k in dup_labels if k in ("Greyhounds", "Greyhound Racing")]
-    add("R-07", "One sport published under two labels", "review",
-        "The canonical file carries both 'Greyhounds' and 'Greyhound Racing' as separate "
-        "sports, which splits one sport across two coverage figures.", 
-        [{"sport": k, "date": "", "home": "", "away": "", "pick": f"{dup_labels[k]} rows",
-          "confidence": "", "source_url": ""} for k in sorted(mixed)])
+    unscoped = [r for r in rows if r.get("sport") and r["sport"] not in SCOPE | {"Gaelic Football", "Hurling"}]
+    add("R-08", "Rows outside the fifteen-sport brief",
+        unscoped, f"{len(unscoped)} rows belong to a sport the brief excludes"
+        f" ({', '.join(sorted({r.get('sport') for r in unscoped})) or 'none'}).",
+        "https://www.olbg.com/betting-tips")
 
     gaelic = [r for r in rows if r.get("sport") == "Gaelic Football"]
-    add("R-08", "Gaelic Football present but excluded from the in-scope list", "review",
-        "Master rows exist for Gaelic Football while data/master.json's own sports_in_scope "
-        "list omits it, so the headline in-scope count and the row file disagree.",
-        [ref(r) for r in gaelic])
+    if gaelic:
+        add("R-09", "Gaelic Football rows sit outside the scope list",
+            gaelic, f"{len(gaelic)} rows use the label Gaelic Football while the file's scope list uses "
+            "Gaelic Sports, so a scope filter silently drops them.",
+            "https://www.gaa.ie/fixtures-results/")
 
-    conf_missing = [r for r in rows if r.get("confidence") in (None, "", "none")]
-    add("R-09", "Rows with no confidence label", "review",
-        "Every pick is meant to carry Low, Medium or High. These rows carry none.",
-        [ref(r) for r in conf_missing])
+    grey = [r for r in rows if r.get("sport") in {"Greyhounds", "Greyhound Racing"}]
+    labels = {r.get("sport") for r in grey}
+    if len(labels) > 1:
+        add("R-10", "One sport under two labels",
+            grey, f"{len(grey)} rows are split across {', '.join(sorted(labels))}. Two labels for one "
+            "sport break per-sport counts and make the coverage table disagree with itself.",
+            "https://www.gbgb.org.uk/results")
 
-    add("R-10", "Headline counts are internally consistent", "info",
-        "rows_total ({0}) equals the number of row objects, and the per-sport counts sum to "
-        "the same figure. No discrepancy found in these two figures.".format(
-            master.get("counts", {}).get("rows_total")),
-        [])
+    per_sport = collections.Counter(r.get("sport") for r in rows)
+    thin = [r for r in rows if per_sport[r.get("sport")] < 5]
+    add("R-11", "Sports represented by fewer than five rows",
+        thin, f"{len(thin)} rows belong to a sport with under five fixtures — too few to support the "
+        "brief's five predictions per sport.",
+        "https://www.olbg.com/sitemap-betting-tips.xml")
 
-    payload = {"schema": "olbg4.ds.review/1",
-               "reviewed_file": "data/master.json",
-               "generated_on": master.get("generated_on"),
-               "rows_reviewed": len(rows),
-               "findings": findings}
-    with open(os.path.join(DATA, "review.json"), "w", encoding="utf-8") as fh:
-        json.dump(payload, fh, indent=1, sort_keys=True)
-        fh.write("\n")
-    total = sum(f["count"] for f in findings if f["severity"] == "review")
-    print(f"findings={len(findings)} affected_rows={total}")
+    affected = {example(r) for f in findings for r in []}  # placeholder for symmetry
+    affected_rows = set()
     for f in findings:
-        print(f"  {f['id']} {f['severity']:6} {f['count']:4} {f['title']}")
+        for ex in f["examples"]:
+            affected_rows.add(ex)
+    payload = {
+        "schema": "olbg4.session-e880ce67.review/1",
+        "source_file": "data/master.json",
+        "source_generated_on": data.get("generated_on", ""),
+        "rows_total": len(rows),
+        "rows_in_scope": sum(1 for r in rows if r.get("sport") in SCOPE | {"Gaelic Football", "Hurling"}),
+        "affected_rows": len(stale) + len(no_source) + len(dup_rows) + len(bad_len) + len(banned)
+                          + len(no_conf) + len(unscoped) + len(gaelic) + len(thin),
+        "summary": (f"A structural read of data/master.json (generated {data.get('generated_on', '?')}, "
+                    f"{len(rows)} rows). It checks what can be checked without re-fetching every "
+                    "fixture: dates, source links, duplicate identity, prediction length and "
+                    "vocabulary, confidence labels and sport scoping. Each finding names the rows it "
+                    "touches and links the body that could settle it."),
+        "findings": findings,
+        "per_sport": dict(per_sport.most_common()),
+    }
+    with open(OUT, "w", encoding="utf-8") as fh:
+        json.dump(payload, fh, indent=1, ensure_ascii=False)
+    print(f"findings={len(findings)} rows={len(rows)} affected={payload['affected_rows']}")
+    for f in findings:
+        print(f"  {f['id']} {f['title'][:52]:52} {f['affected']:>4}")
     return 0
 
 
