@@ -1,0 +1,601 @@
+[
+ {
+  "sport": "Basketball",
+  "id": "nba_schedule_cdn",
+  "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+  "delay": 0.3,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-US,en;q=0.9",
+   "Referer": "https://www.nba.com/",
+   "Origin": "https://www.nba.com",
+   "Sec-Fetch-Site": "same-site",
+   "Sec-Fetch-Mode": "cors",
+   "Sec-Fetch-Dest": "empty"
+  }
+ },
+ {
+  "sport": "Basketball",
+  "id": "nba_scoreboard_today",
+  "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
+  "delay": 0.3,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-US,en;q=0.9",
+   "Referer": "https://www.nba.com/",
+   "Origin": "https://www.nba.com",
+   "Sec-Fetch-Site": "same-site",
+   "Sec-Fetch-Mode": "cors",
+   "Sec-Fetch-Dest": "empty"
+  }
+ },
+ {
+  "sport": "Basketball",
+  "id": "nba_standings_stats",
+  "url": "https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27&SeasonType=Regular+Season",
+  "delay": 0.4,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-US,en;q=0.9",
+   "Referer": "https://www.nba.com/",
+   "Origin": "https://www.nba.com",
+   "Sec-Fetch-Site": "same-site",
+   "Sec-Fetch-Mode": "cors",
+   "Sec-Fetch-Dest": "empty"
+  }
+ },
+ {
+  "sport": "Basketball",
+  "id": "nba_gamelog_stats",
+  "url": "https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2026-27&SeasonType=Regular+Season&Sorter=DATE",
+  "delay": 0.4,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-US,en;q=0.9",
+   "Referer": "https://www.nba.com/",
+   "Origin": "https://www.nba.com",
+   "Sec-Fetch-Site": "same-site",
+   "Sec-Fetch-Mode": "cors",
+   "Sec-Fetch-Dest": "empty"
+  }
+ },
+ {
+  "sport": "Basketball",
+  "id": "nba_teamstats_stats",
+  "url": "https://stats.nba.com/stats/leaguedashteamstats?Conference=&DateFrom=&DateTo=&Division=&GameScope=&GameSegment=&Height=&LastNGames=0&LeagueID=00&Location=&MeasureType=Base&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=PerGame&Period=0&PlayerExperience=&PlayerPosition=&PlusMinus=N&Rank=N&Season=2026-27&SeasonSegment=&SeasonType=Regular+Season&ShotClockRange=&StarterBench=&TeamID=0&VsConference=&VsDivision=",
+  "delay": 0.4,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-US,en;q=0.9",
+   "Referer": "https://www.nba.com/",
+   "Origin": "https://www.nba.com",
+   "Sec-Fetch-Site": "same-site",
+   "Sec-Fetch-Mode": "cors",
+   "Sec-Fetch-Dest": "empty"
+  }
+ },
+ {
+  "sport": "Snooker",
+  "id": "wst_matches_window",
+  "url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=500&sort=startDateTime&filter%5BstartDateTime%5D%5Bgte%5D=2026-10-01&filter%5BstartDateTime%5D%5Blte%5D=2026-11-30",
+  "delay": 0.3,
+  "attempts": 2
+ },
+ {
+  "sport": "Snooker",
+  "id": "wst_matches_recent",
+  "url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=500&sort=-startDateTime&filter%5BstartDateTime%5D%5Bgte%5D=2026-05-01&filter%5BstartDateTime%5D%5Blte%5D=2026-10-24",
+  "delay": 0.3,
+  "attempts": 2
+ },
+ {
+  "sport": "Snooker",
+  "id": "wst_tournaments",
+  "url": "https://tournaments.snooker.web.gc.wstservices.co.uk/v2/?page.size=100",
+  "delay": 0.3,
+  "attempts": 2
+ },
+ {
+  "sport": "Snooker",
+  "id": "snooker_org_event",
+  "url": "https://www.snooker.org/res/index.asp?event=2548",
+  "delay": 0.4,
+  "attempts": 1
+ },
+ {
+  "sport": "Tennis",
+  "id": "atp_rankings_browser",
+  "url": "https://www.atptour.com/en/rankings/singles?rankRange=1-200",
+  "delay": 0.5,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-GB,en;q=0.9"
+  }
+ },
+ {
+  "sport": "Tennis",
+  "id": "atp_rankings_race",
+  "url": "https://www.atptour.com/en/rankings/race-to-turin",
+  "delay": 0.5,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-GB,en;q=0.9"
+  }
+ },
+ {
+  "sport": "Tennis",
+  "id": "wta_rankings_html",
+  "url": "https://www.wtatennis.com/rankings/singles",
+  "delay": 0.5,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-GB,en;q=0.9"
+  }
+ },
+ {
+  "sport": "Tennis",
+  "id": "wta_calendar_full",
+  "url": "https://api.wtatennis.com/tennis/tournaments?page=0&pageSize=200",
+  "delay": 0.3,
+  "attempts": 2
+ },
+ {
+  "sport": "Tennis",
+  "id": "atp_calendar_browser",
+  "url": "https://www.atptour.com/en/tournaments",
+  "delay": 0.5,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
+   "Accept-Language": "en-GB,en;q=0.9"
+  }
+ },
+ {
+  "sport": "Cricket",
+  "id": "icc_mens_rankings_api",
+  "url": "https://www.icc-cricket.com/api/rankings/mens/t20i",
+  "delay": 0.4,
+  "attempts": 1
+ },
+ {
+  "sport": "Cricket",
+  "id": "pcb_fixtures",
+  "url": "https://www.pcb.com.pk/fixtures.html",
+  "delay": 0.4,
+  "attempts": 2,
+  "headers": {
+   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+   "Referer": "https://www.pcb.com.pk/"
+  }
+ },
+ {
+  "sport": "Cricket",
+  "id": "nzc_schedule",
+  "url": "https://www.nzc.nz/schedule",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Cricket",
+  "id": "ecb_schedule",
+  "url": "https://www.ecb.co.uk/england/men/schedule",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Cricket",
+  "id": "cricket_au_schedule",
+  "url": "https://www.cricket.com.au/schedule",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Cricket",
+  "id": "cricket_au_bbl",
+  "url": "https://www.cricket.com.au/big-bash",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Cricket",
+  "id": "csa_fixtures",
+  "url": "https://cricket.co.za/fixtures",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Handball",
+  "id": "hbl_liquimoly_spielplan",
+  "url": "https://www.liquimoly-hbl.de/de/spielplan/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Handball",
+  "id": "hbl_liquimoly_tabelle",
+  "url": "https://www.liquimoly-hbl.de/de/tabelle/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Handball",
+  "id": "svenskhandboll",
+  "url": "https://www.svenskhandboll.se/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Handball",
+  "id": "handbollsligan_statistik",
+  "url": "https://handbollsligan.se/statistik/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Handball",
+  "id": "asobal_resultados",
+  "url": "https://asobal.es/resultados/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Handball",
+  "id": "lnh_calendrier2",
+  "url": "https://www.lnh.fr/calendrier",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Handball",
+  "id": "ehfcl_m_results",
+  "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/?round=6",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Volleyball",
+  "id": "lvgf_classifica",
+  "url": "https://www.legavolleyfemminile.it/classifica/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Volleyball",
+  "id": "lvgf_calendario",
+  "url": "https://www.legavolleyfemminile.it/calendario/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Volleyball",
+  "id": "tvf_fixtures",
+  "url": "https://tvf.org.tr/musabakalar/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Volleyball",
+  "id": "cbv_superliga",
+  "url": "https://www.cbv.com.br/superliga",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Volleyball",
+  "id": "vbl_fixtures",
+  "url": "https://www.volleyball-bundesliga.de/cms/home/1bl_frauen/spielplan/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Volleyball",
+  "id": "lnv_calendrier",
+  "url": "https://lnv.fr/calendrier/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Volleyball",
+  "id": "plusliga_women",
+  "url": "https://www.tauronliga.pl/table/tour/2026.html",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "prem_round",
+  "url": "https://www.premiershiprugby.com/fixtures-results?round=6",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "top14_journee",
+  "url": "https://top14.lnr.fr/calendrier-et-resultats?journee=9",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "urc_match_centre",
+  "url": "https://www.unitedrugby.com/match-centre",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "epcr_home",
+  "url": "https://www.epcrugby.com/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "japan_rugby",
+  "url": "https://www.rugby-japan.jp/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Darts",
+  "id": "pdc_gc_matches",
+  "url": "https://matches.gc.pdcservices.co.uk/v2/?page.size=200",
+  "delay": 0.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Darts",
+  "id": "pdc_api_root",
+  "url": "https://api.pdc.tv/v2/?page.size=50",
+  "delay": 0.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Darts",
+  "id": "pdc_sitemap",
+  "url": "https://www.pdc.tv/sitemap.xml",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Darts",
+  "id": "pdc_tournaments_page",
+  "url": "https://www.pdc.tv/tournaments",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Darts",
+  "id": "wdf_events",
+  "url": "https://www.dartswdf.com/events/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Gaelic Sports",
+  "id": "kilkennygaa",
+  "url": "https://kilkennygaa.ie/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Gaelic Sports",
+  "id": "gaa_club_fixtures",
+  "url": "https://www.gaa.ie/fixtures-results/club",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Gaelic Sports",
+  "id": "dublingaa_results",
+  "url": "https://www.dublingaa.ie/results",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Gaelic Sports",
+  "id": "gaacork_results",
+  "url": "https://gaacork.ie/results",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Greyhounds",
+  "id": "gbgb_api_races_date",
+  "url": "https://api.gbgb.org.uk/api/races?date=2026-10-25",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Greyhounds",
+  "id": "gbgb_api_racecards_date",
+  "url": "https://api.gbgb.org.uk/api/racecards?date=2026-10-25&page=1&itemsPerPage=100",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Greyhounds",
+  "id": "gbgb_racecard_page",
+  "url": "https://www.gbgb.org.uk/race-card/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Greyhounds",
+  "id": "gbgb_meetings_page",
+  "url": "https://www.gbgb.org.uk/meetings/",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Golf",
+  "id": "owgr_api",
+  "url": "https://www.owgr.com/api/rankings/current",
+  "delay": 0.4,
+  "attempts": 1
+ },
+ {
+  "sport": "Golf",
+  "id": "pgatour_bermuda",
+  "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Golf",
+  "id": "dpwt_genesis",
+  "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Motor Racing",
+  "id": "f1_race_results_latest",
+  "url": "https://www.formula1.com/en/results/2026/races",
+  "delay": 0.4,
+  "attempts": 2
+ },
+ {
+  "sport": "Motor Racing",
+  "id": "f1_mexico_results",
+  "url": "https://www.formula1.com/en/results/2026/races/1159/mexico/race-result",
+  "delay": 0.4,
+  "attempts": 1
+ },
+ {
+  "sport": "Motor Racing",
+  "id": "motogp_results_2026",
+  "url": "https://www.motogp.com/en/calendar/2026/race-results",
+  "delay": 0.4,
+  "attempts": 1
+ },
+ {
+  "sport": "Baseball",
+  "id": "olbg_league_mlb_12",
+  "url": "/betting-tips/Baseball/MLB/MLB/12",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Basketball",
+  "id": "olbg_league_nba_4",
+  "url": "/betting-tips/Basketball/NBA/NBA/4",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Basketball",
+  "id": "olbg_league_korea_kbl_4",
+  "url": "/betting-tips/Basketball/Other/Korea_KBL/4",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Cricket",
+  "id": "olbg_league_all_events_7",
+  "url": "/betting-tips/Cricket/All_Cricket/All_Events/7",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Darts",
+  "id": "olbg_league_all_events_15",
+  "url": "/betting-tips/Darts/All_Darts/All_Events/15",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Greyhounds",
+  "id": "olbg_league_all_events_28",
+  "url": "/betting-tips/Greyhounds/All_Greyhounds/All_Events/28",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Handball",
+  "id": "olbg_league_all_events_20",
+  "url": "/betting-tips/Handball/All_Handball/All_Events/20",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Gaelic Sports",
+  "id": "olbg_league_all_events_26",
+  "url": "/betting-tips/Hurling/All_Hurling/All_Events/26",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Ice Hockey",
+  "id": "olbg_league_nhl_13",
+  "url": "/betting-tips/Ice_Hockey/NHL/NHL/13",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Ice Hockey",
+  "id": "olbg_league_austria_ehl_13",
+  "url": "/betting-tips/Ice_Hockey/Other/Austria_EHL/13",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Ice Hockey",
+  "id": "olbg_league_germany_eishockey_liga_13",
+  "url": "/betting-tips/Ice_Hockey/Other/Germany_Eishockey_Liga/13",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Ice Hockey",
+  "id": "olbg_league_switzerland_nla_13",
+  "url": "/betting-tips/Ice_Hockey/Other/Switzerland_NLA/13",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Rugby League",
+  "id": "olbg_league_all_events_10",
+  "url": "/betting-tips/Rugby_League/All_Rugby_League/All_Events/10",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "olbg_league_all_events_9",
+  "url": "/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/9",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Tennis",
+  "id": "olbg_league_all_events_3",
+  "url": "/betting-tips/Tennis/All_Tennis/All_Events/3",
+  "delay": 1.3,
+  "attempts": 1
+ },
+ {
+  "sport": "Volleyball",
+  "id": "olbg_league_all_events_21",
+  "url": "/betting-tips/Volleyball/All_Volleyball/All_Events/21",
+  "delay": 1.3,
+  "attempts": 1
+ }
+]

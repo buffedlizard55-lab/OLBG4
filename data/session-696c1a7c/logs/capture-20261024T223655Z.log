@@ -1,0 +1,78 @@
+FAIL nba_schedule_cdn                       HTTPError: HTTP Error 403: Forbidden  https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json
+FAIL nba_scoreboard_today                   HTTPError: HTTP Error 403: Forbidden  https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json
+FAIL nba_standings_stats                    TimeoutError: The read operation timed out  https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27&SeasonType=Regular+Season
+FAIL nba_gamelog_stats                      TimeoutError: The read operation timed out  https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2026-2
+FAIL nba_teamstats_stats                    TimeoutError: The read operation timed out  https://stats.nba.com/stats/leaguedashteamstats?Conference=&DateFrom=&DateTo=&Division=&GameScope=&GameSegment
+OK   wst_matches_window                       1390918  https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=500&sort=startDateTime&filter%5BstartDateTime%5D%5Bgte%5D
+OK   wst_matches_recent                       1390922  https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=500&sort=-startDateTime&filter%5BstartDateTime%5D%5Bgte%5
+OK   wst_tournaments                            74577  https://tournaments.snooker.web.gc.wstservices.co.uk/v2/?page.size=100
+OK   snooker_org_event                         239422  https://www.snooker.org/res/index.asp?event=2548
+FAIL atp_rankings_browser                   HTTPError: HTTP Error 403: Forbidden  https://www.atptour.com/en/rankings/singles?rankRange=1-200
+FAIL atp_rankings_race                      HTTPError: HTTP Error 403: Forbidden  https://www.atptour.com/en/rankings/race-to-turin
+OK   wta_rankings_html                        1178101  https://www.wtatennis.com/rankings/singles
+OK   wta_calendar_full                          60559  https://api.wtatennis.com/tennis/tournaments?page=0&pageSize=200
+FAIL atp_calendar_browser                   HTTPError: HTTP Error 403: Forbidden  https://www.atptour.com/en/tournaments
+FAIL icc_mens_rankings_api                  HTTPError: HTTP Error 404: Not Found  https://www.icc-cricket.com/api/rankings/mens/t20i
+FAIL pcb_fixtures                           HTTPError: HTTP Error 403: Forbidden  https://www.pcb.com.pk/fixtures.html
+FAIL nzc_schedule                           HTTPError: HTTP Error 404: Not Found  https://www.nzc.nz/schedule
+FAIL ecb_schedule                           HTTPError: HTTP Error 404: Not Found  https://www.ecb.co.uk/england/men/schedule
+FAIL cricket_au_schedule                    HTTPError: HTTP Error 404: Not Found  https://www.cricket.com.au/schedule
+OK   cricket_au_bbl                            299169  https://www.cricket.com.au/big-bash
+FAIL csa_fixtures                           HTTPError: HTTP Error 404: Not Found  https://cricket.co.za/fixtures
+FAIL hbl_liquimoly_spielplan                HTTPError: HTTP Error 404: Not Found  https://www.liquimoly-hbl.de/de/spielplan/
+FAIL hbl_liquimoly_tabelle                  HTTPError: HTTP Error 404: Not Found  https://www.liquimoly-hbl.de/de/tabelle/
+FAIL svenskhandboll                         HTTPError: HTTP Error 307: The HTTP server returned a redirect error that would lead to an infinite loop.
+The   https://www.svenskhandboll.se/
+FAIL handbollsligan_statistik               HTTPError: HTTP Error 404: Not Found  https://handbollsligan.se/statistik/
+FAIL asobal_resultados                      HTTPError: HTTP Error 404: Not Found  https://asobal.es/resultados/
+FAIL lnh_calendrier2                        HTTPError: HTTP Error 404: Not Found  https://www.lnh.fr/calendrier
+OK   ehfcl_m_results                            94604  https://ehfcl.eurohandball.com/men/2026-27/matches/?round=6
+OK   lvgf_classifica                           158595  https://www.legavolleyfemminile.it/classifica/
+OK   lvgf_calendario                           724388  https://www.legavolleyfemminile.it/calendario/
+FAIL tvf_fixtures                           HTTPError: HTTP Error 404: Not Found  https://tvf.org.tr/musabakalar/
+FAIL cbv_superliga                          HTTPError: HTTP Error 404: Not Found  https://www.cbv.com.br/superliga
+FAIL vbl_fixtures                           HTTPError: HTTP Error 404: Not Found  https://www.volleyball-bundesliga.de/cms/home/1bl_frauen/spielplan/
+OK   lnv_calendrier                              1124  https://lnv.fr/calendrier/
+FAIL plusliga_women                         HTTPError: HTTP Error 404: Not Found  https://www.tauronliga.pl/table/tour/2026.html
+OK   prem_round                                325457  https://www.premiershiprugby.com/fixtures-results?round=6
+OK   top14_journee                             155193  https://top14.lnr.fr/calendrier-et-resultats?journee=9
+OK   urc_match_centre                            5680  https://www.unitedrugby.com/match-centre
+OK   epcr_home                                 679373  https://www.epcrugby.com/
+OK   japan_rugby                                60357  https://www.rugby-japan.jp/
+FAIL pdc_gc_matches                         URLError: <urlopen error [Errno -2] Name or service not known>  https://matches.gc.pdcservices.co.uk/v2/?page.size=200
+FAIL pdc_api_root                           URLError: <urlopen error [Errno -2] Name or service not known>  https://api.pdc.tv/v2/?page.size=50
+OK   pdc_sitemap                                20551  https://www.pdc.tv/sitemap.xml
+OK   pdc_tournaments_page                     1241860  https://www.pdc.tv/tournaments
+FAIL wdf_events                             HTTPError: HTTP Error 404: Not Found  https://www.dartswdf.com/events/
+OK   kilkennygaa                               164988  https://kilkennygaa.ie/
+FAIL gaa_club_fixtures                      HTTPError: HTTP Error 404: Not Found  https://www.gaa.ie/fixtures-results/club
+FAIL dublingaa_results                      HTTPError: HTTP Error 404: Not Found  https://www.dublingaa.ie/results
+OK   gaacork_results                           366831  https://gaacork.ie/results
+FAIL gbgb_api_races_date                    HTTPError: HTTP Error 404: Not Found  https://api.gbgb.org.uk/api/races?date=2026-10-25
+FAIL gbgb_api_racecards_date                HTTPError: HTTP Error 404: Not Found  https://api.gbgb.org.uk/api/racecards?date=2026-10-25&page=1&itemsPerPage=100
+FAIL gbgb_racecard_page                     HTTPError: HTTP Error 404: Not Found  https://www.gbgb.org.uk/race-card/
+OK   gbgb_meetings_page                         88736  https://www.gbgb.org.uk/meetings/
+FAIL owgr_api                               HTTPError: HTTP Error 404: Not Found  https://www.owgr.com/api/rankings/current
+OK   pgatour_bermuda                           932128  https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528
+OK   dpwt_genesis                              337611  https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard
+OK   f1_race_results_latest                    468771  https://www.formula1.com/en/results/2026/races
+FAIL f1_mexico_results                      HTTPError: HTTP Error 404: Not Found  https://www.formula1.com/en/results/2026/races/1159/mexico/race-result
+FAIL motogp_results_2026                    HTTPError: HTTP Error 404: Not Found  https://www.motogp.com/en/calendar/2026/race-results
+FAIL olbg_league_mlb_12                     ValueError: unknown url type: '/betting-tips/Baseball/MLB/MLB/12'  /betting-tips/Baseball/MLB/MLB/12
+FAIL olbg_league_nba_4                      ValueError: unknown url type: '/betting-tips/Basketball/NBA/NBA/4'  /betting-tips/Basketball/NBA/NBA/4
+FAIL olbg_league_korea_kbl_4                ValueError: unknown url type: '/betting-tips/Basketball/Other/Korea_KBL/4'  /betting-tips/Basketball/Other/Korea_KBL/4
+FAIL olbg_league_all_events_7               ValueError: unknown url type: '/betting-tips/Cricket/All_Cricket/All_Events/7'  /betting-tips/Cricket/All_Cricket/All_Events/7
+FAIL olbg_league_all_events_15              ValueError: unknown url type: '/betting-tips/Darts/All_Darts/All_Events/15'  /betting-tips/Darts/All_Darts/All_Events/15
+FAIL olbg_league_all_events_28              ValueError: unknown url type: '/betting-tips/Greyhounds/All_Greyhounds/All_Events/28'  /betting-tips/Greyhounds/All_Greyhounds/All_Events/28
+FAIL olbg_league_all_events_20              ValueError: unknown url type: '/betting-tips/Handball/All_Handball/All_Events/20'  /betting-tips/Handball/All_Handball/All_Events/20
+FAIL olbg_league_all_events_26              ValueError: unknown url type: '/betting-tips/Hurling/All_Hurling/All_Events/26'  /betting-tips/Hurling/All_Hurling/All_Events/26
+FAIL olbg_league_nhl_13                     ValueError: unknown url type: '/betting-tips/Ice_Hockey/NHL/NHL/13'  /betting-tips/Ice_Hockey/NHL/NHL/13
+FAIL olbg_league_austria_ehl_13             ValueError: unknown url type: '/betting-tips/Ice_Hockey/Other/Austria_EHL/13'  /betting-tips/Ice_Hockey/Other/Austria_EHL/13
+FAIL olbg_league_germany_eishockey_liga_13  ValueError: unknown url type: '/betting-tips/Ice_Hockey/Other/Germany_Eishockey_Liga/13'  /betting-tips/Ice_Hockey/Other/Germany_Eishockey_Liga/13
+FAIL olbg_league_switzerland_nla_13         ValueError: unknown url type: '/betting-tips/Ice_Hockey/Other/Switzerland_NLA/13'  /betting-tips/Ice_Hockey/Other/Switzerland_NLA/13
+FAIL olbg_league_all_events_10              ValueError: unknown url type: '/betting-tips/Rugby_League/All_Rugby_League/All_Events/10'  /betting-tips/Rugby_League/All_Rugby_League/All_Events/10
+FAIL olbg_league_all_events_9               ValueError: unknown url type: '/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/9'  /betting-tips/Rugby_Union/All_Rugby_Union/All_Events/9
+FAIL olbg_league_all_events_3               ValueError: unknown url type: '/betting-tips/Tennis/All_Tennis/All_Events/3'  /betting-tips/Tennis/All_Tennis/All_Events/3
+FAIL olbg_league_all_events_21              ValueError: unknown url type: '/betting-tips/Volleyball/All_Volleyball/All_Events/21'  /betting-tips/Volleyball/All_Volleyball/All_Events/21
+
+24 ok / 51 failed -> data/session-696c1a7c/capture/20261024T223655Z

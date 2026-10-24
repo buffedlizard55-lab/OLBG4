@@ -1,0 +1,231 @@
+{
+ "board": "SA",
+ "failed": 7,
+ "failures": [
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "nba_schedule_cdn",
+   "sport": "Basketball",
+   "status": 403,
+   "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "nba_scoreboard",
+   "sport": "Basketball",
+   "status": 403,
+   "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json"
+  },
+  {
+   "error": "TimeoutError: The read operation timed out",
+   "id": "nba_standings_stats",
+   "sport": "Basketball",
+   "status": 0,
+   "url": "https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27&SeasonType=Regular+Season"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gbgb_races_tomorrow",
+   "sport": "Greyhounds",
+   "status": 404,
+   "url": "https://api.gbgb.org.uk/api/races?date=2026-10-25"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "world_rugby_rankings",
+   "sport": "Rugby Union",
+   "status": 404,
+   "url": "https://www.world.rugby/rankings/mru"
+  },
+  {
+   "error": "HTTPError: HTTP Error 500: Internal Server Error",
+   "id": "super_league_fixtures",
+   "sport": "Rugby League",
+   "status": 500,
+   "url": "https://www.superleague.co.uk/fixtures"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "icc_fixtures",
+   "sport": "Cricket",
+   "status": 404,
+   "url": "https://www.icc-cricket.com/fixtures"
+  }
+ ],
+ "finished_utc": "2026-10-24T22:56:34Z",
+ "label": "r5",
+ "ok": 14,
+ "records": [
+  {
+   "bytes": 183437,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_golf_bermuda.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/5?from=Bermuda_Championship",
+   "id": "olbg_golf_bermuda",
+   "sha256": "7455dd3cf5a4a7e73b969e8e233641673382e0c1387dd46bf069b82e56f39870",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904"
+  },
+  {
+   "bytes": 210757,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_golf_masters.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/US_Masters/5",
+   "id": "olbg_golf_masters",
+   "sha256": "863160ea39314b7af12da7494167a59b36681d3a2beefa3a2d4fdf17796d206d",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/US_Masters/5"
+  },
+  {
+   "bytes": 225769,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_f1_mexico.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Mexico_City_Grand_Prix/14",
+   "id": "olbg_f1_mexico",
+   "sha256": "664a5341e9535d4c033fbf51253ebb8f9c0a901522a8b18bdd6104ba475e8b11",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Mexico_City_Grand_Prix/14"
+  },
+  {
+   "bytes": 224991,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_f1_vegas.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Las_Vegas_Grand_Prix/14",
+   "id": "olbg_f1_vegas",
+   "sha256": "d9b9dccd7ba794cf12496542e262629052d6d9ff1b551b31918402fea03af5d7",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Las_Vegas_Grand_Prix/14"
+  },
+  {
+   "bytes": 226659,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_f1_brazil.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Sao_Paulo_Grand_Prix/14",
+   "id": "olbg_f1_brazil",
+   "sha256": "8b594a9948973a5430cab616bbe979e801d39cb3c6e107599efb40c20d6cef41",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Sao_Paulo_Grand_Prix/14"
+  },
+  {
+   "bytes": 1307638,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "gaa_fixtures_r5.gz",
+   "final_url": "https://www.gaa.ie/fixtures-results",
+   "id": "gaa_fixtures_r5",
+   "sha256": "04a189bc4de00076447c7a0506bed15dd9e7054d1304775bb4390ace2e5eec30",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://www.gaa.ie/fixtures"
+  },
+  {
+   "bytes": 1307638,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "gaa_results_r5.gz",
+   "final_url": "https://www.gaa.ie/fixtures-results",
+   "id": "gaa_results_r5",
+   "sha256": "04a189bc4de00076447c7a0506bed15dd9e7054d1304775bb4390ace2e5eec30",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://www.gaa.ie/fixtures-results"
+  },
+  {
+   "bytes": 1178101,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "wta_rankings_r5.gz",
+   "final_url": "https://www.wtatennis.com/rankings/singles",
+   "id": "wta_rankings_r5",
+   "sha256": "09ba25e68e1e2a912bed511ba8c41cd39a56f5e653891fa12519e9e4c47d9018",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://www.wtatennis.com/rankings/singles"
+  },
+  {
+   "bytes": 27840,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wta_calendar_r5.gz",
+   "final_url": "https://api.wtatennis.com/tennis/tournaments?page=0&pageSize=40",
+   "id": "wta_calendar_r5",
+   "sha256": "b305074bd26b71efccb52faffd1f0d0ea66aade663f6418aa8bc3c99a8d29993",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://api.wtatennis.com/tennis/tournaments?page=0&pageSize=40"
+  },
+  {
+   "bytes": 67565,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wta_t_2092_r5.gz",
+   "final_url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+   "id": "wta_t_2092_r5",
+   "sha256": "1a8750ed54a38400115d42c5963834d9139fd33e3830ccad6008b0428838a2d4",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches"
+  },
+  {
+   "bytes": 73234,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wta_t_405_r5.gz",
+   "final_url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches",
+   "id": "wta_t_405_r5",
+   "sha256": "71e4a1400e6b3dd847ec5c2036f1bf9bf8c6a39397a35afc7daaf9b79fbb7a9a",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches"
+  },
+  {
+   "bytes": 7129,
+   "content_type": "application/json",
+   "error": null,
+   "file": "gbgb_dog_form.gz",
+   "final_url": "https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=20&dogName=Snowfall",
+   "id": "gbgb_dog_form",
+   "sha256": "d2026d1c3c2e108062f44be84dfb2decca53ff7e5965f526a61604f02dec705f",
+   "sport": "Greyhounds",
+   "status": 200,
+   "url": "https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=20&dogName=Snowfall"
+  },
+  {
+   "bytes": 862,
+   "content_type": "text/html;charset=UTF-8",
+   "error": null,
+   "file": "nrl_draw_json.gz",
+   "final_url": "https://account.nrl.com/authorize?client_id=s7oMt6lSSioEPT6ZccktqxfgbAdeQYPU&response_type=code&scope=openid%20profile%20email&code_challenge=k5qwPyweh0rQe9c8eqpp6mRHcz9Od925NhWtjtgHQ8A&code_challenge_method=S256&state=OpenIdConnect.AuthenticationProperties%3DHsmR7LFz3W-RLrXUmqgvXHtW0ajlo5FE14ScMQ9btSp6EnGsAqUkivBaCABWh18xvYhRvAuqUowAmFeO6jKVZN_jQMOIsnn25fJrYbSBozajMwv-zqikbJ2pha8rl41u0_6SAyOxtS0RtA6VyQxpzl2-CQ0yjk6jg_pWgpC1Ecp7EXOuBZnk4ygpmpzSimtZtMWFgVqLOHNo-4GqiNx529jGDEguCQCwmNmLSz6H0g7Xc6Bzk83WGUMGEs8v6wMv1Qp3bLv9HwoGMFOkSNDZqqQV4qwc6v9B4nJaZZIPj4Ssb3vCvuP9jApFcvg10Pr3_I5sL5gORYxuvGyDiowHWbeDfJkj1D3Z4O6dhLrmLqAsBC-EaTpzfYutI0zNBaqDt3iYw8ebOgPC3sn2Tikyog&response_mode=form_post&nonce=639284793827343741.NjYyZTA2YWMtOTk4Yy00NmI3LWE2MjctMWJlOWViOWY1YTBkNmMwY2U0YzAtMGM0ZS00ZTJlLTg1OGEtZjA1MzMzZWNkMDBk&redirect_uri=https%3A%2F%2Fwww.nrl.com%2Faccount%2Fsignin-nrl&prompt=none&x-client-SKU=ID_NET472&x-client-ver=6.24.0.0",
+   "id": "nrl_draw_json",
+   "sha256": "b4da43fb740fc27b51f38511913d40babbd5077c6e42469b98619eb00e182176",
+   "sport": "Rugby League",
+   "status": 200,
+   "url": "https://www.nrl.com/draw/data?competition=111&season=2026&round=1"
+  },
+  {
+   "bytes": 197344,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "cricket_au_matches.gz",
+   "final_url": "https://www.cricket.com.au/matches",
+   "id": "cricket_au_matches",
+   "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+   "sport": "Cricket",
+   "status": 200,
+   "url": "https://www.cricket.com.au/matches"
+  }
+ ],
+ "session": "arena/696c1a7c-olbg4",
+ "started_utc": "2026-10-24T22:54:07Z",
+ "targets": 21
+}
