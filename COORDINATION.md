@@ -5042,3 +5042,20 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
   table is rendered client-side — no team rows in the HTML, so no goal rates to price handball from);
   `wst_matches_api` as a snooker strength input (only 200 records, 124 completed — too small a sample to
   support a fair line); `urc_table`/`urc_r7`/`pdc_oom`/`icc_*_rankings` are 5.6 KB or 1.24 MB JavaScript shells.
+
+## Board RI — session `arena/11927acd-olbg4` (2026-10-24 strict release-integrity desk and final integration candidate)
+
+Session: `arena/11927acd-olbg4` · Branch: `arena/11927acd-olbg4` (Arena-fixed; isolation is by directory scope) · Claimed: 2026-10-24T17:56Z UTC · **status: in progress**
+
+**Non-overlapping scope.** Exclusive: `session-11927acd/**`, `data/session-11927acd/**`, `scripts/session-11927acd/**`, `.github/workflows/ri-11927acd.yml`, and append-only blocks in this file. Active Boards CA (`b6643783`, root/desk and fresh capture), ZZ (`edffdbc6`, its own desk), GF (`265b28e5`, historical FB evidence audit), and the master-board PR remain untouched. This board independently reviews the newest **merged 24 Oct** outputs and committed official captures; it does not repeat GF's historical FB audit, recapture the active CA/ZZ target sets, or edit their data. Root/shared navigation may be changed only in a later, separately logged final-integration handoff after active owners finish.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| RI1 | Independently re-read every row of the newest merged 24 Oct desk against its committed official payload and OLBG crosswalk; enforce official-source-or-blank, upcoming-start, scope, and provenance rules. Publish exact defects and manual-review links. | in progress | arena/11927acd-olbg4 | `scripts/session-11927acd/**`, `data/session-11927acd/**` |
+| RI2 | Re-derive all published fair-price/American-odds arithmetic and confidence gates. Build a strict focus ledger: High only at own probability >=70% **and** fair American odds in -250…+10000; reject rather than relabel non-compliant picks. Investigate winner, handicap and totals already supported by captured official inputs; leave unsupported cells blank. | pending | arena/11927acd-olbg4 | same |
+| RI3 | Publish only fully written, unique, natural >=30-word analyses for qualifying focus selections, with explicit market/selection, match-specific official facts and source links; no bare winner calls, internal vocabulary, unconfirmed injuries or quota padding. Target five per sport only where the evidence supports it and flag every shortfall. | pending | arena/11927acd-olbg4 | same |
+| RI4 | Build a clarity-first isolated dashboard with executive summary, obvious pick location, today/upcoming sections, all-match and per-sport tables, markets, sources, methodology, and Flagged for Review. | pending | arena/11927acd-olbg4 | `session-11927acd/**` |
+| RI5 | Run deterministic, provenance, prediction, link and repository gates; integrate only after active shared-output owners finish, open PR from this Arena branch, merge when green, confirm Pages, and record evidence here. | pending | arena/11927acd-olbg4 | `scripts/session-11927acd/verify.py`, `COORDINATION.md` |
+
+### RI working log
+- 2026-10-24T17:56Z — `11927acd` — Read the board and open PR claims before work. Initial merged-root review found High cards shorter than -250 and OLBG-only URLs under an "Official source" heading; RI will not treat those as compliant. Claim scope is new and does not alter any active owner's files.
