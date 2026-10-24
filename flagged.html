@@ -147,6 +147,14 @@
   <p>Separately, a spot check of one of the larger one-off static desks (Board AS / <code>session-543dca7d/predictions.html</code>) found odds references beyond &minus;250 (&minus;333, &minus;1000) in prediction prose; these were describing other markets' prices in context rather than confirmed as the board's own published pick price, so this is logged here rather than asserted as a confirmed violation. No one-off static board's picks have been re-audited row-by-row against this rule; treat any single High pick from the archived boards as unverified against this specific rule until it is.</p>
   <p class="tiny">Source: this session's own diagnosis and fix, <code>pipeline/markets.py</code> / <code>pipeline/predictions.py</code> on branch <code>arena/3bbe2449-olbg4</code> · <a href="session-543dca7d/predictions.html">Board AS predictions (spot-checked)</a> · <a href="https://github.com/buffedlizard55-lab/OLBG4/blob/arena/3bbe2449-olbg4/pipeline/markets.py" target="_blank" rel="noopener">pipeline/markets.py diff</a></p>
 </article>
+<article class="finding sev-high">
+  <div class="fhead"><span class="fid">F-16</span>
+   <span class="badge sev">HIGH</span>
+   <span class="status off">open</span></div>
+  <h2>Root landing page's own example High pick appears to sit outside the &minus;250..+10,000 odds window</h2>
+  <p>The root <code>index.html</code> published by Board CA (session <code>arena/b6643783-olbg4</code>) shows "Aris Thessaloniki (home) &minus;526" labelled with a High-confidence badge in its "Next up: highest-confidence picks" section. &minus;526 American odds is shorter (more heavily favoured) than the brief's &minus;250 floor for a High pick, so on its face this example falls outside the requested window &mdash; the same class of defect fixed elsewhere in this repository under F-15. This observation is based on reading the published root page only; the full selection rules and underlying data for that board (<code>desk/</code>) were not re-audited. Logged here rather than edited, because <code>index.html</code>'s current content and the <code>desk/</code> tree are outside Board CL's claimed file scope (see COORDINATION.md).</p>
+  <p class="tiny">Source: root <code>index.html</code> as published on branch <code>arena/3bbe2449-olbg4</code> after merging <code>origin/main</code> at commit range including PR #173 (Board CA) · logged by Board CL, session <code>arena/3bbe2449-olbg4</code>, 2026-10-24.</p>
+</article>
 
 </main>
 <footer class="foot">
