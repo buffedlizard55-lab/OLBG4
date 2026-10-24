@@ -5203,3 +5203,63 @@ verifier passing.
 
 ### DS working log
 - 2026-10-24T22:26Z — `e880ce67` — Board read before work; four sibling boards still hold open PRs (#183, #171, #162, #157, #125, #102) and are untouched by this board. Claim pushed before any other work, per the board protocol. This session confirmed the sandbox reaches GitHub only, so official/OLBG bytes are captured by a GitHub Actions runner (`.github/workflows/ds-e880ce67.yml`) with open egress and committed with SHA-256 hashes; parsing, line origination and verification run locally from those committed bytes.
+
+### DS completion record — 2026-10-24T22:5xZ
+
+**Published:** [`session-e880ce67/index.html`](session-e880ce67/index.html) (25 static pages: overview,
+picks, predictions, all matches, markets, sports hub, 15 per-sport pages, sources, method, repo review,
+flagged) plus machine-readable [`data/session-e880ce67/desk.json`](data/session-e880ce67/desk.json),
+`olbg.json`, `evidence.json`, `predictions.json`, `review.json` and the raw capture with
+`raw/manifest.json`. Rebuild:
+`python3 scripts/session-e880ce67/{evidence,originate,predict,review,build_site}.py && python3 scripts/session-e880ce67/verify.py`.
+
+**OLBG reverse-engineering (live, 22:26Z).** The sport hubs are SvelteKit; each embeds
+`data:{tips:[…]}` with selection, `market_alias`, `odds`, `american_odds`, `event_start_unix_timestamp`,
+`eventUrl`, `win_tips`, `confidence`. Reading that payload instead of the rendered rows raised the
+inventory from 92 to 211 tipped selections and recovered OLBG's own quoted price. 137 future match
+markets across 11 of the 15 brief sports were published, plus the outright markets listed separately.
+The `/betting-tips/<Sport>/<id>/__data.json` endpoint (also captured) returns the devalue-serialised
+form of the same feed.
+
+**Own lines.** 27 matches priced, each only where both sides have a governing-body strength figure:
+Ice Hockey 13 (NHL standings + schedule), Handball 12 (EHF Champions League table), Baseball 1
+(MLB StatsAPI), Tennis 1 (WTA rankings). Moneyline, handicap and total published per priced match.
+6 High-confidence picks; 21 picks inside the brief's −250…+10,000 band. The 70% rule and the −250
+floor intersect only at 70.0–71.4%, which is stated on the Method page instead of relabelling picks.
+
+**Written predictions.** 12, 58–75 words, maximum pairwise similarity 0.339, each naming the
+selection and quoting its exact published price, with the governing-body link plus the OLBG market
+under every card.
+
+**Sources read (committed bytes only):** OLBG sport hubs for all 16 in-scope sport IDs + sitemap +
+tips index; NHL `api-web.nhle.com` standings and eight daily schedules; MLB `statsapi.mlb.com`
+schedule/standings; `ehfcl.eurohandball.com` standings; `tophaandbold.dk` table; `wtatennis.com`
+rankings; plus 30 probed official endpoints whose failures are published (ATP 403, NBA 403, OWGR 404,
+World Rugby 404, MotoGP 404, Super League 500, ICC/WST/PDC/GAA client-side only).
+
+**Verification performed.** `verify.py` 16/16 PASS (byte-identical rebuild; every decimal/American
+price re-derived; two-way markets sum to 1; confidence and band rules; official https source on every
+priced row; a specific missing-input sentence on every unpriced row; prediction word floor,
+uniqueness, selection naming, exact-price quoting and number provenance; all local links; 15 sport
+pages; no TODO). `bash scripts/session-74f9613e/build_all.sh` exit 0; `scripts/session-b6643783/verify.py`
+passes; `python3 scripts/audit_publication.py --check` and `BOARD_DIR=board python3 tools/verify_master.py`
+run but report the **pre-existing** M0340 withdrawn-pick defect inherited from `main` (see below).
+
+**Irregularities published** on `session-e880ce67/flagged.html` and `review.html`: OLBG lists no
+upcoming market for Golf or Motor Racing; 11 sports have no priceable match with the exact refusing
+URL named; 12 priced fixtures carry OLBG-only fixture identity; no official injury/availability feed
+was captured so no prediction claims one; and the review of `data/master.json` records 341 affected
+rows across 9 findings (210 dated before the review date, 39 with no source URL, 35 predictions under
+30 words or carrying internal vocabulary, 49 with no confidence label, Gaelic Football in the row file
+but not the in-scope list, Greyhounds split across two labels).
+
+**Integration change applied (and logged as such):** one nav pointer to `session-e880ce67/` was added
+to Board CA's root-page generator (`scripts/session-b6643783/build_site.py`, NAV list only), then that
+generator was re-run so the deterministic-rebuild gate stays green. `scripts/session-b6643783/verify.py`
+passes afterwards. No other owner's data or page was edited.
+
+**Shared-gate dependency (not caused by this board):** the repository-wide publication audit fails on
+`M0340` ("republishes a withdrawn headline pick/confidence", "omits a withdrawn-prediction review
+flag"). `data/master.json` is byte-identical to `origin/main` for this row, so the defect is inherited;
+sibling session `arena/a172d5b9-olbg4` was committing a fix for exactly this while this board finished.
+This board does not duplicate that work and will rebase onto it before merging.
