@@ -1,0 +1,188 @@
+{
+  "captured_utc": "2026-10-24T17:20:00Z",
+  "method": "Direct HTTPS fetch of each OLBG sport hub URL (https://www.olbg.com/betting-tips/<Sport>/<id>), one request per sport, read with this session's page-fetch tool. No login, no scraping of markets behind JavaScript XHR calls beyond what the server renders in the initial HTML/SSR payload.",
+  "scope_note": "Exactly the 15 sports named in the brief: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports (OLBG's 'Gaelic Football' hub), Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League.",
+  "sports": [
+    {
+      "sport": "Golf",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Golf/5",
+      "sport_id": 5,
+      "status": "No live tips at capture time",
+      "note": "The hub rendered \"No tips found.\" with no match/tournament rows -- OLBG had not yet opened tipping for the next PGA/DP World/LPGA event at the capture timestamp. Verified by reading the rendered page directly; nothing was inferred or carried over from a cache.",
+      "sample_matches": []
+    },
+    {
+      "sport": "Volleyball",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+      "sport_id": 21,
+      "status": "Live",
+      "sample_matches": [
+        {"event": "UVC Graz W vs Sportunion St Polten W", "when": "Today 14:00", "event_id": 37019, "url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/UVC_Graz_W_vs_Sportunion_St_Polten_W/21?event_id=37019"},
+        {"event": "SWD Duren vs WWK Volleys Munchen", "when": "Today 13:30", "event_id": 37012, "url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SWD_Duren_vs_WWK_Volleys_Munchen/21?event_id=37012"},
+        {"event": "Mogilno W vs Chemik Police W", "when": "Today 14:30", "event_id": 37078, "url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Mogilno_W_vs_Chemik_Police_W/21?event_id=37078"},
+        {"event": "Trentino vs Cisterna", "when": "Tomorrow 12:00", "event_id": 36994, "url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Trentino_vs_Cisterna/21?event_id=36994"},
+        {"event": "CHKS Chelm vs Resovia Rzeszow", "when": "Tomorrow 13:00", "event_id": 36965, "url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965"}
+      ]
+    },
+    {
+      "sport": "Rugby Union",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+      "sport_id": 9,
+      "status": "Live",
+      "sample_matches": [
+        {"event": "Ospreys v Dragons", "when": "Today 14:00", "event_id": 609581, "url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Ospreys_v_Dragons/9?event_id=609581"},
+        {"event": "Toulon v Pau", "when": "Today 15:00", "event_id": 609555, "url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Toulon_v_Pau/9?event_id=609555"},
+        {"event": "USA v Australia A", "when": "Today 19:00", "event_id": 609583, "url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/USA_v_Australia_A/9?event_id=609583"},
+        {"event": "Harlequins v Saracens", "when": "Tomorrow 11:00", "event_id": 609571, "url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Harlequins_v_Saracens/9?event_id=609571"},
+        {"event": "La Rochelle v Bordeaux", "when": "Tomorrow 16:05", "event_id": 609554, "url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/La_Rochelle_v_Bordeaux/9?event_id=609554"}
+      ]
+    },
+    {
+      "sport": "Cricket",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Cricket/7",
+      "sport_id": 7,
+      "status": "Live",
+      "sample_matches": [
+        {"event": "Toronto Kings vs Vancouver Guardians T20", "when": "Today 19:00", "event_id": 188845, "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845"},
+        {"event": "Pakistan vs England One Day Match", "when": "Tomorrow 04:00", "event_id": 188838, "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Pakistan_vs_England_One_Day_Match/7?event_id=188838"},
+        {"event": "North West Dragons vs Northern Cape Heat T20", "when": "Tomorrow 07:00", "event_id": 188851, "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/North_West_Dragons_vs_Northern_Cape_Heat_T20/7?event_id=188851"},
+        {"event": "New Zealand vs India 3rd T20 Match", "when": "27 Oct 03:00", "event_id": 188852, "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/New_Zealand_vs_India_3rd_T20_Match/7?event_id=188852"},
+        {"event": "India W vs Zimbabwe W 2nd ODI", "when": "Tomorrow 04:30", "event_id": 188847, "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/India_W_vs_Zimbabwe_W_2nd_ODI/7?event_id=188847"}
+      ]
+    },
+    {
+      "sport": "Snooker",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Snooker/8",
+      "sport_id": 8,
+      "status": "Live (thin)",
+      "note": "Only one match-level tip was live on the hub's first page at capture time.",
+      "sample_matches": [
+        {"event": "Mark Williams v Jak Jones", "when": "Today 14:05", "event_id": 9952, "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Mark_Williams_v_Jak_Jones/8?event_id=9952"}
+      ]
+    },
+    {
+      "sport": "Darts",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Darts/15",
+      "sport_id": 15,
+      "status": "Live",
+      "sample_matches": [
+        {"event": "Krzysztof Ratajski vs Kevin Doets", "when": "Today 13:15", "event_id": 32399, "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Krzysztof_Ratajski_vs_Kevin_Doets/15?event_id=32399"},
+        {"event": "Jonny Clayton vs Josh Rock", "when": "Today 16:15", "event_id": 32400, "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Jonny_Clayton_vs_Josh_Rock/15?event_id=32400"},
+        {"event": "Nathan Aspinall vs Luke Littler", "when": "Today 15:15", "event_id": 32397, "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Nathan_Aspinall_vs_Luke_Littler/15?event_id=32397"},
+        {"event": "Martin Schindler vs Jermaine Wattimena", "when": "Today 14:15", "event_id": 32398, "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Martin_Schindler_vs_Jermaine_Wattimena/15?event_id=32398"},
+        {"event": "Gerwyn Price vs Stephen Bunting", "when": "Tomorrow 07:00", "event_id": 32407, "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Stephen_Bunting/15?event_id=32407"}
+      ]
+    },
+    {
+      "sport": "Baseball",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Baseball/12",
+      "sport_id": 12,
+      "status": "Live (thin)",
+      "note": "Only one MLB tip was live on the hub's first page; this falls in the World Series window.",
+      "sample_matches": [
+        {"event": "TB Rays @ MIL Brewers", "when": "Today 20:00", "event_id": 160792, "url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160792"}
+      ]
+    },
+    {
+      "sport": "Gaelic Sports",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+      "sport_id": 25,
+      "status": "Live",
+      "note": "OLBG's own hub label is \"Gaelic Football\"; it is the match-level feed inside OLBG's broader \"Gaelic Sports\" grouping (OLBG keeps Hurling on a separate hub, /Hurling/26, which is outside this project's scope).",
+      "sample_matches": [
+        {"event": "Moycullen v Salthill-Knocknacarra", "when": "Tomorrow 12:00", "event_id": 3532, "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Moycullen_v_Salthill-Knocknacarra/25?event_id=3532"},
+        {"event": "St Finbarrs v Nemo Rangers", "when": "Tomorrow 12:00", "event_id": 3530, "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Finbarrs_v_Nemo_Rangers/25?event_id=3530"},
+        {"event": "Kanturk v Eire Og Cor", "when": "01 Nov 09:00", "event_id": 3531, "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Kanturk_v_Eire_Og_Cor/25?event_id=3531"},
+        {"event": "Fr Caseys v Kildimo Pallaskenry", "when": "01 Nov 10:30", "event_id": 3537, "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Fr_Caseys_v_Kildimo_Pallaskenry/25?event_id=3537"}
+      ]
+    },
+    {
+      "sport": "Greyhounds",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+      "sport_id": 28,
+      "status": "Live (high volume)",
+      "note": "Dozens of individual UK graded races per day; the hub lists them race-by-race rather than match-by-match.",
+      "sample_matches": [
+        {"event": "6:01 Newcastle", "when": "Today 13:01", "event_id": 689950, "url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:01_Newcastle/28?event_id=689950"},
+        {"event": "6:14 Monmore", "when": "Today 13:14", "event_id": 689954, "url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:14_Monmore/28?event_id=689954"},
+        {"event": "6:29 Doncaster", "when": "Today 13:29", "event_id": 689956, "url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:29_Doncaster/28?event_id=689956"},
+        {"event": "7:58 Doncaster", "when": "Today 14:58", "event_id": 689890, "url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/7:58_Doncaster/28?event_id=689890"},
+        {"event": "8:54 Monmore", "when": "Today 15:54", "event_id": 690013, "url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/8:54_Monmore/28?event_id=690013"}
+      ]
+    },
+    {
+      "sport": "Tennis",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Tennis/3",
+      "sport_id": 3,
+      "status": "Live",
+      "sample_matches": [
+        {"event": "Ashlyn Krueger vs Katerina Siniakova", "when": "Tomorrow 00:30", "event_id": 902171, "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ashlyn_Krueger_vs_Katerina_Siniakova/3?event_id=902171"},
+        {"event": "Elena Rybakina vs Leylah Fernandez", "when": "Tomorrow 05:00", "event_id": 902207, "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Leylah_Fernandez/3?event_id=902207"},
+        {"event": "Daniil Medvedev vs Nikoloz Basilashvili", "when": "Tomorrow 06:00", "event_id": 902251, "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniil_Medvedev_vs_Nikoloz_Basilashvili/3?event_id=902251"},
+        {"event": "Alexandra Eala vs Mika Stojsavljevic", "when": "26 Oct 22:00", "event_id": 902175, "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexandra_Eala_vs_Mika_Stojsavljevic/3?event_id=902175"},
+        {"event": "Moyuka Uchijima vs Elise Mertens", "when": "26 Oct 22:00", "event_id": 902173, "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Moyuka_Uchijima_vs_Elise_Mertens/3?event_id=902173"}
+      ]
+    },
+    {
+      "sport": "Motor Racing",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+      "sport_id": 14,
+      "status": "Live (thin)",
+      "note": "Only the next Grand Prix outright was live on the hub's first page.",
+      "sample_matches": [
+        {"event": "USA Grand Prix (Win Race)", "when": "Tomorrow 16:00", "event_id": 913, "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"}
+      ]
+    },
+    {
+      "sport": "Handball",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+      "sport_id": 20,
+      "status": "Live",
+      "sample_matches": [
+        {"event": "HBW Balingen Weilstetten vs MT Melsungen", "when": "Today 14:00", "event_id": 12090, "url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HBW_Balingen_Weilstetten_vs_MT_Melsungen/20?event_id=12090"},
+        {"event": "BM Logrono La Rioja vs BM Cangas", "when": "Today 13:30", "event_id": 12103, "url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Logrono_La_Rioja_vs_BM_Cangas/20?event_id=12103"},
+        {"event": "SC Magdeburg vs HC Kriens Luzern", "when": "28 Oct 15:45", "event_id": 12136, "url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136"},
+        {"event": "BM Granollers vs Angel Ximenez Puente Genil", "when": "Tomorrow 07:30", "event_id": 12102, "url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Granollers_vs_Angel_Ximenez_Puente_Genil/20?event_id=12102"},
+        {"event": "Rhein Neckar Lowen vs SC Magdeburg", "when": "Tomorrow 10:00", "event_id": 12092, "url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Rhein_Neckar_Lowen_vs_SC_Magdeburg/20?event_id=12092"}
+      ]
+    },
+    {
+      "sport": "Ice Hockey",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+      "sport_id": 13,
+      "status": "Live",
+      "sample_matches": [
+        {"event": "ANA Ducks @ PHI Flyers (NHL)", "when": "Today 13:07", "event_id": 199999, "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/ANA_Ducks_@_PHI_Flyers/13?event_id=199999"},
+        {"event": "CAR Hurricanes @ STL Blues (NHL)", "when": "Today 19:07", "event_id": 200002, "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/CAR_Hurricanes_@_STL_Blues/13?event_id=200002"},
+        {"event": "NY Rangers @ OTT Senators (NHL)", "when": "Today 19:07", "event_id": 200008, "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/NY_Rangers_@_OTT_Senators/13?event_id=200008"},
+        {"event": "TB Lightning @ UTA Mammoth (NHL)", "when": "Today 22:07", "event_id": 200009, "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TB_Lightning_@_UTA_Mammoth/13?event_id=200009"},
+        {"event": "EHC Kloten vs Rapperswil Jona Lakers (Switzerland NLA)", "when": "Today 13:45", "event_id": 200024, "url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Switzerland_NLA/EHC_Kloten_vs_Rapperswil_Jona_Lakers/13?event_id=200024"}
+      ]
+    },
+    {
+      "sport": "Basketball",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Basketball/4",
+      "sport_id": 4,
+      "status": "Live",
+      "sample_matches": [
+        {"event": "HOU Rockets @ ATL Hawks (NBA)", "when": "Today 20:30", "event_id": 536115, "url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/HOU_Rockets_@_ATL_Hawks/4?event_id=536115"},
+        {"event": "MIA Heat @ CHA Hornets (NBA)", "when": "Today 18:00", "event_id": 536117, "url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIA_Heat_@_CHA_Hornets/4?event_id=536117"},
+        {"event": "BKN Nets @ CLE Cavaliers (NBA)", "when": "Today 19:30", "event_id": 536112, "url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/BKN_Nets_@_CLE_Cavaliers/4?event_id=536112"},
+        {"event": "MIL Bucks @ PHI 76ers (NBA)", "when": "Today 19:30", "event_id": 536111, "url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIL_Bucks_@_PHI_76ers/4?event_id=536111"},
+        {"event": "Slask Wroclaw vs Astoria Bydgoszcz (Poland PLK)", "when": "Today 13:30", "event_id": 536075, "url": "https://www.olbg.com/betting-tips/Basketball/European/Poland_PLK/Slask_Wroclaw_vs_Astoria_Bydgoszcz/4?event_id=536075"}
+      ]
+    },
+    {
+      "sport": "Rugby League",
+      "olbg_hub_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+      "sport_id": 10,
+      "status": "Outrights only -- no near-term match fixtures",
+      "note": "At capture time, the hub's first page carried only 2027 ante-post/outright markets (State of Origin 2027, Super League 2027 Grand Final Winner, NRL 2027 Grand Final Winner); Super League and the NRL are both out of season in late October, so no individual Rugby League match existed on OLBG to price. This is a verified, dated observation, not an inferred gap.",
+      "sample_matches": [
+        {"event": "State of Origin 2027 (Win Tournament)", "when": "27 May 2027 06:00", "event_id": 2695857, "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/State_of_Origin_2027/10?event_id=2695857"},
+        {"event": "Super League 2027 (Grand Final Winner)", "when": "02 Oct 2027 13:00", "event_id": 2801554, "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Super_League_2027/10?event_id=2801554"},
+        {"event": "NRL 2027 (Grand Final Winner)", "when": "03 Oct 2027 04:30", "event_id": 2801600, "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/NRL_2027/10?event_id=2801600"}
+      ]
+    }
+  ]
+}

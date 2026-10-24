@@ -74,7 +74,7 @@ def _record_cell(fx: dict) -> str:
 def _pick_cell(pick: dict) -> str:
     return (
         f'<div class="pick-cell"><strong>{esc(pick["selection"])}</strong>'
-        f'<span class="odds">{esc(pick["american"])} · {pct(pick["prob"])} model</span></div>'
+        f'<span class="odds">{esc(pick["american"])} · {pct(pick["prob"])} rated</span></div>'
     )
 
 
@@ -267,7 +267,7 @@ def render_index(ctx: dict) -> str:
     body.append(
         '<div class="section"><div class="split"><div>'
         "<h2>Highest-confidence calls</h2>"
-        '<p class="lead">Ranked by confidence grade, then model probability. Every price is our own '
+        '<p class="lead">Ranked by confidence grade, then our rated probability. Every price is our own '
         "originated number, not a bookmaker quote.</p>"
         + _fixture_table(ctx, top)
         + '</div><div class="card"><h2>How a row is built</h2>'
@@ -420,7 +420,7 @@ def render_picks(ctx: dict) -> str:
         "published.</div>",
         '<div class="section"><h2>Written predictions</h2>'
         f'<p class="lead">{len(pred_cards)} published write-ups. Every fact under each prediction '
-        "links back to the official feed it came from; the probability is our own model output.</p>"
+        "links back to the official feed it came from; the probability is our own rated output.</p>"
         '<div class="preds">' + ("".join(pred_cards) or no_preds) + '</div></div>',
     ]
     return layout("Picks", "picks", "".join(body), ctx["snapshot"])
@@ -533,7 +533,7 @@ def render_markets(ctx: dict) -> str:
         '<div class="card"><h2>Pricing</h2>'
         "<p>Fair decimal odds are <code>1 / p</code>. Our quoted price adds a 4.5% two-way hold: "
         "<code>1 / (p × 1.045)</code>. Prices convert to American odds in the usual way and are "
-        "shown next to the model probability so the edge is visible.</p>"
+        "shown next to our rated probability so the edge is visible.</p>"
         "<h3>Opening vs current</h3><p>The opening line is fitted only on the previous completed "
         "season (or a league-average opener when no prior season exists). The current line is the "
         "recency-weighted fit with a 120-day half-life. A handicap or total selection is nominated "
@@ -859,8 +859,8 @@ def render_methodology(ctx: dict) -> str:
         "league feed uses.</li>"
         "<li>The backtest refits on older data and scores the last 30 days, so it is leakage-free; "
         "small early-season samples are reported instead of hidden.</li>"
-        "<li>This is a model, not a market. There is no comparison to bookmaker prices, and the "
-        "model has no information about injuries or team news beyond what the league feed publishes."
+        "<li>This is our own rating, not a market. There is no comparison to bookmaker prices, and the "
+        "rating has no information about injuries or team news beyond what the league feed publishes."
         "</li>"
         "<li>Nothing here is betting advice.</li>"
         "</ul></div>",

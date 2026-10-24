@@ -52,6 +52,21 @@ def fmt_american(decimal_odds: float) -> str:
     return f"+{a}" if a > 0 else str(a)
 
 
+# ---------------------------------------------------------------------------
+# High-confidence odds window: -250 .. +10000 American (decimal 1.40 .. 101.0)
+# ---------------------------------------------------------------------------
+# The owner wants High-confidence picks to sit strictly between -250 and +10000 on the
+# American scale, so a short-priced "obvious" favourite (shorter than -250, i.e. a
+# decimal price under 1.40) is never labelled High even when the sample and stability
+# checks pass. It can still be published as Medium/Low with its real number.
+HIGH_WINDOW_MIN_DECIMAL = 1.40   # -250 American
+HIGH_WINDOW_MAX_DECIMAL = 101.0  # +10000 American
+
+
+def in_high_odds_window(decimal_price: float) -> bool:
+    return HIGH_WINDOW_MIN_DECIMAL <= decimal_price <= HIGH_WINDOW_MAX_DECIMAL
+
+
 def round_half(value: float) -> float:
     """Nearest half-point, always on a half so the market cannot push."""
     sign = -1.0 if value < 0 else 1.0
@@ -271,7 +286,7 @@ def _grade_winner(fixture, current: Fit, selections, winner: str, opn: dict,
         stable = False
         basis = "none available"
 
-    conf = _grade(prob, n, stable)
+    conf = _grade(prob, n, stable, pick["price_decimal"])
     return {
         "market": "moneyline",
         "market_label": MARKET_LABELS["moneyline"],
@@ -293,10 +308,11 @@ def _grade_winner(fixture, current: Fit, selections, winner: str, opn: dict,
     }
 
 
-def _grade(prob: float, n: int, stable: bool) -> str:
+def _grade(prob: float, n: int, stable: bool, price_decimal: float | None = None) -> str:
     high = config.CONFIDENCE["high"]
     med = config.CONFIDENCE["medium"]
-    if prob >= high["min_prob"] and n >= high["min_games"] and stable:
+    if (prob >= high["min_prob"] and n >= high["min_games"] and stable
+            and (price_decimal is None or in_high_odds_window(price_decimal))):
         return "high"
     if prob >= med["min_prob"] and n >= med["min_games"]:
         return "medium"
@@ -313,7 +329,7 @@ def _handicap_pick(fixture, current: Fit, market: dict, edges: dict, form: dict,
     home_id, away_id = fixture["home"]["id"], fixture["away"]["id"]
     n = min(current.games_per_team.get(str(home_id), 0), current.games_per_team.get(str(away_id), 0))
     ratio = abs(edge) / edges["threshold_handicap"]
-    conf = _grade_market(sel["prob"], n, ratio, neutral_opener)
+    conf = _grade_market(sel["prob"], n, ratio, neutral_opener, sel["price_decimal"])
     return {
         "market": "handicap",
         "market_label": market["name"],
@@ -344,7 +360,7 @@ def _total_pick(fixture, current: Fit, market: dict, edges: dict, form: dict,
     home_id, away_id = fixture["home"]["id"], fixture["away"]["id"]
     n = min(current.games_per_team.get(str(home_id), 0), current.games_per_team.get(str(away_id), 0))
     ratio = abs(edge) / edges["threshold_total"]
-    conf = _grade_market(sel["prob"], n, ratio, neutral_opener)
+    conf = _grade_market(sel["prob"], n, ratio, neutral_opener, sel["price_decimal"])
     return {
         "market": "total",
         "market_label": market["name"],
@@ -365,9 +381,11 @@ def _total_pick(fixture, current: Fit, market: dict, edges: dict, form: dict,
     }
 
 
-def _grade_market(prob: float, n: int, ratio: float, neutral_opener: bool = False) -> str:
+def _grade_market(prob: float, n: int, ratio: float, neutral_opener: bool = False,
+                   price_decimal: float | None = None) -> str:
     if (not neutral_opener and ratio >= 2.0 and prob >= 0.60
-            and n >= config.CONFIDENCE["high"]["min_games"]):
+            and n >= config.CONFIDENCE["high"]["min_games"]
+            and (price_decimal is None or in_high_odds_window(price_decimal))):
         return "high"
     if ratio >= 1.0 and prob >= 0.55 and n >= config.CONFIDENCE["medium"]["min_games"]:
         return "medium"

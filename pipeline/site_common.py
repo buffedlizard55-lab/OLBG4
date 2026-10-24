@@ -140,7 +140,7 @@ def layout(title: str, active: str, body: str, snapshot: dict, subtitle: str = "
     <a href="https://github.com/buffedlizard55-lab/OLBG4">GitHub</a>
   </div>
   <div class="wrap" style="margin-top:8px">
-    <span>Model output for research and review. Not betting advice. Odds are our own originated prices, not a bookmaker's. 18+.</span>
+    <span>Independent research output for review. Not betting advice. Odds are our own originated prices, not a bookmaker's. 18+.</span>
   </div>
 </footer>
 <script src="assets/site.js"></script>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OLBG live snapshot (15-sport scope) · Board CL</title>
+<style>
+body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:#f6f7f9;color:#1b1f27;}
+header{background:#0f3d5c;color:#fff;padding:18px 24px;}
+header a{color:#fff;text-decoration:none;font-weight:600;}
+header .sub{opacity:.85;font-size:14px;margin-top:4px;}
+main{max-width:1080px;margin:0 auto;padding:24px;}
+nav.crumbs{font-size:14px;margin-bottom:16px;}
+nav.crumbs a{color:#0f3d5c;}
+.card{background:#fff;border:1px solid #e2e5ea;border-radius:10px;padding:18px 20px;margin-bottom:18px;}
+.badge{display:inline-block;background:#e6f0fa;color:#0f3d5c;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;margin-left:8px;}
+.badge.thin{background:#fdf3d8;color:#7a5b00;}
+.badge.empty{background:#fde8e8;color:#8a1f1f;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #edf0f3;}
+th{color:#555;font-weight:600;background:#fafbfc;}
+tr:hover td{background:#fafcff;}
+a.ext{color:#0b5fa5;text-decoration:none;}
+a.ext:hover{text-decoration:underline;}
+.note{font-size:13px;color:#555;background:#f3f6fa;border-left:3px solid #0f3d5c;padding:8px 12px;margin-top:10px;border-radius:4px;}
+.foot{font-size:12px;color:#777;margin-top:28px;text-align:center;}
+h1{margin:0;font-size:22px;}
+h2{font-size:17px;margin:0 0 4px;}
+</style></head><body>
+<header>
+  <div><a href="../index.html">&larr; OLBG4 dashboard</a></div>
+  <h1>OLBG.com reverse-engineering: live 15-sport snapshot</h1>
+  <div class="sub">Captured directly from olbg.com at 2026-10-24T17:20:00Z &middot; Board CL &middot; session arena/3bbe2449-olbg4</div>
+</header>
+<main>
+  <nav class="crumbs"><a href="../index.html">Dashboard</a> &rsaquo; OLBG live snapshot</nav>
+  <div class="card">
+    <h2>What this page is</h2>
+    <p>This is a direct, timestamped read of OLBG's own sport hub pages for the exact 15 sports in scope for this project: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball and Rugby League. Each hub is <code>olbg.com/betting-tips/&lt;Sport&gt;/&lt;sport id&gt;</code>; the sport id is OLBG's own internal numbering and is stable across pages (e.g. event pages, tipster pages).</p>
+    <p>Every "Where the pick is" link below goes straight to the live OLBG event page for that fixture &mdash; that is literally where OLBG's tipster picks for that match live. This answers the brief's question directly: the picks are on OLBG's own event pages, one per fixture, and the sport hub above is the index that lists them.</p>
+    <p><strong>Method note:</strong> this snapshot is a first-page read of each hub (OLBG paginates with a "Load More Tips" control); it is meant to show the taxonomy and a true verification sample per sport, not a complete enumeration. For a fuller per-sport fixture list, see this repository's other session boards linked from the main dashboard, several of which paginated further.</p>
+    <p>14 of the 15 sports had at least one live match/event tip at capture time; the rest are flagged below with the exact reason observed on the page (for example Golf showed no tips at all, and Rugby League's near-term match calendar is out of season, leaving only 2027 ante-post markets).</p>
+  </div>
+  
+        <div class="card">
+          <h2>Golf <span class="badge empty">No live tips at capture time</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Golf/5" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Golf/5</a> (sport id 5)</div>
+          <div class='note'>The hub rendered &quot;No tips found.&quot; with no match/tournament rows -- OLBG had not yet opened tipping for the next PGA/DP World/LPGA event at the capture timestamp. Verified by reading the rendered page directly; nothing was inferred or carried over from a cache.</div>
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td colspan='4'><em>No events were listed on the hub's first page at capture time.</em></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Volleyball <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Volleyball/21" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Volleyball/21</a> (sport id 21)</div>
+          
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>UVC Graz W vs Sportunion St Polten W</td><td>Today 14:00</td><td>37019</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/UVC_Graz_W_vs_Sportunion_St_Polten_W/21?event_id=37019" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>SWD Duren vs WWK Volleys Munchen</td><td>Today 13:30</td><td>37012</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SWD_Duren_vs_WWK_Volleys_Munchen/21?event_id=37012" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Mogilno W vs Chemik Police W</td><td>Today 14:30</td><td>37078</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Mogilno_W_vs_Chemik_Police_W/21?event_id=37078" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Trentino vs Cisterna</td><td>Tomorrow 12:00</td><td>36994</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Trentino_vs_Cisterna/21?event_id=36994" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>CHKS Chelm vs Resovia Rzeszow</td><td>Tomorrow 13:00</td><td>36965</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Rugby Union <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Rugby_Union/9" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Rugby_Union/9</a> (sport id 9)</div>
+          
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>Ospreys v Dragons</td><td>Today 14:00</td><td>609581</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Ospreys_v_Dragons/9?event_id=609581" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Toulon v Pau</td><td>Today 15:00</td><td>609555</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Toulon_v_Pau/9?event_id=609555" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>USA v Australia A</td><td>Today 19:00</td><td>609583</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/USA_v_Australia_A/9?event_id=609583" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Harlequins v Saracens</td><td>Tomorrow 11:00</td><td>609571</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Harlequins_v_Saracens/9?event_id=609571" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>La Rochelle v Bordeaux</td><td>Tomorrow 16:05</td><td>609554</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/La_Rochelle_v_Bordeaux/9?event_id=609554" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Cricket <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Cricket/7" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Cricket/7</a> (sport id 7)</div>
+          
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>Toronto Kings vs Vancouver Guardians T20</td><td>Today 19:00</td><td>188845</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Pakistan vs England One Day Match</td><td>Tomorrow 04:00</td><td>188838</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Pakistan_vs_England_One_Day_Match/7?event_id=188838" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>North West Dragons vs Northern Cape Heat T20</td><td>Tomorrow 07:00</td><td>188851</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/North_West_Dragons_vs_Northern_Cape_Heat_T20/7?event_id=188851" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>New Zealand vs India 3rd T20 Match</td><td>27 Oct 03:00</td><td>188852</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/New_Zealand_vs_India_3rd_T20_Match/7?event_id=188852" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>India W vs Zimbabwe W 2nd ODI</td><td>Tomorrow 04:30</td><td>188847</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/India_W_vs_Zimbabwe_W_2nd_ODI/7?event_id=188847" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Snooker <span class="badge thin">Live (thin)</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Snooker/8" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Snooker/8</a> (sport id 8)</div>
+          <div class='note'>Only one match-level tip was live on the hub&#x27;s first page at capture time.</div>
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>Mark Williams v Jak Jones</td><td>Today 14:05</td><td>9952</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Mark_Williams_v_Jak_Jones/8?event_id=9952" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Darts <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Darts/15" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Darts/15</a> (sport id 15)</div>
+          
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>Krzysztof Ratajski vs Kevin Doets</td><td>Today 13:15</td><td>32399</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Krzysztof_Ratajski_vs_Kevin_Doets/15?event_id=32399" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Jonny Clayton vs Josh Rock</td><td>Today 16:15</td><td>32400</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Jonny_Clayton_vs_Josh_Rock/15?event_id=32400" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Nathan Aspinall vs Luke Littler</td><td>Today 15:15</td><td>32397</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Nathan_Aspinall_vs_Luke_Littler/15?event_id=32397" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Martin Schindler vs Jermaine Wattimena</td><td>Today 14:15</td><td>32398</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Martin_Schindler_vs_Jermaine_Wattimena/15?event_id=32398" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Gerwyn Price vs Stephen Bunting</td><td>Tomorrow 07:00</td><td>32407</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Stephen_Bunting/15?event_id=32407" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Baseball <span class="badge thin">Live (thin)</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Baseball/12" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Baseball/12</a> (sport id 12)</div>
+          <div class='note'>Only one MLB tip was live on the hub&#x27;s first page; this falls in the World Series window.</div>
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>TB Rays @ MIL Brewers</td><td>Today 20:00</td><td>160792</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160792" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Gaelic Sports <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Gaelic_Football/25" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Gaelic_Football/25</a> (sport id 25)</div>
+          <div class='note'>OLBG&#x27;s own hub label is &quot;Gaelic Football&quot;; it is the match-level feed inside OLBG&#x27;s broader &quot;Gaelic Sports&quot; grouping (OLBG keeps Hurling on a separate hub, /Hurling/26, which is outside this project&#x27;s scope).</div>
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>Moycullen v Salthill-Knocknacarra</td><td>Tomorrow 12:00</td><td>3532</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Moycullen_v_Salthill-Knocknacarra/25?event_id=3532" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>St Finbarrs v Nemo Rangers</td><td>Tomorrow 12:00</td><td>3530</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Finbarrs_v_Nemo_Rangers/25?event_id=3530" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Kanturk v Eire Og Cor</td><td>01 Nov 09:00</td><td>3531</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Kanturk_v_Eire_Og_Cor/25?event_id=3531" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Fr Caseys v Kildimo Pallaskenry</td><td>01 Nov 10:30</td><td>3537</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Fr_Caseys_v_Kildimo_Pallaskenry/25?event_id=3537" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Greyhounds <span class="badge">Live (high volume)</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Greyhounds/28" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Greyhounds/28</a> (sport id 28)</div>
+          <div class='note'>Dozens of individual UK graded races per day; the hub lists them race-by-race rather than match-by-match.</div>
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>6:01 Newcastle</td><td>Today 13:01</td><td>689950</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:01_Newcastle/28?event_id=689950" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>6:14 Monmore</td><td>Today 13:14</td><td>689954</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:14_Monmore/28?event_id=689954" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>6:29 Doncaster</td><td>Today 13:29</td><td>689956</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:29_Doncaster/28?event_id=689956" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>7:58 Doncaster</td><td>Today 14:58</td><td>689890</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/7:58_Doncaster/28?event_id=689890" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>8:54 Monmore</td><td>Today 15:54</td><td>690013</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/8:54_Monmore/28?event_id=690013" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Tennis <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Tennis/3</a> (sport id 3)</div>
+          
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>Ashlyn Krueger vs Katerina Siniakova</td><td>Tomorrow 00:30</td><td>902171</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ashlyn_Krueger_vs_Katerina_Siniakova/3?event_id=902171" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Elena Rybakina vs Leylah Fernandez</td><td>Tomorrow 05:00</td><td>902207</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Leylah_Fernandez/3?event_id=902207" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Daniil Medvedev vs Nikoloz Basilashvili</td><td>Tomorrow 06:00</td><td>902251</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniil_Medvedev_vs_Nikoloz_Basilashvili/3?event_id=902251" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Alexandra Eala vs Mika Stojsavljevic</td><td>26 Oct 22:00</td><td>902175</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexandra_Eala_vs_Mika_Stojsavljevic/3?event_id=902175" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Moyuka Uchijima vs Elise Mertens</td><td>26 Oct 22:00</td><td>902173</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Moyuka_Uchijima_vs_Elise_Mertens/3?event_id=902173" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Motor Racing <span class="badge thin">Live (thin)</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Motor_Racing/14" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Motor_Racing/14</a> (sport id 14)</div>
+          <div class='note'>Only the next Grand Prix outright was live on the hub&#x27;s first page.</div>
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>USA Grand Prix (Win Race)</td><td>Tomorrow 16:00</td><td>913</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Handball <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Handball/20" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Handball/20</a> (sport id 20)</div>
+          
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>HBW Balingen Weilstetten vs MT Melsungen</td><td>Today 14:00</td><td>12090</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HBW_Balingen_Weilstetten_vs_MT_Melsungen/20?event_id=12090" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>BM Logrono La Rioja vs BM Cangas</td><td>Today 13:30</td><td>12103</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Logrono_La_Rioja_vs_BM_Cangas/20?event_id=12103" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>SC Magdeburg vs HC Kriens Luzern</td><td>28 Oct 15:45</td><td>12136</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>BM Granollers vs Angel Ximenez Puente Genil</td><td>Tomorrow 07:30</td><td>12102</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Granollers_vs_Angel_Ximenez_Puente_Genil/20?event_id=12102" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Rhein Neckar Lowen vs SC Magdeburg</td><td>Tomorrow 10:00</td><td>12092</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Rhein_Neckar_Lowen_vs_SC_Magdeburg/20?event_id=12092" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Ice Hockey <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Ice_Hockey/13" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Ice_Hockey/13</a> (sport id 13)</div>
+          
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>ANA Ducks @ PHI Flyers (NHL)</td><td>Today 13:07</td><td>199999</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/ANA_Ducks_@_PHI_Flyers/13?event_id=199999" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>CAR Hurricanes @ STL Blues (NHL)</td><td>Today 19:07</td><td>200002</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/CAR_Hurricanes_@_STL_Blues/13?event_id=200002" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>NY Rangers @ OTT Senators (NHL)</td><td>Today 19:07</td><td>200008</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/NY_Rangers_@_OTT_Senators/13?event_id=200008" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>TB Lightning @ UTA Mammoth (NHL)</td><td>Today 22:07</td><td>200009</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TB_Lightning_@_UTA_Mammoth/13?event_id=200009" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>EHC Kloten vs Rapperswil Jona Lakers (Switzerland NLA)</td><td>Today 13:45</td><td>200024</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Ice_Hockey/Other/Switzerland_NLA/EHC_Kloten_vs_Rapperswil_Jona_Lakers/13?event_id=200024" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Basketball <span class="badge">Live</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Basketball/4" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Basketball/4</a> (sport id 4)</div>
+          
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>HOU Rockets @ ATL Hawks (NBA)</td><td>Today 20:30</td><td>536115</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/HOU_Rockets_@_ATL_Hawks/4?event_id=536115" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>MIA Heat @ CHA Hornets (NBA)</td><td>Today 18:00</td><td>536117</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIA_Heat_@_CHA_Hornets/4?event_id=536117" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>BKN Nets @ CLE Cavaliers (NBA)</td><td>Today 19:30</td><td>536112</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/BKN_Nets_@_CLE_Cavaliers/4?event_id=536112" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>MIL Bucks @ PHI 76ers (NBA)</td><td>Today 19:30</td><td>536111</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIL_Bucks_@_PHI_76ers/4?event_id=536111" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Slask Wroclaw vs Astoria Bydgoszcz (Poland PLK)</td><td>Today 13:30</td><td>536075</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Basketball/European/Poland_PLK/Slask_Wroclaw_vs_Astoria_Bydgoszcz/4?event_id=536075" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+        <div class="card">
+          <h2>Rugby League <span class="badge empty">Outrights only -- no near-term match fixtures</span></h2>
+          <div>OLBG hub: <a class="ext" href="https://www.olbg.com/betting-tips/Rugby_League/10" target="_blank" rel="noopener">https://www.olbg.com/betting-tips/Rugby_League/10</a> (sport id 10)</div>
+          <div class='note'>At capture time, the hub&#x27;s first page carried only 2027 ante-post/outright markets (State of Origin 2027, Super League 2027 Grand Final Winner, NRL 2027 Grand Final Winner); Super League and the NRL are both out of season in late October, so no individual Rugby League match existed on OLBG to price. This is a verified, dated observation, not an inferred gap.</div>
+          <table>
+            <thead><tr><th>Event</th><th>When (site-local)</th><th>OLBG event id</th><th>Where the pick is</th></tr></thead>
+            <tbody><tr><td>State of Origin 2027 (Win Tournament)</td><td>27 May 2027 06:00</td><td>2695857</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/State_of_Origin_2027/10?event_id=2695857" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>Super League 2027 (Grand Final Winner)</td><td>02 Oct 2027 13:00</td><td>2801554</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Super_League_2027/10?event_id=2801554" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr><tr><td>NRL 2027 (Grand Final Winner)</td><td>03 Oct 2027 04:30</td><td>2801600</td><td><a class='ext' href="https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/NRL_2027/10?event_id=2801600" target="_blank" rel="noopener">Open on OLBG &rarr;</a></td></tr></tbody>
+          </table>
+        </div>
+        
+  <div class="foot">Data file: <a class="ext" href="../data/session-3bbe2449/olbg_snapshot.json">olbg_snapshot.json</a> &middot; Source: olbg.com (not an official governing-body source &mdash; used here only to document OLBG's own taxonomy and listings, per the brief) &middot; Part of Board CL, session arena/3bbe2449-olbg4.</div>
+</main>
+</body></html>

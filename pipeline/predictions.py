@@ -22,6 +22,9 @@ from .records import parse_iso
 BANNED = [
     "guaranteed", "guarantee", "lock of the", "sure thing", "can't lose", "cannot lose",
     "risk-free", "risk free", "certainty", "surefire", "banker",
+    # "model" and "verify/verified/verification" are internal engineering terms; the
+    # owner does not want them surfacing in the published, human-facing prediction text.
+    "model", "verify", "verified", "verification",
 ]
 
 NUMBER_WORDS = {0: "no", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}
@@ -162,12 +165,12 @@ def _seed(fixture_id: str, market: str) -> int:
 # ---------------------------------------------------------------------------
 WINNER_BLOCKS = [
     [  # opener
-        "{away} visit {venue} to face {home}, and our model makes {fav} a {prob}% favourite.",
+        "{away} visit {venue} to face {home}, and our rating makes {fav} a {prob}% favourite.",
         "We make {fav} a {prob}% chance to beat {dog} at {venue}.",
-        "{fav} rate {line_abs} {unit} stronger than {dog} in our model, a {prob}% win probability.",
-        "Our model has {fav} {line_abs} {unit} clear in this one, a {prob}% win probability.",
+        "{fav} rate {line_abs} {unit} stronger than {dog} on our numbers, a {prob}% win probability.",
+        "Our rating has {fav} {line_abs} {unit} clear in this one, a {prob}% win probability.",
         "Our ratings have {fav} {line_abs} {unit} clear of {dog} going into this one.",
-        "At {venue}, the model splits this {prob}% in favour of {fav}.",
+        "At {venue}, our rating splits this {prob}% in favour of {fav}.",
     ],
     [  # form
         "{fav} {wins5_clause}.",
@@ -184,7 +187,7 @@ WINNER_BLOCKS = [
     ],
     [  # model / price
         "We price that at {american}, inclusive of our 4.5% two-way margin.",
-        "The model probability is {prob}%, and we quote {american}.",
+        "Our rated probability is {prob}%, and we quote {american}.",
         "At {american}, the implied probability after our margin is {prob}%.",
         "Our price of {american} reflects a {prob}% win probability.",
     ],
@@ -199,7 +202,7 @@ WINNER_BLOCKS = [
 HANDICAP_BLOCKS = [
     [
         "We opened this {market_name} at {opening_line} and now make it {line}, a move of {move} {unit}.",
-        "Our opening number was {opening_line}; the current model says {line}.",
+        "Our opening number was {opening_line}; the current rating says {line}.",
         "The line has moved {move} {unit}, from {opening_line} to {line}, since our opener.",
         "{fav} sit {line_abs} {unit} clear of {dog} on our board; the opener had it at {opening_line_abs}.",
         "We make the {market_name} {line} for {fav}, having opened it at {opening_line}.",
@@ -231,7 +234,7 @@ HANDICAP_BLOCKS = [
 TOTAL_BLOCKS = [
     [
         "Our total opened at {opening_line} and now sits at {line}, a move of {move} {unit}.",
-        "We opened this total at {opening_line}; the current model projects {line}.",
+        "We opened this total at {opening_line}; the current rating projects {line}.",
         "The number has moved {move} {unit} from {opening_line} to {line}.",
         "We make the total {line}, against {opening_line} at the open.",
         "This total has been re-rated from {opening_line} to {line} on the recent scoring data.",
@@ -379,7 +382,7 @@ def make_prediction(fixture: dict, analysis: dict, form: dict, h2h: list[dict],
         if text:
             sentences.append(text)
     if pick["market"] != "total" and abs(line) < 0.05:
-        sentences[0] = f"Our model gives {fav['name']} a {values['prob']}% win probability."
+        sentences[0] = f"Our rating gives {fav['name']} a {values['prob']}% win probability."
     text = " ".join(sentences)
     text = re.sub(r"\s+", " ", text).replace(" .", ".").strip()
     # "a 86.2%" reads badly; use the correct indefinite article for eight-/eleven-/eighteen-
@@ -434,14 +437,14 @@ def _facts(fixture, analysis, form, h2h, sources) -> list[dict]:
             facts.append({"fact": f"{label}: {ctx[key]}", "source": first_source})
     if h2h:
         facts.append({
-            "fact": f"{len(h2h)} previous meeting(s) in the verified sample; most recent "
+            "fact": f"{len(h2h)} previous meeting(s) in the official results sample; most recent "
                     f"{h2h[0]['date_utc'][:10]} ended {h2h[0]['away_score']}-{h2h[0]['home_score']} "
                     f"(away-home)",
             "source": h2h[0].get("source_url") or first_source,
         })
     pick = analysis["headline_pick"]
-    facts.append({"fact": f"Model win probability {pick['prob_pct']}% priced at {pick['american']}",
-                  "source": "derived: pipeline/model.py + pipeline/markets.py"})
+    facts.append({"fact": f"Our rated win probability {pick['prob_pct']}% priced at {pick['american']}",
+                  "source": "derived: our own rating and pricing from official results"})
     return facts
 
 
@@ -454,7 +457,7 @@ def short_rationale(fixture: dict, analysis: dict) -> str:
         direction = "above" if edge > 0 else "below"
         return (
             f"Our current total is {analysis['markets']['total']['line']:.1f}, {abs(edge):.2f} "
-            f"{unit} {direction} our opening number, and the model makes {pick['selection']} a "
+            f"{unit} {direction} our opening number, and our rating makes {pick['selection']} a "
             f"{pick['prob_pct']}% chance at {pick['american']}."
         )
     if pick["market"] == "handicap":
@@ -466,9 +469,9 @@ def short_rationale(fixture: dict, analysis: dict) -> str:
             f"{pick['prob_pct']}% of the time at {pick['american']}."
         )
     return (
-        f"Model margin {exp['margin']:+.1f} {unit} and a {pick['prob_pct']}% win probability for "
+        f"Rated margin {exp['margin']:+.1f} {unit} and a {pick['prob_pct']}% win probability for "
         f"{pick['selection']}, priced at {pick['american']}. Sample: {pick['sample_games_min']} "
-        f"verified games per team."
+        f"completed games per team."
     )
 
 
