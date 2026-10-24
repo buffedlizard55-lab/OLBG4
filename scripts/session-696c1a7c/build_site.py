@@ -53,37 +53,41 @@ COMP_LABEL = {
 }
 
 SPORT_NOTE = {
-    "Golf": "OLBG's golf hub is rendered client-side: the captured HTML carries no event payload at all, "
-            "so there is no golf event to list today. The competition pages that were fetched "
-            "(`Bermuda_Championship`, the majors) are recorded in the source table for the next pass.",
-    "Motor Racing": "The motor-racing hub carries the 2026 grand-prix competition links but no priced event rows, "
-                    "and the individual grand-prix pages returned no embedded market payload.",
-    "Rugby League": "Every rugby-league row OLBG currently shows is a 2027 outright (State of Origin, Super League, NRL). "
-                    "An outright has no two-sided fixture to originate a match line against, and no 2026 club feed was "
-                    "captured from NRL or Super League, so nothing is priced here.",
+    "Golf": "The golf hub and the Bermuda Championship event page were both captured (274 KB and 183 KB) and "
+            "neither contains a listing payload: OLBG renders golf markets client-side, so there is no golf "
+            "event to list or price today. The US Masters page was captured alongside it and is just as empty.",
+    "Motor Racing": "The hub lists all 23 grand-prix competition pages but carries no priced rows, and the three "
+                    "grand-prix pages fetched (Mexico City, Las Vegas, São Paulo, 225 KB each) contain no market "
+                    "payload either. Nothing to list means nothing to price.",
+    "Rugby League": "Every rugby-league row OLBG shows is a 2027 outright (State of Origin, Super League, NRL). An "
+                     "outright has no two-sided fixture to price, and the 2026 club feeds were not readable: NRL's "
+                     "draw endpoint returns a stub, Super League returned 500, and the RLWC feed only covers the "
+                     "2026 tournament itself.",
     "Greyhounds": "One race is listed (11:04 Doncaster) against a named runner only. GBGB publishes results, not "
                   "racecards, so the field, traps and grades needed for a line are not in the captured source.",
-    "Snooker": "The two listed matches both started before the capture was written, so they are not upcoming. "
-               "The WST public match feed ignores its own date filter and stops in 2023-09, which is why no "
-               "2026-27 fixture could be confirmed from the governing body.",
+    "Snooker": "Both listed matches started hours before the capture was written, so neither is upcoming. The WST "
+                "public feed does yield 66 future-dated fixtures and 2,176 decided matches, but none of them is a "
+                "2026-27 ranking event involving these players, so no snooker row can be priced today.",
     "Darts": "Two 25 October matches plus two outrights are listed. The PDC site serves the Order of Merit and "
              "tournament pages as JavaScript shells with no player rows, so no official rating input exists for "
              "these players in the capture.",
-    "Cricket": "Fifteen rows are listed, mostly domestic T20 and two internationals. The governing boards' fixture "
-               "pages (ECB, NZC, PCB, CSA, Cricket Australia) returned 404/403 or JavaScript shells, so team form "
-               "could not be read from an official feed.",
-    "Basketball": "Twenty-four rows: 13 NBA, 5 KBL, 2 each from Poland, Brazil and Argentina. The NBA CDN schedule, "
-                  "scoreboard and stats endpoints were refused (403) in this capture, and the EuroLeague/EuroCup "
-                  "feeds that *were* captured carry no OLBG-listed fixtures, so no basketball row is priced.",
+    "Cricket": "Fifteen rows are listed, mostly domestic T20 plus two internationals. ECB, NZC and PCB fixture "
+               "pages came back 404/403, ICC's fixtures page is 404, Cricket Australia's is a JavaScript shell, "
+               "and the only machine-readable cricket payload captured is a BBL page with no team form in it.",
+    "Basketball": "Twenty-four rows: 13 NBA, 5 KBL, 2 each from Poland, Brazil and Argentina. The NBA CDN schedule "
+                  "and scoreboard were refused with 403 on both attempts, and the stats endpoint timed out; the "
+                  "EuroLeague/EuroCup feeds that were captured describe different fixtures. No official table "
+                  "covers these rows, so none is priced.",
     "Tennis": "Twenty-four rows across ATP and WTA events. The ATP site refuses automated reads, so men's rows "
               "have no official input. The WTA draws that were captured give {wta_matches} decided matches over "
               "{wta_players} players, which is not enough decided matches per player to rate a pairing (the desk "
               "needs three each), so no tennis price is published today and every row stays flagged.",
-    "Rugby Union": "Sixteen rows. Premiership, URC and Top 14 pages all render standings and fixtures through "
-                   "JavaScript islands with no numbers in the payload, so no official table exists in the capture "
-                   "to originate a line from.",
-    "Gaelic Sports": "GAA fixtures are published as an embedded JSON payload; the county and club rows listed here "
-                     "need a scoring history that the fixtures payload does not carry for these teams.",
+    "Rugby Union": "Sixteen rows. Premiership, URC and Top 14 all render standings through JavaScript islands "
+                   "with no numeric cells in the payload, and World Rugby's rankings page returned 404, so no "
+                   "official table exists in the capture to originate a line from.",
+    "Gaelic Sports": "The GAA fixtures page does carry a machine-readable payload — 522 inter-county fixtures with "
+                     "dates, venues and scores — but none of the club and county games OLBG lists here appear in "
+                     "it. Without a result for either side there is no form to price from.",
 }
 
 
@@ -518,6 +522,17 @@ re-checked, and the source page lists the exact file and hash we read.
                 body)
 
 
+def capture_failures() -> list[list[str]]:
+    rows = []
+    for manifest in sorted((DATA / "capture").glob("*/manifest.json"), reverse=True):
+        man = json.loads(manifest.read_text())
+        for fail in man.get("failures", []):
+            rows.append([manifest.parent.name, esc(fail.get("sport", "")), esc(fail.get("id", "")),
+                         f'<a href="{esc(olbg(fail.get("url", "")))}">{esc(fail.get("url", ""))[:70]}</a>',
+                         esc(str(fail.get("error", ""))[:70])])
+    return rows
+
+
 def render_sources(D: dict) -> str:
     facts = D["facts"]
     used = {}
@@ -550,6 +565,14 @@ Capture finished at <code>{esc(facts["capture_finished_utc"])}</code>.</p>
     gaps = "".join(f'<li><strong>{esc(g["sport"])}</strong> — {esc(g["missing"])}: {esc(g["detail"])} '
                    f'<span class="small">({esc(g["source_url"])})</span></li>' for g in facts["gaps"])
     body += f'<ul class="flags">{gaps}</ul>'
+    fails = capture_failures()
+    body += f"""
+<h2>Requests that were refused ({len(fails)})</h2>
+<p>Not every official endpoint answers an automated read. Each refusal below is kept so the gap on a
+sport page can be traced to a specific attempt rather than to an assumption.</p>
+{table(["Capture", "Sport", "Target", "URL", "Result"], fails,
+       foot="These are the attempts behind the 404/403 lines on the flagged page.")}
+"""
     return page("sources.html", "Sources",
                 "Every governing-body file the desk captured, with the URL, the size and the hash the values were read from.",
                 body)

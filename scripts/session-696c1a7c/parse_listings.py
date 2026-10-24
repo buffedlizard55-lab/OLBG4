@@ -203,29 +203,65 @@ def group_events(rows: list[dict]) -> list[dict]:
     return sorted(events.values(), key=lambda e: (e["start_utc"] or "9999", e["event"]))
 
 
-def latest_capture() -> Path:
-    dirs = sorted(p for p in (DATA / "capture").glob("*") if (p / "manifest.json").exists())
-    if not dirs:
-        raise SystemExit("no capture directory with a manifest yet")
-    return dirs[-1]
+def all_captures() -> list[Path]:
+    return sorted((p for p in (DATA / "capture").glob("*") if (p / "manifest.json").exists()),
+                  reverse=True)
+
+
+def hub_pool(dirs: list[Path]) -> tuple[dict[str, tuple[Path, dict]], str]:
+    """Newest capture per sport, across every capture on disk.
+
+    Each capture run fetches a different slice of targets, so the listing has to be
+    assembled from all of them: the newest hub wins for its sport and the rest are
+    kept as cross-checks. The capture id recorded in the JSON is the newest run that
+    contributed a hub.
+    """
+    pool: dict[str, tuple[Path, dict]] = {}
+    for path in dirs:
+        manifest = json.loads((path / "manifest.json").read_text())
+        for rec in manifest["records"]:
+            if rec["sport"] not in SPORTS or "betting-tips/" not in rec["url"]:
+                continue
+            segs = [s for s in urlsplit(rec["url"]).path.split("/") if s]
+            if len(segs) != 3:
+                continue
+            if rec["sport"] in pool:
+                continue
+            pool[rec["sport"]] = (path, rec)
+    newest = dirs[0].name if dirs else ""
+    for path in dirs:
+        pool_dir = {p.name for p, _ in pool.values()}
+        if path.name in pool_dir:
+            newest = path.name
+            break
+    return pool, newest
 
 
 def main() -> int:
-    cap = Path(sys.argv[1]) if len(sys.argv) > 1 else latest_capture()
+    if len(sys.argv) > 1:
+        dirs = [Path(sys.argv[1])]
+    else:
+        dirs = all_captures()
+    if not dirs:
+        raise SystemExit("no capture directory with a manifest yet")
+    cap = dirs[0]
     manifest = json.loads((cap / "manifest.json").read_text())
 
     hubs: dict[str, dict] = {}
+    hub_dir: dict[str, Path] = {}
     extras: list[dict] = []
-    for rec in manifest["records"]:
-        if rec["sport"] not in SPORTS:
-            continue
-        if "betting-tips/" not in rec["url"]:
-            continue
-        segs = [s for s in urlsplit(rec["url"]).path.split("/") if s]
-        if len(segs) == 3:
-            hubs[rec["sport"]] = rec
-        elif len(segs) >= 4 and "event_id=" not in rec["url"]:
-            extras.append(rec)
+    for path in dirs:
+        man = json.loads((path / "manifest.json").read_text())
+        for rec in man["records"]:
+            if rec["sport"] not in SPORTS or "betting-tips/" not in rec["url"]:
+                continue
+            segs = [s for s in urlsplit(rec["url"]).path.split("/") if s]
+            if len(segs) == 3:
+                if rec["sport"] not in hubs:
+                    hubs[rec["sport"]] = rec
+                    hub_dir[rec["sport"]] = path
+            elif len(segs) >= 4 and "event_id=" not in rec["url"]:
+                extras.append({**rec, "_dir": str(path)})
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     out = {
@@ -247,7 +283,8 @@ def main() -> int:
                                     "note": "no hub page captured", "rows_embedded": 0,
                                     "rows_rendered": 0}
             continue
-        html = gzip.open(cap / rec["file"], "rt", encoding="utf-8", errors="replace").read()
+        html = gzip.open(hub_dir[sport] / rec["file"], "rt", encoding="utf-8",
+                         errors="replace").read()
         emb = parse_embedded(html, sport, rec["url"])
         rend = parse_rendered(html, sport, rec["url"])
         merged = emb + rend
@@ -271,7 +308,8 @@ def main() -> int:
     # schema check records what they add rather than guessing.
     shape = []
     for rec in extras:
-        html = gzip.open(cap / rec["file"], "rt", encoding="utf-8", errors="replace").read()
+        html = gzip.open(Path(rec["_dir"]) / rec["file"], "rt", encoding="utf-8",
+                         errors="replace").read()
         sport = rec["sport"]
         evs = group_events(parse_embedded(html, sport, rec["url"]) +
                            parse_rendered(html, sport, rec["url"]))
