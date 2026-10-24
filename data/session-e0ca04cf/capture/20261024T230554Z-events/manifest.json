@@ -1,0 +1,127 @@
+{
+ "board": "EC",
+ "failed": 13,
+ "failures": [
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j8",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-8"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j9",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-9"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j10",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-10"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_cal_generic",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "wst_rankings_api",
+   "status": 0,
+   "url": "https://api.wst.tv/api/v1/rankings"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "wst_tournaments",
+   "status": 0,
+   "url": "https://api.wst.tv/api/v1/tournaments?filter%5Bseason%5D=2026"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j1",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-1"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j2",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-2"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j3",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-3"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j4",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-4"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j5",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-5"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j6",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-6"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_j7",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/journee-7"
+  }
+ ],
+ "finished_utc": "2026-10-24T23:11:35Z",
+ "ok": 3,
+ "records": [
+  {
+   "bytes": 256796,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "lnr_classement.gz",
+   "final_url": "https://top14.lnr.fr/classement",
+   "id": "lnr_classement",
+   "sha256": "7a6448861096ec911e6d85d46cb3eda66dde9c588e1b4f39205536d80748b07f",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://top14.lnr.fr/classement/"
+  },
+  {
+   "bytes": 209049,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "ehfcl_m_standings2.gz",
+   "final_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "id": "ehfcl_m_standings2",
+   "sha256": "3411d41993427c35685538e2d6be473a62a98f0157c42df3fe2ac05571bcdfc5",
+   "sport": "Handball",
+   "status": 200,
+   "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+  },
+  {
+   "bytes": 417834,
+   "content_type": "application/json",
+   "error": null,
+   "file": "liiga_schedule_json.gz",
+   "final_url": "https://www.liiga.fi/api/v2/schedule",
+   "id": "liiga_schedule_json",
+   "sha256": "c95c6ab429e7aac1ba19c59bb2e7c8be261d758e2be43ab2e0e5cebc2bc96e9b",
+   "sport": "Ice Hockey",
+   "status": 200,
+   "url": "https://www.liiga.fi/api/v2/schedule"
+  }
+ ],
+ "session": "arena/e0ca04cf-olbg4",
+ "started_utc": "2026-10-24T23:11:13Z",
+ "targets": 16
+}
