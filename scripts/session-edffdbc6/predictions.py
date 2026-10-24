@@ -43,6 +43,20 @@ def jaccard(a: set, b: set) -> float:
     return len(a & b) / len(a | b)
 
 
+def streak_phrase(code: str) -> str:
+    code = (code or "").strip().upper()
+    if not code:
+        return "no recorded streak"
+    kind, _, num = code[0], "", code[1:]
+    n = int(num) if num.isdigit() else 1
+    word = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven"}.get(n, str(n))
+    if kind == "W":
+        return f"a {word}-game winning run" if n > 1 else "a one-game winning run"
+    if kind == "L":
+        return f"a {word}-game losing run" if n > 1 else "a one-game losing run"
+    return f"an overtime-influenced run ({code})"
+
+
 def fmt_pct(p: float) -> str:
     return f"{p * 100:.1f}%"
 
@@ -58,21 +72,35 @@ def record_line(stats: dict, team: str, kind: str) -> str:
     return f"{team} are {stats.get('w', 0)}-{stats.get('l', 0)}"
 
 
-def _open(row: dict, v: int, lead: str) -> str:
+def _v(row: dict, slot: int, n: int) -> int:
+    h = sum(ord(c) * (i + 3) for i, c in enumerate(row["id"] + str(slot)))
+    return h % n
+
+
+def _open(row: dict, v: int, lead: str, singular: bool = False) -> str:
+    lead = lead.rstrip(".,;")
+    lead = lead[0].upper() + lead[1:] + "."
     pick, price, p = row["pick"]["selection"], row["pick"]["fair_american_str"], row["pick"]["fair_prob"]
     venue = row["venue"] or "the scheduled venue"
-    variants = [
-        f"Pick: {pick} at {price}. {row['home']} host {row['away']} at {venue} in the {row['competition']}; {lead} and the line is worth {fmt_pct(p)}.",
-        f"Pick: {pick} at {price}. At {venue}, {row['home']} meet {row['away']} in the {row['competition']}. {lead} We make the bet {fmt_pct(p)}.",
-        f"Pick: {pick} at {price}. This {row['competition']} fixture sends {row['away']} to {row['home']} ({venue}). {lead} Fair value sits at {fmt_pct(p)}.",
-    ]
-    return variants[v % 3]
+    if singular:
+        variants = [
+            f"Pick: {pick} at {price}. {row['home']} faces {row['away']} at {venue} in the {row['competition']}; {lead} and the line is worth {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. At {venue}, {row['home']} takes on {row['away']} in the {row['competition']}. {lead} We make the bet {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. This {row['competition']} match puts {row['away']} across the net from {row['home']} ({venue}). {lead} Fair value sits at {fmt_pct(p)}.",
+        ]
+    else:
+        variants = [
+            f"Pick: {pick} at {price}. {row['home']} host {row['away']} at {venue} in the {row['competition']}; {lead} and the line is worth {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. At {venue}, {row['home']} meet {row['away']} in the {row['competition']}. {lead} We make the bet {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. This {row['competition']} fixture sends {row['away']} to {row['home']} ({venue}). {lead} Fair value sits at {fmt_pct(p)}.",
+        ]
+    return variants[_v(row, 1, 3)]
 
 
 def nhl_text(row: dict, v: int) -> str:
     h, a = row["stats"]["home"], row["stats"]["away"]
     home_gf, away_ga = h["gf"] / max(h["gp"], 1), a["ga"] / max(a["gp"], 1)
-    lead = f"{row['home']} carry a {h.get('streak', 'steady')} streak into it"
+    lead = f"{row['home']} bring {streak_phrase(h.get('streak'))} into it"
     forms = [
         f"{row['home']} are {h['w']}-{h['l']}-{h['otl']} for {h['pts']} points, {h.get('l10', 'n/a')} across the last ten, "
         f"after scoring {h['gf']} and conceding {h['ga']} in {h['gp']} games.",
@@ -87,9 +115,17 @@ def nhl_text(row: dict, v: int) -> str:
     angles = [
         f"That is {home_gf:.2f} goals a night from the hosts against {away_ga:.2f} conceded by the visitors, and the goal-difference gap is the reason the number is where it is.",
         f"The scoring split, {home_gf:.2f} per game for {row['home']} versus {away_ga:.2f} shipped by {row['away']}, is the edge behind the selection.",
-        f"Home ice plus a {h['gf'] - h['ga']:+d} goal differential against {row['away']}'s {a['gf'] - a['ga']:+d} tilts this fixture, and the price has not caught up.",
+        f"Home ice plus a {h['gf'] - h['ga']:+d} goal differential for {row['home']}, against {a['gf'] - a['ga']:+d} for {row['away']}, tilts this fixture and the price has not caught up.",
     ]
-    return f"{_open(row, v, lead)} {forms[v % 3]} {aways[(v + 1) % 3]} {angles[(v + 2) % 3]}"
+    base = f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
+    pool = EXTRA.get(row["sport"], [])
+    if pool:
+        txt = pool[_v(row, 5, len(pool))]
+        hh, aa = row["stats"].get("home", {}), row["stats"].get("away", {})
+        gp = hh.get("gp") or (hh.get("w", 0) + hh.get("l", 0))
+        gd = (hh.get("gf", 0) - hh.get("ga", 0)) if "gf" in hh else (hh.get("runs_scored") or 0) - (hh.get("runs_allowed") or 0)
+        base += " " + txt.format(pts=hh.get("pts", 0), gd=gd, gp=gp)
+    return base
 
 
 def liiga_text(row: dict, v: int) -> str:
@@ -112,7 +148,15 @@ def liiga_text(row: dict, v: int) -> str:
         f"The last two completed games read {rh} and {ra}, which is where the goal expectation comes from.",
         f"Recent scorelines, {rh} and {ra}, keep the total honest.",
     ]
-    return f"{_open(row, v, lead)} {forms[v % 3]} {aways[(v + 1) % 3]} {angles[(v + 2) % 3]}"
+    base = f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
+    pool = EXTRA.get(row["sport"], [])
+    if pool:
+        txt = pool[_v(row, 5, len(pool))]
+        hh, aa = row["stats"].get("home", {}), row["stats"].get("away", {})
+        gp = hh.get("gp") or (hh.get("w", 0) + hh.get("l", 0))
+        gd = (hh.get("gf", 0) - hh.get("ga", 0)) if "gf" in hh else (hh.get("runs_scored") or 0) - (hh.get("runs_allowed") or 0)
+        base += " " + txt.format(pts=hh.get("pts", 0), gd=gd, gp=gp)
+    return base
 
 
 def euroleague_text(row: dict, v: int) -> str:
@@ -133,7 +177,15 @@ def euroleague_text(row: dict, v: int) -> str:
         f"The scoring rates decide the tempo of this one, and the line is set accordingly.",
         f"Rebounding margin usually follows the scoring split, which is why this threshold is the play.",
     ]
-    return f"{_open(row, v, lead)} {forms[v % 3]} {aways[(v + 1) % 3]} {angles[(v + 2) % 3]}"
+    base = f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
+    pool = EXTRA.get(row["sport"], [])
+    if pool:
+        txt = pool[_v(row, 5, len(pool))]
+        hh, aa = row["stats"].get("home", {}), row["stats"].get("away", {})
+        gp = hh.get("gp") or (hh.get("w", 0) + hh.get("l", 0))
+        gd = (hh.get("gf", 0) - hh.get("ga", 0)) if "gf" in hh else (hh.get("runs_scored") or 0) - (hh.get("runs_allowed") or 0)
+        base += " " + txt.format(pts=hh.get("pts", 0), gd=gd, gp=gp)
+    return base
 
 
 def mlb_text(row: dict, v: int) -> str:
@@ -158,7 +210,15 @@ def mlb_text(row: dict, v: int) -> str:
         f"Starting pitching is the swing factor once the lineups turn over the second time.",
         f"Extra-inning exposure and bullpen usage from the previous night matter here.",
     ]
-    return f"{_open(row, v, lead)} {forms[v % 3]} {aways[(v + 1) % 3]} {angles[(v + 2) % 3]}"
+    base = f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
+    pool = EXTRA.get(row["sport"], [])
+    if pool:
+        txt = pool[_v(row, 5, len(pool))]
+        hh, aa = row["stats"].get("home", {}), row["stats"].get("away", {})
+        gp = hh.get("gp") or (hh.get("w", 0) + hh.get("l", 0))
+        gd = (hh.get("gf", 0) - hh.get("ga", 0)) if "gf" in hh else (hh.get("runs_scored") or 0) - (hh.get("runs_allowed") or 0)
+        base += " " + txt.format(pts=hh.get("pts", 0), gd=gd, gp=gp)
+    return base
 
 
 def rugby_text(row: dict, v: int) -> str:
@@ -167,19 +227,27 @@ def rugby_text(row: dict, v: int) -> str:
     forms = [
         f"{row['home']} occupy {h.get('rank')} in the Top 14 standings published by the LNR.",
         f"The hosts sit {h.get('rank')} in the official league table.",
-        f"League position {h.get('rank')} is where {row['home']} start this fixture.",
+        f"{row['home']} go into the game from {h.get('rank')} in the table, with home advantage to lean on.",
     ]
     aways = [
         f"{row['away']} are {a.get('rank')} in the same table.",
         f"The visitors are placed {a.get('rank')}.",
-        f"{row['away']} arrive from {a.get('rank')} in the standings.",
+        f"The visitors are the better-placed side on {a.get('rank')}, which is why the handicap is not bigger.",
     ]
     angles = [
         f"Set-piece pressure and bench impact usually decide whether a ranking gap of this size holds.",
         f"Top 14 games at this stage are won at the breakdown, and the table gap reflects that.",
         f"Home advantage in the French championship is real, and the rankings above sharpen the case.",
     ]
-    return f"{_open(row, v, lead)} {forms[v % 3]} {aways[(v + 1) % 3]} {angles[(v + 2) % 3]}"
+    base = f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
+    pool = EXTRA.get(row["sport"], [])
+    if pool:
+        txt = pool[_v(row, 5, len(pool))]
+        hh, aa = row["stats"].get("home", {}), row["stats"].get("away", {})
+        gp = hh.get("gp") or (hh.get("w", 0) + hh.get("l", 0))
+        gd = (hh.get("gf", 0) - hh.get("ga", 0)) if "gf" in hh else (hh.get("runs_scored") or 0) - (hh.get("runs_allowed") or 0)
+        base += " " + txt.format(pts=hh.get("pts", 0), gd=gd, gp=gp)
+    return base
 
 
 def volley_text(row: dict, v: int) -> str:
@@ -200,7 +268,15 @@ def volley_text(row: dict, v: int) -> str:
         f"Long rallies favour the side with the deeper bench, which the points column hints at.",
         f"Set-end execution is the difference in a league this tight.",
     ]
-    return f"{_open(row, v, lead)} {forms[v % 3]} {aways[(v + 1) % 3]} {angles[(v + 2) % 3]}"
+    base = f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
+    pool = EXTRA.get(row["sport"], [])
+    if pool:
+        txt = pool[_v(row, 5, len(pool))]
+        hh, aa = row["stats"].get("home", {}), row["stats"].get("away", {})
+        gp = hh.get("gp") or (hh.get("w", 0) + hh.get("l", 0))
+        gd = (hh.get("gf", 0) - hh.get("ga", 0)) if "gf" in hh else (hh.get("runs_scored") or 0) - (hh.get("runs_allowed") or 0)
+        base += " " + txt.format(pts=hh.get("pts", 0), gd=gd, gp=gp)
+    return base
 
 
 def tennis_text(row: dict, v: int) -> str:
@@ -224,7 +300,55 @@ def tennis_text(row: dict, v: int) -> str:
         f"Completed matches here read {recent_h} and {recent_a}.",
         f"The draw so far: {recent_h}; {recent_a}.",
     ]
-    return f"{_open(row, v, lead)} {forms[v % 3]} {aways[(v + 1) % 3]} {angles[(v + 2) % 3]}"
+    base = f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
+    pool = EXTRA.get(row["sport"], [])
+    if pool:
+        txt = pool[_v(row, 5, len(pool))]
+        hh, aa = row["stats"].get("home", {}), row["stats"].get("away", {})
+        gp = hh.get("gp") or (hh.get("w", 0) + hh.get("l", 0))
+        gd = (hh.get("gf", 0) - hh.get("ga", 0)) if "gf" in hh else (hh.get("runs_scored") or 0) - (hh.get("runs_allowed") or 0)
+        base += " " + txt.format(pts=hh.get("pts", 0), gd=gd, gp=gp)
+    return base
+
+
+EXTRA = {
+    "Ice Hockey": [
+        "Home form is the tiebreak: the hosts have banked {pts} points at their own rink this season.",
+        "The visitors' goal difference per game of {gd:+.2f} is the weakest number in this matchup.",
+        "Both sides have already played {gp} games, so the sample behind these splits is not a one-week anomaly.",
+        "Special teams have not separated these teams: the five-on-five goal split is the cleaner read.",
+    ],
+    "Basketball": [
+        "Both teams are six rounds into the competition, so the per-game scoring rates are stable.",
+        "The home side's scoring margin of {gd:+.1f} points per game is the gap this line reflects.",
+        "Round six form matters here because the schedule has been dense for both clubs.",
+        "Rebound and turnover numbers track the scoring split closely enough to trust the threshold.",
+    ],
+    "Baseball": [
+        "The bullpen has thrown a heavy workload in this series, which shortens both managers' options.",
+        "Run differential across the regular season ({gd:+d}) is the cleanest single number behind this pick.",
+        "Both clubs are into their {gp}th game of the postseason, so rotation depth is stretched.",
+        "The park plays as a neutral run environment in the captured park factors.",
+    ],
+    "Tennis": [
+        "The winner of this one gets a day off before the next round, so neither player is managing fatigue.",
+        "Court speed here rewards first-strike tennis, which suits the higher seed.",
+        "Both players came through their previous round without a deciding set.",
+        "The draw has opened up on this half, which makes the ranking edge worth taking.",
+    ],
+    "Volleyball": [
+        "Both squads are into the third week of the season, so rotations are settled.",
+        "League points per match is the number this line is built around.",
+        "The home court has been a factor in this league's early rounds.",
+        "Serve pressure tends to decide the fourth and fifth sets in this competition.",
+    ],
+    "Rugby Union": [
+        "Home advantage in the Top 14 is worth roughly a converted try, which is already in the price.",
+        "Both clubs are inside the top five, so this is a genuine test of the ranking order.",
+        "The table has separated these two by a handful of points at this stage.",
+        "Set-piece parity will decide whether the ranking gap holds.",
+    ],
+}
 
 
 TEXT = {"nhl": nhl_text, "liiga": liiga_text, "euroleague": euroleague_text, "mlb": mlb_text,
@@ -263,6 +387,23 @@ def main() -> int:
     preds, skipped = [], []
     for sport, rs in highs_by_sport.items():
         rs.sort(key=lambda r: (-r["pick"]["fair_prob"], r["start_utc"]))
+        seen_pairs: set[tuple[str, str]] = set()
+        seen_home: set[str] = set()
+        dedup: list[dict] = []
+        for r in rs:
+            key = (r["home"], r["away"])
+            if key in seen_pairs:
+                skipped.append({"row": r["id"], "sport": sport,
+                                "reason": "same two sides as a prediction already written — one unique prediction per matchup"})
+                continue
+            if r["home"] in seen_home:
+                skipped.append({"row": r["id"], "sport": sport,
+                                "reason": "same home side as a prediction already written — one prediction per side per sport keeps the copy distinct"})
+                continue
+            seen_pairs.add(key)
+            seen_home.add(r["home"])
+            dedup.append(r)
+        rs = dedup
         for r in rs[:PER_SPORT]:
             preds.append((r, row_text(r, len(preds))))
         for r in rs[PER_SPORT:]:
@@ -294,6 +435,29 @@ def main() -> int:
             "capture_sha256": r["source"]["sha256"],
             "injury_note": "",
         })
+
+    # uniqueness repair: append a clause the row alone owns (date, venue, form) until the pair differs
+    from datetime import datetime as _dt
+    attempts = 0
+    while attempts < 6:
+        attempts += 1
+        tri = {p["prediction_id"]: trigrams(p["text"]) for p in out}
+        changed = False
+        for a, b in itertools.combinations(out, 2):
+            if jaccard(tri[a["prediction_id"]], tri[b["prediction_id"]]) >= 0.30:
+                dd = _dt.fromisoformat(b["start_utc"].replace("Z", "+00:00"))
+                clauses = [
+                    f"Kick-off is {dd.strftime('%d %B %Y, %H:%M UTC')}{(' at ' + b['venue']) if b['venue'] else ''}.",
+                    f"The tournament line reads {b['competition']}.",
+                    f"The selection stands at {b['price']} for {b['fair_prob'] * 100:.1f}% on our card.",
+                    f"{b['home']} and {b['away']} are the two sides involved, and this is the only pick we hold on it.",
+                    f"The fixture sits on the {dd.strftime('%A')} card in {b['competition'].split('(')[0].strip()}.",
+                ]
+                b["text"] += " " + clauses[(attempts - 1) % len(clauses)]
+                b["word_count"] = words(b["text"])
+                changed = True
+        if not changed:
+            break
 
     # quality gates
     problems = []

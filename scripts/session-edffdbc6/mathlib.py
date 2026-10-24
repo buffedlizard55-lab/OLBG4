@@ -52,6 +52,7 @@ def implied(american: int) -> float:
 
 
 def outcome(selection: str, p: float) -> dict:
+    p = round(p, 4)
     d = prob_to_decimal(p)
     a = prob_to_american(p)
     return {
@@ -133,47 +134,47 @@ def two_way_win(home: str, away: str, p_home: float, basis: str) -> dict:
 
 def handicap_ladder(home: str, away: str, margin: dict[int, float], lines: list[float],
                     basis: str, unit: str) -> list[dict]:
+    """`line` is the HOME handicap: negative means the home side gives points/goals.
+
+    Home covers when margin + line > 0, i.e. margin > -line.  Lines are half-integers, so the
+    push case cannot occur and the two outcomes partition the distribution exactly.
+    """
     out = []
     for line in lines:
-        # home line = -line means home must win by more than `line`
-        p_home = 1.0 - p_at_least(margin, line + 0.5)
-        p_home = min(max(p_home, 0.005), 0.995)
-        sign = f"{-line:+g}"
-        out.append(market(f"handicap_{line:+g}", f"{home} {sign} ({unit} handicap)",
-                          [outcome(f"{home} {sign}", p_home), outcome(f"{away} {-line:+g}", 1 - p_home)],
-                          basis))
+        p_home = sum(v for x, v in margin.items() if x > -line)
+        p_home = min(max(p_home, 0.002), 0.998)
+        out.append(market(f"handicap_{line:+g}", f"{home} {line:+g} ({unit} handicap)",
+                          [outcome(f"{home} {line:+g}", p_home),
+                           outcome(f"{away} {-line:+g}", 1 - p_home)], basis))
     return out
 
 
 def total_ladder(home: str, away: str, total: dict[int, float], lines: list[float],
                  basis: str, label_unit: str) -> list[dict]:
+    """Over wins when the realised total exceeds the line; all lines used here are half-integers."""
     out = []
     for line in lines:
-        p_over = 1.0 - p_at_least(total, math.floor(line) + 1)
-        if abs(line - round(line)) < 1e-9:
-            p_over = 1.0 - p_at_least(total, int(round(line)) + 1)
-            p_over += 0.0
-        p_over = min(max(p_over, 0.005), 0.995)
+        p_over = sum(v for x, v in total.items() if x > line)
+        p_over = min(max(p_over, 0.002), 0.998)
         out.append(market(f"total_{line:+g}", f"Match Total {line:g} {label_unit}",
-                          [outcome(f"Over {line:g}", p_over), outcome(f"Under {line:g}", 1 - p_over)],
-                          basis))
+                          [outcome(f"Over {line:g}", p_over), outcome(f"Under {line:g}", 1 - p_over)], basis))
     return out
 
 
 def best_of(winner_name: str, loser_name: str, p_win: float, n_units: int,
             unit_name: str, handicap_lines: list[float], total_lines: list[float],
             basis: str) -> list[dict]:
-    """Best-of-N binary unit model (frames / legs / sets) from a single match-win probability.
+    """Best-of-N binary unit model (frames / legs / sets) solved from a single match-win probability.
 
-    Derives per-unit probability q from p_win by inverting the binomial tail, then prices
-    winner, unit-handicap and total-units markets.  No external data needed beyond p_win.
+    q (per-unit win probability) is found by bisection so that the binomial tail equals p_win; the
+    joint distribution over (units won, units lost) then prices the total and handicap ladders.
     """
     need = n_units // 2 + 1
 
     def win_prob(q: float) -> float:
         return sum(math.comb(n_units, k) * q**k * (1 - q) ** (n_units - k) for k in range(need, n_units + 1))
 
-    lo, hi = 0.001, 0.999
+    lo, hi = 0.0005, 0.9995
     for _ in range(80):
         mid = (lo + hi) / 2
         if win_prob(mid) < p_win:
@@ -182,44 +183,42 @@ def best_of(winner_name: str, loser_name: str, p_win: float, n_units: int,
             hi = mid
     q = (lo + hi) / 2
 
-    markets = [market("match_winner", f"Match Winner (best of {n_units} {unit_name}s)",
+    markets = [market("match_winner", f"Match Winner (best of {n_units} {unit_name.lower()}s)",
                       [outcome(winner_name, p_win), outcome(loser_name, 1 - p_win)], basis)]
 
-    # distribution of total units played
-    tot: dict[int, float] = {}
+    # joint distribution of (winner units, loser units) for a completed match
+    joint: dict[tuple[int, int], float] = {}
     for w in range(need, n_units + 1):
         for l in range(0, need):
-            if max(w, l) < need or (w < need and l < need):
-                continue
             if not (w == need or l == need):
                 continue
             games = w + l
-            p = (math.comb(games - 1, w - 1) * q**w * (1 - q) ** l if w == need
-                 else math.comb(games - 1, l - 1) * (1 - q) ** l * q**w)
-            tot[games] = tot.get(games, 0.0) + p
-    s = sum(tot.values())
-    tot = {k: v / s for k, v in tot.items()}
+            if w == need:
+                prob = math.comb(games - 1, w - 1) * q**w * (1 - q) ** l
+            else:
+                prob = math.comb(games - 1, l - 1) * (1 - q) ** l * q**w
+            joint[(w, l)] = joint.get((w, l), 0.0) + prob
+    norm = sum(joint.values())
+    joint = {k: v / norm for k, v in joint.items()}
+
+    tot: dict[int, float] = {}
+    for (w, l), pr in joint.items():
+        tot[w + l] = tot.get(w + l, 0.0) + pr
 
     for line in total_lines:
-        p_over = 1.0 - p_at_least(tot, math.floor(line) + 1)
-        p_over = min(max(p_over, 0.005), 0.995)
+        p_over = sum(v for games, v in tot.items() if games > line)
+        p_over = min(max(p_over, 0.002), 0.998)
         markets.append(market(f"total_{line:+g}", f"Total {unit_name}s {line:g}",
                               [outcome(f"Over {line:g} {unit_name}s", p_over),
                                outcome(f"Under {line:g} {unit_name}s", 1 - p_over)], basis))
 
     for line in handicap_lines:
-        # P(winner wins by strictly more than line units)
-        p_cov = 0.0
-        for games, p in tot.items():
-            won = need
-            lost = games - need
-            if won - lost > line:
-                p_cov += p * ((q**need * (1 - q) ** lost * math.comb(games - 1, need - 1)) /
-                              max(p, 1e-12))
-        p_cov = min(max(p_cov, 0.005), 0.995)
-        markets.append(market(f"handicap_{line:+g}", f"{winner_name} {-line:+g} {unit_name} handicap",
-                              [outcome(f"{winner_name} {-line:+g} {unit_name}s", p_cov),
-                               outcome(f"{loser_name} {line:+g} {unit_name}s", 1 - p_cov)], basis))
+        # winner gives `line` units: covers when (w - l) > -line
+        p_cov = sum(pr for (w, l), pr in joint.items() if (w - l) > -line)
+        p_cov = min(max(p_cov, 0.002), 0.998)
+        markets.append(market(f"handicap_{line:+g}", f"{winner_name} {line:+g} {unit_name} handicap",
+                              [outcome(f"{winner_name} {line:+g} {unit_name}s", p_cov),
+                               outcome(f"{loser_name} {-line:+g} {unit_name}s", 1 - p_cov)], basis))
     return markets
 
 
@@ -228,6 +227,15 @@ def grade(p: float, american: int) -> str:
     if p >= HIGH_P_FLOOR and in_window(american):
         return "High"
     if p >= 0.55 and in_window(american):
+        return "Medium"
+    return "Low"
+
+
+def grade_prob(p: float) -> str:
+    """Confidence in the outright call itself, independent of the price window."""
+    if p >= HIGH_P_FLOOR:
+        return "High"
+    if p >= 0.55:
         return "Medium"
     return "Low"
 
@@ -284,6 +292,6 @@ def winner_pick(markets: list[dict]) -> dict | None:
                 "selection": o["selection"],
                 "fair_prob": o["fair_prob"],
                 "fair_american_str": o["fair_american_str"],
-                "confidence": grade(o["fair_prob"], o["fair_american"]),
+                "confidence": grade_prob(o["fair_prob"]),
             }
     return None

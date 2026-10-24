@@ -9,7 +9,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "session-edffdbc6"
-NOW = datetime.now(timezone.utc)
+def _capture_time() -> datetime:
+    stamps = sorted(p for p in (ROOT / "data" / "session-edffdbc6" / "capture").glob("*/manifest.json"))
+    if stamps:
+        m = json.loads(stamps[-1].read_text(encoding="utf-8"))
+        return datetime.fromisoformat(m["started_utc"].replace("Z", "+00:00"))
+    return datetime.now(timezone.utc)
+
+
+NOW = _capture_time()
 
 SPORT_LABEL = {
     "olbg_golf": "Golf", "olbg_volleyball": "Volleyball", "olbg_rugby_union": "Rugby Union",

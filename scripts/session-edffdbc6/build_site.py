@@ -21,7 +21,15 @@ SPORTS = ["Golf", "Volleyball", "Rugby Union", "Cricket", "Snooker", "Darts", "B
           "Basketball", "Rugby League"]
 SLUG = {s: s.lower().replace(" ", "-") for s in SPORTS}
 
-NOW = datetime.now(timezone.utc)
+def _capture_time() -> datetime:
+    stamps = sorted((ROOT / "data" / "session-edffdbc6" / "capture").glob("*/manifest.json"))
+    if stamps:
+        m = json.loads(stamps[-1].read_text(encoding="utf-8"))
+        return datetime.fromisoformat(m["started_utc"].replace("Z", "+00:00"))
+    return datetime.now(timezone.utc)
+
+
+NOW = _capture_time()
 
 
 def esc(x) -> str:

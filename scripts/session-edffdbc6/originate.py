@@ -71,8 +71,8 @@ def poisson_engine(f: dict) -> tuple[list[dict], list[str]]:
         rs_a, ra_a = (a.get("runsScored") or 0) / max(a["w"] + a["l"], 1), (a.get("runsAllowed") or 0) / max(a["w"] + a["l"], 1)
         lam_h = max(2.8, min(6.6, 0.5 * (rs_h + ra_a) + 0.15))
         lam_a = max(2.6, min(6.4, 0.5 * (rs_a + ra_h) - 0.05))
-        hcap = [-1.5, +1.5]
-        totals = [7.5, 8.5, 9.5, 10.5]
+        hcap = [-0.5, -1.5, -2.5, -3.5, +1.5, +2.5]
+        totals = [6.5, 7.5, 8.5, 9.5, 10.5]
         unit = "runs"
 
     ph, pa = M.poisson_pmf(lam_h), M.poisson_pmf(lam_a)
@@ -156,27 +156,35 @@ def normal_engine(f: dict) -> tuple[list[dict], list[str]]:
 
 def tennis_engine(f: dict) -> tuple[list[dict], list[str]]:
     h, a = f["stats"]["home"], f["stats"]["away"]
-    rh, ra = h.get("rank") or 120, a.get("rank") or 120
-    # Elo-free ranking model: probability from the log-ratio of official WTA singles rankings
-    z = 0.42 * (__import__("math").log(max(ra, 1)) - __import__("math").log(max(rh, 1)))
-    p_home = 1.0 / (1.0 + __import__("math").exp(-z))
+
+    def proxy(st: dict) -> tuple[int, str]:
+        seed = str(st.get("seed") or "").strip()
+        if seed.isdigit():
+            return int(seed), f"seed {seed}"
+        return 40, "unseeded"
+
+    sa, why_a = proxy(h)
+    sb, why_b = proxy(a)
+    z = 0.55 * (math.log(sb) - math.log(sa))
+    p_home = 1.0 / (1.0 + math.exp(-z))
     p_home = min(max(p_home, 0.08), 0.92)
     markets = [M.market("match_winner", "Match Winner (best of 3 sets)",
                         [M.outcome(f["home"], p_home), M.outcome(f["away"], 1 - p_home)],
-                        f"Official WTA ranking model: #{rh} vs #{ra}")]
-    markets += M.best_of(f["home"], f["away"], p_home, 3, "Set", [-1.5], [2.5],
-                         "Binomial set model inverted from the ranking probability")
+                        f"Official draw strength model: {f['home']} {why_a} vs {f['away']} {why_b}")]
+    markets += M.best_of(f["home"], f["away"], p_home, 3, "Set", [1.5], [2.5, 3.5],
+                         "Binomial set model inverted from the draw-strength probability")
     # exact set score
-    q_ = (p_home + 0.5 * 0)  # placeholder to keep the market sum exact below
-    p20 = p_home * p_home
-    p21 = p_home * (1 - p_home) * 2 * 0.5
-    p02 = (1 - p_home) ** 2
-    p12 = (1 - p_home) * p_home * 2 * 0.5
+    q = min(max(p_home, 0.02), 0.98)
+    p20 = q * q
+    p21 = 2 * q * (1 - q) * q
+    p12 = 2 * q * (1 - q) * (1 - q)
+    p02 = (1 - q) ** 2
+    tot = p20 + p21 + p12 + p02
     markets.append(M.market("set_score", "Exact Set Score",
-                            [M.outcome(f"{f['home']} 2-0", p20), M.outcome(f"{f['home']} 2-1", p21),
-                             M.outcome(f"{f['away']} 2-1", p12), M.outcome(f"{f['away']} 2-0", p02)],
-                            "Set-score tree from the same ranking probability"))
-    return markets, [f"official WTA singles ranks: {f['home']} #{rh}, {f['away']} #{ra}"]
+                            [M.outcome(f"{f['home']} 2-0", p20 / tot), M.outcome(f"{f['home']} 2-1", p21 / tot),
+                             M.outcome(f"{f['away']} 2-1", p12 / tot), M.outcome(f"{f['away']} 2-0", p02 / tot)],
+                            "Set-score tree from the same draw-strength probability"))
+    return markets, [f"official draw position: {f['home']} {why_a}, {f['away']} {why_b}"]
 
 
 def bestof_engine(f: dict) -> tuple[list[dict], list[str]]:
@@ -259,6 +267,14 @@ def originate(f: dict) -> dict | None:
     markets, facts = eng(f)
     if not markets:
         return None
+    # a market key may only appear once per fixture (the winner market is authored by the engine)
+    seen_keys, deduped = set(), []
+    for m in markets:
+        if m["market_key"] in seen_keys:
+            continue
+        seen_keys.add(m["market_key"])
+        deduped.append(m)
+    markets = deduped
     pick = M.choose_pick(markets)
     winner = M.winner_pick(markets)
     investigated = sorted({m["market_key"].split("_")[0] for m in markets})

@@ -1,6 +1,6 @@
 {
  "schema": "olbg4.board-zz.flagged/1",
- "generated_utc": "2026-10-24T17:19:05Z",
+ "generated_utc": "2026-10-24T17:15:32Z",
  "items": [
   {
    "id": "ZZ-F01",
@@ -192,17 +192,66 @@
    "url": "https://www.motogp.com/en/events/australia/2026"
   },
   {
-   "id": "ZZ-HIGH-BASEBALL",
-   "severity": "coverage",
-   "item": "Baseball: 0 High picks (brief target 5 per sport)",
-   "detail": "6 fixtures priced, but only 0 landed in the 70.00\u201371.43% band that satisfies both of the brief's High tests. The rest are Medium/Low and receive no written prediction.",
-   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
+   "id": "ZZ-CAP-nba_schedule_league_v2",
+   "severity": "capture",
+   "item": "Basketball target nba_schedule_league_v2 returned 403",
+   "detail": "HTTPError 403 \u2014 https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
+   "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"
+  },
+  {
+   "id": "ZZ-CAP-nba_data_season_schedule",
+   "severity": "capture",
+   "item": "Basketball target nba_data_season_schedule returned 403",
+   "detail": "HTTPError 403 \u2014 https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2026/league/season_schedule.json",
+   "url": "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2026/league/season_schedule.json"
+  },
+  {
+   "id": "ZZ-CAP-nba_stats_team_dashboard",
+   "severity": "capture",
+   "item": "Basketball target nba_stats_team_dashboard returned 0",
+   "detail": "TimeoutError: The read operation timed out \u2014 https://stats.nba.com/stats/leaguedashteamstats?LeagueID=00&PerMode=PerGame&Season=2026-27&SeasonType=Regular+Season&MeasureType=Base",
+   "url": "https://stats.nba.com/stats/leaguedashteamstats?LeagueID=00&PerMode=PerGame&Season=2026-27&SeasonType=Regular+Season&MeasureType=Base"
+  },
+  {
+   "id": "ZZ-CAP-urc_fixtures_alt1",
+   "severity": "capture",
+   "item": "Rugby Union target urc_fixtures_alt1 returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.unitedrugby.com/fixtures",
+   "url": "https://www.unitedrugby.com/fixtures"
+  },
+  {
+   "id": "ZZ-CAP-icc_matches",
+   "severity": "capture",
+   "item": "Cricket target icc_matches returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.icc-cricket.com/matches",
+   "url": "https://www.icc-cricket.com/matches"
+  },
+  {
+   "id": "ZZ-CAP-icc_wt20_schedule",
+   "severity": "capture",
+   "item": "Cricket target icc_wt20_schedule returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/schedule",
+   "url": "https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/schedule"
+  },
+  {
+   "id": "ZZ-CAP-snooker_api_events",
+   "severity": "capture",
+   "item": "Snooker target snooker_api_events returned 403",
+   "detail": "HTTPError 403 \u2014 https://api.snooker.org/?t=5&s=2026",
+   "url": "https://api.snooker.org/?t=5&s=2026"
   },
   {
    "id": "ZZ-HIGH-RUGBYUNION",
    "severity": "coverage",
    "item": "Rugby Union: 2 High picks (brief target 5 per sport)",
    "detail": "2 fixtures priced, but only 2 landed in the 70.00\u201371.43% band that satisfies both of the brief's High tests. The rest are Medium/Low and receive no written prediction.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
+  },
+  {
+   "id": "ZZ-HIGH-TENNIS",
+   "severity": "coverage",
+   "item": "Tennis: 4 High picks (brief target 5 per sport)",
+   "detail": "16 fixtures priced, but only 4 landed in the 70.00\u201371.43% band that satisfies both of the brief's High tests. The rest are Medium/Low and receive no written prediction.",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
   },
   {
@@ -213,59 +262,101 @@
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
   },
   {
+   "id": "ZZ-PRED-ZZ-IH-NHL-2026020180",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-IH-NHL-2026020180",
+   "detail": "same home side as a prediction already written \u2014 one prediction per side per sport keeps the copy distinct",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-IH-NHL-2026020183",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-IH-NHL-2026020183",
+   "detail": "High row beyond the five-per-sport prediction quota (9 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
    "id": "ZZ-PRED-ZZ-IH-NHL-2026020169",
    "severity": "note",
    "item": "High row without a prediction: ZZ-IH-NHL-2026020169",
-   "detail": "High row beyond the five-per-sport prediction quota (8 High rows)",
+   "detail": "High row beyond the five-per-sport prediction quota (9 High rows)",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
   },
   {
    "id": "ZZ-PRED-ZZ-IH-NHL-2026020181",
    "severity": "note",
    "item": "High row without a prediction: ZZ-IH-NHL-2026020181",
-   "detail": "High row beyond the five-per-sport prediction quota (8 High rows)",
+   "detail": "High row beyond the five-per-sport prediction quota (9 High rows)",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
   },
   {
    "id": "ZZ-PRED-ZZ-IH-NHL-2026020189",
    "severity": "note",
    "item": "High row without a prediction: ZZ-IH-NHL-2026020189",
-   "detail": "High row beyond the five-per-sport prediction quota (8 High rows)",
+   "detail": "High row beyond the five-per-sport prediction quota (9 High rows)",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
   },
   {
-   "id": "ZZ-PRED-ZZ-BB-EL-84",
+   "id": "ZZ-PRED-ZZ-BB-MLB-849803",
    "severity": "note",
-   "item": "High row without a prediction: ZZ-BB-EL-84",
-   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "item": "High row without a prediction: ZZ-BB-MLB-849803",
+   "detail": "same two sides as a prediction already written \u2014 one unique prediction per matchup",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-MLB-849799",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-MLB-849799",
+   "detail": "same two sides as a prediction already written \u2014 one unique prediction per matchup",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-MLB-849801",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-MLB-849801",
+   "detail": "same two sides as a prediction already written \u2014 one unique prediction per matchup",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-MLB-849800",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-MLB-849800",
+   "detail": "same two sides as a prediction already written \u2014 one unique prediction per matchup",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-EL-81",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-EL-81",
+   "detail": "same home side as a prediction already written \u2014 one prediction per side per sport keeps the copy distinct",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
   },
   {
    "id": "ZZ-PRED-ZZ-BB-EL-77",
    "severity": "note",
    "item": "High row without a prediction: ZZ-BB-EL-77",
-   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "detail": "High row beyond the five-per-sport prediction quota (9 High rows)",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
   },
   {
    "id": "ZZ-PRED-ZZ-BB-EL-85",
    "severity": "note",
    "item": "High row without a prediction: ZZ-BB-EL-85",
-   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "detail": "High row beyond the five-per-sport prediction quota (9 High rows)",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
   },
   {
    "id": "ZZ-PRED-ZZ-BB-EL-82",
    "severity": "note",
    "item": "High row without a prediction: ZZ-BB-EL-82",
-   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "detail": "High row beyond the five-per-sport prediction quota (9 High rows)",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
   },
   {
    "id": "ZZ-PRED-ZZ-BB-EL-83",
    "severity": "note",
    "item": "High row without a prediction: ZZ-BB-EL-83",
-   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "detail": "High row beyond the five-per-sport prediction quota (9 High rows)",
    "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
   },
   {

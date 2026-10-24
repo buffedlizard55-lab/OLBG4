@@ -25,7 +25,15 @@ ROOT = Path(__file__).resolve().parents[2]
 CAP_ROOT = ROOT / "data" / "session-edffdbc6" / "capture"
 OUT = ROOT / "data" / "session-edffdbc6" / "fixtures.json"
 
-CUTOFF = datetime.now(timezone.utc).replace(microsecond=0)
+def _manifest_cutoff() -> datetime:
+    stamps = sorted(p for p in CAP_ROOT.glob("*") if (p / "manifest.json").exists())
+    if stamps:
+        m = json.loads((stamps[-1] / "manifest.json").read_text(encoding="utf-8"))
+        return datetime.fromisoformat(m["started_utc"].replace("Z", "+00:00"))
+    return datetime.now(timezone.utc).replace(microsecond=0)
+
+
+CUTOFF = _manifest_cutoff()
 
 
 def latest_capture() -> tuple[Path, dict]:
@@ -282,8 +290,9 @@ def parse_mlb(cap: Capture, fixtures: list[dict]) -> None:
             fixtures.append({
                 "id": f"ZZ-BB-MLB-{pk}",
                 "sport": "Baseball",
-                "competition": f"MLB {g.get('gameType', '')}".strip() + " — " + (g.get("seriesDescription") or "Postseason"),
-                "stage": g.get("seriesGameNumber") and f"Game {g.get('seriesGameNumber')}" or "",
+                "competition": "MLB World Series 2026" if g.get("gameType") == "W" else
+                               f"MLB {g.get('gameType', '')} ({g.get('seriesDescription') or 'Postseason'})",
+                "stage": (f"Game {g.get('seriesGameNumber')}" if g.get("seriesGameNumber") else ""),
                 "home": hn,
                 "away": an,
                 "start_utc": sdt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -775,6 +784,13 @@ def main() -> int:
     parse_top14(cap, fixtures)
     parse_motogp(cap, fixtures)
     parse_gaa(cap, fixtures)
+    horizon = CUTOFF + timedelta(days=int(__import__("os").environ.get("ZZ_HORIZON_DAYS", "9")))
+    kept = []
+    for f in fixtures:
+        start = datetime.fromisoformat(f["start_utc"].replace("Z", "+00:00"))
+        if CUTOFF < start <= horizon:
+            kept.append(f)
+    fixtures = kept
     by_sport: dict[str, int] = {}
     for f in fixtures:
         by_sport[f["sport"]] = by_sport.get(f["sport"], 0) + 1
