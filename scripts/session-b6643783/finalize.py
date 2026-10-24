@@ -13,6 +13,7 @@ from __future__ import annotations
 import glob
 import json
 import os
+import tempfile
 import re
 import sys
 from datetime import datetime, timezone
@@ -124,7 +125,7 @@ def main() -> int:
     cap = P.Capture(cap_dir)
     manifest = cap.manifest
 
-    tmp_desk = os.path.join(DATA, "_originated.json")
+    tmp_desk = os.path.join(tempfile.gettempdir(), "ca_originated.json")
     os.system(f'python3 "{os.path.join(HERE, "originate.py")}" "{cap_dir}" "{tmp_desk}" > /dev/null')
     doc = json.load(open(tmp_desk, encoding="utf-8"))
 
