@@ -787,7 +787,7 @@ blank cell: each item says what is missing and where to check.</p>
 <p>A −250 price implies 71.43%. "High confidence" is defined as 70% or better. So a pick that is
 both High and inside −250…+10,000 must have a true probability between 70.0% and 71.4%. Today
 {len(highs)} picks clear 70% and {len(high_in)} sit inside the band; {len(highs)-len(high_in)}
-sitre shorter than −250 and are labelled on <a href="picks.html">Picks</a> rather than relabelled.
+sit shorter than −250 and are labelled on <a href="picks.html">Picks</a> rather than relabelled.
 Manual review: compare any row's percentage with the American conversion on
 <a href="methodology.html">Method</a>.</p></div>
 
