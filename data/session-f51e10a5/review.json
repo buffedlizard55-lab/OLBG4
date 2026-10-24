@@ -3,11 +3,11 @@
  "findings": [
   {
    "area": "Desk",
-   "detail": "Each was captured on an official source but lacks the input its sport's model needs. The reason is printed in the row's own flags. They are left blank rather than guessed: Cricket 14, Rugby League 2, Snooker 30, Tennis 5, Volleyball 20",
+   "detail": "Each was captured on an official source but lacks the input its sport's model needs. The reason is printed in the row's own flags. They are left blank rather than guessed: Cricket 14, Rugby League 2, Snooker 9, Tennis 5, Volleyball 20",
    "id": "FI-F01",
    "severity": "low",
    "sources": [],
-   "title": "71 captured fixtures are published without a price",
+   "title": "50 captured fixtures are published without a price",
    "where": "data/session-f51e10a5/desk.json"
   },
   {
@@ -26,11 +26,11 @@
   },
   {
    "area": "Confidence",
-   "detail": "A ranking-only, seed-only, result-only or thin sample cannot support High however large the probability looks. Caps by sport: Basketball 8, Darts 2, Handball 9, Ice Hockey 132, Motor Racing 7, Rugby League 7, Rugby Union 8, Snooker 3, Tennis 11",
+   "detail": "A ranking-only, seed-only, result-only or thin sample cannot support High however large the probability looks. Caps by sport: Basketball 8, Darts 2, Handball 9, Ice Hockey 132, Motor Racing 7, Rugby League 7, Rugby Union 8, Snooker 1, Tennis 11",
    "id": "FI-F04",
    "severity": "low",
    "sources": [],
-   "title": "187 picks are capped below High by their sport's own rule",
+   "title": "185 picks are capped below High by their sport's own rule",
    "where": "data/session-f51e10a5/desk.json"
   },
   {
@@ -121,11 +121,11 @@
     "https://api.wtatennis.com/tennis/players/rankings/singles?page=0&pageSize=200",
     "https://www.atptour.com/en/rankings/singles?rankRange=1-100"
    ],
-   "title": "45 official endpoints failed during the capture",
+   "title": "66 official endpoints failed during the capture",
    "where": "data/session-f51e10a5/capture"
   }
  ],
- "generated_utc": "2026-10-24T22:49:43Z",
+ "generated_utc": "2026-10-24T22:51:15Z",
  "schema": "fi-review-1",
  "session": "arena/f51e10a5-olbg4"
 }

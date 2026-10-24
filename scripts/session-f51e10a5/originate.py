@@ -928,7 +928,7 @@ def main():
         "summary": summarise(rows),
     }
     json.dump(doc, open(out_path, "w"), indent=1, sort_keys=True)
-    print("late repairs:", json.dumps(info))
+    print("late repairs:", json.dumps({k: (len(v) if isinstance(v, list) else v) for k, v in info.items()}))
     print(json.dumps(doc["summary"], indent=1))
     print("rows", len(rows), "priced", sum(1 for r in rows if r.get("pick")))
 
@@ -1022,26 +1022,42 @@ def build_tennis_seeds(cap: P.Capture, rows):
 
 # -------------------------------------------------------------------- darts
 def _pdc_ranks(cap: P.Capture) -> dict:
-    for tid in ("pdc_rank_1y", "pdc_players"):
+    """Official PDC ranking positions (two-year World Rankings, then ProTour)."""
+    for tid in ("pdc_rank_2y", "pdc_rank_1y"):
         if not cap.exists(tid):
             continue
         try:
-            data = cap.json(tid)
+            doc = cap.json(tid)
         except Exception:
             continue
+        data = doc.get("data")
         out = {}
-        for p in data.get("data", []):
-            a = p.get("attributes", {})
-            name = (a.get("name") or f"{a.get('firstName','')} {a.get('lastName','')}".strip()).strip()
-            pos = a.get("ranking") or a.get("position") or a.get("rank")
-            try:
-                pos = int(pos)
-            except (TypeError, ValueError):
-                continue
-            if name and pos:
-                out[name.lower()] = pos
+        if isinstance(data, dict):
+            for pos in (data.get("attributes") or {}).get("positions") or []:
+                part = pos.get("participant") or {}
+                nm = ((part.get("firstName") or "") + " " + (part.get("lastName") or "")).strip()
+                if nm and pos.get("position"):
+                    out[nm.lower()] = int(pos["position"])
+        elif isinstance(data, list):
+            for p in data:
+                a = p.get("attributes", {}) or {}
+                nm = (a.get("name") or ((a.get("firstName") or "") + " " + (a.get("lastName") or "")).strip()).strip()
+                pos = a.get("ranking") or a.get("position")
+                if nm and pos:
+                    out[nm.lower()] = int(pos)
         if out:
             return out
+    if cap.exists("pdc_players"):
+        try:
+            out = {}
+            for p in cap.json("pdc_players").get("data", []):
+                a = p.get("attributes", {}) or {}
+                nm = ((a.get("firstName") or "") + " " + (a.get("lastName") or "")).strip()
+                if nm and a.get("ranking"):
+                    out[nm.lower()] = int(a["ranking"])
+            return out
+        except Exception:
+            return {}
     return {}
 
 
@@ -1935,6 +1951,75 @@ def _elo_snooker_row(rows, f, ra, rb, sa, sb, bo, sample_note):
     rows.append(row)
 
 
+def _wst_ranks(cap: P.Capture) -> dict:
+    """Official World Rankings positions from the WST ranking API (top 100)."""
+    for tid in ("wst_rank_api", "wst_rankings_api", "wst_rankings"):
+        if not cap.exists(tid):
+            continue
+        try:
+            doc = cap.json(tid)
+        except Exception:
+            continue
+        ranks = {}
+        for block in doc.get("data", []):
+            a = block.get("attributes", {}) or {}
+            if a.get("rankingType") not in ("livePrizeMoney", "prizeMoney"):
+                continue
+            for pos in a.get("positions") or []:
+                pl = pos.get("player") or {}
+                nm = ((pl.get("firstName") or "") + " " + (pl.get("surname") or "")).strip()
+                if nm and pos.get("position") and nm not in ranks:
+                    ranks[nm] = int(pos["position"])
+        if ranks:
+            return ranks
+    return {}
+
+
+def build_snooker_ranks(cap: P.Capture, rows) -> int:
+    ranks = _wst_ranks(cap)
+    if not ranks:
+        return 0
+    priced = 0
+    for f in P.read_wst(cap)[0]:
+        if not in_window(f["start_utc"]):
+            continue
+        a, b = f["side_a"], f["side_b"]
+        ra, rb = ranks.get(a), ranks.get(b)
+        if not ra or not rb:
+            continue
+        row = next((r for r in rows if r["id"] == f["id"]), None)
+        if row is None or row.get("pick"):
+            continue
+        bo = int(f["extra"].get("best_of") or 7)
+        p_frame = min(0.93, max(0.07, 1 / (1 + 10 ** ((ra - rb) / 220.0))))
+        p_a = sum(math.comb(bo, k) * p_frame ** k * (1 - p_frame) ** (bo - k) for k in range(bo // 2 + 1, bo + 1))
+        p_a = min(0.95, max(0.05, p_a))
+        margins = {}
+        for k in range(bo // 2 + 1, bo + 1):
+            margins[k - (bo - k)] = margins.get(k - (bo - k), 0) + math.comb(bo, k) * p_frame ** k * (1 - p_frame) ** (bo - k)
+        markets = {
+            "match_winner": market("Match Winner", None, [(a, p_a), (b, 1 - p_a)]),
+            "handicap": market("Frame Handicap", -2.5,
+                               [(f"{a} -2.5", sum(v for k, v in margins.items() if k >= 3)),
+                                (f"{b} +2.5", sum(v for k, v in margins.items() if k < 3))]),
+        }
+        _price_existing(
+            row, p_a, p_frame, bo, markets,
+            {"world_rank_a": ra, "world_rank_b": rb, "best_of": bo,
+             "round": f["extra"].get("round"), "players_ranked": len(ranks),
+             "rank_source": "WST official World Rankings API (live prize money, two-year list)"},
+            {a: f"world rank {ra}", b: f"world rank {rb}"},
+            f"best of {bo} frames; official two-year world ranking",
+            {"name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+             "p_frame": round(p_frame, 4), "best_of": bo},
+            conf(max(p_a, 1 - p_a), "High"),
+            "p>=70% High; official two-year ranking list, in window")
+        row["flags"] = [fl for fl in row["flags"] if "completed official matches" not in fl]
+        row["flags"].append("total frames not modelled - no official frame-tempo input captured")
+        priced += 1
+    return priced
+
+
 def _price_existing(row, p_a, p_frame, bo, markets, evidence, form, sample, model, conf_label, rule):
     row["evidence"].update(evidence)
     row["form"] = form
@@ -2089,7 +2174,8 @@ def build_tennis_elo(cap: P.Capture, rows) -> int:
 def late_repairs(cap: P.Capture, rows) -> dict:
     out = {}
     out["rugby_union_rows"] = build_rugby_union_official(cap, rows)
-    out["snooker_rows"] = build_snooker_elo(cap, rows)
+    out["snooker_rank_rows"] = build_snooker_ranks(cap, rows)
+    out["snooker_elo_rows"] = build_snooker_elo(cap, rows)
     out["tennis_priced"] = build_tennis_elo(cap, rows)
     return out
 

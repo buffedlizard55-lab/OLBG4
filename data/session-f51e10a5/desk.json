@@ -1,11 +1,11 @@
 {
  "board": "FI",
- "capture": "20261024T223841Z",
+ "capture": "20261024T224435Z",
  "dropped_rows": [
   "ca_golf_Y2026016",
   "ca_gbgb_20261023"
  ],
- "generated_utc": "2026-10-24T22:49:32Z",
+ "generated_utc": "2026-10-24T22:51:12Z",
  "olbg_listings": [
   {
    "event": "Abel-Moda Brusque W vs Praia Clube W",
@@ -408,6 +408,14 @@
    "start_utc": "2026-10-25T15:00:00Z"
   },
   {
+   "event": "Bergischer HC vs HC Hamburg",
+   "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bergischer_HC_vs_HC_Hamburg/20?event_id=12087",
+   "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "reason": "OLBG lists this event but no official fixture or value was located for it in this capture",
+   "sport": "Handball",
+   "start_utc": "2026-10-25T15:30:00Z"
+  },
+  {
    "event": "BM Granollers vs Angel Ximenez Puente Genil",
    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Granollers_vs_Angel_Ximenez_Puente_Genil/20?event_id=12102",
    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
@@ -448,14 +456,6 @@
    "start_utc": "2026-10-25T15:15:00Z"
   },
   {
-   "event": "Bergischer HC vs HC Hamburg",
-   "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bergischer_HC_vs_HC_Hamburg/20?event_id=12087",
-   "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
-   "reason": "OLBG lists this event but no official fixture or value was located for it in this capture",
-   "sport": "Handball",
-   "start_utc": "2026-10-25T15:30:00Z"
-  },
-  {
    "event": "Fuchse Berlin vs HSG Wetzlar",
    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Fuchse_Berlin_vs_HSG_Wetzlar/20?event_id=12089",
    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
@@ -466,6 +466,14 @@
   {
    "event": "Follo vs Kristiansand",
    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Follo_vs_Kristiansand/20?event_id=12154",
+   "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "reason": "OLBG lists this event but no official fixture or value was located for it in this capture",
+   "sport": "Handball",
+   "start_utc": "2026-10-25T17:00:00Z"
+  },
+  {
+   "event": "Vfl Gummersbach vs SG Flensburg Handewitt",
+   "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Vfl_Gummersbach_vs_SG_Flensburg_Handewitt/20?event_id=12095",
    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
    "reason": "OLBG lists this event but no official fixture or value was located for it in this capture",
    "sport": "Handball",
@@ -510,14 +518,6 @@
    "reason": "OLBG lists this event but no official fixture or value was located for it in this capture",
    "sport": "Handball",
    "start_utc": "2026-10-25T16:30:00Z"
-  },
-  {
-   "event": "Vfl Gummersbach vs SG Flensburg Handewitt",
-   "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Vfl_Gummersbach_vs_SG_Flensburg_Handewitt/20?event_id=12095",
-   "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
-   "reason": "OLBG lists this event but no official fixture or value was located for it in this capture",
-   "sport": "Handball",
-   "start_utc": "2026-10-25T17:00:00Z"
   },
   {
    "event": "BM Torrelavega vs BM Proin",
@@ -605,7 +605,8 @@
    "Money Line": 2
   },
   "Basketball": {
-   "Money Line": 37,
+   "Game Totals": 1,
+   "Money Line": 34,
    "Pointspread": 2
   },
   "Cricket": {
@@ -631,8 +632,8 @@
    "Money Line": 36
   },
   "Ice Hockey": {
-   "Game Totals": 5,
-   "Money Line": 57,
+   "Game Totals": 4,
+   "Money Line": 58,
    "Puck Line": 2
   },
   "Rugby League": {
@@ -28778,7 +28779,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 26,
+    "world_rank_b": 39
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 11:30:00",
@@ -28788,17 +28796,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Gary Wilson": "world rank 26",
+    "Xu Si": "world rank 39"
+   },
    "id": "fx_wst_5b492339-10c7-4d2a",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -152,
+       "fair_decimal": 1.66,
+       "fair_prob": 0.6018,
+       "implied_prob_sum": 1.0,
+       "label": "Gary Wilson -2.5"
+      },
+      {
+       "fair_american": 151,
+       "fair_decimal": 2.51,
+       "fair_prob": 0.3982,
+       "implied_prob_sum": 1.0,
+       "label": "Xu Si +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -145,
+       "fair_decimal": 1.69,
+       "fair_prob": 0.5912,
+       "implied_prob_sum": 1.0,
+       "label": "Gary Wilson"
+      },
+      {
+       "fair_american": 145,
+       "fair_decimal": 2.45,
+       "fair_prob": 0.4088,
+       "implied_prob_sum": 1.0,
+       "label": "Xu Si"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.534
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -145,
+    "fair_decimal": 1.69,
+    "fair_prob": 0.5912,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Gary Wilson"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Gary Wilson",
    "side_b": "Xu Si",
    "sport": "Snooker",
@@ -28809,7 +28877,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 80,
+    "world_rank_b": 47
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 11:30:00",
@@ -28819,17 +28894,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Daniel Wells": "world rank 47",
+    "Duane Jones": "world rank 80"
+   },
    "id": "fx_wst_160d12b8-c6de-4ce4",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 136,
+       "fair_decimal": 2.36,
+       "fair_prob": 0.4231,
+       "implied_prob_sum": 1.0,
+       "label": "Duane Jones -2.5"
+      },
+      {
+       "fair_american": -137,
+       "fair_decimal": 1.73,
+       "fair_prob": 0.5769,
+       "implied_prob_sum": 1.0,
+       "label": "Daniel Wells +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 258,
+       "fair_decimal": 3.58,
+       "fair_prob": 0.2794,
+       "implied_prob_sum": 1.0,
+       "label": "Duane Jones"
+      },
+      {
+       "fair_american": -256,
+       "fair_decimal": 1.39,
+       "fair_prob": 0.7206,
+       "implied_prob_sum": 1.0,
+       "label": "Daniel Wells"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.4145
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -137,
+    "fair_decimal": 1.73,
+    "fair_prob": 0.5769,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Daniel Wells +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Duane Jones",
    "side_b": "Daniel Wells",
    "sport": "Snooker",
@@ -28840,7 +28975,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 58,
+    "world_rank_b": 11
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 11:30:00",
@@ -28850,17 +28992,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Chris Wakelin": "world rank 11",
+    "Long Zehuang": "world rank 58"
+   },
    "id": "fx_wst_8e10423b-a862-4301",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 166,
+       "fair_decimal": 2.66,
+       "fair_prob": 0.3754,
+       "implied_prob_sum": 1.0,
+       "label": "Long Zehuang -2.5"
+      },
+      {
+       "fair_american": -167,
+       "fair_decimal": 1.6,
+       "fair_prob": 0.6246,
+       "implied_prob_sum": 1.0,
+       "label": "Chris Wakelin +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 392,
+       "fair_decimal": 4.92,
+       "fair_prob": 0.2032,
+       "implied_prob_sum": 1.0,
+       "label": "Long Zehuang"
+      },
+      {
+       "fair_american": -385,
+       "fair_decimal": 1.26,
+       "fair_prob": 0.7968,
+       "implied_prob_sum": 1.0,
+       "label": "Chris Wakelin"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.3794
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -167,
+    "fair_decimal": 1.6,
+    "fair_prob": 0.6246,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Chris Wakelin +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Long Zehuang",
    "side_b": "Chris Wakelin",
    "sport": "Snooker",
@@ -28871,7 +29073,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 66,
+    "world_rank_b": 45
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 11:30:00",
@@ -28881,17 +29090,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Sam Craigie": "world rank 66",
+    "Stan Moody": "world rank 45"
+   },
    "id": "fx_wst_29c278fd-8d82-4dc6",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 114,
+       "fair_decimal": 2.14,
+       "fair_prob": 0.4668,
+       "implied_prob_sum": 1.0,
+       "label": "Sam Craigie -2.5"
+      },
+      {
+       "fair_american": -114,
+       "fair_decimal": 1.88,
+       "fair_prob": 0.5332,
+       "implied_prob_sum": 1.0,
+       "label": "Stan Moody +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 182,
+       "fair_decimal": 2.82,
+       "fair_prob": 0.3548,
+       "implied_prob_sum": 1.0,
+       "label": "Sam Craigie"
+      },
+      {
+       "fair_american": -182,
+       "fair_decimal": 1.55,
+       "fair_prob": 0.6452,
+       "implied_prob_sum": 1.0,
+       "label": "Stan Moody"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.4453
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -182,
+    "fair_decimal": 1.55,
+    "fair_prob": 0.6452,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Stan Moody"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Sam Craigie",
    "side_b": "Stan Moody",
    "sport": "Snooker",
@@ -28902,7 +29171,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 27,
+    "world_rank_b": 30
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 06:00:00",
@@ -28912,17 +29188,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Joe O'Connor": "world rank 30",
+    "Yuan Sijun": "world rank 27"
+   },
    "id": "fx_wst_de6ca981-a8c1-4856",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -128,
+       "fair_decimal": 1.78,
+       "fair_prob": 0.561,
+       "implied_prob_sum": 1.0,
+       "label": "Yuan Sijun -2.5"
+      },
+      {
+       "fair_american": 128,
+       "fair_decimal": 2.28,
+       "fair_prob": 0.439,
+       "implied_prob_sum": 1.0,
+       "label": "Joe O'Connor +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -109,
+       "fair_decimal": 1.92,
+       "fair_prob": 0.5212,
+       "implied_prob_sum": 1.0,
+       "label": "Yuan Sijun"
+      },
+      {
+       "fair_american": 109,
+       "fair_decimal": 2.09,
+       "fair_prob": 0.4788,
+       "implied_prob_sum": 1.0,
+       "label": "Joe O'Connor"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.5078
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Low",
+    "fair_american": -109,
+    "fair_decimal": 1.92,
+    "fair_prob": 0.5212,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Yuan Sijun"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Yuan Sijun",
    "side_b": "Joe O'Connor",
    "sport": "Snooker",
@@ -28933,7 +29269,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 49,
+    "world_rank_b": 38
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 06:00:00",
@@ -28943,17 +29286,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Aaron Hill": "world rank 38",
+    "Anton Kazakov": "world rank 49"
+   },
    "id": "fx_wst_d70752a7-62b0-47ab",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -102,
+       "fair_decimal": 1.98,
+       "fair_prob": 0.5052,
+       "implied_prob_sum": 1.0,
+       "label": "Anton Kazakov -2.5"
+      },
+      {
+       "fair_american": 102,
+       "fair_decimal": 2.02,
+       "fair_prob": 0.4948,
+       "implied_prob_sum": 1.0,
+       "label": "Aaron Hill +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 137,
+       "fair_decimal": 2.37,
+       "fair_prob": 0.4226,
+       "implied_prob_sum": 1.0,
+       "label": "Anton Kazakov"
+      },
+      {
+       "fair_american": -137,
+       "fair_decimal": 1.73,
+       "fair_prob": 0.5774,
+       "implied_prob_sum": 1.0,
+       "label": "Aaron Hill"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.4712
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -137,
+    "fair_decimal": 1.73,
+    "fair_prob": 0.5774,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Aaron Hill"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Anton Kazakov",
    "side_b": "Aaron Hill",
    "sport": "Snooker",
@@ -28964,7 +29367,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 23,
+    "world_rank_b": 43
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 06:00:00",
@@ -28974,17 +29384,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Luca Brecel": "world rank 43",
+    "Thepchaiya Un-Nooh": "world rank 23"
+   },
    "id": "fx_wst_47b210b6-f930-44ea",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -169,
+       "fair_decimal": 1.59,
+       "fair_prob": 0.6307,
+       "implied_prob_sum": 1.0,
+       "label": "Thepchaiya Un-Nooh -2.5"
+      },
+      {
+       "fair_american": 171,
+       "fair_decimal": 2.71,
+       "fair_prob": 0.3693,
+       "implied_prob_sum": 1.0,
+       "label": "Luca Brecel +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -175,
+       "fair_decimal": 1.57,
+       "fair_prob": 0.6386,
+       "implied_prob_sum": 1.0,
+       "label": "Thepchaiya Un-Nooh"
+      },
+      {
+       "fair_american": 177,
+       "fair_decimal": 2.77,
+       "fair_prob": 0.3614,
+       "implied_prob_sum": 1.0,
+       "label": "Luca Brecel"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.5521
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -175,
+    "fair_decimal": 1.57,
+    "fair_prob": 0.6386,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Thepchaiya Un-Nooh"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Thepchaiya Un-Nooh",
    "side_b": "Luca Brecel",
    "sport": "Snooker",
@@ -28995,7 +29465,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 9,
+    "world_rank_b": 62
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 06:00:00",
@@ -29005,17 +29482,67 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Kyren Wilson": "world rank 9",
+    "Liam Highfield": "world rank 62"
+   },
    "id": "fx_wst_72420ea6-a371-4a8c",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -323,
+       "fair_decimal": 1.31,
+       "fair_prob": 0.7624,
+       "implied_prob_sum": 1.0,
+       "label": "Kyren Wilson -2.5"
+      },
+      {
+       "fair_american": 321,
+       "fair_decimal": 4.21,
+       "fair_prob": 0.2376,
+       "implied_prob_sum": 1.0,
+       "label": "Liam Highfield +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -476,
+       "fair_decimal": 1.21,
+       "fair_prob": 0.8252,
+       "implied_prob_sum": 1.0,
+       "label": "Kyren Wilson"
+      },
+      {
+       "fair_american": 472,
+       "fair_decimal": 5.72,
+       "fair_prob": 0.1748,
+       "implied_prob_sum": 1.0,
+       "label": "Liam Highfield"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.6352
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
    "pick": null,
-   "sample": "",
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Kyren Wilson",
    "side_b": "Liam Highfield",
    "sport": "Snooker",
@@ -29026,7 +29553,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 91,
+    "world_rank_b": 21
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 01:30:00",
@@ -29036,17 +29570,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Huang Jiahao": "world rank 91",
+    "Zhang Anda": "world rank 21"
+   },
    "id": "fx_wst_77ee26cc-bb1d-417e",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 227,
+       "fair_decimal": 3.27,
+       "fair_prob": 0.3057,
+       "implied_prob_sum": 1.0,
+       "label": "Huang Jiahao -2.5"
+      },
+      {
+       "fair_american": -227,
+       "fair_decimal": 1.44,
+       "fair_prob": 0.6943,
+       "implied_prob_sum": 1.0,
+       "label": "Zhang Anda +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 814,
+       "fair_decimal": 9.14,
+       "fair_prob": 0.1094,
+       "implied_prob_sum": 1.0,
+       "label": "Huang Jiahao"
+      },
+      {
+       "fair_american": -833,
+       "fair_decimal": 1.12,
+       "fair_prob": 0.8906,
+       "implied_prob_sum": 1.0,
+       "label": "Zhang Anda"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.3246
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -227,
+    "fair_decimal": 1.44,
+    "fair_prob": 0.6943,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Zhang Anda +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Huang Jiahao",
    "side_b": "Zhang Anda",
    "sport": "Snooker",
@@ -29057,7 +29651,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 8,
+    "world_rank_b": 67
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 01:30:00",
@@ -29067,17 +29668,67 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Ishpreet Singh Chadha": "world rank 67",
+    "Mark Williams": "world rank 8"
+   },
    "id": "fx_wst_e221d1c6-fbb1-4f4b",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -370,
+       "fair_decimal": 1.27,
+       "fair_prob": 0.7845,
+       "implied_prob_sum": 1.0,
+       "label": "Mark Williams -2.5"
+      },
+      {
+       "fair_american": 364,
+       "fair_decimal": 4.64,
+       "fair_prob": 0.2155,
+       "implied_prob_sum": 1.0,
+       "label": "Ishpreet Singh Chadha +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -556,
+       "fair_decimal": 1.18,
+       "fair_prob": 0.8507,
+       "implied_prob_sum": 1.0,
+       "label": "Mark Williams"
+      },
+      {
+       "fair_american": 570,
+       "fair_decimal": 6.7,
+       "fair_prob": 0.1493,
+       "implied_prob_sum": 1.0,
+       "label": "Ishpreet Singh Chadha"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.6497
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
    "pick": null,
-   "sample": "",
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Mark Williams",
    "side_b": "Ishpreet Singh Chadha",
    "sport": "Snooker",
@@ -29088,7 +29739,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 81,
+    "world_rank_b": 19
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 01:30:00",
@@ -29098,17 +29756,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Chang Bingyu": "world rank 19",
+    "Ross Muir": "world rank 81"
+   },
    "id": "fx_wst_e32f4b41-17f4-4a22",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 204,
+       "fair_decimal": 3.04,
+       "fair_prob": 0.3287,
+       "implied_prob_sum": 1.0,
+       "label": "Ross Muir -2.5"
+      },
+      {
+       "fair_american": -204,
+       "fair_decimal": 1.49,
+       "fair_prob": 0.6713,
+       "implied_prob_sum": 1.0,
+       "label": "Chang Bingyu +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 627,
+       "fair_decimal": 7.27,
+       "fair_prob": 0.1375,
+       "implied_prob_sum": 1.0,
+       "label": "Ross Muir"
+      },
+      {
+       "fair_american": -625,
+       "fair_decimal": 1.16,
+       "fair_prob": 0.8625,
+       "implied_prob_sum": 1.0,
+       "label": "Chang Bingyu"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.3432
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -204,
+    "fair_decimal": 1.49,
+    "fair_prob": 0.6713,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Chang Bingyu +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Ross Muir",
    "side_b": "Chang Bingyu",
    "sport": "Snooker",
@@ -29119,7 +29837,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 100,
+    "world_rank_b": 97
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 01:30:00",
@@ -29129,17 +29854,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Ashley Carty": "world rank 97",
+    "Julien Leclercq": "world rank 100"
+   },
    "id": "fx_wst_ecea3fb0-fa7f-444a",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -116,
+       "fair_decimal": 1.86,
+       "fair_prob": 0.5368,
+       "implied_prob_sum": 1.0,
+       "label": "Julien Leclercq -2.5"
+      },
+      {
+       "fair_american": 116,
+       "fair_decimal": 2.16,
+       "fair_prob": 0.4632,
+       "implied_prob_sum": 1.0,
+       "label": "Ashley Carty +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 109,
+       "fair_decimal": 2.09,
+       "fair_prob": 0.4788,
+       "implied_prob_sum": 1.0,
+       "label": "Julien Leclercq"
+      },
+      {
+       "fair_american": -109,
+       "fair_decimal": 1.92,
+       "fair_prob": 0.5212,
+       "implied_prob_sum": 1.0,
+       "label": "Ashley Carty"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.4922
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Low",
+    "fair_american": -109,
+    "fair_decimal": 1.92,
+    "fair_prob": 0.5212,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Ashley Carty"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Julien Leclercq",
    "side_b": "Ashley Carty",
    "sport": "Snooker",
@@ -29150,7 +29935,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 72,
+    "world_rank_b": 56
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 01:30:00",
@@ -29160,17 +29952,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Dylan Emery": "world rank 72",
+    "Oliver Lines": "world rank 56"
+   },
    "id": "fx_wst_971a40a7-bf57-43a8",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 106,
+       "fair_decimal": 2.06,
+       "fair_prob": 0.4858,
+       "implied_prob_sum": 1.0,
+       "label": "Dylan Emery -2.5"
+      },
+      {
+       "fair_american": -106,
+       "fair_decimal": 1.94,
+       "fair_prob": 0.5142,
+       "implied_prob_sum": 1.0,
+       "label": "Oliver Lines +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 158,
+       "fair_decimal": 2.58,
+       "fair_prob": 0.3882,
+       "implied_prob_sum": 1.0,
+       "label": "Dylan Emery"
+      },
+      {
+       "fair_american": -159,
+       "fair_decimal": 1.63,
+       "fair_prob": 0.6118,
+       "implied_prob_sum": 1.0,
+       "label": "Oliver Lines"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.4582
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -159,
+    "fair_decimal": 1.63,
+    "fair_prob": 0.6118,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Oliver Lines"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Dylan Emery",
    "side_b": "Oliver Lines",
    "sport": "Snooker",
@@ -29181,7 +30033,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 6,
+    "world_rank_b": 65
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 01:30:00",
@@ -29191,17 +30050,67 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "John Higgins": "world rank 6",
+    "Lyu Haotian": "world rank 65"
+   },
    "id": "fx_wst_3b76215d-4b1b-4cf7",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -370,
+       "fair_decimal": 1.27,
+       "fair_prob": 0.7845,
+       "implied_prob_sum": 1.0,
+       "label": "John Higgins -2.5"
+      },
+      {
+       "fair_american": 364,
+       "fair_decimal": 4.64,
+       "fair_prob": 0.2155,
+       "implied_prob_sum": 1.0,
+       "label": "Lyu Haotian +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -556,
+       "fair_decimal": 1.18,
+       "fair_prob": 0.8507,
+       "implied_prob_sum": 1.0,
+       "label": "John Higgins"
+      },
+      {
+       "fair_american": 570,
+       "fair_decimal": 6.7,
+       "fair_prob": 0.1493,
+       "implied_prob_sum": 1.0,
+       "label": "Lyu Haotian"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.6497
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
    "pick": null,
-   "sample": "",
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "John Higgins",
    "side_b": "Lyu Haotian",
    "sport": "Snooker",
@@ -29212,7 +30121,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 71,
+    "world_rank_b": 20
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-11-01 01:30:00",
@@ -29222,17 +30138,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Marco Fu": "world rank 71",
+    "Stuart Bingham": "world rank 20"
+   },
    "id": "fx_wst_54156bb9-ed9f-4b9d",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 176,
+       "fair_decimal": 2.76,
+       "fair_prob": 0.3625,
+       "implied_prob_sum": 1.0,
+       "label": "Marco Fu -2.5"
+      },
+      {
+       "fair_american": -175,
+       "fair_decimal": 1.57,
+       "fair_prob": 0.6375,
+       "implied_prob_sum": 1.0,
+       "label": "Stuart Bingham +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 443,
+       "fair_decimal": 5.43,
+       "fair_prob": 0.184,
+       "implied_prob_sum": 1.0,
+       "label": "Marco Fu"
+      },
+      {
+       "fair_american": -435,
+       "fair_decimal": 1.23,
+       "fair_prob": 0.816,
+       "implied_prob_sum": 1.0,
+       "label": "Stuart Bingham"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.3696
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -175,
+    "fair_decimal": 1.57,
+    "fair_prob": 0.6375,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Stuart Bingham +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Marco Fu",
    "side_b": "Stuart Bingham",
    "sport": "Snooker",
@@ -29245,14 +30221,11 @@
    "competition": "International Championship 2026",
    "evidence": {
     "best_of": 11,
-    "elo_a": 1498.8,
-    "elo_b": 1525.4,
-    "frames_a": "9-10",
-    "frames_b": "18-10",
-    "matches_a": 3,
-    "matches_b": 4,
-    "rating_source": "Elo built from the completed matches in the WST official match feed",
-    "round": "Round 2"
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 86,
+    "world_rank_b": 22
    },
    "extra": {
     "best_of": 11,
@@ -29263,11 +30236,11 @@
     "round": "Round 2"
    },
    "flags": [
-    "rating built from this season's completed official matches, not the official two-year ranking list"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
    "form": {
-    "Jak Jones": "4 completed matches, 18-10 frames",
-    "Wang Xinbo": "3 completed matches, 9-10 frames"
+    "Jak Jones": "world rank 22",
+    "Wang Xinbo": "world rank 86"
    },
    "id": "fx_wst_531943a7-7538-4a37",
    "markets": {
@@ -29277,16 +30250,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 104,
-       "fair_decimal": 2.04,
-       "fair_prob": 0.4911,
+       "fair_american": 210,
+       "fair_decimal": 3.1,
+       "fair_prob": 0.3228,
        "implied_prob_sum": 1.0,
        "label": "Wang Xinbo -2.5"
       },
       {
-       "fair_american": -103,
-       "fair_decimal": 1.97,
-       "fair_prob": 0.5089,
+       "fair_american": -208,
+       "fair_decimal": 1.48,
+       "fair_prob": 0.6772,
        "implied_prob_sum": 1.0,
        "label": "Jak Jones +2.5"
       }
@@ -29298,16 +30271,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 152,
-       "fair_decimal": 2.52,
-       "fair_prob": 0.3975,
+       "fair_american": 669,
+       "fair_decimal": 7.69,
+       "fair_prob": 0.13,
        "implied_prob_sum": 1.0,
        "label": "Wang Xinbo"
       },
       {
-       "fair_american": -152,
-       "fair_decimal": 1.66,
-       "fair_prob": 0.6025,
+       "fair_american": -667,
+       "fair_decimal": 1.15,
+       "fair_prob": 0.87,
        "implied_prob_sum": 1.0,
        "label": "Jak Jones"
       }
@@ -29316,24 +30289,24 @@
    },
    "model": {
     "best_of": 11,
-    "name": "frame Bernoulli from Elo on official WST results, exact best-of-n",
-    "p_frame": 0.4618
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.3385
    },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
    "pick": {
-    "confidence": "Medium",
-    "fair_american": -152,
-    "fair_decimal": 1.66,
-    "fair_prob": 0.6025,
+    "confidence": "High",
+    "fair_american": -208,
+    "fair_decimal": 1.48,
+    "fair_prob": 0.6772,
     "in_window": true,
-    "market": "Match Winner",
-    "market_key": "match_winner",
-    "rule": "result-only Elo capped at Medium",
-    "selection": "Jak Jones"
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Jak Jones +2.5"
    },
-   "sample": "best of 11 frames; 93 players rated from the same feed",
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Wang Xinbo",
    "side_b": "Jak Jones",
    "sport": "Snooker",
@@ -29344,7 +30317,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 1 (Held Over)",
+    "world_rank_a": 65,
+    "world_rank_b": 2
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 11:30:00",
@@ -29354,17 +30334,77 @@
     "round": "Round 1 (Held Over)"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Hammad Miah": "world rank 65",
+    "Wu Yize": "world rank 2"
+   },
    "id": "fx_wst_7ae09004-210c-423d",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 207,
+       "fair_decimal": 3.07,
+       "fair_prob": 0.3258,
+       "implied_prob_sum": 1.0,
+       "label": "Hammad Miah -2.5"
+      },
+      {
+       "fair_american": -208,
+       "fair_decimal": 1.48,
+       "fair_prob": 0.6742,
+       "implied_prob_sum": 1.0,
+       "label": "Wu Yize +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 648,
+       "fair_decimal": 7.48,
+       "fair_prob": 0.1337,
+       "implied_prob_sum": 1.0,
+       "label": "Hammad Miah"
+      },
+      {
+       "fair_american": -667,
+       "fair_decimal": 1.15,
+       "fair_prob": 0.8663,
+       "implied_prob_sum": 1.0,
+       "label": "Wu Yize"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.3409
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -208,
+    "fair_decimal": 1.48,
+    "fair_prob": 0.6742,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Wu Yize +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Hammad Miah",
    "side_b": "Wu Yize",
    "sport": "Snooker",
@@ -29383,8 +30423,12 @@
     "frames_b": "8-13",
     "matches_a": 4,
     "matches_b": 3,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
     "rating_source": "Elo built from the completed matches in the WST official match feed",
-    "round": "Round 2"
+    "round": "Round 2",
+    "world_rank_a": 25,
+    "world_rank_b": 73
    },
    "extra": {
     "best_of": 11,
@@ -29395,6 +30439,7 @@
     "round": "Round 2"
    },
    "flags": [
+    "total frames not modelled - no official frame-tempo input captured",
     "rating built from this season's completed official matches, not the official two-year ranking list"
    ],
    "form": {
@@ -29476,7 +30521,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 1 (Held Over)",
+    "world_rank_a": 77,
+    "world_rank_b": 1
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 11:30:00",
@@ -29486,17 +30538,77 @@
     "round": "Round 1 (Held Over)"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Ian Burns": "world rank 77",
+    "Zhao Xintong": "world rank 1"
+   },
    "id": "fx_wst_c950fb6f-d196-436a",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 246,
+       "fair_decimal": 3.46,
+       "fair_prob": 0.2893,
+       "implied_prob_sum": 1.0,
+       "label": "Ian Burns -2.5"
+      },
+      {
+       "fair_american": -244,
+       "fair_decimal": 1.41,
+       "fair_prob": 0.7107,
+       "implied_prob_sum": 1.0,
+       "label": "Zhao Xintong +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 995,
+       "fair_decimal": 10.95,
+       "fair_prob": 0.0913,
+       "implied_prob_sum": 1.0,
+       "label": "Ian Burns"
+      },
+      {
+       "fair_american": -1000,
+       "fair_decimal": 1.1,
+       "fair_prob": 0.9087,
+       "implied_prob_sum": 1.0,
+       "label": "Zhao Xintong"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.311
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -244,
+    "fair_decimal": 1.41,
+    "fair_prob": 0.7107,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Zhao Xintong +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Ian Burns",
    "side_b": "Zhao Xintong",
    "sport": "Snooker",
@@ -29507,7 +30619,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 28,
+    "world_rank_b": 44
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 06:00:00",
@@ -29517,17 +30636,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Lei Peifan": "world rank 28",
+    "Ryan Day": "world rank 44"
+   },
    "id": "fx_wst_e07df2ae-6e15-476f",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -159,
+       "fair_decimal": 1.63,
+       "fair_prob": 0.6142,
+       "implied_prob_sum": 1.0,
+       "label": "Lei Peifan -2.5"
+      },
+      {
+       "fair_american": 159,
+       "fair_decimal": 2.59,
+       "fair_prob": 0.3858,
+       "implied_prob_sum": 1.0,
+       "label": "Ryan Day +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -159,
+       "fair_decimal": 1.63,
+       "fair_prob": 0.6118,
+       "implied_prob_sum": 1.0,
+       "label": "Lei Peifan"
+      },
+      {
+       "fair_american": 158,
+       "fair_decimal": 2.58,
+       "fair_prob": 0.3882,
+       "implied_prob_sum": 1.0,
+       "label": "Ryan Day"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.5418
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -159,
+    "fair_decimal": 1.63,
+    "fair_prob": 0.6118,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Lei Peifan"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Lei Peifan",
    "side_b": "Ryan Day",
    "sport": "Snooker",
@@ -29538,7 +30717,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 63,
+    "world_rank_b": 3
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 06:00:00",
@@ -29548,17 +30734,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Jiang Jun": "world rank 63",
+    "Neil Robertson": "world rank 3"
+   },
    "id": "fx_wst_191ca229-b4e6-443a",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 199,
+       "fair_decimal": 2.99,
+       "fair_prob": 0.3347,
+       "implied_prob_sum": 1.0,
+       "label": "Jiang Jun -2.5"
+      },
+      {
+       "fair_american": -200,
+       "fair_decimal": 1.5,
+       "fair_prob": 0.6653,
+       "implied_prob_sum": 1.0,
+       "label": "Neil Robertson +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 588,
+       "fair_decimal": 6.88,
+       "fair_prob": 0.1453,
+       "implied_prob_sum": 1.0,
+       "label": "Jiang Jun"
+      },
+      {
+       "fair_american": -588,
+       "fair_decimal": 1.17,
+       "fair_prob": 0.8547,
+       "implied_prob_sum": 1.0,
+       "label": "Neil Robertson"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.348
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -200,
+    "fair_decimal": 1.5,
+    "fair_prob": 0.6653,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Neil Robertson +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Jiang Jun",
    "side_b": "Neil Robertson",
    "sport": "Snooker",
@@ -29571,14 +30817,11 @@
    "competition": "International Championship 2026",
    "evidence": {
     "best_of": 11,
-    "elo_a": 1503.1,
-    "elo_b": 1489.5,
-    "frames_a": "22-21",
-    "frames_b": "9-12",
-    "matches_a": 6,
-    "matches_b": 3,
-    "rating_source": "Elo built from the completed matches in the WST official match feed",
-    "round": "Round 2"
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 50,
+    "world_rank_b": 10
    },
    "extra": {
     "best_of": 11,
@@ -29589,11 +30832,11 @@
     "round": "Round 2"
    },
    "flags": [
-    "rating built from this season's completed official matches, not the official two-year ranking list"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
    "form": {
-    "Barry Hawkins": "3 completed matches, 9-12 frames",
-    "Ricky Walden": "6 completed matches, 22-21 frames"
+    "Barry Hawkins": "world rank 10",
+    "Ricky Walden": "world rank 50"
    },
    "id": "fx_wst_1cde4a86-f96b-4426",
    "markets": {
@@ -29603,16 +30846,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -137,
-       "fair_decimal": 1.73,
-       "fair_prob": 0.5792,
+       "fair_american": 151,
+       "fair_decimal": 2.51,
+       "fair_prob": 0.3987,
        "implied_prob_sum": 1.0,
        "label": "Ricky Walden -2.5"
       },
       {
-       "fair_american": 138,
-       "fair_decimal": 2.38,
-       "fair_prob": 0.4208,
+       "fair_american": -152,
+       "fair_decimal": 1.66,
+       "fair_prob": 0.6013,
        "implied_prob_sum": 1.0,
        "label": "Barry Hawkins +2.5"
       }
@@ -29624,16 +30867,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -123,
-       "fair_decimal": 1.81,
-       "fair_prob": 0.5529,
+       "fair_american": 317,
+       "fair_decimal": 4.17,
+       "fair_prob": 0.2396,
        "implied_prob_sum": 1.0,
        "label": "Ricky Walden"
       },
       {
-       "fair_american": 124,
-       "fair_decimal": 2.24,
-       "fair_prob": 0.4471,
+       "fair_american": -312,
+       "fair_decimal": 1.32,
+       "fair_prob": 0.7604,
        "implied_prob_sum": 1.0,
        "label": "Barry Hawkins"
       }
@@ -29642,24 +30885,24 @@
    },
    "model": {
     "best_of": 11,
-    "name": "frame Bernoulli from Elo on official WST results, exact best-of-n",
-    "p_frame": 0.5196
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.3968
    },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
    "pick": {
-    "confidence": "Medium",
-    "fair_american": -123,
-    "fair_decimal": 1.81,
-    "fair_prob": 0.5529,
+    "confidence": "High",
+    "fair_american": -152,
+    "fair_decimal": 1.66,
+    "fair_prob": 0.6013,
     "in_window": true,
-    "market": "Match Winner",
-    "market_key": "match_winner",
-    "rule": "result-only Elo capped at Medium",
-    "selection": "Ricky Walden"
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Barry Hawkins +2.5"
    },
-   "sample": "best of 11 frames; 93 players rated from the same feed",
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Ricky Walden",
    "side_b": "Barry Hawkins",
    "sport": "Snooker",
@@ -29670,7 +30913,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 76,
+    "world_rank_b": 52
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 06:00:00",
@@ -29680,17 +30930,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Ben Woollaston": "world rank 52",
+    "Yao Pengcheng": "world rank 76"
+   },
    "id": "fx_wst_44c42b0a-df6c-4fbe",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 119,
+       "fair_decimal": 2.19,
+       "fair_prob": 0.4557,
+       "implied_prob_sum": 1.0,
+       "label": "Yao Pengcheng -2.5"
+      },
+      {
+       "fair_american": -119,
+       "fair_decimal": 1.84,
+       "fair_prob": 0.5443,
+       "implied_prob_sum": 1.0,
+       "label": "Ben Woollaston +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 198,
+       "fair_decimal": 2.98,
+       "fair_prob": 0.3352,
+       "implied_prob_sum": 1.0,
+       "label": "Yao Pengcheng"
+      },
+      {
+       "fair_american": -200,
+       "fair_decimal": 1.5,
+       "fair_prob": 0.6648,
+       "implied_prob_sum": 1.0,
+       "label": "Ben Woollaston"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.4375
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -200,
+    "fair_decimal": 1.5,
+    "fair_prob": 0.6648,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Ben Woollaston"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Yao Pengcheng",
    "side_b": "Ben Woollaston",
    "sport": "Snooker",
@@ -29701,7 +31011,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 32,
+    "world_rank_b": 49
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 06:00:00",
@@ -29711,17 +31028,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Hossein Vafaei": "world rank 32",
+    "Stuart Carrington": "world rank 49"
+   },
    "id": "fx_wst_cd7f21b3-3e1d-442d",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -161,
+       "fair_decimal": 1.62,
+       "fair_prob": 0.6183,
+       "implied_prob_sum": 1.0,
+       "label": "Hossein Vafaei -2.5"
+      },
+      {
+       "fair_american": 162,
+       "fair_decimal": 2.62,
+       "fair_prob": 0.3817,
+       "implied_prob_sum": 1.0,
+       "label": "Stuart Carrington +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -161,
+       "fair_decimal": 1.62,
+       "fair_prob": 0.6185,
+       "implied_prob_sum": 1.0,
+       "label": "Hossein Vafaei"
+      },
+      {
+       "fair_american": 162,
+       "fair_decimal": 2.62,
+       "fair_prob": 0.3815,
+       "implied_prob_sum": 1.0,
+       "label": "Stuart Carrington"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.5444
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -161,
+    "fair_decimal": 1.62,
+    "fair_prob": 0.6185,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Hossein Vafaei"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Hossein Vafaei",
    "side_b": "Stuart Carrington",
    "sport": "Snooker",
@@ -29794,7 +31171,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 68,
+    "world_rank_b": 54
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 01:30:00",
@@ -29804,17 +31188,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Liu Hongyu": "world rank 54",
+    "Louis Heathcote": "world rank 68"
+   },
    "id": "fx_wst_a7bc5bdd-2d78-442b",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 103,
+       "fair_decimal": 2.03,
+       "fair_prob": 0.4935,
+       "implied_prob_sum": 1.0,
+       "label": "Louis Heathcote -2.5"
+      },
+      {
+       "fair_american": -103,
+       "fair_decimal": 1.97,
+       "fair_prob": 0.5065,
+       "implied_prob_sum": 1.0,
+       "label": "Liu Hongyu +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 149,
+       "fair_decimal": 2.49,
+       "fair_prob": 0.4019,
+       "implied_prob_sum": 1.0,
+       "label": "Louis Heathcote"
+      },
+      {
+       "fair_american": -149,
+       "fair_decimal": 1.67,
+       "fair_prob": 0.5981,
+       "implied_prob_sum": 1.0,
+       "label": "Liu Hongyu"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.4634
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "Medium",
+    "fair_american": -149,
+    "fair_decimal": 1.67,
+    "fair_prob": 0.5981,
+    "in_window": true,
+    "market": "Match Winner",
+    "market_key": "match_winner",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Liu Hongyu"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Louis Heathcote",
    "side_b": "Liu Hongyu",
    "sport": "Snooker",
@@ -29887,7 +31331,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 4,
+    "world_rank_b": 65
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 01:30:00",
@@ -29897,17 +31348,67 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Jimmy White": "world rank 65",
+    "Mark Selby": "world rank 4"
+   },
    "id": "fx_wst_87883228-05c6-4e19",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -385,
+       "fair_decimal": 1.26,
+       "fair_prob": 0.7917,
+       "implied_prob_sum": 1.0,
+       "label": "Mark Selby -2.5"
+      },
+      {
+       "fair_american": 380,
+       "fair_decimal": 4.8,
+       "fair_prob": 0.2083,
+       "implied_prob_sum": 1.0,
+       "label": "Jimmy White +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": -625,
+       "fair_decimal": 1.16,
+       "fair_prob": 0.8586,
+       "implied_prob_sum": 1.0,
+       "label": "Mark Selby"
+      },
+      {
+       "fair_american": 607,
+       "fair_decimal": 7.07,
+       "fair_prob": 0.1414,
+       "implied_prob_sum": 1.0,
+       "label": "Jimmy White"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.6544
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
    "pick": null,
-   "sample": "",
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Mark Selby",
    "side_b": "Jimmy White",
    "sport": "Snooker",
@@ -29949,7 +31450,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 81,
+    "world_rank_b": 7
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 01:30:00",
@@ -29959,17 +31467,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Mitchell Mann": "world rank 81",
+    "Shaun Murphy": "world rank 7"
+   },
    "id": "fx_wst_9b7fcc94-a356-4b21",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 239,
+       "fair_decimal": 3.39,
+       "fair_prob": 0.2947,
+       "implied_prob_sum": 1.0,
+       "label": "Mitchell Mann -2.5"
+      },
+      {
+       "fair_american": -238,
+       "fair_decimal": 1.42,
+       "fair_prob": 0.7053,
+       "implied_prob_sum": 1.0,
+       "label": "Shaun Murphy +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 930,
+       "fair_decimal": 10.3,
+       "fair_prob": 0.0971,
+       "implied_prob_sum": 1.0,
+       "label": "Mitchell Mann"
+      },
+      {
+       "fair_american": -909,
+       "fair_decimal": 1.11,
+       "fair_prob": 0.9029,
+       "implied_prob_sum": 1.0,
+       "label": "Shaun Murphy"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.3155
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -238,
+    "fair_decimal": 1.42,
+    "fair_prob": 0.7053,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Shaun Murphy +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Mitchell Mann",
    "side_b": "Shaun Murphy",
    "sport": "Snooker",
@@ -29980,7 +31548,14 @@
   {
    "capture_id": "wst_matches_api",
    "competition": "International Championship 2026",
-   "evidence": {},
+   "evidence": {
+    "best_of": 11,
+    "players_ranked": 126,
+    "rank_source": "WST official World Rankings API (live prize money, two-year list)",
+    "round": "Round 2",
+    "world_rank_a": 78,
+    "world_rank_b": 18
+   },
    "extra": {
     "best_of": 11,
     "local_uk": "2026-10-31 01:30:00",
@@ -29990,17 +31565,77 @@
     "round": "Round 2"
    },
    "flags": [
-    "one player has no official world-ranking position - no line originated"
+    "total frames not modelled - no official frame-tempo input captured"
    ],
-   "form": {},
+   "form": {
+    "Liam Davies": "world rank 78",
+    "Zhou Yuelong": "world rank 18"
+   },
    "id": "fx_wst_41c153a5-4a98-4b53",
-   "markets": {},
-   "model": {},
+   "markets": {
+    "handicap": {
+     "line": -2.5,
+     "market_name": "Frame Handicap",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 199,
+       "fair_decimal": 2.99,
+       "fair_prob": 0.3347,
+       "implied_prob_sum": 1.0,
+       "label": "Liam Davies -2.5"
+      },
+      {
+       "fair_american": -200,
+       "fair_decimal": 1.5,
+       "fair_prob": 0.6653,
+       "implied_prob_sum": 1.0,
+       "label": "Zhou Yuelong +2.5"
+      }
+     ]
+    },
+    "match_winner": {
+     "line": null,
+     "market_name": "Match Winner",
+     "note": "",
+     "selections": [
+      {
+       "fair_american": 588,
+       "fair_decimal": 6.88,
+       "fair_prob": 0.1453,
+       "implied_prob_sum": 1.0,
+       "label": "Liam Davies"
+      },
+      {
+       "fair_american": -588,
+       "fair_decimal": 1.17,
+       "fair_prob": 0.8547,
+       "implied_prob_sum": 1.0,
+       "label": "Zhou Yuelong"
+      }
+     ]
+    }
+   },
+   "model": {
+    "best_of": 11,
+    "name": "frame Bernoulli from the official World Rankings gap, exact best-of-n",
+    "p_frame": 0.348
+   },
    "official_source_name": "WST official match API (matches.snooker.web.gc.wstservices.co.uk)",
    "official_url": "https://matches.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
    "olbg": null,
-   "pick": null,
-   "sample": "",
+   "pick": {
+    "confidence": "High",
+    "fair_american": -200,
+    "fair_decimal": 1.5,
+    "fair_prob": 0.6653,
+    "in_window": true,
+    "market": "Frame Handicap",
+    "market_key": "handicap",
+    "rule": "p>=70% High; official two-year ranking list, in window",
+    "selection": "Zhou Yuelong +2.5"
+   },
+   "sample": "best of 11 frames; official two-year world ranking",
    "side_a": "Liam Davies",
    "side_b": "Zhou Yuelong",
    "sport": "Snooker",
@@ -31427,7 +33062,7 @@
    "venue": "Bellerive Oval, Hobart"
   },
   {
-   "capture_id": "pdc_players",
+   "capture_id": "pdc_rank_1y",
    "competition": "PDC European Championship 2026",
    "evidence": {
     "best_of_legs": 11,
@@ -31515,7 +33150,7 @@
     "p_leg": 0.449
    },
    "official_source_name": "PDC official ranking feed (rankings.darts.web.gc.pdcservices.co.uk)",
-   "official_url": "https://participants.darts.web.gc.pdcservices.co.uk/v2/?page.size=200",
+   "official_url": "https://rankings.darts.web.gc.pdcservices.co.uk/v2/1YEAR?page.size=100",
    "olbg": {
     "event": "Ross Smith vs Luke Woodhouse",
     "event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Ross_Smith_vs_Luke_Woodhouse/15?event_id=32408",
@@ -31542,7 +33177,7 @@
    "venue": "Westfalenhallen, Dortmund"
   },
   {
-   "capture_id": "pdc_players",
+   "capture_id": "pdc_rank_1y",
    "competition": "PDC European Championship 2026",
    "evidence": {
     "best_of_legs": 11,
@@ -31630,7 +33265,7 @@
     "p_leg": 0.3869
    },
    "official_source_name": "PDC official ranking feed (rankings.darts.web.gc.pdcservices.co.uk)",
-   "official_url": "https://participants.darts.web.gc.pdcservices.co.uk/v2/?page.size=200",
+   "official_url": "https://rankings.darts.web.gc.pdcservices.co.uk/v2/1YEAR?page.size=100",
    "olbg": {
     "event": "Gerwyn Price vs Stephen Bunting",
     "event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Stephen_Bunting/15?event_id=32407",
@@ -34331,10 +35966,10 @@
    "slug": "rugby-union"
   },
   "Snooker": {
-   "high": 0,
-   "high_in_window": 0,
-   "markets": 6,
-   "priced": 3,
+   "high": 12,
+   "high_in_window": 12,
+   "markets": 56,
+   "priced": 24,
    "rows": 33,
    "slug": "snooker"
   },
