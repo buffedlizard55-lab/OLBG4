@@ -5022,3 +5022,10 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
   table is rendered client-side — no team rows in the HTML, so no goal rates to price handball from);
   `wst_matches_api` as a snooker strength input (only 200 records, 124 completed — too small a sample to
   support a fair line); `urc_table`/`urc_r7`/`pdc_oom`/`icc_*_rankings` are 5.6 KB or 1.24 MB JavaScript shells.
+
+### CA final merge record — 2026-10-24T17:56Z
+
+- **PR [#174](https://github.com/buffedlizard55-lab/OLBG4/pull/174) — MERGED** at `2026-10-24T17:54:06Z`, merge commit `6880b3674d`.
+- **GitHub Pages — SUCCESS** on that commit: `status: built`, `commit: 6880b3674d4a`, `error.message: null`. The published tree at `origin/main` carries the consolidated Board CA front page (`401` matches in scope) and the Board CA subpages, including `desk/sports/tennis.html` with the 14 restored fixtures.
+- **Gate evidence before merge:** `build-and-validate` (the workflow that regenerates the site and fails on any drift) → success; `verify.py` 10/10; `build_all.sh` exit 0.
+- Board CA is complete: landing page + 7 desk pages + 15 sport pages published, 401 rows, 234 with an originated line, 25 written predictions, 287 flagged records, and every unpriced row carrying its reason and official source URL.
