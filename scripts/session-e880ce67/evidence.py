@@ -10,6 +10,7 @@ the input layer only.  Estimations happen in `originate.py` and are labelled the
 from __future__ import annotations
 
 import html
+import gzip
 import json
 import os
 import re
@@ -32,6 +33,11 @@ def read(key: str, m: dict, binary: bool = False):
     if not entry or not entry.get("file"):
         return None
     path = os.path.join(ROOT, entry["file"])
+    if path.endswith(".gz"):
+        # stored gzipped (see collect.py): the SHA-256 in the manifest is over these bytes
+        with gzip.open(path, "rb") as fh:
+            body = fh.read()
+        return body if binary else body.decode("utf-8", "replace")
     mode = "rb" if binary else "r"
     with open(path, mode, **({} if binary else {"encoding": "utf-8", "errors": "replace"})) as fh:
         return fh.read()
