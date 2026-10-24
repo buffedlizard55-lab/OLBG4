@@ -177,7 +177,29 @@ STATIC = [
     ("gri_upcoming_cards", "Greyhounds", "https://www.grireland.ie/racing/upcoming-race-cards/"),
     ("gbgb_open_races", "Greyhounds", "https://www.gbgb.org.uk/racing/open-races/"),
     ("gbgb_results", "Greyhounds", "https://www.gbgb.org.uk/racing/results/"),
+
+    # --- second-pass alternates added after the first capture returned 403/404 on primary URLs ---
+    ("nba_schedule_league_v2", "Basketball", "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"),
+    ("nba_data_season_schedule", "Basketball",
+     "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2026/league/season_schedule.json"),
+    ("nba_stats_team_dashboard", "Basketball",
+     "https://stats.nba.com/stats/leaguedashteamstats?LeagueID=00&PerMode=PerGame&Season=2026-27"
+     "&SeasonType=Regular+Season&MeasureType=Base"),
+    ("urc_fixtures_alt1", "Rugby Union", "https://www.unitedrugby.com/fixtures"),
+    ("urc_fixtures_alt2", "Rugby Union", "https://www.unitedrugby.com/match-centre"),
+    ("icc_matches", "Cricket", "https://www.icc-cricket.com/matches"),
+    ("icc_wt20_schedule", "Cricket",
+     "https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/schedule"),
+    ("legavolley_risultati", "Volleyball", "https://www.legavolley.it/risultati/?idCampionato=999"),
+    ("legavolley_agenda", "Volleyball", "https://www.legavolley.it/agenda/?idCampionato=999"),
+    ("nrl_draw_data_full", "Rugby League", "https://www.nrl.com/draw/data?competition=175&season=2026"),
+    ("snooker_api_events", "Snooker", "https://api.snooker.org/?t=5&s=2026"),
+    ("snooker_api_matches_2548", "Snooker", "https://api.snooker.org/?t=6&e=2548"),
+    ("pga_schedule_next", "Golf", "https://www.pgatour.com/schedule/2027"),
+    ("motogp_calendar_alt", "Motor Racing", "https://www.motogp.com/en/calendar/2026"),
+    ("ehf_el_matches", "Handball", "https://ehfel.eurohandball.com/men/2026-27/matches/"),
 ]
+
 
 
 def main() -> int:
