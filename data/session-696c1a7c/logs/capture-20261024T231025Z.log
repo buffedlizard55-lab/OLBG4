@@ -1,0 +1,23 @@
+FAIL nba_schedule_cdn                       HTTPError: HTTP Error 403: Forbidden  https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json
+FAIL nba_scoreboard                         HTTPError: HTTP Error 403: Forbidden  https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json
+FAIL nba_standings_stats                    TimeoutError: The read operation timed out  https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27&SeasonType=Regular+Season
+OK   olbg_golf_bermuda                         183058  https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904
+OK   olbg_golf_masters                         210997  https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/US_Masters/5
+OK   olbg_f1_mexico                            226037  https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Mexico_City_Grand_Prix/14
+OK   olbg_f1_vegas                             225257  https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Las_Vegas_Grand_Prix/14
+OK   olbg_f1_brazil                            226925  https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Sao_Paulo_Grand_Prix/14
+OK   gaa_fixtures_r5                          1307983  https://www.gaa.ie/fixtures
+OK   gaa_results_r5                           1307983  https://www.gaa.ie/fixtures-results
+OK   wta_rankings_r5                          1178101  https://www.wtatennis.com/rankings/singles
+OK   wta_calendar_r5                            27840  https://api.wtatennis.com/tennis/tournaments?page=0&pageSize=40
+OK   wta_t_2092_r5                              67565  https://api.wtatennis.com/tennis/tournaments/2092/2026/matches
+OK   wta_t_405_r5                               73234  https://api.wtatennis.com/tennis/tournaments/405/2026/matches
+OK   gbgb_dog_form                               7129  https://api.gbgb.org.uk/api/results?page=1&itemsPerPage=20&dogName=Snowfall
+FAIL gbgb_races_tomorrow                    HTTPError: HTTP Error 404: Not Found  https://api.gbgb.org.uk/api/races?date=2026-10-25
+FAIL world_rugby_rankings                   HTTPError: HTTP Error 404: Not Found  https://www.world.rugby/rankings/mru
+OK   nrl_draw_json                                862  https://www.nrl.com/draw/data?competition=111&season=2026&round=1
+FAIL super_league_fixtures                  HTTPError: HTTP Error 500: Internal Server Error  https://www.superleague.co.uk/fixtures
+FAIL icc_fixtures                           HTTPError: HTTP Error 404: Not Found  https://www.icc-cricket.com/fixtures
+OK   cricket_au_matches                        197344  https://www.cricket.com.au/matches
+
+14 ok / 7 failed -> data/session-696c1a7c/capture/20261024T231025Z
