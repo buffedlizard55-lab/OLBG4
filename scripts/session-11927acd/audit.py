@@ -72,7 +72,10 @@ def main() -> int:
         capture_id = row.get("capture_id") or ""
         record = ri.RECORDS.get(capture_id)
         official_url = row.get("official_url") or ""
-        source_kind = "missing" if not official_url else ("olbg-not-official" if ri.is_olbg(official_url) else "official")
+        fixture_from_olbg = capture_id.startswith("olbg_")
+        source_kind = ("official-stats-only-olbg-fixture" if fixture_from_olbg and official_url and not ri.is_olbg(official_url)
+                       else "missing" if not official_url
+                       else ("olbg-not-official" if ri.is_olbg(official_url) or fixture_from_olbg else "official"))
         issues = []
         if not record:
             issues.append("capture id absent from manifest")
@@ -91,7 +94,7 @@ def main() -> int:
     candidates = legacy_candidates()
     audit = {
         "schema": "olbg4.board-ri.audit/1",
-        "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_utc": ri.generated_utc(),
         "base_desk": f"data/{ri.BASE_SID}/desk.json",
         "capture_id": ri.CAPTURE_ID,
         "scope_note": "Raw bytes, hashes, row source types and legacy numerical candidates audited. The four published NHL selections are separately recomputed from raw standings and schedules in build_data.py.",
@@ -102,6 +105,7 @@ def main() -> int:
             "rows": len(row_audit),
             "rows_official_source": sum(x["source_kind"] == "official" for x in row_audit),
             "rows_olbg_mislabeled_as_official": sum(x["source_kind"] == "olbg-not-official" for x in row_audit),
+            "rows_official_stats_only_olbg_fixture": sum(x["source_kind"] == "official-stats-only-olbg-fixture" for x in row_audit),
             "row_hash_mismatches": sum(not x["payload_sha_match"] for x in row_audit),
             "legacy_numeric_candidates": len(candidates),
         },

@@ -1,0 +1,38 @@
+name: RI 11927acd integrity gates
+
+on:
+  push:
+    paths:
+      - 'session-11927acd/**'
+      - 'data/session-11927acd/**'
+      - 'scripts/session-11927acd/**'
+      - '.github/workflows/ri-11927acd.yml'
+  pull_request:
+    paths:
+      - 'session-11927acd/**'
+      - 'data/session-11927acd/**'
+      - 'scripts/session-11927acd/**'
+      - '.github/workflows/ri-11927acd.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild deterministically and run publication gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          export RI_GENERATED_UTC="$(python3 -c 'import json; print(json.load(open("data/session-11927acd/meta.json"))["generated_utc"])')"
+          python3 scripts/session-11927acd/audit.py
+          python3 scripts/session-11927acd/build_data.py
+          python3 scripts/session-11927acd/build_site.py
+          git diff --exit-code -- session-11927acd data/session-11927acd
+          python3 scripts/session-11927acd/verify.py

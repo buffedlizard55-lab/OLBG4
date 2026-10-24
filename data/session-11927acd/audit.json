@@ -1,6 +1,6 @@
 {
  "schema": "olbg4.board-ri.audit/1",
- "generated_utc": "2026-10-24T18:03:27Z",
+ "generated_utc": "2026-10-24T18:11:17Z",
  "base_desk": "data/session-b6643783/desk.json",
  "capture_id": "20261024T173907Z",
  "scope_note": "Raw bytes, hashes, row source types and legacy numerical candidates audited. The four published NHL selections are separately recomputed from raw standings and schedules in build_data.py.",
@@ -9,8 +9,9 @@
   "payloads_total": 137,
   "capture_failures": 17,
   "rows": 401,
-  "rows_official_source": 317,
+  "rows_official_source": 316,
   "rows_olbg_mislabeled_as_official": 84,
+  "rows_official_stats_only_olbg_fixture": 1,
   "row_hash_mismatches": 0,
   "legacy_numeric_candidates": 17
  },
@@ -2618,10 +2619,12 @@
    "capture_id": "olbg_handball",
    "manifest_present": true,
    "payload_sha_match": true,
-   "source_kind": "official",
-   "official_url": "https://tophaandbold.dk/stillinger/herreligaen",
+   "source_kind": "official-stats-only-olbg-fixture",
+   "official_url": "",
    "review_url": "https://tophaandbold.dk/stillinger/herreligaen",
-   "issues": []
+   "issues": [
+    "no official fixture-source URL; OLBG listing is not an official league source"
+   ]
   },
   {
    "row_id": "ca_olbg_12153",

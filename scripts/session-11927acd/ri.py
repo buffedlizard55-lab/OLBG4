@@ -6,7 +6,9 @@ import gzip
 import hashlib
 import json
 import math
+import os
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -52,6 +54,10 @@ NHL_CODES = {
     "fx_nhl_2026020171": ("NY", "OTT"), "fx_nhl_2026020177": ("TB", "UTA"),
     "fx_nhl_2026020176": ("TOR", "EDM"),
 }
+
+
+def generated_utc() -> str:
+    return os.environ.get("RI_GENERATED_UTC") or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def dump(path: Path, value) -> None:
