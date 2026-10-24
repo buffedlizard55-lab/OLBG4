@@ -5179,3 +5179,27 @@ Main advanced through PR #179 (root overview rebuilt so the repository freshness
 - **Pages deployed successfully** from the merge commit by run [`40121558882`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40121558882); both build and deploy jobs passed. The repository-wide audit also passed on the same commit (run [`40121558740`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40121558740)). QF landing page: `https://buffedlizard55-lab.github.io/OLBG4/session-51fff5fb/` (other pages: `picks.html`, `coverage.html`, `flagged.html`, `sources.html`).
 - Post-merge local verification: **26/26 QF gates**, 350 source-linked rows, 0 broken local links; publication audit: 471 rows, 50,242 local targets, 0 broken, 0 stale. The audit describes the committed CA snapshot `20261024T173907Z`, not live odds.
 - QF1–QF3 are complete. **QF4 remains needs review**: the report is published at its isolated URL, but the current root owner has not yet integrated a pointer to QF's review page into root navigation. No root-owned file was changed by this board.
+
+## Board DS — session `arena/e880ce67-olbg4` (2026-10-24T22:26Z fresh 15-sport OLBG desk, own lines, written predictions, clean dashboard, final integration)
+
+Session: `arena/e880ce67-olbg4` · Branch: `arena/e880ce67-olbg4` · Claimed: 2026-10-24T22:26Z UTC · **status: in progress**
+
+**Non-overlapping scope.** Exclusive write scope: `session-e880ce67/**`, `data/session-e880ce67/**`,
+`scripts/session-e880ce67/**`, `.github/workflows/ds-e880ce67.yml`, and append-only blocks in this file.
+Every other session folder, `data/session-*/`, `data/master.json`, `desk/**`, `board/**`, all root `*.html`,
+`pipeline/**`, `tools/**` and every other workflow are **read-only** for this board. If a shared/root file needs a
+change (for example a nav pointer on the root landing page, which Board CA owns), it is logged here as an
+integration request and applied only in the final integration step, with the owning generator re-run and its
+verifier passing.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| DS1 | Live reverse-engineering of OLBG.com: re-read the sitemap and every in-scope sport hub, record the URL pattern, sport IDs, market names and the server-rendered event feed for Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League | in progress | arena/e880ce67-olbg4 | `scripts/session-e880ce67/collect.py`, `data/session-e880ce67/raw/olbg/` |
+| DS2 | Fresh official-source capture for every in-scope fixture that OLBG lists (governing-body schedules, tables, rankings, results); raw bytes + SHA-256 manifest, HTTP failures recorded not hidden | pending | arena/e880ce67-olbg4 | `scripts/session-e880ce67/collect.py`, `data/session-e880ce67/raw/official/` |
+| DS3 | Originate our own lines (match winner, handicap/spread, match total and sport-specific markets where inputs exist), pick a side, label Low/Medium/High, record every market investigated | pending | arena/e880ce67-olbg4 | `scripts/session-e880ce67/originate.py`, `data/session-e880ce67/desk.json` |
+| DS4 | High-confidence focus in the −250…+10,000 fair-price window; unique, non-robotic, ≥30-word written predictions built only from captured official facts, each with an explicit selection and source | pending | arena/e880ce67-olbg4 | `scripts/session-e880ce67/predict.py`, `data/session-e880ce67/predictions.json` |
+| DS5 | Clarity-first dashboard: executive summary of today's/upcoming highest-confidence picks, obvious pick cards, per-sport pages, all-match table, markets, sources, methodology, Flagged for Review | pending | arena/e880ce67-olbg4 | `session-e880ce67/**` |
+| DS6 | Repo review against official sources (line by line), deterministic build, link check, PR, merge, Pages deploy confirmation, record evidence here | pending | arena/e880ce67-olbg4 | `scripts/session-e880ce67/verify.py`, `COORDINATION.md` |
+
+### DS working log
+- 2026-10-24T22:26Z — `e880ce67` — Board read before work; four sibling boards still hold open PRs (#183, #171, #162, #157, #125, #102) and are untouched by this board. Claim pushed before any other work, per the board protocol. This session confirmed the sandbox reaches GitHub only, so official/OLBG bytes are captured by a GitHub Actions runner (`.github/workflows/ds-e880ce67.yml`) with open egress and committed with SHA-256 hashes; parsing, line origination and verification run locally from those committed bytes.
