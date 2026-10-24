@@ -196,7 +196,7 @@ ul.tight li{margin:4px 0}
 
 NAV = [
     ("index.html", "Overview"),
-    ("session-a172d5b9/index.html", "Latest refresh"),
+    ("session-a172d5b9/index.html", "A172 strict desk"),
     ("desk/picks.html", "Picks"),
     ("desk/matches.html", "Matches"),
     ("desk/coverage.html", "Sports"),
@@ -353,7 +353,7 @@ def main() -> int:
         with open(latest_meta_path, encoding="utf-8") as fh:
             latest_meta = json.load(fh)
         latest_time = fmt_dt(latest_meta.get("generated_utc", ""))
-        latest_banner = f"""<div class=\"note good\"><strong>Latest evidence refresh — {e(latest_time)}.</strong>
+        latest_banner = f"""<div class=\"note good\"><strong>A172 strict OLBG refresh — {e(latest_time)}.</strong>
   {latest_summary.get('rows_total', 0)} OLBG-listed events, {latest_summary.get('official_sourced', 0)} official
   crosswalks and {latest_summary.get('predictions', 0)} strictly eligible written High picks.
   <a href=\"session-a172d5b9/index.html\"><strong>Open the latest dashboard →</strong></a>
