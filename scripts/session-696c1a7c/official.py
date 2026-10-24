@@ -28,16 +28,35 @@ DATA = ROOT / "data" / "session-696c1a7c"
 
 
 class Capture:
-    def __init__(self, path: Path):
-        self.path = path
-        self.manifest = json.loads((path / "manifest.json").read_text())
-        self.by_id = {r["id"]: r for r in self.manifest["records"]}
+    """One or more capture directories, read as a single pool of official bytes.
+
+    Later directories win when the same target id appears twice, so passing the
+    newest capture first means every parser sees the freshest copy of a feed (and
+    older captures still supply the targets the new run did not refetch).
+    """
+
+    def __init__(self, paths):
+        if isinstance(paths, (str, Path)):
+            paths = [Path(paths)]
+        paths = [Path(p) for p in paths]
+        self.path = paths[0]
+        self.paths = paths
+        self.manifest = json.loads((paths[0] / "manifest.json").read_text())
+        self.by_id = {}
+        self.file_of = {}
+        self.finished_of = {}
+        for path in reversed(paths):
+            manifest = json.loads((path / "manifest.json").read_text())
+            for rec in manifest["records"]:
+                self.by_id[rec["id"]] = rec
+                self.file_of[rec["id"]] = path
+                self.finished_of[rec["id"]] = manifest["finished_utc"]
 
     def has(self, *ids: str) -> bool:
         return all(i in self.by_id for i in ids)
 
     def raw(self, tid: str) -> bytes:
-        return gzip.open(self.path / self.by_id[tid]["file"], "rb").read()
+        return gzip.open(self.file_of[tid] / self.by_id[tid]["file"], "rb").read()
 
     def json(self, tid: str):
         return json.loads(self.raw(tid))
@@ -48,7 +67,7 @@ class Capture:
     def src(self, tid: str) -> dict:
         rec = self.by_id[tid]
         return {"source_id": tid, "source_url": rec["url"], "sha256": rec["sha256"],
-                "bytes": rec["bytes"], "captured_utc": self.manifest["finished_utc"]}
+                "bytes": rec["bytes"], "captured_utc": self.finished_of[tid]}
 
 
 FACTS: dict = {"fixtures": [], "teams": [], "history": [], "individuals": [],
@@ -430,6 +449,12 @@ def wta(cap: Capture) -> None:
             FACTS.setdefault("tennis_matches", []).append({
                 "key": key, "competition": ckey, "tournament": tname,
                 "player1": n1, "player2": n2, "start": start, "status": status,
+                "player_first_a": m.get("PlayerNameFirstA"), "player_last_a": m.get("PlayerNameLastA"),
+                "player_first_b": m.get("PlayerNameFirstB"), "player_last_b": m.get("PlayerNameLastB"),
+                "player_id_a": m.get("PlayerIDA"), "player_id_b": m.get("PlayerIDB"),
+                "winner": m.get("Winner"), "state": m.get("MatchState"),
+                "score": m.get("ScoreString"), "result": m.get("ResultString"),
+                "start_utc": (str(start).replace(" ", "T")[:19] + "Z") if start else None,
                 "round": (m.get("round") or {}).get("name") if isinstance(m.get("round"), dict) else m.get("round"),
                 **cap.src(tid)})
     if not FACTS.get("tennis_matches"):
@@ -637,23 +662,26 @@ def top14(cap: Capture) -> None:
 
 
 # --------------------------------------------------------------------------- #
-def latest_capture() -> Path:
-    dirs = sorted(p for p in (DATA / "capture").glob("*") if (p / "manifest.json").exists())
+def all_captures() -> list[Path]:
+    dirs = sorted((p for p in (DATA / "capture").glob("*") if (p / "manifest.json").exists()),
+                  reverse=True)
     if not dirs:
         raise SystemExit("no capture available")
-    return dirs[-1]
+    return dirs
 
 
 def main() -> int:
-    cap_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else latest_capture()
-    cap = Capture(cap_dir)
-    FACTS["capture_id"] = cap_dir.name
-    FACTS["capture_finished_utc"] = cap.manifest["finished_utc"]
+    dirs = [Path(a) for a in sys.argv[1:]] or all_captures()
+    cap = Capture(dirs)
+    FACTS["capture_id"] = ",".join(d.name for d in dirs)
+    FACTS["capture_finished_utc"] = max(json.loads((d / "manifest.json").read_text())["finished_utc"]
+                                       for d in dirs)
     FACTS["generated_utc"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     FACTS["sources"] = [
-        {"id": r["id"], "sport": r["sport"], "url": r["url"], "sha256": r["sha256"],
-         "bytes": r["bytes"], "content_type": r["content_type"]}
-        for r in cap.manifest["records"]
+        {"id": tid, "sport": rec["sport"], "url": rec["url"], "sha256": rec["sha256"],
+         "bytes": rec["bytes"], "content_type": rec.get("content_type"),
+         "capture": cap.file_of[tid].name}
+        for tid, rec in sorted(cap.by_id.items())
     ]
 
     for fn in (nhl, liiga, shl, nl, mlb, euroleague, nba, wst, wta, rlwc,

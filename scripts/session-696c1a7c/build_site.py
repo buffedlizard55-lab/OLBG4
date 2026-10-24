@@ -75,9 +75,10 @@ SPORT_NOTE = {
     "Basketball": "Twenty-four rows: 13 NBA, 5 KBL, 2 each from Poland, Brazil and Argentina. The NBA CDN schedule, "
                   "scoreboard and stats endpoints were refused (403) in this capture, and the EuroLeague/EuroCup "
                   "feeds that *were* captured carry no OLBG-listed fixtures, so no basketball row is priced.",
-    "Tennis": "Twenty-four rows across ATP and WTA events. The ATP site refuses automated reads and the WTA feed "
-              "covers women's draws only: player-level pricing is therefore limited to the WTA rows once a "
-              "ranking pull lands, and the men's rows stay flagged.",
+    "Tennis": "Twenty-four rows across ATP and WTA events. The ATP site refuses automated reads, so men's rows "
+              "have no official input. The WTA draws that were captured give {wta_matches} decided matches over "
+              "{wta_players} players, which is not enough decided matches per player to rate a pairing (the desk "
+              "needs three each), so no tennis price is published today and every row stays flagged.",
     "Rugby Union": "Sixteen rows. Premiership, URC and Top 14 pages all render standings and fixtures through "
                    "JavaScript islands with no numbers in the payload, so no official table exists in the capture "
                    "to originate a line from.",
@@ -223,8 +224,16 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;paddin
 
 
 def load() -> dict:
-    return {name: json.loads((DATA / f"{name}.json").read_text())
-            for name in ("listings", "facts", "desk_raw", "picks", "predictions")}
+    names = ("listings", "facts", "desk_raw", "picks", "predictions")
+    data = {name: json.loads((DATA / f"{name}.json").read_text()) for name in names}
+    ind_path = DATA / "desk_ind.json"
+    data["desk_ind"] = json.loads(ind_path.read_text()) if ind_path.exists() else {}
+    ind = data["desk_ind"]
+    for sport, note in list(SPORT_NOTE.items()):
+        if "{wta_matches}" in note:
+            SPORT_NOTE[sport] = note.format(wta_matches=ind.get("decided_matches", 0),
+                                            wta_players=ind.get("players_rated", 0))
+    return data
 
 
 def coverage_rows(D: dict) -> list[list[str]]:
