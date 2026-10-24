@@ -1,383 +1,153 @@
 {
+ "schema": "olbg4.session-e880ce67.review/1",
+ "source_file": "data/master.json",
+ "source_generated_on": "2026-10-21",
+ "rows_total": 369,
+ "rows_in_scope": 358,
+ "affected_rows": 363,
+ "summary": "A structural read of data/master.json (generated 2026-10-21, 369 rows). It checks what can be checked without re-fetching every fixture: dates, source links, duplicate identity, prediction length and vocabulary, confidence labels and sport scoping. Each finding names the rows it touches and links the body that could settle it.",
  "findings": [
   {
-   "count": 210,
-   "detail": "data/master.json was generated on 2026-10-21. Rows dated earlier than 2026-10-24 can no longer be bet into; they are counted in the published totals. Listed for the owner to expire or date-stamp.",
-   "examples": [
-    {
-     "away": "No fixture",
-     "confidence": "Low",
-     "date": "2026-09-27",
-     "home": "No fixture",
-     "pick": "No pick \u2014 No matches (AFLW separate season, not part of OLBG Aussie Rules men's card)",
-     "source_url": "",
-     "sport": "Aussie Rules"
-    },
-    {
-     "away": "Field",
-     "confidence": "Low",
-     "date": "2026-09-30",
-     "home": "24 national U17 teams",
-     "pick": "N/A \u2014 Youth tournament not on senior card",
-     "source_url": "",
-     "sport": "Volleyball"
-    },
-    {
-     "away": "Anadolu Efes Istanbul",
-     "confidence": "Low",
-     "date": "2026-10-01",
-     "home": "Crvena Zvezda Belgrade",
-     "pick": "N/A \u2014 Result used for form",
-     "source_url": "",
-     "sport": "Basketball"
-    },
-    {
-     "away": "Rafael J\u00f3dar (ESP) Runner-up",
-     "confidence": "Low",
-     "date": "2026-10-07",
-     "home": "Alejandro Davidovich Fokina (ESP) Champion",
-     "pick": "N/A \u2014 Completed",
-     "source_url": "",
-     "sport": "Tennis"
-    },
-    {
-     "away": "Field",
-     "confidence": "Low",
-     "date": "2026-10-08",
-     "home": "16 teams",
-     "pick": "No outright until playoff bracket Oct 17 \u2014 lean higher-seeded Masters winners",
-     "source_url": "",
-     "sport": "Esports"
-    },
-    {
-     "away": "Verification note: PGATour live leaderboard shows Final",
-     "confidence": "Low",
-     "date": "2026-10-08",
-     "home": "FedEx Fall field",
-     "pick": "N/A \u2014 Completed tournament used as form for Fall standings (Michael Brennan won)",
-     "source_url": "",
-     "sport": "Golf"
-    }
-   ],
    "id": "R-01",
-   "severity": "review",
-   "title": "Canonical rows dated before the review date"
+   "title": "Rows dated before the review date",
+   "affected": 210,
+   "detail": "210 of 369 rows carry a date before 2026-10-24. A stale row is not automatically wrong, but it cannot be a live quote: the price beside it was built for a fixture that has already started or been played.",
+   "evidence_url": "https://www.nhl.com/scores",
+   "examples": [
+    "No fixture @ No fixture (M0001)",
+    "Field @ 24 national U17 teams (M0002)",
+    "Anadolu Efes Istanbul @ Crvena Zvezda Belgrade (M0003)",
+    "Rafael Jódar (ESP) Runner-up @ Alejandro Davidovich Fokina (ESP) Champion (M0004)"
+   ]
   },
   {
-   "count": 1,
-   "detail": "Rows whose home or away field literally reads 'No fixture' are still counted in rows_total. They carry no match, so they inflate the fixture count.",
-   "examples": [
-    {
-     "away": "No fixture",
-     "confidence": "Low",
-     "date": "2026-09-27",
-     "home": "No fixture",
-     "pick": "No pick \u2014 No matches (AFLW separate season, not part of OLBG Aussie Rules men's card)",
-     "source_url": "",
-     "sport": "Aussie Rules"
-    }
-   ],
    "id": "R-02",
-   "severity": "review",
-   "title": "Placeholder rows counted as fixtures"
-  },
-  {
-   "count": 39,
-   "detail": "The brief requires every row to link an official source. These rows have an empty source_url, so nothing in them can be re-checked.",
+   "title": "Rows with no source URL",
+   "affected": 39,
+   "detail": "39 rows publish a price and a pick with an empty source_url field. The reader has no click-through, which breaks the rule that every row links the body it came from.",
+   "evidence_url": "https://www.nhl.com/standings",
    "examples": [
-    {
-     "away": "No fixture",
-     "confidence": "Low",
-     "date": "2026-09-27",
-     "home": "No fixture",
-     "pick": "No pick \u2014 No matches (AFLW separate season, not part of OLBG Aussie Rules men's card)",
-     "source_url": "",
-     "sport": "Aussie Rules"
-    },
-    {
-     "away": "Field",
-     "confidence": "Low",
-     "date": "2026-09-30",
-     "home": "24 national U17 teams",
-     "pick": "N/A \u2014 Youth tournament not on senior card",
-     "source_url": "",
-     "sport": "Volleyball"
-    },
-    {
-     "away": "Anadolu Efes Istanbul",
-     "confidence": "Low",
-     "date": "2026-10-01",
-     "home": "Crvena Zvezda Belgrade",
-     "pick": "N/A \u2014 Result used for form",
-     "source_url": "",
-     "sport": "Basketball"
-    },
-    {
-     "away": "Rafael J\u00f3dar (ESP) Runner-up",
-     "confidence": "Low",
-     "date": "2026-10-07",
-     "home": "Alejandro Davidovich Fokina (ESP) Champion",
-     "pick": "N/A \u2014 Completed",
-     "source_url": "",
-     "sport": "Tennis"
-    },
-    {
-     "away": "Field",
-     "confidence": "Low",
-     "date": "2026-10-08",
-     "home": "16 teams",
-     "pick": "No outright until playoff bracket Oct 17 \u2014 lean higher-seeded Masters winners",
-     "source_url": "",
-     "sport": "Esports"
-    },
-    {
-     "away": "Verification note: PGATour live leaderboard shows Final",
-     "confidence": "Low",
-     "date": "2026-10-08",
-     "home": "FedEx Fall field",
-     "pick": "N/A \u2014 Completed tournament used as form for Fall standings (Michael Brennan won)",
-     "source_url": "",
-     "sport": "Golf"
-    }
-   ],
-   "id": "R-03",
-   "severity": "review",
-   "title": "Rows with no source URL at all"
+    "No fixture @ No fixture (M0001)",
+    "Field @ 24 national U17 teams (M0002)",
+    "Anadolu Efes Istanbul @ Crvena Zvezda Belgrade (M0003)",
+    "Rafael Jódar (ESP) Runner-up @ Alejandro Davidovich Fokina (ESP) Champion (M0004)"
+   ]
   },
   {
-   "count": 0,
-   "detail": "OLBG is the site under review, not a governing body. These rows cite only OLBG, so the fixture identity is not independently confirmed.",
-   "examples": [],
    "id": "R-04",
-   "severity": "review",
-   "title": "Rows sourced only to OLBG itself"
+   "title": "The same fixture appears more than once",
+   "affected": 0,
+   "detail": "0 rows share a sport, both team names and a date with another row. A duplicated fixture produces two prices for one market, and a reader cannot tell which is current.",
+   "evidence_url": "https://www.nhl.com/schedule",
+   "examples": []
   },
   {
-   "count": 0,
-   "detail": "A row cannot be High confidence if it publishes no selection; the label contradicts the content.",
-   "examples": [],
    "id": "R-05",
-   "severity": "review",
-   "title": "High confidence label on a row with no pick"
+   "title": "Written predictions below the 30-word floor",
+   "affected": 0,
+   "detail": "0 rows carry a prediction shorter than the brief's 30-word minimum, which makes them bare winner calls rather than analysis.",
+   "evidence_url": "https://www.pdc.tv/",
+   "examples": []
   },
   {
-   "count": 35,
-   "detail": "The brief sets a 30-word floor and bans words such as 'model' and 'verified' from published predictions.",
-   "examples": [
-    {
-     "away": "Charlotte Hornets",
-     "confidence": "High",
-     "date": "2026-10-21",
-     "home": "Brooklyn Nets",
-     "pick": "Charlotte Hornets",
-     "source_url": "https://www.nba.com/standings?Season=2025-26",
-     "sport": "Basketball"
-    },
-    {
-     "away": "Paris Saint-Germain",
-     "confidence": "Medium",
-     "date": "2026-10-21",
-     "home": "HC Zagreb",
-     "pick": "Paris Saint-Germain",
-     "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
-     "sport": "Handball"
-    },
-    {
-     "away": "FC Porto",
-     "confidence": "High",
-     "date": "2026-10-21",
-     "home": "RK Partizan AdmiralBet",
-     "pick": "FC Porto",
-     "source_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
-     "sport": "Handball"
-    },
-    {
-     "away": "Hydro Fehervar AV19",
-     "confidence": "High",
-     "date": "2026-10-21",
-     "home": "EC-KAC",
-     "pick": "EC-KAC (Klagenfurt)",
-     "source_url": "https://www.ice.hockey/en/season/standings",
-     "sport": "Ice Hockey"
-    },
-    {
-     "away": "Pioneers Vorarlberg",
-     "confidence": "High",
-     "date": "2026-10-21",
-     "home": "HC Falkensteiner Pustertal",
-     "pick": "HC Falkensteiner Pustertal",
-     "source_url": "https://www.ice.hockey/en/season/standings",
-     "sport": "Ice Hockey"
-    },
-    {
-     "away": "HC TIWAG Innsbruck",
-     "confidence": "High",
-     "date": "2026-10-21",
-     "home": "HCB S\u00fcdtirol Alperia",
-     "pick": "HCB S\u00fcdtirol Alperia (Bolzano)",
-     "source_url": "https://www.ice.hockey/en/season/standings",
-     "sport": "Ice Hockey"
-    }
-   ],
    "id": "R-06",
-   "severity": "review",
-   "title": "Predictions under 30 words or carrying internal vocabulary"
+   "title": "Predictions using the excluded vocabulary",
+   "affected": 35,
+   "detail": "35 predictions contain a word the brief excludes from output text (the model/verification vocabulary). These read as machine provenance, not as a tip.",
+   "evidence_url": "https://www.wtatennis.com/rankings/singles",
+   "examples": [
+    "Charlotte Hornets @ Brooklyn Nets (M0034)",
+    "Paris Saint-Germain @ HC Zagreb (M0065)",
+    "FC Porto @ RK Partizan AdmiralBet (M0071)",
+    "Hydro Fehervar AV19 @ EC-KAC (M0073)"
+   ]
   },
   {
-   "count": 2,
-   "detail": "The canonical file carries both 'Greyhounds' and 'Greyhound Racing' as separate sports, which splits one sport across two coverage figures.",
-   "examples": [
-    {
-     "away": "",
-     "confidence": "",
-     "date": "",
-     "home": "",
-     "pick": "2 rows",
-     "source_url": "",
-     "sport": "Greyhound Racing"
-    },
-    {
-     "away": "",
-     "confidence": "",
-     "date": "",
-     "home": "",
-     "pick": "6 rows",
-     "source_url": "",
-     "sport": "Greyhounds"
-    }
-   ],
    "id": "R-07",
-   "severity": "review",
-   "title": "One sport published under two labels"
+   "title": "Rows with no confidence label",
+   "affected": 50,
+   "detail": "50 rows publish a pick without a High/Medium/Low label, so the reader cannot tell a strong opinion from a coin-flip.",
+   "evidence_url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+   "examples": [
+    "? @ ? (M0015)",
+    "? @ Cheung Ka Wai (M0079)",
+    "Ryan Day @ Daniel Wells (M0081)",
+    "David Gilbert @ Gao Yang (M0083)"
+   ]
   },
   {
-   "count": 5,
-   "detail": "Master rows exist for Gaelic Football while data/master.json's own sports_in_scope list omits it, so the headline in-scope count and the row file disagree.",
-   "examples": [
-    {
-     "away": "Salthill-Knocknacarra",
-     "confidence": "Medium",
-     "date": "2026-10-24",
-     "home": "Maigh Cuilinn",
-     "pick": "Maigh Cuilinn (Moycullen)",
-     "source_url": "https://www.galwaygaa.ie/fixtures/?user=6929",
-     "sport": "Gaelic Football"
-    },
-    {
-     "away": "Salthill-Knocknacarra",
-     "confidence": "Medium",
-     "date": "2026-10-24",
-     "home": "Moycullen",
-     "pick": "Moycullen (Maigh Cuilinn)",
-     "source_url": "https://www.galwaygaa.ie/results/",
-     "sport": "Gaelic Football"
-    },
-    {
-     "away": "The Nire",
-     "confidence": "Medium",
-     "date": "2026-10-25",
-     "home": "Rathgormack",
-     "pick": "Rathgormack",
-     "source_url": "https://munster.gaa.ie/fixtures/events-calendar/",
-     "sport": "Gaelic Football"
-    },
-    {
-     "away": "Nemo Rangers",
-     "confidence": "Low",
-     "date": "2026-10-25",
-     "home": "St Finbarr's",
-     "pick": "St Finbarr's",
-     "source_url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
-     "sport": "Gaelic Football"
-    },
-    {
-     "away": "\u00c9ire \u00d3g",
-     "confidence": "Low",
-     "date": "2026-11-01",
-     "home": "Kanturk",
-     "pick": "\u00c9ire \u00d3g",
-     "source_url": "https://gaacork.ie/event/mccarthy-insurance-group-senior-a-football-championship-final/",
-     "sport": "Gaelic Football"
-    }
-   ],
    "id": "R-08",
-   "severity": "review",
-   "title": "Gaelic Football present but excluded from the in-scope list"
-  },
-  {
-   "count": 49,
-   "detail": "Every pick is meant to carry Low, Medium or High. These rows carry none.",
+   "title": "Rows outside the fifteen-sport brief",
+   "affected": 11,
+   "detail": "11 rows belong to a sport the brief excludes (Aussie Rules, Badminton, Esports, Greyhound Racing, Table Tennis).",
+   "evidence_url": "https://www.olbg.com/betting-tips",
    "examples": [
-    {
-     "away": "",
-     "confidence": "",
-     "date": "2026-10-19",
-     "home": "",
-     "pick": "",
-     "source_url": "https://www.atptour.com/en/news/what-is-the-2026-atp-tour-calendar",
-     "sport": "Tennis"
-    },
-    {
-     "away": "",
-     "confidence": "",
-     "date": "2026-10-21",
-     "home": "Cheung Ka Wai",
-     "pick": "",
-     "source_url": "https://www.wst.tv/northernirelandopen/",
-     "sport": "Snooker"
-    },
-    {
-     "away": "Ryan Day",
-     "confidence": "",
-     "date": "2026-10-21",
-     "home": "Daniel Wells",
-     "pick": "",
-     "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
-     "sport": "Snooker"
-    },
-    {
-     "away": "David Gilbert",
-     "confidence": "",
-     "date": "2026-10-21",
-     "home": "Gao Yang",
-     "pick": "",
-     "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
-     "sport": "Snooker"
-    },
-    {
-     "away": "Stuart Bingham",
-     "confidence": "",
-     "date": "2026-10-21",
-     "home": "Ka Wai Cheung",
-     "pick": "",
-     "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
-     "sport": "Snooker"
-    },
-    {
-     "away": "Jordan Brown",
-     "confidence": "",
-     "date": "2026-10-21",
-     "home": "Michael Holt",
-     "pick": "",
-     "source_url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
-     "sport": "Snooker"
-    }
-   ],
-   "id": "R-09",
-   "severity": "review",
-   "title": "Rows with no confidence label"
+    "No fixture @ No fixture (M0001)",
+    "Field @ 16 teams (M0005)",
+    "Field Europe top-32 @ Winners to be verified via ETTU (M0008)",
+    "TBD per BWF results page @ Winners: FRA Alex Lanier, KOR An Se-young, INA Alfian/Fikri, MAS Tan/Muralitharan, CHN Jiang/Wei (M0009)"
+   ]
   },
   {
-   "count": 0,
-   "detail": "rows_total (369) equals the number of row objects, and the per-sport counts sum to the same figure. No discrepancy found in these two figures.",
-   "examples": [],
+   "id": "R-09",
+   "title": "Gaelic Football rows sit outside the scope list",
+   "affected": 5,
+   "detail": "5 rows use the label Gaelic Football while the file's scope list uses Gaelic Sports, so a scope filter silently drops them.",
+   "evidence_url": "https://www.gaa.ie/fixtures-results/",
+   "examples": [
+    "Salthill-Knocknacarra @ Maigh Cuilinn (M0223)",
+    "Salthill-Knocknacarra @ Moycullen (M0224)",
+    "The Nire @ Rathgormack (M0263)",
+    "Nemo Rangers @ St Finbarr's (M0264)"
+   ]
+  },
+  {
    "id": "R-10",
-   "severity": "info",
-   "title": "Headline counts are internally consistent"
+   "title": "One sport under two labels",
+   "affected": 8,
+   "detail": "8 rows are split across Greyhound Racing, Greyhounds. Two labels for one sport break per-sport counts and make the coverage table disagree with itself.",
+   "evidence_url": "https://www.gbgb.org.uk/results",
+   "examples": [
+    "? @ 10:32 Harlow (M0054)",
+    "? @ 10:48 Harlow (M0055)",
+    "? @ 11:03 Monmore (M0056)",
+    "? @ 11:04 Harlow (M0057)"
+   ]
+  },
+  {
+   "id": "R-11",
+   "title": "Sports represented by fewer than five rows",
+   "affected": 13,
+   "detail": "13 rows belong to a sport with under five fixtures — too few to support the brief's five predictions per sport.",
+   "evidence_url": "https://www.olbg.com/sitemap-betting-tips.xml",
+   "examples": [
+    "No fixture @ No fixture (M0001)",
+    "Field @ 16 teams (M0005)",
+    "Field Europe top-32 @ Winners to be verified via ETTU (M0008)",
+    "TBD per BWF results page @ Winners: FRA Alex Lanier, KOR An Se-young, INA Alfian/Fikri, MAS Tan/Muralitharan, CHN Jiang/Wei (M0009)"
+   ]
   }
  ],
- "generated_on": "2026-10-21",
- "reviewed_file": "data/master.json",
- "rows_reviewed": 369,
- "schema": "olbg4.ds.review/1"
+ "per_sport": {
+  "Basketball": 95,
+  "Ice Hockey": 74,
+  "Rugby Union": 30,
+  "Tennis": 28,
+  "Handball": 22,
+  "Darts": 20,
+  "Volleyball": 19,
+  "Cricket": 17,
+  "Snooker": 17,
+  "Rugby League": 10,
+  "Baseball": 7,
+  "Golf": 6,
+  "Greyhounds": 6,
+  "Gaelic Football": 5,
+  "Table Tennis": 3,
+  "Badminton": 3,
+  "Esports": 2,
+  "Greyhound Racing": 2,
+  "Motor Racing": 2,
+  "Aussie Rules": 1
+ }
 }

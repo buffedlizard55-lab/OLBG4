@@ -211,6 +211,12 @@ def parse_danish(m: dict) -> dict:
 
 # ------------------------------------------------------------------------- tennis
 def parse_wta(m: dict) -> dict:
+    """WTA ranks by reading each row's own rank and points cells.
+
+    The page's default row order is not ranking order, so the rank comes from the
+    ``player-row__cell--rank`` cell ("1 -") and the points from ``--points`` ("9,196"),
+    never from the row's position in the table.
+    """
     body = read("wta_rankings", m)
     if not body:
         return {"players": {}, "sources": []}
@@ -219,14 +225,15 @@ def parse_wta(m: dict) -> dict:
         name = re.search(r'data-player-name="([^"]+)"', row)
         if not name:
             continue
-        cells = [plain(c) for c in re.findall(r"<td.*?</td>", row, re.S)]
+        rank_cell = re.search(r'player-row__cell--rank[^>]*>(.*?)</td>', row, re.S)
+        pts_cell = re.search(r'player-row__cell--points[^>]*>(.*?)</td>', row, re.S)
         rank = points = None
-        for cell in cells:
-            if rank is None and re.fullmatch(r"\d{1,4}", cell):
-                rank = int(cell)
-            m_pts = re.search(r"([\d,]{3,})", cell)
-            if m_pts and "," in cell:
-                points = int(m_pts.group(1).replace(",", ""))
+        if rank_cell:
+            digits = re.search(r"\d+", plain(rank_cell.group(1)))
+            rank = int(digits.group(0)) if digits else None
+        if pts_cell:
+            digits = re.search(r"[\d,]+", plain(pts_cell.group(1)))
+            points = int(digits.group(0).replace(",", "")) if digits else None
         players[name.group(1)] = {"name": name.group(1), "rank": rank, "points": points}
     return {"players": players, "count": len(players),
             "sources": [src("wta_rankings", m, "WTA singles rankings (wtatennis.com)")]}
