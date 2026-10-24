@@ -287,7 +287,7 @@ def build_index() -> str:
 {exec_summary()}
 <h2>Today's picks — highest confidence first</h2>
 <p class="sub">This is the pick list. The bold text in "Our pick" is the selection; the line under it is our
-fair price and our our own win probability. Click through for the full written prediction.</p>
+fair price and our own win probability. Click through for the full written prediction.</p>
 {top_picks_table(14)}
 <p class="small"><a href="picks.html">All {PREDS['summary']['total']} written predictions →</a>
  · <a href="fixtures.html">Every fixture we checked →</a></p>
@@ -331,7 +331,7 @@ def build_picks() -> str:
  · <a href="{esc(p['official_source_url'])}" rel="noopener">{esc(p['official_source_name'])}</a></p>
 <p><b>The pick: {esc(p['selection'])}</b> — {esc(p['market'])}, our fair price
 <span class="num">{p['fair_decimal']:.2f} / {usd(p['fair_american'])}</span>,
-estimated probability <span class="num">{p['prob']*100:.1f}%</span>. {esc(p['confidence_reason'])}.</p>
+probability estimate <span class="num">{p['prob']*100:.1f}%</span>. {esc(p['confidence_reason'])}.</p>
 <div class="predtext">{esc(p['prediction_text'])}</div>
 <p class="small"><b>{p['word_count']} words</b> · selection stated in the text: {esc(p['selection_language'])}</p>
 <h3 style="margin-top:14px">Verified facts used</h3>
@@ -349,7 +349,7 @@ estimated probability <span class="num">{p['prob']*100:.1f}%</span>. {esc(p['con
         f'today. See <a href="{PREFIX}flagged.html">Flagged for review</a>.</td></tr>' for sp in missing)
     body = f"""
 <div class="exec"><p><b>Where the picks are.</b> Every written prediction for today is on this page, grouped
-by sport. Each card gives the match, the exact selection in bold, our fair price, the estimated probability,
+by sport. Each card gives the match, the exact selection in bold, our fair price, our probability estimate,
 the confidence grade, the full prediction text, the verified facts with their official source links, and
 all the lines we originated for that match.</p>
 <p>{PREDS['summary']['total']} predictions from {DESK['summary']['priced']} priced fixtures.
@@ -478,7 +478,7 @@ for a single postseason game.</li>
 <li><b>Probability → price</b>: fair decimal = 1/p (2dp); American = −100p/(1−p) at p ≥ 0.5 and
 +100(1−p)/p below that. No margin is added: these are fair prices, not bookmaker prices.</li>
 <li><b>Confidence</b>: High needs verified inputs on both sides, an adequate sample, a fair price inside
-−250…+10,000, and either a estimated probability of at least 66% or at least a 6-point edge over the
+−250…+10,000, and either our probability estimate is at least 66% or at least a 6-point edge over the
 OLBG-listed price. See <a href="methodology.html">Methodology</a> for why 66% and not 70% is the practical
 floor inside that band.</li>
 </ul>
@@ -587,7 +587,7 @@ So the honest reading is: the band is the filter, and 70% is a ceiling near the 
 <p>We publish both numbers on every row and grade like this:</p>
 <ul class="facts">
 <li><b>High</b> — every input verified on an official source, adequate sample (at least 5 completed games
-or the full published record), fair price inside −250…+10,000, and either our estimated probability is at
+or the full published record), fair price inside −250…+10,000, and either our probability estimate is at
 least 66% or our probability beats the OLBG-listed implied probability by at least 6 points.</li>
 <li><b>Medium</b> — verified, but a thin sample, or a 2-5.9 point edge, or a probability between 58% and 66%.</li>
 <li><b>Low</b> — incomplete inputs, a price outside the band, or below 58% with no measured edge.</li>

@@ -165,8 +165,8 @@ def pick_confidence(p: float, edge_pp: float | None, verified: bool, sample_ok: 
     if not sample_ok:
         return "Medium", "inputs checked against the official source, but a thin sample (fewer than 5 completed games)"
     if p >= 0.66 or (edge_pp is not None and edge_pp >= 6.0):
-        return "High", ("estimated probability of at least 66% with a fair price inside the -250…+10,000 band" if p >= 0.66
-                        else f"estimated probability beats the OLBG-listed implied probability by {edge_pp:.1f} points")
+        return "High", ("our probability estimate is at least 66% with a fair price inside the -250…+10,000 band" if p >= 0.66
+                        else f"our probability estimate beats the OLBG-listed implied probability by {edge_pp:.1f} points")
     if (edge_pp is not None and 2.0 <= edge_pp < 6.0) or 0.58 <= p < 0.66:
         return "Medium", "moderate probability, no material measured edge against the OLBG-listed price"
     return "Low", "probability below 58% and no measured edge"
