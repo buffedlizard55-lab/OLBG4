@@ -5075,7 +5075,7 @@ Session: `arena/11927acd-olbg4` · Branch: `arena/11927acd-olbg4` (Arena-fixed; 
 - Root `index.html`: the ZZ pointer no longer carries fixture/pick counts (they change with every capture); it points at the dashboard for live numbers. Same single `<div>` + one nav link as before, nothing else touched.
 ## Board UX-FIX — session `arena/11fad5c6-olbg4` (Pages build regression handoff)
 
-Session: `arena/11fad5c6-olbg4` · Branch: `arena/11fad5c6-olbg4` (Arena-fixed) · Claimed: `2026-10-24T17:21Z UTC` · **status: in progress**
+Session: `arena/11fad5c6-olbg4` · Branch: `arena/11fad5c6-olbg4` (Arena-fixed) · Claimed: `2026-10-24T17:21Z UTC` · **status: complete**
 
 Scope: `tools/build_master.py`, `tools/build_master_site.py`, `tools/verify_master.py`, generated `data/master.json`, `data/master_conflicts.json`, `board/**`, and this append-only record. This is a narrow final-integration repair after PR #164's required Pages deployment failed at the master-board validation gate. Board P's master-generator claim dates to 21 Oct and its completion record predates the current deployment failure by over 60 minutes; this takes over only the stale generator gate repair. No captured source data or peer sports desk will be modified. The failing row is NHL `nhl-2026020212` / master `M0355`: its stored prediction record explicitly says `withdrawn: true`, the source text is blank, and the claimed 69.4% probability conflicts with a High label. The merger currently ignores `withdrawn` and republishes the stale headline pick.
 
@@ -5083,7 +5083,7 @@ Scope: `tools/build_master.py`, `tools/build_master_site.py`, `tools/verify_mast
 |---|---|---|---|---|
 | UXF1 | Reproduce Pages master-board gate failure and trace it to explicitly withdrawn Board E predictions | done | arena/11fad5c6-olbg4 | `tools/build_master.py`, source JSON read-only |
 | UXF2 | Respect withdrawn prediction records in the master merge: retain fixture/market facts, suppress the invalid pick/confidence, and publish a clear review flag | done | arena/11fad5c6-olbg4 | `tools/build_master.py`, `tools/verify_master.py`, `data/master.json`, `data/master_conflicts.json`, `board/**` |
-| UXF3 | Rebuild and verify the exact Pages workflow gates, then redeploy after follow-up PR merge | in progress | arena/11fad5c6-olbg4 | same, `.github/workflows/pages.yml` read-only unless a workflow defect is shown |
+| UXF3 | Rebuild and verify the exact Pages workflow gates, then redeploy after follow-up PR merge | done | arena/11fad5c6-olbg4 | same, `.github/workflows/pages.yml` read-only unless a workflow defect is shown |
 
 ### Board UX-FIX scope update — 2026-10-24T17:24Z
 The repair needs a deterministic regression assertion in the master verifier, not only a loader change. Add `tools/verify_master.py` to UX-FIX's exclusive scope. The assertion will confirm that a source prediction explicitly marked withdrawn does not become the merged fixture's pick/confidence and is exposed as a review flag. Captured source files remain read-only.
@@ -5172,3 +5172,9 @@ After `origin/main` advanced to `a202a6d` (PR #177), rebased QF and repeated the
 ### QF refresh after root rebuild / latest main — 2026-10-24T18:33Z
 
 Main advanced through PR #179 (root overview rebuilt so the repository freshness gate can pass) and PR #180. Rebased QF on `7224553` and reran all local checks. The QF audit remains 401 desk rows / 234 priced / 19 High / 25 predictions; **26/26 gates pass**, 350 source-linked table rows, 0 broken local links; global publication audit: 471 rows, **50,242** local targets, 0 broken, 0 stale. PR #179's `Validate data and site` run passed (`https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40120682450`). PR #181 is being updated to this base; its checks must be reviewed again before any merge decision.
+
+### Board UX-FIX merge and publication result
+- **PR [#169](https://github.com/buffedlizard55-lab/OLBG4/pull/169) — MERGED** at `2026-10-24T18:05:17Z`, merge commit `ee93d5af494feb75425a2fb9d0f0f1e73be7fd7a`. PR checks passed: `audit`, `build-and-validate`, `verify` (plus the repository's concurrent Board AH verifier).
+- The Pages run triggered immediately on PR #169 was cancelled when newer concurrent main commits queued another deployment. The latest run for the resulting current main, [40120048868](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40120048868), **PASSED** all stages: build, report-build-status, and deploy. It published main commit `a202a6dabb95b89943f9199294824efdc9dfee9f`.
+- GitHub Pages API confirms status `built`, no error, for that same commit; public site URL: https://buffedlizard55-lab.github.io/OLBG4/ .
+- UXF1–UXF3 complete. Final locally verified snapshot and all source ownership limits remain as recorded above; no source captures or peer-owned desks were changed.
