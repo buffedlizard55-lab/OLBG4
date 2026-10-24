@@ -215,7 +215,7 @@ def market_rows(market_key: str, market: dict, unit: str) -> str:
             for s in a.get("selections", [])
         )
     return f"""<div class="subtable"><table>
-<thead><tr><th>{esc(name)}</th><th class="num">Model prob</th><th class="num">Our price</th>
+<thead><tr><th>{esc(name)}</th><th class="num">Rated prob</th><th class="num">Our price</th>
 <th class="num">American</th><th class="num">Fair</th></tr></thead>
 <tbody>{rows}{alt}</tbody></table></div>
 <p class="small muted" style="margin:2px 0 10px">{esc(extra)}</p>"""
