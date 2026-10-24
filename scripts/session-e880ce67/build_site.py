@@ -161,6 +161,9 @@ lines, not bookmaker quotes. If a value could not be confirmed it is blank and l
 """
 
 
+MINW = MAXW = 0
+
+
 def table(headers, rows, cls="") -> str:
     head = "".join(f"<th>{h}</th>" for h in headers)
     body = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
@@ -169,7 +172,10 @@ def table(headers, rows, cls="") -> str:
 
 def main() -> int:
     desk = json.load(open(os.path.join(DATA, "desk.json"), encoding="utf-8"))
+    global MINW, MAXW
     preds = json.load(open(os.path.join(DATA, "predictions.json"), encoding="utf-8"))
+    MINW = min(len(p["text"].split()) for p in preds["predictions"])
+    MAXW = max(len(p["text"].split()) for p in preds["predictions"])
     olbg = json.load(open(os.path.join(DATA, "olbg.json"), encoding="utf-8"))
     evidence = json.load(open(os.path.join(DATA, "evidence.json"), encoding="utf-8"))
     review = json.load(open(os.path.join(DATA, "review.json"), encoding="utf-8"))
@@ -327,7 +333,7 @@ client-side only), or OLBG listed no upcoming match at all.</p>
 <ul>
 <li><a href="picks.html"><b>Picks</b></a> — one obvious table per sport, with the selection,
 our price and its confidence.</li>
-<li><a href="predictions.html"><b>Predictions</b></a> — the full written case, 58–75 words
+<li><a href="predictions.html"><b>Predictions</b></a> — the full written case, {MINW}–{MAXW} words
 each, with its sources underneath.</li>
 <li><a href="matches.html"><b>All matches</b></a> — every row, priced or not.</li>
 <li><a href="coverage.html"><b>Sports</b></a> — fifteen pages, one per sport.</li>
@@ -433,7 +439,7 @@ input was captured. The exact missing input is on <a href="coverage.html">Sports
 <p class="lede">{len(preds['predictions'])} predictions across
 {len({p['sport'] for p in preds['predictions']})} sports. Each one names the teams or players,
 states the record and scoring figures we hold for both sides, names the selection and its price,
-and links the official page those figures came from. Length is 58–75 words; no two texts share
+and links the official page those figures came from. Length is {MINW}–{MAXW} words; no two texts share
 more than 0.35 word overlap.</p>
 <div class="note"><strong>Why not fifteen sports?</strong> A prediction needs a priced market and
 two verified strength inputs. Eleven sports have neither today, and writing a pick without them
