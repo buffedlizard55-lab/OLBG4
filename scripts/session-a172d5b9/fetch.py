@@ -15,7 +15,9 @@ import hashlib
 import json
 import os
 import ssl
+import subprocess
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -43,6 +45,25 @@ def get(url: str, timeout: int = 45):
         return r.status, r.read(), r.headers.get("Content-Type", ""), r.geturl()
 
 
+def get_with_curl(url: str, timeout: int = 45):
+    """Retry a refused request with curl's TLS stack, retaining only real response bytes."""
+    with tempfile.NamedTemporaryFile() as tmp:
+        command = [
+            "curl", "-L", "--fail", "--silent", "--show-error", "--max-time", str(timeout),
+            "-A", UA, "-H", "Accept: text/html,application/json,application/pdf,*/*;q=0.8",
+            "-H", "Accept-Language: en-GB,en;q=0.9", "-H", "Accept-Encoding: identity",
+            "-o", tmp.name, "-w", "%{json}", url,
+        ]
+        result = subprocess.run(command, capture_output=True, text=True, timeout=timeout + 5)
+        if result.returncode:
+            raise RuntimeError(f"curl exit {result.returncode}: {result.stderr.strip()}")
+        meta = json.loads(result.stdout)
+        status = int(meta.get("response_code") or 0)
+        if status != 200:
+            raise RuntimeError(f"curl HTTP {status}")
+        return status, open(tmp.name, "rb").read(), meta.get("content_type") or "", meta.get("url") or url
+
+
 def main() -> int:
     targets_path, outdir = sys.argv[1], sys.argv[2]
     targets = json.load(open(targets_path))
@@ -54,7 +75,14 @@ def main() -> int:
         tid, url = t["id"], t["url"]
         delay = float(t.get("delay", 0.5))
         try:
-            status, body, ctype, final = get(url)
+            try:
+                status, body, ctype, final = get(url)
+            except urllib.error.HTTPError as exc:
+                if exc.code not in (403, 429):
+                    raise
+                status, body, ctype, final = get_with_curl(url)
+            except TimeoutError:
+                status, body, ctype, final = get_with_curl(url)
             if status != 200:
                 raise RuntimeError(f"HTTP {status}")
             is_pdf = "pdf" in ctype.lower() or url.lower().endswith(".pdf")
