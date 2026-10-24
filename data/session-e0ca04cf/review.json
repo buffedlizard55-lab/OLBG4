@@ -1,0 +1,133 @@
+{
+ "summary": "A line-by-line look at the shared data this board inherited, checked against the committed files rather than against a live refresh. Six findings; none of them blocks publication, all are published here with the file they come from so they can be reviewed in place.",
+ "findings": [
+  {
+   "id": "EC-R01",
+   "where": "data/master.json",
+   "finding": "39 of the 369 aggregated rows carry source_tier 'none' and an empty source_url, so their values cannot be traced to an official page. The first of them (M0001, Aussie Rules) is an off-season placeholder whose home and away fields read 'No fixture'.",
+   "impact": "Rows without a source are shown on the shared site as fixtures even though nothing official backs them.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EC-R02",
+   "where": "data/master.json counts.by_sport",
+   "finding": "The same OLBG sport is counted twice: 'Greyhounds' (6 rows) and 'Greyhound Racing' (2 rows). OLBG publishes one Greyhounds id (28), so the split is a labelling difference between builds rather than two sports.",
+   "impact": "Per-sport totals and the site's sport tiles double-count greyhound racing.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EC-R03",
+   "where": "data/master.json",
+   "finding": "165 of 369 rows have no handicap line (the field is empty or an em dash) while the same rows are counted as priced. The site's 'markets investigated' figure therefore overstates handicap coverage.",
+   "impact": "Market coverage looks broader than the underlying data supports.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EC-R04",
+   "where": "data/master.json",
+   "finding": "The aggregate was generated on 2026-10-21 and has not been rebuilt since; 28 of its rows describe fixtures already played before that cutoff. Anything downstream of it is at least three days older than the OLBG cards a reader will see today.",
+   "impact": "Prices and picks inherited from the aggregate are stale, which is why this board rebuilt from raw official bytes instead of reusing it.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EC-R05",
+   "where": "session-4afef1af/data/snapshot.json",
+   "finding": "The automated pipeline reports 100 fixtures but covers only three sports (NBA, NHL, MLB) and withholds markets on 48 NBA fixtures because the per-team sample is under 20 completed games. Its own log records the stats.nba.com timeout that caused it.",
+   "impact": "The pipeline is healthy but is not a fifteen-sport desk; the numbers on its pages should not be read as league-wide coverage.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-4afef1af/data/snapshot.json"
+  },
+  {
+   "id": "EC-R06",
+   "where": "data/integrated/entries.json",
+   "finding": "The integrated entry file holds 75 entries, while data/master.json holds 369 rows and the 24-Oct OLBG-card desk holds 401. The three files are snapshots of different scopes with no shared row id, so they cannot be reconciled row by row.",
+   "impact": "Cross-referencing the published pages requires knowing which snapshot each page was built from.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/integrated/entries.json"
+  },
+  {
+   "id": "EC-R07",
+   "where": "Golf — capture 20261024T223338Z",
+   "finding": "No golf field for the window. The PGA Tour page captured describes the Butterfield Bermuda Championship in progress (round 3), the OWGR listing page is script-rendered and returns no ranking rows, and the OLBG all-golf listing returned 404. The sport is therefore carried with no fixture rather than a guessed field.",
+   "impact": "The Golf page shows the reason and no numbers; nothing was inferred to fill it.",
+   "status": "flagged for review",
+   "source": "https://www.pgatour.com/leaderboard"
+  },
+  {
+   "id": "EC-R08",
+   "where": "Gaelic Sports — capture 20261024T223338Z",
+   "finding": "The Gaelic football listing returned 404 (olbg_all_gaelic) and the GAA club index returned 404. gaa.ie/fixtures-results is served as a client-rendered page whose payload does not contain fixture rows for the window.",
+   "impact": "Gaelic Sports is listed on the index with a zero count and a stated reason instead of being dropped.",
+   "status": "flagged for review",
+   "source": "https://www.gaa.ie/fixtures-results/"
+  },
+  {
+   "id": "EC-R09",
+   "where": "Tennis — 19 fixtures listed, 0 priced",
+   "finding": "Nineteen tennis pairings come off the OLBG card, but no official ranking payload could be captured: api.atptour.com failed and the ATP ranking page is script-rendered, so there is no strength input to turn a pairing into a price.",
+   "impact": "All 19 rows are published unpriced with that reason; no ranking is invented.",
+   "status": "flagged for review",
+   "source": "https://www.atptour.com/en/rankings/singles"
+  },
+  {
+   "id": "EC-R10",
+   "where": "Cricket — 8 fixtures listed, 0 priced",
+   "finding": "The ICC team-ranking pages load their tables client-side and the cricket.com.au match pages return an application shell, so no win/loss table or completed-match record exists in the capture.",
+   "impact": "Eight cricket rows are published unpriced; no line was produced from a partial read.",
+   "status": "flagged for review",
+   "source": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i"
+  },
+  {
+   "id": "EC-R11",
+   "where": "Darts — 2 fixtures listed, 0 priced",
+   "finding": "Every pdc.tv URL captured returned the same 1.2 MB application shell with no match rows, and the PDC match API failed, so there is no rating or result input.",
+   "impact": "Two darts rows are published unpriced.",
+   "status": "flagged for review",
+   "source": "https://www.pdc.tv/rankings/"
+  },
+  {
+   "id": "EC-R12",
+   "where": "Rugby Union — 2 fixtures listed, 0 priced",
+   "finding": "The URC table endpoint returned an empty body and the Top 14 classement page lists clubs with one completed match each in the captured calendar, below the two-match floor this desk applies before pricing a points sport.",
+   "impact": "Two rugby union rows are published unpriced.",
+   "status": "flagged for review",
+   "source": "https://top14.lnr.fr/classement/"
+  },
+  {
+   "id": "EC-R13",
+   "where": "Motor Racing — 1 race listed, 0 priced",
+   "finding": "Formula 1 championship points do not separate a single race: the leader (340 points) comes out at 7.7% for the next round, so no selection reaches the 50% floor this desk requires, let alone the 70% High threshold.",
+   "impact": "The round is published with its outright market and no pick.",
+   "status": "flagged for review",
+   "source": "https://www.formula1.com/en/results/2026/drivers"
+  },
+  {
+   "id": "EC-R14",
+   "where": "Greyhounds — 1 fixture listed, 0 priced",
+   "finding": "The GBGB racecard endpoints returned 404 across six URL shapes tried, so no trap, grading or form data exists in the capture; only the OLBG listing row survives.",
+   "impact": "The greyhound row is published unpriced.",
+   "status": "flagged for review",
+   "source": "https://www.gbgb.org.uk/racecards/"
+  },
+  {
+   "id": "EC-R15",
+   "where": "All rows — injury and team news",
+   "finding": "No official injury, suspension or team-news feed was captured for this window. Nothing in any published preview claims an injury or a line-up change; every number quoted is a season-to-date table or schedule value from the source linked on its row.",
+   "impact": "The brief asks High picks to carry injury context; that part is unmet and is stated here rather than filled with unverified team news.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/arena/e0ca04cf-olbg4/data/session-e0ca04cf/desk.json"
+  },
+  {
+   "id": "EC-R16",
+   "where": "Capture 20261024T223338Z",
+   "finding": "This build reads the capture committed at 22:33:38Z (131 official responses, each with a SHA-256 in the manifest, 58 failed targets listed). A fourth capture pass aimed at the eight unpriced sports was queued on the Actions runner and had not completed at publication time.",
+   "impact": "Figures are as of that capture; the pages name it so a later rebuild can be compared against it.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/tree/arena/e0ca04cf-olbg4/data/session-e0ca04cf/capture/20261024T223338Z"
+  }
+ ]
+}

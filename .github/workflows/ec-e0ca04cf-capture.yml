@@ -1,0 +1,86 @@
+name: Board EC official capture (e0ca04cf)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/e0ca04cf-olbg4
+    paths:
+      - "scripts/session-e0ca04cf/targets.json"
+      - "scripts/session-e0ca04cf/targets2.json"
+      - "scripts/session-e0ca04cf/targets3.json"
+      - "scripts/session-e0ca04cf/targets4.json"
+      - "scripts/session-e0ca04cf/fetch.py"
+      - ".github/workflows/ec-e0ca04cf-capture.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ec-e0ca04cf-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/e0ca04cf-olbg4
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Capture official feeds + OLBG listings (pass 1)
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-e0ca04cf/fetch.py \
+            scripts/session-e0ca04cf/targets.json \
+            "data/session-e0ca04cf/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+
+      - name: Capture OLBG event pages (pass 2, only if generated)
+        if: hashFiles('scripts/session-e0ca04cf/targets2.json') != ''
+        run: |
+          set -o pipefail
+          python3 scripts/session-e0ca04cf/fetch.py \
+            scripts/session-e0ca04cf/targets2.json \
+            "data/session-e0ca04cf/capture/$STAMP-events" 2>&1 | tee -a /tmp/capture.log
+
+      - name: Capture ranking / table feeds (pass 3, only if generated)
+        if: hashFiles('scripts/session-e0ca04cf/targets3.json') != ''
+        run: |
+          set -o pipefail
+          python3 scripts/session-e0ca04cf/fetch.py \
+            scripts/session-e0ca04cf/targets3.json \
+            "data/session-e0ca04cf/capture/$STAMP-rankings" 2>&1 | tee -a /tmp/capture.log
+
+      - name: Capture specialist league feeds (pass 4, only if generated)
+        if: hashFiles('scripts/session-e0ca04cf/targets4.json') != ''
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python3 scripts/session-e0ca04cf/fetch.py \
+            scripts/session-e0ca04cf/targets4.json \
+            "data/session-e0ca04cf/capture/$STAMP-specialists" 2>&1 | tee -a /tmp/capture.log
+
+      - name: Commit capture (even partial) to arena/e0ca04cf-olbg4
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-ec-capture[bot]"
+          git config user.email "board-ec-capture@users.noreply.github.com"
+          mkdir -p data/session-e0ca04cf/logs
+          cp /tmp/capture.log "data/session-e0ca04cf/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-e0ca04cf
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board EC (e0ca04cf): official capture ${STAMP} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/e0ca04cf-olbg4 && \
+              git push origin HEAD:arena/e0ca04cf-olbg4 && break
+            sleep 5
+          done

@@ -5206,3 +5206,42 @@ Exclusive initial scope: `session-a172d5b9/**`, `data/session-a172d5b9/**`, `scr
 - Third capture `20261024T223855Z` succeeded in run [`40139365510`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40139365510): 151 payloads, 19 recorded failures, including NBA full schedule HTTP 200 (`7,400,333` bytes, SHA-256 `2d1c4122f8f9d72a9358749d683788534b167830ca21727a55e8dcdcab6a9474`). Rebuilt output remains 142 OLBG rows / five written High picks, now with 25 official crosswalks (seven NBA). NBA prices stay blank below the 20-game threshold. Latest gates: 5,106 checks, 151/151 hashes, deterministic second build, zero broken/stale publication links.
 - The narrow master repair is complete locally: M0340 now retains official fixture and market facts but has blank pick/confidence/prose and a specific withdrawal flag; generic no-pick wording is not added to withdrawn rows. Regeneration also brings committed master artifacts up to the 20:47 source snapshot. `BOARD_DIR=board python3 tools/verify_master.py` passes (369 rows, 364 in scope, 296 official-sourced, 31 High with written predictions).
 - **Stale root-claim handoff:** Board CA's last root PR merged at 17:54Z and its follow-up finished at 18:05Z, over 60 minutes ago with no subsequent root commit; no open CA PR is active. A172's isolated tasks are complete. For final integration only, A172 claims an additive edit to `scripts/session-b6643783/build_site.py` plus its generated root `index.html` and `desk/**` navigation outputs. The edit will only add a prominent link/banner to `session-a172d5b9/`; it will not alter CA data, picks, tables, styling or archive content. No other shared navigation or peer renderer is claimed.
+
+## Board EC — session `arena/e0ca04cf-olbg4` (2026-10-24T22:30Z: fresh 15-sport desk, own lines for the eight sports earlier boards left unpriced, written predictions, dashboard, integration)
+
+Session: `arena/e0ca04cf-olbg4` · Branch: `arena/e0ca04cf-olbg4` · Claimed: 2026-10-24T22:30Z UTC · **status: in progress**
+
+Scope is deliberately isolated: `session-e0ca04cf/**`, `data/session-e0ca04cf/**`,
+`scripts/session-e0ca04cf/**`, `.github/workflows/ec-e0ca04cf-capture.yml`, and append-only
+entries in this file. Every other file — `data/master.json`, `data/session-*/**`, `board/**`,
+`desk/**`, `docs/**`, root `*.html`, `pipeline/**`, all other `session-*/**` and workflows — is
+read-only here; anything that needs a peer-owned file is logged as an integration request.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| EC1 | Fresh official capture for the 25 Oct – 8 Nov 2026 window for the 15 requested sports (Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League) plus the matching OLBG hub/event listings, fetched by an Actions runner (sandbox egress is GitHub/npm/PyPI only) and stored byte-for-byte under a SHA-256 manifest | in progress | arena/e0ca04cf-olbg4 | `scripts/session-e0ca04cf/make_targets.py`, `scripts/session-e0ca04cf/fetch.py`, `scripts/session-e0ca04cf/targets.json`, `.github/workflows/ec-e0ca04cf-capture.yml`, `data/session-e0ca04cf/capture/**` |
+| EC2 | Read every official payload into fixtures with an official source URL per row; no inferred values, blanks stay blank and are flagged | pending | arena/e0ca04cf-olbg4 | `scripts/session-e0ca04cf/parse.py`, `data/session-e0ca04cf/fixtures.json` |
+| EC3 | Originate our own lines (match winner, handicap/spread, match total, plus sport-specific markets) for every row where verified inputs exist; rank confidence Low/Medium/High against the −250…+10,000 price window | pending | arena/e0ca04cf-olbg4 | `scripts/session-e0ca04cf/originate.py`, `data/session-e0ca04cf/desk.json` |
+| EC4 | Up to five written, non-templated predictions per sport (≥30 words, real captured form/H2H, explicit selection, official link) — the gap the QF audit measured at 25/75 | pending | arena/e0ca04cf-olbg4 | `scripts/session-e0ca04cf/predictions.py`, `data/session-e0ca04cf/predictions.json` |
+| EC5 | Clean dashboard Pages site: executive summary, per-sport pages, all-entries/markets/sources, and a Flagged for Review page with source links for anything unconfirmed | pending | arena/e0ca04cf-olbg4 | `session-e0ca04cf/**`, `scripts/session-e0ca04cf/build_site.py` |
+| EC6 | Deterministic verification gate, `git pull --rebase`, PR to `main`, merge, confirm Pages deploy, record the result here | pending | arena/e0ca04cf-olbg4 | `scripts/session-e0ca04cf/verify.py`, `COORDINATION.md` |
+
+**Why this board exists.** The merged 15-sport desk (Board CA, capture `20261024T173907Z`) leaves
+eight of the fifteen requested sports with **zero** originated prices — Cricket, Darts, Gaelic
+Sports, Greyhounds, Rugby Union, Snooker, Tennis and Golf — so those sports surface no pick and no
+price at all, and the QF audit measured only 25 of the required 75 written predictions. EC targets
+exactly those gaps while re-deriving the priced sports from fresh bytes.
+
+### EC working log
+- `2026-10-24T22:30Z` — `e0ca04cf` — read the shared board, then claimed before any other work.
+  Sandbox egress re-tested against `olbg.com`, `nhl.com`, `espn.com`, `bbc.co.uk`, `pgatour.com`
+  and `atptour.com`: all fail at `SSL_connect` (`SSL_ERROR_SYSCALL`), so official bytes are captured
+  by the Actions runner as previous boards did. Capture target list is 189 URLs across the 15 sports.
+- `2026-10-24T22:50Z` — `e0ca04cf` — pass 4 prepared: 87 specialist targets aimed at the eight
+  sports pass 1–3 could not price (Golf via the PGA Tour field, which carries each player's OWGR
+  place; Tennis via the WTA tournament/ranking API; Rugby Union via world.rugby rankings + URC;
+  Cricket via ICC/cricket.com.au/BBL; Snooker via wst.tv and snooker.org; Darts via pdc.tv; Gaelic
+  via gaa.ie; Greyhounds via gbgb.org.uk), plus extra league feeds for Handball, Basketball, Ice
+  Hockey, Volleyball and Motor Racing. Workflow gained a fourth, `continue-on-error` capture step so
+  a specialist miss cannot lose the main capture. Scope is unchanged and stays inside
+  `scripts/session-e0ca04cf/**`, `data/session-e0ca04cf/**`, `session-e0ca04cf/**` and this log.

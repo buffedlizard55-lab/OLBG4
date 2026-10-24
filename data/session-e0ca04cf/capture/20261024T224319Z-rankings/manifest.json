@@ -1,0 +1,133 @@
+{
+ "board": "EC",
+ "failed": 12,
+ "failures": [
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "pdc_rankings_api",
+   "status": 0,
+   "url": "https://rankings.pdc.web.gc.wstservices.co.uk/v2/?page.size=200"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "pdc_matches_api2",
+   "status": 0,
+   "url": "https://matches.pdc.web.gc.wstservices.co.uk/v2/?page.size=400&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "pdc_participants2",
+   "status": 0,
+   "url": "https://participants.pdc.web.gc.wstservices.co.uk/v2/?page.size=200"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "rugby_feeds_competitions",
+   "status": 404,
+   "url": "https://rugby-union-feeds.incrowdsports.com/v1/competitions"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "urc_standings_page",
+   "status": 404,
+   "url": "https://www.unitedrugby.com/standings"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "urc_standings_data",
+   "status": 404,
+   "url": "https://stats.unitedrugby.com/standings/__data.json"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "icc_api_rankings",
+   "status": 404,
+   "url": "https://www.icc-cricket.com/api/rankings?gender=mens&type=team&discipline=t20i"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "icc_api_root",
+   "status": 0,
+   "url": "https://api.icc-cricket.com/rankings"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "icc_t20i_json",
+   "status": 404,
+   "url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i.json"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "asobal_clasificacion",
+   "status": 404,
+   "url": "https://asobal.es/clasificacion/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "lnh_classement",
+   "status": 404,
+   "url": "https://www.lnh.fr/classement"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "vbl_tabelle",
+   "status": 404,
+   "url": "https://www.volleyball-bundesliga.de/tabelle"
+  }
+ ],
+ "finished_utc": "2026-10-24T22:50:10Z",
+ "ok": 4,
+ "records": [
+  {
+   "bytes": 957235,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wst_rankings_api.gz",
+   "final_url": "https://rankings.snooker.web.gc.wstservices.co.uk/v2/?page.size=200",
+   "id": "wst_rankings_api",
+   "sha256": "036a6c724b2a6d7d98ef395ff546dad3b7cee53bfd68a3369e7649a492ff4cf0",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://rankings.snooker.web.gc.wstservices.co.uk/v2/?page.size=200"
+  },
+  {
+   "bytes": 957235,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wst_rankings_api2.gz",
+   "final_url": "https://rankings.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[rankingType]=prizeMoney",
+   "id": "wst_rankings_api2",
+   "sha256": "036a6c724b2a6d7d98ef395ff546dad3b7cee53bfd68a3369e7649a492ff4cf0",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://rankings.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[rankingType]=prizeMoney"
+  },
+  {
+   "bytes": 175,
+   "content_type": "application/json",
+   "error": null,
+   "file": "rugby_feeds_matches.gz",
+   "final_url": "https://rugby-union-feeds.incrowdsports.com/v1/matches?limit=200",
+   "id": "rugby_feeds_matches",
+   "sha256": "23bc409a6c8c3ecc75ffb14da39759fdb30b89c5cb67cbf4c9c7684112122232",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://rugby-union-feeds.incrowdsports.com/v1/matches?limit=200"
+  },
+  {
+   "bytes": 142835,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "hbl_api_table.gz",
+   "final_url": "https://dkb-handball-bundesliga.de/",
+   "id": "hbl_api_table",
+   "sha256": "743f2e31e7e20972f3cfcd8f10256a683047f51deb5dedeeec7e511aa85ed005",
+   "sport": "Handball",
+   "status": 200,
+   "url": "https://www.dkb-handball-bundesliga.de/api/table"
+  }
+ ],
+ "session": "arena/e0ca04cf-olbg4",
+ "started_utc": "2026-10-24T22:49:50Z",
+ "targets": 16
+}
