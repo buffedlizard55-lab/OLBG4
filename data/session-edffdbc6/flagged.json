@@ -1,0 +1,307 @@
+{
+ "schema": "olbg4.board-zz.flagged/1",
+ "generated_utc": "2026-10-24T17:19:05Z",
+ "items": [
+  {
+   "id": "ZZ-F01",
+   "severity": "info",
+   "item": "High-confidence band arithmetic",
+   "detail": "The brief asks for picks at \u226570% probability AND inside \u2212250\u2026+10,000. 70% is \u2212233 and \u2212250 is 71.43%, so both can only hold for probabilities in 70.00\u201371.43%. High picks on this desk are selected inside that band; every other row is graded Medium/Low. If the intended floor was \u2212250 with no probability floor, say so and the grading rule can be relaxed to p \u2265 55% for the window.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/methodology.html"
+  },
+  {
+   "id": "ZZ-F02",
+   "severity": "gap",
+   "item": "NBA fixture feed blocked",
+   "detail": "cdn.nba.com returned HTTP 403 for both schedule endpoints and data.nba.com returned a redirect shell, so no NBA fixture could be verified from an official feed. No NBA row, price or prediction is published.",
+   "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+  },
+  {
+   "id": "ZZ-F03",
+   "severity": "gap",
+   "item": "Rugby Union: URC feed unavailable",
+   "detail": "unitedrugby.com returned HTTP 404 on /fixtures-and-results, /standings, /fixtures and /match-centre; premiershiprugby.com renders fixtures client-side. Only the two Top 14 fixtures on top14.lnr.fr could be verified, so Rugby Union has 2 picks, not 5.",
+   "url": "https://www.unitedrugby.com/fixtures-and-results"
+  },
+  {
+   "id": "ZZ-F04",
+   "severity": "gap",
+   "item": "Darts and snooker official pages are JavaScript shells",
+   "detail": "pdc.tv returned the same 1,241,860-byte shell for six different URLs, and wst.tv/matches contains no fixture data in HTML. The OLBG darts listings observed in this capture are published on the OLBG page but carry no price and no pick.",
+   "url": "https://www.pdc.tv/tournament-hub/10870"
+  },
+  {
+   "id": "ZZ-F05",
+   "severity": "gap",
+   "item": "Cricket has verified fixtures but no strength input",
+   "detail": "Cricket Australia's official feed supplied 14 upcoming fixtures with start times, but the ICC team-ranking endpoints returned 404, so no team strength could be read from an official page. The fixtures are listed on Matches with no line and no pick.",
+   "url": "https://www.cricket.com.au/matches"
+  },
+  {
+   "id": "ZZ-F06",
+   "severity": "gap",
+   "item": "Golf, Gaelic, Greyhounds, Handball, Motor Racing, Rugby League not priced",
+   "detail": "Each sport's official fixture/strength feed was client-side rendered or returned an error in this capture (details on Coverage). Nothing was estimated to fill the gap.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
+  },
+  {
+   "id": "ZZ-F07",
+   "severity": "note",
+   "item": "MLB start times are stored as 00:00Z",
+   "detail": "The MLB Stats API returns World Series games with gameDate 2026-10-25T00:00:00Z, which is the US evening of 24 October in UTC terms. Kick-off times for baseball rows should be read as the API value, which is the official field, not as a local first-pitch clock.",
+   "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-11-09"
+  },
+  {
+   "id": "ZZ-F08",
+   "severity": "note",
+   "item": "No official injury feed captured",
+   "detail": "No roster/injury endpoint was part of this capture, so predictions make no injury claim. Where an official feed does name a probable pitcher (MLB) it is quoted; otherwise the text says nothing rather than guessing.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-F09",
+   "severity": "note",
+   "item": "Coverage is 9 of 15 sports with fixtures and 7 with own lines",
+   "detail": "Ice Hockey, Basketball, Baseball, Tennis, Volleyball, Rugby Union and (fixtures only) Cricket, plus the OLBG listing for the rest. Five written predictions exist only where five High picks exist; Rugby Union has two.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
+  },
+  {
+   "id": "ZZ-CAP-shl_games",
+   "severity": "capture",
+   "item": "Ice Hockey target shl_games returned 500",
+   "detail": "HTTPError 500 \u2014 https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=s4y-994162547&seriesUuid=qQ9-af3704004p&gameTypeUuid=qQ9-af3704004p&gamePlace=all&played=all",
+   "url": "https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=s4y-994162547&seriesUuid=qQ9-af3704004p&gameTypeUuid=qQ9-af3704004p&gamePlace=all&played=all"
+  },
+  {
+   "id": "ZZ-CAP-nba_schedule_league",
+   "severity": "capture",
+   "item": "Basketball target nba_schedule_league returned 403",
+   "detail": "HTTPError 403 \u2014 https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+   "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+  },
+  {
+   "id": "ZZ-CAP-nba_scoreboard_today",
+   "severity": "capture",
+   "item": "Basketball target nba_scoreboard_today returned 403",
+   "detail": "HTTPError 403 \u2014 https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
+   "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json"
+  },
+  {
+   "id": "ZZ-CAP-wta_rankings_singles",
+   "severity": "capture",
+   "item": "Tennis target wta_rankings_singles returned 400",
+   "detail": "HTTPError 400 \u2014 https://api.wtatennis.com/tennis/players/ranked?page=0&pageSize=100&type=rankSingles&sort=asc",
+   "url": "https://api.wtatennis.com/tennis/players/ranked?page=0&pageSize=100&type=rankSingles&sort=asc"
+  },
+  {
+   "id": "ZZ-CAP-atp_rankings_home",
+   "severity": "capture",
+   "item": "Tennis target atp_rankings_home returned 403",
+   "detail": "HTTPError 403 \u2014 https://www.atptour.com/en/rankings/singles",
+   "url": "https://www.atptour.com/en/rankings/singles"
+  },
+  {
+   "id": "ZZ-CAP-atp_vienna_home",
+   "severity": "capture",
+   "item": "Tennis target atp_vienna_home returned 403",
+   "detail": "HTTPError 403 \u2014 https://www.atptour.com/en/tournaments/vienna/336/overview",
+   "url": "https://www.atptour.com/en/tournaments/vienna/336/overview"
+  },
+  {
+   "id": "ZZ-CAP-atp_basel_home",
+   "severity": "capture",
+   "item": "Tennis target atp_basel_home returned 403",
+   "detail": "HTTPError 403 \u2014 https://www.atptour.com/en/tournaments/basel/328/overview",
+   "url": "https://www.atptour.com/en/tournaments/basel/328/overview"
+  },
+  {
+   "id": "ZZ-CAP-atp_paris_home",
+   "severity": "capture",
+   "item": "Tennis target atp_paris_home returned 403",
+   "detail": "HTTPError 403 \u2014 https://www.atptour.com/en/tournaments/paris/352/overview",
+   "url": "https://www.atptour.com/en/tournaments/paris/352/overview"
+  },
+  {
+   "id": "ZZ-CAP-dk_herreligaen_stilling",
+   "severity": "capture",
+   "item": "Handball target dk_herreligaen_stilling returned 404",
+   "detail": "HTTPError 404 \u2014 https://tophaandbold.dk/stilling/herreligaen",
+   "url": "https://tophaandbold.dk/stilling/herreligaen"
+  },
+  {
+   "id": "ZZ-CAP-fr_liquimoly_results",
+   "severity": "capture",
+   "item": "Handball target fr_liquimoly_results returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.lnh.fr/liquimoly-starligue/calendrier-et-resultats",
+   "url": "https://www.lnh.fr/liquimoly-starligue/calendrier-et-resultats"
+  },
+  {
+   "id": "ZZ-CAP-urc_fixtures",
+   "severity": "capture",
+   "item": "Rugby Union target urc_fixtures returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.unitedrugby.com/fixtures-and-results",
+   "url": "https://www.unitedrugby.com/fixtures-and-results"
+  },
+  {
+   "id": "ZZ-CAP-urc_standings",
+   "severity": "capture",
+   "item": "Rugby Union target urc_standings returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.unitedrugby.com/standings",
+   "url": "https://www.unitedrugby.com/standings"
+  },
+  {
+   "id": "ZZ-CAP-icc_fixtures",
+   "severity": "capture",
+   "item": "Cricket target icc_fixtures returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/matches",
+   "url": "https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/matches"
+  },
+  {
+   "id": "ZZ-CAP-pcb_home",
+   "severity": "capture",
+   "item": "Cricket target pcb_home returned 403",
+   "detail": "HTTPError 403 \u2014 https://www.pcb.com.pk/",
+   "url": "https://www.pcb.com.pk/"
+  },
+  {
+   "id": "ZZ-CAP-ecb_fixtures",
+   "severity": "capture",
+   "item": "Cricket target ecb_fixtures returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.ecb.co.uk/matches",
+   "url": "https://www.ecb.co.uk/matches"
+  },
+  {
+   "id": "ZZ-CAP-dpwt_schedule_2026",
+   "severity": "capture",
+   "item": "Golf target dpwt_schedule_2026 returned 403",
+   "detail": "HTTPError 403 \u2014 https://www.europeantour.com/dpworld-tour/schedule/",
+   "url": "https://www.europeantour.com/dpworld-tour/schedule/"
+  },
+  {
+   "id": "ZZ-CAP-dpwt_leaderboard",
+   "severity": "capture",
+   "item": "Golf target dpwt_leaderboard returned 403",
+   "detail": "HTTPError 403 \u2014 https://www.europeantour.com/dpworld-tour/leaderboard",
+   "url": "https://www.europeantour.com/dpworld-tour/leaderboard"
+  },
+  {
+   "id": "ZZ-CAP-motogp_australia_2026",
+   "severity": "capture",
+   "item": "Motor Racing target motogp_australia_2026 returned 404",
+   "detail": "HTTPError 404 \u2014 https://www.motogp.com/en/events/australia/2026",
+   "url": "https://www.motogp.com/en/events/australia/2026"
+  },
+  {
+   "id": "ZZ-HIGH-BASEBALL",
+   "severity": "coverage",
+   "item": "Baseball: 0 High picks (brief target 5 per sport)",
+   "detail": "6 fixtures priced, but only 0 landed in the 70.00\u201371.43% band that satisfies both of the brief's High tests. The rest are Medium/Low and receive no written prediction.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
+  },
+  {
+   "id": "ZZ-HIGH-RUGBYUNION",
+   "severity": "coverage",
+   "item": "Rugby Union: 2 High picks (brief target 5 per sport)",
+   "detail": "2 fixtures priced, but only 2 landed in the 70.00\u201371.43% band that satisfies both of the brief's High tests. The rest are Medium/Low and receive no written prediction.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
+  },
+  {
+   "id": "ZZ-HIGH-VOLLEYBALL",
+   "severity": "coverage",
+   "item": "Volleyball: 0 High picks (brief target 5 per sport)",
+   "detail": "7 fixtures priced, but only 0 landed in the 70.00\u201371.43% band that satisfies both of the brief's High tests. The rest are Medium/Low and receive no written prediction.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-IH-NHL-2026020169",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-IH-NHL-2026020169",
+   "detail": "High row beyond the five-per-sport prediction quota (8 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-IH-NHL-2026020181",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-IH-NHL-2026020181",
+   "detail": "High row beyond the five-per-sport prediction quota (8 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-IH-NHL-2026020189",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-IH-NHL-2026020189",
+   "detail": "High row beyond the five-per-sport prediction quota (8 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-EL-84",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-EL-84",
+   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-EL-77",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-EL-77",
+   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-EL-85",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-EL-85",
+   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-EL-82",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-EL-82",
+   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-PRED-ZZ-BB-EL-83",
+   "severity": "note",
+   "item": "High row without a prediction: ZZ-BB-EL-83",
+   "detail": "High row beyond the five-per-sport prediction quota (10 High rows)",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"
+  },
+  {
+   "id": "ZZ-OLBG-01",
+   "severity": "unverified",
+   "item": "120 OLBG-listed matches have no official verification",
+   "detail": "The pairing and kick-off come from OLBG's own hub page. No official feed in this capture confirms them, so they are published on the OLBG page without a price or a pick.",
+   "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/olbg.html"
+  },
+  {
+   "id": "ZZ-REV-01-REPO",
+   "severity": "repo-defect",
+   "item": "data/master.json holds 354 rows; 1 are placeholder 'No fixture' rows, 208 are dated before today (2026-10-24),\u2026",
+   "detail": "data/master.json holds 354 rows; 1 are placeholder 'No fixture' rows, 208 are dated before today (2026-10-24), 67 are marked build_verified=false, and 0 High-confidence rows carry no prediction text.",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "ZZ-REV-02-REPO",
+   "severity": "repo-defect",
+   "item": "data/master.json declares generated_on 2026-10-21; its row dates run past that stamp, so the file is a merged \u2026",
+   "detail": "data/master.json declares generated_on 2026-10-21; its row dates run past that stamp, so the file is a merged build rather than a single dated desk. Readers should treat the date column, not generated_on, as the fixture date.",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "ZZ-REV-03-REPO",
+   "severity": "repo-defect",
+   "item": "Boards FB/EZ/BN grade their top five rows per sport as 'High' from a composite index, not from the brief's \u226570\u2026",
+   "detail": "Boards FB/EZ/BN grade their top five rows per sport as 'High' from a composite index, not from the brief's \u226570% probability test; published examples sit at 55\u201369% (e.g. FB-PRED-01 is p=0.5942, \u2212146). Their High labels are therefore not comparable with the High labels on this desk, which enforce \u226570% and the \u2212250\u2026+10,000 window together.",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-48de8c1d/predictions.json"
+  },
+  {
+   "id": "ZZ-REV-04-REPO",
+   "severity": "repo-defect",
+   "item": "Several session desks publish fixture rows whose start time has already passed relative to the repository snap\u2026",
+   "detail": "Several session desks publish fixture rows whose start time has already passed relative to the repository snapshot (2026-10-24T15:56Z), including golf and darts rows dated 24 Oct. This desk rebuilds its window from a fresh capture instead of carrying them, and lists them here rather than editing another owner's file.",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/tree/main/data"
+  }
+ ]
+}

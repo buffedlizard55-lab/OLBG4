@@ -18,6 +18,7 @@ selection (Low).  Nothing is randomised and no probability is written by hand.
 from __future__ import annotations
 
 import json
+import math
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -86,7 +87,12 @@ def poisson_engine(f: dict) -> tuple[list[dict], list[str]]:
     markets += M.total_ladder(f["home"], f["away"], total, totals,
                               "Same Poisson total distribution, threshold lattice", unit)
     facts = [f"goal/run expectancy from the captured official season totals: {f['home']} {q(lam_h)} vs {f['away']} {q(lam_a)}"]
-    return markets, facts
+    return markets, facts + [
+        f"captured season totals: {f['home']} {h.get('w', 0)}-{h.get('l', 0)}"
+        + (f" ({h.get('gf')}/{h.get('ga')} goals)" if 'gf' in h else "")
+        + f", {f['away']} {a.get('w', 0)}-{a.get('l', 0)}"
+        + (f" ({a.get('gf')}/{a.get('ga')} goals)" if 'gf' in a else "")
+    ]
 
 
 def normal_engine(f: dict) -> tuple[list[dict], list[str]]:
@@ -134,8 +140,9 @@ def normal_engine(f: dict) -> tuple[list[dict], list[str]]:
     else:
         markets = [M.two_way_win(f["home"], f["away"], p_home,
                                  f"Normal points model: mean {q(eh)}–{q(ea)}, σmargin {sm}")]
-    lines = [round(x * 0.5, 1) for x in range(1, int(max_line * 2) + 1)]
-    lines = [ln for ln in (-x for x in lines)] + lines
+    # realistic alternative-line ladder (main line ± the numbers bookmakers actually post)
+    mags = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 7.5]
+    lines = [-m for m in mags] + mags
     markets += M.handicap_ladder(f["home"], f["away"], margin_pmf, lines,
                                  "Same normal margin distribution, threshold lattice", "points")
     half = round(total_mean)
@@ -175,6 +182,16 @@ def tennis_engine(f: dict) -> tuple[list[dict], list[str]]:
 def bestof_engine(f: dict) -> tuple[list[dict], list[str]]:
     h, a = f["stats"]["home"], f["stats"]["away"]
     p_home = f["stats"].get("p_home")
+    if p_home is None and h and a:
+        gph, gpa = max(h.get("gp", 0), 1), max(a.get("gp", 0), 1)
+        wr_h, wr_a = h.get("w", 0) / gph, a.get("w", 0) / gpa
+        sr_h = h.get("sw", 0) / max(h.get("sw", 0) + h.get("sl", 0), 1) if h.get("sw") else wr_h
+        sr_a = a.get("sw", 0) / max(a.get("sw", 0) + a.get("sl", 0), 1) if a.get("sw") else wr_a
+        ppg_h, ppg_a = h.get("pts", 0) / gph, a.get("pts", 0) / gpa
+        z = 3.2 * (wr_h - wr_a) + 3.0 * (sr_h - sr_a) + 0.55 * (ppg_h - ppg_a)
+        p_home = 1.0 / (1.0 + math.exp(-z))
+        p_home = min(max(p_home, 0.10), 0.90)
+        f["stats"]["p_home"] = round(p_home, 4)
     n_units = f["model"].get("units", 5)
     unit = f["model"].get("unit_name", "Set")
     if p_home is None:
@@ -182,8 +199,8 @@ def bestof_engine(f: dict) -> tuple[list[dict], list[str]]:
     markets = [M.market("match_winner", f"Match Winner (best of {n_units} {unit.lower()}s)",
                         [M.outcome(f["home"], p_home), M.outcome(f["away"], 1 - p_home)],
                         f["model"].get("basis", "Strength model from the captured official table"))]
-    lines = [1.5] if n_units <= 5 else [2.5, 4.5]
-    totals = [n_units - 1.5] + ([n_units + 0.5] if n_units <= 5 else [])
+    lines = [1.5, 2.5] if n_units == 5 else [1.5]
+    totals = [3.5, 4.5] if n_units == 5 else [2.5, 3.5]
     markets += M.best_of(f["home"], f["away"], p_home, n_units, unit, lines, totals,
                          "Binomial frame/leg model inverted from the match probability")
     return markets, f["model"].get("facts", [])

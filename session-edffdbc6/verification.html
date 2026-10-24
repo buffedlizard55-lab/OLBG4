@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Verification · OLBG4 own-line desk</title>
+<link rel="stylesheet" href="assets/site.css"/>
+</head><body>
+<header class="top"><div class="brand">OLBG4 · own-line picks desk</div>
+<div class="sub">15 OLBG sports · official-source fixtures · our own prices · written predictions</div></header>
+<nav class="main"><a class="" href="index.html">Dashboard</a><a class="" href="picks.html">All picks</a><a class="" href="matches.html">Matches</a><a class="" href="markets.html">Markets</a><a class="" href="predictions.html">Predictions</a><a class="" href="coverage.html">Coverage</a><a class="" href="olbg.html">OLBG</a><a class="" href="sources.html">Sources</a><a class="" href="methodology.html">Method</a><a class="on" href="verification.html">Verification</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged</a><a href="../index.html">Repo home</a></nav>
+<main>
+
+<h1>Verification</h1>
+<p class="lead">The gate re-runs the whole pipeline from the committed capture and compares it byte-for-byte with what is published, then re-tests every rule the brief sets.</p>
+<div class="notice">Not yet generated.</div>
+<div class="table-wrap"><table class=""><thead><tr><th>Check</th><th>Result</th><th>Detail</th></tr></thead><tbody></tbody></table></div>
+<h2>Repo-wide checks</h2>
+<ul>
+<li>Every local link on the generated pages resolves (checked by <code>scripts/session-edffdbc6/verify.py</code>).</li>
+<li>Every published price is rebuilt from its stored probability; every High row is re-tested against the 70% floor and the −250…+10,000 window.</li>
+<li>Every prediction is re-counted for words and re-compared for uniqueness; the banned internal words are grepped.</li>
+<li>The repo-wide publication audit (<code>scripts/audit_publication.py --check</code>) runs before the pull request.</li>
+</ul>
+
+</main>
+<footer>Generated from committed capture data · every number on this site is rebuilt from the captured official payloads · unconfirmed values are blank and listed on the Flagged page.</footer>
+</body></html>

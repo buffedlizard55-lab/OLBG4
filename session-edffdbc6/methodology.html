@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Method · OLBG4 own-line desk</title>
+<link rel="stylesheet" href="assets/site.css"/>
+</head><body>
+<header class="top"><div class="brand">OLBG4 · own-line picks desk</div>
+<div class="sub">15 OLBG sports · official-source fixtures · our own prices · written predictions</div></header>
+<nav class="main"><a class="" href="index.html">Dashboard</a><a class="" href="picks.html">All picks</a><a class="" href="matches.html">Matches</a><a class="" href="markets.html">Markets</a><a class="" href="predictions.html">Predictions</a><a class="" href="coverage.html">Coverage</a><a class="" href="olbg.html">OLBG</a><a class="" href="sources.html">Sources</a><a class="on" href="methodology.html">Method</a><a class="" href="verification.html">Verification</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged</a><a href="../index.html">Repo home</a></nav>
+<main>
+
+<h1>Method</h1>
+<p class="lead">Everything on this site is rebuilt from committed bytes: captured official payloads → verified fixtures → our own prices → graded picks → written predictions. No price was typed by hand and no fixture was inferred.</p>
+
+<h2>1 · Capture</h2>
+<p>142 official and OLBG targets were fetched by an open-egress GitHub Actions runner at 2026-10-24T17:12:08Z (capture <code>20261024T171208Z</code>). 124 returned HTTP 200; every response is stored as deterministic gzip with its SHA-256 in <code>manifest.json</code>, and each row on this site quotes the target id and digest it came from. The runner honours <code>olbg.com/robots.txt</code> (51 disallow rules parsed for <code>*</code>) and uses a 1-second per-host delay there.</p>
+
+<h2>2 · Fixture verification</h2>
+<p>A fixture enters the desk only when the captured official payload gives both sides, the competition and a start time, and that start time is after the capture cut-off. Anything missing stays blank. Fixtures whose official feed was JavaScript-only could not be verified and are not invented — see <a href="coverage.html">Coverage</a>.</p>
+
+<h2>3 · Our own lines</h2>
+<ul>
+<li><b>Ice hockey (NHL, Liiga)</b> — independent Poisson goal model: each side's goals-for and goals-against per game from the official standings, pulled toward the league mean, with home advantage. Match winner, puck-line ladder (−0.5…+7.5), total ladder (4.5–7.5).</li>
+<li><b>Basketball (EuroLeague)</b> — normal points model on the official per-game points for/against after round six (σ margin 9.8, σ total 13.5). Winner, spread ladder, total ladder.</li>
+<li><b>Baseball (MLB)</b> — Poisson run model from regular-season runs scored/allowed; winner, run line ±1.5, totals 6.5–10.5.</li>
+<li><b>Tennis (WTA)</b> — ranking model from the official WTA singles list; winner, set handicap, total sets, exact set score.</li>
+<li><b>Volleyball (PlusLiga)</b> — set-by-set binomial model from the league's own results; winner, set handicap, total sets.</li>
+<li><b>Rugby Union (Top 14)</b> — points model from the official LNR ranking positions shown on the fixture; winner, handicap, total.</li>
+</ul>
+<p>Market probabilities sum to 1.000 inside each market (checked on every rebuild). Fair decimal = 1/p; American odds are re-derived from the decimal, never typed.</p>
+
+<h2>4 · Confidence grading (and the arithmetic behind it)</h2>
+<p><span class="badge high">High</span> requires both conditions in the brief: our probability ≥ 70% <b>and</b> a fair price inside −250…+10,000. A 70% shot is −233 and a −250 shot is 71.43%, so the two conditions overlap only for probabilities between 70.00% and 71.43%. That is a real constraint of the brief, not a shortcut, and it is recorded as ZZ-F01 on <a href="flagged.html">Flagged</a>. We therefore originate alternative handicap and total lines on the numbers a book actually posts and back the selection that lands in that band; a fixture with no threshold in the band is graded Medium (≥55%) or Low and gets no written prediction.</p>
+
+<h2>5 · Predictions</h2>
+<p>Only High picks receive a written prediction, five per sport at most, ranked by probability. Each text is at least 78 words, unique (highest pairwise trigram Jaccard 0.239), names the teams/players, cites current form and recent results from the captured payload, states the exact selection and price, and links the official source. Injury or team news is mentioned only where an official feed in the capture documents it; where it does not, the text makes no injury claim at all.</p>
+
+<h2>6 · What is deliberately not done</h2>
+<ul>
+<li>No value is copied from another desk, and no stale fixture is carried forward.</li>
+<li>No line is originated for a sport without a captured strength input.</li>
+<li>No injury, lineup, or weather claim is made from memory or from a secondary summary.</li>
+</ul>
+
+</main>
+<footer>Generated from committed capture data · every number on this site is rebuilt from the captured official payloads · unconfirmed values are blank and listed on the Flagged page.</footer>
+</body></html>
