@@ -1,0 +1,91 @@
+{
+ "board": "CA",
+ "failed": 3,
+ "failures": [
+  {
+   "error": "HTTPError: HTTP Error 400: Bad Request",
+   "id": "wta_rankings_singles",
+   "status": 400,
+   "url": "https://api.wtatennis.com/tennis/players/ranked?page=0&pageSize=100&type=rankSingles&sort=asc"
+  },
+  {
+   "error": "HTTPError: HTTP Error 400: Bad Request",
+   "id": "wta_rankings_singles2",
+   "status": 400,
+   "url": "https://api.wtatennis.com/tennis/players/ranked?page=1&pageSize=100&type=rankSingles&sort=asc"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "icc_t20i_rankings_json",
+   "status": 0,
+   "url": "https://api.icc-cricket.com/rankings/mens/team-rankings/t20i"
+  }
+ ],
+ "finished_utc": "2026-10-24T17:42:29Z",
+ "ok": 5,
+ "records": [
+  {
+   "bytes": 83945,
+   "content_type": "application/json",
+   "error": null,
+   "file": "pdc_participants_api.gz",
+   "final_url": "https://participants.darts.web.gc.pdcservices.co.uk/v2/?page.size=100",
+   "id": "pdc_participants_api",
+   "sha256": "6eaaa511c533f74d255e95e97e42011b4158e0beb05a649b136bed109d50bf9b",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://participants.darts.web.gc.pdcservices.co.uk/v2/?page.size=100"
+  },
+  {
+   "bytes": 1262036,
+   "content_type": "text/html",
+   "error": null,
+   "file": "pdc_tournaments.gz",
+   "final_url": "https://www.pdc.tv/calendar/",
+   "id": "pdc_tournaments",
+   "sha256": "f00a57d5fde7a753995d0af97672fba1b501a58cae10ef84515635d96c9ebdb2",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.pdc.tv/tournaments/calendar"
+  },
+  {
+   "bytes": 1241860,
+   "content_type": "text/html",
+   "error": null,
+   "file": "pdc_ec_hub.gz",
+   "final_url": "https://www.pdc.tv/tournament-hub/10870",
+   "id": "pdc_ec_hub",
+   "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.pdc.tv/tournament-hub/10870"
+  },
+  {
+   "bytes": 314774,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "prem_standings_json.gz",
+   "final_url": "https://www.premrugby.com/api/standings",
+   "id": "prem_standings_json",
+   "sha256": "98ed65f511553ca8f44f27d68c7832b0abaeedea37d696331b7cc8253f0d4965",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://www.premiershiprugby.com/api/standings"
+  },
+  {
+   "bytes": 798,
+   "content_type": "text/html;charset=UTF-8",
+   "error": null,
+   "file": "nrl_ladder.gz",
+   "final_url": "https://account.nrl.com/authorize?client_id=s7oMt6lSSioEPT6ZccktqxfgbAdeQYPU&response_type=code&scope=openid%20profile%20email&code_challenge=PYnvch-ccfTqoKBN5oXRhMv85jnuzROdkfJdmzFld7Y&code_challenge_method=S256&state=OpenIdConnect.AuthenticationProperties%3DZ1HwFpQiWDCKWJ9kedqZbILIKPk2UzmOXh6XL9TgXbJRTIxPp8KNyP-7Z6ECdVmDwjV07jf6Uktump_4kmiVfVkz-rkQgvO2p1bqXL4oKFR9GuicjL1ghw4Mx7OkY-rIS6sQrF44rTUTj6_cwRNznF8pXOYj8JuOXb3vCMXUsifl09exBgUTIwVMemA23cTtCroSeadO_MRtTsmjTlaqrsdEd5I8151wCij64_aihlFC4NfpTBTWmoxplQxEN7Ntz6X311DJEs1-IYSMm4mCV0dqdp4fEbuLd98I8sEh6jeP1oDb5jjB1mIXSkcR8nJhc8DbEpE5l-a79gPs5wD3lQ&response_mode=form_post&nonce=639284605487711569.YWVhZjRiZTQtYTUzZC00ZTI2LWE2MzQtMTkyZGMwOTNjYmM0OGVmMDIwODItZDMyOS00MWI0LWIwMmMtNTFlOWRiMThiNDc4&redirect_uri=https%3A%2F%2Fwww.nrl.com%2Faccount%2Fsignin-nrl&prompt=none&x-client-SKU=ID_NET472&x-client-ver=6.24.0.0",
+   "id": "nrl_ladder",
+   "sha256": "32ec445635bceb08e43b434b2c4326d2df6b8d1cf2b2b7e34b48ac2d8e655f5a",
+   "sport": "Rugby League",
+   "status": 200,
+   "url": "https://www.nrl.com/ladder/"
+  }
+ ],
+ "session": "arena/b6643783-olbg4",
+ "started_utc": "2026-10-24T17:42:21Z",
+ "targets": 8
+}
