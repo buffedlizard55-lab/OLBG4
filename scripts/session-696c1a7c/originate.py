@@ -86,15 +86,17 @@ def name_score(a: str, b: str) -> float:
     na, nb = norm(a), norm(b)
     if na == nb:
         return 1.0
-    if na in nb or nb in na:
-        return 0.92
+    # Whole-token containment only: a substring test would equate "ANA" with the
+    # "ana" inside "Canadiens".
+    if set(ta) <= set(tb) or set(tb) <= set(ta):
+        return 0.9
     shared = [t for t in ta if t in tb]
     if not shared:
         return 0.0
     longest = max(len(t) for t in shared)
     if longest < 4:
         return 0.0
-    return min(0.9, 0.55 + 0.1 * len(shared))
+    return min(0.85, 0.55 + 0.1 * len(shared))
 
 
 # --------------------------------------------------------------------------- #
@@ -104,7 +106,9 @@ def poisson_pmf(k: int, lam: float) -> float:
     return math.exp(-lam) * lam ** k / math.factorial(k)
 
 
-def skellam_probs(lh: float, la: float, max_goals: int = 22) -> dict:
+def skellam_probs(lh: float, la: float, max_goals: int | None = None) -> dict:
+    if max_goals is None:
+        max_goals = int(max(lh, la) + 6 * math.sqrt(max(lh, la, 1.0)) + 6)
     ph = pd = 0.0
     for i in range(max_goals):
         pi = poisson_pmf(i, lh)
@@ -164,21 +168,30 @@ def build_strength(facts: dict) -> dict:
         c = t["competition"]
         entry = strength[c]
         entry["sport"] = t["sport"]
+        if t.get("abbr"):
+            ABBR_ALIAS[str(t["abbr"]).upper()] = t["team"]
         cur = entry["teams"].setdefault(t["team"], {})
         for k, v in t.items():
             if v is not None and k not in ("key", "sport", "competition", "team",
                                            "source_id", "source_url", "sha256",
                                            "bytes", "captured_utc"):
                 cur[k] = v
+    cutoff = (datetime.now(timezone.utc).date()).toordinal() - 250
     for h in facts["history"]:
         c = h["competition"]
         entry = strength[c]
         if entry["sport"] is None:
             entry["sport"] = h["sport"]
+        try:
+            d = datetime.strptime(str(h["date"])[:10], "%Y-%m-%d").date().toordinal()
+        except Exception:  # noqa: BLE001
+            d = cutoff
+        if d < cutoff:
+            continue
         entry["history"].append(h)
         for side, gf, ga in (("home", h["home_score"], h["away_score"]),
                              ("away", h["away_score"], h["home_score"])):
-            key = h[side]
+            key = h[side].split("|", 1)[-1]
             team = entry["teams"].setdefault(key, {"team": key, "from_results": True})
             team["played"] = (team.get("played") or 0) + 1
             if gf is None or ga is None:
@@ -201,6 +214,10 @@ def rates(entry: dict) -> tuple[dict, dict]:
         played = t.get("played")
         gf = t.get("goals_for", t.get("points_for", t.get("runs_for", t.get("runs"))))
         ga = t.get("goals_against", t.get("points_against", t.get("runs_against")))
+        if (gf is None or ga is None) and t.get("wins") is not None and t.get("losses") is not None:
+            wins, losses = t["wins"], t["losses"]
+            if wins + losses:
+                gf, ga = wins / (wins + losses), losses / (wins + losses)
         if not played or gf is None or ga is None:
             continue
         table[name] = {"for": gf / played, "against": ga / played, "played": played,
@@ -208,6 +225,9 @@ def rates(entry: dict) -> tuple[dict, dict]:
                        "draws": t.get("draws"), "points": t.get("points"),
                        "goals_for": gf, "goals_against": ga, "team": t.get("team", name)}
     return table, entry["teams"]
+
+
+SHRINK_GAMES = 6.0
 
 
 def fit(entry: dict) -> dict:
@@ -245,8 +265,18 @@ def expected(fitinfo: dict, sport: str, home: str, away: str) -> dict | None:
     if adv is None:
         adv = HOME_ADV_DEFAULT.get(sport, 0.0)
     mean = fitinfo["mean"] or 1.0
-    lh = max(0.05, h["for"] * a["against"] / mean + adv / 2)
-    la = max(0.05, a["for"] * h["against"] / mean - adv / 2)
+    # Empirical-Bayes style shrinkage toward the league mean: a side with n games
+    # is pulled toward the average by SHRINK_GAMES pseudo-games, so a one-match
+    # sample cannot generate a 99% favourite.
+    def shrunk(value: float, n: int) -> float:
+        return (value * n + mean * SHRINK_GAMES) / (n + SHRINK_GAMES)
+
+    h_for = shrunk(h["for"], h["played"])
+    h_against = shrunk(h["against"], h["played"])
+    a_for = shrunk(a["for"], a["played"])
+    a_against = shrunk(a["against"], a["played"])
+    lh = max(0.05, h_for * a_against / mean + adv / 2)
+    la = max(0.05, a_for * h_against / mean - adv / 2)
     sigma = fitinfo["sigma"] or SIGMA_DEFAULT.get(sport, 3.0)
     return {"lambda_home": round(lh, 3), "lambda_away": round(la, 3),
             "sigma": round(sigma, 3), "home_adv": round(adv, 3),
@@ -267,6 +297,10 @@ def prices(sport: str, exp: dict) -> dict:
     else:
         p_home = normal_cdf(0, -(lh - la), sigma)
         out["match_winner"] = {"home": p_home, "away": 1 - p_home}
+    for market in out.values():
+        for k in list(market):
+            if k != "line":
+                market[k] = min(0.98, max(0.02, market[k]))
     total_mean = lh + la
     total_sigma = math.sqrt(lh + la) if sport in INTEGER_SPORTS else sigma * 1.2
     line = round(total_mean * 2) / 2
@@ -281,7 +315,58 @@ def prices(sport: str, exp: dict) -> dict:
 
 
 # --------------------------------------------------------------------------- #
-def load_strength_for_sport(sport: str, strength: dict, competition_hint: str) -> list[str]:
+# OLBG competition slugs (from `leagueUrl`) mapped onto the competitions we hold
+# official facts for. An unmapped slug means we hold no official input, and the
+# event is published unpriced rather than matched to a different league.
+SLUG_MAP = {
+    "ice hockey|nhl": ["nhl"],
+    # The Swiss feed carried only last season's games (through 2026-03-27), so no
+    # current-season line is originated from it: the events stay listed and flagged.
+    "ice hockey|switzerland_nla": [],
+    "ice hockey|finland_sm_liiga": ["liiga"],
+    "ice hockey|swedish_hockey_league": ["shl"],
+    "ice hockey|germany_eishockey_liga": [],
+    "ice hockey|austria_ehl": [],
+    "baseball|mlb": ["mlb"],
+    "basketball|nba": [],
+    "basketball|korea_kbl": [],
+    "basketball|poland_plk": [],
+    "basketball|argentina_liga_nacional": [],
+    "basketball|brazil_nbb": [],
+    "handball|all_events": ["ehfcl", "dk"],
+    "volleyball|all_events": ["legavolley", "plusliga", "cvf", "lvgf"],
+    "rugby union|all_events": ["top14", "premiership"],
+}
+
+
+def slug_key(sport: str, league_url: str) -> str:
+    bits = [b for b in (league_url or "").split("/") if b]
+    if len(bits) >= 3:
+        slug = bits[3] if len(bits) >= 6 else bits[-2]
+        return f"{sport.lower()}|{slug.lower()}"
+    return ""
+
+
+ABBR_ALIAS: dict[str, str] = {}
+
+
+def resolve(team_names: list[str], name: str) -> tuple[float, str | None]:
+    key = norm(name)
+    if key.upper() in ABBR_ALIAS and ABBR_ALIAS[key.upper()] in team_names:
+        return 1.0, ABBR_ALIAS[key.upper()]
+    best = (0.0, None)
+    for t in team_names:
+        sc = name_score(name, t)
+        if sc > best[0]:
+            best = (sc, t)
+    return best
+
+
+def load_strength_for_sport(sport: str, strength: dict, league_url: str) -> list[str]:
+    key = slug_key(sport, league_url)
+    if key in SLUG_MAP:
+        wanted = SLUG_MAP[key]
+        return [k for k in wanted if k in strength and strength[k]["sport"] == sport]
     return [k for k, v in strength.items() if v["sport"] == sport]
 
 
@@ -318,12 +403,12 @@ def main() -> int:
                 unmatched.append(row)
                 continue
             best = None
-            for comp in load_strength_for_sport(sport, strength, ""):
+            for comp in load_strength_for_sport(sport, strength, ev.get("league_url", "")):
                 table = fits.get(comp, {}).get("table") or {}
                 if not table:
                     continue
-                hbest = max(((name_score(row["home"], t), t) for t in table), default=(0, None))
-                abest = max(((name_score(row["away"], t), t) for t in table), default=(0, None))
+                hbest = resolve(list(table), row["home"])
+                abest = resolve(list(table), row["away"])
                 if hbest[0] >= 0.55 and abest[0] >= 0.55 and hbest[1] != abest[1]:
                     score = min(hbest[0], abest[0])
                     if best is None or score > best[0]:
@@ -341,7 +426,10 @@ def main() -> int:
             row["match_score"] = round(score, 2)
             # is the fixture itself printed by the governing body?
             for f in fixtures_by_comp.get(comp, []):
-                if f["home"] == home and f["away"] == away and (f.get("start_utc") or "")[:10] == (row["start_utc"] or "")[:10]:
+                fh = resolve(list(table), f["home"].split("|", 1)[-1])
+                fa = resolve(list(table), f["away"].split("|", 1)[-1])
+                if (fh[1] == home and fa[1] == away and fh[0] >= 0.6 and fa[0] >= 0.6
+                        and (f.get("start_utc") or "")[:10] == (row["start_utc"] or "")[:10]):
                     row["tier"] = "A"
                     row["fixture_source"] = {k: f[k] for k in ("source_url", "sha256", "source_id")}
                     row["venue"] = f.get("venue")

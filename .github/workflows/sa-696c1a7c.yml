@@ -24,6 +24,8 @@ on:
       - "scripts/session-696c1a7c/targets1.json"
       - "scripts/session-696c1a7c/targets2.json"
       - "scripts/session-696c1a7c/targets3.json"
+      - "scripts/session-696c1a7c/targets4.json"
+      - "scripts/session-696c1a7c/targets5.json"
 
 permissions:
   contents: write
@@ -53,7 +55,13 @@ jobs:
             echo "TARGETS=${{ github.event.inputs.targets }}" >> "$GITHUB_ENV"
             echo "LABEL=${{ github.event.inputs.label }}" >> "$GITHUB_ENV"
           else
-            if [ -f scripts/session-696c1a7c/targets3.json ]; then
+            if [ -f scripts/session-696c1a7c/targets5.json ]; then
+              echo "TARGETS=scripts/session-696c1a7c/targets5.json" >> "$GITHUB_ENV"
+              echo "LABEL=r5" >> "$GITHUB_ENV"
+            elif [ -f scripts/session-696c1a7c/targets4.json ]; then
+              echo "TARGETS=scripts/session-696c1a7c/targets4.json" >> "$GITHUB_ENV"
+              echo "LABEL=r4" >> "$GITHUB_ENV"
+            elif [ -f scripts/session-696c1a7c/targets3.json ]; then
               echo "TARGETS=scripts/session-696c1a7c/targets3.json" >> "$GITHUB_ENV"
               echo "LABEL=r3" >> "$GITHUB_ENV"
             elif [ -f scripts/session-696c1a7c/targets2.json ]; then

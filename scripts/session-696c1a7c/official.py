@@ -183,10 +183,11 @@ def shl(cap: Capture) -> None:
     for row in table[1:]:
         if len(row) < 9 or not row[0].isdigit():
             continue
-        gf, ga = (row[6].split(":") + [""])[:2] if ":" in row[6] else (None, None)
+        m6 = re.match(r"^\s*(\d+)\s*:\s*(\d+)", row[6])
+        gf, ga = (m6.group(1), m6.group(2)) if m6 else ("", "")
         team("shl|" + row[1], "Ice Hockey", "shl", row[1], cap, "shl_standings",
              played=H.to_int(row[2]), wins=H.to_int(row[3]), draws=H.to_int(row[4]),
-             losses=H.to_int(row[5]), goals_for=H.to_int(gf or ""), goals_against=H.to_int(ga or ""),
+             losses=H.to_int(row[5]), goals_for=H.to_int(gf), goals_against=H.to_int(ga),
              points=H.to_int(row[8]))
 
 
@@ -243,7 +244,7 @@ def mlb(cap: Capture) -> None:
     if cap.has("mlb_standings"):
         for rec in cap.json("mlb_standings").get("records", []):
             for t in rec.get("teamRecords", []):
-                name = t["team"]["name"]
+                name = t["team"].get("teamName") or t["team"]["name"]
                 team("mlb|" + name, "Baseball", "mlb", name, cap, "mlb_standings",
                      played=t.get("gamesPlayed"), wins=t.get("wins"), losses=t.get("losses"),
                      runs_for=t.get("runsScored"), runs_against=t.get("runsAllowed"),
@@ -252,7 +253,7 @@ def mlb(cap: Capture) -> None:
     if cap.has("mlb_hitting"):
         stats = cap.json("mlb_hitting").get("stats", [])
         for split in (stats[0].get("splits", []) if stats else []):
-            name = split["team"]["name"]
+            name = split["team"].get("teamName") or split["team"]["name"]
             st = split.get("stat", {})
             team("mlb|" + name, "Baseball", "mlb", name, cap, "mlb_hitting",
                  avg=st.get("avg"), obp=st.get("obp"), slg=st.get("slg"), ops=st.get("ops"),
@@ -262,7 +263,7 @@ def mlb(cap: Capture) -> None:
     if cap.has("mlb_pitching"):
         stats = cap.json("mlb_pitching").get("stats", [])
         for split in (stats[0].get("splits", []) if stats else []):
-            name = split["team"]["name"]
+            name = split["team"].get("teamName") or split["team"]["name"]
             st = split.get("stat", {})
             team("mlb|" + name, "Baseball", "mlb", name, cap, "mlb_pitching",
                  era=st.get("era"), whip=st.get("whip"), strikeouts=st.get("strikeOuts"),
@@ -474,30 +475,50 @@ def legavolley(cap: Capture) -> None:
         return
     comp("legavolley", "Volleyball", "SuperLega (Italy)", cap, "legavolley_classifica", "league")
     if cap.has("legavolley_classifica"):
-        table = H.tables(cap.text("legavolley_classifica"))
-        for t in table:
+        for t in H.tables(cap.text("legavolley_classifica")):
             if not t or "Punti" not in " ".join(t[0]):
                 continue
             for row in t:
-                if len(row) < 6 or not row[0].strip().isdigit():
-                    continue
-                name = row[1].strip()
-                if not name:
-                    continue
-                team("legavolley|" + name, "Volleyball", "legavolley", name, cap,
-                     "legavolley_classifica", points=H.to_int(row[2]),
-                     played=H.to_int(row[3]), wins=H.to_int(row[4]), losses=H.to_int(row[5]))
-    # Calendars: the fixture rows carry date, home, away and, once played, the score.
-    for tid in cal_ids:
-        page = cap.text(tid)
-        for t in H.tables(page):
-            for row in t:
-                cells = [c for c in row if c]
-                joined = " | ".join(cells)
-                m = re.match(r"^(\d{2}/\d{2}/\d{4})\s*\|\s*(\d{1,2}:\d{2})?\s*\|\s*(.+?)\s*\|\s*"
-                             r"(\d+\s*-\s*\d+|-\s*-\s*-)?\s*\|\s*(.+?)(\s*\|.*)?$", joined)
+                m = re.match(r"^(\d+)\.?\s*(.+)$", row[0].strip()) if row else None
                 if not m:
                     continue
+                name = m.group(2).replace("\xa0", " ").strip()
+                nums = [c for c in row[1:] if re.fullmatch(r"-?\d+", c.strip())]
+                if len(nums) < 9:
+                    continue
+                team("legavolley|" + name, "Volleyball", "legavolley", name, cap,
+                     "legavolley_classifica", points=H.to_int(nums[0]),
+                     played=H.to_int(nums[1]), wins=H.to_int(nums[2]), losses=H.to_int(nums[3]),
+                     sets_for=H.to_int(nums[10]), sets_against=H.to_int(nums[11]),
+                     points_for=H.to_int(nums[12]),
+                     points_against=H.to_int(nums[13]) if len(nums) > 13 else None)
+
+    # Calendars: rows are [#, date+time, home, result, away, …]; a result of "-"
+    # means the match has not been played, so the row becomes a fixture instead.
+    for tid in cal_ids:
+        for t in H.tables(cap.text(tid)):
+            head = " ".join(t[0]).lower() if t else ""
+            if "casa" not in head or "ospite" not in head:
+                continue
+            for row in t:
+                if len(row) < 5:
+                    continue
+                dm = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})(?:\s+Ore\s+(\d{1,2}):(\d{2}))?", row[1])
+                if not dm:
+                    continue
+                day, month, year, hh, mm = dm.groups()
+                start = f"{year}-{int(month):02d}-{int(day):02d}T{int(hh or 0):02d}:{mm or '00'}:00Z"
+                home, result, away = row[2].strip(), row[3].strip(), row[4].strip()
+                if not home or not away:
+                    continue
+                key = f"legavolley:{year}{month}{day}:{home[:18]}:{away[:18]}"
+                sm = re.match(r"^(\d+)\s*-\s*(\d+)$", result)
+                if sm:
+                    history(key, "Volleyball", "legavolley", start[:10], "legavolley|" + home,
+                            "legavolley|" + away, int(sm.group(1)), int(sm.group(2)), cap, tid)
+                else:
+                    fixture(key, "Volleyball", "legavolley", "legavolley|" + home,
+                            "legavolley|" + away, start, cap, tid, row[6] if len(row) > 6 else None)
 
 
 def plusliga(cap: Capture) -> None:
@@ -519,11 +540,13 @@ def plusliga(cap: Capture) -> None:
         if name not in best or (best[name][0] or 0) < matches:
             best[name] = (matches, row)
     for name, (matches, row) in best.items():
-        sets_for, sets_against = (row[5], row[6]) if len(row) > 6 else (None, None)
+        # columns: 1 pos | 2 points | 3 matches | 4 won | 5 lost | 6 sets won |
+        #          7 sets lost | 8 points won | 9 points lost | …
         team("plusliga|" + name, "Volleyball", "plusliga", name, cap, "plusliga_table",
              played=matches, points=H.to_int(row[2]), wins=H.to_int(row[4]),
-             losses=H.to_int(row[5]), sets_for=H.to_int(sets_for) if sets_for else None,
-             sets_against=H.to_int(sets_against) if sets_against else None)
+             losses=H.to_int(row[5]), sets_for=H.to_int(row[6]),
+             sets_against=H.to_int(row[7]), points_for=H.to_int(row[8]),
+             points_against=H.to_int(row[9]))
 
 
 def cvf(cap: Capture) -> None:
