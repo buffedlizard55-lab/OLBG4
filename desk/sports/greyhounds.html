@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greyhounds · OLBG4 desk</title>
+<meta name="description" content="OLBG4 — 15-sport OLBG coverage, our own originated lines, picks and written predictions.">
+<link rel="stylesheet" href="../../desk/assets/desk.css">
+</head><body>
+<header class="site"><div class="wrap"><div class="nav">
+  <a class="brand" href="../../index.html"><span class="mark">O4</span><span>OLBG4 desk</span></a>
+  <a class="navlink" href="../../index.html">Overview</a><a class="navlink" href="../../desk/picks.html">Picks</a><a class="navlink" href="../../desk/matches.html">Matches</a><a class="navlink active" href="../../desk/coverage.html">Sports</a><a class="navlink" href="../../desk/flagged.html">Flagged</a><a class="navlink" href="../../desk/methodology.html">Method</a><a class="navlink" href="../../desk/sources.html">Sources</a>
+  <span class="spacer"></span>
+  <span class="stamp">Data read Sat 24 Oct, 17:14 UTC</span>
+</div></div></header>
+<main><div class="wrap">
+
+<h1>Greyhounds</h1>
+<p class="lede">1 matches · 0 priced from official data · 0 written
+prediction(s). Back to <a href="../coverage.html">all sports</a>.</p>
+<div class="note warn"><strong>Coverage note.</strong> The Greyhound Board of Great Britain results API returns completed races; no forward racecard with traps, going and runners was retrievable, so no greyhound line is originated. <a href="https://www.gbgb.org.uk/racecards/" rel="noopener" target="_blank">Official page</a>.</div>
+<div class="note">No written prediction for this sport in this window — see the coverage note above.</div>
+<h2>Fixtures</h2>
+<div class="controls">
+  <input type="search" id="q-sp-greyhounds" placeholder="Filter by team, player, competition…" aria-label="Filter rows">
+  <select id="s-sp-greyhounds" aria-label="Filter by sport">
+    <option value="">All sports</option>
+    <option value="Golf">Golf</option><option value="Volleyball">Volleyball</option><option value="Rugby Union">Rugby Union</option><option value="Cricket">Cricket</option><option value="Snooker">Snooker</option><option value="Darts">Darts</option><option value="Baseball">Baseball</option><option value="Gaelic Sports">Gaelic Sports</option><option value="Greyhounds">Greyhounds</option><option value="Tennis">Tennis</option><option value="Motor Racing">Motor Racing</option><option value="Handball">Handball</option><option value="Ice Hockey">Ice Hockey</option><option value="Basketball">Basketball</option><option value="Rugby League">Rugby League</option>
+  </select>
+  <small class="muted" id="c-sp-greyhounds"></small>
+</div>
+<div class="tablewrap"><table id="sp-greyhounds">
+<thead><tr><th>Start (UTC)</th><th>Sport / competition</th><th>Match</th><th>Our line</th>
+<th>Pick</th><th>Confidence</th><th>OLBG</th><th>Official source</th><th>Flag</th></tr></thead>
+<tbody><tr data-sport="Greyhounds" data-text="75 olbg-listed greyhound races  olbg greyhound meetings (no runner card retrieved) ">
+  <td class="mono">Sat 24 Oct, 17:30 UTC</td>
+  <td>Greyhounds<br><small class="muted">OLBG greyhound meetings (no runner card retrieved)</small></td>
+  <td><strong>75 OLBG-listed greyhound races</strong><strong></strong>
+      </td>
+  <td class="mono"><small class="muted">not priced</small></td>
+  <td><small class="muted">no pick</small>
+      </td>
+  <td></td>
+  <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:30_Central_Park/28?event_id=689957" rel="noopener" target="_blank">OLBG</a></td>
+  <td><a href="https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:30_Central_Park/28?event_id=689957" rel="noopener" target="_blank">OLBG greyhound hub (meeting listings only)</a></td>
+  <td><span class="badge flag">OLBG lists the race meetings but GBGB returned no forward racecard, so</span></td>
+</tr></tbody></table></div>
+<script>
+(function(){
+  var q=document.getElementById('q-sp-greyhounds'),s=document.getElementById('s-sp-greyhounds'),
+      c=document.getElementById('c-sp-greyhounds'),rows=[].slice.call(document.querySelectorAll('#sp-greyhounds tbody tr'));
+  function apply(){
+    var t=q.value.toLowerCase().trim(),sp=s.value,n=0;
+    rows.forEach(function(r){
+      var ok=(!sp||r.dataset.sport===sp)&&(!t||r.dataset.text.indexOf(t)>-1);
+      r.style.display=ok?'':'none'; if(ok)n++;
+    });
+    c.textContent=n+' of '+rows.length+' rows';
+  }
+  q.addEventListener('input',apply);s.addEventListener('change',apply);apply();
+})();
+</script>
+
+</div></main>
+<footer class="site"><div class="wrap">
+  <p><strong>OLBG4 desk</strong> — an independent record of upcoming matches in the 15 sports OLBG lists,
+  our own originated prices, and written predictions. Every row links to the official body it came from;
+  anything we could not confirm is published blank and listed on
+  <a href="../../desk/flagged.html">Flagged for Review</a>.</p>
+  <p>Capture <span class="mono">20261024T171155Z</span> ·
+  window 2026-10-24 → 2026-11-08 ·
+  build 2026-10-24T17:14:34Z ·
+  <a href="../../desk/methodology.html">method</a> ·
+  <a href="../../desk/sources.html">sources</a> ·
+  <a href="../../desk/archive.html">earlier desks</a></p>
+  <p>18+. Odds shown are our own originated fair prices, not bookmaker prices. No bet is risk-free.</p>
+</div></footer>
+</body></html>

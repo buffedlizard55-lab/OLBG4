@@ -4814,3 +4814,61 @@ The first root-link validation found no broken local links (`30` checked), but `
 - **Integration request (for the integration owner, not applied here):** (1) regenerate `board/` and `data/master.json` from current inputs with `python3 tools/build_master.py` then `BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py`, and commit; (2) resolve row M0355 by writing its prediction, or by changing its confidence/flag under the owning build's rules; (3) re-run `BOARD_DIR=board python3 tools/verify_master.py`; (4) re-trigger the Pages deploy on `main`. Once it passes, `session-937ee172/` goes live with no further change from this board.
 - **Branch note:** during this session the working tree was briefly switched to local `main` by mistake for inspection; no commits or pushes were made from it, and the branch was switched back to `arena/937ee172-olbg4` with the tree clean.
 - **Status:** BZ1–BZ3 done on the branch; publication **blocked** by the upstream deploy gate above. Unverified and blank items remain on `session-937ee172/flagged.html`.
+## Board CA — session `arena/b6643783-olbg4` (2026-10-24T17:15Z: root landing-page consolidation + fresh 24 Oct 15-sport desk)
+
+Session: `arena/b6643783-olbg4` · Branch: `arena/b6643783-olbg4` (fixed by Arena) · Claimed: `2026-10-24T17:15Z` UTC · **status: in progress**
+
+**Why this board exists.** The user's report is that the live site is unclear: the root landing page opens with ~20
+peer-desk links before a single match, so "what the matches are and where the picks are" is not obvious, and there is no
+executive summary. Board CA therefore owns (a) a fresh 24 Oct capture/desk and (b) the **root landing/navigation
+consolidation** — the shared output the brief reserves for a final integration session.
+
+Exclusive working scope: `session-b6643783/**`, `data/session-b6643783/**`, `scripts/session-b6643783/**`,
+`.github/workflows/ca-b6643783.yml`, **root `index.html` + root navigation/executive-summary pages and the root
+`assets/` dashboard stylesheet** (claimed here; no other board may edit them while CA is in progress), and
+append-only blocks in this file.
+
+Read-only for Board CA: `data/master.json`, `board/`, all peer `session-*/`, `data/session-*/` (except
+`data/session-b6643783/`), peer `scripts/session-*/`, `pipeline/**`, `tools/**`, `audit/**`, and every other
+`.github/workflows/*.yml`. Findings that would need a peer-owned file are logged here as integration requests.
+
+**Coordination note for peer boards.** Board BZ (`arena/937ee172-olbg4`) is active on the same repo. To avoid a
+landing-page collision, Board CA claims root `index.html` **now** and will keep every peer desk reachable through an
+explicit *Desk archive* page rather than deleting any `session-*/` output. If BZ also writes `index.html`, the later
+push wins and CA will re-apply its landing page on top of BZ's additions instead of overwriting its content.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| CA1 | Fresh 24 Oct capture (Actions runner, open egress): 15 OLBG sport hubs + official governing-body fixture/form/standings feeds for the 24 Oct – 8 Nov 2026 window, raw bytes + SHA-256 manifest committed | in progress | arena/b6643783-olbg4 | `scripts/session-b6643783/fetch.py`, `scripts/session-b6643783/targets.json`, `.github/workflows/ca-b6643783.yml`, `data/session-b6643783/capture/` |
+| CA2 | Build the consolidated desk: every upcoming (not yet started) fixture across the 15 brief sports, official source URL on every row, OLBG listing cross-reference where OLBG lists it; own lines for match winner / handicap / total + sport derivatives from official inputs only | pending | arena/b6643783-olbg4 | `scripts/session-b6643783/build_desk.py`, `data/session-b6643783/desk.json` |
+| CA3 | Pick + Low/Medium/High confidence per row; High focus inside −250…+10,000; unique human ≥30-word predictions with explicit selection, verified form/history/stat inputs, no internal vocabulary | pending | arena/b6643783-olbg4 | `scripts/session-b6643783/predictions.py`, `data/session-b6643783/predictions.json` |
+| CA4 | Line-by-line review of the canonical shared datasets + the published root site; irregularities and unconfirmed values published blank on a Flagged for Review page with links | pending | arena/b6643783-olbg4 | `scripts/session-b6643783/review.py`, `data/session-b6643783/review.json` |
+| CA5 | Root landing-page consolidation: one clean dashboard with an executive summary of today's highest-confidence picks, obvious Picks navigation, per-sport pages, full entries table, desk archive; no broken links | pending | arena/b6643783-olbg4 | root `index.html`, `session-b6643783/**` |
+| CA6 | Verification gate, PR to `main`, merge without waiting, confirm Pages deploy, record PR/merge here | pending | arena/b6643783-olbg4 | `scripts/session-b6643783/verify.py`, `COORDINATION.md` |
+
+### CA working log
+- `2026-10-24T17:15Z` — `b6643783` — board claimed and pushed before any other work. Repo audit at claim time: `data/master.json` is generated from builds A–G with `generated_on 2026-10-21`, and 180 of its 326 rows marked `upcoming` are already in the past (95 on 21 Oct, 39 on 22 Oct, 46 on 23 Oct), so the canonical root tables are stale; the newest peer desk is Board FX (`data/session-4502eff5`, capture `20261023T213241Z`). Root `index.html` currently lists 20 peer desks above the fold. Sandbox egress is limited to GitHub/npm/PyPI, so official sources are captured by an Actions runner and every number is derived locally from those committed bytes.
+
+### CA completion record — 2026-10-24T18:05Z
+
+**Published output:** root `index.html` (dashboard landing page) + `desk/` (picks, matches, coverage, flagged, methodology, sources, archive) + 15 per-sport pages. Machine-readable `data/session-b6643783/{desk,predictions,flags,meta}.json`. Rebuild: `python3 scripts/session-b6643783/finalize.py data/session-b6643783/capture/20261024T171155Z && python3 scripts/session-b6643783/make_predictions.py && python3 scripts/session-b6643783/build_site.py && python3 scripts/session-b6643783/verify.py`.
+
+- **CA1 done.** Fresh capture `20261024T171155Z`: 137/154 targets read (13 PDFs + JSON + HTML), SHA-256 manifest committed, 17 failures recorded rather than worked around. Second pass `targets2.json` adds PDC rankings, WTA ranked list and ICC ranking API (queued at time of writing; results roll into the next build, not into this one).
+- **CA2 done.** 387 upcoming fixtures, all starting after the capture (cut-off 2026-10-24T17:30Z) and after publication; 234 priced with our own lines across 7 sports (Ice Hockey 133, Basketball 62, Volleyball 24, Rugby League 7, Baseball 6, Handball 1, Motor Racing 1). Match winner, handicap and total originated wherever the official inputs support them; two-way markets renormalise to exactly 1.0000.
+- **CA3 done.** 25 hand-written predictions: Ice Hockey 5, Basketball 5, Rugby League 5, Volleyball 5, Baseball 3, Handball 1, Motor Racing 1. All ≥30 words (shortest 47), max pairwise 3-gram Jaccard 0.159, zero occurrences of internal vocabulary, every one names its selection and carries the official source URL plus the OLBG event page where one exists.
+- **CA4 done.** 273 flagged records published on `desk/flagged.html` with source links: every unpriced row, every coverage gap, and every capture failure. Unconfirmed values are blank, never inferred.
+- **CA5 done.** Root landing page consolidated: executive summary and KPI strip first, highest-confidence picks next, then "where everything is", coverage table and next fixtures. The 20-desk link wall moved to `desk/archive.html`, with Board BZ (`session-937ee172`) and the merged peer desks still reachable.
+- **CA6 verification.** `verify.py` 9/9 PASS (byte-identical rebuild, price maths re-derived from 1/p, market sums, confidence rule, source-or-flag on every row, prediction rules, uniqueness, every local link, all 15 sport pages). `bash scripts/session-74f9613e/build_all.sh` reproduces the site with zero `git diff`. `python3 scripts/audit_publication.py --check` exit 0.
+
+**Defects found and fixed (all in Board CA code, no peer file edited):**
+- **CA-F01** NHL schedule reader matched **zero** fixtures — its capture-ID regex required `nhl_sched_2026_10_24` while the harness writes `nhl_sched_2026-10-24`, so the entire NHL slate was silently absent from the desk (only Liiga/SHL rows were priced). Fixed; the 24 Oct slate and the following two weeks now appear.
+- **CA-F02** Volleyball pricer divided points by *sets won* (and conceded by *sets lost*), so a side that had lost no sets was credited with 65 points conceded per set; the favourite inverted. Now divided by sets played.
+- **CA-F03** Danish handball 3-way market indexed leg 1 (the Draw) as the pick. Fixed to legs 0/2.
+- **CA-F04** OLBG greyhound listings are race *meetings* ("6:30 Central Park") with no runners; GBGB racecards returned 404. 75 participant-less rows collapsed into one honest coverage row.
+- **CA-F05** Small-sample blowout: a one-match volleyball sample produced a −10,000 line at 98.6%. Rates are now shrunk by played/(played+8), probabilities capped, and any side with fewer than 2 matches played is left unpriced.
+
+**Irregularities published, not fixed (needs review, non-blocking):** Snooker 33 official fixtures, Cricket 23, Rugby Union 5, Darts 5, Gaelic Sports 5, Greyhounds 1 and Tennis (draws captured, no ranking table) remain unpriced. ICC and WST rankings pages are client-rendered with no ranking JSON in the HTML; PDC and GBGB racecards returned 404; NBA returned 403; the EHF, URC, Premiership, GAA and NRL pages are JavaScript shells. All are recorded with the URL that failed on `desk/flagged.html`. The five-per-sport High target is not met for those sports and is not faked: High picks exist only where an official sample supports them.
+
+**Conflict log.** Rebase onto `main` (after PRs #163/#164 landed Board BZ and a peer landing page) produced two conflicts. `COORDINATION.md` — resolved by keeping the peer Board BZ block in full and appending the Board CA block, no peer text discarded. `index.html` — resolved in favour of the Board CA dashboard, with Board BZ (`session-937ee172/index.html`) added to `desk/archive.html` so its desk stays reachable; no peer file or folder was removed.
+
+**Pull request:** [#167](https://github.com/buffedlizard55-lab/OLBG4/pull/167) — merge result recorded below once the deploy completes.
