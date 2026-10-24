@@ -262,7 +262,8 @@ def markets_table(rows, root="") -> str:
                     + f'<td class="num">{e(dec(s.get("decimal")))}</td>'
                     + f'<td class="num">{e(am(s.get("american")))}</td>'
                     + f'<td class="num">{e(dec(q)) if q else "—"}</td>'
-                    + (f'<td>{src(r.get("source_url"), r.get("source_name"), "source")}</td>' if first else "<td></td>")
+                    + f'<td>{src(r.get("source_url"), r.get("source_name"), "source")}</td>'
+ 
                     + "</tr>"
                 )
                 first = False
@@ -355,6 +356,12 @@ derived from those official numbers, and the OLBG quote is shown beside it where
   <div><div class="n">{len(preds_for())}</div><div class="l">written predictions</div></div>
   <div><div class="n">{len(SPORTS)}</div><div class="l">sports covered</div></div>
 </div>
+<div class="note"><b>Why the High list is short, and why that is the honest answer.</b>
+−250 American is 71.4% implied, so a selection can only be both a 70%-plus call and inside the
+requested −250…+10,000 band when our own probability lands between 0.700 and 0.714. {e(desk.get('band_stats',{}).get('rows_blocked_by_price_floor',''))}
+further fixtures have a side we rate at 70% or better whose price is shorter than −250; they are
+published without a pick rather than relabelled, because a price outside the band was explicitly
+excluded. Every pick below therefore satisfies both tests at once.</div>
 <p class="sub">Snapshot {e(cap)} · desk cutoff {e(cutoff)} · fixture window
 {e(window.get('start',''))} → {e(window.get('end',''))}</p>
 
@@ -410,7 +417,12 @@ numbers captured from the official source linked under it.</p>
         if not srows:
             continue
         ebody.append(f'<h2 id="{slug}">{e(sport)} — {len(srows)} fixtures</h2>')
-        ebody.append(markets_table(srows))
+        if any(r.get("markets") for r in srows):
+            ebody.append(markets_table(srows))
+        else:
+            ebody.append(f'<p class="sub">No market was originated for {e(sport)} in this capture — '
+                         f'the reason is on <a href="{slug}.html">{e(sport)}</a> and on '
+                         f'<a href="flagged.html">Flagged for review</a>.</p>')
     (OUT / "entries.html").write_text(page("All matches", "".join(ebody), "entries.html"))
 
     # ----------------------------------------------------------------- markets
@@ -468,8 +480,11 @@ numbers captured from the official source linked under it.</p>
         sbody.append("<div class=\"scroll\"><table><thead><tr><th>ID</th><th>URL</th><th>Error</th>"
                      "</tr></thead><tbody>")
         for f in fails:
+            u = f.get("url") or ""
+            link = (f'<a href="{e(u)}" rel="noopener" target="_blank">{e(u)}</a>' if u.startswith("http")
+                    else '<span class="tag">no URL recorded</span>')
             sbody.append(f"<tr><td class=\"mono\">{e(f.get('id'))}</td>"
-                         f"<td>{e(f.get('url'))}</td><td class=\"sub\">{e(f.get('error'))}</td></tr>")
+                         f"<td>{link}</td><td class=\"sub\">{e(f.get('error'))}</td></tr>")
         sbody.append("</tbody></table></div>")
     else:
         sbody.append('<p class="sub">None.</p>')

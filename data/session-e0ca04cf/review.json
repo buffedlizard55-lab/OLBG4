@@ -1,0 +1,69 @@
+{
+ "summary": "A line-by-line look at the shared data this board inherited, checked against the committed files rather than against a live refresh. Six findings; none of them blocks publication, all are published here with the file they come from so they can be reviewed in place.",
+ "findings": [
+  {
+   "id": "EC-R01",
+   "where": "data/master.json",
+   "finding": "39 of the 369 aggregated rows carry source_tier 'none' and an empty source_url, so their values cannot be traced to an official page. The first of them (M0001, Aussie Rules) is an off-season placeholder whose home and away fields read 'No fixture'.",
+   "impact": "Rows without a source are shown on the shared site as fixtures even though nothing official backs them.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EC-R02",
+   "where": "data/master.json counts.by_sport",
+   "finding": "The same OLBG sport is counted twice: 'Greyhounds' (6 rows) and 'Greyhound Racing' (2 rows). OLBG publishes one Greyhounds id (28), so the split is a labelling difference between builds rather than two sports.",
+   "impact": "Per-sport totals and the site's sport tiles double-count greyhound racing.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EC-R03",
+   "where": "data/master.json",
+   "finding": "165 of 369 rows have no handicap line (the field is empty or an em dash) while the same rows are counted as priced. The site's 'markets investigated' figure therefore overstates handicap coverage.",
+   "impact": "Market coverage looks broader than the underlying data supports.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EC-R04",
+   "where": "data/master.json",
+   "finding": "The aggregate was generated on 2026-10-21 and has not been rebuilt since; 28 of its rows describe fixtures already played before that cutoff. Anything downstream of it is at least three days older than the OLBG cards a reader will see today.",
+   "impact": "Prices and picks inherited from the aggregate are stale, which is why this board rebuilt from raw official bytes instead of reusing it.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "EC-R05",
+   "where": "session-4afef1af/data/snapshot.json",
+   "finding": "The automated pipeline reports 100 fixtures but covers only three sports (NBA, NHL, MLB) and withholds markets on 48 NBA fixtures because the per-team sample is under 20 completed games. Its own log records the stats.nba.com timeout that caused it.",
+   "impact": "The pipeline is healthy but is not a fifteen-sport desk; the numbers on its pages should not be read as league-wide coverage.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/session-4afef1af/data/snapshot.json"
+  },
+  {
+   "id": "EC-R06",
+   "where": "data/integrated/entries.json",
+   "finding": "The integrated entry file holds 75 entries, while data/master.json holds 369 rows and the 24-Oct OLBG-card desk holds 401. The three files are snapshots of different scopes with no shared row id, so they cannot be reconciled row by row.",
+   "impact": "Cross-referencing the published pages requires knowing which snapshot each page was built from.",
+   "status": "flagged for review",
+   "source": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/integrated/entries.json"
+  },
+  {
+   "id": "EC-R07",
+   "where": "Golf — capture 20261024T222745Z",
+   "finding": "No golf fixture could be sourced. The OLBG all-golf listing returned 404 (olbg_all_golf), the PGA Tour leaderboard in the payload describes an event that had already finished, and the world ranking page is script-rendered. The sport therefore shows zero fixtures and zero prices rather than a guessed field.",
+   "impact": "The Golf page publishes the reason and no numbers; nothing was inferred to fill it.",
+   "status": "flagged for review",
+   "source": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events"
+  },
+  {
+   "id": "EC-R08",
+   "where": "Gaelic Sports — capture 20261024T222745Z",
+   "finding": "The Gaelic football listing returned 404 (olbg_all_gaelic) and the GAA club index also returned 404 (gaa_club), so no fixture list or scoring table exists in the capture. Gaelic hurling was not attempted because the same two endpoints serve it.",
+   "impact": "The Gaelic Sports page publishes the reason and no numbers; the sport is carried on the index with a zero count instead of being dropped.",
+   "status": "flagged for review",
+   "source": "https://www.gaa.ie/club/"
+  }
+ ]
+}

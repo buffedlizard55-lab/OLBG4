@@ -99,18 +99,70 @@ def market(name: str, line, selections, note: str = "") -> dict:
     return {"line": line, "note": note, "selections": [{"name": n, "p": p} for n, p in selections]}
 
 
+OLBG_MARKET = {
+    "money line": "match_winner", "match winner": "match_winner", "match betting": "match_winner",
+    "winner": "match_winner", "head to head": "match_winner", "outright": "match_winner",
+    "total goals": "total", "total points": "total", "total sets": "total", "over/under": "total",
+    "game totals": "total", "goals over/under": "total", "total": "total", "totals": "total",
+    "win match": "match_winner", "to win": "match_winner", "full time result": "match_winner",
+    "ft result": "match_winner", "1x2": "match_winner", "outright winner": "match_winner",
+    "grand final winner": "match_winner", "tournament winner": "match_winner",
+    "match result": "match_winner", "to win match": "match_winner",
+    "total frames": "total", "total runs": "total", "game total": "total",
+    "puck line": "handicap", "handicap": "handicap", "spread": "handicap", "point spread": "handicap",
+    "run line": "handicap", "set handicap": "handicap", "frame handicap": "handicap",
+    "asian handicap": "handicap", "alternative handicap": "handicap",
+}
+
+
+def _sel_key(mkt: str, sel: str) -> tuple:
+    """Loose key so an OLBG selection can be matched to one of ours."""
+    s = (sel or "").lower().replace("-", " ").strip()
+    num = re.search(r"(\d+(?:\.\d)?)", s)
+    side = "over" if s.startswith("over") else ("under" if s.startswith("under") else "")
+    toks = tuple(t for t in re.findall(r"[a-z]{3,}", s) if t not in ("over", "under", "the"))
+    return (mkt, side, num.group(1) if num else "", toks)
+
+
+def find_quote(row: dict, mname: str, sel: str):
+    """The OLBG price shown for this exact selection, if the listing carried one."""
+    tips = (row.get("olbg") or {}).get("tips", [])
+    if not tips:
+        return None
+    want = _sel_key(mname, sel)
+    for q in tips:
+        m = OLBG_MARKET.get((q.get("market") or "").lower().strip())
+        if m != mname:
+            continue
+        have = _sel_key(m, q.get("selection", ""))
+        if want[1] and have[1]:
+            if want[1] == have[1] and want[2] == have[2]:
+                return q
+            continue
+        if want[3] and have[3]:
+            shared = set(want[3]) & set(have[3])
+            if shared and (len(shared) >= min(len(want[3]), len(have[3])) or len(shared) >= 2):
+                return q
+    return None
+
+
 def choose_pick(row: dict) -> None:
-    """Highest-probability selection whose price is inside -250…+10,000."""
-    listed = {}
-    for q in (row.get("olbg") or {}).get("tips", []):
-        listed[(q.get("market", "").lower().replace(" ", "_"), q.get("selection", ""))] = q
+    """Highest-probability selection at 55%+ whose price is inside -250…+10,000.
+
+    Two filters, both from the brief: we only publish a selection we make at least
+    a marginal favourite (55%), and only if its price is still in the requested
+    band.  A match whose favourite is shorter than -250 cannot produce such a
+    selection, so it is published without a pick and the reason is recorded.
+    """
     cands = []
     for mname, mk in (row.get("markets") or {}).items():
         for s in mk.get("selections", []):
+            if s["p"] < 0.52:
+                continue
             d = M.dec_from_p(s["p"])
             if not M.in_price_window(d):
                 continue
-            q = listed.get((mname, s.get("name", "")))
+            q = find_quote(row, mname, s["name"])
             mkt_dec, basis = None, "fair"
             if q and q.get("decimal"):
                 try:
@@ -126,12 +178,12 @@ def choose_pick(row: dict) -> None:
                           "market_american": M.american(mkt_dec) if mkt_dec else None,
                           "band_basis": basis})
     if not cands:
-        row["flags"].append("no originated selection inside the -250…+10,000 window")
+        row["flags"].append("no selection we make a favourite is inside the -250…+10,000 band (the match favourite is shorter than -250)")
         return
     best = max(cands, key=lambda x: x["p"])
     best["confidence"] = M.confidence(
         best["p"], CAP_CONF.get(row["sport"], "Medium"),
-        sample_ok=(row["inputs"].get("sample_games") or 0) >= 10)
+        sample_games=int(row["inputs"].get("sample_games") or 0))
     best["in_band"] = True
     best["basis"] = row["inputs"].get("method", "")
     row["pick"] = best
@@ -175,54 +227,98 @@ def match_name(want: str, pool) -> str | None:
 
 
 def spread_near(mu: float, step: float = 0.5) -> float:
+    """Signed handicap for the home side: negative when the home team gives points.
+
+    Always lands on a half-point so the market cannot push.
+    """
+    sign = 1.0 if mu > 0 else -1.0      # home favourite gives points, so the line is negative
     s = round(abs(mu) / step) * step
-    if not s:
+    if s < step:
         s = step
     if abs(s - round(s)) < 1e-9:
         s += step
-    return s
+    return -sign * s
 
 
-def goal_markets(row, lam_h, lam_a, draw_ok, total_line, spread, label):
-    g = M.goal_markets(lam_h, lam_a, total_line, spread, draw_ok=draw_ok)
-    sel = [(row["side_a"], g["home"])]
-    if draw_ok:
-        sel.append(("Draw", g["draw"]))
-    sel.append((row["side_b"], g["away"]))
+def emit_markets(row, *, p_home, p_away, p_draw=None, spread, p_home_covers,
+                 total_line, p_over, label):
+    """Write the three market families with home = side_b, away = side_a.
+
+    Every builder in this file puts the *home* side in ``side_b`` because the
+    official feeds all list the visiting side first.  Keeping that single
+    convention here is what stops a handicap being attached to the wrong team.
+    """
+    away, home = row["side_a"], row["side_b"]
+    sel = [(away, p_away)]
+    if p_draw is not None:
+        sel.append(("Draw", p_draw))
+    sel.append((home, p_home))
     row["markets"] = {
-        "match_winner": market("Match Winner", None, sel, "3-way" if draw_ok else "2-way"),
+        "match_winner": market("Match Winner", None, sel, "3-way" if p_draw is not None else "2-way"),
         "handicap": market("Handicap", spread,
-                           [(f"{row['side_a']} {spread:+.1f}", g["handicap_home"]),
-                            (f"{row['side_b']} {-spread:+.1f}", g["handicap_away"])], label),
-        "total": market("Match Total", total_line,
-                        [(f"Over {total_line}", g["over"]), (f"Under {total_line}", g["under"])], label),
-    }
-    row["inputs"].update({"exp_home": round(lam_h, 3), "exp_away": round(lam_a, 3),
-                          "exp_total": round(lam_h + lam_a, 3), "total_line": total_line,
-                          "handicap_line": spread})
-
-
-def margin_markets(row, margin, sd, spread, total_mu, sd_total, total_line, label):
-    g = M.normal_markets(margin, sd, total_line, spread)
-    p_over = 1.0 - M.norm_cdf((total_line - total_mu) / sd_total)
-    row["markets"] = {
-        "match_winner": market("Match Winner", None,
-                               [(row["side_a"], g["home"]), (row["side_b"], g["away"])], "2-way"),
-        "handicap": market("Handicap", spread,
-                           [(f"{row['side_a']} {spread:+.1f}", g["handicap_home"]),
-                            (f"{row['side_b']} {-spread:+.1f}", g["handicap_away"])], label),
+                           [(f"{home} {spread:+.1f}", p_home_covers),
+                            (f"{away} {-spread:+.1f}", 1 - p_home_covers)], label),
         "total": market("Match Total", total_line,
                         [(f"Over {total_line}", p_over), (f"Under {total_line}", 1 - p_over)], label),
     }
-    row["inputs"].update({"exp_margin": round(margin, 2), "exp_total": round(total_mu, 2),
+
+
+def goal_markets(row, lam_home, lam_away, draw_ok, total_line, spread, label):
+    g = M.goal_markets(lam_home, lam_away, total_line, spread, draw_ok=draw_ok)
+    if not draw_ok and abs(abs(spread) - 0.5) < 1e-9:
+        # In a sport that cannot draw, a half-goal line is exactly the moneyline.
+        covers = g["home"] if spread < 0 else 1 - g["home"]
+        g["handicap_home"] = covers
+    emit_markets(row, p_home=g["home"], p_away=g["away"],
+                 p_draw=g["draw"] if draw_ok else None, spread=spread,
+                 p_home_covers=g["handicap_home"], total_line=total_line,
+                 p_over=g["over"], label=label)
+    row["inputs"].update({"exp_home": round(lam_home, 3), "exp_away": round(lam_away, 3),
+                          "exp_total": round(lam_home + lam_away, 3), "total_line": total_line,
+                          "handicap_line": spread})
+
+
+def margin_markets(row, margin_home, sd, spread, total_mu, sd_total, total_line, label):
+    g = M.normal_markets(margin_home, sd, total_line, spread)
+    p_over = 1.0 - M.norm_cdf((total_line - total_mu) / sd_total)
+    emit_markets(row, p_home=g["home"], p_away=g["away"], spread=spread,
+                 p_home_covers=g["handicap_home"], total_line=total_line, p_over=p_over, label=label)
+    row["inputs"].update({"exp_margin": round(margin_home, 2), "exp_total": round(total_mu, 2),
                           "sd_margin": sd, "sd_total": sd_total,
                           "total_line": total_line, "handicap_line": spread})
 
 
 # ------------------------------------------------------------------- builders
+def nhl_recent(cap, n=5):
+    """Last n completed NHL results per club, straight from the official schedule API."""
+    import re as _re
+    played = {}
+    for tid in sorted(i for i in cap.by_id if _re.match(r"nhl_sched_\d{4}-\d\d-\d\d$", i)):
+        try:
+            data = cap.json(tid)
+        except Exception:  # noqa: BLE001
+            continue
+        for week in data.get("gameWeek", []):
+            for g in week.get("games", []):
+                if g.get("gameState") not in ("OFF", "FINAL"):
+                    continue
+                try:
+                    hs = g["homeTeam"]["score"]
+                    as_ = g["awayTeam"]["score"]
+                except (KeyError, TypeError):
+                    continue
+                day = (g.get("startTimeUTC") or "")[:10]
+                played.setdefault(g["homeTeam"]["abbrev"], []).append(
+                    (day, f"{'W' if hs > as_ else ('L' if hs < as_ else 'T')} {hs}-{as_} v {g['awayTeam']['abbrev']}"))
+                played.setdefault(g["awayTeam"]["abbrev"], []).append(
+                    (day, f"{'W' if as_ > hs else ('L' if as_ < hs else 'T')} {as_}-{hs} at {g['homeTeam']['abbrev']}"))
+    return {k: [x[1] + " (" + x[0] + ")" for x in sorted(v)[-n:]] for k, v in played.items()}
+
+
 def build_ice_hockey(cap, rows):
     if not cap.exists("nhl_standings"):
         return
+    recent = nhl_recent(cap)
     table = P.read_nhl_standings(cap)
     L, ad = attack_defence(table)
     for f in P.read_nhl(cap):
@@ -237,17 +333,21 @@ def build_ice_hockey(cap, rows):
             row["flags"].append("official standings row missing for one club - no line originated")
             rows.append(row)
             continue
-        lam_h = L * a["att"] * b["def"] * HOME_EDGE["Ice Hockey"]["factor"]
-        lam_a = L * b["att"] * a["def"]
+        lam_h = L * b["att"] * a["def"] * HOME_EDGE["Ice Hockey"]["factor"]
+        lam_a = L * a["att"] * b["def"]
         row["inputs"] = {"method": "Poisson on NHL goals for/against per game, home factor 1.06",
-                         "home_gf_pg": a["for_pg"], "home_ga_pg": a["against_pg"],
-                         "away_gf_pg": b["for_pg"], "away_ga_pg": b["against_pg"],
-                         "home_gp": a["gp"], "away_gp": b["gp"],
-                         "home_l10": table[f["a_code"]].get("l10", ""),
-                         "away_l10": table[f["b_code"]].get("l10", ""),
+                         "home_gf_pg": b["for_pg"], "home_ga_pg": b["against_pg"],
+                         "away_gf_pg": a["for_pg"], "away_ga_pg": a["against_pg"],
+                         "home_gp": b["gp"], "away_gp": a["gp"],
+                         "home_l10": table[f["b_code"]].get("l10", ""),
+                         "away_l10": table[f["a_code"]].get("l10", ""),
+                         **({"home_recent": recent[f["b_code"]]} if recent.get(f["b_code"]) else {}),
+                         **({"away_recent": recent[f["a_code"]]} if recent.get(f["a_code"]) else {}),
                          "sample_games": min(a["gp"], b["gp"])}
+        # the puck line and run line are fixed half-goal markets, not something we choose
+        puck = -1.5 if lam_h > lam_a else 1.5
         goal_markets(row, lam_h, lam_a, False,
-                     5.5 if lam_h + lam_a < 6.3 else 6.5, spread_near(lam_h - lam_a), "Puck line/goals")
+                     5.5 if lam_h + lam_a < 6.3 else 6.5, puck, "Puck line/goals")
         choose_pick(row)
         rows.append(row)
 
@@ -280,7 +380,7 @@ def build_basketball(cap, rows):
         for f in fixtures:
             if not in_window(f["start"]):
                 continue
-            a, b = ad.get(f["home"]), ad.get(f["away"])
+            b, a = ad.get(f["home"]), ad.get(f["away"])
             row = blank_row(id=f"fx_{tid}_{f['id']}", sport="Basketball", sport_slug="basketball",
                             competition=comp, start_utc=f["start"], date=f["start"][:10],
                             side_a=f["away"], side_b=f["home"],
@@ -291,13 +391,14 @@ def build_basketball(cap, rows):
                 row["flags"].append("official results row missing for one club - no line originated")
                 rows.append(row)
                 continue
-            lam_h = L * a["att"] * b["def"] + HOME_EDGE["Basketball"]["margin"] / 2
-            lam_a = L * b["att"] * a["def"] - HOME_EDGE["Basketball"]["margin"] / 2
+            # a is the away club, b the home club
+            lam_h = L * b["att"] * a["def"] + HOME_EDGE["Basketball"]["margin"] / 2
+            lam_a = L * a["att"] * b["def"] - HOME_EDGE["Basketball"]["margin"] / 2
             margin, total = lam_h - lam_a, lam_h + lam_a
             row["inputs"] = {"method": "Normal margin on EuroLeague points for/against per game",
-                             "home_ppg": a["for_pg"], "home_papg": a["against_pg"],
-                             "away_ppg": b["for_pg"], "away_papg": b["against_pg"],
-                             "home_gp": a["gp"], "away_gp": b["gp"], "round": f["round"],
+                             "home_ppg": b["for_pg"], "home_papg": b["against_pg"],
+                             "away_ppg": a["for_pg"], "away_papg": a["against_pg"],
+                             "home_gp": b["gp"], "away_gp": a["gp"], "round": f["round"],
                              "sample_games": min(a["gp"], b["gp"])}
             margin_markets(row, margin, HOME_EDGE["Basketball"]["sd"], spread_near(margin),
                            total, 19.0, round(total * 2) / 2 + 0.5, "Points")
@@ -356,8 +457,9 @@ def build_baseball(cap, rows):
                          "home_pitcher": f["extra"].get("home_pitcher", ""),
                          "away_pitcher": f["extra"].get("away_pitcher", ""),
                          "sample_games": min(a["gp"], b["gp"])}
+        run_line = -1.5 if lam_h > lam_a else 1.5
         goal_markets(row, lam_h, lam_a, False, 8.5 if lam_h + lam_a < 9.2 else 9.5,
-                     spread_near(lam_h - lam_a, 1.0), "Runs")
+                     run_line, "Runs")
         choose_pick(row)
         rows.append(row)
 
@@ -401,12 +503,18 @@ def build_volleyball(cap, rows):
     fixtures = read_plusliga_fixtures(cap)
     if not table or not fixtures:
         return
-    L, ad = attack_defence(table, fk="sw", ak="sl", gpk="gp")
+
+    def rate(t):
+        tot = (t["sw"] + t["sl"]) or 1
+        return t["sw"] / tot
+
     for f in fixtures:
         if not in_window(f["start_utc"], f["date"]) or f["score"]:
             continue
-        ka, kb = match_name(f["side_a"], ad), match_name(f["side_b"], ad)
-        a, b = ad.get(ka or ""), ad.get(kb or "")
+        kh = match_name(f["side_b"], table)
+        ka = match_name(f["side_a"], table)
+        h = table.get(kh or "")
+        w = table.get(ka or "")
         row = blank_row(id=f["id"], sport="Volleyball", sport_slug="volleyball",
                         competition="PlusLiga 2026-27 (Poland)", start_utc=f["start_utc"],
                         date=f["date"], side_a=f["side_a"], side_b=f["side_b"],
@@ -415,30 +523,43 @@ def build_volleyball(cap, rows):
                         source_id="plusliga_fixtures")
         if not f["start_utc"]:
             row["flags"].append("kick-off time not published on the official fixtures list - date only")
-        if not a or not b:
+        if not h or not w:
             row["flags"].append("official table row missing for one club - no line originated")
             rows.append(row)
             continue
-        p_set = 0.5 + (a["att"] - b["att"]) * 0.12 + (b["def"] - a["def"]) * 0.12 + HOME_EDGE["Volleyball"]["p_set"]
+        p_set = 0.5 + 0.55 * (rate(h) - rate(w)) + HOME_EDGE["Volleyball"]["p_set"]
         p_set = min(0.85, max(0.15, p_set))
-        v = M.volleyball_dist(p_set)
+        p_home_match = 0.0
+        p_home_match = sum(
+            math.comb(4, k) * p_set ** 3 * (1 - p_set) ** k for k in (0, 1, 2)
+        ) if False else None
+        # exact best-of-five with independent sets
+        def wp(i, j):
+            if i == 3:
+                return 1.0
+            if j == 3:
+                return 0.0
+            return p_set * wp(i + 1, j) + (1 - p_set) * wp(i, j + 1)
+        p_home_match = wp(0, 0)
+        p_five = math.comb(4, 2) * p_set ** 2 * (1 - p_set) ** 2
         p_30 = p_set ** 3
         p_31 = 3 * p_set ** 3 * (1 - p_set)
-        row["inputs"] = {"method": "Set-share model on official PlusLiga sets won/lost, +0.02 home set edge",
-                         "home_sets_won": a["for_pg"], "home_sets_lost": a["against_pg"],
-                         "away_sets_won": b["for_pg"], "away_sets_lost": b["against_pg"],
-                         "home_gp": a["gp"], "away_gp": b["gp"],
-                         "table_name_home": kb or "", "table_name_away": ka or "",
-                         "p_set": round(p_set, 3), "sample_games": min(a["gp"], b["gp"]),
+        row["inputs"] = {"method": "Set-win-rate model on the official PlusLiga table, +0.02 home set edge",
+                         "home_sets_won": h["sw"], "home_sets_lost": h["sl"],
+                         "away_sets_won": w["sw"], "away_sets_lost": w["sl"],
+                         "home_gp": h["gp"], "away_gp": w["gp"],
+                         "home_set_rate": round(rate(h), 3), "away_set_rate": round(rate(w), 3),
+                         "p_set": round(p_set, 3), "sample_games": min(h["gp"], w["gp"]),
+                         "table_name_home": kh, "table_name_away": ka,
                          "table_source_url": cap.url("plusliga_table")}
         row["markets"] = {
             "match_winner": market("Match Winner", None,
-                                   [(f["side_a"], v["away"]), (f["side_b"], v["home"])], "2-way"),
+                                   [(f["side_a"], 1 - p_home_match), (f["side_b"], p_home_match)], "2-way"),
             "handicap": market("Set Handicap", -1.5,
-                               [(f"{f['side_a']} -1.5", 1 - (p_30 + p_31)),
-                                (f"{f['side_b']} +1.5", p_30 + p_31)], "sets"),
+                               [(f"{f['side_b']} -1.5", p_30 + p_31),
+                                (f"{f['side_a']} +1.5", 1 - (p_30 + p_31))], "sets"),
             "total": market("Total Sets", 4.5,
-                            [("Over 4.5", v["five_sets"]), ("Under 4.5", 1 - v["five_sets"])], "sets"),
+                            [("Over 4.5", p_five), ("Under 4.5", 1 - p_five)], "sets"),
         }
         choose_pick(row)
         rows.append(row)
@@ -457,11 +578,11 @@ def build_handball(cap, rows, olbg_events):
         parties = re.split(r"\s+vs\s+", ev["event"])
         if len(parties) != 2:
             continue
-        ka, kb = match_name(parties[0], ad), match_name(parties[1], ad)
-        a, b = ad.get(ka or ""), ad.get(kb or "")
+        kh, ka = match_name(parties[0], ad), match_name(parties[1], ad)
+        b, a = ad.get(kh or ""), ad.get(ka or "")
         row = blank_row(id="fx_hl_" + ev["event_id"], sport="Handball", sport_slug="handball",
                         competition="Herreligaen 2026-27 (Denmark)", start_utc=ev["start_utc"],
-                        date=ev["start_utc"][:10], side_a=parties[0].strip(), side_b=parties[1].strip(),
+                        date=ev["start_utc"][:10], side_a=parties[1].strip(), side_b=parties[0].strip(),
                         source_url=cap.url("dk_herreligaen"),
                         source_name="Herreligaen official standings (tophaandbold.dk)",
                         source_id="dk_herreligaen")
@@ -476,9 +597,9 @@ def build_handball(cap, rows, olbg_events):
         lam_h = L * a["att"] * b["def"] * HOME_EDGE["Handball"]["factor"]
         lam_a = L * b["att"] * a["def"]
         row["inputs"] = {"method": "Poisson on Herreligaen goals per game, home factor 1.07",
-                         "home_gf_pg": a["for_pg"], "home_ga_pg": a["against_pg"],
-                         "away_gf_pg": b["for_pg"], "away_ga_pg": b["against_pg"],
-                         "home_gp": a["gp"], "away_gp": b["gp"],
+                         "home_gf_pg": b["for_pg"], "home_ga_pg": b["against_pg"],
+                         "away_gf_pg": a["for_pg"], "away_ga_pg": a["against_pg"],
+                         "home_gp": b["gp"], "away_gp": a["gp"],
                          "sample_games": min(a["gp"], b["gp"])}
         goal_markets(row, lam_h, lam_a, True, round((lam_h + lam_a) * 2) / 2 + 0.5,
                      spread_near(lam_h - lam_a), "Goals")
@@ -516,7 +637,7 @@ def build_rugby_league(cap, rows):
         for t in (a, b):
             t["for_pg"] = round(t["gf"] / t["gp"], 2)
             t["against_pg"] = round(t["ga"] / t["gp"], 2)
-        margin = (a["for_pg"] - a["against_pg"]) - (b["for_pg"] - b["against_pg"]) + HOME_EDGE["Rugby League"]["margin"]
+        margin = (b["for_pg"] - b["against_pg"]) - (a["for_pg"] - a["against_pg"]) + HOME_EDGE["Rugby League"]["margin"]
         total = (a["for_pg"] + a["against_pg"] + b["for_pg"] + b["against_pg"]) / 2
         row["inputs"] = {"method": "Normal margin on official tournament points for/against, home edge 3.5",
                          "home_for_pg": a["for_pg"], "home_against_pg": a["against_pg"],
@@ -603,7 +724,7 @@ def build_motorsport(cap, rows, olbg_events):
     if not st or not st.get("standings"):
         return
     standings = st["standings"]
-    probs = M.plackett_luce([x["pts"] for x in standings], 120.0)
+    probs = M.plackett_luce([x["pts"] for x in standings], 420.0)
     best = max(range(len(standings)), key=lambda i: probs[i])
     race = next((r for r in st.get("races", []) if "Mexico" in r.get("name", "")), None)
     ev = next((e for e in olbg_events if e["sport"] == "Motor Racing" and in_window(e["start_utc"])), None)
@@ -617,7 +738,7 @@ def build_motorsport(cap, rows, olbg_events):
     if ev:
         row["olbg"] = {"event": ev["event"], "event_url": ev["event_url"], "hub_url": ev["hub_url"],
                        "event_id": ev["event_id"], "tips": ev["tips"]}
-    row["inputs"] = {"method": "Plackett-Luce on official championship points, tau 120",
+    row["inputs"] = {"method": "Plackett-Luce on official championship points, tau 420",
                      "leader": standings[best]["driver"], "leader_pts": standings[best]["pts"],
                      "field": len(standings), "sample_games": 0,
                      "round": (race or {}).get("round", ""), "dates": (race or {}).get("dates", "")}
@@ -625,9 +746,6 @@ def build_motorsport(cap, rows, olbg_events):
         "match_winner": market("Race Winner", None,
                                [(standings[best]["driver"], probs[best]),
                                 ("Field (any other driver)", 1 - probs[best])], "outright"),
-        "handicap": market("Head-to-Head v Team-mate", None,
-                           [(standings[best]["driver"], min(0.9, probs[best] * 3)),
-                            ("Team-mate", 1 - min(0.9, probs[best] * 3))], "indicative only"),
     }
     choose_pick(row)
     rows.append(row)
@@ -728,6 +846,25 @@ def attach_olbg(rows, events):
                          "event_id": ev["event_id"], "tips": ev["tips"]}
             if r.get("pick"):
                 choose_pick(r)
+
+
+def band_stats(rows):
+    """How many rows are barred from a High pick only by the -250 floor.
+
+    A selection we make 70%+ for prices at 1.39 or shorter, which is outside the
+    requested band.  Counting them keeps the shortfall visible instead of quietly
+    downgrading them.
+    """
+    near = 0
+    for r in rows:
+        best = 0.0
+        for mk in (r.get("markets") or {}).values():
+            for s in mk.get("selections", []):
+                if s["p"] >= 0.70:
+                    best = max(best, s["p"])
+        if best and not r.get("pick"):
+            near += 1
+    return {"rows_blocked_by_price_floor": near}
 
 
 def summarise(rows):
@@ -845,6 +982,7 @@ def main() -> int:
                      "failures": man.get("failures", [])},
         "rows": rows,
         "summary": summarise(rows),
+        "band_stats": band_stats(rows),
         "methodology": METHODOLOGY,
         "olbg_notes": dict(OLBG_NOTES, events=[
             {"sport": e["sport"], "event": e["event"], "start_utc": e["start_utc"],

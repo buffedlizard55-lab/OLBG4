@@ -175,3 +175,55 @@ def read_nba_scoreboard(cap, tid: str = "nba_cdn_scoreboard"):
             "away": g.get("awayTeam", {}).get("score"),
         }
     return out
+
+
+class MergedCapture:
+    """A read-only view over several committed capture directories.
+
+    The primary directory wins for any id present in both; anything only the
+    fallback carries is still readable and ``origin(tid)`` reports which directory
+    (and therefore which capture stamp) a payload came from, so every row can cite
+    the exact capture its numbers were read out of.
+    """
+
+    def __init__(self, primary: str, fallbacks: list[str] | None = None):
+        import os
+
+        from parse import Capture  # local import to avoid a cycle
+
+        self.dirs = [primary] + [d for d in (fallbacks or []) if os.path.isdir(d)]
+        self.captures = [Capture(d) for d in self.dirs]
+        self.manifest = self.captures[0].manifest
+        self.by_id = {}
+        self._origin = {}
+        for cap, d in zip(self.captures, self.dirs):
+            for k, v in cap.by_id.items():
+                if k not in self.by_id:
+                    self.by_id[k] = v
+                    self._origin[k] = d
+
+    def _cap(self, tid):
+        for cap, d in zip(self.captures, self.dirs):
+            if self._origin.get(tid) == d and tid in cap.by_id:
+                return cap
+        raise KeyError(tid)
+
+    def exists(self, tid):
+        return tid in self.by_id
+
+    def raw(self, tid):
+        return self._cap(tid).raw(tid)
+
+    def text(self, tid):
+        return self._cap(tid).text(tid)
+
+    def json(self, tid):
+        return self._cap(tid).json(tid)
+
+    def url(self, tid):
+        return self.by_id[tid]["url"]
+
+    def origin(self, tid):
+        import os
+
+        return os.path.basename(self._origin.get(tid, self.dirs[0]).rstrip("/"))

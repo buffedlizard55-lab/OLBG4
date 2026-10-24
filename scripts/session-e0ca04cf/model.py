@@ -53,13 +53,20 @@ def in_price_window(dec: float) -> bool:
     return dec is not None and 1.40 <= dec <= 101.0
 
 
-def confidence(p: float, cap: str = "High", sample_ok: bool = True) -> str:
-    """High / Medium / Low from our own probability, then capped by evidence."""
+def confidence(p: float, cap: str = "High", sample_games: int = 99) -> str:
+    """High / Medium / Low from our own probability, then capped by evidence.
+
+    Cap ladder: 10+ completed games behind the input keeps the sport's cap, 4-9
+    drops it to Medium, fewer than 4 drops it to Low.
+    """
     base = "High" if p >= 0.70 else ("Medium" if p >= 0.55 else "Low")
     order = {"Low": 0, "Medium": 1, "High": 2}
-    if not sample_ok:
-        cap = "Low" if order[cap] > 0 else cap
-    return base if order[base] <= order[cap] else cap
+    sc = cap
+    if sample_games < 4:
+        sc = "Low"
+    elif sample_games < 10:
+        sc = "Medium" if order[cap] > 1 else cap
+    return base if order[base] <= order[sc] else sc
 
 
 # ------------------------------------------------------------------- maths
