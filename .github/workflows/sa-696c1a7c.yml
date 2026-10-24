@@ -20,6 +20,8 @@ on:
     branches:
       - arena/696c1a7c-olbg4
     paths:
+      - ".github/workflows/sa-696c1a7c.yml"
+      - "scripts/session-696c1a7c/targets1.json"
       - "scripts/session-696c1a7c/targets2.json"
       - "scripts/session-696c1a7c/targets3.json"
 
@@ -54,9 +56,12 @@ jobs:
             if [ -f scripts/session-696c1a7c/targets3.json ]; then
               echo "TARGETS=scripts/session-696c1a7c/targets3.json" >> "$GITHUB_ENV"
               echo "LABEL=r3" >> "$GITHUB_ENV"
-            else
+            elif [ -f scripts/session-696c1a7c/targets2.json ]; then
               echo "TARGETS=scripts/session-696c1a7c/targets2.json" >> "$GITHUB_ENV"
               echo "LABEL=r2" >> "$GITHUB_ENV"
+            else
+              echo "TARGETS=scripts/session-696c1a7c/targets1.json" >> "$GITHUB_ENV"
+              echo "LABEL=r1" >> "$GITHUB_ENV"
             fi
           fi
 
@@ -84,3 +89,5 @@ jobs:
               git push origin HEAD:arena/696c1a7c-olbg4 && break
             sleep 5
           done
+
+# trigger marker 2026-10-24T22:40Z
