@@ -167,4 +167,13 @@ ALL_GROUPS = {
     "official": {**OFFICIAL, **schedule_dates()},
 }
 
+OFFICIAL.update({
+    # EHF's own competition pages: the standings page returned a server-rendered table,
+    # so the fixtures/results routes are worth probing for official fixture identity.
+    "ehfcl_matches": "https://ehfcl.eurohandball.com/men/2026-27/matches/",
+    "ehfcl_results": "https://ehfcl.eurohandball.com/men/2026-27/results/",
+    "wta_calendar": "https://www.wtatennis.com/tournaments",
+    "wtatour_rankings_doubles": "https://www.wtatennis.com/rankings/doubles",
+})
+
 MAX_BYTES = 12 * 1024 * 1024
