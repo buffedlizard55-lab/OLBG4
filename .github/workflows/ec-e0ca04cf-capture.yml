@@ -8,6 +8,7 @@ on:
     paths:
       - "scripts/session-e0ca04cf/targets.json"
       - "scripts/session-e0ca04cf/targets2.json"
+      - "scripts/session-e0ca04cf/targets3.json"
       - "scripts/session-e0ca04cf/fetch.py"
       - ".github/workflows/ec-e0ca04cf-capture.yml"
 
@@ -48,6 +49,14 @@ jobs:
           python3 scripts/session-e0ca04cf/fetch.py \
             scripts/session-e0ca04cf/targets2.json \
             "data/session-e0ca04cf/capture/$STAMP-events" 2>&1 | tee -a /tmp/capture.log
+
+      - name: Capture ranking / table feeds (pass 3, only if generated)
+        if: hashFiles('scripts/session-e0ca04cf/targets3.json') != ''
+        run: |
+          set -o pipefail
+          python3 scripts/session-e0ca04cf/fetch.py \
+            scripts/session-e0ca04cf/targets3.json \
+            "data/session-e0ca04cf/capture/$STAMP-rankings" 2>&1 | tee -a /tmp/capture.log
 
       - name: Commit capture (even partial) to arena/e0ca04cf-olbg4
         if: always()
