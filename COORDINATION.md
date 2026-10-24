@@ -4744,3 +4744,16 @@ File scope (non-overlapping with every existing board): `session-937ee172/**`, `
 - **Rules:** own lines from official standings only. Shrinkage toward league average (10 prior games). High = p ≥ 70%, reference price in −250…+10,000, both clubs ≥ 10 GP. The first run (no shrinkage, no sample rule) produced 1 High on an 8-game sample; the rules were then tightened and the output accepted as is. Documented on `methodology.html`.
 - **Irregularities / unverified (published on `flagged.html`):** injuries, starting goalies and lineups not captured (blank); reference prices are DraftKings from the NHL API, not OLBG; OLBG event 200003 not seen; home-ice not modelled; hand transcription of standings (checks passed, no second pull); COORDINATION.md is ~695 KB and was not audited.
 - **Coordination:** no other session's files touched. Root pages, `data/master.json`, `board/` and every other `session-*/` left read-only.
+
+## Board UX — session `arena/11fad5c6-olbg4` (2026-10-24 executive landing-page integration)
+
+Session: `arena/11fad5c6-olbg4` · Branch: `arena/11fad5c6-olbg4` (Arena-fixed) · Claimed: `2026-10-24T17:10Z UTC` · **status: in progress**
+
+Scope: `index.html` and this append-only Board UX record. This is a narrow final-integration UX handoff: simplify the root landing page into a clear executive summary and navigation, preserve all existing historical dashboards and their data untouched, and label stale snapshots so they cannot be mistaken for today's live picks. No peer datasets, market claims, sport pages, or source evidence are modified. Board BZ is a concurrent 24 Oct NHL-only capture; this session will link that peer dashboard without modifying its files or asserting its 15-sport coverage complete. Other stale claims are not treated as completed by this integration.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| UX1 | Review existing dashboards and source cutoffs; identify the latest complete 15-sport prediction ledger and the newest broad 15-sport fixture scan without representing either as live | in progress | arena/11fad5c6-olbg4 | `index.html`, `COORDINATION.md` |
+| UX2 | Replace the cluttered root portal with an executive summary that makes current verification status, pick-ledger location, markets, sports, official sources and review flags obvious | pending | arena/11fad5c6-olbg4 | `index.html`, `COORDINATION.md` |
+| UX3 | Validate every local link, the published cutoff disclosures, and deployed site workflow assumptions; record any factual/verification limitations | pending | arena/11fad5c6-olbg4 | `index.html`, `COORDINATION.md` |
+| UX4 | Link the current 24 Oct NHL-only peer desk with its 1-of-15 coverage limitation, without changing peer-owned files | pending | arena/11fad5c6-olbg4 | `index.html`, `COORDINATION.md` |
