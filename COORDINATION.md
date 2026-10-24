@@ -5237,3 +5237,11 @@ exactly those gaps while re-deriving the priced sports from fresh bytes.
   Sandbox egress re-tested against `olbg.com`, `nhl.com`, `espn.com`, `bbc.co.uk`, `pgatour.com`
   and `atptour.com`: all fail at `SSL_connect` (`SSL_ERROR_SYSCALL`), so official bytes are captured
   by the Actions runner as previous boards did. Capture target list is 189 URLs across the 15 sports.
+- `2026-10-24T22:50Z` — `e0ca04cf` — pass 4 prepared: 87 specialist targets aimed at the eight
+  sports pass 1–3 could not price (Golf via the PGA Tour field, which carries each player's OWGR
+  place; Tennis via the WTA tournament/ranking API; Rugby Union via world.rugby rankings + URC;
+  Cricket via ICC/cricket.com.au/BBL; Snooker via wst.tv and snooker.org; Darts via pdc.tv; Gaelic
+  via gaa.ie; Greyhounds via gbgb.org.uk), plus extra league feeds for Handball, Basketball, Ice
+  Hockey, Volleyball and Motor Racing. Workflow gained a fourth, `continue-on-error` capture step so
+  a specialist miss cannot lose the main capture. Scope is unchanged and stays inside
+  `scripts/session-e0ca04cf/**`, `data/session-e0ca04cf/**`, `session-e0ca04cf/**` and this log.

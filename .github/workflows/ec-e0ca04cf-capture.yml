@@ -9,6 +9,7 @@ on:
       - "scripts/session-e0ca04cf/targets.json"
       - "scripts/session-e0ca04cf/targets2.json"
       - "scripts/session-e0ca04cf/targets3.json"
+      - "scripts/session-e0ca04cf/targets4.json"
       - "scripts/session-e0ca04cf/fetch.py"
       - ".github/workflows/ec-e0ca04cf-capture.yml"
 
@@ -57,6 +58,15 @@ jobs:
           python3 scripts/session-e0ca04cf/fetch.py \
             scripts/session-e0ca04cf/targets3.json \
             "data/session-e0ca04cf/capture/$STAMP-rankings" 2>&1 | tee -a /tmp/capture.log
+
+      - name: Capture specialist league feeds (pass 4, only if generated)
+        if: hashFiles('scripts/session-e0ca04cf/targets4.json') != ''
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python3 scripts/session-e0ca04cf/fetch.py \
+            scripts/session-e0ca04cf/targets4.json \
+            "data/session-e0ca04cf/capture/$STAMP-specialists" 2>&1 | tee -a /tmp/capture.log
 
       - name: Commit capture (even partial) to arena/e0ca04cf-olbg4
         if: always()
