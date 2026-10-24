@@ -1,0 +1,86 @@
+name: Board SA capture (696c1a7c)
+
+# The authoring sandbox can only reach GitHub/npm/PyPI, so every OLBG and
+# governing-body byte used by Board SA is fetched here, on a runner, and
+# committed with a SHA-256 manifest. Parsing, line origination and verification
+# then run locally from the committed bytes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      targets:
+        description: "Targets JSON (relative path)"
+        required: false
+        default: "scripts/session-696c1a7c/targets1.json"
+      label:
+        description: "Capture label"
+        required: false
+        default: "r1"
+  push:
+    branches:
+      - arena/696c1a7c-olbg4
+    paths:
+      - "scripts/session-696c1a7c/targets2.json"
+      - "scripts/session-696c1a7c/targets3.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sa-696c1a7c-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/696c1a7c-olbg4
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve run parameters
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "TARGETS=${{ github.event.inputs.targets }}" >> "$GITHUB_ENV"
+            echo "LABEL=${{ github.event.inputs.label }}" >> "$GITHUB_ENV"
+          else
+            if [ -f scripts/session-696c1a7c/targets3.json ]; then
+              echo "TARGETS=scripts/session-696c1a7c/targets3.json" >> "$GITHUB_ENV"
+              echo "LABEL=r3" >> "$GITHUB_ENV"
+            else
+              echo "TARGETS=scripts/session-696c1a7c/targets2.json" >> "$GITHUB_ENV"
+              echo "LABEL=r2" >> "$GITHUB_ENV"
+            fi
+          fi
+
+      - name: Capture
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          mkdir -p data/session-696c1a7c/logs
+          python3 scripts/session-696c1a7c/fetch.py "$TARGETS" \
+            "data/session-696c1a7c/capture/$STAMP" --label "$LABEL" \
+            2>&1 | tee "data/session-696c1a7c/logs/capture-$STAMP.log"
+
+      - name: Commit capture to the session branch
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-sa-capture[bot]"
+          git config user.email "board-sa-capture@users.noreply.github.com"
+          git add data/session-696c1a7c
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board SA (696c1a7c): capture ${STAMP:-unknown} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/696c1a7c-olbg4 && \
+              git push origin HEAD:arena/696c1a7c-olbg4 && break
+            sleep 5
+          done
