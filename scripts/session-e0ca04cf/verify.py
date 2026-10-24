@@ -77,7 +77,7 @@ def main() -> int:
         if pick:
             if not (1.40 <= pick["decimal"] <= 101.0):
                 bad_band.append(f"{r['id']} {pick['decimal']}")
-            if pick["p"] < 0.52:
+            if pick["p"] < 0.50:
                 bad_band.append(f"{r['id']} p={pick['p']}")
             if abs(pick["decimal"] - dec_from_p(pick["p"])) > 0.011:
                 bad_math.append(f"{r['id']} pick decimal")
@@ -92,7 +92,7 @@ def main() -> int:
     gate("every selection probability is in (0,1)", not bad_range, "; ".join(bad_range[:3]))
     gate("every two-way market sums to 1.000", not half_line, "; ".join(half_line[:3]))
     gate("decimal and American odds re-derive from p", not bad_math, "; ".join(bad_math[:3]))
-    gate("every published pick sits inside -250…+10,000 and is a favourite", not bad_band,
+    gate("every published pick sits inside -250…+10,000 and is at least evens-shot (50%)", not bad_band,
          "; ".join(bad_band[:3]))
 
     # ------------------------------------------------------------- confidence

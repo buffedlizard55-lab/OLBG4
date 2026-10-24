@@ -142,21 +142,16 @@ def _wst_elo(matches):
 def _best_of_series(p, frames):
     """Distribution of the final frame score in a best-of-N match.
 
-    ``p`` is the per-frame probability.  Returns {frames_won_by_A: probability}
-    for the *match winner's* tally, plus the loser's, so the total-frames market
-    and a frames handicap can both be read off one calculation.
+    ``p`` is the per-frame probability for side A.  Returns {(A frames, B frames):
+    probability} over the possible final scores, which is all the winner market,
+    a frames handicap and a total-frames market need.
     """
     need = frames // 2 + 1
     scores = {}
-    for a in range(need, frames + 1):
-        for b in range(0, need):
-            if a == need:
-                prob = math.comb(need - 1 + b, b) * p ** need * (1 - p) ** b
-                scores[(a, b)] = scores.get((a, b), 0.0) + prob
-            if b == need:
-                prob = math.comb(need - 1 + a, a) * (1 - p) ** need * p ** a
-                scores[(a, b)] = scores.get((a, b), 0.0) + prob
-    # normalise the small truncation residue onto the deciders
+    for b in range(0, need):
+        scores[(need, b)] = math.comb(need - 1 + b, b) * p ** need * (1 - p) ** b
+    for a in range(0, need):
+        scores[(a, need)] = math.comb(need - 1 + a, a) * (1 - p) ** need * p ** a
     tot = sum(scores.values()) or 1.0
     return {k: v / tot for k, v in scores.items()}
 
@@ -227,7 +222,7 @@ def build_snooker(D, cap, rows):
         p_frame = (fa * (1 - fb)) / (fa * (1 - fb) + fb * (1 - fa))
         p_frame = min(0.80, max(0.20, p_frame))
         series = _best_of_series(p_frame, frames)
-        p_a = sum(v for (x, _y), v in series.items() if x >= (frames // 2 + 1))
+        p_a = sum(v for (x, _y), v in series.items() if x == frames // 2 + 1)
         p_a = min(1.0, p_a)
         sa, sb = stats.get(pa, {}), stats.get(pb, {})
         row["inputs"].update({
@@ -241,10 +236,11 @@ def build_snooker(D, cap, rows):
         # frames markets: handicap of 1.5 frames and a total around the bo-N middle
         line_frames = frames - 1.5
         p_over = sum(v for (x, y), v in series.items() if x + y > line_frames)
-        margin = -1.5 if p_a > 0.5 else 1.5
+        # home side is side_b, so it is favourite (and lays -1.5) when p_a < 0.5
+        margin = -1.5 if p_a < 0.5 else 1.5
         p_covers = sum(v for (x, y), v in series.items()
-                       if (x - y) > 1.5) if margin < 0 else sum(v for (x, y), v in series.items()
-                                                                if (y - x) > 1.5)
+                       if (y - x) > 1.5) if margin < 0 else sum(v for (x, y), v in series.items()
+                                                                if (x - y) > 1.5)
         row["markets"] = {
             "match_winner": D.market("Match Winner", None,
                                      [(row["side_a"], p_a), (row["side_b"], 1 - p_a)], "2-way"),
@@ -371,6 +367,25 @@ _RX_EHF = re.compile(
     r"(\d+)\.\s+([A-Za-zÀ-ž0-9'’.\- ]+?)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s*:\s*(\d+)\s+(-?\d+)\s+(\d+)")
 
 
+def _handball_markets(D, row, lam_h, lam_a):
+    """3-way handball prices from a normal margin (a Poisson grid truncates at 22 goals)."""
+    mu, sd, sd_t = lam_h - lam_a, 9.5, 8.5
+    p_home = 1.0 - D.M.norm_cdf((0.5 - mu) / sd)
+    p_away = D.M.norm_cdf((-0.5 - mu) / sd)
+    p_draw = max(0.0, 1.0 - p_home - p_away)
+    total = lam_h + lam_a
+    line_t = _line(total, 1.0)
+    line_h = D.spread_near(mu, 1.0)
+    p_over = 1.0 - D.M.norm_cdf((line_t - total) / sd_t)
+    p_covers = 1.0 - D.M.norm_cdf((abs(line_h) - mu) / sd) if line_h < 0 else \
+        D.M.norm_cdf((abs(line_h) + mu) / sd)
+    D.emit_markets(row, p_home=p_home, p_away=p_away, p_draw=p_draw, spread=line_h,
+                   p_home_covers=p_covers, total_line=line_t, p_over=p_over, label="Goals")
+    row["inputs"].update({"exp_home": round(lam_h, 2), "exp_away": round(lam_a, 2),
+                          "exp_total": round(total, 2), "sd_margin": sd, "total_line": line_t,
+                          "handicap_line": line_h})
+
+
 def build_handball_ehf(D, cap, rows, olbg_events):
     """EHF Champions League group tables, matched to the handball card rows."""
     if not cap.exists("ehfcl_m_standings"):
@@ -423,7 +438,6 @@ def build_handball_ehf(D, cap, rows, olbg_events):
                          "home_gf_pg": b["for_pg"], "home_ga_pg": b["against_pg"],
                          "away_gf_pg": a["for_pg"], "away_ga_pg": a["against_pg"],
                          "home_gp": b["gp"], "away_gp": a["gp"], "sample_games": min(a["gp"], b["gp"])}
-        D.goal_markets(row, lam_h, lam_a, True, _line(lam_h + lam_a, 1.0),
-                       D.spread_near(lam_h - lam_a, 1.0), "Goals")
+        _handball_markets(D, row, lam_h, lam_a)
         D.choose_pick(row)
         rows.append(row)

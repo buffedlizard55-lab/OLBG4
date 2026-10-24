@@ -218,7 +218,7 @@ def picks_table(rows, root="", show_sport=True, limit=None) -> str:
         row.append(f'<td class="num">{e(when(r.get("start_utc", "")))}</td>')
         if show_sport:
             row.append(f'<td><a href="{root}{e(r.get("sport_slug",""))}.html">{e(r.get("sport"))}</a></td>')
-        row.append(f'<td>{e(r.get("side_a"))} <span class="sub">v</span> {e(r.get("side_b") or "")}'
+        row.append(f'<td>{e(r.get("side_b"))} <span class="sub">v</span> {e(r.get("side_a") or "")}'
                    f'<div class="sub">{e(r.get("competition",""))}</div></td>')
         row.append(f'<td><span class="pick">{e(p.get("selection",""))}</span>'
                    f'<div class="sub">{e(mk.get("note") or p.get("market","").replace("_"," "))}</div></td>')
@@ -256,7 +256,7 @@ def markets_table(rows, root="") -> str:
                 out.append(
                     "<tr>"
                     + (f'<td class="num">{e(when(r.get("start_utc","")))}</td>' if first else "<td></td>")
-                    + (f'<td>{e(r.get("side_a"))} v {e(r.get("side_b"))}</td>' if first else "<td></td>")
+                    + (f'<td>{e(r.get("side_b"))} v {e(r.get("side_a"))}</td>' if first else "<td></td>")
                     + f'<td>{e(mname.replace("_"," "))}</td><td class="num">{e(mk.get("line") if mk.get("line") is not None else "—")}</td>'
                     + f'<td>{e(s.get("name",""))}</td>'
                     + f'<td class="num">{e(dec(s.get("decimal")))}</td>'
@@ -280,7 +280,7 @@ def pred_card(r, p, root="") -> str:
     inputs = "".join(f"<li>{e(k)}: {e(v)}</li>" for k, v in (p.get("inputs") or {}).items())
     return f"""<div class="pred">
   <div class="head">
-    <div class="match">{e(r.get('side_a'))} v {e(r.get('side_b') or '—')}
+    <div class="match">{e(r.get('side_b'))} v {e(r.get('side_a') or '—')}
       <div class="sub">{e(r.get('competition',''))} · {e(when(r.get('start_utc','')))}</div></div>
     <div>{pill(conf)} <span class="tag">pick at {e(dec(price))}</span></div>
   </div>
@@ -352,7 +352,7 @@ derived from those official numbers, and the OLBG quote is shown beside it where
   <div><div class="n">{len(rows)}</div><div class="l">fixtures captured</div></div>
   <div><div class="n">{len(priced)}</div><div class="l">with our own line</div></div>
   <div><div class="n">{len(highs)}</div><div class="l">High confidence</div></div>
-  <div><div class="n">{len(inband)}</div><div class="l">High inside −250…+10,000</div></div>
+  <div><div class="n">{len(inband)}</div><div class="l">picks inside −250…+10,000</div></div>
   <div><div class="n">{len(preds_for())}</div><div class="l">written predictions</div></div>
   <div><div class="n">{len(SPORTS)}</div><div class="l">sports covered</div></div>
 </div>
@@ -502,7 +502,7 @@ numbers captured from the official source linked under it.</p>
                  "<th>Flag</th><th>Official source</th></tr></thead><tbody>")
     for r in flagged[:400]:
         fbody.append(f"<tr><td>{e(r['sport'])}</td>"
-                     f"<td>{e(r.get('side_a'))} {('v ' + e(r.get('side_b'))) if r.get('side_b') else ''}"
+                     f"<td>{e(r.get('side_b'))} {('v ' + e(r.get('side_a'))) if r.get('side_a') else ''}"
                      f"<div class=\"sub\">{e(when(r.get('start_utc','')))}</div></td>"
                      f"<td>{'<br>'.join(e(f) for f in r['flags'])}</td>"
                      f"<td>{src(r.get('source_url'), r.get('source_name'), 'source')}</td></tr>")
@@ -606,7 +606,7 @@ numbers captured from the official source linked under it.</p>
                          "<th>Competition</th><th>Why no line</th><th>Official source</th></tr></thead><tbody>")
             for r in zero:
                 sbody.append(f'<tr><td class="num">{e(when(r.get("start_utc","")))}</td>'
-                             f'<td>{e(r.get("side_a"))} {("v " + e(r.get("side_b"))) if r.get("side_b") else ""}</td>'
+                             f'<td>{e(r.get("side_b"))} {("v " + e(r.get("side_a"))) if r.get("side_a") else ""}</td>'
                              f'<td class="sub">{e(r.get("competition",""))}</td>'
                              f'<td class="sub">{e("; ".join(r.get("flags") or ["no verified inputs"]))}</td>'
                              f'<td>{src(r.get("source_url"), r.get("source_name"), "source")}</td></tr>')

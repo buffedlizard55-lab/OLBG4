@@ -157,7 +157,7 @@ def choose_pick(row: dict) -> None:
     cands = []
     for mname, mk in (row.get("markets") or {}).items():
         for s in mk.get("selections", []):
-            if s["p"] < 0.52:
+            if s["p"] < 0.50:
                 continue
             d = M.dec_from_p(s["p"])
             if not M.in_price_window(d):
@@ -178,7 +178,7 @@ def choose_pick(row: dict) -> None:
                           "market_american": M.american(mkt_dec) if mkt_dec else None,
                           "band_basis": basis})
     if not cands:
-        row["flags"].append("no selection we make a favourite is inside the -250…+10,000 band (the match favourite is shorter than -250)")
+        row["flags"].append("nothing we price at 50% or better sits inside the -250…+10,000 band: either the favourite is shorter than -250 or every in-band selection is an underdog")
         return
     best = max(cands, key=lambda x: x["p"])
     best["confidence"] = M.confidence(
@@ -432,8 +432,10 @@ def build_baseball(cap, rows):
             continue
         home_full = name_by_id.get(str(f["extra"].get("home_id")), f["side_b"])
         away_full = name_by_id.get(str(f["extra"].get("away_id")), f["side_a"])
-        a = tv.get(home_full)
-        b = tv.get(away_full)
+        def nick(nm):
+            return nm.split()[-1] if nm else ""
+        a = tv.get(home_full) or tv.get(nick(home_full))
+        b = tv.get(away_full) or tv.get(nick(away_full))
         row = blank_row(id=f["id"], sport="Baseball", sport_slug="baseball", competition=f["competition"],
                         start_utc=f["start_utc"], date=f["start_utc"][:10], venue=f.get("venue", ""),
                         side_a=f["side_a"], side_b=f["side_b"], source_url=f["source_url"],
@@ -443,7 +445,11 @@ def build_baseball(cap, rows):
             rows.append(row)
             continue
         hn, an = home_full, away_full
-        if hn not in ad or an not in ad:
+        if hn not in ad:
+            ad[hn] = ad.get(hn.split()[-1]) if hn else None
+        if an not in ad:
+            ad[an] = ad.get(an.split()[-1]) if an else None
+        if not ad.get(hn) or not ad.get(an):
             row["flags"].append("official standings row missing for one club - no line originated")
             rows.append(row)
             continue
@@ -457,6 +463,10 @@ def build_baseball(cap, rows):
                          "home_pitcher": f["extra"].get("home_pitcher", ""),
                          "away_pitcher": f["extra"].get("away_pitcher", ""),
                          "sample_games": min(a["gp"], b["gp"])}
+        if row["start_utc"].endswith("T00:00:00Z"):
+            row["flags"].append("first pitch not published for this date in the captured schedule - kick-off shown as 00:00 UTC")
+        if not row["inputs"]["home_pitcher"] or not row["inputs"]["away_pitcher"]:
+            row["flags"].append("probable pitchers not published for this date in the captured schedule")
         run_line = -1.5 if lam_h > lam_a else 1.5
         goal_markets(row, lam_h, lam_a, False, 8.5 if lam_h + lam_a < 9.2 else 9.5,
                      run_line, "Runs")
@@ -465,34 +475,35 @@ def build_baseball(cap, rows):
 
 
 def read_plusliga_fixtures(cap, tid="plusliga_fixtures"):
-    """PlusLiga official fixtures page: results and scheduled matches in one table."""
+    """PlusLiga official fixtures page: results and scheduled matches in one table.
+
+    Each row is date | phase | home | sets home | : | sets away | away | "Więcej".
+    """
     if not cap.exists(tid):
         return []
     t = re.sub(r"<script.*?</script>", "", cap.text(tid), flags=re.S)
-    s = re.sub(r"<[^>]+>", "|", t)
-    s = re.sub(r"(\|\s*)+", "|", s)
-    cells = [c.strip() for c in s.split("|")]
+    raw = re.sub(r"<[^>]+>", "|", t)
+    raw = re.sub(r"(\|\s*)+", "|", raw)
+    cells = [c.strip() for c in raw.split("|")]
     out = []
-    i = 0
-    while i < len(cells) - 6:
-        m = re.match(r"^(\d{1,2})\.(\d{2})\.(\d{4})(?:, (\d{1,2}):(\d{2}))?$", cells[i])
+    for i, c in enumerate(cells):
+        m = re.match(r"^(\d{1,2})\.(\d{2})\.(\d{4})(?:, (\d{1,2}):(\d{2}))?$", c)
         if not m:
-            i += 1
             continue
         j = i + 1
-        if cells[j].startswith("Faza") or cells[j].startswith("Runda"):
+        if cells[j].startswith(("Faza", "Runda")):
             j += 1
-        home = cells[j]
-        sc1, away = cells[j + 1], cells[j + 4]
-        if away in ("", "Więcej") or home in ("", "Więcej"):
-            i += 1
+        if j + 5 >= len(cells):
+            break
+        home, s1, sep, s2, away = cells[j], cells[j + 1], cells[j + 2], cells[j + 3], cells[j + 4]
+        if sep != ":" or not away or away in ("Więcej", "Faza Zasadnicza", "Runda"):
             continue
         date = f"{m.group(3)}-{m.group(2)}-{int(m.group(1)):02d}"
         start = f"{date}T{int(m.group(4)):02d}:{m.group(5)}:00Z" if m.group(4) else ""
         out.append({"id": "fx_plusliga_" + re.sub(r"\W+", "_", f"{date}_{home}_{away}")[:60],
                     "side_a": away, "side_b": home, "date": date, "start_utc": start,
-                    "score": (sc1, cells[j + 3]) if sc1.isdigit() else None})
-        i = j + 4
+                    "score": (int(s1), int(s2)) if s1.isdigit() and s2.isdigit() and s1 != "0" or
+                             (s1.isdigit() and s2.isdigit()) else None})
     return out
 
 
@@ -617,21 +628,30 @@ def build_rugby_league(cap, rows):
         t["gp"] += 1
         t["gf"] += pf
         t["ga"] += pa
+    # the RLWC feed lists the home side first, so side_a is home here (every other
+    # builder in this file keeps home in side_b) - swap on the way in.
     for f in fixtures:
         hs, as_ = f["extra"].get("home_score"), f["extra"].get("away_score")
         if hs is not None and as_ is not None:
-            acc(f["side_b"], hs, as_)
-            acc(f["side_a"], as_, hs)
+            acc(f["side_a"], hs, as_)
+            acc(f["side_b"], as_, hs)
     for f in fixtures:
         if not in_window(f["start_utc"]):
             continue
-        a, b = table.get(f["side_a"]), table.get(f["side_b"])
+        if "TBA" in (f["side_a"] + f["side_b"]):
+            continue  # semi-final placeholders are not fixtures yet
+        home, away = f["side_a"], f["side_b"]
+        a, b = table.get(away), table.get(home)
         row = blank_row(id=f["id"], sport="Rugby League", sport_slug="rugby-league",
                         competition=f["competition"], start_utc=f["start_utc"], date=f["start_utc"][:10],
-                        venue=f.get("venue", ""), side_a=f["side_a"], side_b=f["side_b"],
+                        venue=f.get("venue", ""), side_a=away, side_b=home,
                         source_url=f["source_url"], source_name=f["source_name"], source_id=f["source_id"])
         if not a or not b:
             row["flags"].append("no completed match for one side in the captured official fixtures - no line originated")
+            rows.append(row)
+            continue
+        if min(a["gp"], b["gp"]) < 2:
+            row["flags"].append("fewer than two completed matches for one side in the captured tournament feed - published without a line")
             rows.append(row)
             continue
         for t in (a, b):
@@ -640,8 +660,8 @@ def build_rugby_league(cap, rows):
         margin = (b["for_pg"] - b["against_pg"]) - (a["for_pg"] - a["against_pg"]) + HOME_EDGE["Rugby League"]["margin"]
         total = (a["for_pg"] + a["against_pg"] + b["for_pg"] + b["against_pg"]) / 2
         row["inputs"] = {"method": "Normal margin on official tournament points for/against, home edge 3.5",
-                         "home_for_pg": a["for_pg"], "home_against_pg": a["against_pg"],
-                         "away_for_pg": b["for_pg"], "away_against_pg": b["against_pg"],
+                         "home_for_pg": b["for_pg"], "home_against_pg": b["against_pg"],
+                         "away_for_pg": a["for_pg"], "away_against_pg": a["against_pg"],
                          "home_gp": a["gp"], "away_gp": b["gp"],
                          "sample_games": min(a["gp"], b["gp"])}
         margin_markets(row, margin, HOME_EDGE["Rugby League"]["sd"], spread_near(margin),
@@ -738,6 +758,8 @@ def build_motorsport(cap, rows, olbg_events):
     if ev:
         row["olbg"] = {"event": ev["event"], "event_url": ev["event_url"], "hub_url": ev["hub_url"],
                        "event_id": ev["event_id"], "tips": ev["tips"]}
+    if not row["start_utc"]:
+        row["flags"].append("race start time not published on the captured standings page - the round window is shown instead")
     row["inputs"] = {"method": "Plackett-Luce on official championship points, tau 420",
                      "leader": standings[best]["driver"], "leader_pts": standings[best]["pts"],
                      "field": len(standings), "sample_games": 0,
@@ -900,6 +922,17 @@ def build(cap_dir: str):
     B2.build_liiga(sys.modules[__name__], cap, rows)
     build_unpriced(cap, rows, events)
     attach_olbg(rows, events)
+    # a builder and the unpriced fallback can both emit the same fixture; keep the
+    # one that carries a price, and keep first-seen order so the desk reads by sport
+    best, order = {}, []
+    for r in rows:
+        k = r["id"]
+        if k not in best:
+            best[k] = r
+            order.append(k)
+        elif not best[k].get("pick") and r.get("pick"):
+            best[k] = r
+    rows = [best[k] for k in order]
     return cap, rows, events, man
 
 
