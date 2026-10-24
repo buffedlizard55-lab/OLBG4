@@ -5022,3 +5022,15 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
   table is rendered client-side — no team rows in the HTML, so no goal rates to price handball from);
   `wst_matches_api` as a snooker strength input (only 200 records, 124 completed — too small a sample to
   support a fair line); `urc_table`/`urc_r7`/`pdc_oom`/`icc_*_rankings` are 5.6 KB or 1.24 MB JavaScript shells.
+
+## Board UX-FIX — session `arena/11fad5c6-olbg4` (Pages build regression handoff)
+
+Session: `arena/11fad5c6-olbg4` · Branch: `arena/11fad5c6-olbg4` (Arena-fixed) · Claimed: `2026-10-24T17:21Z UTC` · **status: in progress**
+
+Scope: `tools/build_master.py`, generated `data/master.json`, `data/master_conflicts.json`, `board/**`, and this append-only record. This is a narrow final-integration repair after PR #164's required Pages deployment failed at the master-board validation gate. Board P's master-generator claim dates to 21 Oct and its completion record predates the current deployment failure by over 60 minutes; this takes over only the stale generator gate repair. No captured source data or peer sports desk will be modified. The failing row is NHL `nhl-2026020212` / master `M0355`: its stored prediction record explicitly says `withdrawn: true`, the source text is blank, and the claimed 69.4% probability conflicts with a High label. The merger currently ignores `withdrawn` and republishes the stale headline pick.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| UXF1 | Reproduce Pages master-board gate failure and trace it to explicitly withdrawn Board E predictions | done | arena/11fad5c6-olbg4 | `tools/build_master.py`, source JSON read-only |
+| UXF2 | Respect withdrawn prediction records in the master merge: retain fixture/market facts, suppress the invalid pick/confidence, and publish a clear review flag | in progress | arena/11fad5c6-olbg4 | `tools/build_master.py`, `data/master.json`, `data/master_conflicts.json`, `board/**` |
+| UXF3 | Rebuild and verify the exact Pages workflow gates, then redeploy after follow-up PR merge | pending | arena/11fad5c6-olbg4 | same, `.github/workflows/pages.yml` read-only unless a workflow defect is shown |
