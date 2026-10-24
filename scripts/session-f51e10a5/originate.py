@@ -723,6 +723,8 @@ def build_motorsport(cap: P.Capture, rows):
     row["evidence"] = {"round": race["round"], "dates": race["dates"], "driver": st[best]["driver"],
                        "points": st[best]["pts"], "points_share": round(st[best]["pts"] / total_pts, 4),
                        "standings_top5": st[:5], "races_listed": len(data["races"])}
+    for x in st:
+        x["driver"] = _clean_driver(x["driver"])
     row["form"] = {x["driver"]: f"{x['pts']} pts" for x in st[:5]}
     row["sample"] = f"{len(st)} classified drivers"
     row["markets"] = {"outright": market("Race Winner", None, [
@@ -1610,10 +1612,12 @@ def build_motor_fi(cap: P.Capture, rows):
     )
     row["evidence"] = {"standings_top5": st[:5], "round": (race or {}).get("round"), "races_dates": (race or {}).get("dates"),
                        "points_total": sum(x["pts"] for x in st)}
+    for x in st:
+        x["driver"] = _clean_driver(x["driver"])
     row["form"] = {x["driver"]: f"{x['pts']} pts" for x in st[:5]}
     row["sample"] = f"{len(st)} classified drivers"
     row["model"] = {"name": "Plackett-Luce on official championship points", "tau": tau}
-    sels = [(x["driver"], probs[i]) for i, x in enumerate(st[:8])] + [("Field (any other driver)", max(field_p, 0.005))]
+    sels = [(_clean_driver(x["driver"]), probs[i]) for i, x in enumerate(st[:8])] + [("Field (any other driver)", max(field_p, 0.005))]
     row["markets"] = {"outright": market("Race Winner", None, sels)}
     row["flags"].append("single-race outright; championship points are the only official strength input captured")
     pick_from(row, "outright", 0, conf(probs[0], "Low"), "outright-only model - capped at Low")
@@ -1632,17 +1636,18 @@ def build_motor_fi(cap: P.Capture, rows):
             id="fi_f1_h2h_" + re.sub(r"\W+", "_", f"{a['driver']}_{b['driver']}")[:44],
             sport="Motor Racing", sport_slug="motor-racing",
             competition=f"Formula 1 2026 - {team} team-mate head-to-head (Mexico City GP)",
-            side_a=a["driver"], side_b=b["driver"], start_utc=start, venue="Autodromo Hermanos Rodriguez",
+            side_a=_clean_driver(a["driver"]), side_b=_clean_driver(b["driver"]), start_utc=start, venue="Autodromo Hermanos Rodriguez",
             official_url=cap.url("f1_drivers"),
             official_source_name="Formula 1 official driver standings (formula1.com)",
             capture_id="f1_drivers",
         )
         r["evidence"] = {"driver_a_points": a["pts"], "driver_b_points": b["pts"], "team": team,
                          "positions": [a["pos"], b["pos"]]}
-        r["form"] = {a["driver"]: f"{a['pts']} pts", b["driver"]: f"{b['pts']} pts"}
+        r["form"] = {_clean_driver(a["driver"]): f"{a['pts']} pts", _clean_driver(b["driver"]): f"{b['pts']} pts"}
         r["sample"] = "official championship points"
         r["model"] = {"name": "Bradley-Terry on official championship points", "scale": 90.0}
-        r["markets"] = {"match_winner": market("Team-Mate Head-to-Head", None, [(a["driver"], p_a), (b["driver"], 1 - p_a)])}
+        r["markets"] = {"match_winner": market("Team-Mate Head-to-Head", None,
+                                               [(_clean_driver(a["driver"]), p_a), (_clean_driver(b["driver"]), 1 - p_a)])}
         idx = 0 if p_a >= 0.5 else 1
         pick_from(r, "match_winner", idx, conf(max(p_a, 1 - p_a), "Low"), "points-based head-to-head - capped at Low")
         rows.append(r)
@@ -1822,6 +1827,7 @@ def build_rugby_union_official(cap: P.Capture, rows) -> int:
             "home_table": f"{va['pos']} ({va['pts']} pts from {va['gp']})",
             "away_table": f"{vb['pos']} ({vb['pts']} pts from {vb['gp']})",
             "home_gp": va["gp"], "away_gp": vb["gp"], "round": f["extra"].get("round", ""),
+            "exp_home": round(exp_a, 1), "exp_away": round(exp_b, 1),
             "table_page": va.get("table_page", ""),
             "table_source": va.get("source_url", ""),
             "table_fetched": va.get("fetched_utc", ""),
@@ -1846,6 +1852,14 @@ def build_rugby_union_official(cap: P.Capture, rows) -> int:
         rows.append(row)
         added += 1
     return added
+
+
+def _clean_driver(name: str) -> str:
+    """'Kimi Antonelli ANT' -> 'Kimi Antonelli' (drop the trailing team code)."""
+    parts = (name or "").split()
+    if len(parts) > 2 and len(parts[-1]) == 3 and parts[-1].isupper():
+        return " ".join(parts[:-1])
+    return name
 
 
 def _wst_completed(cap: P.Capture):

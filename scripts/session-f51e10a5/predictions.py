@@ -89,12 +89,12 @@ OPENERS = [
     "{sel} at {price} is the call",
 ]
 CLOSERS = [
-    "That is the case for the {market} at {price}.",
-    "The {market} at {price} is where the value sits.",
-    "So the {market} at {price} is the bet.",
-    "Backing the {market} at {price} follows from those numbers.",
-    "The {market} price of {price} is the play.",
-    "On those numbers the {market} at {price} is the side to take.",
+    "That is the case for the {market}.",
+    "The {market} is where the value sits.",
+    "So the {market} is the bet.",
+    "Backing the {market} follows from those numbers.",
+    "That is why the {market} is the play.",
+    "On those numbers the {market} is the side to take.",
 ]
 
 
@@ -493,7 +493,8 @@ def choose(rows):
         cands = [r for r in rows if r["sport"] == sp and r.get("pick")]
         if sp == "Golf":
             cands = [r for r in cands if r["id"].startswith("fi_golf_")]
-        cands.sort(key=lambda r: (order.get(r["pick"]["confidence"], 3), -r["pick"]["fair_prob"]))
+        cands.sort(key=lambda r: (0 if r["pick"].get("in_window") else 1,
+                                  order.get(r["pick"]["confidence"], 3), -r["pick"]["fair_prob"]))
         seen_keys, primary = set(), []
         for r in cands:
             key = (r.get("home"), r.get("away"), (r.get("start_utc") or "")[:10])
@@ -511,7 +512,9 @@ def choose(rows):
                         break
                     if mk == r["pick"]["market_key"]:
                         continue
-                    top = max(m["selections"], key=lambda x: x["fair_prob"])
+                    legs = sorted(m["selections"], key=lambda x: (0 if -250 <= x["fair_american"] <= 10000 else 1,
+                                                                  -x["fair_prob"]))
+                    top = legs[0]
                     if any(spec[2] == top["label"] for spec in specs):
                         continue
                     specs.append((r, mk, top["label"]))
