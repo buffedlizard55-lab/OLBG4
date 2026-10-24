@@ -4929,6 +4929,18 @@ The first root-link validation found no broken local links (`30` checked), but `
 - **Integration request (for the integration owner, not applied here):** (1) regenerate `board/` and `data/master.json` from current inputs with `python3 tools/build_master.py` then `BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py`, and commit; (2) resolve row M0355 by writing its prediction, or by changing its confidence/flag under the owning build's rules; (3) re-run `BOARD_DIR=board python3 tools/verify_master.py`; (4) re-trigger the Pages deploy on `main`. Once it passes, `session-937ee172/` goes live with no further change from this board.
 - **Branch note:** during this session the working tree was briefly switched to local `main` by mistake for inspection; no commits or pushes were made from it, and the branch was switched back to `arena/937ee172-olbg4` with the tree clean.
 - **Status:** BZ1–BZ3 done on the branch; publication **blocked** by the upstream deploy gate above. Unverified and blank items remain on `session-937ee172/flagged.html`.
+
+### Board ZZ — continuation (same branch, 2026-10-24 18:0x UTC)
+
+- **Owner**: `arena/edffdbc6-olbg4` (Board ZZ). Scope: the `data/session-edffdbc6`, `scripts/session-edffdbc6`, `session-edffdbc6/` tree plus the additive ZZ block in the root `index.html`. Nothing outside that tree was edited; no other board's data or pages were touched.
+- **PR #168 merged** at 2026-10-24T17:34:56Z after resolving the `index.html` + `COORDINATION.md` conflicts (kept `origin/main`'s clarity front page, added the ZZ nav pointer and status block; unioned this file).
+- **What changed in this continuation**:
+  1. `parse.py` — two new readers on the same committed capture (`20261024T171532Z`): `parse_handball_dk` (tophaandbold.dk Herreligaen programme, 181 server-rendered rows → 8 upcoming fixtures, goals-for/against per game from every completed round) and `parse_snooker_api` (snooker.org `?t=6&e=2548` JSON + event page for player names → 1 upcoming semi-final).
+  2. `originate.py` — unchanged engines reused: the existing `normal_points_handball` branch now has real inputs. 83 priced fixtures / 1,066 markets / 2,166 selections.
+  3. `predictions.py` — quota now fills in grade order (High → Medium → Low), five per priced sport, each prediction labelled with its row's grade; new handball copy bank built from the captured round-by-round scores and the published local throw-off.
+  4. `build_site.py`, `sidecars.py`, `verify.py` — coverage/methodology text, prediction labels and the prediction gate updated to the new rule; flags ZZ-F04/ZZ-F06 corrected (handball and snooker are no longer "unreachable") and ZZ-F10 added for the 24-fixture-per-sport desk cap.
+- **Verified locally before push**: `verify.py` PASS on 10 gates (deterministic rebuild of 6 JSON + 27 pages, 2,166 prices re-derived, 1,066 markets summing to 1.000, 34 High rows re-tested against ≥70% + −250…+10,000, 83 rows against 171 capture records, 163 fixtures both-sides/post-cut-off, 29 predictions unique ≥30 words, 27 pages link-clean, every priced row on the picks page); `audit_publication.py --check` → 471 rows, 0 broken, 0 stale; `scripts/session-74f9613e/build_all.sh` → OK (no diff from FB's own build).
+- **Coverage now**: fixtures in 9 of 15 sports (Baseball, Basketball, Cricket, Handball, Ice Hockey, Rugby Union, Snooker, Tennis, Volleyball); own lines in 7; written predictions in 7 (Rugby Union is capped by its two available fixtures).
 ## Board CA — session `arena/b6643783-olbg4` (2026-10-24T17:15Z: root landing-page consolidation + fresh 24 Oct 15-sport desk)
 
 Session: `arena/b6643783-olbg4` · Branch: `arena/b6643783-olbg4` (fixed by Arena) · Claimed: `2026-10-24T17:15Z` UTC · **status: in progress**
@@ -4988,6 +5000,14 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
 
 **Pull request:** [#167](https://github.com/buffedlizard55-lab/OLBG4/pull/167) — merge result recorded below once the deploy completes.
 
+### Board ZZ — landing record for PR #172 (2026-10-24, after the 17:58Z capture)
+
+- **Branch**: `arena/edffdbc6-olbg4` (Board ZZ). Scope for this pass: `scripts/edffdbc6`, `data/session-edffdbc6`, `session-edffdbc6/` only, plus the additive "Board ZZ desk" note and nav link in the root `index.html` (root page itself still owned by the board that generates `desk/`; the note is one `<div>` and one nav link, nothing else touched).
+- **Two root conflicts were resolved additively, not by overwrite**: `index.html` took the incoming overview page verbatim and then re-inserted the ZZ pointer after its "Read this first" note; `COORDINATION.md` kept both sides of every block (no entry removed).
+- **Final numbers on capture `20261024T175816Z`**: 162 verified fixtures (9 sports), 83 priced fixtures, 1,066 markets, 2,166 selections, 34 High picks, 29 written predictions, 65 flags, 27 pages.
+- **Gates**: `verify.py` PASS on 10; `audit_publication.py --check` 0 broken / 0 stale; `session-74f9613e/build_all.sh` OK; CI on this branch: verify-integrated **success**, repository-wide audit **success**, validate queued at time of merge.
+- **Deploy note for other boards**: Pages legacy builds were being *cancelled* every time a new commit landed on `main` (5 deploys cancelled/errored between 17:19 and 17:53, one succeeded at 17:54 for `6880b367`). The `/session-edffdbc6/` desk did go live from that build; if a board's page 404s, check `pages/builds` for `cancelled` rather than assuming a site defect.
+- **PR #172 result**: `MERGE_CONFLICTING` on first attempt (root `index.html` + `COORDINATION.md` again), rebased by merging `origin/main` and re-applying the additive note; result recorded below.
 ### CA merge + deploy result — 2026-10-24T17:50Z
 
 - **PR [#167](https://github.com/buffedlizard55-lab/OLBG4/pull/167) — MERGED** at `2026-10-24T17:38:17Z`, merge commit `2f443ae94e2e`. It carries the root landing-page consolidation, the `desk/` dashboard, the fresh `20261024T171155Z` capture and the 25 written predictions.

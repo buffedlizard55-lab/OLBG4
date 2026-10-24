@@ -178,17 +178,19 @@ CAPTURE_FLAGS = [
      "unitedrugby.com returned HTTP 404 on /fixtures-and-results, /standings, /fixtures and /match-centre; premiershiprugby.com renders "
      "fixtures client-side. Only the two Top 14 fixtures on top14.lnr.fr could be verified, so Rugby Union has 2 picks, not 5.",
      "https://www.unitedrugby.com/fixtures-and-results"),
-    ("ZZ-F04", "gap", "Darts and snooker official pages are JavaScript shells",
-     "pdc.tv returned the same 1,241,860-byte shell for six different URLs, and wst.tv/matches contains no fixture data in HTML. "
-     "The OLBG darts listings observed in this capture are published on the OLBG page but carry no price and no pick.",
+    ("ZZ-F04", "gap", "Darts has no machine-readable official fixture page",
+     "pdc.tv returned the same 1,241,860-byte shell for six different URLs, so no darts fixture, start time or entry list could be read "
+     "from the governing body's own site. The OLBG darts listings seen in this capture are published on the OLBG page but carry no price. "
+     "Snooker, by contrast, is served as static HTML and JSON by snooker.org, so its semi-final is verified and listed.",
      "https://www.pdc.tv/tournament-hub/10870"),
     ("ZZ-F05", "gap", "Cricket has verified fixtures but no strength input",
      "Cricket Australia's official feed supplied 14 upcoming fixtures with start times, but the ICC team-ranking endpoints returned 404, "
      "so no team strength could be read from an official page. The fixtures are listed on Matches with no line and no pick.",
      "https://www.cricket.com.au/matches"),
-    ("ZZ-F06", "gap", "Golf, Gaelic, Greyhounds, Handball, Motor Racing, Rugby League not priced",
+    ("ZZ-F06", "gap", "Golf, Gaelic, Greyhounds, Motor Racing, Rugby League not priced",
      "Each sport's official fixture/strength feed was client-side rendered or returned an error in this capture (details on Coverage). "
-     "Nothing was estimated to fill the gap.",
+     "Handball was in this list until the Danish Herreligaen programme page was read row-by-row: it is server-rendered, carries every round "
+     "with its score and the published local throw-off, and now supplies eight priced fixtures. Nothing is estimated to fill a gap.",
      "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"),
     ("ZZ-F07", "note", "MLB start times are stored as 00:00Z",
      "The MLB Stats API returns World Series games with gameDate 2026-10-25T00:00:00Z, which is the US evening of 24 October in UTC terms. "
@@ -198,9 +200,14 @@ CAPTURE_FLAGS = [
      "No roster/injury endpoint was part of this capture, so predictions make no injury claim. Where an official feed does name a probable "
      "pitcher (MLB) it is quoted; otherwise the text says nothing rather than guessing.",
      "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html"),
+    ("ZZ-F10", "note", "Desk cap: 24 priced fixtures per sport",
+     "Ice Hockey has 85 verified fixtures in the window and Basketball 20, so the desk prices the earliest 24 per sport and lists the rest "
+     "on Matches with no line. The cap keeps the rebuild deterministic and the page size readable; it is a desk choice, not a data limit.",
+     "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/matches.html"),
     ("ZZ-F09", "note", "Coverage is 9 of 15 sports with fixtures and 7 with own lines",
-     "Ice Hockey, Basketball, Baseball, Tennis, Volleyball, Rugby Union and (fixtures only) Cricket, plus the OLBG listing for the rest. "
-     "Five written predictions exist only where five High picks exist; Rugby Union has two.",
+     "Ice Hockey, Basketball, Baseball, Tennis, Volleyball, Handball and Rugby Union carry own lines; Cricket and Snooker are fixtures only, "
+     "and the other six sports are listed on Coverage with the exact reason. Five written predictions exist per priced sport except Rugby Union, "
+     "which has only two fixtures in the window.",
      "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"),
 ]
 
@@ -226,7 +233,7 @@ def build_flags(desk: dict, predictions: dict, review: dict, olbg: dict, manifes
                 "severity": "coverage",
                 "item": f"{s}: {rs['high']} High picks (brief target 5 per sport)",
                 "detail": f"{rs['fixtures']} fixtures priced, but only {rs['high']} landed in the 70.00–71.43% band that satisfies both of "
-                          f"the brief's High tests. The rest are Medium/Low and receive no written prediction.",
+                          f"the brief's High tests. The rest are graded Medium/Low and are written up only if the sport has room left in its five-prediction quota.",
                 "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html",
             })
 
@@ -234,7 +241,7 @@ def build_flags(desk: dict, predictions: dict, review: dict, olbg: dict, manifes
         items.append({
             "id": f"ZZ-PRED-{sk['row'][:24]}",
             "severity": "note",
-            "item": f"High row without a prediction: {sk['row']}",
+            "item": f"Priced row without a prediction: {sk['row']}",
             "detail": sk["reason"],
             "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/predictions.html",
         })
