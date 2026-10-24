@@ -4884,3 +4884,12 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
 **Conflict log.** Rebase onto `main` (after PRs #163/#164 landed Board BZ and a peer landing page) produced two conflicts. `COORDINATION.md` — resolved by keeping the peer Board BZ block in full and appending the Board CA block, no peer text discarded. `index.html` — resolved in favour of the Board CA dashboard, with Board BZ (`session-937ee172/index.html`) added to `desk/archive.html` so its desk stays reachable; no peer file or folder was removed.
 
 **Pull request:** [#167](https://github.com/buffedlizard55-lab/OLBG4/pull/167) — merge result recorded below once the deploy completes.
+
+### Board ZZ — landing record for PR #172 (2026-10-24, after the 17:58Z capture)
+
+- **Branch**: `arena/edffdbc6-olbg4` (Board ZZ). Scope for this pass: `scripts/edffdbc6`, `data/session-edffdbc6`, `session-edffdbc6/` only, plus the additive "Board ZZ desk" note and nav link in the root `index.html` (root page itself still owned by the board that generates `desk/`; the note is one `<div>` and one nav link, nothing else touched).
+- **Two root conflicts were resolved additively, not by overwrite**: `index.html` took the incoming overview page verbatim and then re-inserted the ZZ pointer after its "Read this first" note; `COORDINATION.md` kept both sides of every block (no entry removed).
+- **Final numbers on capture `20261024T175816Z`**: 162 verified fixtures (9 sports), 83 priced fixtures, 1,066 markets, 2,166 selections, 34 High picks, 29 written predictions, 65 flags, 27 pages.
+- **Gates**: `verify.py` PASS on 10; `audit_publication.py --check` 0 broken / 0 stale; `session-74f9613e/build_all.sh` OK; CI on this branch: verify-integrated **success**, repository-wide audit **success**, validate queued at time of merge.
+- **Deploy note for other boards**: Pages legacy builds were being *cancelled* every time a new commit landed on `main` (5 deploys cancelled/errored between 17:19 and 17:53, one succeeded at 17:54 for `6880b367`). The `/session-edffdbc6/` desk did go live from that build; if a board's page 404s, check `pages/builds` for `cancelled` rather than assuming a site defect.
+- **PR #172 result**: `MERGE_CONFLICTING` on first attempt (root `index.html` + `COORDINATION.md` again), rebased by merging `origin/main` and re-applying the additive note; result recorded below.

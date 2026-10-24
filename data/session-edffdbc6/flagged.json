@@ -1,6 +1,6 @@
 {
  "schema": "olbg4.board-zz.flagged/1",
- "generated_utc": "2026-10-24T17:43:48Z",
+ "generated_utc": "2026-10-24T17:58:16Z",
  "items": [
   {
    "id": "ZZ-F01",
@@ -243,9 +243,16 @@
   {
    "id": "ZZ-CAP-snooker_api_events",
    "severity": "capture",
-   "item": "Snooker target snooker_api_events returned 401",
-   "detail": "HTTPError 401 \u2014 https://api.snooker.org/?t=5&s=2026",
+   "item": "Snooker target snooker_api_events returned 403",
+   "detail": "HTTPError 403 \u2014 https://api.snooker.org/?t=5&s=2026",
    "url": "https://api.snooker.org/?t=5&s=2026"
+  },
+  {
+   "id": "ZZ-CAP-snooker_api_matches_2548",
+   "severity": "capture",
+   "item": "Snooker target snooker_api_matches_2548 returned 403",
+   "detail": "HTTPError 403 \u2014 https://api.snooker.org/?t=6&e=2548",
+   "url": "https://api.snooker.org/?t=6&e=2548"
   },
   {
    "id": "ZZ-HIGH-HANDBALL",

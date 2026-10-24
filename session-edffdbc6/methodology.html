@@ -13,7 +13,7 @@
 <p class="lead">Everything on this site is rebuilt from committed bytes: captured official payloads → verified fixtures → our own prices → graded picks → written predictions. No price was typed by hand and no fixture was inferred.</p>
 
 <h2>1 · Capture</h2>
-<p>171 official and OLBG targets were fetched by an open-egress GitHub Actions runner at 2026-10-24T17:43:48Z (capture <code>20261024T174348Z</code>). 146 returned HTTP 200; every response is stored as deterministic gzip with its SHA-256 in <code>manifest.json</code>, and each row on this site quotes the target id and digest it came from. The runner honours <code>olbg.com/robots.txt</code> (51 disallow rules parsed for <code>*</code>) and uses a 1-second per-host delay there.</p>
+<p>171 official and OLBG targets were fetched by an open-egress GitHub Actions runner at 2026-10-24T17:58:16Z (capture <code>20261024T175816Z</code>). 145 returned HTTP 200; every response is stored as deterministic gzip with its SHA-256 in <code>manifest.json</code>, and each row on this site quotes the target id and digest it came from. The runner honours <code>olbg.com/robots.txt</code> (51 disallow rules parsed for <code>*</code>) and uses a 1-second per-host delay there.</p>
 
 <h2>2 · Fixture verification</h2>
 <p>A fixture enters the desk only when the captured official payload gives both sides, the competition and a start time, and that start time is after the capture cut-off. Anything missing stays blank. Fixtures whose official feed was JavaScript-only could not be verified and are not invented — see <a href="coverage.html">Coverage</a>.</p>
