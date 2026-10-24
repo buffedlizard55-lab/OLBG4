@@ -3,7 +3,7 @@
     "id": "flag-001",
     "severity": "warning",
     "category": "market_withheld",
-    "detail": "NBA: markets and picks are withheld for 52 fixtures because the smallest per-team sample is under 20 completed games, so no line can be originated. The prior-season stats endpoint (stats.nba.com) timed out from the build runner and the schedule CDN carries only the current season, which is why the sample is this small. The fixtures, records and official source links are still published.",
+    "detail": "NBA: markets and picks are withheld for 48 fixtures because the smallest per-team sample is under 20 completed games, so no line can be originated. The prior-season stats endpoint (stats.nba.com) timed out from the build runner and the schedule CDN carries only the current season, which is why the sample is this small. The fixtures, records and official source links are still published.",
     "field": "markets",
     "value": null,
     "action": "published",
@@ -65,5 +65,39 @@
     "fixture_id": "mlb-849799",
     "match": "Milwaukee Brewers at Tampa Bay Rays",
     "start_utc": "2026-10-29T00:00:00Z"
+  },
+  {
+    "id": "flag-005",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020200: 0.56 similarity with nhl-2026020186",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/cgy-vs-edm/2026/10/28/2026020200",
+      "https://api-web.nhle.com/v1/schedule/2026-10-28"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020200",
+    "match": "Calgary Flames at Edmonton Oilers",
+    "start_utc": "2026-10-29T00:30:00Z"
+  },
+  {
+    "id": "flag-006",
+    "severity": "warning",
+    "category": "prediction_lint",
+    "detail": "nhl-2026020212: 0.63 similarity with nhl-2026020202",
+    "field": null,
+    "value": null,
+    "action": "prediction withdrawn",
+    "source_urls": [
+      "https://www.nhl.com/gamecenter/ott-vs-lak/2026/10/29/2026020212",
+      "https://api-web.nhle.com/v1/schedule/2026-10-29"
+    ],
+    "sport": "ice_hockey",
+    "fixture_id": "nhl-2026020212",
+    "match": "Ottawa Senators at Los Angeles Kings",
+    "start_utc": "2026-10-30T02:00:00Z"
   }
 ]

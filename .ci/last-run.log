@@ -26,18 +26,20 @@ PASS  landing page renders content
 all self-tests passed
 [ingest] NBA fixtures…
 [ingest] NBA completed results…
-[model] NBA 16 games, opening=0 (opening)
+[model] NBA 25 games, opening=0 (opening)
 [ingest] NHL fixtures…
 [ingest] NHL completed results…
-[model] NHL 1477 games, opening=1312 (opening)
+[model] NHL 1479 games, opening=1312 (opening)
 [ingest] MLB fixtures…
 [ingest] MLB completed results…
-[model] MLB 4946 games, opening=2481 (opening)
-[publish] fixtures=98 analysis=98 predictions=20 findings=4
-hard_failures=0 counts={"fixtures": 98, "analysis_rows": 98, "predictions": 20, "high_picks": 15, "medium_picks": 11, "low_picks": 20, "market_picks": 46, "markets_withheld": 52, "findings": 4}
-  provider basketball: fixtures=52 results=16 fixture_error=None training_error=None
-  provider ice_hockey: fixtures=41 results=1477 fixture_error=None training_error=None
-  provider baseball: fixtures=5 results=4946 fixture_error=None training_error=None
-  [warning] market_withheld: NBA: markets and picks are withheld for 52 fixtures because the smallest per-team sample is under 20 completed games, so no line can be originated. The prior-season stats endpoint (stats.nba.com) timed out from the build runner and the schedule CDN carries only the current season, which is why the sample is this small. The fixtures, records and official source links are still published.
-  (4 findings total; 0 rows excluded)
+[model] MLB 4947 games, opening=2481 (opening)
+[publish] fixtures=100 analysis=100 predictions=21 findings=6
+hard_failures=0 counts={"fixtures": 100, "analysis_rows": 100, "predictions": 21, "high_picks": 16, "medium_picks": 12, "low_picks": 24, "market_picks": 48, "markets_withheld": 48, "findings": 6}
+  provider basketball: fixtures=48 results=25 fixture_error=None training_error=None
+  provider ice_hockey: fixtures=48 results=1479 fixture_error=None training_error=None
+  provider baseball: fixtures=4 results=4947 fixture_error=None training_error=None
+  [warning] market_withheld: NBA: markets and picks are withheld for 48 fixtures because the smallest per-team sample is under 20 completed games, so no line can be originated. The prior-season stats endpoint (stats.nba.com) timed out from the build runner and the schedule CDN carries only the current season, which is why the sample is this small. The fixtures, records and official source links are still published.
+  [warning] prediction_lint: nhl-2026020200: 0.56 similarity with nhl-2026020186
+  [warning] prediction_lint: nhl-2026020212: 0.63 similarity with nhl-2026020202
+  (6 findings total; 0 rows excluded)
 site built
