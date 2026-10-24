@@ -176,4 +176,11 @@ OFFICIAL.update({
     "wtatour_rankings_doubles": "https://www.wtatennis.com/rankings/doubles",
 })
 
+OFFICIAL.update({
+    # WTA publishes 50 players per page; the event fields OLBG lists reach past that, so the
+    # next pages are captured rather than guessed.
+    "wta_rankings_p2": "https://www.wtatennis.com/rankings/singles?page=2",
+    "wta_rankings_p3": "https://www.wtatennis.com/rankings/singles?page=3",
+})
+
 MAX_BYTES = 12 * 1024 * 1024
