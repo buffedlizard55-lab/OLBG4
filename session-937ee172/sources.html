@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sources · OLBG4 session 937ee172</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1b2430;background:#f5f7fa;font-size:15px;line-height:1.5}
+.wrap{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+nav.side{background:#14213d;color:#fff;padding:18px 12px}nav.side a{display:block;color:#dbe4f0;text-decoration:none;padding:6px 10px;border-radius:6px;font-size:14px}
+nav.side a:hover{background:#22345a}nav.side a.on{background:#fca311;color:#14213d;font-weight:600}
+nav.side::before{content:"OLBG4 · 24 Oct 2026";display:block;font-weight:700;padding:4px 10px 14px;color:#fff}
+main{padding:24px 28px;max-width:1280px}
+h1{font-size:24px;margin:0 0 6px}h2{font-size:18px;margin:28px 0 10px}h3{font-size:16px;margin:18px 0 6px}
+.lead{color:#4a5568;margin:0 0 16px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:12px 0 18px}
+.kpi{background:#fff;border:1px solid #dfe5ee;border-radius:10px;padding:12px 14px}.kpi b{display:block;font-size:24px}.kpi span{color:#5a6678;font-size:13px}
+.card{background:#fff;border:1px solid #dfe5ee;border-radius:10px;padding:14px 16px;margin:12px 0}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:13.5px}th,td{border-bottom:1px solid #e6ebf2;padding:7px 8px;text-align:left;vertical-align:top}
+th{background:#eef2f8;font-weight:600;position:sticky;top:0}
+.conf-High{background:#d4f5dd;color:#11622b;font-weight:700;padding:2px 6px;border-radius:4px}
+.conf-Medium{background:#fff1c2;color:#7a5600;font-weight:700;padding:2px 6px;border-radius:4px}
+.conf-Low{background:#e7ebf1;color:#3a4657;font-weight:600;padding:2px 6px;border-radius:4px}
+.flag{background:#fdecea;color:#8a1c12;padding:2px 6px;border-radius:4px;font-weight:600}
+.note{background:#eef6ff;border-left:4px solid #3b82f6;padding:10px 14px;border-radius:6px;margin:12px 0}
+.warn{background:#fff7e6;border-left:4px solid #f59e0b;padding:10px 14px;border-radius:6px;margin:12px 0}
+.pred{background:#fff;border:1px solid #dfe5ee;border-radius:10px;padding:14px 16px;margin:12px 0}.pred p{margin:6px 0}
+.small{font-size:12.5px;color:#5a6678}a{color:#1d4ed8}
+.wrapx{overflow-x:auto}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}nav.side{display:flex;flex-wrap:wrap;gap:4px}nav.side::before{width:100%}}
+</style></head><body><div class="wrap"><nav class="side"><a href="index.html" class="">Overview</a><a href="golf.html" class="">Golf</a><a href="volleyball.html" class="">Volleyball</a><a href="rugby-union.html" class="">Rugby Union</a><a href="cricket.html" class="">Cricket</a><a href="snooker.html" class="">Snooker</a><a href="darts.html" class="">Darts</a><a href="baseball.html" class="">Baseball</a><a href="gaelic-sports.html" class="">Gaelic Sports</a><a href="greyhounds.html" class="">Greyhounds</a><a href="tennis.html" class="">Tennis</a><a href="motor-racing.html" class="">Motor Racing</a><a href="handball.html" class="">Handball</a><a href="ice-hockey.html" class="">Ice Hockey</a><a href="basketball.html" class="">Basketball</a><a href="rugby-league.html" class="">Rugby League</a><a href="flagged.html" class="">Flagged for Review</a><a href="methodology.html" class="">Methodology</a><a href="sources.html" class="on">Sources</a></nav><main><h1>Sources</h1><p class="lead">Fetched 24 Oct 2026 (UTC) with the fetch tool; standings snapshot 2026-10-24T17:05:30Z</p>
+<div class="wrapx"><table><thead><tr><th>Source</th><th>Link</th><th>Used for</th></tr></thead><tbody><tr><td>NHL standings (all 32 clubs)</td><td><a href="https://api-web.nhle.com/v1/standings/now">https://api-web.nhle.com/v1/standings/now</a></td><td>resolves to /v1/standings/2026-10-24</td></tr><tr><td>NHL scoreboard (24 Oct)</td><td><a href="https://api-web.nhle.com/v1/score/2026-10-24">https://api-web.nhle.com/v1/score/2026-10-24</a></td><td>12 games, team records, scoring and goalie leaders, DK/FanDuel odds fields</td></tr><tr><td>NHL schedule (24 Oct, cross-check)</td><td><a href="https://api-web.nhle.com/v1/schedule/2026-10-24">https://api-web.nhle.com/v1/schedule/2026-10-24</a></td><td>first 3 games read; full list from scoreboard</td></tr><tr><td>NHL standings (human page)</td><td><a href="https://www.nhl.com/standings">https://www.nhl.com/standings</a></td><td>linked for manual review; not read in this session</td></tr><tr><td>OLBG ice hockey listing</td><td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/13">https://www.olbg.com/betting-tips/Ice_Hockey/13</a></td><td>event IDs 199999–200010 read; ID 200003 not seen</td></tr></tbody></table></div>
+<h2>Per-game sources</h2><p class="small">Each game row on the Ice Hockey page links to the NHL scoreboard and standings, and to the OLBG event where it was seen.</p>
+<p class="small">Data cut: 24 Oct 2026 (UTC). Every row links to the official or OLBG page it came from. Unverified values are left blank and listed on the <a href="flagged.html">Flagged for Review</a> page.</p>
+</main></div></body></html>

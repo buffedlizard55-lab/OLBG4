@@ -1,0 +1,7591 @@
+{
+ "schema": "olbg4.board-zz.fixtures/1",
+ "board": "ZZ",
+ "session": "arena/edffdbc6-olbg4",
+ "capture_id": "20261024T171532Z",
+ "cutoff_utc": "2026-10-24T17:15:32Z",
+ "count": 154,
+ "by_sport": {
+  "Ice Hockey": 85,
+  "Baseball": 6,
+  "Basketball": 20,
+  "Tennis": 16,
+  "Volleyball": 11,
+  "Cricket": 14,
+  "Rugby Union": 2
+ },
+ "fixtures": [
+  {
+   "id": "ZZ-RU-T14-rc-toulon-section-paloise-202610241900",
+   "sport": "Rugby Union",
+   "competition": "Top 14 (French Rugby Union Championship) 2026-27",
+   "stage": "",
+   "home": "RC Toulon",
+   "away": "Section Paloise",
+   "start_utc": "2026-10-24T19:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://top14.lnr.fr/calendrier-et-resultats",
+    "name": "LNR official Top 14 calendar (top14.lnr.fr)",
+    "target_id": "top14_calendrier",
+    "sha256": "6c19d3541bf3d3983d6936d2dbfaa4d917f20f8e14c58c5b6fb89c89e153ad52",
+    "bytes": 156674
+   },
+   "model": {
+    "kind": "normal_points_rugby"
+   },
+   "stats": {
+    "home": {
+     "rank": 11
+    },
+    "away": {
+     "rank": 2
+    }
+   },
+   "game_id": "RC Toulon|Section Paloise|202610241900"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020169",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "New Jersey Devils",
+   "away": "Los Angeles Kings",
+   "start_utc": "2026-10-24T19:30:00Z",
+   "venue": "Prudential Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020169",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "New Jersey Devils",
+     "gp": 10,
+     "w": 6,
+     "l": 4,
+     "otl": 0,
+     "gf": 33,
+     "ga": 31,
+     "pts": 12,
+     "l10": "6-4-0",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Los Angeles Kings",
+     "gp": 8,
+     "w": 2,
+     "l": 4,
+     "otl": 2,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "2-4-2",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "NJD",
+    "away_abbrev": "LAK"
+   },
+   "game_id": 2026020169
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020170",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Boston Bruins",
+   "away": "San Jose Sharks",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "venue": "TD Garden",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020170",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Boston Bruins",
+     "gp": 11,
+     "w": 8,
+     "l": 2,
+     "otl": 1,
+     "gf": 42,
+     "ga": 22,
+     "pts": 17,
+     "l10": "7-2-1",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "away": {
+     "name": "San Jose Sharks",
+     "gp": 11,
+     "w": 6,
+     "l": 4,
+     "otl": 1,
+     "gf": 33,
+     "ga": 37,
+     "pts": 13,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "BOS",
+    "away_abbrev": "SJS"
+   },
+   "game_id": 2026020170
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020171",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Ottawa Senators",
+   "away": "New York Rangers",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "venue": "Canadian Tire Centre",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020171",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Ottawa Senators",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 31,
+     "ga": 30,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "away": {
+     "name": "New York Rangers",
+     "gp": 12,
+     "w": 7,
+     "l": 4,
+     "otl": 1,
+     "gf": 37,
+     "ga": 29,
+     "pts": 15,
+     "l10": "6-3-1",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "OTT",
+    "away_abbrev": "NYR"
+   },
+   "game_id": 2026020171
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020172",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Pittsburgh Penguins",
+   "away": "Nashville Predators",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "venue": "PPG Paints Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020172",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Pittsburgh Penguins",
+     "gp": 11,
+     "w": 4,
+     "l": 6,
+     "otl": 1,
+     "gf": 37,
+     "ga": 38,
+     "pts": 9,
+     "l10": "3-6-1",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Nashville Predators",
+     "gp": 9,
+     "w": 3,
+     "l": 3,
+     "otl": 3,
+     "gf": 23,
+     "ga": 30,
+     "pts": 9,
+     "l10": "3-3-3",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "PIT",
+    "away_abbrev": "NSH"
+   },
+   "game_id": 2026020172
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020173",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Washington Capitals",
+   "away": "Buffalo Sabres",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "venue": "Capital One Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020173",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Washington Capitals",
+     "gp": 9,
+     "w": 5,
+     "l": 4,
+     "otl": 0,
+     "gf": 30,
+     "ga": 29,
+     "pts": 10,
+     "l10": "5-4-0",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Buffalo Sabres",
+     "gp": 10,
+     "w": 4,
+     "l": 4,
+     "otl": 2,
+     "gf": 28,
+     "ga": 37,
+     "pts": 10,
+     "l10": "4-4-2",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "WSH",
+    "away_abbrev": "BUF"
+   },
+   "game_id": 2026020173
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020174",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Columbus Blue Jackets",
+   "away": "Vegas Golden Knights",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "venue": "Nationwide Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020174",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Columbus Blue Jackets",
+     "gp": 8,
+     "w": 3,
+     "l": 5,
+     "otl": 0,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "3-5-0",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Vegas Golden Knights",
+     "gp": 12,
+     "w": 8,
+     "l": 4,
+     "otl": 0,
+     "gf": 46,
+     "ga": 36,
+     "pts": 16,
+     "l10": "7-3-0",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "home_abbrev": "CBJ",
+    "away_abbrev": "VGK"
+   },
+   "game_id": 2026020174
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020175",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "St. Louis Blues",
+   "away": "Carolina Hurricanes",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "venue": "Enterprise Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020175",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "St. Louis Blues",
+     "gp": 10,
+     "w": 5,
+     "l": 4,
+     "otl": 1,
+     "gf": 35,
+     "ga": 31,
+     "pts": 11,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Carolina Hurricanes",
+     "gp": 12,
+     "w": 8,
+     "l": 2,
+     "otl": 2,
+     "gf": 47,
+     "ga": 33,
+     "pts": 18,
+     "l10": "8-1-1",
+     "streak": "OT",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "STL",
+    "away_abbrev": "CAR"
+   },
+   "game_id": 2026020175
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020176",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Edmonton Oilers",
+   "away": "Toronto Maple Leafs",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "venue": "Rogers Place",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020176",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Edmonton Oilers",
+     "gp": 10,
+     "w": 8,
+     "l": 1,
+     "otl": 1,
+     "gf": 47,
+     "ga": 32,
+     "pts": 17,
+     "l10": "8-1-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Toronto Maple Leafs",
+     "gp": 12,
+     "w": 6,
+     "l": 4,
+     "otl": 2,
+     "gf": 43,
+     "ga": 39,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "EDM",
+    "away_abbrev": "TOR"
+   },
+   "game_id": 2026020176
+  },
+  {
+   "id": "ZZ-BB-MLB-849802",
+   "sport": "Baseball",
+   "competition": "MLB World Series 2026",
+   "stage": "Game 2",
+   "home": "Milwaukee Brewers",
+   "away": "Tampa Bay Rays",
+   "start_utc": "2026-10-25T00:00:00Z",
+   "venue": "American Family Field",
+   "source": {
+    "url": "https://www.mlb.com/gameday/849802",
+    "name": "MLB Official Stats API (statsapi.mlb.com)",
+    "target_id": "mlb_schedule_window",
+    "sha256": "a48d472b175cba0b7994890f9f8f4a7c3bf48adee23e1df51d13fc36d8369e3b",
+    "bytes": 20059
+   },
+   "model": {
+    "kind": "poisson_runs",
+    "league_mu": 4.45
+   },
+   "stats": {
+    "home": {
+     "w": 103,
+     "l": 59,
+     "pct": ".636",
+     "gb": "-",
+     "streak": "W5",
+     "l10": "8-2",
+     "runs_scored": 832,
+     "runs_allowed": 618,
+     "div": ""
+    },
+    "away": {
+     "w": 98,
+     "l": 64,
+     "pct": ".605",
+     "gb": "-",
+     "streak": "L1",
+     "l10": "5-5",
+     "runs_scored": 736,
+     "runs_allowed": 650,
+     "div": ""
+    },
+    "home_pitcher": "Logan Henderson",
+    "away_pitcher": "Drew Rasmussen"
+   },
+   "game_id": "849802"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020177",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Utah Mammoth",
+   "away": "Tampa Bay Lightning",
+   "start_utc": "2026-10-25T01:00:00Z",
+   "venue": "Delta Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020177",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Utah Mammoth",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 41,
+     "ga": 36,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Tampa Bay Lightning",
+     "gp": 10,
+     "w": 7,
+     "l": 3,
+     "otl": 0,
+     "gf": 34,
+     "ga": 29,
+     "pts": 14,
+     "l10": "7-3-0",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "UTA",
+    "away_abbrev": "TBL"
+   },
+   "game_id": 2026020177
+  },
+  {
+   "id": "ZZ-TN-WTA-1056-RS011",
+   "sport": "Tennis",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN (WTA 500)",
+   "stage": "Round 10",
+   "home": "Aliaksandra Sasnovich",
+   "away": "Kamilla Rakhimova",
+   "start_utc": "2026-10-25T01:30:00Z",
+   "venue": "Court 1, TOKYO",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1056/tokyo/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1056_2026",
+    "sha256": "32d3405d617ff191b49fde46b740178675742d9a8eecf822214a8d1800d5487f",
+    "bytes": 17675
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "A. Sasnovich d [4]Y. Starodubtseva 6-4,7-5"
+     ],
+     "country": "BLR"
+    },
+    "away": {
+     "rank": null,
+     "seed": "9",
+     "recent": [
+      "[9]K. Rakhimova d S. Tsujioka 7-5,6-1"
+     ],
+     "country": "UZB"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1056-RS011"
+  },
+  {
+   "id": "ZZ-TN-WTA-1056-RS010",
+   "sport": "Tennis",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN (WTA 500)",
+   "stage": "Round 10",
+   "home": "Heather Watson",
+   "away": "Alycia Parks",
+   "start_utc": "2026-10-25T01:30:00Z",
+   "venue": "Show Court, TOKYO",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1056/tokyo/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1056_2026",
+    "sha256": "32d3405d617ff191b49fde46b740178675742d9a8eecf822214a8d1800d5487f",
+    "bytes": 17675
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "H. Watson d [3]L. Samsonova 2-6,7-5,7-6(3)"
+     ],
+     "country": "GBR"
+    },
+    "away": {
+     "rank": null,
+     "seed": "7",
+     "recent": [
+      "[7]A. Parks d E. Shibahara 2-6,7-6(7),7-6(5)"
+     ],
+     "country": "USA"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1056-RS010"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020178",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Calgary Flames",
+   "away": "Detroit Red Wings",
+   "start_utc": "2026-10-25T02:00:00Z",
+   "venue": "Scotiabank Saddledome",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020178",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Calgary Flames",
+     "gp": 9,
+     "w": 3,
+     "l": 6,
+     "otl": 0,
+     "gf": 19,
+     "ga": 38,
+     "pts": 6,
+     "l10": "3-6-0",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Detroit Red Wings",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 28,
+     "ga": 30,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "CGY",
+    "away_abbrev": "DET"
+   },
+   "game_id": 2026020178
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020179",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Seattle Kraken",
+   "away": "Minnesota Wild",
+   "start_utc": "2026-10-25T02:00:00Z",
+   "venue": "Climate Pledge Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020179",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Seattle Kraken",
+     "gp": 11,
+     "w": 7,
+     "l": 3,
+     "otl": 1,
+     "gf": 44,
+     "ga": 37,
+     "pts": 15,
+     "l10": "6-3-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Minnesota Wild",
+     "gp": 11,
+     "w": 6,
+     "l": 3,
+     "otl": 2,
+     "gf": 32,
+     "ga": 27,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "SEA",
+    "away_abbrev": "MIN"
+   },
+   "game_id": 2026020179
+  },
+  {
+   "id": "ZZ-TN-WTA-1056-RS013",
+   "sport": "Tennis",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN (WTA 500)",
+   "stage": "Round 10",
+   "home": "Mai Hontama",
+   "away": "Maya Joint",
+   "start_utc": "2026-10-25T02:00:00Z",
+   "venue": "Center, TOKYO",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1056/tokyo/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1056_2026",
+    "sha256": "32d3405d617ff191b49fde46b740178675742d9a8eecf822214a8d1800d5487f",
+    "bytes": 17675
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "M. Hontama d [6]O. Oliynykova 6-3,6-1"
+     ],
+     "country": "JPN"
+    },
+    "away": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "M. Joint d [11]V. Golubic 6-7(4),6-4,7-5"
+     ],
+     "country": "AUS"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1056-RS013"
+  },
+  {
+   "id": "ZZ-TN-WTA-1023-RS009",
+   "sport": "Tennis",
+   "competition": "Guangzhou Open - Guangzhou, CHN (WTA 250)",
+   "stage": "Round 10",
+   "home": "Alevtina Ibragimova",
+   "away": "Polina Iatcenko",
+   "start_utc": "2026-10-25T03:00:00Z",
+   "venue": "Court 6, GUANGZHOU",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1023/guangzhou/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1023_2026",
+    "sha256": "272e1cc5c0084d1ed9bdfa8afb0d4e1c319cb748759fc538cb8e1213d3c5145d",
+    "bytes": 17732
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "A. Ibragimova d R. Saigo 3-6,6-2,6-4"
+     ],
+     "country": "RUS"
+    },
+    "away": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "P. Iatcenko d [10]A. Shubladze 6-3,2-6,6-4"
+     ],
+     "country": "RUS"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1023-RS009"
+  },
+  {
+   "id": "ZZ-TN-WTA-1023-RS013",
+   "sport": "Tennis",
+   "competition": "Guangzhou Open - Guangzhou, CHN (WTA 250)",
+   "stage": "Round 10",
+   "home": "Carol Young Suh Lee",
+   "away": "Elena Pridankina",
+   "start_utc": "2026-10-25T03:00:00Z",
+   "venue": "Court 2, GUANGZHOU",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1023/guangzhou/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1023_2026",
+    "sha256": "272e1cc5c0084d1ed9bdfa8afb0d4e1c319cb748759fc538cb8e1213d3c5145d",
+    "bytes": 17732
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "C. Lee d [6]J. Vandromme 5-7,7-6(3),6-3"
+     ],
+     "country": "USA"
+    },
+    "away": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "E. Pridankina d [12]T. Grant 6-3,6-3"
+     ],
+     "country": "RUS"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1023-RS013"
+  },
+  {
+   "id": "ZZ-TN-WTA-1056-RS009",
+   "sport": "Tennis",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN (WTA 500)",
+   "stage": "Round 10",
+   "home": "Kimberly Birrell",
+   "away": "Daria Kasatkina",
+   "start_utc": "2026-10-25T03:00:00Z",
+   "venue": "Show Court, TOKYO",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1056/tokyo/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1056_2026",
+    "sha256": "32d3405d617ff191b49fde46b740178675742d9a8eecf822214a8d1800d5487f",
+    "bytes": 17675
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "2",
+     "recent": [
+      "[2]K. Birrell d A. Ito 6-4,6-2"
+     ],
+     "country": "AUS"
+    },
+    "away": {
+     "rank": null,
+     "seed": "10",
+     "recent": [
+      "[10]D. Kasatkina d Y. Ma 6-2,6-2"
+     ],
+     "country": "AUS"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1056-RS009"
+  },
+  {
+   "id": "ZZ-TN-WTA-405-LS001",
+   "sport": "Tennis",
+   "competition": "Kinoshita Group Japan Open - Osaka, JPN (WTA 250)",
+   "stage": "Round 1",
+   "home": "Ashlyn Krueger",
+   "away": "Katerina Siniakova",
+   "start_utc": "2026-10-25T04:30:00Z",
+   "venue": "Center, OSAKA",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/405/osaka/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_405_2026",
+    "sha256": "094829d03e4e2484bf7b4b9cdf18aa04f5449e997ee8e3b1c93ba6fa7a5b2164",
+    "bytes": 73226
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "A. Krueger d L. Tararudee 6-3,6-1",
+      "A. Krueger d [4]T. Gibson 6-1,6-3",
+      "A. Krueger d [1]A. Li 6-4,6-7(4),6-3"
+     ],
+     "country": "USA"
+    },
+    "away": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "K. Siniakova d M. Linette 6-4,6-1",
+      "K. Siniakova d M. Stoiana 6-1,6-2",
+      "K. Siniakova d [8]K. Boulter 6-1,6-4"
+     ],
+     "country": "CZE"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "405-LS001"
+  },
+  {
+   "id": "ZZ-TN-WTA-1023-RS012",
+   "sport": "Tennis",
+   "competition": "Guangzhou Open - Guangzhou, CHN (WTA 250)",
+   "stage": "Round 10",
+   "home": "Tatiana Prozorova",
+   "away": "Joanna Garland",
+   "start_utc": "2026-10-25T05:00:00Z",
+   "venue": "Court 2, GUANGZHOU",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1023/guangzhou/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1023_2026",
+    "sha256": "272e1cc5c0084d1ed9bdfa8afb0d4e1c319cb748759fc538cb8e1213d3c5145d",
+    "bytes": 17732
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "5",
+     "recent": [
+      "[5]T. Prozorova d E. Gorgodze 6-3,5-7,6-3"
+     ],
+     "country": "RUS"
+    },
+    "away": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "J. Garland d [8]M. Inglis 6-1,6-3"
+     ],
+     "country": "TPE"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1023-RS012"
+  },
+  {
+   "id": "ZZ-TN-WTA-1023-RS008",
+   "sport": "Tennis",
+   "competition": "Guangzhou Open - Guangzhou, CHN (WTA 250)",
+   "stage": "Round 10",
+   "home": "Dayana Yastremska",
+   "away": "Emerson Jones",
+   "start_utc": "2026-10-25T05:00:00Z",
+   "venue": "Court 6, GUANGZHOU",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1023/guangzhou/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1023_2026",
+    "sha256": "272e1cc5c0084d1ed9bdfa8afb0d4e1c319cb748759fc538cb8e1213d3c5145d",
+    "bytes": 17732
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "1",
+     "recent": [
+      "[1]D. Yastremska d X. You 7-6(4),4-6,7-6(3)"
+     ],
+     "country": "UKR"
+    },
+    "away": {
+     "rank": null,
+     "seed": "9",
+     "recent": [
+      "[9]E. Jones d H. Wong 4-6,6-1,6-4"
+     ],
+     "country": "AUS"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1023-RS008"
+  },
+  {
+   "id": "ZZ-TN-WTA-1056-RS008",
+   "sport": "Tennis",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN (WTA 500)",
+   "stage": "Round 10",
+   "home": "Tereza Valentova",
+   "away": "Shuai Zhang",
+   "start_utc": "2026-10-25T06:00:00Z",
+   "venue": "Court 1, TOKYO",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1056/tokyo/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1056_2026",
+    "sha256": "32d3405d617ff191b49fde46b740178675742d9a8eecf822214a8d1800d5487f",
+    "bytes": 17675
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "T. Valentova d E. Liang 6-2,3-6,6-2"
+     ],
+     "country": "CZE"
+    },
+    "away": {
+     "rank": null,
+     "seed": "12",
+     "recent": [
+      "[12]S. Zhang d K. Day 6-3,3-6,7-5"
+     ],
+     "country": "CHN"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1056-RS008"
+  },
+  {
+   "id": "ZZ-CK-CA-40981",
+   "sport": "Cricket",
+   "competition": "Pakistan ODI Tri-Series 2026 - Men \u2014 ODI",
+   "stage": "Pakistan v England",
+   "home": "Pakistan Men",
+   "away": "England Men",
+   "start_utc": "2026-10-25T08:00:00Z",
+   "venue": "Gaddafi Stadium, Lahore",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "50",
+    "match_days": 1
+   },
+   "game_id": "40981"
+  },
+  {
+   "id": "ZZ-CK-CA-40394",
+   "sport": "Cricket",
+   "competition": "India v Zimbabwe ODIs 2026 - Women",
+   "stage": "2nd ODI",
+   "home": "India Women",
+   "away": "Zimbabwe Women",
+   "start_utc": "2026-10-25T08:30:00Z",
+   "venue": "Vadodara International Cricket Stadium, Vadodara",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "50",
+    "match_days": 1
+   },
+   "game_id": "40394"
+  },
+  {
+   "id": "ZZ-TN-WTA-2092-LS001",
+   "sport": "Tennis",
+   "competition": "BNB Ningbo Open - Ningbo, CHN (WTA 500)",
+   "stage": "Round 1",
+   "home": "Elena Rybakina",
+   "away": "Leylah Fernandez",
+   "start_utc": "2026-10-25T09:00:00Z",
+   "venue": "Center Court, NINGBO",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_2092_2026",
+    "sha256": "1a8750ed54a38400115d42c5963834d9139fd33e3830ccad6008b0428838a2d4",
+    "bytes": 67565
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "1",
+     "recent": [
+      "[1]E. Rybakina d P. Kudermetova 5-0 Ret'd",
+      "[1]E. Rybakina d K. Kawa 6-1,3-6,6-1",
+      "[1]E. Rybakina d [6]D. Shnaider 6-3,7-5"
+     ],
+     "country": "KAZ"
+    },
+    "away": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "[1]C. Bucsa / N. Melichar-Martinez d L. Fernandez / M. Kostyuk  W/O",
+      "L. Fernandez d E. Alexandrova 4-6,6-2,6-1",
+      "L. Fernandez d M. Bouzkova 6-3,7-5"
+     ],
+     "country": "CAN"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "2092-LS001"
+  },
+  {
+   "id": "ZZ-TN-WTA-1174-RS011",
+   "sport": "Tennis",
+   "competition": "Valle D'Aosta Ladies Open - Courmayeur, ITA (WTA 125)",
+   "stage": "Round 11",
+   "home": "Tayisiya Morderger",
+   "away": "Alja Senica",
+   "start_utc": "2026-10-25T10:00:00Z",
+   "venue": "Centre court, COURMAYEUR",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1174/courmayeur/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1174_2026",
+    "sha256": "f961f58beded5890b071f0ad309cf3d4f0c4c71f22a0171a5b55e1a91ecafac2",
+    "bytes": 2295
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [],
+     "country": "GER"
+    },
+    "away": {
+     "rank": null,
+     "seed": "8",
+     "recent": [],
+     "country": "SLO"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1174-RS011"
+  },
+  {
+   "id": "ZZ-VB-PL-aluron-cmc-warta-zawiercie-bogdanka-luk-lublin-202610251300",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "Aluron CMC Warta Zawiercie",
+   "away": "BOGDANKA LUK Lublin",
+   "start_utc": "2026-10-25T13:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 1,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 1
+    },
+    "away": {
+     "gp": 2,
+     "w": 1,
+     "sw": 0,
+     "sl": 0,
+     "pts": 4
+    },
+    "p_home": null
+   },
+   "game_id": "Aluron CMC Warta Zawiercie|BOGDANKA LUK Lublin|202610251300"
+  },
+  {
+   "id": "ZZ-TN-WTA-1056-RS012",
+   "sport": "Tennis",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN (WTA 500)",
+   "stage": "Round 10",
+   "home": "Sayaka Ishii",
+   "away": "Yulia Putintseva",
+   "start_utc": "2026-10-25T14:59:00Z",
+   "venue": "Show Court, TOKYO",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1056/tokyo/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1056_2026",
+    "sha256": "32d3405d617ff191b49fde46b740178675742d9a8eecf822214a8d1800d5487f",
+    "bytes": 17675
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "S. Ishii d K. Okamura 6-4,6-3"
+     ],
+     "country": "JPN"
+    },
+    "away": {
+     "rank": null,
+     "seed": "8",
+     "recent": [
+      "[8]Y. Putintseva d H. Kinoshita 7-5,6-2"
+     ],
+     "country": "KAZ"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1056-RS012"
+  },
+  {
+   "id": "ZZ-TN-WTA-1023-RS011",
+   "sport": "Tennis",
+   "competition": "Guangzhou Open - Guangzhou, CHN (WTA 250)",
+   "stage": "Round 10",
+   "home": "Harriet Dart",
+   "away": "Mei Yamaguchi",
+   "start_utc": "2026-10-25T15:59:00Z",
+   "venue": "Court 6, GUANGZHOU",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1023/guangzhou/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1023_2026",
+    "sha256": "272e1cc5c0084d1ed9bdfa8afb0d4e1c319cb748759fc538cb8e1213d3c5145d",
+    "bytes": 17732
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "4",
+     "recent": [
+      "[4]H. Dart d C. Shek 5-7,7-6(5),6-1"
+     ],
+     "country": "GBR"
+    },
+    "away": {
+     "rank": null,
+     "seed": "",
+     "recent": [
+      "M. Yamaguchi d L. Fruhvirtova 2-6,6-2,7-6(7)"
+     ],
+     "country": "JPN"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1023-RS011"
+  },
+  {
+   "id": "ZZ-VB-PL-podziemia-kredowe-chks-che-m-asseco-resovia-rzesz-w-202610251600",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "Podziemia Kredowe ChKS Che\u0142m",
+   "away": "Asseco Resovia Rzesz\u00f3w",
+   "start_utc": "2026-10-25T16:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 1,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 1
+    },
+    "away": {},
+    "p_home": null
+   },
+   "game_id": "Podziemia Kredowe ChKS Che\u0142m|Asseco Resovia Rzesz\u00f3w|202610251600"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020180",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Chicago Blackhawks",
+   "away": "Florida Panthers",
+   "start_utc": "2026-10-25T19:00:00Z",
+   "venue": "United Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020180",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Chicago Blackhawks",
+     "gp": 10,
+     "w": 3,
+     "l": 7,
+     "otl": 0,
+     "gf": 22,
+     "ga": 40,
+     "pts": 6,
+     "l10": "3-7-0",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Florida Panthers",
+     "gp": 11,
+     "w": 5,
+     "l": 4,
+     "otl": 2,
+     "gf": 31,
+     "ga": 34,
+     "pts": 12,
+     "l10": "4-4-2",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "CHI",
+    "away_abbrev": "FLA"
+   },
+   "game_id": 2026020180
+  },
+  {
+   "id": "ZZ-RU-T14-stade-rochelais-union-bordeaux-b-gles-202610251905",
+   "sport": "Rugby Union",
+   "competition": "Top 14 (French Rugby Union Championship) 2026-27",
+   "stage": "",
+   "home": "Stade Rochelais",
+   "away": "Union Bordeaux-B\u00e8gles",
+   "start_utc": "2026-10-25T19:05:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://top14.lnr.fr/calendrier-et-resultats",
+    "name": "LNR official Top 14 calendar (top14.lnr.fr)",
+    "target_id": "top14_calendrier",
+    "sha256": "6c19d3541bf3d3983d6936d2dbfaa4d917f20f8e14c58c5b6fb89c89e153ad52",
+    "bytes": 156674
+   },
+   "model": {
+    "kind": "normal_points_rugby"
+   },
+   "stats": {
+    "home": {
+     "rank": 4
+    },
+    "away": {
+     "rank": 3
+    }
+   },
+   "game_id": "Stade Rochelais|Union Bordeaux-B\u00e8gles|202610251905"
+  },
+  {
+   "id": "ZZ-TN-WTA-1174-RS009",
+   "sport": "Tennis",
+   "competition": "Valle D'Aosta Ladies Open - Courmayeur, ITA (WTA 125)",
+   "stage": "Round 11",
+   "home": "Finja Matuella",
+   "away": "Gaia Maduzzi",
+   "start_utc": "2026-10-25T21:59:00Z",
+   "venue": "Centre court, COURMAYEUR",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1174/courmayeur/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1174_2026",
+    "sha256": "f961f58beded5890b071f0ad309cf3d4f0c4c71f22a0171a5b55e1a91ecafac2",
+    "bytes": 2295
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [],
+     "country": "ITA"
+    },
+    "away": {
+     "rank": null,
+     "seed": "6",
+     "recent": [],
+     "country": "ITA"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1174-RS009"
+  },
+  {
+   "id": "ZZ-TN-WTA-1174-RS015",
+   "sport": "Tennis",
+   "competition": "Valle D'Aosta Ladies Open - Courmayeur, ITA (WTA 125)",
+   "stage": "Round 11",
+   "home": "Yana Morderger",
+   "away": "Enola Chiesa",
+   "start_utc": "2026-10-25T21:59:00Z",
+   "venue": "Centre court, COURMAYEUR",
+   "source": {
+    "url": "https://www.wtatennis.com/tournaments/1174/courmayeur/2026/draws",
+    "name": "WTA Official Live API (api.wtatennis.com)",
+    "target_id": "wta_matches_1174_2026",
+    "sha256": "f961f58beded5890b071f0ad309cf3d4f0c4c71f22a0171a5b55e1a91ecafac2",
+    "bytes": 2295
+   },
+   "model": {
+    "kind": "tennis_best_of_3"
+   },
+   "stats": {
+    "home": {
+     "rank": null,
+     "seed": "",
+     "recent": [],
+     "country": "GER"
+    },
+    "away": {
+     "rank": null,
+     "seed": "7",
+     "recent": [],
+     "country": "ITA"
+    },
+    "surface": "Hard"
+   },
+   "game_id": "1174-RS015"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020181",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Dallas Stars",
+   "away": "New York Islanders",
+   "start_utc": "2026-10-25T22:00:00Z",
+   "venue": "American Airlines Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020181",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Dallas Stars",
+     "gp": 10,
+     "w": 6,
+     "l": 3,
+     "otl": 1,
+     "gf": 26,
+     "ga": 17,
+     "pts": 13,
+     "l10": "6-3-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "New York Islanders",
+     "gp": 10,
+     "w": 5,
+     "l": 3,
+     "otl": 2,
+     "gf": 29,
+     "ga": 23,
+     "pts": 12,
+     "l10": "5-3-2",
+     "streak": "OT",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "DAL",
+    "away_abbrev": "NYI"
+   },
+   "game_id": 2026020181
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020182",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Winnipeg Jets",
+   "away": "Montr\u00e9al Canadiens",
+   "start_utc": "2026-10-25T23:00:00Z",
+   "venue": "Princess Auto Stadium",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020182",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Winnipeg Jets",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 26,
+     "ga": 29,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "OT",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Montr\u00e9al Canadiens",
+     "gp": 10,
+     "w": 5,
+     "l": 3,
+     "otl": 2,
+     "gf": 34,
+     "ga": 35,
+     "pts": 12,
+     "l10": "5-3-2",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "WPG",
+    "away_abbrev": "MTL"
+   },
+   "game_id": 2026020182
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020183",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Nashville Predators",
+   "away": "Colorado Avalanche",
+   "start_utc": "2026-10-26T00:00:00Z",
+   "venue": "Bridgestone Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020183",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Nashville Predators",
+     "gp": 9,
+     "w": 3,
+     "l": 3,
+     "otl": 3,
+     "gf": 23,
+     "ga": 30,
+     "pts": 9,
+     "l10": "3-3-3",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Colorado Avalanche",
+     "gp": 11,
+     "w": 6,
+     "l": 4,
+     "otl": 1,
+     "gf": 47,
+     "ga": 34,
+     "pts": 13,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "home_abbrev": "NSH",
+    "away_abbrev": "COL"
+   },
+   "game_id": 2026020183
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020184",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Vancouver Canucks",
+   "away": "Minnesota Wild",
+   "start_utc": "2026-10-26T02:00:00Z",
+   "venue": "Rogers Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020184",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Vancouver Canucks",
+     "gp": 12,
+     "w": 2,
+     "l": 9,
+     "otl": 1,
+     "gf": 35,
+     "ga": 56,
+     "pts": 5,
+     "l10": "1-8-1",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Minnesota Wild",
+     "gp": 11,
+     "w": 6,
+     "l": 3,
+     "otl": 2,
+     "gf": 32,
+     "ga": 27,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "VAN",
+    "away_abbrev": "MIN"
+   },
+   "game_id": 2026020184
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020185",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "New York Rangers",
+   "away": "Los Angeles Kings",
+   "start_utc": "2026-10-26T23:00:00Z",
+   "venue": "Madison Square Garden",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020185",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "New York Rangers",
+     "gp": 12,
+     "w": 7,
+     "l": 4,
+     "otl": 1,
+     "gf": 37,
+     "ga": 29,
+     "pts": 15,
+     "l10": "6-3-1",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Los Angeles Kings",
+     "gp": 8,
+     "w": 2,
+     "l": 4,
+     "otl": 2,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "2-4-2",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "NYR",
+    "away_abbrev": "LAK"
+   },
+   "game_id": 2026020185
+  },
+  {
+   "id": "ZZ-BB-MLB-849804",
+   "sport": "Baseball",
+   "competition": "MLB World Series 2026",
+   "stage": "Game 3",
+   "home": "Tampa Bay Rays",
+   "away": "Milwaukee Brewers",
+   "start_utc": "2026-10-27T00:00:00Z",
+   "venue": "Tropicana Field",
+   "source": {
+    "url": "https://www.mlb.com/gameday/849804",
+    "name": "MLB Official Stats API (statsapi.mlb.com)",
+    "target_id": "mlb_schedule_window",
+    "sha256": "a48d472b175cba0b7994890f9f8f4a7c3bf48adee23e1df51d13fc36d8369e3b",
+    "bytes": 20059
+   },
+   "model": {
+    "kind": "poisson_runs",
+    "league_mu": 4.45
+   },
+   "stats": {
+    "home": {
+     "w": 98,
+     "l": 64,
+     "pct": ".605",
+     "gb": "-",
+     "streak": "L1",
+     "l10": "5-5",
+     "runs_scored": 736,
+     "runs_allowed": 650,
+     "div": ""
+    },
+    "away": {
+     "w": 103,
+     "l": 59,
+     "pct": ".636",
+     "gb": "-",
+     "streak": "W5",
+     "l10": "8-2",
+     "runs_scored": 832,
+     "runs_allowed": 618,
+     "div": ""
+    },
+    "home_pitcher": "Freddy Peralta",
+    "away_pitcher": "Robert Gasser"
+   },
+   "game_id": "849804"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020186",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Calgary Flames",
+   "away": "Toronto Maple Leafs",
+   "start_utc": "2026-10-27T00:30:00Z",
+   "venue": "Scotiabank Saddledome",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020186",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Calgary Flames",
+     "gp": 9,
+     "w": 3,
+     "l": 6,
+     "otl": 0,
+     "gf": 19,
+     "ga": 38,
+     "pts": 6,
+     "l10": "3-6-0",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Toronto Maple Leafs",
+     "gp": 12,
+     "w": 6,
+     "l": 4,
+     "otl": 2,
+     "gf": 43,
+     "ga": 39,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "CGY",
+    "away_abbrev": "TOR"
+   },
+   "game_id": 2026020186
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020187",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Edmonton Oilers",
+   "away": "Detroit Red Wings",
+   "start_utc": "2026-10-27T01:30:00Z",
+   "venue": "Rogers Place",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020187",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Edmonton Oilers",
+     "gp": 10,
+     "w": 8,
+     "l": 1,
+     "otl": 1,
+     "gf": 47,
+     "ga": 32,
+     "pts": 17,
+     "l10": "8-1-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Detroit Red Wings",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 28,
+     "ga": 30,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "EDM",
+    "away_abbrev": "DET"
+   },
+   "game_id": 2026020187
+  },
+  {
+   "id": "ZZ-CK-CA-41097",
+   "sport": "Cricket",
+   "competition": "New Zealand v India T20Is 2026 - Men \u2014 T20 International",
+   "stage": "3rd T20I",
+   "home": "New Zealand Men",
+   "away": "India Men",
+   "start_utc": "2026-10-27T07:00:00Z",
+   "venue": "Hnry Stadium, Wellington",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "20",
+    "match_days": 1
+   },
+   "game_id": "41097"
+  },
+  {
+   "id": "ZZ-CK-CA-40982",
+   "sport": "Cricket",
+   "competition": "Pakistan ODI Tri-Series 2026 - Men \u2014 ODI",
+   "stage": "Pakistan v Sri Lanka",
+   "home": "Pakistan Men",
+   "away": "Sri Lanka Men",
+   "start_utc": "2026-10-27T08:00:00Z",
+   "venue": "Gaddafi Stadium, Lahore",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "50",
+    "match_days": 1
+   },
+   "game_id": "40982"
+  },
+  {
+   "id": "ZZ-CK-CA-39992",
+   "sport": "Cricket",
+   "competition": "South Africa v Australia Tests 2026 - Men \u2014 Test",
+   "stage": "3rd Test",
+   "home": "South Africa Men",
+   "away": "Australia Men",
+   "start_utc": "2026-10-27T08:30:00Z",
+   "venue": "Newlands Cricket Ground, Cape Town",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "90",
+    "match_days": 5
+   },
+   "game_id": "39992"
+  },
+  {
+   "id": "ZZ-CK-CA-41009",
+   "sport": "Cricket",
+   "competition": "Afghanistan v Zimbabwe T20Is 2026 - Men \u2014 T20 International",
+   "stage": "1st T20I",
+   "home": "Afghanistan Men",
+   "away": "Zimbabwe Men",
+   "start_utc": "2026-10-27T14:30:00Z",
+   "venue": "Sharjah Cricket Association Stadium, Sharjah",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "20",
+    "match_days": 1
+   },
+   "game_id": "41009"
+  },
+  {
+   "id": "ZZ-VB-PL-pge-giek-skra-be-chat-w-gks-katowice-202610271530",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "PGE GiEK SKRA Be\u0142chat\u00f3w",
+   "away": "GKS Katowice",
+   "start_utc": "2026-10-27T15:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 2,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 2
+    },
+    "away": {
+     "gp": 1,
+     "w": 1,
+     "sw": 0,
+     "sl": 0,
+     "pts": 3
+    },
+    "p_home": null
+   },
+   "game_id": "PGE GiEK SKRA Be\u0142chat\u00f3w|GKS Katowice|202610271530"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701416",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "KalPa",
+   "away": "Sport",
+   "start_utc": "2026-10-27T16:30:00Z",
+   "venue": "Kuopion j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 15,
+     "w": 6,
+     "gf": 37,
+     "ga": 37,
+     "recent": [
+      "2026-09-01 K-Espoo 5-1 KalPa",
+      "2026-09-04 KalPa 4-0 Jukurit",
+      "2026-09-09 Pelicans 2-0 KalPa",
+      "2026-09-15 KalPa 7-0 HPK",
+      "2026-09-18 KalPa 1-2 Ilves",
+      "2026-09-23 KooKoo 4-5 KalPa",
+      "2026-09-26 KalPa 1-2 Lukko",
+      "2026-10-02 KalPa 4-3 SaiPa",
+      "2026-10-03 Jukurit 2-1 KalPa",
+      "2026-10-09 KalPa 2-3 Tappara",
+      "2026-10-10 HIFK 6-1 KalPa",
+      "2026-10-14 KalPa 0-1 \u00c4ss\u00e4t",
+      "2026-10-17 KalPa 3-1 Pelicans",
+      "2026-10-23 K\u00e4rp\u00e4t 5-2 KalPa",
+      "2026-10-24 K\u00e4rp\u00e4t 1-5 KalPa"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 6,
+     "gf": 30,
+     "ga": 46,
+     "recent": [
+      "2026-09-01 Sport 5-4 Jokerit",
+      "2026-09-04 Pelicans 6-3 Sport",
+      "2026-09-05 Jukurit 4-0 Sport",
+      "2026-09-09 Sport 2-1 TPS",
+      "2026-09-15 \u00c4ss\u00e4t 5-1 Sport",
+      "2026-09-17 Lukko 1-2 Sport",
+      "2026-09-19 K\u00e4rp\u00e4t 3-2 Sport",
+      "2026-09-23 Sport 0-1 K-Espoo",
+      "2026-09-26 Sport 1-2 K\u00e4rp\u00e4t",
+      "2026-10-03 Sport 2-3 HIFK",
+      "2026-10-07 Sport 2-1 Ilves",
+      "2026-10-15 Sport 4-3 KooKoo",
+      "2026-10-16 Pelicans 1-2 Sport",
+      "2026-10-20 Sport 0-3 Jukurit",
+      "2026-10-23 Sport 3-5 SaiPa",
+      "2026-10-24 Sport 1-3 SaiPa"
+     ]
+    }
+   },
+   "game_id": "2701416"
+  },
+  {
+   "id": "ZZ-BB-EL-72",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "Dubai Basketball",
+   "away": "Paris Basketball",
+   "start_utc": "2026-10-27T17:00:00Z",
+   "venue": "COCA-COLA ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/72/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 8,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 490,
+     "pointsAgainst": 493,
+     "qualified": false
+    },
+    "away": {
+     "position": 18,
+     "gamesPlayed": 6,
+     "gamesWon": 1,
+     "gamesLost": 5,
+     "pointsFavour": 504,
+     "pointsAgainst": 545,
+     "qualified": false
+    }
+   },
+   "game_id": "72"
+  },
+  {
+   "id": "ZZ-BB-EL-74",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "FC Bayern Munich",
+   "away": "FC Barcelona",
+   "start_utc": "2026-10-27T20:00:00Z",
+   "venue": "SAP GARDEN",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/74/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 15,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 521,
+     "pointsAgainst": 552,
+     "qualified": false
+    },
+    "away": {
+     "position": 10,
+     "gamesPlayed": 6,
+     "gamesWon": 3,
+     "gamesLost": 3,
+     "pointsFavour": 534,
+     "pointsAgainst": 525,
+     "qualified": false
+    }
+   },
+   "game_id": "74"
+  },
+  {
+   "id": "ZZ-BB-EL-71",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "Crvena Zvezda Meridianbet Belgrade",
+   "away": "Maccabi Rapyd Tel Aviv",
+   "start_utc": "2026-10-27T20:00:00Z",
+   "venue": "BELGRADE ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/71/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 5,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 485,
+     "pointsAgainst": 457,
+     "qualified": false
+    },
+    "away": {
+     "position": 16,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 509,
+     "pointsAgainst": 540,
+     "qualified": false
+    }
+   },
+   "game_id": "71"
+  },
+  {
+   "id": "ZZ-BB-EL-76",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "Panathinaikos AKTOR Athens",
+   "away": "Armani Olimpia Milan",
+   "start_utc": "2026-10-27T20:15:00Z",
+   "venue": "TELEKOM CENTER ATHENS",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/76/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 1,
+     "gamesPlayed": 6,
+     "gamesWon": 5,
+     "gamesLost": 1,
+     "pointsFavour": 528,
+     "pointsAgainst": 438,
+     "qualified": false
+    },
+    "away": {
+     "position": 19,
+     "gamesPlayed": 6,
+     "gamesWon": 1,
+     "gamesLost": 5,
+     "pointsFavour": 504,
+     "pointsAgainst": 559,
+     "qualified": false
+    }
+   },
+   "game_id": "76"
+  },
+  {
+   "id": "ZZ-BB-EL-75",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "Valencia Basket",
+   "away": "Fenerbahce Tarfin Istanbul",
+   "start_utc": "2026-10-27T20:30:00Z",
+   "venue": "ROIG ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/75/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 4,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 583,
+     "pointsAgainst": 537,
+     "qualified": false
+    },
+    "away": {
+     "position": 2,
+     "gamesPlayed": 6,
+     "gamesWon": 5,
+     "gamesLost": 1,
+     "pointsFavour": 501,
+     "pointsAgainst": 447,
+     "qualified": false
+    }
+   },
+   "game_id": "75"
+  },
+  {
+   "id": "ZZ-BB-EL-73",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "Kosner Baskonia Vitoria-Gasteiz",
+   "away": "Real Madrid",
+   "start_utc": "2026-10-27T21:00:00Z",
+   "venue": "BUESA ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/73/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 20,
+     "gamesPlayed": 6,
+     "gamesWon": 1,
+     "gamesLost": 5,
+     "pointsFavour": 504,
+     "pointsAgainst": 564,
+     "qualified": false
+    },
+    "away": {
+     "position": 9,
+     "gamesPlayed": 6,
+     "gamesWon": 3,
+     "gamesLost": 3,
+     "pointsFavour": 554,
+     "pointsAgainst": 531,
+     "qualified": false
+    }
+   },
+   "game_id": "73"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020188",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Philadelphia Flyers",
+   "away": "Columbus Blue Jackets",
+   "start_utc": "2026-10-27T23:00:00Z",
+   "venue": "Xfinity Mobile Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020188",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Philadelphia Flyers",
+     "gp": 12,
+     "w": 3,
+     "l": 6,
+     "otl": 3,
+     "gf": 20,
+     "ga": 37,
+     "pts": 9,
+     "l10": "3-5-2",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Columbus Blue Jackets",
+     "gp": 8,
+     "w": 3,
+     "l": 5,
+     "otl": 0,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "3-5-0",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "PHI",
+    "away_abbrev": "CBJ"
+   },
+   "game_id": 2026020188
+  },
+  {
+   "id": "ZZ-BB-MLB-849803",
+   "sport": "Baseball",
+   "competition": "MLB World Series 2026",
+   "stage": "Game 4",
+   "home": "Tampa Bay Rays",
+   "away": "Milwaukee Brewers",
+   "start_utc": "2026-10-28T00:00:00Z",
+   "venue": "Tropicana Field",
+   "source": {
+    "url": "https://www.mlb.com/gameday/849803",
+    "name": "MLB Official Stats API (statsapi.mlb.com)",
+    "target_id": "mlb_schedule_window",
+    "sha256": "a48d472b175cba0b7994890f9f8f4a7c3bf48adee23e1df51d13fc36d8369e3b",
+    "bytes": 20059
+   },
+   "model": {
+    "kind": "poisson_runs",
+    "league_mu": 4.45
+   },
+   "stats": {
+    "home": {
+     "w": 98,
+     "l": 64,
+     "pct": ".605",
+     "gb": "-",
+     "streak": "L1",
+     "l10": "5-5",
+     "runs_scored": 736,
+     "runs_allowed": 650,
+     "div": ""
+    },
+    "away": {
+     "w": 103,
+     "l": 59,
+     "pct": ".636",
+     "gb": "-",
+     "streak": "W5",
+     "l10": "8-2",
+     "runs_scored": 832,
+     "runs_allowed": 618,
+     "div": ""
+    },
+    "home_pitcher": "",
+    "away_pitcher": ""
+   },
+   "game_id": "849803"
+  },
+  {
+   "id": "ZZ-CK-CA-40680",
+   "sport": "Cricket",
+   "competition": "Sheffield Shield 2026-27 \u2014 First Class Domestic",
+   "stage": "South Australia v Western Australia",
+   "home": "South Australia Men",
+   "away": "Western Australia Men",
+   "start_utc": "2026-10-28T00:00:00Z",
+   "venue": "Adelaide Oval, Adelaide",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "",
+    "match_days": 4
+   },
+   "game_id": "40680"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020189",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Carolina Hurricanes",
+   "away": "Boston Bruins",
+   "start_utc": "2026-10-28T00:00:00Z",
+   "venue": "Lenovo Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020189",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Carolina Hurricanes",
+     "gp": 12,
+     "w": 8,
+     "l": 2,
+     "otl": 2,
+     "gf": 47,
+     "ga": 33,
+     "pts": 18,
+     "l10": "8-1-1",
+     "streak": "OT",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Boston Bruins",
+     "gp": 11,
+     "w": 8,
+     "l": 2,
+     "otl": 1,
+     "gf": 42,
+     "ga": 22,
+     "pts": 17,
+     "l10": "7-2-1",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "CAR",
+    "away_abbrev": "BOS"
+   },
+   "game_id": 2026020189
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020190",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Chicago Blackhawks",
+   "away": "Los Angeles Kings",
+   "start_utc": "2026-10-28T00:00:00Z",
+   "venue": "United Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020190",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Chicago Blackhawks",
+     "gp": 10,
+     "w": 3,
+     "l": 7,
+     "otl": 0,
+     "gf": 22,
+     "ga": 40,
+     "pts": 6,
+     "l10": "3-7-0",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Los Angeles Kings",
+     "gp": 8,
+     "w": 2,
+     "l": 4,
+     "otl": 2,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "2-4-2",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "CHI",
+    "away_abbrev": "LAK"
+   },
+   "game_id": 2026020190
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020191",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "St. Louis Blues",
+   "away": "Montr\u00e9al Canadiens",
+   "start_utc": "2026-10-28T00:00:00Z",
+   "venue": "Enterprise Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020191",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "St. Louis Blues",
+     "gp": 10,
+     "w": 5,
+     "l": 4,
+     "otl": 1,
+     "gf": 35,
+     "ga": 31,
+     "pts": 11,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Montr\u00e9al Canadiens",
+     "gp": 10,
+     "w": 5,
+     "l": 3,
+     "otl": 2,
+     "gf": 34,
+     "ga": 35,
+     "pts": 12,
+     "l10": "5-3-2",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "STL",
+    "away_abbrev": "MTL"
+   },
+   "game_id": 2026020191
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020192",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Nashville Predators",
+   "away": "New York Islanders",
+   "start_utc": "2026-10-28T00:00:00Z",
+   "venue": "Bridgestone Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020192",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Nashville Predators",
+     "gp": 9,
+     "w": 3,
+     "l": 3,
+     "otl": 3,
+     "gf": 23,
+     "ga": 30,
+     "pts": 9,
+     "l10": "3-3-3",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "New York Islanders",
+     "gp": 10,
+     "w": 5,
+     "l": 3,
+     "otl": 2,
+     "gf": 29,
+     "ga": 23,
+     "pts": 12,
+     "l10": "5-3-2",
+     "streak": "OT",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "NSH",
+    "away_abbrev": "NYI"
+   },
+   "game_id": 2026020192
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020193",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Dallas Stars",
+   "away": "New Jersey Devils",
+   "start_utc": "2026-10-28T00:00:00Z",
+   "venue": "American Airlines Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020193",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Dallas Stars",
+     "gp": 10,
+     "w": 6,
+     "l": 3,
+     "otl": 1,
+     "gf": 26,
+     "ga": 17,
+     "pts": 13,
+     "l10": "6-3-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "New Jersey Devils",
+     "gp": 10,
+     "w": 6,
+     "l": 4,
+     "otl": 0,
+     "gf": 33,
+     "ga": 31,
+     "pts": 12,
+     "l10": "6-4-0",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "DAL",
+    "away_abbrev": "NJD"
+   },
+   "game_id": 2026020193
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020194",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Winnipeg Jets",
+   "away": "Florida Panthers",
+   "start_utc": "2026-10-28T00:00:00Z",
+   "venue": "Canada Life Centre",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020194",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Winnipeg Jets",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 26,
+     "ga": 29,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "OT",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Florida Panthers",
+     "gp": 11,
+     "w": 5,
+     "l": 4,
+     "otl": 2,
+     "gf": 31,
+     "ga": 34,
+     "pts": 12,
+     "l10": "4-4-2",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "WPG",
+    "away_abbrev": "FLA"
+   },
+   "game_id": 2026020194
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020195",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Utah Mammoth",
+   "away": "Minnesota Wild",
+   "start_utc": "2026-10-28T01:00:00Z",
+   "venue": "Delta Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020195",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Utah Mammoth",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 41,
+     "ga": 36,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Minnesota Wild",
+     "gp": 11,
+     "w": 6,
+     "l": 3,
+     "otl": 2,
+     "gf": 32,
+     "ga": 27,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "UTA",
+    "away_abbrev": "MIN"
+   },
+   "game_id": 2026020195
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020196",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Vegas Golden Knights",
+   "away": "Ottawa Senators",
+   "start_utc": "2026-10-28T02:00:00Z",
+   "venue": "T-Mobile Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020196",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Vegas Golden Knights",
+     "gp": 12,
+     "w": 8,
+     "l": 4,
+     "otl": 0,
+     "gf": 46,
+     "ga": 36,
+     "pts": 16,
+     "l10": "7-3-0",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Ottawa Senators",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 31,
+     "ga": 30,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "VGK",
+    "away_abbrev": "OTT"
+   },
+   "game_id": 2026020196
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020197",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Anaheim Ducks",
+   "away": "Vancouver Canucks",
+   "start_utc": "2026-10-28T02:00:00Z",
+   "venue": "Honda Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020197",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Anaheim Ducks",
+     "gp": 10,
+     "w": 4,
+     "l": 6,
+     "otl": 0,
+     "gf": 27,
+     "ga": 33,
+     "pts": 8,
+     "l10": "4-6-0",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Vancouver Canucks",
+     "gp": 12,
+     "w": 2,
+     "l": 9,
+     "otl": 1,
+     "gf": 35,
+     "ga": 56,
+     "pts": 5,
+     "l10": "1-8-1",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "home_abbrev": "ANA",
+    "away_abbrev": "VAN"
+   },
+   "game_id": 2026020197
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020198",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "San Jose Sharks",
+   "away": "Buffalo Sabres",
+   "start_utc": "2026-10-28T02:30:00Z",
+   "venue": "SAP Center at San Jose",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020198",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "San Jose Sharks",
+     "gp": 11,
+     "w": 6,
+     "l": 4,
+     "otl": 1,
+     "gf": 33,
+     "ga": 37,
+     "pts": 13,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Buffalo Sabres",
+     "gp": 10,
+     "w": 4,
+     "l": 4,
+     "otl": 2,
+     "gf": 28,
+     "ga": 37,
+     "pts": 10,
+     "l10": "4-4-2",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "SJS",
+    "away_abbrev": "BUF"
+   },
+   "game_id": 2026020198
+  },
+  {
+   "id": "ZZ-CK-CA-41010",
+   "sport": "Cricket",
+   "competition": "Bangladesh v West Indies Tests 2026 - Men \u2014 Test",
+   "stage": "1st Test",
+   "home": "Bangladesh Men",
+   "away": "West Indies Men",
+   "start_utc": "2026-10-28T04:00:00Z",
+   "venue": "Shere Bangla National Stadium, Mirpur",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "90",
+    "match_days": 5
+   },
+   "game_id": "41010"
+  },
+  {
+   "id": "ZZ-CK-CA-40395",
+   "sport": "Cricket",
+   "competition": "India v Zimbabwe ODIs 2026 - Women",
+   "stage": "3rd ODI",
+   "home": "India Women",
+   "away": "Zimbabwe Women",
+   "start_utc": "2026-10-28T08:30:00Z",
+   "venue": "Vadodara International Cricket Stadium, Vadodara",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "50",
+    "match_days": 1
+   },
+   "game_id": "40395"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701417",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "Jukurit",
+   "away": "Lukko",
+   "start_utc": "2026-10-28T16:30:00Z",
+   "venue": "Mikkelin j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 18,
+     "w": 12,
+     "gf": 44,
+     "ga": 35,
+     "recent": [
+      "2026-09-01 Jukurit 1-4 HPK",
+      "2026-09-04 KalPa 4-0 Jukurit",
+      "2026-09-05 Jukurit 4-0 Sport",
+      "2026-09-09 Jukurit 3-1 HIFK",
+      "2026-09-15 TPS 1-4 Jukurit",
+      "2026-09-16 HIFK 4-7 Jukurit",
+      "2026-09-18 Jukurit 3-1 Pelicans",
+      "2026-09-25 Jukurit 2-1 K-Espoo",
+      "2026-09-26 KooKoo 3-5 Jukurit",
+      "2026-09-29 Ilves 3-2 Jukurit",
+      "2026-10-03 Jukurit 2-1 KalPa",
+      "2026-10-07 Jukurit 0-1 \u00c4ss\u00e4t",
+      "2026-10-09 KooKoo 4-1 Jukurit",
+      "2026-10-10 Jukurit 2-1 K\u00e4rp\u00e4t",
+      "2026-10-17 Jukurit 3-2 Tappara",
+      "2026-10-20 Sport 0-3 Jukurit",
+      "2026-10-23 Jukurit 0-3 Ilves",
+      "2026-10-24 Ilves 1-2 Jukurit"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 11,
+     "gf": 43,
+     "ga": 31,
+     "recent": [
+      "2026-09-01 Lukko 0-2 Ilves",
+      "2026-09-05 Lukko 7-2 Jokerit",
+      "2026-09-09 Lukko 0-5 JYP",
+      "2026-09-17 Lukko 1-2 Sport",
+      "2026-09-19 HIFK 2-3 Lukko",
+      "2026-09-22 HPK 1-3 Lukko",
+      "2026-09-24 Lukko 3-2 Tappara",
+      "2026-09-26 KalPa 1-2 Lukko",
+      "2026-10-02 \u00c4ss\u00e4t 0-3 Lukko",
+      "2026-10-03 Lukko 2-5 \u00c4ss\u00e4t",
+      "2026-10-09 Ilves 1-5 Lukko",
+      "2026-10-14 JYP 3-2 Lukko",
+      "2026-10-16 Tappara 1-2 Lukko",
+      "2026-10-17 Lukko 3-1 K-Espoo",
+      "2026-10-20 Lukko 3-2 HIFK",
+      "2026-10-23 Lukko 4-1 TPS"
+     ]
+    }
+   },
+   "game_id": "2701417"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701418",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "JYP",
+   "away": "Tappara",
+   "start_utc": "2026-10-28T16:30:00Z",
+   "venue": "Jyv\u00e4skyl\u00e4n j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 14,
+     "w": 10,
+     "gf": 44,
+     "ga": 35,
+     "recent": [
+      "2026-09-05 K\u00e4rp\u00e4t 3-4 JYP",
+      "2026-09-09 Lukko 0-5 JYP",
+      "2026-09-16 KooKoo 3-5 JYP",
+      "2026-09-17 Jokerit 2-4 JYP",
+      "2026-09-19 Pelicans 1-3 JYP",
+      "2026-09-25 HIFK 3-4 JYP",
+      "2026-10-02 HPK 2-1 JYP",
+      "2026-10-03 TPS 4-1 JYP",
+      "2026-10-08 SaiPa 1-2 JYP",
+      "2026-10-09 K-Espoo 6-1 JYP",
+      "2026-10-14 JYP 3-2 Lukko",
+      "2026-10-16 JYP 4-5 K\u00e4rp\u00e4t",
+      "2026-10-22 JYP 3-2 HPK",
+      "2026-10-24 JYP 4-1 \u00c4ss\u00e4t"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 8,
+     "gf": 44,
+     "ga": 37,
+     "recent": [
+      "2026-09-01 SaiPa 4-2 Tappara",
+      "2026-09-15 Pelicans 2-3 Tappara",
+      "2026-09-17 TPS 4-0 Tappara",
+      "2026-09-19 Jokerit 0-6 Tappara",
+      "2026-09-22 Tappara 4-0 K\u00e4rp\u00e4t",
+      "2026-09-24 Lukko 3-2 Tappara",
+      "2026-09-26 Tappara 2-4 SaiPa",
+      "2026-09-30 Tappara 3-0 KooKoo",
+      "2026-10-02 Tappara 3-2 Jokerit",
+      "2026-10-09 KalPa 2-3 Tappara",
+      "2026-10-10 Tappara 4-3 TPS",
+      "2026-10-16 Tappara 1-2 Lukko",
+      "2026-10-17 Jukurit 3-2 Tappara",
+      "2026-10-20 KooKoo 3-2 Tappara",
+      "2026-10-21 Tappara 3-0 \u00c4ss\u00e4t",
+      "2026-10-24 Pelicans 5-4 Tappara"
+     ]
+    }
+   },
+   "game_id": "2701418"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701419",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "K-Espoo",
+   "away": "TPS",
+   "start_utc": "2026-10-28T16:30:00Z",
+   "venue": "Tapiolan monitoimiareena",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 17,
+     "w": 7,
+     "gf": 49,
+     "ga": 44,
+     "recent": [
+      "2026-09-01 K-Espoo 5-1 KalPa",
+      "2026-09-05 K-Espoo 1-2 Pelicans",
+      "2026-09-09 K-Espoo 6-2 KooKoo",
+      "2026-09-15 SaiPa 2-1 K-Espoo",
+      "2026-09-19 \u00c4ss\u00e4t 2-1 K-Espoo",
+      "2026-09-23 Sport 0-1 K-Espoo",
+      "2026-09-25 Jukurit 2-1 K-Espoo",
+      "2026-09-26 K-Espoo 4-1 Jokerit",
+      "2026-09-30 K-Espoo 4-2 TPS",
+      "2026-10-02 K-Espoo 1-3 K\u00e4rp\u00e4t",
+      "2026-10-03 Ilves 6-4 K-Espoo",
+      "2026-10-07 K\u00e4rp\u00e4t 8-7 K-Espoo",
+      "2026-10-09 K-Espoo 6-1 JYP",
+      "2026-10-16 TPS 4-2 K-Espoo",
+      "2026-10-17 Lukko 3-1 K-Espoo",
+      "2026-10-21 K-Espoo 4-2 KooKoo",
+      "2026-10-23 K-Espoo 0-3 HIFK"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 9,
+     "gf": 46,
+     "ga": 39,
+     "recent": [
+      "2026-09-01 TPS 4-2 KooKoo",
+      "2026-09-05 TPS 5-1 HIFK",
+      "2026-09-09 Sport 2-1 TPS",
+      "2026-09-15 TPS 1-4 Jukurit",
+      "2026-09-17 TPS 4-0 Tappara",
+      "2026-09-19 HPK 3-1 TPS",
+      "2026-09-25 Jokerit 1-2 TPS",
+      "2026-09-27 Ilves 3-2 TPS",
+      "2026-09-30 K-Espoo 4-2 TPS",
+      "2026-10-03 TPS 4-1 JYP",
+      "2026-10-10 Tappara 4-3 TPS",
+      "2026-10-14 HIFK 3-4 TPS",
+      "2026-10-16 TPS 4-2 K-Espoo",
+      "2026-10-17 \u00c4ss\u00e4t 2-4 TPS",
+      "2026-10-20 TPS 4-3 Ilves",
+      "2026-10-23 Lukko 4-1 TPS"
+     ]
+    }
+   },
+   "game_id": "2701419"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701420",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "KooKoo",
+   "away": "\u00c4ss\u00e4t",
+   "start_utc": "2026-10-28T16:30:00Z",
+   "venue": "Kouvolan j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 17,
+     "w": 2,
+     "gf": 39,
+     "ga": 72,
+     "recent": [
+      "2026-09-01 TPS 4-2 KooKoo",
+      "2026-09-09 K-Espoo 6-2 KooKoo",
+      "2026-09-16 KooKoo 3-5 JYP",
+      "2026-09-18 KooKoo 0-4 SaiPa",
+      "2026-09-19 SaiPa 2-1 KooKoo",
+      "2026-09-23 KooKoo 4-5 KalPa",
+      "2026-09-25 Ilves 6-0 KooKoo",
+      "2026-09-26 KooKoo 3-5 Jukurit",
+      "2026-09-30 Tappara 3-0 KooKoo",
+      "2026-10-03 KooKoo 3-6 Pelicans",
+      "2026-10-09 KooKoo 4-1 Jukurit",
+      "2026-10-10 HPK 5-3 KooKoo",
+      "2026-10-15 Sport 4-3 KooKoo",
+      "2026-10-17 K\u00e4rp\u00e4t 4-3 KooKoo",
+      "2026-10-20 KooKoo 3-2 Tappara",
+      "2026-10-21 K-Espoo 4-2 KooKoo",
+      "2026-10-24 KooKoo 3-6 Jokerit"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 9,
+     "gf": 38,
+     "ga": 40,
+     "recent": [
+      "2026-09-01 K\u00e4rp\u00e4t 3-1 \u00c4ss\u00e4t",
+      "2026-09-04 \u00c4ss\u00e4t 5-1 Ilves",
+      "2026-09-09 \u00c4ss\u00e4t 3-2 Jokerit",
+      "2026-09-15 \u00c4ss\u00e4t 5-1 Sport",
+      "2026-09-19 \u00c4ss\u00e4t 2-1 K-Espoo",
+      "2026-09-23 SaiPa 1-2 \u00c4ss\u00e4t",
+      "2026-09-25 \u00c4ss\u00e4t 0-5 SaiPa",
+      "2026-09-26 HPK 5-4 \u00c4ss\u00e4t",
+      "2026-10-02 \u00c4ss\u00e4t 0-3 Lukko",
+      "2026-10-03 Lukko 2-5 \u00c4ss\u00e4t",
+      "2026-10-07 Jukurit 0-1 \u00c4ss\u00e4t",
+      "2026-10-09 \u00c4ss\u00e4t 2-3 HPK",
+      "2026-10-14 KalPa 0-1 \u00c4ss\u00e4t",
+      "2026-10-16 Jokerit 2-4 \u00c4ss\u00e4t",
+      "2026-10-17 \u00c4ss\u00e4t 2-4 TPS",
+      "2026-10-21 Tappara 3-0 \u00c4ss\u00e4t",
+      "2026-10-24 JYP 4-1 \u00c4ss\u00e4t"
+     ]
+    }
+   },
+   "game_id": "2701420"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701421",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "K\u00e4rp\u00e4t",
+   "away": "HPK",
+   "start_utc": "2026-10-28T16:30:00Z",
+   "venue": "Oulun j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 18,
+     "w": 10,
+     "gf": 51,
+     "ga": 50,
+     "recent": [
+      "2026-09-01 K\u00e4rp\u00e4t 3-1 \u00c4ss\u00e4t",
+      "2026-09-05 K\u00e4rp\u00e4t 3-4 JYP",
+      "2026-09-16 K\u00e4rp\u00e4t 3-4 Ilves",
+      "2026-09-19 K\u00e4rp\u00e4t 3-2 Sport",
+      "2026-09-22 Tappara 4-0 K\u00e4rp\u00e4t",
+      "2026-09-23 HIFK 3-1 K\u00e4rp\u00e4t",
+      "2026-09-26 Sport 1-2 K\u00e4rp\u00e4t",
+      "2026-09-30 K\u00e4rp\u00e4t 4-1 SaiPa",
+      "2026-10-02 K-Espoo 1-3 K\u00e4rp\u00e4t",
+      "2026-10-03 HPK 2-1 K\u00e4rp\u00e4t",
+      "2026-10-07 K\u00e4rp\u00e4t 8-7 K-Espoo",
+      "2026-10-09 Pelicans 2-3 K\u00e4rp\u00e4t",
+      "2026-10-10 Jukurit 2-1 K\u00e4rp\u00e4t",
+      "2026-10-16 JYP 4-5 K\u00e4rp\u00e4t",
+      "2026-10-17 K\u00e4rp\u00e4t 4-3 KooKoo",
+      "2026-10-20 SaiPa 2-1 K\u00e4rp\u00e4t",
+      "2026-10-23 K\u00e4rp\u00e4t 5-2 KalPa",
+      "2026-10-24 K\u00e4rp\u00e4t 1-5 KalPa"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 8,
+     "gf": 38,
+     "ga": 50,
+     "recent": [
+      "2026-09-01 Jukurit 1-4 HPK",
+      "2026-09-04 HIFK 5-3 HPK",
+      "2026-09-08 HPK 0-4 Ilves",
+      "2026-09-15 KalPa 7-0 HPK",
+      "2026-09-19 HPK 3-1 TPS",
+      "2026-09-22 HPK 1-3 Lukko",
+      "2026-09-26 HPK 5-4 \u00c4ss\u00e4t",
+      "2026-09-29 Jokerit 3-0 HPK",
+      "2026-10-02 HPK 2-1 JYP",
+      "2026-10-03 HPK 2-1 K\u00e4rp\u00e4t",
+      "2026-10-09 \u00c4ss\u00e4t 2-3 HPK",
+      "2026-10-10 HPK 5-3 KooKoo",
+      "2026-10-15 SaiPa 2-1 HPK",
+      "2026-10-16 HPK 3-1 Ilves",
+      "2026-10-20 HPK 1-3 Pelicans",
+      "2026-10-22 JYP 3-2 HPK",
+      "2026-10-24 HPK 3-6 HIFK"
+     ]
+    }
+   },
+   "game_id": "2701421"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701422",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "Pelicans",
+   "away": "SaiPa",
+   "start_utc": "2026-10-28T16:30:00Z",
+   "venue": "Lahden j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 14,
+     "w": 7,
+     "gf": 34,
+     "ga": 33,
+     "recent": [
+      "2026-09-04 Pelicans 6-3 Sport",
+      "2026-09-05 K-Espoo 1-2 Pelicans",
+      "2026-09-09 Pelicans 2-0 KalPa",
+      "2026-09-15 Pelicans 2-3 Tappara",
+      "2026-09-18 Jukurit 3-1 Pelicans",
+      "2026-09-19 Pelicans 1-3 JYP",
+      "2026-09-22 Jokerit 3-0 Pelicans",
+      "2026-09-26 Pelicans 2-1 HIFK",
+      "2026-10-03 KooKoo 3-6 Pelicans",
+      "2026-10-09 Pelicans 2-3 K\u00e4rp\u00e4t",
+      "2026-10-16 Pelicans 1-2 Sport",
+      "2026-10-17 KalPa 3-1 Pelicans",
+      "2026-10-20 HPK 1-3 Pelicans",
+      "2026-10-24 Pelicans 5-4 Tappara"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 12,
+     "gf": 49,
+     "ga": 27,
+     "recent": [
+      "2026-09-01 SaiPa 4-2 Tappara",
+      "2026-09-15 SaiPa 2-1 K-Espoo",
+      "2026-09-18 KooKoo 0-4 SaiPa",
+      "2026-09-19 SaiPa 2-1 KooKoo",
+      "2026-09-23 SaiPa 1-2 \u00c4ss\u00e4t",
+      "2026-09-25 \u00c4ss\u00e4t 0-5 SaiPa",
+      "2026-09-26 Tappara 2-4 SaiPa",
+      "2026-09-30 K\u00e4rp\u00e4t 4-1 SaiPa",
+      "2026-10-02 KalPa 4-3 SaiPa",
+      "2026-10-03 SaiPa 3-2 Jokerit",
+      "2026-10-08 SaiPa 1-2 JYP",
+      "2026-10-15 SaiPa 2-1 HPK",
+      "2026-10-17 SaiPa 7-1 HIFK",
+      "2026-10-20 SaiPa 2-1 K\u00e4rp\u00e4t",
+      "2026-10-23 Sport 3-5 SaiPa",
+      "2026-10-24 Sport 1-3 SaiPa"
+     ]
+    }
+   },
+   "game_id": "2701422"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701423",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "HIFK",
+   "away": "Ilves",
+   "start_utc": "2026-10-28T16:30:00Z",
+   "venue": "Helsingin j\u00e4\u00e4halli I",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 16,
+     "w": 6,
+     "gf": 46,
+     "ga": 51,
+     "recent": [
+      "2026-09-04 HIFK 5-3 HPK",
+      "2026-09-05 TPS 5-1 HIFK",
+      "2026-09-09 Jukurit 3-1 HIFK",
+      "2026-09-16 HIFK 4-7 Jukurit",
+      "2026-09-19 HIFK 2-3 Lukko",
+      "2026-09-23 HIFK 3-1 K\u00e4rp\u00e4t",
+      "2026-09-25 HIFK 3-4 JYP",
+      "2026-09-26 Pelicans 2-1 HIFK",
+      "2026-10-03 Sport 2-3 HIFK",
+      "2026-10-08 Jokerit 3-2 HIFK",
+      "2026-10-10 HIFK 6-1 KalPa",
+      "2026-10-14 HIFK 3-4 TPS",
+      "2026-10-17 SaiPa 7-1 HIFK",
+      "2026-10-20 Lukko 3-2 HIFK",
+      "2026-10-23 K-Espoo 0-3 HIFK",
+      "2026-10-24 HPK 3-6 HIFK"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 11,
+     "gf": 48,
+     "ga": 36,
+     "recent": [
+      "2026-09-01 Lukko 0-2 Ilves",
+      "2026-09-04 \u00c4ss\u00e4t 5-1 Ilves",
+      "2026-09-08 HPK 0-4 Ilves",
+      "2026-09-16 K\u00e4rp\u00e4t 3-4 Ilves",
+      "2026-09-18 KalPa 1-2 Ilves",
+      "2026-09-25 Ilves 6-0 KooKoo",
+      "2026-09-27 Ilves 3-2 TPS",
+      "2026-09-29 Ilves 3-2 Jukurit",
+      "2026-10-03 Ilves 6-4 K-Espoo",
+      "2026-10-07 Sport 2-1 Ilves",
+      "2026-10-09 Ilves 1-5 Lukko",
+      "2026-10-10 Jokerit 0-3 Ilves",
+      "2026-10-16 HPK 3-1 Ilves",
+      "2026-10-17 Ilves 4-3 Jokerit",
+      "2026-10-20 TPS 4-3 Ilves",
+      "2026-10-23 Jukurit 0-3 Ilves",
+      "2026-10-24 Ilves 1-2 Jukurit"
+     ]
+    }
+   },
+   "game_id": "2701423"
+  },
+  {
+   "id": "ZZ-BB-EL-79",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "Besiktas Istanbul",
+   "away": "Olympiacos Piraeus",
+   "start_utc": "2026-10-28T18:30:00Z",
+   "venue": "TURKCELL BASKETBALL DEVELOPMENT CENTER",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/79/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 11,
+     "gamesPlayed": 6,
+     "gamesWon": 3,
+     "gamesLost": 3,
+     "pointsFavour": 554,
+     "pointsAgainst": 555,
+     "qualified": false
+    },
+    "away": {
+     "position": 3,
+     "gamesPlayed": 6,
+     "gamesWon": 5,
+     "gamesLost": 1,
+     "pointsFavour": 564,
+     "pointsAgainst": 524,
+     "qualified": false
+    }
+   },
+   "game_id": "79"
+  },
+  {
+   "id": "ZZ-VB-PL-pge-projekt-warszawa-aluron-cmc-warta-zawiercie-202610281830",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "PGE Projekt Warszawa",
+   "away": "Aluron CMC Warta Zawiercie",
+   "start_utc": "2026-10-28T18:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {},
+    "away": {
+     "gp": 1,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 1
+    },
+    "p_home": null
+   },
+   "game_id": "PGE Projekt Warszawa|Aluron CMC Warta Zawiercie|202610281830"
+  },
+  {
+   "id": "ZZ-BB-EL-77",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "Hapoel IBI Tel Aviv",
+   "away": "Anadolu Efes Istanbul",
+   "start_utc": "2026-10-28T19:00:00Z",
+   "venue": "ARENA BOTEVGRAD",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/77/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 6,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 540,
+     "pointsAgainst": 520,
+     "qualified": false
+    },
+    "away": {
+     "position": 13,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 492,
+     "pointsAgainst": 510,
+     "qualified": false
+    }
+   },
+   "game_id": "77"
+  },
+  {
+   "id": "ZZ-BB-EL-78",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "LDLC ASVEL Villeurbanne",
+   "away": "Partizan Mozzart Bet Belgrade",
+   "start_utc": "2026-10-28T20:00:00Z",
+   "venue": "LDLC ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/78/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 17,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 527,
+     "pointsAgainst": 572,
+     "qualified": false
+    },
+    "away": {
+     "position": 12,
+     "gamesPlayed": 6,
+     "gamesWon": 3,
+     "gamesLost": 3,
+     "pointsFavour": 466,
+     "pointsAgainst": 471,
+     "qualified": false
+    }
+   },
+   "game_id": "78"
+  },
+  {
+   "id": "ZZ-BB-EL-80",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 8)",
+   "stage": "",
+   "home": "Virtus Bologna",
+   "away": "Zalgiris Kaunas",
+   "start_utc": "2026-10-28T20:30:00Z",
+   "venue": "PALADOZZA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/80/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 7,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 525,
+     "pointsAgainst": 518,
+     "qualified": false
+    },
+    "away": {
+     "position": 14,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 490,
+     "pointsAgainst": 517,
+     "qualified": false
+    }
+   },
+   "game_id": "80"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020199",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Washington Capitals",
+   "away": "Philadelphia Flyers",
+   "start_utc": "2026-10-28T23:30:00Z",
+   "venue": "Capital One Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020199",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Washington Capitals",
+     "gp": 9,
+     "w": 5,
+     "l": 4,
+     "otl": 0,
+     "gf": 30,
+     "ga": 29,
+     "pts": 10,
+     "l10": "5-4-0",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Philadelphia Flyers",
+     "gp": 12,
+     "w": 3,
+     "l": 6,
+     "otl": 3,
+     "gf": 20,
+     "ga": 37,
+     "pts": 9,
+     "l10": "3-5-2",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "WSH",
+    "away_abbrev": "PHI"
+   },
+   "game_id": 2026020199
+  },
+  {
+   "id": "ZZ-BB-MLB-849799",
+   "sport": "Baseball",
+   "competition": "MLB World Series 2026",
+   "stage": "Game 5",
+   "home": "Tampa Bay Rays",
+   "away": "Milwaukee Brewers",
+   "start_utc": "2026-10-29T00:00:00Z",
+   "venue": "Tropicana Field",
+   "source": {
+    "url": "https://www.mlb.com/gameday/849799",
+    "name": "MLB Official Stats API (statsapi.mlb.com)",
+    "target_id": "mlb_schedule_window",
+    "sha256": "a48d472b175cba0b7994890f9f8f4a7c3bf48adee23e1df51d13fc36d8369e3b",
+    "bytes": 20059
+   },
+   "model": {
+    "kind": "poisson_runs",
+    "league_mu": 4.45
+   },
+   "stats": {
+    "home": {
+     "w": 98,
+     "l": 64,
+     "pct": ".605",
+     "gb": "-",
+     "streak": "L1",
+     "l10": "5-5",
+     "runs_scored": 736,
+     "runs_allowed": 650,
+     "div": ""
+    },
+    "away": {
+     "w": 103,
+     "l": 59,
+     "pct": ".636",
+     "gb": "-",
+     "streak": "W5",
+     "l10": "8-2",
+     "runs_scored": 832,
+     "runs_allowed": 618,
+     "div": ""
+    },
+    "home_pitcher": "",
+    "away_pitcher": ""
+   },
+   "game_id": "849799"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020200",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Edmonton Oilers",
+   "away": "Calgary Flames",
+   "start_utc": "2026-10-29T00:30:00Z",
+   "venue": "Rogers Place",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020200",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Edmonton Oilers",
+     "gp": 10,
+     "w": 8,
+     "l": 1,
+     "otl": 1,
+     "gf": 47,
+     "ga": 32,
+     "pts": 17,
+     "l10": "8-1-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Calgary Flames",
+     "gp": 9,
+     "w": 3,
+     "l": 6,
+     "otl": 0,
+     "gf": 19,
+     "ga": 38,
+     "pts": 6,
+     "l10": "3-6-0",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "EDM",
+    "away_abbrev": "CGY"
+   },
+   "game_id": 2026020200
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020201",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Colorado Avalanche",
+   "away": "New Jersey Devils",
+   "start_utc": "2026-10-29T01:00:00Z",
+   "venue": "Ball Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020201",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Colorado Avalanche",
+     "gp": 11,
+     "w": 6,
+     "l": 4,
+     "otl": 1,
+     "gf": 47,
+     "ga": 34,
+     "pts": 13,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "New Jersey Devils",
+     "gp": 10,
+     "w": 6,
+     "l": 4,
+     "otl": 0,
+     "gf": 33,
+     "ga": 31,
+     "pts": 12,
+     "l10": "6-4-0",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "COL",
+    "away_abbrev": "NJD"
+   },
+   "game_id": 2026020201
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020202",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Seattle Kraken",
+   "away": "Toronto Maple Leafs",
+   "start_utc": "2026-10-29T02:00:00Z",
+   "venue": "Climate Pledge Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020202",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Seattle Kraken",
+     "gp": 11,
+     "w": 7,
+     "l": 3,
+     "otl": 1,
+     "gf": 44,
+     "ga": 37,
+     "pts": 15,
+     "l10": "6-3-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Toronto Maple Leafs",
+     "gp": 12,
+     "w": 6,
+     "l": 4,
+     "otl": 2,
+     "gf": 43,
+     "ga": 39,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "SEA",
+    "away_abbrev": "TOR"
+   },
+   "game_id": 2026020202
+  },
+  {
+   "id": "ZZ-CK-CA-40621",
+   "sport": "Cricket",
+   "competition": "Weber WBBL|12",
+   "stage": "Match 1",
+   "home": "Melbourne Renegades Women",
+   "away": "Sydney Thunder Women",
+   "start_utc": "2026-10-29T04:40:00Z",
+   "venue": "Junction Oval, Melbourne",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "20",
+    "match_days": 1
+   },
+   "game_id": "40621"
+  },
+  {
+   "id": "ZZ-CK-CA-40983",
+   "sport": "Cricket",
+   "competition": "Pakistan ODI Tri-Series 2026 - Men \u2014 ODI",
+   "stage": "Sri Lanka v England",
+   "home": "Sri Lanka Men",
+   "away": "England Men",
+   "start_utc": "2026-10-29T08:00:00Z",
+   "venue": "Gaddafi Stadium, Lahore",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "50",
+    "match_days": 1
+   },
+   "game_id": "40983"
+  },
+  {
+   "id": "ZZ-CK-CA-40622",
+   "sport": "Cricket",
+   "competition": "Weber WBBL|12",
+   "stage": "Match 2",
+   "home": "Melbourne Stars Women",
+   "away": "Hobart Hurricanes Women",
+   "start_utc": "2026-10-29T08:10:00Z",
+   "venue": "Junction Oval, Melbourne",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "20",
+    "match_days": 1
+   },
+   "game_id": "40622"
+  },
+  {
+   "id": "ZZ-CK-CA-41011",
+   "sport": "Cricket",
+   "competition": "Afghanistan v Zimbabwe T20Is 2026 - Men \u2014 T20 International",
+   "stage": "2nd T20I",
+   "home": "Afghanistan Men",
+   "away": "Zimbabwe Men",
+   "start_utc": "2026-10-29T14:30:00Z",
+   "venue": "Sharjah Cricket Association Stadium, Sharjah",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "20",
+    "match_days": 1
+   },
+   "game_id": "41011"
+  },
+  {
+   "id": "ZZ-VB-PL-energa-indykpol-azs-olsztyn-zaksa-k-dzierzyn-ko-le-202610291530",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "Energa Indykpol AZS Olsztyn",
+   "away": "ZAKSA K\u0119dzierzyn-Ko\u017ale",
+   "start_utc": "2026-10-29T15:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 1,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 1
+    },
+    "away": {
+     "gp": 2,
+     "w": 1,
+     "sw": 0,
+     "sl": 0,
+     "pts": 4
+    },
+    "p_home": null
+   },
+   "game_id": "Energa Indykpol AZS Olsztyn|ZAKSA K\u0119dzierzyn-Ko\u017ale|202610291530"
+  },
+  {
+   "id": "ZZ-VB-PL-asseco-resovia-rzesz-w-energa-trefl-gda-sk-202610291830",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "Asseco Resovia Rzesz\u00f3w",
+   "away": "Energa Trefl Gda\u0144sk",
+   "start_utc": "2026-10-29T18:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {},
+    "away": {
+     "gp": 2,
+     "w": 2,
+     "sw": 0,
+     "sl": 0,
+     "pts": 6
+    },
+    "p_home": null
+   },
+   "game_id": "Asseco Resovia Rzesz\u00f3w|Energa Trefl Gda\u0144sk|202610291830"
+  },
+  {
+   "id": "ZZ-BB-EL-81",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "Crvena Zvezda Meridianbet Belgrade",
+   "away": "FC Bayern Munich",
+   "start_utc": "2026-10-29T20:00:00Z",
+   "venue": "BELGRADE ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/81/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 5,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 485,
+     "pointsAgainst": 457,
+     "qualified": false
+    },
+    "away": {
+     "position": 15,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 521,
+     "pointsAgainst": 552,
+     "qualified": false
+    }
+   },
+   "game_id": "81"
+  },
+  {
+   "id": "ZZ-BB-EL-82",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "Maccabi Rapyd Tel Aviv",
+   "away": "Paris Basketball",
+   "start_utc": "2026-10-29T20:05:00Z",
+   "venue": "ALEKSANDAR NIKOLIC HALL",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/82/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 16,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 509,
+     "pointsAgainst": 540,
+     "qualified": false
+    },
+    "away": {
+     "position": 18,
+     "gamesPlayed": 6,
+     "gamesWon": 1,
+     "gamesLost": 5,
+     "pointsFavour": 504,
+     "pointsAgainst": 545,
+     "qualified": false
+    }
+   },
+   "game_id": "82"
+  },
+  {
+   "id": "ZZ-BB-EL-83",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "Real Madrid",
+   "away": "Fenerbahce Tarfin Istanbul",
+   "start_utc": "2026-10-29T20:45:00Z",
+   "venue": "MOVISTAR ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/83/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 9,
+     "gamesPlayed": 6,
+     "gamesWon": 3,
+     "gamesLost": 3,
+     "pointsFavour": 554,
+     "pointsAgainst": 531,
+     "qualified": false
+    },
+    "away": {
+     "position": 2,
+     "gamesPlayed": 6,
+     "gamesWon": 5,
+     "gamesLost": 1,
+     "pointsFavour": 501,
+     "pointsAgainst": 447,
+     "qualified": false
+    }
+   },
+   "game_id": "83"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020204",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Tampa Bay Lightning",
+   "away": "Winnipeg Jets",
+   "start_utc": "2026-10-29T23:00:00Z",
+   "venue": "Benchmark International Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020204",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Tampa Bay Lightning",
+     "gp": 10,
+     "w": 7,
+     "l": 3,
+     "otl": 0,
+     "gf": 34,
+     "ga": 29,
+     "pts": 14,
+     "l10": "7-3-0",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "away": {
+     "name": "Winnipeg Jets",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 26,
+     "ga": 29,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "OT",
+     "div": "Central"
+    },
+    "home_abbrev": "TBL",
+    "away_abbrev": "WPG"
+   },
+   "game_id": 2026020204
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020205",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Pittsburgh Penguins",
+   "away": "Utah Mammoth",
+   "start_utc": "2026-10-29T23:00:00Z",
+   "venue": "PPG Paints Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020205",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Pittsburgh Penguins",
+     "gp": 11,
+     "w": 4,
+     "l": 6,
+     "otl": 1,
+     "gf": 37,
+     "ga": 38,
+     "pts": 9,
+     "l10": "3-6-1",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Utah Mammoth",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 41,
+     "ga": 36,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "PIT",
+    "away_abbrev": "UTA"
+   },
+   "game_id": 2026020205
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020206",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Carolina Hurricanes",
+   "away": "Columbus Blue Jackets",
+   "start_utc": "2026-10-29T23:00:00Z",
+   "venue": "Lenovo Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020206",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Carolina Hurricanes",
+     "gp": 12,
+     "w": 8,
+     "l": 2,
+     "otl": 2,
+     "gf": 47,
+     "ga": 33,
+     "pts": 18,
+     "l10": "8-1-1",
+     "streak": "OT",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Columbus Blue Jackets",
+     "gp": 8,
+     "w": 3,
+     "l": 5,
+     "otl": 0,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "3-5-0",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "CAR",
+    "away_abbrev": "CBJ"
+   },
+   "game_id": 2026020206
+  },
+  {
+   "id": "ZZ-CK-CA-40682",
+   "sport": "Cricket",
+   "competition": "Sheffield Shield 2026-27 \u2014 First Class Domestic",
+   "stage": "Tasmanian Tigers v New South Wales",
+   "home": "Tasmanian Tigers Men",
+   "away": "NSW Men",
+   "start_utc": "2026-10-29T23:30:00Z",
+   "venue": "Bellerive Oval, Hobart",
+   "source": {
+    "url": "https://www.cricket.com.au/matches",
+    "name": "Cricket Australia official fixtures feed (cricket.com.au)",
+    "target_id": "ca_fixtures",
+    "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+    "bytes": 197344
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "overs": "",
+    "match_days": 4
+   },
+   "game_id": "40682"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020203",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Detroit Red Wings",
+   "away": "Chicago Blackhawks",
+   "start_utc": "2026-10-29T23:30:00Z",
+   "venue": "Little Caesars Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020203",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Detroit Red Wings",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 28,
+     "ga": 30,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "away": {
+     "name": "Chicago Blackhawks",
+     "gp": 10,
+     "w": 3,
+     "l": 7,
+     "otl": 0,
+     "gf": 22,
+     "ga": 40,
+     "pts": 6,
+     "l10": "3-7-0",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "DET",
+    "away_abbrev": "CHI"
+   },
+   "game_id": 2026020203
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020207",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "St. Louis Blues",
+   "away": "Boston Bruins",
+   "start_utc": "2026-10-30T00:00:00Z",
+   "venue": "Enterprise Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020207",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "St. Louis Blues",
+     "gp": 10,
+     "w": 5,
+     "l": 4,
+     "otl": 1,
+     "gf": 35,
+     "ga": 31,
+     "pts": 11,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Boston Bruins",
+     "gp": 11,
+     "w": 8,
+     "l": 2,
+     "otl": 1,
+     "gf": 42,
+     "ga": 22,
+     "pts": 17,
+     "l10": "7-2-1",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "STL",
+    "away_abbrev": "BOS"
+   },
+   "game_id": 2026020207
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020208",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Nashville Predators",
+   "away": "Washington Capitals",
+   "start_utc": "2026-10-30T00:00:00Z",
+   "venue": "Bridgestone Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020208",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Nashville Predators",
+     "gp": 9,
+     "w": 3,
+     "l": 3,
+     "otl": 3,
+     "gf": 23,
+     "ga": 30,
+     "pts": 9,
+     "l10": "3-3-3",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Washington Capitals",
+     "gp": 9,
+     "w": 5,
+     "l": 4,
+     "otl": 0,
+     "gf": 30,
+     "ga": 29,
+     "pts": 10,
+     "l10": "5-4-0",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "NSH",
+    "away_abbrev": "WSH"
+   },
+   "game_id": 2026020208
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020209",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Dallas Stars",
+   "away": "Montr\u00e9al Canadiens",
+   "start_utc": "2026-10-30T00:00:00Z",
+   "venue": "American Airlines Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020209",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Dallas Stars",
+     "gp": 10,
+     "w": 6,
+     "l": 3,
+     "otl": 1,
+     "gf": 26,
+     "ga": 17,
+     "pts": 13,
+     "l10": "6-3-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Montr\u00e9al Canadiens",
+     "gp": 10,
+     "w": 5,
+     "l": 3,
+     "otl": 2,
+     "gf": 34,
+     "ga": 35,
+     "pts": 12,
+     "l10": "5-3-2",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "DAL",
+    "away_abbrev": "MTL"
+   },
+   "game_id": 2026020209
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020210",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Minnesota Wild",
+   "away": "New York Islanders",
+   "start_utc": "2026-10-30T00:00:00Z",
+   "venue": "Grand Casino Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020210",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Minnesota Wild",
+     "gp": 11,
+     "w": 6,
+     "l": 3,
+     "otl": 2,
+     "gf": 32,
+     "ga": 27,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "New York Islanders",
+     "gp": 10,
+     "w": 5,
+     "l": 3,
+     "otl": 2,
+     "gf": 29,
+     "ga": 23,
+     "pts": 12,
+     "l10": "5-3-2",
+     "streak": "OT",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "MIN",
+    "away_abbrev": "NYI"
+   },
+   "game_id": 2026020210
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020211",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Anaheim Ducks",
+   "away": "Buffalo Sabres",
+   "start_utc": "2026-10-30T02:00:00Z",
+   "venue": "Honda Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020211",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Anaheim Ducks",
+     "gp": 10,
+     "w": 4,
+     "l": 6,
+     "otl": 0,
+     "gf": 27,
+     "ga": 33,
+     "pts": 8,
+     "l10": "4-6-0",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Buffalo Sabres",
+     "gp": 10,
+     "w": 4,
+     "l": 4,
+     "otl": 2,
+     "gf": 28,
+     "ga": 37,
+     "pts": 10,
+     "l10": "4-4-2",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "ANA",
+    "away_abbrev": "BUF"
+   },
+   "game_id": 2026020211
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020212",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Los Angeles Kings",
+   "away": "Ottawa Senators",
+   "start_utc": "2026-10-30T02:00:00Z",
+   "venue": "Crypto.com Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020212",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Los Angeles Kings",
+     "gp": 8,
+     "w": 2,
+     "l": 4,
+     "otl": 2,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "2-4-2",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Ottawa Senators",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 31,
+     "ga": 30,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "LAK",
+    "away_abbrev": "OTT"
+   },
+   "game_id": 2026020212
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020213",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "San Jose Sharks",
+   "away": "Vancouver Canucks",
+   "start_utc": "2026-10-30T02:00:00Z",
+   "venue": "SAP Center at San Jose",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020213",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "San Jose Sharks",
+     "gp": 11,
+     "w": 6,
+     "l": 4,
+     "otl": 1,
+     "gf": 33,
+     "ga": 37,
+     "pts": 13,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Vancouver Canucks",
+     "gp": 12,
+     "w": 2,
+     "l": 9,
+     "otl": 1,
+     "gf": 35,
+     "ga": 56,
+     "pts": 5,
+     "l10": "1-8-1",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "home_abbrev": "SJS",
+    "away_abbrev": "VAN"
+   },
+   "game_id": 2026020213
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701424",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "HPK",
+   "away": "K-Espoo",
+   "start_utc": "2026-10-30T16:30:00Z",
+   "venue": "H\u00e4meenlinnan j\u00e4\u00e4halli I",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 17,
+     "w": 8,
+     "gf": 38,
+     "ga": 50,
+     "recent": [
+      "2026-09-01 Jukurit 1-4 HPK",
+      "2026-09-04 HIFK 5-3 HPK",
+      "2026-09-08 HPK 0-4 Ilves",
+      "2026-09-15 KalPa 7-0 HPK",
+      "2026-09-19 HPK 3-1 TPS",
+      "2026-09-22 HPK 1-3 Lukko",
+      "2026-09-26 HPK 5-4 \u00c4ss\u00e4t",
+      "2026-09-29 Jokerit 3-0 HPK",
+      "2026-10-02 HPK 2-1 JYP",
+      "2026-10-03 HPK 2-1 K\u00e4rp\u00e4t",
+      "2026-10-09 \u00c4ss\u00e4t 2-3 HPK",
+      "2026-10-10 HPK 5-3 KooKoo",
+      "2026-10-15 SaiPa 2-1 HPK",
+      "2026-10-16 HPK 3-1 Ilves",
+      "2026-10-20 HPK 1-3 Pelicans",
+      "2026-10-22 JYP 3-2 HPK",
+      "2026-10-24 HPK 3-6 HIFK"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 7,
+     "gf": 49,
+     "ga": 44,
+     "recent": [
+      "2026-09-01 K-Espoo 5-1 KalPa",
+      "2026-09-05 K-Espoo 1-2 Pelicans",
+      "2026-09-09 K-Espoo 6-2 KooKoo",
+      "2026-09-15 SaiPa 2-1 K-Espoo",
+      "2026-09-19 \u00c4ss\u00e4t 2-1 K-Espoo",
+      "2026-09-23 Sport 0-1 K-Espoo",
+      "2026-09-25 Jukurit 2-1 K-Espoo",
+      "2026-09-26 K-Espoo 4-1 Jokerit",
+      "2026-09-30 K-Espoo 4-2 TPS",
+      "2026-10-02 K-Espoo 1-3 K\u00e4rp\u00e4t",
+      "2026-10-03 Ilves 6-4 K-Espoo",
+      "2026-10-07 K\u00e4rp\u00e4t 8-7 K-Espoo",
+      "2026-10-09 K-Espoo 6-1 JYP",
+      "2026-10-16 TPS 4-2 K-Espoo",
+      "2026-10-17 Lukko 3-1 K-Espoo",
+      "2026-10-21 K-Espoo 4-2 KooKoo",
+      "2026-10-23 K-Espoo 0-3 HIFK"
+     ]
+    }
+   },
+   "game_id": "2701424"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701426",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "Lukko",
+   "away": "KooKoo",
+   "start_utc": "2026-10-30T16:30:00Z",
+   "venue": "Rauman j\u00e4\u00e4halli / \u00c4ij\u00e4nsuo Areena",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 16,
+     "w": 11,
+     "gf": 43,
+     "ga": 31,
+     "recent": [
+      "2026-09-01 Lukko 0-2 Ilves",
+      "2026-09-05 Lukko 7-2 Jokerit",
+      "2026-09-09 Lukko 0-5 JYP",
+      "2026-09-17 Lukko 1-2 Sport",
+      "2026-09-19 HIFK 2-3 Lukko",
+      "2026-09-22 HPK 1-3 Lukko",
+      "2026-09-24 Lukko 3-2 Tappara",
+      "2026-09-26 KalPa 1-2 Lukko",
+      "2026-10-02 \u00c4ss\u00e4t 0-3 Lukko",
+      "2026-10-03 Lukko 2-5 \u00c4ss\u00e4t",
+      "2026-10-09 Ilves 1-5 Lukko",
+      "2026-10-14 JYP 3-2 Lukko",
+      "2026-10-16 Tappara 1-2 Lukko",
+      "2026-10-17 Lukko 3-1 K-Espoo",
+      "2026-10-20 Lukko 3-2 HIFK",
+      "2026-10-23 Lukko 4-1 TPS"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 2,
+     "gf": 39,
+     "ga": 72,
+     "recent": [
+      "2026-09-01 TPS 4-2 KooKoo",
+      "2026-09-09 K-Espoo 6-2 KooKoo",
+      "2026-09-16 KooKoo 3-5 JYP",
+      "2026-09-18 KooKoo 0-4 SaiPa",
+      "2026-09-19 SaiPa 2-1 KooKoo",
+      "2026-09-23 KooKoo 4-5 KalPa",
+      "2026-09-25 Ilves 6-0 KooKoo",
+      "2026-09-26 KooKoo 3-5 Jukurit",
+      "2026-09-30 Tappara 3-0 KooKoo",
+      "2026-10-03 KooKoo 3-6 Pelicans",
+      "2026-10-09 KooKoo 4-1 Jukurit",
+      "2026-10-10 HPK 5-3 KooKoo",
+      "2026-10-15 Sport 4-3 KooKoo",
+      "2026-10-17 K\u00e4rp\u00e4t 4-3 KooKoo",
+      "2026-10-20 KooKoo 3-2 Tappara",
+      "2026-10-21 K-Espoo 4-2 KooKoo",
+      "2026-10-24 KooKoo 3-6 Jokerit"
+     ]
+    }
+   },
+   "game_id": "2701426"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701427",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "SaiPa",
+   "away": "JYP",
+   "start_utc": "2026-10-30T16:30:00Z",
+   "venue": "Lappeenrannan j\u00e4\u00e4halli I",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 16,
+     "w": 12,
+     "gf": 49,
+     "ga": 27,
+     "recent": [
+      "2026-09-01 SaiPa 4-2 Tappara",
+      "2026-09-15 SaiPa 2-1 K-Espoo",
+      "2026-09-18 KooKoo 0-4 SaiPa",
+      "2026-09-19 SaiPa 2-1 KooKoo",
+      "2026-09-23 SaiPa 1-2 \u00c4ss\u00e4t",
+      "2026-09-25 \u00c4ss\u00e4t 0-5 SaiPa",
+      "2026-09-26 Tappara 2-4 SaiPa",
+      "2026-09-30 K\u00e4rp\u00e4t 4-1 SaiPa",
+      "2026-10-02 KalPa 4-3 SaiPa",
+      "2026-10-03 SaiPa 3-2 Jokerit",
+      "2026-10-08 SaiPa 1-2 JYP",
+      "2026-10-15 SaiPa 2-1 HPK",
+      "2026-10-17 SaiPa 7-1 HIFK",
+      "2026-10-20 SaiPa 2-1 K\u00e4rp\u00e4t",
+      "2026-10-23 Sport 3-5 SaiPa",
+      "2026-10-24 Sport 1-3 SaiPa"
+     ]
+    },
+    "away": {
+     "gp": 14,
+     "w": 10,
+     "gf": 44,
+     "ga": 35,
+     "recent": [
+      "2026-09-05 K\u00e4rp\u00e4t 3-4 JYP",
+      "2026-09-09 Lukko 0-5 JYP",
+      "2026-09-16 KooKoo 3-5 JYP",
+      "2026-09-17 Jokerit 2-4 JYP",
+      "2026-09-19 Pelicans 1-3 JYP",
+      "2026-09-25 HIFK 3-4 JYP",
+      "2026-10-02 HPK 2-1 JYP",
+      "2026-10-03 TPS 4-1 JYP",
+      "2026-10-08 SaiPa 1-2 JYP",
+      "2026-10-09 K-Espoo 6-1 JYP",
+      "2026-10-14 JYP 3-2 Lukko",
+      "2026-10-16 JYP 4-5 K\u00e4rp\u00e4t",
+      "2026-10-22 JYP 3-2 HPK",
+      "2026-10-24 JYP 4-1 \u00c4ss\u00e4t"
+     ]
+    }
+   },
+   "game_id": "2701427"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701428",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "TPS",
+   "away": "Pelicans",
+   "start_utc": "2026-10-30T16:30:00Z",
+   "venue": "Turun Monitoimihalli Oy",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 16,
+     "w": 9,
+     "gf": 46,
+     "ga": 39,
+     "recent": [
+      "2026-09-01 TPS 4-2 KooKoo",
+      "2026-09-05 TPS 5-1 HIFK",
+      "2026-09-09 Sport 2-1 TPS",
+      "2026-09-15 TPS 1-4 Jukurit",
+      "2026-09-17 TPS 4-0 Tappara",
+      "2026-09-19 HPK 3-1 TPS",
+      "2026-09-25 Jokerit 1-2 TPS",
+      "2026-09-27 Ilves 3-2 TPS",
+      "2026-09-30 K-Espoo 4-2 TPS",
+      "2026-10-03 TPS 4-1 JYP",
+      "2026-10-10 Tappara 4-3 TPS",
+      "2026-10-14 HIFK 3-4 TPS",
+      "2026-10-16 TPS 4-2 K-Espoo",
+      "2026-10-17 \u00c4ss\u00e4t 2-4 TPS",
+      "2026-10-20 TPS 4-3 Ilves",
+      "2026-10-23 Lukko 4-1 TPS"
+     ]
+    },
+    "away": {
+     "gp": 14,
+     "w": 7,
+     "gf": 34,
+     "ga": 33,
+     "recent": [
+      "2026-09-04 Pelicans 6-3 Sport",
+      "2026-09-05 K-Espoo 1-2 Pelicans",
+      "2026-09-09 Pelicans 2-0 KalPa",
+      "2026-09-15 Pelicans 2-3 Tappara",
+      "2026-09-18 Jukurit 3-1 Pelicans",
+      "2026-09-19 Pelicans 1-3 JYP",
+      "2026-09-22 Jokerit 3-0 Pelicans",
+      "2026-09-26 Pelicans 2-1 HIFK",
+      "2026-10-03 KooKoo 3-6 Pelicans",
+      "2026-10-09 Pelicans 2-3 K\u00e4rp\u00e4t",
+      "2026-10-16 Pelicans 1-2 Sport",
+      "2026-10-17 KalPa 3-1 Pelicans",
+      "2026-10-20 HPK 1-3 Pelicans",
+      "2026-10-24 Pelicans 5-4 Tappara"
+     ]
+    }
+   },
+   "game_id": "2701428"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701430",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "\u00c4ss\u00e4t",
+   "away": "HIFK",
+   "start_utc": "2026-10-30T16:30:00Z",
+   "venue": "Porin j\u00e4\u00e4halli I",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 17,
+     "w": 9,
+     "gf": 38,
+     "ga": 40,
+     "recent": [
+      "2026-09-01 K\u00e4rp\u00e4t 3-1 \u00c4ss\u00e4t",
+      "2026-09-04 \u00c4ss\u00e4t 5-1 Ilves",
+      "2026-09-09 \u00c4ss\u00e4t 3-2 Jokerit",
+      "2026-09-15 \u00c4ss\u00e4t 5-1 Sport",
+      "2026-09-19 \u00c4ss\u00e4t 2-1 K-Espoo",
+      "2026-09-23 SaiPa 1-2 \u00c4ss\u00e4t",
+      "2026-09-25 \u00c4ss\u00e4t 0-5 SaiPa",
+      "2026-09-26 HPK 5-4 \u00c4ss\u00e4t",
+      "2026-10-02 \u00c4ss\u00e4t 0-3 Lukko",
+      "2026-10-03 Lukko 2-5 \u00c4ss\u00e4t",
+      "2026-10-07 Jukurit 0-1 \u00c4ss\u00e4t",
+      "2026-10-09 \u00c4ss\u00e4t 2-3 HPK",
+      "2026-10-14 KalPa 0-1 \u00c4ss\u00e4t",
+      "2026-10-16 Jokerit 2-4 \u00c4ss\u00e4t",
+      "2026-10-17 \u00c4ss\u00e4t 2-4 TPS",
+      "2026-10-21 Tappara 3-0 \u00c4ss\u00e4t",
+      "2026-10-24 JYP 4-1 \u00c4ss\u00e4t"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 6,
+     "gf": 46,
+     "ga": 51,
+     "recent": [
+      "2026-09-04 HIFK 5-3 HPK",
+      "2026-09-05 TPS 5-1 HIFK",
+      "2026-09-09 Jukurit 3-1 HIFK",
+      "2026-09-16 HIFK 4-7 Jukurit",
+      "2026-09-19 HIFK 2-3 Lukko",
+      "2026-09-23 HIFK 3-1 K\u00e4rp\u00e4t",
+      "2026-09-25 HIFK 3-4 JYP",
+      "2026-09-26 Pelicans 2-1 HIFK",
+      "2026-10-03 Sport 2-3 HIFK",
+      "2026-10-08 Jokerit 3-2 HIFK",
+      "2026-10-10 HIFK 6-1 KalPa",
+      "2026-10-14 HIFK 3-4 TPS",
+      "2026-10-17 SaiPa 7-1 HIFK",
+      "2026-10-20 Lukko 3-2 HIFK",
+      "2026-10-23 K-Espoo 0-3 HIFK",
+      "2026-10-24 HPK 3-6 HIFK"
+     ]
+    }
+   },
+   "game_id": "2701430"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701429",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "Tappara",
+   "away": "Ilves",
+   "start_utc": "2026-10-30T16:30:00Z",
+   "venue": "Tampereen Kansi Areena",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 16,
+     "w": 8,
+     "gf": 44,
+     "ga": 37,
+     "recent": [
+      "2026-09-01 SaiPa 4-2 Tappara",
+      "2026-09-15 Pelicans 2-3 Tappara",
+      "2026-09-17 TPS 4-0 Tappara",
+      "2026-09-19 Jokerit 0-6 Tappara",
+      "2026-09-22 Tappara 4-0 K\u00e4rp\u00e4t",
+      "2026-09-24 Lukko 3-2 Tappara",
+      "2026-09-26 Tappara 2-4 SaiPa",
+      "2026-09-30 Tappara 3-0 KooKoo",
+      "2026-10-02 Tappara 3-2 Jokerit",
+      "2026-10-09 KalPa 2-3 Tappara",
+      "2026-10-10 Tappara 4-3 TPS",
+      "2026-10-16 Tappara 1-2 Lukko",
+      "2026-10-17 Jukurit 3-2 Tappara",
+      "2026-10-20 KooKoo 3-2 Tappara",
+      "2026-10-21 Tappara 3-0 \u00c4ss\u00e4t",
+      "2026-10-24 Pelicans 5-4 Tappara"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 11,
+     "gf": 48,
+     "ga": 36,
+     "recent": [
+      "2026-09-01 Lukko 0-2 Ilves",
+      "2026-09-04 \u00c4ss\u00e4t 5-1 Ilves",
+      "2026-09-08 HPK 0-4 Ilves",
+      "2026-09-16 K\u00e4rp\u00e4t 3-4 Ilves",
+      "2026-09-18 KalPa 1-2 Ilves",
+      "2026-09-25 Ilves 6-0 KooKoo",
+      "2026-09-27 Ilves 3-2 TPS",
+      "2026-09-29 Ilves 3-2 Jukurit",
+      "2026-10-03 Ilves 6-4 K-Espoo",
+      "2026-10-07 Sport 2-1 Ilves",
+      "2026-10-09 Ilves 1-5 Lukko",
+      "2026-10-10 Jokerit 0-3 Ilves",
+      "2026-10-16 HPK 3-1 Ilves",
+      "2026-10-17 Ilves 4-3 Jokerit",
+      "2026-10-20 TPS 4-3 Ilves",
+      "2026-10-23 Jukurit 0-3 Ilves",
+      "2026-10-24 Ilves 1-2 Jukurit"
+     ]
+    }
+   },
+   "game_id": "2701429"
+  },
+  {
+   "id": "ZZ-BB-EL-84",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "Dubai Basketball",
+   "away": "Hapoel IBI Tel Aviv",
+   "start_utc": "2026-10-30T17:00:00Z",
+   "venue": "COCA-COLA ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/84/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 8,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 490,
+     "pointsAgainst": 493,
+     "qualified": false
+    },
+    "away": {
+     "position": 6,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 540,
+     "pointsAgainst": 520,
+     "qualified": false
+    }
+   },
+   "game_id": "84"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701425",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "KalPa",
+   "away": "Jokerit",
+   "start_utc": "2026-10-30T17:30:00Z",
+   "venue": "Kuopion j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 15,
+     "w": 6,
+     "gf": 37,
+     "ga": 37,
+     "recent": [
+      "2026-09-01 K-Espoo 5-1 KalPa",
+      "2026-09-04 KalPa 4-0 Jukurit",
+      "2026-09-09 Pelicans 2-0 KalPa",
+      "2026-09-15 KalPa 7-0 HPK",
+      "2026-09-18 KalPa 1-2 Ilves",
+      "2026-09-23 KooKoo 4-5 KalPa",
+      "2026-09-26 KalPa 1-2 Lukko",
+      "2026-10-02 KalPa 4-3 SaiPa",
+      "2026-10-03 Jukurit 2-1 KalPa",
+      "2026-10-09 KalPa 2-3 Tappara",
+      "2026-10-10 HIFK 6-1 KalPa",
+      "2026-10-14 KalPa 0-1 \u00c4ss\u00e4t",
+      "2026-10-17 KalPa 3-1 Pelicans",
+      "2026-10-23 K\u00e4rp\u00e4t 5-2 KalPa",
+      "2026-10-24 K\u00e4rp\u00e4t 1-5 KalPa"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 4,
+     "gf": 36,
+     "ga": 53,
+     "recent": [
+      "2026-09-01 Sport 5-4 Jokerit",
+      "2026-09-05 Lukko 7-2 Jokerit",
+      "2026-09-09 \u00c4ss\u00e4t 3-2 Jokerit",
+      "2026-09-17 Jokerit 2-4 JYP",
+      "2026-09-19 Jokerit 0-6 Tappara",
+      "2026-09-22 Jokerit 3-0 Pelicans",
+      "2026-09-25 Jokerit 1-2 TPS",
+      "2026-09-26 K-Espoo 4-1 Jokerit",
+      "2026-09-29 Jokerit 3-0 HPK",
+      "2026-10-02 Tappara 3-2 Jokerit",
+      "2026-10-03 SaiPa 3-2 Jokerit",
+      "2026-10-08 Jokerit 3-2 HIFK",
+      "2026-10-10 Jokerit 0-3 Ilves",
+      "2026-10-16 Jokerit 2-4 \u00c4ss\u00e4t",
+      "2026-10-17 Ilves 4-3 Jokerit",
+      "2026-10-24 KooKoo 3-6 Jokerit"
+     ]
+    }
+   },
+   "game_id": "2701425"
+  },
+  {
+   "id": "ZZ-BB-EL-88",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "Anadolu Efes Istanbul",
+   "away": "Panathinaikos AKTOR Athens",
+   "start_utc": "2026-10-30T18:30:00Z",
+   "venue": "TURKCELL BASKETBALL DEVELOPMENT CENTER",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/88/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 13,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 492,
+     "pointsAgainst": 510,
+     "qualified": false
+    },
+    "away": {
+     "position": 1,
+     "gamesPlayed": 6,
+     "gamesWon": 5,
+     "gamesLost": 1,
+     "pointsFavour": 528,
+     "pointsAgainst": 438,
+     "qualified": false
+    }
+   },
+   "game_id": "88"
+  },
+  {
+   "id": "ZZ-VB-PL--lepsk-malow-suwa-ki-neonet-norwid-cz-stochowa-202610301830",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "\u015alepsk Malow Suwa\u0142ki",
+   "away": "NEONET Norwid Cz\u0119stochowa",
+   "start_utc": "2026-10-30T18:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 2,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 2
+    },
+    "away": {
+     "gp": 1,
+     "w": 1,
+     "sw": 0,
+     "sl": 0,
+     "pts": 3
+    },
+    "p_home": null
+   },
+   "game_id": "\u015alepsk Malow Suwa\u0142ki|NEONET Norwid Cz\u0119stochowa|202610301830"
+  },
+  {
+   "id": "ZZ-BB-EL-86",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "Zalgiris Kaunas",
+   "away": "Partizan Mozzart Bet Belgrade",
+   "start_utc": "2026-10-30T19:00:00Z",
+   "venue": "ZALGIRIO ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/86/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 14,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 490,
+     "pointsAgainst": 517,
+     "qualified": false
+    },
+    "away": {
+     "position": 12,
+     "gamesPlayed": 6,
+     "gamesWon": 3,
+     "gamesLost": 3,
+     "pointsFavour": 466,
+     "pointsAgainst": 471,
+     "qualified": false
+    }
+   },
+   "game_id": "86"
+  },
+  {
+   "id": "ZZ-BB-EL-85",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "LDLC ASVEL Villeurbanne",
+   "away": "Kosner Baskonia Vitoria-Gasteiz",
+   "start_utc": "2026-10-30T20:00:00Z",
+   "venue": "LDLC ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/85/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 17,
+     "gamesPlayed": 6,
+     "gamesWon": 2,
+     "gamesLost": 4,
+     "pointsFavour": 527,
+     "pointsAgainst": 572,
+     "qualified": false
+    },
+    "away": {
+     "position": 20,
+     "gamesPlayed": 6,
+     "gamesWon": 1,
+     "gamesLost": 5,
+     "pointsFavour": 504,
+     "pointsAgainst": 564,
+     "qualified": false
+    }
+   },
+   "game_id": "85"
+  },
+  {
+   "id": "ZZ-BB-EL-90",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "Olympiacos Piraeus",
+   "away": "Armani Olimpia Milan",
+   "start_utc": "2026-10-30T20:15:00Z",
+   "venue": "SUNEL ARENA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/90/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 3,
+     "gamesPlayed": 6,
+     "gamesWon": 5,
+     "gamesLost": 1,
+     "pointsFavour": 564,
+     "pointsAgainst": 524,
+     "qualified": false
+    },
+    "away": {
+     "position": 19,
+     "gamesPlayed": 6,
+     "gamesWon": 1,
+     "gamesLost": 5,
+     "pointsFavour": 504,
+     "pointsAgainst": 559,
+     "qualified": false
+    }
+   },
+   "game_id": "90"
+  },
+  {
+   "id": "ZZ-BB-EL-89",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "Virtus Bologna",
+   "away": "Besiktas Istanbul",
+   "start_utc": "2026-10-30T20:30:00Z",
+   "venue": "PALADOZZA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/89/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 7,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 525,
+     "pointsAgainst": 518,
+     "qualified": false
+    },
+    "away": {
+     "position": 11,
+     "gamesPlayed": 6,
+     "gamesWon": 3,
+     "gamesLost": 3,
+     "pointsFavour": 554,
+     "pointsAgainst": 555,
+     "qualified": false
+    }
+   },
+   "game_id": "89"
+  },
+  {
+   "id": "ZZ-BB-EL-87",
+   "sport": "Basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 9)",
+   "stage": "",
+   "home": "FC Barcelona",
+   "away": "Valencia Basket",
+   "start_utc": "2026-10-30T20:30:00Z",
+   "venue": "PALAU BLAUGRANA",
+   "source": {
+    "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/-/87/",
+    "name": "EuroLeague Official Live API (api-live.euroleague.net)",
+    "target_id": "euroleague_games_e2026",
+    "sha256": "c71179705d9f3ffbf927d1e3ff0fd5e59083f93e0cae450e2a2a92f86bc180ef",
+    "bytes": 715470
+   },
+   "model": {
+    "kind": "normal_points",
+    "sigma_margin": 9.8,
+    "sigma_total": 13.5
+   },
+   "stats": {
+    "home": {
+     "position": 10,
+     "gamesPlayed": 6,
+     "gamesWon": 3,
+     "gamesLost": 3,
+     "pointsFavour": 534,
+     "pointsAgainst": 525,
+     "qualified": false
+    },
+    "away": {
+     "position": 4,
+     "gamesPlayed": 6,
+     "gamesWon": 4,
+     "gamesLost": 2,
+     "pointsFavour": 583,
+     "pointsAgainst": 537,
+     "qualified": false
+    }
+   },
+   "game_id": "87"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020214",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Vegas Golden Knights",
+   "away": "New Jersey Devils",
+   "start_utc": "2026-10-30T22:00:00Z",
+   "venue": "T-Mobile Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020214",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Vegas Golden Knights",
+     "gp": 12,
+     "w": 8,
+     "l": 4,
+     "otl": 0,
+     "gf": 46,
+     "ga": 36,
+     "pts": 16,
+     "l10": "7-3-0",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "New Jersey Devils",
+     "gp": 10,
+     "w": 6,
+     "l": 4,
+     "otl": 0,
+     "gf": 33,
+     "ga": 31,
+     "pts": 12,
+     "l10": "6-4-0",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "VGK",
+    "away_abbrev": "NJD"
+   },
+   "game_id": 2026020214
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020215",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Florida Panthers",
+   "away": "Winnipeg Jets",
+   "start_utc": "2026-10-30T23:00:00Z",
+   "venue": "Amerant Bank Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020215",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Florida Panthers",
+     "gp": 11,
+     "w": 5,
+     "l": 4,
+     "otl": 2,
+     "gf": 31,
+     "ga": 34,
+     "pts": 12,
+     "l10": "4-4-2",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "away": {
+     "name": "Winnipeg Jets",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 26,
+     "ga": 29,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "OT",
+     "div": "Central"
+    },
+    "home_abbrev": "FLA",
+    "away_abbrev": "WPG"
+   },
+   "game_id": 2026020215
+  },
+  {
+   "id": "ZZ-BB-MLB-849801",
+   "sport": "Baseball",
+   "competition": "MLB World Series 2026",
+   "stage": "Game 6",
+   "home": "Milwaukee Brewers",
+   "away": "Tampa Bay Rays",
+   "start_utc": "2026-10-31T00:00:00Z",
+   "venue": "American Family Field",
+   "source": {
+    "url": "https://www.mlb.com/gameday/849801",
+    "name": "MLB Official Stats API (statsapi.mlb.com)",
+    "target_id": "mlb_schedule_window",
+    "sha256": "a48d472b175cba0b7994890f9f8f4a7c3bf48adee23e1df51d13fc36d8369e3b",
+    "bytes": 20059
+   },
+   "model": {
+    "kind": "poisson_runs",
+    "league_mu": 4.45
+   },
+   "stats": {
+    "home": {
+     "w": 103,
+     "l": 59,
+     "pct": ".636",
+     "gb": "-",
+     "streak": "W5",
+     "l10": "8-2",
+     "runs_scored": 832,
+     "runs_allowed": 618,
+     "div": ""
+    },
+    "away": {
+     "w": 98,
+     "l": 64,
+     "pct": ".605",
+     "gb": "-",
+     "streak": "L1",
+     "l10": "5-5",
+     "runs_scored": 736,
+     "runs_allowed": 650,
+     "div": ""
+    },
+    "home_pitcher": "",
+    "away_pitcher": ""
+   },
+   "game_id": "849801"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020216",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Calgary Flames",
+   "away": "Seattle Kraken",
+   "start_utc": "2026-10-31T00:00:00Z",
+   "venue": "Scotiabank Saddledome",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020216",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-24",
+    "sha256": "193e1035d066795463bfc06c0118d2d681a3cd34e47d8ab09c94fa5b73552363",
+    "bytes": 98866
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Calgary Flames",
+     "gp": 9,
+     "w": 3,
+     "l": 6,
+     "otl": 0,
+     "gf": 19,
+     "ga": 38,
+     "pts": 6,
+     "l10": "3-6-0",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Seattle Kraken",
+     "gp": 11,
+     "w": 7,
+     "l": 3,
+     "otl": 1,
+     "gf": 44,
+     "ga": 37,
+     "pts": 15,
+     "l10": "6-3-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "CGY",
+    "away_abbrev": "SEA"
+   },
+   "game_id": 2026020216
+  },
+  {
+   "id": "ZZ-VB-PL-stilon-gorz-w-pge-projekt-warszawa-202610311300",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "Stilon Gorz\u00f3w",
+   "away": "PGE Projekt Warszawa",
+   "start_utc": "2026-10-31T13:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 2,
+     "w": 1,
+     "sw": 0,
+     "sl": 0,
+     "pts": 4
+    },
+    "away": {},
+    "p_home": null
+   },
+   "game_id": "Stilon Gorz\u00f3w|PGE Projekt Warszawa|202610311300"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701431",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "Ilves",
+   "away": "KalPa",
+   "start_utc": "2026-10-31T15:00:00Z",
+   "venue": "Tampereen Kansi Areena",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 17,
+     "w": 11,
+     "gf": 48,
+     "ga": 36,
+     "recent": [
+      "2026-09-01 Lukko 0-2 Ilves",
+      "2026-09-04 \u00c4ss\u00e4t 5-1 Ilves",
+      "2026-09-08 HPK 0-4 Ilves",
+      "2026-09-16 K\u00e4rp\u00e4t 3-4 Ilves",
+      "2026-09-18 KalPa 1-2 Ilves",
+      "2026-09-25 Ilves 6-0 KooKoo",
+      "2026-09-27 Ilves 3-2 TPS",
+      "2026-09-29 Ilves 3-2 Jukurit",
+      "2026-10-03 Ilves 6-4 K-Espoo",
+      "2026-10-07 Sport 2-1 Ilves",
+      "2026-10-09 Ilves 1-5 Lukko",
+      "2026-10-10 Jokerit 0-3 Ilves",
+      "2026-10-16 HPK 3-1 Ilves",
+      "2026-10-17 Ilves 4-3 Jokerit",
+      "2026-10-20 TPS 4-3 Ilves",
+      "2026-10-23 Jukurit 0-3 Ilves",
+      "2026-10-24 Ilves 1-2 Jukurit"
+     ]
+    },
+    "away": {
+     "gp": 15,
+     "w": 6,
+     "gf": 37,
+     "ga": 37,
+     "recent": [
+      "2026-09-01 K-Espoo 5-1 KalPa",
+      "2026-09-04 KalPa 4-0 Jukurit",
+      "2026-09-09 Pelicans 2-0 KalPa",
+      "2026-09-15 KalPa 7-0 HPK",
+      "2026-09-18 KalPa 1-2 Ilves",
+      "2026-09-23 KooKoo 4-5 KalPa",
+      "2026-09-26 KalPa 1-2 Lukko",
+      "2026-10-02 KalPa 4-3 SaiPa",
+      "2026-10-03 Jukurit 2-1 KalPa",
+      "2026-10-09 KalPa 2-3 Tappara",
+      "2026-10-10 HIFK 6-1 KalPa",
+      "2026-10-14 KalPa 0-1 \u00c4ss\u00e4t",
+      "2026-10-17 KalPa 3-1 Pelicans",
+      "2026-10-23 K\u00e4rp\u00e4t 5-2 KalPa",
+      "2026-10-24 K\u00e4rp\u00e4t 1-5 KalPa"
+     ]
+    }
+   },
+   "game_id": "2701431"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701432",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "JYP",
+   "away": "Jokerit",
+   "start_utc": "2026-10-31T15:00:00Z",
+   "venue": "Jyv\u00e4skyl\u00e4n j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 14,
+     "w": 10,
+     "gf": 44,
+     "ga": 35,
+     "recent": [
+      "2026-09-05 K\u00e4rp\u00e4t 3-4 JYP",
+      "2026-09-09 Lukko 0-5 JYP",
+      "2026-09-16 KooKoo 3-5 JYP",
+      "2026-09-17 Jokerit 2-4 JYP",
+      "2026-09-19 Pelicans 1-3 JYP",
+      "2026-09-25 HIFK 3-4 JYP",
+      "2026-10-02 HPK 2-1 JYP",
+      "2026-10-03 TPS 4-1 JYP",
+      "2026-10-08 SaiPa 1-2 JYP",
+      "2026-10-09 K-Espoo 6-1 JYP",
+      "2026-10-14 JYP 3-2 Lukko",
+      "2026-10-16 JYP 4-5 K\u00e4rp\u00e4t",
+      "2026-10-22 JYP 3-2 HPK",
+      "2026-10-24 JYP 4-1 \u00c4ss\u00e4t"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 4,
+     "gf": 36,
+     "ga": 53,
+     "recent": [
+      "2026-09-01 Sport 5-4 Jokerit",
+      "2026-09-05 Lukko 7-2 Jokerit",
+      "2026-09-09 \u00c4ss\u00e4t 3-2 Jokerit",
+      "2026-09-17 Jokerit 2-4 JYP",
+      "2026-09-19 Jokerit 0-6 Tappara",
+      "2026-09-22 Jokerit 3-0 Pelicans",
+      "2026-09-25 Jokerit 1-2 TPS",
+      "2026-09-26 K-Espoo 4-1 Jokerit",
+      "2026-09-29 Jokerit 3-0 HPK",
+      "2026-10-02 Tappara 3-2 Jokerit",
+      "2026-10-03 SaiPa 3-2 Jokerit",
+      "2026-10-08 Jokerit 3-2 HIFK",
+      "2026-10-10 Jokerit 0-3 Ilves",
+      "2026-10-16 Jokerit 2-4 \u00c4ss\u00e4t",
+      "2026-10-17 Ilves 4-3 Jokerit",
+      "2026-10-24 KooKoo 3-6 Jokerit"
+     ]
+    }
+   },
+   "game_id": "2701432"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701433",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "KooKoo",
+   "away": "HIFK",
+   "start_utc": "2026-10-31T15:00:00Z",
+   "venue": "Kouvolan j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 17,
+     "w": 2,
+     "gf": 39,
+     "ga": 72,
+     "recent": [
+      "2026-09-01 TPS 4-2 KooKoo",
+      "2026-09-09 K-Espoo 6-2 KooKoo",
+      "2026-09-16 KooKoo 3-5 JYP",
+      "2026-09-18 KooKoo 0-4 SaiPa",
+      "2026-09-19 SaiPa 2-1 KooKoo",
+      "2026-09-23 KooKoo 4-5 KalPa",
+      "2026-09-25 Ilves 6-0 KooKoo",
+      "2026-09-26 KooKoo 3-5 Jukurit",
+      "2026-09-30 Tappara 3-0 KooKoo",
+      "2026-10-03 KooKoo 3-6 Pelicans",
+      "2026-10-09 KooKoo 4-1 Jukurit",
+      "2026-10-10 HPK 5-3 KooKoo",
+      "2026-10-15 Sport 4-3 KooKoo",
+      "2026-10-17 K\u00e4rp\u00e4t 4-3 KooKoo",
+      "2026-10-20 KooKoo 3-2 Tappara",
+      "2026-10-21 K-Espoo 4-2 KooKoo",
+      "2026-10-24 KooKoo 3-6 Jokerit"
+     ]
+    },
+    "away": {
+     "gp": 16,
+     "w": 6,
+     "gf": 46,
+     "ga": 51,
+     "recent": [
+      "2026-09-04 HIFK 5-3 HPK",
+      "2026-09-05 TPS 5-1 HIFK",
+      "2026-09-09 Jukurit 3-1 HIFK",
+      "2026-09-16 HIFK 4-7 Jukurit",
+      "2026-09-19 HIFK 2-3 Lukko",
+      "2026-09-23 HIFK 3-1 K\u00e4rp\u00e4t",
+      "2026-09-25 HIFK 3-4 JYP",
+      "2026-09-26 Pelicans 2-1 HIFK",
+      "2026-10-03 Sport 2-3 HIFK",
+      "2026-10-08 Jokerit 3-2 HIFK",
+      "2026-10-10 HIFK 6-1 KalPa",
+      "2026-10-14 HIFK 3-4 TPS",
+      "2026-10-17 SaiPa 7-1 HIFK",
+      "2026-10-20 Lukko 3-2 HIFK",
+      "2026-10-23 K-Espoo 0-3 HIFK",
+      "2026-10-24 HPK 3-6 HIFK"
+     ]
+    }
+   },
+   "game_id": "2701433"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701434",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "K\u00e4rp\u00e4t",
+   "away": "Jukurit",
+   "start_utc": "2026-10-31T15:00:00Z",
+   "venue": "Oulun j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 18,
+     "w": 10,
+     "gf": 51,
+     "ga": 50,
+     "recent": [
+      "2026-09-01 K\u00e4rp\u00e4t 3-1 \u00c4ss\u00e4t",
+      "2026-09-05 K\u00e4rp\u00e4t 3-4 JYP",
+      "2026-09-16 K\u00e4rp\u00e4t 3-4 Ilves",
+      "2026-09-19 K\u00e4rp\u00e4t 3-2 Sport",
+      "2026-09-22 Tappara 4-0 K\u00e4rp\u00e4t",
+      "2026-09-23 HIFK 3-1 K\u00e4rp\u00e4t",
+      "2026-09-26 Sport 1-2 K\u00e4rp\u00e4t",
+      "2026-09-30 K\u00e4rp\u00e4t 4-1 SaiPa",
+      "2026-10-02 K-Espoo 1-3 K\u00e4rp\u00e4t",
+      "2026-10-03 HPK 2-1 K\u00e4rp\u00e4t",
+      "2026-10-07 K\u00e4rp\u00e4t 8-7 K-Espoo",
+      "2026-10-09 Pelicans 2-3 K\u00e4rp\u00e4t",
+      "2026-10-10 Jukurit 2-1 K\u00e4rp\u00e4t",
+      "2026-10-16 JYP 4-5 K\u00e4rp\u00e4t",
+      "2026-10-17 K\u00e4rp\u00e4t 4-3 KooKoo",
+      "2026-10-20 SaiPa 2-1 K\u00e4rp\u00e4t",
+      "2026-10-23 K\u00e4rp\u00e4t 5-2 KalPa",
+      "2026-10-24 K\u00e4rp\u00e4t 1-5 KalPa"
+     ]
+    },
+    "away": {
+     "gp": 18,
+     "w": 12,
+     "gf": 44,
+     "ga": 35,
+     "recent": [
+      "2026-09-01 Jukurit 1-4 HPK",
+      "2026-09-04 KalPa 4-0 Jukurit",
+      "2026-09-05 Jukurit 4-0 Sport",
+      "2026-09-09 Jukurit 3-1 HIFK",
+      "2026-09-15 TPS 1-4 Jukurit",
+      "2026-09-16 HIFK 4-7 Jukurit",
+      "2026-09-18 Jukurit 3-1 Pelicans",
+      "2026-09-25 Jukurit 2-1 K-Espoo",
+      "2026-09-26 KooKoo 3-5 Jukurit",
+      "2026-09-29 Ilves 3-2 Jukurit",
+      "2026-10-03 Jukurit 2-1 KalPa",
+      "2026-10-07 Jukurit 0-1 \u00c4ss\u00e4t",
+      "2026-10-09 KooKoo 4-1 Jukurit",
+      "2026-10-10 Jukurit 2-1 K\u00e4rp\u00e4t",
+      "2026-10-17 Jukurit 3-2 Tappara",
+      "2026-10-20 Sport 0-3 Jukurit",
+      "2026-10-23 Jukurit 0-3 Ilves",
+      "2026-10-24 Ilves 1-2 Jukurit"
+     ]
+    }
+   },
+   "game_id": "2701434"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701435",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "Pelicans",
+   "away": "K-Espoo",
+   "start_utc": "2026-10-31T15:00:00Z",
+   "venue": "Lahden j\u00e4\u00e4halli",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 14,
+     "w": 7,
+     "gf": 34,
+     "ga": 33,
+     "recent": [
+      "2026-09-04 Pelicans 6-3 Sport",
+      "2026-09-05 K-Espoo 1-2 Pelicans",
+      "2026-09-09 Pelicans 2-0 KalPa",
+      "2026-09-15 Pelicans 2-3 Tappara",
+      "2026-09-18 Jukurit 3-1 Pelicans",
+      "2026-09-19 Pelicans 1-3 JYP",
+      "2026-09-22 Jokerit 3-0 Pelicans",
+      "2026-09-26 Pelicans 2-1 HIFK",
+      "2026-10-03 KooKoo 3-6 Pelicans",
+      "2026-10-09 Pelicans 2-3 K\u00e4rp\u00e4t",
+      "2026-10-16 Pelicans 1-2 Sport",
+      "2026-10-17 KalPa 3-1 Pelicans",
+      "2026-10-20 HPK 1-3 Pelicans",
+      "2026-10-24 Pelicans 5-4 Tappara"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 7,
+     "gf": 49,
+     "ga": 44,
+     "recent": [
+      "2026-09-01 K-Espoo 5-1 KalPa",
+      "2026-09-05 K-Espoo 1-2 Pelicans",
+      "2026-09-09 K-Espoo 6-2 KooKoo",
+      "2026-09-15 SaiPa 2-1 K-Espoo",
+      "2026-09-19 \u00c4ss\u00e4t 2-1 K-Espoo",
+      "2026-09-23 Sport 0-1 K-Espoo",
+      "2026-09-25 Jukurit 2-1 K-Espoo",
+      "2026-09-26 K-Espoo 4-1 Jokerit",
+      "2026-09-30 K-Espoo 4-2 TPS",
+      "2026-10-02 K-Espoo 1-3 K\u00e4rp\u00e4t",
+      "2026-10-03 Ilves 6-4 K-Espoo",
+      "2026-10-07 K\u00e4rp\u00e4t 8-7 K-Espoo",
+      "2026-10-09 K-Espoo 6-1 JYP",
+      "2026-10-16 TPS 4-2 K-Espoo",
+      "2026-10-17 Lukko 3-1 K-Espoo",
+      "2026-10-21 K-Espoo 4-2 KooKoo",
+      "2026-10-23 K-Espoo 0-3 HIFK"
+     ]
+    }
+   },
+   "game_id": "2701435"
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701436",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "Sport",
+   "away": "\u00c4ss\u00e4t",
+   "start_utc": "2026-10-31T15:00:00Z",
+   "venue": "Vaasan j\u00e4\u00e4halli I",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 16,
+     "w": 6,
+     "gf": 30,
+     "ga": 46,
+     "recent": [
+      "2026-09-01 Sport 5-4 Jokerit",
+      "2026-09-04 Pelicans 6-3 Sport",
+      "2026-09-05 Jukurit 4-0 Sport",
+      "2026-09-09 Sport 2-1 TPS",
+      "2026-09-15 \u00c4ss\u00e4t 5-1 Sport",
+      "2026-09-17 Lukko 1-2 Sport",
+      "2026-09-19 K\u00e4rp\u00e4t 3-2 Sport",
+      "2026-09-23 Sport 0-1 K-Espoo",
+      "2026-09-26 Sport 1-2 K\u00e4rp\u00e4t",
+      "2026-10-03 Sport 2-3 HIFK",
+      "2026-10-07 Sport 2-1 Ilves",
+      "2026-10-15 Sport 4-3 KooKoo",
+      "2026-10-16 Pelicans 1-2 Sport",
+      "2026-10-20 Sport 0-3 Jukurit",
+      "2026-10-23 Sport 3-5 SaiPa",
+      "2026-10-24 Sport 1-3 SaiPa"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 9,
+     "gf": 38,
+     "ga": 40,
+     "recent": [
+      "2026-09-01 K\u00e4rp\u00e4t 3-1 \u00c4ss\u00e4t",
+      "2026-09-04 \u00c4ss\u00e4t 5-1 Ilves",
+      "2026-09-09 \u00c4ss\u00e4t 3-2 Jokerit",
+      "2026-09-15 \u00c4ss\u00e4t 5-1 Sport",
+      "2026-09-19 \u00c4ss\u00e4t 2-1 K-Espoo",
+      "2026-09-23 SaiPa 1-2 \u00c4ss\u00e4t",
+      "2026-09-25 \u00c4ss\u00e4t 0-5 SaiPa",
+      "2026-09-26 HPK 5-4 \u00c4ss\u00e4t",
+      "2026-10-02 \u00c4ss\u00e4t 0-3 Lukko",
+      "2026-10-03 Lukko 2-5 \u00c4ss\u00e4t",
+      "2026-10-07 Jukurit 0-1 \u00c4ss\u00e4t",
+      "2026-10-09 \u00c4ss\u00e4t 2-3 HPK",
+      "2026-10-14 KalPa 0-1 \u00c4ss\u00e4t",
+      "2026-10-16 Jokerit 2-4 \u00c4ss\u00e4t",
+      "2026-10-17 \u00c4ss\u00e4t 2-4 TPS",
+      "2026-10-21 Tappara 3-0 \u00c4ss\u00e4t",
+      "2026-10-24 JYP 4-1 \u00c4ss\u00e4t"
+     ]
+    }
+   },
+   "game_id": "2701436"
+  },
+  {
+   "id": "ZZ-VB-PL-pge-giek-skra-be-chat-w-aluron-cmc-warta-zawiercie-202610311600",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "PGE GiEK SKRA Be\u0142chat\u00f3w",
+   "away": "Aluron CMC Warta Zawiercie",
+   "start_utc": "2026-10-31T16:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 2,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 2
+    },
+    "away": {
+     "gp": 1,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 1
+    },
+    "p_home": null
+   },
+   "game_id": "PGE GiEK SKRA Be\u0142chat\u00f3w|Aluron CMC Warta Zawiercie|202610311600"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020217",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Boston Bruins",
+   "away": "Chicago Blackhawks",
+   "start_utc": "2026-10-31T17:00:00Z",
+   "venue": "TD Garden",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020217",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Boston Bruins",
+     "gp": 11,
+     "w": 8,
+     "l": 2,
+     "otl": 1,
+     "gf": 42,
+     "ga": 22,
+     "pts": 17,
+     "l10": "7-2-1",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "away": {
+     "name": "Chicago Blackhawks",
+     "gp": 10,
+     "w": 3,
+     "l": 7,
+     "otl": 0,
+     "gf": 22,
+     "ga": 40,
+     "pts": 6,
+     "l10": "3-7-0",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "BOS",
+    "away_abbrev": "CHI"
+   },
+   "game_id": 2026020217
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020218",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Detroit Red Wings",
+   "away": "St. Louis Blues",
+   "start_utc": "2026-10-31T17:00:00Z",
+   "venue": "Little Caesars Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020218",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Detroit Red Wings",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 28,
+     "ga": 30,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "away": {
+     "name": "St. Louis Blues",
+     "gp": 10,
+     "w": 5,
+     "l": 4,
+     "otl": 1,
+     "gf": 35,
+     "ga": 31,
+     "pts": 11,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "home_abbrev": "DET",
+    "away_abbrev": "STL"
+   },
+   "game_id": 2026020218
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020219",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Nashville Predators",
+   "away": "Tampa Bay Lightning",
+   "start_utc": "2026-10-31T18:00:00Z",
+   "venue": "Bridgestone Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020219",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Nashville Predators",
+     "gp": 9,
+     "w": 3,
+     "l": 3,
+     "otl": 3,
+     "gf": 23,
+     "ga": 30,
+     "pts": 9,
+     "l10": "3-3-3",
+     "streak": "L",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Tampa Bay Lightning",
+     "gp": 10,
+     "w": 7,
+     "l": 3,
+     "otl": 0,
+     "gf": 34,
+     "ga": 29,
+     "pts": 14,
+     "l10": "7-3-0",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "NSH",
+    "away_abbrev": "TBL"
+   },
+   "game_id": 2026020219
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020220",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "New York Islanders",
+   "away": "Edmonton Oilers",
+   "start_utc": "2026-10-31T18:00:00Z",
+   "venue": "UBS Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020220",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "New York Islanders",
+     "gp": 10,
+     "w": 5,
+     "l": 3,
+     "otl": 2,
+     "gf": 29,
+     "ga": 23,
+     "pts": 12,
+     "l10": "5-3-2",
+     "streak": "OT",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Edmonton Oilers",
+     "gp": 10,
+     "w": 8,
+     "l": 1,
+     "otl": 1,
+     "gf": 47,
+     "ga": 32,
+     "pts": 17,
+     "l10": "8-1-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "NYI",
+    "away_abbrev": "EDM"
+   },
+   "game_id": 2026020220
+  },
+  {
+   "id": "ZZ-VB-PL-bogdanka-luk-lublin-gks-katowice-202610311830",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "BOGDANKA LUK Lublin",
+   "away": "GKS Katowice",
+   "start_utc": "2026-10-31T18:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 2,
+     "w": 1,
+     "sw": 0,
+     "sl": 0,
+     "pts": 4
+    },
+    "away": {
+     "gp": 1,
+     "w": 1,
+     "sw": 0,
+     "sl": 0,
+     "pts": 3
+    },
+    "p_home": null
+   },
+   "game_id": "BOGDANKA LUK Lublin|GKS Katowice|202610311830"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020221",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Los Angeles Kings",
+   "away": "Buffalo Sabres",
+   "start_utc": "2026-10-31T20:00:00Z",
+   "venue": "Crypto.com Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020221",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Los Angeles Kings",
+     "gp": 8,
+     "w": 2,
+     "l": 4,
+     "otl": 2,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "2-4-2",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Buffalo Sabres",
+     "gp": 10,
+     "w": 4,
+     "l": 4,
+     "otl": 2,
+     "gf": 28,
+     "ga": 37,
+     "pts": 10,
+     "l10": "4-4-2",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "LAK",
+    "away_abbrev": "BUF"
+   },
+   "game_id": 2026020221
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020222",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "San Jose Sharks",
+   "away": "Ottawa Senators",
+   "start_utc": "2026-10-31T20:00:00Z",
+   "venue": "SAP Center at San Jose",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020222",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "San Jose Sharks",
+     "gp": 11,
+     "w": 6,
+     "l": 4,
+     "otl": 1,
+     "gf": 33,
+     "ga": 37,
+     "pts": 13,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Ottawa Senators",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 31,
+     "ga": 30,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "SJS",
+    "away_abbrev": "OTT"
+   },
+   "game_id": 2026020222
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020223",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Montr\u00e9al Canadiens",
+   "away": "Pittsburgh Penguins",
+   "start_utc": "2026-10-31T23:00:00Z",
+   "venue": "Centre Bell",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020223",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Montr\u00e9al Canadiens",
+     "gp": 10,
+     "w": 5,
+     "l": 3,
+     "otl": 2,
+     "gf": 34,
+     "ga": 35,
+     "pts": 12,
+     "l10": "5-3-2",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "away": {
+     "name": "Pittsburgh Penguins",
+     "gp": 11,
+     "w": 4,
+     "l": 6,
+     "otl": 1,
+     "gf": 37,
+     "ga": 38,
+     "pts": 9,
+     "l10": "3-6-1",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "MTL",
+    "away_abbrev": "PIT"
+   },
+   "game_id": 2026020223
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020224",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Vancouver Canucks",
+   "away": "Toronto Maple Leafs",
+   "start_utc": "2026-10-31T23:00:00Z",
+   "venue": "Rogers Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020224",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Vancouver Canucks",
+     "gp": 12,
+     "w": 2,
+     "l": 9,
+     "otl": 1,
+     "gf": 35,
+     "ga": 56,
+     "pts": 5,
+     "l10": "1-8-1",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Toronto Maple Leafs",
+     "gp": 12,
+     "w": 6,
+     "l": 4,
+     "otl": 2,
+     "gf": 43,
+     "ga": 39,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "W",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "VAN",
+    "away_abbrev": "TOR"
+   },
+   "game_id": 2026020224
+  },
+  {
+   "id": "ZZ-BB-MLB-849800",
+   "sport": "Baseball",
+   "competition": "MLB World Series 2026",
+   "stage": "Game 7",
+   "home": "Milwaukee Brewers",
+   "away": "Tampa Bay Rays",
+   "start_utc": "2026-11-01T00:00:00Z",
+   "venue": "American Family Field",
+   "source": {
+    "url": "https://www.mlb.com/gameday/849800",
+    "name": "MLB Official Stats API (statsapi.mlb.com)",
+    "target_id": "mlb_schedule_window",
+    "sha256": "a48d472b175cba0b7994890f9f8f4a7c3bf48adee23e1df51d13fc36d8369e3b",
+    "bytes": 20059
+   },
+   "model": {
+    "kind": "poisson_runs",
+    "league_mu": 4.45
+   },
+   "stats": {
+    "home": {
+     "w": 103,
+     "l": 59,
+     "pct": ".636",
+     "gb": "-",
+     "streak": "W5",
+     "l10": "8-2",
+     "runs_scored": 832,
+     "runs_allowed": 618,
+     "div": ""
+    },
+    "away": {
+     "w": 98,
+     "l": 64,
+     "pct": ".605",
+     "gb": "-",
+     "streak": "L1",
+     "l10": "5-5",
+     "runs_scored": 736,
+     "runs_allowed": 650,
+     "div": ""
+    },
+    "home_pitcher": "",
+    "away_pitcher": ""
+   },
+   "game_id": "849800"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020225",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Dallas Stars",
+   "away": "Columbus Blue Jackets",
+   "start_utc": "2026-11-01T00:00:00Z",
+   "venue": "American Airlines Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020225",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Dallas Stars",
+     "gp": 10,
+     "w": 6,
+     "l": 3,
+     "otl": 1,
+     "gf": 26,
+     "ga": 17,
+     "pts": 13,
+     "l10": "6-3-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Columbus Blue Jackets",
+     "gp": 8,
+     "w": 3,
+     "l": 5,
+     "otl": 0,
+     "gf": 20,
+     "ga": 29,
+     "pts": 6,
+     "l10": "3-5-0",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "home_abbrev": "DAL",
+    "away_abbrev": "CBJ"
+   },
+   "game_id": 2026020225
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020226",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Colorado Avalanche",
+   "away": "Calgary Flames",
+   "start_utc": "2026-11-01T02:00:00Z",
+   "venue": "Ball Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020226",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-25",
+    "sha256": "9b020d7fa6ca042414737bfdfcff2bf76a079ff42030425204e4f8bbf859c03b",
+    "bytes": 89139
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Colorado Avalanche",
+     "gp": 11,
+     "w": 6,
+     "l": 4,
+     "otl": 1,
+     "gf": 47,
+     "ga": 34,
+     "pts": 13,
+     "l10": "5-4-1",
+     "streak": "W",
+     "div": "Central"
+    },
+    "away": {
+     "name": "Calgary Flames",
+     "gp": 9,
+     "w": 3,
+     "l": 6,
+     "otl": 0,
+     "gf": 19,
+     "ga": 38,
+     "pts": 6,
+     "l10": "3-6-0",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "COL",
+    "away_abbrev": "CGY"
+   },
+   "game_id": 2026020226
+  },
+  {
+   "id": "ZZ-IH-LIIGA-2701437",
+   "sport": "Ice Hockey",
+   "competition": "Finnish Liiga Runkosarja 2026-27",
+   "stage": "",
+   "home": "Tappara",
+   "away": "HPK",
+   "start_utc": "2026-11-01T13:00:00Z",
+   "venue": "Tampereen Kansi Areena",
+   "source": {
+    "url": "https://liiga.fi/fi/ohjelma?kausi=2026-2027&sarja=runkosarja",
+    "name": "Liiga Official API (liiga.fi)",
+    "target_id": "liiga_games_2027",
+    "sha256": "7ceedce4a4e449bf9100933ed44883e8162abe7a108f5cbdb0dabccd48b01fd3",
+    "bytes": 1840674
+   },
+   "model": {
+    "kind": "poisson_goals_liiga",
+    "league_mu": 5.6,
+    "home_adv": 0.18
+   },
+   "stats": {
+    "home": {
+     "gp": 16,
+     "w": 8,
+     "gf": 44,
+     "ga": 37,
+     "recent": [
+      "2026-09-01 SaiPa 4-2 Tappara",
+      "2026-09-15 Pelicans 2-3 Tappara",
+      "2026-09-17 TPS 4-0 Tappara",
+      "2026-09-19 Jokerit 0-6 Tappara",
+      "2026-09-22 Tappara 4-0 K\u00e4rp\u00e4t",
+      "2026-09-24 Lukko 3-2 Tappara",
+      "2026-09-26 Tappara 2-4 SaiPa",
+      "2026-09-30 Tappara 3-0 KooKoo",
+      "2026-10-02 Tappara 3-2 Jokerit",
+      "2026-10-09 KalPa 2-3 Tappara",
+      "2026-10-10 Tappara 4-3 TPS",
+      "2026-10-16 Tappara 1-2 Lukko",
+      "2026-10-17 Jukurit 3-2 Tappara",
+      "2026-10-20 KooKoo 3-2 Tappara",
+      "2026-10-21 Tappara 3-0 \u00c4ss\u00e4t",
+      "2026-10-24 Pelicans 5-4 Tappara"
+     ]
+    },
+    "away": {
+     "gp": 17,
+     "w": 8,
+     "gf": 38,
+     "ga": 50,
+     "recent": [
+      "2026-09-01 Jukurit 1-4 HPK",
+      "2026-09-04 HIFK 5-3 HPK",
+      "2026-09-08 HPK 0-4 Ilves",
+      "2026-09-15 KalPa 7-0 HPK",
+      "2026-09-19 HPK 3-1 TPS",
+      "2026-09-22 HPK 1-3 Lukko",
+      "2026-09-26 HPK 5-4 \u00c4ss\u00e4t",
+      "2026-09-29 Jokerit 3-0 HPK",
+      "2026-10-02 HPK 2-1 JYP",
+      "2026-10-03 HPK 2-1 K\u00e4rp\u00e4t",
+      "2026-10-09 \u00c4ss\u00e4t 2-3 HPK",
+      "2026-10-10 HPK 5-3 KooKoo",
+      "2026-10-15 SaiPa 2-1 HPK",
+      "2026-10-16 HPK 3-1 Ilves",
+      "2026-10-20 HPK 1-3 Pelicans",
+      "2026-10-22 JYP 3-2 HPK",
+      "2026-10-24 HPK 3-6 HIFK"
+     ]
+    }
+   },
+   "game_id": "2701437"
+  },
+  {
+   "id": "ZZ-VB-PL-jastrz-bie-barkom-podziemia-kredowe-chks-che-m-202611011300",
+   "sport": "Volleyball",
+   "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
+   "stage": "",
+   "home": "Jastrz\u0119bie Barkom",
+   "away": "Podziemia Kredowe ChKS Che\u0142m",
+   "start_utc": "2026-11-01T13:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.plusliga.pl/games.html",
+    "name": "PlusLiga Official Site (plusliga.pl)",
+    "target_id": "plusliga_games",
+    "sha256": "20d939c30d938e3d791976ba26d718fc6bd48162fa4571764fda68e9944dd77c",
+    "bytes": 834280
+   },
+   "model": {
+    "kind": "best_of",
+    "units": 5,
+    "unit_name": "Set",
+    "basis": "Set-by-set binomial model from the captured PlusLiga results table"
+   },
+   "stats": {
+    "home": {
+     "gp": 2,
+     "w": 2,
+     "sw": 0,
+     "sl": 0,
+     "pts": 6
+    },
+    "away": {
+     "gp": 1,
+     "w": 0,
+     "sw": 0,
+     "sl": 0,
+     "pts": 1
+    },
+    "p_home": null
+   },
+   "game_id": "Jastrz\u0119bie Barkom|Podziemia Kredowe ChKS Che\u0142m|202611011300"
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020227",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Carolina Hurricanes",
+   "away": "Winnipeg Jets",
+   "start_utc": "2026-11-01T18:00:00Z",
+   "venue": "Lenovo Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020227",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-26",
+    "sha256": "6bbb1a43f0013236569933240b34711cd7d624b34c029c02e3455b855559ed46",
+    "bytes": 89750
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Carolina Hurricanes",
+     "gp": 12,
+     "w": 8,
+     "l": 2,
+     "otl": 2,
+     "gf": 47,
+     "ga": 33,
+     "pts": 18,
+     "l10": "8-1-1",
+     "streak": "OT",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Winnipeg Jets",
+     "gp": 10,
+     "w": 4,
+     "l": 3,
+     "otl": 3,
+     "gf": 26,
+     "ga": 29,
+     "pts": 11,
+     "l10": "4-3-3",
+     "streak": "OT",
+     "div": "Central"
+    },
+    "home_abbrev": "CAR",
+    "away_abbrev": "WPG"
+   },
+   "game_id": 2026020227
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020228",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Washington Capitals",
+   "away": "Minnesota Wild",
+   "start_utc": "2026-11-01T20:30:00Z",
+   "venue": "Capital One Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020228",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-26",
+    "sha256": "6bbb1a43f0013236569933240b34711cd7d624b34c029c02e3455b855559ed46",
+    "bytes": 89750
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Washington Capitals",
+     "gp": 9,
+     "w": 5,
+     "l": 4,
+     "otl": 0,
+     "gf": 30,
+     "ga": 29,
+     "pts": 10,
+     "l10": "5-4-0",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Minnesota Wild",
+     "gp": 11,
+     "w": 6,
+     "l": 3,
+     "otl": 2,
+     "gf": 32,
+     "ga": 27,
+     "pts": 14,
+     "l10": "5-3-2",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "WSH",
+    "away_abbrev": "MIN"
+   },
+   "game_id": 2026020228
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020229",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Philadelphia Flyers",
+   "away": "Utah Mammoth",
+   "start_utc": "2026-11-01T21:00:00Z",
+   "venue": "Xfinity Mobile Arena",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020229",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-26",
+    "sha256": "6bbb1a43f0013236569933240b34711cd7d624b34c029c02e3455b855559ed46",
+    "bytes": 89750
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Philadelphia Flyers",
+     "gp": 12,
+     "w": 3,
+     "l": 6,
+     "otl": 3,
+     "gf": 20,
+     "ga": 37,
+     "pts": 9,
+     "l10": "3-5-2",
+     "streak": "W",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Utah Mammoth",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 41,
+     "ga": 36,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Central"
+    },
+    "home_abbrev": "PHI",
+    "away_abbrev": "UTA"
+   },
+   "game_id": 2026020229
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020230",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "New York Rangers",
+   "away": "Edmonton Oilers",
+   "start_utc": "2026-11-01T23:00:00Z",
+   "venue": "Madison Square Garden",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020230",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-26",
+    "sha256": "6bbb1a43f0013236569933240b34711cd7d624b34c029c02e3455b855559ed46",
+    "bytes": 89750
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "New York Rangers",
+     "gp": 12,
+     "w": 7,
+     "l": 4,
+     "otl": 1,
+     "gf": 37,
+     "ga": 29,
+     "pts": 15,
+     "l10": "6-3-1",
+     "streak": "L",
+     "div": "Metropolitan"
+    },
+    "away": {
+     "name": "Edmonton Oilers",
+     "gp": 10,
+     "w": 8,
+     "l": 1,
+     "otl": 1,
+     "gf": 47,
+     "ga": 32,
+     "pts": 17,
+     "l10": "8-1-1",
+     "streak": "W",
+     "div": "Pacific"
+    },
+    "home_abbrev": "NYR",
+    "away_abbrev": "EDM"
+   },
+   "game_id": 2026020230
+  },
+  {
+   "id": "ZZ-IH-NHL-2026020231",
+   "sport": "Ice Hockey",
+   "competition": "NHL Regular Season 2026-27",
+   "stage": "",
+   "home": "Anaheim Ducks",
+   "away": "Ottawa Senators",
+   "start_utc": "2026-11-02T01:00:00Z",
+   "venue": "Honda Center",
+   "source": {
+    "url": "https://www.nhl.com/gamecenter/2026020231",
+    "name": "NHL Official API (api-web.nhle.com)",
+    "target_id": "nhl_sched_2026-10-26",
+    "sha256": "6bbb1a43f0013236569933240b34711cd7d624b34c029c02e3455b855559ed46",
+    "bytes": 89750
+   },
+   "model": {
+    "kind": "poisson_goals",
+    "league_mu": 3.08,
+    "home_adv": 0.16
+   },
+   "stats": {
+    "home": {
+     "name": "Anaheim Ducks",
+     "gp": 10,
+     "w": 4,
+     "l": 6,
+     "otl": 0,
+     "gf": 27,
+     "ga": 33,
+     "pts": 8,
+     "l10": "4-6-0",
+     "streak": "L",
+     "div": "Pacific"
+    },
+    "away": {
+     "name": "Ottawa Senators",
+     "gp": 11,
+     "w": 7,
+     "l": 4,
+     "otl": 0,
+     "gf": 31,
+     "ga": 30,
+     "pts": 14,
+     "l10": "6-4-0",
+     "streak": "L",
+     "div": "Atlantic"
+    },
+    "home_abbrev": "ANA",
+    "away_abbrev": "OTT"
+   },
+   "game_id": 2026020231
+  }
+ ]
+}

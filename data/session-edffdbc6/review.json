@@ -1,0 +1,92 @@
+{
+ "schema": "olbg4.board-zz.review/1",
+ "generated_utc": "2026-10-24T17:15:32Z",
+ "datasets": [
+  {
+   "dataset": "data/master.json",
+   "rows": 354,
+   "missing_source_url": 39,
+   "stale_date": 208,
+   "missing_prediction_on_high": 0,
+   "note": "first row without an official URL: M0001"
+  },
+  {
+   "dataset": "data/rows.json",
+   "rows": 144,
+   "missing_source_url": 144,
+   "stale_date": 84,
+   "missing_prediction_on_high": 0,
+   "note": "first past-dated row: None (2026-10-21)"
+  },
+  {
+   "dataset": "data/board.json",
+   "rows": 116,
+   "missing_source_url": 116,
+   "stale_date": 0,
+   "missing_prediction_on_high": 9,
+   "note": "first row without an official URL: ten-01"
+  },
+  {
+   "dataset": "data/matches.json",
+   "rows": 68,
+   "missing_source_url": 68,
+   "stale_date": 45,
+   "missing_prediction_on_high": 0,
+   "note": "first row without an official URL: NBA01"
+  },
+  {
+   "dataset": "data/session-48de8c1d/desk.json",
+   "rows": 114,
+   "missing_source_url": 0,
+   "stale_date": 3,
+   "missing_prediction_on_high": 75,
+   "note": "first past-dated row: FB-CRK-AUS-OD1 (2026-10-23)"
+  },
+  {
+   "dataset": "data/session-e1161e0e/board.json",
+   "rows": 98,
+   "missing_source_url": 0,
+   "stale_date": 25,
+   "missing_prediction_on_high": 0,
+   "note": "first past-dated row: X001 (2026-10-23)"
+  },
+  {
+   "dataset": "data/session-343754f2/desk.json",
+   "rows": 404,
+   "missing_source_url": 404,
+   "stale_date": 17,
+   "missing_prediction_on_high": 14,
+   "note": "first row without an official URL: bw_001"
+  },
+  {
+   "dataset": "data/session-0ed96fe7/desk.json",
+   "rows": 421,
+   "missing_source_url": 421,
+   "stale_date": 35,
+   "missing_prediction_on_high": 12,
+   "note": "first row without an official URL: ez_001"
+  }
+ ],
+ "findings": [
+  {
+   "id": "ZZ-REV-01",
+   "finding": "data/master.json holds 354 rows; 1 are placeholder 'No fixture' rows, 208 are dated before today (2026-10-24), 67 are marked build_verified=false, and 0 High-confidence rows carry no prediction text.",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "ZZ-REV-02",
+   "finding": "data/master.json declares generated_on 2026-10-21; its row dates run past that stamp, so the file is a merged build rather than a single dated desk. Readers should treat the date column, not generated_on, as the fixture date.",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/master.json"
+  },
+  {
+   "id": "ZZ-REV-03",
+   "finding": "Boards FB/EZ/BN grade their top five rows per sport as 'High' from a composite index, not from the brief's \u226570% probability test; published examples sit at 55\u201369% (e.g. FB-PRED-01 is p=0.5942, \u2212146). Their High labels are therefore not comparable with the High labels on this desk, which enforce \u226570% and the \u2212250\u2026+10,000 window together.",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/blob/main/data/session-48de8c1d/predictions.json"
+  },
+  {
+   "id": "ZZ-REV-04",
+   "finding": "Several session desks publish fixture rows whose start time has already passed relative to the repository snapshot (2026-10-24T15:56Z), including golf and darts rows dated 24 Oct. This desk rebuilds its window from a fresh capture instead of carrying them, and lists them here rather than editing another owner's file.",
+   "url": "https://github.com/buffedlizard55-lab/OLBG4/tree/main/data"
+  }
+ ]
+}

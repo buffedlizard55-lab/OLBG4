@@ -1,0 +1,47 @@
+name: Board ZZ official capture (edffdbc6)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/session-edffdbc6/run-request.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zz-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/edffdbc6-olbg4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build target list
+        run: python3 scripts/session-edffdbc6/make_targets.py
+      - name: Fetch official + OLBG sources
+        run: python3 scripts/session-edffdbc6/fetch.py
+      - name: Commit and push raw capture + SHA-256 manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/session-edffdbc6/capture/
+          if git diff --cached --quiet; then
+            echo "No capture changes"
+            exit 0
+          fi
+          git commit -m "chore(zz-edffdbc6): official + OLBG capture bundle [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase origin arena/edffdbc6-olbg4 && git push origin HEAD:arena/edffdbc6-olbg4; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
