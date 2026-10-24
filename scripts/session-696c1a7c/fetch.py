@@ -35,18 +35,22 @@ UA = (
 CTX = ssl.create_default_context()
 
 
-def get(url: str, timeout: int = 45, accept: str | None = None):
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": UA,
-            "Accept": accept
-            or "text/html,application/xhtml+xml,application/json,application/pdf,*/*;q=0.8",
-            "Accept-Language": "en-GB,en;q=0.9",
-            "Accept-Encoding": "identity",
-            "Connection": "close",
-        },
-    )
+DEFAULT_HEADERS = {
+    "Accept": "text/html,application/xhtml+xml,application/json,application/pdf,*/*;q=0.8",
+    "Accept-Language": "en-GB,en;q=0.9",
+    "Accept-Encoding": "identity",
+    "Connection": "close",
+}
+
+
+def get(url: str, timeout: int = 45, accept: str | None = None,
+        extra: dict | None = None):
+    headers = {"User-Agent": UA, **DEFAULT_HEADERS}
+    if accept:
+        headers["Accept"] = accept
+    if extra:
+        headers.update({k: v for k, v in extra.items() if v})
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
         return r.status, r.read(), r.headers.get("Content-Type", ""), r.geturl()
 
@@ -68,7 +72,8 @@ def main() -> int:
         last_exc = None
         for attempt in range(1, attempts + 1):
             try:
-                status, body, ctype, final = get(url, accept=t.get("accept"))
+                status, body, ctype, final = get(url, accept=t.get("accept"),
+                                       extra=t.get("headers"))
                 if status != 200:
                     raise RuntimeError(f"HTTP {status}")
                 if not body:
