@@ -68,7 +68,12 @@ jobs:
 
       - name: Check no TODO placeholders
         run: |
-          ! grep -R "TODO" --include="*.html" --include="*.json" . || (echo "TODO found" && exit 1)
+          # Authored pages and data only. Captured third-party payloads under
+          # data/**/raw/** and data/**/capture/** are byte-exact evidence: they keep
+          # whatever the source page printed, so scanning them for our own
+          # placeholders produces false failures and blocks every deploy.
+          ! grep -R "TODO" --include="*.html" --include="*.json" \
+              --exclude-dir=raw --exclude-dir=capture . || (echo "TODO found" && exit 1)
           echo "No TODO placeholders"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
