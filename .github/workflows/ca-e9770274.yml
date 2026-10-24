@@ -1,0 +1,59 @@
+name: Board CA capture (e9770274)
+
+# Session arena/e9770274-olbg4. The interactive sandbox has no general HTTPS egress
+# (github.com, api.github.com, registry.npmjs.org, pypi.org, files.pythonhosted.org only),
+# so OLBG's public sport boards and the official governing-body / league / tour feeds the
+# desk cites are fetched here, on a runner with open egress, and the exact bytes are
+# committed with a SHA-256 manifest. Nothing is parsed or interpreted in this job.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/e9770274-olbg4
+    paths:
+      - "scripts/session-e9770274/fetch.py"
+      - "scripts/session-e9770274/targets.json"
+      - ".github/workflows/ca-e9770274.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: board-ca-capture-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch OLBG boards and official sources
+        run: python3 scripts/session-e9770274/fetch.py
+      - name: Commit the capture
+        run: |
+          set -uo pipefail
+          git config user.name "board-ca-capture"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/session-e9770274/capture
+          if git diff --cached --quiet; then
+            echo "no capture changes"
+            exit 0
+          fi
+          git commit -m "capture(CA): live OLBG + official-source snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          BR="${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin "$BR" && git push origin "HEAD:$BR"; then
+              echo "pushed"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "push failed after retries" >&2
+          exit 1
