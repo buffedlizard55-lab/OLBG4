@@ -482,7 +482,9 @@ page where OLBG is the only listing. The capture bytes behind every number are h
 
     # ================================================================ picks
     groups = []
-    for sport, slug in SPORTS:
+    ranked = sorted([(s, sl) for s, sl in SPORTS if pred_by_sport.get(s)],
+                    key=lambda x: -max((p.get("fair_prob") or 0) for p in pred_by_sport[x[0]]))
+    for sport, slug in ranked:
         sp = sorted(pred_by_sport.get(sport, []), key=lambda p: (-(p.get("fair_prob") or 0)))
         if not sp:
             continue
@@ -500,7 +502,7 @@ page where OLBG is the only listing. The capture bytes behind every number are h
                     if pred_by_sport.get(s))
     body = f"""
 <h1>Picks</h1>
-<p class="lede">Every written prediction on the desk, newest first within each sport. Each one names the
+<p class="lede">Every written prediction on the desk, strongest first within each sport. Each one names the
 selection, the price we make it, the confidence and the official facts it rests on.</p>
 <div class="tagrow">{jump}</div>
 {empty_note}

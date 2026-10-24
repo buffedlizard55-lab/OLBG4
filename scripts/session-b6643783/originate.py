@@ -823,7 +823,7 @@ def build(cap_dir: str):
         rows.append(blank_row(
             id="ca_olbg_" + (ev["event_id"] or re.sub(r"\W+", "_", ev["event"])[:40]),
             sport=ev["sport"], sport_slug=dict(SUPPORTED)[ev["sport"]],
-            competition="OLBG-listed event (official fixture not located)",
+            competition="OLBG listing only (no official fixture located)",
             side_a=ev["event"], side_b="", start_utc=ev["start_utc"],
             official_url=ev["event_url"], official_source_name="OLBG sport hub listing (taxonomy only)",
             capture_id=ev["hub"], flags=["OLBG listing only - no official fixture/values located, no line originated"],
