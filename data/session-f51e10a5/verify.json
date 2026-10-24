@@ -1,0 +1,144 @@
+{
+ "board": "FI",
+ "checks": [
+  {
+   "detail": "342 rows",
+   "name": "desk.json exists with rows",
+   "ok": true
+  },
+  {
+   "detail": "0 outside: []",
+   "name": "every dated fixture starts inside the declared window",
+   "ok": true
+  },
+  {
+   "detail": "0 missing",
+   "name": "every fixture carries an https official source",
+   "ok": true
+  },
+  {
+   "detail": "0 markets off",
+   "name": "every market's probabilities sum to 1.0000",
+   "ok": true
+  },
+  {
+   "detail": "0 legs off",
+   "name": "every fair decimal price re-derives from its probability",
+   "ok": true
+  },
+  {
+   "detail": "0 legs off",
+   "name": "every fair American price matches its decimal price",
+   "ok": true
+  },
+  {
+   "detail": "778 markets",
+   "name": "market ladder built",
+   "ok": true
+  },
+  {
+   "detail": "0 problems: []",
+   "name": "every pick is a real, strongest leg of its own market with a consistent window flag",
+   "ok": true
+  },
+  {
+   "detail": "0 rows: []",
+   "name": "confidence labels follow the stated rule",
+   "ok": true
+  },
+  {
+   "detail": "0 short",
+   "name": "every written prediction is at least 30 words",
+   "ok": true
+  },
+  {
+   "detail": "0 flagged",
+   "name": "no prediction uses internal vocabulary",
+   "ok": true
+  },
+  {
+   "detail": "0 missing the selection",
+   "name": "every prediction names its selection",
+   "ok": true
+  },
+  {
+   "detail": "0 missing",
+   "name": "every prediction carries an official source link",
+   "ok": true
+  },
+  {
+   "detail": "worst 0.269 ('FI-PRED-053', 'FI-PRED-055')",
+   "name": "predictions are unique (3-gram Jaccard < 0.35)",
+   "ok": true
+  },
+  {
+   "detail": "55 predictions",
+   "name": "row ids in predictions exist in the desk",
+   "ok": true
+  },
+  {
+   "detail": "",
+   "name": "every sport in the brief is carried in the desk summary",
+   "ok": true
+  },
+  {
+   "detail": "uncovered: Golf,Cricket,Gaelic Sports,Greyhounds",
+   "name": "every sport with no written pick is explained in the review file",
+   "ok": true
+  },
+  {
+   "detail": "Golf:0, Volleyball:5, Rugby Union:5, Cricket:0, Snooker:5, Darts:5, Baseball:5, Gaelic Sports:0, Greyhounds:0, Tennis:5, Motor Racing:5, Handball:5, Ice Hockey:5, Basketball:5, Rugby League:5",
+   "name": "written predictions exist for the sports with priceable fixtures",
+   "ok": true
+  },
+  {
+   "detail": "20261024T223841Z",
+   "name": "the published source list is the latest capture",
+   "ok": true
+  },
+  {
+   "detail": "0 rows: []",
+   "name": "every row's official source is either captured bytes or a committed transcription",
+   "ok": true
+  },
+  {
+   "detail": "sha256 map",
+   "name": "source manifest hashes match the committed bytes",
+   "ok": true
+  },
+  {
+   "detail": "24 pages",
+   "name": "site pages rendered",
+   "ok": true
+  },
+  {
+   "detail": "0 broken: []",
+   "name": "every internal link resolves",
+   "ok": true
+  },
+  {
+   "detail": "0 rows without one",
+   "name": "every rendered fixture row contains an official https link",
+   "ok": true
+  },
+  {
+   "detail": "0 pages changed",
+   "name": "site rebuild is byte-identical",
+   "ok": true
+  },
+  {
+   "detail": "12 findings",
+   "name": "every finding names an area and a location",
+   "ok": true
+  }
+ ],
+ "markets": 778,
+ "ok": true,
+ "passed": 26,
+ "predictions": 55,
+ "rows": 342,
+ "run_utc": "2026-10-24T22:48:52Z",
+ "schema": "fi-verify-1",
+ "session": "arena/f51e10a5-olbg4",
+ "total": 26
+}

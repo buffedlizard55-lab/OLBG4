@@ -1,0 +1,131 @@
+{
+ "board": "FI",
+ "findings": [
+  {
+   "area": "Desk",
+   "detail": "Each was captured on an official source but lacks the input its sport's model needs. The reason is printed in the row's own flags. They are left blank rather than guessed: Cricket 14, Rugby League 2, Snooker 30, Tennis 5, Volleyball 20",
+   "id": "FI-F01",
+   "severity": "low",
+   "sources": [],
+   "title": "71 captured fixtures are published without a price",
+   "where": "data/session-f51e10a5/desk.json"
+  },
+  {
+   "area": "Coverage",
+   "detail": "The brief asks for five written picks in every sport. Four could not be built without inventing a number: Golf (the only captured PGA Tour leaderboard is the Butterfield Bermuda Championship, already in progress, so no pre-event field exists), Cricket (the ICC team-ranking pages captured are client-rendered shells with no ratings in the bytes, and no official results feed was captured to build a rating), Gaelic Sports (the GAA fixtures payload holds no match inside the 24 Oct \u2013 8 Nov window; the county finals OLBG lists are not on gaa.ie) and Greyhounds (every GBGB racecard/fixture endpoint tried returned 404, and the OLBG hub lists a time but no runners). Each is stated on the Coverage page with its shortfall, and the OLBG events are listed with links instead of being published as rows.",
+   "id": "FI-F02",
+   "severity": "high",
+   "sources": [
+    "https://www.pgatour.com/leaderboard.html",
+    "https://www.icc-cricket.com/rankings/team-rankings/mens/odi",
+    "https://www.gaa.ie/fixtures-results/",
+    "https://www.gbgb.org.uk/"
+   ],
+   "title": "Four sports have no written prediction in this snapshot",
+   "where": "data/session-f51e10a5/predictions.json"
+  },
+  {
+   "area": "Confidence",
+   "detail": "A ranking-only, seed-only, result-only or thin sample cannot support High however large the probability looks. Caps by sport: Basketball 8, Darts 2, Handball 9, Ice Hockey 132, Motor Racing 7, Rugby League 7, Rugby Union 8, Snooker 3, Tennis 11",
+   "id": "FI-F04",
+   "severity": "low",
+   "sources": [],
+   "title": "187 picks are capped below High by their sport's own rule",
+   "where": "data/session-f51e10a5/desk.json"
+  },
+  {
+   "area": "Sourcing",
+   "detail": "They are published as an appendix with their OLBG links, not as desk rows, because a row without an official source would break the desk's own rule. By sport: Cricket 6, Darts 1, Gaelic Sports 5, Greyhounds 1, Handball 27, Rugby Union 3, Volleyball 31",
+   "id": "FI-F05",
+   "severity": "low",
+   "sources": [
+    "https://www.olbg.com/betting-tips"
+   ],
+   "title": "74 OLBG-listed events have no official fixture in this capture",
+   "where": "data/session-f51e10a5/desk.json"
+  },
+  {
+   "area": "Predictions",
+   "detail": "All 55 written picks carry the 'unverified' note on injuries. The official pages captured in this snapshot publish fixtures, tables and match statistics but not team news, so no absence is claimed.",
+   "id": "FI-F06",
+   "severity": "medium",
+   "sources": [],
+   "title": "No injury or availability statement is published for any pick",
+   "where": "session-f51e10a5/picks.html"
+  },
+  {
+   "area": "Sourcing",
+   "detail": "The URC Match Centre table page is client-rendered and returns no table bytes to the runner, so the standings were transcribed from the live official page by the earlier AR board and are committed with that page's URL, round and fetch time. The fixtures themselves come from the official fixtures-in-full page captured here.",
+   "id": "FI-F07",
+   "severity": "medium",
+   "sources": [
+    "https://stats.unitedrugby.com/match-centre/table/2026-27"
+   ],
+   "title": "8 Rugby Union rows rest on a transcribed official table",
+   "where": "data/session-405e9797/evidence/urc_table.json"
+  },
+  {
+   "area": "Desk",
+   "detail": "A golf outright on an event the PGA feed reports as completed, and a GBGB placeholder with no start time and no runners. Publishing either would have described a fixture that cannot be backed. Ids: ca_golf_Y2026016, ca_gbgb_20261023",
+   "id": "FI-F08",
+   "severity": "low",
+   "sources": [],
+   "title": "2 row(s) were dropped rather than published",
+   "where": "data/session-f51e10a5/desk.json"
+  },
+  {
+   "area": "Repository",
+   "detail": "The canonical file was generated on 2026-10-21 and holds 369 rows; 210 are dated before today (2026-10-24) and 28 are explicitly marked played. Anything rendered from it describes fixtures that have already been played.",
+   "id": "FI-F09",
+   "severity": "high",
+   "sources": [],
+   "title": "data/master.json is a 21 October snapshot, not an upcoming-fixture list",
+   "where": "data/master.json"
+  },
+  {
+   "area": "Repository",
+   "detail": "Those rows cannot be checked against an official page. Ids: M0001, M0002, M0003, M0004, M0005, M0006, M0007, M0008, M0009, M0010, M0011, M0012, M0013, M0016, M0017, M0018, M0024, M0028, M0124, M0129, M0145, M0146, M0147, M0154, M0176",
+   "id": "FI-F10",
+   "severity": "high",
+   "sources": [],
+   "title": "39 rows in data/master.json carry no source URL",
+   "where": "data/master.json"
+  },
+  {
+   "area": "Repository",
+   "detail": "Of 42 High rows, 0 have an empty prediction field, so the strongest labels in the canonical dataset are unsupported by any written case.",
+   "id": "FI-F11",
+   "severity": "high",
+   "sources": [],
+   "title": "0 High-confidence rows in data/master.json have no written prediction",
+   "where": "data/master.json"
+  },
+  {
+   "area": "Peer desk",
+   "detail": "data/session-f0622b6e/desk.json holds 233 rows, of which 0 have no pick. It is a dated snapshot from another board and outside this session's scope; it is listed so the combined output is not mistaken for a complete one.",
+   "id": "FI-F13",
+   "severity": "low",
+   "sources": [],
+   "title": "The freshest peer desk still carries 0 unpriced rows",
+   "where": "data/session-f0622b6e/desk.json"
+  },
+  {
+   "area": "Capture",
+   "detail": "They are listed with their status on the Sources page. The material ones \u2014 ranking, fixture or racecard feeds \u2014 are: icc_fixtures (404), gbgb_racecards (404), gbgb_fixtures (404), wta_rankings (404), atp_rankings (403), atp_rankings_api (0), intrl_rankings (404), pdc_matches (0), pdc_matches_window (0), wst_matches_window (404), icc_fixtures2 (404), atp_rankings_json (0). No value was estimated to cover a failed endpoint.",
+   "id": "FI-F14",
+   "severity": "low",
+   "sources": [
+    "https://www.icc-cricket.com/tournaments/fixtures",
+    "https://www.gbgb.org.uk/racecards/",
+    "https://www.gbgb.org.uk/fixtures/",
+    "https://api.wtatennis.com/tennis/players/rankings/singles?page=0&pageSize=200",
+    "https://www.atptour.com/en/rankings/singles?rankRange=1-100"
+   ],
+   "title": "45 official endpoints failed during the capture",
+   "where": "data/session-f51e10a5/capture"
+  }
+ ],
+ "generated_utc": "2026-10-24T22:48:52Z",
+ "schema": "fi-review-1",
+ "session": "arena/f51e10a5-olbg4"
+}
