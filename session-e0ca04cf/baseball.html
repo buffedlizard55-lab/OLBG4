@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baseball · OLBG 15-sport desk</title>
+<style>
+:root{
+  --bg:#0b1220; --panel:#111a2b; --panel2:#162134; --line:#22304a;
+  --ink:#e8eefb; --mute:#9fb0cc; --accent:#3ba3ff; --accent2:#21d4a4;
+  --high:#21d4a4; --med:#ffc857; --low:#9fb0cc; --flag:#ff7a7a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.94);
+ border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+header.top .bar{display:flex;gap:14px;align-items:center;justify-content:space-between;
+ padding:10px 0;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.2px}
+.brand span{color:var(--accent)}
+nav.main{display:flex;gap:4px;flex-wrap:wrap}
+nav.main a{padding:6px 10px;border-radius:8px;color:var(--mute);font-size:14px}
+nav.main a:hover{background:var(--panel2);text-decoration:none;color:var(--ink)}
+nav.main a.on{background:var(--panel2);color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+main{padding:26px 0 60px}
+h1{font-size:28px;line-height:1.25;margin:0 0 6px}
+h2{font-size:20px;margin:34px 0 10px}
+h3{font-size:16px;margin:22px 0 8px}
+p.lede{color:var(--mute);margin:0 0 18px;max-width:70ch}
+.sub{color:var(--mute);font-size:14px}
+.grid{display:grid;gap:14px}
+.cards{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card h3{margin:0 0 6px;font-size:15px}
+.card .big{font-size:24px;font-weight:700}
+.kpi{display:flex;gap:22px;flex-wrap:wrap;margin:16px 0 6px}
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+ padding:12px 16px;min-width:132px}
+.kpi .n{font-size:22px;font-weight:700}
+.kpi .l{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+table{width:100%;border-collapse:collapse;background:var(--panel);
+ border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13.5px}
+th,td{padding:9px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--panel2);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;
+ color:var(--mute);position:relative;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#16223a}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11.5px;
+ font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.pill.High{background:rgba(33,212,164,.16);color:var(--high)}
+.pill.Medium{background:rgba(255,200,87,.16);color:var(--med)}
+.pill.Low{background:rgba(159,176,204,.16);color:var(--low)}
+.pill.none{background:rgba(255,122,122,.14);color:var(--flag)}
+.tag{display:inline-block;background:var(--panel2);border:1px solid var(--line);
+ border-radius:999px;padding:1px 8px;font-size:11.5px;color:var(--mute)}
+.pick{font-weight:700}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+ border-radius:0 10px 10px 0;margin:14px 0;color:var(--mute)}
+.note.warn{border-left-color:var(--flag)}
+.note.ok{border-left-color:var(--high)}
+.pred{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.pred .head{display:flex;gap:10px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.pred .match{font-weight:700}
+.pred .sel{color:var(--accent2);font-weight:700}
+.pred p{margin:8px 0 0}
+.pred .meta{color:var(--mute);font-size:12.5px;margin-top:10px}
+.pred .meta a{color:var(--accent)}
+.scroll{overflow-x:auto;border-radius:12px}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:13px;padding:18px 0 40px}
+ul.tight{margin:8px 0 0 18px;padding:0}
+ul.tight li{margin:3px 0}
+code{background:var(--panel2);padding:1px 5px;border-radius:5px;font-size:12.5px}
+@media (max-width:640px){h1{font-size:22px}td,th{padding:7px 8px}}
+</style></head>
+<body>
+<header class="top"><div class="wrap bar">
+  <div class="brand">OLBG <span>15-sport desk</span></div>
+  <nav class="main"><a class="" href="index.html">Overview</a><a class="" href="picks.html">Picks</a><a class="" href="entries.html">All matches</a><a class="" href="markets.html">Markets</a><a class="" href="sources.html">Sources</a><a class="" href="flagged.html">Flagged for review</a><a class="" href="methodology.html">Methodology</a><a class="" href="olbg.html">OLBG</a><a class="" href="review.html">Repo review</a></nav>
+</div></header>
+<main class="wrap">
+<h1>Baseball</h1><p class="lede">MLB postseason fixtures priced from the official Stats API standings and run environment.</p><div class="kpi">
+          <div><div class="n">6</div><div class="l">fixtures</div></div>
+          <div><div class="n">6</div><div class="l">priced</div></div>
+          <div><div class="n">0</div><div class="l">High</div></div>
+          <div><div class="n">6</div><div class="l">in −250…+10,000</div></div>
+          <div><div class="n">5</div><div class="l">written predictions</div></div>
+        </div><h2>Picks for this sport</h2><div class="scroll"><table><thead><tr><th>When (UTC)</th><th>Match</th><th>Pick</th><th>Our price</th><th>OLBG price</th><th>Conf.</th><th>Official source</th></tr></thead><tbody><tr><td class="num">Sun 25 Oct 00:00 UTC</td><td>Milwaukee Brewers <span class="sub">v</span> Tampa Bay Rays<div class="sub">MLB World Series</div></td><td><span class="pick">Milwaukee Brewers</span><div class="sub">2-way</div></td><td class="num">1.57<div class="sub">-175 · 63.9%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill Medium">Medium</span></td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a><div class="sub">mlb_schedule</div></td></tr><tr><td class="num">Tue 27 Oct 00:00 UTC</td><td>Tampa Bay Rays <span class="sub">v</span> Milwaukee Brewers<div class="sub">MLB World Series</div></td><td><span class="pick">Tampa Bay Rays +1.5</span><div class="sub">Runs</div></td><td class="num">1.59<div class="sub">-169 · 62.7%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill Medium">Medium</span></td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a><div class="sub">mlb_schedule</div></td></tr><tr><td class="num">Wed 28 Oct 00:00 UTC</td><td>Tampa Bay Rays <span class="sub">v</span> Milwaukee Brewers<div class="sub">MLB World Series</div></td><td><span class="pick">Tampa Bay Rays +1.5</span><div class="sub">Runs</div></td><td class="num">1.59<div class="sub">-169 · 62.7%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill Medium">Medium</span></td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a><div class="sub">mlb_schedule</div></td></tr><tr><td class="num">Thu 29 Oct 00:00 UTC</td><td>Tampa Bay Rays <span class="sub">v</span> Milwaukee Brewers<div class="sub">MLB World Series</div></td><td><span class="pick">Tampa Bay Rays +1.5</span><div class="sub">Runs</div></td><td class="num">1.59<div class="sub">-169 · 62.7%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill Medium">Medium</span></td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a><div class="sub">mlb_schedule</div></td></tr><tr><td class="num">Sat 31 Oct 00:00 UTC</td><td>Milwaukee Brewers <span class="sub">v</span> Tampa Bay Rays<div class="sub">MLB World Series</div></td><td><span class="pick">Milwaukee Brewers</span><div class="sub">2-way</div></td><td class="num">1.57<div class="sub">-175 · 63.9%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill Medium">Medium</span></td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a><div class="sub">mlb_schedule</div></td></tr><tr><td class="num">Sun 01 Nov 00:00 UTC</td><td>Milwaukee Brewers <span class="sub">v</span> Tampa Bay Rays<div class="sub">MLB World Series</div></td><td><span class="pick">Milwaukee Brewers</span><div class="sub">2-way</div></td><td class="num">1.57<div class="sub">-175 · 63.9%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill Medium">Medium</span></td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a><div class="sub">mlb_schedule</div></td></tr></tbody></table></div><h2>Written predictions</h2><div class="pred">
+  <div class="head">
+    <div class="match">Milwaukee Brewers v Tampa Bay Rays
+      <div class="sub">MLB World Series · Sun 25 Oct 00:00 UTC</div></div>
+    <div><span class="pill Medium">Medium</span> <span class="tag">pick at 1.57</span></div>
+  </div>
+  <p><span class="sel">Selection: Milwaukee Brewers</span></p>
+  <p>Logan Henderson starts the World Series opener for Milwaukee, who finished 103-59 and scored 5.136 runs a game while allowing 3.815. Tampa Bay were 98-64 at 4.543 and 4.012, with Drew Rasmussen on the mound. The projection is 4.78 against 3.87, so Milwaukee Brewers at 1.57 is the call for game one.</p>
+  <div class="meta">Words: 52 · Official source: <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a>
+  
+  <details><summary>Inputs used</summary><ul class="tight"><li>method: Poisson on MLB runs scored/allowed per game, home factor 1.04</li><li>home_rs_pg: 5.136</li><li>home_ra_pg: 3.815</li><li>away_rs_pg: 4.543</li><li>away_ra_pg: 4.012</li><li>home_record: 103-59</li><li>away_record: 98-64</li><li>home_gp: 162</li><li>away_gp: 162</li><li>home_pitcher: Logan Henderson</li><li>away_pitcher: Drew Rasmussen</li><li>sample_games: 162</li><li>exp_home: 4.783</li><li>exp_away: 3.868</li><li>exp_total: 8.65</li><li>total_line: 8.5</li><li>handicap_line: -1.5</li></ul></details>
+  </div>
+</div><div class="pred">
+  <div class="head">
+    <div class="match">Tampa Bay Rays v Milwaukee Brewers
+      <div class="sub">MLB World Series · Tue 27 Oct 00:00 UTC</div></div>
+    <div><span class="pill Medium">Medium</span> <span class="tag">pick at 1.59</span></div>
+  </div>
+  <p><span class="sel">Selection: Tampa Bay Rays +1.5</span></p>
+  <p>Back at Tropicana Field, Tampa Bay scored 4.543 runs a game and allowed 4.012 across a 98-64 season, while Milwaukee arrive at 5.136 and 3.815 with Freddy Peralta listed against Robert Gasser. The run projection is 4.60 for the visitors against 4.02 for the hosts, close enough that the start matters: Tampa Bay Rays +1.5 at 1.59.</p>
+  <div class="meta">Words: 57 · Official source: <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a>
+  
+  <details><summary>Inputs used</summary><ul class="tight"><li>method: Poisson on MLB runs scored/allowed per game, home factor 1.04</li><li>home_rs_pg: 4.543</li><li>home_ra_pg: 4.012</li><li>away_rs_pg: 5.136</li><li>away_ra_pg: 3.815</li><li>home_record: 98-64</li><li>away_record: 103-59</li><li>home_gp: 162</li><li>away_gp: 162</li><li>home_pitcher: Freddy Peralta</li><li>away_pitcher: Robert Gasser</li><li>sample_games: 162</li><li>exp_home: 4.022</li><li>exp_away: 4.599</li><li>exp_total: 8.621</li><li>total_line: 8.5</li><li>handicap_line: 1.5</li></ul></details>
+  </div>
+</div><div class="pred">
+  <div class="head">
+    <div class="match">Tampa Bay Rays v Milwaukee Brewers
+      <div class="sub">MLB World Series · Wed 28 Oct 00:00 UTC</div></div>
+    <div><span class="pill Medium">Medium</span> <span class="tag">pick at 1.59</span></div>
+  </div>
+  <p><span class="sel">Selection: Tampa Bay Rays +1.5</span></p>
+  <p>Tampa Bay host the middle game of this Series stretch with the same 4.543 scored and 4.012 allowed profile, against Milwaukee&#x27;s 5.136 and 3.815. Probable pitchers were not yet published for this date, so the projection of 4.60 to 4.02 is built from the season rates alone. On that margin, Tampa Bay Rays +1.5 at 1.59 is the pick.</p>
+  <div class="meta">Words: 59 · Official source: <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a>
+  
+  <details><summary>Inputs used</summary><ul class="tight"><li>method: Poisson on MLB runs scored/allowed per game, home factor 1.04</li><li>home_rs_pg: 4.543</li><li>home_ra_pg: 4.012</li><li>away_rs_pg: 5.136</li><li>away_ra_pg: 3.815</li><li>home_record: 98-64</li><li>away_record: 103-59</li><li>home_gp: 162</li><li>away_gp: 162</li><li>home_pitcher: </li><li>away_pitcher: </li><li>sample_games: 162</li><li>exp_home: 4.022</li><li>exp_away: 4.599</li><li>exp_total: 8.621</li><li>total_line: 8.5</li><li>handicap_line: 1.5</li></ul></details>
+  </div>
+</div><div class="pred">
+  <div class="head">
+    <div class="match">Milwaukee Brewers v Tampa Bay Rays
+      <div class="sub">MLB World Series · Sat 31 Oct 00:00 UTC</div></div>
+    <div><span class="pill Medium">Medium</span> <span class="tag">pick at 1.57</span></div>
+  </div>
+  <p><span class="sel">Selection: Milwaukee Brewers</span></p>
+  <p>The same two clubs meet again in Milwaukee, and the season-long run rates still favour the hosts: 5.136 scored and 3.815 allowed against Tampa Bay&#x27;s 4.543 and 4.012. Starting pitchers for this date were not published in the captured schedule, so the selection rests on the team numbers alone, and Milwaukee Brewers at 1.57 stays the pick.</p>
+  <div class="meta">Words: 57 · Official source: <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a>
+  
+  <details><summary>Inputs used</summary><ul class="tight"><li>method: Poisson on MLB runs scored/allowed per game, home factor 1.04</li><li>home_rs_pg: 5.136</li><li>home_ra_pg: 3.815</li><li>away_rs_pg: 4.543</li><li>away_ra_pg: 4.012</li><li>home_record: 103-59</li><li>away_record: 98-64</li><li>home_gp: 162</li><li>away_gp: 162</li><li>home_pitcher: </li><li>away_pitcher: </li><li>sample_games: 162</li><li>exp_home: 4.783</li><li>exp_away: 3.868</li><li>exp_total: 8.65</li><li>total_line: 8.5</li><li>handicap_line: -1.5</li></ul></details>
+  </div>
+</div><div class="pred">
+  <div class="head">
+    <div class="match">Milwaukee Brewers v Tampa Bay Rays
+      <div class="sub">MLB World Series · Sun 01 Nov 00:00 UTC</div></div>
+    <div><span class="pill Medium">Medium</span> <span class="tag">pick at 1.57</span></div>
+  </div>
+  <p><span class="sel">Selection: Milwaukee Brewers</span></p>
+  <p>Milwaukee&#x27;s run differential is the strongest part of this Series matchup, 5.136 runs scored against 3.815 allowed across 162 games, while Tampa Bay sit at 4.543 and 4.012. With no probable pitcher listed for this date in the captured schedule, the projection holds at 4.78 to 3.87 and Milwaukee Brewers at 1.57 remains the selection.</p>
+  <div class="meta">Words: 55 · Official source: <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">MLB official Stats API (statsapi.mlb.com)</a>
+  
+  <details><summary>Inputs used</summary><ul class="tight"><li>method: Poisson on MLB runs scored/allowed per game, home factor 1.04</li><li>home_rs_pg: 5.136</li><li>home_ra_pg: 3.815</li><li>away_rs_pg: 4.543</li><li>away_ra_pg: 4.012</li><li>home_record: 103-59</li><li>away_record: 98-64</li><li>home_gp: 162</li><li>away_gp: 162</li><li>home_pitcher: </li><li>away_pitcher: </li><li>sample_games: 162</li><li>exp_home: 4.783</li><li>exp_away: 3.868</li><li>exp_total: 8.65</li><li>total_line: 8.5</li><li>handicap_line: -1.5</li></ul></details>
+  </div>
+</div><h2>Every market we originated</h2><div class="scroll"><table><thead><tr><th>When</th><th>Match</th><th>Market</th><th>Line</th><th>Selection</th><th class="num">Our dec</th><th class="num">Our Am.</th><th class="num">OLBG dec</th><th>Source</th></tr></thead><tbody><tr><td class="num">Sun 25 Oct 00:00 UTC</td><td>Milwaukee Brewers v Tampa Bay Rays</td><td>match winner</td><td class="num">—</td><td>Tampa Bay Rays</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>match winner</td><td class="num">—</td><td>Milwaukee Brewers</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">-1.5</td><td>Milwaukee Brewers -1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">-1.5</td><td>Tampa Bay Rays +1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Over 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Under 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td class="num">Tue 27 Oct 00:00 UTC</td><td>Tampa Bay Rays v Milwaukee Brewers</td><td>match winner</td><td class="num">—</td><td>Milwaukee Brewers</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>match winner</td><td class="num">—</td><td>Tampa Bay Rays</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">1.5</td><td>Tampa Bay Rays +1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">1.5</td><td>Milwaukee Brewers -1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Over 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Under 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td class="num">Wed 28 Oct 00:00 UTC</td><td>Tampa Bay Rays v Milwaukee Brewers</td><td>match winner</td><td class="num">—</td><td>Milwaukee Brewers</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>match winner</td><td class="num">—</td><td>Tampa Bay Rays</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">1.5</td><td>Tampa Bay Rays +1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">1.5</td><td>Milwaukee Brewers -1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Over 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Under 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td class="num">Thu 29 Oct 00:00 UTC</td><td>Tampa Bay Rays v Milwaukee Brewers</td><td>match winner</td><td class="num">—</td><td>Milwaukee Brewers</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>match winner</td><td class="num">—</td><td>Tampa Bay Rays</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">1.5</td><td>Tampa Bay Rays +1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">1.5</td><td>Milwaukee Brewers -1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Over 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Under 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td class="num">Sat 31 Oct 00:00 UTC</td><td>Milwaukee Brewers v Tampa Bay Rays</td><td>match winner</td><td class="num">—</td><td>Tampa Bay Rays</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>match winner</td><td class="num">—</td><td>Milwaukee Brewers</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">-1.5</td><td>Milwaukee Brewers -1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">-1.5</td><td>Tampa Bay Rays +1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Over 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Under 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td class="num">Sun 01 Nov 00:00 UTC</td><td>Milwaukee Brewers v Tampa Bay Rays</td><td>match winner</td><td class="num">—</td><td>Tampa Bay Rays</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>match winner</td><td class="num">—</td><td>Milwaukee Brewers</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">-1.5</td><td>Milwaukee Brewers -1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>handicap</td><td class="num">-1.5</td><td>Tampa Bay Rays +1.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Over 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr><tr><td></td><td></td><td>total</td><td class="num">8.5</td><td>Under 8.5</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-08&amp;hydrate=probablePitcher,linescore,team,venue" rel="noopener" target="_blank">source</a></td></tr></tbody></table></div>
+</main>
+<footer><div class="wrap">
+  <p>Board EC · session <code>arena/e0ca04cf-olbg4</code> · prices are our own fair lines
+  derived from captured official inputs; the OLBG quote shown next to them is what the
+  listing displayed when the page was captured. Nothing here is a tip to stake money.</p>
+</div></footer>
+</body></html>

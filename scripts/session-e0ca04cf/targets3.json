@@ -1,0 +1,98 @@
+[
+ {
+  "sport": "Snooker",
+  "id": "wst_rankings_api",
+  "url": "https://rankings.snooker.web.gc.wstservices.co.uk/v2/?page.size=200",
+  "delay": 0.6
+ },
+ {
+  "sport": "Snooker",
+  "id": "wst_rankings_api2",
+  "url": "https://rankings.snooker.web.gc.wstservices.co.uk/v2/?page.size=200&filter[rankingType]=prizeMoney",
+  "delay": 0.6
+ },
+ {
+  "sport": "Darts",
+  "id": "pdc_rankings_api",
+  "url": "https://rankings.pdc.web.gc.wstservices.co.uk/v2/?page.size=200",
+  "delay": 0.6
+ },
+ {
+  "sport": "Darts",
+  "id": "pdc_matches_api2",
+  "url": "https://matches.pdc.web.gc.wstservices.co.uk/v2/?page.size=400&filter[startDateTime][gte]=2026-10-24&filter[startDateTime][lte]=2026-11-08",
+  "delay": 0.6
+ },
+ {
+  "sport": "Darts",
+  "id": "pdc_participants2",
+  "url": "https://participants.pdc.web.gc.wstservices.co.uk/v2/?page.size=200",
+  "delay": 0.6
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "rugby_feeds_matches",
+  "url": "https://rugby-union-feeds.incrowdsports.com/v1/matches?limit=200",
+  "delay": 0.6
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "rugby_feeds_competitions",
+  "url": "https://rugby-union-feeds.incrowdsports.com/v1/competitions",
+  "delay": 0.6
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "urc_standings_page",
+  "url": "https://www.unitedrugby.com/standings",
+  "delay": 0.6
+ },
+ {
+  "sport": "Rugby Union",
+  "id": "urc_standings_data",
+  "url": "https://stats.unitedrugby.com/standings/__data.json",
+  "delay": 0.6
+ },
+ {
+  "sport": "Cricket",
+  "id": "icc_api_rankings",
+  "url": "https://www.icc-cricket.com/api/rankings?gender=mens&type=team&discipline=t20i",
+  "delay": 0.6
+ },
+ {
+  "sport": "Cricket",
+  "id": "icc_api_root",
+  "url": "https://api.icc-cricket.com/rankings",
+  "delay": 0.6
+ },
+ {
+  "sport": "Cricket",
+  "id": "icc_t20i_json",
+  "url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i.json",
+  "delay": 0.6
+ },
+ {
+  "sport": "Handball",
+  "id": "hbl_api_table",
+  "url": "https://www.dkb-handball-bundesliga.de/api/table",
+  "delay": 0.6
+ },
+ {
+  "sport": "Handball",
+  "id": "asobal_clasificacion",
+  "url": "https://asobal.es/clasificacion/",
+  "delay": 0.6
+ },
+ {
+  "sport": "Handball",
+  "id": "lnh_classement",
+  "url": "https://www.lnh.fr/classement",
+  "delay": 0.6
+ },
+ {
+  "sport": "Volleyball",
+  "id": "vbl_tabelle",
+  "url": "https://www.volleyball-bundesliga.de/tabelle",
+  "delay": 0.6
+ }
+]

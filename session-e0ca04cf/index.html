@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview · OLBG 15-sport desk</title>
+<style>
+:root{
+  --bg:#0b1220; --panel:#111a2b; --panel2:#162134; --line:#22304a;
+  --ink:#e8eefb; --mute:#9fb0cc; --accent:#3ba3ff; --accent2:#21d4a4;
+  --high:#21d4a4; --med:#ffc857; --low:#9fb0cc; --flag:#ff7a7a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.94);
+ border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+header.top .bar{display:flex;gap:14px;align-items:center;justify-content:space-between;
+ padding:10px 0;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.2px}
+.brand span{color:var(--accent)}
+nav.main{display:flex;gap:4px;flex-wrap:wrap}
+nav.main a{padding:6px 10px;border-radius:8px;color:var(--mute);font-size:14px}
+nav.main a:hover{background:var(--panel2);text-decoration:none;color:var(--ink)}
+nav.main a.on{background:var(--panel2);color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+main{padding:26px 0 60px}
+h1{font-size:28px;line-height:1.25;margin:0 0 6px}
+h2{font-size:20px;margin:34px 0 10px}
+h3{font-size:16px;margin:22px 0 8px}
+p.lede{color:var(--mute);margin:0 0 18px;max-width:70ch}
+.sub{color:var(--mute);font-size:14px}
+.grid{display:grid;gap:14px}
+.cards{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card h3{margin:0 0 6px;font-size:15px}
+.card .big{font-size:24px;font-weight:700}
+.kpi{display:flex;gap:22px;flex-wrap:wrap;margin:16px 0 6px}
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+ padding:12px 16px;min-width:132px}
+.kpi .n{font-size:22px;font-weight:700}
+.kpi .l{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+table{width:100%;border-collapse:collapse;background:var(--panel);
+ border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13.5px}
+th,td{padding:9px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--panel2);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;
+ color:var(--mute);position:relative;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#16223a}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11.5px;
+ font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.pill.High{background:rgba(33,212,164,.16);color:var(--high)}
+.pill.Medium{background:rgba(255,200,87,.16);color:var(--med)}
+.pill.Low{background:rgba(159,176,204,.16);color:var(--low)}
+.pill.none{background:rgba(255,122,122,.14);color:var(--flag)}
+.tag{display:inline-block;background:var(--panel2);border:1px solid var(--line);
+ border-radius:999px;padding:1px 8px;font-size:11.5px;color:var(--mute)}
+.pick{font-weight:700}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+ border-radius:0 10px 10px 0;margin:14px 0;color:var(--mute)}
+.note.warn{border-left-color:var(--flag)}
+.note.ok{border-left-color:var(--high)}
+.pred{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.pred .head{display:flex;gap:10px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.pred .match{font-weight:700}
+.pred .sel{color:var(--accent2);font-weight:700}
+.pred p{margin:8px 0 0}
+.pred .meta{color:var(--mute);font-size:12.5px;margin-top:10px}
+.pred .meta a{color:var(--accent)}
+.scroll{overflow-x:auto;border-radius:12px}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:13px;padding:18px 0 40px}
+ul.tight{margin:8px 0 0 18px;padding:0}
+ul.tight li{margin:3px 0}
+code{background:var(--panel2);padding:1px 5px;border-radius:5px;font-size:12.5px}
+@media (max-width:640px){h1{font-size:22px}td,th{padding:7px 8px}}
+</style></head>
+<body>
+<header class="top"><div class="wrap bar">
+  <div class="brand">OLBG <span>15-sport desk</span></div>
+  <nav class="main"><a class="on" href="index.html">Overview</a><a class="" href="picks.html">Picks</a><a class="" href="entries.html">All matches</a><a class="" href="markets.html">Markets</a><a class="" href="sources.html">Sources</a><a class="" href="flagged.html">Flagged for review</a><a class="" href="methodology.html">Methodology</a><a class="" href="olbg.html">OLBG</a><a class="" href="review.html">Repo review</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Fifteen sports, our own lines, and the reasoning behind each pick</h1>
+<p class="lede">A single desk for Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball,
+Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball and Rugby League.
+Every fixture below is tied to the official page it was read from, every price is our own fair line
+derived from those official numbers, and the OLBG quote is shown beside it where the listing exposed one.</p>
+
+<div class="kpi">
+  <div><div class="n">345</div><div class="l">fixtures captured</div></div>
+  <div><div class="n">234</div><div class="l">with our own line</div></div>
+  <div><div class="n">8</div><div class="l">High confidence</div></div>
+  <div><div class="n">234</div><div class="l">picks inside −250…+10,000</div></div>
+  <div><div class="n">28</div><div class="l">written predictions</div></div>
+  <div><div class="n">15</div><div class="l">sports covered</div></div>
+</div>
+<div class="note"><b>Why the High list is short, and why that is the honest answer.</b>
+−250 American is 71.4% implied, so a selection can only be both a 70%-plus call and inside the
+requested −250…+10,000 band when our own probability lands between 0.700 and 0.714. 3
+further fixtures have a side we rate at 70% or better whose price is shorter than −250; they are
+published without a pick rather than relabelled, because a price outside the band was explicitly
+excluded. Every pick below therefore satisfies both tests at once.</div>
+<p class="sub">Snapshot 20261024T223338Z · desk cutoff 2026-10-24T22:00:00Z · fixture window
+2026-10-25T00:00:00Z → 2026-11-08T23:59:59Z</p>
+
+<h2>Executive summary — highest-confidence picks</h2>
+<p class="lede">Ranked by our own probability, then by start time. “In band” means the selection's
+price sits inside the −250 to +10,000 window asked for; where the OLBG listing quoted a price for
+that exact selection it is shown next to ours, otherwise the band test uses our fair price and the
+row says so.</p>
+<div class="scroll"><table><thead><tr><th>When (UTC)</th><th>Sport</th><th>Match</th><th>Pick</th><th>Our price</th><th>OLBG price</th><th>Conf.</th><th>Official source</th></tr></thead><tbody><tr><td class="num">Fri 30 Oct 16:30 UTC</td><td><a href="ice-hockey.html">Ice Hockey</a></td><td>SaiPa <span class="sub">v</span> JYP<div class="sub">Liiga 2026-27 (Finland)</div></td><td><span class="pick">SaiPa</span><div class="sub">2-way</div></td><td class="num">1.40<div class="sub">-250 · 71.5%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill High">High</span></td><td><a href="https://liiga.fi/api/v2/games?tournament=runkosarja&amp;season=2027" rel="noopener" target="_blank">Liiga official games feed (liiga.fi)</a><div class="sub">liiga_games</div></td></tr><tr><td class="num">Thu 29 Oct 02:00 UTC</td><td><a href="ice-hockey.html">Ice Hockey</a></td><td>Seattle Kraken <span class="sub">v</span> Toronto Maple Leafs<div class="sub">NHL 2026-27 Regular Season</div></td><td><span class="pick">Over 6.5</span><div class="sub">Puck line/goals</div></td><td class="num">1.40<div class="sub">-250 · 71.5%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill High">High</span></td><td><a href="https://api-web.nhle.com/v1/schedule/2026-10-25" rel="noopener" target="_blank">NHL official schedule API (api-web.nhle.com)</a><div class="sub">nhl_sched_2026-10-25</div></td></tr><tr><td class="num">Sun 08 Nov 00:00 UTC</td><td><a href="ice-hockey.html">Ice Hockey</a></td><td>Ottawa Senators <span class="sub">v</span> Utah Mammoth<div class="sub">NHL 2026-27 Regular Season</div></td><td><span class="pick">Ottawa Senators +1.5</span><div class="sub">Puck line/goals</div></td><td class="num">1.40<div class="sub">-250 · 71.3%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill High">High</span></td><td><a href="https://api-web.nhle.com/v1/schedule/2026-11-01" rel="noopener" target="_blank">NHL official schedule API (api-web.nhle.com)</a><div class="sub">nhl_sched_2026-11-01</div></td></tr><tr><td class="num">Wed 28 Oct 16:30 UTC</td><td><a href="ice-hockey.html">Ice Hockey</a></td><td>Pelicans <span class="sub">v</span> SaiPa<div class="sub">Liiga 2026-27 (Finland)</div></td><td><span class="pick">Under 5.5</span><div class="sub">Puck line/goals</div></td><td class="num">1.41<div class="sub">-244 · 70.9%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill High">High</span></td><td><a href="https://liiga.fi/api/v2/games?tournament=runkosarja&amp;season=2027" rel="noopener" target="_blank">Liiga official games feed (liiga.fi)</a><div class="sub">liiga_games</div></td></tr><tr><td class="num">Fri 30 Oct 16:30 UTC</td><td><a href="ice-hockey.html">Ice Hockey</a></td><td>TPS <span class="sub">v</span> Pelicans<div class="sub">Liiga 2026-27 (Finland)</div></td><td><span class="pick">Pelicans +1.5</span><div class="sub">Puck line/goals</div></td><td class="num">1.42<div class="sub">-238 · 70.4%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill High">High</span></td><td><a href="https://liiga.fi/api/v2/games?tournament=runkosarja&amp;season=2027" rel="noopener" target="_blank">Liiga official games feed (liiga.fi)</a><div class="sub">liiga_games</div></td></tr><tr><td class="num">Sat 31 Oct 15:00 UTC</td><td><a href="ice-hockey.html">Ice Hockey</a></td><td>Kärpät <span class="sub">v</span> Jukurit<div class="sub">Liiga 2026-27 (Finland)</div></td><td><span class="pick">Kärpät +1.5</span><div class="sub">Puck line/goals</div></td><td class="num">1.42<div class="sub">-238 · 70.4%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill High">High</span></td><td><a href="https://liiga.fi/api/v2/games?tournament=runkosarja&amp;season=2027" rel="noopener" target="_blank">Liiga official games feed (liiga.fi)</a><div class="sub">liiga_games</div></td></tr><tr><td class="num">Sat 31 Oct 20:00 UTC</td><td><a href="ice-hockey.html">Ice Hockey</a></td><td>San Jose Sharks <span class="sub">v</span> Ottawa Senators<div class="sub">NHL 2026-27 Regular Season</div></td><td><span class="pick">San Jose Sharks +1.5</span><div class="sub">Puck line/goals</div></td><td class="num">1.42<div class="sub">-238 · 70.3%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill High">High</span></td><td><a href="https://api-web.nhle.com/v1/schedule/2026-10-25" rel="noopener" target="_blank">NHL official schedule API (api-web.nhle.com)</a><div class="sub">nhl_sched_2026-10-25</div></td></tr><tr><td class="num">Fri 30 Oct 16:30 UTC</td><td><a href="ice-hockey.html">Ice Hockey</a></td><td>Ässät <span class="sub">v</span> HIFK<div class="sub">Liiga 2026-27 (Finland)</div></td><td><span class="pick">HIFK +1.5</span><div class="sub">Puck line/goals</div></td><td class="num">1.43<div class="sub">-233 · 70.1%</div></td><td class="num"><span class="tag">not captured</span></td><td><span class="pill High">High</span></td><td><a href="https://liiga.fi/api/v2/games?tournament=runkosarja&amp;season=2027" rel="noopener" target="_blank">Liiga official games feed (liiga.fi)</a><div class="sub">liiga_games</div></td></tr></tbody></table></div>
+<p class="sub"><a href="picks.html">See all 234 picks →</a></p>
+
+<h2>Written predictions</h2>
+<p class="lede">Each one names the fixture, states the selection in plain words, and uses only
+numbers captured from the official source linked under it.</p>
+<div class="pred">
+  <div class="head">
+    <div class="match">Seattle Kraken v Toronto Maple Leafs
+      <div class="sub">NHL 2026-27 Regular Season · Thu 29 Oct 02:00 UTC</div></div>
+    <div><span class="pill High">High</span> <span class="tag">pick at 1.40</span></div>
+  </div>
+  <p><span class="sel">Selection: Over 6.5</span></p>
+  <p>Two of the faster-paced attacks in the early NHL season meet at Climate Pledge Arena. Seattle have averaged 4.00 goals for and 3.36 against in 11 games and are 6-3-1 over their last ten, while Toronto sit on 3.58 and 3.25 in 12 with a 5-3-2 run. Those rates project a 4.39 to 3.84 game, so Over 6.5 is the selection at 1.40.</p>
+  <div class="meta">Words: 63 · Official source: <a href="https://api-web.nhle.com/v1/schedule/2026-10-25" rel="noopener" target="_blank">NHL official schedule API (api-web.nhle.com)</a>
+  
+  <details><summary>Inputs used</summary><ul class="tight"><li>method: Poisson on NHL goals for/against per game, home factor 1.06</li><li>home_gf_pg: 4.0</li><li>home_ga_pg: 3.36</li><li>away_gf_pg: 3.58</li><li>away_ga_pg: 3.25</li><li>home_gp: 11</li><li>away_gp: 12</li><li>home_l10: 6-3-1</li><li>away_l10: 5-3-2</li><li>sample_games: 11</li><li>exp_home: 4.394</li><li>exp_away: 3.843</li><li>exp_total: 8.237</li><li>total_line: 6.5</li><li>handicap_line: -1.5</li></ul></details>
+  </div>
+</div>
+<div class="pred">
+  <div class="head">
+    <div class="match">Ottawa Senators v Utah Mammoth
+      <div class="sub">NHL 2026-27 Regular Season · Sun 08 Nov 00:00 UTC</div></div>
+    <div><span class="pill High">High</span> <span class="tag">pick at 1.40</span></div>
+  </div>
+  <p><span class="sel">Selection: Ottawa Senators +1.5</span></p>
+  <p>Ottawa are level with Utah on 11 games played and on recent results too, both clubs 6-4-0 over their last ten. Utah hold the better scoring rate at 3.73 a game against Ottawa&#x27;s 2.82, which makes this close: the projection is 3.12 goals for the hosts against 3.24 for Utah. With that margin inside one goal, Ottawa Senators +1.5 at 1.40 is the value.</p>
+  <div class="meta">Words: 64 · Official source: <a href="https://api-web.nhle.com/v1/schedule/2026-11-01" rel="noopener" target="_blank">NHL official schedule API (api-web.nhle.com)</a>
+  
+  <details><summary>Inputs used</summary><ul class="tight"><li>method: Poisson on NHL goals for/against per game, home factor 1.06</li><li>home_gf_pg: 2.82</li><li>home_ga_pg: 2.73</li><li>away_gf_pg: 3.73</li><li>away_ga_pg: 3.27</li><li>home_gp: 11</li><li>away_gp: 11</li><li>home_l10: 6-4-0</li><li>away_l10: 6-4-0</li><li>sample_games: 11</li><li>exp_home: 3.117</li><li>exp_away: 3.241</li><li>exp_total: 6.359</li><li>total_line: 6.5</li><li>handicap_line: 1.5</li></ul></details>
+  </div>
+</div>
+<div class="pred">
+  <div class="head">
+    <div class="match">FC Bayern Munich v FC Barcelona
+      <div class="sub">EuroLeague 2026-27 · Tue 27 Oct 19:00 UTC</div></div>
+    <div><span class="pill Medium">Medium</span> <span class="tag">pick at 1.43</span></div>
+  </div>
+  <p><span class="sel">Selection: FC Barcelona</span></p>
+  <p>Bayern Munich have scored 87.43 points a game in the EuroLeague but are conceding 94.14 through seven rounds, the loosest defence in this Round 8 pairing. Barcelona are 90.14 and 88.43 over the same seven games, and the projection gives the visitors a 6.08-point margin on a 186.44 total. FC Barcelona at 1.43 is the selection.</p>
+  <div class="meta">Words: 56 · Official source: <a href="https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games" rel="noopener" target="_blank">EuroLeague official games feed (api-live.euroleague.net)</a>
+  
+  <details><summary>Inputs used</summary><ul class="tight"><li>method: Normal margin on EuroLeague points for/against per game</li><li>home_ppg: 87.43</li><li>home_papg: 94.14</li><li>away_ppg: 90.14</li><li>away_papg: 88.43</li><li>home_gp: 7</li><li>away_gp: 7</li><li>round: Round 8</li><li>sample_games: 7</li><li>exp_margin: -6.08</li><li>exp_total: 186.44</li><li>sd_margin: 11.5</li><li>sd_total: 19.0</li><li>total_line: 187.0</li><li>handicap_line: 6.5</li></ul></details>
+  </div>
+</div>
+<p class="sub"><a href="picks.html">All written predictions →</a></p>
+
+<h2>Sports</h2>
+<div class="grid cards">
+<a class="card" href="golf.html" style="display:block;color:inherit">
+  <h3>Golf</h3>
+  <div class="big">0<span class="sub"> / 0 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">not captured</div>
+</a><a class="card" href="volleyball.html" style="display:block;color:inherit">
+  <h3>Volleyball</h3>
+  <div class="big">15<span class="sub"> / 39 priced</span></div>
+  <div class="sub">High 0 · in band 15 · write-ups 5</div>
+  <div class="sub" style="margin-top:6px">priced</div>
+</a><a class="card" href="rugby-union.html" style="display:block;color:inherit">
+  <h3>Rugby Union</h3>
+  <div class="big">0<span class="sub"> / 2 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">listed, no line</div>
+</a><a class="card" href="cricket.html" style="display:block;color:inherit">
+  <h3>Cricket</h3>
+  <div class="big">0<span class="sub"> / 8 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">listed, no line</div>
+</a><a class="card" href="snooker.html" style="display:block;color:inherit">
+  <h3>Snooker</h3>
+  <div class="big">29<span class="sub"> / 33 priced</span></div>
+  <div class="sub">High 0 · in band 29 · write-ups 5</div>
+  <div class="sub" style="margin-top:6px">priced</div>
+</a><a class="card" href="darts.html" style="display:block;color:inherit">
+  <h3>Darts</h3>
+  <div class="big">0<span class="sub"> / 2 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">listed, no line</div>
+</a><a class="card" href="baseball.html" style="display:block;color:inherit">
+  <h3>Baseball</h3>
+  <div class="big">6<span class="sub"> / 6 priced</span></div>
+  <div class="sub">High 0 · in band 6 · write-ups 5</div>
+  <div class="sub" style="margin-top:6px">priced</div>
+</a><a class="card" href="gaelic-sports.html" style="display:block;color:inherit">
+  <h3>Gaelic Sports</h3>
+  <div class="big">0<span class="sub"> / 0 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">not captured</div>
+</a><a class="card" href="greyhounds.html" style="display:block;color:inherit">
+  <h3>Greyhounds</h3>
+  <div class="big">0<span class="sub"> / 1 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">listed, no line</div>
+</a><a class="card" href="tennis.html" style="display:block;color:inherit">
+  <h3>Tennis</h3>
+  <div class="big">0<span class="sub"> / 19 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">listed, no line</div>
+</a><a class="card" href="motor-racing.html" style="display:block;color:inherit">
+  <h3>Motor Racing</h3>
+  <div class="big">0<span class="sub"> / 1 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">listed, no line</div>
+</a><a class="card" href="handball.html" style="display:block;color:inherit">
+  <h3>Handball</h3>
+  <div class="big">2<span class="sub"> / 22 priced</span></div>
+  <div class="sub">High 0 · in band 2 · write-ups 2</div>
+  <div class="sub" style="margin-top:6px">priced</div>
+</a><a class="card" href="ice-hockey.html" style="display:block;color:inherit">
+  <h3>Ice Hockey</h3>
+  <div class="big">120<span class="sub"> / 135 priced</span></div>
+  <div class="sub">High 8 · in band 120 · write-ups 6</div>
+  <div class="sub" style="margin-top:6px">priced</div>
+</a><a class="card" href="basketball.html" style="display:block;color:inherit">
+  <h3>Basketball</h3>
+  <div class="big">62<span class="sub"> / 70 priced</span></div>
+  <div class="sub">High 0 · in band 62 · write-ups 5</div>
+  <div class="sub" style="margin-top:6px">priced</div>
+</a><a class="card" href="rugby-league.html" style="display:block;color:inherit">
+  <h3>Rugby League</h3>
+  <div class="big">0<span class="sub"> / 7 priced</span></div>
+  <div class="sub">High 0 · in band 0 · write-ups 0</div>
+  <div class="sub" style="margin-top:6px">listed, no line</div>
+</a>
+</div>
+
+</main>
+<footer><div class="wrap">
+  <p>Board EC · session <code>arena/e0ca04cf-olbg4</code> · prices are our own fair lines
+  derived from captured official inputs; the OLBG quote shown next to them is what the
+  listing displayed when the page was captured. Nothing here is a tip to stake money.</p>
+</div></footer>
+</body></html>

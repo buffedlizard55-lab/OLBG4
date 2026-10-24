@@ -196,6 +196,7 @@ ul.tight li{margin:4px 0}
 
 NAV = [
     ("index.html", "Overview"),
+    ("session-a172d5b9/index.html", "Latest refresh"),
     ("desk/picks.html", "Picks"),
     ("desk/matches.html", "Matches"),
     ("desk/coverage.html", "Sports"),
@@ -343,6 +344,22 @@ def main() -> int:
     preds = pred_doc.get("predictions", [])
     flags = flag_doc.get("flags", [])
 
+    latest_banner = ""
+    latest_desk_path = os.path.join(ROOT, "data", "session-a172d5b9", "desk.json")
+    latest_meta_path = os.path.join(ROOT, "data", "session-a172d5b9", "meta.json")
+    if os.path.exists(latest_desk_path) and os.path.exists(latest_meta_path):
+        with open(latest_desk_path, encoding="utf-8") as fh:
+            latest_summary = json.load(fh).get("summary", {})
+        with open(latest_meta_path, encoding="utf-8") as fh:
+            latest_meta = json.load(fh)
+        latest_time = fmt_dt(latest_meta.get("generated_utc", ""))
+        latest_banner = f"""<div class=\"note good\"><strong>Latest evidence refresh — {e(latest_time)}.</strong>
+  {latest_summary.get('rows_total', 0)} OLBG-listed events, {latest_summary.get('official_sourced', 0)} official
+  crosswalks and {latest_summary.get('predictions', 0)} strictly eligible written High picks.
+  <a href=\"session-a172d5b9/index.html\"><strong>Open the latest dashboard →</strong></a>
+  Its <a href=\"session-a172d5b9/picks.html\">written picks</a>, complete OLBG inventory and
+  <a href=\"session-a172d5b9/flagged.html\">Flagged for Review</a> register are grouped separately from this earlier desk.</div>"""
+
     capture_human = meta_raw.get("capture_utc", "")
     meta = {
         "capture_id": meta_raw.get("capture_id", "—"),
@@ -430,6 +447,7 @@ The full reasoning is under <a href="desk/picks.html">Picks</a>.</p>
 below and on <a href="desk/matches.html">Matches</a>. Nothing has been invented to fill this space.</div>"""
 
     body = f"""
+{latest_banner}
 <h1>Every match we cover, our own line, and exactly where the pick is.</h1>
 <p class="lede">OLBG lists fifteen sports outside football. This desk keeps one clean record of the
 matches in those sports that are still to be played, originates a price for each one from official data,

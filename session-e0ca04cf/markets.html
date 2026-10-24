@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Markets · OLBG 15-sport desk</title>
+<style>
+:root{
+  --bg:#0b1220; --panel:#111a2b; --panel2:#162134; --line:#22304a;
+  --ink:#e8eefb; --mute:#9fb0cc; --accent:#3ba3ff; --accent2:#21d4a4;
+  --high:#21d4a4; --med:#ffc857; --low:#9fb0cc; --flag:#ff7a7a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+header.top{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.94);
+ border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+header.top .bar{display:flex;gap:14px;align-items:center;justify-content:space-between;
+ padding:10px 0;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.2px}
+.brand span{color:var(--accent)}
+nav.main{display:flex;gap:4px;flex-wrap:wrap}
+nav.main a{padding:6px 10px;border-radius:8px;color:var(--mute);font-size:14px}
+nav.main a:hover{background:var(--panel2);text-decoration:none;color:var(--ink)}
+nav.main a.on{background:var(--panel2);color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+main{padding:26px 0 60px}
+h1{font-size:28px;line-height:1.25;margin:0 0 6px}
+h2{font-size:20px;margin:34px 0 10px}
+h3{font-size:16px;margin:22px 0 8px}
+p.lede{color:var(--mute);margin:0 0 18px;max-width:70ch}
+.sub{color:var(--mute);font-size:14px}
+.grid{display:grid;gap:14px}
+.cards{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card h3{margin:0 0 6px;font-size:15px}
+.card .big{font-size:24px;font-weight:700}
+.kpi{display:flex;gap:22px;flex-wrap:wrap;margin:16px 0 6px}
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+ padding:12px 16px;min-width:132px}
+.kpi .n{font-size:22px;font-weight:700}
+.kpi .l{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+table{width:100%;border-collapse:collapse;background:var(--panel);
+ border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13.5px}
+th,td{padding:9px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--panel2);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;
+ color:var(--mute);position:relative;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#16223a}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11.5px;
+ font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.pill.High{background:rgba(33,212,164,.16);color:var(--high)}
+.pill.Medium{background:rgba(255,200,87,.16);color:var(--med)}
+.pill.Low{background:rgba(159,176,204,.16);color:var(--low)}
+.pill.none{background:rgba(255,122,122,.14);color:var(--flag)}
+.tag{display:inline-block;background:var(--panel2);border:1px solid var(--line);
+ border-radius:999px;padding:1px 8px;font-size:11.5px;color:var(--mute)}
+.pick{font-weight:700}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+ border-radius:0 10px 10px 0;margin:14px 0;color:var(--mute)}
+.note.warn{border-left-color:var(--flag)}
+.note.ok{border-left-color:var(--high)}
+.pred{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.pred .head{display:flex;gap:10px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.pred .match{font-weight:700}
+.pred .sel{color:var(--accent2);font-weight:700}
+.pred p{margin:8px 0 0}
+.pred .meta{color:var(--mute);font-size:12.5px;margin-top:10px}
+.pred .meta a{color:var(--accent)}
+.scroll{overflow-x:auto;border-radius:12px}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:13px;padding:18px 0 40px}
+ul.tight{margin:8px 0 0 18px;padding:0}
+ul.tight li{margin:3px 0}
+code{background:var(--panel2);padding:1px 5px;border-radius:5px;font-size:12.5px}
+@media (max-width:640px){h1{font-size:22px}td,th{padding:7px 8px}}
+</style></head>
+<body>
+<header class="top"><div class="wrap bar">
+  <div class="brand">OLBG <span>15-sport desk</span></div>
+  <nav class="main"><a class="" href="index.html">Overview</a><a class="" href="picks.html">Picks</a><a class="" href="entries.html">All matches</a><a class="on" href="markets.html">Markets</a><a class="" href="sources.html">Sources</a><a class="" href="flagged.html">Flagged for review</a><a class="" href="methodology.html">Methodology</a><a class="" href="olbg.html">OLBG</a><a class="" href="review.html">Repo review</a></nav>
+</div></header>
+<main class="wrap">
+<h1>Markets</h1><p class="lede">Two different lists: the markets we originate ourselves for each sport, and the market names OLBG’s own listings used when the pages were captured.</p><h2>What we originate</h2><div class="scroll"><table><thead><tr><th>Sport</th><th>Markets we price</th><th class="num">Rows priced</th><th class="num">Selections</th><th>Method</th></tr></thead><tbody><tr><td><a href="golf.html">Golf</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr><tr><td><a href="volleyball.html">Volleyball</a></td><td>handicap, match winner, total</td><td class="num">15</td><td class="num">90</td><td class="sub">Set-win-rate model on the official PlusLiga table, +0.02 home set edge</td></tr><tr><td><a href="rugby-union.html">Rugby Union</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr><tr><td><a href="cricket.html">Cricket</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr><tr><td><a href="snooker.html">Snooker</a></td><td>handicap, match winner, total</td><td class="num">29</td><td class="num">174</td><td class="sub">Elo from completed WST frames, converted to a best-of-N series</td></tr><tr><td><a href="darts.html">Darts</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr><tr><td><a href="baseball.html">Baseball</a></td><td>handicap, match winner, total</td><td class="num">6</td><td class="num">36</td><td class="sub">Poisson on MLB runs scored/allowed per game, home factor 1.04</td></tr><tr><td><a href="gaelic-sports.html">Gaelic Sports</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr><tr><td><a href="greyhounds.html">Greyhounds</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr><tr><td><a href="tennis.html">Tennis</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr><tr><td><a href="motor-racing.html">Motor Racing</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr><tr><td><a href="handball.html">Handball</a></td><td>handicap, match winner, total</td><td class="num">2</td><td class="num">14</td><td class="sub">Poisson on EHF Champions League goals for/against per game, home factor 1.06</td></tr><tr><td><a href="ice-hockey.html">Ice Hockey</a></td><td>handicap, match winner, total</td><td class="num">120</td><td class="num">720</td><td class="sub">Poisson on NHL goals for/against per game, home factor 1.06</td></tr><tr><td><a href="basketball.html">Basketball</a></td><td>handicap, match winner, total</td><td class="num">62</td><td class="num">372</td><td class="sub">Normal margin on EuroLeague points for/against per game</td></tr><tr><td><a href="rugby-league.html">Rugby League</a></td><td><span class=tag>none</span></td><td class="num">0</td><td class="num">0</td><td class="sub"></td></tr></tbody></table></div><h2>Market names seen on OLBG</h2><div class="scroll"><table><thead><tr><th>Sport</th><th>Market alias captured verbatim</th><th class="num">Tips</th></tr></thead><tbody><tr><td></td><td>Money Line</td><td class="num">5</td></tr><tr><td></td><td>(unlabelled)</td><td class="num">4</td></tr><tr><td></td><td>Full Time Result</td><td class="num">4</td></tr><tr><td></td><td>Win Match</td><td class="num">2</td></tr><tr><td></td><td>Handicap</td><td class="num">1</td></tr><tr><td></td><td>FT Result</td><td class="num">1</td></tr><tr><td></td><td>Win Fight</td><td class="num">1</td></tr><tr><td></td><td>Daily Racing</td><td class="num">1</td></tr><tr><td></td><td>To Win</td><td class="num">1</td></tr><tr><td></td><td>Win Tournament</td><td class="num">1</td></tr><tr><td>Basketball</td><td>Money Line</td><td class="num">9</td></tr><tr><td>Basketball</td><td>Pointspread</td><td class="num">1</td></tr><tr><td>Cricket</td><td>Win Match</td><td class="num">6</td></tr><tr><td>Cricket</td><td>Outright Winner</td><td class="num">5</td></tr><tr><td>Cricket</td><td>Top Team1 Batsman</td><td class="num">1</td></tr><tr><td>Cricket</td><td>Man Of The Match</td><td class="num">1</td></tr><tr><td>Darts</td><td>Win Match 2-way</td><td class="num">1</td></tr><tr><td>Darts</td><td>Total 180s</td><td class="num">1</td></tr><tr><td>Darts</td><td>Win Tournament</td><td class="num">1</td></tr><tr><td>Gaelic Sports</td><td>Win Hurling</td><td class="num">1</td></tr><tr><td>Greyhounds</td><td>Daily Races</td><td class="num">1</td></tr><tr><td>Handball</td><td>Money Line</td><td class="num">20</td></tr><tr><td>Ice Hockey</td><td>Money Line</td><td class="num">15</td></tr><tr><td>Ice Hockey</td><td>Game Totals</td><td class="num">1</td></tr><tr><td>Rugby League</td><td>Grand Final Winner</td><td class="num">2</td></tr><tr><td>Rugby League</td><td>Win Tournament</td><td class="num">1</td></tr><tr><td>Rugby Union</td><td>To Win</td><td class="num">2</td></tr><tr><td>Rugby Union</td><td>Win Tournament</td><td class="num">1</td></tr><tr><td>Tennis</td><td>Win Match</td><td class="num">18</td></tr><tr><td>Tennis</td><td>Set Betting</td><td class="num">1</td></tr><tr><td>Volleyball</td><td>Win Match</td><td class="num">19</td></tr><tr><td>Volleyball</td><td>Set Score</td><td class="num">1</td></tr></tbody></table></div>
+</main>
+<footer><div class="wrap">
+  <p>Board EC · session <code>arena/e0ca04cf-olbg4</code> · prices are our own fair lines
+  derived from captured official inputs; the OLBG quote shown next to them is what the
+  listing displayed when the page was captured. Nothing here is a tip to stake money.</p>
+</div></footer>
+</body></html>
