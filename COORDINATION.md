@@ -4890,3 +4890,20 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
 3. **The −250 floor and a ≥70% probability cannot both hold.** 70% is exactly −233 on fair odds, so every genuine High pick is shorter than −250. The desk prints the true price and says so on the landing page rather than bending a probability into the band.
 4. **NBA returned 403**, so Basketball is EuroLeague/EuroCup only.
 5. **Volleyball and handball samples are one to two matches per side** at the start of their seasons; both are capped at Medium and shrink small-sample rates toward the league mean.
+
+### CA — follow-up: tennis fixtures restored (parser defect CA-F06), 2026-10-24T18:0xZ
+
+- **Defect found and fixed:** `read_wta()` in `scripts/session-b6643783/parse.py` never converted the feed's
+  `MatchTimeStamp` (e.g. `2026-10-25T11:00+08:00`) to UTC, so every tennis row was written with an empty
+  `start_utc` and was then dropped by the window filter. Tennis showed **0 matches** in a sport the brief
+  covers. The stamp is now parsed with its offset, and doubles pairs (`PlayerNameLastA2`) are kept in the name.
+- **Result:** **14 tennis fixtures** now appear with correct UTC start times, courts and tournaments
+  (Toray Pan Pacific Open, Guangzhou Open, Ningbo, Osaka). They remain **unpriced** because no official
+  ranking feed exists for them in this capture (WTA rankings endpoint 404, ATP 403), so each one is
+  published with a `CA-F0xx` flag naming the missing input and the official source URL — nothing inferred.
+- Desk now **401 rows / 234 priced / 287 flags / 25 written predictions**; `verify.py` 10/10;
+  `build_all.sh` exits 0 with the site regenerated and no drift.
+- **Checked and rejected as unusable (do not retry):** EHF Champions League men's standings page (209 KB but the
+  table is rendered client-side — no team rows in the HTML, so no goal rates to price handball from);
+  `wst_matches_api` as a snooker strength input (only 200 records, 124 completed — too small a sample to
+  support a fair line); `urc_table`/`urc_r7`/`pdc_oom`/`icc_*_rankings` are 5.6 KB or 1.24 MB JavaScript shells.
