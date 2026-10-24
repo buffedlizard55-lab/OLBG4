@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · OLBG4 desk</title>
+<meta name="description" content="OLBG4 — 15-sport OLBG coverage, our own originated lines, picks and written predictions.">
+<link rel="stylesheet" href="../desk/assets/desk.css">
+</head><body>
+<header class="site"><div class="wrap"><div class="nav">
+  <a class="brand" href="../index.html"><span class="mark">O4</span><span>OLBG4 desk</span></a>
+  <a class="navlink" href="../index.html">Overview</a><a class="navlink" href="../desk/picks.html">Picks</a><a class="navlink" href="../desk/matches.html">Matches</a><a class="navlink" href="../desk/coverage.html">Sports</a><a class="navlink" href="../desk/flagged.html">Flagged</a><a class="navlink active" href="../desk/methodology.html">Method</a><a class="navlink" href="../desk/sources.html">Sources</a>
+  <span class="spacer"></span>
+  <span class="stamp">Data read Sat 24 Oct, 17:14 UTC</span>
+</div></div></header>
+<main><div class="wrap">
+
+<h1>Method</h1>
+<p class="lede">Short version: official facts in, our own price out. No bookmaker or OLBG price is ever used
+as an input to a line.</p>
+
+<h2>1. What is in scope</h2>
+<p>The fifteen sports OLBG lists outside football: Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts,
+Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League.
+Football, horse racing, boxing, MMA, American football, Aussie Rules, cycling, bowls, table tennis, badminton,
+netball and esports are out of scope.</p>
+
+<h2>2. Where the fixtures come from</h2>
+<p>Only from the governing body. Ice Hockey from the NHL's own schedule and standings APIs plus Liiga and the
+SHL; Baseball from MLB's stats API; Basketball from EuroLeague's live API; Tennis from the WTA API and the
+ATP's official posting service; Golf from the PGA Tour and DP World Tour; Greyhounds from the Greyhound Board
+of Great Britain; Motor Racing from Formula 1 and MotoGP. OLBG's own sport hubs are read to record which
+events OLBG is listing — that is the “OLBG” link on a row, and it is where a pick can be placed.</p>
+
+<h2>3. How a price is made</h2>
+<ul class="tight">
+  <li><strong>Scoring sports</strong> (ice hockey, handball, football-shaped totals) use a Poisson goal model
+  calibrated on the league's own goals-per-game rate, with team attack/defence rates taken from the official
+  standings. The handicap and total markets are integrated from the same grid, so they cannot contradict the
+  match-winner price.</li>
+  <li><strong>Best-of formats</strong> (tennis, snooker, darts) convert a per-set or per-frame probability into
+  the probability of winning the match at the official format length.</li>
+  <li><strong>Rank-based sports</strong> (golf outrights, snooker, motorsport) use a logistic strength curve on
+  the official ranking or standings gap, normalised so the field sums to 1.0000.</li>
+  <li>Every two-way market is renormalised so the legs sum to exactly 1.0000 — there is no margin baked in, and
+  no leg is allowed outside 0.005–0.995.</li>
+</ul>
+
+<h2>4. Confidence</h2>
+<p><span class="badge high">High</span> 70% or better on our own number, and only where the official inputs
+actually exist for that fixture. <span class="badge med">Medium</span> 55–70%.
+<span class="badge low">Low</span> below 55%, or any model whose sample is one match / one round, which is
+capped at Medium however strong it looks.</p>
+
+<h2>5. The price window</h2>
+<p>The brief asks for high-confidence picks between −250 and +10,000 American. On fair odds those two
+conditions overlap only in a narrow band: 70% probability is exactly −233, so a genuine 70%+ pick is
+<em>always</em> shorter than −250. The desk does not distort the probability to fit the window. It publishes
+the true price and says so on the row, and every pick outside the window is listed on
+<a href="flagged.html">Flagged for Review</a>.</p>
+
+<h2>6. What we refuse to do</h2>
+<ul class="tight">
+  <li>No fixture is invented. If no official schedule lists it, the sport is reported as unpriced.</li>
+  <li>No injury, suspension or team-news claim is published without a source that states it.</li>
+  <li>No blank is filled from a neighbouring row, an average, or a previous season.</li>
+  <li>No prediction is written without a named selection and a stated reason.</li>
+</ul>
+
+<h2>7. Words we do not use</h2>
+<p>The predictions are written to be read by a person: they name the teams or players, the form, the relevant
+recent results and the selection. They deliberately avoid internal process vocabulary.</p>
+
+</div></main>
+<footer class="site"><div class="wrap">
+  <p><strong>OLBG4 desk</strong> — an independent record of upcoming matches in the 15 sports OLBG lists,
+  our own originated prices, and written predictions. Every row links to the official body it came from;
+  anything we could not confirm is published blank and listed on
+  <a href="../desk/flagged.html">Flagged for Review</a>.</p>
+  <p>Capture <span class="mono">20261024T171155Z</span> ·
+  window 2026-10-24 → 2026-11-08 ·
+  build 2026-10-24T17:14:34Z ·
+  <a href="../desk/methodology.html">method</a> ·
+  <a href="../desk/sources.html">sources</a> ·
+  <a href="../desk/archive.html">earlier desks</a></p>
+  <p>18+. Odds shown are our own originated fair prices, not bookmaker prices. No bet is risk-free.</p>
+</div></footer>
+</body></html>
