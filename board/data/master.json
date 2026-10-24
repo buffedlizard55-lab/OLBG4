@@ -67,15 +67,15 @@
   ],
   "rows_verified_official": 301,
   "rows_verified_in_scope": 296,
-  "rows_with_pick": 305,
+  "rows_with_pick": 303,
   "rows_with_prediction": 75,
   "rows_with_written_prediction": 63,
   "rows_with_templated_prediction": 12,
   "high_with_written_prediction": 33,
   "confidence": {
    "Low": 156,
-   "none": 49,
-   "Medium": 117,
+   "none": 51,
+   "Medium": 115,
    "High": 42
   },
   "by_sport": {
@@ -192,7 +192,7 @@
    "Ice Hockey": {
     "rows": 74,
     "verified": 72,
-    "picks": 74,
+    "picks": 72,
     "high": 22,
     "predicted": 26,
     "market_win": 69,
@@ -20951,21 +20951,21 @@
    },
    "handicap": "Edmonton Oilers -1.5 @ 1.728; Calgary Flames +1.5 @ 2.144",
    "total": "Over 6.5 @ 1.891; Under 6.5 @ 1.937",
-   "pick": "Edmonton Oilers",
-   "pick_market": "moneyline",
-   "confidence": "Medium",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/cgy-vs-edm/2026/10/28/2026020200",
    "source_name": "NHL official schedule/game page",
    "notes": "Model margin +1.7 goals and a 72.9% win probability for Edmonton Oilers, priced at -319. Sample: 91 verified games per team.",
    "flags": [
     {
-     "kind": "missing-prediction",
-     "text": "High-confidence row with no written prediction in the source build."
+     "kind": "withdrawn-prediction",
+     "text": "Headline selection omitted because its source prediction was withdrawn: failed prediction lint; see Flagged for Review. Market lines remain visible; pick and confidence are blank."
     },
     {
-     "kind": "odds-window-downgrade",
-     "text": "Downgraded from High to Medium: originated odds 1.313 (American -319) outside -250 to +10,000 window; high-confidence now reserved for -250 to +10,000 per Board S remediation."
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
     }
    ],
    "home_raw": "Edmonton Oilers",
@@ -20974,7 +20974,7 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "pick_side": "home",
+   "pick_side": "",
    "id": "M0341",
    "source_tier": "official",
    "source_domain": "www.nhl.com",
@@ -21670,17 +21670,21 @@
    },
    "handicap": "Los Angeles Kings +0.5 @ 1.83; Ottawa Senators -0.5 @ 2.006",
    "total": "Over 5.5 @ 2.011; Under 5.5 @ 1.826",
-   "pick": "Under 6.5",
-   "pick_market": "total",
-   "confidence": "Medium",
+   "pick": "",
+   "pick_market": "",
+   "confidence": "",
    "prediction": "",
    "source_url": "https://www.nhl.com/gamecenter/ott-vs-lak/2026/10/29/2026020212",
    "source_name": "NHL official schedule/game page",
    "notes": "Our current total is 5.5, 0.78 goals below our opening number, and the model makes Under 6.5 a 69.4% chance at -264.",
    "flags": [
     {
-     "kind": "confidence-lowered",
-     "text": "Confidence lowered from High to Medium: Build E published this row as High confidence with an empty prediction field, so no written analysis exists for it. The pick (Under 6.5) stands, but the confidence is lowered rather than leaving a High selection with nothing written behind it."
+     "kind": "withdrawn-prediction",
+     "text": "Headline selection omitted because its source prediction was withdrawn: failed prediction lint; see Flagged for Review. Market lines remain visible; pick and confidence are blank."
+    },
+    {
+     "kind": "no-pick",
+     "text": "No pick originated: the originating build could not verify enough inputs."
     }
    ],
    "home_raw": "Los Angeles Kings",
@@ -21689,8 +21693,7 @@
    "cross_build": [],
    "fields_from": {},
    "archive_rows": 0,
-   "confidence_note": "Build E published this row as High confidence with an empty prediction field, so no written analysis exists for it. The pick (Under 6.5) stands, but the confidence is lowered rather than leaving a High selection with nothing written behind it.",
-   "pick_side": "under",
+   "pick_side": "",
    "id": "M0355",
    "source_tier": "official",
    "source_domain": "www.nhl.com",

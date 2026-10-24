@@ -590,6 +590,10 @@ def main() -> None:
                                         f'{len(hits)} rows')
                 continue
             row = hits[0]
+            if any(f.get("kind") == "withdrawn-prediction" for f in row.get("flags", [])):
+                # A later authored-copy override must not resurrect a selection
+                # whose source headline was explicitly withdrawn.
+                continue
             row["prediction"] = entry["prediction"]
             row["prediction_source"] = f'authored {ap.get("authored_at", "")}'.strip()
             row["authored_facts"] = entry.get("facts", [])
@@ -606,6 +610,9 @@ def main() -> None:
                 authored_missing.append(f'override {m["sport"]}: matched {len(hits)} rows')
                 continue
             row = hits[0]
+            if any(f.get("kind") == "withdrawn-prediction" for f in row.get("flags", [])):
+                # Don't let a confidence-only override revive a withdrawn pick.
+                continue
             row["flags"].append({"kind": "confidence-lowered",
                                  "text": f'Confidence lowered from {row["confidence"] or "unset"} to '
                                          f'{entry["confidence"]}: {entry["reason"]}'})
