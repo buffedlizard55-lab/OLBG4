@@ -566,6 +566,13 @@ def main() -> None:
                     primary["date"] = alt["date"]
                     primary["fields_from"]["date"] = alt["build"]
                 primary["flags"].extend(alt["flags"])
+            if any(f.get("kind") == "withdrawn-prediction" for f in primary.get("flags", [])):
+                # Empty-field consolidation must not resurrect a withdrawn
+                # headline from another build. Keep schedules and market
+                # families, but leave the selection and its prose blank.
+                for field in ("pick", "confidence", "pick_market", "prediction"):
+                    primary[field] = ""
+                    primary["fields_from"].pop(field, None)
             primary["archive_rows"] = len(group) - 1
             master.append(primary)
 
@@ -732,7 +739,7 @@ def main() -> None:
             row["flags"].append({"kind": "build-marked-unverified",
                                  "text": "The originating build marked this row as not fully verified even though the "
                                          "cited domain is official."})
-        if not row["pick"]:
+        if not row["pick"] and not any(f.get("kind") == "withdrawn-prediction" for f in row.get("flags", [])):
             row["flags"].append({"kind": "no-pick",
                                  "text": "No pick originated: the originating build could not verify enough inputs."})
         if not row["prediction"] and row["confidence"] == "High":

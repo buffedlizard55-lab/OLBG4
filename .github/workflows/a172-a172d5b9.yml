@@ -1,0 +1,55 @@
+name: Board A172 official evidence capture
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/a172d5b9-olbg4
+    paths:
+      - "scripts/session-a172d5b9/targets.json"
+      - "scripts/session-a172d5b9/fetch.py"
+      - ".github/workflows/a172-a172d5b9.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: a172-a172d5b9-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/a172d5b9-olbg4
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Capture OLBG listings and official source bytes
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-a172d5b9/fetch.py \
+            scripts/session-a172d5b9/targets.json \
+            "data/session-a172d5b9/capture/$STAMP" 2>&1 | tee /tmp/a172-capture.log
+      - name: Commit evidence capture, including failures
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-a172-capture[bot]"
+          git config user.email "board-a172-capture@users.noreply.github.com"
+          mkdir -p data/session-a172d5b9/logs
+          cp /tmp/a172-capture.log "data/session-a172d5b9/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-a172d5b9
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board A172: official evidence capture ${STAMP} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/a172d5b9-olbg4 && \
+              git push origin HEAD:arena/a172d5b9-olbg4 && break
+            sleep 5
+          done
