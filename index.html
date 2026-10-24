@@ -1,205 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dashboard — verified fixtures and originated lines · OLBG4 verified line desk</title>
-<meta name="description" content="Verified fixtures for the sports in scope, with our own originated lines, confidence grades and a source link on every row.">
-<link rel="stylesheet" href="assets/integrated.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OLBG4 executive dashboard: find the pick ledger, own originated markets, sport pages, sources and review flags.">
+  <title>OLBG4 — Executive Dashboard</title>
+  <style>
+    :root{color-scheme:light;--ink:#13243a;--muted:#5b6b7f;--line:#dbe3ec;--paper:#f4f7fb;--white:#fff;--navy:#10263f;--blue:#1d4ed8;--teal:#0f766e;--amber:#9a4d00;--red:#9f2525;--green:#146b45;--shadow:0 8px 24px rgba(19,36,58,.07)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:#174ea6;text-underline-offset:3px}a:hover{color:#0e3270}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+    header{background:var(--navy);color:white}.bar{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.05em}.brand small{display:block;color:#bdcadd;font-weight:500;letter-spacing:0}.topnav{display:flex;gap:8px;flex-wrap:wrap}.topnav a{color:#eff6ff;text-decoration:none;padding:7px 10px;border-radius:7px;font-size:.92rem}.topnav a:hover{background:#233c5c}
+    main{padding:32px 0 58px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:800;color:var(--teal)}h1{font-size:clamp(2rem,4vw,3.3rem);line-height:1.08;letter-spacing:-.035em;margin:.35rem 0 .7rem}h2{font-size:1.35rem;line-height:1.2;margin:0 0 12px}h3{font-size:1.03rem;margin:0 0 7px}.lede{font-size:1.08rem;color:#34475e;max-width:820px;margin:0}
+    .status{margin:24px 0 28px;background:#fff8e8;border:1px solid #f0d49a;border-left:6px solid #d58b17;border-radius:12px;padding:17px 20px;box-shadow:var(--shadow)}.status strong{color:#704000}.status p{margin:6px 0 0;color:#513d20}.status a{font-weight:700}
+    .section{margin-top:32px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}.sectionhead p{color:var(--muted);margin:0;font-size:.9rem}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow);min-height:178px}.card.primary{border-top:4px solid var(--blue)}.card.archive{border-top:4px solid #7c8da2}.card.review{border-top:4px solid var(--amber)}.card .tag{width:max-content;background:#edf3ff;color:#173e83;font-size:.73rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 8px;margin-bottom:10px}.card.archive .tag{background:#eef1f5;color:#45566b}.card.review .tag{background:#fff1d4;color:#704000}.card p{margin:0 0 14px;color:var(--muted);font-size:.92rem}.card .action{margin-top:auto;font-weight:750}
+    .sports{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.sports a{background:white;border:1px solid var(--line);border-radius:9px;padding:11px 12px;text-decoration:none;font-weight:650;box-shadow:0 2px 7px rgba(19,36,58,.035)}.sports a:hover{border-color:#8da9d1;background:#f8fbff}
+    .guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.guide article{background:#fff;border:1px solid var(--line);border-radius:11px;padding:17px}.guide p{margin:0;color:var(--muted);font-size:.92rem}.guide a{font-weight:700}
+    .footnote{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:36px;padding-top:18px}.footnote p{margin:5px 0}.pill{display:inline-block;border-radius:999px;background:#fff0ef;color:var(--red);font-weight:800;font-size:.77rem;padding:3px 9px;vertical-align:middle}
+    @media(max-width:800px){.cards,.guide{grid-template-columns:1fr 1fr}.sports{grid-template-columns:repeat(3,minmax(0,1fr))}.bar{align-items:flex-start;padding:13px 0;flex-direction:column}.topnav{gap:3px}}
+    @media(max-width:520px){.wrap{width:min(100% - 24px,1160px)}.cards,.guide{grid-template-columns:1fr}.sports{grid-template-columns:repeat(2,minmax(0,1fr))}.sectionhead{display:block}.sectionhead p{margin-top:5px}}
+  </style>
 </head>
 <body>
-<header class="topbar">
+<header>
   <div class="wrap bar">
-    <a class="brand" href="index.html">
-      <span class="mark">OLBG4</span><span class="brandsub">verified line desk</span>
-    </a>
-<nav class="nav"><a class="navlink" href="session-edffdbc6/index.html" style="background:#065f46;color:#fff">Board ZZ · 24 Oct 17:15Z clarity desk (154 fixtures, 75 own lines, 30 High, 18 predictions)</a><a class="navlink" href="session-4502eff5/index.html" style="background:#7c2d12;color:#fff">Board FX · 23 Oct 21:50Z 15-sport desk (432 rows, 275 owned lines, 14 High · gate green)</a><a class="navlink" href="session-343754f2/index.html" style="background:#0b6b3a;color:#fff">Board BW · 23 Oct 21:35Z 15-sport desk (404 rows, 269 originated rows, 14 in-window High, 33 written picks)</a><a class="navlink" href="session-543dca7d/index.html" style="background:#0f4c81;color:#fff">Board AS · 23 Oct 20:00Z 15-sport desk (112 rows, 444 markets, 75 High · 5/sport)</a><a class="navlink" style="background:#0b1b34;color:#fff" href="session-2722b692/index.html">Board AJ · 23 Oct 15-sport desk (256 fixtures, 2,589 markets, 15 High, 15 write-ups)</a><a class="navlink" href="session-2c05e0b2/index.html">Board AI · 23 Oct 15-sport OLBG desk (343 rows, 121 own lines, 25 predictions)</a><a class="navlink" href="session-6846f1ab/index.html">Board AH · requested 15-sport snapshot (253 rows, 67 write-ups, 207 review records)</a><a class="navlink" href="session-509d544b/index.html" style="background:#4f46e5;color:#fff">Board AP · 15-sport final (253 fixtures, 65 High · 5/sport)</a><a class="navlink" href="session-4885d641/index.html">Board AG · 21:15Z 18-sport desk (299 fixtures, 1,196 markets, 89 predictions · ≥5/sport)</a><a class="navlink" href="session-0d3b826c/index.html">Board AF · 21:03Z evidence desk (220 fixtures, 19 High)</a><a class="navlink" href="session-3a6388d2/index.html">Board AD · 3a6388d2 desk (184 rows)</a><a class="navlink" href="session-22ca2e95/index.html">Board AE · 22 Oct 12:15Z afternoon refresh (246 fixtures, 984 markets, 46 High picks)</a><a class="navlink" href="session-1695b749/index.html">Board AB · current desk (96 priced fixtures, 12 in-window High picks)</a><a class="navlink" href="session-cdf25c13/index.html">Live desk · 22–28 Oct (Board T)</a><a class="navlink" href="session-ed4c358c/index.html">Board ED · 23 Oct 19:35Z desk (333 rows, 222 own lines, 24 predictions)</a><a class="navlink" href="session-405e9797/index.html">Board AR · 23 Oct 15-sport desk (340 rows, 176 own lines, 40 High notes)</a><a class="navlink active" href="index.html">Dashboard</a><a class="navlink" href="entries.html">All fixtures</a><a class="navlink" href="predictions.html">High-confidence picks</a><a class="navlink" href="analysis.html">Analysis</a><a class="navlink" href="coverage.html">Coverage</a><a class="navlink" href="methodology.html">Method</a><a class="navlink" href="sources.html">Sources</a><a class="navlink" href="flagged.html">Flagged for review</a><a class="navlink" href="archive.html">Archive</a><a class="navlink" href="verification.html">Verification register (Board K)</a><a class="navlink" href="dashboard-board-k.html">Evidence dashboard (Board K)</a><a class="navlink" href="board/index.html">Consolidated board (Board P)</a><a class="navlink" href="session-ee9c2db4/index.html">All 17 sports desk · 268 events (Board Q)</a><a class="navlink" href="session-f957db05/index.html">Board V · verified 22 Oct desk (98 fixtures, 90 priced)</a><a class="navlink" href="session-c4fda15e/index.html">Board Y · OLBG 03:04Z reconciled</a><a class="navlink" href="session-4a73430b/index.html">Board 4a73430b · fresh 22 Oct desk</a><a class="navlink" href="session-9359e596/index.html">Board Z · 22 Oct 07:34Z live OLBG + 18-sport desk (280 rows, 22 High)</a><a class="navlink" href="session-19b8e377/index.html">Board Z · 91 fixtures · 14 in-window High picks</a><a class="navlink" href="session-2d25cf78/index.html">Board AF &middot; 2d25cf78 verified desk (126 fixtures, 30 predictions)</a></nav>
+    <div class="brand">OLBG4 <small>sports research &amp; originated lines</small></div>
+    <nav class="topnav" aria-label="Main navigation">
+      <a href="session-edffdbc6/index.html">Today's picks (Board ZZ)</a><a href="#picks">Picks</a><a href="#sports">Sports</a><a href="session-4502eff5/markets.html">Markets</a><a href="session-49866065/evidence.html">Sources &amp; evidence</a><a href="session-49866065/flagged.html">Flagged for review</a>
+    </nav>
   </div>
 </header>
 <main class="wrap">
-<section class="notebox" style="border-left:5px solid #065f46;background:#ecfdf5;box-shadow:0 2px 8px rgba(6,95,70,.18)">
-  <strong>LATEST — Board ZZ — 24 October 2026 17:15Z clarity desk — <a href="session-edffdbc6/index.html">Executive dashboard</a>.</strong>
-  Built to answer one question: what are the picks and where are they. Capture <code>20261024T171532Z</code> (146 HTTP-200 official and OLBG endpoints) → 154 verified fixtures → 75 fixtures with our own prices → 30 High picks inside −250…+10,000 → 18 written predictions.
-  <a href="session-edffdbc6/picks.html">All picks, one table</a> · <a href="session-edffdbc6/predictions.html">Written predictions</a> · <a href="session-edffdbc6/coverage.html">Coverage by sport</a> · <a href="session-edffdbc6/flagged.html">Flagged for review</a>.
-  Nine of fifteen sports carry verified fixtures; six carry own lines. The gaps are named with the exact feed that failed, not papered over.
-</section>
+  <div class="eyebrow">Executive summary · 24 October 2026 UTC</div>
+  <h1>Find the picks first. Check the evidence next.</h1>
+  <p class="lede">This front page separates the written picks from match lists, prices, and review items. Select a sport below, or open a pick ledger directly. Every linked desk is dated; a historical forecast is not presented as a currently open OLBG market.</p>
 
-<section class="notebox" style="border-left:5px solid #087e83;background:#edf8f7" aria-label="Evidence-first dashboard">
-  <strong>23 October 2026 · Strict evidence desk — <a href="session-49866065/index.html">Open the clean 15-sport dashboard</a>.</strong>
-  Fresh source cutoff 21:35 UTC: 252 official fixture rows, 188 OLBG observations, 179 independent low-confidence winner estimates, and only 6 exact official-to-OLBG fixture matches.
-  <strong>No High-confidence predictions have been established by this desk.</strong> Unconfirmed facts and unsupported market lines remain blank rather than filling a quota.
-  <a href="session-49866065/flagged.html">Flagged for Review</a> · <a href="session-49866065/evidence.html">Field-by-field official evidence</a> · <a href="session-49866065/review.html">1,211-row structural legacy review</a>.
-  Earlier dashboards below retain their historical claims; they are not re-endorsed by this review.
-</section>
+    <section class="status" style="background:#ecfdf5;border-color:#8fd3ba;border-left-color:#0f766e" aria-labelledby="zz-title">
+    <strong id="zz-title">Board ZZ — fresh 15-sport capture at 24 October 2026, 17:15 UTC.</strong>
+    <p>154 fixtures verified from official feeds, 75 fixtures with our own originated prices, 30 High-confidence picks inside −250…+10,000 and 18 written predictions. Nine of the fifteen sports carry verified fixtures (six of them priced); the other six name the exact official feed that failed rather than filling the gap. Start at the <a href="session-edffdbc6/index.html">executive dashboard</a>, then <a href="session-edffdbc6/picks.html">all picks in one table</a> · <a href="session-edffdbc6/predictions.html">written predictions</a> · <a href="session-edffdbc6/coverage.html">coverage by sport</a> · <a href="session-edffdbc6/flagged.html">flagged for review</a>.</p>
+  </section>
 
-<section class="notebox" style="border-left:5px solid #0f4c81;background:#eff6ff;box-shadow:0 2px 8px rgba(15,76,129,.14)">
-  <strong>LATEST — Board AS &mdash; 23 October 2026 20:00Z 15-sport origination desk &mdash; <a href="session-543dca7d/index.html">Executive Dashboard</a>.</strong>
-  Strictly scoped to the 15 requested sports (Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League) from fresh SHA-256 capture <code>20261023T194205Z</code> (125 HTTP-200 governing-body &amp; OLBG endpoints):
-  <a href="session-543dca7d/markets.html">112 upcoming fixtures &amp; 444 closed-form markets (981 outcomes, &Sigma;p = 1.0000)</a>,
-  <a href="session-543dca7d/predictions.html">75 human High-confidence picks (5 per sport across all 15/15 sports, 100% inside &minus;250..+10,000)</a>,
-  <a href="session-543dca7d/olbg-analysis.html">OLBG SvelteKit SSR reverse-engineering audit (81 stale unexpired rows caught)</a>,
-  <a href="session-543dca7d/review.html">2,252-row line-by-line repository audit</a>, and
-  <a href="session-543dca7d/flagged.html">26 structured Flagged for Review records</a>.
-</section>
+<section class="status" aria-labelledby="freshness-title">
+    <strong id="freshness-title"><span class="pill">Today's 15-sport slate is incomplete</span> A current NHL-only desk exists; the other 14 sports have not been captured today.</strong>
+    <p>The 24 Oct NHL desk lists 12 games and three Medium selections, with no High-confidence picks under its stated rules; its source, price-reference caveats, and unresolved items are on its <a href="session-937ee172/index.html">overview</a> and <a href="session-937ee172/flagged.html">Flagged for Review</a> pages. The latest complete 15-sport prediction ledger is older, cut off at <time datetime="2026-10-23T21:40:00Z">23 October 2026, 21:40 UTC</time>; the newer broad scan was read at 21:50 UTC. Do not treat archived fair lines as live OLBG odds or infer that uncaptured sports have no matches.</p>
+  </section>
 
-<section class="notebox" style="border-left:5px solid #0f766e;background:#ecfdf5">
-  <strong>Board AI &mdash; 23 October 2026 15-sport OLBG desk &mdash; <a href="session-2c05e0b2/index.html">dashboard</a>.</strong>
-  Fresh capture of OLBG's own hub for each of the 15 sports in the brief (236 listed events),
-  <a href="session-2c05e0b2/entries.html">343 published rows</a>,
-  <a href="session-2c05e0b2/markets.html">726 markets originated from official governing-body data</a>,
-  <a href="session-2c05e0b2/predictions.html">25 hand-written unique predictions</a>,
-  a <a href="session-2c05e0b2/review.html">line-by-line review of the shared datasets</a> and
-  <a href="session-2c05e0b2/flagged.html">flagged items with their sources</a>.
-</section>
-
-<section class="notebox" style="border-left:5px solid #2563eb;background:#eff6ff">
-  <strong>Board AH — exact 15-sport scope desk.</strong>
-  The isolated <a href="session-6846f1ab/index.html">Board AH dashboard</a> narrows the latest committed source capture to Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball and Rugby League. It publishes 253 active rows, 1,012 market families, 67 retained write-ups and 207 flagged records; Gaelic Sports and Greyhounds are blank where the capture did not support a qualified line. The source cutoff is <code>2026-10-22T21:15:00Z</code>, so it is explicitly a dated snapshot rather than an unclaimed live re-fetch.
-</section>
-<section class="notebox" style="border-left:5px solid #4338ca;background:#eef2ff">
-  <strong>Latest post-European-evening full 18-sport origination desk &mdash; <a href="session-4885d641/index.html">Board AG (cutoff 2026-10-22T21:15:00Z UTC &middot; capture 20261022T210026Z): 299 verified upcoming fixtures, 1,196 originated markets, 89 unique human predictions (&ge;5 in EVERY covered sport)</a>.</strong>
-  Reconciles all <strong>18 in-scope sports</strong> against <strong>110 HTTP 200 SHA-256 hashed captures</strong> after Thursday's European evening sessions finished, retiring all <strong>47</strong> completed afternoon/evening games (incl. <em>Milan 81&ndash;89 Barcelona</em>, <em>Maccabi 99&ndash;113 Real Madrid</em>, <em>Timr&aring; 0&ndash;4 F&auml;rjestad</em>, <em>Mark Williams 4&ndash;0 O'Donnell</em>), catching <strong>Luke Humphries's official PDC illness withdrawal</strong> &amp; <strong>three ATP/BWF Quarter-Final bracket misreads</strong>, and adding <strong>+143 newly confirmed Oct 23&ndash;Nov 9 fixtures</strong>:
-  <a href="session-4885d641/sports/tennis.html">all 20 true ATP/WTA Friday Quarter-Finals</a>,
-  <a href="session-4885d641/sports/badminton.html">all 20 BWF Super 750 French Open QFs</a>,
-  <a href="session-4885d641/sports/table-tennis.html">6 German TTBL club ties (Fan Zhendong 7&ndash;0) + WTT Montpellier</a>,
-  <a href="session-4885d641/predictions.html">89 unique human predictions (5&ndash;6 per sport, 100% in &minus;250..+10,000, 16 strict p &ge; 70% in-window)</a>,
-  <a href="session-4885d641/review.html">1,234-row 8-dataset audit</a>, and
-  <a href="session-4885d641/flagged.html">73 strictly blank Flagged for Review rows</a>.
-  (Peer desks also indexed: <a href="session-0d3b826c/index.html">Board AF `0d3b826c`</a> &middot; <a href="session-2d25cf78/index.html">Board AF `2d25cf78`</a> &middot; <a href="session-3a6388d2/index.html">Board AD `3a6388d2`</a>.)
-</section>
-<section class="notebox" style="border-left:5px solid #4f46e5;background:#eef2ff;box-shadow:0 2px 8px rgba(79,70,229,.18)">
-  <strong>NEW — Final 15-sport verified desk for this brief — <a href="session-509d544b/index.html">Board AP (arena/509d544b-olbg4 — cutoff 2026-10-23T00:00Z): 253 verified upcoming fixtures + 1 Gaelic verified + 11 Greyhound flagged, 1,196+ originated markets (Match Winner + Handicap + Match Total + Derivative), 65 High picks strictly in -250 to +10000 (5 per priced sport)</a>.</strong>
-  Filtered strictly to your 15 requested sports — <strong>Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League</strong> — with <strong>executive summary for today's highest-confidence picks</strong>, <strong>full multi-market lines on every priced match</strong>, <strong>15 category subpages</strong>, <strong>every table row source-linked</strong> to its official governing-body feed (110 HTTP 200 SHA-256 captures reused), and <strong>Flagged for Review (58) where values are blank</strong> per verification rule (no hallucination).
-  Explore <a href="session-509d544b/index.html">Executive Dashboard</a> · <a href="session-509d544b/predictions.html">65 High picks (5 per sport)</a> · <a href="session-509d544b/entries.html">All 253 fixtures</a> · <a href="session-509d544b/flagged.html">Flagged blank</a> · <a href="session-509d544b/verification.html">Verification</a> · <a href="session-509d544b/sources.html">Sources</a>.
-</section>
-<section class="notebox" style="border-left:5px solid #136a4b;background:#f0fdfa">
-  <strong>Latest evidence-first refresh &mdash; <a href="session-0d3b826c/index.html">Board AF (capture 2026-10-22T21:03:13Z UTC): 220 official fixtures, 212 priced, 19 unique High predictions</a>.</strong>
-  Seven +1.5 hockey handicaps meet both the &ge;70% and &minus;250..+10,000 focus rules; 12 stronger moneylines remain separately labelled outside the window. Explore <a href="session-0d3b826c/predictions.html">predictions with official fact panels</a>, <a href="session-0d3b826c/entries.html">all official fixtures</a>, <a href="session-0d3b826c/coverage.html">17 sport categories and five-pick shortfalls</a>, <a href="session-0d3b826c/review.html">815-row peer review</a>, and <a href="session-0d3b826c/flagged.html">181 flagged items</a>. Every one of 112 raw responses is SHA-256 checked; unmatched OLBG-only listings are not presented as verified.
-</section>
-<section class="notebox" style="border-left:5px solid #1d4ed8;background:#eff6ff">
-  <strong>Latest afternoon post-morning refresh &amp; 18-sport origination desk &mdash; <a href="session-22ca2e95/index.html">Board AE (cutoff 2026-10-22T12:15:00Z UTC · capture 20261022T121303Z): 246 verified upcoming fixtures, 984 originated markets, 46 High-confidence predictions strictly in &minus;250..+10,000</a>.</strong>
-  Prunes all morning/midday fixtures that finished or commenced prior to <code>12:15 UTC</code> and adds <strong>32 newly confirmed post-morning fixtures &amp; outrights</strong> across all 18 in-scope sports:
-  <a href="session-22ca2e95/sports/tennis.html">all 8 WTA Ningbo &amp; Osaka QFs + 7 new ATP Almaty/Brussels/Lyon Oct 23 ties</a>,
-  <a href="session-22ca2e95/sports/cricket.html">BCCI India Women vs Zimbabwe Women 1st &amp; 2nd ODIs</a>,
-  <a href="session-22ca2e95/sports/volleyball.html">French SpikeLigue S&egrave;te vs Chaumont</a>,
-  <a href="session-22ca2e95/sports/table-tennis.html">Week #42 ITTF WTT Champions Montpellier Outrights</a>,
-  <a href="session-22ca2e95/picks.html">46 unique human predictions (52&ndash;73 words, max trigram Jaccard 0.0238)</a>,
-  <a href="session-22ca2e95/olbg.html">242 live 12:13Z OLBG SSR events</a>,
-  <a href="session-22ca2e95/review.html">1,138-row repository audit</a>, and
-  <a href="session-22ca2e95/flagged.html">78 strictly blank Flagged for Review rows</a>.
-  (Peer afternoon/morning boards also indexed:
-  <a href="session-8cbd0cb9/index.html">Board AD `8cbd0cb9`</a> ·
-  <a href="session-d28c49c5/index.html">Board `d28c49c5`</a> ·
-  <a href="session-7bbc825b/index.html">Evidence Audit `7bbc825b`</a> ·
-  <a href="session-f0622b6e/index.html">Board AC `f0622b6e`</a>.)
-</section>
-<section class="notebox" style="border-left:5px solid #0f766e;background:#f0fdfa">
-  <strong>Latest 18-sport live OLBG reconciliation &amp; multi-market desk &mdash; <a href="session-9359e596/index.html">Board Z (2026-10-22T07:33:46Z UTC): 280 rows across 18 in-scope sports, 218 multi-market priced, 22 High picks in &minus;250..+10,000</a>.</strong>
-  Reconciles all <a href="session-9359e596/olbg.html">177 live OLBG hub rows</a> against official governing-body feeds &mdash; resolving the previously unverified gaps across Handball (33/35 verified: EHFCL, HBL, StarLigue, ASOBAL, Herreligaen, Handbollsligan), Snooker (8/8 Northern Ireland Open Last-16), Ice Hockey (6/6 SHL + Liiga + 46 NHL), Volleyball (14 ČVS / PlusLiga / SuperLega), Cricket (7 ICC/ECB/CI/CA internationals), Rugby Union (23 URC R4 incl. Leinster v Munster, Top 14 &amp; Pro D2), Rugby League (4 RLWC R2 incl. Katoa injury), Darts (16 PDC Dortmund), Tennis (18 upcoming ATP/WTA + morning results), Basketball (56 EuroLeague R7 &amp; NBA), Baseball (MLB World Series), Aussie Rules (9 AFLW R11), and Badminton (5 BWF French Open R16) &mdash; with <a href="session-9359e596/predictions.html">22 unique &ge;30-word High predictions across 13 sports</a> and <a href="session-9359e596/flagged.html">Flagged for Review + 8 repo-wide audit findings</a>.
-</section>
-<section class="notebox" style="border-left:5px solid #0f7b3f;background:#f4fbf6">
-  <strong>Newest desk — <a href="session-1695b749/index.html">Board AB: 96 fixtures priced from official payloads, 22 Oct – 2 Nov 2026</a>.</strong>
-  NHL 82, MLB World Series 5, LoL Esports 9, every row rebuilt this session from byte-verified official data (SHA-256 re-checked against the capture
-  manifest) with our own moneyline, puck line / run line, match total and both team totals.
-  <a href="session-1695b749/picks.html">12 high-confidence picks inside −250 to +10,000</a> carry original written predictions; there is also a
-  <a href="session-1695b749/verification.html">96-row verification register</a>, a
-  <a href="session-1695b749/coverage.html">19-sport coverage table</a> and
-  <a href="session-1695b749/flagged.html">12 published irregularities</a>. OLBG's live listing (138 match rows, 19 outrights) is carried alongside it
-  with the official source deliberately blank and flagged, so the full in-scope list is visible without claiming a verification that was not performed.
-</section>
-<section class="notebox" style="border-left:5px solid #0b5cad">
-  <strong>Four desks were re-read on 22 October 2026.</strong>
-  <a href="session-c92c927c/index.html">Board U &mdash; 30 fixtures across 5 sports</a> (own moneyline / handicap /
-  total, 9 High picks inside &minus;250 to +10,000, verification register, 19-sport coverage table) &middot;
-  <a href="session-4ec1fc72/index.html">Board T &mdash; 97 rows</a> (NHL, NBA, MLB World Series, PDC darts) &middot;
-  <a href="session-cdf25c13/index.html">Board T &mdash; 91 priced fixtures across four leagues</a> (this session's
-  desk: NHL 49, NBA 29, MLB World Series 5, URC 8) &middot;
-  <a href="session-e5f2dad3/index.html">Board W &mdash; 226 matches across 11 sports</a> (123 confirmed on an official
-  league endpoint, 90 with our own moneyline / puck or run line / total, 3 High picks inside &minus;250 to +10,000,
-  every captured payload hashed).
-</section>
-<section class="notebox" style="border-left-color:#0f766e">
-  <strong>Board T live desk for the 22&ndash;28 October window &mdash; <a href="session-cdf25c13/index.html">open the dashboard</a>.</strong>
-  91 fixtures across four sports, every one re-read from its official league page on 22 October 2026 after the
-  datasets below were cut off. Each row carries our own match-winner, handicap and match-total prices, a confidence
-  grade and the source it came from; <a href="session-cdf25c13/picks.html">8 high-confidence picks</a> sit inside the
-  requested &minus;250 to +10,000 window with written predictions and cited facts. The fifteen in-scope sports that
-  could not be priced this session are listed with their reasons on
-  <a href="session-cdf25c13/coverage.html">Coverage</a>, and every gap is on
-  <a href="session-cdf25c13/flagged.html">Flagged for Review</a>. The other two sessions' desks use the same official
-  sources but a different probability floor for High, so their grade counts differ from this one.
-</section>
-<section class="notebox" style="border-left-color:#7c3aed">
-  <strong>Board Z &mdash; 22 October official-source desk &mdash; <a href="session-19b8e377/index.html">open the dashboard</a>.</strong>
-  91 fixtures across five sports (handball, volleyball, tennis, basketball, snooker), each read on the governing body's own
-  page that day, with our own money line, handicap and match-total prices. <strong>14 high-confidence selections sit inside
-  &minus;250 to +10,000</strong> and carry hand-written predictions. 13 fixtures could not be priced for want of a two-sided
-  official input and are published blank on
-  <a href="session-19b8e377/flagged.html">Flagged for review</a>.
-</section>
-<section class="hero">
-  <div class="kicker">Independent line desk · data cut-off 2026-10-21</div>
-  <h1>Verified fixtures, our own prices, one official source on every row.</h1>
-  <p class="lede">Every fixture below was read on the governing body's own domain and then priced by our model —
-  no bookmaker price is read anywhere, and no value is filled in when the official page is silent.
-  Sports excluded by the brief (soccer, boxing, UFC/MMA, American football, hurling, horse racing, cycling, specials)
-  are not present anywhere in this dataset.</p>
-  <div class="cta"><a class="btn primary" href="entries.html">Open the full table</a>
-  <a class="btn" href="predictions.html">Read the 4 high-confidence write-ups</a>
-  <a class="btn" href="session-ee9c2db4/index.html">Open All-17-Sports Desk (268 events · 696 books · 38 High picks)</a></div>
-</section>
-<section class="notebox">
-  <strong>Complete 28-Slot OLBG Reverse-Engineering &amp; 17-Sport Multi-Market Desk (<a href="session-ee9c2db4/index.html">Board Q · session-ee9c2db4</a>).</strong>
-  268 verified events across all 17 in-scope OLBG sports (all 194 live OLBG matches &amp; outrights incl. +54 sub-feed discoveries + 74 official-API NBA/NHL/MLB week-ahead fixtures),
-  <a href="session-ee9c2db4/markets.html">696 complete probability books (&Sigma;p = 1.0000)</a>,
-  <a href="session-ee9c2db4/predictions.html">38 bespoke human High-confidence analyses</a>,
-  <a href="session-ee9c2db4/repo-review.html">618-row line-by-line repo review</a>, and
-  <a href="session-ee9c2db4/flagged.html">39 flagged irregularities</a> · also see
-  <a href="board/index.html">Board P Master Board (/board/)</a> and <a href="docs/desk/index.html">Board N Desk (/docs/desk/)</a>.
-</section>
-<section class="kpis">
-  <div class="kpi"><div class="kval">75</div><div class="klab">verified fixtures</div><div class="knote">every row carries an official link</div></div>
-  <div class="kpi"><div class="kval">6</div><div class="klab">sports published</div><div class="knote">of 19 in scope — see coverage</div></div>
-  <div class="kpi"><div class="kval">67</div><div class="klab">match-winner picks</div><div class="knote">each with our own price</div></div>
-  <div class="kpi"><div class="kval">4</div><div class="klab">high confidence</div><div class="knote">written up and fact-checked</div></div>
-  <div class="kpi"><div class="kval">0</div><div class="klab">inferred values</div><div class="knote">blank where the source is silent</div></div>
-</section>
-<section class="grid2">
-  <div>
-    <h2>By category</h2>
-    <div class="cats"><a class="cat" href="sports/ice-hockey.html"><div class="catname">Ice Hockey</div><div class="catnum">14</div><div class="tiny">verified fixtures</div><div class="catmeta"><span>14 picks</span><span>4 high</span></div></a><a class="cat" href="sports/basketball.html"><div class="catname">Basketball</div><div class="catnum">36</div><div class="tiny">verified fixtures</div><div class="catmeta"><span>36 picks</span><span>0 high</span></div></a><a class="cat" href="sports/baseball.html"><div class="catname">Baseball</div><div class="catnum">7</div><div class="tiny">verified fixtures</div><div class="catmeta"><span>7 picks</span><span>0 high</span></div></a><a class="cat" href="sports/rugby-union.html"><div class="catname">Rugby Union</div><div class="catnum">5</div><div class="tiny">verified fixtures</div><div class="catmeta"><span>5 picks</span><span>0 high</span></div></a><a class="cat" href="sports/handball.html"><div class="catname">Handball</div><div class="catnum">5</div><div class="tiny">verified fixtures</div><div class="catmeta"><span>5 picks</span><span>0 high</span></div></a><a class="cat" href="sports/snooker.html"><div class="catname">Snooker</div><div class="catnum">8</div><div class="tiny">verified fixtures</div><div class="catmeta"><span>0 picks</span><span>0 high</span></div></a></div>
-  </div>
-  <div>
-    <h2>Highest-confidence picks</h2>
-    <ul class="tops"><li><a href="predictions.html#nhl-2026-10-22-nsh-BOS"><strong>Boston Bruins</strong></a><span class="tiny"> Boston Bruins v Nashville Predators · Match winner (two-way) @ 1.35 · 2026-10-22</span></li><li><a href="predictions.html#nhl-2026-10-22-fla-PIT"><strong>Florida Panthers</strong></a><span class="tiny"> Pittsburgh Penguins v Florida Panthers · Match winner (two-way) @ 1.34 · 2026-10-22</span></li><li><a href="predictions.html#nhl-2026-10-23-min-CGY"><strong>Minnesota Wild</strong></a><span class="tiny"> Calgary Flames v Minnesota Wild · Match winner (two-way) @ 1.15 · 2026-10-22</span></li><li><a href="predictions.html#nhl-2026-10-23-det-VAN"><strong>Detroit Red Wings</strong></a><span class="tiny"> Vancouver Canucks v Detroit Red Wings · Match winner (two-way) @ 1.42 · 2026-10-22</span></li></ul>
-    <div class="notebox">
-      <strong>What "high" means here.</strong> The model only grades High when the verified strength gap is at least
-      0.18 in probability <em>and</em> both sides have at least eight verified games. That is why 36 NBA fixtures from
-      opening week are Low: there is no form to price.
-      <a href="methodology.html">Method</a>.
+  <section id="picks" aria-labelledby="picks-title">
+    <div class="sectionhead"><h2 id="picks-title">Picks &amp; match lists</h2><p>Start here to see the selection, then open its sport page for the row-level sources.</p></div>
+    <div class="cards">
+      <article class="card primary">
+        <span class="tag">24 Oct · NHL only</span>
+        <h3>Today's current partial desk</h3>
+        <p>12 NHL games, three Medium picks, zero High; only 1 of 15 sports captured. View all selections, own fair lines, the official-source links and the price-reference caveats.</p>
+        <a class="action" href="session-937ee172/index.html">Open today's NHL overview →</a>
+      </article>
+      <article class="card archive">
+        <span class="tag">Complete 15-sport ledger · archived</span>
+        <h3>75 written predictions</h3>
+        <p>Five entries per requested sport in the 23 Oct 21:40Z snapshot. These are historical research, not today's confirmed offers; review the timestamp and source links on each card.</p>
+        <a class="action" href="session-48de8c1d/predictions.html">Open the written pick ledger →</a>
+      </article>
+      <article class="card primary">
+        <span class="tag">Broad official-source scan · archived</span>
+        <h3>All matches and own lines</h3>
+        <p>Board FX records 432 fixture rows and 792 originated markets, captured 23 Oct and read at 21:50Z. Eight of 15 sports were priced; rows without supported inputs remain unpriced, and the high-confidence list has a separate odds-window indicator.</p>
+        <a class="action" href="session-4502eff5/entries.html">Browse matches &amp; selections →</a>
+      </article>
+      <article class="card review">
+        <span class="tag">Cautious reconciliation · archived</span>
+        <h3>Evidence and irregularities</h3>
+        <p>The strict review desk reports only six exact OLBG-to-official fixture matches in its snapshot, leaves unsupported details blank, and records conflicts for review.</p>
+        <a class="action" href="session-49866065/index.html">Open evidence-first desk →</a>
+      </article>
     </div>
-    <div class="notebox warn">
-      <strong>Not everything could be verified.</strong> Thirteen in-scope sports have no published row this cycle,
-      and three NBA games could not be read. They are named, with the official page that failed, on
-      <a href="coverage.html">Coverage</a> and <a href="flagged.html">Flagged for review</a>.
-    </div>
-  </div>
-</section>
-<section>
-  <h2>Every fixture, at a glance</h2>
-  <div class="tablebox"><table class="grid"><thead><tr><th>Date</th><th>Sport</th><th>Fixture</th><th>Our originated line</th><th>Pick</th><th>Verified source</th></tr></thead><tbody><tr data-sport="Ice Hockey" data-conf="High" data-pick="1" data-text="boston bruins nashville predators nhl regular season 2026-27 boston bruins"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Boston Bruins</strong> v Nashville Predators</div><div class="tiny">TD Garden, Boston</div><div class="tiny">Record 7-2-1 v 3-2-3</div></td><td class="lines"><div><span class="lbl">Win</span> 1.35 / 3.55</div><div><span class="lbl">Hcp</span> Boston Bruins -1.0 @ 1.97<div class="tiny">Nashville Predators +1.0 @ 1.95</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Boston Bruins</strong><div class="tiny">Match winner (two-way) @ 1.35</div><div class="badges"><span class="badge b-high">High</span></div><div class="tiny"><a href="predictions.html#nhl-2026-10-22-nsh-BOS">Read the write-up</a></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020154</div></td></tr><tr data-sport="Ice Hockey" data-conf="Low" data-pick="1" data-text="toronto maple leafs new york rangers nhl regular season 2026-27 new york rangers"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Toronto Maple Leafs</strong> v New York Rangers</div><div class="tiny">Scotiabank Arena, Toronto</div><div class="tiny">Record 5-4-2 v 7-3-1</div></td><td class="lines"><div><span class="lbl">Win</span> 2.27 / 1.73</div><div><span class="lbl">Hcp</span> New York Rangers -0.5 @ 2.15<div class="tiny">Toronto Maple Leafs +0.5 @ 1.8</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>New York Rangers</strong><div class="tiny">Match winner (two-way) @ 1.73</div><div class="badges"><span class="badge b-low">Low</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020155</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="ottawa senators san jose sharks nhl regular season 2026-27 ottawa senators"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Ottawa Senators</strong> v San Jose Sharks</div><div class="tiny">Canadian Tire Centre, Ottawa</div><div class="tiny">Record 6-3-0 v 5-4-1</div></td><td class="lines"><div><span class="lbl">Win</span> 1.49 / 2.88</div><div><span class="lbl">Hcp</span> Ottawa Senators -0.5 @ 1.8<div class="tiny">San Jose Sharks +0.5 @ 2.16</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Ottawa Senators</strong><div class="tiny">Match winner (two-way) @ 1.49</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020156</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="new jersey devils anaheim ducks nhl regular season 2026-27 new jersey devils"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>New Jersey Devils</strong> v Anaheim Ducks</div><div class="tiny">Prudential Center, Newark</div><div class="tiny">Record 5-4-0 v 4-5-0</div></td><td class="lines"><div><span class="lbl">Win</span> 1.5 / 2.84</div><div><span class="lbl">Hcp</span> New Jersey Devils -0.5 @ 1.81<div class="tiny">Anaheim Ducks +0.5 @ 2.13</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>New Jersey Devils</strong><div class="tiny">Match winner (two-way) @ 1.5</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020157</div></td></tr><tr data-sport="Ice Hockey" data-conf="High" data-pick="1" data-text="pittsburgh penguins florida panthers nhl regular season 2026-27 florida panthers"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Pittsburgh Penguins</strong> v Florida Panthers</div><div class="tiny">PPG Paints Arena, Pittsburgh</div><div class="tiny">Record 3-6-1 v 5-2-2</div></td><td class="lines"><div><span class="lbl">Win</span> 3.63 / 1.34</div><div><span class="lbl">Hcp</span> Florida Panthers -1.0 @ 1.95<div class="tiny">Pittsburgh Penguins +1.0 @ 1.97</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Florida Panthers</strong><div class="tiny">Match winner (two-way) @ 1.34</div><div class="badges"><span class="badge b-high">High</span></div><div class="tiny"><a href="predictions.html#nhl-2026-10-22-fla-PIT">Read the write-up</a></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020158</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="new york islanders los angeles kings nhl regular season 2026-27 new york islanders"><td class="nowrap">2026-10-22<div class="tiny">2026-10-22T23:30:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>New York Islanders</strong> v Los Angeles Kings</div><div class="tiny">UBS Arena, Elmont</div><div class="tiny">Record 5-3-1 v 1-4-2</div></td><td class="lines"><div><span class="lbl">Win</span> 1.16 / 6.44</div><div><span class="lbl">Hcp</span> New York Islanders -1.5 @ 1.93<div class="tiny">Los Angeles Kings +1.5 @ 1.99</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>New York Islanders</strong><div class="tiny">Match winner (two-way) @ 1.16</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020159</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="st. louis blues vegas golden knights nhl regular season 2026-27 vegas golden knights"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T00:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>St. Louis Blues</strong> v Vegas Golden Knights</div><div class="tiny">Enterprise Center, St. Louis</div><div class="tiny">Record 4-4-1 v 8-3-0</div></td><td class="lines"><div><span class="lbl">Win</span> 2.8 / 1.51</div><div><span class="lbl">Hcp</span> Vegas Golden Knights -0.5 @ 1.83<div class="tiny">St. Louis Blues +0.5 @ 2.11</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Vegas Golden Knights</strong><div class="tiny">Match winner (two-way) @ 1.51</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020160</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="dallas stars winnipeg jets nhl regular season 2026-27 dallas stars"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T00:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Dallas Stars</strong> v Winnipeg Jets</div><div class="tiny">American Airlines Center, Dallas</div><div class="tiny">Record 5-3-1 v 4-3-2</div></td><td class="lines"><div><span class="lbl">Win</span> 1.62 / 2.48</div><div><span class="lbl">Hcp</span> Dallas Stars -0.5 @ 1.99<div class="tiny">Winnipeg Jets +0.5 @ 1.93</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Dallas Stars</strong><div class="tiny">Match winner (two-way) @ 1.62</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020161</div></td></tr><tr data-sport="Ice Hockey" data-conf="High" data-pick="1" data-text="calgary flames minnesota wild nhl regular season 2026-27 minnesota wild"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T01:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Calgary Flames</strong> v Minnesota Wild</div><div class="tiny">Scotiabank Saddledome, Calgary</div><div class="tiny">Record 2-6-0 v 6-2-2</div></td><td class="lines"><div><span class="lbl">Win</span> 6.54 / 1.15</div><div><span class="lbl">Hcp</span> Minnesota Wild -1.5 @ 1.93<div class="tiny">Calgary Flames +1.5 @ 2.0</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Minnesota Wild</strong><div class="tiny">Match winner (two-way) @ 1.15</div><div class="badges"><span class="badge b-high">High</span></div><div class="tiny"><a href="predictions.html#nhl-2026-10-23-min-CGY">Read the write-up</a></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020162</div></td></tr><tr data-sport="Ice Hockey" data-conf="Medium" data-pick="1" data-text="edmonton oilers carolina hurricanes nhl regular season 2026-27 edmonton oilers"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T01:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Edmonton Oilers</strong> v Carolina Hurricanes</div><div class="tiny">Rogers Place, Edmonton</div><div class="tiny">Record 7-1-1 v 8-2-1</div></td><td class="lines"><div><span class="lbl">Win</span> 1.61 / 2.51</div><div><span class="lbl">Hcp</span> Edmonton Oilers -0.5 @ 1.98<div class="tiny">Carolina Hurricanes +0.5 @ 1.95</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Edmonton Oilers</strong><div class="tiny">Match winner (two-way) @ 1.61</div><div class="badges"><span class="badge b-med">Medium</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020163</div></td></tr><tr data-sport="Ice Hockey" data-conf="Low" data-pick="1" data-text="seattle kraken utah mammoth nhl regular season 2026-27 seattle kraken"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T02:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Seattle Kraken</strong> v Utah Mammoth</div><div class="tiny">Climate Pledge Arena, Seattle</div><div class="tiny">Record 6-3-1 v 7-3-0</div></td><td class="lines"><div><span class="lbl">Win</span> 1.92 / 2.0</div><div><span class="lbl">Hcp</span> Seattle Kraken -0.5 @ 2.45<div class="tiny">Utah Mammoth +0.5 @ 1.63</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Seattle Kraken</strong><div class="tiny">Match winner (two-way) @ 1.92</div><div class="badges"><span class="badge b-low">Low</span></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020164</div></td></tr><tr data-sport="Ice Hockey" data-conf="High" data-pick="1" data-text="vancouver canucks detroit red wings nhl regular season 2026-27 detroit red wings"><td class="nowrap">2026-10-22<div class="tiny">2026-10-23T02:00:00Z</div><div class="tiny muted">UTC start time exactly as published by the NHL feed</div></td><td><span class="chip">Ice Hockey</span><div class="tiny">NHL regular season 2026-27</div></td><td><div class="fix"><strong>Vancouver Canucks</strong> v Detroit Red Wings</div><div class="tiny">Rogers Arena, Vancouver</div><div class="tiny">Record 2-8-1 v 3-3-3</div></td><td class="lines"><div><span class="lbl">Win</span> 3.17 / 1.42</div><div><span class="lbl">Hcp</span> Detroit Red Wings -1.0 @ 2.11<div class="tiny">Vancouver Canucks +1.0 @ 1.83</div></div><div><span class="lbl">Total</span> 6.0 goals @ 1.92 / 1.92</div></td><td><strong>Detroit Red Wings</strong><div class="tiny">Match winner (two-way) @ 1.42</div><div class="badges"><span class="badge b-high">High</span></div><div class="tiny"><a href="predictions.html#nhl-2026-10-23-det-VAN">Read the write-up</a></div></td><td><a href="https://api-web.nhle.com/v1/score/2026-10-22" target="_blank" rel="noopener">NHL</a><div class="tiny">NHL official score/schedule feed (JSON) for 22 Oct 2026</div><div class="tiny mono">NHL game 2026020165</div></td></tr></tbody></table></div>
-  <p class="small"><a href="entries.html">Open all 75 fixtures, filterable by sport, confidence and pick →</a></p>
-</section>
+  </section>
 
+  <section class="section" id="sports" aria-labelledby="sports-title">
+    <div class="sectionhead"><h2 id="sports-title">Choose a sport</h2><p>Category pages include match entries and source links from the dated 15-sport ledger.</p></div>
+    <div class="sports">
+      <a href="session-48de8c1d/sports/golf.html">Golf</a>
+      <a href="session-48de8c1d/sports/volleyball.html">Volleyball</a>
+      <a href="session-48de8c1d/sports/rugby-union.html">Rugby Union</a>
+      <a href="session-48de8c1d/sports/cricket.html">Cricket</a>
+      <a href="session-48de8c1d/sports/snooker.html">Snooker</a>
+      <a href="session-48de8c1d/sports/darts.html">Darts</a>
+      <a href="session-48de8c1d/sports/baseball.html">Baseball</a>
+      <a href="session-48de8c1d/sports/gaelic-sports.html">Gaelic Sports</a>
+      <a href="session-48de8c1d/sports/greyhounds.html">Greyhounds</a>
+      <a href="session-48de8c1d/sports/tennis.html">Tennis</a>
+      <a href="session-48de8c1d/sports/motor-racing.html">Motor Racing</a>
+      <a href="session-48de8c1d/sports/handball.html">Handball</a>
+      <a href="session-48de8c1d/sports/ice-hockey.html">Ice Hockey</a>
+      <a href="session-48de8c1d/sports/basketball.html">Basketball</a>
+      <a href="session-48de8c1d/sports/rugby-league.html">Rugby League</a>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="how-title">
+    <div class="sectionhead"><h2 id="how-title">How to read the desk</h2><p>Our own prices are estimates, not bookmaker offers.</p></div>
+    <div class="guide">
+      <article><h3>1 · Selection</h3><p>The <a href="session-48de8c1d/predictions.html">predictions ledger</a> states the specific bet and confidence grade. Each write-up should be read with the official-source link on its row.</p></article>
+      <article><h3>2 · Markets</h3><p>Open <a href="session-4502eff5/markets.html">originated markets</a> for match winner, handicap, totals, and the sport-specific markets supported by that snapshot. A fair line is not an available OLBG price.</p></article>
+      <article><h3>3 · Review</h3><p>Use the <a href="session-49866065/flagged.html">Flagged for Review</a> page for disputed, stale, or unsupported facts. Blank means the source evidence did not support filling the value.</p></article>
+    </div>
+  </section>
+
+  <div class="footnote">
+    <p><strong>Snapshot notice.</strong> The individual boards preserve their original capture times, scope, data and audit records. Their counts are not additive, and this navigation update does not re-verify their match facts.</p>
+    <p><strong>Odds-window note.</strong> A 70% fair probability corresponds to about −233 American odds; the overlap between a 70% threshold and a −250 minimum price is narrow (up to about 71.4%). See the <a href="session-4502eff5/methodology.html">dated methodology</a> before interpreting confidence and price filters.</p>
+    <p><a href="session-4502eff5/flagged.html">Board FX flags</a> · <a href="session-48de8c1d/flagged.html">Board FB flags</a> · <a href="session-48de8c1d/sources.html">Official source register</a> · <a href="audit/index.html">Repository-wide structural audit</a> · <a href="archive.html">Older dashboards</a> · <a href="https://github.com/buffedlizard55-lab/OLBG4">Repository</a></p>
+  </div>
 </main>
-<footer class="foot">
-  <div class="wrap">
-    <p><strong>Data cut-off 2026-10-21T08:00Z.</strong>
-    Every published row was read on a governing-body, league or tournament-organiser domain; the link is in the row.
-    Values that could not be confirmed are blank and listed on <a href="flagged.html">Flagged for review</a>.</p>
-    <p class="small">Analysis only, not betting advice. 18+. Built by session <code>arena/83451f65-olbg4</code>;
-    other sessions' dashboards remain untouched in <a href="archive.html">Archive</a>.</p>
-  </div>
-</footer>
 </body>
 </html>
