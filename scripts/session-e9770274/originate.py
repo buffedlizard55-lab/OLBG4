@@ -84,9 +84,8 @@ def olbg_sides(event: dict) -> list[dict]:
 
 # --------------------------------------------------------------------------- shared helpers
 def fair(p: float) -> dict:
-    d = model.fair_decimal(p)
-    a = model.american_from_prob(model.fair_decimal(p) and p)
-    return {"prob": round(p, 4), "decimal": d, "american": a}
+    pr = round(p, 4)
+    return {"prob": pr, "decimal": model.fair_decimal(pr), "american": model.american_from_prob(pr)}
 
 
 def listed_implied(olbg_listed: list[dict], selection: str) -> tuple[float | None, dict | None]:
@@ -116,7 +115,16 @@ def select_pick(row: dict, pool: list[dict]) -> dict:
         imp, _ = listed_implied(row["olbg"]["listed"], c["selection"])
         edge = (c["prob"] - imp) if imp else 0.0
         return c["prob"] + max(edge, 0) * 0.5
-    return max(inband, key=key)
+    best = max(inband, key=key)
+    # prefer a straight result market (winner / draw-no-bet / double chance) when it is within
+    # five probability points of the safest available line, so the desk backs a result rather than
+    # automatically taking every underdog +1.5
+    straight = [c for c in inband if any(k in c["market"].lower() for k in
+                ("match winner", "draw no bet", "double chance", "regulation 3-way", "moneyline"))
+                and c["prob"] >= best["prob"] - 0.05]
+    if straight:
+        return max(straight, key=key)
+    return best
 
 
 def finish_row(row: dict, candidate: dict) -> dict:
@@ -149,7 +157,11 @@ def mk_row(rid: str, sport: str, competition: str, home: str, away: str, start_u
         "olbg": {"event_id": event["event_id"], "url": event["url"],
                  "listed": event["listed"], "tip_count": event["max_tip_count"],
                  "name": event["name"], "start_utc": event["start_utc"]},
-        "official": official, "facts": facts_list, "markets": [],
+        "official": official,
+        "facts": [dict(f, source_url=official.get("standings_url") or official.get("url"))
+                  if re.search(r"record|last 10|goals per game|table|season so far|championship", f["label"], re.I)
+                  else dict(f, source_url=official.get("url")) for f in facts_list],
+        "markets": [],
         "verified": verified, "sample": sample, "pick": None, "status": "priced",
         "flags": list(extra_flags or []),
     }
@@ -162,7 +174,8 @@ def build_nhl(cap: facts.Capture) -> list[dict]:
     for m in facts.nhl_matches(cap, ["2026-10-24", "2026-10-25", "2026-10-26"]):
         games[m["nhl_game_id"]] = m
     team_gf = [t["gf_pg"] for m in games.values() for t in m["teams"].values()]
-    league_avg = model.league_average(team_gf) / 2 if team_gf else 0
+    # mean goals scored per team per game = the Poisson baseline (not halved: each side gets its own lambda)
+    league_avg = model.league_average(team_gf) if team_gf else 0
     events = [e for e in BOARD["sports"]["Ice Hockey"]["events"]
               if e["upcoming"] and " @ " in e["name"]]
     used = set()
@@ -217,7 +230,7 @@ def build_nhl(cap: facts.Capture) -> list[dict]:
              "selections": [{"selection": h["name"], **fair(mk["home_win"])},
                             {"selection": "Draw", **fair(mk["draw"])},
                             {"selection": aw["name"], **fair(mk["away_win"])}]},
-            {"market": f"Puck line (regulation) {h['name']} -1.5", "line": -1.5,
+            {"market": "Puck line ±1.5 (regulation)", "line": -1.5,
              "selections": [{"selection": f"{h['name']} -1.5", **fair(mk["handicap_home"])},
                             {"selection": f"{aw['name']} +1.5", **fair(mk["handicap_away"])}]},
             {"market": "Double chance (regulation)", "line": None,
@@ -232,7 +245,7 @@ def build_nhl(cap: facts.Capture) -> list[dict]:
             {"market": "Draw no bet (regulation)", "line": None,
              "selections": [{"selection": f"{h['name']} draw no bet", **fair(mk["home_win"] / (1 - mk["draw"]))},
                             {"selection": f"{aw['name']} draw no bet", **fair(mk["away_win"] / (1 - mk["draw"]))}]},
-            {"market": "Team total 2.5", "line": 2.5,
+            {"market": "Team total goals 2.5", "line": 2.5,
              "selections": [{"selection": f"{h['name']} over 2.5 goals", **fair(team_over(mk, True, 2.5))},
                             {"selection": f"{h['name']} under 2.5 goals", **fair(1 - team_over(mk, True, 2.5))},
                             {"selection": f"{aw['name']} over 2.5 goals", **fair(team_over(mk, False, 2.5))},
@@ -341,12 +354,25 @@ def lega_table(cap: facts.Capture) -> dict[str, dict]:
 
 
 def lega_round_results(cap: facts.Capture) -> list[dict]:
+    """Played rounds only, read off the official SuperLega calendar.
+
+    The page prints one row per fixture; a row with a score of 0-0 has not been played, so those are
+    dropped rather than published as results. Referee names trail the away club in the row, so the
+    away name is trimmed against the published club list.
+    """
     t = cap.html_text("legavolley_cal_999")
+    names = sorted(LEGA_TEAM, key=len, reverse=True)
     res = []
-    for m in re.finditer(r"(\d{1,2}) (?:Sabato|Domenica|Lunedì|Martedì|Mercoledì|Giovedì|Venerdì) (\d{1,2}/\d{1,2}/\d{4}) Ore (\d\d:\d\d) (.+?) (\d)-(\d) (.+?) (?:[A-Z][a-z]+ )?Pala", t):
-        res.append({"no": int(m.group(1)), "date": m.group(2), "time": m.group(3),
-                    "home": m.group(4).strip(), "hs": int(m.group(5)), "as": int(m.group(6)),
-                    "away": m.group(7).strip()})
+    for m in re.finditer(r"(\d{1,2}) (?:Sabato|Domenica|Lunedì|Martedì|Mercoledì|Giovedì|Venerdì) "
+                         r"(\d{1,2})/(\d{1,2})/(\d{4}) Ore (\d\d:\d\d) (.+?) (\d)-(\d) (.+?)(?:\.|$)", t):
+        hs, as_ = int(m.group(7)), int(m.group(8))
+        home_raw, away_raw = m.group(6).strip(), m.group(9).strip()
+        home = next((n for n in names if home_raw.startswith(n)), None)
+        away = next((n for n in names if away_raw.startswith(n)), None)
+        if not home or not away or (hs == 0 and as_ == 0):
+            continue
+        res.append({"date": f"{m.group(4)}-{m.group(3).zfill(2)}-{m.group(2).zfill(2)}",
+                    "time": m.group(5), "home": home, "hs": hs, "as": as_, "away": away})
     return res
 
 
@@ -376,8 +402,8 @@ def build_volleyball(cap: facts.Capture) -> list[dict]:
         r_away = (ta["points_for"] / ta["points_against"]) ** 1.0 if ta["points_against"] else 1.0
         p_set = (r_home * 1.03) / (r_home * 1.03 + r_away)
         mk = model.set_match(p_set)
-        recent = [f for f in results if side_score(home, f["home"]) > 0.7 or side_score(home, f["away"]) > 0.7
-                  or side_score(away, f["home"]) > 0.7 or side_score(away, f["away"]) > 0.7]
+        recent = [f for f in results if f["date"] <= cap.captured_utc[:10] and
+                  (f["home"] in (home, away) or f["away"] in (home, away))][:6]
         f = [{"label": f"{home} table position", "value": f"{th['played']} played, {th['won']}W-{th['lost']}L, {th['pts']} pts, sets {th['sets_won']}-{th['sets_lost']}, points {th['points_for']}-{th['points_against']}"},
              {"label": f"{away} table position", "value": f"{ta['played']} played, {ta['won']}W-{ta['lost']}L, {ta['pts']} pts, sets {ta['sets_won']}-{ta['sets_lost']}, points {ta['points_for']}-{ta['points_against']}"}]
         for r in recent:
@@ -557,6 +583,124 @@ def build_f1(cap: facts.Capture) -> list[dict]:
     return rows
 
 
+
+# --------------------------------------------------------------------------- handball (Sweden)
+MONTHS = {"JAN": "01", "FEB": "02", "MAR": "03", "APR": "04", "MAJ": "05", "JUN": "06", "JUL": "07",
+          "AUG": "08", "SEP": "09", "OKT": "10", "NOV": "11", "DEC": "12"}
+
+
+def swedish_handball_games(cap: facts.Capture) -> list[dict]:
+    raw = cap.text("handbollsligan_schema")
+    games = []
+    for block in re.findall(r'<div class="game-item">(.*?)</div></div>', raw, re.S):
+        d = re.search(r'game-item-date">(\w{3}) (\d{1,2}) (\w{3}) (\d\d:\d\d)<', block)
+        teams = re.findall(r'<img class="team-logo"[^>]*alt="([^"]+)"', block)
+        scores = re.findall(r'<span class="team-score">(\d+)', block)
+        if not d or len(teams) < 2 or len(scores) < 2:
+            continue
+        day, num, mon, hm = d.groups()
+        iso = f"2026-{MONTHS.get(mon.upper(), '01')}-{int(num):02d}T{hm}:00+02:00"
+        games.append({"home": teams[0], "away": teams[1], "hs": int(scores[0]), "as_": int(scores[1]),
+                      "local": f"{day} {num} {mon} {hm}", "iso_local": iso})
+    return games
+
+
+def build_handball(cap: facts.Capture) -> list[dict]:
+    rows = []
+    games = swedish_handball_games(cap)
+    played = [g for g in games if g["hs"] or g["as_"]]
+    if not played:
+        return rows
+    agg: dict[str, dict] = {}
+    for g in played:
+        for side, gf, ga in (("home", g["hs"], g["as_"]), ("away", g["as_"], g["hs"])):
+            t = agg.setdefault(g[side], {"gf": 0, "ga": 0, "n": 0, "w": 0, "l": 0, "d": 0})
+            t["gf"] += gf
+            t["ga"] += ga
+            t["n"] += 1
+            t["w"] += 1 if gf > ga else 0
+            t["l"] += 1 if gf < ga else 0
+            t["d"] += 1 if gf == ga else 0
+    for t in agg.values():
+        t["gf_pg"] = round(t["gf"] / t["n"], 2)
+        t["ga_pg"] = round(t["ga"] / t["n"], 2)
+    league_avg = model.league_average([t["gf_pg"] for t in agg.values()])
+    events = [e for e in BOARD["sports"]["Handball"]["events"] if e["upcoming"]]
+    upcoming = {}
+    for g in games:
+        if g["hs"] == 0 and g["as_"] == 0:
+            upcoming[(g["home"], g["away"])] = g
+    for e in events:
+        a, b = split_event(e["name"])
+        hit = None
+        for (h, aw), g in upcoming.items():
+            if side_score(a, h) > 0.8 and side_score(b, aw) > 0.8:
+                hit = g
+                break
+        if not hit:
+            continue
+        h, aw = hit["home"], hit["away"]
+        if h not in agg or aw not in agg:
+            continue
+        th, ta = agg[h], agg[aw]
+        lam_h = model.expected_goals(th["gf_pg"], th["ga_pg"], ta["gf_pg"], ta["ga_pg"], league_avg,
+                                     True, model.HOME_ADV_GOALS["Handball"])
+        lam_a = model.expected_goals(th["gf_pg"], th["ga_pg"], ta["gf_pg"], ta["ga_pg"], league_avg,
+                                     False, model.HOME_ADV_GOALS["Handball"])
+        total_line = round(lam_h + lam_a) + 0.5
+        mk = model.goal_markets(lam_h, lam_a, -1.5, total_line, max_goals=45)
+        start = datetime.fromisoformat(hit["iso_local"]).astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        f = [{"label": f"{h} season so far", "value": f"{th['n']} played, {th['w']}W-{th['d']}D-{th['l']}L, "
+              f"{th['gf']} goals for / {th['ga']} against ({th['gf_pg']} / {th['ga_pg']} per game)"},
+             {"label": f"{aw} season so far", "value": f"{ta['n']} played, {ta['w']}W-{ta['d']}D-{ta['l']}L, "
+              f"{ta['gf']} goals for / {ta['ga']} against ({ta['gf_pg']} / {ta['ga_pg']} per game)"},
+             {"label": "Fixture", "value": f"Scheduled {hit['local']} local time by the league"}]
+        for g in played:
+            if g["home"] == h or g["away"] == h:
+                f.append({"label": f"{h} recent result",
+                          "value": f"{g['home']} {g['hs']}-{g['as_']} {g['away']} ({g['local']})"})
+                if len([x for x in f if "recent result" in x["label"]]) >= 3:
+                    break
+        row = mk_row(f"CA-HB-{len(rows)+1:03d}", "Handball", "Handbollsligan (Sweden, men)",
+                     h, aw, start, "", e,
+                     {"url": cap.url("handbollsligan_schema"),
+                      "name": "Handbollsligan — official Swedish league fixtures, results and table (handbollsligan.se)",
+                      "capture_id": "handbollsligan_schema", "sha256": cap.sha("handbollsligan_schema")},
+                     f, True, {"adequate": th["n"] >= 3 and ta["n"] >= 3, "games": min(th["n"], ta["n"])})
+        row["model"] = {"lam_home": round(lam_h, 3), "lam_away": round(lam_a, 3),
+                        "league_avg_goals_per_team_game": round(league_avg, 3),
+                        "basis": "independent-Poisson from official season scoring rates, 1.045 home multiplier"}
+        if e["start_utc"] != start:
+            row["flags"].append({"kind": "olbg-time-delta",
+                                 "text": f"OLBG's card shows {e['start_utc']} but the league's own page shows "
+                                         f"{hit['local']} local ({start}). We publish the league's time."})
+        row["markets"] = [
+            {"market": "Match winner (3-way)", "line": None,
+             "selections": [{"selection": h, **fair(mk["home_win"])},
+                            {"selection": "Draw", **fair(mk["draw"])},
+                            {"selection": aw, **fair(mk["away_win"])}]},
+            {"market": "Double chance", "line": None,
+             "selections": [{"selection": f"{h} or draw", **fair(mk["home_win"] + mk["draw"])},
+                            {"selection": f"{aw} or draw", **fair(mk["away_win"] + mk["draw"])}]},
+            {"market": "Draw no bet", "line": None,
+             "selections": [{"selection": f"{h} draw no bet", **fair(mk["home_win"] / (1 - mk["draw"]))},
+                            {"selection": f"{aw} draw no bet", **fair(mk["away_win"] / (1 - mk["draw"]))}]},
+            {"market": "Handicap -1.5", "line": -1.5,
+             "selections": [{"selection": f"{h} -1.5", **fair(mk["handicap_home"])},
+                            {"selection": f"{aw} +1.5", **fair(mk["handicap_away"])}]},
+            {"market": f"Total goals {total_line}", "line": total_line,
+             "selections": [{"selection": f"Over {total_line}", **fair(mk["over"])},
+                            {"selection": f"Under {total_line}", **fair(mk["under"])}]},
+        ]
+        pool = []
+        for mkt in row["markets"]:
+            for sel in mkt["selections"]:
+                pool.append({"market": mkt["market"], "selection": sel["selection"],
+                             "prob": sel["prob"], "decimal": sel["decimal"], "american": sel["american"]})
+        rows.append(finish_row(row, select_pick(row, pool)))
+    return rows
+
+
 # --------------------------------------------------------------------------- unpriced listings
 REASONS = {
     "Golf": "OLBG's golf hub served no tip cards at capture time (0 events), so there is nothing to price.",
@@ -600,6 +744,7 @@ def main() -> int:
     priced += build_f1(cap)
     priced += build_rugby(cap)
     priced += build_gaelic(cap)
+    priced += build_handball(cap)
 
     unpriced = build_unpriced("")
     covered = {(r["sport"], r["olbg"]["event_id"]) for r in priced}

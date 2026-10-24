@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology — OLBG 15-sport desk (24 Oct 2026)</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#243040;--ink:#e6edf3;--dim:#8b949e;--accent:#3fb950;
+--high:#3fb950;--med:#d29922;--low:#8b949e;--pick:#58a6ff;--warn:#f85149}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--pick);text-decoration:none}a:hover{text-decoration:underline}
+header.top{background:linear-gradient(160deg,#101a2b,#0d1117);border-bottom:1px solid var(--line);padding:22px 20px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1{font-size:1.65rem;margin:0 0 4px}
+h2{font-size:1.2rem;margin:34px 0 10px;border-left:4px solid var(--accent);padding-left:10px}
+h3{font-size:1.02rem;margin:22px 0 8px}
+.sub{color:var(--dim);font-size:.9rem;margin:0}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+nav a{background:#1b2431;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.85rem;color:var(--ink)}
+nav a.on{background:var(--accent);color:#06210c;border-color:var(--accent);font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0 4px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi b{display:block;font-size:1.5rem;line-height:1.2}
+.kpi span{color:var(--dim);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.exec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pick);border-radius:10px;
+padding:16px 18px;margin:18px 0}
+.exec p{margin:0 0 10px}
+.exec p:last-child{margin:0}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+border-radius:10px;overflow:hidden;font-size:.88rem;margin:10px 0 4px;display:table}
+th{background:#1b2431;text-align:left;padding:9px 10px;font-size:.76rem;text-transform:uppercase;
+letter-spacing:.05em;color:var(--dim);border-bottom:1px solid var(--line);position:sticky;top:0}
+td{padding:9px 10px;border-bottom:1px solid #1d2531;vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:#19212c}
+.pickcell{font-weight:700;color:var(--pick)}
+.tag{display:inline-block;border-radius:6px;padding:2px 7px;font-size:.74rem;font-weight:700;letter-spacing:.03em}
+.high{background:rgba(63,185,80,.16);color:var(--high);border:1px solid rgba(63,185,80,.4)}
+.medium{background:rgba(210,153,34,.15);color:var(--med);border:1px solid rgba(210,153,34,.4)}
+.low{background:rgba(139,148,158,.14);color:var(--low);border:1px solid rgba(139,148,158,.35)}
+.unpriced{background:rgba(248,81,73,.1);color:var(--warn);border:1px solid rgba(248,81,73,.35)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.small{font-size:.8rem;color:var(--dim)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+.card h3{margin-top:0}
+.card .head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.predtext{background:#0f1620;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:10px 0}
+.facts{margin:8px 0 0;padding-left:18px;font-size:.85rem;color:#c9d1d9}
+.facts li{margin:2px 0}
+ol.preds{padding-left:0;list-style:none}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 0;color:var(--dim);font-size:.82rem}
+.pill{display:inline-block;background:#1b2431;border:1px solid var(--line);border-radius:999px;
+padding:2px 9px;font-size:.75rem;color:var(--dim);margin-right:6px}
+.warnbox{background:rgba(248,81,73,.08);border:1px solid rgba(248,81,73,.35);border-radius:10px;padding:14px 16px}
+.okbox{background:rgba(63,185,80,.08);border:1px solid rgba(63,185,80,.35);border-radius:10px;padding:14px 16px}
+</style></head>
+<body>
+<header class="top"><div class="wrap">
+<h1>Methodology</h1>
+<p class="sub">How the lines, the grades and the written predictions are produced.</p>
+<nav><a class="" href="index.html">Dashboard</a><a class="" href="picks.html">Predictions</a><a class="" href="fixtures.html">All matches</a><a class="" href="markets.html">Markets &amp; lines</a><a class="" href="sources.html">Sources</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged for review</a><a class="on" href="methodology.html">Methodology</a></nav>
+</div></header>
+<main class="wrap">
+
+<h2>The job, in one paragraph</h2>
+<p>Reverse-engineer OLBG's 15 in-scope sport boards, list every updated fixture, originate our own fair
+lines for each fixture we can support with official data, pick a side, grade the pick, and write a unique
+prediction of at least 30 words for the best five picks per sport where the board allows it. Nothing is
+copied from a bookmaker, and no number is invented.</p>
+<h2>The confidence grade (and the arithmetic problem in the brief)</h2>
+<p>The brief asks for High-confidence picks at "greater than 70% chance" <em>and</em> inside
+−250…+10,000 American odds. Those two tests barely overlap: a 70% chance is a fair price of −233, and
+−250 is a 71.4% chance. Anything above 71.4% prices shorter than −250 and falls outside the brief's band.
+So the honest reading is: the band is the filter, and 70% is a ceiling near the top of it.</p>
+<p>We publish both numbers on every row and grade like this:</p>
+<ul class="facts">
+<li><b>High</b> — every input verified on an official source, adequate sample (at least 5 completed games
+or the full published record), fair price inside −250…+10,000, and either our modelled probability is at
+least 66% or our probability beats the OLBG-listed implied probability by at least 6 points.</li>
+<li><b>Medium</b> — verified, but a thin sample, or a 2-5.9 point edge, or a probability between 58% and 66%.</li>
+<li><b>Low</b> — incomplete inputs, a price outside the band, or below 58% with no measured edge.</li>
+</ul>
+<p>Why 66%: it is the highest round floor that a selection can clear while still pricing at −250 or better.
+A 66% pick is −194; a 70% pick is −233; a 71.4% pick is exactly −250.</p>
+<h2>What "verified" means here</h2>
+<p>A figure is verified when it is read out of a committed response from the official league, tour,
+federation or club body, with that response's SHA-256 recorded on the Sources page. If the official page
+does not publish it, we leave it blank. We never fill a blank from memory, from a fan site, or from another
+publisher. That is why several sports have no line today — the reasons are itemised, not hidden.</p>
+<h2>Writing rules for predictions</h2>
+<ul class="facts">
+<li>At least 30 words, and in practice 60-110.</li>
+<li>Name both sides, the competition, the state of both teams, recent results, and at least one
+game-specific verified statistic.</li>
+<li>State the selection explicitly — the side and the market, so there is no ambiguity about what is being
+backed.</li>
+<li>No two texts may overlap materially: the build computes pairwise similarity and fails above 0.55.</li>
+<li>Injuries are only mentioned when an official source in the capture names the player and the injury;
+otherwise the prediction says the injury position was not published, and the row is flagged.</li>
+</ul>
+<h2>What this desk does not do</h2>
+<ul class="facts">
+<li>It does not present OLBG's crowd price as our own. OLBG prices appear only where we compare our
+probability with the listed implied probability to measure an edge.</li>
+<li>It does not price a fixture whose official inputs are missing.</li>
+<li>It does not write a prediction for a fixture it has not priced.</li>
+</ul>
+
+</main>
+<footer><div class="wrap">
+<p>Session <code>arena/e9770274-olbg4</code> · board CA · data capture <code>20261024T172255Z</code>
+(2026-10-24T17:24:50Z) · every price is our own fair line, never a copied bookmaker or OLBG price.</p>
+<p>OLBG public boards are used only to establish <em>which</em> fixtures are listed and what the crowd price is.
+Every team statistic, record and result behind a pick is read from the official league, tour or federation page
+linked on the row. Values that could not be confirmed from an official source are left blank and listed on
+<a href="flagged.html">Flagged for review</a>.</p>
+</div></footer>
+</body></html>
