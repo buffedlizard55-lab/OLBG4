@@ -739,6 +739,158 @@ def parse_gaa(cap: Capture, fixtures: list[dict]) -> None:
     })
 
 
+
+# --------------------------------------------------------------------------------------- Handball
+DK_MONTHS = None
+
+
+def _dk_cell(block: str, cls: str) -> str:
+    m = re.search(r'match-program__row__' + cls + r'">(.*?)</div>', block, re.S)
+    if not m:
+        return ""
+    return norm_ws(re.sub(r"<[^>]+>", " ", m.group(1)))
+
+
+def parse_handball_dk(cap: Capture, fixtures: list[dict]) -> None:
+    """Danish Herreligaen: the official programme page renders one row per match with the
+    published local date/time, both clubs and either the final score or 'VS' for a fixture
+    still to be played.  Team strength is built only from the scores on that same page."""
+    from zoneinfo import ZoneInfo
+
+    html = cap.raw("dk_herreligaen_program")
+    if not html:
+        return
+    blocks = re.split(r'match-program__row\s*">', html)[1:]
+    rows = []
+    for b in blocks:
+        date = _dk_cell(b, "date")
+        teams = [norm_ws(re.sub(r"<[^>]+>", " ", t)) for t in
+                 re.findall(r'match-program__row__team">(.*?)</div>', b, re.S)]
+        score = _dk_cell(b, "score")
+        m = re.match(r"(\d{2})-(\d{2})-(\d{2}) (\d{2}):(\d{2})$", date)
+        if not m or len(teams) != 2:
+            continue
+        dd, mm, yy, hh, mi = (int(x) for x in m.groups())
+        local = datetime(2000 + yy, mm, dd, hh, mi, tzinfo=ZoneInfo("Europe/Copenhagen"))
+        res = re.match(r"^(\d{2,3})-(\d{2,3})$", score)
+        rows.append({"start": local.astimezone(timezone.utc), "home": teams[0], "away": teams[1],
+                     "hg": int(res.group(1)) if res else None, "ag": int(res.group(2)) if res else None})
+    played = [r for r in rows if r["hg"] is not None]
+    if len(played) < 20:
+        return
+
+    agg: dict[str, dict] = {}
+    for r in played:
+        for name, gf, ga in ((r["home"], r["hg"], r["ag"]), (r["away"], r["ag"], r["hg"])):
+            a = agg.setdefault(name, {"gp": 0, "gf": 0, "ga": 0, "w": 0, "d": 0, "l": 0, "pts": 0,
+                                     "recent": [], "h2h": []})
+            a["gp"] += 1
+            a["gf"] += gf
+            a["ga"] += ga
+            if gf > ga:
+                a["w"] += 1
+                a["pts"] += 2
+                out = "W"
+            elif gf == ga:
+                a["d"] += 1
+                a["pts"] += 1
+                out = "D"
+            else:
+                a["l"] += 1
+                out = "L"
+            a["recent"].append(f"{out} {gf}-{ga} v {r['away'] if name == r['home'] else r['home']}")
+    for name, a in agg.items():
+        a["recent"] = a["recent"][-6:]
+        a["gf_pg"] = round(a["gf"] / a["gp"], 2)
+        a["ga_pg"] = round(a["ga"] / a["gp"], 2)
+
+    def h2h(home: str, away: str) -> list[str]:
+        out = []
+        for r in played:
+            if {r["home"], r["away"]} == {home, away}:
+                out.append(f"{r['start']:%d %b %Y}: {r['home']} {r['hg']}-{r['ag']} {r['away']}")
+        return out[-3:]
+
+    upcoming = [r for r in rows if r["hg"] is None and r["start"] > CUTOFF
+                and r["home"] in agg and r["away"] in agg]
+    for r in upcoming:
+        home, away = r["home"], r["away"]
+        h, a = agg[home], agg[away]
+        fixtures.append({
+            "id": f"ZZ-HB-DK-{r['start']:%Y%m%d%H%M}",
+            "sport": "Handball",
+            "competition": "Herreligaen (Danish handball championship) 2026/27",
+            "stage": "Regular season",
+            "home": home,
+            "away": away,
+            "start_utc": r["start"].strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "venue": "",
+            "source": cap.source("dk_herreligaen_program",
+                                 "https://tophaandbold.dk/kampprogram/herreligaen",
+                                 "Tophandbold — official Herreligaen match programme (tophaandbold.dk)"),
+            "model": {"kind": "normal_points_handball"},
+            "stats": {"home": h, "away": a,
+                      "h2h": h2h(home, away),
+                      "published_local_time": r["start"].strftime("%d-%m-%Y %H:%M") + " Europe/Copenhagen"},
+            "game_id": f"hb-dk-{home}-{away}-{r['start']:%Y%m%d}",
+        })
+
+
+# ---------------------------------------------------------------------------------------- Snooker
+def parse_snooker_api(cap: Capture, fixtures: list[dict]) -> None:
+    """snooker.org publishes its match list as JSON per event (?t=6&e=<id>) with a scheduled UTC
+    start for every unplayed match.  Player names come from the same site's event page."""
+    from zoneinfo import ZoneInfo  # noqa: F401  (kept for symmetry with other parsers)
+
+    api = cap.json("snooker_api_matches_2548")
+    page = cap.raw("snooker_org_2548")
+    if not api or not page:
+        return
+    names = {int(pid): norm_ws(n) for pid, n in re.findall(r"player=(\d+)\"[^>]*>([^<]+)</a>", page)}
+    if len(names) < 20:
+        return
+    title = ""
+    mt = re.search(r"<title>(.*?)</title>", page, re.S)
+    if mt:
+        title = norm_ws(re.sub(r"<[^>]+>", "", mt.group(1))).replace(" - snooker.org", "")
+    # frame record inside the event, for the players still involved
+    frames: dict[str, list[int]] = {}
+    for m in api:
+        if not m.get("WinnerID"):
+            continue
+        p1, p2 = names.get(m["Player1ID"]), names.get(m["Player2ID"])
+        if not p1 or not p2:
+            continue
+        for name, fw, fl in ((p1, m["Score1"], m["Score2"]), (p2, m["Score2"], m["Score1"])):
+            rec = frames.setdefault(name, [0, 0])
+            rec[0] += fw
+            rec[1] += fl
+    rounds = {14: "Semi-final", 15: "Final"}
+    for m in api:
+        if not m.get("ScheduledDate") or m.get("WinnerID") or not m.get("ScheduledDate", "").startswith("2026"):
+            continue
+        start = datetime.fromisoformat(m["ScheduledDate"].replace("Z", "+00:00"))
+        p1, p2 = names.get(m["Player1ID"]), names.get(m["Player2ID"])
+        if start <= CUTOFF or not p1 or not p2:
+            continue
+        fixtures.append({
+            "id": f"ZZ-SN-NIO-{m['ID']}",
+            "sport": "Snooker",
+            "competition": title,
+            "stage": rounds.get(m.get("Round"), f"Round {m.get('Round')}"),
+            "home": p1,
+            "away": p2,
+            "start_utc": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "venue": "",
+            "source": cap.source("snooker_api_matches_2548", "https://www.snooker.org/res/index.asp?event=2548",
+                                 "snooker.org official event match list & schedule"),
+            "model": {"kind": "none"},
+            "stats": {"frames": {n: {"won": v[0], "lost": v[1]} for n, v in frames.items() if n in (p1, p2)},
+                      "round_length_published": False},
+            "game_id": f"sn-{m['ID']}",
+        })
+
+
 # ---------------------------------------------------------------------------------------- Snooker
 def parse_snooker(cap: Capture, fixtures: list[dict]) -> None:
     for rec in cap.manifest["records"]:
@@ -784,6 +936,8 @@ def main() -> int:
     parse_top14(cap, fixtures)
     parse_motogp(cap, fixtures)
     parse_gaa(cap, fixtures)
+    parse_handball_dk(cap, fixtures)
+    parse_snooker_api(cap, fixtures)
     horizon = CUTOFF + timedelta(days=int(__import__("os").environ.get("ZZ_HORIZON_DAYS", "9")))
     kept = []
     for f in fixtures:

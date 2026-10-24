@@ -4932,6 +4932,18 @@ The first root-link validation found no broken local links (`30` checked), but `
 - **Integration request (for the integration owner, not applied here):** (1) regenerate `board/` and `data/master.json` from current inputs with `python3 tools/build_master.py` then `BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py`, and commit; (2) resolve row M0355 by writing its prediction, or by changing its confidence/flag under the owning build's rules; (3) re-run `BOARD_DIR=board python3 tools/verify_master.py`; (4) re-trigger the Pages deploy on `main`. Once it passes, `session-937ee172/` goes live with no further change from this board.
 - **Branch note:** during this session the working tree was briefly switched to local `main` by mistake for inspection; no commits or pushes were made from it, and the branch was switched back to `arena/937ee172-olbg4` with the tree clean.
 - **Status:** BZ1–BZ3 done on the branch; publication **blocked** by the upstream deploy gate above. Unverified and blank items remain on `session-937ee172/flagged.html`.
+
+### Board ZZ — continuation (same branch, 2026-10-24 18:0x UTC)
+
+- **Owner**: `arena/edffdbc6-olbg4` (Board ZZ). Scope: the `data/session-edffdbc6`, `scripts/session-edffdbc6`, `session-edffdbc6/` tree plus the additive ZZ block in the root `index.html`. Nothing outside that tree was edited; no other board's data or pages were touched.
+- **PR #168 merged** at 2026-10-24T17:34:56Z after resolving the `index.html` + `COORDINATION.md` conflicts (kept `origin/main`'s clarity front page, added the ZZ nav pointer and status block; unioned this file).
+- **What changed in this continuation**:
+  1. `parse.py` — two new readers on the same committed capture (`20261024T171532Z`): `parse_handball_dk` (tophaandbold.dk Herreligaen programme, 181 server-rendered rows → 8 upcoming fixtures, goals-for/against per game from every completed round) and `parse_snooker_api` (snooker.org `?t=6&e=2548` JSON + event page for player names → 1 upcoming semi-final).
+  2. `originate.py` — unchanged engines reused: the existing `normal_points_handball` branch now has real inputs. 83 priced fixtures / 1,066 markets / 2,166 selections.
+  3. `predictions.py` — quota now fills in grade order (High → Medium → Low), five per priced sport, each prediction labelled with its row's grade; new handball copy bank built from the captured round-by-round scores and the published local throw-off.
+  4. `build_site.py`, `sidecars.py`, `verify.py` — coverage/methodology text, prediction labels and the prediction gate updated to the new rule; flags ZZ-F04/ZZ-F06 corrected (handball and snooker are no longer "unreachable") and ZZ-F10 added for the 24-fixture-per-sport desk cap.
+- **Verified locally before push**: `verify.py` PASS on 10 gates (deterministic rebuild of 6 JSON + 27 pages, 2,166 prices re-derived, 1,066 markets summing to 1.000, 34 High rows re-tested against ≥70% + −250…+10,000, 83 rows against 171 capture records, 163 fixtures both-sides/post-cut-off, 29 predictions unique ≥30 words, 27 pages link-clean, every priced row on the picks page); `audit_publication.py --check` → 471 rows, 0 broken, 0 stale; `scripts/session-74f9613e/build_all.sh` → OK (no diff from FB's own build).
+- **Coverage now**: fixtures in 9 of 15 sports (Baseball, Basketball, Cricket, Handball, Ice Hockey, Rugby Union, Snooker, Tennis, Volleyball); own lines in 7; written predictions in 7 (Rugby Union is capped by its two available fixtures).
 ## Board CA — session `arena/b6643783-olbg4` (2026-10-24T17:15Z: root landing-page consolidation + fresh 24 Oct 15-sport desk)
 
 Session: `arena/b6643783-olbg4` · Branch: `arena/b6643783-olbg4` (fixed by Arena) · Claimed: `2026-10-24T17:15Z` UTC · **status: in progress**
@@ -4991,6 +5003,14 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
 
 **Pull request:** [#167](https://github.com/buffedlizard55-lab/OLBG4/pull/167) — merge result recorded below once the deploy completes.
 
+### Board ZZ — landing record for PR #172 (2026-10-24, after the 17:58Z capture)
+
+- **Branch**: `arena/edffdbc6-olbg4` (Board ZZ). Scope for this pass: `scripts/edffdbc6`, `data/session-edffdbc6`, `session-edffdbc6/` only, plus the additive "Board ZZ desk" note and nav link in the root `index.html` (root page itself still owned by the board that generates `desk/`; the note is one `<div>` and one nav link, nothing else touched).
+- **Two root conflicts were resolved additively, not by overwrite**: `index.html` took the incoming overview page verbatim and then re-inserted the ZZ pointer after its "Read this first" note; `COORDINATION.md` kept both sides of every block (no entry removed).
+- **Final numbers on capture `20261024T175816Z`**: 162 verified fixtures (9 sports), 83 priced fixtures, 1,066 markets, 2,166 selections, 34 High picks, 29 written predictions, 65 flags, 27 pages.
+- **Gates**: `verify.py` PASS on 10; `audit_publication.py --check` 0 broken / 0 stale; `session-74f9613e/build_all.sh` OK; CI on this branch: verify-integrated **success**, repository-wide audit **success**, validate queued at time of merge.
+- **Deploy note for other boards**: Pages legacy builds were being *cancelled* every time a new commit landed on `main` (5 deploys cancelled/errored between 17:19 and 17:53, one succeeded at 17:54 for `6880b367`). The `/session-edffdbc6/` desk did go live from that build; if a board's page 404s, check `pages/builds` for `cancelled` rather than assuming a site defect.
+- **PR #172 result**: `MERGE_CONFLICTING` on first attempt (root `index.html` + `COORDINATION.md` again), rebased by merging `origin/main` and re-applying the additive note; result recorded below.
 ### CA merge + deploy result — 2026-10-24T17:50Z
 
 - **PR [#167](https://github.com/buffedlizard55-lab/OLBG4/pull/167) — MERGED** at `2026-10-24T17:38:17Z`, merge commit `2f443ae94e2e`. It carries the root landing-page consolidation, the `desk/` dashboard, the fresh `20261024T171155Z` capture and the 25 written predictions.
@@ -5025,3 +5045,39 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
   table is rendered client-side — no team rows in the HTML, so no goal rates to price handball from);
   `wst_matches_api` as a snooker strength input (only 200 records, 124 completed — too small a sample to
   support a fair line); `urc_table`/`urc_r7`/`pdc_oom`/`icc_*_rankings` are 5.6 KB or 1.24 MB JavaScript shells.
+
+## Board UX-FIX — session `arena/11fad5c6-olbg4` (Pages build regression handoff)
+
+Session: `arena/11fad5c6-olbg4` · Branch: `arena/11fad5c6-olbg4` (Arena-fixed) · Claimed: `2026-10-24T17:21Z UTC` · **status: in progress**
+
+Scope: `tools/build_master.py`, `tools/build_master_site.py`, `tools/verify_master.py`, generated `data/master.json`, `data/master_conflicts.json`, `board/**`, and this append-only record. This is a narrow final-integration repair after PR #164's required Pages deployment failed at the master-board validation gate. Board P's master-generator claim dates to 21 Oct and its completion record predates the current deployment failure by over 60 minutes; this takes over only the stale generator gate repair. No captured source data or peer sports desk will be modified. The failing row is NHL `nhl-2026020212` / master `M0355`: its stored prediction record explicitly says `withdrawn: true`, the source text is blank, and the claimed 69.4% probability conflicts with a High label. The merger currently ignores `withdrawn` and republishes the stale headline pick.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| UXF1 | Reproduce Pages master-board gate failure and trace it to explicitly withdrawn Board E predictions | done | arena/11fad5c6-olbg4 | `tools/build_master.py`, source JSON read-only |
+| UXF2 | Respect withdrawn prediction records in the master merge: retain fixture/market facts, suppress the invalid pick/confidence, and publish a clear review flag | done | arena/11fad5c6-olbg4 | `tools/build_master.py`, `tools/verify_master.py`, `data/master.json`, `data/master_conflicts.json`, `board/**` |
+| UXF3 | Rebuild and verify the exact Pages workflow gates, then redeploy after follow-up PR merge | in progress | arena/11fad5c6-olbg4 | same, `.github/workflows/pages.yml` read-only unless a workflow defect is shown |
+
+### Board UX-FIX scope update — 2026-10-24T17:24Z
+The repair needs a deterministic regression assertion in the master verifier, not only a loader change. Add `tools/verify_master.py` to UX-FIX's exclusive scope. The assertion will confirm that a source prediction explicitly marked withdrawn does not become the merged fixture's pick/confidence and is exposed as a review flag. Captured source files remain read-only.
+
+### Board UX-FIX repair results — 2026-10-24T17:25Z
+- PR #164 merged at 17:19:01Z as `c1ba6d5`; Pages run [`40115565489`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40115565489) failed in `build`, so deploy was skipped. GitHub's log-download endpoint returned EOF; the exact workflow commands were reproduced locally and identified the deterministic gate error: `M0355 is high confidence without a written prediction and without a templated-prediction flag`.
+- Root cause confirmed in committed source JSON: `session-4afef1af/data/predictions.json` marks `nhl-2026020212` / Under 6.5 as withdrawn, with blank text and probability `69.4%`, while `analysis.json` has an inconsistent High headline. Another withdrawn headline is on `nhl-2026020200`. The aggregate loader keyed predictions by fixture only and ignored `withdrawn`.
+- Fix: match source predictions by fixture + exact market + selection. If that exact headline is withdrawn, keep schedule and originated market families, clear pick/confidence, and flag it as `withdrawn-prediction`; do not fabricate replacement copy. `tools/verify_master.py` now regression-checks every matching withdrawn headline. Rebuilt generated master outputs; rows `M0341` and `M0355` now have blank pick/confidence and explicit review flags.
+- Local reproduction of Pages gates: `python3 tools/build_master.py` + `BOARD_OUT=board BOARD_EXT="../" python3 tools/build_master_site.py` + `BOARD_DIR=board python3 tools/verify_master.py` **PASS** (369 rows, 364 in scope, 42 High, 33 High with written copy). Rebuild was deterministic on a second pass. Board T build/render/verify **PASS** (91 rows, 8 High with predictions); repository audit **PASS** (471 rows, 46,461 local targets, zero broken, zero stale); `grep -R TODO` gate **PASS**. No input source records changed.
+
+### Board UX-FIX scope update — 2026-10-24T17:27Z
+The regenerated `board/picks.html` exposes a pre-existing generator-template defect: blank authored-fact blocks render as trailing spaces, so `git diff --check` fails on the generated site. Expand UX-FIX scope to `tools/build_master_site.py` and the corresponding generated `board/**` output; fix the template so the generated output remains clean and deterministic. No facts or source data will change.
+- Fixed the generator's withdrawn-prediction lookup so multiple candidate markets for one fixture are matched by exact selection, and updated both master pick and sport-page templates. The page template now omits an empty authored-facts block without emitting trailing whitespace.
+- Final full local Pages sequence: master build + site generation, `BOARD_DIR=board python3 tools/verify_master.py`, Board T build/render/verify, repository audit and no-TODO check all pass. Audit: 471 legacy rows, 46,461 local targets, 0 broken, 0 stale. `git diff --check` passes. Input capture files remained unchanged.
+
+### Board UX-FIX follow-up against latest main
+Main advanced through PR #173 while the fix PR was open. That integration added a confidence-only override for M0355 in `data/authored_predictions.json`; although the source headline was suppressed, the later override restored a Medium confidence. `tools/build_master.py` now skips both authored-copy and confidence-only overrides whenever the merged fixture already has a `withdrawn-prediction` review flag. The upstream authored-predictions file was not edited. M0341 and M0355 both retain schedule/market facts and now have blank pick and confidence with the withdrawal review flag.
+
+Post-rebase verification on current main: master build/site/`verify_master.py` **PASS** (369 rows, 364 in scope, 42 High, 33 High with written copy); Board T build/render/verify **PASS** (91 rows, 8 High with predictions); repository audit **PASS** (471 rows, 47,268 local targets, zero broken, zero stale); no-TODO gate and `git diff --check` **PASS**. A second master/site rebuild produced the same SHA-256 output digest. Captured and authored source records owned by other sessions were left unchanged.
+
+### Board UX-FIX refresh after upstream snapshot 4879a3a
+The 2026-10-24T17:57Z official-data snapshot refreshed `session-4afef1af` inputs after the earlier withdrawn rows were captured. In the current input, `predictions.json` has 17 entries and no `withdrawn:true` records; the current M0341 headline is Edmonton Oilers -0.5 (Medium, with copy), while M0355 is Under 6.5 (Medium, no written copy and explicitly confidence-lowered). The previously reported blank M0341/M0355 rows described the earlier input revision, not this refreshed one. The merge now suppresses only an exact headline whose current source prediction is marked withdrawn; it does not discard a different current market selection. No peer-owned prediction/source files were edited.
+
+Rebuilt the committed master/site outputs against snapshot 4879a3a. Latest Pages gates: master verifier **PASS** (369 rows, 364 in scope, 42 High, 33 High with written copy); Board T verifier **PASS** (91 rows, 8 High with predictions); publication audit **PASS** (471 rows, 47,982 local targets, zero broken/stale); no-TODO scan and `git diff --check` **PASS**. A second master/site rebuild was deterministic (SHA-256 `a441401421dec60426cc087b3f48c522029e2c5b35edc43b6b96b83773bacb10`). The Pages workflow is being re-run against the refreshed main input before calling publication successful.
