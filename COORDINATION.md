@@ -4752,3 +4752,64 @@ Findings that need another owner's file are logged here as integration requests,
   picks and their location obvious; only fully written unique predictions count (no bare "X to win");
   5 highest-confidence written predictions per covered sport per day; High picks targeted inside
   -250…+10,000 American odds.
+
+### CA completion record (2026-10-24)
+
+**Published output:** `session-e9770274/index.html` (executive-summary dashboard) plus `picks.html`
+(written predictions), `fixtures.html` (every fixture, priced or not), `markets.html` (what was originated
+and withheld, per sport), `sources.html` (all 216 captured targets with HTTP status and SHA-256),
+`review.html` (repo review), `flagged.html` (flagged register) and 15 per-sport pages.
+Machine-readable: `data/session-e9770274/{desk,olbg_board,predictions,review,sources,flags}.json`.
+One-command rebuild: `python3 scripts/session-e9770274/run.py` (optional `--capture` to re-fetch).
+
+**What was verified, line by line**
+- Live capture 2026-10-24T17:22Z from OLBG's own public sport boards for the 15 in-scope sports:
+  **189 upcoming events** (193 at the first capture, minus four that started while the desk was being built).
+  Every event keeps its OLBG URL, listed price and tip count.
+- Our own lines were originated for **15 fixtures** where a verified official input exists for both sides:
+  **NHL 12** (api-web.nhle.com schedule + official standings), **MLB 1** (statsapi.mlb.com schedule,
+  probable pitchers, standings), **SuperLega volleyball 3** (legavolley.it official table and calendar).
+  Markets originated per fixture: match winner, regulation 3-way, puck line ±1.5, draw-no-bet, double
+  chance, team totals and totals at 4.5/5.5/6.5/7.5 (ice hockey); moneyline (baseball); match winner, set
+  handicap and set totals (volleyball). No margin is applied: these are fair prices re-derived from the
+  published probability on every row.
+- **9 written predictions** (5 High, 4 Medium), 78-95 words each, pairwise similarity <= 0.17, each naming
+  both sides, the state of both teams, recent results, at least one game-specific official statistic and the
+  selection in plain words. No text uses the words "model" or "verified".
+- **Verification gate** `scripts/session-e9770274/verify.py` -> **PASS**: every price re-derives from its
+  probability (decimal and American), every pick sits inside -250...+10,000, every High grade satisfies the
+  published rule, every priced row cites an official URL whose SHA-256 matches the capture manifest, every
+  fact carries a source link, every prediction is 30+ words/unique/named, and every internal link on the 23
+  built pages resolves. Repository-wide `scripts/audit_publication.py --check` -> 0 broken (46,844 targets).
+
+**Irregularities published (54 items on `session-e9770274/flagged.html`, non-blocking)**
+- The brief's two High-confidence tests conflict: ">70% chance" and "-250...+10,000" overlap only at
+  70.0-71.4%. The desk keeps the band as the hard filter and uses 66% as the practical floor inside it;
+  the arithmetic is spelled out on the Methodology page and flagged.
+- Five-written-predictions-per-sport was **not met**: only ice hockey (5) reached it; volleyball delivered 3,
+  baseball 1, and 12 of the 15 sports delivered none because no verified official input could be captured.
+  Each shortfall is itemised with its reason.
+- Capture failures behind those gaps (all listed with URLs on the Sources page): cdn.nba.com and
+  stats.nba.com HTTP 403 even with browser headers; pcb.com.pk 403; protennislive/atptour 403;
+  wst.tv and pdc.tv client-rendered (no readable match data in the committed bytes); daikin-hbl.de,
+  asobal.es, lnh.fr, ecb.co.uk and icc-cricket.com paths 404; unitedrugby.com fixture and standings paths
+  404; OLBG's golf hub served zero fixture cards; OLBG lists no Rugby League match at all (three 2027
+  outrights only); OLBG's 79 greyhound cards are UK tracks while the official Irish feed we can capture
+  covers Shelbourne Park and Curraheen.
+- No official injury feed could be captured for any sport, so no prediction makes an injury claim; this is
+  flagged rather than filled in.
+- OLBG's clock disagrees with league clocks on some cards (published league time is used, OLBG's is shown).
+
+**Repo review (9 findings on `session-e9770274/review.html`, 3 defects)**
+- `data/master.json` is not today's board: 208 of 354 rows predate 24 Oct 2026, only 103 describe a future
+  fixture.
+- 39 of 354 canonical rows carry no `source_url` at all (first example M0001, "No fixture v No fixture").
+- 49 of the 76 canonical prediction texts use wording the brief forbids ("model"/"verified").
+- Positive findings: no canonical row leans on an aggregator/tipster site; the worst similarity between any
+  two published prediction texts in the six newest desks is 0.27; 0 broken internal links across the 31 root
+  pages.
+
+**Integration requests (not applied — other owners' files)**
+- Refresh `data/master.json` from the current builds (it is a day stale) and strip "model"/"verified" from
+  the 49 canonical prediction texts.
+- Add a Board CA pointer to the root `README.md`/navigation on the next root-owner pass.
