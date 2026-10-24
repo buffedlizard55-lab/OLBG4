@@ -5144,3 +5144,7 @@ Exclusive, non-overlapping scope: `session-51fff5fb/**`, `data/session-51fff5fb/
 **Integration request to the root-page owner (Board CA; not applied here):** distinguish total High labels from High rows with full text and those inside the price band; make OLBG event cross-reference status visible on every surfaced pick; exclude/flag starts already reached at read time; label the root pick grid as confidence-ranked or put the earliest fixture first; correct QF-F11 in the source prediction. The audit and exact affected rows are published under the QF Flagged for Review page. QF4 remains **needs review** until the shared root owner chooses whether to integrate these changes; this does not block the isolated report.
 
 **Status:** QF1–QF3 done; QF4 needs review. Pull request and Pages deployment result will be appended after integration.
+
+### QF post-rebase verification refresh — 2026-10-24T18:17Z
+
+Rebased the QF branch onto `origin/main` at `df1e0a7`. Re-ran `py_compile`, the deterministic QF audit and page build, the QF verifier, `git diff --check`, and the repository publication audit against the rebased tree. Results: **26/26 QF gates pass**, 350 table rows, 0 broken local links, 0 source-less table rows; publication audit: 471 rows, **48,116** local targets, 0 broken, 0 stale. Rebuilds are byte-identical and the worktree is clean. The CA source desk audited remains capture `20261024T173907Z` (401 rows, 234 priced, 25 predictions); no shared/root output was changed by rebasing or this refresh.
