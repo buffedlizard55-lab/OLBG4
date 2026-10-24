@@ -22,7 +22,11 @@ Output: data/session-696c1a7c/picks.json
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import originate  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "session-696c1a7c"
@@ -38,6 +42,39 @@ def in_window(dec: float) -> bool:
     return 1.40 <= dec <= 101.0
 
 
+STAT_KEYS = ("played", "wins", "draws", "losses", "ot_losses", "points", "points_for",
+             "points_against", "goals_for", "goals_against", "sets_for", "sets_against",
+             "l10_wins", "l10_losses", "l10_goals_for", "l10_goals_against", "streak",
+             "division", "conference")
+
+
+def form_index(facts: dict) -> dict:
+    """Last-five results per team, newest first, straight out of the official history."""
+    index: dict[tuple[str, str], list[dict]] = {}
+    for h in sorted(facts["history"], key=lambda r: r["date"]):
+        home = h["home"].split("|", 1)[-1]
+        away = h["away"].split("|", 1)[-1]
+        hs, as_ = h.get("home_score"), h.get("away_score")
+        if hs is None or as_ is None:
+            continue
+        index.setdefault((h["competition"], home), []).append(
+            {"date": h["date"], "opponent": away, "venue": "home",
+             "score": f"{hs}-{as_}", "result": "W" if hs > as_ else ("D" if hs == as_ else "L")})
+        index.setdefault((h["competition"], away), []).append(
+            {"date": h["date"], "opponent": home, "venue": "away",
+             "score": f"{as_}-{hs}", "result": "W" if as_ > hs else ("D" if as_ == hs else "L")})
+    return {k: v[-5:][::-1] for k, v in index.items()}
+
+
+def stats_of(facts: dict) -> dict:
+    """The table row each side was priced from, keyed the same way as the history."""
+    out = {}
+    for t in facts["teams"]:
+        row = {k: t[k] for k in STAT_KEYS if t.get(k) is not None}
+        out[(t["competition"], t["team"])] = row
+    return out
+
+
 def candidates(row: dict) -> list[dict]:
     sport = row["sport"]
     markets = row["markets"]
@@ -45,7 +82,7 @@ def candidates(row: dict) -> list[dict]:
     mw = markets.get("match_winner") or {}
     for side in ("home", "draw", "away"):
         if side in mw and mw[side] is not None:
-            label = {"home": row["home"], "away": row["away"], "draw": "the tie"}[side]
+            label = {"home": row["home"], "away": row["away"], "draw": "Draw"}[side]
             out.append({"market": "Match Winner", "side": side, "selection": label,
                         "p": mw[side]})
     hc = markets.get("handicap") or {}
@@ -71,6 +108,9 @@ def candidates(row: dict) -> list[dict]:
 
 def main() -> int:
     raw = json.loads((DATA / "desk_raw.json").read_text())
+    facts = json.loads((DATA / "facts.json").read_text())
+    form = form_index(facts)
+    table = stats_of(facts)
     by_sport: dict[str, list[dict]] = {}
     for row in raw["rows"]:
         if not row.get("competition") or not row.get("markets"):
@@ -95,7 +135,7 @@ def main() -> int:
         for e in entries:
             row, pick = e["row"], e["pick"]
             sample = row["expected"]["sample"]
-            conf = confidence_of(pick["p"], row["tier"], sample)
+            conf = originate.confidence(pick["p"], row["tier"], sample)
             scored.append((order[conf], pick["in_window"], pick["p"], sample, e, conf))
         scored.sort(key=lambda x: (x[0], x[1], x[2], x[3]), reverse=True)
         chosen = scored[:MAX_PER_SPORT]
@@ -130,6 +170,14 @@ def main() -> int:
                                       "sha256": c["sha256"]} for c in row["official"]],
                 "fixture_source": row.get("fixture_source"),
                 "venue": row.get("venue"),
+                "stats": {
+                    "home": table.get((row["competition"], row.get("matched_home") or ""), {}),
+                    "away": table.get((row["competition"], row.get("matched_away") or ""), {}),
+                },
+                "recent": {
+                    "home": form.get((row["competition"], row.get("matched_home") or ""), []),
+                    "away": form.get((row["competition"], row.get("matched_away") or ""), []),
+                },
             })
         coverage.append({"sport": sport, "matched_events": len(entries),
                          "published": len(chosen),
@@ -153,14 +201,6 @@ def main() -> int:
               f"{p['selection'][:34]:34s} p={p['probability']:.3f} "
               f"{p['fair_american']:+6d} sample={p['sample']}")
     return 0
-
-
-def confidence_of(p: float, tier: str, sample: int) -> str:
-    from importlib import util
-    spec = util.spec_from_file_location("orig", Path(__file__).with_name("originate.py"))
-    mod = util.module_from_spec(spec)
-    spec.loader.exec_module(mod)  # type: ignore[union-attr]
-    return mod.confidence(p, tier, sample)
 
 
 if __name__ == "__main__":
