@@ -290,8 +290,12 @@ def load_G(records):
 def load_E(records):
     analysis = {a["fixture"]["id"]: a
                 for a in json.load(open(os.path.join(ROOT, "session-4afef1af/data/analysis.json")))}
-    preds = {p.get("fixture_id"): p
-             for p in json.load(open(os.path.join(ROOT, "session-4afef1af/data/predictions.json")))}
+    predictions = json.load(open(os.path.join(ROOT, "session-4afef1af/data/predictions.json")))
+    # Key on the exact fixture/market/selection, not just fixture id: multiple
+    # candidate predictions can exist for one game, and a withdrawn candidate
+    # must not suppress or replace a different headline market.
+    preds = {(p.get("fixture_id"), p.get("market"), p.get("selection")): p
+             for p in predictions}
     for fx in json.load(open(os.path.join(ROOT, "session-4afef1af/data/fixtures.json"))):
         an = (analysis.get(fx["id"]) or {}).get("analysis") or {}
         r = base_record()
@@ -314,7 +318,15 @@ def load_E(records):
             r["total"] = "; ".join(f"{s['name']} @ {s.get('price_decimal')}"
                                    for s in mk["total"]["selections"])
         hp = an.get("headline_pick")
-        if hp:
+        p = preds.get((fx["id"], hp.get("market"), hp.get("selection"))) if hp else None
+        if hp and p and p.get("withdrawn"):
+            # Keep the fixture row and originated market families, but do not
+            # republish a selection whose required write-up was withdrawn.
+            reason = p.get("withdrawn_reason") or "prediction withdrawn in the source build"
+            r["flags"].append({"kind": "withdrawn-prediction",
+                               "text": f"Headline selection omitted because its source prediction was withdrawn: {reason}. "
+                                       "Market lines remain visible; pick and confidence are blank."})
+        elif hp:
             r["pick"] = hp.get("selection") or hp.get("name") or ""
             r["pick_market"] = hp.get("market") or infer_market(r["pick"], r["home"], r["away"])
             r["confidence"] = norm_conf(hp.get("confidence"))
@@ -322,8 +334,7 @@ def load_E(records):
             r["flags"].append({"kind": "market-withheld",
                                "text": an.get("market_note") or "markets withheld"})
         r["pick_market"] = r["pick_market"] or infer_market(r["pick"], r["home"], r["away"])
-        p = preds.get(fx["id"])
-        if p and p.get("text"):
+        if p and p.get("text") and not p.get("withdrawn"):
             r["prediction"] = p["text"]
         records.append(r)
 
