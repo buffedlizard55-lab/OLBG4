@@ -1,0 +1,2676 @@
+{
+ "generated_utc": "2026-10-24T22:55:01Z",
+ "source_listing_capture": "20261024T224841Z",
+ "window_requested": {
+  "min_american": -250,
+  "max_american": 10000
+ },
+ "coverage": [
+  {
+   "sport": "Volleyball",
+   "matched_events": 6,
+   "published": 6,
+   "high": 0,
+   "in_window": 6
+  },
+  {
+   "sport": "Baseball",
+   "matched_events": 1,
+   "published": 1,
+   "high": 0,
+   "in_window": 1
+  },
+  {
+   "sport": "Handball",
+   "matched_events": 11,
+   "published": 10,
+   "high": 2,
+   "in_window": 10
+  },
+  {
+   "sport": "Ice Hockey",
+   "matched_events": 14,
+   "published": 10,
+   "high": 0,
+   "in_window": 10
+  }
+ ],
+ "distinctness": {
+  "max_3gram_jaccard": 0.228,
+  "worst_pair": [
+   "baseball-01",
+   "ice-hockey-07"
+  ]
+ },
+ "predictions": [
+  {
+   "id": "volleyball-01",
+   "sport": "Volleyball",
+   "competition": "plusliga",
+   "competition_label": "the Polish PlusLiga",
+   "event": "Warta Zawiercie vs LUK Lublin",
+   "home": "Warta Zawiercie",
+   "away": "LUK Lublin",
+   "start_utc": "2026-10-25T14:00:00Z",
+   "selection": "Warta Zawiercie",
+   "market": "Match Winner",
+   "probability": 0.6029,
+   "fair_american": -152,
+   "fair_decimal": 1.659,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "B",
+   "headline": "Warta Zawiercie \u2014 Match Winner (-152)",
+   "body": "The Polish PlusLiga sends Warta Zawiercie into a 25 October, 14:00 UTC start against LUK Lublin, with the table doing most of the talking. Across 30 games Warta Zawiercie are 24-6, having put up 2,634 while conceding 2,353. LUK Lublin counter with 21-9 in 30 games, 2,691 scored and 2,495 conceded. Set difference matters here: 79 won and 32 lost for the hosts, 74 and 43 for the visitors. Projecting those rates over a normal game gives 85.0 to 81.8, which leaves Warta Zawiercie on the right side of the number. Those figures come off 30 games apiece. The wider market set carries a +3.0 handicap and a 167.0 total. We make Warta Zawiercie the play at -152, our own number, implying 60.3%. Medium confidence: the lean is clear but the margin leaves room for one bad night. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 155,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Warta_Zawiercie_vs_LUK_Lublin/21?event_id=37115",
+   "official_sources": [
+    {
+     "name": "PlusLiga (Poland)",
+     "key": "plusliga",
+     "kind": "league",
+     "source_id": "plusliga_table",
+     "url": "https://plusliga.pl/table/tour/47.html",
+     "sha256": "a158b9f320ecb948ff0833c42b439f20457aefea0d01574956f92f83d3ab8502"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 30,
+     "wins": 24,
+     "losses": 6,
+     "points": 72,
+     "points_for": 2634,
+     "points_against": 2353,
+     "sets_for": 79,
+     "sets_against": 32
+    },
+    "away": {
+     "played": 30,
+     "wins": 21,
+     "losses": 9,
+     "points": 63,
+     "points_for": 2691,
+     "points_against": 2495,
+     "sets_for": 74,
+     "sets_against": 43
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 84.968,
+    "lambda_away": 81.838,
+    "sigma": 12.0,
+    "home_adv": 0.6,
+    "sample": 30,
+    "home_played": 30,
+    "away_played": 30
+   },
+   "listed_reference": [
+    {
+     "selection": "Warta Zawiercie to win 3-2",
+     "market": "Set Score",
+     "decimal": 5.0,
+     "american": 400,
+     "fractional": "4/1",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "volleyball-02",
+   "sport": "Volleyball",
+   "competition": "legavolley",
+   "competition_label": "the Italian SuperLega",
+   "event": "Piacenza vs Modena",
+   "home": "Piacenza",
+   "away": "Modena",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "selection": "Piacenza",
+   "market": "Match Winner",
+   "probability": 0.6681,
+   "fair_american": -201,
+   "fair_decimal": 1.497,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Piacenza \u2014 Match Winner (-201)",
+   "body": "This volleyball fixture between Piacenza and Modena is set for 25 October, 17:00 UTC in the Italian SuperLega. Across 1 game Piacenza are 1-0, having put up 75 while conceding 56. The visitors are 0-1 from 1 game, with 61 for and 75 against. In sets the split is 3-0 for Piacenza and 0-3 for Modena. Run through a scoring distribution instead of a hunch, the split lands near 77.6-72.4, pointing at Piacenza. Those figures come off 1 game apiece. Derivative prices on our sheet: handicap +5.0, match total 150.0. That is a small sample and deserves a shorter stake than the price suggests. Selection for the card: Piacenza at -201 (66.8% implied) \u2014 no market price was used to get there. Confidence is low, so this is a smaller-stake opinion on a fixture the numbers only lean towards. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 156,
+   "thin": true,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Piacenza_vs_Modena/21?event_id=36998",
+   "official_sources": [
+    {
+     "name": "SuperLega (Italy)",
+     "key": "legavolley",
+     "kind": "league",
+     "source_id": "legavolley_classifica",
+     "url": "https://www.legavolley.it/classifica/",
+     "sha256": "b58d8bc54d1eee3de461679a0f8b3f20644327d7b2c6a9cafcf653596314be1c"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 1,
+     "wins": 1,
+     "losses": 0,
+     "points": 3,
+     "points_for": 75,
+     "points_against": 56,
+     "sets_for": 3,
+     "sets_against": 0
+    },
+    "away": {
+     "played": 1,
+     "wins": 0,
+     "losses": 1,
+     "points": 0,
+     "points_for": 61,
+     "points_against": 75,
+     "sets_for": 0,
+     "sets_against": 3
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 77.624,
+    "lambda_away": 72.407,
+    "sigma": 12.0,
+    "home_adv": 0.6,
+    "sample": 1,
+    "home_played": 1,
+    "away_played": 1
+   },
+   "listed_reference": [
+    {
+     "selection": "Modena to win 3-2",
+     "market": "Set Score",
+     "decimal": 6.5,
+     "american": 550,
+     "fractional": "11/2",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "volleyball-03",
+   "sport": "Volleyball",
+   "competition": "legavolley",
+   "competition_label": "the Italian SuperLega",
+   "event": "Civitanova vs Padova",
+   "home": "Civitanova",
+   "away": "Padova",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "selection": "Civitanova",
+   "market": "Match Winner",
+   "probability": 0.6644,
+   "fair_american": -198,
+   "fair_decimal": 1.505,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Civitanova \u2014 Match Winner (-198)",
+   "body": "Civitanova and Padova meet on 25 October, 17:00 UTC in the Italian SuperLega, and the numbers point one way. Across 1 game Civitanova are 1-0, having put up 78 while conceding 65. Padova have gone 0-1 over 1 game and hold a 56-75 scoring line. Set difference matters here: 3 won and 0 lost for the hosts, 0 and 3 for the visitors. The rates translate to about 78.0 against 73.0 once home advantage is applied, so Civitanova carries the edge. Those figures come off 1 game apiece. Derivative prices on our sheet: handicap +5.0, match total 151.0. With 1 game on file the rating is loose, so treat the price as indicative. We make Civitanova the play at -198, our own number, implying 66.4%. Low confidence: publishable as a view, not as a banker. Availability is unconfirmed because no official injury list was captured, and that omission is flagged, not filled.",
+   "words": 152,
+   "thin": true,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995",
+   "official_sources": [
+    {
+     "name": "SuperLega (Italy)",
+     "key": "legavolley",
+     "kind": "league",
+     "source_id": "legavolley_classifica",
+     "url": "https://www.legavolley.it/classifica/",
+     "sha256": "b58d8bc54d1eee3de461679a0f8b3f20644327d7b2c6a9cafcf653596314be1c"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 1,
+     "wins": 1,
+     "losses": 0,
+     "points": 3,
+     "points_for": 78,
+     "points_against": 65,
+     "sets_for": 3,
+     "sets_against": 0
+    },
+    "away": {
+     "played": 1,
+     "wins": 0,
+     "losses": 1,
+     "points": 0,
+     "points_for": 56,
+     "points_against": 75,
+     "sets_for": 0,
+     "sets_against": 3
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 78.05,
+    "lambda_away": 72.955,
+    "sigma": 12.0,
+    "home_adv": 0.6,
+    "sample": 1,
+    "home_played": 1,
+    "away_played": 1
+   },
+   "listed_reference": [
+    {
+     "selection": "Padova",
+     "market": "Win Match",
+     "decimal": 17.0,
+     "american": 1600,
+     "fractional": "16/1",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "Padova",
+     "market": "Win Match",
+     "decimal": 17.0,
+     "american": 1600,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "volleyball-04",
+   "sport": "Volleyball",
+   "competition": "legavolley",
+   "competition_label": "the Italian SuperLega",
+   "event": "Perugia vs Pordenone",
+   "home": "Perugia",
+   "away": "Pordenone",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "selection": "Perugia",
+   "market": "Match Winner",
+   "probability": 0.5966,
+   "fair_american": -148,
+   "fair_decimal": 1.676,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Perugia \u2014 Match Winner (-148)",
+   "body": "Perugia and Pordenone meet on 25 October, 17:00 UTC in the Italian SuperLega, and the numbers point one way. Perugia have played 1 game and sit 1-0, scoring 114 against 95. Pordenone counter with 1-0 in 1 game, 94 scored and 91 conceded. Set difference matters here: 3 won and 2 lost for the hosts, 3 and 1 for the visitors. Projecting those rates over a normal game gives 85.6 to 82.7, which leaves Perugia on the right side of the number. Both sides have 1 game behind those figures. Our handicap is +3.0 and our total is 168.5, both derived the same way as the winner. With 1 game on file the rating is loose, so treat the price as indicative. We make Perugia the play at -148, our own number, implying 59.7%. Low confidence: publishable as a view, not as a banker. The captured official feed carries no injury list for either side, so availability is the one input left blank here.",
+   "words": 164,
+   "thin": true,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Perugia_vs_Pordenone/21?event_id=36997",
+   "official_sources": [
+    {
+     "name": "SuperLega (Italy)",
+     "key": "legavolley",
+     "kind": "league",
+     "source_id": "legavolley_classifica",
+     "url": "https://www.legavolley.it/classifica/",
+     "sha256": "b58d8bc54d1eee3de461679a0f8b3f20644327d7b2c6a9cafcf653596314be1c"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 1,
+     "wins": 1,
+     "losses": 0,
+     "points": 2,
+     "points_for": 114,
+     "points_against": 95,
+     "sets_for": 3,
+     "sets_against": 2
+    },
+    "away": {
+     "played": 1,
+     "wins": 1,
+     "losses": 0,
+     "points": 3,
+     "points_for": 94,
+     "points_against": 91,
+     "sets_for": 3,
+     "sets_against": 1
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 85.597,
+    "lambda_away": 82.662,
+    "sigma": 12.0,
+    "home_adv": 0.6,
+    "sample": 1,
+    "home_played": 1,
+    "away_played": 1
+   },
+   "listed_reference": [
+    {
+     "selection": "Pordenone",
+     "market": "Win Match",
+     "decimal": 21.0,
+     "american": 2000,
+     "fractional": "20/1",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "Pordenone",
+     "market": "Win Match",
+     "decimal": 21.0,
+     "american": 2000,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "volleyball-05",
+   "sport": "Volleyball",
+   "competition": "legavolley",
+   "competition_label": "the Italian SuperLega",
+   "event": "Monza vs Verona",
+   "home": "Monza",
+   "away": "Verona",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "selection": "Monza",
+   "market": "Match Winner",
+   "probability": 0.5689,
+   "fair_american": -132,
+   "fair_decimal": 1.758,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Monza \u2014 Match Winner (-132)",
+   "body": "There is little guesswork around Monza against Verona in the Italian SuperLega, which starts at 25 October, 17:00 UTC. Monza have played 1 game and sit 0-1, scoring 91 against 94. The visitors are 0-1 from 1 game, with 65 for and 78 against. Set difference matters here: 1 won and 3 lost for the hosts, 0 and 3 for the visitors. Blending both scoring rates with the home edge produces 80.3-78.3, and that margin favours Monza. Both sides have 1 game behind those figures. The wider market set carries a +2.0 handicap and a 158.5 total. With 1 game on file the rating is loose, so treat the price as indicative. Selection for the card: Monza at -132 (56.9% implied) \u2014 no market price was used to get there. Low confidence: publishable as a view, not as a banker. Injuries stay unread: the governing-body payload holds no team news section, and the row says so.",
+   "words": 156,
+   "thin": true,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Monza_vs_Verona/21?event_id=36996",
+   "official_sources": [
+    {
+     "name": "SuperLega (Italy)",
+     "key": "legavolley",
+     "kind": "league",
+     "source_id": "legavolley_classifica",
+     "url": "https://www.legavolley.it/classifica/",
+     "sha256": "b58d8bc54d1eee3de461679a0f8b3f20644327d7b2c6a9cafcf653596314be1c"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 1,
+     "wins": 0,
+     "losses": 1,
+     "points": 0,
+     "points_for": 91,
+     "points_against": 94,
+     "sets_for": 1,
+     "sets_against": 3
+    },
+    "away": {
+     "played": 1,
+     "wins": 0,
+     "losses": 1,
+     "points": 0,
+     "points_for": 65,
+     "points_against": 78,
+     "sets_for": 0,
+     "sets_against": 3
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 80.335,
+    "lambda_away": 78.253,
+    "sigma": 12.0,
+    "home_adv": 0.6,
+    "sample": 1,
+    "home_played": 1,
+    "away_played": 1
+   },
+   "listed_reference": [
+    {
+     "selection": "Monza",
+     "market": "Win Match",
+     "decimal": 4.0,
+     "american": 300,
+     "fractional": "3/1",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "Monza",
+     "market": "Win Match",
+     "decimal": 4.0,
+     "american": 300,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "volleyball-06",
+   "sport": "Volleyball",
+   "competition": "legavolley",
+   "competition_label": "the Italian SuperLega",
+   "event": "Trentino vs Cisterna",
+   "home": "Trentino",
+   "away": "Cisterna",
+   "start_utc": "2026-10-25T16:00:00Z",
+   "selection": "Cisterna",
+   "market": "Match Winner",
+   "probability": 0.522,
+   "fair_american": -109,
+   "fair_decimal": 1.916,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Cisterna \u2014 Match Winner (-109)",
+   "body": "The 25 October, 16:00 UTC meeting of Trentino and Cisterna in the Italian SuperLega sets a clear favourite on the form lines. The home side's record reads 1-0 from 1 game, with 75 for and 61 against. The visitors' ledger shows 1-0 in 1 game, 79 to 56 on the scoreboard. The set columns read 3-0 and 3-0, which lines up with the point totals. Run through a scoring distribution instead of a hunch, the split lands near 74.9-75.6, pointing at Cisterna. The sample is 1 game per side. Our handicap is -0.5 and our total is 150.5, both derived the same way as the winner. The figures are thin, which is why the stake guidance is cautious rather than confident. Take Cisterna at -109: that is our fair line, worth 52.2%. Graded low, because the price is close to a coin flip once the sample is respected. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 165,
+   "thin": true,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Trentino_vs_Cisterna/21?event_id=36994",
+   "official_sources": [
+    {
+     "name": "SuperLega (Italy)",
+     "key": "legavolley",
+     "kind": "league",
+     "source_id": "legavolley_classifica",
+     "url": "https://www.legavolley.it/classifica/",
+     "sha256": "b58d8bc54d1eee3de461679a0f8b3f20644327d7b2c6a9cafcf653596314be1c"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 1,
+     "wins": 1,
+     "losses": 0,
+     "points": 3,
+     "points_for": 75,
+     "points_against": 61,
+     "sets_for": 3,
+     "sets_against": 0
+    },
+    "away": {
+     "played": 1,
+     "wins": 1,
+     "losses": 0,
+     "points": 3,
+     "points_for": 79,
+     "points_against": 56,
+     "sets_for": 3,
+     "sets_against": 0
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 74.926,
+    "lambda_away": 75.589,
+    "sigma": 12.0,
+    "home_adv": 0.6,
+    "sample": 1,
+    "home_played": 1,
+    "away_played": 1
+   },
+   "listed_reference": [
+    {
+     "selection": "Cisterna",
+     "market": "Win Match",
+     "decimal": 10.0,
+     "american": 900,
+     "fractional": "9/1",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "Cisterna",
+     "market": "Win Match",
+     "decimal": 10.0,
+     "american": 900,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "baseball-01",
+   "sport": "Baseball",
+   "competition": "mlb",
+   "competition_label": "Major League Baseball",
+   "event": "TB Rays @ MIL Brewers",
+   "home": "MIL Brewers",
+   "away": "TB Rays",
+   "start_utc": "2026-10-25T00:00:00Z",
+   "selection": "MIL Brewers",
+   "market": "Match Winner",
+   "probability": 0.6076,
+   "fair_american": -155,
+   "fair_decimal": 1.646,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "A",
+   "headline": "MIL Brewers \u2014 Match Winner (-155)",
+   "body": "Two contrasting seasons collide on 25 October, 00:00 UTC when MIL Brewers welcome TB Rays in Major League Baseball. The streak column shows MIL Brewers on W5 and TB Rays on L1. Projecting those rates over a normal game gives 4.6 to 3.8, which leaves MIL Brewers on the right side of the number. Those figures come off 162 games apiece. Side markets were originated too: +1.0 on the handicap and 8.5 on the total. Selection for the card: MIL Brewers at -155 (60.8% implied) \u2014 no market price was used to get there. Medium confidence: the lean is clear but the margin leaves room for one bad night. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 126,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160792",
+   "official_sources": [
+    {
+     "name": "MLB",
+     "key": "mlb",
+     "kind": "league",
+     "source_id": "mlb_schedule",
+     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-11-08&hydrate=probablePitcher,linescore,team",
+     "sha256": "a187709b37e6e7134c1427f8903c99dc41b1ccd08a7f482e55e82c6e77cb697f"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-11-08&hydrate=probablePitcher,linescore,team",
+    "sha256": "a187709b37e6e7134c1427f8903c99dc41b1ccd08a7f482e55e82c6e77cb697f",
+    "source_id": "mlb_schedule"
+   },
+   "venue": "American Family Field",
+   "stats": {
+    "home": {
+     "played": 162,
+     "wins": 103,
+     "losses": 59,
+     "streak": "W5"
+    },
+    "away": {
+     "played": 162,
+     "wins": 98,
+     "losses": 64,
+     "streak": "L1"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 4.647,
+    "lambda_away": 3.84,
+    "sigma": 3.2,
+    "home_adv": 0.1,
+    "sample": 162,
+    "home_played": 162,
+    "away_played": 162
+   },
+   "listed_reference": [
+    {
+     "selection": "TB Rays",
+     "market": "Money Line",
+     "decimal": 2.05,
+     "american": 105,
+     "fractional": "21/20",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "TB Rays",
+     "market": "Money Line",
+     "decimal": 2.05,
+     "american": 105,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-01",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "SC Magdeburg vs HC Kriens Luzern",
+   "home": "SC Magdeburg",
+   "away": "HC Kriens Luzern",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "selection": "SC Magdeburg",
+   "market": "Match Winner",
+   "probability": 0.7112,
+   "fair_american": -246,
+   "fair_decimal": 1.406,
+   "in_window": true,
+   "confidence": "high",
+   "evidence_tier": "B",
+   "headline": "SC Magdeburg \u2014 Match Winner (-246)",
+   "body": "SC Magdeburg and HC Kriens Luzern meet on 28 October, 19:45 UTC in the EHF Champions League, and the numbers point one way. The home side's record reads 5-0 from 5 games, with 176 for and 140 against. HC Kriens Luzern have gone 2-3 over 5 games and hold a 158-161 scoring line. On points collected it is 10 to 4 in favour of the home dressing room. On the scoring rates alone the projection is 34.3 to 29.3, and that is enough to side with SC Magdeburg. The sample is 5 games per side. Our handicap is +5.0 and our total is 63.5, both derived the same way as the winner. Take SC Magdeburg at -246: that is our fair line, worth 71.1%. Graded high \u2014 the edge survives a conservative view of the scoring rates. No injury or suspension list is published in the governing-body feed we captured, so team news stays blank.",
+   "words": 155,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 5,
+     "draws": 0,
+     "losses": 0,
+     "points": 10,
+     "goals_for": 176,
+     "goals_against": 140
+    },
+    "away": {
+     "played": 5,
+     "wins": 2,
+     "draws": 0,
+     "losses": 3,
+     "points": 4,
+     "goals_for": 158,
+     "goals_against": 161
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 34.252,
+    "lambda_away": 29.314,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "Tie",
+     "market": "Money Line",
+     "decimal": 22.0,
+     "american": 2100,
+     "fractional": "21/1",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "Tie",
+     "market": "Money Line",
+     "decimal": 22.0,
+     "american": 2100,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-02",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "KS Kielce vs Kolstad",
+   "home": "KS Kielce",
+   "away": "Kolstad",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "selection": "KS Kielce",
+   "market": "Match Winner",
+   "probability": 0.702,
+   "fair_american": -236,
+   "fair_decimal": 1.424,
+   "in_window": true,
+   "confidence": "high",
+   "evidence_tier": "B",
+   "headline": "KS Kielce \u2014 Match Winner (-236)",
+   "body": "Form, schedule and scoring rate all get measured here before KS Kielce face Kolstad in the EHF Champions League on 28 October, 19:45 UTC. Across 5 games KS Kielce are 3-2, having put up 155 while conceding 153. The visitors are 0-5 from 5 games, with 143 for and 178 against. On points collected it is 6 to 0 in favour of the home dressing room. Home advantage pushes the projection to 33.9 against 29.2, which is where KS Kielce gets the nod. Those figures come off 5 games apiece. Derivative prices on our sheet: handicap +4.5, match total 63.0. Selection for the card: KS Kielce at -236 (70.2% implied) \u2014 no market price was used to get there. Graded high \u2014 the edge survives a conservative view of the scoring rates. Availability is unconfirmed because no official injury list was captured, and that omission is flagged, not filled.",
+   "words": 149,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/KS_Kielce_vs_Kolstad/20?event_id=12132",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 3,
+     "draws": 0,
+     "losses": 2,
+     "points": 6,
+     "goals_for": 155,
+     "goals_against": 153
+    },
+    "away": {
+     "played": 5,
+     "wins": 0,
+     "draws": 0,
+     "losses": 5,
+     "points": 0,
+     "goals_for": 143,
+     "goals_against": 178
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 33.861,
+    "lambda_away": 29.153,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "Tie",
+     "market": "Money Line",
+     "decimal": 20.0,
+     "american": 1900,
+     "fractional": "19/1",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "Tie",
+     "market": "Money Line",
+     "decimal": 20.0,
+     "american": 1900,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-03",
+   "sport": "Handball",
+   "competition": "dk",
+   "competition_label": "the Danish Herreligaen",
+   "event": "TMS Ringsted vs GOG",
+   "home": "TMS Ringsted",
+   "away": "GOG",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "selection": "GOG",
+   "market": "Match Winner",
+   "probability": 0.6978,
+   "fair_american": -231,
+   "fair_decimal": 1.433,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "B",
+   "headline": "GOG \u2014 Match Winner (-231)",
+   "body": "TMS Ringsted host GOG on 25 October, 17:00 UTC, and the season-long figures are lopsided enough to price this confidently. Across 10 games TMS Ringsted are 1-1-8, having put up 306 while conceding 342. GOG have gone 9-1-0 over 10 games and hold a 352-292 scoring line. On points collected it is 3 to 19 in favour of the home dressing room. Projecting those rates over a normal game gives 30.2 to 34.9, which leaves GOG on the right side of the number. Those figures come off 10 games apiece. Derivative prices on our sheet: handicap -4.5, match total 65.0. We make GOG the play at -231, our own number, implying 69.8%. Graded medium, since the numbers separate these two without doing so emphatically. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 141,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/TMS_Ringsted_vs_GOG/20?event_id=12078",
+   "official_sources": [
+    {
+     "name": "Herreligaen (Denmark)",
+     "key": "dk",
+     "kind": "league",
+     "source_id": "dk_herreligaen",
+     "url": "https://tophaandbold.dk/stillinger/herreligaen",
+     "sha256": "288351fbd43fef5f9403eee84dc476c0b0a13d2452176bb9e380541a7f2c05b5"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 10,
+     "wins": 1,
+     "draws": 1,
+     "losses": 8,
+     "points": 3,
+     "goals_for": 306,
+     "goals_against": 342
+    },
+    "away": {
+     "played": 10,
+     "wins": 9,
+     "draws": 1,
+     "losses": 0,
+     "points": 19,
+     "goals_for": 352,
+     "goals_against": 292
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 30.189,
+    "lambda_away": 34.866,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 10,
+    "home_played": 10,
+    "away_played": 10
+   },
+   "listed_reference": [
+    {
+     "selection": "Tie",
+     "market": "Money Line",
+     "decimal": 15.0,
+     "american": 1400,
+     "fractional": "14/1",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-04",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "FC Porto vs Veszprem",
+   "home": "FC Porto",
+   "away": "Veszprem",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "selection": "Veszprem",
+   "market": "Match Winner",
+   "probability": 0.6478,
+   "fair_american": -184,
+   "fair_decimal": 1.544,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "B",
+   "headline": "Veszprem \u2014 Match Winner (-184)",
+   "body": "This handball fixture between FC Porto and Veszprem is set for 28 October, 17:45 UTC in the EHF Champions League. The home side's record reads 1-1-3 from 5 games, with 158 for and 173 against. The visitors are 5-0 from 5 games, with 185 for and 146 against. FC Porto have banked 3 points so far, Veszprem 10. Run through a scoring distribution instead of a hunch, the split lands near 31.3-34.8, pointing at Veszprem. The sample is 5 games per side. The wider market set carries a -3.5 handicap and a 66.0 total. The bet is Veszprem, priced by this desk at -184 (64.8% implied). Medium confidence: the lean is clear but the margin leaves room for one bad night. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 138,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 1,
+     "draws": 1,
+     "losses": 3,
+     "points": 3,
+     "goals_for": 158,
+     "goals_against": 173
+    },
+    "away": {
+     "played": 5,
+     "wins": 5,
+     "draws": 0,
+     "losses": 0,
+     "points": 10,
+     "goals_for": 185,
+     "goals_against": 146
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 31.256,
+    "lambda_away": 34.84,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "FC Porto",
+     "market": "Money Line",
+     "decimal": 7.5,
+     "american": 650,
+     "fractional": "13/2",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-05",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "IFK Kristianstad vs Pick Szeged",
+   "home": "IFK Kristianstad",
+   "away": "Pick Szeged",
+   "start_utc": "2026-10-29T17:45:00Z",
+   "selection": "Pick Szeged",
+   "market": "Match Winner",
+   "probability": 0.579,
+   "fair_american": -138,
+   "fair_decimal": 1.727,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Pick Szeged \u2014 Match Winner (-138)",
+   "body": "The 29 October, 17:45 UTC meeting of IFK Kristianstad and Pick Szeged in the EHF Champions League sets a clear favourite on the form lines. IFK Kristianstad have played 5 games and sit 0-5, scoring 162 against 197. The visitors are 1-2-2 from 5 games, with 172 for and 169 against. The table points column reads 0 for IFK Kristianstad against 4 for Pick Szeged. Run through a scoring distribution instead of a hunch, the split lands near 33.7-35.9, pointing at Pick Szeged. Both sides have 5 games behind those figures. We also put up a handicap at -2.0 and a match total at 69.5. We make Pick Szeged the play at -138, our own number, implying 57.9%. Confidence is low, so this is a smaller-stake opinion on a fixture the numbers only lean towards. The captured official feed carries no injury list for either side, so availability is the one input left blank here.",
+   "words": 155,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/IFK_Kristianstad_vs_Pick_Szeged/20?event_id=12131",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 0,
+     "draws": 0,
+     "losses": 5,
+     "points": 0,
+     "goals_for": 162,
+     "goals_against": 197
+    },
+    "away": {
+     "played": 5,
+     "wins": 1,
+     "draws": 2,
+     "losses": 2,
+     "points": 4,
+     "goals_for": 172,
+     "goals_against": 169
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 33.707,
+    "lambda_away": 35.87,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "IFK Kristianstad",
+     "market": "Money Line",
+     "decimal": 6.0,
+     "american": 500,
+     "fractional": "5/1",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-06",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "Wisla Plock vs Nantes",
+   "home": "Wisla Plock",
+   "away": "Nantes",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "selection": "Wisla Plock",
+   "market": "Match Winner",
+   "probability": 0.5743,
+   "fair_american": -135,
+   "fair_decimal": 1.741,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Wisla Plock \u2014 Match Winner (-135)",
+   "body": "This handball fixture between Wisla Plock and Nantes is set for 28 October, 17:45 UTC in the EHF Champions League. Across 5 games Wisla Plock are 3-2, having put up 141 while conceding 136. The visitors are 3-2 from 5 games, with 142 for and 143 against. On points collected it is 6 to 6 in favour of the home dressing room. Run through a scoring distribution instead of a hunch, the split lands near 29.5-27.6, pointing at Wisla Plock. Those figures come off 5 games apiece. We also put up a handicap at +2.0 and a match total at 57.0. Selection: Wisla Plock at -135 on our own line (57.4% implied). Graded low, because the price is close to a coin flip once the sample is respected. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 145,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Wisla_Plock_vs_Nantes/20?event_id=12138",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 3,
+     "draws": 0,
+     "losses": 2,
+     "points": 6,
+     "goals_for": 141,
+     "goals_against": 136
+    },
+    "away": {
+     "played": 5,
+     "wins": 3,
+     "draws": 0,
+     "losses": 2,
+     "points": 6,
+     "goals_for": 142,
+     "goals_against": 143
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 29.515,
+    "lambda_away": 27.598,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "Nantes",
+     "market": "Money Line",
+     "decimal": 3.1,
+     "american": 210,
+     "fractional": "21/10",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-07",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "Montpellier vs Dinamo Bucuresti",
+   "home": "Montpellier",
+   "away": "Dinamo Bucuresti",
+   "start_utc": "2026-10-29T19:45:00Z",
+   "selection": "Montpellier",
+   "market": "Match Winner",
+   "probability": 0.5313,
+   "fair_american": -113,
+   "fair_decimal": 1.882,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Montpellier \u2014 Match Winner (-113)",
+   "body": "This handball fixture between Montpellier and Dinamo Bucuresti is set for 29 October, 19:45 UTC in the EHF Champions League. Montpellier have played 5 games and sit 1-4, scoring 150 against 165. The visitors' ledger shows 1-1-3 in 5 games, 134 to 145 on the scoreboard. On points collected it is 2 to 3 in favour of the home dressing room. Blending both scoring rates with the home edge produces 30.5-29.4, and that margin favours Montpellier. Both sides have 5 games behind those figures. Side markets were originated too: +1.0 on the handicap and 60.0 on the total. We make Montpellier the play at -113, our own number, implying 53.1%. Graded low, because the price is close to a coin flip once the sample is respected. Injuries stay unread: the governing-body payload holds no team news section, and the row says so.",
+   "words": 142,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Montpellier_vs_Dinamo_Bucuresti/20?event_id=12133",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 1,
+     "draws": 0,
+     "losses": 4,
+     "points": 2,
+     "goals_for": 150,
+     "goals_against": 165
+    },
+    "away": {
+     "played": 5,
+     "wins": 1,
+     "draws": 1,
+     "losses": 3,
+     "points": 3,
+     "goals_for": 134,
+     "goals_against": 145
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 30.47,
+    "lambda_away": 29.361,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "Dinamo Bucuresti",
+     "market": "Money Line",
+     "decimal": 2.25,
+     "american": 125,
+     "fractional": "5/4",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-08",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "HC Vardar vs MT Melsungen",
+   "home": "HC Vardar",
+   "away": "MT Melsungen",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "selection": "HC Vardar",
+   "market": "Match Winner",
+   "probability": 0.5289,
+   "fair_american": -112,
+   "fair_decimal": 1.891,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "HC Vardar \u2014 Match Winner (-112)",
+   "body": "Two contrasting seasons collide on 28 October, 17:45 UTC when HC Vardar welcome MT Melsungen in the EHF Champions League. HC Vardar arrive with 1-4 across 5 games and a scoring split of 154 to 158. MT Melsungen have gone 3-2 over 5 games and hold a 138-138 scoring line. HC Vardar have banked 2 points so far, MT Melsungen 6. On the scoring rates alone the projection is 30.2 to 29.1, and that is enough to side with HC Vardar. Each side's numbers rest on 5 games. Our handicap is +1.0 and our total is 59.5, both derived the same way as the winner. Selection for the card: HC Vardar at -112 (52.9% implied) \u2014 no market price was used to get there. Low confidence: publishable as a view, not as a banker. Injuries stay unread: the governing-body payload holds no team news section, and the row says so.",
+   "words": 150,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Vardar_vs_MT_Melsungen/20?event_id=12130",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 1,
+     "draws": 0,
+     "losses": 4,
+     "points": 2,
+     "goals_for": 154,
+     "goals_against": 158
+    },
+    "away": {
+     "played": 5,
+     "wins": 3,
+     "draws": 0,
+     "losses": 2,
+     "points": 6,
+     "goals_for": 138,
+     "goals_against": 138
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 30.193,
+    "lambda_away": 29.134,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "HC Vardar",
+     "market": "Money Line",
+     "decimal": 5.5,
+     "american": 450,
+     "fractional": "9/2",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-09",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "RK Celje vs RK Zagreb",
+   "home": "RK Celje",
+   "away": "RK Zagreb",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "selection": "RK Zagreb",
+   "market": "Match Winner",
+   "probability": 0.5177,
+   "fair_american": -107,
+   "fair_decimal": 1.932,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "RK Zagreb \u2014 Match Winner (-107)",
+   "body": "Two contrasting seasons collide on 28 October, 19:45 UTC when RK Celje welcome RK Zagreb in the EHF Champions League. Across 5 games RK Celje are 0-5, having put up 150 while conceding 188. RK Zagreb counter with 2-3 in 5 games, 146 scored and 158 conceded. On points collected it is 0 to 4 in favour of the home dressing room. Projecting those rates over a normal game gives 31.6 to 32.5, which leaves RK Zagreb on the right side of the number. Those figures come off 5 games apiece. Our handicap is -1.0 and our total is 64.0, both derived the same way as the winner. We make RK Zagreb the play at -107, our own number, implying 51.8%. Graded low, because the price is close to a coin flip once the sample is respected. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 154,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/RK_Celje_vs_RK_Zagreb/20?event_id=12135",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 0,
+     "draws": 0,
+     "losses": 5,
+     "points": 0,
+     "goals_for": 150,
+     "goals_against": 188
+    },
+    "away": {
+     "played": 5,
+     "wins": 2,
+     "draws": 0,
+     "losses": 3,
+     "points": 4,
+     "goals_for": 146,
+     "goals_against": 158
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 31.618,
+    "lambda_away": 32.474,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "RK Celje",
+     "market": "Money Line",
+     "decimal": 2.8,
+     "american": 180,
+     "fractional": "9/5",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "handball-10",
+   "sport": "Handball",
+   "competition": "ehfcl",
+   "competition_label": "the EHF Champions League",
+   "event": "GOG vs Sporting CP",
+   "home": "GOG",
+   "away": "Sporting CP",
+   "start_utc": "2026-10-29T17:45:00Z",
+   "selection": "Sporting CP",
+   "market": "Match Winner",
+   "probability": 0.4995,
+   "fair_american": 100,
+   "fair_decimal": 2.002,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "B",
+   "headline": "Sporting CP \u2014 Match Winner (+100)",
+   "body": "This handball fixture between GOG and Sporting CP is set for 29 October, 17:45 UTC in the EHF Champions League. Across 5 games GOG are 3-1-1, having put up 178 while conceding 172. The visitors are 4-1-0 from 5 games, with 191 for and 165 against. On points collected it is 7 to 9 in favour of the home dressing room. Blending both scoring rates with the home edge produces 34.8-35.3, and that margin favours Sporting CP. Those figures come off 5 games apiece. The wider market set carries a -0.5 handicap and a 70.0 total. Selection for the card: Sporting CP at +100 (50.0% implied) \u2014 no market price was used to get there. Graded low, because the price is close to a coin flip once the sample is respected. No injury or suspension list is published in the governing-body feed we captured, so team news stays blank.",
+   "words": 149,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/GOG_vs_Sporting_CP/20?event_id=12129",
+   "official_sources": [
+    {
+     "name": "EHF Champions League",
+     "key": "ehfcl",
+     "kind": "league",
+     "source_id": "ehfcl_m_standings",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+     "sha256": "1059d6cbd3f162041469b12e3b05f67ff438c5480d462432eb445d69dc023ff6"
+    }
+   ],
+   "fixture_source": null,
+   "venue": null,
+   "stats": {
+    "home": {
+     "played": 5,
+     "wins": 3,
+     "draws": 1,
+     "losses": 1,
+     "points": 7,
+     "goals_for": 178,
+     "goals_against": 172
+    },
+    "away": {
+     "played": 5,
+     "wins": 4,
+     "draws": 1,
+     "losses": 0,
+     "points": 9,
+     "goals_for": 191,
+     "goals_against": 165
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 34.816,
+    "lambda_away": 35.306,
+    "sigma": 8.0,
+    "home_adv": 1.4,
+    "sample": 5,
+    "home_played": 5,
+    "away_played": 5
+   },
+   "listed_reference": [
+    {
+     "selection": "GOG",
+     "market": "Money Line",
+     "decimal": 3.2,
+     "american": 220,
+     "fractional": "11/5",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [
+    "fixture date from the OLBG listing; participants confirmed in the official competition table"
+   ],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-01",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "MIN Wild @ VAN Canucks",
+   "home": "VAN Canucks",
+   "away": "MIN Wild",
+   "start_utc": "2026-10-26T02:07:00Z",
+   "selection": "MIN Wild",
+   "market": "Match Winner",
+   "probability": 0.6793,
+   "fair_american": -212,
+   "fair_decimal": 1.472,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "A",
+   "headline": "MIN Wild \u2014 Match Winner (-212)",
+   "body": "Two contrasting seasons collide on 26 October, 02:07 UTC when VAN Canucks welcome MIN Wild in the NHL. Across 12 games VAN Canucks are 2-9-1, having put up 35 while conceding 56. MIN Wild counter with 6-3-2 in 11 games, 32 scored and 27 conceded. Within the table VAN Canucks sit in the Pacific division and MIN Wild in the Central. Over the last ten the hosts are 1-8 and the visitors 5-3. The streak column shows VAN Canucks on L and MIN Wild on L. Projecting those rates over a normal game gives 2.7 to 3.9, which leaves MIN Wild on the right side of the number. Those figures come off 11 games apiece. Our handicap is +1.5 and our total is 6.5, both derived the same way as the winner. Take MIN Wild at -212: that is our fair line, worth 67.9%. Medium confidence: the lean is clear but the margin leaves room for one bad night. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 176,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/MIN_Wild_@_VAN_Canucks/13?event_id=200075",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "Rogers Arena",
+   "stats": {
+    "home": {
+     "played": 12,
+     "wins": 2,
+     "losses": 9,
+     "ot_losses": 1,
+     "points": 5,
+     "goals_for": 35,
+     "goals_against": 56,
+     "l10_wins": 1,
+     "l10_losses": 8,
+     "l10_goals_for": 22,
+     "l10_goals_against": 42,
+     "streak": "L",
+     "division": "Pacific",
+     "conference": "Western"
+    },
+    "away": {
+     "played": 11,
+     "wins": 6,
+     "losses": 3,
+     "ot_losses": 2,
+     "points": 14,
+     "goals_for": 32,
+     "goals_against": 27,
+     "l10_wins": 5,
+     "l10_losses": 3,
+     "l10_goals_for": 29,
+     "l10_goals_against": 26,
+     "streak": "L",
+     "division": "Central",
+     "conference": "Western"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 2.658,
+    "lambda_away": 3.867,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 11,
+    "home_played": 12,
+    "away_played": 11
+   },
+   "listed_reference": [
+    {
+     "selection": "Over 6.50",
+     "market": "Game Totals",
+     "decimal": 2.15,
+     "american": 115,
+     "fractional": "23/20",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-02",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "COL Avalanche @ NSH Predators",
+   "home": "NSH Predators",
+   "away": "COL Avalanche",
+   "start_utc": "2026-10-26T00:07:00Z",
+   "selection": "COL Avalanche",
+   "market": "Match Winner",
+   "probability": 0.6576,
+   "fair_american": -192,
+   "fair_decimal": 1.521,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "A",
+   "headline": "COL Avalanche \u2014 Match Winner (-192)",
+   "body": "The NHL sends NSH Predators into a 26 October, 00:07 UTC start against COL Avalanche, with the table doing most of the talking. NSH Predators have played 9 games and sit 3-3-3, scoring 23 against 30. COL Avalanche have gone 6-4-1 over 11 games and hold a 47-34 scoring line. NSH Predators are Central, Western conference; COL Avalanche are Central, Western conference. Over the last ten the hosts are 3-3 and the visitors 5-4. The streak column shows NSH Predators on L and COL Avalanche on W. Projecting those rates over a normal game gives 2.9 to 3.9, which leaves COL Avalanche on the right side of the number. Both sides have 9 games behind those figures. Side markets were originated too: +1.5 on the handicap and 7.0 on the total. We make COL Avalanche the play at -192, our own number, implying 65.8%. Confidence is medium, which reflects a solid edge rather than a mismatch. The captured official feed carries no injury list for either side, so availability is the one input left blank here.",
+   "words": 176,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/COL_Avalanche_@_NSH_Predators/13?event_id=200072",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "Bridgestone Arena",
+   "stats": {
+    "home": {
+     "played": 9,
+     "wins": 3,
+     "losses": 3,
+     "ot_losses": 3,
+     "points": 9,
+     "goals_for": 23,
+     "goals_against": 30,
+     "l10_wins": 3,
+     "l10_losses": 3,
+     "l10_goals_for": 23,
+     "l10_goals_against": 30,
+     "streak": "L",
+     "division": "Central",
+     "conference": "Western"
+    },
+    "away": {
+     "played": 11,
+     "wins": 6,
+     "losses": 4,
+     "ot_losses": 1,
+     "points": 13,
+     "goals_for": 47,
+     "goals_against": 34,
+     "l10_wins": 5,
+     "l10_losses": 4,
+     "l10_goals_for": 39,
+     "l10_goals_against": 30,
+     "streak": "W",
+     "division": "Central",
+     "conference": "Western"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 2.85,
+    "lambda_away": 3.924,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 9,
+    "home_played": 9,
+    "away_played": 11
+   },
+   "listed_reference": [
+    {
+     "selection": "COL Avalanche",
+     "market": "Money Line",
+     "decimal": 1.4,
+     "american": -250,
+     "fractional": "2/5",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-03",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "VGS Golden Knights @ CLB Blue Jackets",
+   "home": "CLB Blue Jackets",
+   "away": "VGS Golden Knights",
+   "start_utc": "2026-10-24T23:07:00Z",
+   "selection": "VGS Golden Knights",
+   "market": "Match Winner",
+   "probability": 0.6556,
+   "fair_american": -190,
+   "fair_decimal": 1.525,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "A",
+   "headline": "VGS Golden Knights \u2014 Match Winner (-190)",
+   "body": "This ice hockey fixture between CLB Blue Jackets and VGS Golden Knights is set for 24 October, 23:07 UTC in the NHL. CLB Blue Jackets have played 8 games and sit 3-5, scoring 20 against 29. The visitors' ledger shows 8-4 in 12 games, 46 to 36 on the scoreboard. Both clubs are conference rivals: Eastern against Western, with Metropolitan and Pacific divisions involved. Over the last ten the hosts are 3-5 and the visitors 7-3. The streak column shows CLB Blue Jackets on L and VGS Golden Knights on L. Run through a scoring distribution instead of a hunch, the split lands near 2.8-3.8, pointing at VGS Golden Knights. Both sides have 8 games behind those figures. Derivative prices on our sheet: handicap +1.5, match total 6.5. We make VGS Golden Knights the play at -190, our own number, implying 65.6%. Graded medium, since the numbers separate these two without doing so emphatically. The captured official feed carries no injury list for either side, so availability is the one input left blank here.",
+   "words": 174,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/VGS_Golden_Knights_@_CLB_Blue_Jackets/13?event_id=200001",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "Nationwide Arena",
+   "stats": {
+    "home": {
+     "played": 8,
+     "wins": 3,
+     "losses": 5,
+     "ot_losses": 0,
+     "points": 6,
+     "goals_for": 20,
+     "goals_against": 29,
+     "l10_wins": 3,
+     "l10_losses": 5,
+     "l10_goals_for": 20,
+     "l10_goals_against": 29,
+     "streak": "L",
+     "division": "Metropolitan",
+     "conference": "Eastern"
+    },
+    "away": {
+     "played": 12,
+     "wins": 8,
+     "losses": 4,
+     "ot_losses": 0,
+     "points": 16,
+     "goals_for": 46,
+     "goals_against": 36,
+     "l10_wins": 7,
+     "l10_losses": 3,
+     "l10_goals_for": 38,
+     "l10_goals_against": 30,
+     "streak": "L",
+     "division": "Pacific",
+     "conference": "Western"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 2.781,
+    "lambda_away": 3.828,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 8,
+    "home_played": 8,
+    "away_played": 12
+   },
+   "listed_reference": [
+    {
+     "selection": "VGS Golden Knights",
+     "market": "Money Line",
+     "decimal": 1.77,
+     "american": -130,
+     "fractional": "10/13",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "VGS Golden Knights",
+     "market": "Money Line",
+     "decimal": 1.77,
+     "american": -130,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-04",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "DET Red Wings @ CGY Flames",
+   "home": "CGY Flames",
+   "away": "DET Red Wings",
+   "start_utc": "2026-10-25T03:07:00Z",
+   "selection": "DET Red Wings",
+   "market": "Match Winner",
+   "probability": 0.6408,
+   "fair_american": -178,
+   "fair_decimal": 1.561,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "A",
+   "headline": "DET Red Wings \u2014 Match Winner (-178)",
+   "body": "There is little guesswork around CGY Flames against DET Red Wings in the NHL, which starts at 25 October, 03:07 UTC. Across 9 games CGY Flames are 3-6, having put up 19 while conceding 38. The visitors' ledger shows 4-3-3 in 10 games, 28 to 30 on the scoreboard. Both clubs are conference rivals: Western against Eastern, with Pacific and Atlantic divisions involved. The ten-game splits show 3-6 against 4-3. The streak column shows CGY Flames on W and DET Red Wings on W. Blending both scoring rates with the home edge produces 2.5-3.4, and that margin favours DET Red Wings. Those figures come off 9 games apiece. Derivative prices on our sheet: handicap +1.5, match total 6.0. Selection: DET Red Wings at -178 on our own line (64.1% implied). Graded medium, since the numbers separate these two without doing so emphatically. No injury or suspension list is published in the governing-body feed we captured, so team news stays blank.",
+   "words": 160,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/DET_Red_Wings_@_CGY_Flames/13?event_id=200004",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "Scotiabank Saddledome",
+   "stats": {
+    "home": {
+     "played": 9,
+     "wins": 3,
+     "losses": 6,
+     "ot_losses": 0,
+     "points": 6,
+     "goals_for": 19,
+     "goals_against": 38,
+     "l10_wins": 3,
+     "l10_losses": 6,
+     "l10_goals_for": 19,
+     "l10_goals_against": 38,
+     "streak": "W",
+     "division": "Pacific",
+     "conference": "Western"
+    },
+    "away": {
+     "played": 10,
+     "wins": 4,
+     "losses": 3,
+     "ot_losses": 3,
+     "points": 11,
+     "goals_for": 28,
+     "goals_against": 30,
+     "l10_wins": 4,
+     "l10_losses": 3,
+     "l10_goals_for": 28,
+     "l10_goals_against": 30,
+     "streak": "W",
+     "division": "Atlantic",
+     "conference": "Eastern"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 2.542,
+    "lambda_away": 3.441,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 9,
+    "home_played": 9,
+    "away_played": 10
+   },
+   "listed_reference": [
+    {
+     "selection": "CGY Flames",
+     "market": "Money Line",
+     "decimal": 2.1,
+     "american": 110,
+     "fractional": "11/10",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "CGY Flames",
+     "market": "Money Line",
+     "decimal": 2.1,
+     "american": 110,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-05",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "TOR Maple Leafs @ EDM Oilers",
+   "home": "EDM Oilers",
+   "away": "TOR Maple Leafs",
+   "start_utc": "2026-10-24T23:07:00Z",
+   "selection": "EDM Oilers",
+   "market": "Match Winner",
+   "probability": 0.6272,
+   "fair_american": -168,
+   "fair_decimal": 1.594,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "A",
+   "headline": "EDM Oilers \u2014 Match Winner (-168)",
+   "body": "The 24 October, 23:07 UTC meeting of EDM Oilers and TOR Maple Leafs in the NHL sets a clear favourite on the form lines. EDM Oilers have played 10 games and sit 8-1-1, scoring 47 against 32. The visitors are 6-4-2 from 12 games, with 43 for and 39 against. EDM Oilers are Pacific, Western conference; TOR Maple Leafs are Atlantic, Eastern conference. Over the last ten the hosts are 8-1 and the visitors 5-3. The streak column shows EDM Oilers on W and TOR Maple Leafs on W. Run through a scoring distribution instead of a hunch, the split lands near 4.3-3.4, pointing at EDM Oilers. Both sides have 10 games behind those figures. We also put up a handicap at +1.5 and a match total at 7.5. We make EDM Oilers the play at -168, our own number, implying 62.7%. Confidence is medium, which reflects a solid edge rather than a mismatch. The captured official feed carries no injury list for either side, so availability is the one input left blank here.",
+   "words": 174,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TOR_Maple_Leafs_@_EDM_Oilers/13?event_id=200010",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "Rogers Place",
+   "stats": {
+    "home": {
+     "played": 10,
+     "wins": 8,
+     "losses": 1,
+     "ot_losses": 1,
+     "points": 17,
+     "goals_for": 47,
+     "goals_against": 32,
+     "l10_wins": 8,
+     "l10_losses": 1,
+     "l10_goals_for": 47,
+     "l10_goals_against": 32,
+     "streak": "W",
+     "division": "Pacific",
+     "conference": "Western"
+    },
+    "away": {
+     "played": 12,
+     "wins": 6,
+     "losses": 4,
+     "ot_losses": 2,
+     "points": 14,
+     "goals_for": 43,
+     "goals_against": 39,
+     "l10_wins": 5,
+     "l10_losses": 3,
+     "l10_goals_for": 39,
+     "l10_goals_against": 35,
+     "streak": "W",
+     "division": "Atlantic",
+     "conference": "Eastern"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 4.298,
+    "lambda_away": 3.385,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 10,
+    "home_played": 10,
+    "away_played": 12
+   },
+   "listed_reference": [
+    {
+     "selection": "EDM Oilers",
+     "market": "Money Line",
+     "decimal": 1.67,
+     "american": -150,
+     "fractional": "4/6",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "EDM Oilers",
+     "market": "Money Line",
+     "decimal": 1.67,
+     "american": -150,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-06",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "BUF Sabres @ WAS Capitals",
+   "home": "WAS Capitals",
+   "away": "BUF Sabres",
+   "start_utc": "2026-10-24T23:07:00Z",
+   "selection": "WAS Capitals",
+   "market": "Match Winner",
+   "probability": 0.6239,
+   "fair_american": -166,
+   "fair_decimal": 1.603,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "A",
+   "headline": "WAS Capitals \u2014 Match Winner (-166)",
+   "body": "WAS Capitals host BUF Sabres on 24 October, 23:07 UTC, and the season-long figures are lopsided enough to price this confidently. WAS Capitals arrive with 5-4 across 9 games and a scoring split of 30 to 29. BUF Sabres counter with 4-4-2 in 10 games, 28 scored and 37 conceded. WAS Capitals are Metropolitan, Eastern conference; BUF Sabres are Atlantic, Eastern conference. The ten-game splits show 5-4 against 4-4. The streak column shows WAS Capitals on L and BUF Sabres on L. On the scoring rates alone the projection is 3.7 to 2.9, and that is enough to side with WAS Capitals. Each side's numbers rest on 9 games. We also put up a handicap at +1.5 and a match total at 6.5. Selection: WAS Capitals at -166 on our own line (62.4% implied). Confidence is medium, which reflects a solid edge rather than a mismatch. Injuries stay unread: the governing-body payload holds no team news section, and the row says so.",
+   "words": 162,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/BUF_Sabres_@_WAS_Capitals/13?event_id=200003",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "Capital One Arena",
+   "stats": {
+    "home": {
+     "played": 9,
+     "wins": 5,
+     "losses": 4,
+     "ot_losses": 0,
+     "points": 10,
+     "goals_for": 30,
+     "goals_against": 29,
+     "l10_wins": 5,
+     "l10_losses": 4,
+     "l10_goals_for": 30,
+     "l10_goals_against": 29,
+     "streak": "L",
+     "division": "Metropolitan",
+     "conference": "Eastern"
+    },
+    "away": {
+     "played": 10,
+     "wins": 4,
+     "losses": 4,
+     "ot_losses": 2,
+     "points": 10,
+     "goals_for": 28,
+     "goals_against": 37,
+     "l10_wins": 4,
+     "l10_losses": 4,
+     "l10_goals_for": 28,
+     "l10_goals_against": 37,
+     "streak": "L",
+     "division": "Atlantic",
+     "conference": "Eastern"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 3.707,
+    "lambda_away": 2.882,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 9,
+    "home_played": 9,
+    "away_played": 10
+   },
+   "listed_reference": [
+    {
+     "selection": "WAS Capitals",
+     "market": "Money Line",
+     "decimal": 1.83,
+     "american": -120,
+     "fractional": "5/6",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "WAS Capitals",
+     "market": "Money Line",
+     "decimal": 1.83,
+     "american": -120,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-07",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "NSH Predators @ PIT Penguins",
+   "home": "PIT Penguins",
+   "away": "NSH Predators",
+   "start_utc": "2026-10-24T23:07:00Z",
+   "selection": "PIT Penguins",
+   "market": "Match Winner",
+   "probability": 0.5944,
+   "fair_american": -147,
+   "fair_decimal": 1.682,
+   "in_window": true,
+   "confidence": "medium",
+   "evidence_tier": "A",
+   "headline": "PIT Penguins \u2014 Match Winner (-147)",
+   "body": "PIT Penguins host NSH Predators on 24 October, 23:07 UTC, and the season-long figures are lopsided enough to price this confidently. Across 11 games PIT Penguins are 4-6-1, having put up 37 while conceding 38. NSH Predators have gone 3-3-3 over 9 games and hold a 23-30 scoring line. Within the table PIT Penguins sit in the Metropolitan division and NSH Predators in the Central. Over the last ten the hosts are 3-6 and the visitors 3-3. The streak column shows PIT Penguins on W and NSH Predators on L. Projecting those rates over a normal game gives 3.5 to 2.9, which leaves PIT Penguins on the right side of the number. Those figures come off 9 games apiece. Side markets were originated too: +1.5 on the handicap and 6.5 on the total. We make PIT Penguins the play at -147, our own number, implying 59.4%. Medium confidence: the lean is clear but the margin leaves room for one bad night. Team news is not printed in the captured official payload, leaving the availability column empty and flagged.",
+   "words": 178,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/NSH_Predators_@_PIT_Penguins/13?event_id=200006",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "PPG Paints Arena",
+   "stats": {
+    "home": {
+     "played": 11,
+     "wins": 4,
+     "losses": 6,
+     "ot_losses": 1,
+     "points": 9,
+     "goals_for": 37,
+     "goals_against": 38,
+     "l10_wins": 3,
+     "l10_losses": 6,
+     "l10_goals_for": 30,
+     "l10_goals_against": 38,
+     "streak": "W",
+     "division": "Metropolitan",
+     "conference": "Eastern"
+    },
+    "away": {
+     "played": 9,
+     "wins": 3,
+     "losses": 3,
+     "ot_losses": 3,
+     "points": 9,
+     "goals_for": 23,
+     "goals_against": 30,
+     "l10_wins": 3,
+     "l10_losses": 3,
+     "l10_goals_for": 23,
+     "l10_goals_against": 30,
+     "streak": "L",
+     "division": "Central",
+     "conference": "Western"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 3.494,
+    "lambda_away": 2.879,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 9,
+    "home_played": 11,
+    "away_played": 9
+   },
+   "listed_reference": [
+    {
+     "selection": "PIT Penguins",
+     "market": "Money Line",
+     "decimal": 1.83,
+     "american": -120,
+     "fractional": "5/6",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "PIT Penguins",
+     "market": "Money Line",
+     "decimal": 1.83,
+     "american": -120,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-08",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "NY Islanders @ DAL Stars",
+   "home": "DAL Stars",
+   "away": "NY Islanders",
+   "start_utc": "2026-10-25T22:07:00Z",
+   "selection": "DAL Stars",
+   "market": "Match Winner",
+   "probability": 0.5693,
+   "fair_american": -132,
+   "fair_decimal": 1.756,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "A",
+   "headline": "DAL Stars \u2014 Match Winner (-132)",
+   "body": "The NHL sends DAL Stars into a 25 October, 22:07 UTC start against NY Islanders, with the table doing most of the talking. DAL Stars arrive with 6-3-1 across 10 games and a scoring split of 26 to 17. NY Islanders have gone 5-3-2 over 10 games and hold a 29-23 scoring line. Both clubs are conference rivals: Western against Eastern, with Central and Metropolitan divisions involved. Recent ten-game form: 6-3 for DAL Stars, 5-3 for NY Islanders. The streak column shows DAL Stars on W and NY Islanders on OT. The rates translate to about 2.4 against 2.0 once home advantage is applied, so DAL Stars carries the edge. Each side's numbers rest on 10 games. We also put up a handicap at +1.5 and a match total at 4.5. The bet is DAL Stars, priced by this desk at -132 (56.9% implied). Graded low, because the price is close to a coin flip once the sample is respected. We could not read an injury report from the captured official source, and that gap is flagged with the row.",
+   "words": 180,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/NY_Islanders_@_DAL_Stars/13?event_id=200076",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "American Airlines Center",
+   "stats": {
+    "home": {
+     "played": 10,
+     "wins": 6,
+     "losses": 3,
+     "ot_losses": 1,
+     "points": 13,
+     "goals_for": 26,
+     "goals_against": 17,
+     "l10_wins": 6,
+     "l10_losses": 3,
+     "l10_goals_for": 26,
+     "l10_goals_against": 17,
+     "streak": "W",
+     "division": "Central",
+     "conference": "Western"
+    },
+    "away": {
+     "played": 10,
+     "wins": 5,
+     "losses": 3,
+     "ot_losses": 2,
+     "points": 12,
+     "goals_for": 29,
+     "goals_against": 23,
+     "l10_wins": 5,
+     "l10_losses": 3,
+     "l10_goals_for": 29,
+     "l10_goals_against": 23,
+     "streak": "OT",
+     "division": "Metropolitan",
+     "conference": "Eastern"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 2.423,
+    "lambda_away": 2.043,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 10,
+    "home_played": 10,
+    "away_played": 10
+   },
+   "listed_reference": [
+    {
+     "selection": "DAL Stars",
+     "market": "Money Line",
+     "decimal": 1.53,
+     "american": -190,
+     "fractional": "10/19",
+     "from": "olbg_embedded"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-09",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "CAR Hurricanes @ STL Blues",
+   "home": "STL Blues",
+   "away": "CAR Hurricanes",
+   "start_utc": "2026-10-24T23:07:00Z",
+   "selection": "CAR Hurricanes",
+   "market": "Match Winner",
+   "probability": 0.5544,
+   "fair_american": -124,
+   "fair_decimal": 1.804,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "A",
+   "headline": "CAR Hurricanes \u2014 Match Winner (-124)",
+   "body": "STL Blues host CAR Hurricanes on 24 October, 23:07 UTC, and the season-long figures are lopsided enough to price this confidently. The home side's record reads 5-4-1 from 10 games, with 35 for and 31 against. CAR Hurricanes have gone 8-2-2 over 12 games and hold a 47-33 scoring line. STL Blues are Central, Western conference; CAR Hurricanes are Metropolitan, Eastern conference. The ten-game splits show 5-4 against 8-1. The streak column shows STL Blues on W and CAR Hurricanes on OT. On the scoring rates alone the projection is 3.2 to 3.5, and that is enough to side with CAR Hurricanes. The sample is 10 games per side. Derivative prices on our sheet: handicap +1.5, match total 6.5. Selection: CAR Hurricanes at -124 on our own line (55.4% implied). Confidence is low, so this is a smaller-stake opinion on a fixture the numbers only lean towards. No injury or suspension list is published in the governing-body feed we captured, so team news stays blank.",
+   "words": 165,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/CAR_Hurricanes_@_STL_Blues/13?event_id=200002",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "Enterprise Center",
+   "stats": {
+    "home": {
+     "played": 10,
+     "wins": 5,
+     "losses": 4,
+     "ot_losses": 1,
+     "points": 11,
+     "goals_for": 35,
+     "goals_against": 31,
+     "l10_wins": 5,
+     "l10_losses": 4,
+     "l10_goals_for": 35,
+     "l10_goals_against": 31,
+     "streak": "W",
+     "division": "Central",
+     "conference": "Western"
+    },
+    "away": {
+     "played": 12,
+     "wins": 8,
+     "losses": 2,
+     "ot_losses": 2,
+     "points": 18,
+     "goals_for": 47,
+     "goals_against": 33,
+     "l10_wins": 8,
+     "l10_losses": 1,
+     "l10_goals_for": 45,
+     "l10_goals_against": 27,
+     "streak": "OT",
+     "division": "Metropolitan",
+     "conference": "Eastern"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 3.175,
+    "lambda_away": 3.536,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 10,
+    "home_played": 10,
+    "away_played": 12
+   },
+   "listed_reference": [
+    {
+     "selection": "CAR Hurricanes",
+     "market": "Money Line",
+     "decimal": 1.67,
+     "american": -150,
+     "fractional": "4/6",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "CAR Hurricanes",
+     "market": "Money Line",
+     "decimal": 1.67,
+     "american": -150,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  },
+  {
+   "id": "ice-hockey-10",
+   "sport": "Ice Hockey",
+   "competition": "nhl",
+   "competition_label": "the NHL",
+   "event": "MIN Wild @ SEA Kraken",
+   "home": "SEA Kraken",
+   "away": "MIN Wild",
+   "start_utc": "2026-10-25T03:07:00Z",
+   "selection": "SEA Kraken",
+   "market": "Match Winner",
+   "probability": 0.5351,
+   "fair_american": -115,
+   "fair_decimal": 1.869,
+   "in_window": true,
+   "confidence": "low",
+   "evidence_tier": "A",
+   "headline": "SEA Kraken \u2014 Match Winner (-115)",
+   "body": "The NHL sends SEA Kraken into a 25 October, 03:07 UTC start against MIN Wild, with the table doing most of the talking. SEA Kraken have played 11 games and sit 7-3-1, scoring 44 against 37. MIN Wild have gone 6-3-2 over 11 games and hold a 32-27 scoring line. Both clubs are conference rivals: Western against Western, with Pacific and Central divisions involved. The ten-game splits show 6-3 against 5-3. The streak column shows SEA Kraken on W and MIN Wild on L. On the scoring rates alone the projection is 3.3 to 3.0, and that is enough to side with SEA Kraken. Both sides have 11 games behind those figures. Our handicap is +1.5 and our total is 6.5, both derived the same way as the winner. Selection: SEA Kraken at -115 on our own line (53.5% implied). Graded low, because the price is close to a coin flip once the sample is respected. Injuries stay unread: the governing-body payload holds no team news section, and the row says so.",
+   "words": 172,
+   "thin": false,
+   "team_news": null,
+   "team_news_note": "not published by the captured governing-body feed",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/MIN_Wild_@_SEA_Kraken/13?event_id=200005",
+   "official_sources": [
+    {
+     "name": "NHL",
+     "key": "nhl",
+     "kind": "league",
+     "source_id": "nhl_standings",
+     "url": "https://api-web.nhle.com/v1/standings/now",
+     "sha256": "57f07a00da14b0749c9f51a34edd0dc77cef898e26388b57ba12395aff1f7469"
+    }
+   ],
+   "fixture_source": {
+    "source_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+    "sha256": "088ae5a7a6ff335942a0f885cb4f2e16663478e404c1283a247f44a26187140d",
+    "source_id": "nhl_sched_2026-10-24"
+   },
+   "venue": "Climate Pledge Arena",
+   "stats": {
+    "home": {
+     "played": 11,
+     "wins": 7,
+     "losses": 3,
+     "ot_losses": 1,
+     "points": 15,
+     "goals_for": 44,
+     "goals_against": 37,
+     "l10_wins": 6,
+     "l10_losses": 3,
+     "l10_goals_for": 38,
+     "l10_goals_against": 36,
+     "streak": "W",
+     "division": "Pacific",
+     "conference": "Western"
+    },
+    "away": {
+     "played": 11,
+     "wins": 6,
+     "losses": 3,
+     "ot_losses": 2,
+     "points": 14,
+     "goals_for": 32,
+     "goals_against": 27,
+     "l10_wins": 5,
+     "l10_losses": 3,
+     "l10_goals_for": 29,
+     "l10_goals_against": 26,
+     "streak": "L",
+     "division": "Central",
+     "conference": "Western"
+    }
+   },
+   "recent": {
+    "home": [],
+    "away": []
+   },
+   "expected": {
+    "lambda_home": 3.263,
+    "lambda_away": 3.037,
+    "sigma": 2.2,
+    "home_adv": 0.18,
+    "sample": 11,
+    "home_played": 11,
+    "away_played": 11
+   },
+   "listed_reference": [
+    {
+     "selection": "SEA Kraken",
+     "market": "Money Line",
+     "decimal": 2.5,
+     "american": 150,
+     "fractional": "6/4",
+     "from": "olbg_embedded"
+    },
+    {
+     "selection": "SEA Kraken",
+     "market": "Money Line",
+     "decimal": 2.5,
+     "american": 150,
+     "fractional": "",
+     "from": "olbg_rendered"
+    }
+   ],
+   "flags": [],
+   "probable_pitchers": {
+    "home": null,
+    "away": null
+   }
+  }
+ ]
+}

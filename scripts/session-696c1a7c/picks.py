@@ -106,6 +106,16 @@ def candidates(row: dict) -> list[dict]:
     return out
 
 
+OLBG = "https://www.olbg.com"
+
+
+def absolute(url: str) -> str:
+    """The listing stores site-relative paths; publish absolute links."""
+    if not url:
+        return ""
+    return url if url.startswith("http") else OLBG + ("" if url.startswith("/") else "/") + url
+
+
 def main() -> int:
     raw = json.loads((DATA / "desk_raw.json").read_text())
     facts = json.loads((DATA / "facts.json").read_text())
@@ -151,7 +161,7 @@ def main() -> int:
                 "official_home": row["matched_home"],
                 "official_away": row["matched_away"],
                 "start_utc": row["start_utc"],
-                "olbg_url": row["olbg_url"],
+                "olbg_url": absolute(row["olbg_url"]),
                 "market": pick["market"],
                 "selection": pick["selection"],
                 "probability": round(pick["p"], 4),
@@ -165,9 +175,10 @@ def main() -> int:
                 "all_candidates": e["candidates"],
                 "listed_reference": row["listed_markets"],
                 "flags": row["flags"],
-                "official_sources": [{"name": c["name"], "key": c["key"],
-                                      "kind": c["kind"], "url": c["source_url"],
-                                      "sha256": c["sha256"]} for c in row["official"]],
+                "official_sources": [{"name": c["name"], "key": c["key"], "kind": c["kind"],
+                                      "source_id": c.get("source_id"),
+                                      "url": c["source_url"], "sha256": c["sha256"]}
+                                     for c in row["official"]],
                 "fixture_source": row.get("fixture_source"),
                 "venue": row.get("venue"),
                 "stats": {

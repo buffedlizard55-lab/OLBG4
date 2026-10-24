@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · OLBG coverage desk (SA)</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <strong>OLBG coverage desk</strong>
+        <small>Board SA · session 696c1a7c · 15 sports in scope</small>
+      </div>
+    </div>
+    <nav><a href="index.html">Dashboard</a><a href="picks.html">Picks</a><a href="sports/index.html">Sports</a><a href="entries.html">All entries</a><a href="markets.html">Markets</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="methodology.html">Method</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <h1>Method</h1>
+  <p class="lead">How a match gets found, confirmed, priced, written up and checked — in that order.</p>
+  
+<h2>1 · Find the matches</h2>
+<p>OLBG hides its listing in the page payload rather than the rendered HTML. The hub pages for the
+15 sports in scope are captured with a browser user agent, and the embedded tip array is parsed for
+the event name, the participants, the start timestamp, the OLBG event URL, the market label and the
+quote. Hub pages that render nothing (golf, motor racing) are recorded as empty rather than filled
+in from memory.</p>
+
+<h2>2 · Confirm the fixture against the governing body</h2>
+<p>Each event is matched to an official competition by whole-token name comparison — never by
+substring, because <code>"ANA" in "canadiens"</code> is exactly the sort of match that produces a
+confidently wrong price. A participant pair must resolve inside one official table, and the fixture
+is only upgraded to tier A when the official feed also prints the same pairing on the same date.</p>
+
+<h2>3 · Originate the line</h2>
+<p>Scoring rates come from the official table totals, shrunk towards the competition mean over six
+pseudo-games so a one-game sample cannot produce a 99% favourite. Team sports are priced with a
+Poisson model for goals, and a Skellam difference for the win/draw/loss split; where the sport's
+scoring is finer-grained (points in basketball, runs in baseball) the same machinery is applied on
+the sport's own scoring unit. Handicap and total markets fall out of the same two rates. Individual
+sports are priced only when the governing body publishes a rating or ranking that can be read.</p>
+
+<h2>4 · Pick and grade</h2>
+<p>Every market we originate is enumerated per event. A winner is preferred; if the winner's price
+sits outside −250 … +10,000 the highest-probability selection inside the window is used instead and
+the row says which market it came from. Confidence is High at p ≥ 0.70, Medium at p ≥ 0.58 and Low
+below that, and is capped by the evidence tier and by the smaller of the two samples.</p>
+
+<h2>5 · Write it</h2>
+<p>Each pick gets its own 100-word-plus case built from the table row, the recent results and the
+projected score. The phrasing pools are rotated per pick, so no two cases share an opening or a
+cadence, and the worst three-word overlap across the whole set is reported on the picks page.
+The published text never uses the two words the brief rules out; the selection, our price and the
+implied percentage are always stated.</p>
+
+<h2>6 · Check it</h2>
+<p><code>verify.py</code> re-reads the written output and fails on: a prediction under 30 words, a
+missing selection or price, a price outside the window without a note, a sport outside the 15, a
+row with no official source, a dead internal link, or either of the two ruled-out words. The result
+of that run is committed next to the data.</p>
+
+<h2>7 · What is not claimed</h2>
+<p>No bet is placed, no stake is recommended, and injuries are not inferred from a lineup graphic.
+Where a governing body does not publish the input, the row is blank and on the
+<a href="flagged.html">flagged</a> page.</p>
+
+</main>
+<footer class="wrap">
+  <p>Everything on this site is rendered from the byte-exact capture committed in
+  <code>data/session-696c1a7c/</code>. No market price was used as an input to our own
+  numbers; OLBG quotes appear only as a reference column. Unconfirmed values are blank
+  and flagged on the <a href="flagged.html">Flagged for review</a> page.</p>
+</footer>
+</body>
+</html>
