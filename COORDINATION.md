@@ -5045,6 +5045,10 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
   `wst_matches_api` as a snooker strength input (only 200 records, 124 completed — too small a sample to
   support a fair line); `urc_table`/`urc_r7`/`pdc_oom`/`icc_*_rankings` are 5.6 KB or 1.24 MB JavaScript shells.
 
+### Board ZZ — coverage-text correction (post-merge follow-up)
+
+- The 17:58Z capture caught the Northern Ireland Open semi-final already under way, so the snooker fixture that the 17:35Z capture could list had dropped out of the window. The Coverage and Flagged copy now states that as the reason instead of claiming a listed fixture, and the coverage flag (`ZZ-F09`) is now computed from `fixtures.json` + `desk.json` on every rebuild rather than typed, so it cannot drift again.
+- Root `index.html`: the ZZ pointer no longer carries fixture/pick counts (they change with every capture); it points at the dashboard for live numbers. Same single `<div>` + one nav link as before, nothing else touched.
 ## Board UX-FIX — session `arena/11fad5c6-olbg4` (Pages build regression handoff)
 
 Session: `arena/11fad5c6-olbg4` · Branch: `arena/11fad5c6-olbg4` (Arena-fixed) · Claimed: `2026-10-24T17:21Z UTC` · **status: in progress**
