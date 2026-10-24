@@ -27,7 +27,7 @@ TEXTS: dict[str, tuple[str, str]] = {
 "Ice Hockey|Los Angeles Kings|New Jersey Devils": (
  "Los Angeles Kings +1.5 on the puck line at New Jersey",
  "Los Angeles plus a goal and a half is the call at Prudential Center. The Kings are only 2-4-2 but they have "
- "taken points in three of five road games (2-1-2) and have won their last two, scoring 20 goals in their last "
+ "taken points in four of five road games (2-1-2) and have won their last two, scoring 20 goals in their last "
  "ten while conceding 29. New Jersey is the better side at 6-4-0 and 5-2-0 at home, yet the Devils average "
  "3.30 goals for and 3.10 against, a margin of a fifth of a goal a game; that is not a profile that blows "
  "opponents away. Back Los Angeles Kings +1.5 at -236."),
@@ -37,8 +37,8 @@ TEXTS: dict[str, tuple[str, str]] = {
  "Washington has scored 30 goals in nine games, an average of 3.33, and has done it while splitting its home "
  "and road work evenly enough to sit 4-2-0 in its own building. Buffalo arrives on a 1-1-2 road run having "
  "conceded 37 goals in ten games, an average of 3.70 against, the softest defensive record in this matchup. "
- "The Capitals have cleared three goals in a game repeatedly against that kind of leaky opponent, so take "
- "Washington Capitals over 2.5 team goals at -242."),
+ "Washington scores 3.33 goals a game across its nine matches; against a defence conceding 3.70, the 2.5 line "
+ "asks for one goal more than average and no more. Back Washington Capitals over 2.5 team goals at -242."),
 
 "Ice Hockey|Carolina Hurricanes|St. Louis Blues": (
  "Carolina Hurricanes +1.5 on the puck line at St. Louis",
@@ -74,16 +74,16 @@ TEXTS: dict[str, tuple[str, str]] = {
 "Volleyball|Cisterna Volley|Itas Trentino": (
  "Under 4.5 sets between Itas Trentino and Cisterna Volley",
  "Both clubs opened the SuperLega season with straight-set wins: Trentino beat Valsa Group Modena 3-0 and "
- "Cisterna beat Allianz Milano 3-0, with Cisterna scoring 79 points to 56 conceded and Trentino 75 to 61. Two "
- "sides that have each dropped only one set in twelve months of competitive play to date are unlikely to need "
- "a deciding fifth set against one another in round two, and the Italian top flight rewards the cleaner "
- "side-out team. Take Under 4.5 sets at -168."),
+ "Cisterna beat Allianz Milano 3-0, with Cisterna scoring 79 points to 56 conceded and Trentino 75 to 61. "
+ "Cisterna's +23 point differential is the best in the division after round one and Trentino's +14 sits with "
+ "the leading group, and neither side was taken past three sets in its opener, so a five-setter is the least "
+ "likely shape for this round-two fixture. Take Under 4.5 sets at -168."),
 
 "Volleyball|Rana Verona|Vero Volley Monza": (
  "Vero Volley Monza to win at home against Rana Verona",
  "Both sides lost on opening weekend, but the manner differed sharply. Monza went down 1-3 at Tinet Prata di "
  "Pordenone yet still scored 91 points across four sets, while Verona was swept 0-3 by Cucine Lube Civitanova "
- "and managed only 65 points all match, 13 fewer than Monza's tally. Monza now plays at the Opiquad Arena with "
+ "and managed only 65 points all match, 26 fewer than Monza's tally. Monza now plays at the Opiquad Arena with "
  "a home crowd behind it against a side that has yet to win a set. Back Vero Volley Monza to win at -140."),
 
 "Volleyball|Tinet Prata di Pordenone|Sir Susa Scai Perugia": (
