@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sources — OLBG 15-sport desk (24 Oct 2026)</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#243040;--ink:#e6edf3;--dim:#8b949e;--accent:#3fb950;
+--high:#3fb950;--med:#d29922;--low:#8b949e;--pick:#58a6ff;--warn:#f85149}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--pick);text-decoration:none}a:hover{text-decoration:underline}
+header.top{background:linear-gradient(160deg,#101a2b,#0d1117);border-bottom:1px solid var(--line);padding:22px 20px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1{font-size:1.65rem;margin:0 0 4px}
+h2{font-size:1.2rem;margin:34px 0 10px;border-left:4px solid var(--accent);padding-left:10px}
+h3{font-size:1.02rem;margin:22px 0 8px}
+.sub{color:var(--dim);font-size:.9rem;margin:0}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+nav a{background:#1b2431;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.85rem;color:var(--ink)}
+nav a.on{background:var(--accent);color:#06210c;border-color:var(--accent);font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0 4px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi b{display:block;font-size:1.5rem;line-height:1.2}
+.kpi span{color:var(--dim);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.exec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pick);border-radius:10px;
+padding:16px 18px;margin:18px 0}
+.exec p{margin:0 0 10px}
+.exec p:last-child{margin:0}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+border-radius:10px;overflow:hidden;font-size:.88rem;margin:10px 0 4px;display:table}
+th{background:#1b2431;text-align:left;padding:9px 10px;font-size:.76rem;text-transform:uppercase;
+letter-spacing:.05em;color:var(--dim);border-bottom:1px solid var(--line);position:sticky;top:0}
+td{padding:9px 10px;border-bottom:1px solid #1d2531;vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:#19212c}
+.pickcell{font-weight:700;color:var(--pick)}
+.tag{display:inline-block;border-radius:6px;padding:2px 7px;font-size:.74rem;font-weight:700;letter-spacing:.03em}
+.high{background:rgba(63,185,80,.16);color:var(--high);border:1px solid rgba(63,185,80,.4)}
+.medium{background:rgba(210,153,34,.15);color:var(--med);border:1px solid rgba(210,153,34,.4)}
+.low{background:rgba(139,148,158,.14);color:var(--low);border:1px solid rgba(139,148,158,.35)}
+.unpriced{background:rgba(248,81,73,.1);color:var(--warn);border:1px solid rgba(248,81,73,.35)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.small{font-size:.8rem;color:var(--dim)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+.card h3{margin-top:0}
+.card .head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.predtext{background:#0f1620;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:10px 0}
+.facts{margin:8px 0 0;padding-left:18px;font-size:.85rem;color:#c9d1d9}
+.facts li{margin:2px 0}
+ol.preds{padding-left:0;list-style:none}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 0;color:var(--dim);font-size:.82rem}
+.pill{display:inline-block;background:#1b2431;border:1px solid var(--line);border-radius:999px;
+padding:2px 9px;font-size:.75rem;color:var(--dim);margin-right:6px}
+.warnbox{background:rgba(248,81,73,.08);border:1px solid rgba(248,81,73,.35);border-radius:10px;padding:14px 16px}
+.okbox{background:rgba(63,185,80,.08);border:1px solid rgba(63,185,80,.35);border-radius:10px;padding:14px 16px}
+</style></head>
+<body>
+<header class="top"><div class="wrap">
+<h1>Sources</h1>
+<p class="sub">Every official source, its HTTP status and the SHA-256 of the response we relied on.</p>
+<nav><a class="" href="index.html">Dashboard</a><a class="" href="picks.html">Predictions</a><a class="" href="fixtures.html">All matches</a><a class="" href="markets.html">Markets &amp; lines</a><a class="on" href="sources.html">Sources</a><a class="" href="review.html">Repo review</a><a class="" href="flagged.html">Flagged for review</a><a class="" href="methodology.html">Methodology</a></nav>
+</div></header>
+<main class="wrap">
+
+<div class="exec"><p><b>Sources.</b> Every official page or API the desk used is listed below with the exact
+URL, the HTTP status our capture runner received, the byte count and the SHA-256 of the committed response,
+so any figure on this site can be traced back to the bytes it came from. 5 distinct targets back a
+published line or fact; the remaining 211 were captured to try to widen
+coverage and are listed here for completeness — including the ones that failed, because a failed capture is
+the reason a market is missing.</p>
+<p>Capture job: <code>.github/workflows/ca-e9770274.yml</code> → <code>scripts/session-e9770274/fetch.py</code>,
+which refuses any path OLBG's robots.txt disallows and rate-limits per host.</p></div>
+<h2>Capture manifest</h2>
+<div class="scroll"><table><thead><tr><th>Capture id</th><th>Sport</th><th>Official URL</th><th>HTTP</th>
+<th>Bytes</th><th>SHA-256</th><th>Used</th></tr></thead><tbody><tr><td class="small"><code>olbg_robots</code></td><td>OLBG</td>
+<td><a href="https://www.olbg.com/robots.txt" rel="noopener">https://www.olbg.com/robots.txt</a></td>
+<td class="num">200</td><td class="num">6776</td>
+<td class="small"><code>ff0fd5ec1c9f8c64…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_sitemap</code></td><td>OLBG</td>
+<td><a href="https://www.olbg.com/sitemap.xml" rel="noopener">https://www.olbg.com/sitemap.xml</a></td>
+<td class="num">200</td><td class="num">534</td>
+<td class="small"><code>52b968f4a1bf57e1…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_home</code></td><td>OLBG</td>
+<td><a href="https://www.olbg.com/betting-tips" rel="noopener">https://www.olbg.com/betting-tips</a></td>
+<td class="num">200</td><td class="num">407885</td>
+<td class="small"><code>f64d452a98ea097c…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_tennis</code></td><td>Tennis</td>
+<td><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener">https://www.olbg.com/betting-tips/Tennis/3</a></td>
+<td class="num">200</td><td class="num">309357</td>
+<td class="small"><code>2f943a0b0d073df2…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_basketball</code></td><td>Basketball</td>
+<td><a href="https://www.olbg.com/betting-tips/Basketball/4" rel="noopener">https://www.olbg.com/betting-tips/Basketball/4</a></td>
+<td class="num">200</td><td class="num">354775</td>
+<td class="small"><code>a7ccf16754c6c43a…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_basketball_nba</code></td><td>Basketball</td>
+<td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/USA/4" rel="noopener">https://www.olbg.com/betting-tips/Basketball/NBA/USA/4</a></td>
+<td class="num">200</td><td class="num">184140</td>
+<td class="small"><code>61ef687967bfe1cd…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_basketball_el</code></td><td>Basketball</td>
+<td><a href="https://www.olbg.com/betting-tips/Basketball/Euroleague/Europe/4" rel="noopener">https://www.olbg.com/betting-tips/Basketball/Euroleague/Europe/4</a></td>
+<td class="num">200</td><td class="num">183933</td>
+<td class="small"><code>517e3593d48faae1…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_golf</code></td><td>Golf</td>
+<td><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener">https://www.olbg.com/betting-tips/Golf/5</a></td>
+<td class="num">200</td><td class="num">274383</td>
+<td class="small"><code>410a03c7a336ba71…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_cricket</code></td><td>Cricket</td>
+<td><a href="https://www.olbg.com/betting-tips/Cricket/7" rel="noopener">https://www.olbg.com/betting-tips/Cricket/7</a></td>
+<td class="num">200</td><td class="num">338017</td>
+<td class="small"><code>e4f1e8c5f063cb56…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_snooker</code></td><td>Snooker</td>
+<td><a href="https://www.olbg.com/betting-tips/Snooker/8" rel="noopener">https://www.olbg.com/betting-tips/Snooker/8</a></td>
+<td class="num">200</td><td class="num">277209</td>
+<td class="small"><code>ed79970f86a98930…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_rugby_union</code></td><td>Rugby Union</td>
+<td><a href="https://www.olbg.com/betting-tips/Rugby_Union/9" rel="noopener">https://www.olbg.com/betting-tips/Rugby_Union/9</a></td>
+<td class="num">200</td><td class="num">298347</td>
+<td class="small"><code>98d78c61c9fa45ef…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_rugby_league</code></td><td>Rugby League</td>
+<td><a href="https://www.olbg.com/betting-tips/Rugby_League/10" rel="noopener">https://www.olbg.com/betting-tips/Rugby_League/10</a></td>
+<td class="num">200</td><td class="num">271319</td>
+<td class="small"><code>a5b84c5d139704d2…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_baseball</code></td><td>Baseball</td>
+<td><a href="https://www.olbg.com/betting-tips/Baseball/12" rel="noopener">https://www.olbg.com/betting-tips/Baseball/12</a></td>
+<td class="num">200</td><td class="num">264310</td>
+<td class="small"><code>eee19aeacac94d20…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_baseball_mlb</code></td><td>Baseball</td>
+<td><a href="https://www.olbg.com/betting-tips/Baseball/Major_League_Baseball/USA/12" rel="noopener">https://www.olbg.com/betting-tips/Baseball/Major_League_Baseball/USA/12</a></td>
+<td class="num">200</td><td class="num">183919</td>
+<td class="small"><code>60f926a0edb331bf…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_ice_hockey</code></td><td>Ice Hockey</td>
+<td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/13" rel="noopener">https://www.olbg.com/betting-tips/Ice_Hockey/13</a></td>
+<td class="num">200</td><td class="num">381759</td>
+<td class="small"><code>6cab9a16dda78e2e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_ice_hockey_nhl</code></td><td>Ice Hockey</td>
+<td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/USA/13" rel="noopener">https://www.olbg.com/betting-tips/Ice_Hockey/NHL/USA/13</a></td>
+<td class="num">200</td><td class="num">183815</td>
+<td class="small"><code>987498d47afd7727…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_motor_racing</code></td><td>Motor Racing</td>
+<td><a href="https://www.olbg.com/betting-tips/Motor_Racing/14" rel="noopener">https://www.olbg.com/betting-tips/Motor_Racing/14</a></td>
+<td class="num">200</td><td class="num">299940</td>
+<td class="small"><code>9013808d9656e5ab…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_darts</code></td><td>Darts</td>
+<td><a href="https://www.olbg.com/betting-tips/Darts/15" rel="noopener">https://www.olbg.com/betting-tips/Darts/15</a></td>
+<td class="num">200</td><td class="num">328528</td>
+<td class="small"><code>5ff602e428a2086e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_handball</code></td><td>Handball</td>
+<td><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener">https://www.olbg.com/betting-tips/Handball/20</a></td>
+<td class="num">200</td><td class="num">358956</td>
+<td class="small"><code>4df62bcd7bcb3210…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_volleyball</code></td><td>Volleyball</td>
+<td><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener">https://www.olbg.com/betting-tips/Volleyball/21</a></td>
+<td class="num">200</td><td class="num">342866</td>
+<td class="small"><code>bb03d6f1664a3752…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_gaelic_football</code></td><td>Gaelic Sports</td>
+<td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/25" rel="noopener">https://www.olbg.com/betting-tips/Gaelic_Football/25</a></td>
+<td class="num">200</td><td class="num">286842</td>
+<td class="small"><code>581e14c0d6dcfc36…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_hurling</code></td><td>Gaelic Sports</td>
+<td><a href="https://www.olbg.com/betting-tips/Hurling/26" rel="noopener">https://www.olbg.com/betting-tips/Hurling/26</a></td>
+<td class="num">200</td><td class="num">265910</td>
+<td class="small"><code>7a56052e470b27f3…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_greyhounds</code></td><td>Greyhounds</td>
+<td><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener">https://www.olbg.com/betting-tips/Greyhounds/28</a></td>
+<td class="num">200</td><td class="num">625875</td>
+<td class="small"><code>476798015487a54d…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_sched_2026_10_23</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/schedule/2026-10-23" rel="noopener">https://api-web.nhle.com/v1/schedule/2026-10-23</a></td>
+<td class="num">200</td><td class="num">97176</td>
+<td class="small"><code>c22ec4cf2f53cf18…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_sched_2026_10_24</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener">https://api-web.nhle.com/v1/schedule/2026-10-24</a></td>
+<td class="num">200</td><td class="num">98866</td>
+<td class="small"><code>a54e66320d0ea4e1…</code></td><td class="small">used</td></tr><tr><td class="small"><code>nhl_sched_2026_10_25</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/schedule/2026-10-25" rel="noopener">https://api-web.nhle.com/v1/schedule/2026-10-25</a></td>
+<td class="num">200</td><td class="num">89139</td>
+<td class="small"><code>9b020d7fa6ca0424…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_standings_now</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/standings/now" rel="noopener">https://api-web.nhle.com/v1/standings/now</a></td>
+<td class="num">200</td><td class="num">58179</td>
+<td class="small"><code>fa51ca273cf3e396…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_roster_car</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/roster/CAR/current" rel="noopener">https://api-web.nhle.com/v1/roster/CAR/current</a></td>
+<td class="num">200</td><td class="num">10520</td>
+<td class="small"><code>b135ae1a2d4ac002…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_roster_fla</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/roster/FLA/current" rel="noopener">https://api-web.nhle.com/v1/roster/FLA/current</a></td>
+<td class="num">200</td><td class="num">10956</td>
+<td class="small"><code>9719bc4509a5b77c…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_roster_col</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/roster/COL/current" rel="noopener">https://api-web.nhle.com/v1/roster/COL/current</a></td>
+<td class="num">200</td><td class="num">9651</td>
+<td class="small"><code>35cef5ef996fdec7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_roster_wpg</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/roster/WPG/current" rel="noopener">https://api-web.nhle.com/v1/roster/WPG/current</a></td>
+<td class="num">200</td><td class="num">10496</td>
+<td class="small"><code>1f224f3fa607d6cd…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_roster_dal</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/roster/DAL/current" rel="noopener">https://api-web.nhle.com/v1/roster/DAL/current</a></td>
+<td class="num">200</td><td class="num">10243</td>
+<td class="small"><code>b07c4be8fecd829e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>shl_games_now</code></td><td>Ice Hockey</td>
+<td><a href="https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=s4y-994162547&amp;seriesUuid=qQ9-af3704004p&amp;gameTypeUuid=qQ9-af3704004p&amp;gamePlace=all&amp;played=all" rel="noopener">https://www.shl.se/api/sports-v2/game-schedule?seasonUuid=s4y-994162547&amp;seriesUuid=qQ9-af3704004p&amp;gameTypeUuid=qQ9-af3704004p&amp;gamePlace=all&amp;played=all</a></td>
+<td class="num">500</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>liiga_games_2027</code></td><td>Ice Hockey</td>
+<td><a href="https://liiga.fi/api/v2/games?tournament=runkosarja&amp;season=2027" rel="noopener">https://liiga.fi/api/v2/games?tournament=runkosarja&amp;season=2027</a></td>
+<td class="num">200</td><td class="num">1841309</td>
+<td class="small"><code>56f44b0aff48249a…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_ws_schedule</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-23&amp;endDate=2026-11-03&amp;hydrate=probablePitcher(note),team,linescore,decisions,venue" rel="noopener">https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-23&amp;endDate=2026-11-03&amp;hydrate=probablePitcher(note),team,linescore,decisions,venue</a></td>
+<td class="num">200</td><td class="num">26764</td>
+<td class="small"><code>e33c9edca4a2f861…</code></td><td class="small">used</td></tr><tr><td class="small"><code>mlb_postseason_2026</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1/schedule/postseason?season=2026&amp;hydrate=team,linescore,decisions,probablePitcher" rel="noopener">https://statsapi.mlb.com/api/v1/schedule/postseason?season=2026&amp;hydrate=team,linescore,decisions,probablePitcher</a></td>
+<td class="num">200</td><td class="num">258510</td>
+<td class="small"><code>aaa25b220e076eed…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_standings_2026</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&amp;season=2026&amp;standingsTypes=regularSeason" rel="noopener">https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&amp;season=2026&amp;standingsTypes=regularSeason</a></td>
+<td class="num">200</td><td class="num">80986</td>
+<td class="small"><code>8a8f6bf03739d2b4…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_teams_hitting_2026</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1/teams/stats?season=2026&amp;sportIds=1&amp;group=hitting&amp;stats=season" rel="noopener">https://statsapi.mlb.com/api/v1/teams/stats?season=2026&amp;sportIds=1&amp;group=hitting&amp;stats=season</a></td>
+<td class="num">200</td><td class="num">21475</td>
+<td class="small"><code>a6f50f2bab7b2b24…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_teams_pitching_2026</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1/teams/stats?season=2026&amp;sportIds=1&amp;group=pitching&amp;stats=season" rel="noopener">https://statsapi.mlb.com/api/v1/teams/stats?season=2026&amp;sportIds=1&amp;group=pitching&amp;stats=season</a></td>
+<td class="num">200</td><td class="num">35686</td>
+<td class="small"><code>2ba977fd4a4fecb6…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_roster_tb</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1/teams/139/roster?rosterType=active" rel="noopener">https://statsapi.mlb.com/api/v1/teams/139/roster?rosterType=active</a></td>
+<td class="num">200</td><td class="num">6671</td>
+<td class="small"><code>0d8632b229592e44…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_roster_mil</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1/teams/158/roster?rosterType=active" rel="noopener">https://statsapi.mlb.com/api/v1/teams/158/roster?rosterType=active</a></td>
+<td class="num">200</td><td class="num">6670</td>
+<td class="small"><code>f846ffadfb32bee2…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_feed_g1_849805</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1.1/game/849805/feed/live" rel="noopener">https://statsapi.mlb.com/api/v1.1/game/849805/feed/live</a></td>
+<td class="num">200</td><td class="num">766639</td>
+<td class="small"><code>ab313ac32d6ef412…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_feed_g2_849802</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1.1/game/849802/feed/live" rel="noopener">https://statsapi.mlb.com/api/v1.1/game/849802/feed/live</a></td>
+<td class="num">200</td><td class="num">179641</td>
+<td class="small"><code>104966e4e1e0d06e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>euroleague_games_e2026</code></td><td>Basketball</td>
+<td><a href="https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games" rel="noopener">https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/games</a></td>
+<td class="num">200</td><td class="num">715470</td>
+<td class="small"><code>c71179705d9f3ffb…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>euroleague_standings_e2026</code></td><td>Basketball</td>
+<td><a href="https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/rounds/6/standings" rel="noopener">https://api-live.euroleague.net/v2/competitions/E/seasons/E2026/rounds/6/standings</a></td>
+<td class="num">200</td><td class="num">16488</td>
+<td class="small"><code>1193c707e6d0256f…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_games_2026_10_23</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/games?date=2026-10-23" rel="noopener">https://www.nba.com/games?date=2026-10-23</a></td>
+<td class="num">200</td><td class="num">639125</td>
+<td class="small"><code>e61896eecd2af5e6…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_games_2026_10_24</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/games?date=2026-10-24" rel="noopener">https://www.nba.com/games?date=2026-10-24</a></td>
+<td class="num">200</td><td class="num">451013</td>
+<td class="small"><code>3dae668d6a4a28b4…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_games_2026_10_25</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/games?date=2026-10-25" rel="noopener">https://www.nba.com/games?date=2026-10-25</a></td>
+<td class="num">200</td><td class="num">360891</td>
+<td class="small"><code>44411e82acbab390…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_injury_portal</code></td><td>Basketball</td>
+<td><a href="https://official.nba.com/nba-injury-report-2026-27-season/" rel="noopener">https://official.nba.com/nba-injury-report-2026-27-season/</a></td>
+<td class="num">200</td><td class="num">124355</td>
+<td class="small"><code>5a217842a389f7ba…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_notes_celtics</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/gamenotes/celtics.pdf" rel="noopener">https://www.nba.com/gamenotes/celtics.pdf</a></td>
+<td class="num">200</td><td class="num">2450021</td>
+<td class="small"><code>075fb7908dbf4d61…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_notes_knicks</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/gamenotes/knicks.pdf" rel="noopener">https://www.nba.com/gamenotes/knicks.pdf</a></td>
+<td class="num">200</td><td class="num">2372905</td>
+<td class="small"><code>a7c1014c7a9146ba…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_notes_pacers</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/gamenotes/pacers.pdf" rel="noopener">https://www.nba.com/gamenotes/pacers.pdf</a></td>
+<td class="num">200</td><td class="num">1697449</td>
+<td class="small"><code>ea0666a12a8ba030…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_notes_mavericks</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/gamenotes/mavericks.pdf" rel="noopener">https://www.nba.com/gamenotes/mavericks.pdf</a></td>
+<td class="num">200</td><td class="num">8605911</td>
+<td class="small"><code>64227b673f9e270e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_notes_thunder</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/gamenotes/thunder.pdf" rel="noopener">https://www.nba.com/gamenotes/thunder.pdf</a></td>
+<td class="num">200</td><td class="num">749451</td>
+<td class="small"><code>159468b2f91eb7a8…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_notes_nuggets</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/gamenotes/nuggets.pdf" rel="noopener">https://www.nba.com/gamenotes/nuggets.pdf</a></td>
+<td class="num">200</td><td class="num">4368507</td>
+<td class="small"><code>da6395255a66dc14…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_tournaments_oct</code></td><td>Tennis</td>
+<td><a href="https://api.wtatennis.com/tennis/tournaments/?page=0&amp;pageSize=30&amp;from=2026-10-18&amp;to=2026-11-05" rel="noopener">https://api.wtatennis.com/tennis/tournaments/?page=0&amp;pageSize=30&amp;from=2026-10-18&amp;to=2026-11-05</a></td>
+<td class="num">200</td><td class="num">16289</td>
+<td class="small"><code>adb7c0f47494b215…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_ningbo_matches</code></td><td>Tennis</td>
+<td><a href="https://api.wtatennis.com/tennis/tournaments/2092/2026/matches" rel="noopener">https://api.wtatennis.com/tennis/tournaments/2092/2026/matches</a></td>
+<td class="num">200</td><td class="num">67565</td>
+<td class="small"><code>1a8750ed54a38400…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_osaka_matches</code></td><td>Tennis</td>
+<td><a href="https://api.wtatennis.com/tennis/tournaments/405/2026/matches" rel="noopener">https://api.wtatennis.com/tennis/tournaments/405/2026/matches</a></td>
+<td class="num">200</td><td class="num">73234</td>
+<td class="small"><code>71e4a1400e6b3dd8…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_tokyo_matches</code></td><td>Tennis</td>
+<td><a href="https://api.wtatennis.com/tennis/tournaments/1056/2026/matches" rel="noopener">https://api.wtatennis.com/tennis/tournaments/1056/2026/matches</a></td>
+<td class="num">200</td><td class="num">17675</td>
+<td class="small"><code>32d3405d617ff191…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_guangzhou_matches</code></td><td>Tennis</td>
+<td><a href="https://api.wtatennis.com/tennis/tournaments/1023/2026/matches" rel="noopener">https://api.wtatennis.com/tennis/tournaments/1023/2026/matches</a></td>
+<td class="num">200</td><td class="num">17732</td>
+<td class="small"><code>272e1cc5c0084d1e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_rankings_singles</code></td><td>Tennis</td>
+<td><a href="https://api.wtatennis.com/tennis/players/ranked?page=0&amp;pageSize=100&amp;type=rankSingles&amp;sort=asc" rel="noopener">https://api.wtatennis.com/tennis/players/ranked?page=0&amp;pageSize=100&amp;type=rankSingles&amp;sort=asc</a></td>
+<td class="num">400</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>atp_vienna_mds</code></td><td>Tennis</td>
+<td><a href="https://www.protennislive.com/posting/2026/337/mds.pdf" rel="noopener">https://www.protennislive.com/posting/2026/337/mds.pdf</a></td>
+<td class="num">200</td><td class="num">113228</td>
+<td class="small"><code>e080d89f24ddb033…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>atp_basel_mds</code></td><td>Tennis</td>
+<td><a href="https://www.protennislive.com/posting/2026/328/mds.pdf" rel="noopener">https://www.protennislive.com/posting/2026/328/mds.pdf</a></td>
+<td class="num">200</td><td class="num">113112</td>
+<td class="small"><code>d43a6727df5e66c5…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>atp_brussels_mds</code></td><td>Tennis</td>
+<td><a href="https://www.protennislive.com/posting/2026/7485/mds.pdf" rel="noopener">https://www.protennislive.com/posting/2026/7485/mds.pdf</a></td>
+<td class="num">200</td><td class="num">152190</td>
+<td class="small"><code>f5d4378f864ca871…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>atp_almaty_mds</code></td><td>Tennis</td>
+<td><a href="https://www.protennislive.com/posting/2026/9410/mds.pdf" rel="noopener">https://www.protennislive.com/posting/2026/9410/mds.pdf</a></td>
+<td class="num">200</td><td class="num">151805</td>
+<td class="small"><code>1201babd1a546631…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pga_bermuda_overview</code></td><td>Golf</td>
+<td><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528" rel="noopener">https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528</a></td>
+<td class="num">200</td><td class="num">955006</td>
+<td class="small"><code>0cb3068b30ac17a1…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pga_leaderboard</code></td><td>Golf</td>
+<td><a href="https://www.pgatour.com/leaderboard" rel="noopener">https://www.pgatour.com/leaderboard</a></td>
+<td class="num">200</td><td class="num">948133</td>
+<td class="small"><code>a149539dc50e5c06…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pga_schedule_2026</code></td><td>Golf</td>
+<td><a href="https://www.pgatour.com/schedule" rel="noopener">https://www.pgatour.com/schedule</a></td>
+<td class="num">200</td><td class="num">537132</td>
+<td class="small"><code>a4b935a4da74d96c…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>dpwt_genesis_leaderboard</code></td><td>Golf</td>
+<td><a href="https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard" rel="noopener">https://www.europeantour.com/dpworld-tour/genesis-championship-2026/leaderboard</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>dpwt_schedule_2026</code></td><td>Golf</td>
+<td><a href="https://www.europeantour.com/dpworld-tour/schedule/" rel="noopener">https://www.europeantour.com/dpworld-tour/schedule/</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>lpga_bmw_leaderboard</code></td><td>Golf</td>
+<td><a href="https://www.lpga.com/tournaments/bmw-lpga-championship/leaderboard" rel="noopener">https://www.lpga.com/tournaments/bmw-lpga-championship/leaderboard</a></td>
+<td class="num">200</td><td class="num">867489</td>
+<td class="small"><code>b0223bd0ac194133…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>legavolley_cal_999</code></td><td>Volleyball</td>
+<td><a href="https://www.legavolley.it/calendario/?idCampionato=999" rel="noopener">https://www.legavolley.it/calendario/?idCampionato=999</a></td>
+<td class="num">200</td><td class="num">233324</td>
+<td class="small"><code>a4b035c24743b876…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>legavolley_classifica</code></td><td>Volleyball</td>
+<td><a href="https://www.legavolley.it/classifica/" rel="noopener">https://www.legavolley.it/classifica/</a></td>
+<td class="num">200</td><td class="num">156452</td>
+<td class="small"><code>d02b79c4af5998e3…</code></td><td class="small">used</td></tr><tr><td class="small"><code>plusliga_games</code></td><td>Volleyball</td>
+<td><a href="https://www.plusliga.pl/games.html" rel="noopener">https://www.plusliga.pl/games.html</a></td>
+<td class="num">200</td><td class="num">834280</td>
+<td class="small"><code>065d61a63ab9c77b…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>plusliga_table</code></td><td>Volleyball</td>
+<td><a href="https://www.plusliga.pl/table.html" rel="noopener">https://www.plusliga.pl/table.html</a></td>
+<td class="num">200</td><td class="num">952578</td>
+<td class="small"><code>f3e5ff402e8c254e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>cvf_extraliga</code></td><td>Volleyball</td>
+<td><a href="https://www.cvf.cz/extraliga-muzi/" rel="noopener">https://www.cvf.cz/extraliga-muzi/</a></td>
+<td class="num">200</td><td class="num">94349</td>
+<td class="small"><code>cf95a79e10008354…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>ehfcl_men_matches</code></td><td>Handball</td>
+<td><a href="https://ehfcl.eurohandball.com/men/2026-27/matches/" rel="noopener">https://ehfcl.eurohandball.com/men/2026-27/matches/</a></td>
+<td class="num">200</td><td class="num">94588</td>
+<td class="small"><code>3da60546ed70c80f…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>ehfcl_men_standings</code></td><td>Handball</td>
+<td><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" rel="noopener">https://ehfcl.eurohandball.com/men/2026-27/standings/</a></td>
+<td class="num">200</td><td class="num">209049</td>
+<td class="small"><code>a3e9257e65f41f25…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>ehfcl_women_matches</code></td><td>Handball</td>
+<td><a href="https://ehfcl.eurohandball.com/women/2026-27/matches/" rel="noopener">https://ehfcl.eurohandball.com/women/2026-27/matches/</a></td>
+<td class="num">200</td><td class="num">91904</td>
+<td class="small"><code>007d5d0fecbc0302…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>ehfcl_women_standings</code></td><td>Handball</td>
+<td><a href="https://ehfcl.eurohandball.com/women/2026-27/standings/" rel="noopener">https://ehfcl.eurohandball.com/women/2026-27/standings/</a></td>
+<td class="num">200</td><td class="num">168336</td>
+<td class="small"><code>ba71dde33123252d…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>dk_herreligaen_program</code></td><td>Handball</td>
+<td><a href="https://tophaandbold.dk/kampprogram/herreligaen" rel="noopener">https://tophaandbold.dk/kampprogram/herreligaen</a></td>
+<td class="num">200</td><td class="num">771020</td>
+<td class="small"><code>91c0b478fcb36b36…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>dk_herreligaen_stilling</code></td><td>Handball</td>
+<td><a href="https://tophaandbold.dk/stilling/herreligaen" rel="noopener">https://tophaandbold.dk/stilling/herreligaen</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>urc_fixtures</code></td><td>Rugby Union</td>
+<td><a href="https://www.unitedrugby.com/fixtures-and-results" rel="noopener">https://www.unitedrugby.com/fixtures-and-results</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>urc_standings</code></td><td>Rugby Union</td>
+<td><a href="https://www.unitedrugby.com/standings" rel="noopener">https://www.unitedrugby.com/standings</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>prem_fixtures</code></td><td>Rugby Union</td>
+<td><a href="https://www.premiershiprugby.com/fixtures-results/" rel="noopener">https://www.premiershiprugby.com/fixtures-results/</a></td>
+<td class="num">200</td><td class="num">325572</td>
+<td class="small"><code>10bb82f25ca4d67b…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>prem_standings</code></td><td>Rugby Union</td>
+<td><a href="https://www.premiershiprugby.com/standings/" rel="noopener">https://www.premiershiprugby.com/standings/</a></td>
+<td class="num">200</td><td class="num">347741</td>
+<td class="small"><code>72d8f32c9985136c…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>top14_calendrier</code></td><td>Rugby Union</td>
+<td><a href="https://top14.lnr.fr/calendrier-et-resultats" rel="noopener">https://top14.lnr.fr/calendrier-et-resultats</a></td>
+<td class="num">200</td><td class="num">156674</td>
+<td class="small"><code>fa4c8b82813f13a1…</code></td><td class="small">used</td></tr><tr><td class="small"><code>top14_classement</code></td><td>Rugby Union</td>
+<td><a href="https://top14.lnr.fr/classement" rel="noopener">https://top14.lnr.fr/classement</a></td>
+<td class="num">200</td><td class="num">256710</td>
+<td class="small"><code>a4ede34e87a47b70…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>rlwc2026_draw</code></td><td>Rugby League</td>
+<td><a href="https://www.rlwc2026.com/draw" rel="noopener">https://www.rlwc2026.com/draw</a></td>
+<td class="num">200</td><td class="num">46137</td>
+<td class="small"><code>e035c73be3cfa4b3…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nrl_rlwc_draw</code></td><td>Rugby League</td>
+<td><a href="https://www.nrl.com/draw/?competition=175&amp;round=2&amp;season=2026" rel="noopener">https://www.nrl.com/draw/?competition=175&amp;round=2&amp;season=2026</a></td>
+<td class="num">200</td><td class="num">862</td>
+<td class="small"><code>a48686890c5bdd54…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nrl_rlwc_r3_draw</code></td><td>Rugby League</td>
+<td><a href="https://www.nrl.com/draw/?competition=175&amp;round=3&amp;season=2026" rel="noopener">https://www.nrl.com/draw/?competition=175&amp;round=3&amp;season=2026</a></td>
+<td class="num">200</td><td class="num">862</td>
+<td class="small"><code>b9f046676704575c…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nrl_rlwc_teamlists_r2</code></td><td>Rugby League</td>
+<td><a href="https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/" rel="noopener">https://www.nrl.com/news/2026/10/20/world-cup-team-lists-mens-round-2/</a></td>
+<td class="num">200</td><td class="num">862</td>
+<td class="small"><code>81bcac89fa1ba666…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nrl_rlwc_aus_nz_report</code></td><td>Rugby League</td>
+<td><a href="https://www.nrl.com/news/2026/10/15/2026-rugby-league-world-cup---kangaroos-v-kiwis-live-blog/" rel="noopener">https://www.nrl.com/news/2026/10/15/2026-rugby-league-world-cup---kangaroos-v-kiwis-live-blog/</a></td>
+<td class="num">200</td><td class="num">904</td>
+<td class="small"><code>a3b214744fbda691…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>ca_fixtures</code></td><td>Cricket</td>
+<td><a href="https://www.cricket.com.au/matches" rel="noopener">https://www.cricket.com.au/matches</a></td>
+<td class="num">200</td><td class="num">197344</td>
+<td class="small"><code>73fc316bfb2bde5e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nzc_home</code></td><td>Cricket</td>
+<td><a href="https://www.nzc.nz/" rel="noopener">https://www.nzc.nz/</a></td>
+<td class="num">200</td><td class="num">282455</td>
+<td class="small"><code>dc4f2a7e42d605ea…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>bcci_home</code></td><td>Cricket</td>
+<td><a href="https://www.bcci.tv/" rel="noopener">https://www.bcci.tv/</a></td>
+<td class="num">200</td><td class="num">531578</td>
+<td class="small"><code>6dde382313f039ab…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>bcci_injury_kalita</code></td><td>Cricket</td>
+<td><a href="https://www.bcci.tv/articles/2026/news/55556125/jintimani-kalita-replaces-renuka-singh-thakur-in-indias-odi-squad" rel="noopener">https://www.bcci.tv/articles/2026/news/55556125/jintimani-kalita-replaces-renuka-singh-thakur-in-indias-odi-squad</a></td>
+<td class="num">200</td><td class="num">191038</td>
+<td class="small"><code>381993d99f9fada7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pcb_home</code></td><td>Cricket</td>
+<td><a href="https://www.pcb.com.pk/" rel="noopener">https://www.pcb.com.pk/</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>icc_fixtures</code></td><td>Cricket</td>
+<td><a href="https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/matches" rel="noopener">https://www.icc-cricket.com/tournaments/womens-t20-world-cup-2026/matches</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wst_matches</code></td><td>Snooker</td>
+<td><a href="https://www.wst.tv/matches/" rel="noopener">https://www.wst.tv/matches/</a></td>
+<td class="num">200</td><td class="num">181091</td>
+<td class="small"><code>3153cd5a32a1008f…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wst_rankings</code></td><td>Snooker</td>
+<td><a href="https://www.wst.tv/rankings/" rel="noopener">https://www.wst.tv/rankings/</a></td>
+<td class="num">200</td><td class="num">183241</td>
+<td class="small"><code>aeda5e0329931ba2…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wst_ni_open_semis</code></td><td>Snooker</td>
+<td><a href="https://www.wst.tv/news/2026/october/23/Wilson-And-Craigie-Into-Belfast-Semis" rel="noopener">https://www.wst.tv/news/2026/october/23/Wilson-And-Craigie-Into-Belfast-Semis</a></td>
+<td class="num">200</td><td class="num">207164</td>
+<td class="small"><code>e3d4fe64c6944bd8…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wst_ni_open_d4</code></td><td>Snooker</td>
+<td><a href="https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-evening" rel="noopener">https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-evening</a></td>
+<td class="num">200</td><td class="num">205492</td>
+<td class="small"><code>6ea0add557c4154e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_ec_preview</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/news/2026/10/22/2026-machineseeker-european-championship-preview" rel="noopener">https://www.pdc.tv/news/2026/10/22/2026-machineseeker-european-championship-preview</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_ec_day1</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/news/2026/10/22/woodhouse-hits-nine-darter-opening-night-dortmund" rel="noopener">https://www.pdc.tv/news/2026/10/22/woodhouse-hits-nine-darter-opening-night-dortmund</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_ec_day2</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/news/2026/october/23/2026-machineseeker-european-championship---day-two-latest" rel="noopener">https://www.pdc.tv/news/2026/october/23/2026-machineseeker-european-championship---day-two-latest</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_oom</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/order-of-merit/pdc-order-merit" rel="noopener">https://www.pdc.tv/order-of-merit/pdc-order-merit</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_tournaments</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/tournaments/calendar" rel="noopener">https://www.pdc.tv/tournaments/calendar</a></td>
+<td class="num">200</td><td class="num">1262036</td>
+<td class="small"><code>f00a57d5fde7a753…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>f1_schedule_2026</code></td><td>Motor Racing</td>
+<td><a href="https://www.formula1.com/en/racing/2026" rel="noopener">https://www.formula1.com/en/racing/2026</a></td>
+<td class="num">200</td><td class="num">613534</td>
+<td class="small"><code>76152ff8cf941ae8…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>f1_us_gp_2026</code></td><td>Motor Racing</td>
+<td><a href="https://www.formula1.com/en/racing/2026/united-states" rel="noopener">https://www.formula1.com/en/racing/2026/united-states</a></td>
+<td class="num">200</td><td class="num">535420</td>
+<td class="small"><code>b9b2b38a4ddec34a…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>f1_mexico_gp_2026</code></td><td>Motor Racing</td>
+<td><a href="https://www.formula1.com/en/racing/2026/mexico" rel="noopener">https://www.formula1.com/en/racing/2026/mexico</a></td>
+<td class="num">200</td><td class="num">451995</td>
+<td class="small"><code>7eaf3ff697d11ecb…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>f1_drivers_2026</code></td><td>Motor Racing</td>
+<td><a href="https://www.formula1.com/en/results/2026/drivers" rel="noopener">https://www.formula1.com/en/results/2026/drivers</a></td>
+<td class="num">200</td><td class="num">409389</td>
+<td class="small"><code>6d3b4ba2d3b6a39e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>f1_teams_2026</code></td><td>Motor Racing</td>
+<td><a href="https://www.formula1.com/en/results/2026/team" rel="noopener">https://www.formula1.com/en/results/2026/team</a></td>
+<td class="num">200</td><td class="num">323037</td>
+<td class="small"><code>5318f388ba7de2ba…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>motogp_calendar_2026</code></td><td>Motor Racing</td>
+<td><a href="https://www.motogp.com/en/calendar" rel="noopener">https://www.motogp.com/en/calendar</a></td>
+<td class="num">200</td><td class="num">298951</td>
+<td class="small"><code>0381e99ed82a83e8…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>motogp_standings_2026</code></td><td>Motor Racing</td>
+<td><a href="https://www.motogp.com/en/world-standing/2026/motogp/championship-standings" rel="noopener">https://www.motogp.com/en/world-standing/2026/motogp/championship-standings</a></td>
+<td class="num">200</td><td class="num">116934</td>
+<td class="small"><code>85e236a5d6dfc6dc…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>motogp_phillip_island_preview</code></td><td>Motor Racing</td>
+<td><a href="https://www.motogp.com/en/news/2026/10/19/hot-headlines-the-final-phillip-island-battle-beckons-for-tight-2026-title-fight/1177973" rel="noopener">https://www.motogp.com/en/news/2026/10/19/hot-headlines-the-final-phillip-island-battle-beckons-for-tight-2026-title-fight/1177973</a></td>
+<td class="num">200</td><td class="num">114713</td>
+<td class="small"><code>4e7676029cbf236a…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_munster_calendar</code></td><td>Gaelic Sports</td>
+<td><a href="https://munster.gaa.ie/fixtures/events-calendar/" rel="noopener">https://munster.gaa.ie/fixtures/events-calendar/</a></td>
+<td class="num">200</td><td class="num">153890</td>
+<td class="small"><code>241adbf6049f44b9…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_munster_home</code></td><td>Gaelic Sports</td>
+<td><a href="https://munster.gaa.ie/" rel="noopener">https://munster.gaa.ie/</a></td>
+<td class="num">200</td><td class="num">210970</td>
+<td class="small"><code>837ca6cd2cff2967…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_cork_sfc_final</code></td><td>Gaelic Sports</td>
+<td><a href="https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/" rel="noopener">https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/</a></td>
+<td class="num">200</td><td class="num">171779</td>
+<td class="small"><code>a19ce69ccd44c9af…</code></td><td class="small">used</td></tr><tr><td class="small"><code>gaa_cork_fixtures</code></td><td>Gaelic Sports</td>
+<td><a href="https://gaacork.ie/fixtures/" rel="noopener">https://gaacork.ie/fixtures/</a></td>
+<td class="num">200</td><td class="num">194513</td>
+<td class="small"><code>933c0ae6d0d1b384…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_cork_results</code></td><td>Gaelic Sports</td>
+<td><a href="https://gaacork.ie/results/" rel="noopener">https://gaacork.ie/results/</a></td>
+<td class="num">200</td><td class="num">366831</td>
+<td class="small"><code>1203e0befe787314…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_ulster_fixtures</code></td><td>Gaelic Sports</td>
+<td><a href="https://ulster.gaa.ie/fixtures-results/" rel="noopener">https://ulster.gaa.ie/fixtures-results/</a></td>
+<td class="num">200</td><td class="num">659242</td>
+<td class="small"><code>91547e62f315ec14…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_offaly_fixtures</code></td><td>Gaelic Sports</td>
+<td><a href="https://offaly.gaa.ie/fixtures-results/" rel="noopener">https://offaly.gaa.ie/fixtures-results/</a></td>
+<td class="num">200</td><td class="num">2040533</td>
+<td class="small"><code>0bc1dba060d24572…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_national_fixtures</code></td><td>Gaelic Sports</td>
+<td><a href="https://www.gaa.ie/fixtures-results" rel="noopener">https://www.gaa.ie/fixtures-results</a></td>
+<td class="num">200</td><td class="num">1308027</td>
+<td class="small"><code>157e3abc4ba32617…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gri_upcoming_cards</code></td><td>Greyhounds</td>
+<td><a href="https://www.grireland.ie/racing/upcoming-race-cards/" rel="noopener">https://www.grireland.ie/racing/upcoming-race-cards/</a></td>
+<td class="num">200</td><td class="num">66248</td>
+<td class="small"><code>e90ffc97bc91011a…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gri_spk_summary_24oct</code></td><td>Greyhounds</td>
+<td><a href="https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/?track=SPK&amp;id=119572&amp;date=24-Oct-2026" rel="noopener">https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/?track=SPK&amp;id=119572&amp;date=24-Oct-2026</a></td>
+<td class="num">200</td><td class="num">52608</td>
+<td class="small"><code>f39d12bf1296d82c…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gri_spk_r1_form</code></td><td>Greyhounds</td>
+<td><a href="https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/view-race-form/?Track=SPK&amp;Date=24-Oct-2026&amp;RaceNumber=1" rel="noopener">https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/view-race-form/?Track=SPK&amp;Date=24-Oct-2026&amp;RaceNumber=1</a></td>
+<td class="num">200</td><td class="num">59972</td>
+<td class="small"><code>a5b53572b8e842e6…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gri_spk_r4_form</code></td><td>Greyhounds</td>
+<td><a href="https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/view-race-form/?Track=SPK&amp;Date=24-Oct-2026&amp;RaceNumber=4" rel="noopener">https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/view-race-form/?Track=SPK&amp;Date=24-Oct-2026&amp;RaceNumber=4</a></td>
+<td class="num">200</td><td class="num">59348</td>
+<td class="small"><code>f5d58ae42d611dc0…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gri_spk_r6_form</code></td><td>Greyhounds</td>
+<td><a href="https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/view-race-form/?Track=SPK&amp;Date=24-Oct-2026&amp;RaceNumber=6" rel="noopener">https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/view-race-form/?Track=SPK&amp;Date=24-Oct-2026&amp;RaceNumber=6</a></td>
+<td class="num">200</td><td class="num">59306</td>
+<td class="small"><code>0b2d31329c1f2f11…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gri_spk_r8_form</code></td><td>Greyhounds</td>
+<td><a href="https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/view-race-form/?Track=SPK&amp;Date=24-Oct-2026&amp;RaceNumber=8" rel="noopener">https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/view-race-form/?Track=SPK&amp;Date=24-Oct-2026&amp;RaceNumber=8</a></td>
+<td class="num">200</td><td class="num">59406</td>
+<td class="small"><code>1cd7e0729cdedcd3…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gri_crk_summary_24oct</code></td><td>Greyhounds</td>
+<td><a href="https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/?track=CRK&amp;id=119559&amp;date=24-Oct-2026" rel="noopener">https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/?track=CRK&amp;id=119559&amp;date=24-Oct-2026</a></td>
+<td class="num">200</td><td class="num">55926</td>
+<td class="small"><code>5b64721f7b366af3…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gbgb_scurry_final</code></td><td>Greyhounds</td>
+<td><a href="https://www.gbgb.org.uk/shadow-storm-chases-scurry-gold-cup-history-at-dunstall-park/" rel="noopener">https://www.gbgb.org.uk/shadow-storm-chases-scurry-gold-cup-history-at-dunstall-park/</a></td>
+<td class="num">200</td><td class="num">90131</td>
+<td class="small"><code>d4f777219f61b4c3…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gbgb_oaks_final</code></td><td>Greyhounds</td>
+<td><a href="https://www.gbgb.org.uk/signet-nayla-chases-oaks-glory-as-hutton-targets-dunstall-park-double/" rel="noopener">https://www.gbgb.org.uk/signet-nayla-chases-oaks-glory-as-hutton-targets-dunstall-park-double/</a></td>
+<td class="num">200</td><td class="num">88243</td>
+<td class="small"><code>9a3cd6e20f40fd80…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gbgb_open_races</code></td><td>Greyhounds</td>
+<td><a href="https://www.gbgb.org.uk/racing/open-races/" rel="noopener">https://www.gbgb.org.uk/racing/open-races/</a></td>
+<td class="num">200</td><td class="num">85252</td>
+<td class="small"><code>6207a79923a57d11…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>snooker_org_2548</code></td><td>Snooker</td>
+<td><a href="https://www.snooker.org/res/index.asp?event=2548" rel="noopener">https://www.snooker.org/res/index.asp?event=2548</a></td>
+<td class="num">200</td><td class="num">238276</td>
+<td class="small"><code>ebb594a099dce77d…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_ec_hub_10870</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/tournament-hub/10870" rel="noopener">https://www.pdc.tv/tournament-hub/10870</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_participants_api</code></td><td>Darts</td>
+<td><a href="https://participants.darts.web.gc.pdcservices.co.uk/v2/?page.size=100" rel="noopener">https://participants.darts.web.gc.pdcservices.co.uk/v2/?page.size=100</a></td>
+<td class="num">200</td><td class="num">83945</td>
+<td class="small"><code>6eaaa511c533f74d…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_sched_2026_10_26</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/schedule/2026-10-26" rel="noopener">https://api-web.nhle.com/v1/schedule/2026-10-26</a></td>
+<td class="num">200</td><td class="num">89750</td>
+<td class="small"><code>6bbb1a43f0013236…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nhl_sched_2026_10_27</code></td><td>Ice Hockey</td>
+<td><a href="https://api-web.nhle.com/v1/schedule/2026-10-27" rel="noopener">https://api-web.nhle.com/v1/schedule/2026-10-27</a></td>
+<td class="num">200</td><td class="num">91706</td>
+<td class="small"><code>00689d66f6fffb86…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_sched_24oct_03nov</code></td><td>Baseball</td>
+<td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-03&amp;hydrate=probablePitcher(note),team,linescore,decisions,venue" rel="noopener">https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-11-03&amp;hydrate=probablePitcher(note),team,linescore,decisions,venue</a></td>
+<td class="num">200</td><td class="num">20239</td>
+<td class="small"><code>48c7b63b5d994140…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_games_2026_10_26</code></td><td>Basketball</td>
+<td><a href="https://www.nba.com/games?date=2026-10-26" rel="noopener">https://www.nba.com/games?date=2026-10-26</a></td>
+<td class="num">200</td><td class="num">379868</td>
+<td class="small"><code>e78c633a00a79133…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_rugby_union_prem</code></td><td>Rugby Union</td>
+<td><a href="https://www.olbg.com/betting-tips/Rugby_Union/UK/England_Premiership/9" rel="noopener">https://www.olbg.com/betting-tips/Rugby_Union/UK/England_Premiership/9</a></td>
+<td class="num">200</td><td class="num">184189</td>
+<td class="small"><code>8b716316090d27df…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_cricket_intl</code></td><td>Cricket</td>
+<td><a href="https://www.olbg.com/betting-tips/Cricket/Internationals/Internationals/7" rel="noopener">https://www.olbg.com/betting-tips/Cricket/Internationals/Internationals/7</a></td>
+<td class="num">200</td><td class="num">184066</td>
+<td class="small"><code>807103e591469ad1…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_tennis_atp</code></td><td>Tennis</td>
+<td><a href="https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Tour/3" rel="noopener">https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Tour/3</a></td>
+<td class="num">200</td><td class="num">183800</td>
+<td class="small"><code>e1d0c7bd1a141ba9…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_golf_pga</code></td><td>Golf</td>
+<td><a href="https://www.olbg.com/betting-tips/Golf/USA/US_PGA_Tour/5" rel="noopener">https://www.olbg.com/betting-tips/Golf/USA/US_PGA_Tour/5</a></td>
+<td class="num">200</td><td class="num">183503</td>
+<td class="small"><code>0efe289c99b36158…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_darts_pdc</code></td><td>Darts</td>
+<td><a href="https://www.olbg.com/betting-tips/Darts/PDC/PDC_Darts/15" rel="noopener">https://www.olbg.com/betting-tips/Darts/PDC/PDC_Darts/15</a></td>
+<td class="num">200</td><td class="num">183808</td>
+<td class="small"><code>4e8b95b3a8604af5…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_snooker_main</code></td><td>Snooker</td>
+<td><a href="https://www.olbg.com/betting-tips/Snooker/World_Snooker/World_Snooker_Tour/8" rel="noopener">https://www.olbg.com/betting-tips/Snooker/World_Snooker/World_Snooker_Tour/8</a></td>
+<td class="num">200</td><td class="num">184149</td>
+<td class="small"><code>731afc632e385c9f…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_handball_ehf</code></td><td>Handball</td>
+<td><a href="https://www.olbg.com/betting-tips/Handball/Europe/EHF_Champions_League/20" rel="noopener">https://www.olbg.com/betting-tips/Handball/Europe/EHF_Champions_League/20</a></td>
+<td class="num">200</td><td class="num">184175</td>
+<td class="small"><code>36a6e8c190b88b2d…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_volleyball_it</code></td><td>Volleyball</td>
+<td><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/Italy_SuperLega/21" rel="noopener">https://www.olbg.com/betting-tips/Volleyball/Italy/Italy_SuperLega/21</a></td>
+<td class="num">200</td><td class="num">184109</td>
+<td class="small"><code>3ce3668cffe2e571…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_greyhounds_uk</code></td><td>Greyhounds</td>
+<td><a href="https://www.olbg.com/betting-tips/Greyhounds/UK/UK_Greyhounds/28" rel="noopener">https://www.olbg.com/betting-tips/Greyhounds/UK/UK_Greyhounds/28</a></td>
+<td class="num">200</td><td class="num">184036</td>
+<td class="small"><code>8bc6814d133f8e96…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_gaelic_gaa</code></td><td>Gaelic Sports</td>
+<td><a href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/25" rel="noopener">https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/25</a></td>
+<td class="num">200</td><td class="num">223985</td>
+<td class="small"><code>15ba6b34dc46624c…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_motor_f1</code></td><td>Motor Racing</td>
+<td><a href="https://www.olbg.com/betting-tips/Motor_Racing/Formula_1/Formula_1/14" rel="noopener">https://www.olbg.com/betting-tips/Motor_Racing/Formula_1/Formula_1/14</a></td>
+<td class="num">200</td><td class="num">184065</td>
+<td class="small"><code>e68acc49f09484c1…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_rl_nrl</code></td><td>Rugby League</td>
+<td><a href="https://www.olbg.com/betting-tips/Rugby_League/Australia/NRL/10" rel="noopener">https://www.olbg.com/betting-tips/Rugby_League/Australia/NRL/10</a></td>
+<td class="num">200</td><td class="num">183927</td>
+<td class="small"><code>ede83722df3c5050…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_ih_nhl</code></td><td>Ice Hockey</td>
+<td><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/13" rel="noopener">https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/13</a></td>
+<td class="num">200</td><td class="num">246513</td>
+<td class="small"><code>b9a0055182237772…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>olbg_bb_nba</code></td><td>Basketball</td>
+<td><a href="https://www.olbg.com/betting-tips/Basketball/NBA/NBA/4" rel="noopener">https://www.olbg.com/betting-tips/Basketball/NBA/NBA/4</a></td>
+<td class="num">200</td><td class="num">267649</td>
+<td class="small"><code>c53600fe64e182cd…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_cdn_schedule</code></td><td>Basketball</td>
+<td><a href="https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json" rel="noopener">https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_cdn_scoreboard</code></td><td>Basketball</td>
+<td><a href="https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json" rel="noopener">https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_standings_cdn</code></td><td>Basketball</td>
+<td><a href="https://cdn.nba.com/static/json/staticData/standings.json" rel="noopener">https://cdn.nba.com/static/json/staticData/standings.json</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>hbl_spielplan</code></td><td>Handball</td>
+<td><a href="https://www.daikin-hbl.de/de/spielplan/" rel="noopener">https://www.daikin-hbl.de/de/spielplan/</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>hbl_tabelle</code></td><td>Handball</td>
+<td><a href="https://www.daikin-hbl.de/de/tabelle/" rel="noopener">https://www.daikin-hbl.de/de/tabelle/</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>asobal_clasificacion</code></td><td>Handball</td>
+<td><a href="https://www.asobal.es/clasificacion" rel="noopener">https://www.asobal.es/clasificacion</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>lnh_calendrier</code></td><td>Handball</td>
+<td><a href="https://www.lnh.fr/calendrier" rel="noopener">https://www.lnh.fr/calendrier</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>handbollsligan_schema</code></td><td>Handball</td>
+<td><a href="https://handbollsligan.se/herr/" rel="noopener">https://handbollsligan.se/herr/</a></td>
+<td class="num">200</td><td class="num">143672</td>
+<td class="small"><code>655852aa318d9dbe…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>volley_superlega_cal</code></td><td>Volleyball</td>
+<td><a href="https://www.legavolley.it/calendario/?idCampionato=999" rel="noopener">https://www.legavolley.it/calendario/?idCampionato=999</a></td>
+<td class="num">200</td><td class="num">233324</td>
+<td class="small"><code>c19d0c4d817df7c2…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>volley_bundesliga</code></td><td>Volleyball</td>
+<td><a href="https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/1_bundesliga_maenner.xhtml" rel="noopener">https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/1_bundesliga_maenner.xhtml</a></td>
+<td class="num">200</td><td class="num">60001</td>
+<td class="small"><code>f85ab9d2ac3cc6f2…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>lnv_calendrier</code></td><td>Volleyball</td>
+<td><a href="https://www.lnv.fr/calendrier" rel="noopener">https://www.lnv.fr/calendrier</a></td>
+<td class="num">200</td><td class="num">1124</td>
+<td class="small"><code>9b8dd9efb97bcbe0…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>ecb_fixtures</code></td><td>Cricket</td>
+<td><a href="https://www.ecb.co.uk/england/fixtures" rel="noopener">https://www.ecb.co.uk/england/fixtures</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>icc_schedule</code></td><td>Cricket</td>
+<td><a href="https://www.icc-cricket.com/tournaments/cricketworldcup/matches" rel="noopener">https://www.icc-cricket.com/tournaments/cricketworldcup/matches</a></td>
+<td class="num">200</td><td class="num">336817</td>
+<td class="small"><code>cbe3151a8ed30e24…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>atp_vienna_draw</code></td><td>Tennis</td>
+<td><a href="https://www.atptour.com/en/scores/current/vienna/337/draws" rel="noopener">https://www.atptour.com/en/scores/current/vienna/337/draws</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>atp_basel_draw</code></td><td>Tennis</td>
+<td><a href="https://www.atptour.com/en/scores/current/basel/328/draws" rel="noopener">https://www.atptour.com/en/scores/current/basel/328/draws</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_tournaments_all</code></td><td>Tennis</td>
+<td><a href="https://api.wtatennis.com/tennis/tournaments/?page=0&amp;pageSize=50&amp;from=2026-10-20&amp;to=2026-11-10" rel="noopener">https://api.wtatennis.com/tennis/tournaments/?page=0&amp;pageSize=50&amp;from=2026-10-20&amp;to=2026-11-10</a></td>
+<td class="num">200</td><td class="num">7025</td>
+<td class="small"><code>ef6a76091e4415cf…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wst_ni_open_hub</code></td><td>Snooker</td>
+<td><a href="https://www.wst.tv/tournaments/?id=1" rel="noopener">https://www.wst.tv/tournaments/?id=1</a></td>
+<td class="num">200</td><td class="num">180227</td>
+<td class="small"><code>3d214cf735b0ba37…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_ec_qf</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/news/2026/10/24/2026-machineseeker-european-championship---day-three-latest" rel="noopener">https://www.pdc.tv/news/2026/10/24/2026-machineseeker-european-championship---day-three-latest</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_ec_hub_10870b</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/tournament-hub/10870" rel="noopener">https://www.pdc.tv/tournament-hub/10870</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>f1_us_gp_starting_grid</code></td><td>Motor Racing</td>
+<td><a href="https://www.formula1.com/en/results/2026/races/1280/united-states/starting-grid" rel="noopener">https://www.formula1.com/en/results/2026/races/1280/united-states/starting-grid</a></td>
+<td class="num">200</td><td class="num">438769</td>
+<td class="small"><code>b42285e1de2f0050…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>f1_us_gp_race_result</code></td><td>Motor Racing</td>
+<td><a href="https://www.formula1.com/en/results/2026/races/1280/united-states/race-result" rel="noopener">https://www.formula1.com/en/results/2026/races/1280/united-states/race-result</a></td>
+<td class="num">200</td><td class="num">444589</td>
+<td class="small"><code>3997ae605b62e02e…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>f1_us_gp_qualifying</code></td><td>Motor Racing</td>
+<td><a href="https://www.formula1.com/en/results/2026/races/1280/united-states/qualifying" rel="noopener">https://www.formula1.com/en/results/2026/races/1280/united-states/qualifying</a></td>
+<td class="num">200</td><td class="num">448340</td>
+<td class="small"><code>54da6683fc1cc449…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gri_spk_24oct_summary2</code></td><td>Greyhounds</td>
+<td><a href="https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/?track=SPK&amp;id=119572&amp;date=24-Oct-2026" rel="noopener">https://www.grireland.ie/racing/upcoming-race-cards/upcoming-race-card-summary/?track=SPK&amp;id=119572&amp;date=24-Oct-2026</a></td>
+<td class="num">200</td><td class="num">52608</td>
+<td class="small"><code>ffa2dc080268e5a4…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_cork_psfc_final2</code></td><td>Gaelic Sports</td>
+<td><a href="https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/" rel="noopener">https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/</a></td>
+<td class="num">200</td><td class="num">171779</td>
+<td class="small"><code>a19ce69ccd44c9af…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>gaa_galway_fixtures</code></td><td>Gaelic Sports</td>
+<td><a href="https://galwaygaa.ie/fixtures/" rel="noopener">https://galwaygaa.ie/fixtures/</a></td>
+<td class="num">200</td><td class="num">116027</td>
+<td class="small"><code>c734fc601c2dfd95…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>urc_round_fixtures</code></td><td>Rugby Union</td>
+<td><a href="https://www.unitedrugby.com/fixtures" rel="noopener">https://www.unitedrugby.com/fixtures</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>prem_r5</code></td><td>Rugby Union</td>
+<td><a href="https://www.premiershiprugby.com/fixtures-results/" rel="noopener">https://www.premiershiprugby.com/fixtures-results/</a></td>
+<td class="num">200</td><td class="num">325428</td>
+<td class="small"><code>bc63c2d118bc1918…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>mlb_ws_game3</code></td><td>Baseball</td>
+<td><a href="https://www.mlb.com/postseason" rel="noopener">https://www.mlb.com/postseason</a></td>
+<td class="num">200</td><td class="num">955693</td>
+<td class="small"><code>b9a6e5951dfefc94…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_sched_cdn_h</code></td><td>Basketball</td>
+<td><a href="https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json" rel="noopener">https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_scoreboard_cdn_h</code></td><td>Basketball</td>
+<td><a href="https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json" rel="noopener">https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nba_stats_scoreboard</code></td><td>Basketball</td>
+<td><a href="https://stats.nba.com/stats/scoreboardv3?GameDate=2026-10-24&amp;LeagueID=00" rel="noopener">https://stats.nba.com/stats/scoreboardv3?GameDate=2026-10-24&amp;LeagueID=00</a></td>
+<td class="num">0</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_rankings_page</code></td><td>Tennis</td>
+<td><a href="https://www.wtatennis.com/rankings/singles" rel="noopener">https://www.wtatennis.com/rankings/singles</a></td>
+<td class="num">200</td><td class="num">1178101</td>
+<td class="small"><code>09ba25e68e1e2a91…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_rankings_api</code></td><td>Tennis</td>
+<td><a href="https://api.wtatennis.com/tennis/players/ranked?page=0&amp;pageSize=200&amp;type=rankSingles&amp;sort=asc" rel="noopener">https://api.wtatennis.com/tennis/players/ranked?page=0&amp;pageSize=200&amp;type=rankSingles&amp;sort=asc</a></td>
+<td class="num">400</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>atp_rankings_page</code></td><td>Tennis</td>
+<td><a href="https://www.atptour.com/en/rankings/singles" rel="noopener">https://www.atptour.com/en/rankings/singles</a></td>
+<td class="num">403</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>hbl_spielplan2</code></td><td>Handball</td>
+<td><a href="https://www.liquimoly-hbl.de/de/spielplan/" rel="noopener">https://www.liquimoly-hbl.de/de/spielplan/</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>hbl_tabelle2</code></td><td>Handball</td>
+<td><a href="https://www.liquimoly-hbl.de/de/tabelle/" rel="noopener">https://www.liquimoly-hbl.de/de/tabelle/</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>asobal_home2</code></td><td>Handball</td>
+<td><a href="https://www.asobal.es/" rel="noopener">https://www.asobal.es/</a></td>
+<td class="num">200</td><td class="num">69120</td>
+<td class="small"><code>39250363bf24d709…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>lnh_cal2</code></td><td>Handball</td>
+<td><a href="https://www.lnh.fr/calendrier-resultats" rel="noopener">https://www.lnh.fr/calendrier-resultats</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>urc_home2</code></td><td>Rugby Union</td>
+<td><a href="https://www.unitedrugby.com/" rel="noopener">https://www.unitedrugby.com/</a></td>
+<td class="num">200</td><td class="num">613918</td>
+<td class="small"><code>e470a6d5913d79b9…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>urc_matchcentre</code></td><td>Rugby Union</td>
+<td><a href="https://www.unitedrugby.com/match-centre" rel="noopener">https://www.unitedrugby.com/match-centre</a></td>
+<td class="num">200</td><td class="num">5680</td>
+<td class="small"><code>194fa2ccc8366c13…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>ecb_men_fixtures</code></td><td>Cricket</td>
+<td><a href="https://www.ecb.co.uk/england/men/fixtures" rel="noopener">https://www.ecb.co.uk/england/men/fixtures</a></td>
+<td class="num">200</td><td class="num">208941</td>
+<td class="small"><code>072f8113895968c2…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>nla_hockey</code></td><td>Ice Hockey</td>
+<td><a href="https://www.nationalleague.ch/" rel="noopener">https://www.nationalleague.ch/</a></td>
+<td class="num">200</td><td class="num">4634</td>
+<td class="small"><code>5445e8653d373440…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>del_hockey</code></td><td>Ice Hockey</td>
+<td><a href="https://www.penny-del.org/" rel="noopener">https://www.penny-del.org/</a></td>
+<td class="num">200</td><td class="num">198198</td>
+<td class="small"><code>51fa5a98ed7077cb…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>volley_nl</code></td><td>Volleyball</td>
+<td><a href="https://www.volleybal.nl/eredivisie" rel="noopener">https://www.volleybal.nl/eredivisie</a></td>
+<td class="num">200</td><td class="num">47059</td>
+<td class="small"><code>547f759b6a170ab5…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>volley_at</code></td><td>Volleyball</td>
+<td><a href="https://www.volleynet.at/" rel="noopener">https://www.volleynet.at/</a></td>
+<td class="num">200</td><td class="num">4726394</td>
+<td class="small"><code>a24361a83d347bc7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>volley_br</code></td><td>Volleyball</td>
+<td><a href="https://www.cbv.com.br/" rel="noopener">https://www.cbv.com.br/</a></td>
+<td class="num">200</td><td class="num">1063427</td>
+<td class="small"><code>fed687cf932e7d87…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>volley_fr</code></td><td>Volleyball</td>
+<td><a href="https://www.lnv.fr/competitions" rel="noopener">https://www.lnv.fr/competitions</a></td>
+<td class="num">200</td><td class="num">34384</td>
+<td class="small"><code>9a3b54bf855167cb…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_oom_page</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/order-of-merit/pdc-order-merit" rel="noopener">https://www.pdc.tv/order-of-merit/pdc-order-merit</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_ec_day3</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/news/2026/10/24/2026-machineseeker-european-championship---day-three-latest" rel="noopener">https://www.pdc.tv/news/2026/10/24/2026-machineseeker-european-championship---day-three-latest</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_rankings_p2</code></td><td>Tennis</td>
+<td><a href="https://www.wtatennis.com/rankings/singles?page=2" rel="noopener">https://www.wtatennis.com/rankings/singles?page=2</a></td>
+<td class="num">200</td><td class="num">1178101</td>
+<td class="small"><code>09ba25e68e1e2a91…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_rankings_p3</code></td><td>Tennis</td>
+<td><a href="https://www.wtatennis.com/rankings/singles?page=3" rel="noopener">https://www.wtatennis.com/rankings/singles?page=3</a></td>
+<td class="num">200</td><td class="num">1178101</td>
+<td class="small"><code>09ba25e68e1e2a91…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_rankings_p4</code></td><td>Tennis</td>
+<td><a href="https://www.wtatennis.com/rankings/singles?page=4" rel="noopener">https://www.wtatennis.com/rankings/singles?page=4</a></td>
+<td class="num">200</td><td class="num">1178101</td>
+<td class="small"><code>09ba25e68e1e2a91…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wta_rankings_p5</code></td><td>Tennis</td>
+<td><a href="https://www.wtatennis.com/rankings/singles?page=5" rel="noopener">https://www.wtatennis.com/rankings/singles?page=5</a></td>
+<td class="num">200</td><td class="num">1178101</td>
+<td class="small"><code>09ba25e68e1e2a91…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>hbl_root</code></td><td>Handball</td>
+<td><a href="https://www.liquimoly-hbl.de/" rel="noopener">https://www.liquimoly-hbl.de/</a></td>
+<td class="num">200</td><td class="num">1227482</td>
+<td class="small"><code>5ac00c8d940c4e0f…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>hbl_alt</code></td><td>Handball</td>
+<td><a href="https://www.handball-bundesliga.de/" rel="noopener">https://www.handball-bundesliga.de/</a></td>
+<td class="num">200</td><td class="num">1227482</td>
+<td class="small"><code>5ac00c8d940c4e0f…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>asobal_partidos</code></td><td>Handball</td>
+<td><a href="https://www.asobal.es/partidos" rel="noopener">https://www.asobal.es/partidos</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>urc_fixtures2</code></td><td>Rugby Union</td>
+<td><a href="https://www.unitedrugby.com/fixtures-results" rel="noopener">https://www.unitedrugby.com/fixtures-results</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>ecb_matches</code></td><td>Cricket</td>
+<td><a href="https://www.ecb.co.uk/matches" rel="noopener">https://www.ecb.co.uk/matches</a></td>
+<td class="num">404</td><td class="num">0</td>
+<td class="small"><code>…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>pdc_matchcentre</code></td><td>Darts</td>
+<td><a href="https://www.pdc.tv/match-centre" rel="noopener">https://www.pdc.tv/match-centre</a></td>
+<td class="num">200</td><td class="num">1241860</td>
+<td class="small"><code>326a735e6e52dbf7…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>wst_rankings2</code></td><td>Snooker</td>
+<td><a href="https://www.wst.tv/rankings/" rel="noopener">https://www.wst.tv/rankings/</a></td>
+<td class="num">200</td><td class="num">183241</td>
+<td class="small"><code>aeda5e0329931ba2…</code></td><td class="small">captured, not used</td></tr><tr><td class="small"><code>snooker_org_ni</code></td><td>Snooker</td>
+<td><a href="https://www.snooker.org/res/index.asp?event=2548" rel="noopener">https://www.snooker.org/res/index.asp?event=2548</a></td>
+<td class="num">200</td><td class="num">238276</td>
+<td class="small"><code>62dc85fbc0cfc4a7…</code></td><td class="small">captured, not used</td></tr></tbody></table></div>
+
+</main>
+<footer><div class="wrap">
+<p>Session <code>arena/e9770274-olbg4</code> · board CA · data capture <code>20261024T172255Z</code>
+(2026-10-24T17:24:50Z) · every price is our own fair line, never a copied bookmaker or OLBG price.</p>
+<p>OLBG public boards are used only to establish <em>which</em> fixtures are listed and what the crowd price is.
+Every team statistic, record and result behind a pick is read from the official league, tour or federation page
+linked on the row. Values that could not be confirmed from an official source are left blank and listed on
+<a href="flagged.html">Flagged for review</a>.</p>
+</div></footer>
+</body></html>

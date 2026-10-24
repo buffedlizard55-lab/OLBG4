@@ -458,8 +458,25 @@ def read_wta(cap: Capture, tid: str):
             continue
         a = f"{m.get('PlayerNameFirstA','')} {m.get('PlayerNameLastA','')}".strip()
         b = f"{m.get('PlayerNameFirstB','')} {m.get('PlayerNameLastB','')}".strip()
+        if m.get("PlayerNameLastA2"):
+            a = f"{a}/{m.get('PlayerNameFirstA2','')} {m.get('PlayerNameLastA2','')}".strip()
+        if m.get("PlayerNameLastB2"):
+            b = f"{b}/{m.get('PlayerNameFirstB2','')} {m.get('PlayerNameLastB2','')}".strip()
         if not a or not b:
             continue
+        # the feed stamps the scheduled time with a local UTC offset ("2026-10-25T11:00+08:00");
+        # without parsing it every tennis row carried an empty start and fell outside the window
+        start = ""
+        stamp = m.get("MatchTimeStamp") or ""
+        if stamp:
+            try:
+                from datetime import datetime, timezone
+                dt = datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=timezone.utc)
+                start = dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            except ValueError:
+                start = ""
         out.append(
             {
                 "id": f"fx_{tid}_{m.get('MatchID')}",
@@ -468,8 +485,9 @@ def read_wta(cap: Capture, tid: str):
                 "competition": data.get("tournament", {}).get("title", tid),
                 "side_a": a,
                 "side_b": b,
-                "start_utc": "",
-                "venue": data.get("tournament", {}).get("city", ""),
+                "start_utc": start,
+                "venue": (data.get("tournament", {}).get("city", "") +
+                          (f" · {m.get('CourtName')}" if m.get("CourtName") else "")),
                 "source_id": tid,
                 "source_url": cap.url(tid),
                 "source_name": "WTA official tournament match feed (api.wtatennis.com)",

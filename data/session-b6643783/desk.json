@@ -1,15 +1,15 @@
 {
  "board": "CA",
- "capture": "20261024T171155Z",
+ "capture": "20261024T173907Z",
  "cutoff_utc": "2026-10-24T17:30:00Z",
- "generated_utc": "2026-10-24T17:30:24Z",
+ "generated_utc": "2026-10-24T17:50:38Z",
  "olbg_market_taxonomy": {
   "Baseball": {
    "Money Line": 2
   },
   "Basketball": {
-   "Game Totals": 1,
-   "Money Line": 32,
+   "Game Totals": 2,
+   "Money Line": 31,
    "Pointspread": 3
   },
   "Cricket": {
@@ -19,7 +19,7 @@
    "Win Match": 7
   },
   "Darts": {
-   "Win Match 2-way": 5,
+   "Win Match 2-way": 4,
    "Win Tournament": 2
   },
   "Gaelic Sports": {
@@ -28,14 +28,14 @@
    "Win Hurling": 1
   },
   "Greyhounds": {
-   "Daily Races": 81
+   "Daily Races": 76
   },
   "Handball": {
    "Money Line": 38
   },
   "Ice Hockey": {
    "Game Totals": 1,
-   "Money Line": 52,
+   "Money Line": 54,
    "Puck Line": 1
   },
   "Motor Racing": {
@@ -46,8 +46,8 @@
    "Win Tournament": 1
   },
   "Rugby Union": {
-   "Handicap": 12,
-   "To Win": 3,
+   "Handicap": 11,
+   "To Win": 4,
    "Win Tournament": 1
   },
   "Snooker": {
@@ -57,39 +57,11 @@
    "Win Match": 11
   },
   "Volleyball": {
-   "Set Score": 3,
-   "Win Match": 18
+   "Set Score": 4,
+   "Win Match": 17
   }
  },
  "rows": [
-  {
-   "capture_id": "olbg_greyhounds",
-   "competition": "OLBG greyhound meetings (no runner card retrieved)",
-   "evidence": {},
-   "flags": [
-    "OLBG lists the race meetings but GBGB returned no forward racecard, so no runner, trap or form data exists to originate a line from"
-   ],
-   "form": {},
-   "id": "ca_greyhounds_meetings",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG greyhound hub (meeting listings only)",
-   "official_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:30_Central_Park/28?event_id=689957",
-   "olbg": {
-    "event": "6:30 Central Park",
-    "event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:30_Central_Park/28?event_id=689957",
-    "hub_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "75 OLBG-listed greyhound races",
-   "side_b": "",
-   "sport": "Greyhounds",
-   "sport_slug": "greyhounds",
-   "start_utc": "2026-10-24T17:30:00Z",
-   "venue": ""
-  },
   {
    "capture_id": "olbg_handball",
    "competition": "OLBG listing only (no official fixture located)",
@@ -215,6 +187,35 @@
     "participants not found in the official tables captured - left unpriced"
    ],
    "form": {},
+   "id": "ca_olbg_37058",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Volleys_Borken_W_vs_Aachen_W/21?event_id=37058",
+   "olbg": {
+    "event": "Volleys Borken W vs Aachen W",
+    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Volleys_Borken_W_vs_Aachen_W/21?event_id=37058",
+    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Volleys Borken W",
+   "side_b": "Aachen W",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-24T17:30:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_volleyball",
+   "competition": "OLBG listing only (no official fixture located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated",
+    "participants not found in the official tables captured - left unpriced"
+   ],
+   "form": {},
    "id": "ca_olbg_37060",
    "markets": {},
    "model": {},
@@ -236,32 +237,31 @@
    "venue": ""
   },
   {
-   "capture_id": "olbg_volleyball",
-   "competition": "OLBG listing only (no official fixture located)",
+   "capture_id": "olbg_greyhounds",
+   "competition": "OLBG greyhound meetings (no runner card retrieved)",
    "evidence": {},
    "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated",
-    "participants not found in the official tables captured - left unpriced"
+    "OLBG lists the race meetings but GBGB returned no forward racecard, so no runner, trap or form data exists to originate a line from"
    ],
    "form": {},
-   "id": "ca_olbg_37058",
+   "id": "ca_greyhounds_meetings",
    "markets": {},
    "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Volleys_Borken_W_vs_Aachen_W/21?event_id=37058",
+   "official_source_name": "OLBG greyhound hub (meeting listings only)",
+   "official_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:34_Monmore/28?event_id=689958",
    "olbg": {
-    "event": "Volleys Borken W vs Aachen W",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Volleys_Borken_W_vs_Aachen_W/21?event_id=37058",
-    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+    "event": "6:34 Monmore",
+    "event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/6:34_Monmore/28?event_id=689958",
+    "hub_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
     "listed_tips": 1
    },
    "pick": null,
    "sample": "",
-   "side_a": "Volleys Borken W",
-   "side_b": "Aachen W",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "start_utc": "2026-10-24T17:30:00Z",
+   "side_a": "75 OLBG-listed greyhound races",
+   "side_b": "",
+   "sport": "Greyhounds",
+   "sport_slug": "greyhounds",
+   "start_utc": "2026-10-24T17:34:00Z",
    "venue": ""
   },
   {
@@ -388,6 +388,35 @@
     "participants not found in the official tables captured - left unpriced"
    ],
    "form": {},
+   "id": "ca_olbg_37052",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Royan_vs_Tours/21?event_id=37052",
+   "olbg": {
+    "event": "Royan vs Tours",
+    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Royan_vs_Tours/21?event_id=37052",
+    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Royan",
+   "side_b": "Tours",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-24T18:00:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_volleyball",
+   "competition": "OLBG listing only (no official fixture located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated",
+    "participants not found in the official tables captured - left unpriced"
+   ],
+   "form": {},
    "id": "ca_olbg_37061",
    "markets": {},
    "model": {},
@@ -432,35 +461,6 @@
    "sample": "",
    "side_a": "VV Utrecht W",
    "side_b": "Dynamo Apeldoorn W",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "start_utc": "2026-10-24T18:00:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_volleyball",
-   "competition": "OLBG listing only (no official fixture located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated",
-    "participants not found in the official tables captured - left unpriced"
-   ],
-   "form": {},
-   "id": "ca_olbg_37052",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Royan_vs_Tours/21?event_id=37052",
-   "olbg": {
-    "event": "Royan vs Tours",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Royan_vs_Tours/21?event_id=37052",
-    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "Royan",
-   "side_b": "Tours",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
    "start_utc": "2026-10-24T18:00:00Z",
@@ -1947,6 +1947,74 @@
    "venue": "Delta Center"
   },
   {
+   "capture_id": "wta_1056",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "",
+    "seed_b": "9"
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1056_RS011",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Aliaksandra Sasnovich",
+   "side_b": "Kamilla Rakhimova",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T01:30:00Z",
+   "venue": "TOKYO \u00b7 Court 1"
+  },
+  {
+   "capture_id": "wta_1056",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "",
+    "seed_b": "7"
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1056_RS010",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Heather Watson",
+   "side_b": "Alycia Parks",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T01:30:00Z",
+   "venue": "TOKYO \u00b7 Show Court"
+  },
+  {
    "a_code": "DET",
    "b_code": "CGY",
    "capture_id": "nhl_sched_2026-10-24",
@@ -2187,6 +2255,249 @@
    "venue": "Climate Pledge Arena"
   },
   {
+   "capture_id": "wta_1056",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "",
+    "seed_b": ""
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1056_RS013",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Mai Hontama",
+   "side_b": "Maya Joint",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T02:00:00Z",
+   "venue": "TOKYO \u00b7 Center"
+  },
+  {
+   "capture_id": "wta_1023",
+   "competition": "Guangzhou Open - Guangzhou, CHN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "",
+    "seed_b": ""
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1023_RS009",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1023/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Alevtina Ibragimova",
+   "side_b": "Polina Iatcenko",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T03:00:00Z",
+   "venue": "GUANGZHOU \u00b7 Court 6"
+  },
+  {
+   "capture_id": "wta_1023",
+   "competition": "Guangzhou Open - Guangzhou, CHN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "",
+    "seed_b": ""
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1023_RS013",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1023/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Carol Young Suh Lee",
+   "side_b": "Elena Pridankina",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T03:00:00Z",
+   "venue": "GUANGZHOU \u00b7 Court 2"
+  },
+  {
+   "capture_id": "wta_1056",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "2",
+    "seed_b": "10"
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1056_RS009",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Kimberly Birrell",
+   "side_b": "Daria Kasatkina",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T03:00:00Z",
+   "venue": "TOKYO \u00b7 Show Court"
+  },
+  {
+   "capture_id": "wta_405",
+   "competition": "Kinoshita Group Japan Open - Osaka, JPN",
+   "evidence": {
+    "draw": "M",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "M",
+    "match_type": "S",
+    "round": 1,
+    "seed_a": "",
+    "seed_b": ""
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_405_LS001",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches",
+   "olbg": {
+    "event": "Ashlyn Krueger vs Katerina Siniakova",
+    "event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ashlyn_Krueger_vs_Katerina_Siniakova/3?event_id=902171",
+    "hub_url": "https://www.olbg.com/betting-tips/Tennis/3",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Ashlyn Krueger",
+   "side_b": "Katerina Siniakova",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T04:30:00Z",
+   "venue": "OSAKA \u00b7 Center"
+  },
+  {
+   "capture_id": "wta_1023",
+   "competition": "Guangzhou Open - Guangzhou, CHN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "5",
+    "seed_b": ""
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1023_RS012",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1023/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Tatiana Prozorova",
+   "side_b": "Joanna Garland",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T05:00:00Z",
+   "venue": "GUANGZHOU \u00b7 Court 2"
+  },
+  {
+   "capture_id": "wta_1023",
+   "competition": "Guangzhou Open - Guangzhou, CHN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "1",
+    "seed_b": "9"
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1023_RS008",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1023/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Dayana Yastremska",
+   "side_b": "Emerson Jones",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T05:00:00Z",
+   "venue": "GUANGZHOU \u00b7 Court 6"
+  },
+  {
    "capture_id": "rlwc_api_fixtures",
    "competition": "Rugby League World Cup 2026 - Round 2",
    "evidence": {
@@ -2308,6 +2619,74 @@
    "venue": "One NZ Stadium, Christchurch"
   },
   {
+   "capture_id": "wta_1056",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "",
+    "seed_b": "12"
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_1056_RS008",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Tereza Valentova",
+   "side_b": "Shuai Zhang",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T06:00:00Z",
+   "venue": "TOKYO \u00b7 Court 1"
+  },
+  {
+   "capture_id": "wta_2092",
+   "competition": "BNB Ningbo Open - Ningbo, CHN",
+   "evidence": {
+    "draw": "M",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "M",
+    "match_type": "D",
+    "round": 1,
+    "seed_a": "1",
+    "seed_b": ""
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_2092_LD001",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+   "olbg": null,
+   "pick": null,
+   "sample": "",
+   "side_a": "Cristina Bucsa/Nicole Melichar-Martinez",
+   "side_b": "Desirae Krawczyk/Fanny Stollar",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T06:30:00Z",
+   "venue": "NINGBO \u00b7 Center Court"
+  },
+  {
    "capture_id": "cricket_au_fixtures",
    "competition": "Pakistan ODI Tri-Series 2026 - Men",
    "evidence": {},
@@ -2416,6 +2795,45 @@
    "sport_slug": "cricket",
    "start_utc": "2026-10-25T08:30:00Z",
    "venue": ""
+  },
+  {
+   "capture_id": "wta_2092",
+   "competition": "BNB Ningbo Open - Ningbo, CHN",
+   "evidence": {
+    "draw": "M",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "M",
+    "match_type": "S",
+    "round": 1,
+    "seed_a": "1",
+    "seed_b": ""
+   },
+   "flags": [
+    "official singles ranking unavailable for one player - no line originated"
+   ],
+   "form": {},
+   "id": "fx_wta_2092_LS001",
+   "markets": {},
+   "model": {},
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches",
+   "olbg": {
+    "event": "Elena Rybakina vs Leylah Fernandez",
+    "event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Leylah_Fernandez/3?event_id=902207",
+    "hub_url": "https://www.olbg.com/betting-tips/Tennis/3",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Elena Rybakina",
+   "side_b": "Leylah Fernandez",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T09:00:00Z",
+   "venue": "NINGBO \u00b7 Center Court"
   },
   {
    "capture_id": "rlwc_api_fixtures",
@@ -2881,33 +3299,38 @@
    "venue": ""
   },
   {
-   "capture_id": "olbg_handball",
-   "competition": "OLBG listing only (no official fixture located)",
-   "evidence": {},
+   "capture_id": "wta_1056",
+   "competition": "Toray Pan Pacific Open Tennis - Tokyo, JPN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "",
+    "seed_b": "8"
+   },
    "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated",
-    "participants not found in the official tables captured - left unpriced"
+    "official singles ranking unavailable for one player - no line originated"
    ],
    "form": {},
-   "id": "ca_olbg_12126",
+   "id": "fx_wta_1056_RS012",
    "markets": {},
    "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Luxembourg_W_vs_Great_Britain_W/20?event_id=12126",
-   "olbg": {
-    "event": "Luxembourg W vs Great Britain W",
-    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Luxembourg_W_vs_Great_Britain_W/20?event_id=12126",
-    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
-    "listed_tips": 1
-   },
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches",
+   "olbg": null,
    "pick": null,
    "sample": "",
-   "side_a": "Luxembourg W",
-   "side_b": "Great Britain W",
-   "sport": "Handball",
-   "sport_slug": "handball",
-   "start_utc": "2026-10-25T15:00:00Z",
-   "venue": ""
+   "side_a": "Sayaka Ishii",
+   "side_b": "Yulia Putintseva",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T14:59:00Z",
+   "venue": "TOKYO \u00b7 Show Court"
   },
   {
    "capture_id": "olbg_handball",
@@ -2933,6 +3356,35 @@
    "sample": "",
    "side_a": "Saint Raphael",
    "side_b": "PSG Handball",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "start_utc": "2026-10-25T15:00:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_handball",
+   "competition": "OLBG listing only (no official fixture located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated",
+    "participants not found in the official tables captured - left unpriced"
+   ],
+   "form": {},
+   "id": "ca_olbg_12126",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Luxembourg_W_vs_Great_Britain_W/20?event_id=12126",
+   "olbg": {
+    "event": "Luxembourg W vs Great Britain W",
+    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Luxembourg_W_vs_Great_Britain_W/20?event_id=12126",
+    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Luxembourg W",
+   "side_b": "Great Britain W",
    "sport": "Handball",
    "sport_slug": "handball",
    "start_utc": "2026-10-25T15:00:00Z",
@@ -3149,6 +3601,35 @@
     "participants not found in the official tables captured - left unpriced"
    ],
    "form": {},
+   "id": "ca_olbg_12087",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bergischer_HC_vs_HC_Hamburg/20?event_id=12087",
+   "olbg": {
+    "event": "Bergischer HC vs HC Hamburg",
+    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bergischer_HC_vs_HC_Hamburg/20?event_id=12087",
+    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Bergischer HC",
+   "side_b": "HC Hamburg",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "start_utc": "2026-10-25T15:30:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_handball",
+   "competition": "OLBG listing only (no official fixture located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated",
+    "participants not found in the official tables captured - left unpriced"
+   ],
+   "form": {},
    "id": "ca_olbg_12151",
    "markets": {},
    "model": {},
@@ -3170,33 +3651,38 @@
    "venue": ""
   },
   {
-   "capture_id": "olbg_handball",
-   "competition": "OLBG listing only (no official fixture located)",
-   "evidence": {},
+   "capture_id": "wta_1023",
+   "competition": "Guangzhou Open - Guangzhou, CHN",
+   "evidence": {
+    "draw": "Q",
+    "rank_a": null,
+    "rank_b": null
+   },
+   "extra": {
+    "draw": "Q",
+    "match_type": "S",
+    "round": 10,
+    "seed_a": "4",
+    "seed_b": ""
+   },
    "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated",
-    "participants not found in the official tables captured - left unpriced"
+    "official singles ranking unavailable for one player - no line originated"
    ],
    "form": {},
-   "id": "ca_olbg_12087",
+   "id": "fx_wta_1023_RS011",
    "markets": {},
    "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bergischer_HC_vs_HC_Hamburg/20?event_id=12087",
-   "olbg": {
-    "event": "Bergischer HC vs HC Hamburg",
-    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bergischer_HC_vs_HC_Hamburg/20?event_id=12087",
-    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
-    "listed_tips": 1
-   },
+   "official_source_name": "WTA official tournament match feed (api.wtatennis.com)",
+   "official_url": "https://api.wtatennis.com/tennis/tournaments/1023/2026/matches",
+   "olbg": null,
    "pick": null,
    "sample": "",
-   "side_a": "Bergischer HC",
-   "side_b": "HC Hamburg",
-   "sport": "Handball",
-   "sport_slug": "handball",
-   "start_utc": "2026-10-25T15:30:00Z",
-   "venue": ""
+   "side_a": "Harriet Dart",
+   "side_b": "Mei Yamaguchi",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "start_utc": "2026-10-25T15:59:00Z",
+   "venue": "GUANGZHOU \u00b7 Court 6"
   },
   {
    "capture_id": "olbg_gaelic",
@@ -3292,35 +3778,6 @@
     "participants not found in the official tables captured - left unpriced"
    ],
    "form": {},
-   "id": "ca_olbg_12081",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Montpellier_vs_Saran_Loiret/20?event_id=12081",
-   "olbg": {
-    "event": "Montpellier vs Saran Loiret",
-    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Montpellier_vs_Saran_Loiret/20?event_id=12081",
-    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "Montpellier",
-   "side_b": "Saran Loiret",
-   "sport": "Handball",
-   "sport_slug": "handball",
-   "start_utc": "2026-10-25T16:00:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_handball",
-   "competition": "OLBG listing only (no official fixture located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated",
-    "participants not found in the official tables captured - left unpriced"
-   ],
-   "form": {},
    "id": "ca_olbg_12149",
    "markets": {},
    "model": {},
@@ -3336,6 +3793,35 @@
    "sample": "",
    "side_a": "Lugi HF",
    "side_b": "IFK Skovde HK",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "start_utc": "2026-10-25T16:00:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_handball",
+   "competition": "OLBG listing only (no official fixture located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated",
+    "participants not found in the official tables captured - left unpriced"
+   ],
+   "form": {},
+   "id": "ca_olbg_12081",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Montpellier_vs_Saran_Loiret/20?event_id=12081",
+   "olbg": {
+    "event": "Montpellier vs Saran Loiret",
+    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Montpellier_vs_Saran_Loiret/20?event_id=12081",
+    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Montpellier",
+   "side_b": "Saran Loiret",
    "sport": "Handball",
    "sport_slug": "handball",
    "start_utc": "2026-10-25T16:00:00Z",
@@ -3579,6 +4065,35 @@
   },
   {
    "capture_id": "olbg_handball",
+   "competition": "OLBG listing only (no official fixture located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated",
+    "participants not found in the official tables captured - left unpriced"
+   ],
+   "form": {},
+   "id": "ca_olbg_12154",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Follo_vs_Kristiansand/20?event_id=12154",
+   "olbg": {
+    "event": "Follo vs Kristiansand",
+    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Follo_vs_Kristiansand/20?event_id=12154",
+    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "Follo",
+   "side_b": "Kristiansand",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_handball",
    "competition": "Danish Herreligaen",
    "evidence": {
     "away_ga": 292,
@@ -3698,35 +4213,6 @@
    "sample": "10 league matches per side",
    "side_a": "TMS Ringsted",
    "side_b": "GOG",
-   "sport": "Handball",
-   "sport_slug": "handball",
-   "start_utc": "2026-10-25T17:00:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_handball",
-   "competition": "OLBG listing only (no official fixture located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated",
-    "participants not found in the official tables captured - left unpriced"
-   ],
-   "form": {},
-   "id": "ca_olbg_12154",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Follo_vs_Kristiansand/20?event_id=12154",
-   "olbg": {
-    "event": "Follo vs Kristiansand",
-    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Follo_vs_Kristiansand/20?event_id=12154",
-    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "Follo",
-   "side_b": "Kristiansand",
    "sport": "Handball",
    "sport_slug": "handball",
    "start_utc": "2026-10-25T17:00:00Z",
@@ -4388,6 +4874,35 @@
    "evidence": {},
    "flags": [
     "OLBG listing only - no official fixture/values located, no line originated",
+    "participants not found in the official tables captured - left unpriced"
+   ],
+   "form": {},
+   "id": "ca_olbg_36965",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965",
+   "olbg": {
+    "event": "CHKS Chelm vs Resovia Rzeszow",
+    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965",
+    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "CHKS Chelm",
+   "side_b": "Resovia Rzeszow",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_volleyball",
+   "competition": "OLBG listing only (no official fixture located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated",
     "official table shows fewer than 2 matches played for one side - season sample too small to price",
     "participants not found in the official tables captured - left unpriced"
    ],
@@ -4407,35 +4922,6 @@
    "sample": "",
    "side_a": "Perugia",
    "side_b": "Pordenone",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "start_utc": "2026-10-25T17:00:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_volleyball",
-   "competition": "OLBG listing only (no official fixture located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated",
-    "participants not found in the official tables captured - left unpriced"
-   ],
-   "form": {},
-   "id": "ca_olbg_36965",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965",
-   "olbg": {
-    "event": "CHKS Chelm vs Resovia Rzeszow",
-    "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965",
-    "hub_url": "https://www.olbg.com/betting-tips/Volleyball/21",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "CHKS Chelm",
-   "side_b": "Resovia Rzeszow",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
    "start_utc": "2026-10-25T17:00:00Z",
@@ -6241,14 +6727,14 @@
       {
        "fair_american": 155,
        "fair_decimal": 2.55,
-       "fair_prob": 0.3921,
+       "fair_prob": 0.3923,
        "implied_prob_sum": 1.0,
        "label": "KalPa -1.5"
       },
       {
        "fair_american": -154,
        "fair_decimal": 1.65,
-       "fair_prob": 0.6079,
+       "fair_prob": 0.6077,
        "implied_prob_sum": 1.0,
        "label": "Sport +1.5"
       }
@@ -6262,14 +6748,14 @@
       {
        "fair_american": 183,
        "fair_decimal": 2.83,
-       "fair_prob": 0.3537,
+       "fair_prob": 0.3536,
        "implied_prob_sum": 1.0,
        "label": "Sport (away)"
       },
       {
        "fair_american": -182,
        "fair_decimal": 1.55,
-       "fair_prob": 0.6463,
+       "fair_prob": 0.6464,
        "implied_prob_sum": 1.0,
        "label": "KalPa (home)"
       }
@@ -6283,14 +6769,14 @@
       {
        "fair_american": -192,
        "fair_decimal": 1.52,
-       "fair_prob": 0.659,
+       "fair_prob": 0.6585,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
        "fair_american": 193,
        "fair_decimal": 2.93,
-       "fair_prob": 0.341,
+       "fair_prob": 0.3415,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -6310,7 +6796,7 @@
     "confidence": "Medium",
     "fair_american": -182,
     "fair_decimal": 1.55,
-    "fair_prob": 0.6463,
+    "fair_prob": 0.6464,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -9133,10 +9619,10 @@
    "capture_id": "liiga_games",
    "competition": "Liiga 2026-27 (Finland)",
    "evidence": {
-    "away_ga_pg": 1.938,
-    "away_gf_pg": 2.688,
-    "expected_goals_away": 2.06,
-    "expected_goals_home": 2.17,
+    "away_ga_pg": 1.882,
+    "away_gf_pg": 2.706,
+    "expected_goals_away": 2.07,
+    "expected_goals_home": 2.13,
     "home_ga_pg": 1.944,
     "home_gf_pg": 2.444,
     "standings_source": "https://liiga.fi/api/v2/standings/?season=2027"
@@ -9144,7 +9630,7 @@
    "extra": {},
    "flags": [],
    "form": {
-    "away": "9-3-4 (32 pts, 16 GP)",
+    "away": "10-3-4 (35 pts, 17 GP)",
     "home": "8-4-6 (32 pts, 18 GP)"
    },
    "id": "fx_liiga_2701417",
@@ -9155,16 +9641,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 315,
-       "fair_decimal": 4.15,
-       "fair_prob": 0.241,
+       "fair_american": 330,
+       "fair_decimal": 4.3,
+       "fair_prob": 0.2328,
        "implied_prob_sum": 1.0,
        "label": "Jukurit -1.5"
       },
       {
-       "fair_american": -312,
-       "fair_decimal": 1.32,
-       "fair_prob": 0.759,
+       "fair_american": -333,
+       "fair_decimal": 1.3,
+       "fair_prob": 0.7672,
        "implied_prob_sum": 1.0,
        "label": "Lukko +1.5"
       }
@@ -9176,16 +9662,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 108,
-       "fair_decimal": 2.08,
-       "fair_prob": 0.4819,
+       "fair_american": 104,
+       "fair_decimal": 2.04,
+       "fair_prob": 0.49,
        "implied_prob_sum": 1.0,
        "label": "Lukko (away)"
       },
       {
-       "fair_american": -108,
-       "fair_decimal": 1.93,
-       "fair_prob": 0.5181,
+       "fair_american": -104,
+       "fair_decimal": 1.96,
+       "fair_prob": 0.51,
        "implied_prob_sum": 1.0,
        "label": "Jukurit (home)"
       }
@@ -9197,16 +9683,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -141,
-       "fair_decimal": 1.71,
-       "fair_prob": 0.5835,
+       "fair_american": -143,
+       "fair_decimal": 1.7,
+       "fair_prob": 0.5887,
        "implied_prob_sum": 1.0,
        "label": "Under 4.5"
       },
       {
-       "fair_american": 140,
-       "fair_decimal": 2.4,
-       "fair_prob": 0.4165,
+       "fair_american": 143,
+       "fair_decimal": 2.43,
+       "fair_prob": 0.4113,
        "implied_prob_sum": 1.0,
        "label": "Over 4.5"
       }
@@ -9214,9 +9700,9 @@
     }
    },
    "model": {
-    "away_exp": 2.06,
+    "away_exp": 2.07,
     "home_adv": 1.06,
-    "home_exp": 2.17,
+    "home_exp": 2.13,
     "name": "independent Poisson goals, table attack/defence"
    },
    "official_source_name": "Liiga official API v2 (liiga.fi)",
@@ -9224,16 +9710,16 @@
    "olbg": null,
    "pick": {
     "confidence": "Low",
-    "fair_american": -108,
-    "fair_decimal": 1.93,
-    "fair_prob": 0.5181,
+    "fair_american": -104,
+    "fair_decimal": 1.96,
+    "fair_prob": 0.51,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
     "rule": "p>=70% High; sample >=10 GP else capped Medium",
     "selection": "Jukurit (home)"
    },
-   "sample": "16 games played",
+   "sample": "17 games played",
    "side_a": "Lukko",
    "side_b": "Jukurit",
    "sport": "Ice Hockey",
@@ -9269,14 +9755,14 @@
       {
        "fair_american": 215,
        "fair_decimal": 3.15,
-       "fair_prob": 0.3171,
+       "fair_prob": 0.3172,
        "implied_prob_sum": 1.0,
        "label": "JYP -1.5"
       },
       {
        "fair_american": -217,
        "fair_decimal": 1.46,
-       "fair_prob": 0.6829,
+       "fair_prob": 0.6828,
        "implied_prob_sum": 1.0,
        "label": "Tappara +1.5"
       }
@@ -9311,14 +9797,14 @@
       {
        "fair_american": -120,
        "fair_decimal": 1.83,
-       "fair_prob": 0.5473,
+       "fair_prob": 0.5466,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
        "fair_american": 121,
        "fair_decimal": 2.21,
-       "fair_prob": 0.4527,
+       "fair_prob": 0.4534,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -9357,10 +9843,10 @@
    "capture_id": "liiga_games",
    "competition": "Liiga 2026-27 (Finland)",
    "evidence": {
-    "away_ga_pg": 2.438,
-    "away_gf_pg": 2.875,
-    "expected_goals_away": 2.62,
-    "expected_goals_home": 2.84,
+    "away_ga_pg": 2.471,
+    "away_gf_pg": 2.765,
+    "expected_goals_away": 2.55,
+    "expected_goals_home": 2.87,
     "home_ga_pg": 2.588,
     "home_gf_pg": 2.882,
     "standings_source": "https://liiga.fi/api/v2/standings/?season=2027"
@@ -9368,7 +9854,7 @@
    "extra": {},
    "flags": [],
    "form": {
-    "away": "8-2-6 (27 pts, 16 GP)",
+    "away": "8-2-7 (27 pts, 17 GP)",
     "home": "6-4-7 (23 pts, 17 GP)"
    },
    "id": "fx_liiga_2701419",
@@ -9379,16 +9865,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 251,
-       "fair_decimal": 3.51,
-       "fair_prob": 0.2852,
+       "fair_american": 234,
+       "fair_decimal": 3.34,
+       "fair_prob": 0.299,
        "implied_prob_sum": 1.0,
        "label": "K-Espoo -1.5"
       },
       {
-       "fair_american": -250,
-       "fair_decimal": 1.4,
-       "fair_prob": 0.7148,
+       "fair_american": -233,
+       "fair_decimal": 1.43,
+       "fair_prob": 0.701,
        "implied_prob_sum": 1.0,
        "label": "TPS +1.5"
       }
@@ -9400,16 +9886,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 114,
-       "fair_decimal": 2.14,
-       "fair_prob": 0.4679,
+       "fair_american": 121,
+       "fair_decimal": 2.21,
+       "fair_prob": 0.4532,
        "implied_prob_sum": 1.0,
        "label": "TPS (away)"
       },
       {
-       "fair_american": -114,
-       "fair_decimal": 1.88,
-       "fair_prob": 0.5321,
+       "fair_american": -120,
+       "fair_decimal": 1.83,
+       "fair_prob": 0.5468,
        "implied_prob_sum": 1.0,
        "label": "K-Espoo (home)"
       }
@@ -9421,16 +9907,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -116,
-       "fair_decimal": 1.86,
-       "fair_prob": 0.5362,
+       "fair_american": -119,
+       "fair_decimal": 1.84,
+       "fair_prob": 0.5435,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
-       "fair_american": 116,
-       "fair_decimal": 2.16,
-       "fair_prob": 0.4638,
+       "fair_american": 119,
+       "fair_decimal": 2.19,
+       "fair_prob": 0.4565,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -9438,9 +9924,9 @@
     }
    },
    "model": {
-    "away_exp": 2.62,
+    "away_exp": 2.55,
     "home_adv": 1.06,
-    "home_exp": 2.84,
+    "home_exp": 2.87,
     "name": "independent Poisson goals, table attack/defence"
    },
    "official_source_name": "Liiga official API v2 (liiga.fi)",
@@ -9448,16 +9934,16 @@
    "olbg": null,
    "pick": {
     "confidence": "Low",
-    "fair_american": -114,
-    "fair_decimal": 1.88,
-    "fair_prob": 0.5321,
+    "fair_american": -120,
+    "fair_decimal": 1.83,
+    "fair_prob": 0.5468,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
     "rule": "p>=70% High; sample >=10 GP else capped Medium",
     "selection": "K-Espoo (home)"
    },
-   "sample": "16 games played",
+   "sample": "17 games played",
    "side_a": "TPS",
    "side_b": "K-Espoo",
    "sport": "Ice Hockey",
@@ -9514,14 +10000,14 @@
       {
        "fair_american": -161,
        "fair_decimal": 1.62,
-       "fair_prob": 0.6168,
+       "fair_prob": 0.6169,
        "implied_prob_sum": 1.0,
        "label": "\u00c4ss\u00e4t (away)"
       },
       {
        "fair_american": 161,
        "fair_decimal": 2.61,
-       "fair_prob": 0.3832,
+       "fair_prob": 0.3831,
        "implied_prob_sum": 1.0,
        "label": "KooKoo (home)"
       }
@@ -9535,14 +10021,14 @@
       {
        "fair_american": -213,
        "fair_decimal": 1.47,
-       "fair_prob": 0.6797,
+       "fair_prob": 0.6791,
        "implied_prob_sum": 1.0,
        "label": "Under 6.5"
       },
       {
        "fair_american": 212,
        "fair_decimal": 3.12,
-       "fair_prob": 0.3203,
+       "fair_prob": 0.3209,
        "implied_prob_sum": 1.0,
        "label": "Over 6.5"
       }
@@ -9562,7 +10048,7 @@
     "confidence": "Medium",
     "fair_american": -161,
     "fair_decimal": 1.62,
-    "fair_prob": 0.6168,
+    "fair_prob": 0.6169,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -9603,16 +10089,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 157,
-       "fair_decimal": 2.57,
-       "fair_prob": 0.3897,
+       "fair_american": 156,
+       "fair_decimal": 2.56,
+       "fair_prob": 0.3899,
        "implied_prob_sum": 1.0,
        "label": "K\u00e4rp\u00e4t -1.5"
       },
       {
        "fair_american": -156,
        "fair_decimal": 1.64,
-       "fair_prob": 0.6103,
+       "fair_prob": 0.6101,
        "implied_prob_sum": 1.0,
        "label": "HPK +1.5"
       }
@@ -9626,14 +10112,14 @@
       {
        "fair_american": 168,
        "fair_decimal": 2.68,
-       "fair_prob": 0.3726,
+       "fair_prob": 0.3725,
        "implied_prob_sum": 1.0,
        "label": "HPK (away)"
       },
       {
        "fair_american": -169,
        "fair_decimal": 1.59,
-       "fair_prob": 0.6274,
+       "fair_prob": 0.6275,
        "implied_prob_sum": 1.0,
        "label": "K\u00e4rp\u00e4t (home)"
       }
@@ -9647,14 +10133,14 @@
       {
        "fair_american": -217,
        "fair_decimal": 1.46,
-       "fair_prob": 0.684,
+       "fair_prob": 0.6834,
        "implied_prob_sum": 1.0,
        "label": "Under 6.5"
       },
       {
        "fair_american": 216,
        "fair_decimal": 3.16,
-       "fair_prob": 0.316,
+       "fair_prob": 0.3166,
        "implied_prob_sum": 1.0,
        "label": "Over 6.5"
       }
@@ -9674,7 +10160,7 @@
     "confidence": "Medium",
     "fair_american": -169,
     "fair_decimal": 1.59,
-    "fair_prob": 0.6274,
+    "fair_prob": 0.6275,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -9696,7 +10182,7 @@
     "away_ga_pg": 1.688,
     "away_gf_pg": 3.062,
     "expected_goals_away": 2.57,
-    "expected_goals_home": 1.98,
+    "expected_goals_home": 1.99,
     "home_ga_pg": 2.357,
     "home_gf_pg": 2.429,
     "standings_source": "https://liiga.fi/api/v2/standings/?season=2027"
@@ -9738,14 +10224,14 @@
       {
        "fair_american": -145,
        "fair_decimal": 1.69,
-       "fair_prob": 0.5928,
+       "fair_prob": 0.5929,
        "implied_prob_sum": 1.0,
        "label": "SaiPa (away)"
       },
       {
        "fair_american": 146,
        "fair_decimal": 2.46,
-       "fair_prob": 0.4072,
+       "fair_prob": 0.4071,
        "implied_prob_sum": 1.0,
        "label": "Pelicans (home)"
       }
@@ -9759,14 +10245,14 @@
       {
        "fair_american": -227,
        "fair_decimal": 1.44,
-       "fair_prob": 0.6935,
+       "fair_prob": 0.693,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
        "fair_american": 226,
        "fair_decimal": 3.26,
-       "fair_prob": 0.3065,
+       "fair_prob": 0.307,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -9776,7 +10262,7 @@
    "model": {
     "away_exp": 2.57,
     "home_adv": 1.06,
-    "home_exp": 1.98,
+    "home_exp": 1.99,
     "name": "independent Poisson goals, table attack/defence"
    },
    "official_source_name": "Liiga official API v2 (liiga.fi)",
@@ -9786,7 +10272,7 @@
     "confidence": "Medium",
     "fair_american": -145,
     "fair_decimal": 1.69,
-    "fair_prob": 0.5928,
+    "fair_prob": 0.5929,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -9807,7 +10293,7 @@
    "evidence": {
     "away_ga_pg": 2.118,
     "away_gf_pg": 2.824,
-    "expected_goals_away": 3.0,
+    "expected_goals_away": 3.01,
     "expected_goals_home": 2.58,
     "home_ga_pg": 3.188,
     "home_gf_pg": 2.875,
@@ -9850,14 +10336,14 @@
       {
        "fair_american": -128,
        "fair_decimal": 1.78,
-       "fair_prob": 0.5616,
+       "fair_prob": 0.5617,
        "implied_prob_sum": 1.0,
        "label": "Ilves (away)"
       },
       {
        "fair_american": 128,
        "fair_decimal": 2.28,
-       "fair_prob": 0.4384,
+       "fair_prob": 0.4383,
        "implied_prob_sum": 1.0,
        "label": "HIFK (home)"
       }
@@ -9871,14 +10357,14 @@
       {
        "fair_american": -204,
        "fair_decimal": 1.49,
-       "fair_prob": 0.6731,
+       "fair_prob": 0.6725,
        "implied_prob_sum": 1.0,
        "label": "Under 6.5"
       },
       {
-       "fair_american": 206,
-       "fair_decimal": 3.06,
-       "fair_prob": 0.3269,
+       "fair_american": 205,
+       "fair_decimal": 3.05,
+       "fair_prob": 0.3275,
        "implied_prob_sum": 1.0,
        "label": "Over 6.5"
       }
@@ -9886,7 +10372,7 @@
     }
    },
    "model": {
-    "away_exp": 3.0,
+    "away_exp": 3.01,
     "home_adv": 1.06,
     "home_exp": 2.58,
     "name": "independent Poisson goals, table attack/defence"
@@ -9898,7 +10384,7 @@
     "confidence": "Medium",
     "fair_american": -128,
     "fair_decimal": 1.78,
-    "fair_prob": 0.5616,
+    "fair_prob": 0.5617,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -10419,35 +10905,6 @@
     "participants not found in the official tables captured - left unpriced"
    ],
    "form": {},
-   "id": "ca_olbg_12127",
-   "markets": {},
-   "model": {},
-   "official_source_name": "OLBG sport hub listing (taxonomy only)",
-   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127",
-   "olbg": {
-    "event": "FC Porto vs Veszprem",
-    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127",
-    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
-    "listed_tips": 1
-   },
-   "pick": null,
-   "sample": "",
-   "side_a": "FC Porto",
-   "side_b": "Veszprem",
-   "sport": "Handball",
-   "sport_slug": "handball",
-   "start_utc": "2026-10-28T17:45:00Z",
-   "venue": ""
-  },
-  {
-   "capture_id": "olbg_handball",
-   "competition": "OLBG listing only (no official fixture located)",
-   "evidence": {},
-   "flags": [
-    "OLBG listing only - no official fixture/values located, no line originated",
-    "participants not found in the official tables captured - left unpriced"
-   ],
-   "form": {},
    "id": "ca_olbg_12138",
    "markets": {},
    "model": {},
@@ -10463,6 +10920,35 @@
    "sample": "",
    "side_a": "Wisla Plock",
    "side_b": "Nantes",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "venue": ""
+  },
+  {
+   "capture_id": "olbg_handball",
+   "competition": "OLBG listing only (no official fixture located)",
+   "evidence": {},
+   "flags": [
+    "OLBG listing only - no official fixture/values located, no line originated",
+    "participants not found in the official tables captured - left unpriced"
+   ],
+   "form": {},
+   "id": "ca_olbg_12127",
+   "markets": {},
+   "model": {},
+   "official_source_name": "OLBG sport hub listing (taxonomy only)",
+   "official_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127",
+   "olbg": {
+    "event": "FC Porto vs Veszprem",
+    "event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127",
+    "hub_url": "https://www.olbg.com/betting-tips/Handball/20",
+    "listed_tips": 1
+   },
+   "pick": null,
+   "sample": "",
+   "side_a": "FC Porto",
+   "side_b": "Veszprem",
    "sport": "Handball",
    "sport_slug": "handball",
    "start_utc": "2026-10-28T17:45:00Z",
@@ -14576,7 +15062,7 @@
    "evidence": {
     "away_ga_pg": 2.588,
     "away_gf_pg": 2.882,
-    "expected_goals_away": 2.87,
+    "expected_goals_away": 2.88,
     "expected_goals_home": 2.48,
     "home_ga_pg": 2.941,
     "home_gf_pg": 2.235,
@@ -14619,14 +15105,14 @@
       {
        "fair_american": -127,
        "fair_decimal": 1.79,
-       "fair_prob": 0.5582,
+       "fair_prob": 0.5583,
        "implied_prob_sum": 1.0,
        "label": "K-Espoo (away)"
       },
       {
        "fair_american": 126,
        "fair_decimal": 2.26,
-       "fair_prob": 0.4418,
+       "fair_prob": 0.4417,
        "implied_prob_sum": 1.0,
        "label": "HPK (home)"
       }
@@ -14638,16 +15124,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -125,
-       "fair_decimal": 1.8,
-       "fair_prob": 0.5541,
+       "fair_american": -123,
+       "fair_decimal": 1.81,
+       "fair_prob": 0.5535,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
        "fair_american": 124,
        "fair_decimal": 2.24,
-       "fair_prob": 0.4459,
+       "fair_prob": 0.4465,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -14655,7 +15141,7 @@
     }
    },
    "model": {
-    "away_exp": 2.87,
+    "away_exp": 2.88,
     "home_adv": 1.06,
     "home_exp": 2.48,
     "name": "independent Poisson goals, table attack/defence"
@@ -14667,7 +15153,7 @@
     "confidence": "Medium",
     "fair_american": -127,
     "fair_decimal": 1.79,
-    "fair_prob": 0.5582,
+    "fair_prob": 0.5583,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -14688,17 +15174,17 @@
    "evidence": {
     "away_ga_pg": 4.235,
     "away_gf_pg": 2.294,
-    "expected_goals_away": 1.84,
-    "expected_goals_home": 4.07,
-    "home_ga_pg": 1.938,
-    "home_gf_pg": 2.688,
+    "expected_goals_away": 1.81,
+    "expected_goals_home": 4.09,
+    "home_ga_pg": 1.882,
+    "home_gf_pg": 2.706,
     "standings_source": "https://liiga.fi/api/v2/standings/?season=2027"
    },
    "extra": {},
    "flags": [],
    "form": {
     "away": "1-3-13 (7 pts, 17 GP)",
-    "home": "9-3-4 (32 pts, 16 GP)"
+    "home": "10-3-4 (35 pts, 17 GP)"
    },
    "id": "fx_liiga_2701426",
    "markets": {
@@ -14708,16 +15194,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -156,
-       "fair_decimal": 1.64,
-       "fair_prob": 0.61,
+       "fair_american": -161,
+       "fair_decimal": 1.62,
+       "fair_prob": 0.6189,
        "implied_prob_sum": 1.0,
        "label": "Lukko -1.5"
       },
       {
-       "fair_american": 156,
-       "fair_decimal": 2.56,
-       "fair_prob": 0.39,
+       "fair_american": 162,
+       "fair_decimal": 2.62,
+       "fair_prob": 0.3811,
        "implied_prob_sum": 1.0,
        "label": "KooKoo +1.5"
       }
@@ -14729,16 +15215,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 355,
-       "fair_decimal": 4.55,
-       "fair_prob": 0.2196,
+       "fair_american": 367,
+       "fair_decimal": 4.67,
+       "fair_prob": 0.214,
        "implied_prob_sum": 1.0,
        "label": "KooKoo (away)"
       },
       {
-       "fair_american": -357,
-       "fair_decimal": 1.28,
-       "fair_prob": 0.7804,
+       "fair_american": -370,
+       "fair_decimal": 1.27,
+       "fair_prob": 0.786,
        "implied_prob_sum": 1.0,
        "label": "Lukko (home)"
       }
@@ -14752,14 +15238,14 @@
       {
        "fair_american": -164,
        "fair_decimal": 1.61,
-       "fair_prob": 0.6205,
+       "fair_prob": 0.622,
        "implied_prob_sum": 1.0,
        "label": "Under 6.5"
       },
       {
-       "fair_american": 164,
-       "fair_decimal": 2.64,
-       "fair_prob": 0.3795,
+       "fair_american": 165,
+       "fair_decimal": 2.65,
+       "fair_prob": 0.378,
        "implied_prob_sum": 1.0,
        "label": "Over 6.5"
       }
@@ -14767,9 +15253,9 @@
     }
    },
    "model": {
-    "away_exp": 1.84,
+    "away_exp": 1.81,
     "home_adv": 1.06,
-    "home_exp": 4.07,
+    "home_exp": 4.09,
     "name": "independent Poisson goals, table attack/defence"
    },
    "official_source_name": "Liiga official API v2 (liiga.fi)",
@@ -14777,16 +15263,16 @@
    "olbg": null,
    "pick": {
     "confidence": "Medium",
-    "fair_american": -357,
-    "fair_decimal": 1.28,
-    "fair_prob": 0.7804,
+    "fair_american": -370,
+    "fair_decimal": 1.27,
+    "fair_prob": 0.786,
     "in_window": false,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
     "rule": "p>=70% High; sample >=10 GP else capped Medium",
     "selection": "Lukko (home)"
    },
-   "sample": "16 games played",
+   "sample": "17 games played",
    "side_a": "KooKoo",
    "side_b": "Lukko",
    "sport": "Ice Hockey",
@@ -14800,7 +15286,7 @@
    "evidence": {
     "away_ga_pg": 2.5,
     "away_gf_pg": 3.143,
-    "expected_goals_away": 2.11,
+    "expected_goals_away": 2.12,
     "expected_goals_home": 3.02,
     "home_ga_pg": 1.688,
     "home_gf_pg": 3.062,
@@ -14822,14 +15308,14 @@
       {
        "fair_american": 158,
        "fair_decimal": 2.58,
-       "fair_prob": 0.3876,
+       "fair_prob": 0.3878,
        "implied_prob_sum": 1.0,
        "label": "SaiPa -1.5"
       },
       {
        "fair_american": -159,
        "fair_decimal": 1.63,
-       "fair_prob": 0.6124,
+       "fair_prob": 0.6122,
        "implied_prob_sum": 1.0,
        "label": "JYP +1.5"
       }
@@ -14843,14 +15329,14 @@
       {
        "fair_american": 173,
        "fair_decimal": 2.73,
-       "fair_prob": 0.3664,
+       "fair_prob": 0.3663,
        "implied_prob_sum": 1.0,
        "label": "JYP (away)"
       },
       {
        "fair_american": -172,
        "fair_decimal": 1.58,
-       "fair_prob": 0.6336,
+       "fair_prob": 0.6337,
        "implied_prob_sum": 1.0,
        "label": "SaiPa (home)"
       }
@@ -14864,14 +15350,14 @@
       {
        "fair_american": -145,
        "fair_decimal": 1.69,
-       "fair_prob": 0.5926,
+       "fair_prob": 0.592,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
        "fair_american": 145,
        "fair_decimal": 2.45,
-       "fair_prob": 0.4074,
+       "fair_prob": 0.408,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -14879,7 +15365,7 @@
     }
    },
    "model": {
-    "away_exp": 2.11,
+    "away_exp": 2.12,
     "home_adv": 1.06,
     "home_exp": 3.02,
     "name": "independent Poisson goals, table attack/defence"
@@ -14891,7 +15377,7 @@
     "confidence": "Medium",
     "fair_american": -172,
     "fair_decimal": 1.58,
-    "fair_prob": 0.6336,
+    "fair_prob": 0.6337,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -14912,17 +15398,17 @@
    "evidence": {
     "away_ga_pg": 2.357,
     "away_gf_pg": 2.429,
-    "expected_goals_away": 2.23,
-    "expected_goals_home": 2.77,
-    "home_ga_pg": 2.438,
-    "home_gf_pg": 2.875,
+    "expected_goals_away": 2.25,
+    "expected_goals_home": 2.69,
+    "home_ga_pg": 2.471,
+    "home_gf_pg": 2.765,
     "standings_source": "https://liiga.fi/api/v2/standings/?season=2027"
    },
    "extra": {},
    "flags": [],
    "form": {
     "away": "6-2-6 (21 pts, 14 GP)",
-    "home": "8-2-6 (27 pts, 16 GP)"
+    "home": "8-2-7 (27 pts, 17 GP)"
    },
    "id": "fx_liiga_2701428",
    "markets": {
@@ -14932,16 +15418,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 207,
-       "fair_decimal": 3.07,
-       "fair_prob": 0.3255,
+       "fair_american": 224,
+       "fair_decimal": 3.24,
+       "fair_prob": 0.3091,
        "implied_prob_sum": 1.0,
        "label": "TPS -1.5"
       },
       {
-       "fair_american": -208,
-       "fair_decimal": 1.48,
-       "fair_prob": 0.6745,
+       "fair_american": -222,
+       "fair_decimal": 1.45,
+       "fair_prob": 0.6909,
        "implied_prob_sum": 1.0,
        "label": "Pelicans +1.5"
       }
@@ -14953,16 +15439,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 139,
-       "fair_decimal": 2.39,
-       "fair_prob": 0.4184,
+       "fair_american": 131,
+       "fair_decimal": 2.31,
+       "fair_prob": 0.4326,
        "implied_prob_sum": 1.0,
        "label": "Pelicans (away)"
       },
       {
-       "fair_american": -139,
-       "fair_decimal": 1.72,
-       "fair_prob": 0.5816,
+       "fair_american": -132,
+       "fair_decimal": 1.76,
+       "fair_prob": 0.5674,
        "implied_prob_sum": 1.0,
        "label": "TPS (home)"
       }
@@ -14974,16 +15460,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -161,
-       "fair_decimal": 1.62,
-       "fair_prob": 0.616,
+       "fair_american": -167,
+       "fair_decimal": 1.6,
+       "fair_prob": 0.6252,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
-       "fair_american": 160,
-       "fair_decimal": 2.6,
-       "fair_prob": 0.384,
+       "fair_american": 167,
+       "fair_decimal": 2.67,
+       "fair_prob": 0.3748,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -14991,9 +15477,9 @@
     }
    },
    "model": {
-    "away_exp": 2.23,
+    "away_exp": 2.25,
     "home_adv": 1.06,
-    "home_exp": 2.77,
+    "home_exp": 2.69,
     "name": "independent Poisson goals, table attack/defence"
    },
    "official_source_name": "Liiga official API v2 (liiga.fi)",
@@ -15001,9 +15487,9 @@
    "olbg": null,
    "pick": {
     "confidence": "Medium",
-    "fair_american": -139,
-    "fair_decimal": 1.72,
-    "fair_prob": 0.5816,
+    "fair_american": -132,
+    "fair_decimal": 1.76,
+    "fair_prob": 0.5674,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -15046,14 +15532,14 @@
       {
        "fair_american": 218,
        "fair_decimal": 3.18,
-       "fair_prob": 0.3142,
+       "fair_prob": 0.3143,
        "implied_prob_sum": 1.0,
        "label": "\u00c4ss\u00e4t -1.5"
       },
       {
        "fair_american": -217,
        "fair_decimal": 1.46,
-       "fair_prob": 0.6858,
+       "fair_prob": 0.6857,
        "implied_prob_sum": 1.0,
        "label": "HIFK +1.5"
       }
@@ -15086,16 +15572,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -127,
-       "fair_decimal": 1.79,
-       "fair_prob": 0.5576,
+       "fair_american": -125,
+       "fair_decimal": 1.8,
+       "fair_prob": 0.557,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
        "fair_american": 126,
        "fair_decimal": 2.26,
-       "fair_prob": 0.4424,
+       "fair_prob": 0.443,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -15156,16 +15642,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 290,
-       "fair_decimal": 3.9,
-       "fair_prob": 0.2567,
+       "fair_american": 289,
+       "fair_decimal": 3.89,
+       "fair_prob": 0.2568,
        "implied_prob_sum": 1.0,
        "label": "Tappara -1.5"
       },
       {
        "fair_american": -286,
        "fair_decimal": 1.35,
-       "fair_prob": 0.7433,
+       "fair_prob": 0.7432,
        "implied_prob_sum": 1.0,
        "label": "Ilves +1.5"
       }
@@ -15198,16 +15684,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -175,
-       "fair_decimal": 1.57,
-       "fair_prob": 0.6353,
+       "fair_american": -172,
+       "fair_decimal": 1.58,
+       "fair_prob": 0.6348,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
        "fair_american": 174,
        "fair_decimal": 2.74,
-       "fair_prob": 0.3647,
+       "fair_prob": 0.3652,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -15387,14 +15873,14 @@
       {
        "fair_american": 143,
        "fair_decimal": 2.43,
-       "fair_prob": 0.4113,
+       "fair_prob": 0.4115,
        "implied_prob_sum": 1.0,
        "label": "KalPa -1.5"
       },
       {
        "fair_american": -143,
        "fair_decimal": 1.7,
-       "fair_prob": 0.5887,
+       "fair_prob": 0.5885,
        "implied_prob_sum": 1.0,
        "label": "Jokerit +1.5"
       }
@@ -15408,14 +15894,14 @@
       {
        "fair_american": 185,
        "fair_decimal": 2.85,
-       "fair_prob": 0.3504,
+       "fair_prob": 0.3503,
        "implied_prob_sum": 1.0,
        "label": "Jokerit (away)"
       },
       {
        "fair_american": -185,
        "fair_decimal": 1.54,
-       "fair_prob": 0.6496,
+       "fair_prob": 0.6497,
        "implied_prob_sum": 1.0,
        "label": "KalPa (home)"
       }
@@ -15429,14 +15915,14 @@
       {
        "fair_american": -128,
        "fair_decimal": 1.78,
-       "fair_prob": 0.5625,
+       "fair_prob": 0.5618,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
-       "fair_american": 129,
-       "fair_decimal": 2.29,
-       "fair_prob": 0.4375,
+       "fair_american": 128,
+       "fair_decimal": 2.28,
+       "fair_prob": 0.4382,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -15456,7 +15942,7 @@
     "confidence": "Medium",
     "fair_american": -185,
     "fair_decimal": 1.54,
-    "fair_prob": 0.6496,
+    "fair_prob": 0.6497,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -17388,14 +17874,14 @@
       {
        "fair_american": 177,
        "fair_decimal": 2.77,
-       "fair_prob": 0.361,
+       "fair_prob": 0.3612,
        "implied_prob_sum": 1.0,
        "label": "Ilves -1.5"
       },
       {
-       "fair_american": -179,
-       "fair_decimal": 1.56,
-       "fair_prob": 0.639,
+       "fair_american": -175,
+       "fair_decimal": 1.57,
+       "fair_prob": 0.6388,
        "implied_prob_sum": 1.0,
        "label": "KalPa +1.5"
       }
@@ -17409,14 +17895,14 @@
       {
        "fair_american": 161,
        "fair_decimal": 2.61,
-       "fair_prob": 0.3831,
+       "fair_prob": 0.383,
        "implied_prob_sum": 1.0,
        "label": "KalPa (away)"
       },
       {
        "fair_american": -161,
        "fair_decimal": 1.62,
-       "fair_prob": 0.6169,
+       "fair_prob": 0.617,
        "implied_prob_sum": 1.0,
        "label": "Ilves (home)"
       }
@@ -17430,14 +17916,14 @@
       {
        "fair_american": -175,
        "fair_decimal": 1.57,
-       "fair_prob": 0.6385,
+       "fair_prob": 0.638,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
-       "fair_american": 177,
-       "fair_decimal": 2.77,
-       "fair_prob": 0.3615,
+       "fair_american": 176,
+       "fair_decimal": 2.76,
+       "fair_prob": 0.362,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -17457,7 +17943,7 @@
     "confidence": "Medium",
     "fair_american": -161,
     "fair_decimal": 1.62,
-    "fair_prob": 0.6169,
+    "fair_prob": 0.617,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -17500,14 +17986,14 @@
       {
        "fair_american": -104,
        "fair_decimal": 1.96,
-       "fair_prob": 0.5108,
+       "fair_prob": 0.5111,
        "implied_prob_sum": 1.0,
        "label": "JYP -1.5"
       },
       {
-       "fair_american": 104,
-       "fair_decimal": 2.04,
-       "fair_prob": 0.4892,
+       "fair_american": 105,
+       "fair_decimal": 2.05,
+       "fair_prob": 0.4889,
        "implied_prob_sum": 1.0,
        "label": "Jokerit +1.5"
       }
@@ -17521,14 +18007,14 @@
       {
        "fair_american": 250,
        "fair_decimal": 3.5,
-       "fair_prob": 0.2858,
+       "fair_prob": 0.2856,
        "implied_prob_sum": 1.0,
        "label": "Jokerit (away)"
       },
       {
        "fair_american": -250,
        "fair_decimal": 1.4,
-       "fair_prob": 0.7142,
+       "fair_prob": 0.7144,
        "implied_prob_sum": 1.0,
        "label": "JYP (home)"
       }
@@ -17542,14 +18028,14 @@
       {
        "fair_american": -161,
        "fair_decimal": 1.62,
-       "fair_prob": 0.6184,
+       "fair_prob": 0.6177,
        "implied_prob_sum": 1.0,
        "label": "Under 6.5"
       },
       {
        "fair_american": 162,
        "fair_decimal": 2.62,
-       "fair_prob": 0.3816,
+       "fair_prob": 0.3823,
        "implied_prob_sum": 1.0,
        "label": "Over 6.5"
       }
@@ -17569,7 +18055,7 @@
     "confidence": "Medium",
     "fair_american": -250,
     "fair_decimal": 1.4,
-    "fair_prob": 0.7142,
+    "fair_prob": 0.7144,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -17590,7 +18076,7 @@
    "evidence": {
     "away_ga_pg": 3.188,
     "away_gf_pg": 2.875,
-    "expected_goals_away": 3.78,
+    "expected_goals_away": 3.79,
     "expected_goals_home": 2.93,
     "home_ga_pg": 4.235,
     "home_gf_pg": 2.294,
@@ -17631,16 +18117,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -156,
-       "fair_decimal": 1.64,
-       "fair_prob": 0.6116,
+       "fair_american": -159,
+       "fair_decimal": 1.63,
+       "fair_prob": 0.6117,
        "implied_prob_sum": 1.0,
        "label": "HIFK (away)"
       },
       {
-       "fair_american": 157,
-       "fair_decimal": 2.57,
-       "fair_prob": 0.3884,
+       "fair_american": 158,
+       "fair_decimal": 2.58,
+       "fair_prob": 0.3883,
        "implied_prob_sum": 1.0,
        "label": "KooKoo (home)"
       }
@@ -17654,14 +18140,14 @@
       {
        "fair_american": -179,
        "fair_decimal": 1.56,
-       "fair_prob": 0.6408,
+       "fair_prob": 0.6401,
        "implied_prob_sum": 1.0,
        "label": "Under 7.5"
       },
       {
        "fair_american": 178,
        "fair_decimal": 2.78,
-       "fair_prob": 0.3592,
+       "fair_prob": 0.3599,
        "implied_prob_sum": 1.0,
        "label": "Over 7.5"
       }
@@ -17669,7 +18155,7 @@
     }
    },
    "model": {
-    "away_exp": 3.78,
+    "away_exp": 3.79,
     "home_adv": 1.06,
     "home_exp": 2.93,
     "name": "independent Poisson goals, table attack/defence"
@@ -17679,9 +18165,9 @@
    "olbg": null,
    "pick": {
     "confidence": "Medium",
-    "fair_american": -156,
-    "fair_decimal": 1.64,
-    "fair_prob": 0.6116,
+    "fair_american": -159,
+    "fair_decimal": 1.63,
+    "fair_prob": 0.6117,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -17703,7 +18189,7 @@
     "away_ga_pg": 1.944,
     "away_gf_pg": 2.444,
     "expected_goals_away": 2.46,
-    "expected_goals_home": 2.41,
+    "expected_goals_home": 2.42,
     "home_ga_pg": 2.778,
     "home_gf_pg": 2.833,
     "standings_source": "https://liiga.fi/api/v2/standings/?season=2027"
@@ -17724,14 +18210,14 @@
       {
        "fair_american": 325,
        "fair_decimal": 4.25,
-       "fair_prob": 0.2353,
+       "fair_prob": 0.2354,
        "implied_prob_sum": 1.0,
        "label": "K\u00e4rp\u00e4t -1.5"
       },
       {
        "fair_american": -323,
        "fair_decimal": 1.31,
-       "fair_prob": 0.7647,
+       "fair_prob": 0.7646,
        "implied_prob_sum": 1.0,
        "label": "Jukurit +1.5"
       }
@@ -17766,14 +18252,14 @@
       {
        "fair_american": -175,
        "fair_decimal": 1.57,
-       "fair_prob": 0.6388,
+       "fair_prob": 0.6382,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
-       "fair_american": 177,
-       "fair_decimal": 2.77,
-       "fair_prob": 0.3612,
+       "fair_american": 176,
+       "fair_decimal": 2.76,
+       "fair_prob": 0.3618,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -17783,7 +18269,7 @@
    "model": {
     "away_exp": 2.46,
     "home_adv": 1.06,
-    "home_exp": 2.41,
+    "home_exp": 2.42,
     "name": "independent Poisson goals, table attack/defence"
    },
    "official_source_name": "Liiga official API v2 (liiga.fi)",
@@ -17836,14 +18322,14 @@
       {
        "fair_american": 271,
        "fair_decimal": 3.71,
-       "fair_prob": 0.2695,
+       "fair_prob": 0.2696,
        "implied_prob_sum": 1.0,
        "label": "Pelicans -1.5"
       },
       {
        "fair_american": -270,
        "fair_decimal": 1.37,
-       "fair_prob": 0.7305,
+       "fair_prob": 0.7304,
        "implied_prob_sum": 1.0,
        "label": "K-Espoo +1.5"
       }
@@ -17878,14 +18364,14 @@
       {
        "fair_american": -152,
        "fair_decimal": 1.66,
-       "fair_prob": 0.6014,
+       "fair_prob": 0.6009,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
        "fair_american": 151,
        "fair_decimal": 2.51,
-       "fair_prob": 0.3986,
+       "fair_prob": 0.3991,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -17967,16 +18453,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": -120,
-       "fair_decimal": 1.83,
-       "fair_prob": 0.5479,
+       "fair_american": -122,
+       "fair_decimal": 1.82,
+       "fair_prob": 0.548,
        "implied_prob_sum": 1.0,
        "label": "\u00c4ss\u00e4t (away)"
       },
       {
        "fair_american": 121,
        "fair_decimal": 2.21,
-       "fair_prob": 0.4521,
+       "fair_prob": 0.452,
        "implied_prob_sum": 1.0,
        "label": "Sport (home)"
       }
@@ -17990,14 +18476,14 @@
       {
        "fair_american": -119,
        "fair_decimal": 1.84,
-       "fair_prob": 0.5433,
+       "fair_prob": 0.5428,
        "implied_prob_sum": 1.0,
        "label": "Under 4.5"
       },
       {
        "fair_american": 119,
        "fair_decimal": 2.19,
-       "fair_prob": 0.4567,
+       "fair_prob": 0.4572,
        "implied_prob_sum": 1.0,
        "label": "Over 4.5"
       }
@@ -18015,9 +18501,9 @@
    "olbg": null,
    "pick": {
     "confidence": "Low",
-    "fair_american": -120,
-    "fair_decimal": 1.83,
-    "fair_prob": 0.5479,
+    "fair_american": -122,
+    "fair_decimal": 1.82,
+    "fair_prob": 0.548,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -20209,8 +20695,8 @@
    "evidence": {
     "away_ga_pg": 2.941,
     "away_gf_pg": 2.235,
-    "expected_goals_away": 2.03,
-    "expected_goals_home": 3.13,
+    "expected_goals_away": 2.04,
+    "expected_goals_home": 3.14,
     "home_ga_pg": 2.312,
     "home_gf_pg": 2.75,
     "standings_source": "https://liiga.fi/api/v2/standings/?season=2027"
@@ -20229,16 +20715,16 @@
      "note": "",
      "selections": [
       {
-       "fair_american": 138,
-       "fair_decimal": 2.38,
-       "fair_prob": 0.4209,
+       "fair_american": 137,
+       "fair_decimal": 2.37,
+       "fair_prob": 0.4211,
        "implied_prob_sum": 1.0,
        "label": "Tappara -1.5"
       },
       {
        "fair_american": -137,
        "fair_decimal": 1.73,
-       "fair_prob": 0.5791,
+       "fair_prob": 0.5789,
        "implied_prob_sum": 1.0,
        "label": "HPK +1.5"
       }
@@ -20252,14 +20738,14 @@
       {
        "fair_american": 194,
        "fair_decimal": 2.94,
-       "fair_prob": 0.3397,
+       "fair_prob": 0.3396,
        "implied_prob_sum": 1.0,
        "label": "HPK (away)"
       },
       {
        "fair_american": -196,
        "fair_decimal": 1.51,
-       "fair_prob": 0.6603,
+       "fair_prob": 0.6604,
        "implied_prob_sum": 1.0,
        "label": "Tappara (home)"
       }
@@ -20273,14 +20759,14 @@
       {
        "fair_american": -141,
        "fair_decimal": 1.71,
-       "fair_prob": 0.5864,
+       "fair_prob": 0.5858,
        "implied_prob_sum": 1.0,
        "label": "Under 5.5"
       },
       {
-       "fair_american": 142,
-       "fair_decimal": 2.42,
-       "fair_prob": 0.4136,
+       "fair_american": 141,
+       "fair_decimal": 2.41,
+       "fair_prob": 0.4142,
        "implied_prob_sum": 1.0,
        "label": "Over 5.5"
       }
@@ -20288,9 +20774,9 @@
     }
    },
    "model": {
-    "away_exp": 2.03,
+    "away_exp": 2.04,
     "home_adv": 1.06,
-    "home_exp": 3.13,
+    "home_exp": 3.14,
     "name": "independent Poisson goals, table attack/defence"
    },
    "official_source_name": "Liiga official API v2 (liiga.fi)",
@@ -20300,7 +20786,7 @@
     "confidence": "Medium",
     "fair_american": -196,
     "fair_decimal": 1.51,
-    "fair_prob": 0.6603,
+    "fair_prob": 0.6604,
     "in_window": true,
     "market": "Money Line (incl. OT)",
     "market_key": "match_winner",
@@ -32256,6 +32742,11 @@
    "olbg": 0,
    "priced": 0,
    "rows": 33
+  },
+  "Tennis": {
+   "olbg": 2,
+   "priced": 0,
+   "rows": 14
   },
   "Volleyball": {
    "olbg": 21,

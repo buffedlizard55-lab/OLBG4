@@ -1,0 +1,54 @@
+name: Board CA daily refresh (session e9770274)
+
+# Keeps the 15-sport desk published at /session-e9770274/ fresh without any manual step:
+# re-fetches OLBG's boards and the official sources, re-originates every line from the new capture,
+# re-runs the review and the verification gate, and commits only if the gate passes.
+# The gate is strict (prices re-derive, every priced row has a manifest-matched official source,
+# predictions are 30+ words and unique), so a bad capture is published as nothing rather than as junk.
+
+on:
+  schedule:
+    - cron: "20 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: board-ca-daily
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Re-fetch OLBG boards and official sources, rebuild and verify
+        run: python3 scripts/session-e9770274/run.py --capture
+      - name: Commit the refreshed desk
+        run: |
+          set -uo pipefail
+          git config user.name "board-ca-refresh"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/session-e9770274 session-e9770274
+          if git diff --cached --quiet; then
+            echo "no change today"
+            exit 0
+          fi
+          git commit -m "chore(CA): daily 15-sport desk refresh $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+              echo pushed
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "push failed" >&2
+          exit 1
