@@ -4720,3 +4720,35 @@ Covered sports (strictly the 15 requested OLBG sports, zero excluded sports): **
 - Sources actually used for adopted facts: NHL `api-web.nhle.com`, MLB `statsapi.mlb.com`, official EuroLeague `api-live.euroleague.net`, WTA `api.wtatennis.com`, Liiga `liiga.fi`, Cricket Australia `cricket.com.au`, URC `unitedrugby.com`. Original URLs + exact JSON pointers or HTML spans + SHA-256 on every adopted fact; GBGB withdrawal source linked on flags. OLBG is used for its own listing observations, never team-strength origination.
 - Final result stays **252 official rows / 179 LOW-confidence winner estimates / 188 OLBG observations / 6 reconciled fixtures / 869 flags / 1,211 structural-only legacy rows / zero High predictions**, exact 15 category pages. Nine categories without supported official rows, full event/market completeness, calibration, injuries/form research, current offered odds, posting eligibility, five High picks per sport and unattended daily all-sport publication remain **needs review** on the live site. These are not claimed completed user requirements. Unsupported factual fields and prices remain blank.
 - A second COORDINATION append conflict occurred during the release-record rebase onto `cc16b10`; resolved by keeping both peer completion entries and all FA entries. No peer work discarded. Environment notices about Actions Node/runner migrations are non-failing upstream deprecation notices, not data-verification successes.
+
+---
+
+## Board CA — session `arena/e9770274-olbg4` (2026-10-24: fresh 15-sport OLBG desk, executive summary dashboard, flagged review page, integration)
+
+Session: `arena/e9770274-olbg4` · Branch: `arena/e9770274-olbg4` · Claimed: 2026-10-24T00:00Z UTC (session clock) · **status: in progress**
+
+**Note on branch naming.** The session-branch rule for this environment fixes every session on its own
+`arena/<id>-olbg4` branch, so the brief's `session/<id>/<task>` naming is satisfied by
+`arena/e9770274-olbg4` + the `session-e9770274/` deliverable folder.
+
+**File scope (non-overlapping).** `session-e9770274/**`, `data/session-e9770274/**`,
+`scripts/session-e9770274/**`, `.github/workflows/ca-e9770274.yml`, and append-only entries in this file.
+Everything else — `data/master.json`, `board/`, all other root `*.html`, all other `session-*/`,
+`data/session-*/`, `scripts/**`, `pipeline/**`, `.github/workflows/*.yml` — is **read-only** for Board CA.
+Findings that need another owner's file are logged here as integration requests, not applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| CA1 | Fresh live capture (24 Oct) of OLBG's own 15 in-scope sport boards + the official governing-body/league sources the desk cites | in progress | arena/e9770274-olbg4 | `scripts/session-e9770274/{fetch.py,targets.json}`, `data/session-e9770274/capture/`, `.github/workflows/ca-e9770274.yml` |
+| CA2 | Originate own lines (match winner, handicap/spread, totals, sport-specific) for every verified upcoming fixture; pick a winner; label Low/Medium/High | pending | arena/e9770274-olbg4 | `scripts/session-e9770274/originate.py`, `data/session-e9770274/desk.json` |
+| CA3 | High-confidence focus: 5 highest-confidence picks per sport, -250…+10,000 window, unique ≥30-word human predictions with verified facts + source links | pending | arena/e9770274-olbg4 | `scripts/session-e9770274/predictions.py`, `data/session-e9770274/predictions.json` |
+| CA4 | Line-by-line review of the repo's published desks vs official sources; irregularity register | pending | arena/e9770274-olbg4 | `data/session-e9770274/review.json` |
+| CA5 | Dashboard site under `session-e9770274/`: executive summary first, obvious pick columns, per-sport subpages, all-entries table, flagged-for-review page | pending | arena/e9770274-olbg4 | `session-e9770274/**` |
+| CA6 | Verify, PR to `main`, merge without waiting, confirm Pages deploy, record result here | pending | arena/e9770274-olbg4 | `scripts/session-e9770274/verify.py`, `COORDINATION.md` |
+
+### CA working log
+- 2026-10-24 — `e9770274` — board claimed and pushed before any other work. Direction from the user's
+  brief this cycle: the site is too confusing; it must open with an executive summary that makes the
+  picks and their location obvious; only fully written unique predictions count (no bare "X to win");
+  5 highest-confidence written predictions per covered sport per day; High picks targeted inside
+  -250…+10,000 American odds.
