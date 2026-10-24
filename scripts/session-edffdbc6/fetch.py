@@ -200,7 +200,8 @@ def discover_wta(records: list[dict], out_dir: Path, seen_ids: set[str]) -> list
     for item in items:
         if not isinstance(item, dict):
             continue
-        tid_ = item.get("tournamentId") or item.get("id") or item.get("TournamentId")
+        tid_ = ((item.get("tournamentGroup") or {}).get("id")
+                or item.get("tournamentId") or item.get("id") or item.get("TournamentId"))
         year = item.get("year") or item.get("season") or "2026"
         start = str(item.get("startDate") or item.get("start") or "")
         end = str(item.get("endDate") or item.get("end") or "")
