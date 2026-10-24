@@ -204,11 +204,6 @@ CAPTURE_FLAGS = [
      "Ice Hockey has 85 verified fixtures in the window and Basketball 20, so the desk prices the earliest 24 per sport and lists the rest "
      "on Matches with no line. The cap keeps the rebuild deterministic and the page size readable; it is a desk choice, not a data limit.",
      "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/matches.html"),
-    ("ZZ-F09", "note", "Coverage is 9 of 15 sports with fixtures and 7 with own lines",
-     "Ice Hockey, Basketball, Baseball, Tennis, Volleyball, Handball and Rugby Union carry own lines; Cricket and Snooker are fixtures only, "
-     "and the other six sports are listed on Coverage with the exact reason. Five written predictions exist per priced sport except Rugby Union, "
-     "which has only two fixtures in the window.",
-     "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html"),
 ]
 
 
@@ -236,6 +231,21 @@ def build_flags(desk: dict, predictions: dict, review: dict, olbg: dict, manifes
                           f"the brief's High tests. The rest are graded Medium/Low and are written up only if the sport has room left in its five-prediction quota.",
                 "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html",
             })
+
+    import json as _json
+    _fx = _json.loads((ROOT / "data" / "session-edffdbc6" / "fixtures.json").read_text(encoding="utf-8"))
+    with_fixtures = sorted({f["sport"] for f in _fx["fixtures"]})
+    with_lines = sorted(s for s, v in desk["summary"]["by_sport"].items() if v["fixtures"])
+    items.append({
+        "id": "ZZ-F09",
+        "severity": "note",
+        "item": f"Coverage: {len(with_fixtures)} of 15 sports with verified fixtures, {len(with_lines)} with our own line",
+        "detail": (f"Fixtures: {', '.join(with_fixtures)}. Own lines: {', '.join(with_lines)}. "
+                   "The other sports are listed on Coverage with the exact feed that failed. Written predictions exist for every priced "
+                   "sport; where a sport has fewer than five non-repeating matchups (Rugby Union has two fixtures, the MLB World Series "
+                   "repeats the same two clubs) the quota is not padded."),
+        "url": "https://buffedlizard55-lab.github.io/OLBG4/session-edffdbc6/coverage.html",
+    })
 
     for sk in predictions.get("skipped", [])[:20]:
         items.append({
