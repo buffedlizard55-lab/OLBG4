@@ -4963,3 +4963,18 @@ push wins and CA will re-apply its landing page on top of BZ's additions instead
 **Conflict log.** Rebase onto `main` (after PRs #163/#164 landed Board BZ and a peer landing page) produced two conflicts. `COORDINATION.md` — resolved by keeping the peer Board BZ block in full and appending the Board CA block, no peer text discarded. `index.html` — resolved in favour of the Board CA dashboard, with Board BZ (`session-937ee172/index.html`) added to `desk/archive.html` so its desk stays reachable; no peer file or folder was removed.
 
 **Pull request:** [#167](https://github.com/buffedlizard55-lab/OLBG4/pull/167) — merge result recorded below once the deploy completes.
+## Board GF — session `arena/265b28e5-olbg4` (2026-10-24 clarity, freshness and evidence integration)
+
+Session: `arena/265b28e5-olbg4` · Branch: fixed Arena session branch `arena/265b28e5-olbg4` · Claimed: 2026-10-24 UTC · **status: in progress**
+
+File scope: `session-265b28e5/**`, `scripts/session-265b28e5/**`, `data/session-265b28e5/**`, and append-only entries in `COORDINATION.md`. Final integration may make a narrowly scoped update to root `index.html` to point users to the new landing page. Existing peer/canonical datasets, capture files, prediction texts, build scripts, workflows, and other dashboards remain read-only; any factual or freshness concerns will be published under this board's Flagged for Review page and logged here.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| GF1 | Review the newest committed 15-sport desk and repo evidence; independently validate its deterministic gates and audit time/future status, explicit selection, source-link and prediction-quality claims; record exact irregularities without promoting unsupported values | in progress | arena/265b28e5-olbg4 | `scripts/session-265b28e5/audit.py`, `data/session-265b28e5/audit.json` |
+| GF2 | Build a simple dated executive dashboard that makes current/next fixtures, selections, confidence, source links, markets, methodology and Flagged for Review obvious; preserve the source capture cutoff and leave unsupported facts blank | pending | arena/265b28e5-olbg4 | `session-265b28e5/**`, `data/session-265b28e5/dashboard.json` |
+| GF3 | Final integration-only root landing pointer to the new dashboard; do not rewrite shared tables or claim stale snapshots are live | pending | arena/265b28e5-olbg4 | `index.html` (additive pointer only) |
+| GF4 | Run deterministic data/site/link verification, document sources and remaining gaps, sync before pushes, and complete PR/Pages checks if the release gates pass | pending | arena/265b28e5-olbg4 | `scripts/session-265b28e5/verify.py`, `COORDINATION.md` |
+
+### GF working log
+- 2026-10-24 UTC — `arena/265b28e5-olbg4` — Read the shared board before claiming. The latest completed dated full-scope desk found was Board FB (`2026-10-23T21:40Z` cutoff); current commit is an official-data snapshot dated `2026-10-24T15:56Z`, but it does not by itself refresh or validate the 15-sport Board FB rows. Claimed a non-overlapping audit/dashboard scope; existing sport datasets and predictions are read-only. Branch names are fixed by Arena for this session, so the session namespace enforces the requested isolation.
