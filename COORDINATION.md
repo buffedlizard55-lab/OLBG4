@@ -4720,3 +4720,15 @@ Covered sports (strictly the 15 requested OLBG sports, zero excluded sports): **
 - Sources actually used for adopted facts: NHL `api-web.nhle.com`, MLB `statsapi.mlb.com`, official EuroLeague `api-live.euroleague.net`, WTA `api.wtatennis.com`, Liiga `liiga.fi`, Cricket Australia `cricket.com.au`, URC `unitedrugby.com`. Original URLs + exact JSON pointers or HTML spans + SHA-256 on every adopted fact; GBGB withdrawal source linked on flags. OLBG is used for its own listing observations, never team-strength origination.
 - Final result stays **252 official rows / 179 LOW-confidence winner estimates / 188 OLBG observations / 6 reconciled fixtures / 869 flags / 1,211 structural-only legacy rows / zero High predictions**, exact 15 category pages. Nine categories without supported official rows, full event/market completeness, calibration, injuries/form research, current offered odds, posting eligibility, five High picks per sport and unattended daily all-sport publication remain **needs review** on the live site. These are not claimed completed user requirements. Unsupported factual fields and prices remain blank.
 - A second COORDINATION append conflict occurred during the release-record rebase onto `cc16b10`; resolved by keeping both peer completion entries and all FA entries. No peer work discarded. Environment notices about Actions Node/runner migrations are non-failing upstream deprecation notices, not data-verification successes.
+
+## Board BZ — session `arena/937ee172-olbg4` (2026-10-24 live OLBG listing capture, official NHL/MLB fixture verification, own lines, Low/Medium/High labelling, dashboard)
+
+Session: `arena/937ee172-olbg4` · Branch: `arena/937ee172-olbg4` · Claimed: 2026-10-24 UTC · **status: in progress**
+
+File scope (non-overlapping with every existing board): `session-937ee172/**`, `data/session-937ee172/**`, `scripts/session-937ee172/**`, and append-only entries in this file. Root pages, `data/master.json`, `board/`, all other `session-*/` and all workflows are read-only for this session.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| BZ1 | Capture live OLBG event listings for in-scope sports (fetched through the fetch tool, which can reach olbg.com; plain curl cannot) and record event URLs | in progress | arena/937ee172-olbg4 | `data/session-937ee172/olbg/`, `scripts/session-937ee172/` |
+| BZ2 | Pull official fixture + standings data for sports with an official JSON endpoint reachable from this sandbox (NHL api-web.nhle.com, MLB statsapi.mlb.com) and originate own match-winner lines only from verified inputs | in progress | arena/937ee172-olbg4 | `data/session-937ee172/official/`, `scripts/session-937ee172/` |
+| BZ3 | Build the dashboard (executive summary, picks table with Low/Medium/High, per-sport pages, Flagged for Review) | pending | arena/937ee172-olbg4 | `session-937ee172/**` |
