@@ -90,8 +90,9 @@ def build(rows: dict) -> dict:
         "GOG carry a five-goal attacking edge into Ringsted",
         f"Ringsted's domestic campaign reads {f['home']} after ten rounds, with "
         f"{s['home_for']} goals scored and {s['home_against']} conceded. GOG have opened the "
-        f"Champions League group at {f['away']}, scoring {s['away_for']} a game, and their only "
-        f"defeat in that stretch came by a single goal. The visitors have too much firepower for "
+        f"Champions League group at {f['away']}, scoring {s['away_for']} a game. The two records "
+        f"come from different competitions, which is stated rather than smoothed over, and the "
+        f"visitors have too much firepower for "
         f"a side shipping {s['home_against']} a match. Selection: {p['selection']} moneyline at "
         f"{money(p['american'])}.")
 
@@ -109,8 +110,8 @@ def build(rows: dict) -> dict:
     s, f, p = r["scoring"], r["form"], r["pick"]
     out[r["id"]] = (
         "Magdeburg's defence is the difference in Group F",
-        f"Five wins from five, {s['home_for']} goals a game scored and only {s['home_against']} "
-        f"conceded: Magdeburg have the meanest defensive record in the section. Kriens-Luzern sit "
+        f"Magdeburg have won five from five, scoring {s['home_for']} goals a game and conceding "
+        f"only {s['home_against']}. Kriens-Luzern sit "
         f"at {f['away']}, scoring {s['away_for']} but giving up {s['away_against']}, four goals a "
         f"match more than the hosts. That gap at both ends is why the win probability clears 85%. "
         f"Selection: {p['selection']} moneyline at {money(p['american'])}.")
@@ -122,8 +123,8 @@ def build(rows: dict) -> dict:
         f"Kolstad have lost every group match, {f['away']}, scoring {s['away_for']} while "
         f"conceding {s['away_against']}. Kielce's {f['home']} record is unspectacular, yet their "
         f"{s['home_for']} scored against {s['home_against']} conceded is a healthy margin by "
-        f"comparison. The Norwegian side's attack is the weakest in the group, and this line "
-        f"follows from that rather than from reputation. Selection: {p['selection']} moneyline at "
+        f"comparison: Kolstad have scored fewer per game than the side they are visiting, and "
+        f"the line follows from that rather than from reputation. Selection: {p['selection']} moneyline at "
         f"{money(p['american'])}.")
 
     r = rows["handball-12128"]           # RK Partizan @ Füchse Berlin
