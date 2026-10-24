@@ -367,7 +367,7 @@ def main() -> int:
         if rs:
             status = f'<span class="badge high">lines originated</span>'
             note = (f"{len(rs)} fixtures priced · {sum(1 for r in rs if r['confidence'] == 'High')} High · "
-                    f"{len(preds_doc['summary']['by_sport'].get(s, []) if isinstance(preds_doc['summary']['by_sport'].get(s), list) else [])} predictions")
+                    f"{sum(1 for p in preds if p['sport'] == s)} written predictions")
         elif fs:
             status = '<span class="badge medium">fixtures only</span>'
             note = f"{len(fs)} verified fixtures, no strength input captured → no line originated (flagged)"
@@ -411,7 +411,7 @@ def main() -> int:
                               esc(r["winner_pick"]["fair_american_str"] if r.get("winner_pick") else "")])
             markets_section = table(["Match", "Market families investigated", "Markets", "Priced selections", "Match-winner pick", "Price"], mrows)
         else:
-            section = f'<div class="notice">No fixture in this sport could be priced in this capture. {esc(COVERAGE_REASON.get(s, ""))}</div>'
+            section = f'<div class="notice">No fixture in this sport could be priced in this capture. Reason: {esc(CAPFIRST.get(s, COVERAGE_REASON.get(s, "")))}</div>'
             markets_section = '<div class="notice">No markets originated.</div>'
         frow = [[ts(f["start_utc"]), esc(f["competition"]), esc(f.get("stage") or ""),
                  f'{esc(f["away"])} @ {esc(f["home"])}' if s in ("Baseball", "Ice Hockey", "Basketball") else f'{esc(f["home"])} v {esc(f["away"])}',
@@ -568,6 +568,9 @@ def main() -> int:
     return 0
 
 
+CAPFIRST = {}
+
+
 COVERAGE_REASON = {
     "Golf": "the only PGA Tour leaderboard in the capture is the in-play Bermuda Championship (no upcoming event page that is machine-readable); DP World Tour pages returned HTTP 403",
     "Snooker": "the Northern Ireland Open semi-final had already started and the final's second finalist is still to be decided in the captured snooker.org page, so no future fixture with both players is confirmed",
@@ -581,6 +584,8 @@ COVERAGE_REASON = {
     "Tennis": "no WTA tournament page in the capture listed a match starting after the cut-off",
 }
 
+
+CAPFIRST = {k: (v[0].upper() + v[1:]) for k, v in COVERAGE_REASON.items()}
 
 if __name__ == "__main__":
     raise SystemExit(main())

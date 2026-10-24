@@ -84,13 +84,13 @@ def _open(row: dict, v: int, lead: str, singular: bool = False) -> str:
     venue = row["venue"] or "the scheduled venue"
     if singular:
         variants = [
-            f"Pick: {pick} at {price}. {row['home']} faces {row['away']} at {venue} in the {row['competition']}; {lead} and the line is worth {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. {row['home']} faces {row['away']} at {venue} in the {row['competition']}. {lead} The line is worth {fmt_pct(p)}.",
             f"Pick: {pick} at {price}. At {venue}, {row['home']} takes on {row['away']} in the {row['competition']}. {lead} We make the bet {fmt_pct(p)}.",
             f"Pick: {pick} at {price}. This {row['competition']} match puts {row['away']} across the net from {row['home']} ({venue}). {lead} Fair value sits at {fmt_pct(p)}.",
         ]
     else:
         variants = [
-            f"Pick: {pick} at {price}. {row['home']} host {row['away']} at {venue} in the {row['competition']}; {lead} and the line is worth {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. {row['home']} host {row['away']} at {venue} in the {row['competition']}. {lead} The line is worth {fmt_pct(p)}.",
             f"Pick: {pick} at {price}. At {venue}, {row['home']} meet {row['away']} in the {row['competition']}. {lead} We make the bet {fmt_pct(p)}.",
             f"Pick: {pick} at {price}. This {row['competition']} fixture sends {row['away']} to {row['home']} ({venue}). {lead} Fair value sits at {fmt_pct(p)}.",
         ]
@@ -281,33 +281,30 @@ def volley_text(row: dict, v: int) -> str:
 
 def tennis_text(row: dict, v: int) -> str:
     h, a = row["stats"]["home"], row["stats"]["away"]
-    rh, ra = h.get("rank"), a.get("rank")
     recent_h = "; ".join(h.get("recent", [])) or "no completed match in this draw"
     recent_a = "; ".join(a.get("recent", [])) or "no completed match in this draw"
-    lead = f"{row['home']} is ranked {rh} against {ra} for {row['away']}"
+    sa, sb = str(h.get("seed") or "").strip(), str(a.get("seed") or "").strip()
+    lead = (f"{row['home']} is {'seed ' + sa if sa.isdigit() else 'unseeded'} in this draw against "
+            f"{row['away']}, who is {'seed ' + sb if sb.isdigit() else 'unseeded'}")
     forms = [
-        f"{row['home']} sits at #{rh} on the official WTA singles list.",
-        f"The ranking card reads #{rh} for the home player.",
-        f"{row['home']} is the world number {rh}.",
+        f"{row['home']} carries {'the number ' + sa + ' seeding' if sa.isdigit() else 'no seeding'} into the match.",
+        f"The official draw lists {row['home']} as {'seed ' + sa if sa.isdigit() else 'an unseeded entrant'}.",
+        f"{row['home']} starts from {'seed ' + sa if sa.isdigit() else 'outside the seeds'} in this bracket.",
     ]
     aways = [
-        f"{row['away']} is listed at #{ra}.",
-        f"The opponent checks in at #{ra}.",
-        f"{row['away']} holds the #{ra} ranking.",
+        f"{row['away']} is {'seed ' + sb if sb.isdigit() else 'unseeded'} in the same bracket.",
+        f"The other side of the draw card reads {'seed ' + sb if sb.isdigit() else 'unseeded'} for {row['away']}.",
+        f"{row['away']} enters as {'seed ' + sb if sb.isdigit() else 'an unseeded player'}.",
     ]
     angles = [
         f"Earlier in this draw: {recent_h} for {row['home']}; {recent_a} for {row['away']}.",
         f"Completed matches here read {recent_h} and {recent_a}.",
         f"The draw so far: {recent_h}; {recent_a}.",
     ]
-    base = f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
-    pool = EXTRA.get(row["sport"], [])
+    base = f"{_open(row, v, lead, singular=True)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {angles[_v(row, 4, 3)]}"
+    pool = EXTRA.get("Tennis", [])
     if pool:
-        txt = pool[_v(row, 5, len(pool))]
-        hh, aa = row["stats"].get("home", {}), row["stats"].get("away", {})
-        gp = hh.get("gp") or (hh.get("w", 0) + hh.get("l", 0))
-        gd = (hh.get("gf", 0) - hh.get("ga", 0)) if "gf" in hh else (hh.get("runs_scored") or 0) - (hh.get("runs_allowed") or 0)
-        base += " " + txt.format(pts=hh.get("pts", 0), gd=gd, gp=gp)
+        base += " " + pool[_v(row, 5, len(pool))]
     return base
 
 
