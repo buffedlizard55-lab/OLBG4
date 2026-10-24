@@ -2202,6 +2202,99 @@ def build_tennis_titles(cap: P.Capture, rows) -> int:
     return n
 
 
+def _icc_ratings(cap: P.Capture) -> dict:
+    """Official ICC team ratings, whatever shape the captured JSON uses.
+
+    Walks the payload for objects that carry a team name next to a numeric
+    rating/points field and keeps the first value seen per team and format.
+    """
+    TEAMS = ("India", "Australia", "England", "Pakistan", "South Africa", "New Zealand", "Sri Lanka",
+             "West Indies", "Bangladesh", "Afghanistan", "Zimbabwe", "Ireland", "Netherlands",
+             "Scotland", "Namibia", "United Arab Emirates", "Nepal", "Oman", "United States",
+             "Canada", "Kenya", "Jersey", "Denmark", "Papua New Guinea")
+    FMTS = {"icc_api_odi": "ODI", "icc_static_odi": "ODI", "icc_json_odi": "ODI", "icc_api_t20i": "T20I"}
+
+    def walk(node, fmt, out):
+        if isinstance(node, dict):
+            name = None
+            for k in ("name", "teamName", "team_name", "team", "displayName", "title"):
+                v = node.get(k)
+                if isinstance(v, str) and v.strip() in TEAMS:
+                    name = v.strip()
+                    break
+                if isinstance(v, dict) and isinstance(v.get("name"), str) and v["name"].strip() in TEAMS:
+                    name = v["name"].strip()
+                    break
+            if name:
+                for k in ("rating", "points", "ratings", "ratingValue", "value"):
+                    v = node.get(k)
+                    try:
+                        val = float(v)
+                    except (TypeError, ValueError):
+                        continue
+                    if 30 <= val <= 200:
+                        out.setdefault((fmt, name), val)
+                        break
+            for v in node.values():
+                walk(v, fmt, out)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v, fmt, out)
+
+    out = {}
+    for tid, fmt in FMTS.items():
+        if not cap.exists(tid):
+            continue
+        try:
+            doc = cap.json(tid)
+        except Exception:
+            continue
+        walk(doc, fmt, out)
+    return out
+
+
+def _team_key(name: str) -> str:
+    n = re.sub(r"\b(men|women|mens|womens|xi|u19|u23)\b", "", (name or "").lower())
+    n = re.sub(r"[^a-z ]", " ", n)
+    return re.sub(r"\s+", " ", n).strip()
+
+
+def build_cricket_icc(cap: P.Capture, rows) -> int:
+    ratings = _icc_ratings(cap)
+    if not ratings:
+        return 0
+    by_fmt = {}
+    for (fmt, team), val in ratings.items():
+        by_fmt.setdefault(fmt, {})[_team_key(team)] = val
+    priced = 0
+    for row in rows:
+        if row["sport"] != "Cricket" or row.get("pick"):
+            continue
+        fmt = (row.get("extra") or {}).get("game_type") or ""
+        table = by_fmt.get("T20I" if fmt in ("T20 International", "T20") else ("ODI" if fmt in ("ODI", "") else fmt))
+        if not table:
+            continue
+        a, b = _team_key(row["side_a"]), _team_key(row["side_b"])
+        if a not in table or b not in table:
+            continue
+        ra, rb = table[a], table[b]
+        p_a = 1 / (1 + 10 ** ((rb - ra) / 30.0))
+        p_a = min(0.93, max(0.07, p_a))
+        row["evidence"] = {"icc_rating_a": ra, "icc_rating_b": rb, "format": fmt or "ODI",
+                           "rating_source": "ICC official team rankings captured in this snapshot"}
+        row["form"] = {row["side_a"]: f"ICC rating {ra}", row["side_b"]: f"ICC rating {rb}"}
+        row["sample"] = "official ICC team rating list"
+        row["model"] = {"name": "logistic on the ICC team-rating gap", "rating_gap": round(ra - rb, 1), "scale": 30.0}
+        row["markets"] = {"match_winner": market("Match Winner", None,
+                                                 [(row["side_a"], p_a), (row["side_b"], 1 - p_a)])}
+        row["flags"] = [fl for fl in row["flags"] if "no line originated" not in fl]
+        row["flags"].append("team strength from the official ICC rating list; no venue or XI adjustment")
+        pick_best(row, conf(max(p_a, 1 - p_a), "Medium"),
+                  "ranking-based model capped at Medium")
+        priced += 1
+    return priced
+
+
 def late_repairs(cap: P.Capture, rows) -> dict:
     out = {}
     out["rugby_union_rows"] = build_rugby_union_official(cap, rows)
@@ -2209,6 +2302,7 @@ def late_repairs(cap: P.Capture, rows) -> dict:
     out["snooker_elo_rows"] = build_snooker_elo(cap, rows)
     out["tennis_priced"] = build_tennis_elo(cap, rows)
     out["tennis_titles"] = build_tennis_titles(cap, rows)
+    out["cricket_icc"] = build_cricket_icc(cap, rows)
     return out
 
 
