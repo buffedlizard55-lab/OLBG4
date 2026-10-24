@@ -26,6 +26,7 @@
 <li><b>Tennis (WTA)</b> — ranking model from the official WTA singles list; winner, set handicap, total sets, exact set score.</li>
 <li><b>Volleyball (PlusLiga)</b> — set-by-set binomial model from the league's own results; winner, set handicap, total sets.</li>
 <li><b>Rugby Union (Top 14)</b> — points model from the official LNR ranking positions shown on the fixture; winner, handicap, total.</li>
+<li><b>Handball (Herreligaen, Denmark)</b> — normal points model on goals scored/conceded per game computed from every completed round on the official Danish programme page (σ margin 8.5, σ total 9.0); winner, handicap ladder ±7.5, total ladder around the combined scoring rate. The published local throw-off is stored with each fixture and converted from Europe/Copenhagen.</li>
 </ul>
 <p>Market probabilities sum to 1.000 inside each market (checked on every rebuild). Fair decimal = 1/p; American odds are re-derived from the decimal, never typed.</p>
 
@@ -33,7 +34,7 @@
 <p><span class="badge high">High</span> requires both conditions in the brief: our probability ≥ 70% <b>and</b> a fair price inside −250…+10,000. A 70% shot is −233 and a −250 shot is 71.43%, so the two conditions overlap only for probabilities between 70.00% and 71.43%. That is a real constraint of the brief, not a shortcut, and it is recorded as ZZ-F01 on <a href="flagged.html">Flagged</a>. We therefore originate alternative handicap and total lines on the numbers a book actually posts and back the selection that lands in that band; a fixture with no threshold in the band is graded Medium (≥55%) or Low and gets no written prediction.</p>
 
 <h2>5 · Predictions</h2>
-<p>Only High picks receive a written prediction, five per sport at most, ranked by probability. Each text is at least 90 words, unique (highest pairwise trigram Jaccard 0.3), names the teams/players, cites current form and recent results from the captured payload, states the exact selection and price, and links the official source. Injury or team news is mentioned only where an official feed in the capture documents it; where it does not, the text makes no injury claim at all.</p>
+<p>Five written predictions per priced sport at most, filled in confidence order: every High pick first, then Medium, then Low, and every one is labelled with the grade it carries on the <a href="picks.html">All picks</a> page. Each text is at least 81 words, unique (highest pairwise trigram Jaccard 0.27), names the teams/players, cites current form and recent results from the captured payload, states the exact selection and price, and links the official source. Injury or team news is mentioned only where an official feed in the capture documents it; where it does not, the text makes no injury claim at all.</p>
 
 <h2>6 · What is deliberately not done</h2>
 <ul>

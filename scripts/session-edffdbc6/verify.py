@@ -149,8 +149,8 @@ def main() -> int:
         row = next((r for r in rows if r["id"] == p["row_id"]), None)
         if not row:
             pred_bad.append(f'{p["prediction_id"]}: row {p["row_id"]} not in the desk')
-        elif row["confidence"] != "High":
-            pred_bad.append(f'{p["prediction_id"]}: written for a non-High row')
+        elif p.get("confidence") != row["confidence"]:
+            pred_bad.append(f'{p["prediction_id"]}: confidence does not match its row')
         elif row["source"]["url"] != p["official_source_url"]:
             pred_bad.append(f'{p["prediction_id"]}: source URL differs from its row')
     tri = {}

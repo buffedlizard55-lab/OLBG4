@@ -348,13 +348,13 @@ def main() -> int:
   <div class="small">{esc(p['prediction_id'])} · {esc(p['sport'])} · {ts(p['start_utc'])} · {esc(p['competition'])}</div>
   <div class="hd">{esc(p['match'])}</div>
   <div class="pick" style="font-size:16px;margin-bottom:6px">PICK: {esc(p['selection'])} <span class="price">{esc(p['price'])}</span></div>
-  <div class="small" style="margin-bottom:8px">{esc(p['market'])} · {p['fair_prob'] * 100:.1f}% · {p['word_count']} words</div>
+  <div class="small" style="margin-bottom:8px">{badge(p['confidence'])} {esc(p['market'])} · {p['fair_prob'] * 100:.1f}% · {p['word_count']} words</div>
   <p style="margin:0 0 10px">{esc(p['text'])}</p>
   <div class="small">Official source: {link(p['official_source_url'], p['official_source_name'])} · capture <code>{esc(p['capture_target_id'])}</code> · sha256 <code>{esc(p['capture_sha256'][:16])}…</code></div>
 </div>""")
     preds_html = f"""
 <h1>Written predictions</h1>
-<p class="lead">{len(preds)} unique predictions, one per High-confidence pick (five per sport at most). Each names the teams or players, the form and recent results read from the official payload, an explicit selection and its price, and links the source of the numbers. Minimum length {preds_doc['summary']['min_words']} words; highest pairwise similarity {preds_doc['summary']['max_pairwise_trigram_jaccard']} (trigram Jaccard, well under the 0.30 cut-off).</p>
+<p class="lead">{len(preds)} unique predictions — five per sport at most, written in confidence order (High first, then Medium, then Low) and labelled with that grade. Each names the teams or players, the form and recent results read from the official payload, an explicit selection and its price, and links the source of the numbers. Minimum length {preds_doc['summary']['min_words']} words; highest pairwise similarity {preds_doc['summary']['max_pairwise_trigram_jaccard']} (trigram Jaccard, well under the 0.30 cut-off).</p>
 {''.join(cards) if cards else '<div class="card muted">No High-confidence picks in this capture window.</div>'}
 """
     (OUT / "predictions.html").write_text(page("predictions.html", "Predictions", preds_html), encoding="utf-8")
@@ -373,7 +373,7 @@ def main() -> int:
             note = f"{len(fs)} verified fixtures, no strength input captured → no line originated (flagged)"
         else:
             status = '<span class="badge low">not covered</span>'
-            note = COVERAGE_REASON.get(s, "no upcoming fixture in the captured window")
+            note = CAPFIRST.get(s) or COVERAGE_REASON.get(s, "no upcoming fixture in the captured window")
         cov_rows.append([esc(s), status, str(len(fs)), str(len(rs)), note])
     coverage_html = f"""
 <h1>Coverage by sport</h1>
@@ -457,6 +457,7 @@ def main() -> int:
 <li><b>Tennis (WTA)</b> — ranking model from the official WTA singles list; winner, set handicap, total sets, exact set score.</li>
 <li><b>Volleyball (PlusLiga)</b> — set-by-set binomial model from the league's own results; winner, set handicap, total sets.</li>
 <li><b>Rugby Union (Top 14)</b> — points model from the official LNR ranking positions shown on the fixture; winner, handicap, total.</li>
+<li><b>Handball (Herreligaen, Denmark)</b> — normal points model on goals scored/conceded per game computed from every completed round on the official Danish programme page (σ margin 8.5, σ total 9.0); winner, handicap ladder ±7.5, total ladder around the combined scoring rate. The published local throw-off is stored with each fixture and converted from Europe/Copenhagen.</li>
 </ul>
 <p>Market probabilities sum to 1.000 inside each market (checked on every rebuild). Fair decimal = 1/p; American odds are re-derived from the decimal, never typed.</p>
 
@@ -464,7 +465,7 @@ def main() -> int:
 <p><span class="badge high">High</span> requires both conditions in the brief: our probability ≥ 70% <b>and</b> a fair price inside −250…+10,000. A 70% shot is −233 and a −250 shot is 71.43%, so the two conditions overlap only for probabilities between 70.00% and 71.43%. That is a real constraint of the brief, not a shortcut, and it is recorded as ZZ-F01 on <a href="flagged.html">Flagged</a>. We therefore originate alternative handicap and total lines on the numbers a book actually posts and back the selection that lands in that band; a fixture with no threshold in the band is graded Medium (≥55%) or Low and gets no written prediction.</p>
 
 <h2>5 · Predictions</h2>
-<p>Only High picks receive a written prediction, five per sport at most, ranked by probability. Each text is at least {preds_doc['summary']['min_words']} words, unique (highest pairwise trigram Jaccard {preds_doc['summary']['max_pairwise_trigram_jaccard']}), names the teams/players, cites current form and recent results from the captured payload, states the exact selection and price, and links the official source. Injury or team news is mentioned only where an official feed in the capture documents it; where it does not, the text makes no injury claim at all.</p>
+<p>Five written predictions per priced sport at most, filled in confidence order: every High pick first, then Medium, then Low, and every one is labelled with the grade it carries on the <a href="picks.html">All picks</a> page. Each text is at least {preds_doc['summary']['min_words']} words, unique (highest pairwise trigram Jaccard {preds_doc['summary']['max_pairwise_trigram_jaccard']}), names the teams/players, cites current form and recent results from the captured payload, states the exact selection and price, and links the official source. Injury or team news is mentioned only where an official feed in the capture documents it; where it does not, the text makes no injury claim at all.</p>
 
 <h2>6 · What is deliberately not done</h2>
 <ul>
@@ -573,12 +574,12 @@ CAPFIRST = {}
 
 COVERAGE_REASON = {
     "Golf": "the only PGA Tour leaderboard in the capture is the in-play Bermuda Championship (no upcoming event page that is machine-readable); DP World Tour pages returned HTTP 403",
-    "Snooker": "the Northern Ireland Open semi-final had already started and the final's second finalist is still to be decided in the captured snooker.org page, so no future fixture with both players is confirmed",
+    "Snooker": "one semi-final is verified and listed, but the snooker.org page states the round length only for the final, so the length of the best-of needed to price a match winner was not published and no line was originated",
     "Darts": "pdc.tv serves a JavaScript shell (identical 1.24 MB payload for every page) and lists no fixture data outside scripts; OLBG darts listings are shown on the OLBG page but no official fixture page confirms them",
     "Gaelic Sports": "the only GAA fixture in the window (Shinty-Hurling International, 24 Oct 18:00) had started before the cut-off; county sites list no later fixture",
     "Greyhounds": "race cards and runners were captured from grireland.ie, but no verified form/time feed could support a probability for each runner, so no price was invented",
     "Motor Racing": "formula1.com and motogp.com render standings and session times client-side; no machine-readable entry list or championship table was captured",
-    "Handball": "EHF Champions League and HBL pages are JavaScript shells; the Danish programme page carries no dates in its HTML",
+    "Handball": "EHF Champions League and German HBL pages are JavaScript shells; the Danish Herreligaen programme is server-rendered and is the source used for the handball rows",
     "Rugby League": "nrl.com returns a 862-byte challenge page and rlwc2026.com renders the draw client-side",
     "Cricket": "fixtures verified from Cricket Australia's official feed, but no team-strength table (ICC rankings) could be captured, so no line was originated",
     "Tennis": "no WTA tournament page in the capture listed a match starting after the cut-off",

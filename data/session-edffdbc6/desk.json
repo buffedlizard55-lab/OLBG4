@@ -6,11 +6,11 @@
  "cutoff_utc": "2026-10-24T17:15:32Z",
  "horizon_utc": "2026-11-02T17:15:32Z",
  "summary": {
-  "rows": 75,
-  "markets": 895,
-  "outcomes": 1824,
-  "high": 32,
-  "medium": 33,
+  "rows": 83,
+  "markets": 1066,
+  "outcomes": 2166,
+  "high": 34,
+  "medium": 39,
   "low": 10,
   "by_sport": {
    "Golf": {
@@ -80,9 +80,9 @@
     "low": 0
    },
    "Handball": {
-    "fixtures": 0,
-    "high": 0,
-    "medium": 0,
+    "fixtures": 8,
+    "high": 2,
+    "medium": 6,
     "low": 0
    },
    "Ice Hockey": {
@@ -104,7 +104,7 @@
     "low": 0
    }
   },
-  "skipped": 79
+  "skipped": 80
  },
  "rows": [
   {
@@ -7287,6 +7287,578 @@
     "confidence": "High"
    },
    "confidence": "Medium"
+  },
+  {
+   "id": "ZZ-HB-DK-202610251700",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "TMS Ringsted Herrer",
+   "away": "GOG",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 306,
+     "ga": 342,
+     "w": 1,
+     "d": 1,
+     "l": 8,
+     "pts": 3,
+     "recent": [
+      "L 26-31 v Fredericia H\u00e5ndboldklub",
+      "L 28-32 v Mors-Thy H\u00e5ndbold",
+      "L 30-36 v Aalborg H\u00e5ndbold",
+      "L 31-36 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 32-26 v Nordsj\u00e6lland H\u00e5ndbold",
+      "L 30-31 v Bjerringbro-Silkeborg"
+     ],
+     "h2h": [],
+     "gf_pg": 30.6,
+     "ga_pg": 34.2
+    },
+    "away": {
+     "gp": 10,
+     "gf": 352,
+     "ga": 292,
+     "w": 9,
+     "d": 1,
+     "l": 0,
+     "pts": 19,
+     "recent": [
+      "W 35-29 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 32-28 v Fredericia H\u00e5ndboldklub",
+      "W 36-31 v Ribe-Esbjerg HH",
+      "W 39-27 v Aalborg H\u00e5ndbold",
+      "W 41-29 v Skive fH",
+      "W 39-30 v KIF Kolding"
+     ],
+     "h2h": [],
+     "gf_pg": 35.2,
+     "ga_pg": 29.2
+    },
+    "h2h": [],
+    "published_local_time": "25-10-2026 17:00 Europe/Copenhagen"
+   },
+   "markets": [
+    {
+     "market_key": "match_winner",
+     "market_label": "Match Winner (incl. overtime / deciding set)",
+     "basis": "Normal points model: mean 31.5\u201333.7, \u03c3margin 8.5",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer",
+       "fair_prob": 0.3981,
+       "fair_decimal": 2.512,
+       "fair_american": 151,
+       "fair_american_str": "+151",
+       "in_window": true
+      },
+      {
+       "selection": "GOG",
+       "fair_prob": 0.6019,
+       "fair_decimal": 1.661,
+       "fair_american": -151,
+       "fair_american_str": "-151",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-0.5",
+     "market_label": "TMS Ringsted Herrer -0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer -0.5",
+       "fair_prob": 0.3754,
+       "fair_decimal": 2.664,
+       "fair_american": 166,
+       "fair_american_str": "+166",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +0.5",
+       "fair_prob": 0.6246,
+       "fair_decimal": 1.601,
+       "fair_american": -166,
+       "fair_american_str": "-166",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-1.5",
+     "market_label": "TMS Ringsted Herrer -1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer -1.5",
+       "fair_prob": 0.3317,
+       "fair_decimal": 3.015,
+       "fair_american": 201,
+       "fair_american_str": "+201",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +1.5",
+       "fair_prob": 0.6683,
+       "fair_decimal": 1.496,
+       "fair_american": -201,
+       "fair_american_str": "-201",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-2.5",
+     "market_label": "TMS Ringsted Herrer -2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer -2.5",
+       "fair_prob": 0.2902,
+       "fair_decimal": 3.446,
+       "fair_american": 245,
+       "fair_american_str": "+245",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +2.5",
+       "fair_prob": 0.7098,
+       "fair_decimal": 1.409,
+       "fair_american": -245,
+       "fair_american_str": "-245",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-3.5",
+     "market_label": "TMS Ringsted Herrer -3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer -3.5",
+       "fair_prob": 0.2512,
+       "fair_decimal": 3.981,
+       "fair_american": 298,
+       "fair_american_str": "+298",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +3.5",
+       "fair_prob": 0.7488,
+       "fair_decimal": 1.335,
+       "fair_american": -298,
+       "fair_american_str": "-298",
+       "in_window": false
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-4.5",
+     "market_label": "TMS Ringsted Herrer -4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer -4.5",
+       "fair_prob": 0.2153,
+       "fair_decimal": 4.645,
+       "fair_american": 364,
+       "fair_american_str": "+364",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +4.5",
+       "fair_prob": 0.7847,
+       "fair_decimal": 1.274,
+       "fair_american": -364,
+       "fair_american_str": "-364",
+       "in_window": false
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-5.5",
+     "market_label": "TMS Ringsted Herrer -5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer -5.5",
+       "fair_prob": 0.1825,
+       "fair_decimal": 5.479,
+       "fair_american": 448,
+       "fair_american_str": "+448",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +5.5",
+       "fair_prob": 0.8175,
+       "fair_decimal": 1.223,
+       "fair_american": -448,
+       "fair_american_str": "-448",
+       "in_window": false
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-7.5",
+     "market_label": "TMS Ringsted Herrer -7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer -7.5",
+       "fair_prob": 0.1269,
+       "fair_decimal": 7.88,
+       "fair_american": 688,
+       "fair_american_str": "+688",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +7.5",
+       "fair_prob": 0.8731,
+       "fair_decimal": 1.145,
+       "fair_american": -688,
+       "fair_american_str": "-688",
+       "in_window": false
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+0.5",
+     "market_label": "TMS Ringsted Herrer +0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer +0.5",
+       "fair_prob": 0.4207,
+       "fair_decimal": 2.377,
+       "fair_american": 138,
+       "fair_american_str": "+138",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -0.5",
+       "fair_prob": 0.5793,
+       "fair_decimal": 1.726,
+       "fair_american": -138,
+       "fair_american_str": "-138",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+1.5",
+     "market_label": "TMS Ringsted Herrer +1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer +1.5",
+       "fair_prob": 0.4672,
+       "fair_decimal": 2.14,
+       "fair_american": 114,
+       "fair_american_str": "+114",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -1.5",
+       "fair_prob": 0.5328,
+       "fair_decimal": 1.877,
+       "fair_american": -114,
+       "fair_american_str": "-114",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+2.5",
+     "market_label": "TMS Ringsted Herrer +2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer +2.5",
+       "fair_prob": 0.5141,
+       "fair_decimal": 1.945,
+       "fair_american": -106,
+       "fair_american_str": "-106",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -2.5",
+       "fair_prob": 0.4859,
+       "fair_decimal": 2.058,
+       "fair_american": 106,
+       "fair_american_str": "+106",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+3.5",
+     "market_label": "TMS Ringsted Herrer +3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer +3.5",
+       "fair_prob": 0.5608,
+       "fair_decimal": 1.783,
+       "fair_american": -128,
+       "fair_american_str": "-128",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -3.5",
+       "fair_prob": 0.4392,
+       "fair_decimal": 2.277,
+       "fair_american": 128,
+       "fair_american_str": "+128",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+4.5",
+     "market_label": "TMS Ringsted Herrer +4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer +4.5",
+       "fair_prob": 0.6066,
+       "fair_decimal": 1.649,
+       "fair_american": -154,
+       "fair_american_str": "-154",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -4.5",
+       "fair_prob": 0.3934,
+       "fair_decimal": 2.542,
+       "fair_american": 154,
+       "fair_american_str": "+154",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+5.5",
+     "market_label": "TMS Ringsted Herrer +5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer +5.5",
+       "fair_prob": 0.6511,
+       "fair_decimal": 1.536,
+       "fair_american": -187,
+       "fair_american_str": "-187",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -5.5",
+       "fair_prob": 0.3489,
+       "fair_decimal": 2.866,
+       "fair_american": 187,
+       "fair_american_str": "+187",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+7.5",
+     "market_label": "TMS Ringsted Herrer +7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TMS Ringsted Herrer +7.5",
+       "fair_prob": 0.7335,
+       "fair_decimal": 1.363,
+       "fair_american": -275,
+       "fair_american_str": "-275",
+       "in_window": false
+      },
+      {
+       "selection": "GOG -7.5",
+       "fair_prob": 0.2665,
+       "fair_decimal": 3.752,
+       "fair_american": 275,
+       "fair_american_str": "+275",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+58.5",
+     "market_label": "Match Total 58.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 58.5",
+       "fair_prob": 0.7717,
+       "fair_decimal": 1.296,
+       "fair_american": -338,
+       "fair_american_str": "-338",
+       "in_window": false
+      },
+      {
+       "selection": "Under 58.5",
+       "fair_prob": 0.2283,
+       "fair_decimal": 4.38,
+       "fair_american": 338,
+       "fair_american_str": "+338",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+61.5",
+     "market_label": "Match Total 61.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 61.5",
+       "fair_prob": 0.6595,
+       "fair_decimal": 1.516,
+       "fair_american": -194,
+       "fair_american_str": "-194",
+       "in_window": true
+      },
+      {
+       "selection": "Under 61.5",
+       "fair_prob": 0.3405,
+       "fair_decimal": 2.937,
+       "fair_american": 194,
+       "fair_american_str": "+194",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+63.5",
+     "market_label": "Match Total 63.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 63.5",
+       "fair_prob": 0.5749,
+       "fair_decimal": 1.739,
+       "fair_american": -135,
+       "fair_american_str": "-135",
+       "in_window": true
+      },
+      {
+       "selection": "Under 63.5",
+       "fair_prob": 0.4251,
+       "fair_decimal": 2.352,
+       "fair_american": 135,
+       "fair_american_str": "+135",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+65.5",
+     "market_label": "Match Total 65.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 65.5",
+       "fair_prob": 0.4867,
+       "fair_decimal": 2.055,
+       "fair_american": 105,
+       "fair_american_str": "+105",
+       "in_window": true
+      },
+      {
+       "selection": "Under 65.5",
+       "fair_prob": 0.5133,
+       "fair_decimal": 1.948,
+       "fair_american": -105,
+       "fair_american_str": "-105",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+66.5",
+     "market_label": "Match Total 66.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 66.5",
+       "fair_prob": 0.4426,
+       "fair_decimal": 2.259,
+       "fair_american": 126,
+       "fair_american_str": "+126",
+       "in_window": true
+      },
+      {
+       "selection": "Under 66.5",
+       "fair_prob": 0.5574,
+       "fair_decimal": 1.794,
+       "fair_american": -126,
+       "fair_american_str": "-126",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+68.5",
+     "market_label": "Match Total 68.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 68.5",
+       "fair_prob": 0.3569,
+       "fair_decimal": 2.802,
+       "fair_american": 180,
+       "fair_american_str": "+180",
+       "in_window": true
+      },
+      {
+       "selection": "Under 68.5",
+       "fair_prob": 0.6431,
+       "fair_decimal": 1.555,
+       "fair_american": -180,
+       "fair_american_str": "-180",
+       "in_window": true
+      }
+     ]
+    }
+   ],
+   "markets_investigated": [
+    "handicap",
+    "match",
+    "total"
+   ],
+   "model_facts": [
+    "points expectancy from the captured official season averages: TMS Ringsted Herrer 31.5 vs GOG 33.7"
+   ],
+   "pick": {
+    "market_key": "handicap_-2.5",
+    "market_label": "TMS Ringsted Herrer -2.5 (points handicap)",
+    "selection": "GOG +2.5",
+    "fair_prob": 0.7098,
+    "fair_decimal": 1.409,
+    "fair_american": -245,
+    "fair_american_str": "-245",
+    "in_window": true,
+    "confidence": "High"
+   },
+   "winner_pick": {
+    "selection": "GOG",
+    "fair_prob": 0.6019,
+    "fair_american_str": "-151",
+    "confidence": "Medium"
+   },
+   "confidence": "High"
   },
   {
    "id": "ZZ-IH-NHL-2026020180",
@@ -21395,6 +21967,1173 @@
    "confidence": "High"
   },
   {
+   "id": "ZZ-HB-DK-202610301730",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Skjern H\u00e5ndbold",
+   "away": "Skive fH",
+   "start_utc": "2026-10-30T17:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 329,
+     "ga": 309,
+     "w": 6,
+     "d": 0,
+     "l": 4,
+     "pts": 12,
+     "recent": [
+      "W 29-27 v TTH Holstebro",
+      "W 38-25 v SAH",
+      "L 27-31 v Nordsj\u00e6lland H\u00e5ndbold",
+      "W 42-35 v KIF Kolding",
+      "W 34-31 v Bjerringbro-Silkeborg",
+      "L 25-30 v S\u00f8nderjyske Herreh\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 32.9,
+     "ga_pg": 30.9
+    },
+    "away": {
+     "gp": 11,
+     "gf": 354,
+     "ga": 395,
+     "w": 1,
+     "d": 0,
+     "l": 10,
+     "pts": 2,
+     "recent": [
+      "L 29-38 v TTH Holstebro",
+      "L 31-32 v Bjerringbro-Silkeborg",
+      "L 35-37 v Ribe-Esbjerg HH",
+      "L 29-41 v GOG",
+      "L 29-36 v Fredericia H\u00e5ndboldklub",
+      "L 26-29 v Aalborg H\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 32.18,
+     "ga_pg": 35.91
+    },
+    "h2h": [],
+    "published_local_time": "30-10-2026 17:30 Europe/Copenhagen"
+   },
+   "markets": [
+    {
+     "market_key": "match_winner",
+     "market_label": "Match Winner (incl. overtime / deciding set)",
+     "basis": "Normal points model: mean 36.01\u201330.54, \u03c3margin 8.5",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold",
+       "fair_prob": 0.7395,
+       "fair_decimal": 1.352,
+       "fair_american": -284,
+       "fair_american_str": "-284",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH",
+       "fair_prob": 0.2605,
+       "fair_decimal": 3.839,
+       "fair_american": 284,
+       "fair_american_str": "+284",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-0.5",
+     "market_label": "Skjern H\u00e5ndbold -0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold -0.5",
+       "fair_prob": 0.7204,
+       "fair_decimal": 1.388,
+       "fair_american": -258,
+       "fair_american_str": "-258",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH +0.5",
+       "fair_prob": 0.2796,
+       "fair_decimal": 3.577,
+       "fair_american": 258,
+       "fair_american_str": "+258",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-1.5",
+     "market_label": "Skjern H\u00e5ndbold -1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold -1.5",
+       "fair_prob": 0.6796,
+       "fair_decimal": 1.471,
+       "fair_american": -212,
+       "fair_american_str": "-212",
+       "in_window": true
+      },
+      {
+       "selection": "Skive fH +1.5",
+       "fair_prob": 0.3204,
+       "fair_decimal": 3.121,
+       "fair_american": 212,
+       "fair_american_str": "+212",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-2.5",
+     "market_label": "Skjern H\u00e5ndbold -2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold -2.5",
+       "fair_prob": 0.6364,
+       "fair_decimal": 1.571,
+       "fair_american": -175,
+       "fair_american_str": "-175",
+       "in_window": true
+      },
+      {
+       "selection": "Skive fH +2.5",
+       "fair_prob": 0.3636,
+       "fair_decimal": 2.75,
+       "fair_american": 175,
+       "fair_american_str": "+175",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-3.5",
+     "market_label": "Skjern H\u00e5ndbold -3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold -3.5",
+       "fair_prob": 0.5914,
+       "fair_decimal": 1.691,
+       "fair_american": -145,
+       "fair_american_str": "-145",
+       "in_window": true
+      },
+      {
+       "selection": "Skive fH +3.5",
+       "fair_prob": 0.4086,
+       "fair_decimal": 2.447,
+       "fair_american": 145,
+       "fair_american_str": "+145",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-4.5",
+     "market_label": "Skjern H\u00e5ndbold -4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold -4.5",
+       "fair_prob": 0.5452,
+       "fair_decimal": 1.834,
+       "fair_american": -120,
+       "fair_american_str": "-120",
+       "in_window": true
+      },
+      {
+       "selection": "Skive fH +4.5",
+       "fair_prob": 0.4548,
+       "fair_decimal": 2.199,
+       "fair_american": 120,
+       "fair_american_str": "+120",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-5.5",
+     "market_label": "Skjern H\u00e5ndbold -5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold -5.5",
+       "fair_prob": 0.4984,
+       "fair_decimal": 2.006,
+       "fair_american": 101,
+       "fair_american_str": "+101",
+       "in_window": true
+      },
+      {
+       "selection": "Skive fH +5.5",
+       "fair_prob": 0.5016,
+       "fair_decimal": 1.994,
+       "fair_american": -101,
+       "fair_american_str": "-101",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-7.5",
+     "market_label": "Skjern H\u00e5ndbold -7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold -7.5",
+       "fair_prob": 0.4054,
+       "fair_decimal": 2.467,
+       "fair_american": 147,
+       "fair_american_str": "+147",
+       "in_window": true
+      },
+      {
+       "selection": "Skive fH +7.5",
+       "fair_prob": 0.5946,
+       "fair_decimal": 1.682,
+       "fair_american": -147,
+       "fair_american_str": "-147",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+0.5",
+     "market_label": "Skjern H\u00e5ndbold +0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold +0.5",
+       "fair_prob": 0.7586,
+       "fair_decimal": 1.318,
+       "fair_american": -314,
+       "fair_american_str": "-314",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH -0.5",
+       "fair_prob": 0.2414,
+       "fair_decimal": 4.143,
+       "fair_american": 314,
+       "fair_american_str": "+314",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+1.5",
+     "market_label": "Skjern H\u00e5ndbold +1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold +1.5",
+       "fair_prob": 0.7937,
+       "fair_decimal": 1.26,
+       "fair_american": -385,
+       "fair_american_str": "-385",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH -1.5",
+       "fair_prob": 0.2063,
+       "fair_decimal": 4.847,
+       "fair_american": 385,
+       "fair_american_str": "+385",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+2.5",
+     "market_label": "Skjern H\u00e5ndbold +2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold +2.5",
+       "fair_prob": 0.8256,
+       "fair_decimal": 1.211,
+       "fair_american": -473,
+       "fair_american_str": "-473",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH -2.5",
+       "fair_prob": 0.1744,
+       "fair_decimal": 5.734,
+       "fair_american": 473,
+       "fair_american_str": "+473",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+3.5",
+     "market_label": "Skjern H\u00e5ndbold +3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold +3.5",
+       "fair_prob": 0.8542,
+       "fair_decimal": 1.171,
+       "fair_american": -586,
+       "fair_american_str": "-586",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH -3.5",
+       "fair_prob": 0.1458,
+       "fair_decimal": 6.859,
+       "fair_american": 586,
+       "fair_american_str": "+586",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+4.5",
+     "market_label": "Skjern H\u00e5ndbold +4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold +4.5",
+       "fair_prob": 0.8795,
+       "fair_decimal": 1.137,
+       "fair_american": -730,
+       "fair_american_str": "-730",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH -4.5",
+       "fair_prob": 0.1205,
+       "fair_decimal": 8.299,
+       "fair_american": 730,
+       "fair_american_str": "+730",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+5.5",
+     "market_label": "Skjern H\u00e5ndbold +5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold +5.5",
+       "fair_prob": 0.9015,
+       "fair_decimal": 1.109,
+       "fair_american": -915,
+       "fair_american_str": "-915",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH -5.5",
+       "fair_prob": 0.0985,
+       "fair_decimal": 10.152,
+       "fair_american": 915,
+       "fair_american_str": "+915",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+7.5",
+     "market_label": "Skjern H\u00e5ndbold +7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Skjern H\u00e5ndbold +7.5",
+       "fair_prob": 0.9364,
+       "fair_decimal": 1.068,
+       "fair_american": -1472,
+       "fair_american_str": "-1472",
+       "in_window": false
+      },
+      {
+       "selection": "Skive fH -7.5",
+       "fair_prob": 0.0636,
+       "fair_decimal": 15.723,
+       "fair_american": 1472,
+       "fair_american_str": "+1472",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+60.5",
+     "market_label": "Match Total 60.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 60.5",
+       "fair_prob": 0.7491,
+       "fair_decimal": 1.335,
+       "fair_american": -299,
+       "fair_american_str": "-299",
+       "in_window": false
+      },
+      {
+       "selection": "Under 60.5",
+       "fair_prob": 0.2509,
+       "fair_decimal": 3.986,
+       "fair_american": 299,
+       "fair_american_str": "+299",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+63.5",
+     "market_label": "Match Total 63.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 63.5",
+       "fair_prob": 0.6324,
+       "fair_decimal": 1.581,
+       "fair_american": -172,
+       "fair_american_str": "-172",
+       "in_window": true
+      },
+      {
+       "selection": "Under 63.5",
+       "fair_prob": 0.3676,
+       "fair_decimal": 2.72,
+       "fair_american": 172,
+       "fair_american_str": "+172",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+65.5",
+     "market_label": "Match Total 65.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 65.5",
+       "fair_prob": 0.5462,
+       "fair_decimal": 1.831,
+       "fair_american": -120,
+       "fair_american_str": "-120",
+       "in_window": true
+      },
+      {
+       "selection": "Under 65.5",
+       "fair_prob": 0.4538,
+       "fair_decimal": 2.204,
+       "fair_american": 120,
+       "fair_american_str": "+120",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+67",
+     "market_label": "Match Total 67 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 67",
+       "fair_prob": 0.4577,
+       "fair_decimal": 2.185,
+       "fair_american": 118,
+       "fair_american_str": "+118",
+       "in_window": true
+      },
+      {
+       "selection": "Under 67",
+       "fair_prob": 0.5423,
+       "fair_decimal": 1.844,
+       "fair_american": -118,
+       "fair_american_str": "-118",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+67.5",
+     "market_label": "Match Total 67.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 67.5",
+       "fair_prob": 0.4577,
+       "fair_decimal": 2.185,
+       "fair_american": 118,
+       "fair_american_str": "+118",
+       "in_window": true
+      },
+      {
+       "selection": "Under 67.5",
+       "fair_prob": 0.5423,
+       "fair_decimal": 1.844,
+       "fair_american": -118,
+       "fair_american_str": "-118",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+68.5",
+     "market_label": "Match Total 68.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 68.5",
+       "fair_prob": 0.414,
+       "fair_decimal": 2.415,
+       "fair_american": 142,
+       "fair_american_str": "+142",
+       "in_window": true
+      },
+      {
+       "selection": "Under 68.5",
+       "fair_prob": 0.586,
+       "fair_decimal": 1.706,
+       "fair_american": -142,
+       "fair_american_str": "-142",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+70.5",
+     "market_label": "Match Total 70.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 70.5",
+       "fair_prob": 0.3302,
+       "fair_decimal": 3.028,
+       "fair_american": 203,
+       "fair_american_str": "+203",
+       "in_window": true
+      },
+      {
+       "selection": "Under 70.5",
+       "fair_prob": 0.6698,
+       "fair_decimal": 1.493,
+       "fair_american": -203,
+       "fair_american_str": "-203",
+       "in_window": true
+      }
+     ]
+    }
+   ],
+   "markets_investigated": [
+    "handicap",
+    "match",
+    "total"
+   ],
+   "model_facts": [
+    "points expectancy from the captured official season averages: Skjern H\u00e5ndbold 36.01 vs Skive fH 30.54"
+   ],
+   "pick": {
+    "market_key": "handicap_-1.5",
+    "market_label": "Skjern H\u00e5ndbold -1.5 (points handicap)",
+    "selection": "Skjern H\u00e5ndbold -1.5",
+    "fair_prob": 0.6796,
+    "fair_decimal": 1.471,
+    "fair_american": -212,
+    "fair_american_str": "-212",
+    "in_window": true,
+    "confidence": "Medium"
+   },
+   "winner_pick": {
+    "selection": "Skjern H\u00e5ndbold",
+    "fair_prob": 0.7395,
+    "fair_american_str": "-284",
+    "confidence": "High"
+   },
+   "confidence": "Medium"
+  },
+  {
+   "id": "ZZ-HB-DK-202610301730",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Bjerringbro-Silkeborg",
+   "away": "KIF Kolding",
+   "start_utc": "2026-10-30T17:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "stats": {
+    "home": {
+     "gp": 11,
+     "gf": 349,
+     "ga": 349,
+     "w": 6,
+     "d": 1,
+     "l": 4,
+     "pts": 13,
+     "recent": [
+      "L 29-37 v Ribe-Esbjerg HH",
+      "W 32-31 v Skive fH",
+      "W 35-31 v SAH",
+      "L 31-34 v Skjern H\u00e5ndbold",
+      "W 31-30 v TMS Ringsted Herrer",
+      "W 35-32 v Mors-Thy H\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 31.73,
+     "ga_pg": 31.73
+    },
+    "away": {
+     "gp": 11,
+     "gf": 343,
+     "ga": 381,
+     "w": 2,
+     "d": 1,
+     "l": 8,
+     "pts": 5,
+     "recent": [
+      "W 32-31 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "L 31-37 v TTH Holstebro",
+      "L 35-42 v Skjern H\u00e5ndbold",
+      "L 32-37 v Aalborg H\u00e5ndbold",
+      "L 30-39 v GOG",
+      "L 31-32 v Fredericia H\u00e5ndboldklub"
+     ],
+     "h2h": [],
+     "gf_pg": 31.18,
+     "ga_pg": 34.64
+    },
+    "h2h": [],
+    "published_local_time": "30-10-2026 17:30 Europe/Copenhagen"
+   },
+   "markets": [
+    {
+     "market_key": "match_winner",
+     "market_label": "Match Winner (incl. overtime / deciding set)",
+     "basis": "Normal points model: mean 34.79\u201330.45, \u03c3margin 8.5",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg",
+       "fair_prob": 0.6945,
+       "fair_decimal": 1.44,
+       "fair_american": -227,
+       "fair_american_str": "-227",
+       "in_window": true
+      },
+      {
+       "selection": "KIF Kolding",
+       "fair_prob": 0.3055,
+       "fair_decimal": 3.273,
+       "fair_american": 227,
+       "fair_american_str": "+227",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-0.5",
+     "market_label": "Bjerringbro-Silkeborg -0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg -0.5",
+       "fair_prob": 0.6739,
+       "fair_decimal": 1.484,
+       "fair_american": -207,
+       "fair_american_str": "-207",
+       "in_window": true
+      },
+      {
+       "selection": "KIF Kolding +0.5",
+       "fair_prob": 0.3261,
+       "fair_decimal": 3.067,
+       "fair_american": 207,
+       "fair_american_str": "+207",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-1.5",
+     "market_label": "Bjerringbro-Silkeborg -1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg -1.5",
+       "fair_prob": 0.6304,
+       "fair_decimal": 1.586,
+       "fair_american": -171,
+       "fair_american_str": "-171",
+       "in_window": true
+      },
+      {
+       "selection": "KIF Kolding +1.5",
+       "fair_prob": 0.3696,
+       "fair_decimal": 2.706,
+       "fair_american": 171,
+       "fair_american_str": "+171",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-2.5",
+     "market_label": "Bjerringbro-Silkeborg -2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg -2.5",
+       "fair_prob": 0.5852,
+       "fair_decimal": 1.709,
+       "fair_american": -141,
+       "fair_american_str": "-141",
+       "in_window": true
+      },
+      {
+       "selection": "KIF Kolding +2.5",
+       "fair_prob": 0.4148,
+       "fair_decimal": 2.411,
+       "fair_american": 141,
+       "fair_american_str": "+141",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-3.5",
+     "market_label": "Bjerringbro-Silkeborg -3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg -3.5",
+       "fair_prob": 0.5389,
+       "fair_decimal": 1.856,
+       "fair_american": -117,
+       "fair_american_str": "-117",
+       "in_window": true
+      },
+      {
+       "selection": "KIF Kolding +3.5",
+       "fair_prob": 0.4611,
+       "fair_decimal": 2.169,
+       "fair_american": 117,
+       "fair_american_str": "+117",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-4.5",
+     "market_label": "Bjerringbro-Silkeborg -4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg -4.5",
+       "fair_prob": 0.492,
+       "fair_decimal": 2.033,
+       "fair_american": 103,
+       "fair_american_str": "+103",
+       "in_window": true
+      },
+      {
+       "selection": "KIF Kolding +4.5",
+       "fair_prob": 0.508,
+       "fair_decimal": 1.969,
+       "fair_american": -103,
+       "fair_american_str": "-103",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-5.5",
+     "market_label": "Bjerringbro-Silkeborg -5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg -5.5",
+       "fair_prob": 0.4453,
+       "fair_decimal": 2.246,
+       "fair_american": 125,
+       "fair_american_str": "+125",
+       "in_window": true
+      },
+      {
+       "selection": "KIF Kolding +5.5",
+       "fair_prob": 0.5547,
+       "fair_decimal": 1.803,
+       "fair_american": -125,
+       "fair_american_str": "-125",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-7.5",
+     "market_label": "Bjerringbro-Silkeborg -7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg -7.5",
+       "fair_prob": 0.3546,
+       "fair_decimal": 2.82,
+       "fair_american": 182,
+       "fair_american_str": "+182",
+       "in_window": true
+      },
+      {
+       "selection": "KIF Kolding +7.5",
+       "fair_prob": 0.6454,
+       "fair_decimal": 1.549,
+       "fair_american": -182,
+       "fair_american_str": "-182",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+0.5",
+     "market_label": "Bjerringbro-Silkeborg +0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg +0.5",
+       "fair_prob": 0.7151,
+       "fair_decimal": 1.398,
+       "fair_american": -251,
+       "fair_american_str": "-251",
+       "in_window": false
+      },
+      {
+       "selection": "KIF Kolding -0.5",
+       "fair_prob": 0.2849,
+       "fair_decimal": 3.51,
+       "fair_american": 251,
+       "fair_american_str": "+251",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+1.5",
+     "market_label": "Bjerringbro-Silkeborg +1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg +1.5",
+       "fair_prob": 0.7536,
+       "fair_decimal": 1.327,
+       "fair_american": -306,
+       "fair_american_str": "-306",
+       "in_window": false
+      },
+      {
+       "selection": "KIF Kolding -1.5",
+       "fair_prob": 0.2464,
+       "fair_decimal": 4.058,
+       "fair_american": 306,
+       "fair_american_str": "+306",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+2.5",
+     "market_label": "Bjerringbro-Silkeborg +2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg +2.5",
+       "fair_prob": 0.7892,
+       "fair_decimal": 1.267,
+       "fair_american": -374,
+       "fair_american_str": "-374",
+       "in_window": false
+      },
+      {
+       "selection": "KIF Kolding -2.5",
+       "fair_prob": 0.2108,
+       "fair_decimal": 4.744,
+       "fair_american": 374,
+       "fair_american_str": "+374",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+3.5",
+     "market_label": "Bjerringbro-Silkeborg +3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg +3.5",
+       "fair_prob": 0.8215,
+       "fair_decimal": 1.217,
+       "fair_american": -460,
+       "fair_american_str": "-460",
+       "in_window": false
+      },
+      {
+       "selection": "KIF Kolding -3.5",
+       "fair_prob": 0.1785,
+       "fair_decimal": 5.602,
+       "fair_american": 460,
+       "fair_american_str": "+460",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+4.5",
+     "market_label": "Bjerringbro-Silkeborg +4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg +4.5",
+       "fair_prob": 0.8506,
+       "fair_decimal": 1.176,
+       "fair_american": -569,
+       "fair_american_str": "-569",
+       "in_window": false
+      },
+      {
+       "selection": "KIF Kolding -4.5",
+       "fair_prob": 0.1494,
+       "fair_decimal": 6.693,
+       "fair_american": 569,
+       "fair_american_str": "+569",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+5.5",
+     "market_label": "Bjerringbro-Silkeborg +5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg +5.5",
+       "fair_prob": 0.8763,
+       "fair_decimal": 1.141,
+       "fair_american": -708,
+       "fair_american_str": "-708",
+       "in_window": false
+      },
+      {
+       "selection": "KIF Kolding -5.5",
+       "fair_prob": 0.1237,
+       "fair_decimal": 8.084,
+       "fair_american": 708,
+       "fair_american_str": "+708",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+7.5",
+     "market_label": "Bjerringbro-Silkeborg +7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Bjerringbro-Silkeborg +7.5",
+       "fair_prob": 0.918,
+       "fair_decimal": 1.089,
+       "fair_american": -1120,
+       "fair_american_str": "-1120",
+       "in_window": false
+      },
+      {
+       "selection": "KIF Kolding -7.5",
+       "fair_prob": 0.082,
+       "fair_decimal": 12.195,
+       "fair_american": 1120,
+       "fair_american_str": "+1120",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+58.5",
+     "market_label": "Match Total 58.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 58.5",
+       "fair_prob": 0.773,
+       "fair_decimal": 1.294,
+       "fair_american": -341,
+       "fair_american_str": "-341",
+       "in_window": false
+      },
+      {
+       "selection": "Under 58.5",
+       "fair_prob": 0.227,
+       "fair_decimal": 4.405,
+       "fair_american": 341,
+       "fair_american_str": "+341",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+61.5",
+     "market_label": "Match Total 61.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 61.5",
+       "fair_prob": 0.6611,
+       "fair_decimal": 1.513,
+       "fair_american": -195,
+       "fair_american_str": "-195",
+       "in_window": true
+      },
+      {
+       "selection": "Under 61.5",
+       "fair_prob": 0.3389,
+       "fair_decimal": 2.951,
+       "fair_american": 195,
+       "fair_american_str": "+195",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+63.5",
+     "market_label": "Match Total 63.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 63.5",
+       "fair_prob": 0.5767,
+       "fair_decimal": 1.734,
+       "fair_american": -136,
+       "fair_american_str": "-136",
+       "in_window": true
+      },
+      {
+       "selection": "Under 63.5",
+       "fair_prob": 0.4233,
+       "fair_decimal": 2.362,
+       "fair_american": 136,
+       "fair_american_str": "+136",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+65.5",
+     "market_label": "Match Total 65.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 65.5",
+       "fair_prob": 0.4885,
+       "fair_decimal": 2.047,
+       "fair_american": 105,
+       "fair_american_str": "+105",
+       "in_window": true
+      },
+      {
+       "selection": "Under 65.5",
+       "fair_prob": 0.5115,
+       "fair_decimal": 1.955,
+       "fair_american": -105,
+       "fair_american_str": "-105",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+66.5",
+     "market_label": "Match Total 66.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 66.5",
+       "fair_prob": 0.4443,
+       "fair_decimal": 2.251,
+       "fair_american": 125,
+       "fair_american_str": "+125",
+       "in_window": true
+      },
+      {
+       "selection": "Under 66.5",
+       "fair_prob": 0.5557,
+       "fair_decimal": 1.8,
+       "fair_american": -125,
+       "fair_american_str": "-125",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+68.5",
+     "market_label": "Match Total 68.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 68.5",
+       "fair_prob": 0.3586,
+       "fair_decimal": 2.789,
+       "fair_american": 179,
+       "fair_american_str": "+179",
+       "in_window": true
+      },
+      {
+       "selection": "Under 68.5",
+       "fair_prob": 0.6414,
+       "fair_decimal": 1.559,
+       "fair_american": -179,
+       "fair_american_str": "-179",
+       "in_window": true
+      }
+     ]
+    }
+   ],
+   "markets_investigated": [
+    "handicap",
+    "match",
+    "total"
+   ],
+   "model_facts": [
+    "points expectancy from the captured official season averages: Bjerringbro-Silkeborg 34.79 vs KIF Kolding 30.45"
+   ],
+   "pick": {
+    "market_key": "match_winner",
+    "market_label": "Match Winner (incl. overtime / deciding set)",
+    "selection": "Bjerringbro-Silkeborg",
+    "fair_prob": 0.6945,
+    "fair_decimal": 1.44,
+    "fair_american": -227,
+    "fair_american_str": "-227",
+    "in_window": true,
+    "confidence": "Medium"
+   },
+   "winner_pick": {
+    "selection": "Bjerringbro-Silkeborg",
+    "fair_prob": 0.6945,
+    "fair_american_str": "-227",
+    "confidence": "Medium"
+   },
+   "confidence": "Medium"
+  },
+  {
    "id": "ZZ-VB-PL--lepsk-malow-suwa-ki-neonet-norwid-cz-stochowa-202610301830",
    "sport": "Volleyball",
    "competition": "PlusLiga (Polish Men's Volleyball League) 2026-27",
@@ -26100,6 +27839,2912 @@
     "confidence": "High"
    },
    "confidence": "Low"
+  },
+  {
+   "id": "ZZ-HB-DK-202611011400",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Nordsj\u00e6lland H\u00e5ndbold",
+   "away": "GOG",
+   "start_utc": "2026-11-01T14:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "stats": {
+    "home": {
+     "gp": 11,
+     "gf": 331,
+     "ga": 336,
+     "w": 4,
+     "d": 1,
+     "l": 6,
+     "pts": 9,
+     "recent": [
+      "L 29-34 v Aalborg H\u00e5ndbold",
+      "W 31-27 v Skjern H\u00e5ndbold",
+      "W 28-21 v Mors-Thy H\u00e5ndbold",
+      "L 26-32 v TMS Ringsted Herrer",
+      "W 36-28 v TTH Holstebro",
+      "L 30-31 v S\u00f8nderjyske Herreh\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 30.09,
+     "ga_pg": 30.55
+    },
+    "away": {
+     "gp": 10,
+     "gf": 352,
+     "ga": 292,
+     "w": 9,
+     "d": 1,
+     "l": 0,
+     "pts": 19,
+     "recent": [
+      "W 35-29 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 32-28 v Fredericia H\u00e5ndboldklub",
+      "W 36-31 v Ribe-Esbjerg HH",
+      "W 39-27 v Aalborg H\u00e5ndbold",
+      "W 41-29 v Skive fH",
+      "W 39-30 v KIF Kolding"
+     ],
+     "h2h": [],
+     "gf_pg": 35.2,
+     "ga_pg": 29.2
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 14:00 Europe/Copenhagen"
+   },
+   "markets": [
+    {
+     "market_key": "match_winner",
+     "market_label": "Match Winner (incl. overtime / deciding set)",
+     "basis": "Normal points model: mean 31.25\u201331.88, \u03c3margin 8.5",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold",
+       "fair_prob": 0.4705,
+       "fair_decimal": 2.125,
+       "fair_american": 113,
+       "fair_american_str": "+113",
+       "in_window": true
+      },
+      {
+       "selection": "GOG",
+       "fair_prob": 0.5295,
+       "fair_decimal": 1.889,
+       "fair_american": -113,
+       "fair_american_str": "-113",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-0.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold -0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold -0.5",
+       "fair_prob": 0.4471,
+       "fair_decimal": 2.237,
+       "fair_american": 124,
+       "fair_american_str": "+124",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +0.5",
+       "fair_prob": 0.5529,
+       "fair_decimal": 1.809,
+       "fair_american": -124,
+       "fair_american_str": "-124",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-1.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold -1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold -1.5",
+       "fair_prob": 0.4011,
+       "fair_decimal": 2.493,
+       "fair_american": 149,
+       "fair_american_str": "+149",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +1.5",
+       "fair_prob": 0.5989,
+       "fair_decimal": 1.67,
+       "fair_american": -149,
+       "fair_american_str": "-149",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-2.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold -2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold -2.5",
+       "fair_prob": 0.3563,
+       "fair_decimal": 2.807,
+       "fair_american": 181,
+       "fair_american_str": "+181",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +2.5",
+       "fair_prob": 0.6437,
+       "fair_decimal": 1.554,
+       "fair_american": -181,
+       "fair_american_str": "-181",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-3.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold -3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold -3.5",
+       "fair_prob": 0.3135,
+       "fair_decimal": 3.19,
+       "fair_american": 219,
+       "fair_american_str": "+219",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +3.5",
+       "fair_prob": 0.6865,
+       "fair_decimal": 1.457,
+       "fair_american": -219,
+       "fair_american_str": "-219",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-4.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold -4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold -4.5",
+       "fair_prob": 0.2731,
+       "fair_decimal": 3.662,
+       "fair_american": 266,
+       "fair_american_str": "+266",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +4.5",
+       "fair_prob": 0.7269,
+       "fair_decimal": 1.376,
+       "fair_american": -266,
+       "fair_american_str": "-266",
+       "in_window": false
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-5.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold -5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold -5.5",
+       "fair_prob": 0.2354,
+       "fair_decimal": 4.248,
+       "fair_american": 325,
+       "fair_american_str": "+325",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +5.5",
+       "fair_prob": 0.7646,
+       "fair_decimal": 1.308,
+       "fair_american": -325,
+       "fair_american_str": "-325",
+       "in_window": false
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-7.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold -7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold -7.5",
+       "fair_prob": 0.1694,
+       "fair_decimal": 5.903,
+       "fair_american": 490,
+       "fair_american_str": "+490",
+       "in_window": true
+      },
+      {
+       "selection": "GOG +7.5",
+       "fair_prob": 0.8306,
+       "fair_decimal": 1.204,
+       "fair_american": -490,
+       "fair_american_str": "-490",
+       "in_window": false
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+0.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold +0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold +0.5",
+       "fair_prob": 0.4939,
+       "fair_decimal": 2.025,
+       "fair_american": 102,
+       "fair_american_str": "+102",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -0.5",
+       "fair_prob": 0.5061,
+       "fair_decimal": 1.976,
+       "fair_american": -102,
+       "fair_american_str": "-102",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+1.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold +1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold +1.5",
+       "fair_prob": 0.5408,
+       "fair_decimal": 1.849,
+       "fair_american": -118,
+       "fair_american_str": "-118",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -1.5",
+       "fair_prob": 0.4592,
+       "fair_decimal": 2.178,
+       "fair_american": 118,
+       "fair_american_str": "+118",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+2.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold +2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold +2.5",
+       "fair_prob": 0.5871,
+       "fair_decimal": 1.703,
+       "fair_american": -142,
+       "fair_american_str": "-142",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -2.5",
+       "fair_prob": 0.4129,
+       "fair_decimal": 2.422,
+       "fair_american": 142,
+       "fair_american_str": "+142",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+3.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold +3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold +3.5",
+       "fair_prob": 0.6322,
+       "fair_decimal": 1.582,
+       "fair_american": -172,
+       "fair_american_str": "-172",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -3.5",
+       "fair_prob": 0.3678,
+       "fair_decimal": 2.719,
+       "fair_american": 172,
+       "fair_american_str": "+172",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+4.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold +4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold +4.5",
+       "fair_prob": 0.6756,
+       "fair_decimal": 1.48,
+       "fair_american": -208,
+       "fair_american_str": "-208",
+       "in_window": true
+      },
+      {
+       "selection": "GOG -4.5",
+       "fair_prob": 0.3244,
+       "fair_decimal": 3.083,
+       "fair_american": 208,
+       "fair_american_str": "+208",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+5.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold +5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold +5.5",
+       "fair_prob": 0.7167,
+       "fair_decimal": 1.395,
+       "fair_american": -253,
+       "fair_american_str": "-253",
+       "in_window": false
+      },
+      {
+       "selection": "GOG -5.5",
+       "fair_prob": 0.2833,
+       "fair_decimal": 3.53,
+       "fair_american": 253,
+       "fair_american_str": "+253",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+7.5",
+     "market_label": "Nordsj\u00e6lland H\u00e5ndbold +7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Nordsj\u00e6lland H\u00e5ndbold +7.5",
+       "fair_prob": 0.7905,
+       "fair_decimal": 1.265,
+       "fair_american": -377,
+       "fair_american_str": "-377",
+       "in_window": false
+      },
+      {
+       "selection": "GOG -7.5",
+       "fair_prob": 0.2095,
+       "fair_decimal": 4.773,
+       "fair_american": 377,
+       "fair_american_str": "+377",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+56.5",
+     "market_label": "Match Total 56.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 56.5",
+       "fair_prob": 0.769,
+       "fair_decimal": 1.3,
+       "fair_american": -333,
+       "fair_american_str": "-333",
+       "in_window": false
+      },
+      {
+       "selection": "Under 56.5",
+       "fair_prob": 0.231,
+       "fair_decimal": 4.329,
+       "fair_american": 333,
+       "fair_american_str": "+333",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+59.5",
+     "market_label": "Match Total 59.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 59.5",
+       "fair_prob": 0.6562,
+       "fair_decimal": 1.524,
+       "fair_american": -191,
+       "fair_american_str": "-191",
+       "in_window": true
+      },
+      {
+       "selection": "Under 59.5",
+       "fair_prob": 0.3438,
+       "fair_decimal": 2.909,
+       "fair_american": 191,
+       "fair_american_str": "+191",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+61.5",
+     "market_label": "Match Total 61.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 61.5",
+       "fair_prob": 0.5714,
+       "fair_decimal": 1.75,
+       "fair_american": -133,
+       "fair_american_str": "-133",
+       "in_window": true
+      },
+      {
+       "selection": "Under 61.5",
+       "fair_prob": 0.4286,
+       "fair_decimal": 2.333,
+       "fair_american": 133,
+       "fair_american_str": "+133",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+63.5",
+     "market_label": "Match Total 63.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 63.5",
+       "fair_prob": 0.4832,
+       "fair_decimal": 2.07,
+       "fair_american": 107,
+       "fair_american_str": "+107",
+       "in_window": true
+      },
+      {
+       "selection": "Under 63.5",
+       "fair_prob": 0.5168,
+       "fair_decimal": 1.935,
+       "fair_american": -107,
+       "fair_american_str": "-107",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+64.5",
+     "market_label": "Match Total 64.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 64.5",
+       "fair_prob": 0.4391,
+       "fair_decimal": 2.277,
+       "fair_american": 128,
+       "fair_american_str": "+128",
+       "in_window": true
+      },
+      {
+       "selection": "Under 64.5",
+       "fair_prob": 0.5609,
+       "fair_decimal": 1.783,
+       "fair_american": -128,
+       "fair_american_str": "-128",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+66.5",
+     "market_label": "Match Total 66.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 66.5",
+       "fair_prob": 0.3536,
+       "fair_decimal": 2.828,
+       "fair_american": 183,
+       "fair_american_str": "+183",
+       "in_window": true
+      },
+      {
+       "selection": "Under 66.5",
+       "fair_prob": 0.6464,
+       "fair_decimal": 1.547,
+       "fair_american": -183,
+       "fair_american_str": "-183",
+       "in_window": true
+      }
+     ]
+    }
+   ],
+   "markets_investigated": [
+    "handicap",
+    "match",
+    "total"
+   ],
+   "model_facts": [
+    "points expectancy from the captured official season averages: Nordsj\u00e6lland H\u00e5ndbold 31.25 vs GOG 31.88"
+   ],
+   "pick": {
+    "market_key": "handicap_-3.5",
+    "market_label": "Nordsj\u00e6lland H\u00e5ndbold -3.5 (points handicap)",
+    "selection": "GOG +3.5",
+    "fair_prob": 0.6865,
+    "fair_decimal": 1.457,
+    "fair_american": -219,
+    "fair_american_str": "-219",
+    "in_window": true,
+    "confidence": "Medium"
+   },
+   "winner_pick": {
+    "selection": "GOG",
+    "fair_prob": 0.5295,
+    "fair_american_str": "-113",
+    "confidence": "Low"
+   },
+   "confidence": "Medium"
+  },
+  {
+   "id": "ZZ-HB-DK-202611011500",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "SAH",
+   "away": "S\u00f8nderjyske Herreh\u00e5ndbold",
+   "start_utc": "2026-11-01T15:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 334,
+     "ga": 327,
+     "w": 6,
+     "d": 0,
+     "l": 4,
+     "pts": 12,
+     "recent": [
+      "W 32-26 v KIF Kolding",
+      "L 25-38 v Skjern H\u00e5ndbold",
+      "W 38-29 v Mors-Thy H\u00e5ndbold",
+      "L 31-35 v Bjerringbro-Silkeborg",
+      "L 29-31 v Fredericia H\u00e5ndboldklub",
+      "W 32-29 v Ribe-Esbjerg HH"
+     ],
+     "h2h": [],
+     "gf_pg": 33.4,
+     "ga_pg": 32.7
+    },
+    "away": {
+     "gp": 11,
+     "gf": 345,
+     "ga": 333,
+     "w": 7,
+     "d": 0,
+     "l": 4,
+     "pts": 14,
+     "recent": [
+      "L 31-32 v KIF Kolding",
+      "W 31-30 v Fredericia H\u00e5ndboldklub",
+      "W 36-31 v TMS Ringsted Herrer",
+      "W 34-24 v Mors-Thy H\u00e5ndbold",
+      "W 30-25 v Skjern H\u00e5ndbold",
+      "W 31-30 v Nordsj\u00e6lland H\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 31.36,
+     "ga_pg": 30.27
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 15:00 Europe/Copenhagen"
+   },
+   "markets": [
+    {
+     "market_key": "match_winner",
+     "market_label": "Match Winner (incl. overtime / deciding set)",
+     "basis": "Normal points model: mean 33.44\u201331.03, \u03c3margin 8.5",
+     "outcomes": [
+      {
+       "selection": "SAH",
+       "fair_prob": 0.6112,
+       "fair_decimal": 1.636,
+       "fair_american": -157,
+       "fair_american_str": "-157",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold",
+       "fair_prob": 0.3888,
+       "fair_decimal": 2.572,
+       "fair_american": 157,
+       "fair_american_str": "+157",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-0.5",
+     "market_label": "SAH -0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH -0.5",
+       "fair_prob": 0.5887,
+       "fair_decimal": 1.699,
+       "fair_american": -143,
+       "fair_american_str": "-143",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold +0.5",
+       "fair_prob": 0.4113,
+       "fair_decimal": 2.431,
+       "fair_american": 143,
+       "fair_american_str": "+143",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-1.5",
+     "market_label": "SAH -1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH -1.5",
+       "fair_prob": 0.5424,
+       "fair_decimal": 1.844,
+       "fair_american": -119,
+       "fair_american_str": "-119",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold +1.5",
+       "fair_prob": 0.4576,
+       "fair_decimal": 2.185,
+       "fair_american": 119,
+       "fair_american_str": "+119",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-2.5",
+     "market_label": "SAH -2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH -2.5",
+       "fair_prob": 0.4955,
+       "fair_decimal": 2.018,
+       "fair_american": 102,
+       "fair_american_str": "+102",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold +2.5",
+       "fair_prob": 0.5045,
+       "fair_decimal": 1.982,
+       "fair_american": -102,
+       "fair_american_str": "-102",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-3.5",
+     "market_label": "SAH -3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH -3.5",
+       "fair_prob": 0.4487,
+       "fair_decimal": 2.229,
+       "fair_american": 123,
+       "fair_american_str": "+123",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold +3.5",
+       "fair_prob": 0.5513,
+       "fair_decimal": 1.814,
+       "fair_american": -123,
+       "fair_american_str": "-123",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-4.5",
+     "market_label": "SAH -4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH -4.5",
+       "fair_prob": 0.4027,
+       "fair_decimal": 2.483,
+       "fair_american": 148,
+       "fair_american_str": "+148",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold +4.5",
+       "fair_prob": 0.5973,
+       "fair_decimal": 1.674,
+       "fair_american": -148,
+       "fair_american_str": "-148",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-5.5",
+     "market_label": "SAH -5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH -5.5",
+       "fair_prob": 0.3579,
+       "fair_decimal": 2.794,
+       "fair_american": 179,
+       "fair_american_str": "+179",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold +5.5",
+       "fair_prob": 0.6421,
+       "fair_decimal": 1.557,
+       "fair_american": -179,
+       "fair_american_str": "-179",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-7.5",
+     "market_label": "SAH -7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH -7.5",
+       "fair_prob": 0.2744,
+       "fair_decimal": 3.644,
+       "fair_american": 264,
+       "fair_american_str": "+264",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold +7.5",
+       "fair_prob": 0.7256,
+       "fair_decimal": 1.378,
+       "fair_american": -264,
+       "fair_american_str": "-264",
+       "in_window": false
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+0.5",
+     "market_label": "SAH +0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH +0.5",
+       "fair_prob": 0.6337,
+       "fair_decimal": 1.578,
+       "fair_american": -173,
+       "fair_american_str": "-173",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold -0.5",
+       "fair_prob": 0.3663,
+       "fair_decimal": 2.73,
+       "fair_american": 173,
+       "fair_american_str": "+173",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+1.5",
+     "market_label": "SAH +1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH +1.5",
+       "fair_prob": 0.677,
+       "fair_decimal": 1.477,
+       "fair_american": -210,
+       "fair_american_str": "-210",
+       "in_window": true
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold -1.5",
+       "fair_prob": 0.323,
+       "fair_decimal": 3.096,
+       "fair_american": 210,
+       "fair_american_str": "+210",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+2.5",
+     "market_label": "SAH +2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH +2.5",
+       "fair_prob": 0.7181,
+       "fair_decimal": 1.393,
+       "fair_american": -255,
+       "fair_american_str": "-255",
+       "in_window": false
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold -2.5",
+       "fair_prob": 0.2819,
+       "fair_decimal": 3.547,
+       "fair_american": 255,
+       "fair_american_str": "+255",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+3.5",
+     "market_label": "SAH +3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH +3.5",
+       "fair_prob": 0.7564,
+       "fair_decimal": 1.322,
+       "fair_american": -311,
+       "fair_american_str": "-311",
+       "in_window": false
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold -3.5",
+       "fair_prob": 0.2436,
+       "fair_decimal": 4.105,
+       "fair_american": 311,
+       "fair_american_str": "+311",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+4.5",
+     "market_label": "SAH +4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH +4.5",
+       "fair_prob": 0.7917,
+       "fair_decimal": 1.263,
+       "fair_american": -380,
+       "fair_american_str": "-380",
+       "in_window": false
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold -4.5",
+       "fair_prob": 0.2083,
+       "fair_decimal": 4.801,
+       "fair_american": 380,
+       "fair_american_str": "+380",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+5.5",
+     "market_label": "SAH +5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH +5.5",
+       "fair_prob": 0.8238,
+       "fair_decimal": 1.214,
+       "fair_american": -468,
+       "fair_american_str": "-468",
+       "in_window": false
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold -5.5",
+       "fair_prob": 0.1762,
+       "fair_decimal": 5.675,
+       "fair_american": 468,
+       "fair_american_str": "+468",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+7.5",
+     "market_label": "SAH +7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "SAH +7.5",
+       "fair_prob": 0.8781,
+       "fair_decimal": 1.139,
+       "fair_american": -720,
+       "fair_american_str": "-720",
+       "in_window": false
+      },
+      {
+       "selection": "S\u00f8nderjyske Herreh\u00e5ndbold -7.5",
+       "fair_prob": 0.1219,
+       "fair_decimal": 8.203,
+       "fair_american": 720,
+       "fair_american_str": "+720",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+57.5",
+     "market_label": "Match Total 57.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 57.5",
+       "fair_prob": 0.7805,
+       "fair_decimal": 1.281,
+       "fair_american": -356,
+       "fair_american_str": "-356",
+       "in_window": false
+      },
+      {
+       "selection": "Under 57.5",
+       "fair_prob": 0.2195,
+       "fair_decimal": 4.556,
+       "fair_american": 356,
+       "fair_american_str": "+356",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+60.5",
+     "market_label": "Match Total 60.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 60.5",
+       "fair_prob": 0.6702,
+       "fair_decimal": 1.492,
+       "fair_american": -203,
+       "fair_american_str": "-203",
+       "in_window": true
+      },
+      {
+       "selection": "Under 60.5",
+       "fair_prob": 0.3298,
+       "fair_decimal": 3.032,
+       "fair_american": 203,
+       "fair_american_str": "+203",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+62.5",
+     "market_label": "Match Total 62.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 62.5",
+       "fair_prob": 0.5864,
+       "fair_decimal": 1.705,
+       "fair_american": -142,
+       "fair_american_str": "-142",
+       "in_window": true
+      },
+      {
+       "selection": "Under 62.5",
+       "fair_prob": 0.4136,
+       "fair_decimal": 2.418,
+       "fair_american": 142,
+       "fair_american_str": "+142",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+64.5",
+     "market_label": "Match Total 64.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 64.5",
+       "fair_prob": 0.4984,
+       "fair_decimal": 2.006,
+       "fair_american": 101,
+       "fair_american_str": "+101",
+       "in_window": true
+      },
+      {
+       "selection": "Under 64.5",
+       "fair_prob": 0.5016,
+       "fair_decimal": 1.994,
+       "fair_american": -101,
+       "fair_american_str": "-101",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+65",
+     "market_label": "Match Total 65 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 65",
+       "fair_prob": 0.4542,
+       "fair_decimal": 2.202,
+       "fair_american": 120,
+       "fair_american_str": "+120",
+       "in_window": true
+      },
+      {
+       "selection": "Under 65",
+       "fair_prob": 0.5458,
+       "fair_decimal": 1.832,
+       "fair_american": -120,
+       "fair_american_str": "-120",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+65.5",
+     "market_label": "Match Total 65.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 65.5",
+       "fair_prob": 0.4542,
+       "fair_decimal": 2.202,
+       "fair_american": 120,
+       "fair_american_str": "+120",
+       "in_window": true
+      },
+      {
+       "selection": "Under 65.5",
+       "fair_prob": 0.5458,
+       "fair_decimal": 1.832,
+       "fair_american": -120,
+       "fair_american_str": "-120",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+67.5",
+     "market_label": "Match Total 67.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 67.5",
+       "fair_prob": 0.368,
+       "fair_decimal": 2.717,
+       "fair_american": 172,
+       "fair_american_str": "+172",
+       "in_window": true
+      },
+      {
+       "selection": "Under 67.5",
+       "fair_prob": 0.632,
+       "fair_decimal": 1.582,
+       "fair_american": -172,
+       "fair_american_str": "-172",
+       "in_window": true
+      }
+     ]
+    }
+   ],
+   "markets_investigated": [
+    "handicap",
+    "match",
+    "total"
+   ],
+   "model_facts": [
+    "points expectancy from the captured official season averages: SAH 33.44 vs S\u00f8nderjyske Herreh\u00e5ndbold 31.03"
+   ],
+   "pick": {
+    "market_key": "handicap_+1.5",
+    "market_label": "SAH +1.5 (points handicap)",
+    "selection": "SAH +1.5",
+    "fair_prob": 0.677,
+    "fair_decimal": 1.477,
+    "fair_american": -210,
+    "fair_american_str": "-210",
+    "in_window": true,
+    "confidence": "Medium"
+   },
+   "winner_pick": {
+    "selection": "SAH",
+    "fair_prob": 0.6112,
+    "fair_american_str": "-157",
+    "confidence": "Medium"
+   },
+   "confidence": "Medium"
+  },
+  {
+   "id": "ZZ-HB-DK-202611011700",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "TTH Holstebro",
+   "away": "TMS Ringsted Herrer",
+   "start_utc": "2026-11-01T17:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 306,
+     "ga": 320,
+     "w": 3,
+     "d": 1,
+     "l": 6,
+     "pts": 7,
+     "recent": [
+      "L 27-29 v Skjern H\u00e5ndbold",
+      "W 38-29 v Skive fH",
+      "W 37-31 v KIF Kolding",
+      "L 20-33 v Fredericia H\u00e5ndboldklub",
+      "L 33-38 v Ribe-Esbjerg HH",
+      "L 28-36 v Nordsj\u00e6lland H\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 30.6,
+     "ga_pg": 32.0
+    },
+    "away": {
+     "gp": 10,
+     "gf": 306,
+     "ga": 342,
+     "w": 1,
+     "d": 1,
+     "l": 8,
+     "pts": 3,
+     "recent": [
+      "L 26-31 v Fredericia H\u00e5ndboldklub",
+      "L 28-32 v Mors-Thy H\u00e5ndbold",
+      "L 30-36 v Aalborg H\u00e5ndbold",
+      "L 31-36 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 32-26 v Nordsj\u00e6lland H\u00e5ndbold",
+      "L 30-31 v Bjerringbro-Silkeborg"
+     ],
+     "h2h": [],
+     "gf_pg": 30.6,
+     "ga_pg": 34.2
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 17:00 Europe/Copenhagen"
+   },
+   "markets": [
+    {
+     "market_key": "match_winner",
+     "market_label": "Match Winner (incl. overtime / deciding set)",
+     "basis": "Normal points model: mean 34.0\u201330.3, \u03c3margin 8.5",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro",
+       "fair_prob": 0.6681,
+       "fair_decimal": 1.497,
+       "fair_american": -201,
+       "fair_american_str": "-201",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer",
+       "fair_prob": 0.3319,
+       "fair_decimal": 3.013,
+       "fair_american": 201,
+       "fair_american_str": "+201",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-0.5",
+     "market_label": "TTH Holstebro -0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro -0.5",
+       "fair_prob": 0.6467,
+       "fair_decimal": 1.546,
+       "fair_american": -183,
+       "fair_american_str": "-183",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer +0.5",
+       "fair_prob": 0.3533,
+       "fair_decimal": 2.83,
+       "fair_american": 183,
+       "fair_american_str": "+183",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-1.5",
+     "market_label": "TTH Holstebro -1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro -1.5",
+       "fair_prob": 0.6021,
+       "fair_decimal": 1.661,
+       "fair_american": -151,
+       "fair_american_str": "-151",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer +1.5",
+       "fair_prob": 0.3979,
+       "fair_decimal": 2.513,
+       "fair_american": 151,
+       "fair_american_str": "+151",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-2.5",
+     "market_label": "TTH Holstebro -2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro -2.5",
+       "fair_prob": 0.5561,
+       "fair_decimal": 1.798,
+       "fair_american": -125,
+       "fair_american_str": "-125",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer +2.5",
+       "fair_prob": 0.4439,
+       "fair_decimal": 2.253,
+       "fair_american": 125,
+       "fair_american_str": "+125",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-3.5",
+     "market_label": "TTH Holstebro -3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro -3.5",
+       "fair_prob": 0.5094,
+       "fair_decimal": 1.963,
+       "fair_american": -104,
+       "fair_american_str": "-104",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer +3.5",
+       "fair_prob": 0.4906,
+       "fair_decimal": 2.038,
+       "fair_american": 104,
+       "fair_american_str": "+104",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-4.5",
+     "market_label": "TTH Holstebro -4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro -4.5",
+       "fair_prob": 0.4625,
+       "fair_decimal": 2.162,
+       "fair_american": 116,
+       "fair_american_str": "+116",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer +4.5",
+       "fair_prob": 0.5375,
+       "fair_decimal": 1.86,
+       "fair_american": -116,
+       "fair_american_str": "-116",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-5.5",
+     "market_label": "TTH Holstebro -5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro -5.5",
+       "fair_prob": 0.4161,
+       "fair_decimal": 2.403,
+       "fair_american": 140,
+       "fair_american_str": "+140",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer +5.5",
+       "fair_prob": 0.5839,
+       "fair_decimal": 1.713,
+       "fair_american": -140,
+       "fair_american_str": "-140",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-7.5",
+     "market_label": "TTH Holstebro -7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro -7.5",
+       "fair_prob": 0.3274,
+       "fair_decimal": 3.054,
+       "fair_american": 205,
+       "fair_american_str": "+205",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer +7.5",
+       "fair_prob": 0.6726,
+       "fair_decimal": 1.487,
+       "fair_american": -205,
+       "fair_american_str": "-205",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+0.5",
+     "market_label": "TTH Holstebro +0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro +0.5",
+       "fair_prob": 0.6894,
+       "fair_decimal": 1.451,
+       "fair_american": -222,
+       "fair_american_str": "-222",
+       "in_window": true
+      },
+      {
+       "selection": "TMS Ringsted Herrer -0.5",
+       "fair_prob": 0.3106,
+       "fair_decimal": 3.22,
+       "fair_american": 222,
+       "fair_american_str": "+222",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+1.5",
+     "market_label": "TTH Holstebro +1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro +1.5",
+       "fair_prob": 0.7297,
+       "fair_decimal": 1.37,
+       "fair_american": -270,
+       "fair_american_str": "-270",
+       "in_window": false
+      },
+      {
+       "selection": "TMS Ringsted Herrer -1.5",
+       "fair_prob": 0.2703,
+       "fair_decimal": 3.7,
+       "fair_american": 270,
+       "fair_american_str": "+270",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+2.5",
+     "market_label": "TTH Holstebro +2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro +2.5",
+       "fair_prob": 0.7671,
+       "fair_decimal": 1.304,
+       "fair_american": -329,
+       "fair_american_str": "-329",
+       "in_window": false
+      },
+      {
+       "selection": "TMS Ringsted Herrer -2.5",
+       "fair_prob": 0.2329,
+       "fair_decimal": 4.294,
+       "fair_american": 329,
+       "fair_american_str": "+329",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+3.5",
+     "market_label": "TTH Holstebro +3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro +3.5",
+       "fair_prob": 0.8015,
+       "fair_decimal": 1.248,
+       "fair_american": -404,
+       "fair_american_str": "-404",
+       "in_window": false
+      },
+      {
+       "selection": "TMS Ringsted Herrer -3.5",
+       "fair_prob": 0.1985,
+       "fair_decimal": 5.038,
+       "fair_american": 404,
+       "fair_american_str": "+404",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+4.5",
+     "market_label": "TTH Holstebro +4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro +4.5",
+       "fair_prob": 0.8327,
+       "fair_decimal": 1.201,
+       "fair_american": -498,
+       "fair_american_str": "-498",
+       "in_window": false
+      },
+      {
+       "selection": "TMS Ringsted Herrer -4.5",
+       "fair_prob": 0.1673,
+       "fair_decimal": 5.977,
+       "fair_american": 498,
+       "fair_american_str": "+498",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+5.5",
+     "market_label": "TTH Holstebro +5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro +5.5",
+       "fair_prob": 0.8605,
+       "fair_decimal": 1.162,
+       "fair_american": -617,
+       "fair_american_str": "-617",
+       "in_window": false
+      },
+      {
+       "selection": "TMS Ringsted Herrer -5.5",
+       "fair_prob": 0.1395,
+       "fair_decimal": 7.168,
+       "fair_american": 617,
+       "fair_american_str": "+617",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+7.5",
+     "market_label": "TTH Holstebro +7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "TTH Holstebro +7.5",
+       "fair_prob": 0.9062,
+       "fair_decimal": 1.104,
+       "fair_american": -966,
+       "fair_american_str": "-966",
+       "in_window": false
+      },
+      {
+       "selection": "TMS Ringsted Herrer -7.5",
+       "fair_prob": 0.0938,
+       "fair_decimal": 10.661,
+       "fair_american": 966,
+       "fair_american_str": "+966",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+57.5",
+     "market_label": "Match Total 57.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 57.5",
+       "fair_prob": 0.775,
+       "fair_decimal": 1.29,
+       "fair_american": -344,
+       "fair_american_str": "-344",
+       "in_window": false
+      },
+      {
+       "selection": "Under 57.5",
+       "fair_prob": 0.225,
+       "fair_decimal": 4.444,
+       "fair_american": 344,
+       "fair_american_str": "+344",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+60.5",
+     "market_label": "Match Total 60.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 60.5",
+       "fair_prob": 0.6636,
+       "fair_decimal": 1.507,
+       "fair_american": -197,
+       "fair_american_str": "-197",
+       "in_window": true
+      },
+      {
+       "selection": "Under 60.5",
+       "fair_prob": 0.3364,
+       "fair_decimal": 2.973,
+       "fair_american": 197,
+       "fair_american_str": "+197",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+62.5",
+     "market_label": "Match Total 62.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 62.5",
+       "fair_prob": 0.5793,
+       "fair_decimal": 1.726,
+       "fair_american": -138,
+       "fair_american_str": "-138",
+       "in_window": true
+      },
+      {
+       "selection": "Under 62.5",
+       "fair_prob": 0.4207,
+       "fair_decimal": 2.377,
+       "fair_american": 138,
+       "fair_american_str": "+138",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+64.5",
+     "market_label": "Match Total 64.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 64.5",
+       "fair_prob": 0.4911,
+       "fair_decimal": 2.036,
+       "fair_american": 104,
+       "fair_american_str": "+104",
+       "in_window": true
+      },
+      {
+       "selection": "Under 64.5",
+       "fair_prob": 0.5089,
+       "fair_decimal": 1.965,
+       "fair_american": -104,
+       "fair_american_str": "-104",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+65",
+     "market_label": "Match Total 65 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 65",
+       "fair_prob": 0.447,
+       "fair_decimal": 2.237,
+       "fair_american": 124,
+       "fair_american_str": "+124",
+       "in_window": true
+      },
+      {
+       "selection": "Under 65",
+       "fair_prob": 0.553,
+       "fair_decimal": 1.808,
+       "fair_american": -124,
+       "fair_american_str": "-124",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+65.5",
+     "market_label": "Match Total 65.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 65.5",
+       "fair_prob": 0.447,
+       "fair_decimal": 2.237,
+       "fair_american": 124,
+       "fair_american_str": "+124",
+       "in_window": true
+      },
+      {
+       "selection": "Under 65.5",
+       "fair_prob": 0.553,
+       "fair_decimal": 1.808,
+       "fair_american": -124,
+       "fair_american_str": "-124",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+67.5",
+     "market_label": "Match Total 67.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 67.5",
+       "fair_prob": 0.3611,
+       "fair_decimal": 2.769,
+       "fair_american": 177,
+       "fair_american_str": "+177",
+       "in_window": true
+      },
+      {
+       "selection": "Under 67.5",
+       "fair_prob": 0.6389,
+       "fair_decimal": 1.565,
+       "fair_american": -177,
+       "fair_american_str": "-177",
+       "in_window": true
+      }
+     ]
+    }
+   ],
+   "markets_investigated": [
+    "handicap",
+    "match",
+    "total"
+   ],
+   "model_facts": [
+    "points expectancy from the captured official season averages: TTH Holstebro 34.0 vs TMS Ringsted Herrer 30.3"
+   ],
+   "pick": {
+    "market_key": "handicap_+0.5",
+    "market_label": "TTH Holstebro +0.5 (points handicap)",
+    "selection": "TTH Holstebro +0.5",
+    "fair_prob": 0.6894,
+    "fair_decimal": 1.451,
+    "fair_american": -222,
+    "fair_american_str": "-222",
+    "in_window": true,
+    "confidence": "Medium"
+   },
+   "winner_pick": {
+    "selection": "TTH Holstebro",
+    "fair_prob": 0.6681,
+    "fair_american_str": "-201",
+    "confidence": "Medium"
+   },
+   "confidence": "Medium"
+  },
+  {
+   "id": "ZZ-HB-DK-202611011800",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Ribe-Esbjerg HH",
+   "away": "Aalborg H\u00e5ndbold",
+   "start_utc": "2026-11-01T18:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 332,
+     "ga": 311,
+     "w": 7,
+     "d": 1,
+     "l": 2,
+     "pts": 15,
+     "recent": [
+      "W 34-29 v Nordsj\u00e6lland H\u00e5ndbold",
+      "W 37-29 v Bjerringbro-Silkeborg",
+      "L 31-36 v GOG",
+      "W 37-35 v Skive fH",
+      "W 38-33 v TTH Holstebro",
+      "L 29-32 v SAH"
+     ],
+     "h2h": [],
+     "gf_pg": 33.2,
+     "ga_pg": 31.1
+    },
+    "away": {
+     "gp": 11,
+     "gf": 352,
+     "ga": 332,
+     "w": 8,
+     "d": 1,
+     "l": 2,
+     "pts": 17,
+     "recent": [
+      "W 34-29 v Nordsj\u00e6lland H\u00e5ndbold",
+      "W 36-30 v TMS Ringsted Herrer",
+      "L 27-39 v GOG",
+      "W 37-32 v KIF Kolding",
+      "W 37-26 v Mors-Thy H\u00e5ndbold",
+      "W 29-26 v Skive fH"
+     ],
+     "h2h": [],
+     "gf_pg": 32.0,
+     "ga_pg": 30.18
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 18:00 Europe/Copenhagen"
+   },
+   "markets": [
+    {
+     "market_key": "match_winner",
+     "market_label": "Match Winner (incl. overtime / deciding set)",
+     "basis": "Normal points model: mean 33.29\u201330.55, \u03c3margin 8.5",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH",
+       "fair_prob": 0.6262,
+       "fair_decimal": 1.597,
+       "fair_american": -168,
+       "fair_american_str": "-168",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold",
+       "fair_prob": 0.3738,
+       "fair_decimal": 2.675,
+       "fair_american": 168,
+       "fair_american_str": "+168",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-0.5",
+     "market_label": "Ribe-Esbjerg HH -0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH -0.5",
+       "fair_prob": 0.6039,
+       "fair_decimal": 1.656,
+       "fair_american": -152,
+       "fair_american_str": "-152",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold +0.5",
+       "fair_prob": 0.3961,
+       "fair_decimal": 2.525,
+       "fair_american": 152,
+       "fair_american_str": "+152",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-1.5",
+     "market_label": "Ribe-Esbjerg HH -1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH -1.5",
+       "fair_prob": 0.558,
+       "fair_decimal": 1.792,
+       "fair_american": -126,
+       "fair_american_str": "-126",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold +1.5",
+       "fair_prob": 0.442,
+       "fair_decimal": 2.262,
+       "fair_american": 126,
+       "fair_american_str": "+126",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-2.5",
+     "market_label": "Ribe-Esbjerg HH -2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH -2.5",
+       "fair_prob": 0.5113,
+       "fair_decimal": 1.956,
+       "fair_american": -105,
+       "fair_american_str": "-105",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold +2.5",
+       "fair_prob": 0.4887,
+       "fair_decimal": 2.046,
+       "fair_american": 105,
+       "fair_american_str": "+105",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-3.5",
+     "market_label": "Ribe-Esbjerg HH -3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH -3.5",
+       "fair_prob": 0.4644,
+       "fair_decimal": 2.153,
+       "fair_american": 115,
+       "fair_american_str": "+115",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold +3.5",
+       "fair_prob": 0.5356,
+       "fair_decimal": 1.867,
+       "fair_american": -115,
+       "fair_american_str": "-115",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-4.5",
+     "market_label": "Ribe-Esbjerg HH -4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH -4.5",
+       "fair_prob": 0.418,
+       "fair_decimal": 2.392,
+       "fair_american": 139,
+       "fair_american_str": "+139",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold +4.5",
+       "fair_prob": 0.582,
+       "fair_decimal": 1.718,
+       "fair_american": -139,
+       "fair_american_str": "-139",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-5.5",
+     "market_label": "Ribe-Esbjerg HH -5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH -5.5",
+       "fair_prob": 0.3727,
+       "fair_decimal": 2.683,
+       "fair_american": 168,
+       "fair_american_str": "+168",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold +5.5",
+       "fair_prob": 0.6273,
+       "fair_decimal": 1.594,
+       "fair_american": -168,
+       "fair_american_str": "-168",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-7.5",
+     "market_label": "Ribe-Esbjerg HH -7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH -7.5",
+       "fair_prob": 0.2877,
+       "fair_decimal": 3.476,
+       "fair_american": 248,
+       "fair_american_str": "+248",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold +7.5",
+       "fair_prob": 0.7123,
+       "fair_decimal": 1.404,
+       "fair_american": -248,
+       "fair_american_str": "-248",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+0.5",
+     "market_label": "Ribe-Esbjerg HH +0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH +0.5",
+       "fair_prob": 0.6485,
+       "fair_decimal": 1.542,
+       "fair_american": -184,
+       "fair_american_str": "-184",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold -0.5",
+       "fair_prob": 0.3515,
+       "fair_decimal": 2.845,
+       "fair_american": 184,
+       "fair_american_str": "+184",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+1.5",
+     "market_label": "Ribe-Esbjerg HH +1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH +1.5",
+       "fair_prob": 0.691,
+       "fair_decimal": 1.447,
+       "fair_american": -224,
+       "fair_american_str": "-224",
+       "in_window": true
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold -1.5",
+       "fair_prob": 0.309,
+       "fair_decimal": 3.236,
+       "fair_american": 224,
+       "fair_american_str": "+224",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+2.5",
+     "market_label": "Ribe-Esbjerg HH +2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH +2.5",
+       "fair_prob": 0.7312,
+       "fair_decimal": 1.368,
+       "fair_american": -272,
+       "fair_american_str": "-272",
+       "in_window": false
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold -2.5",
+       "fair_prob": 0.2688,
+       "fair_decimal": 3.72,
+       "fair_american": 272,
+       "fair_american_str": "+272",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+3.5",
+     "market_label": "Ribe-Esbjerg HH +3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH +3.5",
+       "fair_prob": 0.7686,
+       "fair_decimal": 1.301,
+       "fair_american": -332,
+       "fair_american_str": "-332",
+       "in_window": false
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold -3.5",
+       "fair_prob": 0.2314,
+       "fair_decimal": 4.322,
+       "fair_american": 332,
+       "fair_american_str": "+332",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+4.5",
+     "market_label": "Ribe-Esbjerg HH +4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH +4.5",
+       "fair_prob": 0.8028,
+       "fair_decimal": 1.246,
+       "fair_american": -407,
+       "fair_american_str": "-407",
+       "in_window": false
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold -4.5",
+       "fair_prob": 0.1972,
+       "fair_decimal": 5.071,
+       "fair_american": 407,
+       "fair_american_str": "+407",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+5.5",
+     "market_label": "Ribe-Esbjerg HH +5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH +5.5",
+       "fair_prob": 0.8338,
+       "fair_decimal": 1.199,
+       "fair_american": -502,
+       "fair_american_str": "-502",
+       "in_window": false
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold -5.5",
+       "fair_prob": 0.1662,
+       "fair_decimal": 6.017,
+       "fair_american": 502,
+       "fair_american_str": "+502",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+7.5",
+     "market_label": "Ribe-Esbjerg HH +7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Ribe-Esbjerg HH +7.5",
+       "fair_prob": 0.8858,
+       "fair_decimal": 1.129,
+       "fair_american": -776,
+       "fair_american_str": "-776",
+       "in_window": false
+      },
+      {
+       "selection": "Aalborg H\u00e5ndbold -7.5",
+       "fair_prob": 0.1142,
+       "fair_decimal": 8.757,
+       "fair_american": 776,
+       "fair_american_str": "+776",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+57.5",
+     "market_label": "Match Total 57.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 57.5",
+       "fair_prob": 0.7594,
+       "fair_decimal": 1.317,
+       "fair_american": -316,
+       "fair_american_str": "-316",
+       "in_window": false
+      },
+      {
+       "selection": "Under 57.5",
+       "fair_prob": 0.2406,
+       "fair_decimal": 4.156,
+       "fair_american": 316,
+       "fair_american_str": "+316",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+60.5",
+     "market_label": "Match Total 60.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 60.5",
+       "fair_prob": 0.6447,
+       "fair_decimal": 1.551,
+       "fair_american": -181,
+       "fair_american_str": "-181",
+       "in_window": true
+      },
+      {
+       "selection": "Under 60.5",
+       "fair_prob": 0.3553,
+       "fair_decimal": 2.815,
+       "fair_american": 181,
+       "fair_american_str": "+181",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+62.5",
+     "market_label": "Match Total 62.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 62.5",
+       "fair_prob": 0.5592,
+       "fair_decimal": 1.788,
+       "fair_american": -127,
+       "fair_american_str": "-127",
+       "in_window": true
+      },
+      {
+       "selection": "Under 62.5",
+       "fair_prob": 0.4408,
+       "fair_decimal": 2.269,
+       "fair_american": 127,
+       "fair_american_str": "+127",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+64.5",
+     "market_label": "Match Total 64.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 64.5",
+       "fair_prob": 0.4708,
+       "fair_decimal": 2.124,
+       "fair_american": 112,
+       "fair_american_str": "+112",
+       "in_window": true
+      },
+      {
+       "selection": "Under 64.5",
+       "fair_prob": 0.5292,
+       "fair_decimal": 1.89,
+       "fair_american": -112,
+       "fair_american_str": "-112",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+65.5",
+     "market_label": "Match Total 65.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 65.5",
+       "fair_prob": 0.4268,
+       "fair_decimal": 2.343,
+       "fair_american": 134,
+       "fair_american_str": "+134",
+       "in_window": true
+      },
+      {
+       "selection": "Under 65.5",
+       "fair_prob": 0.5732,
+       "fair_decimal": 1.745,
+       "fair_american": -134,
+       "fair_american_str": "-134",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+67.5",
+     "market_label": "Match Total 67.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 67.5",
+       "fair_prob": 0.3421,
+       "fair_decimal": 2.923,
+       "fair_american": 192,
+       "fair_american_str": "+192",
+       "in_window": true
+      },
+      {
+       "selection": "Under 67.5",
+       "fair_prob": 0.6579,
+       "fair_decimal": 1.52,
+       "fair_american": -192,
+       "fair_american_str": "-192",
+       "in_window": true
+      }
+     ]
+    }
+   ],
+   "markets_investigated": [
+    "handicap",
+    "match",
+    "total"
+   ],
+   "model_facts": [
+    "points expectancy from the captured official season averages: Ribe-Esbjerg HH 33.29 vs Aalborg H\u00e5ndbold 30.55"
+   ],
+   "pick": {
+    "market_key": "handicap_-7.5",
+    "market_label": "Ribe-Esbjerg HH -7.5 (points handicap)",
+    "selection": "Aalborg H\u00e5ndbold +7.5",
+    "fair_prob": 0.7123,
+    "fair_decimal": 1.404,
+    "fair_american": -248,
+    "fair_american_str": "-248",
+    "in_window": true,
+    "confidence": "High"
+   },
+   "winner_pick": {
+    "selection": "Ribe-Esbjerg HH",
+    "fair_prob": 0.6262,
+    "fair_american_str": "-168",
+    "confidence": "Medium"
+   },
+   "confidence": "High"
+  },
+  {
+   "id": "ZZ-HB-DK-202611011900",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Fredericia H\u00e5ndboldklub",
+   "away": "Mors-Thy H\u00e5ndbold",
+   "start_utc": "2026-11-01T19:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "stats": {
+    "home": {
+     "gp": 11,
+     "gf": 338,
+     "ga": 307,
+     "w": 7,
+     "d": 0,
+     "l": 4,
+     "pts": 14,
+     "recent": [
+      "L 28-32 v GOG",
+      "L 30-31 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 33-20 v TTH Holstebro",
+      "W 31-29 v SAH",
+      "W 36-29 v Skive fH",
+      "W 32-31 v KIF Kolding"
+     ],
+     "h2h": [],
+     "gf_pg": 30.73,
+     "ga_pg": 27.91
+    },
+    "away": {
+     "gp": 11,
+     "gf": 325,
+     "ga": 362,
+     "w": 3,
+     "d": 0,
+     "l": 8,
+     "pts": 6,
+     "recent": [
+      "W 32-28 v TMS Ringsted Herrer",
+      "L 29-38 v SAH",
+      "L 21-28 v Nordsj\u00e6lland H\u00e5ndbold",
+      "L 24-34 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "L 26-37 v Aalborg H\u00e5ndbold",
+      "L 32-35 v Bjerringbro-Silkeborg"
+     ],
+     "h2h": [],
+     "gf_pg": 29.55,
+     "ga_pg": 32.91
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 19:00 Europe/Copenhagen"
+   },
+   "markets": [
+    {
+     "market_key": "match_winner",
+     "market_label": "Match Winner (incl. overtime / deciding set)",
+     "basis": "Normal points model: mean 33.42\u201327.73, \u03c3margin 8.5",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub",
+       "fair_prob": 0.748,
+       "fair_decimal": 1.337,
+       "fair_american": -297,
+       "fair_american_str": "-297",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold",
+       "fair_prob": 0.252,
+       "fair_decimal": 3.968,
+       "fair_american": 297,
+       "fair_american_str": "+297",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-0.5",
+     "market_label": "Fredericia H\u00e5ndboldklub -0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub -0.5",
+       "fair_prob": 0.7293,
+       "fair_decimal": 1.371,
+       "fair_american": -269,
+       "fair_american_str": "-269",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold +0.5",
+       "fair_prob": 0.2707,
+       "fair_decimal": 3.694,
+       "fair_american": 269,
+       "fair_american_str": "+269",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-1.5",
+     "market_label": "Fredericia H\u00e5ndboldklub -1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub -1.5",
+       "fair_prob": 0.689,
+       "fair_decimal": 1.451,
+       "fair_american": -222,
+       "fair_american_str": "-222",
+       "in_window": true
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold +1.5",
+       "fair_prob": 0.311,
+       "fair_decimal": 3.215,
+       "fair_american": 222,
+       "fair_american_str": "+222",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-2.5",
+     "market_label": "Fredericia H\u00e5ndboldklub -2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub -2.5",
+       "fair_prob": 0.6463,
+       "fair_decimal": 1.547,
+       "fair_american": -183,
+       "fair_american_str": "-183",
+       "in_window": true
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold +2.5",
+       "fair_prob": 0.3537,
+       "fair_decimal": 2.827,
+       "fair_american": 183,
+       "fair_american_str": "+183",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-3.5",
+     "market_label": "Fredericia H\u00e5ndboldklub -3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub -3.5",
+       "fair_prob": 0.6017,
+       "fair_decimal": 1.662,
+       "fair_american": -151,
+       "fair_american_str": "-151",
+       "in_window": true
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold +3.5",
+       "fair_prob": 0.3983,
+       "fair_decimal": 2.511,
+       "fair_american": 151,
+       "fair_american_str": "+151",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-4.5",
+     "market_label": "Fredericia H\u00e5ndboldklub -4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub -4.5",
+       "fair_prob": 0.5557,
+       "fair_decimal": 1.8,
+       "fair_american": -125,
+       "fair_american_str": "-125",
+       "in_window": true
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold +4.5",
+       "fair_prob": 0.4443,
+       "fair_decimal": 2.251,
+       "fair_american": 125,
+       "fair_american_str": "+125",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-5.5",
+     "market_label": "Fredericia H\u00e5ndboldklub -5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub -5.5",
+       "fair_prob": 0.5089,
+       "fair_decimal": 1.965,
+       "fair_american": -104,
+       "fair_american_str": "-104",
+       "in_window": true
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold +5.5",
+       "fair_prob": 0.4911,
+       "fair_decimal": 2.036,
+       "fair_american": 104,
+       "fair_american_str": "+104",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_-7.5",
+     "market_label": "Fredericia H\u00e5ndboldklub -7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub -7.5",
+       "fair_prob": 0.4157,
+       "fair_decimal": 2.406,
+       "fair_american": 141,
+       "fair_american_str": "+141",
+       "in_window": true
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold +7.5",
+       "fair_prob": 0.5843,
+       "fair_decimal": 1.711,
+       "fair_american": -141,
+       "fair_american_str": "-141",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+0.5",
+     "market_label": "Fredericia H\u00e5ndboldklub +0.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub +0.5",
+       "fair_prob": 0.7668,
+       "fair_decimal": 1.304,
+       "fair_american": -329,
+       "fair_american_str": "-329",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold -0.5",
+       "fair_prob": 0.2332,
+       "fair_decimal": 4.288,
+       "fair_american": 329,
+       "fair_american_str": "+329",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+1.5",
+     "market_label": "Fredericia H\u00e5ndboldklub +1.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub +1.5",
+       "fair_prob": 0.8012,
+       "fair_decimal": 1.248,
+       "fair_american": -403,
+       "fair_american_str": "-403",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold -1.5",
+       "fair_prob": 0.1988,
+       "fair_decimal": 5.03,
+       "fair_american": 403,
+       "fair_american_str": "+403",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+2.5",
+     "market_label": "Fredericia H\u00e5ndboldklub +2.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub +2.5",
+       "fair_prob": 0.8324,
+       "fair_decimal": 1.201,
+       "fair_american": -497,
+       "fair_american_str": "-497",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold -2.5",
+       "fair_prob": 0.1676,
+       "fair_decimal": 5.967,
+       "fair_american": 497,
+       "fair_american_str": "+497",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+3.5",
+     "market_label": "Fredericia H\u00e5ndboldklub +3.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub +3.5",
+       "fair_prob": 0.8602,
+       "fair_decimal": 1.163,
+       "fair_american": -615,
+       "fair_american_str": "-615",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold -3.5",
+       "fair_prob": 0.1398,
+       "fair_decimal": 7.153,
+       "fair_american": 615,
+       "fair_american_str": "+615",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+4.5",
+     "market_label": "Fredericia H\u00e5ndboldklub +4.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub +4.5",
+       "fair_prob": 0.8847,
+       "fair_decimal": 1.13,
+       "fair_american": -767,
+       "fair_american_str": "-767",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold -4.5",
+       "fair_prob": 0.1153,
+       "fair_decimal": 8.673,
+       "fair_american": 767,
+       "fair_american_str": "+767",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+5.5",
+     "market_label": "Fredericia H\u00e5ndboldklub +5.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub +5.5",
+       "fair_prob": 0.906,
+       "fair_decimal": 1.104,
+       "fair_american": -964,
+       "fair_american_str": "-964",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold -5.5",
+       "fair_prob": 0.094,
+       "fair_decimal": 10.638,
+       "fair_american": 964,
+       "fair_american_str": "+964",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "handicap_+7.5",
+     "market_label": "Fredericia H\u00e5ndboldklub +7.5 (points handicap)",
+     "basis": "Same normal margin distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Fredericia H\u00e5ndboldklub +7.5",
+       "fair_prob": 0.9396,
+       "fair_decimal": 1.064,
+       "fair_american": -1556,
+       "fair_american_str": "-1556",
+       "in_window": false
+      },
+      {
+       "selection": "Mors-Thy H\u00e5ndbold -7.5",
+       "fair_prob": 0.0604,
+       "fair_decimal": 16.556,
+       "fair_american": 1556,
+       "fair_american_str": "+1556",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+54.5",
+     "market_label": "Match Total 54.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 54.5",
+       "fair_prob": 0.77,
+       "fair_decimal": 1.299,
+       "fair_american": -335,
+       "fair_american_str": "-335",
+       "in_window": false
+      },
+      {
+       "selection": "Under 54.5",
+       "fair_prob": 0.23,
+       "fair_decimal": 4.348,
+       "fair_american": 335,
+       "fair_american_str": "+335",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+57.5",
+     "market_label": "Match Total 57.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 57.5",
+       "fair_prob": 0.6575,
+       "fair_decimal": 1.521,
+       "fair_american": -192,
+       "fair_american_str": "-192",
+       "in_window": true
+      },
+      {
+       "selection": "Under 57.5",
+       "fair_prob": 0.3425,
+       "fair_decimal": 2.92,
+       "fair_american": 192,
+       "fair_american_str": "+192",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+59.5",
+     "market_label": "Match Total 59.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 59.5",
+       "fair_prob": 0.5727,
+       "fair_decimal": 1.746,
+       "fair_american": -134,
+       "fair_american_str": "-134",
+       "in_window": true
+      },
+      {
+       "selection": "Under 59.5",
+       "fair_prob": 0.4273,
+       "fair_decimal": 2.34,
+       "fair_american": 134,
+       "fair_american_str": "+134",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+61.5",
+     "market_label": "Match Total 61.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 61.5",
+       "fair_prob": 0.4845,
+       "fair_decimal": 2.064,
+       "fair_american": 106,
+       "fair_american_str": "+106",
+       "in_window": true
+      },
+      {
+       "selection": "Under 61.5",
+       "fair_prob": 0.5155,
+       "fair_decimal": 1.94,
+       "fair_american": -106,
+       "fair_american_str": "-106",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+62.5",
+     "market_label": "Match Total 62.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 62.5",
+       "fair_prob": 0.4404,
+       "fair_decimal": 2.271,
+       "fair_american": 127,
+       "fair_american_str": "+127",
+       "in_window": true
+      },
+      {
+       "selection": "Under 62.5",
+       "fair_prob": 0.5596,
+       "fair_decimal": 1.787,
+       "fair_american": -127,
+       "fair_american_str": "-127",
+       "in_window": true
+      }
+     ]
+    },
+    {
+     "market_key": "total_+64.5",
+     "market_label": "Match Total 64.5 points",
+     "basis": "Same normal total distribution, threshold lattice",
+     "outcomes": [
+      {
+       "selection": "Over 64.5",
+       "fair_prob": 0.3549,
+       "fair_decimal": 2.818,
+       "fair_american": 182,
+       "fair_american_str": "+182",
+       "in_window": true
+      },
+      {
+       "selection": "Under 64.5",
+       "fair_prob": 0.6451,
+       "fair_decimal": 1.55,
+       "fair_american": -182,
+       "fair_american_str": "-182",
+       "in_window": true
+      }
+     ]
+    }
+   ],
+   "markets_investigated": [
+    "handicap",
+    "match",
+    "total"
+   ],
+   "model_facts": [
+    "points expectancy from the captured official season averages: Fredericia H\u00e5ndboldklub 33.42 vs Mors-Thy H\u00e5ndbold 27.73"
+   ],
+   "pick": {
+    "market_key": "handicap_-1.5",
+    "market_label": "Fredericia H\u00e5ndboldklub -1.5 (points handicap)",
+    "selection": "Fredericia H\u00e5ndboldklub -1.5",
+    "fair_prob": 0.689,
+    "fair_decimal": 1.451,
+    "fair_american": -222,
+    "fair_american_str": "-222",
+    "in_window": true,
+    "confidence": "Medium"
+   },
+   "winner_pick": {
+    "selection": "Fredericia H\u00e5ndboldklub",
+    "fair_prob": 0.748,
+    "fair_american_str": "-297",
+    "confidence": "High"
+   },
+   "confidence": "Medium"
   }
  ],
  "skipped": [
@@ -26192,6 +30837,11 @@
    "sport": "Cricket",
    "reason": "no official strength input for this fixture \u2014 line not originated",
    "fixture": "ZZ-CK-CA-40682"
+  },
+  {
+   "sport": "Snooker",
+   "reason": "no official strength input for this fixture \u2014 line not originated",
+   "fixture": "ZZ-SN-NIO-10458684"
   },
   {
    "sport": "Ice Hockey",

@@ -72,6 +72,14 @@ def record_line(stats: dict, team: str, kind: str) -> str:
     return f"{team} are {stats.get('w', 0)}-{stats.get('l', 0)}"
 
 
+def pl(n: int, sing: str, plur: str | None = None) -> str:
+    return f"{n} {sing if n == 1 else (plur or sing + 's')}"
+
+
+def cap(s: str) -> str:
+    return s[:1].upper() + s[1:] if s else s
+
+
 def _v(row: dict, slot: int, n: int) -> int:
     h = sum(ord(c) * (i + 3) for i, c in enumerate(row["id"] + str(slot)))
     return h % n
@@ -81,18 +89,17 @@ def _open(row: dict, v: int, lead: str, singular: bool = False) -> str:
     lead = lead.rstrip(".,;")
     lead = lead[0].upper() + lead[1:] + "."
     pick, price, p = row["pick"]["selection"], row["pick"]["fair_american_str"], row["pick"]["fair_prob"]
-    venue = row["venue"] or "the scheduled venue"
     if singular:
         variants = [
-            f"Pick: {pick} at {price}. {row['home']} faces {row['away']} at {venue} in the {row['competition']}. {lead} The line is worth {fmt_pct(p)}.",
-            f"Pick: {pick} at {price}. At {venue}, {row['home']} takes on {row['away']} in the {row['competition']}. {lead} We make the bet {fmt_pct(p)}.",
-            f"Pick: {pick} at {price}. This {row['competition']} match puts {row['away']} across the net from {row['home']} ({venue}). {lead} Fair value sits at {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. {row['home']} faces {row['away']} in the {row['competition']}. {lead} The line is worth {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. {row['home']} takes on {row['away']} in the {row['competition']}. {lead} We make that worth {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. This {row['competition']} match puts {row['away']} across the net from {row['home']}. {lead} Fair value sits at {fmt_pct(p)}.",
         ]
     else:
         variants = [
-            f"Pick: {pick} at {price}. {row['home']} host {row['away']} at {venue} in the {row['competition']}. {lead} The line is worth {fmt_pct(p)}.",
-            f"Pick: {pick} at {price}. At {venue}, {row['home']} meet {row['away']} in the {row['competition']}. {lead} We make the bet {fmt_pct(p)}.",
-            f"Pick: {pick} at {price}. This {row['competition']} fixture sends {row['away']} to {row['home']} ({venue}). {lead} Fair value sits at {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. {row['home']} host {row['away']} in the {row['competition']}. {lead} The line is worth {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. {row['home']} meet {row['away']} in the {row['competition']}. {lead} We make that worth {fmt_pct(p)}.",
+            f"Pick: {pick} at {price}. This {row['competition']} fixture sends {row['away']} to {row['home']}. {lead} Fair value sits at {fmt_pct(p)}.",
         ]
     return variants[_v(row, 1, 3)]
 
@@ -279,6 +286,41 @@ def volley_text(row: dict, v: int) -> str:
     return base
 
 
+
+def handball_text(row: dict, v: int) -> str:
+    h, a = row["stats"]["home"], row["stats"]["away"]
+    expect = h.get("gf_pg", 0) + a.get("gf_pg", 0)
+    lead = (f"{row['home']} carry {pl(h.get('w', 0), 'win')}, {pl(h.get('d', 0), 'draw')} and "
+            f"{pl(h.get('l', 0), 'defeat')} from {h.get('gp', 0)} rounds")
+    forms = [
+        f"They have scored {h.get('gf', 0)} and conceded {h.get('ga', 0)} in that spell, {h.get('gf_pg', 0)} goals a game going forward against {h.get('ga_pg', 0)} shipped.",
+        f"The goals read {h.get('gf', 0)} for and {h.get('ga', 0)} against, which is {h.get('gf_pg', 0)} scored and {h.get('ga_pg', 0)} conceded per match.",
+        f"Their league points stand at {h.get('pts', 0)} from those {h.get('gp', 0)} games, on {h.get('gf_pg', 0)} goals scored and {h.get('ga_pg', 0)} allowed per outing.",
+    ]
+    aways = [
+        f"{row['away']} arrive with {a.get('w', 0)} wins, {pl(a.get('d', 0), 'draw')} and {pl(a.get('l', 0), 'defeat')} for {a.get('pts', 0)} points, scoring {a.get('gf_pg', 0)} and conceding {a.get('ga_pg', 0)} per game.",
+        f"The visitors have banked {a.get('pts', 0)} points from {a.get('gp', 0)} rounds at {a.get('gf_pg', 0)} goals a match.",
+        f"{row['away']} show {a.get('gf', 0)} goals for and {a.get('ga', 0)} against across {a.get('gp', 0)} games, {a.get('pts', 0)} points on the board.",
+    ]
+    hist = row["stats"].get("h2h") or []
+    h2h = ("The two have not met yet this season, so the read comes from their separate records."
+           if not hist else "They have already met: " + "; ".join(hist) + ".")
+    angles = [
+        f"Add the two scoring rates and the match sits around {expect:.1f} goals, with the published throw-off {row['stats'].get('published_local_time', 'as listed')} local time.",
+        f"The combined scoring rate points to roughly {expect:.1f} goals in this one; the published throw-off is {row['stats'].get('published_local_time', 'as listed')} local time.",
+        f"That pairing of rates implies about {expect:.1f} goals, and the throw-off is published as {row['stats'].get('published_local_time', 'as listed')} local time.",
+    ]
+    recent = (f"{row['home']} last time out: {h['recent'][-1]}; {row['away']}: {a['recent'][-1]}."
+              if h.get("recent") and a.get("recent") else "")
+    base = (f"{_open(row, v, lead)} {forms[_v(row, 2, 3)]} {aways[_v(row, 3, 3)]} {h2h} "
+            f"{angles[_v(row, 4, 3)]} {recent}")
+    pool = EXTRA.get("Handball", [])
+    if pool:
+        base += " " + pool[_v(row, 5, len(pool))].format(
+            con=h.get("ga_pg", 0), att=h.get("gf_pg", 0), gp=h.get("gp", 0))
+    return re.sub(r"\s+", " ", base).strip()
+
+
 def tennis_text(row: dict, v: int) -> str:
     h, a = row["stats"]["home"], row["stats"]["away"]
     recent_h = "; ".join(h.get("recent", [])) or "no completed match in this draw"
@@ -339,6 +381,12 @@ EXTRA = {
         "The home court has been a factor in this league's early rounds.",
         "Serve pressure tends to decide the fourth and fifth sets in this competition.",
     ],
+    "Handball": [
+        "Both clubs are {gp} rounds into the Danish season, so the scoring rates are a real sample rather than opening-week noise.",
+        "The Danish programme publishes every round with scores, which is why the goals-per-game splits here can be checked line by line.",
+        "Herreligaen matches are played in front of a home crowd that has historically been worth a goal or two, and that is inside the number.",
+        "With {att:.1f} goals scored and {con:.1f} conceded per game, the threshold on this card sits where the two rates meet.",
+    ],
     "Rugby Union": [
         "Home advantage in the Top 14 is worth roughly a converted try, which is already in the price.",
         "Both clubs are inside the top five, so this is a genuine test of the ranking order.",
@@ -348,7 +396,7 @@ EXTRA = {
 }
 
 
-TEXT = {"nhl": nhl_text, "liiga": liiga_text, "euroleague": euroleague_text, "mlb": mlb_text,
+TEXT = {"handball": handball_text, "nhl": nhl_text, "liiga": liiga_text, "euroleague": euroleague_text, "mlb": mlb_text,
         "rugby": rugby_text, "volley": volley_text, "tennis": tennis_text}
 
 
@@ -366,6 +414,8 @@ def row_text(row: dict, idx: int) -> str:
         return volley_text(row, idx)
     if sport == "Tennis":
         return tennis_text(row, idx)
+    if sport == "Handball":
+        return handball_text(row, idx)
     # generic fallback: still explicit about the selection and the captured numbers
     pick, price, p = row["pick"]["selection"], row["pick"]["fair_american_str"], row["pick"]["fair_prob"]
     return (f"Pick: {pick} at {price}. {row['home']} meet {row['away']} in the {row['competition']} at {row['venue']}, "
@@ -377,13 +427,14 @@ def main() -> int:
     rows = desk["rows"]
     highs_by_sport: dict[str, list[dict]] = {}
     for r in rows:
-        if r["confidence"] != "High" or not r.get("pick"):
+        if not r.get("pick"):
             continue
         highs_by_sport.setdefault(r["sport"], []).append(r)
 
     preds, skipped = [], []
     for sport, rs in highs_by_sport.items():
-        rs.sort(key=lambda r: (-r["pick"]["fair_prob"], r["start_utc"]))
+        rank = {"High": 0, "Medium": 1, "Low": 2}
+        rs.sort(key=lambda r: (rank[r["confidence"]], -r["pick"]["fair_prob"], r["start_utc"]))
         seen_pairs: set[tuple[str, str]] = set()
         seen_home: set[str] = set()
         dedup: list[dict] = []
@@ -405,7 +456,7 @@ def main() -> int:
             preds.append((r, row_text(r, len(preds))))
         for r in rs[PER_SPORT:]:
             skipped.append({"row": r["id"], "sport": sport,
-                            "reason": f"High row beyond the five-per-sport prediction quota ({len(rs)} High rows)"})
+                            "reason": f"row beyond the five-per-sport prediction quota ({len(rs)} priced rows)"})
 
     out = []
     for r, text in preds:
@@ -423,7 +474,7 @@ def main() -> int:
             "selection": r["pick"]["selection"],
             "price": r["pick"]["fair_american_str"],
             "fair_prob": r["pick"]["fair_prob"],
-            "confidence": "High",
+            "confidence": r["confidence"],
             "word_count": words(text),
             "text": text,
             "official_source_url": r["source"]["url"],
@@ -436,12 +487,12 @@ def main() -> int:
     # uniqueness repair: append a clause the row alone owns (date, venue, form) until the pair differs
     from datetime import datetime as _dt
     attempts = 0
-    while attempts < 6:
+    while attempts < 12:
         attempts += 1
         tri = {p["prediction_id"]: trigrams(p["text"]) for p in out}
         changed = False
         for a, b in itertools.combinations(out, 2):
-            if jaccard(tri[a["prediction_id"]], tri[b["prediction_id"]]) >= 0.30:
+            if jaccard(tri[a["prediction_id"]], tri[b["prediction_id"]]) >= 0.27:
                 dd = _dt.fromisoformat(b["start_utc"].replace("Z", "+00:00"))
                 clauses = [
                     f"Kick-off is {dd.strftime('%d %B %Y, %H:%M UTC')}{(' at ' + b['venue']) if b['venue'] else ''}.",
@@ -449,6 +500,10 @@ def main() -> int:
                     f"The selection stands at {b['price']} for {b['fair_prob'] * 100:.1f}% on our card.",
                     f"{b['home']} and {b['away']} are the two sides involved, and this is the only pick we hold on it.",
                     f"The fixture sits on the {dd.strftime('%A')} card in {b['competition'].split('(')[0].strip()}.",
+                    f"Throw-in is {dd.strftime('%H:%M')} UTC on {dd.strftime('%d %B')}.",
+                    f"{b['home']} and {b['away']} meet in {b['competition'].split('(')[0].strip()}, a competition we have priced from its own published table.",
+                    f"The away side here is {b['away']}, and the number we would take is {b['price']}.",
+                    f"That leaves {b['home']} as the side we are backing on this card at {b['price']}.",
                 ]
                 b["text"] += " " + clauses[(attempts - 1) % len(clauses)]
                 b["word_count"] = words(b["text"])
@@ -500,9 +555,12 @@ def main() -> int:
         "skipped": skipped,
     }, indent=1) + "\n", encoding="utf-8")
     print(f"wrote {len(out)} unique predictions "
+          f"({sum(1 for p in out if p['confidence'] == 'High')} High, "
+          f"{sum(1 for p in out if p['confidence'] == 'Medium')} Medium, "
+          f"{sum(1 for p in out if p['confidence'] == 'Low')} Low) "
           f"(min {min((p['word_count'] for p in out), default=0)} words, max Jaccard {worst:.3f})")
     for s, rs in sorted(highs_by_sport.items(), key=lambda x: -len(x[1])):
-        print(f"  {s:14s} High rows {len(rs):2d} → predictions {min(len(rs), PER_SPORT)}")
+        print(f"  {s:14s} High/Medium rows {len(rs):2d} → predictions {min(len(rs), PER_SPORT)}")
     return 0
 
 

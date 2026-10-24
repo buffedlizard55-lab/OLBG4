@@ -4,7 +4,7 @@
  "session": "arena/edffdbc6-olbg4",
  "capture_id": "20261024T171532Z",
  "cutoff_utc": "2026-10-24T17:15:32Z",
- "count": 154,
+ "count": 163,
  "by_sport": {
   "Ice Hockey": 85,
   "Baseball": 6,
@@ -12,9 +12,45 @@
   "Tennis": 16,
   "Volleyball": 11,
   "Cricket": 14,
-  "Rugby Union": 2
+  "Rugby Union": 2,
+  "Handball": 8,
+  "Snooker": 1
  },
  "fixtures": [
+  {
+   "id": "ZZ-SN-NIO-10458684",
+   "sport": "Snooker",
+   "competition": "BetVictor Northern Ireland Open 2026",
+   "stage": "Semi-final",
+   "home": "Mark J Williams",
+   "away": "Jak Jones",
+   "start_utc": "2026-10-24T18:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://www.snooker.org/res/index.asp?event=2548",
+    "name": "snooker.org official event match list & schedule",
+    "target_id": "snooker_api_matches_2548",
+    "sha256": "d82da42fbca423a75b2a0c973718e4549ad7c22b52c7fb67d65159591d217fe5",
+    "bytes": 51693
+   },
+   "model": {
+    "kind": "none"
+   },
+   "stats": {
+    "frames": {
+     "Mark J Williams": {
+      "won": 18,
+      "lost": 8
+     },
+     "Jak Jones": {
+      "won": 18,
+      "lost": 10
+     }
+    },
+    "round_length_published": false
+   },
+   "game_id": "sn-10458684"
+  },
   {
    "id": "ZZ-RU-T14-rc-toulon-section-paloise-202610241900",
    "sport": "Rugby Union",
@@ -1364,6 +1400,71 @@
     "p_home": null
    },
    "game_id": "Podziemia Kredowe ChKS Che\u0142m|Asseco Resovia Rzesz\u00f3w|202610251600"
+  },
+  {
+   "id": "ZZ-HB-DK-202610251700",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "TMS Ringsted Herrer",
+   "away": "GOG",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "model": {
+    "kind": "normal_points_handball"
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 306,
+     "ga": 342,
+     "w": 1,
+     "d": 1,
+     "l": 8,
+     "pts": 3,
+     "recent": [
+      "L 26-31 v Fredericia H\u00e5ndboldklub",
+      "L 28-32 v Mors-Thy H\u00e5ndbold",
+      "L 30-36 v Aalborg H\u00e5ndbold",
+      "L 31-36 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 32-26 v Nordsj\u00e6lland H\u00e5ndbold",
+      "L 30-31 v Bjerringbro-Silkeborg"
+     ],
+     "h2h": [],
+     "gf_pg": 30.6,
+     "ga_pg": 34.2
+    },
+    "away": {
+     "gp": 10,
+     "gf": 352,
+     "ga": 292,
+     "w": 9,
+     "d": 1,
+     "l": 0,
+     "pts": 19,
+     "recent": [
+      "W 35-29 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 32-28 v Fredericia H\u00e5ndboldklub",
+      "W 36-31 v Ribe-Esbjerg HH",
+      "W 39-27 v Aalborg H\u00e5ndbold",
+      "W 41-29 v Skive fH",
+      "W 39-30 v KIF Kolding"
+     ],
+     "h2h": [],
+     "gf_pg": 35.2,
+     "ga_pg": 29.2
+    },
+    "h2h": [],
+    "published_local_time": "25-10-2026 17:00 Europe/Copenhagen"
+   },
+   "game_id": "hb-dk-TMS Ringsted Herrer-GOG-20261025"
   },
   {
    "id": "ZZ-IH-NHL-2026020180",
@@ -5494,6 +5595,136 @@
    "game_id": "84"
   },
   {
+   "id": "ZZ-HB-DK-202610301730",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Skjern H\u00e5ndbold",
+   "away": "Skive fH",
+   "start_utc": "2026-10-30T17:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "model": {
+    "kind": "normal_points_handball"
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 329,
+     "ga": 309,
+     "w": 6,
+     "d": 0,
+     "l": 4,
+     "pts": 12,
+     "recent": [
+      "W 29-27 v TTH Holstebro",
+      "W 38-25 v SAH",
+      "L 27-31 v Nordsj\u00e6lland H\u00e5ndbold",
+      "W 42-35 v KIF Kolding",
+      "W 34-31 v Bjerringbro-Silkeborg",
+      "L 25-30 v S\u00f8nderjyske Herreh\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 32.9,
+     "ga_pg": 30.9
+    },
+    "away": {
+     "gp": 11,
+     "gf": 354,
+     "ga": 395,
+     "w": 1,
+     "d": 0,
+     "l": 10,
+     "pts": 2,
+     "recent": [
+      "L 29-38 v TTH Holstebro",
+      "L 31-32 v Bjerringbro-Silkeborg",
+      "L 35-37 v Ribe-Esbjerg HH",
+      "L 29-41 v GOG",
+      "L 29-36 v Fredericia H\u00e5ndboldklub",
+      "L 26-29 v Aalborg H\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 32.18,
+     "ga_pg": 35.91
+    },
+    "h2h": [],
+    "published_local_time": "30-10-2026 17:30 Europe/Copenhagen"
+   },
+   "game_id": "hb-dk-Skjern H\u00e5ndbold-Skive fH-20261030"
+  },
+  {
+   "id": "ZZ-HB-DK-202610301730",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Bjerringbro-Silkeborg",
+   "away": "KIF Kolding",
+   "start_utc": "2026-10-30T17:30:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "model": {
+    "kind": "normal_points_handball"
+   },
+   "stats": {
+    "home": {
+     "gp": 11,
+     "gf": 349,
+     "ga": 349,
+     "w": 6,
+     "d": 1,
+     "l": 4,
+     "pts": 13,
+     "recent": [
+      "L 29-37 v Ribe-Esbjerg HH",
+      "W 32-31 v Skive fH",
+      "W 35-31 v SAH",
+      "L 31-34 v Skjern H\u00e5ndbold",
+      "W 31-30 v TMS Ringsted Herrer",
+      "W 35-32 v Mors-Thy H\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 31.73,
+     "ga_pg": 31.73
+    },
+    "away": {
+     "gp": 11,
+     "gf": 343,
+     "ga": 381,
+     "w": 2,
+     "d": 1,
+     "l": 8,
+     "pts": 5,
+     "recent": [
+      "W 32-31 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "L 31-37 v TTH Holstebro",
+      "L 35-42 v Skjern H\u00e5ndbold",
+      "L 32-37 v Aalborg H\u00e5ndbold",
+      "L 30-39 v GOG",
+      "L 31-32 v Fredericia H\u00e5ndboldklub"
+     ],
+     "h2h": [],
+     "gf_pg": 31.18,
+     "ga_pg": 34.64
+    },
+    "h2h": [],
+    "published_local_time": "30-10-2026 17:30 Europe/Copenhagen"
+   },
+   "game_id": "hb-dk-Bjerringbro-Silkeborg-KIF Kolding-20261030"
+  },
+  {
    "id": "ZZ-IH-LIIGA-2701425",
    "sport": "Ice Hockey",
    "competition": "Finnish Liiga Runkosarja 2026-27",
@@ -7323,6 +7554,266 @@
    "game_id": "Jastrz\u0119bie Barkom|Podziemia Kredowe ChKS Che\u0142m|202611011300"
   },
   {
+   "id": "ZZ-HB-DK-202611011400",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Nordsj\u00e6lland H\u00e5ndbold",
+   "away": "GOG",
+   "start_utc": "2026-11-01T14:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "model": {
+    "kind": "normal_points_handball"
+   },
+   "stats": {
+    "home": {
+     "gp": 11,
+     "gf": 331,
+     "ga": 336,
+     "w": 4,
+     "d": 1,
+     "l": 6,
+     "pts": 9,
+     "recent": [
+      "L 29-34 v Aalborg H\u00e5ndbold",
+      "W 31-27 v Skjern H\u00e5ndbold",
+      "W 28-21 v Mors-Thy H\u00e5ndbold",
+      "L 26-32 v TMS Ringsted Herrer",
+      "W 36-28 v TTH Holstebro",
+      "L 30-31 v S\u00f8nderjyske Herreh\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 30.09,
+     "ga_pg": 30.55
+    },
+    "away": {
+     "gp": 10,
+     "gf": 352,
+     "ga": 292,
+     "w": 9,
+     "d": 1,
+     "l": 0,
+     "pts": 19,
+     "recent": [
+      "W 35-29 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 32-28 v Fredericia H\u00e5ndboldklub",
+      "W 36-31 v Ribe-Esbjerg HH",
+      "W 39-27 v Aalborg H\u00e5ndbold",
+      "W 41-29 v Skive fH",
+      "W 39-30 v KIF Kolding"
+     ],
+     "h2h": [],
+     "gf_pg": 35.2,
+     "ga_pg": 29.2
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 14:00 Europe/Copenhagen"
+   },
+   "game_id": "hb-dk-Nordsj\u00e6lland H\u00e5ndbold-GOG-20261101"
+  },
+  {
+   "id": "ZZ-HB-DK-202611011500",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "SAH",
+   "away": "S\u00f8nderjyske Herreh\u00e5ndbold",
+   "start_utc": "2026-11-01T15:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "model": {
+    "kind": "normal_points_handball"
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 334,
+     "ga": 327,
+     "w": 6,
+     "d": 0,
+     "l": 4,
+     "pts": 12,
+     "recent": [
+      "W 32-26 v KIF Kolding",
+      "L 25-38 v Skjern H\u00e5ndbold",
+      "W 38-29 v Mors-Thy H\u00e5ndbold",
+      "L 31-35 v Bjerringbro-Silkeborg",
+      "L 29-31 v Fredericia H\u00e5ndboldklub",
+      "W 32-29 v Ribe-Esbjerg HH"
+     ],
+     "h2h": [],
+     "gf_pg": 33.4,
+     "ga_pg": 32.7
+    },
+    "away": {
+     "gp": 11,
+     "gf": 345,
+     "ga": 333,
+     "w": 7,
+     "d": 0,
+     "l": 4,
+     "pts": 14,
+     "recent": [
+      "L 31-32 v KIF Kolding",
+      "W 31-30 v Fredericia H\u00e5ndboldklub",
+      "W 36-31 v TMS Ringsted Herrer",
+      "W 34-24 v Mors-Thy H\u00e5ndbold",
+      "W 30-25 v Skjern H\u00e5ndbold",
+      "W 31-30 v Nordsj\u00e6lland H\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 31.36,
+     "ga_pg": 30.27
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 15:00 Europe/Copenhagen"
+   },
+   "game_id": "hb-dk-SAH-S\u00f8nderjyske Herreh\u00e5ndbold-20261101"
+  },
+  {
+   "id": "ZZ-HB-DK-202611011700",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "TTH Holstebro",
+   "away": "TMS Ringsted Herrer",
+   "start_utc": "2026-11-01T17:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "model": {
+    "kind": "normal_points_handball"
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 306,
+     "ga": 320,
+     "w": 3,
+     "d": 1,
+     "l": 6,
+     "pts": 7,
+     "recent": [
+      "L 27-29 v Skjern H\u00e5ndbold",
+      "W 38-29 v Skive fH",
+      "W 37-31 v KIF Kolding",
+      "L 20-33 v Fredericia H\u00e5ndboldklub",
+      "L 33-38 v Ribe-Esbjerg HH",
+      "L 28-36 v Nordsj\u00e6lland H\u00e5ndbold"
+     ],
+     "h2h": [],
+     "gf_pg": 30.6,
+     "ga_pg": 32.0
+    },
+    "away": {
+     "gp": 10,
+     "gf": 306,
+     "ga": 342,
+     "w": 1,
+     "d": 1,
+     "l": 8,
+     "pts": 3,
+     "recent": [
+      "L 26-31 v Fredericia H\u00e5ndboldklub",
+      "L 28-32 v Mors-Thy H\u00e5ndbold",
+      "L 30-36 v Aalborg H\u00e5ndbold",
+      "L 31-36 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 32-26 v Nordsj\u00e6lland H\u00e5ndbold",
+      "L 30-31 v Bjerringbro-Silkeborg"
+     ],
+     "h2h": [],
+     "gf_pg": 30.6,
+     "ga_pg": 34.2
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 17:00 Europe/Copenhagen"
+   },
+   "game_id": "hb-dk-TTH Holstebro-TMS Ringsted Herrer-20261101"
+  },
+  {
+   "id": "ZZ-HB-DK-202611011800",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Ribe-Esbjerg HH",
+   "away": "Aalborg H\u00e5ndbold",
+   "start_utc": "2026-11-01T18:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "model": {
+    "kind": "normal_points_handball"
+   },
+   "stats": {
+    "home": {
+     "gp": 10,
+     "gf": 332,
+     "ga": 311,
+     "w": 7,
+     "d": 1,
+     "l": 2,
+     "pts": 15,
+     "recent": [
+      "W 34-29 v Nordsj\u00e6lland H\u00e5ndbold",
+      "W 37-29 v Bjerringbro-Silkeborg",
+      "L 31-36 v GOG",
+      "W 37-35 v Skive fH",
+      "W 38-33 v TTH Holstebro",
+      "L 29-32 v SAH"
+     ],
+     "h2h": [],
+     "gf_pg": 33.2,
+     "ga_pg": 31.1
+    },
+    "away": {
+     "gp": 11,
+     "gf": 352,
+     "ga": 332,
+     "w": 8,
+     "d": 1,
+     "l": 2,
+     "pts": 17,
+     "recent": [
+      "W 34-29 v Nordsj\u00e6lland H\u00e5ndbold",
+      "W 36-30 v TMS Ringsted Herrer",
+      "L 27-39 v GOG",
+      "W 37-32 v KIF Kolding",
+      "W 37-26 v Mors-Thy H\u00e5ndbold",
+      "W 29-26 v Skive fH"
+     ],
+     "h2h": [],
+     "gf_pg": 32.0,
+     "ga_pg": 30.18
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 18:00 Europe/Copenhagen"
+   },
+   "game_id": "hb-dk-Ribe-Esbjerg HH-Aalborg H\u00e5ndbold-20261101"
+  },
+  {
    "id": "ZZ-IH-NHL-2026020227",
    "sport": "Ice Hockey",
    "competition": "NHL Regular Season 2026-27",
@@ -7374,6 +7865,71 @@
     "away_abbrev": "WPG"
    },
    "game_id": 2026020227
+  },
+  {
+   "id": "ZZ-HB-DK-202611011900",
+   "sport": "Handball",
+   "competition": "Herreligaen (Danish handball championship) 2026/27",
+   "stage": "Regular season",
+   "home": "Fredericia H\u00e5ndboldklub",
+   "away": "Mors-Thy H\u00e5ndbold",
+   "start_utc": "2026-11-01T19:00:00Z",
+   "venue": "",
+   "source": {
+    "url": "https://tophaandbold.dk/kampprogram/herreligaen",
+    "name": "Tophandbold \u2014 official Herreligaen match programme (tophaandbold.dk)",
+    "target_id": "dk_herreligaen_program",
+    "sha256": "91c0b478fcb36b3699cf8c9f8d28e6ad51a484d2c1e34e87b1c58e2d77fc78b3",
+    "bytes": 771020
+   },
+   "model": {
+    "kind": "normal_points_handball"
+   },
+   "stats": {
+    "home": {
+     "gp": 11,
+     "gf": 338,
+     "ga": 307,
+     "w": 7,
+     "d": 0,
+     "l": 4,
+     "pts": 14,
+     "recent": [
+      "L 28-32 v GOG",
+      "L 30-31 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "W 33-20 v TTH Holstebro",
+      "W 31-29 v SAH",
+      "W 36-29 v Skive fH",
+      "W 32-31 v KIF Kolding"
+     ],
+     "h2h": [],
+     "gf_pg": 30.73,
+     "ga_pg": 27.91
+    },
+    "away": {
+     "gp": 11,
+     "gf": 325,
+     "ga": 362,
+     "w": 3,
+     "d": 0,
+     "l": 8,
+     "pts": 6,
+     "recent": [
+      "W 32-28 v TMS Ringsted Herrer",
+      "L 29-38 v SAH",
+      "L 21-28 v Nordsj\u00e6lland H\u00e5ndbold",
+      "L 24-34 v S\u00f8nderjyske Herreh\u00e5ndbold",
+      "L 26-37 v Aalborg H\u00e5ndbold",
+      "L 32-35 v Bjerringbro-Silkeborg"
+     ],
+     "h2h": [],
+     "gf_pg": 29.55,
+     "ga_pg": 32.91
+    },
+    "h2h": [],
+    "published_local_time": "01-11-2026 19:00 Europe/Copenhagen"
+   },
+   "game_id": "hb-dk-Fredericia H\u00e5ndboldklub-Mors-Thy H\u00e5ndbold-20261101"
   },
   {
    "id": "ZZ-IH-NHL-2026020228",
