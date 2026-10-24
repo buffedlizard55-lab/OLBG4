@@ -119,4 +119,50 @@ ALL_GROUPS = {
     "official": {**OFFICIAL, **schedule_dates()},
 }
 
+
+# ---------------------------------------------------------------- round 2 probes
+# A second pass added after reading the first capture: endpoints chosen because a
+# governing body (not an aggregator) publishes the ranking/table/result the desk needs
+# to originate a line.  Failures stay recorded in the manifest.
+OFFICIAL.update({
+    "wta_rankings": "https://www.wtatennis.com/rankings/singles",
+    "atp_rankings": "https://www.atptour.com/en/rankings/singles",
+    "wst_rankings": "https://www.wst.tv/rankings/",
+    "wst_matches": "https://www.wst.tv/matches/",
+    "wst_tournaments": "https://www.wst.tv/tournaments/",
+    "pdc_oom": "https://www.pdc.tv/order-of-merit",
+    "pdc_tournaments": "https://www.pdc.tv/tournaments",
+    "world_rugby_rankings": "https://www.world.rugby/rankings/mru",
+    "premiership_table": "https://www.premiershiprugby.com/table",
+    "urc_table": "https://www.unitedrugby.com/table",
+    "epcr_fixtures_en": "https://www.epcrugby.com/en/fixtures",
+    "superleague_table": "https://www.superleague.co.uk/table",
+    "superleague_fixtures": "https://www.superleague.co.uk/fixtures",
+    "nrl_ladder_r1": "https://www.nrl.com/ladder/data?competition=111&season=2026&round=1",
+    "hbl_table": "https://www.daikin-hbl.de/de/tabelle/",
+    "lnh_table": "https://www.lnh.fr/liquimoly-starligue/classement",
+    "asobal_table": "https://www.asobal.es/clasificacion",
+    "ehfcl_standings": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+    "icc_rankings_test": "https://www.icc-cricket.com/rankings/mens/team-rankings/test",
+    "icc_fixtures_results": "https://www.icc-cricket.com/fixtures-results",
+    "owgr_rankings": "https://www.owgr.com/current-rankings",
+    "pga_leaderboard": "https://www.pgatour.com/leaderboard",
+    "vnl_schedule": "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/schedule/",
+    "cev_champions_league": "https://www.cev.eu/club/cev-champions-league/",
+    "gaa_api_fixtures": "https://www.gaa.ie/api/fixtures",
+    "gbgb_results_today": "https://www.gbgb.org.uk/results?date=2026-10-24",
+    "f1_standings": "https://www.formula1.com/en/results/2026/drivers",
+    "motogp_standings": "https://www.motogp.com/en/standings/2026",
+    "nba_schedule": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+})
+
+# OLBG's pages are SvelteKit; the framework exposes a JSON data endpoint alongside every
+# route.  Probing it is part of the reverse-engineering brief: if it renders the feed
+# server-side we can read past the "Load More" control without a browser.
+OLBG_URLS.update({
+    "data_ice_hockey": "https://www.olbg.com/betting-tips/Ice_Hockey/13/__data.json",
+    "data_handball": "https://www.olbg.com/betting-tips/Handball/20/__data.json",
+    "data_tennis": "https://www.olbg.com/betting-tips/Tennis/3/__data.json",
+})
+
 MAX_BYTES = 12 * 1024 * 1024
