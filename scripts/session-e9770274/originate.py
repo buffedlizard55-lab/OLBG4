@@ -104,7 +104,7 @@ def listed_implied(olbg_listed: list[dict], selection: str) -> tuple[float | Non
 def select_pick(row: dict, pool: list[dict]) -> dict:
     """Pick rule published on the site.
 
-    We publish the selection with the highest estimated probability whose fair price still sits
+    We publish the selection with the highest probability estimate whose fair price still sits
     inside the required -250 ... +10,000 band (a shorter price than -250 is outside the brief),
     preferring a selection we also have a measured market edge on when probabilities are close.
     """
