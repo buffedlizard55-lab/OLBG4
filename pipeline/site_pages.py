@@ -97,7 +97,7 @@ def _detail_html(row: dict, preds: list[dict]) -> str:
     unit = {"basketball": "points", "ice_hockey": "goals", "baseball": "runs"}[fx["sport"]]
     parts = [
         '<div class="small muted">'
-        f'Model projection: {esc(fx["away"]["name"])} {cur["away"]:.1f} – '
+        f'Our rated projection: {esc(fx["away"]["name"])} {cur["away"]:.1f} – '
         f'{esc(fx["home"]["name"])} {cur["home"]:.1f} ({esc(unit)}). '
         f'Opening projection: {opn["away"]:.1f} – {opn["home"]:.1f}. '
         f'Margin {signed(a["edge"]["margin"])} vs opener, total {signed(a["edge"]["total"])}.'
@@ -462,7 +462,7 @@ def render_sport(ctx: dict, sport: str) -> str:
         f'<div class="card kpi"><div class="big mono">{len(rows)}</div><small>fixtures in window</small>'
         f'<p>{sum(1 for r in rows if (r["analysis"].get("winner_pick") or {}).get("confidence") == "high")} graded high</p></div>',
         "</div>",
-        '<div class="section"><h2>Model ratings</h2>'
+        '<div class="section"><h2>Our ratings</h2>'
         '<p class="lead">Ridge least-squares ratings from official final scores. Positive rating = '
         "stronger than the league average; offence/defence are in the same scoring unit as the sport.</p>"
         + table([("Team", ""), ("Rating", "num"), ("Offence", "num"), ("Defence", "num"), ("Games", "num")],
@@ -606,7 +606,7 @@ def render_analysis(ctx: dict) -> str:
     )
     body = [
         '<div class="page-head"><h1>Analysis &amp; findings</h1>'
-        '<p>Model diagnostics, a leakage-free backtest, and the data-quality findings that drive the '
+        '<p>Rating diagnostics, a leakage-free backtest, and the data-quality findings that drive the '
         "review queue. Nothing on this page is hand-entered; it is rebuilt from the snapshot JSON on "
         "every run.</p></div>",
         '<div class="grid">',
