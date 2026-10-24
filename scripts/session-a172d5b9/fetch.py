@@ -49,11 +49,16 @@ def get_with_curl(url: str, timeout: int = 45):
     """Retry a refused request with curl's TLS stack, retaining only real response bytes."""
     with tempfile.NamedTemporaryFile() as tmp:
         command = [
-            "curl", "-L", "--fail", "--silent", "--show-error", "--max-time", str(timeout),
-            "-A", UA, "-H", "Accept: text/html,application/json,application/pdf,*/*;q=0.8",
-            "-H", "Accept-Language: en-GB,en;q=0.9", "-H", "Accept-Encoding: identity",
-            "-o", tmp.name, "-w", "%{json}", url,
+            "curl", "-L", "--fail", "--silent", "--show-error", "--http2", "--compressed",
+            "--max-time", str(timeout),
+            "-A", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "-H", "Accept: application/json,text/html;q=0.9,*/*;q=0.8",
+            "-H", "Accept-Language: en-US,en;q=0.9",
         ]
+        if "nba.com" in url:
+            command += ["-H", "Referer: https://www.nba.com/", "-H", "Origin: https://www.nba.com",
+                        "-H", "Sec-Fetch-Site: same-site", "-H", "Sec-Fetch-Mode: cors", "-H", "Sec-Fetch-Dest: empty"]
+        command += ["-o", tmp.name, "-w", "%{json}", url]
         result = subprocess.run(command, capture_output=True, text=True, timeout=timeout + 5)
         if result.returncode:
             raise RuntimeError(f"curl exit {result.returncode}: {result.stderr.strip()}")
