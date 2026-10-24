@@ -5034,3 +5034,6 @@ Scope: `tools/build_master.py`, generated `data/master.json`, `data/master_confl
 | UXF1 | Reproduce Pages master-board gate failure and trace it to explicitly withdrawn Board E predictions | done | arena/11fad5c6-olbg4 | `tools/build_master.py`, source JSON read-only |
 | UXF2 | Respect withdrawn prediction records in the master merge: retain fixture/market facts, suppress the invalid pick/confidence, and publish a clear review flag | in progress | arena/11fad5c6-olbg4 | `tools/build_master.py`, `data/master.json`, `data/master_conflicts.json`, `board/**` |
 | UXF3 | Rebuild and verify the exact Pages workflow gates, then redeploy after follow-up PR merge | pending | arena/11fad5c6-olbg4 | same, `.github/workflows/pages.yml` read-only unless a workflow defect is shown |
+
+### Board UX-FIX scope update — 2026-10-24T17:24Z
+The repair needs a deterministic regression assertion in the master verifier, not only a loader change. Add `tools/verify_master.py` to UX-FIX's exclusive scope. The assertion will confirm that a source prediction explicitly marked withdrawn does not become the merged fixture's pick/confidence and is exposed as a review flag. Captured source files remain read-only.
