@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+
+	<script id="Cookiebot" src=https://consent.cookiebot.com/uc.js data-cbid="b9f16f6b-bb3e-48db-8a27-2843e20040ef" data-blockingmode="auto" type="text/javascript"></script>
+
+	<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<script>window.page_loading_colour = '';</script>
+		
+	<link rel="icon" type="image/x-icon" href="/themes/rugbyleague/img/favicon.gif">
+	<link rel="stylesheet" href="/themes/rugbyleague/css/googlefonts.css">
+	<link rel="stylesheet" href="/themes/rugbyleague/css/bootstrap.4.3.1.custom.css">
+	<link rel="stylesheet" href="/themes/rugbyleague/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="/frontend/_css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/frontend/_css/frontend.css">
+	<link rel="stylesheet" href="/frontend/_css/addons.css">
+	<link rel="stylesheet" href="/themes/rugbyleague/css/rfl.css?v=2.8">
+	<!-- <link rel="stylesheet" href="/themes/rugbyleague/css/ourleague.css?v=1.2"> -->
+
+
+
+	<script src="/themes/rugbyleague/js/modernizr.js"></script> <!-- Modernizr -->
+
+	
+	<!-- GTM Fluid 6/11/2020 -->
+	<script>
+		(function(w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({
+				'gtm.start': new Date().getTime(),
+				event: 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-NF6JZD2');
+	</script>
+	<!-- End GTM -->
+
+	<script>
+		/*
+	Document ready function to allow the use of jquery in Twig templates.
+	*/
+		function docReady(fn) {
+			// see if DOM is already available
+			if (document.readyState === "complete" || document.readyState === "interactive") {
+				// call on next available tick
+				setTimeout(fn, 1);
+			} else {
+				document.addEventListener("DOMContentLoaded", fn);
+			}
+		}
+	</script>
+
+	<!-- Meta Pixel Code (Added by Fluid on request Seven League 2nd March 2023) -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '766420291519962');
+			fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=766420291519962&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Meta Pixel Code -->
+
+
+
+	<title>Rugby League</title>
+</head>
+
+<body class="nav-is-fixed ">
+
+	<!-- <div id="preloader-wrapper">
+		<div class="spinner-layer loader"></div>
+	</div> -->
+
+
+	<!-- GTM Fluid 6/11/2020 (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF6JZD2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End GTM (noscript) -->
+
+
+
+	<header class="cd-main-header">
+		<a class="cd-logo" title="Home" href="/"><img src="/themes/rugbyleague/img/rfl_badge_white.svg" alt="Logo"></a>
+		<h3 class="logo-title d-none d-sm-inline-block"><a title="Home" href="/">Rugby-League.com</a></h3>
+
+		<ul class="cd-header-buttons">
+			<!-- <li class="toplinks rlwc"><a style="padding-top:0px !important" target="_blank" title="Rugby League World Cup" href="https://www.rlwc2021.com"><img width="140" src="/themes/rugbyleague/img/logo-rlwc2021.svg" /></i></a></li> -->
+			<li class="toplinks matches"><a href="/match-centre">
+					<!-- <i class="fal fa-whistle d-block"></i> --><img class="mx-auto" style="width:16px" src="/themes/rugbyleague/_img/ball-icon.svg"><span>Matches</span>
+				</a></li>
+			<li class="toplinks tickets"><a href="/tickets"><i class="fal fa-ticket d-block"></i><span>Tickets</span></a></li>
+			<li class="toplinks search-link"><a class="search-href"><i class="fal fa-search d-block"></i><span>Search</span></a></li>
+
+			<li class="ourleague">
+				<a class="nav-link" href="?intsso" id="userDropdownMenuLink" >
+
+											<i class="fal fa-user-circle profile-icon off"></i>
+					
+					<!-- <img class="d-none d-md-inline-block ol-logo" src="/themes/rugbyleague/img/our_league_logo_white.svg" /> -->
+					<img class="d-none d-md-inline-block ol-logo" src="/themes/rugbyleague/img/rl1-icon-neg.svg" />
+				</a>
+				<div class="dropdown-menu d-none">
+	
+						<!-- <a class="dropdown-item text-dark disabled">Dashboard</a> -->
+
+					<a class="dropdown-item text-dark" target="_blank" href="https://auth.rugby-league.com"><i class="fal fa-th-large mr-2"></i>Dashboard</a>
+					<a class="dropdown-item text-dark" target="_blank" href="https://fantasy.superleague.co.uk"><i class="fal fa-star mr-2"></i>Fantasy SL</a>
+					<a class="dropdown-item text-dark" target="_blank" href="https://predictor.rugby-league.com"><i class="fal fa-check-circle mr-2"></i>Predictor</a>
+					<a class="dropdown-item text-dark" target="_blank" href="https://auth.rugby-league.com/user/profile"><i class="fal fa-cog mr-2"></i>Settings</a>
+					<a class="dropdown-item text-dark" href="/get-involved/coach/coaching-courses-overview/my-coaching-courses"><i class="fal fa-chalkboard-teacher mr-2"></i>Courses</a>
+					<a class="dropdown-item text-dark" href="?logout"><i class="fal fa-sign-out-alt mr-2"></i>Log Out</a>
+				</div>
+			<li class="menu"><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
+		</ul> <!-- cd-header-buttons -->
+	</header>
+
+	<main class="cd-main-content">
+		<!-- Page Content -->
+		<div class="container py-5 my-5">
+	<div class="row">
+		<div class="col-12">
+		<h1>404 Not found</h1>
+		<p>Sorry, the page you requested can't be found</p>
+		</div>
+	</div>
+</div>	</main>
+
+	<!-- Footer Partners -->
+	<div class="container-fluid footer-partners">
+		<div class="row">
+			<!-- start partners -->
+
+	<div class="container">
+		<div class="row sm-gutters ign-row-content-light">
+				<div class="col-12 ">
+					<div class="row justify-content-center align-items-center">
+											</div>
+				</div>
+
+		</div>
+	</div>
+    		
+<!-- end partners -->		</div>
+	</div>
+
+	<!-- Top Nav -->
+	<nav class="cd-nav">
+		<ul id="cd-primary-nav" class="cd-primary-nav is-fixed bonje">
+
+						<li class="has-children">
+				<a class="level-one" href="/competitions">Competitions</a>
+
+				<!-- sub nav -->
+								<ul class="cd-secondary-nav is-hidden">
+					<li class="see-all"><a href="/competitions">Competitions Home</a></li>
+					
+
+										<li class="has-children four">
+						<a href="/competitions/pro-national" class="level-two">Professional</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="https://www.superleague.co.uk"><a href="https://www.superleague.co.uk">Betfred Super League</a></li>
+																	<li data-href="https://www.superleague.co.uk/"><a href="https://www.superleague.co.uk/">Betfred Women's Super League</a></li>
+																	<li data-href="https://www.superleague.co.uk/"><a href="https://www.superleague.co.uk/">Betfred Wheelchair Super League</a></li>
+																	<li data-href="/competitions/pro-national/betfred-challenge-cup"><a href="/competitions/pro-national/betfred-challenge-cup">Betfred Challenge Cup</a></li>
+																	<li data-href="/competitions/pro-national/betfred-womens-challenge-cup"><a href="/competitions/pro-national/betfred-womens-challenge-cup">Betfred Women's Challenge Cup</a></li>
+																	<li data-href="/competitions/pro-national/betfred-championship"><a href="/competitions/pro-national/betfred-championship">Betfred Championship</a></li>
+																	<li data-href="/competitions/pro-national/1895-cup"><a href="/competitions/pro-national/1895-cup">1895 Cup</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children four">
+						<a href="https://www.rugby-league.com/competitions/ncrl" class="level-two">Community</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="https://www.rugby-league.com/competitions/ncrl"><a href="https://www.rugby-league.com/competitions/ncrl">NCRL</a></li>
+																	<li data-href="https://www.rugby-league.com/competitions/ncrl/national-leagues"><a href="https://www.rugby-league.com/competitions/ncrl/national-leagues">Men's National Leagues</a></li>
+																	<li data-href="/competitions/ncrl/regional-leagues"><a href="/competitions/ncrl/regional-leagues">Men's Regional Leagues</a></li>
+																	<li data-href="/competitions/ncrl/womens-national-championship"><a href="/competitions/ncrl/womens-national-championship">Women's Championship</a></li>
+																	<li data-href="/competitions/ncrl/womens-regional-leagues"><a href="/competitions/ncrl/womens-regional-leagues">Women's Regional Leagues</a></li>
+																	<li data-href="/competitions/ncrl/youth-and-juniors"><a href="/competitions/ncrl/youth-and-juniors">Youth & Juniors</a></li>
+																	<li data-href="/competitions/ncrl/girls-rugby-league"><a href="/competitions/ncrl/girls-rugby-league">Girls Rugby League</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children four">
+						<a href="/competitions/academic" class="level-two">Education</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/competitions/academic/university"><a href="/competitions/academic/university">University</a></li>
+																	<li data-href="/competitions/academic/college"><a href="/competitions/academic/college">College</a></li>
+																	<li data-href="/competitions/academic/champion-schools"><a href="/competitions/academic/champion-schools">Champion Schools</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children four">
+						<a href="/competitions/international" class="level-two">International</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/england"><a href="/england">England</a></li>
+															
+						</ul>
+					</li>
+										
+				</ul>
+				<!-- end sub nav -->
+				
+			</li>
+						<li class="has-children">
+				<a class="level-one" href="/governance">Governance</a>
+
+				<!-- sub nav -->
+								<ul class="cd-secondary-nav is-hidden">
+					<li class="see-all"><a href="/governance">Governance Home</a></li>
+					
+
+										<li class="has-children five">
+						<a href="/governance/about-the-rfl" class="level-two">About the RFL</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/governance/about-the-rfl/history-&-heritage"><a href="/governance/about-the-rfl/history-&-heritage">History & Heritage</a></li>
+																	<li data-href="/governance/about-the-rfl/structure-strategy-and-reports"><a href="/governance/about-the-rfl/structure-strategy-and-reports">Structure, Strategy and Reports</a></li>
+																	<li data-href="/governance/about-the-rfl/board"><a href="/governance/about-the-rfl/board">RFL Board</a></li>
+																	<li data-href="/community-game-strategic-advisory-group"><a href="/community-game-strategic-advisory-group">Community Game Strategic Advisory Group</a></li>
+																	<li data-href="/governance/about-the-rfl/the-rfl-council"><a href="/governance/about-the-rfl/the-rfl-council">The RFL Council</a></li>
+																	<li data-href="/governance/about-the-rfl/president-and-vice-president"><a href="/governance/about-the-rfl/president-and-vice-president">President and Vice President</a></li>
+																	<li data-href="/governance/campaigns"><a href="/governance/campaigns">Campaigns</a></li>
+																	<li data-href="/governance/sustainability"><a href="/governance/sustainability">Sustainability</a></li>
+																	<li data-href="/governance/about-the-rfl/rl-commercial-board"><a href="/governance/about-the-rfl/rl-commercial-board">RL Commercial Board</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children five">
+						<a href="/governance/rules-and-regulations" class="level-two">Rules and Regulations</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/governance/rules-and-regulations/laws-of-the-game"><a href="/governance/rules-and-regulations/laws-of-the-game">Laws of the Game</a></li>
+																	<li data-href="/governance/rules-and-regulations/disciplinary"><a href="/governance/rules-and-regulations/disciplinary">Disciplinary</a></li>
+																	<li data-href="/governance/rules-and-regulations/referee-appointments"><a href="/governance/rules-and-regulations/referee-appointments">Referee Appointments</a></li>
+																	<li data-href="/governance/rules-and-regulations/operational-rules"><a href="/governance/rules-and-regulations/operational-rules">Operational Rules</a></li>
+																	<li data-href="/governance/rules-and-regulations/registered-agents-and-lawyers"><a href="/governance/rules-and-regulations/registered-agents-and-lawyers">Player Agents</a></li>
+																	<li data-href="/salary-cap"><a href="/salary-cap">Salary Cap</a></li>
+																	<li data-href="/governance/rules-and-regulations/governing-body-endorsements"><a href="/governance/rules-and-regulations/governing-body-endorsements">Governing Body Endorsements</a></li>
+																	<li data-href="/governance/rules-and-regulations/anti-doping-integrity-betting"><a href="/governance/rules-and-regulations/anti-doping-integrity-betting">Anti-Doping</a></li>
+																	<li data-href="/governance/rules-and-regulations/gambling"><a href="/governance/rules-and-regulations/gambling">Gambling</a></li>
+																	<li data-href="/governance/rules-and-regulations/whistle-blower-form"><a href="/governance/rules-and-regulations/whistle-blower-form">Whistleblower Form</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children five">
+						<a href="/governance/medical" class="level-two">Medical</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/governance/medical/clinical-advisory-group"><a href="/governance/medical/clinical-advisory-group">Clinical Advisory Group</a></li>
+																	<li data-href="/governance/medical/medical-standards"><a href="/governance/medical/medical-standards">Medical Standards</a></li>
+																	<li data-href="/governance/medical/medical-management"><a href="/governance/medical/medical-management">Immediate Medical Management</a></li>
+																	<li data-href="/governance/medical/concussion"><a href="/governance/medical/concussion">Concussion</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children five">
+						<a href="/governance/safeguarding" class="level-two">Safeguarding</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/governance/safeguarding/children-and-young-people"><a href="/governance/safeguarding/children-and-young-people">Children and Young People</a></li>
+																	<li data-href="/governance/safeguarding/coaches-and-volunteers"><a href="/governance/safeguarding/coaches-and-volunteers">Coaches and Volunteers</a></li>
+																	<li data-href="/governance/safeguarding/disclosure-and-baring-service"><a href="/governance/safeguarding/disclosure-and-baring-service">Disclosure and Barring Service</a></li>
+																	<li data-href="/governance/safeguarding/parents-and-carers"><a href="/governance/safeguarding/parents-and-carers">Parents and Carers</a></li>
+																	<li data-href="/governance/safeguarding/player-welfare"><a href="/governance/safeguarding/player-welfare">Player Welfare</a></li>
+																	<li data-href="/governance/safeguarding/reporting-a-concern"><a href="/governance/safeguarding/reporting-a-concern">Reporting a Concern</a></li>
+																	<li data-href="/governance/safeguarding/resources"><a href="/governance/safeguarding/resources">Resources</a></li>
+																	<li data-href="/governance/safeguarding/safeguarding-training"><a href="/governance/safeguarding/safeguarding-training">Safeguarding Training</a></li>
+																	<li data-href="/governance/safeguarding/the-rfl-safeguarding-team"><a href="/governance/safeguarding/the-rfl-safeguarding-team">The RFL Safeguarding Team</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children five">
+						<a href="/governance/inclusion-diversity" class="level-two">Inclusion & Diversity</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/governance/inclusion-diversity/inclusion-diversity-plan"><a href="/governance/inclusion-diversity/inclusion-diversity-plan">News</a></li>
+																	<li data-href="/governance/inclusion-diversity/tackle-it"><a href="/governance/inclusion-diversity/tackle-it">Tackle It</a></li>
+																	<li data-href="/governance/inclusion-diversity/respect"><a href="/governance/inclusion-diversity/respect">Respect</a></li>
+																	<li data-href="/governance/inclusion-diversity/inclusion-and-diversity-board"><a href="/governance/inclusion-diversity/inclusion-and-diversity-board">I&D Board</a></li>
+																	<li data-href="/governance/inclusion-diversity/reporting-discrimination"><a href="/governance/inclusion-diversity/reporting-discrimination">Reporting Discrimination</a></li>
+																	<li data-href="/governance/inclusion-diversity/support"><a href="/governance/inclusion-diversity/support">Support</a></li>
+															
+						</ul>
+					</li>
+										
+				</ul>
+				<!-- end sub nav -->
+				
+			</li>
+						<li class="has-children">
+				<a class="level-one" href="/get-involved">Get Involved</a>
+
+				<!-- sub nav -->
+								<ul class="cd-secondary-nav is-hidden">
+					<li class="see-all"><a href="/get-involved">Get Involved Home</a></li>
+					
+
+										<li class="has-children six">
+						<a href="/get-involved/coach" class="level-two">Coach</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/get-involved/coach/s&c-coach-education"><a href="/get-involved/coach/s&c-coach-education">S&C Coach Education</a></li>
+																	<li data-href="/get-involved/coach/coaching-courses-overview"><a href="/get-involved/coach/coaching-courses-overview">Coaching Courses</a></li>
+																	<li data-href="/get-involved/coach/coach-licensing"><a href="/get-involved/coach/coach-licensing">Coach Licensing</a></li>
+																	<li data-href="/get-involved/coach/resource-centre"><a href="/get-involved/coach/resource-centre">Resource Centre</a></li>
+																	<li data-href="/get-involved/coach/england-talent-pathway"><a href="/get-involved/coach/england-talent-pathway">England Talent Pathway</a></li>
+																	<li data-href="/governance/safeguarding/safeguarding-training"><a href="/governance/safeguarding/safeguarding-training">Safeguarding Training</a></li>
+																	<li data-href="/get-involved/coach/faqs"><a href="/get-involved/coach/faqs">FAQs</a></li>
+																	<li data-href="/get-involved/coach/contacts"><a href="/get-involved/coach/contacts">Contacts</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children six">
+						<a href="/get-involved/play" class="level-two">Play</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/get-involved/play/adults"><a href="/get-involved/play/adults">Men</a></li>
+																	<li data-href="/get-involved/play/women"><a href="/get-involved/play/women">Women</a></li>
+																	<li data-href="/get-involved/play/youth"><a href="/get-involved/play/youth">Youth</a></li>
+																	<li data-href="/get-involved/play/primary-rl-"><a href="/get-involved/play/primary-rl-">Primary RL </a></li>
+																	<li data-href="/get-involved/play/touch-rl"><a href="/get-involved/play/touch-rl">Touch RL</a></li>
+																	<li data-href="/get-involved/play/try-tag"><a href="/get-involved/play/try-tag">Tag RL</a></li>
+																	<li data-href="/get-involved/play/masters"><a href="/get-involved/play/masters">Masters RL</a></li>
+																	<li data-href="/get-involved/play/x-league"><a href="/get-involved/play/x-league">X-League RL</a></li>
+																	<li data-href="/get-involved/play/physical-disability-rl"><a href="/get-involved/play/physical-disability-rl">Physical Disability RL</a></li>
+																	<li data-href="/get-involved/play/ldrl"><a href="/get-involved/play/ldrl">Learning Disability RL</a></li>
+																	<li data-href="/get-involved/play/wheelchair"><a href="/get-involved/play/wheelchair">Wheelchair</a></li>
+																	<li data-href="/get-involved/play/education"><a href="/get-involved/play/education">Education</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children six">
+						<a href="/get-involved/match-officials" class="level-two">Match Officials</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/get-involved/match-officials/become-a-match-official"><a href="/get-involved/match-officials/become-a-match-official">Become a Match Official  </a></li>
+																	<li data-href="/get-involved/match-officials/full-time-match-officials"><a href="/get-involved/match-officials/full-time-match-officials">Full Time Match Officials</a></li>
+																	<li data-href="/get-involved/match-officials/match-official-courses"><a href="/get-involved/match-officials/match-official-courses">Match Official Courses</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children six">
+						<a href="/get-involved/volunteer" class="level-two">Volunteer</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/get-involved/volunteer"><a href="/get-involved/volunteer">Volunteer Home</a></li>
+																	<li data-href="/get-involved/volunteer/become-a-volunteer"><a href="/get-involved/volunteer/become-a-volunteer">Become a Volunteer</a></li>
+																	<li data-href="/get-involved/volunteer/club-volunteer-resources"><a href="/get-involved/volunteer/club-volunteer-resources">Club Resources</a></li>
+																	<li data-href="/get-involved/volunteer/volunteer-recognition"><a href="/get-involved/volunteer/volunteer-recognition">Recognition  </a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children six">
+						<a href="/get-involved/club-support" class="level-two">Club Support</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/get-involved/club-support/community-investment-&-funding-"><a href="/get-involved/club-support/community-investment-&-funding-">Community Investment & Funding </a></li>
+																	<li data-href="/get-involved/club-support/createdby-grants"><a href="/get-involved/club-support/createdby-grants">CreatedBy Grants</a></li>
+																	<li data-href="/get-involved/club-support/recruitment-&-retention"><a href="/get-involved/club-support/recruitment-&-retention">Recruitment & Retention</a></li>
+																	<li data-href="/get-involved/club-support/operations"><a href="/get-involved/club-support/operations">Operations</a></li>
+																	<li data-href="/get-involved/club-support/best-practice-guides"><a href="/get-involved/club-support/best-practice-guides">Best Practice Guides</a></li>
+																	<li data-href="/get-involved/play/clubfinder"><a href="/get-involved/play/clubfinder">Club Finder</a></li>
+																	<li data-href="/get-involved/club-support/community-game-governance"><a href="/get-involved/club-support/community-game-governance">Community Game Governance</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children six">
+						<a href="/social-impact" class="level-two">Social Impact</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/social-impact/community-wellbeing-hubs"><a href="/social-impact/community-wellbeing-hubs">Community Wellbeing Hubs</a></li>
+																	<li data-href="/social-impact/lead-the-game"><a href="/social-impact/lead-the-game">Lead The Game</a></li>
+																	<li data-href="/social-impact/inspiring-futures"><a href="/social-impact/inspiring-futures">Inspiring Futures</a></li>
+																	<li data-href="/social-impact/on-the-same-team"><a href="/social-impact/on-the-same-team">On The Same Team</a></li>
+																	<li data-href="/social-impact/tryz"><a href="/social-impact/tryz">Tryz</a></li>
+																	<li data-href="/social-impact/tackle-our-life"><a href="/social-impact/tackle-our-life">Tackle Our Life</a></li>
+															
+						</ul>
+					</li>
+										
+				</ul>
+				<!-- end sub nav -->
+				
+			</li>
+						<li class="has-children">
+				<a class="level-one" href="/england">England</a>
+
+				<!-- sub nav -->
+								<ul class="cd-secondary-nav is-hidden">
+					<li class="see-all"><a href="/england">England Home</a></li>
+					
+
+										<li class="has-children three">
+						<a href="/england" class="level-two">England RL</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/england/men"><a href="/england/men">England Men</a></li>
+																	<li data-href="/england/women"><a href="/england/women">England Women</a></li>
+																	<li data-href="/england/wheelchair"><a href="/england/wheelchair">England Wheelchair</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children three">
+						<a href="/england/about-england-rugby-league" class="level-two">About England RL</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/england/about-england-rugby-league"><a href="/england/about-england-rugby-league">About England RL</a></li>
+																	<li data-href="/england/england-news"><a href="/england/england-news">England News</a></li>
+																	<li data-href="https://www.youtube.com/@RugbyLeagueEngland"><a href="https://www.youtube.com/@RugbyLeagueEngland">England YouTube</a></li>
+																	<li data-href="https://www.eliteprosports.co.uk/england-rugby-league/"><a href="https://www.eliteprosports.co.uk/england-rugby-league/">England Shop</a></li>
+															
+						</ul>
+					</li>
+										<li class="has-children three">
+						<a href="/world-cup" class="level-two">World Cup 26</a>
+
+						<ul class="third-level is-hidden">
+
+																								<li data-href="/world-cup"><a href="/world-cup">RLWC 2026</a></li>
+															
+						</ul>
+					</li>
+										
+				</ul>
+				<!-- end sub nav -->
+				
+			</li>
+			
+
+			<li class="account">
+
+											<a class="logged-out" href="/ourleague">
+							<i class="fal fa-user-circle profile-icon off"></i>
+							<img src="/themes/rugbyleague/img/our_league_logo.svg" class="ol-logo d-inline-block" />
+							<p>Login / Register</p>
+						</a>
+					
+
+			</li>
+
+
+			<li class="social">
+				<div class="col-12 text-left">
+					<a target="_blank" href="https://www.facebook.com/rugbyfootballleague" title="follow me on Facebook"><i class="fab fa-facebook"></i></a>					<a target="_blank" href="https://twitter.com/TheRFL" class="tips" title="follow me on Twitter"><i class="fab fa-twitter-square"></i></a>					<a target="_blank" href="http://www.youtube.com/ukrugbyleague" class="tips" title="follow me on Youtube"><i class="fab fa-youtube-square"></i></a>				</div>
+			</li>
+
+
+
+
+		</ul> <!-- primary-nav -->
+	</nav> <!-- cd-nav -->
+
+	<div class="cd-overlay"></div>
+
+	<div id="cd-search" class="cd-search">
+		<form>
+			<input type="search" placeholder="Search...">
+		</form>
+	</div>
+
+	<footer class="py-5 footer">
+		<div class="container">
+
+			<div class="row links">
+
+				<div class="col-6 col-md-3 mb-4 mb-md-0">
+<p>The RFL</p>
+<ul>
+<li><a href="../../../governance/privacy-policy">Privacy Policy</a></li>
+<li><a href="../../../governance/terms-&amp;-conditions">Terms &amp; Conditions</a></li>
+<li><a href="../../../governance/sustainability">Sustainability</a></li>
+<li><a href="../../../governance/customer-charter">Customer Charter</a></li>
+<li><a href="../../../governance/cookie-policy">Cookie Policy</a></li>
+<li><a href="../../../get-involved/careers">Careers at the RFL</a></li>
+</ul>
+</div>
+<div class="col-6 col-md-3 mb-4 mb-md-0">
+<p>Get Involved</p>
+<ul>
+<li><a href="../../../get-involved/coach">Coach</a></li>
+<li><a href="../../../get-involved/play">Play</a></li>
+<li><a href="../../../get-involved/match-officials">Match Officials</a></li>
+<li><a href="../../../get-involved/club-support">Club Support</a></li>
+<li><a href="../../../get-involved/volunteer">Volunteer</a></li>
+<li><a href="https://trytagrugby.com/" target="_blank" rel="noopener">Tag Rugby League</a></li>
+</ul>
+</div>
+<div class="col-6 col-md-3 mb-4 mb-md-0">
+<p>Support</p>
+<ul>
+<li><a href="../../../support">General Support</a></li>
+<li><a href="https://www.rugby-league.com/support/gameday-support">GameDay Support</a></li>
+<li><a href="https://www.superleagueplus.co.uk">SuperLeague+</a></li>
+<li><a href="../../../ourleague/settings">Our League Settings</a></li>
+<li><a href="../../../get-involved/club-support/community-game-governance">Community Game Governance</a></li>
+<li><a href="../../../governance/rules-and-regulations/whistle-blower-form">Whistleblower Form</a></li>
+</ul>
+</div>
+<div class="col-6 col-md-3 mb-4 mb-md-0">
+<p>Useful Links</p>
+<ul>
+<li><a href="../../../match-centre">Match Centre</a></li>
+<li><a href="../../../tickets">Tickets</a></li>
+<li><a href="../../../ourleague/membership">Our League Membership</a></li>
+<li><a href="../../../our-league-predictor-t&amp;cs">Predictor T&amp;Cs</a></li>
+<li><a href="https://www.rugby-league.com/support/our-league-active">Our League Active</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+				
+			</div>
+
+
+
+			<div class="row py-4 social-links">
+				<div class="col-12 text-center">
+					<a target="_blank" href="https://www.facebook.com/rugbyfootballleague" title="follow me on Facebook"><i class="fab fa-facebook"></i></a>					<a target="_blank" href="https://twitter.com/TheRFL" class="tips" title="follow me on X"><svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512" style="margin-top:-10px"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg></a>					<a target="_blank" href="http://www.youtube.com/ukrugbyleague" class="tips" title="follow me on Youtube"><i class="fab fa-youtube-square"></i></a>					<a target="_blank" href="https://www.linkedin.com/company/rugby-football-league" class="tips" title="follow us on linkedin"><i class="fab fa-linkedin"></i></a>					<a target="_blank" href="https://www.tiktok.com/@rugbyfootballleague" class="tips" title="follow us on tiktok"><svg fill="#da2128" width="33px" height="33px" style="margin-top:-12px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg></a>					<a target="_blank" href="https://www.instagram.com/rugbyfootballleague" class="tips" title="follow us on instagram"><i class="fab fa-instagram"></i></a>				</div>
+			</div>
+
+			<div class="row company">
+				<div class="col-12 text-center">
+					<p class="light-grey-txt">Enquires: <a href="mailto:enquiries@rfl.co.uk">enquiries@rfl.co.uk</a>&nbsp;&nbsp;|&nbsp;&nbsp;0330 111 1113 (Mon-Fri 10-4pm)<br>Ticketing: <a href="mailto:Ticketing@RLcommercial.co.uk">ticketing@RLcommercial.co.uk</a>&nbsp; | &nbsp;0330 111 1113 (Mon-Fri 10-4pm)<br>GameDay Support: <a href="mailto:gamedaysupport@rfl.co.uk">gamedaysupport@rfl.co.uk</a></p>
+<p><small>The Rugby Football League Ltd, Gate 13, Rowsley Street, Etihad Campus, Manchester, England, M11 3FF. Company Reg No. 3845473, VAT No. 168 8110 49<br>Copyright &copy; 2023 - Rugby Football League - All rights reserved</small></p>					<a title="web site design and development" href="http://fluidcm.co.uk" target="_blank">By Fluid CM</a>
+				</div>
+			</div>
+
+
+		</div>
+	</footer>
+
+
+
+	<!-- Media Modal -->
+	<div class="modal fade" id="media-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-xl" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<i class="fal fa-times"></i>
+					</button>
+					<div id="ign-media-article"></div>
+
+					<span class='st_facebook_hcount' displayText='Facebook'></span>
+					<span class='st_twitter_hcount' displayText='Tweet'></span>
+					<span class='st_plusone_hcount' displayText='Google +1'></span>
+					<span class='st_email_hcount' displayText='Email'></span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- General Modal -->
+	<div class="modal fade" id="general-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-xl" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<i class="fal fa-times"></i>
+					</button>
+					<div id="ign-media-article"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuXUv2y6LJb5YTWr-KdtReijk_UnVbCo0"></script>
+	<script src="/themes/rugbyleague/js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="/themes/rugbyleague/js/mdb-forms-free.js"></script>
+
+<script src="/frontend/_js/lozad.min.js"></script>
+<script src="/frontend/_js/imagesloaded.min.js"></script>
+<script src="/frontend/_js/frontend.js"></script>
+<script src="/frontend/_js/popper.min.js"></script>
+<script src="/frontend/_js/bootstrap.min.js"></script>
+<script src="/frontend/_js/mdb-material-select.js"></script>
+	<script src="/themes/rugbyleague/js/js.cookie.min.js"></script>
+	<script src="/themes/rugbyleague/js/sweetalert2.10.min.js"></script>
+	<script src="/themes/rugbyleague/js/wow.min.js"></script>
+	<script src="/themes/rugbyleague/js/wowinit.js"></script>
+
+	<!-- <script src="/themes/rugbyleague/js/bundle.min.js"></script> -->
+	<script src="/themes/rugbyleague/js/main.js?v=1.1"></script>
+		<script src="/plugins/ourleague/_js/uuidv4.min.js"></script>
+	<script src="/plugins/ourleague/_js/local.js?v=1.9"></script>
+	<script src="/themes/rugbyleague/js/show-on-scroll.js"></script>
+	<script type="text/javascript" src="https://forms.incrowdsports.com/js/index.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ldnr9YpAAAAAPg5kkWK0dwKN-qzimKoKWJy12zp"></script> -->
+
+
+
+	<div class="modal-search search-slidedown">
+    <div class="search-wrapper">
+        <div class="searchBar modal-form container">
+            <form class="pb-5 autocomplete-form">
+
+                <div class="col pl-0">
+                    <input type="text" class="tt-search-input" placeholder="Search...">
+                    <button class="tt-btn-close search-close"><i class="fal fa-times fa-2x"></i></button>
+                </div>
+
+                <div class="tt-info-text">What are you Looking for?</div>
+
+                <div v-cloak id="app" class="style-4">
+                    <ul class="container pl-md-0 text-left mx-auto disable-scrollbars" v-bind:class="{ 'py-3': results.length > 0 }"  @change="search_text()">
+                        <li class="mb-3" v-for="item in results.slice(0,10)" :key="item.id">
+                            <h3>
+                                <a v-if="item.url" :href="item.url" target="_self">[[ item.title ]]</a>
+                                <a v-else>[[ item.title ]]</a>
+                            </h3>
+                            <span v-html="item.teaser">[[ item.teaser ]]</span>
+                            <span class="d-block">
+                                <small v-if="item.updated">[[ item.updated ]] - </small>
+                                <small v-if="item.published">[[ item.published ]] - </small>
+                                <small>[[ item.type ]]</small>
+                            </span>
+                        </li>
+                        <a href="/search" data-terms="" v-cloak class="btn btn-secondary resultspage" v-if="counter > results.length && counter > 0" v-on:click.prevent="viewall">View all results</a>
+                    </ul>
+                </div>   
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/plugins/search/vue.min.js"></script>
+<script src="/plugins/search/script.js"></script>
+	</div>
+	</div>
+
+</body>
+
+</html>

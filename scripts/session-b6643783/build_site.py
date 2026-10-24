@@ -203,6 +203,8 @@ NAV = [
     ("desk/flagged.html", "Flagged"),
     ("desk/methodology.html", "Method"),
     ("desk/sources.html", "Sources"),
+    # Board DS (arena/e880ce67-olbg4) — final-integration nav pointer. Logged in COORDINATION.md.
+    ("session-e880ce67/index.html", "Board DS"),
 ]
 
 

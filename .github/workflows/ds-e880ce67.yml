@@ -1,0 +1,58 @@
+name: Board DS capture (e880ce67)
+
+# Session arena/e880ce67-olbg4. The interactive sandbox reaches GitHub only, so OLBG's
+# public sport pages and the governing-body / league / tour endpoints the desk cites are
+# fetched here, on a runner with open egress, and the exact response bytes are committed
+# with a SHA-256 manifest. Nothing is parsed or interpreted in this job.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/e880ce67-olbg4
+    paths:
+      - "scripts/session-e880ce67/spec.py"
+      - "scripts/session-e880ce67/collect.py"
+      - ".github/workflows/ds-e880ce67.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: board-ds-capture-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch the OLBG boards and the official endpoints
+        run: python3 scripts/session-e880ce67/collect.py
+      - name: Commit the capture
+        run: |
+          set -uo pipefail
+          git config user.name "board-ds-capture"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/session-e880ce67/raw
+          if git diff --cached --quiet; then
+            echo "no capture changes"
+            exit 0
+          fi
+          git commit -m "capture(DS): live OLBG + official-source snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          BR="${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin "$BR" && git push origin "HEAD:$BR"; then
+              echo "pushed"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "push failed after retries" >&2
+          exit 1

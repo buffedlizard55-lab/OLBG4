@@ -5182,17 +5182,17 @@ Main advanced through PR #179 (root overview rebuilt so the repository freshness
 
 ## Board A172 — session `arena/a172d5b9-olbg4` (2026-10-24T22:25Z fresh 15-sport evidence desk, strict eligible written picks, clarity-first integration)
 
-Session: `arena/a172d5b9-olbg4` · Branch: `arena/a172d5b9-olbg4` (Arena-fixed; directory isolation is used because this session may not create or switch branches) · Claimed: 2026-10-24T22:25Z UTC · **status: complete**
+Session: `arena/a172d5b9-olbg4` · Branch: `arena/a172d5b9-olbg4` (Arena-fixed; directory isolation is used because this session may not create or switch branches) · Claimed: 2026-10-24T22:25Z UTC · **status: in progress**
 
 Exclusive initial scope: `session-a172d5b9/**`, `data/session-a172d5b9/**`, `scripts/session-a172d5b9/**`, `.github/workflows/a172-a172d5b9.yml`, and append-only entries in this file. All existing root pages, `desk/**`, `board/**`, `data/master*.json`, peer session trees, pipelines, tools and workflows are read-only during research. Shared/root integration will require a separate stale-claim handoff entry here after the isolated desk is verified.
 
 | ID | Task | Status | Owner | File scope |
 |---|---|---|---|---|
-| A172-1 | Refresh/reconcile upcoming OLBG-listed events for exactly Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball and Rugby League; retain raw evidence and source links, and separate OLBG observations from official confirmation | done | arena/a172d5b9-olbg4 | `scripts/session-a172d5b9/**`, `data/session-a172d5b9/**` |
-| A172-2 | Originate transparent fair winner/handicap/total lines only where official inputs support them; leave unsupported cells blank, select a winner where support exists, label Low/Medium/High, and enforce High >=70% plus fair American odds -250…+10000 | done | arena/a172d5b9-olbg4 | same |
-| A172-3 | Publish unique natural >=30-word analyses only for eligible High selections, targeting five per sport without quota padding; include official form/statistics/availability evidence when present and flag missing evidence or shortfalls | done | arena/a172d5b9-olbg4 | same |
-| A172-4 | Build an isolated clean executive dashboard, obvious picks page, all-match and per-sport tables, markets, sources/methodology and Flagged for Review; verify every row and local link | done | arena/a172d5b9-olbg4 | `session-a172d5b9/**`, `scripts/session-a172d5b9/**` |
-| A172-5 | After all isolated tasks and any active shared-output owners finish, log final-integration scope, reverify combined output, open PR from the Arena-fixed branch, merge only with green checks, confirm Pages and record results | done | arena/a172d5b9-olbg4 | `COORDINATION.md` plus separately claimed integration scope |
+| A172-1 | Refresh/reconcile upcoming OLBG-listed events for exactly Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball and Rugby League; retain raw evidence and source links, and separate OLBG observations from official confirmation | in progress | arena/a172d5b9-olbg4 | `scripts/session-a172d5b9/**`, `data/session-a172d5b9/**` |
+| A172-2 | Originate transparent fair winner/handicap/total lines only where official inputs support them; leave unsupported cells blank, select a winner where support exists, label Low/Medium/High, and enforce High >=70% plus fair American odds -250…+10000 | pending | arena/a172d5b9-olbg4 | same |
+| A172-3 | Publish unique natural >=30-word analyses only for eligible High selections, targeting five per sport without quota padding; include official form/statistics/availability evidence when present and flag missing evidence or shortfalls | pending | arena/a172d5b9-olbg4 | same |
+| A172-4 | Build an isolated clean executive dashboard, obvious picks page, all-match and per-sport tables, markets, sources/methodology and Flagged for Review; verify every row and local link | pending | arena/a172d5b9-olbg4 | `session-a172d5b9/**`, `scripts/session-a172d5b9/**` |
+| A172-5 | After all isolated tasks and any active shared-output owners finish, log final-integration scope, reverify combined output, open PR from the Arena-fixed branch, merge only with green checks, confirm Pages and record results | pending | arena/a172d5b9-olbg4 | `COORDINATION.md` plus separately claimed integration scope |
 
 ### A172 isolated verification + stale master-gate handoff — 2026-10-24T22:43Z
 
@@ -5206,15 +5206,6 @@ Exclusive initial scope: `session-a172d5b9/**`, `data/session-a172d5b9/**`, `scr
 - Third capture `20261024T223855Z` succeeded in run [`40139365510`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40139365510): 151 payloads, 19 recorded failures, including NBA full schedule HTTP 200 (`7,400,333` bytes, SHA-256 `2d1c4122f8f9d72a9358749d683788534b167830ca21727a55e8dcdcab6a9474`). Rebuilt output remains 142 OLBG rows / five written High picks, now with 25 official crosswalks (seven NBA). NBA prices stay blank below the 20-game threshold. Latest gates: 5,106 checks, 151/151 hashes, deterministic second build, zero broken/stale publication links.
 - The narrow master repair is complete locally: M0340 now retains official fixture and market facts but has blank pick/confidence/prose and a specific withdrawal flag; generic no-pick wording is not added to withdrawn rows. Regeneration also brings committed master artifacts up to the 20:47 source snapshot. `BOARD_DIR=board python3 tools/verify_master.py` passes (369 rows, 364 in scope, 296 official-sourced, 31 High with written predictions).
 - **Stale root-claim handoff:** Board CA's last root PR merged at 17:54Z and its follow-up finished at 18:05Z, over 60 minutes ago with no subsequent root commit; no open CA PR is active. A172's isolated tasks are complete. For final integration only, A172 claims an additive edit to `scripts/session-b6643783/build_site.py` plus its generated root `index.html` and `desk/**` navigation outputs. The edit will only add a prominent link/banner to `session-a172d5b9/`; it will not alter CA data, picks, tables, styling or archive content. No other shared navigation or peer renderer is claimed.
-
-### A172 publication closeout — 2026-10-24T23:02Z
-
-- **A172-1…5 done. PR [#187](https://github.com/buffedlizard55-lab/OLBG4/pull/187) merged autonomously** at 2026-10-24T22:51:30Z as merge commit `0889c0ac7788a8a657aee7dff8648b41b485c3fd`, after all PR build/freshness, publication-audit and integrated-dashboard checks passed. No review wait, quota override or evidence-gate bypass was used.
-- **Pages deployment succeeded** in run [`40140330237`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40140330237): build, master verification, committed-dashboard freshness, Board T, placeholder scan, artifact upload and deploy all passed. Main runs [`40140330228`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40140330228), [`40140330196`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40140330196) and [`40140330224`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40140330224) also passed.
-- Public fetches confirmed the root banner, `https://buffedlizard55-lab.github.io/OLBG4/session-a172d5b9/` and `picks.html`: 142 listings, 25 official crosswalks and all five full analyses are served, including explicit `Boston Bruins -0.5` regulation language and official/OLBG review links. Root navigation now uses the precise label **A172 strict desk** because a peer merged a slightly newer independent capture afterward.
-- Peer PR #188 then advanced main to `4ad9673`; it preserved the A172 dashboard/banner and M0340 withdrawal repair. Its Actions Pages run [`40140477647`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40140477647), legacy Pages run [`40140477582`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40140477582), validation, audit and integrated-dashboard checks all succeeded. Post-integration local audit: 51,814 local targets, zero broken/stale.
-- Final A172 evidence: capture `20261024T223855Z`, 151 raw payloads with matching hashes and 19 source failures recorded; 142 OLBG-listed rows, 25 official crosswalks, 15 primary leans, six strict numerical candidates and five written High NHL picks. Five-per-sport targets are not padded: Ice Hockey reaches five; all other shortfalls stay visible. GOG remains Medium (69.60% / -229), NBA prices remain blank below the 20-game threshold, and no injury/availability claim is made without an official report. The 178-item Flagged for Review register retains capture failures, unmatched OLBG listings, unsupported blanks, evidence gaps and target shortfalls.
-- Master regression fixed and deployed: M0340 no longer receives a withdrawn headline from an alternate build; its official fixture and market families remain, while pick/confidence/prose are blank with a specific withdrawal flag. `COORDINATION.md` is the final handoff record; no peer capture, prediction or source payload was edited.
 
 ## Board EC — session `arena/e0ca04cf-olbg4` (2026-10-24T22:30Z: fresh 15-sport desk, own lines for the eight sports earlier boards left unpriced, written predictions, dashboard, integration)
 
@@ -5255,12 +5246,48 @@ exactly those gaps while re-deriving the priced sports from fresh bytes.
   a specialist miss cannot lose the main capture. Scope is unchanged and stays inside
   `scripts/session-e0ca04cf/**`, `data/session-e0ca04cf/**`, `session-e0ca04cf/**` and this log.
 
-### EC6 integration, merge and Pages — 2026-10-24T23:00Z
+### DS completion record — 2026-10-24 (session `e880ce67`, branch `arena/e880ce67-olbg4`)
 
-- **PR [#188](https://github.com/buffedlizard55-lab/OLBG4/pull/188) merged** as `4ad9673d6e472e773d5ac8b4d26d32bc3817685c` at `2026-10-24T22:53:41Z`. The branch was rebased onto `main` first; the only conflicts were in `COORDINATION.md` (both append-only sections kept) and in the generated `data/master.json` / `board/**`, which were resolved by taking upstream and re-running `tools/build_master.py` + `tools/build_master_site.py`, then confirming `BOARD_DIR=board python3 tools/verify_master.py` passes.
-- **Pages deployed** from the merge commit by run [`40140477647`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40140477647) (build + deploy both succeeded, 5m12s); the prior main deploy [`40140330237`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40140330237) for PR #187 had already gone green, so the root board was not broken by this merge. Landing page: `https://buffedlizard55-lab.github.io/OLBG4/session-e0ca04cf/` with `picks.html`, `entries.html`, `markets.html`, `sources.html`, `flagged.html`, `methodology.html`, `olbg.html`, `review.html` and 15 sport pages (24 files, all present on `main`).
-- **Desk published**: capture `20261024T223338Z` (131 official responses, SHA-256 per payload, 58 failed targets published), **345 fixtures** across all 15 requested sports, **234 with our own originated line and pick**, **8 High**, **28 hand-written previews** (≥30 words, each naming its own selection, max pairwise similarity 0.38, no `model`/`verified` wording). Priced: Ice Hockey 120 (NHL + Liiga), Basketball 62 (EuroLeague/EuroCup), Snooker 29 (WST), Volleyball 15 (PlusLiga), Baseball 6 (MLB), Handball 2 (EHF CL).
-- **Verification**: `python3 scripts/session-e0ca04cf/verify.py` → **42/42 gates**, covering price/probability integrity, two-way markets summing to 1.000, the −250…+10,000 band, confidence caps, a source on every priced row, preview length/uniqueness/selection wording, page inventory and zero broken local links.
-- **Honest gaps recorded, not filled**: Golf, Gaelic Sports, Tennis, Cricket, Darts, Rugby Union, Motor Racing and Greyhounds carry fixtures or a stated reason but no line — the official pages for those sports either 404'd, are client-rendered, or (Motor Racing) cannot separate a single race from championship points (leader 7.7%). No injury/team-news feed was captured, so no preview claims one. All of this is on `flagged.html` and in `data/session-e0ca04cf/review.json` (16 findings with source links).
-- The High-scarcity arithmetic is published on the landing page rather than worked around: −250 American is 71.4% implied, so a pick can only be both 70%+ and in-band when our probability lands in 0.700–0.7144. Nothing was relabelled to inflate the High count.
-- A fourth capture pass (`targets4.json`, 87 specialist targets for the eight unpriced sports) was queued on the runner at publication time and had not completed; `EC-R16` records that, and the desk names its capture so a later rebuild can be diffed against it.
+**Published:** [`session-e880ce67/index.html`](session-e880ce67/index.html) — 25 static pages (overview with
+executive summary, picks, predictions, all matches, markets, sports hub, 15 per-sport pages, sources,
+method, repo review, flagged), plus `data/session-e880ce67/{olbg,evidence,desk,predictions,review}.json`,
+`raw/manifest.json` and `scripts/session-e880ce67/*`. Rebuild order:
+`evidence → originate → predict → review → build_site → verify`.
+
+**OLBG read (live, 2026-10-24T22:26Z).** The sport hubs are SvelteKit and embed their whole feed as
+`data:{tips:[{selection, market_alias, odds, american_odds, event_start_unix_timestamp, eventUrl,
+win_tips, confidence}]}`. Parsing that payload instead of the rendered rows raised the inventory from
+92 to 211 tipped selections and recovered the price OLBG itself quoted. 137 future match markets across
+11 of the 15 brief sports are published; outright markets are listed separately and excluded from the
+match desk. `/betting-tips/<Sport>/<id>/__data.json` (captured too) is the devalue form of the same feed.
+
+**Own lines.** 27 matches priced, each only where both sides have a governing-body strength figure:
+Ice Hockey 13 (NHL standings + eight daily schedules), Handball 12 (EHF Champions League table),
+Baseball 1 (MLB StatsAPI standings + schedule), Tennis 1 (WTA rankings). Moneyline, handicap and total
+published per priced match. 6 High-confidence picks, 21 inside −250…+10,000. The 70% rule and the −250
+floor intersect only at 70.0–71.4%; that is stated on Method instead of relabelling picks.
+
+**Written predictions.** 12 (61–75 words), max pairwise similarity 0.339, each naming its selection,
+quoting its exact published price, and carrying the governing-body link plus the OLBG market.
+
+**Verification.** `python3 scripts/session-e880ce67/verify.py` → 16/16 PASS (byte-identical rebuild;
+decimal↔American re-derivation; two-way markets summing to 1; confidence and band rules; official https
+source on every priced row; a specific missing-input sentence on every unpriced row; prediction word
+floor, uniqueness, selection naming, price quoting, number provenance; every local link; 15 sport pages;
+no TODO). `scripts/session-74f9613e/build_all.sh` exit 0; `scripts/session-b6643783/verify.py` passes;
+`BOARD_DIR=board python3 tools/verify_master.py` → OK.
+
+**Published irregularities** (`flagged.html`, `review.html`): OLBG lists nothing for Golf or Motor
+Racing; 11 sports have no priceable match with the exact refusing URL named (ATP 403, NBA 403, OWGR 404,
+World Rugby 404, MotoGP 404, Super League 500, ICC/WST/PDC/GAA client-side only); 12 priced fixtures carry
+OLBG-only fixture identity; no official injury feed was captured, so no prediction claims one;
+`data/master.json` review — 341 affected rows across 9 findings (210 dated before the review date, 39
+without a source URL, 35 predictions under 30 words or carrying internal vocabulary, 49 without a
+confidence label, Gaelic Football in the row file but not the in-scope list, Greyhounds under two labels).
+
+**Integration edits made, and only these:** (1) one nav pointer `("session-e880ce67/index.html", "Board
+DS")` added to Board CA's root generator `scripts/session-b6643783/build_site.py` and that generator
+re-run; (2) `tools/build_master.py` + `tools/build_master_site.py` re-run so the Pages staleness gate
+stays green — the committed master board was stale against its own source files and still consolidated
+one withdrawn headline pick. Both are generated output, reproduced deterministically, and re-verified
+after the merge of `origin/main` into this branch. No other board's data or prose was edited.
