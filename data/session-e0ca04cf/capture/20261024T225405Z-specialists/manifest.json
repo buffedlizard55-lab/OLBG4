@@ -1,0 +1,847 @@
+{
+ "board": "EC",
+ "failed": 35,
+ "failures": [
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "et_race_to_dubai",
+   "status": 404,
+   "url": "https://www.europeantour.com/dpworld-tour/rankings/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "olbg_golf_hub2",
+   "status": 404,
+   "url": "https://www.olbg.com/betting-tips/Golf"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "wta_rank_singles",
+   "status": 404,
+   "url": "https://api.wtatennis.com/tennis/players/rankings/singles?page=0&pageSize=100"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "wta_rank_singles2",
+   "status": 404,
+   "url": "https://api.wtatennis.com/tennis/rankings/singles?page=0&pageSize=100"
+  },
+  {
+   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+   "id": "atp_rank_api",
+   "status": 0,
+   "url": "https://api.atptour.com/players/rankings/singles?rankRange=1-100"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "atp_rank_html",
+   "status": 403,
+   "url": "https://www.atptour.com/en/rankings/singles?rankRange=1-100"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "atp_scores_current",
+   "status": 403,
+   "url": "https://www.atptour.com/en/scores/current"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "ptl_current_mds",
+   "status": 404,
+   "url": "https://www.protennislive.com/posting/current/mds.pdf"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "ptl_current_op",
+   "status": 404,
+   "url": "https://www.protennislive.com/posting/current/op.pdf"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "olbg_tennis_atp",
+   "status": 404,
+   "url": "https://www.olbg.com/betting-tips/Tennis/ATP"
+  },
+  {
+   "error": "TimeoutError: The read operation timed out",
+   "id": "snookerorg_matches",
+   "status": 0,
+   "url": "https://api.snooker.org/?t=6&s=2026"
+  },
+  {
+   "error": "TimeoutError: The read operation timed out",
+   "id": "snookerorg_rankings",
+   "status": 0,
+   "url": "https://api.snooker.org/?t=9&s=2026"
+  },
+  {
+   "error": "TimeoutError: The read operation timed out",
+   "id": "snookerorg_players",
+   "status": 0,
+   "url": "https://api.snooker.org/?t=10&s=2026"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "bigbash_fixtures",
+   "status": 404,
+   "url": "https://www.bigbash.com.au/fixtures"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "ecb_fixtures",
+   "status": 404,
+   "url": "https://www.ecb.co.uk/england/fixtures"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "nzc_fixtures",
+   "status": 404,
+   "url": "https://www.nzc.nz/schedule/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "wr_fixtures",
+   "status": 404,
+   "url": "https://www.world.rugby/fixtures-results"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "urc_fixtures_page",
+   "status": 404,
+   "url": "https://www.unitedrugby.com/fixtures"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "urc_standings_page",
+   "status": 404,
+   "url": "https://www.unitedrugby.com/standings"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "top14_calendrier",
+   "status": 404,
+   "url": "https://top14.lnr.fr/calendrier/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gbgb_racecards",
+   "status": 404,
+   "url": "https://www.gbgb.org.uk/racecards/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gbgb_fixtures",
+   "status": 404,
+   "url": "https://www.gbgb.org.uk/fixtures/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gbgb_api_meetings",
+   "status": 404,
+   "url": "https://api.gbgb.org.uk/api/meetings?date=2026-10-25&page=1&itemsPerPage=50"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "gbgb_api_races",
+   "status": 404,
+   "url": "https://api.gbgb.org.uk/api/races?date=2026-10-25&page=1&itemsPerPage=50"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "ehfcl_standings",
+   "status": 404,
+   "url": "https://www.eurohandball.com/en/competition/ehf-champions-league-men/2026-27/standings/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "lnh_france",
+   "status": 404,
+   "url": "https://www.lnh.fr/lidl-starligue/calendrier"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "asobal",
+   "status": 404,
+   "url": "https://www.asobal.es/calendario/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "nba_schedule_cdn",
+   "status": 403,
+   "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+  },
+  {
+   "error": "HTTPError: HTTP Error 403: Forbidden",
+   "id": "nba_today_board",
+   "status": 403,
+   "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json"
+  },
+  {
+   "error": "URLError: <urlopen error timed out>",
+   "id": "bsl_fixtures",
+   "status": 0,
+   "url": "https://www.bsl.org.tr/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "del_schedule",
+   "status": 404,
+   "url": "https://www.penny-del.org/spielplan"
+  },
+  {
+   "error": "HTTPError: HTTP Error 307: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nTemporary Redirect",
+   "id": "khl_schedule2",
+   "status": 307,
+   "url": "https://www.khl.ru/calendar/"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "vbl_schedule",
+   "status": 404,
+   "url": "https://www.volleyball-bundesliga.de/schedule"
+  },
+  {
+   "error": "HTTPError: HTTP Error 404: Not Found",
+   "id": "cev_matches",
+   "status": 404,
+   "url": "https://www.cev.eu/competitions/"
+  },
+  {
+   "error": "URLError: <urlopen error timed out>",
+   "id": "npb_schedule",
+   "status": 0,
+   "url": "https://npb.jp/games/2026/schedule_11_detail.html"
+  }
+ ],
+ "finished_utc": "2026-10-24T23:05:33Z",
+ "ok": 52,
+ "records": [
+  {
+   "bytes": 536854,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "pgat_schedule.gz",
+   "final_url": "https://www.pgatour.com/schedule",
+   "id": "pgat_schedule",
+   "sha256": "80b5efd5294cab7af73ad8118eeba1aaeafa74499b808a83fefff577c79f8e6d",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.pgatour.com/schedule"
+  },
+  {
+   "bytes": 947728,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "pgat_bermuda_field.gz",
+   "final_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/field",
+   "id": "pgat_bermuda_field",
+   "sha256": "263f4c69f6cfb230a046bd1aca8a44c7e852a1dc49142661ab67b6885d8863f9",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/field"
+  },
+  {
+   "bytes": 954399,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "pgat_leaderboard.gz",
+   "final_url": "https://www.pgatour.com/leaderboard",
+   "id": "pgat_leaderboard",
+   "sha256": "af5facb2247adcb1a0e2a9c737065617c4e4b317c182f80736757b1981668f86",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.pgatour.com/leaderboard"
+  },
+  {
+   "bytes": 166198,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "owgr_100.gz",
+   "final_url": "https://www.owgr.com/current-world-ranking?pageNo=1&pageSize=100&countryId=0",
+   "id": "owgr_100",
+   "sha256": "b748f387274d39ef8f86b14501d48c473a55d471c1bd6ece49817432bdae39dc",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.owgr.com/ranking?pageNo=1&pageSize=100&countryId=0"
+  },
+  {
+   "bytes": 278559,
+   "content_type": "text/html",
+   "error": null,
+   "file": "dpwt_schedule.gz",
+   "final_url": "https://www.europeantour.com/dpworld-tour/schedule/",
+   "id": "dpwt_schedule",
+   "sha256": "f02c3425f57ad15ee4d6e0afc53cbed7a919cb148c07f1f9ae1f289502f21947",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.europeantour.com/dpworld-tour/schedule/"
+  },
+  {
+   "bytes": 528202,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "lpga_schedule.gz",
+   "final_url": "https://www.lpga.com/tournaments",
+   "id": "lpga_schedule",
+   "sha256": "26ea7142a2d11be48fd641a35ef293780664130b6941c4b461ae6ce4c0ee6c45",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.lpga.com/tournaments"
+  },
+  {
+   "bytes": 274283,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_golf_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "id": "olbg_golf_hub",
+   "sha256": "6d50deb802d35b65d9a0b17cdd9867ea02acb14600d87913e527c6ca5aa72a1e",
+   "sport": "Golf",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Golf/5"
+  },
+  {
+   "bytes": 60559,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wta_trn_2026.gz",
+   "final_url": "https://api.wtatennis.com/tennis/tournaments/?page=0&pageSize=100&year=2026",
+   "id": "wta_trn_2026",
+   "sha256": "535b9b1736a00c153497be2905871d3c6dd7856a36f4456ec4563a28aa7c8e6a",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://api.wtatennis.com/tennis/tournaments/?page=0&pageSize=100&year=2026"
+  },
+  {
+   "bytes": 36155,
+   "content_type": "application/json",
+   "error": null,
+   "file": "wta_trn_latest.gz",
+   "final_url": "https://api.wtatennis.com/tennis/tournaments/?page=0&pageSize=50&sort=startDate,desc",
+   "id": "wta_trn_latest",
+   "sha256": "a3fb68259db0ef18cddedd09a0743801bab67aec1e9abea4f3a09b9198d99f94",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://api.wtatennis.com/tennis/tournaments/?page=0&pageSize=50&sort=startDate,desc"
+  },
+  {
+   "bytes": 380903,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_tennis_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "id": "olbg_tennis_hub",
+   "sha256": "8b6eb77377f0d3ca1587d67d09934f01dae6d71f516cae7946732ed3ac00b599",
+   "sport": "Tennis",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Tennis/3"
+  },
+  {
+   "bytes": 6169,
+   "content_type": "text/html",
+   "error": null,
+   "file": "wst_wp_posts.gz",
+   "final_url": "https://www.wst.tv/wp-json/wp/v2/posts?per_page=20",
+   "id": "wst_wp_posts",
+   "sha256": "75d1ed54f2ad4b8d5df299fe4af5ba56ce4dfa701071f428fdc2dad4c025dba1",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://wst.tv/wp-json/wp/v2/posts?per_page=20"
+  },
+  {
+   "bytes": 6169,
+   "content_type": "text/html",
+   "error": null,
+   "file": "wst_matches_page.gz",
+   "final_url": "https://www.wst.tv/matches/",
+   "id": "wst_matches_page",
+   "sha256": "75d1ed54f2ad4b8d5df299fe4af5ba56ce4dfa701071f428fdc2dad4c025dba1",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://www.wst.tv/matches/"
+  },
+  {
+   "bytes": 6169,
+   "content_type": "text/html",
+   "error": null,
+   "file": "wst_calendar.gz",
+   "final_url": "https://www.wst.tv/calendar/",
+   "id": "wst_calendar",
+   "sha256": "75d1ed54f2ad4b8d5df299fe4af5ba56ce4dfa701071f428fdc2dad4c025dba1",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://www.wst.tv/calendar/"
+  },
+  {
+   "bytes": 271568,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_snooker_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "id": "olbg_snooker_hub",
+   "sha256": "1e66cadf92b3482aaf616b6c2df7c44d4a1fe00a6e22c46acac398505c67a661",
+   "sport": "Snooker",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Snooker/8"
+  },
+  {
+   "bytes": 1241860,
+   "content_type": "text/html",
+   "error": null,
+   "file": "pdc_wp_posts.gz",
+   "final_url": "https://www.pdc.tv/wp-json/wp/v2/posts?per_page=20",
+   "id": "pdc_wp_posts",
+   "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.pdc.tv/wp-json/wp/v2/posts?per_page=20"
+  },
+  {
+   "bytes": 1241860,
+   "content_type": "text/html",
+   "error": null,
+   "file": "pdc_rankings.gz",
+   "final_url": "https://www.pdc.tv/rankings/",
+   "id": "pdc_rankings",
+   "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.pdc.tv/rankings/"
+  },
+  {
+   "bytes": 1241860,
+   "content_type": "text/html",
+   "error": null,
+   "file": "pdc_tournaments.gz",
+   "final_url": "https://www.pdc.tv/tournaments/",
+   "id": "pdc_tournaments",
+   "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.pdc.tv/tournaments/"
+  },
+  {
+   "bytes": 1262036,
+   "content_type": "text/html",
+   "error": null,
+   "file": "pdc_calendar.gz",
+   "final_url": "https://www.pdc.tv/calendar/",
+   "id": "pdc_calendar",
+   "sha256": "f00a57d5fde7a753995d0af97672fba1b501a58cae10ef84515635d96c9ebdb2",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.pdc.tv/tournaments/calendar/"
+  },
+  {
+   "bytes": 319222,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_darts_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Darts/15",
+   "id": "olbg_darts_hub",
+   "sha256": "59ae95d8b596f038fdc8dfe4ff3ee3394cfe159cd6b9e9c1f0aa56feefe6a0cb",
+   "sport": "Darts",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Darts/15"
+  },
+  {
+   "bytes": 369189,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "icc_fixtures.gz",
+   "final_url": "https://www.icc-cricket.com/fixtures-results",
+   "id": "icc_fixtures",
+   "sha256": "ee70d730797eec185c806d7a3ca2f0c0983d231447ca0fe67946e51d4331b86b",
+   "sport": "Cricket",
+   "status": 200,
+   "url": "https://www.icc-cricket.com/fixtures-results"
+  },
+  {
+   "bytes": 454824,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "icc_rankings_html.gz",
+   "final_url": "https://www.icc-cricket.com/rankings/team-rankings/mens/t20i",
+   "id": "icc_rankings_html",
+   "sha256": "b10100be9e6326e07ba5c0cc3952eaa6c262c6f7118a31d1765e9419f998165d",
+   "sport": "Cricket",
+   "status": 200,
+   "url": "https://www.icc-cricket.com/rankings/mens/team-rankings/t20i"
+  },
+  {
+   "bytes": 197344,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "cricketcomau_matches.gz",
+   "final_url": "https://www.cricket.com.au/matches",
+   "id": "cricketcomau_matches",
+   "sha256": "73fc316bfb2bde5e877c4718dd7c07fb2ceeb28278f67ab5ac1436a7c3f315fd",
+   "sport": "Cricket",
+   "status": 200,
+   "url": "https://www.cricket.com.au/matches"
+  },
+  {
+   "bytes": 531579,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "bcci_fixtures.gz",
+   "final_url": "https://www.bcci.tv/",
+   "id": "bcci_fixtures",
+   "sha256": "8253dd19900afa8d38b0e3c866f7b3668cd8ce1e6df1e259a473cc082e7b3261",
+   "sport": "Cricket",
+   "status": 200,
+   "url": "https://www.bcci.tv/"
+  },
+  {
+   "bytes": 339130,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_cricket_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Cricket/7",
+   "id": "olbg_cricket_hub",
+   "sha256": "b77ecd3cddb39ab1d7d57142e931bcf2ef787c6492a1996013582299e7ddee52",
+   "sport": "Cricket",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Cricket/7"
+  },
+  {
+   "bytes": 378823,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "wr_rankings.gz",
+   "final_url": "https://www.world.rugby/rankings",
+   "id": "wr_rankings",
+   "sha256": "838173dd388ed8621eda16cdefdf321ec2587b5429f1d8a1c7dae0f9846c7a33",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://www.world.rugby/rankings"
+  },
+  {
+   "bytes": 314871,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "premiership_fixtures.gz",
+   "final_url": "https://www.premrugby.com/fixtures",
+   "id": "premiership_fixtures",
+   "sha256": "32b8f971a4bdf4d3dcfe6a8ec285ffe94a3ffae3c7a8d5b0c766498833eda979",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://www.premiershiprugby.com/fixtures"
+  },
+  {
+   "bytes": 287287,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_ru_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+   "id": "olbg_ru_hub",
+   "sha256": "c22ed3cd5aee91bcaa0e81c7c7d58355c510cd1809a62c44c7f2837b7e9dc126",
+   "sport": "Rugby Union",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Rugby_Union/9"
+  },
+  {
+   "bytes": 1307940,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "gaa_fixtures.gz",
+   "final_url": "https://www.gaa.ie/fixtures-results",
+   "id": "gaa_fixtures",
+   "sha256": "1844d0a60218dbcda7832fe0402a7ceda24a106f790f2807c3319069e0e7d9e2",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://www.gaa.ie/fixtures-results/"
+  },
+  {
+   "bytes": 389190,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "gaa_home.gz",
+   "final_url": "https://www.gaa.ie/",
+   "id": "gaa_home",
+   "sha256": "f9bd8d54a659d6739601be0088d7f38bd955779d5441cf9a3c2a57a267539b91",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://www.gaa.ie/"
+  },
+  {
+   "bytes": 261059,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "gaa_hurling.gz",
+   "final_url": "https://www.gaa.ie/hurling",
+   "id": "gaa_hurling",
+   "sha256": "eafe5517205cb59cbb2f389da8ca5aa164dc3192c0edd1280065c2bc02a12d42",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://www.gaa.ie/hurling/"
+  },
+  {
+   "bytes": 286741,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_gaelic_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+   "id": "olbg_gaelic_hub",
+   "sha256": "3e4c34044ee566d2bc3c5f45270c73a1ea5ff18e62f0c423846368926ebe50c3",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+  },
+  {
+   "bytes": 265848,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_hurling_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Hurling/26",
+   "id": "olbg_hurling_hub",
+   "sha256": "f92f806cdc0d601952c43f21090c99c62f221d06c8e95d17ec62e7d3d7725f3d",
+   "sport": "Gaelic Sports",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Hurling/26"
+  },
+  {
+   "bytes": 35263,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "igb_ie.gz",
+   "final_url": "https://www.grireland.ie/",
+   "id": "igb_ie",
+   "sha256": "c4ff52b1107ca3c247711c452b98ed25b358b40acbb68b2911bb0b29e66fb02b",
+   "sport": "Greyhounds",
+   "status": 200,
+   "url": "https://www.igb.ie/"
+  },
+  {
+   "bytes": 302096,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_greyhound_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "id": "olbg_greyhound_hub",
+   "sha256": "31bfd9828469925a2f0f184ced8217abb21b2191e9cbb70bcc5df04c97e28aa9",
+   "sport": "Greyhounds",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+  },
+  {
+   "bytes": 142835,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "hbl_api_spielplan.gz",
+   "final_url": "https://dkb-handball-bundesliga.de/",
+   "id": "hbl_api_spielplan",
+   "sha256": "743f2e31e7e20972f3cfcd8f10256a683047f51deb5dedeeec7e511aa85ed005",
+   "sport": "Handball",
+   "status": 200,
+   "url": "https://www.dkb-handball-bundesliga.de/de/s/spielplan/"
+  },
+  {
+   "bytes": 357471,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_handball_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "id": "olbg_handball_hub",
+   "sha256": "6052088d50797f067f578d56610da853be333b0ea72542c0e60295fbe55ddb36",
+   "sport": "Handball",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Handball/20"
+  },
+  {
+   "bytes": 2477060,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "acb_calendario.gz",
+   "final_url": "https://acb.com/es/liga/calendario",
+   "id": "acb_calendario",
+   "sha256": "fd6899992b4a13558a0af27c05b8ccb29e2b8806a1915fb478bcf7ed6ce47b05",
+   "sport": "Basketball",
+   "status": 200,
+   "url": "https://www.acb.com/calendario/"
+  },
+  {
+   "bytes": 167434,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "legabasket_calendario.gz",
+   "final_url": "https://www.legabasket.it/calendario",
+   "id": "legabasket_calendario",
+   "sha256": "307047df99efac0ff570ec2d863d1bdfc0c58bdfdd481d074fab02bab1920e99",
+   "sport": "Basketball",
+   "status": 200,
+   "url": "https://www.legabasket.it/calendario/"
+  },
+  {
+   "bytes": 257800,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "olbg_nba_hub.gz",
+   "final_url": "https://www.olbg.com/betting-tips/Basketball/NBA/4",
+   "id": "olbg_nba_hub",
+   "sha256": "fb51a774a8c9f73ffb68dfadd2dad64d999296cef945a6902174373cabe05824",
+   "sport": "Basketball",
+   "status": 200,
+   "url": "https://www.olbg.com/betting-tips/Basketball/NBA/4"
+  },
+  {
+   "bytes": 179768,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "shl_schedule.gz",
+   "final_url": "https://www.shl.se/schedule",
+   "id": "shl_schedule",
+   "sha256": "b18a160c9661d2581e9aec3b635afa3e304929cc38060fb394d4e3f90f86aa20",
+   "sport": "Ice Hockey",
+   "status": 200,
+   "url": "https://www.shl.se/schedule"
+  },
+  {
+   "bytes": 12516,
+   "content_type": "text/html",
+   "error": null,
+   "file": "liiga_schedule.gz",
+   "final_url": "https://www.liiga.fi/en/schedule",
+   "id": "liiga_schedule",
+   "sha256": "ceda82d0707d3bccc070c13b9318ad5d289d882090668983247228f8f864a834",
+   "sport": "Ice Hockey",
+   "status": 200,
+   "url": "https://www.liiga.fi/en/schedule"
+  },
+  {
+   "bytes": 4634,
+   "content_type": "text/html",
+   "error": null,
+   "file": "nl_schedule.gz",
+   "final_url": "https://www.nationalleague.ch/game-center",
+   "id": "nl_schedule",
+   "sha256": "5445e8653d373440731d4fb6f4b86a22f8895b914961950b20c0538c043288cb",
+   "sport": "Ice Hockey",
+   "status": 200,
+   "url": "https://www.nationalleague.ch/game-center"
+  },
+  {
+   "bytes": 233135,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "file": "superlega_calendario.gz",
+   "final_url": "https://www.legavolley.it/calendario/",
+   "id": "superlega_calendario",
+   "sha256": "1e8c10957c55b80581863cf0b0ab702ca5b074545600d3bff4bb1fcae6e6396b",
+   "sport": "Volleyball",
+   "status": 200,
+   "url": "https://www.legavolley.it/calendario/"
+  },
+  {
+   "bytes": 157930,
+   "content_type": "text/html",
+   "error": null,
+   "file": "fivb_calendar.gz",
+   "final_url": "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/schedule/",
+   "id": "fivb_calendar",
+   "sha256": "f5abfdd1516fd605b44a8c816c648cc2707bb891c940931caf4f9b1bc8c6ee87",
+   "sport": "Volleyball",
+   "status": 200,
+   "url": "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/schedule/"
+  },
+  {
+   "bytes": 14298,
+   "content_type": "application/json",
+   "error": null,
+   "file": "f1_races.gz",
+   "final_url": "https://api.jolpi.ca/ergast/f1/2026/races.json",
+   "id": "f1_races",
+   "sha256": "daaa8feeacf5f583031bdcad2b80f3a15561e7e35c34d79004c23bf0f4abf7d7",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://api.jolpi.ca/ergast/f1/2026/races.json"
+  },
+  {
+   "bytes": 409389,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "f1_standings_official.gz",
+   "final_url": "https://www.formula1.com/en/results/2026/drivers",
+   "id": "f1_standings_official",
+   "sha256": "6d3b4ba2d3b6a39e94d1143391223384bdc90e7febdf89cda87071ea13268a82",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://www.formula1.com/en/results/2026/drivers"
+  },
+  {
+   "bytes": 613534,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "f1_calendar.gz",
+   "final_url": "https://www.formula1.com/en/racing/2026",
+   "id": "f1_calendar",
+   "sha256": "76152ff8cf941ae8be53b43d3abc2d5871753c6b69fdd18bad498acb46331627",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://www.formula1.com/en/racing/2026"
+  },
+  {
+   "bytes": 300368,
+   "content_type": "text/html;charset=utf-8",
+   "error": null,
+   "file": "motogp_calendar.gz",
+   "final_url": "https://www.motogp.com/en/calendar/2026",
+   "id": "motogp_calendar",
+   "sha256": "a126d1c6ebb642681111377a921f81d4556372a43559cae4a9d0f5b66b7dd203",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://www.motogp.com/en/calendar/2026"
+  },
+  {
+   "bytes": 113858,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "fia_f1.gz",
+   "final_url": "https://www.fia.com/events/fia-formula-one-world-championship/season-2026/2026-fia-formula-one-world-championship",
+   "id": "fia_f1",
+   "sha256": "ac52de8fd8617fc9b9c7c4bd6fe6345c4466486703a899e21f6230e3cd83fea3",
+   "sport": "Motor Racing",
+   "status": 200,
+   "url": "https://www.fia.com/events/fia-formula-one-world-championship/season-2026/2026-fia-formula-one-world-championship"
+  },
+  {
+   "bytes": 798,
+   "content_type": "text/html;charset=UTF-8",
+   "error": null,
+   "file": "nrl_draw.gz",
+   "final_url": "https://account.nrl.com/authorize?client_id=s7oMt6lSSioEPT6ZccktqxfgbAdeQYPU&response_type=code&scope=openid%20profile%20email&code_challenge=E3vSuYhRiexaN5i60k4ZM16fLvglNTlEq8-q3Mgo0Es&code_challenge_method=S256&state=OpenIdConnect.AuthenticationProperties%3DuTfNrB8FMmm4OIqoXLSHFzGOS9_ryTE4iArvrmo-foNlBlWt8yP8UZcV1hldclZDEqvOBJWBO2dUmpL8S54vYOBCgwZjffugNZM9IiXoUv9C2Z8XV2AwWnU6oxPp6C2pjdJQVG5umNPfyKBfwgOCPsWfsU8lKb1OzSekmABMVJPGCXiY1y4jTlV8m6RnOg8LirJq31zL3ExUo6lkSIg3wthHmND3p32UvjJq1R2gFpSEzUOjqChOIR7av8vC7K42pKisxT-FcSRzS9NBEvtR3r4g0FsFi8RWIJfTRg8sQokIfyPcWBG5UBrEtCtfqL78EkLja95ybuqjIuedwZNRvA&response_mode=form_post&nonce=639284798857353627.ODNmNWRmM2ItZjBjMy00Yjc2LWEyODAtZDdiZjllOWFjOGZjOGFkYmRlYzYtNDk1ZS00YmVkLWI5ZDYtNDc4NjMwOWZmYWM4&redirect_uri=https%3A%2F%2Fwww.nrl.com%2Faccount%2Fsignin-nrl&prompt=none&x-client-SKU=ID_NET472&x-client-ver=6.24.0.0",
+   "id": "nrl_draw",
+   "sha256": "d837372032b27e29052a01964d4b3695240129601cd03b9a05d9c16efcd6f050",
+   "sport": "Rugby League",
+   "status": 200,
+   "url": "https://www.nrl.com/draw/"
+  },
+  {
+   "bytes": 504413,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "file": "rlwc_site.gz",
+   "final_url": "https://www.rlwc2026.com/",
+   "id": "rlwc_site",
+   "sha256": "23893bb6d972b6ebb20b9d7c76d4f2581a834c91176d6dcd2f19d2f4a1e3359e",
+   "sport": "Rugby League",
+   "status": 200,
+   "url": "https://www.rlwc2026.com/"
+  },
+  {
+   "bytes": 8587,
+   "content_type": "application/json;charset=UTF-8",
+   "error": null,
+   "file": "mlb_schedule_all.gz",
+   "final_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-25&endDate=2026-11-08&hydrate=probablePitcher,linescore",
+   "id": "mlb_schedule_all",
+   "sha256": "0532a272443b3c2811e3b97991cbd313ed155b538ba30bb8d4c2653f590f7ac7",
+   "sport": "Baseball",
+   "status": 200,
+   "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-25&endDate=2026-11-08&hydrate=probablePitcher,linescore"
+  }
+ ],
+ "session": "arena/e0ca04cf-olbg4",
+ "started_utc": "2026-10-24T22:59:52Z",
+ "targets": 87
+}
