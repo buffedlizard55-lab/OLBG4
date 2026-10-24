@@ -5179,3 +5179,25 @@ Main advanced through PR #179 (root overview rebuilt so the repository freshness
 - **Pages deployed successfully** from the merge commit by run [`40121558882`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40121558882); both build and deploy jobs passed. The repository-wide audit also passed on the same commit (run [`40121558740`](https://github.com/buffedlizard55-lab/OLBG4/actions/runs/40121558740)). QF landing page: `https://buffedlizard55-lab.github.io/OLBG4/session-51fff5fb/` (other pages: `picks.html`, `coverage.html`, `flagged.html`, `sources.html`).
 - Post-merge local verification: **26/26 QF gates**, 350 source-linked rows, 0 broken local links; publication audit: 471 rows, 50,242 local targets, 0 broken, 0 stale. The audit describes the committed CA snapshot `20261024T173907Z`, not live odds.
 - QF1–QF3 are complete. **QF4 remains needs review**: the report is published at its isolated URL, but the current root owner has not yet integrated a pointer to QF's review page into root navigation. No root-owned file was changed by this board.
+
+## Board FI — session `arena/f51e10a5-olbg4` (2026-10-24T22:40Z, 15-sport desk, fresh capture, 5+ written predictions per sport)
+
+Session: `arena/f51e10a5-olbg4` · Branch: `arena/f51e10a5-olbg4` · Claimed: 2026-10-24T22:40Z UTC · **status: in progress**
+
+File scope (non-overlapping with every existing board): `session-f51e10a5/**`, `data/session-f51e10a5/**`,
+`scripts/session-f51e10a5/**`, `.github/workflows/f51e10a5-capture.yml`, and append-only entries at the end of this file.
+Everything else — `data/master.json`, `board/`, all root `*.html`, every other `session-*/`, `data/session-*/`,
+`scripts/session-*/`, `pipeline/**` and all other `.github/workflows/*.yml` — is **read-only** for Board FI.
+Findings that would need another owner's file are logged here as integration requests, never applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| FI1 | Fresh capture of OLBG listings for the 15 briefed sports plus the official fixture/standings/ranking sources, fetched by an Actions runner (sandbox egress is limited to github/npm/pypi), committed as raw bytes + SHA-256 manifest | in progress | arena/f51e10a5-olbg4 | `scripts/session-f51e10a5/fetch.py`, `scripts/session-f51e10a5/targets.json`, `.github/workflows/f51e10a5-capture.yml`, `data/session-f51e10a5/capture/**` |
+| FI2 | Own lines for every verified fixture in the 15 sports: match winner, handicap, total, plus sport-specific derivatives where official inputs exist; one pick per fixture labelled Low/Medium/High; every market investigated recorded | pending | arena/f51e10a5-olbg4 | `scripts/session-f51e10a5/parse.py`, `originate.py`, `data/session-f51e10a5/desk.json` |
+| FI3 | Five written predictions per sport (≥30 words, unique, human phrasing, explicit selection, form + recent results + verified match statistics + verified injuries/availability), in the −250…+10,000 window where the price allows | pending | arena/f51e10a5-olbg4 | `scripts/session-f51e10a5/predictions.py`, `data/session-f51e10a5/predictions.json` |
+| FI4 | Dashboard GitHub Pages site: landing page with executive summary, per-sport subpages, all-entries / picks / markets / coverage / sources / methodology / verification / Flagged-for-Review, every table row carrying an official source link; unconfirmed values blank and flagged | pending | arena/f51e10a5-olbg4 | `session-f51e10a5/**` |
+| FI5 | Line-by-line review of the new desk and of `data/master.json` + the freshest peer desks; defects with exact row ids and manual-review URLs on the Flagged for Review page | pending | arena/f51e10a5-olbg4 | `scripts/session-f51e10a5/review.py`, `data/session-f51e10a5/review.json` |
+| FI6 | Verification gate, `git pull --rebase`, PR to `main`, merge without waiting, confirm Pages deploy, record PR link and result here | pending | arena/f51e10a5-olbg4 | `scripts/session-f51e10a5/verify.py`, `COORDINATION.md` |
+
+### FI working log
+- 2026-10-24T22:40Z — `f51e10a5` — board claimed and pushed before any capture or file work. Read-only reuse of peer feed readers is by copy into `scripts/session-f51e10a5/`; no peer file is edited.
