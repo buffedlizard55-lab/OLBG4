@@ -41,6 +41,34 @@ def main() -> int:
     olbg = json.load(open(os.path.join(ROOT, "data/master_olbg.json")))
 
     rows = master["rows"]
+
+    # Regression guard: a prediction explicitly withdrawn by its source build
+    # must not re-enter the consolidated board as an unannotated headline pick.
+    e_root = os.path.join(ROOT, "session-4afef1af", "data")
+    if os.path.isdir(e_root):
+        e_predictions = json.load(open(os.path.join(e_root, "predictions.json")))
+        e_fixtures = {f["id"]: f for f in json.load(open(os.path.join(e_root, "fixtures.json")))}
+        e_analysis = {a["fixture"]["id"]: a.get("analysis", {})
+                      for a in json.load(open(os.path.join(e_root, "analysis.json")))}
+        for p in e_predictions:
+            if not p.get("withdrawn"):
+                continue
+            fx = e_fixtures.get(p.get("fixture_id"))
+            hp = e_analysis.get(p.get("fixture_id"), {}).get("headline_pick")
+            if not fx or not hp or hp.get("market") != p.get("market") or hp.get("selection") != p.get("selection"):
+                continue
+            urls = fx.get("official_source_urls") or fx.get("source_urls") or [""]
+            source_url = urls[0]
+            merged = [r for r in rows if r.get("build") == "E" and r.get("source_url") == source_url]
+            check(len(merged) == 1,
+                  f"withdrawn source prediction {p.get('fixture_id')} has {len(merged)} consolidated rows")
+            if merged:
+                row = merged[0]
+                check(not row.get("pick") and not row.get("confidence"),
+                      f"{row['id']} republishes a withdrawn headline pick/confidence")
+                check(any(f.get("kind") == "withdrawn-prediction" for f in row.get("flags", [])),
+                      f"{row['id']} omits a withdrawn-prediction review flag")
+
     ids = [r["id"] for r in rows]
     check(len(ids) == len(set(ids)), f"duplicate row ids: {len(ids) - len(set(ids))}")
     check(all(ids), "some rows are missing an id")
