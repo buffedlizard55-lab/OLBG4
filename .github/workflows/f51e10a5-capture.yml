@@ -1,0 +1,75 @@
+name: Board FI official-source capture (f51e10a5)
+
+# Session arena/f51e10a5-olbg4.  The authoring sandbox can only reach github/npm/pypi
+# hosts, so this job fetches OLBG listings plus the official league/federation/API
+# endpoints on a runner with open egress and commits the exact bytes with a SHA-256
+# manifest.  Nothing is parsed or interpreted in this job.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/f51e10a5-olbg4
+    paths:
+      - "scripts/session-f51e10a5/targets.json"
+      - "scripts/session-f51e10a5/fetch.py"
+      - ".github/workflows/f51e10a5-capture.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: board-fi-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch every target
+        run: |
+          set -uo pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          OUT="data/session-f51e10a5/capture/$STAMP"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          python3 scripts/session-f51e10a5/fetch.py scripts/session-f51e10a5/targets.json "$OUT"
+          python3 - "$OUT" <<'PY'
+          import json, os, sys
+          out = sys.argv[1]
+          man = json.load(open(os.path.join(out, "manifest.json")))
+          man["capture_id"] = os.path.basename(out)
+          man["board"] = "FI"
+          man["session"] = "arena/f51e10a5-olbg4"
+          json.dump(man, open(os.path.join(out, "manifest.json"), "w"), indent=1, sort_keys=True)
+          print("ok", man["ok"], "failed", man["failed"])
+          PY
+
+      - name: Commit the snapshot
+        run: |
+          set -uo pipefail
+          git config user.name "board-fi-collector"
+          git config user.email "actions@users.noreply.github.com"
+          git add -- "$OUT"
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -q -m "board FI: official-source capture $(basename "$OUT") [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin "arena/f51e10a5-olbg4" && git push origin "HEAD:arena/f51e10a5-olbg4"; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "push failed after 3 attempts" >&2
+          exit 1
