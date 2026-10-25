@@ -1,7 +1,7 @@
 {
  "schema": "olbg4.board-ca.review/1",
  "session": "arena/e9770274-olbg4",
- "generated_utc": "2026-10-24T17:58:46Z",
+ "generated_utc": "2026-10-25T11:48:37Z",
  "summary": {
   "count": 10,
   "notes": 6,
@@ -34,19 +34,19 @@
   },
   {
    "title": "Canonical predictions: length and wording",
-   "detail": "75 rows carry prediction text; 0 are shorter than 30 words, 0 have no source link, and 48 use wording the brief forbids (\"model\", \"verified\").",
+   "detail": "73 rows carry prediction text; 0 are shorter than 30 words, 0 have no source link, and 35 use wording the brief forbids (\"model\", \"verified\").",
    "severity": "defect",
    "where": "data/master.json"
   },
   {
    "title": "Repetition between published predictions",
-   "detail": "The most similar pair of prediction texts in the six most recently published desks scores 0.59 (1.00 = identical) in session-edffdbc6: Besiktas Istanbul @ Virtus Bologna ↔ Partizan Mozzart Bet Belgrade @ Zalgiris Kaunas. Under 0.55 is what this desk requires of its own output.",
+   "detail": "The most similar pair of prediction texts in the six most recently published desks scores 0.49 (1.00 = identical) in session-edffdbc6: Besiktas Istanbul @ Virtus Bologna ↔ Partizan Mozzart Bet Belgrade @ Zalgiris Kaunas. Under 0.55 is what this desk requires of its own output.",
    "severity": "note",
    "where": "data/session-edffdbc6"
   },
   {
    "title": "High-confidence picks with no published price",
-   "detail": "51 High picks in recent desks carry no fair price or probability. Example: session-edffdbc6 — None.",
+   "detail": "34 High picks in recent desks carry no fair price or probability. Example: session-edffdbc6 — None.",
    "severity": "defect",
    "where": "data/session-edffdbc6"
   },
@@ -64,7 +64,7 @@
   },
   {
    "title": "This desk: priced rows carry an official link",
-   "detail": "15 of 15 priced rows on this desk cite the official source they were built from; every unpriced row states why.",
+   "detail": "11 of 11 priced rows on this desk cite the official source they were built from; every unpriced row states why.",
    "severity": "note",
    "where": "session-e9770274/fixtures.html"
   }

@@ -1,8 +1,8 @@
 {
  "schema": "olbg4.board-ca.flags/1",
  "session": "arena/e9770274-olbg4",
- "capture_id": "20261024T172255Z",
- "count": 55,
+ "capture_id": "20261025T114648Z",
+ "count": 59,
  "flags": [
   {
    "group": "Capture failures — no data was obtained",
@@ -198,19 +198,19 @@
   },
   {
    "group": "Shortfall against the five-written-predictions-per-sport target",
-   "title": "Baseball: 1 listed on OLBG, 1 priced, 1 written prediction(s)",
+   "title": "Baseball: 1 listed on OLBG, 1 priced, 0 written prediction(s)",
    "detail": "We do not publish a run line or a run total: MLB does not publish a per-game run distribution we could verify, so a fair total would be a guess. The moneyline above is derived from the official season records only.",
    "source_url": ""
   },
   {
    "group": "Shortfall against the five-written-predictions-per-sport target",
-   "title": "Basketball: 10 listed on OLBG, 0 priced, 0 written prediction(s)",
+   "title": "Basketball: 9 listed on OLBG, 0 priced, 0 written prediction(s)",
    "detail": "NBA's official data host (cdn.nba.com / stats.nba.com) returned HTTP 403 to our capture runner even with browser headers, so no verified per-team scoring record exists in this capture. The Polish PLK and Brazilian NBB fixtures on OLBG have no official data feed in scope. Lines withheld.",
    "source_url": ""
   },
   {
    "group": "Shortfall against the five-written-predictions-per-sport target",
-   "title": "Cricket: 14 listed on OLBG, 0 priced, 0 written prediction(s)",
+   "title": "Cricket: 8 listed on OLBG, 0 priced, 0 written prediction(s)",
    "detail": "The fixture list on OLBG (Pakistan v England ODI, India Women v Zimbabwe Women, four CSA T20 games, NZ v India 3rd T20) could not be matched to a committed official fixture feed: pcb.com.pk returned HTTP 403, the ICC tournament page 404, and the ECB and NZC pages carry news rather than a machine-readable schedule. Lines withheld.",
    "source_url": ""
   },
@@ -228,7 +228,7 @@
   },
   {
    "group": "Shortfall against the five-written-predictions-per-sport target",
-   "title": "Greyhounds: 76 listed on OLBG, 0 priced, 0 written prediction(s)",
+   "title": "Greyhounds: 41 listed on OLBG, 0 priced, 0 written prediction(s)",
    "detail": "OLBG lists 79 UK race cards (Doncaster, Monmore, Dunstall Park, Star Pelaw, Central Park, Romford, Yarmouth). The official Irish feeds we can capture (GRI) cover Shelbourne Park and Curraheen, which are not on the OLBG card, and OLBG publishes no runner names or form. Lines withheld.",
    "source_url": ""
   },
@@ -236,6 +236,12 @@
    "group": "Shortfall against the five-written-predictions-per-sport target",
    "title": "Handball: 20 listed on OLBG, 0 priced, 0 written prediction(s)",
    "detail": "The German HBL, Spanish ASOBAL and French LNH official sites returned HTTP 404 for the schedule paths we captured, and the EHF Champions League and Danish/Norwegian pages render fixtures client-side. No verified per-team scoring record is available, so lines are withheld rather than guessed.",
+   "source_url": ""
+  },
+  {
+   "group": "Shortfall against the five-written-predictions-per-sport target",
+   "title": "Ice Hockey: 16 listed on OLBG, 4 priced, 0 written prediction(s)",
+   "detail": "No verified official input captured for this fixture.",
    "source_url": ""
   },
   {
@@ -252,7 +258,7 @@
   },
   {
    "group": "Shortfall against the five-written-predictions-per-sport target",
-   "title": "Rugby Union: 6 listed on OLBG, 0 priced, 0 written prediction(s)",
+   "title": "Rugby Union: 3 listed on OLBG, 0 priced, 0 written prediction(s)",
    "detail": "No verified official input captured for this fixture.",
    "source_url": ""
   },
@@ -264,25 +270,31 @@
   },
   {
    "group": "Shortfall against the five-written-predictions-per-sport target",
-   "title": "Tennis: 6 listed on OLBG, 0 priced, 0 written prediction(s)",
+   "title": "Tennis: 20 listed on OLBG, 0 priced, 0 written prediction(s)",
    "detail": "No verified official input captured for this fixture.",
    "source_url": ""
   },
   {
    "group": "Shortfall against the five-written-predictions-per-sport target",
-   "title": "Volleyball: 20 listed on OLBG, 3 priced, 3 written prediction(s)",
+   "title": "Volleyball: 20 listed on OLBG, 6 priced, 3 written prediction(s)",
    "detail": "No verified official input captured for this fixture.",
    "source_url": ""
   },
   {
    "group": "Priced on a thin sample",
-   "title": "Tampa Bay Rays at Milwaukee Brewers — Baseball (sample 1 completed game(s))",
+   "title": "Itas Trentino vs Cisterna Volley — Volleyball (sample 1 completed game(s))",
    "detail": "The line is originated from the official record we hold, but because the sample is thin the pick is capped at Medium regardless of its probability. Shown on the row as ‘inputs checked against the official source, but a thin sample (fewer than 5 completed games)’.",
-   "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-11-03&hydrate=probablePitcher(note),team,linescore,decisions,venue"
+   "source_url": "https://www.legavolley.it/classifica/"
   },
   {
    "group": "Priced on a thin sample",
-   "title": "Itas Trentino vs Cisterna Volley — Volleyball (sample 1 completed game(s))",
+   "title": "Cucine Lube Civitanova vs Pallavolo Padova — Volleyball (sample 1 completed game(s))",
+   "detail": "The line is originated from the official record we hold, but because the sample is thin the pick is capped at Medium regardless of its probability. Shown on the row as ‘inputs checked against the official source, but a thin sample (fewer than 5 completed games)’.",
+   "source_url": "https://www.legavolley.it/classifica/"
+  },
+  {
+   "group": "Priced on a thin sample",
+   "title": "Gas Sales Bluenergy Piacenza vs Valsa Group Modena — Volleyball (sample 1 completed game(s))",
    "detail": "The line is originated from the official record we hold, but because the sample is thin the pick is capped at Medium regardless of its probability. Shown on the row as ‘inputs checked against the official source, but a thin sample (fewer than 5 completed games)’.",
    "source_url": "https://www.legavolley.it/classifica/"
   },
@@ -297,6 +309,18 @@
    "title": "Vero Volley Monza vs Rana Verona — Volleyball (sample 1 completed game(s))",
    "detail": "The line is originated from the official record we hold, but because the sample is thin the pick is capped at Medium regardless of its probability. Shown on the row as ‘inputs checked against the official source, but a thin sample (fewer than 5 completed games)’.",
    "source_url": "https://www.legavolley.it/classifica/"
+  },
+  {
+   "group": "Priced on a thin sample",
+   "title": "Allianz Milano vs Acqua Sant'Anna Cuneo — Volleyball (sample 1 completed game(s))",
+   "detail": "The line is originated from the official record we hold, but because the sample is thin the pick is capped at Medium regardless of its probability. Shown on the row as ‘inputs checked against the official source, but a thin sample (fewer than 5 completed games)’.",
+   "source_url": "https://www.legavolley.it/classifica/"
+  },
+  {
+   "group": "Priced on a thin sample",
+   "title": "Milwaukee Brewers at Tampa Bay Rays — Baseball (sample 1 completed game(s))",
+   "detail": "The line is originated from the official record we hold, but because the sample is thin the pick is capped at Medium regardless of its probability. Shown on the row as ‘inputs checked against the official source, but a thin sample (fewer than 5 completed games)’.",
+   "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-11-03&hydrate=probablePitcher(note),team,linescore,decisions,venue"
   },
   {
    "group": "No official injury feed could be captured for any sport",
@@ -319,13 +343,13 @@
   {
    "group": "Defect found in the repository's existing published data",
    "title": "Canonical predictions: length and wording",
-   "detail": "75 rows carry prediction text; 0 are shorter than 30 words, 0 have no source link, and 48 use wording the brief forbids (\"model\", \"verified\").",
+   "detail": "73 rows carry prediction text; 0 are shorter than 30 words, 0 have no source link, and 35 use wording the brief forbids (\"model\", \"verified\").",
    "source_url": "data/master.json"
   },
   {
    "group": "Defect found in the repository's existing published data",
    "title": "High-confidence picks with no published price",
-   "detail": "51 High picks in recent desks carry no fair price or probability. Example: session-edffdbc6 — None.",
+   "detail": "34 High picks in recent desks carry no fair price or probability. Example: session-edffdbc6 — None.",
    "source_url": "data/session-edffdbc6"
   },
   {
