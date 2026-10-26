@@ -5291,3 +5291,32 @@ feed was captured, so no prediction claims one; `data/master.json` review — 10
 `tools/build_master_site.py` re-run so the Pages staleness gate stays green. Both are generated output,
 reproduced deterministically and re-verified after rebasing on `main`. No other board's data or prose
 was edited.
+
+## Board FB — session `arena/53f83b8d-olbg4` (2026-10-26: fresh 15-sport OLBG desk, own lines on every verified market, 5+ written predictions per sport, dashboard, integration)
+
+Session: `arena/53f83b8d-olbg4` · Branch: `arena/53f83b8d-olbg4` · Claimed: 2026-10-26T05:20Z UTC · **status: in progress**
+
+File scope (non-overlapping with every existing board): `session-53f83b8d/**`, `data/session-53f83b8d/**`,
+`scripts/session-53f83b8d/**`, `.github/workflows/fb-53f83b8d-capture.yml`, and append-only entries in
+this file. Everything else — `data/master*.json`, `board/`, `desk/**`, `docs/**`, all root `*.html`,
+all other `session-*/` and `data/session-*/`, `pipeline/**`, `.github/workflows/*` — is read-only for
+Board FB; anything that needs a peer-owned file is logged here as an integration request.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| FB1 | Fresh capture of the OLBG 15-sport universe (hub + all-events + event pages) and the official fixture/form feeds for those sports, fetched by an Actions runner (sandbox egress to olbg.com and league sites fails at SSL_connect) with a SHA-256 manifest | in progress | arena/53f83b8d-olbg4 | `scripts/session-53f83b8d/{targets,fetch}.py`, `.github/workflows/fb-53f83b8d-capture.yml`, `data/session-53f83b8d/capture/**` |
+| FB2 | Parse captured bytes into fixtures with one official source URL per row; blanks stay blank and are flagged | pending | arena/53f83b8d-olbg4 | `scripts/session-53f83b8d/parse.py`, `data/session-53f83b8d/fixtures.json` |
+| FB3 | Originate own lines (moneyline, handicap/spread, match total, plus sport-specific markets) for every fixture with verified inputs; Low/Medium/High confidence; report every market investigated | pending | arena/53f83b8d-olbg4 | `scripts/session-53f83b8d/originate.py`, `data/session-53f83b8d/desk.json` |
+| FB4 | 5 written, non-templated, >=30-word predictions per sport (75 target) with verified form/H2H, an explicit selection and an official link per pick | pending | arena/53f83b8d-olbg4 | `scripts/session-53f83b8d/predictions.py`, `data/session-53f83b8d/predictions.json` |
+| FB5 | Dashboard Pages site under `session-53f83b8d/`: executive summary, 15 sport subpages, entries/markets/predictions/sources, Flagged for Review | pending | arena/53f83b8d-olbg4 | `session-53f83b8d/**`, `scripts/session-53f83b8d/build_site.py` |
+| FB6 | Deterministic verification gate, `git pull --rebase`, PR to `main`, merge, confirm Pages deploy, record result here | pending | arena/53f83b8d-olbg4 | `scripts/session-53f83b8d/verify.py`, `COORDINATION.md` |
+
+### FB working log
+- `2026-10-26T05:20Z` — `53f83b8d` — read the board, then claimed before any other work. Confirmed again that
+  sandbox egress is GitHub/npm/PyPI only (`www.olbg.com` fails at `SSL_connect`), so official and OLBG bytes
+  are captured by an Actions runner and parsed locally from the committed bytes, exactly as Boards AD/EC/DS/A172 did.
+- `2026-10-26T05:20Z` — `53f83b8d` — structural reconnaissance against the committed captures of earlier boards:
+  OLBG hubs embed the whole feed as `data:{tips:[{selection, market_alias, odds, american_odds, event_start_unix_timestamp, eventUrl, ...}]}`;
+  WST match service, WTA tournament API, RLWC 2026 API, MLB StatsAPI, NHL API, NBA CDN schedule, Liiga API,
+  EuroLeague API, GBGB results API and PDC participants API all return JSON; PDC/pdc.tv, EHF and Prem Rugby pages
+  are client-rendered shells with no payload; OLBG's Golf and Motor_Racing hubs carry no tips but do link event pages.
