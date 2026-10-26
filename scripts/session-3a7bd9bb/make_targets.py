@@ -210,6 +210,39 @@ OFFICIAL = [
 ]
 
 
+
+# ---- phase 2: added after the first capture to close specific gaps ----------------
+PHASE2 = [
+    # WTA tournament match lists; ids read from the committed WTA tournaments payload
+    ("wta_matches_guangzhou", "Tennis", "https://api.wtatennis.com/tennis/tournaments/1023/2026/matches"),
+    ("wta_matches_tokyo", "Tennis", "https://api.wtatennis.com/tennis/tournaments/1056/2026/matches"),
+    ("wta_matches_queretaro", "Tennis", "https://api.wtatennis.com/tennis/tournaments/1145/2026/matches"),
+    ("wta_matches_courmayeur", "Tennis", "https://api.wtatennis.com/tennis/tournaments/1174/2026/matches"),
+    ("wta_matches_curitiba", "Tennis", "https://api.wtatennis.com/tennis/tournaments/1180/2026/matches"),
+    ("wta_matches_hongkong", "Tennis", "https://api.wtatennis.com/tennis/tournaments/1074/2026/matches"),
+    ("wta_matches_chennai", "Tennis", "https://api.wtatennis.com/tennis/tournaments/1148/2026/matches"),
+    # Top 14 fixture-list variants for the next round
+    ("top14_j9_0", "Rugby Union", "https://top14.lnr.fr/calendrier-et-resultats?journee=9"),
+    ("top14_j9_1", "Rugby Union", "https://top14.lnr.fr/calendrier-et-resultats/journee-9"),
+    ("top14_j9_2", "Rugby Union", "https://top14.lnr.fr/calendrier-et-resultats?journee=8"),
+    # women's volleyball tables (OLBG's volleyball board is mostly women's leagues this week)
+    ("legavolley_fem_classifica", "Volleyball", "https://www.legavolleyfemminile.it/classifica/"),
+    ("legavolley_fem_calendario", "Volleyball", "https://www.legavolleyfemminile.it/calendario/"),
+    ("tauronliga_tabela", "Volleyball", "https://www.tauronliga.pl/tabela.html"),
+    ("tauronliga_mecze", "Volleyball", "https://www.tauronliga.pl/mecze.html"),
+    ("cbv_superliga", "Volleyball", "https://www.cbv.com.br/"),
+    ("volley_at", "Volleyball", "https://www.volleyball.at/"),
+    # motor racing + golf + cricket + rugby league alternates
+    ("motogp_standings_alt", "Motor Racing", "https://www.motogp.com/en/standings/2026"),
+    ("motogp_calendar_alt", "Motor Racing", "https://www.motogp.com/en/calendar/2026"),
+    ("pga_schedule_alt", "Golf", "https://www.pgatour.com/schedule/2026"),
+    ("nzc_blackcaps_schedule", "Cricket", "https://www.nzc.nz/blackcaps/schedule"),
+    ("cricket_australia_schedule", "Cricket", "https://www.cricket.com.au/matches/international"),
+    ("cricket_ireland", "Cricket", "https://www.cricketireland.ie/"),
+    ("rlwc_news", "Rugby League", "https://www.rlwc2026.com/news"),
+    ("nrl_draw_api", "Rugby League", "https://www.nrl.com/draw/data?competition=111&season=2026&round=1"),
+]
+
 def main() -> int:
     targets: list[dict] = [
         {"id": "olbg_robots", "sport": "OLBG", "url": f"{OLBG}/robots.txt"},
@@ -230,7 +263,7 @@ def main() -> int:
         })
         day += timedelta(days=1)
 
-    for tid, sport, url in OFFICIAL:
+    for tid, sport, url in OFFICIAL + PHASE2:
         targets.append({"id": tid, "sport": sport, "url": url})
 
     OUT.write_text(json.dumps(targets, indent=1) + "\n", encoding="utf-8")
