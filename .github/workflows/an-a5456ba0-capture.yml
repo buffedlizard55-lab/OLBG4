@@ -1,0 +1,74 @@
+name: Board AN capture (a5456ba0)
+
+# Board AN — official + OLBG capture for the fifteen requested sports.
+# The authoring sandbox can only reach GitHub/npm/PyPI, so this runner fetches the
+# governing-body / league / tour / OLBG bytes and commits them, with a SHA-256
+# manifest, back to the board branch. Parsing and line origination happen offline
+# against these committed bytes.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/a5456ba0-olbg4
+    paths:
+      - "scripts/session-a5456ba0/targets.json"
+      - "scripts/session-a5456ba0/targets-events.json"
+      - "scripts/session-a5456ba0/fetch.py"
+      - ".github/workflows/an-a5456ba0-capture.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: an-a5456ba0-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/a5456ba0-olbg4
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Capture official feeds and OLBG hubs
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-a5456ba0/fetch.py \
+            scripts/session-a5456ba0/targets.json \
+            "data/session-a5456ba0/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+
+      - name: Capture OLBG event pages (pass 2, if generated)
+        if: hashFiles('scripts/session-a5456ba0/targets-events.json') != ''
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python3 scripts/session-a5456ba0/fetch.py \
+            scripts/session-a5456ba0/targets-events.json \
+            "data/session-a5456ba0/capture/${STAMP}-events" 2>&1 | tee -a /tmp/capture.log
+
+      - name: Commit capture
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-an-capture[bot]"
+          git config user.email "board-an-capture@users.noreply.github.com"
+          mkdir -p data/session-a5456ba0/logs
+          cp /tmp/capture.log "data/session-a5456ba0/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-a5456ba0
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board AN (a5456ba0): capture ${STAMP} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/a5456ba0-olbg4 && \
+              git push origin HEAD:arena/a5456ba0-olbg4 && break
+            sleep 5
+          done
