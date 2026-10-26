@@ -360,6 +360,20 @@ def main() -> int:
   Its <a href=\"session-a172d5b9/picks.html\">written picks</a>, complete OLBG inventory and
   <a href=\"session-a172d5b9/flagged.html\">Flagged for Review</a> register are grouped separately from this earlier desk.</div>"""
 
+    # Final-integration pointer: historical data and renderer behavior remain unchanged.
+    current_path = os.path.join(ROOT, "data", "session-69962336", "publication.json")
+    if os.path.exists(current_path):
+        with open(current_path, encoding="utf-8") as fh:
+            current = json.load(fh)
+        current_rows = current.get("rows", [])
+        crosswalks = sum(bool(r.get("strict_identity")) for r in current_rows)
+        latest_banner = f"""<div class="note"><strong>October 26 source-first refresh.</strong>
+<a href="session-69962336/index.html"><strong>Open the current 15-sport evidence dashboard →</strong></a>
+{len(current_rows)} named upcoming OLBG listings; {crosswalks} official identity crosswalks with start-time discrepancies;
+no recommendations cleared the full publication standard.
+<a href="session-69962336/flagged.html">Flagged for Review</a> explains missing evidence.
+<strong>The dashboard below is an October 24 historical snapshot, not today’s picks.</strong></div>""" + latest_banner
+
     capture_human = meta_raw.get("capture_utc", "")
     meta = {
         "capture_id": meta_raw.get("capture_id", "—"),

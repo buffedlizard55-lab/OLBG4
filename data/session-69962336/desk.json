@@ -1,0 +1,4120 @@
+{
+ "assumptions": {
+  "confidence": "High >= 70%, Medium 60-70%, Low < 60%",
+  "home_edge": {
+   "Baseball": 0.02,
+   "Handball": 0.045,
+   "Ice Hockey": 0.035,
+   "Tennis": 0.0
+  },
+  "home_score_edge": {
+   "Baseball": 0.1,
+   "Handball": 1.2,
+   "Ice Hockey": 0.12
+  },
+  "margin_sd": {
+   "Baseball": 4.2,
+   "Handball": 8.0,
+   "Ice Hockey": 2.4,
+   "Tennis": 3.6
+  },
+  "price_window": "fair American price between -250 and +10,000",
+  "prices": "fair (no bookmaker margin) prices derived from our own probability",
+  "total_sd": {
+   "Baseball": 3.4,
+   "Handball": 8.5,
+   "Ice Hockey": 1.9
+  },
+  "total_step": {
+   "Baseball": 0.5,
+   "Handball": 1.0,
+   "Ice Hockey": 0.5
+  }
+ },
+ "built_utc": "2026-10-26T05:19:39Z",
+ "capture_utc": "2026-10-26T05:18:26Z",
+ "rows": [
+  {
+   "away_name": "Milwaukee Brewers",
+   "competition": "MLB",
+   "event_name": "MIL Brewers @ TB Rays",
+   "expected_margin": -0.69,
+   "expected_total": 8.8,
+   "fixture_url": "https://www.mlb.com/gameday/849804",
+   "flags": [],
+   "form": {
+    "away": "8-2",
+    "home": "5-5"
+   },
+   "home_name": "Tampa Bay Rays",
+   "id": "baseball-160795",
+   "identity_confirmed": true,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": -108,
+      "decimal": 1.93,
+      "probability": 0.5181
+     },
+     "away_selection": "Milwaukee Brewers -0.5",
+     "home": {
+      "american": 108,
+      "decimal": 2.08,
+      "probability": 0.4819
+     },
+     "home_selection": "Tampa Bay Rays +0.5",
+     "label": "Handicap / spread",
+     "line": 0.5
+    },
+    "moneyline": {
+     "away": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.4904
+     },
+     "home": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.5096
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 9.0,
+     "over": {
+      "american": 110,
+      "decimal": 2.1,
+      "probability": 0.4769
+     },
+     "over_selection": "Over 9",
+     "under": {
+      "american": -110,
+      "decimal": 1.91,
+      "probability": 0.5231
+     },
+     "under_selection": "Under 9"
+    }
+   },
+   "official_name": "MLB standings (MLB.com StatsAPI)",
+   "official_sha256": "78c9835c1c397c440e0d56454938db53ed62baf7a5c83380ebbfc502b927f665",
+   "official_url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason&hydrate=team",
+   "olbg_listed_selections": [
+    "TB Rays"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/MIL_Brewers_@_TB_Rays/12?event_id=160795",
+   "pick": {
+    "american": -104,
+    "confidence": "Low",
+    "decimal": 1.96,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.5096,
+    "selection": "Tampa Bay Rays",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": 3.81,
+    "away_for": 5.14,
+    "home_against": 4.01,
+    "home_for": 4.54
+   },
+   "sport": "Baseball",
+   "sport_id": 12,
+   "sport_key": "baseball",
+   "start_utc": "2026-10-27T01:00:00Z",
+   "status": "priced",
+   "venue": "Tropicana Field"
+  },
+  {
+   "competition": "Korea KBL",
+   "event_name": "Goyang Sky Gunners vs Changwon Sakers",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536165",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Goyang Sky Gunners -2.50"
+   ],
+   "olbg_markets": [
+    "Pointspread"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Goyang_Sky_Gunners_vs_Changwon_Sakers/4?event_id=536165",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-26T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "MIN Timberwolves @ CLE Cavaliers",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536203",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "MIN Timberwolves"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIN_Timberwolves_@_CLE_Cavaliers/4?event_id=536203",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-26T23:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "WAS Wizards @ CHA Hornets",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536199",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Under 228.50"
+   ],
+   "olbg_markets": [
+    "Game Totals"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/WAS_Wizards_@_CHA_Hornets/4?event_id=536199",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-26T23:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "DAL Mavericks @ MIA Heat",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536200",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "DAL Mavericks +8.50"
+   ],
+   "olbg_markets": [
+    "Pointspread"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DAL_Mavericks_@_MIA_Heat/4?event_id=536200",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-26T23:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "CHI Bulls @ BOS Celtics",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-534851",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "CHI Bulls +13.50"
+   ],
+   "olbg_markets": [
+    "Pointspread"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/CHI_Bulls_@_BOS_Celtics/4?event_id=534851",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-26T23:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Argentina Liga Nacional",
+   "event_name": "Lanus vs Regatas",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536154",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Under 160.50"
+   ],
+   "olbg_markets": [
+    "Game Totals"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/Other/Argentina_Liga_Nacional/Lanus_vs_Regatas/4?event_id=536154",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-26T23:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "IND Pacers @ MIL Bucks",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536204",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "IND Pacers"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/IND_Pacers_@_MIL_Bucks/4?event_id=536204",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T00:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "PHX Suns @ OKC Thunder",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536205",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Under 218.50"
+   ],
+   "olbg_markets": [
+    "Game Totals"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/PHX_Suns_@_OKC_Thunder/4?event_id=536205",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T00:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "ATL Hawks @ HOU Rockets",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536201",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "HOU Rockets -5.50"
+   ],
+   "olbg_markets": [
+    "Pointspread"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/ATL_Hawks_@_HOU_Rockets/4?event_id=536201",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T00:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "MEM Grizzlies @ UTA Jazz",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536206",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "MEM Grizzlies"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MEM_Grizzlies_@_UTA_Jazz/4?event_id=536206",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T01:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "NBA",
+   "event_name": "GS Warriors @ DEN Nuggets",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536202",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "DEN Nuggets -7.50"
+   ],
+   "olbg_markets": [
+    "Pointspread"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/GS_Warriors_@_DEN_Nuggets/4?event_id=536202",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T02:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Euroleague",
+   "event_name": "BC Dubai vs Paris",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536176",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "BC Dubai -10.50"
+   ],
+   "olbg_markets": [
+    "Pointspread"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/BC_Dubai_vs_Paris/4?event_id=536176",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T16:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Euroleague",
+   "event_name": "Bayern Munich vs Barcelona",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536174",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Over 173.50"
+   ],
+   "olbg_markets": [
+    "Game Totals"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Bayern_Munich_vs_Barcelona/4?event_id=536174",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T19:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Euroleague",
+   "event_name": "Panathinaikos vs Milano",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536177",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Panathinaikos -14.50"
+   ],
+   "olbg_markets": [
+    "Pointspread"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Panathinaikos_vs_Milano/4?event_id=536177",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T19:15:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Euroleague",
+   "event_name": "Valencia vs Fenerbahce",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536179",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Fenerbahce"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Valencia_vs_Fenerbahce/4?event_id=536179",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T19:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Euroleague",
+   "event_name": "Baskonia vs Real Madrid",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536178",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Real Madrid -9.50"
+   ],
+   "olbg_markets": [
+    "Pointspread"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Baskonia_vs_Real_Madrid/4?event_id=536178",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-27T20:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Euroleague",
+   "event_name": "Virtus Bologna vs Zalgiris",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed NBA/KBL matches. NBA's official endpoints returned HTTP 403 to the runner and KBL has no captured table, so no line was originated. EuroLeague and EuroCup results are captured but OLBG has not yet listed those fixtures."
+   ],
+   "form": {},
+   "id": "basketball-536183",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Over 171.50"
+   ],
+   "olbg_markets": [
+    "Game Totals"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Virtus_Bologna_vs_Zalgiris/4?event_id=536183",
+   "pick": null,
+   "scoring": {},
+   "sport": "Basketball",
+   "sport_id": 4,
+   "sport_key": "basketball",
+   "start_utc": "2026-10-28T19:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "New Zealand vs India 3rd T20 Match",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ICC team rankings and fixtures pages render client-side (skeleton rows only); the domestic South African T20 fixtures have no captured official standings."
+   ],
+   "form": {},
+   "id": "cricket-188852",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "India"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/New_Zealand_vs_India_3rd_T20_Match/7?event_id=188852",
+   "pick": null,
+   "scoring": {},
+   "sport": "Cricket",
+   "sport_id": 7,
+   "sport_key": "cricket",
+   "start_utc": "2026-10-27T07:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Namibia vs Ireland 3rd ODI",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ICC team rankings and fixtures pages render client-side (skeleton rows only); the domestic South African T20 fixtures have no captured official standings."
+   ],
+   "form": {},
+   "id": "cricket-188854",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Ireland"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Namibia_vs_Ireland_3rd_ODI/7?event_id=188854",
+   "pick": null,
+   "scoring": {},
+   "sport": "Cricket",
+   "sport_id": 7,
+   "sport_key": "cricket",
+   "start_utc": "2026-10-27T07:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Pakistan vs Sri Lanka One Day Match",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ICC team rankings and fixtures pages render client-side (skeleton rows only); the domestic South African T20 fixtures have no captured official standings."
+   ],
+   "form": {},
+   "id": "cricket-188868",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Pakistan"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Pakistan_vs_Sri_Lanka_One_Day_Match/7?event_id=188868",
+   "pick": null,
+   "scoring": {},
+   "sport": "Cricket",
+   "sport_id": 7,
+   "sport_key": "cricket",
+   "start_utc": "2026-10-27T08:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "South Africa vs Australia",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ICC team rankings and fixtures pages render client-side (skeleton rows only); the domestic South African T20 fixtures have no captured official standings."
+   ],
+   "form": {},
+   "id": "cricket-188835",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "AK Markram"
+   ],
+   "olbg_markets": [
+    "Man Of The Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/South_Africa_vs_Australia/7?event_id=188835",
+   "pick": null,
+   "scoring": {},
+   "sport": "Cricket",
+   "sport_id": 7,
+   "sport_key": "cricket",
+   "start_utc": "2026-10-31T08:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Kanturk v Eire Og Cor",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "GAA's fixtures page returned a script-only shell and no club-strength table was captured for either side."
+   ],
+   "form": {},
+   "id": "gaelic_football-3531",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Eire Og Cor +0.50"
+   ],
+   "olbg_markets": [],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Kanturk_v_Eire_Og_Cor/25?event_id=3531",
+   "pick": null,
+   "scoring": {},
+   "sport": "Gaelic Football",
+   "sport_id": 25,
+   "sport_key": "gaelic_football",
+   "start_utc": "2026-11-01T14:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "3:19 Monmore",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "GBGB publishes results but no pre-race strength or trap-draw feed; one OLBG race was listed and it is left unpriced rather than guessed."
+   ],
+   "form": {},
+   "id": "greyhounds-690193",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Tullymurry Skies"
+   ],
+   "olbg_markets": [
+    "Daily Races"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/3:19_Monmore/28?event_id=690193",
+   "pick": null,
+   "scoring": {},
+   "sport": "Greyhounds",
+   "sport_id": 28,
+   "sport_key": "greyhounds",
+   "start_utc": "2026-10-26T15:19:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "OV Helsingborg HK vs IF Hallby HK",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No captured official table contains OV Helsingborg HK, IF Hallby HK, so this side has no strength figure and the match is not priced."
+   ],
+   "form": {},
+   "id": "handball-12150",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "OV Helsingborg HK"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/OV_Helsingborg_HK_vs_IF_Hallby_HK/20?event_id=12150",
+   "pick": null,
+   "scoring": {},
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-26T18:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "away_name": "MT Melsungen",
+   "competition": "",
+   "event_name": "HC Vardar vs MT Melsungen",
+   "expected_margin": 0.4,
+   "expected_total": 59.4,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "3-0-2",
+    "home": "1-0-4"
+   },
+   "home_name": "HC Vardar 1961",
+   "id": "handball-12130",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": -112,
+      "decimal": 1.89,
+      "probability": 0.5299
+     },
+     "away_selection": "MT Melsungen +1",
+     "home": {
+      "american": 113,
+      "decimal": 2.13,
+      "probability": 0.4701
+     },
+     "home_selection": "HC Vardar 1961 -1",
+     "label": "Handicap / spread",
+     "line": 1.0
+    },
+    "moneyline": {
+     "away": {
+      "american": -156,
+      "decimal": 1.64,
+      "probability": 0.6098
+     },
+     "home": {
+      "american": 156,
+      "decimal": 2.56,
+      "probability": 0.3902
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 59.0,
+     "over": {
+      "american": -108,
+      "decimal": 1.93,
+      "probability": 0.5188
+     },
+     "over_selection": "Over 59",
+     "under": {
+      "american": 108,
+      "decimal": 2.08,
+      "probability": 0.4812
+     },
+     "under_selection": "Under 59"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Vardar_vs_MT_Melsungen/20?event_id=12130",
+   "pick": {
+    "american": -156,
+    "confidence": "Medium",
+    "decimal": 1.64,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.6098,
+    "selection": "MT Melsungen",
+    "side": "away"
+   },
+   "scoring": {
+    "away_against": 27.6,
+    "away_for": 27.6,
+    "home_against": 31.6,
+    "home_for": 30.8
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "HBC Nantes",
+   "competition": "",
+   "event_name": "Wisla Plock vs Nantes",
+   "expected_margin": 2.4,
+   "expected_total": 56.8,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "3-0-2",
+    "home": "3-0-2"
+   },
+   "home_name": "Orlen Wisla Plock",
+   "id": "handball-12138",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": 108,
+      "decimal": 2.08,
+      "probability": 0.4801
+     },
+     "away_selection": "HBC Nantes +2",
+     "home": {
+      "american": -109,
+      "decimal": 1.92,
+      "probability": 0.5199
+     },
+     "home_selection": "Orlen Wisla Plock -2",
+     "label": "Handicap / spread",
+     "line": 2.0
+    },
+    "moneyline": {
+     "away": {
+      "american": 144,
+      "decimal": 2.44,
+      "probability": 0.4098
+     },
+     "home": {
+      "american": -145,
+      "decimal": 1.69,
+      "probability": 0.5902
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 57.0,
+     "over": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.4906
+     },
+     "over_selection": "Over 57",
+     "under": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.5094
+     },
+     "under_selection": "Under 57"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Wisla_Plock_vs_Nantes/20?event_id=12138",
+   "pick": {
+    "american": -145,
+    "confidence": "Low",
+    "decimal": 1.69,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.5902,
+    "selection": "Orlen Wisla Plock",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": 28.6,
+    "away_for": 28.4,
+    "home_against": 27.2,
+    "home_for": 28.2
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "One Veszpr\u00e9m HC",
+   "competition": "",
+   "event_name": "FC Porto vs Veszprem",
+   "expected_margin": -9.6,
+   "expected_total": 66.8,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "5-0-0",
+    "home": "1-1-3"
+   },
+   "home_name": "FC Porto",
+   "id": "handball-12127",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": 108,
+      "decimal": 2.08,
+      "probability": 0.4801
+     },
+     "away_selection": "One Veszpr\u00e9m HC -10",
+     "home": {
+      "american": -109,
+      "decimal": 1.92,
+      "probability": 0.5199
+     },
+     "home_selection": "FC Porto +10",
+     "label": "Handicap / spread",
+     "line": 10.0
+    },
+    "moneyline": {
+     "away": {
+      "american": -294,
+      "decimal": 1.34,
+      "probability": 0.7488
+     },
+     "home": {
+      "american": 298,
+      "decimal": 3.98,
+      "probability": 0.2512
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 67.0,
+     "over": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.4906
+     },
+     "over_selection": "Over 67",
+     "under": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.5094
+     },
+     "under_selection": "Under 67"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127",
+   "pick": {
+    "american": -294,
+    "confidence": "High",
+    "decimal": 1.34,
+    "in_price_window": false,
+    "market": "moneyline",
+    "probability": 0.7488,
+    "selection": "One Veszpr\u00e9m HC",
+    "side": "away"
+   },
+   "scoring": {
+    "away_against": 29.2,
+    "away_for": 37.0,
+    "home_against": 34.6,
+    "home_for": 31.6
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "HC Kriens-Luzern",
+   "competition": "",
+   "event_name": "SC Magdeburg vs HC Kriens Luzern",
+   "expected_margin": 9.0,
+   "expected_total": 64.1,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "2-0-3",
+    "home": "5-0-0"
+   },
+   "home_name": "SC Magdeburg",
+   "id": "handball-12136",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": 100,
+      "decimal": 2.0,
+      "probability": 0.5
+     },
+     "away_selection": "HC Kriens-Luzern +9",
+     "home": {
+      "american": 100,
+      "decimal": 2.0,
+      "probability": 0.5
+     },
+     "home_selection": "SC Magdeburg -9",
+     "label": "Handicap / spread",
+     "line": 9.0
+    },
+    "moneyline": {
+     "away": {
+      "american": 570,
+      "decimal": 6.7,
+      "probability": 0.1493
+     },
+     "home": {
+      "american": -556,
+      "decimal": 1.18,
+      "probability": 0.8507
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 64.0,
+     "over": {
+      "american": -102,
+      "decimal": 1.98,
+      "probability": 0.5047
+     },
+     "over_selection": "Over 64",
+     "under": {
+      "american": 102,
+      "decimal": 2.02,
+      "probability": 0.4953
+     },
+     "under_selection": "Under 64"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136",
+   "pick": {
+    "american": -556,
+    "confidence": "High",
+    "decimal": 1.18,
+    "in_price_window": false,
+    "market": "moneyline",
+    "probability": 0.8507,
+    "selection": "SC Magdeburg",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": 32.2,
+    "away_for": 31.6,
+    "home_against": 28.0,
+    "home_for": 35.2
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "Kolstad H\u00e5ndball",
+   "competition": "",
+   "event_name": "KS Kielce vs Kolstad",
+   "expected_margin": 8.6,
+   "expected_total": 63.5,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "0-0-5",
+    "home": "3-0-2"
+   },
+   "home_name": "Industria Kielce",
+   "id": "handball-12132",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": -109,
+      "decimal": 1.92,
+      "probability": 0.5199
+     },
+     "away_selection": "Kolstad H\u00e5ndball +9",
+     "home": {
+      "american": 108,
+      "decimal": 2.08,
+      "probability": 0.4801
+     },
+     "home_selection": "Industria Kielce -9",
+     "label": "Handicap / spread",
+     "line": 9.0
+    },
+    "moneyline": {
+     "away": {
+      "american": 570,
+      "decimal": 6.7,
+      "probability": 0.1493
+     },
+     "home": {
+      "american": -556,
+      "decimal": 1.18,
+      "probability": 0.8507
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 64.0,
+     "over": {
+      "american": 110,
+      "decimal": 2.1,
+      "probability": 0.4765
+     },
+     "over_selection": "Over 64",
+     "under": {
+      "american": -110,
+      "decimal": 1.91,
+      "probability": 0.5235
+     },
+     "under_selection": "Under 64"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/KS_Kielce_vs_Kolstad/20?event_id=12132",
+   "pick": {
+    "american": -556,
+    "confidence": "High",
+    "decimal": 1.18,
+    "in_price_window": false,
+    "market": "moneyline",
+    "probability": 0.8507,
+    "selection": "Industria Kielce",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": 35.6,
+    "away_for": 28.6,
+    "home_against": 30.6,
+    "home_for": 31.0
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "Aalborg H\u00e5ndbold",
+   "competition": "",
+   "event_name": "PSG Handball vs Aalborg Handbold",
+   "expected_margin": 1.2,
+   "expected_total": 66.0,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "4-1-0",
+    "home": "3-1-1"
+   },
+   "home_name": "Paris Saint-Germain",
+   "id": "handball-12134",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.49
+     },
+     "away_selection": "Aalborg H\u00e5ndbold +1",
+     "home": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.51
+     },
+     "home_selection": "Paris Saint-Germain -1",
+     "label": "Handicap / spread",
+     "line": 1.0
+    },
+    "moneyline": {
+     "away": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.511
+     },
+     "home": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.489
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 67.0,
+     "over": {
+      "american": 121,
+      "decimal": 2.21,
+      "probability": 0.4532
+     },
+     "over_selection": "Over 67",
+     "under": {
+      "american": -120,
+      "decimal": 1.83,
+      "probability": 0.5468
+     },
+     "under_selection": "Under 67"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/PSG_Handball_vs_Aalborg_Handbold/20?event_id=12134",
+   "pick": {
+    "american": -104,
+    "confidence": "Low",
+    "decimal": 1.96,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.511,
+    "selection": "Aalborg H\u00e5ndbold",
+    "side": "away"
+   },
+   "scoring": {
+    "away_against": 29.0,
+    "away_for": 34.0,
+    "home_against": 31.4,
+    "home_for": 36.4
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "HC Zagreb",
+   "competition": "",
+   "event_name": "RK Celje vs RK Zagreb",
+   "expected_margin": -4.0,
+   "expected_total": 64.8,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "2-0-3",
+    "home": "0-0-5"
+   },
+   "home_name": "RK Celje Pivovarna La\u0161ko",
+   "id": "handball-12135",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": 100,
+      "decimal": 2.0,
+      "probability": 0.5
+     },
+     "away_selection": "HC Zagreb -4",
+     "home": {
+      "american": 100,
+      "decimal": 2.0,
+      "probability": 0.5
+     },
+     "home_selection": "RK Celje Pivovarna La\u0161ko +4",
+     "label": "Handicap / spread",
+     "line": 4.0
+    },
+    "moneyline": {
+     "away": {
+      "american": -164,
+      "decimal": 1.61,
+      "probability": 0.6193
+     },
+     "home": {
+      "american": 163,
+      "decimal": 2.63,
+      "probability": 0.3807
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 65.0,
+     "over": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.4906
+     },
+     "over_selection": "Over 65",
+     "under": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.5094
+     },
+     "under_selection": "Under 65"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/RK_Celje_vs_RK_Zagreb/20?event_id=12135",
+   "pick": {
+    "american": -164,
+    "confidence": "Medium",
+    "decimal": 1.61,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.6193,
+    "selection": "HC Zagreb",
+    "side": "away"
+   },
+   "scoring": {
+    "away_against": 31.6,
+    "away_for": 29.2,
+    "home_against": 37.6,
+    "home_for": 30.0
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "RK Partizan AdmiralBet",
+   "competition": "",
+   "event_name": "Fuchse Berlin vs RK Partizan",
+   "expected_margin": 10.8,
+   "expected_total": 69.4,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "0-1-4",
+    "home": "3-0-2"
+   },
+   "home_name": "F\u00fcchse Berlin",
+   "id": "handball-12128",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.51
+     },
+     "away_selection": "RK Partizan AdmiralBet +11",
+     "home": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.49
+     },
+     "home_selection": "F\u00fcchse Berlin -11",
+     "label": "Handicap / spread",
+     "line": 11.0
+    },
+    "moneyline": {
+     "away": {
+      "american": 429,
+      "decimal": 5.29,
+      "probability": 0.189
+     },
+     "home": {
+      "american": -435,
+      "decimal": 1.23,
+      "probability": 0.811
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 69.0,
+     "over": {
+      "american": -108,
+      "decimal": 1.93,
+      "probability": 0.5188
+     },
+     "over_selection": "Over 69",
+     "under": {
+      "american": 108,
+      "decimal": 2.08,
+      "probability": 0.4812
+     },
+     "under_selection": "Under 69"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Fuchse_Berlin_vs_RK_Partizan/20?event_id=12128",
+   "pick": {
+    "american": -435,
+    "confidence": "High",
+    "decimal": 1.23,
+    "in_price_window": false,
+    "market": "moneyline",
+    "probability": 0.811,
+    "selection": "F\u00fcchse Berlin",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": 36.8,
+    "away_for": 29.6,
+    "home_against": 34.4,
+    "home_for": 36.8
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-29T17:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "Sporting Clube de Portugal",
+   "competition": "",
+   "event_name": "GOG vs Sporting CP",
+   "expected_margin": -2.8,
+   "expected_total": 71.2,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "4-1-0",
+    "home": "3-1-1"
+   },
+   "home_name": "GOG",
+   "id": "handball-12129",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.49
+     },
+     "away_selection": "Sporting Clube de Portugal -3",
+     "home": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.51
+     },
+     "home_selection": "GOG +3",
+     "label": "Handicap / spread",
+     "line": 3.0
+    },
+    "moneyline": {
+     "away": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.511
+     },
+     "home": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.489
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 71.0,
+     "over": {
+      "american": -104,
+      "decimal": 1.96,
+      "probability": 0.5094
+     },
+     "over_selection": "Over 71",
+     "under": {
+      "american": 104,
+      "decimal": 2.04,
+      "probability": 0.4906
+     },
+     "under_selection": "Under 71"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "GOG"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/GOG_vs_Sporting_CP/20?event_id=12129",
+   "pick": {
+    "american": -104,
+    "confidence": "Low",
+    "decimal": 1.96,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.511,
+    "selection": "Sporting Clube de Portugal",
+    "side": "away"
+   },
+   "scoring": {
+    "away_against": 33.0,
+    "away_for": 38.2,
+    "home_against": 34.4,
+    "home_for": 35.6
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-29T17:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "OTP Bank - PICK Szeged",
+   "competition": "",
+   "event_name": "IFK Kristianstad vs Pick Szeged",
+   "expected_margin": -6.4,
+   "expected_total": 70.6,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "1-2-2",
+    "home": "0-0-5"
+   },
+   "home_name": "IFK Kristianstad",
+   "id": "handball-12131",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": -109,
+      "decimal": 1.92,
+      "probability": 0.5199
+     },
+     "away_selection": "OTP Bank - PICK Szeged -6",
+     "home": {
+      "american": 108,
+      "decimal": 2.08,
+      "probability": 0.4801
+     },
+     "home_selection": "IFK Kristianstad +6",
+     "label": "Handicap / spread",
+     "line": 6.0
+    },
+    "moneyline": {
+     "away": {
+      "american": -164,
+      "decimal": 1.61,
+      "probability": 0.6193
+     },
+     "home": {
+      "american": 163,
+      "decimal": 2.63,
+      "probability": 0.3807
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 71.0,
+     "over": {
+      "american": 108,
+      "decimal": 2.08,
+      "probability": 0.4812
+     },
+     "over_selection": "Over 71",
+     "under": {
+      "american": -108,
+      "decimal": 1.93,
+      "probability": 0.5188
+     },
+     "under_selection": "Under 71"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/IFK_Kristianstad_vs_Pick_Szeged/20?event_id=12131",
+   "pick": {
+    "american": -164,
+    "confidence": "Medium",
+    "decimal": 1.61,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.6193,
+    "selection": "OTP Bank - PICK Szeged",
+    "side": "away"
+   },
+   "scoring": {
+    "away_against": 33.8,
+    "away_for": 34.4,
+    "home_against": 39.4,
+    "home_for": 32.4
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-29T17:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "Dinamo Bucuresti",
+   "competition": "",
+   "event_name": "Montpellier vs Dinamo Bucuresti",
+   "expected_margin": 0.4,
+   "expected_total": 60.0,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "1-1-3",
+    "home": "1-0-4"
+   },
+   "home_name": "Montpellier Handball",
+   "id": "handball-12133",
+   "identity_confirmed": false,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": -112,
+      "decimal": 1.89,
+      "probability": 0.5299
+     },
+     "away_selection": "Dinamo Bucuresti +1",
+     "home": {
+      "american": 113,
+      "decimal": 2.13,
+      "probability": 0.4701
+     },
+     "home_selection": "Montpellier Handball -1",
+     "label": "Handicap / spread",
+     "line": 1.0
+    },
+    "moneyline": {
+     "away": {
+      "american": 119,
+      "decimal": 2.19,
+      "probability": 0.4574
+     },
+     "home": {
+      "american": -119,
+      "decimal": 1.84,
+      "probability": 0.5426
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 61.0,
+     "over": {
+      "american": 121,
+      "decimal": 2.21,
+      "probability": 0.4532
+     },
+     "over_selection": "Over 61",
+     "under": {
+      "american": -120,
+      "decimal": 1.83,
+      "probability": 0.5468
+     },
+     "under_selection": "Under 61"
+    }
+   },
+   "official_name": "EHF Champions League men standings (eurohandball.com)",
+   "official_sha256": "b5b6a11326703d8ba875bb908ae8464b23233a001b82499653639a935a0a8c3e",
+   "official_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+   "olbg_listed_selections": [
+    "Tie"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Montpellier_vs_Dinamo_Bucuresti/20?event_id=12133",
+   "pick": {
+    "american": -119,
+    "confidence": "Low",
+    "decimal": 1.84,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.5426,
+    "selection": "Montpellier Handball",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": 29.0,
+    "away_for": 26.8,
+    "home_against": 33.0,
+    "home_for": 30.0
+   },
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-29T19:45:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Skanderborg Handbold vs FC Barcelona",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No captured official table contains Skanderborg Handbold, so this side has no strength figure and the match is not priced."
+   ],
+   "form": {},
+   "id": "handball-12137",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "FC Barcelona"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Skanderborg_Handbold_vs_FC_Barcelona/20?event_id=12137",
+   "pick": null,
+   "scoring": {},
+   "sport": "Handball",
+   "sport_id": 20,
+   "sport_key": "handball",
+   "start_utc": "2026-10-29T19:45:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Danish Metal Ligaen",
+   "event_name": "Frederikshavn Whitehawks vs Odense Bulldogs",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "European club fixture: no official league table for this competition was captured, so neither side has a strength figure."
+   ],
+   "form": {},
+   "id": "ice_hockey-200058",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Frederikshavn Whitehawks -1.50"
+   ],
+   "olbg_markets": [
+    "Puck Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Danish_Metal_Ligaen/Frederikshavn_Whitehawks_vs_Odense_Bulldogs/13?event_id=200058",
+   "pick": null,
+   "scoring": {},
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-26T18:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Danish Metal Ligaen",
+   "event_name": "Sonderjyske vs Aalborg Pirates",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "European club fixture: no official league table for this competition was captured, so neither side has a strength figure."
+   ],
+   "form": {},
+   "id": "ice_hockey-200050",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Sonderjyske"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Danish_Metal_Ligaen/Sonderjyske_vs_Aalborg_Pirates/13?event_id=200050",
+   "pick": null,
+   "scoring": {},
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-26T18:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "away_name": "Los Angeles Kings",
+   "competition": "NHL",
+   "event_name": "LA Kings @ NY Rangers",
+   "expected_margin": 1.73,
+   "expected_total": 5.97,
+   "fixture_url": "https://www.nhl.com/gamecenter/lak-vs-nyr/2026/10/26/2026020185",
+   "flags": [],
+   "form": {
+    "away": "2-5-2",
+    "home": "5-4-1"
+   },
+   "home_name": "New York Rangers",
+   "id": "ice_hockey-200101",
+   "identity_confirmed": true,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": 116,
+      "decimal": 2.16,
+      "probability": 0.4623
+     },
+     "away_selection": "Los Angeles Kings +1.5",
+     "home": {
+      "american": -116,
+      "decimal": 1.86,
+      "probability": 0.5377
+     },
+     "home_selection": "New York Rangers -1.5",
+     "label": "Handicap / spread",
+     "line": 1.5
+    },
+    "moneyline": {
+     "away": {
+      "american": 226,
+      "decimal": 3.26,
+      "probability": 0.3065
+     },
+     "home": {
+      "american": -227,
+      "decimal": 1.44,
+      "probability": 0.6935
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 6.0,
+     "over": {
+      "american": 103,
+      "decimal": 2.03,
+      "probability": 0.4929
+     },
+     "over_selection": "Over 6",
+     "under": {
+      "american": -103,
+      "decimal": 1.97,
+      "probability": 0.5071
+     },
+     "under_selection": "Under 6"
+    }
+   },
+   "official_name": "NHL standings (NHL.com official API)",
+   "official_sha256": "31985e7dfadfe7bbb39f4dab600ea3bd52611e72ed1cb9d0e0eebfcf9e45c12d",
+   "official_url": "https://api-web.nhle.com/v1/standings/now",
+   "olbg_listed_selections": [
+    "NY Rangers"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/LA_Kings_@_NY_Rangers/13?event_id=200101",
+   "pick": {
+    "american": -227,
+    "confidence": "Medium",
+    "decimal": 1.44,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.6935,
+    "selection": "New York Rangers",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": 3.56,
+    "away_for": 2.33,
+    "home_against": 2.77,
+    "home_for": 3.15
+   },
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-26T23:07:00Z",
+   "status": "priced",
+   "venue": "Madison Square Garden"
+  },
+  {
+   "away_name": "Toronto Maple Leafs",
+   "competition": "NHL",
+   "event_name": "TOR Maple Leafs @ CGY Flames",
+   "expected_margin": -2.17,
+   "expected_total": 6.66,
+   "fixture_url": "https://www.nhl.com/gamecenter/tor-vs-cgy/2026/10/26/2026020186",
+   "flags": [],
+   "form": {
+    "away": "6-2-2",
+    "home": "4-6-0"
+   },
+   "home_name": "Calgary Flames",
+   "id": "ice_hockey-200103",
+   "identity_confirmed": true,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": -112,
+      "decimal": 1.89,
+      "probability": 0.5286
+     },
+     "away_selection": "Toronto Maple Leafs -2",
+     "home": {
+      "american": 112,
+      "decimal": 2.12,
+      "probability": 0.4714
+     },
+     "home_selection": "Calgary Flames +2",
+     "label": "Handicap / spread",
+     "line": 2.0
+    },
+    "moneyline": {
+     "away": {
+      "american": -123,
+      "decimal": 1.81,
+      "probability": 0.5538
+     },
+     "home": {
+      "american": 124,
+      "decimal": 2.24,
+      "probability": 0.4462
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 6.5,
+     "over": {
+      "american": -115,
+      "decimal": 1.87,
+      "probability": 0.5336
+     },
+     "over_selection": "Over 6.5",
+     "under": {
+      "american": 114,
+      "decimal": 2.14,
+      "probability": 0.4664
+     },
+     "under_selection": "Under 6.5"
+    }
+   },
+   "official_name": "NHL standings (NHL.com official API)",
+   "official_sha256": "31985e7dfadfe7bbb39f4dab600ea3bd52611e72ed1cb9d0e0eebfcf9e45c12d",
+   "official_url": "https://api-web.nhle.com/v1/standings/now",
+   "olbg_listed_selections": [
+    "CGY Flames +1.50"
+   ],
+   "olbg_markets": [
+    "Puck Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TOR_Maple_Leafs_@_CGY_Flames/13?event_id=200103",
+   "pick": {
+    "american": -123,
+    "confidence": "Low",
+    "decimal": 1.81,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.5538,
+    "selection": "Toronto Maple Leafs",
+    "side": "away"
+   },
+   "scoring": {
+    "away_against": 3.15,
+    "away_for": 3.85,
+    "home_against": 3.9,
+    "home_for": 2.3
+   },
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-27T00:37:00Z",
+   "status": "priced",
+   "venue": "Scotiabank Saddledome"
+  },
+  {
+   "away_name": "Detroit Red Wings",
+   "competition": "NHL",
+   "event_name": "DET Red Wings @ EDM Oilers",
+   "expected_margin": 1.48,
+   "expected_total": 6.92,
+   "fixture_url": "https://www.nhl.com/gamecenter/det-vs-edm/2026/10/26/2026020187",
+   "flags": [],
+   "form": {
+    "away": "4-3-3",
+    "home": "8-2-0"
+   },
+   "home_name": "Edmonton Oilers",
+   "id": "ice_hockey-200102",
+   "identity_confirmed": true,
+   "markets": {
+    "handicap": {
+     "away": {
+      "american": -101,
+      "decimal": 1.99,
+      "probability": 0.5027
+     },
+     "away_selection": "Detroit Red Wings +1.5",
+     "home": {
+      "american": 101,
+      "decimal": 2.01,
+      "probability": 0.4973
+     },
+     "home_selection": "Edmonton Oilers -1.5",
+     "label": "Handicap / spread",
+     "line": 1.5
+    },
+    "moneyline": {
+     "away": {
+      "american": 264,
+      "decimal": 3.64,
+      "probability": 0.2748
+     },
+     "home": {
+      "american": -263,
+      "decimal": 1.38,
+      "probability": 0.7252
+     },
+     "label": "Match winner (moneyline)"
+    },
+    "total": {
+     "label": "Match total",
+     "line": 7.0,
+     "over": {
+      "american": 107,
+      "decimal": 2.07,
+      "probability": 0.484
+     },
+     "over_selection": "Over 7",
+     "under": {
+      "american": -106,
+      "decimal": 1.94,
+      "probability": 0.516
+     },
+     "under_selection": "Under 7"
+    }
+   },
+   "official_name": "NHL standings (NHL.com official API)",
+   "official_sha256": "31985e7dfadfe7bbb39f4dab600ea3bd52611e72ed1cb9d0e0eebfcf9e45c12d",
+   "official_url": "https://api-web.nhle.com/v1/standings/now",
+   "olbg_listed_selections": [
+    "EDM Oilers"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/DET_Red_Wings_@_EDM_Oilers/13?event_id=200102",
+   "pick": {
+    "american": -263,
+    "confidence": "High",
+    "decimal": 1.38,
+    "in_price_window": false,
+    "market": "moneyline",
+    "probability": 0.7252,
+    "selection": "Edmonton Oilers",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": 3.09,
+    "away_for": 2.64,
+    "home_against": 3.55,
+    "home_for": 4.45
+   },
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-27T01:37:00Z",
+   "status": "priced",
+   "venue": "Rogers Place"
+  },
+  {
+   "competition": "Finland SM Liiga",
+   "event_name": "Kalpa vs Sport",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "European club fixture: no official league table for this competition was captured, so neither side has a strength figure."
+   ],
+   "form": {},
+   "id": "ice_hockey-200081",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Kalpa"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Finland_SM_Liiga/Kalpa_vs_Sport/13?event_id=200081",
+   "pick": null,
+   "scoring": {},
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-27T16:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Swedish Hockey League",
+   "event_name": "IF Malmo Redhawks vs Linkoping HC",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "European club fixture: no official league table for this competition was captured, so neither side has a strength figure."
+   ],
+   "form": {},
+   "id": "ice_hockey-200082",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "IF Malmo Redhawks"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/IF_Malmo_Redhawks_vs_Linkoping_HC/13?event_id=200082",
+   "pick": null,
+   "scoring": {},
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-27T18:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Swedish Hockey League",
+   "event_name": "Frolunda HC vs Rogle BK",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "European club fixture: no official league table for this competition was captured, so neither side has a strength figure."
+   ],
+   "form": {},
+   "id": "ice_hockey-200083",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Frolunda HC"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Frolunda_HC_vs_Rogle_BK/13?event_id=200083",
+   "pick": null,
+   "scoring": {},
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-27T18:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "Germany Eishockey Liga",
+   "event_name": "Kolner Haie vs Adler Mannheim",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "European club fixture: no official league table for this competition was captured, so neither side has a strength figure."
+   ],
+   "form": {},
+   "id": "ice_hockey-200100",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Adler Mannheim"
+   ],
+   "olbg_markets": [
+    "Money Line"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Germany_Eishockey_Liga/Kolner_Haie_vs_Adler_Mannheim/13?event_id=200100",
+   "pick": null,
+   "scoring": {},
+   "sport": "Ice Hockey",
+   "sport_id": 13,
+   "sport_key": "ice_hockey",
+   "start_utc": "2026-10-27T18:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Mexico City Grand Prix",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "OLBG listed no motor-racing market at capture. Formula 1's driver standings page is script-rendered; MotoGP's standings route returned 404."
+   ],
+   "form": {},
+   "id": "motor_racing-914",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Charles Leclerc"
+   ],
+   "olbg_markets": [
+    "Win Race"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Mexico_City_Grand_Prix/14?event_id=914",
+   "pick": null,
+   "scoring": {},
+   "sport": "Motor Racing",
+   "sport_id": 14,
+   "sport_key": "motor_racing",
+   "start_utc": "2026-11-01T20:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Aliaksandra Sasnovich vs Nikola Bartunkova",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Aliaksandra Sasnovich, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902306",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Nikola Bartunkova"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Aliaksandra_Sasnovich_vs_Nikola_Bartunkova/3?event_id=902306",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T06:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Han Shi vs Alevtina Ibragimova",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Han Shi, Alevtina Ibragimova, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902299",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Han Shi"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Han_Shi_vs_Alevtina_Ibragimova/3?event_id=902299",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T06:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Paula Badosa vs Carol Young Suh Lee",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Paula Badosa, Carol Young Suh Lee, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902300",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Paula Badosa"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Paula_Badosa_vs_Carol_Young_Suh_Lee/3?event_id=902300",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T07:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Alexandra Eala vs Mika Stojsavljevic",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Mika Stojsavljevic, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902175",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Alexandra Eala"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexandra_Eala_vs_Mika_Stojsavljevic/3?event_id=902175",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T08:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Harriet Dart vs Tatiana Prozorova",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Harriet Dart, Tatiana Prozorova, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902303",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Over 22.50"
+   ],
+   "olbg_markets": [
+    "Total Games"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Harriet_Dart_vs_Tatiana_Prozorova/3?event_id=902303",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T09:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Yelyzaveta Kotliar vs Alja Senica",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Yelyzaveta Kotliar, Alja Senica, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902315",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Yelyzaveta Kotliar"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Yelyzaveta_Kotliar_vs_Alja_Senica/3?event_id=902315",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T12:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Matteo Berrettini vs Tomas Martin Etcheverry",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Matteo Berrettini, Tomas Martin Etcheverry, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902208",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Matteo Berrettini"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Matteo_Berrettini_vs_Tomas_Martin_Etcheverry/3?event_id=902208",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T12:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Valentin Vacherot vs Mariano Navone",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Valentin Vacherot, Mariano Navone, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902237",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Mariano Navone"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Valentin_Vacherot_vs_Mariano_Navone/3?event_id=902237",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T12:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Tomas Machac vs Alex De Minaur",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Tomas Machac, Alex De Minaur, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902318",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Alex De Minaur"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Tomas_Machac_vs_Alex_De_Minaur/3?event_id=902318",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T14:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Antonia Vergara Rivera vs Eduarda Gomes",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Antonia Vergara Rivera, Eduarda Gomes, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902334",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Antonia Vergara Rivera"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Antonia_Vergara_Rivera_vs_Eduarda_Gomes/3?event_id=902334",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T14:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Holger Rune vs Quentin Halys",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Holger Rune, Quentin Halys, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902236",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Quentin Halys"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Holger_Rune_vs_Quentin_Halys/3?event_id=902236",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T14:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Fernanda Labrana vs Gabriela Ce",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Fernanda Labrana, Gabriela Ce, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902340",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Gabriela Ce"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Fernanda_Labrana_vs_Gabriela_Ce/3?event_id=902340",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T15:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Jakub Mensik vs Lukas Neumayer",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Jakub Mensik, Lukas Neumayer, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902321",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Jakub Mensik"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Jakub_Mensik_vs_Lukas_Neumayer/3?event_id=902321",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T16:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Arthur Fery vs Jacob Fearnley",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Arthur Fery, Jacob Fearnley, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902319",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Jacob Fearnley"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Arthur_Fery_vs_Jacob_Fearnley/3?event_id=902319",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T16:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Luiza Fullana vs Lourdes Ayala",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Luiza Fullana, Lourdes Ayala, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902339",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Luiza Fullana"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Luiza_Fullana_vs_Lourdes_Ayala/3?event_id=902339",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T17:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Dominic Stricker vs Casper Ruud",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Dominic Stricker, Casper Ruud, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902313",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Casper Ruud"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Dominic_Stricker_vs_Casper_Ruud/3?event_id=902313",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-26T19:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Leylah Fernandez vs Himeno Sakatsume",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Himeno Sakatsume, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902172",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Leylah Fernandez"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Leylah_Fernandez_vs_Himeno_Sakatsume/3?event_id=902172",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T02:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "away_name": "Jasmine Paolini",
+   "competition": "",
+   "event_name": "Naomi Osaka vs Jasmine Paolini",
+   "expected_margin": null,
+   "expected_total": null,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "world no. 35",
+    "home": "world no. 18"
+   },
+   "home_name": "Naomi Osaka",
+   "id": "tennis-902177",
+   "identity_confirmed": false,
+   "markets": {
+    "moneyline": {
+     "away": {
+      "american": 128,
+      "decimal": 2.28,
+      "probability": 0.4382
+     },
+     "home": {
+      "american": -128,
+      "decimal": 1.78,
+      "probability": 0.5618
+     },
+     "label": "Match winner (moneyline)"
+    }
+   },
+   "official_name": "WTA singles rankings (wtatennis.com)",
+   "official_sha256": "f1fc879d3772f9bc37b1177db1da9d157b903021bc63a8df1ef3d87b78e83c70",
+   "official_url": "https://www.wtatennis.com/rankings/singles",
+   "olbg_listed_selections": [
+    "Naomi Osaka"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": {
+    "american": -303,
+    "decimal": 1.33,
+    "market": "Win Match",
+    "selection": "Naomi Osaka",
+    "tip_pct": 100,
+    "tips": "1/1"
+   },
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Naomi_Osaka_vs_Jasmine_Paolini/3?event_id=902177",
+   "pick": {
+    "american": -128,
+    "confidence": "Low",
+    "decimal": 1.78,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.5618,
+    "selection": "Naomi Osaka",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": null,
+    "away_for": null,
+    "home_against": null,
+    "home_for": null
+   },
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T02:00:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "away_name": "Ekaterina Alexandrova",
+   "competition": "",
+   "event_name": "Ann Li vs Ekaterina Alexandrova",
+   "expected_margin": null,
+   "expected_total": null,
+   "fixture_url": "",
+   "flags": [
+    "OLBG is the only source naming this fixture; the governing body page supplies the team records but not the fixture identity."
+   ],
+   "form": {
+    "away": "world no. 33",
+    "home": "world no. 31"
+   },
+   "home_name": "Ann Li",
+   "id": "tennis-902176",
+   "identity_confirmed": false,
+   "markets": {
+    "moneyline": {
+     "away": {
+      "american": 103,
+      "decimal": 2.03,
+      "probability": 0.4917
+     },
+     "home": {
+      "american": -103,
+      "decimal": 1.97,
+      "probability": 0.5083
+     },
+     "label": "Match winner (moneyline)"
+    }
+   },
+   "official_name": "WTA singles rankings (wtatennis.com)",
+   "official_sha256": "f1fc879d3772f9bc37b1177db1da9d157b903021bc63a8df1ef3d87b78e83c70",
+   "official_url": "https://www.wtatennis.com/rankings/singles",
+   "olbg_listed_selections": [
+    "Ekaterina Alexandrova"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ann_Li_vs_Ekaterina_Alexandrova/3?event_id=902176",
+   "pick": {
+    "american": -103,
+    "confidence": "Low",
+    "decimal": 1.97,
+    "in_price_window": true,
+    "market": "moneyline",
+    "probability": 0.5083,
+    "selection": "Ann Li",
+    "side": "home"
+   },
+   "scoring": {
+    "away_against": null,
+    "away_for": null,
+    "home_against": null,
+    "home_for": null
+   },
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T02:00:00Z",
+   "status": "priced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Lilli Tagger vs Venus Williams",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Lilli Tagger, Venus Williams, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902189",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Venus Williams to win 2 - 0"
+   ],
+   "olbg_markets": [
+    "Set Betting"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Lilli_Tagger_vs_Venus_Williams/3?event_id=902189",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T04:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Sara Sorribes Tormo vs Zeynep Sonmez",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Sara Sorribes Tormo, Zeynep Sonmez, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902181",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Zeynep Sonmez"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Sara_Sorribes_Tormo_vs_Zeynep_Sonmez/3?event_id=902181",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T04:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Novak Djokovic vs Ugo Humbert",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Novak Djokovic, Ugo Humbert, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902233",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Novak Djokovic"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Novak_Djokovic_vs_Ugo_Humbert/3?event_id=902233",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Stan Wawrinka vs Jiri Lehecka",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Stan Wawrinka, Jiri Lehecka, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902232",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Jiri Lehecka"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Stan_Wawrinka_vs_Jiri_Lehecka/3?event_id=902232",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Alejandro Tabilo vs Rafael Jodar",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Alejandro Tabilo, Rafael Jodar, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902238",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Alejandro Tabilo"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alejandro_Tabilo_vs_Rafael_Jodar/3?event_id=902238",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Jerome Kym vs Arthur Rinderknech",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Jerome Kym, Arthur Rinderknech, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902234",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Jerome Kym"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Jerome_Kym_vs_Arthur_Rinderknech/3?event_id=902234",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Cameron Norrie vs Francisco Cerundolo",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Cameron Norrie, Francisco Cerundolo, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902210",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Francisco Cerundolo"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Cameron_Norrie_vs_Francisco_Cerundolo/3?event_id=902210",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Alex Michelsen vs Botic Van De Zandschulp",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Alex Michelsen, Botic Van De Zandschulp, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902240",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Botic Van De Zandschulp"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alex_Michelsen_vs_Botic_Van_De_Zandschulp/3?event_id=902240",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Karen Khachanov vs Carlos Alcaraz",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Karen Khachanov, Carlos Alcaraz, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902213",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Karen Khachanov +3.50"
+   ],
+   "olbg_markets": [
+    "Games Won"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Karen_Khachanov_vs_Carlos_Alcaraz/3?event_id=902213",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Alexander Zverev vs Martin Landaluce",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "ATP fixture: the official ATP rankings route returned HTTP 403 to the capture runner and the WTA list does not contain Alexander Zverev, Martin Landaluce, so no ranking input exists for this match."
+   ],
+   "form": {},
+   "id": "tennis-902203",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Martin Landaluce to win 2 - 0"
+   ],
+   "olbg_markets": [
+    "Set Betting"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexander_Zverev_vs_Martin_Landaluce/3?event_id=902203",
+   "pick": null,
+   "scoring": {},
+   "sport": "Tennis",
+   "sport_id": 3,
+   "sport_key": "tennis",
+   "start_utc": "2026-10-27T10:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "SG VCA Amstetten vs UVC Ried",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37116",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "UVC Ried"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SG_VCA_Amstetten_vs_UVC_Ried/21?event_id=37116",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-26T15:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "BKS Bielsko Biala W vs LKS Lodz W",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37080",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "LKS Lodz W"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/BKS_Bielsko_Biala_W_vs_LKS_Lodz_W/21?event_id=37080",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-26T16:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "UNIONvolleys Bisamberg Hollabrunn vs TSV Hartberg",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37117",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "TSV Hartberg to win 3-2"
+   ],
+   "olbg_markets": [
+    "Set Score"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/UNIONvolleys_Bisamberg_Hollabrunn_vs_TSV_Hartberg/21?event_id=37117",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-26T16:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "VBK Klagenfurt vs SK Aich-Dob",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37118",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "SK Aich/Dob"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/VBK_Klagenfurt_vs_SK_Aich-Dob/21?event_id=37118",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-26T17:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "UVC Graz vs SG Union Raiffeisen Waldviertel",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37119",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "SG Union Raiffeisen Waldviertel"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/UVC_Graz_vs_SG_Union_Raiffeisen_Waldviertel/21?event_id=37119",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-26T18:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Sancor Volei W vs SESI Volei Bauru W",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37004",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "SESI Volei Bauru W"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Sancor_Volei_W_vs_SESI_Volei_Bauru_W/21?event_id=37004",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-26T21:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Montes Claros vs Sada Cruzeiro",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37101",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Sada Cruzeiro"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Montes_Claros_vs_Sada_Cruzeiro/21?event_id=37101",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-26T22:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Norde Volei vs Volei Renata",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37102",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Norde Volei"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Norde_Volei_vs_Volei_Renata/21?event_id=37102",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-27T00:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Marignano W vs Bergamo W",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37075",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Bergamo W"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Marignano_W_vs_Bergamo_W/21?event_id=37075",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-27T19:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Uni Opole W vs Palac Bydgoszcz W",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37081",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Palac Bydgoszcz W"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Uni_Opole_W_vs_Palac_Bydgoszcz_W/21?event_id=37081",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-27T19:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Suzano Volei vs Goias Volei",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37103",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Suzano Volei"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Suzano_Volei_vs_Goias_Volei/21?event_id=37103",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-27T23:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Praia Clube vs Sao Jose",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37104",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Praia Clube"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Praia_Clube_vs_Sao_Jose/21?event_id=37104",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-28T01:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Budowlani Lodz W vs Radomka Radom W",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37082",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Radomka Radom W to win 3-0"
+   ],
+   "olbg_markets": [
+    "Set Score"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Budowlani_Lodz_W_vs_Radomka_Radom_W/21?event_id=37082",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-28T16:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Mielec W vs Rzeszow W",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37083",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Mielec W to win 3-0"
+   ],
+   "olbg_markets": [
+    "Set Score"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Mielec_W_vs_Rzeszow_W/21?event_id=37083",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-28T18:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Conegliano W vs Vallefoglia W",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37076",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Vallefoglia W"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Conegliano_W_vs_Vallefoglia_W/21?event_id=37076",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-28T19:00:00Z",
+   "status": "unpriced",
+   "venue": ""
+  },
+  {
+   "competition": "",
+   "event_name": "Scandicci W vs Novara W",
+   "expected_margin": null,
+   "expected_total": null,
+   "flags": [
+    "No official club-strength feed was reachable from the capture runner (CEV and Volleyball World pages returned 404 or a script-only shell), so no line can be originated without inventing one."
+   ],
+   "form": {},
+   "id": "volleyball-37065",
+   "identity_confirmed": false,
+   "markets": {},
+   "official_name": "",
+   "official_sha256": "",
+   "official_url": "",
+   "olbg_listed_selections": [
+    "Novara W"
+   ],
+   "olbg_markets": [
+    "Win Match"
+   ],
+   "olbg_quote": null,
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Scandicci_W_vs_Novara_W/21?event_id=37065",
+   "pick": null,
+   "scoring": {},
+   "sport": "Volleyball",
+   "sport_id": 21,
+   "sport_key": "volleyball",
+   "start_utc": "2026-10-28T19:30:00Z",
+   "status": "unpriced",
+   "venue": ""
+  }
+ ],
+ "schema": "olbg4.ds.desk/1",
+ "summary": {
+  "Baseball": {
+   "fixtures": 1,
+   "high": 0,
+   "in_window": 1,
+   "low": 1,
+   "medium": 0,
+   "priced": 1
+  },
+  "Basketball": {
+   "fixtures": 17,
+   "high": 0,
+   "in_window": 0,
+   "low": 0,
+   "medium": 0,
+   "priced": 0
+  },
+  "Cricket": {
+   "fixtures": 4,
+   "high": 0,
+   "in_window": 0,
+   "low": 0,
+   "medium": 0,
+   "priced": 0
+  },
+  "Gaelic Football": {
+   "fixtures": 1,
+   "high": 0,
+   "in_window": 0,
+   "low": 0,
+   "medium": 0,
+   "priced": 0
+  },
+  "Greyhounds": {
+   "fixtures": 1,
+   "high": 0,
+   "in_window": 0,
+   "low": 0,
+   "medium": 0,
+   "priced": 0
+  },
+  "Handball": {
+   "fixtures": 13,
+   "high": 4,
+   "in_window": 7,
+   "low": 4,
+   "medium": 3,
+   "priced": 11
+  },
+  "Ice Hockey": {
+   "fixtures": 9,
+   "high": 1,
+   "in_window": 2,
+   "low": 1,
+   "medium": 1,
+   "priced": 3
+  },
+  "Motor Racing": {
+   "fixtures": 1,
+   "high": 0,
+   "in_window": 0,
+   "low": 0,
+   "medium": 0,
+   "priced": 0
+  },
+  "Tennis": {
+   "fixtures": 29,
+   "high": 0,
+   "in_window": 2,
+   "low": 2,
+   "medium": 0,
+   "priced": 2
+  },
+  "Volleyball": {
+   "fixtures": 16,
+   "high": 0,
+   "in_window": 0,
+   "low": 0,
+   "medium": 0,
+   "priced": 0
+  }
+ }
+}
