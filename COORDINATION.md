@@ -5291,3 +5291,10 @@ feed was captured, so no prediction claims one; `data/master.json` review — 10
 `tools/build_master_site.py` re-run so the Pages staleness gate stays green. Both are generated output,
 reproduced deterministically and re-verified after rebasing on `main`. No other board's data or prose
 was edited.
+
+## Session 69962336 — 2026-10-26 fresh source-first integration
+
+Owner: `arena/69962336-olbg4`. Status: in progress. Branch fixed by Arena; no alternative branch created.
+Claim: `scripts/session-69962336/**`, `data/session-69962336/**`, `session-69962336/**`, `.github/workflows/fresh-69962336.yml`; append-only coordination log. Final integration claims a small dated navigation notice in root `index.html` (older root claims have no commits within 60 minutes).
+Tasks: fresh OLBG + official capture; strict fixture identity reconciliation; 15-sport dashboard with explicit gaps; local link/source gates; PR merge and Pages confirmation.
+Existing peer scopes remain read-only. Do not mistake historical source snapshots or link presence for current factual verification. Missing facts and unsupported prices remain blank. Existing reusable collector/parser will be copied into this isolated scope with attribution, not modified in place.
