@@ -1,0 +1,76 @@
+name: Board AO official capture (776ac8fc)
+
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: Target set to fetch (gen1, gen2, gen3)
+        type: string
+        default: gen1
+  push:
+    branches:
+      - arena/776ac8fc-olbg4
+    paths:
+      - "scripts/session-776ac8fc/targets_gen1.json"
+      - "scripts/session-776ac8fc/targets_gen2.json"
+      - "scripts/session-776ac8fc/targets_gen3.json"
+      - "scripts/session-776ac8fc/fetch.py"
+      - ".github/workflows/ao-776ac8fc.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ao-776ac8fc-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/776ac8fc-olbg4
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Decide stage
+        id: stage
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "stage=${{ inputs.stage }}" >> "$GITHUB_OUTPUT"
+          else
+            # newest target set committed by the board
+            STAGE=gen1
+            for g in gen2 gen3; do
+              if [ -f "scripts/session-776ac8fc/targets_$g.json" ]; then STAGE=$g; fi
+            done
+            echo "stage=$STAGE" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Fetch live bytes with SHA-256 manifest
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          STAGE="${{ steps.stage.outputs.stage }}"
+          echo "STAGE=$STAGE" >> "$GITHUB_ENV"
+          python3 scripts/session-776ac8fc/fetch.py \
+            "scripts/session-776ac8fc/targets_${STAGE}.json" \
+            "data/session-776ac8fc/capture/${STAGE}/${STAMP}" 2>&1 | tee /tmp/capture.log
+      - name: Commit capture to the board branch
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-ao-capture[bot]"
+          git config user.email "board-ao-capture@users.noreply.github.com"
+          mkdir -p data/session-776ac8fc/logs
+          cp /tmp/capture.log "data/session-776ac8fc/logs/capture-${STAGE:-unknown}-${STAMP:-unknown}.log" || true
+          git add data/session-776ac8fc
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Board AO: official capture ${STAGE:-?} ${STAMP:-?} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin arena/776ac8fc-olbg4 && git push origin HEAD:arena/776ac8fc-olbg4 && break
+            sleep 5
+          done
