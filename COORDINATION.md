@@ -5291,3 +5291,30 @@ feed was captured, so no prediction claims one; `data/master.json` review — 10
 `tools/build_master_site.py` re-run so the Pages staleness gate stays green. Both are generated output,
 reproduced deterministically and re-verified after rebasing on `main`. No other board's data or prose
 was edited.
+
+## Board AO — session `arena/776ac8fc-olbg4` (2026-10-26: OLBG 15-sport live desk — reverse-engineered OLBG market list, own lines for every match, High-confidence human predictions, clean dashboard, final integration)
+
+Session: `arena/776ac8fc-olbg4` · Branch: `arena/776ac8fc-olbg4` · Claimed: 2026-10-26T05:20Z UTC · **status: in progress**
+
+Scope is isolated and additive: `session-776ac8fc/**`, `data/session-776ac8fc/**`, `scripts/session-776ac8fc/**`,
+`.github/workflows/ao-776ac8fc.yml`, and append-only entries in this file. Everything else — `data/master*.json`,
+`board/**`, `desk/**`, `docs/**`, all root `*.html`, all other `session-*/**` and `data/session-*/**`, `pipeline/**`,
+`tools/**` and every other workflow — is **read-only** for this board. Anything that would need a peer-owned file
+is logged here as an integration request, never edited.
+
+Note on concurrency: run history shows branch `arena/69962336-olbg4` ("coordination: claim isolated October 26
+evidence-first refresh") active at the same time. That board's files are its own; this board neither reads nor
+edits them, and integration below only touches this session's own pages plus an append-only log line, so the two
+cannot collide.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AO1 | Reverse-engineer the live OLBG sport/market taxonomy for the 15 requested sports and capture the current OLBG event list (fixtures still open for betting) byte-for-byte with a SHA-256 manifest. Sandbox egress was re-tested against `olbg.com`, `nhl.com`, `espn.com`, `atptour.com`: every request fails before connect (exit 35/000), so official bytes are fetched by an Actions runner and all parsing happens locally from the committed bytes | in progress | arena/776ac8fc-olbg4 | `scripts/session-776ac8fc/**`, `.github/workflows/ao-776ac8fc.yml`, `data/session-776ac8fc/capture/**` |
+| AO2 | Build one row per upcoming match with an official source URL (governing body / league / tour) for the fixture identity and for every form/statistic input | pending | arena/776ac8fc-olbg4 | `scripts/session-776ac8fc/build.py`, `data/session-776ac8fc/desk.json` |
+| AO3 | Originate our own lines — match winner, handicap/spread, match total (plus sport-specific markets where inputs exist) — for every match with verified inputs; grade each pick Low/Medium/High; report the −250…+10,000 window honestly | pending | arena/776ac8fc-olbg4 | `scripts/session-776ac8fc/originate.py` |
+| AO4 | Written predictions: ≥30 words, unique, non-templated, naming team/player, current form, recent results, match-specific statistics and any verifiable injury news, with the selection stated plainly and an official link under each | pending | arena/776ac8fc-olbg4 | `scripts/session-776ac8fc/predictions.py` |
+| AO5 | Clean dashboard: executive summary first, then per-sport pages with labelled picks, an all-entries table, markets/coverage/method/sources, and a Flagged for Review page for anything unconfirmed | pending | arena/776ac8fc-olbg4 | `session-776ac8fc/**` |
+| AO6 | Deterministic verification (odds/probability maths, confidence rules, word counts, uniqueness, blank-don't-infer, every row sourced, every local link), PR to `main`, merge without waiting, confirm Pages deploy, record result here | pending | arena/776ac8fc-olbg4 | `scripts/session-776ac8fc/verify.py`, `COORDINATION.md` |
+
+### AO working log
+- `2026-10-26T05:20Z` — `776ac8fc` — read the board, re-tested sandbox egress (GitHub/npm/PyPI only; `www.olbg.com`, `www.nhl.com`, `site.api.espn.com`, `buffedlizard55-lab.github.io` all fail at connect), then claimed this isolated scope before any other work. Prior boards' OLBG reverse-engineering is reused as a hypothesis only — every payload is re-captured live and re-parsed here.
