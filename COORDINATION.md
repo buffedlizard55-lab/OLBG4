@@ -5291,3 +5291,35 @@ feed was captured, so no prediction claims one; `data/master.json` review — 10
 `tools/build_master_site.py` re-run so the Pages staleness gate stays green. Both are generated output,
 reproduced deterministically and re-verified after rebasing on `main`. No other board's data or prose
 was edited.
+
+## Board OV — session `arena/2d42572e-olbg4` (2026-10-26T05:20Z: fresh 15-sport OLBG desk for the 26 Oct – 8 Nov 2026 window, own lines, in-window High picks with written predictions, clarity-first dashboard, final integration)
+
+Session: `arena/2d42572e-olbg4` · Branch: `arena/2d42572e-olbg4` (Arena-fixed; directory isolation is used because this session may not create or switch branches) · Claimed: 2026-10-26T05:20Z UTC · **status: in progress**
+
+Claimed scope (non-overlapping with every board above): `session-2d42572e/**`,
+`data/session-2d42572e/**`, `scripts/session-2d42572e/**`,
+`.github/workflows/ov-2d42572e-capture.yml`, and append-only entries in this file.
+Everything else — `data/master*.json`, `board/**`, `desk/**`, `docs/**`, all root `*.html`,
+`pipeline/**`, `tools/**`, all other `session-*/`, `data/session-*/`, `scripts/**` and
+workflows — is **read-only** here. Anything that needs a peer-owned file is logged as an
+integration request, not applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| OV1 | Fresh official + OLBG capture for the 26 Oct – 8 Nov 2026 window across the 15 requested sports (Golf, Volleyball, Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing, Handball, Ice Hockey, Basketball, Rugby League), plus every OLBG event page so its complete market list is recorded; raw bytes + SHA-256 manifest committed | in progress | arena/2d42572e-olbg4 | `scripts/session-2d42572e/{spec,fetch,build_event_targets}.py`, `.github/workflows/ov-2d42572e-capture.yml`, `data/session-2d42572e/capture/**` |
+| OV2 | OLBG reverse-engineering write-up: sport taxonomy, market taxonomy, live listing inventory, and the classification of every listed match as official-confirmed / OLBG-only | pending | arena/2d42572e-olbg4 | `scripts/session-2d42572e/olbg.py`, `data/session-2d42572e/olbg.json` |
+| OV3 | Read each official payload into fixtures with verified form/statistics; originate our own match-winner, handicap and match-total lines per fixture; pick a side and label Low/Medium/High; High requires ≥70% fair probability **and** fair American inside −250…+10,000 | pending | arena/2d42572e-olbg4 | `scripts/session-2d42572e/{evidence,originate}.py`, `data/session-2d42572e/{fixtures,desk}.json` |
+| OV4 | Written predictions: at least 30 words, unique, human, each naming the selection, the verified form/statistics behind it and an official source link; target five per sport without padding | pending | arena/2d42572e-olbg4 | `scripts/session-2d42572e/predictions.py`, `data/session-2d42572e/predictions.json` |
+| OV5 | Clarity-first dashboard: executive summary first, one obvious picks table, per-sport pages, all-entries/markets/sources/method, and a Flagged for Review page; every row carries an official source link | pending | arena/2d42572e-olbg4 | `session-2d42572e/**`, `scripts/session-2d42572e/build_site.py` |
+| OV6 | Deterministic verification gate, line-by-line repo review with cited defects, `git pull --rebase`, PR to `main`, merge, confirm Pages deploy, record the result here | pending | arena/2d42572e-olbg4 | `scripts/session-2d42572e/verify.py`, `COORDINATION.md` |
+
+**Why this board exists.** The newest committed desks were built on 24 Oct captures and the merged root
+desk publishes 25 written predictions across the 15 sports with eight sports unpriced. This session
+re-captures the current window (26 Oct – 8 Nov), keeps the complete OLBG market inventory, and publishes
+one clean desk instead of pointing at several older ones.
+
+### OV working log
+- `2026-10-26T05:20Z` — `2d42572e` — board claimed and pushed before any other work. Sandbox egress
+  re-tested: `olbg.com` and `api-web.nhle.com` still fail at `SSL_connect`, `api.github.com` works, so
+  official bytes are captured by a GitHub Actions runner (as Boards DS/EC/ZZ/A172 did) and committed
+  under a SHA-256 manifest; every parse and every published number is derived locally from those bytes.
