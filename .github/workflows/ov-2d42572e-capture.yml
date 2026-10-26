@@ -1,0 +1,85 @@
+name: Board OV capture (2d42572e)
+
+# Session arena/2d42572e-olbg4.  The authoring sandbox reaches GitHub only, so the
+# OLBG sport hubs, the OLBG event pages (complete market lists) and every
+# governing-body / league / tour endpoint the desk cites are fetched here, on a
+# runner with open egress, and committed byte-for-byte with a SHA-256 manifest.
+# Nothing is parsed or interpreted in this job.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/2d42572e-olbg4
+    paths:
+      - "scripts/session-2d42572e/spec.py"
+      - "scripts/session-2d42572e/fetch.py"
+      - "scripts/session-2d42572e/build_event_targets.py"
+      - ".github/workflows/ov-2d42572e-capture.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ov-2d42572e-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/2d42572e-olbg4
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Write target list
+        run: |
+          python3 scripts/session-2d42572e/spec.py all > /tmp/targets.json
+          python3 -c "import json;d=json.load(open('/tmp/targets.json'));print(len(d),'targets')"
+
+      - name: Capture OLBG hubs + official feeds
+        run: |
+          set -o pipefail
+          STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          python3 scripts/session-2d42572e/fetch.py /tmp/targets.json \
+            "data/session-2d42572e/capture/$STAMP" 2>&1 | tee /tmp/capture.log
+
+      - name: Build the OLBG event-page target list
+        run: |
+          python3 scripts/session-2d42572e/build_event_targets.py \
+            "data/session-2d42572e/capture/$STAMP" /tmp/events.json 220 2>&1 | tee -a /tmp/capture.log
+
+      - name: Capture every OLBG event page (complete market list)
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python3 scripts/session-2d42572e/fetch.py /tmp/events.json \
+            "data/session-2d42572e/capture/$STAMP-events" 2>&1 | tee -a /tmp/capture.log
+
+      - name: Commit the capture
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "board-ov-capture"
+          git config user.email "actions@users.noreply.github.com"
+          mkdir -p data/session-2d42572e/logs
+          cp /tmp/capture.log "data/session-2d42572e/logs/capture-${STAMP:-unknown}.log" || true
+          git add data/session-2d42572e
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "capture(OV): live OLBG + official snapshot ${STAMP} [skip ci]"
+          BR="arena/2d42572e-olbg4"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin "$BR" && git push origin "HEAD:$BR"; then
+              echo pushed; exit 0
+            fi
+            sleep 5
+          done
+          echo "push failed after retries" >&2
+          exit 1
