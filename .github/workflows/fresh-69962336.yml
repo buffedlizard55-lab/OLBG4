@@ -2,7 +2,7 @@ name: October 26 source-first refresh
 on:
   push:
     branches: [arena/69962336-olbg4]
-    paths: ['scripts/session-69962336/**', '.github/workflows/fresh-69962336.yml']
+    paths: ['scripts/session-69962336/spec.py', 'scripts/session-69962336/collect.py']
   workflow_dispatch:
 permissions:
   contents: write
@@ -35,3 +35,12 @@ jobs:
             git pull --rebase origin arena/69962336-olbg4
             git push origin arena/69962336-olbg4
           fi
+  verify-publication:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/session-69962336/verify.py
