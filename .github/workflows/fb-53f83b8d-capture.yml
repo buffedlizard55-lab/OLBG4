@@ -1,0 +1,83 @@
+name: FB 53f83b8d capture (OLBG 15 sports + official feeds)
+
+# The sandbox this desk is authored in has egress only to GitHub/npm/PyPI: olbg.com,
+# nhl.com, mlb.com, pdc.tv and the rest fail at SSL_connect. This runner has open egress,
+# so it is what actually reads the live pages. Bytes are committed verbatim with a
+# SHA-256 manifest; every parse downstream works from the committed bytes only.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - arena/53f83b8d-olbg4
+    paths:
+      - "scripts/session-53f83b8d/**"
+      - ".github/workflows/fb-53f83b8d-capture.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fb-53f83b8d-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build target list
+        run: |
+          set -o pipefail
+          START=$(date -u +%F)
+          python3 scripts/session-53f83b8d/targets.py "$START" 14 scripts/session-53f83b8d/targets.json
+
+      - name: Capture (main targets + OLBG event-page discovery)
+        id: cap
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python3 scripts/session-53f83b8d/fetch.py --workers 8 --events-per-sport 8 2>&1 | tail -n 60
+
+      - name: Commit capture
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "olbg-capture"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/session-53f83b8d/capture scripts/session-53f83b8d/targets.json
+          if git diff --cached --quiet; then
+            echo "no capture changes"
+            exit 0
+          fi
+          git commit -m "capture(fb): OLBG + official bytes $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin "${{ github.ref_name }}" && break
+            sleep 5
+          done
+          git push
+
+      - name: Fail when nothing was captured
+        if: always()
+        run: |
+          STAMP=$(ls -1d data/session-53f83b8d/capture/*/ | tail -1)
+          echo "stamp: $STAMP"
+          test -f "${STAMP}manifest.json" || { echo "no manifest"; exit 1; }
+          python3 - "$STAMP" <<'PY'
+          import json, sys
+          m = json.load(open(sys.argv[1] + "manifest.json"))
+          print("ok", m["ok"], "failed", m["failed"])
+          olbg = [r for r in m["records"] if r["kind"] == "olbg"]
+          official = [r for r in m["records"] if r["kind"] == "official"]
+          print("olbg ok", len(olbg), "official ok", len(official))
+          if len(olbg) < 10 or len(official) < 30:
+              raise SystemExit("capture too thin to build a desk")
+          PY
