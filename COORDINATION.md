@@ -5291,3 +5291,29 @@ feed was captured, so no prediction claims one; `data/master.json` review — 10
 `tools/build_master_site.py` re-run so the Pages staleness gate stays green. Both are generated output,
 reproduced deterministically and re-verified after rebasing on `main`. No other board's data or prose
 was edited.
+
+---
+
+## Board CB — session `arena/3a7bd9bb-olbg4` (2026-10-26 fresh 15-sport desk + own lines + in-window High-confidence write-ups + repo review + site + final integration)
+
+Session: `arena/3a7bd9bb-olbg4` · Branch: `arena/3a7bd9bb-olbg4` · Claimed: 2026-10-26T05:30Z UTC · **status: in progress**
+
+File scope (non-overlapping with every existing board): `session-3a7bd9bb/**`, `data/session-3a7bd9bb/**`,
+`scripts/session-3a7bd9bb/**`, `.github/workflows/cb-3a7bd9bb.yml`, and append-only entries in this file.
+Everything else — `data/master.json`, `board/`, all root `*.html`, every other `session-*/`, `data/session-*/`,
+`scripts/**`, `pipeline/**`, `.github/workflows/*.yml` — is **read-only** for Board CB until the final
+integration step recorded at the end of this section. Findings that would require editing another owner's file
+are logged here as integration requests, not applied silently.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| CB1 | Fresh capture of OLBG's 15 in-scope sport boards (market labels, listed prices, event URLs) plus official governing-body / league / tour pages for the 26 Oct – 8 Nov 2026 window, fetched by an Actions runner with open egress and committed as sha256-manifested gzip | in progress | arena/3a7bd9bb-olbg4 | `data/session-3a7bd9bb/**`, `scripts/session-3a7bd9bb/**`, `.github/workflows/cb-3a7bd9bb.yml` |
+| CB2 | Originate own lines (match winner, handicap/spread, match total, plus sport derivatives) from the parsed official inputs; pick a winner and grade Low/Medium/High | in progress | arena/3a7bd9bb-olbg4 | same |
+| CB3 | High-confidence focus: picks inside −250…+10,000 American odds with unique 30+ word human write-ups carrying verified form, history, match-specific statistics and an explicit selection | in progress | arena/3a7bd9bb-olbg4 | same |
+| CB4 | Site: clean landing page + executive summary + per-sport subpages + all-entries table with an official source link on every row + methodology/sources + Flagged for Review | in progress | arena/3a7bd9bb-olbg4 | `session-3a7bd9bb/**` |
+| CB5 | Line-by-line review of the repository's published data with irregularities flagged (no fixes to other owners' files) | in progress | arena/3a7bd9bb-olbg4 | `data/session-3a7bd9bb/**` |
+| CB6 | Final integration: re-verify combined data, confirm the site builds with no broken links, one nav pointer added to the root landing-page generator, PR to `main`, merge, confirm Pages deploy, record result here | in progress | arena/3a7bd9bb-olbg4 | + PR only |
+
+### CB working log
+
+- 2026-10-26T05:30Z — `3a7bd9bb` — board claimed; scope `session-3a7bd9bb/` + `data/session-3a7bd9bb/` + `scripts/session-3a7bd9bb/` + `.github/workflows/cb-3a7bd9bb.yml`; claim committed and pushed before any other work. Sandbox egress is limited to github/npm/pypi, so OLBG and the official sources are fetched by an Actions runner and parsed locally from the committed bytes (same pattern as Boards AD/CA).
