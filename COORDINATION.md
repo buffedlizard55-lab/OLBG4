@@ -5291,3 +5291,51 @@ feed was captured, so no prediction claims one; `data/master.json` review — 10
 `tools/build_master_site.py` re-run so the Pages staleness gate stays green. Both are generated output,
 reproduced deterministically and re-verified after rebasing on `main`. No other board's data or prose
 was edited.
+
+## Board AN — session `arena/a5456ba0-olbg4` (2026-10-26T05:20Z: fresh 15-sport OLBG reverse-engineering + own lines + ≥5 written predictions per sport + dashboard + integration)
+
+Session: `arena/a5456ba0-olbg4` · Branch: `arena/a5456ba0-olbg4` · Claimed: 2026-10-26T05:20Z UTC · **status: in progress**
+
+Task (from the operator): reverse-engineer OLBG.com for exactly fifteen sports — Golf, Volleyball,
+Rugby Union, Cricket, Snooker, Darts, Baseball, Gaelic Sports, Greyhounds, Tennis, Motor Racing,
+Handball, Ice Hockey, Basketball, Rugby League — publish the full upcoming match list, originate our
+own lines for every market we can defend (match winner, handicap, match total and sport-specific
+markets), grade every pick Low/Medium/High, and write ≥5 unique, non-templated, ≥30-word
+predictions per sport carrying real official facts, current form, recent results, relevant statistics
+and an explicit selection, all inside the −250…+10,000 price window wherever the maths allows.
+Deliver a clean dashboard with an executive summary and an obvious picks location, a Flagged for
+Review page, a verification gate, then PR → merge → confirm Pages deploy.
+
+File scope (non-overlapping with every existing board — `Board EC`, `Board DS`, `Board CA`,
+`Board A172` and all earlier boards keep their files read-only here):
+
+- `session-a5456ba0/**` — the dashboard site (own namespace)
+- `data/session-a5456ba0/**` — capture manifest, parsed fixtures, desk, predictions, flags
+- `scripts/session-a5456ba0/**` — capture, parse, originate, predict, build, verify
+- `.github/workflows/an-a5456ba0-capture.yml` — capture runner (sandbox egress is GitHub/npm/PyPI only)
+- append-only entries in this file
+
+Everything else — `data/master.json`, `data/session-*/**`, `board/**`, `desk/**`, `docs/**`, all root
+`*.html`, `pipeline/**`, `tools/**`, `session-*/**` of other boards and every other workflow — is
+**read-only** for Board AN. Anything that would need a peer-owned file is logged here as an
+integration request, never applied.
+
+| ID | Task | Status | Owner | File scope |
+|---|---|---|---|---|
+| AN1 | Fresh OLBG capture (15 hubs + all-sports) and official-sport capture for the 26 Oct – 9 Nov 2026 window, byte-for-byte with a SHA-256 manifest, fetched by an Actions runner | in progress | arena/a5456ba0-olbg4 | `scripts/session-a5456ba0/{fetch.py,targets.py,targets.json}`, `.github/workflows/an-a5456ba0-capture.yml`, `data/session-a5456ba0/capture/**` |
+| AN2 | OLBG reverse-engineering: parse the embedded SvelteKit `tips` payload into dated events, markets, quoted prices and tip confidence per sport | pending | arena/a5456ba0-olbg4 | `scripts/session-a5456ba0/olbg.py`, `data/session-a5456ba0/olbg.json` |
+| AN3 | Official fixture + strength extraction per sport (records, standings, rankings, form) with an official source URL per row; blanks stay blank | pending | arena/a5456ba0-olbg4 | `scripts/session-a5456ba0/official.py`, `data/session-a5456ba0/fixtures.json` |
+| AN4 | Originate our own lines: match winner, handicap/spread, match total and sport-specific markets; pick + Low/Medium/High confidence against the −250…+10,000 window | pending | arena/a5456ba0-olbg4 | `scripts/session-a5456ba0/originate.py`, `data/session-a5456ba0/desk.json` |
+| AN5 | ≥5 written predictions per sport (≥30 words, unique, official facts only, explicit selection) with a lint gate on repetition, length and selection | pending | arena/a5456ba0-olbg4 | `scripts/session-a5456ba0/predict.py`, `data/session-a5456ba0/predictions.json` |
+| AN6 | Dashboard: executive summary, obvious picks, per-sport pages, all-entries/markets/sources tables, Flagged for Review page with source links | pending | arena/a5456ba0-olbg4 | `scripts/session-a5456ba0/build_site.py`, `session-a5456ba0/**` |
+| AN7 | Verification gate, line-by-line repo review findings, `git pull --rebase`, PR to `main`, merge, confirm Pages deploy, record result | pending | arena/a5456ba0-olbg4 | `scripts/session-a5456ba0/verify.py`, `COORDINATION.md` |
+
+### AN working log
+- `2026-10-26T05:20Z` — `a5456ba0` — read the shared board (805 KB, boards AB…EC/A172/CA/DS) and the
+  current tree, then claimed this scope **before** any other work. No open session currently claims
+  `scripts/session-a5456ba0/**`, `data/session-a5456ba0/**` or `session-a5456ba0/**`. Earlier boards'
+  desks are read-only inputs and are only used as evidence of which official endpoints answer; every
+  number published by Board AN is re-derived from Board AN's own capture. Sandbox egress re-tested
+  against `olbg.com` / `api-web.nhle.com` / `statsapi.mlb.com`: TLS handshake fails, so official bytes
+  are captured by `.github/workflows/an-a5456ba0-capture.yml` on an Actions runner and committed with
+  a SHA-256 manifest, exactly as boards AD/EC/DS did.
