@@ -567,7 +567,7 @@
       ]
     },
     "sensitivity": {
-      "games": 1401,
+      "games": 1402,
       "window": "refitted without the last 14 days"
     },
     "backtest": {
@@ -884,27 +884,27 @@
     },
     "backtest": {
       "available": true,
-      "train_games": 4898,
-      "holdout_games": 51,
+      "train_games": 4911,
+      "holdout_games": 38,
       "holdout_days": 30,
-      "accuracy": 0.6863,
-      "brier": 0.2299,
-      "log_loss": 0.6524,
+      "accuracy": 0.6316,
+      "brier": 0.2361,
+      "log_loss": 0.6651,
       "calibration": {
         "50-55%": {
-          "n": 35,
-          "predicted": 0.5273,
-          "observed": 0.6286
+          "n": 27,
+          "predicted": 0.5268,
+          "observed": 0.5926
         },
         "55-60%": {
-          "n": 13,
-          "predicted": 0.5709,
-          "observed": 0.7692
+          "n": 11,
+          "predicted": 0.5691,
+          "observed": 0.7273
         },
         "60-65%": {
-          "n": 3,
-          "predicted": 0.6379,
-          "observed": 1.0
+          "n": 0,
+          "predicted": null,
+          "observed": null
         },
         "65-70%": {
           "n": 0,

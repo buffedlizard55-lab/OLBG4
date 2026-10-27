@@ -33,11 +33,11 @@ all self-tests passed
 [ingest] MLB fixtures…
 [ingest] MLB completed results…
 [model] MLB 4949 games, opening=2481 (opening)
-[publish] fixtures=88 analysis=88 predictions=18 findings=5
-hard_failures=0 counts={"fixtures": 88, "analysis_rows": 88, "predictions": 18, "high_picks": 14, "medium_picks": 11, "low_picks": 23, "market_picks": 40, "markets_withheld": 40, "findings": 5}
+[publish] fixtures=88 analysis=88 predictions=18 findings=4
+hard_failures=0 counts={"fixtures": 88, "analysis_rows": 88, "predictions": 18, "high_picks": 14, "medium_picks": 11, "low_picks": 23, "market_picks": 40, "markets_withheld": 40, "findings": 4}
   provider basketball: fixtures=40 results=52 fixture_error=None training_error=None
   provider ice_hockey: fixtures=44 results=1499 fixture_error=None training_error=None
   provider baseball: fixtures=4 results=4949 fixture_error=None training_error=None
   [warning] market_withheld: NBA: markets and picks are withheld for 40 fixtures because the smallest per-team sample is under 20 completed games, so no line can be originated. The prior-season stats endpoint (stats.nba.com) timed out from the build runner and the schedule CDN carries only the current season, which is why the sample is this small. The fixtures, records and official source links are still published.
-  (5 findings total; 0 rows excluded)
+  (4 findings total; 0 rows excluded)
 site built
