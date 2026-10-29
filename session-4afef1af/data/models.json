@@ -572,36 +572,36 @@
     },
     "backtest": {
       "available": true,
-      "train_games": 1312,
-      "holdout_games": 202,
+      "train_games": 1313,
+      "holdout_games": 201,
       "holdout_days": 30,
-      "accuracy": 0.6089,
-      "brier": 0.2355,
-      "log_loss": 0.6632,
+      "accuracy": 0.602,
+      "brier": 0.2351,
+      "log_loss": 0.6624,
       "calibration": {
         "50-55%": {
-          "n": 84,
-          "predicted": 0.5222,
-          "observed": 0.5714
+          "n": 86,
+          "predicted": 0.5218,
+          "observed": 0.5465
         },
         "55-60%": {
           "n": 66,
-          "predicted": 0.5717,
+          "predicted": 0.5707,
           "observed": 0.6061
         },
         "60-65%": {
-          "n": 32,
-          "predicted": 0.6278,
-          "observed": 0.5625
+          "n": 27,
+          "predicted": 0.6252,
+          "observed": 0.5556
         },
         "65-70%": {
-          "n": 14,
-          "predicted": 0.6702,
-          "observed": 0.9286
+          "n": 16,
+          "predicted": 0.6665,
+          "observed": 0.9375
         },
         "70%+": {
           "n": 6,
-          "predicted": 0.745,
+          "predicted": 0.7406,
           "observed": 0.6667
         }
       },
@@ -879,26 +879,26 @@
       ]
     },
     "sensitivity": {
-      "games": 4941,
+      "games": 4942,
       "window": "refitted without the last 14 days"
     },
     "backtest": {
       "available": true,
-      "train_games": 4911,
-      "holdout_games": 40,
+      "train_games": 4913,
+      "holdout_games": 38,
       "holdout_days": 30,
-      "accuracy": 0.625,
-      "brier": 0.2369,
-      "log_loss": 0.6667,
+      "accuracy": 0.6316,
+      "brier": 0.238,
+      "log_loss": 0.6689,
       "calibration": {
         "50-55%": {
-          "n": 29,
-          "predicted": 0.5284,
-          "observed": 0.5862
+          "n": 27,
+          "predicted": 0.5283,
+          "observed": 0.5926
         },
         "55-60%": {
           "n": 11,
-          "predicted": 0.5691,
+          "predicted": 0.5686,
           "observed": 0.7273
         },
         "60-65%": {
