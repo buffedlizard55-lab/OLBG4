@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-30T12:49:46+00:00",
+  "generated_utc": "2026-10-30T22:16:17+00:00",
   "pipeline_version": "1.0.0",
   "window": {
     "start": "2026-10-30T00:00:00+00:00",
@@ -85,29 +85,29 @@
           "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
           "status": null,
           "error": "HTTPError: HTTP Error 403: Forbidden",
-          "retrieved_utc": "2026-10-30T12:49:46+00:00"
+          "retrieved_utc": "2026-10-30T22:16:17+00:00"
         },
         {
           "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
           "status": 200,
           "bytes": 7435415,
-          "sha256": "f9a853a5eaeea9fb16388b5ea067292f682a6a17c050fd7c59daea0ed3921b4d",
+          "sha256": "3d2a236ff3f491ebd00c65a2f5629996f649ed169c261a9e7be2b3b5a8384843",
           "cached": false,
           "transport": "curl",
-          "retrieved_utc": "2026-10-30T12:49:47+00:00"
+          "retrieved_utc": "2026-10-30T22:16:17+00:00"
         },
         {
           "url": "https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2025-26&SeasonType=Regular+Season&Sorter=DATE",
           "status": null,
           "error": "TimeoutError: The read operation timed out",
-          "retrieved_utc": "2026-10-30T12:50:39+00:00"
+          "retrieved_utc": "2026-10-30T22:17:09+00:00"
         },
         {
           "url": "https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2025-26&SeasonType=Regular+Season&Sorter=DATE",
           "status": null,
           "transport": "curl",
-          "error": "curl exit 28: curl: (28) Operation timed out after 45002 milliseconds with 0 bytes received",
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "error": "curl exit 28: curl: (28) Operation timed out after 45001 milliseconds with 0 bytes received",
+          "retrieved_utc": "2026-10-30T22:17:54+00:00"
         }
       ]
     },
@@ -134,17 +134,17 @@
           "url": "https://api-web.nhle.com/v1/standings/now",
           "status": 200,
           "bytes": 58231,
-          "sha256": "dd827d6e3a02dd1ca74ad131e552fd8874de5fad6172db538553262576625fc8",
+          "sha256": "aff75a23bbff756aeb443802b34412dc39f5a1e1a693965dd98705df85e71729",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:55+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/schedule/2026-10-30",
           "status": 200,
-          "bytes": 92920,
-          "sha256": "e29a57b3a183da3c3d4746b60ee606deda801ba7716aa903d62dfb38fad56c1a",
+          "bytes": 95541,
+          "sha256": "bcf1232d87a10687be4262c44d3e4985cb7e62f826f6090e016bd7e98dfcfb23",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:55+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/schedule/2026-10-31",
@@ -152,7 +152,7 @@
           "bytes": 92922,
           "sha256": "8d33835ff295322bac5557a57e0e02636503a2e69c99adba8425b4600f467752",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:55+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/schedule/2026-11-01",
@@ -160,7 +160,7 @@
           "bytes": 96531,
           "sha256": "5e6250a6d17524ad3c5cbe0664cc3f11161aeb6e011de2c2bc29e908fb2beddb",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:55+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/schedule/2026-11-02",
@@ -168,7 +168,7 @@
           "bytes": 97872,
           "sha256": "d8c3f5d4a714bf8d9e3fa8e1107774f7210591c5bd13828597b5d72ba132e630",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:55+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/schedule/2026-11-03",
@@ -176,7 +176,7 @@
           "bytes": 95866,
           "sha256": "9bb96f12ece032dc2340a500d5da4189aeaaaab342d9e8dbf06c034b516146ab",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:55+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/schedule/2026-11-04",
@@ -184,7 +184,7 @@
           "bytes": 88457,
           "sha256": "b89c73b74618d89c6f59c95148d6382872efe65c48ce497d9ca1858dfbcebba3",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:56+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/schedule/2026-11-05",
@@ -192,15 +192,15 @@
           "bytes": 91724,
           "sha256": "cbeb43e0b6d88cb0f39ce47115d537055330214042a483f25b14452400c753d1",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:56+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/standings/now",
           "status": 200,
           "bytes": 58231,
-          "sha256": "dd827d6e3a02dd1ca74ad131e552fd8874de5fad6172db538553262576625fc8",
+          "sha256": "aff75a23bbff756aeb443802b34412dc39f5a1e1a693965dd98705df85e71729",
           "cached": true,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:56+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/ANA/20242025",
@@ -208,7 +208,7 @@
           "bytes": 170287,
           "sha256": "34d641a6b5152c7a74da02947b1cdd376d9c23a26a0946b12c11fc0955042d80",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:56+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/ANA/20252026",
@@ -216,7 +216,7 @@
           "bytes": 206080,
           "sha256": "c98b4e97fc7633066e6f3cdfe108b6c42f32b2e5e2bdf78fee9b6f3e0a0330f3",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:24+00:00"
+          "retrieved_utc": "2026-10-30T22:17:56+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/ANA/20262027",
@@ -224,7 +224,7 @@
           "bytes": 186420,
           "sha256": "009945150d63bd02140030a4307a649d1e37fb4765ce0ccbba3e5e3234e6ca6b",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:25+00:00"
+          "retrieved_utc": "2026-10-30T22:17:56+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/BOS/20242025",
@@ -232,7 +232,7 @@
           "bytes": 181412,
           "sha256": "1c3f59637d1eba3a8bc8760dd994dc40ed5320d14dcaa495b7fd1b2a65b68aeb",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:25+00:00"
+          "retrieved_utc": "2026-10-30T22:17:57+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/BOS/20252026",
@@ -240,7 +240,7 @@
           "bytes": 186900,
           "sha256": "3a30ba91776273fff1f4115979946663f5e2cc8bde401c3319cf383aba2eb864",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:25+00:00"
+          "retrieved_utc": "2026-10-30T22:17:57+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/BOS/20262027",
@@ -248,7 +248,7 @@
           "bytes": 175613,
           "sha256": "db3792bf786bf0db20cff92dfb7060cd9efc94cc3ead8b79071c77af227c9b53",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:25+00:00"
+          "retrieved_utc": "2026-10-30T22:17:57+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/BUF/20242025",
@@ -256,7 +256,7 @@
           "bytes": 163835,
           "sha256": "37e8f7e87e4445e81583aa269051a4d22a521e7d79d8af0cecbf127fbd7c2714",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:25+00:00"
+          "retrieved_utc": "2026-10-30T22:17:58+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/BUF/20252026",
@@ -264,7 +264,7 @@
           "bytes": 196778,
           "sha256": "6b2bc41cbfc8faf47af0c950bc6084a19591d2eba6d6b02524928ffb100a6338",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:26+00:00"
+          "retrieved_utc": "2026-10-30T22:17:58+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/BUF/20262027",
@@ -272,7 +272,7 @@
           "bytes": 177409,
           "sha256": "e5328d48a4fa1a5c8097fbc9081a3c7b05e22fff69845066ee31616463b5ecf1",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:26+00:00"
+          "retrieved_utc": "2026-10-30T22:17:58+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CAR/20242025",
@@ -280,7 +280,7 @@
           "bytes": 231060,
           "sha256": "41b90285e7ca062d40e64aae1ecf9251a0b81afc4dfb562b1121c29500398eba",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:26+00:00"
+          "retrieved_utc": "2026-10-30T22:17:58+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CAR/20252026",
@@ -288,7 +288,7 @@
           "bytes": 224359,
           "sha256": "65b240000c5995148bfc1a9039914ad7786b5940e402e21cd238a689be7026c5",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:26+00:00"
+          "retrieved_utc": "2026-10-30T22:17:59+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CAR/20262027",
@@ -296,7 +296,7 @@
           "bytes": 190320,
           "sha256": "ee5b44e3018cd44d1629e7dbd4863973f83260314a03084bfe2863084c48141b",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:26+00:00"
+          "retrieved_utc": "2026-10-30T22:17:59+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CBJ/20242025",
@@ -304,7 +304,7 @@
           "bytes": 172528,
           "sha256": "587e0387f3e490728e98689a7d7415f4e8b33d4a3de195b4b91bfb8fcec90f93",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:27+00:00"
+          "retrieved_utc": "2026-10-30T22:17:59+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CBJ/20252026",
@@ -312,7 +312,7 @@
           "bytes": 176958,
           "sha256": "18e450e782b5aab81261c1e05dfefe8b0200ca3a9feb4dc2d36fbb5d0fddd4d2",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:27+00:00"
+          "retrieved_utc": "2026-10-30T22:18:00+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CBJ/20262027",
@@ -320,7 +320,7 @@
           "bytes": 189518,
           "sha256": "9eb78bf2a6b4013c8bcc2bef57b58c6f0e69875195e2cd05c007943d9facbd74",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:27+00:00"
+          "retrieved_utc": "2026-10-30T22:18:00+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CGY/20242025",
@@ -328,7 +328,7 @@
           "bytes": 165635,
           "sha256": "3c8815840f1d350cce42d4bab1593134b4d82817ac640a84c9917e7b0d464853",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:27+00:00"
+          "retrieved_utc": "2026-10-30T22:18:00+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CGY/20252026",
@@ -336,7 +336,7 @@
           "bytes": 169678,
           "sha256": "eb052664ccd1812f6b37cd5dbb12cc73414c4921983de04237f932a9e38978d1",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:27+00:00"
+          "retrieved_utc": "2026-10-30T22:18:01+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CGY/20262027",
@@ -344,7 +344,7 @@
           "bytes": 173360,
           "sha256": "aa29b0e3a7aa63e5c0ba0af994ff2323c9c1b4dce7fcfab1274d7b1acbfe4933",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:27+00:00"
+          "retrieved_utc": "2026-10-30T22:18:01+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CHI/20242025",
@@ -352,7 +352,7 @@
           "bytes": 164852,
           "sha256": "21836870c4a3ee55475af119113dbacaec051f8f62ff6b48eb2a229a8d5376a5",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:28+00:00"
+          "retrieved_utc": "2026-10-30T22:18:01+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CHI/20252026",
@@ -360,7 +360,7 @@
           "bytes": 173486,
           "sha256": "5c1c3b6ddc1fcdc4c790e954277f6d3845b715d8a0307aa4c0948bb69f9691e9",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:28+00:00"
+          "retrieved_utc": "2026-10-30T22:18:01+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/CHI/20262027",
@@ -368,7 +368,7 @@
           "bytes": 169110,
           "sha256": "dd50f1c450b4e4b3e634de12ae6cd66ba108ea1400f13dbb74be7f7f61ad794c",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:28+00:00"
+          "retrieved_utc": "2026-10-30T22:18:02+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/COL/20242025",
@@ -376,7 +376,7 @@
           "bytes": 181485,
           "sha256": "5bf26168ee7a802fe1ad1681a71993bf0333b751f63336d43adcd19224717f54",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:28+00:00"
+          "retrieved_utc": "2026-10-30T22:18:02+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/COL/20252026",
@@ -384,7 +384,7 @@
           "bytes": 202949,
           "sha256": "b4dbbacab170829016fe2afa9e9bb23911ebdad38c13a322943180f3681b3e55",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:29+00:00"
+          "retrieved_utc": "2026-10-30T22:18:02+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/COL/20262027",
@@ -392,7 +392,7 @@
           "bytes": 175425,
           "sha256": "5eb38f4a818f1d254923f1a88de3d456595ca188c37570d129e9b7eb76a9a1cc",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:29+00:00"
+          "retrieved_utc": "2026-10-30T22:18:02+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/DAL/20242025",
@@ -400,7 +400,7 @@
           "bytes": 231918,
           "sha256": "c0a379880ca1d259df1c0b224a70ab6564de147f7736bd21e982ad22bfbbd675",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:29+00:00"
+          "retrieved_utc": "2026-10-30T22:18:03+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/DAL/20252026",
@@ -408,7 +408,7 @@
           "bytes": 194588,
           "sha256": "fa50c83bf7c0454c6990ff377b5d853385e97a875c75357c387850b25d9228ae",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:29+00:00"
+          "retrieved_utc": "2026-10-30T22:18:03+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/DAL/20262027",
@@ -416,7 +416,7 @@
           "bytes": 198140,
           "sha256": "a9fe6168653f487ed9993187809bfec3df5d01ae5b3e8e2a713d3e9a329f0ede",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:29+00:00"
+          "retrieved_utc": "2026-10-30T22:18:03+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/DET/20242025",
@@ -424,7 +424,7 @@
           "bytes": 165731,
           "sha256": "6e7e59d0f4fb4e26858ade63d5fc6038561d77fbfc9d2460943a7b5a3b63d7e4",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:30+00:00"
+          "retrieved_utc": "2026-10-30T22:18:03+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/DET/20252026",
@@ -432,7 +432,7 @@
           "bytes": 173395,
           "sha256": "6e5ac8af431a8780349d9a54fdd6937c037eafd787d78b0ec0c2cb11d1f9b0e6",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:30+00:00"
+          "retrieved_utc": "2026-10-30T22:18:04+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/DET/20262027",
@@ -440,7 +440,7 @@
           "bytes": 173647,
           "sha256": "fbecf4c522df46f8ec97179852887c8e00218e33cff34f778efcd1df8d11bcce",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:30+00:00"
+          "retrieved_utc": "2026-10-30T22:18:04+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/EDM/20242025",
@@ -448,7 +448,7 @@
           "bytes": 242096,
           "sha256": "ecebef8bb347ec3231777644cd315f025e19d5cf789100700fc070104e2a9f7f",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:31+00:00"
+          "retrieved_utc": "2026-10-30T22:18:04+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/EDM/20252026",
@@ -456,7 +456,7 @@
           "bytes": 204910,
           "sha256": "9cbe7bf1553975b4ef4198fcfdfd94b6f12705ded1886f92c450c460ea83a75a",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:31+00:00"
+          "retrieved_utc": "2026-10-30T22:18:05+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/EDM/20262027",
@@ -464,31 +464,31 @@
           "bytes": 176351,
           "sha256": "54aa3f04b098ba86b20429e259aa067d798b29e56968d0a71feafe960ae5b025",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:31+00:00"
+          "retrieved_utc": "2026-10-30T22:18:05+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/FLA/20242025",
           "status": 200,
-          "bytes": 251942,
-          "sha256": "d1c00ecd3f64869ec54c7a06e455cfc679eb10a0fcb0935f7c2e022c40fc06a6",
+          "bytes": 252034,
+          "sha256": "07cda3e0297edb22d9881bb4a9cfbd7e50d61514d9d3d1892d2bb2083e87dcad",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:31+00:00"
+          "retrieved_utc": "2026-10-30T22:18:05+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/FLA/20252026",
           "status": 200,
-          "bytes": 179981,
-          "sha256": "1a1f9ae1354f4126fbec460c2388946dbedd80d395af2716017f176cca188f21",
+          "bytes": 180073,
+          "sha256": "8cfee086abac321e93ed83c84b981565bc477f819a53b07f23ffb2e702612582",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:31+00:00"
+          "retrieved_utc": "2026-10-30T22:18:05+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/FLA/20262027",
           "status": 200,
-          "bytes": 172686,
-          "sha256": "35bbe0c2868f704c0ac0bc287098e4d61d38906d4602b8db3bd7697c99a2ffd3",
+          "bytes": 172778,
+          "sha256": "361151f7305774612bfebea100d1b5f4239729ca647ec7e28a4fe75fef4a42dc",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:31+00:00"
+          "retrieved_utc": "2026-10-30T22:18:05+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/LAK/20242025",
@@ -496,7 +496,7 @@
           "bytes": 182742,
           "sha256": "78b5fbf0e407a00ef3a8f7e16b9f615fa7fb5987850004c5deaa86191215f882",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:32+00:00"
+          "retrieved_utc": "2026-10-30T22:18:06+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/LAK/20252026",
@@ -504,7 +504,7 @@
           "bytes": 179542,
           "sha256": "748e901ca244a702a832a41eb3b7d319a943b42826beb5f356828bf9d9ca876e",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:32+00:00"
+          "retrieved_utc": "2026-10-30T22:18:06+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/LAK/20262027",
@@ -512,7 +512,7 @@
           "bytes": 186224,
           "sha256": "4c697c287fa9a605a07de2106e29b3ff7b89f09c9736218a2fe1b7748807e931",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:32+00:00"
+          "retrieved_utc": "2026-10-30T22:18:06+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/MIN/20242025",
@@ -520,7 +520,7 @@
           "bytes": 196843,
           "sha256": "c4fa7023207aa66f37500eca5561618fdaaa053f0f651cda0df83b35a52b968f",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:32+00:00"
+          "retrieved_utc": "2026-10-30T22:18:06+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/MIN/20252026",
@@ -528,7 +528,7 @@
           "bytes": 228677,
           "sha256": "c7348ed0e9b3411ae08c966715c1bdc09dc1a48495e9aa0eefdc1d6c3394b4e6",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:33+00:00"
+          "retrieved_utc": "2026-10-30T22:18:07+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/MIN/20262027",
@@ -536,7 +536,7 @@
           "bytes": 168151,
           "sha256": "bbf89530414df37daabe1b5ba4bf14be26a0f416c664e0ae6d9c8ea132b885d3",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:33+00:00"
+          "retrieved_utc": "2026-10-30T22:18:07+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/MTL/20242025",
@@ -544,7 +544,7 @@
           "bytes": 183689,
           "sha256": "01f4f43710e33e4f42d2af3a7d14920237e1e44bd6e102604e48f647db13d227",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:33+00:00"
+          "retrieved_utc": "2026-10-30T22:18:07+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/MTL/20252026",
@@ -552,7 +552,7 @@
           "bytes": 219761,
           "sha256": "d98e1d2a0b27105193c9f4a4174faf0c56c18039c5a8215e7f7445f218f67cc1",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:33+00:00"
+          "retrieved_utc": "2026-10-30T22:18:08+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/MTL/20262027",
@@ -560,7 +560,7 @@
           "bytes": 181274,
           "sha256": "defa077e85d314a733b2974da11b34b721f281e6288d1a6eae4c021b63c4fe9a",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:33+00:00"
+          "retrieved_utc": "2026-10-30T22:18:08+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NJD/20242025",
@@ -568,7 +568,7 @@
           "bytes": 180203,
           "sha256": "7f35244baad7868f9d9fbb25adeb131af3883af176f5ac21c4f46b1e5f025632",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:33+00:00"
+          "retrieved_utc": "2026-10-30T22:18:08+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NJD/20252026",
@@ -576,15 +576,15 @@
           "bytes": 169742,
           "sha256": "e473550d42ac21473a6112ec1053d50a510824e890115b7ba9590fceaec2295e",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:34+00:00"
+          "retrieved_utc": "2026-10-30T22:18:08+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NJD/20262027",
           "status": 200,
-          "bytes": 173195,
-          "sha256": "5a0127190a32f6c93fc69e5f267cb8b600afa43711056bf057f16e44cbc16c10",
+          "bytes": 172824,
+          "sha256": "41c63b4b115dffb494f73e18541baaa16d6a0e3e2e5f55397c8dcb52c97633f3",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:34+00:00"
+          "retrieved_utc": "2026-10-30T22:18:08+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NSH/20242025",
@@ -592,7 +592,7 @@
           "bytes": 167527,
           "sha256": "44d7e8da5466d7541aba9a5b4d08c026517c09cc4f58ad505058877d56c51b89",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:34+00:00"
+          "retrieved_utc": "2026-10-30T22:18:09+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NSH/20252026",
@@ -600,7 +600,7 @@
           "bytes": 170092,
           "sha256": "11b2b17cf4807b9d0a00fd4add91f06a412aa6babf08ae8ccc45869ee419a413",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:34+00:00"
+          "retrieved_utc": "2026-10-30T22:18:09+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NSH/20262027",
@@ -608,7 +608,7 @@
           "bytes": 185417,
           "sha256": "c1a6370c9f01db2520c0456576e5dbd57c9755bebe6aa0996073024489bf3ae7",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:34+00:00"
+          "retrieved_utc": "2026-10-30T22:18:09+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NYI/20242025",
@@ -616,7 +616,7 @@
           "bytes": 166797,
           "sha256": "fabe7f17916ac32ac5e66a66862fa13897ab0b36635537587bf36753a61e5d4a",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:34+00:00"
+          "retrieved_utc": "2026-10-30T22:18:09+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NYI/20252026",
@@ -624,7 +624,7 @@
           "bytes": 175035,
           "sha256": "15eacddb0b5fa73143e038b78cb944efc86023b0eabeadc0b4230dbb24ca453c",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:34+00:00"
+          "retrieved_utc": "2026-10-30T22:18:10+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NYI/20262027",
@@ -632,7 +632,7 @@
           "bytes": 181960,
           "sha256": "3ee3970e276d2e3fa6c5f38523985cd6e843f97100d2adbd0d6d5eb9f908a265",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:35+00:00"
+          "retrieved_utc": "2026-10-30T22:18:10+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NYR/20242025",
@@ -640,7 +640,7 @@
           "bytes": 167980,
           "sha256": "86657ac3ac079d114fac7fd34d02a0322351673421a0fa16e2a6c219f46770e2",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:35+00:00"
+          "retrieved_utc": "2026-10-30T22:18:10+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NYR/20252026",
@@ -648,7 +648,7 @@
           "bytes": 171120,
           "sha256": "e95b3e2b0811a9e733a522b7de6457e0ae82d1d9e0c018ca18282075bdf875b3",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:35+00:00"
+          "retrieved_utc": "2026-10-30T22:18:10+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/NYR/20262027",
@@ -656,7 +656,7 @@
           "bytes": 178823,
           "sha256": "aecb3210281c8a6a7ab8138308ca8438a9d2bdb532e7416788e15e2471ef14b0",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:35+00:00"
+          "retrieved_utc": "2026-10-30T22:18:11+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/OTT/20242025",
@@ -664,7 +664,7 @@
           "bytes": 184575,
           "sha256": "e68fc43040e92d766a055595ea5b91d0b2abc31b98a4dd72a86beaf44c852042",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:35+00:00"
+          "retrieved_utc": "2026-10-30T22:18:11+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/OTT/20252026",
@@ -672,7 +672,7 @@
           "bytes": 180154,
           "sha256": "bec12f4386875becae2c9e0689656c13ebef970aba0d34cf3583e14affae08bf",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:35+00:00"
+          "retrieved_utc": "2026-10-30T22:18:11+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/OTT/20262027",
@@ -680,7 +680,7 @@
           "bytes": 194514,
           "sha256": "4681944784dad8643f707609dc970d9c5a93bb03654712f651c94c6abf955f56",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:36+00:00"
+          "retrieved_utc": "2026-10-30T22:18:11+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/PHI/20242025",
@@ -688,7 +688,7 @@
           "bytes": 163751,
           "sha256": "e8c51dfe11857e82125eb6fa3463d4aebd035ad7100446f418f4b5d2c00e2542",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:36+00:00"
+          "retrieved_utc": "2026-10-30T22:18:12+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/PHI/20252026",
@@ -696,7 +696,7 @@
           "bytes": 194418,
           "sha256": "f700dfb0b1d916f2f910800d21927b91014d3148fd620b9c975bb18bba14533b",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:36+00:00"
+          "retrieved_utc": "2026-10-30T22:18:12+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/PHI/20262027",
@@ -704,7 +704,7 @@
           "bytes": 178250,
           "sha256": "cb1872887d214a7c2e6e5311ee05d18c4a7795a1ffb87dcb3edc642c0403ba84",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:36+00:00"
+          "retrieved_utc": "2026-10-30T22:18:12+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/PIT/20242025",
@@ -712,7 +712,7 @@
           "bytes": 166749,
           "sha256": "e18babcee705982a9f8b00b286b880daef84c7abebc2d22dfd022429448a0bf4",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:36+00:00"
+          "retrieved_utc": "2026-10-30T22:18:12+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/PIT/20252026",
@@ -720,7 +720,7 @@
           "bytes": 188086,
           "sha256": "6aefd581d029f6a861dc5511b1858d676c6c9522b6cf274fc6d6246243c94201",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:12+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/PIT/20262027",
@@ -728,7 +728,7 @@
           "bytes": 185504,
           "sha256": "199e086aefc6aef5b1768c8f2a48c655b2e8d491b9e73c3a3172a17d5f9eb1a7",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:13+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/SEA/20242025",
@@ -736,7 +736,7 @@
           "bytes": 177810,
           "sha256": "3519be70c9671d8097f0505a57cdb31983643cae313d7ab142a52b8678071177",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:13+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/SEA/20252026",
@@ -744,7 +744,7 @@
           "bytes": 184151,
           "sha256": "ca1808bf32a4a17e5248120636f4c3caabc16001b02597776fc43247d01cf72a",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:13+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/SEA/20262027",
@@ -752,31 +752,31 @@
           "bytes": 217506,
           "sha256": "a87ee7485f739d11b08e8b0f537c6a4eecb4cfb47316d55b5112cf73daed021c",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:13+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/SJS/20242025",
           "status": 200,
-          "bytes": 159415,
-          "sha256": "3af4e28e12408ba5361a165e7c0f393d4ba0366dc0b3b4830e56a94709f0e65d",
+          "bytes": 159429,
+          "sha256": "c1551d0a665c0af87923e1038f18527d0e5584c0f832053b052bfde5b0a46ebb",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:14+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/SJS/20252026",
           "status": 200,
-          "bytes": 168735,
-          "sha256": "b8b50ff7de23c1bc1c4314f515dbf2f0ddc99f71ca03ec993bf6f937e2cbab4b",
+          "bytes": 168749,
+          "sha256": "7b1c6357f4ee727b2f44bf59cab0123dbae48f2d9d5da859c74928e32d61ef15",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:14+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/SJS/20262027",
           "status": 200,
-          "bytes": 183322,
-          "sha256": "d5c1af7135b6522b2a7e2050b62540c5d59f868dd09ebe5a0f2c516a6ef38f68",
+          "bytes": 183336,
+          "sha256": "a9a8f23e51b637e5b2362bee3a1b77efb34ad6b1a951966261ebae75658e50d6",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:14+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/STL/20242025",
@@ -784,7 +784,7 @@
           "bytes": 186780,
           "sha256": "a7b6cc5b981a9dd0b53502a7a2cc6696721c6f40a1e7119609d778c04cf13af3",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:37+00:00"
+          "retrieved_utc": "2026-10-30T22:18:14+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/STL/20252026",
@@ -792,7 +792,7 @@
           "bytes": 172809,
           "sha256": "afb1d84d01f1a8779324868c8e9a4d74e533a6bf57edb0ee87871728534d3069",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:38+00:00"
+          "retrieved_utc": "2026-10-30T22:18:14+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/STL/20262027",
@@ -800,7 +800,7 @@
           "bytes": 191574,
           "sha256": "cb0d51a4794c636a62ead3087ff01be370645e780782164696287baced25ad03",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:38+00:00"
+          "retrieved_utc": "2026-10-30T22:18:15+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/TBL/20242025",
@@ -808,7 +808,7 @@
           "bytes": 183623,
           "sha256": "0f92436909c2c051b788b685c0cb457af300722543bbf575455798e1091e6c48",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:38+00:00"
+          "retrieved_utc": "2026-10-30T22:18:15+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/TBL/20252026",
@@ -816,7 +816,7 @@
           "bytes": 195684,
           "sha256": "adcee1376564fc0a764008575d152d13228c3e12fce7fcae24687211a609286d",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:38+00:00"
+          "retrieved_utc": "2026-10-30T22:18:15+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/TBL/20262027",
@@ -824,7 +824,7 @@
           "bytes": 177668,
           "sha256": "de74620b5ad7efc069562b9c01115160827f98d1110110b73a77ae7dd115267e",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:38+00:00"
+          "retrieved_utc": "2026-10-30T22:18:16+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/TOR/20242025",
@@ -832,7 +832,7 @@
           "bytes": 201021,
           "sha256": "32ce9b1502f0107a16e07a38d61f8b0d6a26cc9e20a0f4a6fdc79d4a2b22d176",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:39+00:00"
+          "retrieved_utc": "2026-10-30T22:18:16+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/TOR/20252026",
@@ -840,7 +840,7 @@
           "bytes": 184045,
           "sha256": "e037ac988e18246a34a080040bb3985e5e84912dfd34f1dfc97973d15964486a",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:39+00:00"
+          "retrieved_utc": "2026-10-30T22:18:16+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/TOR/20262027",
@@ -848,7 +848,7 @@
           "bytes": 188131,
           "sha256": "ec4f98b176e4ac29d426d770e93dcc8bad70c532d11c9eb8c530f024df8fb76d",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:39+00:00"
+          "retrieved_utc": "2026-10-30T22:18:17+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/UTA/20242025",
@@ -856,7 +856,7 @@
           "bytes": 168653,
           "sha256": "bd5761e42da3aa136b157c61f3532a82267637948af1c7e587ea6024865f9485",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:39+00:00"
+          "retrieved_utc": "2026-10-30T22:18:17+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/UTA/20252026",
@@ -864,7 +864,7 @@
           "bytes": 183139,
           "sha256": "2e1218309b4f4d268b71c02d640298b246ebf7ad10587cf9eb5ea003a10740f5",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:39+00:00"
+          "retrieved_utc": "2026-10-30T22:18:17+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/UTA/20262027",
@@ -872,7 +872,7 @@
           "bytes": 173967,
           "sha256": "ab50584d48c15e44e3c270c6836158e89600d80f0be44bcbc568ad3a70589467",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:39+00:00"
+          "retrieved_utc": "2026-10-30T22:18:18+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/VAN/20242025",
@@ -880,7 +880,7 @@
           "bytes": 165850,
           "sha256": "43d5c703067fa3d7d2711037dd139fa56524f965fdf52ae540ac6bdba70d601b",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:39+00:00"
+          "retrieved_utc": "2026-10-30T22:18:18+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/VAN/20252026",
@@ -888,7 +888,7 @@
           "bytes": 167841,
           "sha256": "b5a9187ad347e4a8a5c946202bad29f05a5ba43eb855e6a44271a6f3479b0aed",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:40+00:00"
+          "retrieved_utc": "2026-10-30T22:18:18+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/VAN/20262027",
@@ -896,7 +896,7 @@
           "bytes": 177327,
           "sha256": "f0b7bc30f76444dc9e0686fc5a7360a8c6a5310032d5db5a3492840a1b2be0b0",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:40+00:00"
+          "retrieved_utc": "2026-10-30T22:18:18+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/VGK/20242025",
@@ -904,7 +904,7 @@
           "bytes": 228336,
           "sha256": "a630d55ea451c98765fee0d2a93799b494179865c8354918fa3ab3f18693dd0b",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:40+00:00"
+          "retrieved_utc": "2026-10-30T22:18:19+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/VGK/20252026",
@@ -912,15 +912,15 @@
           "bytes": 260920,
           "sha256": "a07570cb375e92d683c09e3fa7bb62174894b4c1c975f72bc42e69a9154e3aad",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:40+00:00"
+          "retrieved_utc": "2026-10-30T22:18:19+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/VGK/20262027",
           "status": 200,
-          "bytes": 170824,
-          "sha256": "b39a7e3e08cb26980dbbcfc3574b6bf6745175d44225d61346e449e5c7b09359",
+          "bytes": 170453,
+          "sha256": "1d0a776cf8809f8a947785ed7e3e479bceccb3899fff032fd605d64550ced4ce",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:40+00:00"
+          "retrieved_utc": "2026-10-30T22:18:19+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/WPG/20242025",
@@ -928,7 +928,7 @@
           "bytes": 191939,
           "sha256": "73e01a2042e46bad8e2579318d24a1829ee950bff3a2568372cc1a25d52b62cd",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:41+00:00"
+          "retrieved_utc": "2026-10-30T22:18:19+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/WPG/20252026",
@@ -936,7 +936,7 @@
           "bytes": 165505,
           "sha256": "4838772621ed2d225ef7cc4b38dedf26e9bd8fbaebfbdef72fdb1fc9d1683e67",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:41+00:00"
+          "retrieved_utc": "2026-10-30T22:18:20+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/WPG/20262027",
@@ -944,7 +944,7 @@
           "bytes": 177114,
           "sha256": "2f0085a99e0f3a9b05d824d300100611c1bb69f928282e5d5b7d53bf319c0e2c",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:41+00:00"
+          "retrieved_utc": "2026-10-30T22:18:20+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/WSH/20242025",
@@ -952,7 +952,7 @@
           "bytes": 203124,
           "sha256": "50b739195188a291c3d40f63839f00a90446461c925c83d1b71a2ebc44296835",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:41+00:00"
+          "retrieved_utc": "2026-10-30T22:18:20+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/WSH/20252026",
@@ -960,7 +960,7 @@
           "bytes": 185611,
           "sha256": "ae97c5c0da390bb900d9a5bf0921dae2219a94f3239891c9e174cca9d99a03ae",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:41+00:00"
+          "retrieved_utc": "2026-10-30T22:18:20+00:00"
         },
         {
           "url": "https://api-web.nhle.com/v1/club-schedule-season/WSH/20262027",
@@ -968,7 +968,7 @@
           "bytes": 190981,
           "sha256": "885c5fca4a9f14483d220aec2abb88e9ff91e216b9d339feb0b475cce9cb455e",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:41+00:00"
+          "retrieved_utc": "2026-10-30T22:18:21+00:00"
         }
       ]
     },
@@ -996,7 +996,7 @@
           "bytes": 12,
           "sha256": "d492ef870e65cfa8eb70c4d3b570bcde4a0b4134b451a7736655db8dbbd14f82",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:41+00:00"
+          "retrieved_utc": "2026-10-30T22:18:21+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103%2C104&season=2026&standingsTypes=regularSeason",
@@ -1004,7 +1004,7 @@
           "bytes": 80986,
           "sha256": "13fd6dbd1e82cedb464cb0e29d410570b126d5395df2678afe6ba5e3657726ea",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:41+00:00"
+          "retrieved_utc": "2026-10-30T22:18:21+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-02-17&endDate=2025-04-03&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1012,7 +1012,7 @@
           "bytes": 52800,
           "sha256": "832049576e9972342c3293e06a6f7c093d3a4a3f4dfa72cc7c5f9ea07ad9b133",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:42+00:00"
+          "retrieved_utc": "2026-10-30T22:18:21+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-04-04&endDate=2025-05-19&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1020,7 +1020,7 @@
           "bytes": 325271,
           "sha256": "fe90b4ecdc91e463b91f9cfc61c0c1a312d0293b06ba91a6757f01bbaef28d0b",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:42+00:00"
+          "retrieved_utc": "2026-10-30T22:18:22+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-05-20&endDate=2025-07-04&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1028,7 +1028,7 @@
           "bytes": 325001,
           "sha256": "e9c30d2ec84332cf7dd3366b78f07e68f2bf70d6a6d8997b488160992db3c968",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:42+00:00"
+          "retrieved_utc": "2026-10-30T22:18:22+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-07-05&endDate=2025-08-19&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1036,7 +1036,7 @@
           "bytes": 299257,
           "sha256": "3e2592ce8d26d24b58223e2f6daceb26f30b4ae96461b5a239c0d4389c1b7880",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:42+00:00"
+          "retrieved_utc": "2026-10-30T22:18:22+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-08-20&endDate=2025-10-04&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1044,7 +1044,7 @@
           "bytes": 287330,
           "sha256": "c3d2d731ef6ff7b3bb7a1a1b5267039c1f783350435c92a5150e8c2c01a9be49",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:42+00:00"
+          "retrieved_utc": "2026-10-30T22:18:23+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-10-05&endDate=2025-11-19&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1052,7 +1052,7 @@
           "bytes": 18288,
           "sha256": "60a45ffec2298c4a4fe8a6501aad92416f91147d864f1a592581bd15fd15329b",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:42+00:00"
+          "retrieved_utc": "2026-10-30T22:18:23+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-11-20&endDate=2026-01-04&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1060,7 +1060,7 @@
           "bytes": 12,
           "sha256": "d492ef870e65cfa8eb70c4d3b570bcde4a0b4134b451a7736655db8dbbd14f82",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:43+00:00"
+          "retrieved_utc": "2026-10-30T22:18:23+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-01-05&endDate=2026-02-19&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1068,7 +1068,7 @@
           "bytes": 12,
           "sha256": "d492ef870e65cfa8eb70c4d3b570bcde4a0b4134b451a7736655db8dbbd14f82",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:43+00:00"
+          "retrieved_utc": "2026-10-30T22:18:23+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-02-20&endDate=2026-04-06&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1076,7 +1076,7 @@
           "bytes": 81649,
           "sha256": "429af6f4961d9cfc7c0b22342a333f282b5be7fc135220a2840d534ee5f5b9a2",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:43+00:00"
+          "retrieved_utc": "2026-10-30T22:18:24+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-04-07&endDate=2026-05-22&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1084,7 +1084,7 @@
           "bytes": 321756,
           "sha256": "5a5ad64b03d84cfd1cc63dddc9789c1899eb60fc91d84c30fdb27851645218f2",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:43+00:00"
+          "retrieved_utc": "2026-10-30T22:18:24+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-05-23&endDate=2026-07-07&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1092,7 +1092,7 @@
           "bytes": 321189,
           "sha256": "a6942fe3b69a2ac7b9d003736572c78011e89a57a28583c82882cbbdf606413b",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:43+00:00"
+          "retrieved_utc": "2026-10-30T22:18:24+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-07-08&endDate=2026-08-22&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1100,7 +1100,7 @@
           "bytes": 303766,
           "sha256": "6bf4cee8627e13bec25288801bb92b3b295223bdf0c6edf16ef93c8d9a19b757",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:43+00:00"
+          "retrieved_utc": "2026-10-30T22:18:25+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-08-23&endDate=2026-10-07&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1108,7 +1108,7 @@
           "bytes": 263646,
           "sha256": "fc71164ef510be3ed71bc9f3c2b8f365708fd91ad479148ef8a436e01b67d52a",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:44+00:00"
+          "retrieved_utc": "2026-10-30T22:18:25+00:00"
         },
         {
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2026-10-30&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -1116,7 +1116,7 @@
           "bytes": 10468,
           "sha256": "cee05f77add569e89e887053250b7c83b30140bc9a3ec1f6a9b535373fb76610",
           "cached": false,
-          "retrieved_utc": "2026-10-30T12:51:44+00:00"
+          "retrieved_utc": "2026-10-30T22:18:25+00:00"
         }
       ]
     }
@@ -1133,9 +1133,9 @@
     "findings": 3
   },
   "git": {
-    "commit": "8f0433304076919bf6d68cd378b5bce13c64a049",
-    "run_id": "41058186728",
-    "run_url": "https://github.com/buffedlizard55-lab/OLBG4/actions/runs/41058186728"
+    "commit": "1e2696c85dabe336e5dcd2b5ec3975597e4abb26",
+    "run_id": "41136879070",
+    "run_url": "https://github.com/buffedlizard55-lab/OLBG4/actions/runs/41136879070"
   },
   "verification": {
     "fixtures_checked": 87,
@@ -1160,45 +1160,45 @@
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
       "status": null,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "retrieved_utc": "2026-10-30T12:49:46+00:00"
+      "retrieved_utc": "2026-10-30T22:16:17+00:00"
     },
     {
       "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
       "status": 200,
       "bytes": 7435415,
-      "sha256": "f9a853a5eaeea9fb16388b5ea067292f682a6a17c050fd7c59daea0ed3921b4d",
+      "sha256": "3d2a236ff3f491ebd00c65a2f5629996f649ed169c261a9e7be2b3b5a8384843",
       "cached": false,
       "transport": "curl",
-      "retrieved_utc": "2026-10-30T12:49:47+00:00"
+      "retrieved_utc": "2026-10-30T22:16:17+00:00"
     },
     {
       "url": "https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2025-26&SeasonType=Regular+Season&Sorter=DATE",
       "status": null,
       "error": "TimeoutError: The read operation timed out",
-      "retrieved_utc": "2026-10-30T12:50:39+00:00"
+      "retrieved_utc": "2026-10-30T22:17:09+00:00"
     },
     {
       "url": "https://stats.nba.com/stats/leaguegamelog?Counter=1000&Direction=DESC&LeagueID=00&PlayerOrTeam=T&Season=2025-26&SeasonType=Regular+Season&Sorter=DATE",
       "status": null,
       "transport": "curl",
-      "error": "curl exit 28: curl: (28) Operation timed out after 45002 milliseconds with 0 bytes received",
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "error": "curl exit 28: curl: (28) Operation timed out after 45001 milliseconds with 0 bytes received",
+      "retrieved_utc": "2026-10-30T22:17:54+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/standings/now",
       "status": 200,
       "bytes": 58231,
-      "sha256": "dd827d6e3a02dd1ca74ad131e552fd8874de5fad6172db538553262576625fc8",
+      "sha256": "aff75a23bbff756aeb443802b34412dc39f5a1e1a693965dd98705df85e71729",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:55+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/schedule/2026-10-30",
       "status": 200,
-      "bytes": 92920,
-      "sha256": "e29a57b3a183da3c3d4746b60ee606deda801ba7716aa903d62dfb38fad56c1a",
+      "bytes": 95541,
+      "sha256": "bcf1232d87a10687be4262c44d3e4985cb7e62f826f6090e016bd7e98dfcfb23",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:55+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/schedule/2026-10-31",
@@ -1206,7 +1206,7 @@
       "bytes": 92922,
       "sha256": "8d33835ff295322bac5557a57e0e02636503a2e69c99adba8425b4600f467752",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:55+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/schedule/2026-11-01",
@@ -1214,7 +1214,7 @@
       "bytes": 96531,
       "sha256": "5e6250a6d17524ad3c5cbe0664cc3f11161aeb6e011de2c2bc29e908fb2beddb",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:55+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/schedule/2026-11-02",
@@ -1222,7 +1222,7 @@
       "bytes": 97872,
       "sha256": "d8c3f5d4a714bf8d9e3fa8e1107774f7210591c5bd13828597b5d72ba132e630",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:55+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/schedule/2026-11-03",
@@ -1230,7 +1230,7 @@
       "bytes": 95866,
       "sha256": "9bb96f12ece032dc2340a500d5da4189aeaaaab342d9e8dbf06c034b516146ab",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:55+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/schedule/2026-11-04",
@@ -1238,7 +1238,7 @@
       "bytes": 88457,
       "sha256": "b89c73b74618d89c6f59c95148d6382872efe65c48ce497d9ca1858dfbcebba3",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:56+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/schedule/2026-11-05",
@@ -1246,15 +1246,15 @@
       "bytes": 91724,
       "sha256": "cbeb43e0b6d88cb0f39ce47115d537055330214042a483f25b14452400c753d1",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:56+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/standings/now",
       "status": 200,
       "bytes": 58231,
-      "sha256": "dd827d6e3a02dd1ca74ad131e552fd8874de5fad6172db538553262576625fc8",
+      "sha256": "aff75a23bbff756aeb443802b34412dc39f5a1e1a693965dd98705df85e71729",
       "cached": true,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:56+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/ANA/20242025",
@@ -1262,7 +1262,7 @@
       "bytes": 170287,
       "sha256": "34d641a6b5152c7a74da02947b1cdd376d9c23a26a0946b12c11fc0955042d80",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:56+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/ANA/20252026",
@@ -1270,7 +1270,7 @@
       "bytes": 206080,
       "sha256": "c98b4e97fc7633066e6f3cdfe108b6c42f32b2e5e2bdf78fee9b6f3e0a0330f3",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:24+00:00"
+      "retrieved_utc": "2026-10-30T22:17:56+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/ANA/20262027",
@@ -1278,7 +1278,7 @@
       "bytes": 186420,
       "sha256": "009945150d63bd02140030a4307a649d1e37fb4765ce0ccbba3e5e3234e6ca6b",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:25+00:00"
+      "retrieved_utc": "2026-10-30T22:17:56+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/BOS/20242025",
@@ -1286,7 +1286,7 @@
       "bytes": 181412,
       "sha256": "1c3f59637d1eba3a8bc8760dd994dc40ed5320d14dcaa495b7fd1b2a65b68aeb",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:25+00:00"
+      "retrieved_utc": "2026-10-30T22:17:57+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/BOS/20252026",
@@ -1294,7 +1294,7 @@
       "bytes": 186900,
       "sha256": "3a30ba91776273fff1f4115979946663f5e2cc8bde401c3319cf383aba2eb864",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:25+00:00"
+      "retrieved_utc": "2026-10-30T22:17:57+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/BOS/20262027",
@@ -1302,7 +1302,7 @@
       "bytes": 175613,
       "sha256": "db3792bf786bf0db20cff92dfb7060cd9efc94cc3ead8b79071c77af227c9b53",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:25+00:00"
+      "retrieved_utc": "2026-10-30T22:17:57+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/BUF/20242025",
@@ -1310,7 +1310,7 @@
       "bytes": 163835,
       "sha256": "37e8f7e87e4445e81583aa269051a4d22a521e7d79d8af0cecbf127fbd7c2714",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:25+00:00"
+      "retrieved_utc": "2026-10-30T22:17:58+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/BUF/20252026",
@@ -1318,7 +1318,7 @@
       "bytes": 196778,
       "sha256": "6b2bc41cbfc8faf47af0c950bc6084a19591d2eba6d6b02524928ffb100a6338",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:26+00:00"
+      "retrieved_utc": "2026-10-30T22:17:58+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/BUF/20262027",
@@ -1326,7 +1326,7 @@
       "bytes": 177409,
       "sha256": "e5328d48a4fa1a5c8097fbc9081a3c7b05e22fff69845066ee31616463b5ecf1",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:26+00:00"
+      "retrieved_utc": "2026-10-30T22:17:58+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CAR/20242025",
@@ -1334,7 +1334,7 @@
       "bytes": 231060,
       "sha256": "41b90285e7ca062d40e64aae1ecf9251a0b81afc4dfb562b1121c29500398eba",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:26+00:00"
+      "retrieved_utc": "2026-10-30T22:17:58+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CAR/20252026",
@@ -1342,7 +1342,7 @@
       "bytes": 224359,
       "sha256": "65b240000c5995148bfc1a9039914ad7786b5940e402e21cd238a689be7026c5",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:26+00:00"
+      "retrieved_utc": "2026-10-30T22:17:59+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CAR/20262027",
@@ -1350,7 +1350,7 @@
       "bytes": 190320,
       "sha256": "ee5b44e3018cd44d1629e7dbd4863973f83260314a03084bfe2863084c48141b",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:26+00:00"
+      "retrieved_utc": "2026-10-30T22:17:59+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CBJ/20242025",
@@ -1358,7 +1358,7 @@
       "bytes": 172528,
       "sha256": "587e0387f3e490728e98689a7d7415f4e8b33d4a3de195b4b91bfb8fcec90f93",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:27+00:00"
+      "retrieved_utc": "2026-10-30T22:17:59+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CBJ/20252026",
@@ -1366,7 +1366,7 @@
       "bytes": 176958,
       "sha256": "18e450e782b5aab81261c1e05dfefe8b0200ca3a9feb4dc2d36fbb5d0fddd4d2",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:27+00:00"
+      "retrieved_utc": "2026-10-30T22:18:00+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CBJ/20262027",
@@ -1374,7 +1374,7 @@
       "bytes": 189518,
       "sha256": "9eb78bf2a6b4013c8bcc2bef57b58c6f0e69875195e2cd05c007943d9facbd74",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:27+00:00"
+      "retrieved_utc": "2026-10-30T22:18:00+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CGY/20242025",
@@ -1382,7 +1382,7 @@
       "bytes": 165635,
       "sha256": "3c8815840f1d350cce42d4bab1593134b4d82817ac640a84c9917e7b0d464853",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:27+00:00"
+      "retrieved_utc": "2026-10-30T22:18:00+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CGY/20252026",
@@ -1390,7 +1390,7 @@
       "bytes": 169678,
       "sha256": "eb052664ccd1812f6b37cd5dbb12cc73414c4921983de04237f932a9e38978d1",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:27+00:00"
+      "retrieved_utc": "2026-10-30T22:18:01+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CGY/20262027",
@@ -1398,7 +1398,7 @@
       "bytes": 173360,
       "sha256": "aa29b0e3a7aa63e5c0ba0af994ff2323c9c1b4dce7fcfab1274d7b1acbfe4933",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:27+00:00"
+      "retrieved_utc": "2026-10-30T22:18:01+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CHI/20242025",
@@ -1406,7 +1406,7 @@
       "bytes": 164852,
       "sha256": "21836870c4a3ee55475af119113dbacaec051f8f62ff6b48eb2a229a8d5376a5",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:28+00:00"
+      "retrieved_utc": "2026-10-30T22:18:01+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CHI/20252026",
@@ -1414,7 +1414,7 @@
       "bytes": 173486,
       "sha256": "5c1c3b6ddc1fcdc4c790e954277f6d3845b715d8a0307aa4c0948bb69f9691e9",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:28+00:00"
+      "retrieved_utc": "2026-10-30T22:18:01+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/CHI/20262027",
@@ -1422,7 +1422,7 @@
       "bytes": 169110,
       "sha256": "dd50f1c450b4e4b3e634de12ae6cd66ba108ea1400f13dbb74be7f7f61ad794c",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:28+00:00"
+      "retrieved_utc": "2026-10-30T22:18:02+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/COL/20242025",
@@ -1430,7 +1430,7 @@
       "bytes": 181485,
       "sha256": "5bf26168ee7a802fe1ad1681a71993bf0333b751f63336d43adcd19224717f54",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:28+00:00"
+      "retrieved_utc": "2026-10-30T22:18:02+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/COL/20252026",
@@ -1438,7 +1438,7 @@
       "bytes": 202949,
       "sha256": "b4dbbacab170829016fe2afa9e9bb23911ebdad38c13a322943180f3681b3e55",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:29+00:00"
+      "retrieved_utc": "2026-10-30T22:18:02+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/COL/20262027",
@@ -1446,7 +1446,7 @@
       "bytes": 175425,
       "sha256": "5eb38f4a818f1d254923f1a88de3d456595ca188c37570d129e9b7eb76a9a1cc",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:29+00:00"
+      "retrieved_utc": "2026-10-30T22:18:02+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/DAL/20242025",
@@ -1454,7 +1454,7 @@
       "bytes": 231918,
       "sha256": "c0a379880ca1d259df1c0b224a70ab6564de147f7736bd21e982ad22bfbbd675",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:29+00:00"
+      "retrieved_utc": "2026-10-30T22:18:03+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/DAL/20252026",
@@ -1462,7 +1462,7 @@
       "bytes": 194588,
       "sha256": "fa50c83bf7c0454c6990ff377b5d853385e97a875c75357c387850b25d9228ae",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:29+00:00"
+      "retrieved_utc": "2026-10-30T22:18:03+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/DAL/20262027",
@@ -1470,7 +1470,7 @@
       "bytes": 198140,
       "sha256": "a9fe6168653f487ed9993187809bfec3df5d01ae5b3e8e2a713d3e9a329f0ede",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:29+00:00"
+      "retrieved_utc": "2026-10-30T22:18:03+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/DET/20242025",
@@ -1478,7 +1478,7 @@
       "bytes": 165731,
       "sha256": "6e7e59d0f4fb4e26858ade63d5fc6038561d77fbfc9d2460943a7b5a3b63d7e4",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:30+00:00"
+      "retrieved_utc": "2026-10-30T22:18:03+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/DET/20252026",
@@ -1486,7 +1486,7 @@
       "bytes": 173395,
       "sha256": "6e5ac8af431a8780349d9a54fdd6937c037eafd787d78b0ec0c2cb11d1f9b0e6",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:30+00:00"
+      "retrieved_utc": "2026-10-30T22:18:04+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/DET/20262027",
@@ -1494,7 +1494,7 @@
       "bytes": 173647,
       "sha256": "fbecf4c522df46f8ec97179852887c8e00218e33cff34f778efcd1df8d11bcce",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:30+00:00"
+      "retrieved_utc": "2026-10-30T22:18:04+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/EDM/20242025",
@@ -1502,7 +1502,7 @@
       "bytes": 242096,
       "sha256": "ecebef8bb347ec3231777644cd315f025e19d5cf789100700fc070104e2a9f7f",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:31+00:00"
+      "retrieved_utc": "2026-10-30T22:18:04+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/EDM/20252026",
@@ -1510,7 +1510,7 @@
       "bytes": 204910,
       "sha256": "9cbe7bf1553975b4ef4198fcfdfd94b6f12705ded1886f92c450c460ea83a75a",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:31+00:00"
+      "retrieved_utc": "2026-10-30T22:18:05+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/EDM/20262027",
@@ -1518,31 +1518,31 @@
       "bytes": 176351,
       "sha256": "54aa3f04b098ba86b20429e259aa067d798b29e56968d0a71feafe960ae5b025",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:31+00:00"
+      "retrieved_utc": "2026-10-30T22:18:05+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/FLA/20242025",
       "status": 200,
-      "bytes": 251942,
-      "sha256": "d1c00ecd3f64869ec54c7a06e455cfc679eb10a0fcb0935f7c2e022c40fc06a6",
+      "bytes": 252034,
+      "sha256": "07cda3e0297edb22d9881bb4a9cfbd7e50d61514d9d3d1892d2bb2083e87dcad",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:31+00:00"
+      "retrieved_utc": "2026-10-30T22:18:05+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/FLA/20252026",
       "status": 200,
-      "bytes": 179981,
-      "sha256": "1a1f9ae1354f4126fbec460c2388946dbedd80d395af2716017f176cca188f21",
+      "bytes": 180073,
+      "sha256": "8cfee086abac321e93ed83c84b981565bc477f819a53b07f23ffb2e702612582",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:31+00:00"
+      "retrieved_utc": "2026-10-30T22:18:05+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/FLA/20262027",
       "status": 200,
-      "bytes": 172686,
-      "sha256": "35bbe0c2868f704c0ac0bc287098e4d61d38906d4602b8db3bd7697c99a2ffd3",
+      "bytes": 172778,
+      "sha256": "361151f7305774612bfebea100d1b5f4239729ca647ec7e28a4fe75fef4a42dc",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:31+00:00"
+      "retrieved_utc": "2026-10-30T22:18:05+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/LAK/20242025",
@@ -1550,7 +1550,7 @@
       "bytes": 182742,
       "sha256": "78b5fbf0e407a00ef3a8f7e16b9f615fa7fb5987850004c5deaa86191215f882",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:32+00:00"
+      "retrieved_utc": "2026-10-30T22:18:06+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/LAK/20252026",
@@ -1558,7 +1558,7 @@
       "bytes": 179542,
       "sha256": "748e901ca244a702a832a41eb3b7d319a943b42826beb5f356828bf9d9ca876e",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:32+00:00"
+      "retrieved_utc": "2026-10-30T22:18:06+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/LAK/20262027",
@@ -1566,7 +1566,7 @@
       "bytes": 186224,
       "sha256": "4c697c287fa9a605a07de2106e29b3ff7b89f09c9736218a2fe1b7748807e931",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:32+00:00"
+      "retrieved_utc": "2026-10-30T22:18:06+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/MIN/20242025",
@@ -1574,7 +1574,7 @@
       "bytes": 196843,
       "sha256": "c4fa7023207aa66f37500eca5561618fdaaa053f0f651cda0df83b35a52b968f",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:32+00:00"
+      "retrieved_utc": "2026-10-30T22:18:06+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/MIN/20252026",
@@ -1582,7 +1582,7 @@
       "bytes": 228677,
       "sha256": "c7348ed0e9b3411ae08c966715c1bdc09dc1a48495e9aa0eefdc1d6c3394b4e6",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:33+00:00"
+      "retrieved_utc": "2026-10-30T22:18:07+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/MIN/20262027",
@@ -1590,7 +1590,7 @@
       "bytes": 168151,
       "sha256": "bbf89530414df37daabe1b5ba4bf14be26a0f416c664e0ae6d9c8ea132b885d3",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:33+00:00"
+      "retrieved_utc": "2026-10-30T22:18:07+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/MTL/20242025",
@@ -1598,7 +1598,7 @@
       "bytes": 183689,
       "sha256": "01f4f43710e33e4f42d2af3a7d14920237e1e44bd6e102604e48f647db13d227",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:33+00:00"
+      "retrieved_utc": "2026-10-30T22:18:07+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/MTL/20252026",
@@ -1606,7 +1606,7 @@
       "bytes": 219761,
       "sha256": "d98e1d2a0b27105193c9f4a4174faf0c56c18039c5a8215e7f7445f218f67cc1",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:33+00:00"
+      "retrieved_utc": "2026-10-30T22:18:08+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/MTL/20262027",
@@ -1614,7 +1614,7 @@
       "bytes": 181274,
       "sha256": "defa077e85d314a733b2974da11b34b721f281e6288d1a6eae4c021b63c4fe9a",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:33+00:00"
+      "retrieved_utc": "2026-10-30T22:18:08+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NJD/20242025",
@@ -1622,7 +1622,7 @@
       "bytes": 180203,
       "sha256": "7f35244baad7868f9d9fbb25adeb131af3883af176f5ac21c4f46b1e5f025632",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:33+00:00"
+      "retrieved_utc": "2026-10-30T22:18:08+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NJD/20252026",
@@ -1630,15 +1630,15 @@
       "bytes": 169742,
       "sha256": "e473550d42ac21473a6112ec1053d50a510824e890115b7ba9590fceaec2295e",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:34+00:00"
+      "retrieved_utc": "2026-10-30T22:18:08+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NJD/20262027",
       "status": 200,
-      "bytes": 173195,
-      "sha256": "5a0127190a32f6c93fc69e5f267cb8b600afa43711056bf057f16e44cbc16c10",
+      "bytes": 172824,
+      "sha256": "41c63b4b115dffb494f73e18541baaa16d6a0e3e2e5f55397c8dcb52c97633f3",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:34+00:00"
+      "retrieved_utc": "2026-10-30T22:18:08+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NSH/20242025",
@@ -1646,7 +1646,7 @@
       "bytes": 167527,
       "sha256": "44d7e8da5466d7541aba9a5b4d08c026517c09cc4f58ad505058877d56c51b89",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:34+00:00"
+      "retrieved_utc": "2026-10-30T22:18:09+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NSH/20252026",
@@ -1654,7 +1654,7 @@
       "bytes": 170092,
       "sha256": "11b2b17cf4807b9d0a00fd4add91f06a412aa6babf08ae8ccc45869ee419a413",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:34+00:00"
+      "retrieved_utc": "2026-10-30T22:18:09+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NSH/20262027",
@@ -1662,7 +1662,7 @@
       "bytes": 185417,
       "sha256": "c1a6370c9f01db2520c0456576e5dbd57c9755bebe6aa0996073024489bf3ae7",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:34+00:00"
+      "retrieved_utc": "2026-10-30T22:18:09+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NYI/20242025",
@@ -1670,7 +1670,7 @@
       "bytes": 166797,
       "sha256": "fabe7f17916ac32ac5e66a66862fa13897ab0b36635537587bf36753a61e5d4a",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:34+00:00"
+      "retrieved_utc": "2026-10-30T22:18:09+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NYI/20252026",
@@ -1678,7 +1678,7 @@
       "bytes": 175035,
       "sha256": "15eacddb0b5fa73143e038b78cb944efc86023b0eabeadc0b4230dbb24ca453c",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:34+00:00"
+      "retrieved_utc": "2026-10-30T22:18:10+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NYI/20262027",
@@ -1686,7 +1686,7 @@
       "bytes": 181960,
       "sha256": "3ee3970e276d2e3fa6c5f38523985cd6e843f97100d2adbd0d6d5eb9f908a265",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:35+00:00"
+      "retrieved_utc": "2026-10-30T22:18:10+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NYR/20242025",
@@ -1694,7 +1694,7 @@
       "bytes": 167980,
       "sha256": "86657ac3ac079d114fac7fd34d02a0322351673421a0fa16e2a6c219f46770e2",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:35+00:00"
+      "retrieved_utc": "2026-10-30T22:18:10+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NYR/20252026",
@@ -1702,7 +1702,7 @@
       "bytes": 171120,
       "sha256": "e95b3e2b0811a9e733a522b7de6457e0ae82d1d9e0c018ca18282075bdf875b3",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:35+00:00"
+      "retrieved_utc": "2026-10-30T22:18:10+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/NYR/20262027",
@@ -1710,7 +1710,7 @@
       "bytes": 178823,
       "sha256": "aecb3210281c8a6a7ab8138308ca8438a9d2bdb532e7416788e15e2471ef14b0",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:35+00:00"
+      "retrieved_utc": "2026-10-30T22:18:11+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/OTT/20242025",
@@ -1718,7 +1718,7 @@
       "bytes": 184575,
       "sha256": "e68fc43040e92d766a055595ea5b91d0b2abc31b98a4dd72a86beaf44c852042",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:35+00:00"
+      "retrieved_utc": "2026-10-30T22:18:11+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/OTT/20252026",
@@ -1726,7 +1726,7 @@
       "bytes": 180154,
       "sha256": "bec12f4386875becae2c9e0689656c13ebef970aba0d34cf3583e14affae08bf",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:35+00:00"
+      "retrieved_utc": "2026-10-30T22:18:11+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/OTT/20262027",
@@ -1734,7 +1734,7 @@
       "bytes": 194514,
       "sha256": "4681944784dad8643f707609dc970d9c5a93bb03654712f651c94c6abf955f56",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:36+00:00"
+      "retrieved_utc": "2026-10-30T22:18:11+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/PHI/20242025",
@@ -1742,7 +1742,7 @@
       "bytes": 163751,
       "sha256": "e8c51dfe11857e82125eb6fa3463d4aebd035ad7100446f418f4b5d2c00e2542",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:36+00:00"
+      "retrieved_utc": "2026-10-30T22:18:12+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/PHI/20252026",
@@ -1750,7 +1750,7 @@
       "bytes": 194418,
       "sha256": "f700dfb0b1d916f2f910800d21927b91014d3148fd620b9c975bb18bba14533b",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:36+00:00"
+      "retrieved_utc": "2026-10-30T22:18:12+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/PHI/20262027",
@@ -1758,7 +1758,7 @@
       "bytes": 178250,
       "sha256": "cb1872887d214a7c2e6e5311ee05d18c4a7795a1ffb87dcb3edc642c0403ba84",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:36+00:00"
+      "retrieved_utc": "2026-10-30T22:18:12+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/PIT/20242025",
@@ -1766,7 +1766,7 @@
       "bytes": 166749,
       "sha256": "e18babcee705982a9f8b00b286b880daef84c7abebc2d22dfd022429448a0bf4",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:36+00:00"
+      "retrieved_utc": "2026-10-30T22:18:12+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/PIT/20252026",
@@ -1774,7 +1774,7 @@
       "bytes": 188086,
       "sha256": "6aefd581d029f6a861dc5511b1858d676c6c9522b6cf274fc6d6246243c94201",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:12+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/PIT/20262027",
@@ -1782,7 +1782,7 @@
       "bytes": 185504,
       "sha256": "199e086aefc6aef5b1768c8f2a48c655b2e8d491b9e73c3a3172a17d5f9eb1a7",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:13+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/SEA/20242025",
@@ -1790,7 +1790,7 @@
       "bytes": 177810,
       "sha256": "3519be70c9671d8097f0505a57cdb31983643cae313d7ab142a52b8678071177",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:13+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/SEA/20252026",
@@ -1798,7 +1798,7 @@
       "bytes": 184151,
       "sha256": "ca1808bf32a4a17e5248120636f4c3caabc16001b02597776fc43247d01cf72a",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:13+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/SEA/20262027",
@@ -1806,31 +1806,31 @@
       "bytes": 217506,
       "sha256": "a87ee7485f739d11b08e8b0f537c6a4eecb4cfb47316d55b5112cf73daed021c",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:13+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/SJS/20242025",
       "status": 200,
-      "bytes": 159415,
-      "sha256": "3af4e28e12408ba5361a165e7c0f393d4ba0366dc0b3b4830e56a94709f0e65d",
+      "bytes": 159429,
+      "sha256": "c1551d0a665c0af87923e1038f18527d0e5584c0f832053b052bfde5b0a46ebb",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:14+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/SJS/20252026",
       "status": 200,
-      "bytes": 168735,
-      "sha256": "b8b50ff7de23c1bc1c4314f515dbf2f0ddc99f71ca03ec993bf6f937e2cbab4b",
+      "bytes": 168749,
+      "sha256": "7b1c6357f4ee727b2f44bf59cab0123dbae48f2d9d5da859c74928e32d61ef15",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:14+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/SJS/20262027",
       "status": 200,
-      "bytes": 183322,
-      "sha256": "d5c1af7135b6522b2a7e2050b62540c5d59f868dd09ebe5a0f2c516a6ef38f68",
+      "bytes": 183336,
+      "sha256": "a9a8f23e51b637e5b2362bee3a1b77efb34ad6b1a951966261ebae75658e50d6",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:14+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/STL/20242025",
@@ -1838,7 +1838,7 @@
       "bytes": 186780,
       "sha256": "a7b6cc5b981a9dd0b53502a7a2cc6696721c6f40a1e7119609d778c04cf13af3",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:37+00:00"
+      "retrieved_utc": "2026-10-30T22:18:14+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/STL/20252026",
@@ -1846,7 +1846,7 @@
       "bytes": 172809,
       "sha256": "afb1d84d01f1a8779324868c8e9a4d74e533a6bf57edb0ee87871728534d3069",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:38+00:00"
+      "retrieved_utc": "2026-10-30T22:18:14+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/STL/20262027",
@@ -1854,7 +1854,7 @@
       "bytes": 191574,
       "sha256": "cb0d51a4794c636a62ead3087ff01be370645e780782164696287baced25ad03",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:38+00:00"
+      "retrieved_utc": "2026-10-30T22:18:15+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/TBL/20242025",
@@ -1862,7 +1862,7 @@
       "bytes": 183623,
       "sha256": "0f92436909c2c051b788b685c0cb457af300722543bbf575455798e1091e6c48",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:38+00:00"
+      "retrieved_utc": "2026-10-30T22:18:15+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/TBL/20252026",
@@ -1870,7 +1870,7 @@
       "bytes": 195684,
       "sha256": "adcee1376564fc0a764008575d152d13228c3e12fce7fcae24687211a609286d",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:38+00:00"
+      "retrieved_utc": "2026-10-30T22:18:15+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/TBL/20262027",
@@ -1878,7 +1878,7 @@
       "bytes": 177668,
       "sha256": "de74620b5ad7efc069562b9c01115160827f98d1110110b73a77ae7dd115267e",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:38+00:00"
+      "retrieved_utc": "2026-10-30T22:18:16+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/TOR/20242025",
@@ -1886,7 +1886,7 @@
       "bytes": 201021,
       "sha256": "32ce9b1502f0107a16e07a38d61f8b0d6a26cc9e20a0f4a6fdc79d4a2b22d176",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:39+00:00"
+      "retrieved_utc": "2026-10-30T22:18:16+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/TOR/20252026",
@@ -1894,7 +1894,7 @@
       "bytes": 184045,
       "sha256": "e037ac988e18246a34a080040bb3985e5e84912dfd34f1dfc97973d15964486a",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:39+00:00"
+      "retrieved_utc": "2026-10-30T22:18:16+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/TOR/20262027",
@@ -1902,7 +1902,7 @@
       "bytes": 188131,
       "sha256": "ec4f98b176e4ac29d426d770e93dcc8bad70c532d11c9eb8c530f024df8fb76d",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:39+00:00"
+      "retrieved_utc": "2026-10-30T22:18:17+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/UTA/20242025",
@@ -1910,7 +1910,7 @@
       "bytes": 168653,
       "sha256": "bd5761e42da3aa136b157c61f3532a82267637948af1c7e587ea6024865f9485",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:39+00:00"
+      "retrieved_utc": "2026-10-30T22:18:17+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/UTA/20252026",
@@ -1918,7 +1918,7 @@
       "bytes": 183139,
       "sha256": "2e1218309b4f4d268b71c02d640298b246ebf7ad10587cf9eb5ea003a10740f5",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:39+00:00"
+      "retrieved_utc": "2026-10-30T22:18:17+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/UTA/20262027",
@@ -1926,7 +1926,7 @@
       "bytes": 173967,
       "sha256": "ab50584d48c15e44e3c270c6836158e89600d80f0be44bcbc568ad3a70589467",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:39+00:00"
+      "retrieved_utc": "2026-10-30T22:18:18+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/VAN/20242025",
@@ -1934,7 +1934,7 @@
       "bytes": 165850,
       "sha256": "43d5c703067fa3d7d2711037dd139fa56524f965fdf52ae540ac6bdba70d601b",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:39+00:00"
+      "retrieved_utc": "2026-10-30T22:18:18+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/VAN/20252026",
@@ -1942,7 +1942,7 @@
       "bytes": 167841,
       "sha256": "b5a9187ad347e4a8a5c946202bad29f05a5ba43eb855e6a44271a6f3479b0aed",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:40+00:00"
+      "retrieved_utc": "2026-10-30T22:18:18+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/VAN/20262027",
@@ -1950,7 +1950,7 @@
       "bytes": 177327,
       "sha256": "f0b7bc30f76444dc9e0686fc5a7360a8c6a5310032d5db5a3492840a1b2be0b0",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:40+00:00"
+      "retrieved_utc": "2026-10-30T22:18:18+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/VGK/20242025",
@@ -1958,7 +1958,7 @@
       "bytes": 228336,
       "sha256": "a630d55ea451c98765fee0d2a93799b494179865c8354918fa3ab3f18693dd0b",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:40+00:00"
+      "retrieved_utc": "2026-10-30T22:18:19+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/VGK/20252026",
@@ -1966,15 +1966,15 @@
       "bytes": 260920,
       "sha256": "a07570cb375e92d683c09e3fa7bb62174894b4c1c975f72bc42e69a9154e3aad",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:40+00:00"
+      "retrieved_utc": "2026-10-30T22:18:19+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/VGK/20262027",
       "status": 200,
-      "bytes": 170824,
-      "sha256": "b39a7e3e08cb26980dbbcfc3574b6bf6745175d44225d61346e449e5c7b09359",
+      "bytes": 170453,
+      "sha256": "1d0a776cf8809f8a947785ed7e3e479bceccb3899fff032fd605d64550ced4ce",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:40+00:00"
+      "retrieved_utc": "2026-10-30T22:18:19+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/WPG/20242025",
@@ -1982,7 +1982,7 @@
       "bytes": 191939,
       "sha256": "73e01a2042e46bad8e2579318d24a1829ee950bff3a2568372cc1a25d52b62cd",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:41+00:00"
+      "retrieved_utc": "2026-10-30T22:18:19+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/WPG/20252026",
@@ -1990,7 +1990,7 @@
       "bytes": 165505,
       "sha256": "4838772621ed2d225ef7cc4b38dedf26e9bd8fbaebfbdef72fdb1fc9d1683e67",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:41+00:00"
+      "retrieved_utc": "2026-10-30T22:18:20+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/WPG/20262027",
@@ -1998,7 +1998,7 @@
       "bytes": 177114,
       "sha256": "2f0085a99e0f3a9b05d824d300100611c1bb69f928282e5d5b7d53bf319c0e2c",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:41+00:00"
+      "retrieved_utc": "2026-10-30T22:18:20+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/WSH/20242025",
@@ -2006,7 +2006,7 @@
       "bytes": 203124,
       "sha256": "50b739195188a291c3d40f63839f00a90446461c925c83d1b71a2ebc44296835",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:41+00:00"
+      "retrieved_utc": "2026-10-30T22:18:20+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/WSH/20252026",
@@ -2014,7 +2014,7 @@
       "bytes": 185611,
       "sha256": "ae97c5c0da390bb900d9a5bf0921dae2219a94f3239891c9e174cca9d99a03ae",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:41+00:00"
+      "retrieved_utc": "2026-10-30T22:18:20+00:00"
     },
     {
       "url": "https://api-web.nhle.com/v1/club-schedule-season/WSH/20262027",
@@ -2022,7 +2022,7 @@
       "bytes": 190981,
       "sha256": "885c5fca4a9f14483d220aec2abb88e9ff91e216b9d339feb0b475cce9cb455e",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:41+00:00"
+      "retrieved_utc": "2026-10-30T22:18:21+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-30&endDate=2026-11-06&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2030,7 +2030,7 @@
       "bytes": 12,
       "sha256": "d492ef870e65cfa8eb70c4d3b570bcde4a0b4134b451a7736655db8dbbd14f82",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:41+00:00"
+      "retrieved_utc": "2026-10-30T22:18:21+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103%2C104&season=2026&standingsTypes=regularSeason",
@@ -2038,7 +2038,7 @@
       "bytes": 80986,
       "sha256": "13fd6dbd1e82cedb464cb0e29d410570b126d5395df2678afe6ba5e3657726ea",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:41+00:00"
+      "retrieved_utc": "2026-10-30T22:18:21+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-02-17&endDate=2025-04-03&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2046,7 +2046,7 @@
       "bytes": 52800,
       "sha256": "832049576e9972342c3293e06a6f7c093d3a4a3f4dfa72cc7c5f9ea07ad9b133",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:42+00:00"
+      "retrieved_utc": "2026-10-30T22:18:21+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-04-04&endDate=2025-05-19&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2054,7 +2054,7 @@
       "bytes": 325271,
       "sha256": "fe90b4ecdc91e463b91f9cfc61c0c1a312d0293b06ba91a6757f01bbaef28d0b",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:42+00:00"
+      "retrieved_utc": "2026-10-30T22:18:22+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-05-20&endDate=2025-07-04&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2062,7 +2062,7 @@
       "bytes": 325001,
       "sha256": "e9c30d2ec84332cf7dd3366b78f07e68f2bf70d6a6d8997b488160992db3c968",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:42+00:00"
+      "retrieved_utc": "2026-10-30T22:18:22+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-07-05&endDate=2025-08-19&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2070,7 +2070,7 @@
       "bytes": 299257,
       "sha256": "3e2592ce8d26d24b58223e2f6daceb26f30b4ae96461b5a239c0d4389c1b7880",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:42+00:00"
+      "retrieved_utc": "2026-10-30T22:18:22+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-08-20&endDate=2025-10-04&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2078,7 +2078,7 @@
       "bytes": 287330,
       "sha256": "c3d2d731ef6ff7b3bb7a1a1b5267039c1f783350435c92a5150e8c2c01a9be49",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:42+00:00"
+      "retrieved_utc": "2026-10-30T22:18:23+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-10-05&endDate=2025-11-19&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2086,7 +2086,7 @@
       "bytes": 18288,
       "sha256": "60a45ffec2298c4a4fe8a6501aad92416f91147d864f1a592581bd15fd15329b",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:42+00:00"
+      "retrieved_utc": "2026-10-30T22:18:23+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-11-20&endDate=2026-01-04&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2094,7 +2094,7 @@
       "bytes": 12,
       "sha256": "d492ef870e65cfa8eb70c4d3b570bcde4a0b4134b451a7736655db8dbbd14f82",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:43+00:00"
+      "retrieved_utc": "2026-10-30T22:18:23+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-01-05&endDate=2026-02-19&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2102,7 +2102,7 @@
       "bytes": 12,
       "sha256": "d492ef870e65cfa8eb70c4d3b570bcde4a0b4134b451a7736655db8dbbd14f82",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:43+00:00"
+      "retrieved_utc": "2026-10-30T22:18:23+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-02-20&endDate=2026-04-06&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2110,7 +2110,7 @@
       "bytes": 81649,
       "sha256": "429af6f4961d9cfc7c0b22342a333f282b5be7fc135220a2840d534ee5f5b9a2",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:43+00:00"
+      "retrieved_utc": "2026-10-30T22:18:24+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-04-07&endDate=2026-05-22&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2118,7 +2118,7 @@
       "bytes": 321756,
       "sha256": "5a5ad64b03d84cfd1cc63dddc9789c1899eb60fc91d84c30fdb27851645218f2",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:43+00:00"
+      "retrieved_utc": "2026-10-30T22:18:24+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-05-23&endDate=2026-07-07&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2126,7 +2126,7 @@
       "bytes": 321189,
       "sha256": "a6942fe3b69a2ac7b9d003736572c78011e89a57a28583c82882cbbdf606413b",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:43+00:00"
+      "retrieved_utc": "2026-10-30T22:18:24+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-07-08&endDate=2026-08-22&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2134,7 +2134,7 @@
       "bytes": 303766,
       "sha256": "6bf4cee8627e13bec25288801bb92b3b295223bdf0c6edf16ef93c8d9a19b757",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:43+00:00"
+      "retrieved_utc": "2026-10-30T22:18:25+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-08-23&endDate=2026-10-07&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2142,7 +2142,7 @@
       "bytes": 263646,
       "sha256": "fc71164ef510be3ed71bc9f3c2b8f365708fd91ad479148ef8a436e01b67d52a",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:44+00:00"
+      "retrieved_utc": "2026-10-30T22:18:25+00:00"
     },
     {
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-08&endDate=2026-10-30&gameType=R%2CF%2CD%2CL%2CW&hydrate=probablePitcher&fields=dates%2Cdate%2Cgames%2CgamePk%2CgameDate%2CgameType%2Cseason%2Cstatus%2CabstractGameState%2CdetailedState%2Cteams%2Chome%2Caway%2Cteam%2Cid%2Cname%2Cscore%2CprobablePitcher%2CfullName%2Cvenue%2CdoubleHeader%2CgameNumber%2CseriesStatus%2Cdescription%2CseriesGameNumber%2CgamesInSeries",
@@ -2150,7 +2150,7 @@
       "bytes": 10468,
       "sha256": "cee05f77add569e89e887053250b7c83b30140bc9a3ec1f6a9b535373fb76610",
       "cached": false,
-      "retrieved_utc": "2026-10-30T12:51:44+00:00"
+      "retrieved_utc": "2026-10-30T22:18:25+00:00"
     }
   ],
   "model_notes": {
@@ -2196,12 +2196,12 @@
       ],
       "backtest": {
         "available": true,
-        "train_games": 4915,
-        "holdout_games": 36,
+        "train_games": 4917,
+        "holdout_games": 34,
         "holdout_days": 30,
-        "accuracy": 0.6389,
-        "brier": 0.238,
-        "log_loss": 0.669,
+        "accuracy": 0.6471,
+        "brier": 0.237,
+        "log_loss": 0.667,
         "note": "holdout scored with probabilities from the fitted model; accuracy is measured against the actual winner"
       }
     }
